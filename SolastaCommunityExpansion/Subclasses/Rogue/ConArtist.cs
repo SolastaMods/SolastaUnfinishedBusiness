@@ -14,11 +14,15 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
         private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??= FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
-            .SetGuiPresentation(GetSpellDCPresentation().Build())
-            .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None, Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc, RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
-            .AddToDB();
+
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
+            FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
+                .SetGuiPresentation(GetSpellDCPresentation().Build())
+                .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
+                    Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
+                    RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
+                .AddToDB();
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -62,16 +66,17 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .Create()
                 .SetTargetingData(
                     RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 12,
-                    RuleDefinitions.TargetType.Individuals, 1, 0, ActionDefinitions.ItemSelectionType.None)
+                    RuleDefinitions.TargetType.Individuals, 1, 0)
                 .SetDurationData(RuleDefinitions.DurationType.Round, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetSavingThrowData(
                     true, false, AttributeDefinitions.Wisdom, true,
                     RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Charisma,
-                    15, false);
+                    15);
 
             var condition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionTrueStrike, "RogueConArtistFeintCondition", SubclassNamespace)
-                .SetGuiPresentation("RoguishConArtistFeintCondition", Category.Subclass, ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("RoguishConArtistFeintCondition", Category.Subclass,
+                    ConditionDefinitions.ConditionTrueStrike.GuiPresentation.SpriteReference)
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                 .SetAdditionalDamageData(RuleDefinitions.DieType.D8, 3, ConditionDefinition.DamageQuantity.Dice, true)
                 .AddToDB();
@@ -96,7 +101,8 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             var proficiency = FeatureDefinitionProficiencyBuilder
                 .Create("RoguishConArtistMentalSavingThrows", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
-                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
+                    AttributeDefinitions.Wisdom)
                 .AddToDB();
 
             // add subclass to db and add subclass to rogue class
@@ -112,7 +118,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
 
         private static GuiPresentationBuilder GetSpellDCPresentation()
         {
-            return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle", "Subclass/&MagicAffinityRoguishConArtistDC" + Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
+            return new GuiPresentationBuilder("Subclass/&MagicAffinityRoguishConArtistDCTitle",
+                "Subclass/&MagicAffinityRoguishConArtistDC" +
+                Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
         }
 
         public static void UpdateSpellDCBoost()

@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAdditionalAction)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionAdditionalActionExtensions
+    [TargetType(typeof(FeatureDefinitionAdditionalAction))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionAdditionalActionExtensions
     {
         public static T AddAuthorizedActions<T>(this T entity, params ActionDefinitions.Id[] value)
             where T : FeatureDefinitionAdditionalAction
@@ -132,7 +133,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTriggerCondition<T>(this T entity, RuleDefinitions.AdditionalActionTriggerCondition value)
+        public static T SetTriggerCondition<T>(this T entity, AdditionalActionTriggerCondition value)
             where T : FeatureDefinitionAdditionalAction
         {
             entity.SetField("triggerCondition", value);

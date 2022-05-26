@@ -7,4 +7,3 @@ namespace SolastaCommunityExpansion.CustomInterfaces
         void AddModifiers(RulesetCharacter character, List<FeatureDefinition> modifiers);
     }
 }
-

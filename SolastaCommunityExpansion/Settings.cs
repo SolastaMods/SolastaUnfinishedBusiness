@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion
         //
 
         // must be set to zero or won't compile
-        internal int SelectedRawDataType = 0;
+        internal int SelectedRawDataType;
         internal int MaxRows = 20;
         internal int MaxSearchDepth = 3;
 
@@ -52,7 +52,9 @@ namespace SolastaCommunityExpansion
         //
 
         public bool AllowDynamicPowers { get; set; } = true;
+
         public bool BugFixBrowseFeatures { get; set; } = true;
+
         //public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
@@ -184,7 +186,9 @@ namespace SolastaCommunityExpansion
         public bool DisableAutoEquip { get; set; }
         public bool MakeAllMagicStaveArcaneFoci { get; set; }
         public bool IncreaseSenseNormalVision { get; set; }
+
         public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
+
         // public bool UseHeightOneCylinderEffect { get; set; }
         public bool AddPickpocketableLoot { get; set; }
         public bool AllowStackedMaterialComponent { get; set; }

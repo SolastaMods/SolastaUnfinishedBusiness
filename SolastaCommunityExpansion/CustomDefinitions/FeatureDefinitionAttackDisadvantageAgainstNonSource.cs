@@ -17,27 +17,33 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         public ConditionDefinition RequiredCondition => null;
         public bool IgnoreCover => false;
 
-        public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
+        public void ComputeAttackModifier(RulesetCharacter myself, RulesetCharacter defender,
+            RulesetAttackMode attackMode, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
         {
             foreach (var keyValuePair in myself.ConditionsByCategory)
             {
                 foreach (var rulesetCondition in keyValuePair.Value)
                 {
-                    if (rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) && rulesetCondition.SourceGuid != defender.Guid)
+                    if (rulesetCondition.ConditionDefinition.IsSubtypeOf(ConditionName) &&
+                        rulesetCondition.SourceGuid != defender.Guid)
                     {
-                        attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1, featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
+                        attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(-1,
+                            featureOrigin.sourceType, featureOrigin.sourceName, featureOrigin.source));
                         return;
                     }
                 }
             }
         }
 
-        public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks, bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier, RuleDefinitions.FeatureOrigin featureOrigin)
+        public void ComputeDefenseModifier(RulesetCharacter myself, RulesetCharacter attacker, int sustainedAttacks,
+            bool defenderAlreadyAttackedByAttackerThisTurn, ActionModifier attackModifier,
+            RuleDefinitions.FeatureOrigin featureOrigin)
         {
             // Intentionally empty?
         }
 
-        public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself, RulesetCharacter attacker)
+        public RuleDefinitions.AdvantageType GetAdvantageOnOpportunityAttackOnMe(RulesetCharacter myself,
+            RulesetCharacter attacker)
         {
             return RuleDefinitions.AdvantageType.None;
         }
@@ -49,9 +55,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     }
 
     internal class FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-        : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource, FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
+        : FeatureDefinitionBuilder<FeatureDefinitionAttackDisadvantageAgainstNonSource,
+            FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder>
     {
-        protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        protected FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder(string name, Guid namespaceGuid) : base(
+            name, namespaceGuid)
         {
         }
 

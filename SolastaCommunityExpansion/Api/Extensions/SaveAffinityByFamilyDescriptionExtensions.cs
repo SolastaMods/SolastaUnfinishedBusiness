@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(SaveAffinityByFamilyDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class SaveAffinityByFamilyDescriptionExtensions
+    [TargetType(typeof(SaveAffinityByFamilyDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class SaveAffinityByFamilyDescriptionExtensions
     {
         public static SaveAffinityByFamilyDescription Copy(this SaveAffinityByFamilyDescription entity)
         {
@@ -18,7 +19,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetAdvantageType<T>(this T entity, AdvantageType value)
             where T : SaveAffinityByFamilyDescription
         {
             entity.SetField("advantageType", value);

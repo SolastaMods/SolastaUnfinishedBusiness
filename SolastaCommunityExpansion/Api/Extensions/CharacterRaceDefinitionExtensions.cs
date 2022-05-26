@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CharacterRaceDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CharacterRaceDefinitionExtensions
+    [TargetType(typeof(CharacterRaceDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CharacterRaceDefinitionExtensions
     {
         public static T AddAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : CharacterRaceDefinition

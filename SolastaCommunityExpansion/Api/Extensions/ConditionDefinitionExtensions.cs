@@ -10,7 +10,8 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ConditionDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    [TargetType(typeof(ConditionDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ConditionDefinitionExtensions
     {
         public static T AddCancellingConditions<T>(this T entity, params ConditionDefinition[] value)
@@ -69,14 +70,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpecialInterruptions<T>(this T entity, params RuleDefinitions.ConditionInterruption[] value)
+        public static T AddSpecialInterruptions<T>(this T entity, params ConditionInterruption[] value)
             where T : ConditionDefinition
         {
             AddSpecialInterruptions(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSpecialInterruptions<T>(this T entity, IEnumerable<RuleDefinitions.ConditionInterruption> value)
+        public static T AddSpecialInterruptions<T>(this T entity, IEnumerable<ConditionInterruption> value)
             where T : ConditionDefinition
         {
             entity.SpecialInterruptions.AddRange(value);
@@ -118,10 +119,10 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static System.Collections.Generic.List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
+        public static List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
             where T : ConditionDefinition
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("featuresToBrowse");
+            return entity.GetField<List<FeatureDefinition>>("featuresToBrowse");
         }
 
         public static T SetAcidParticleParameters<T>(this T entity, ConditionParticleParameters value)
@@ -145,14 +146,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalConditionDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetAdditionalConditionDurationType<T>(this T entity, DurationType value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalConditionDurationType", value);
             return entity;
         }
 
-        public static T SetAdditionalConditionTurnOccurenceType<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetAdditionalConditionTurnOccurenceType<T>(this T entity, TurnOccurenceType value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalConditionTurnOccurenceType", value);
@@ -173,7 +174,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalDamageDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetAdditionalDamageDieType<T>(this T entity, DieType value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalDamageDieType", value);
@@ -250,7 +251,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCharacterShaderReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetCharacterShaderReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("characterShaderReference", value);
@@ -264,21 +266,24 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionEndParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetConditionEndParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionEndParticleReference", value);
             return entity;
         }
 
-        public static T SetConditionParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetConditionParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionParticleReference", value);
             return entity;
         }
 
-        public static T SetConditionStartParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetConditionStartParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionStartParticleReference", value);
@@ -299,7 +304,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionType<T>(this T entity, RuleDefinitions.ConditionType value)
+        public static T SetConditionType<T>(this T entity, ConditionType value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionType", value);
@@ -327,14 +332,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDurationParameterDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetDurationParameterDie<T>(this T entity, DieType value)
             where T : ConditionDefinition
         {
             entity.SetField("durationParameterDie", value);
             return entity;
         }
 
-        public static T SetDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetDurationType<T>(this T entity, DurationType value)
             where T : ConditionDefinition
         {
             entity.SetField("durationType", value);
@@ -523,14 +528,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpecialInterruptions<T>(this T entity, params RuleDefinitions.ConditionInterruption[] value)
+        public static T SetSpecialInterruptions<T>(this T entity, params ConditionInterruption[] value)
             where T : ConditionDefinition
         {
             SetSpecialInterruptions(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSpecialInterruptions<T>(this T entity, IEnumerable<RuleDefinitions.ConditionInterruption> value)
+        public static T SetSpecialInterruptions<T>(this T entity, IEnumerable<ConditionInterruption> value)
             where T : ConditionDefinition
         {
             entity.SpecialInterruptions.SetRange(value);
@@ -593,7 +598,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTurnOccurence<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetTurnOccurence<T>(this T entity, TurnOccurenceType value)
             where T : ConditionDefinition
         {
             entity.SetField("turnOccurence", value);

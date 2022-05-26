@@ -13,7 +13,9 @@ namespace ModKit.Utility
 {
     public static partial class ReflectionCache
     {
-        private const BindingFlags ALL_FLAGS = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic /*| BindingFlags.FlattenHierarchy*/;
+        private const BindingFlags ALL_FLAGS =
+            BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
+            BindingFlags.NonPublic /*| BindingFlags.FlattenHierarchy*/;
 
         private static readonly Queue _cache = new();
 
@@ -38,11 +40,14 @@ namespace ModKit.Utility
             _cache.Enqueue(obj);
         }
 
-        private static bool IsStatic(Type type) => type.IsAbstract && type.IsSealed;
+        private static bool IsStatic(Type type)
+        {
+            return type.IsAbstract && type.IsSealed;
+        }
 
         private static TypeBuilder RequestTypeBuilder()
         {
-            AssemblyName asmName = new(nameof(ReflectionCache) + "." + Guid.NewGuid().ToString());
+            AssemblyName asmName = new(nameof(ReflectionCache) + "." + Guid.NewGuid());
             var asmBuilder = AssemblyBuilder.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndCollect);
             var moduleBuilder = asmBuilder.DefineDynamicModule("<Module>");
             return moduleBuilder.DefineType("<Type>");

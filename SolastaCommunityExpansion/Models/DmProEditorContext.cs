@@ -96,8 +96,8 @@ namespace SolastaCommunityExpansion.Models
         {
             var customDungeonSizes = new Dictionary<UserLocationDefinitions.Size, int>
             {
-                { (UserLocationDefinitions.Size) ExtendedDungeonSize.Huge, 150 },
-                { (UserLocationDefinitions.Size) ExtendedDungeonSize.Gargantuan, 200 }
+                {(UserLocationDefinitions.Size)ExtendedDungeonSize.Huge, 150},
+                {(UserLocationDefinitions.Size)ExtendedDungeonSize.Gargantuan, 200}
             };
 
             UserLocationDefinitions.CellsBySize[UserLocationDefinitions.Size.Medium] = 75;
@@ -118,7 +118,8 @@ namespace SolastaCommunityExpansion.Models
 
             flatRoomsCategory.name = "FlatRooms";
             flatRoomsCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoomsCategory.name).ToString());
-            flatRoomsCategory.GuiPresentation.Title = Gui.Format($"BlueprintCategory/&{flatRoomsCategory.name}Title").yellow();
+            flatRoomsCategory.GuiPresentation.Title =
+                Gui.Format($"BlueprintCategory/&{flatRoomsCategory.name}Title").yellow();
             dbBlueprintCategory.Add(flatRoomsCategory);
 
             foreach (var blueprintCategory in dbBlueprintCategory)
@@ -130,8 +131,11 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = blueprintCategory.Name + "~" + environmentName + "~MOD";
 
                     newBlueprintCategory.name = categoryName;
-                    newBlueprintCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newBlueprintCategory.name).ToString());
-                    newBlueprintCategory.GuiPresentation.Title = Gui.Format(blueprintCategory.GuiPresentation.Title) + " " + Gui.Format(environmentDefinition.GuiPresentation.Title) + " [MODDED]".yellow();
+                    newBlueprintCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newBlueprintCategory.name)
+                        .ToString());
+                    newBlueprintCategory.GuiPresentation.Title = Gui.Format(blueprintCategory.GuiPresentation.Title) +
+                                                                 " " + Gui.Format(environmentDefinition.GuiPresentation
+                                                                     .Title) + " [MODDED]".yellow();
                     categories.Add(newBlueprintCategory);
                 }
             }
@@ -166,7 +170,8 @@ namespace SolastaCommunityExpansion.Models
                 flatRoom.GuiPresentation.SetSortOrder(multiplier);
                 flatRoom.GuiPresentation.SetHidden(true);
                 flatRoom.SetCategory("FlatRooms");
-                flatRoom.SetDimensions(new Vector2Int(flatRoom.Dimensions.x * multiplier, flatRoom.Dimensions.y * multiplier));
+                flatRoom.SetDimensions(new Vector2Int(flatRoom.Dimensions.x * multiplier,
+                    flatRoom.Dimensions.y * multiplier));
                 flatRoom.SetCellInfos(new int[flatRoom.Dimensions.x * flatRoom.Dimensions.y]);
                 flatRoom.SetWallSpriteReference(new UnityEngine.AddressableAssets.AssetReferenceSprite(""));
                 flatRoom.SetWallAndOpeningSpriteReference(new UnityEngine.AddressableAssets.AssetReferenceSprite(""));
@@ -211,7 +216,8 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var gadgetBlueprint in dbGadgetBlueprint)
             {
-                foreach (var prefabByEnvironment in gadgetBlueprint.PrefabsByEnvironment.Where(x => x.Environment != string.Empty))
+                foreach (var prefabByEnvironment in gadgetBlueprint.PrefabsByEnvironment.Where(x =>
+                             x.Environment != string.Empty))
                 {
                     var environmentName = prefabByEnvironment.Environment;
                     var prefabEnvironmentDefinition = dbEnvironmentDefinition.GetElement(environmentName);
@@ -219,8 +225,11 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = gadgetBlueprint.Category + "~" + environmentName + "~MOD";
 
                     newGadgetBlueprint.name = gadgetBlueprint.Name + "~" + environmentName + "~MOD";
-                    newGadgetBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString());
-                    newGadgetBlueprint.GuiPresentation.Title = Gui.Format(gadgetBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
+                    newGadgetBlueprint.SetGuid(
+                        SolastaModApi.GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString());
+                    newGadgetBlueprint.GuiPresentation.Title = Gui.Format(gadgetBlueprint.GuiPresentation.Title) + " " +
+                                                               Gui.Format(prefabEnvironmentDefinition.GuiPresentation
+                                                                   .Title).yellow();
                     newGadgetBlueprint.SetCategory(categoryName);
                     newGadgetBlueprint.PrefabsByEnvironment.Clear();
 
@@ -249,7 +258,8 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var propBlueprint in dbPropBlueprint)
             {
-                foreach (var prefabByEnvironment in propBlueprint.PrefabsByEnvironment.Where(x => x.Environment != string.Empty))
+                foreach (var prefabByEnvironment in propBlueprint.PrefabsByEnvironment.Where(x =>
+                             x.Environment != string.Empty))
                 {
                     var environmentName = prefabByEnvironment.Environment;
                     var prefabEnvironmentDefinition = dbEnvironmentDefinition.GetElement(environmentName);
@@ -258,7 +268,9 @@ namespace SolastaCommunityExpansion.Models
 
                     newPropBlueprint.name = propBlueprint.Name + "~" + environmentName + "~MOD";
                     newPropBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newPropBlueprint.name).ToString());
-                    newPropBlueprint.GuiPresentation.Title = Gui.Format(propBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
+                    newPropBlueprint.GuiPresentation.Title = Gui.Format(propBlueprint.GuiPresentation.Title) + " " +
+                                                             Gui.Format(prefabEnvironmentDefinition.GuiPresentation
+                                                                 .Title).yellow();
                     newPropBlueprint.SetCategory(categoryName);
                     newPropBlueprint.PrefabsByEnvironment.Clear();
 
@@ -286,10 +298,10 @@ namespace SolastaCommunityExpansion.Models
             var newRooms = new List<RoomBlueprint>();
 
             foreach (var roomBlueprint in dbRoomBlueprint
-                .Where(x => x.Category == "EmptyRooms" || x.Category == "FlatRooms"))
+                         .Where(x => x.Category == "EmptyRooms" || x.Category == "FlatRooms"))
             {
                 foreach (var prefabByEnvironment in roomBlueprint.PrefabsByEnvironment
-                    .Where(x => x.Environment != string.Empty))
+                             .Where(x => x.Environment != string.Empty))
                 {
                     var environmentName = prefabByEnvironment.Environment;
                     var prefabEnvironmentDefinition = dbEnvironmentDefinition.GetElement(environmentName);
@@ -298,13 +310,15 @@ namespace SolastaCommunityExpansion.Models
 
                     newRoomBlueprint.name = roomBlueprint.Name + "~" + environmentName + "~MOD";
                     newRoomBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newRoomBlueprint.name).ToString());
-                    newRoomBlueprint.GuiPresentation.Title = Gui.Format(roomBlueprint.GuiPresentation.Title) + " " + Gui.Format(prefabEnvironmentDefinition.GuiPresentation.Title).yellow();
+                    newRoomBlueprint.GuiPresentation.Title = Gui.Format(roomBlueprint.GuiPresentation.Title) + " " +
+                                                             Gui.Format(prefabEnvironmentDefinition.GuiPresentation
+                                                                 .Title).yellow();
                     newRoomBlueprint.SetCategory(categoryName);
                     newRoomBlueprint.GuiPresentation.SetHidden(false);
                     newRoomBlueprint.PrefabsByEnvironment.Clear();
 
                     foreach (var environmentDefinition in dbEnvironmentDefinition
-                        .Where(x => !prefabEnvironmentDefinition.Outdoor || x.Outdoor))
+                                 .Where(x => !prefabEnvironmentDefinition.Outdoor || x.Outdoor))
                     {
                         var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
 

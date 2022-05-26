@@ -11,13 +11,15 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize
     //
     // this shouldn't be protected
     //
-    [HarmonyPatch(typeof(GameLocationPositioningManager), "CharacterMoved", new Type[] { typeof(GameLocationCharacter), typeof(TA.int3), typeof(TA.int3), typeof(RulesetActor.SizeParameters), typeof(RulesetActor.SizeParameters) })]
+    [HarmonyPatch(typeof(GameLocationPositioningManager), "CharacterMoved", typeof(GameLocationCharacter),
+        typeof(TA.int3), typeof(TA.int3), typeof(RulesetActor.SizeParameters), typeof(RulesetActor.SizeParameters))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationPositioningManager_CharacterMoved
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static, Type.DefaultBinder, new Type[] { typeof(string) }, null);
+            var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
+                Type.DefaultBinder, new[] {typeof(string)}, null);
             var found = 0;
 
             foreach (var instruction in instructions)

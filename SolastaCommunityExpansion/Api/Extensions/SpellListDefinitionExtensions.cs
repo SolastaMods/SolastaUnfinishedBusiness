@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(SpellListDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class SpellListDefinitionExtensions
+    [TargetType(typeof(SpellListDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class SpellListDefinitionExtensions
     {
         public static T AddSpellsByLevel<T>(this T entity, params SpellListDefinition.SpellsByLevelDuplet[] value)
             where T : SpellListDefinition

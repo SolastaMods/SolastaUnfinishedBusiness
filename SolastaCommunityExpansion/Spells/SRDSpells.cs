@@ -124,11 +124,10 @@ namespace SolastaCommunityExpansion.Spells
                         RuleDefinitions.RangeType.Distance,
                         6,
                         RuleDefinitions.TargetType.IndividualsUnique,
-                        20,
-                        1,
-                        ActionDefinitions.ItemSelectionType.None)
+                        20)
                     .SetParticleEffectParameters(MassHealingWord.EffectDescription.EffectParticleParameters)
-                    .SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .SetDurationData(RuleDefinitions.DurationType.Instantaneous, 1,
+                        RuleDefinitions.TurnOccurenceType.EndOfTurn)
                     .SetSavingThrowData(
                         true,
                         false,
@@ -148,10 +147,7 @@ namespace SolastaCommunityExpansion.Spells
         {
             private readonly List<string> monsterFamilyPlaneshiftList = new()
             {
-                "Celestial",
-                "Elemental",
-                "Fey",
-                "Fiend",
+                "Celestial", "Elemental", "Fey", "Fiend"
             };
 
             public override void ApplyForm(
@@ -162,13 +158,15 @@ namespace SolastaCommunityExpansion.Spells
                 RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
                 List<EffectFormFilter> filters = null)
             {
-                if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess || formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
+                if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess ||
+                    formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
                 {
                     return;
                 }
 
                 // If the target is in one of the special families, banish it.
-                if (formsParams.targetCharacter is RulesetCharacterMonster monster && monsterFamilyPlaneshiftList.Contains(monster.CharacterFamily))
+                if (formsParams.targetCharacter is RulesetCharacterMonster monster &&
+                    monsterFamilyPlaneshiftList.Contains(monster.CharacterFamily))
                 {
                     ApplyCondition(formsParams, ConditionBanished, RuleDefinitions.DurationType.Day, 1);
 
@@ -184,7 +182,8 @@ namespace SolastaCommunityExpansion.Spells
                         return;
                     }
 
-                    ServiceRepository.GetService<IGameLocationActionService>().InstantKillCharacter(formsParams.targetCharacter as RulesetCharacter);
+                    ServiceRepository.GetService<IGameLocationActionService>()
+                        .InstantKillCharacter(formsParams.targetCharacter as RulesetCharacter);
                 }
                 else if (curHP <= 30)
                 {
@@ -214,11 +213,14 @@ namespace SolastaCommunityExpansion.Spells
                 ConditionBanished.FillTags(tagsMap);
             }
 
-            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
             {
                 // Prepare params for inflicting conditions
                 var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                var sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                var sourceFaction = formsParams.sourceCharacter != null
+                    ? formsParams.sourceCharacter.CurrentFaction.Name
+                    : string.Empty;
                 var effectDefinitionName = string.Empty;
 
                 if (formsParams.attackMode != null)
@@ -230,9 +232,12 @@ namespace SolastaCommunityExpansion.Spells
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                var sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+                var sourceAbilityBonus =
+                    formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
 
-                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction,
+                    formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
         }
 
@@ -253,11 +258,7 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.Side.Enemy,
                     RuleDefinitions.RangeType.Distance,
                     12,
-                    RuleDefinitions.TargetType.Individuals,
-                    1,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
-
+                    RuleDefinitions.TargetType.Individuals)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetDamageForm(
                         false,
@@ -270,7 +271,6 @@ namespace SolastaCommunityExpansion.Spells
                         new List<RuleDefinitions.TrendInfo>())
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
                     .Build())
-
                 .SetSavingThrowData(
                     true,
                     false,
@@ -349,17 +349,16 @@ namespace SolastaCommunityExpansion.Spells
 
             var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(
-                     RuleDefinitions.DurationType.Minute,
-                     1,
-                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    RuleDefinitions.DurationType.Minute,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
                 .SetTargetingData(
                     RuleDefinitions.Side.All,
                     RuleDefinitions.RangeType.Distance,
                     12,
                     RuleDefinitions.TargetType.Cylinder,
                     10,
-                    10,
-                    ActionDefinitions.ItemSelectionType.None)
+                    10)
                 .SetSavingThrowData(
                     true,
                     false,
@@ -377,7 +376,7 @@ namespace SolastaCommunityExpansion.Spells
                         false,
                         false,
                         new List<ConditionDefinition>())
-                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
                     .Build())
                 .AddEffectForm(new EffectFormBuilder()
                     .SetMotionForm(
@@ -429,7 +428,7 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildConjureCelestial()
         {
             var couatlSpellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListCleric, "DHCouatlSpellList", DhBaseGuid)
+                .Create(SpellListCleric, "DHCouatlSpellList", DhBaseGuid)
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Bless, CureWounds, DetectEvilAndGood, DetectMagic, Shield)
@@ -455,33 +454,356 @@ namespace SolastaCommunityExpansion.Spells
                 .SetStaticDCValue(14)
                 .SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
 
-            int[] castSpellCouatlKnownSpells = { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 };
+            int[] castSpellCouatlKnownSpells =
+            {
+                20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
+            };
 
             castSpellCouatl.RestrictedSchools.Clear();
             castSpellCouatl.KnownSpells.Clear();
             castSpellCouatl.KnownSpells.AddRange(castSpellCouatlKnownSpells);
             castSpellCouatl.SlotsPerLevels.AddRange(new List<SlotsByLevelDuplet>
             {
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 01 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 02 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 03 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 04 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 05 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 06 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 07 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 08 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 09 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 10 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 11 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 12 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 13 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 14 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 15 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 16 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 17 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 18 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 19 },
-                new () { Slots = new List<int> {13,6,1,1,1,0,0,0,0,0}, Level = 20 },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 01
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 02
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 03
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 04
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 05
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 06
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 07
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 08
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 09
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 10
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 11
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 12
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 13
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 14
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 15
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 16
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 17
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 18
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 19
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        13,
+                        6,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 20
+                }
             });
 
             const string CustomCouatlName = "CustomCouatl";
@@ -520,11 +842,12 @@ namespace SolastaCommunityExpansion.Spells
             CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
             CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
-            CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
+            CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm
+                .SetDamageType(RuleDefinitions.DamageTypePiercing);
 
             var conditionForm = new ConditionForm();
-            conditionForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
-            conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionPoisoned.name);
+            conditionForm.SetConditionDefinition(ConditionPoisoned);
+            conditionForm.SetConditionDefinitionName(ConditionPoisoned.name);
             conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
 
             var extraPoisonEffect = new EffectForm();
@@ -538,8 +861,8 @@ namespace SolastaCommunityExpansion.Spells
             extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
             var sleepForm = new ConditionForm();
-            sleepForm.SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionMagicallyAsleep);
-            sleepForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionAsleep.name);
+            sleepForm.SetConditionDefinition(ConditionMagicallyAsleep);
+            sleepForm.SetConditionDefinitionName(ConditionAsleep.name);
             sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
 
             var extraSleepEffect = new EffectForm();
@@ -554,8 +877,9 @@ namespace SolastaCommunityExpansion.Spells
 
             CouatlBite_Attack.EffectDescription.EffectForms.Add(extraSleepEffect);
             CouatlBite_Attack.EffectDescription.EffectForms.Add(extraPoisonEffect);
-            CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
-            CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.Name);
+            CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Constitution.Name);
+            CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(SmartAttributeDefinitions.Constitution
+                .Name);
             CouatlBite_Attack.EffectDescription.SetHasSavingThrow(true);
             CouatlBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
             CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
@@ -563,8 +887,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var AttackIterations = new List<MonsterAttackIteration>
             {
-                Tiger_Drake.AttackIterations[0],
-                new MonsterAttackIteration(CouatlBite_Attack, 1)
+                Tiger_Drake.AttackIterations[0], new(CouatlBite_Attack, 1)
             };
 
             var LegendaryActionOptions = new List<LegendaryActionDescription>();
@@ -573,7 +896,8 @@ namespace SolastaCommunityExpansion.Spells
 
             const bool PhantomDistortion = true;
             // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
-            var attachedParticlesReference = FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
+            var attachedParticlesReference =
+                FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
             var spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder
@@ -638,7 +962,8 @@ namespace SolastaCommunityExpansion.Spells
 
             var effectDescription = new EffectDescriptionBuilder()
                 .SetDurationData(RuleDefinitions.DurationType.Minute, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 18, RuleDefinitions.TargetType.Position, 1, 1, 0)
+                .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 18,
+                    RuleDefinitions.TargetType.Position)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetSummonForm(
                         SummonForm.Type.Creature,
@@ -754,7 +1079,8 @@ namespace SolastaCommunityExpansion.Spells
             effectDescription.Copy(DominatePerson.EffectDescription);
             effectDescription.RestrictedCreatureFamilies.Clear();
             effectDescription.SetDuration(RuleDefinitions.DurationType.Hour, 1);
-            effectDescription.EffectAdvancement.SetAlteredDuration((RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster);
+            effectDescription.EffectAdvancement.SetAlteredDuration(
+                (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster);
 
             return SpellDefinitionBuilder
                 .Create("DHDominateMonsterSpell", DhBaseGuid)
@@ -780,10 +1106,7 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.Side.Enemy,
                     RuleDefinitions.RangeType.Distance,
                     30,
-                    RuleDefinitions.TargetType.Individuals,
-                    1,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    RuleDefinitions.TargetType.Individuals)
                 .SetSavingThrowData(
                     true,
                     false,
@@ -794,7 +1117,7 @@ namespace SolastaCommunityExpansion.Spells
                     20,
                     false,
                     new List<SaveAffinityBySenseDescription>()
-                    )
+                )
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(
                         FeeblemindConditionBuilder.FeeblemindCondition,
@@ -814,10 +1137,11 @@ namespace SolastaCommunityExpansion.Spells
                         4,
                         RuleDefinitions.HealFromInflictedDamage.Never,
                         new List<RuleDefinitions.TrendInfo>()
-                        )
+                    )
                     .Build());
 
-            GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.ConditionsList.Add(FeeblemindConditionBuilder.FeeblemindCondition);
+            GreaterRestoration.EffectDescription.EffectForms[0].ConditionForm.ConditionsList
+                .Add(FeeblemindConditionBuilder.FeeblemindCondition);
 
             return SpellDefinitionBuilder
                 .Create("DHFeeblemindSpell", DhBaseGuid)
@@ -867,7 +1191,8 @@ namespace SolastaCommunityExpansion.Spells
             private const string TitleString = "AttributeModifier/&DHFeeblemindIntSpellTitle";
             private const string DescriptionString = "AttributeModifier/&DHFeeblemindIntSpellDescription";
 
-            protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(
+                FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -877,12 +1202,14 @@ namespace SolastaCommunityExpansion.Spells
                 Definition.SetModifierValue(1);
                 Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
             }
+
             private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
             {
                 return new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
             }
 
-            internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier = CreateAndAddToDB(Name, Guid);
+            internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier =
+                CreateAndAddToDB(Name, Guid);
         }
 
         internal class FeeblemindChaAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
@@ -892,7 +1219,8 @@ namespace SolastaCommunityExpansion.Spells
             private const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
             private const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
 
-            protected FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            protected FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(
+                FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -908,7 +1236,8 @@ namespace SolastaCommunityExpansion.Spells
                 return new FeeblemindChaAttributeModifierBuilder(name, guid).AddToDB();
             }
 
-            internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier = CreateAndAddToDB(Name, Guid);
+            internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier =
+                CreateAndAddToDB(Name, Guid);
         }
 
         internal class FeeblemindActionAffinityBuilder : FeatureDefinitionActionAffinityBuilder
@@ -918,7 +1247,8 @@ namespace SolastaCommunityExpansion.Spells
             private const string TitleString = "ActionAffinity/&DHFeeblemindSpellTitle";
             private const string DescriptionString = "ActionAffinity/&DHFeeblemindSpellDescription";
 
-            protected FeeblemindActionAffinityBuilder(string name, string guid) : base(FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
+            protected FeeblemindActionAffinityBuilder(string name, string guid) : base(
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -940,7 +1270,8 @@ namespace SolastaCommunityExpansion.Spells
                 return new FeeblemindActionAffinityBuilder(name, guid).AddToDB();
             }
 
-            internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity = CreateAndAddToDB(Name, Guid);
+            internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity =
+                CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildHolyAura()
@@ -956,11 +1287,9 @@ namespace SolastaCommunityExpansion.Spells
                     12,
                     RuleDefinitions.TargetType.Sphere,
                     6,
-                    6,
-                    ActionDefinitions.ItemSelectionType.None)
+                    6)
                 .SetParticleEffectParameters(
-                    BeaconOfHope.
-                    EffectDescription.EffectParticleParameters)
+                    BeaconOfHope.EffectDescription.EffectParticleParameters)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(
                         HolyAuraConditionBuilder.HolyAuraCondition,
@@ -1019,7 +1348,8 @@ namespace SolastaCommunityExpansion.Spells
             private const string TitleString = "DamageAffinity/&DHHolyAuraSpellTitle";
             private const string DescriptionString = "DamageAffinity/&DHHolyAuraSpellDescription";
 
-            protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
+            protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
@@ -1037,7 +1367,8 @@ namespace SolastaCommunityExpansion.Spells
                 return new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
             }
 
-            internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity = CreateAndAddToDB(Name, Guid);
+            internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity =
+                CreateAndAddToDB(Name, Guid);
         }
 
         internal class HolyAuraBlindingPowerBuilder : FeatureDefinitionPowerBuilder
@@ -1047,34 +1378,32 @@ namespace SolastaCommunityExpansion.Spells
             private const string TitleString = "Feature/&DHHolyAuraBlindingPowerTitle";
             private const string DescriptionString = "Feature/&DHHolyAuraBlindingPowerDescription";
 
-            protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(PowerOathOfMotherlandFieryPresence, name, guid)
+            protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(PowerOathOfMotherlandFieryPresence,
+                name, guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
 
                 var effectDescription = new EffectDescriptionBuilder()
-                .SetDurationData(
-                    RuleDefinitions.DurationType.Minute,
-                    1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                .SetTargetingData(
-                    RuleDefinitions.Side.Enemy,
-                    RuleDefinitions.RangeType.Distance,
-                    12,
-                    RuleDefinitions.TargetType.Individuals,
-                    1,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
-                .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
-                .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Undead)
-                .AddEffectForm(new EffectFormBuilder()
-                    .SetConditionForm(
-                        ConditionBlinded,
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false,
-                        new List<ConditionDefinition>())
-                     .Build());
+                    .SetDurationData(
+                        RuleDefinitions.DurationType.Minute,
+                        1,
+                        RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Enemy,
+                        RuleDefinitions.RangeType.Distance,
+                        12,
+                        RuleDefinitions.TargetType.Individuals)
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Undead)
+                    .AddEffectForm(new EffectFormBuilder()
+                        .SetConditionForm(
+                            ConditionBlinded,
+                            ConditionForm.ConditionOperation.Add,
+                            false,
+                            false,
+                            new List<ConditionDefinition>())
+                        .Build());
 
                 Definition.SetEffectDescription(effectDescription.Build());
             }
@@ -1182,40 +1511,37 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildMaze()
         {
             var effectDescription = new EffectDescriptionBuilder()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Minute,
-                10,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Minute,
+                    10,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn
                 )
-            .SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Individuals
                 )
-            .SetSavingThrowData(
-                true,
-                false,
-                SmartAttributeDefinitions.Intelligence.name,
-                false,
-                RuleDefinitions.EffectDifficultyClassComputation.FixedValue,
-                SmartAttributeDefinitions.Intelligence.name,
-                20,
-                false,
-                new List<SaveAffinityBySenseDescription>())
-            .AddEffectForm(new EffectFormBuilder()
-                .SetConditionForm(
-                    ConditionBanished,
-                    ConditionForm.ConditionOperation.Add,
+                .SetSavingThrowData(
+                    true,
                     false,
+                    SmartAttributeDefinitions.Intelligence.name,
                     false,
-                    new List<ConditionDefinition>())
-                .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                .Build());
+                    RuleDefinitions.EffectDifficultyClassComputation.FixedValue,
+                    SmartAttributeDefinitions.Intelligence.name,
+                    20,
+                    false,
+                    new List<SaveAffinityBySenseDescription>())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
+                        ConditionBanished,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false,
+                        new List<ConditionDefinition>())
+                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                    .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .Build());
 
             return SpellDefinitionBuilder
                 .Create("DHMazeSpell", DhBaseGuid)
@@ -1238,26 +1564,23 @@ namespace SolastaCommunityExpansion.Spells
                 RuleDefinitions.DurationType.Hour,
                 24,
                 RuleDefinitions.TurnOccurenceType.EndOfTurn
-                );
+            );
             effectDescription.SetTargetingData(
                 RuleDefinitions.Side.Ally,
                 RuleDefinitions.RangeType.Touch,
                 1,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None
-                );
+                RuleDefinitions.TargetType.Individuals
+            );
             effectDescription.AddEffectForm(
                 new EffectFormBuilder().SetConditionForm(
-                    MindBlankConditionBuilder.MindBlankCondition,
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false,
-                    new List<ConditionDefinition>()
+                        MindBlankConditionBuilder.MindBlankCondition,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false,
+                        new List<ConditionDefinition>()
                     )
-                .Build()
-                );
+                    .Build()
+            );
 
             return SpellDefinitionBuilder
                 .Create("DHMindBlankSpell", DhBaseGuid)
@@ -1289,6 +1612,7 @@ namespace SolastaCommunityExpansion.Spells
                     FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
                     FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity);
             }
+
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
             {
                 return new MindBlankConditionBuilder(name, guid).AddToDB();
@@ -1325,16 +1649,12 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.Side.Enemy,
                     RuleDefinitions.RangeType.Distance,
                     12,
-                    RuleDefinitions.TargetType.Individuals,
-                    1,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    RuleDefinitions.TargetType.Individuals)
                 .AddEffectForm(effectForm)
                 .SetTargetFiltering(
                     RuleDefinitions.TargetFilteringMethod.CharacterIncreasingHitPointsFromPool,
                     RuleDefinitions.TargetFilteringTag.No,
-                    150,
-                    RuleDefinitions.DieType.D1)
+                    150)
                 .SetSavingThrowData(
                     true,
                     false,
@@ -1371,9 +1691,7 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.RangeType.Distance,
                     30,
                     RuleDefinitions.TargetType.Sphere,
-                    12,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    12)
                 .SetSavingThrowData(
                     true,
                     false,
@@ -1409,7 +1727,8 @@ namespace SolastaCommunityExpansion.Spells
 
             var effect = effectDescription.Build();
 
-            effect.EffectParticleParameters.SetImpactParticleReference(new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91"));
+            effect.EffectParticleParameters.SetImpactParticleReference(
+                new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91"));
 
             var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
                 .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
@@ -1419,7 +1738,8 @@ namespace SolastaCommunityExpansion.Spells
                 .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
                 .SetFamily(CharacterFamilyDefinitions.Undead.name);
 
-            effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription, SaveAffinityByFamilyDescriptionUndead);
+            effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription,
+                SaveAffinityByFamilyDescriptionUndead);
 
             return SpellDefinitionBuilder
                 .Create("DHSunBurstSpell", DhBaseGuid)
@@ -1441,14 +1761,11 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.DurationType.Hour,
                     8,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn)
-               .SetTargetingData(
+                .SetTargetingData(
                     RuleDefinitions.Side.Ally,
                     RuleDefinitions.RangeType.Touch,
                     1,
-                    RuleDefinitions.TargetType.Individuals,
-                    1,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    RuleDefinitions.TargetType.Individuals)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetConditionForm(
                         ForesightConditionBuilder.ForesightCondition,
@@ -1515,9 +1832,7 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.RangeType.Distance,
                     12,
                     RuleDefinitions.TargetType.Individuals,
-                    14,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    14)
                 .AddEffectForm(new EffectFormBuilder()
                     .SetHealingForm(
                         RuleDefinitions.HealingComputation.Dice,
@@ -1554,20 +1869,19 @@ namespace SolastaCommunityExpansion.Spells
                     200,
                     RuleDefinitions.TargetType.Sphere,
                     8,
-                    8,
-                    ActionDefinitions.ItemSelectionType.None)
+                    8)
                 .AddEffectForm(
-                     new EffectFormBuilder().SetDamageForm(
-                         false,
-                         RuleDefinitions.DieType.D6,
-                         RuleDefinitions.DamageTypeFire,
-                         0,
-                         RuleDefinitions.DieType.D6,
-                         20,                                          // 20 because hits dont stack even on single target
-                         RuleDefinitions.HealFromInflictedDamage.Never,
-                         new List<RuleDefinitions.TrendInfo>())
-                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                     .Build())
+                    new EffectFormBuilder().SetDamageForm(
+                            false,
+                            RuleDefinitions.DieType.D6,
+                            RuleDefinitions.DamageTypeFire,
+                            0,
+                            RuleDefinitions.DieType.D6,
+                            20, // 20 because hits dont stack even on single target
+                            RuleDefinitions.HealFromInflictedDamage.Never,
+                            new List<RuleDefinitions.TrendInfo>())
+                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
+                        .Build())
                 .AddEffectForm(new EffectFormBuilder()
                     .SetDamageForm(
                         false,
@@ -1575,7 +1889,7 @@ namespace SolastaCommunityExpansion.Spells
                         RuleDefinitions.DamageTypeBludgeoning,
                         0,
                         RuleDefinitions.DieType.D6,
-                        20,                                          // 20 because hits dont stack even on single target
+                        20, // 20 because hits dont stack even on single target
                         RuleDefinitions.HealFromInflictedDamage.Never,
                         new List<RuleDefinitions.TrendInfo>())
                     .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
@@ -1608,48 +1922,45 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildPowerWordHeal()
         {
             var effectDescription = new EffectDescriptionBuilder()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Instantaneous,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetTargetingData(
-                RuleDefinitions.Side.Ally,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None)
-            .AddEffectForm(new EffectFormBuilder().SetHealingForm(
-                RuleDefinitions.HealingComputation.Dice,
-                700,
-                RuleDefinitions.DieType.D1,
-                0,
-                false,
-                RuleDefinitions.HealingCap.MaximumHitPoints)
-                .Build())
-            .AddEffectForm(new EffectFormBuilder()
-                .SetConditionForm(
-                    ConditionParalyzed,
-                    ConditionForm.ConditionOperation.RemoveDetrimentalAll,
-                    false,
-                    false,
-                    new List<ConditionDefinition>
-                    {
-                        ConditionCharmed,
-                        ConditionCharmedByHypnoticPattern,
-                        ConditionFrightened,
-                        ConditionFrightenedFear,
-                        ConditionFrightenedPhantasmalKiller,
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Instantaneous,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Ally,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Individuals)
+                .AddEffectForm(new EffectFormBuilder().SetHealingForm(
+                        RuleDefinitions.HealingComputation.Dice,
+                        700,
+                        RuleDefinitions.DieType.D1,
+                        0,
+                        false,
+                        RuleDefinitions.HealingCap.MaximumHitPoints)
+                    .Build())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
                         ConditionParalyzed,
-                        ConditionParalyzed_CrimsonSpiderVenom,
-                        ConditionParalyzed_GhoulsCaress,
-                        ConditionStunned,
-                        ConditionStunned_MutantApeSlam,
-                        ConditionStunnedConjuredDeath,
-                        ConditionProne
-                    })
-                .Build());
+                        ConditionForm.ConditionOperation.RemoveDetrimentalAll,
+                        false,
+                        false,
+                        new List<ConditionDefinition>
+                        {
+                            ConditionCharmed,
+                            ConditionCharmedByHypnoticPattern,
+                            ConditionFrightened,
+                            ConditionFrightenedFear,
+                            ConditionFrightenedPhantasmalKiller,
+                            ConditionParalyzed,
+                            ConditionParalyzed_CrimsonSpiderVenom,
+                            ConditionParalyzed_GhoulsCaress,
+                            ConditionStunned,
+                            ConditionStunned_MutantApeSlam,
+                            ConditionStunnedConjuredDeath,
+                            ConditionProne
+                        })
+                    .Build());
 
             return SpellDefinitionBuilder
                 .Create("DHPowerWordHealSpell", DhBaseGuid)
@@ -1679,19 +1990,16 @@ namespace SolastaCommunityExpansion.Spells
                 .SetKillForm(killForm);
 
             var effectDescription = new EffectDescriptionBuilder()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Instantaneous,
-                1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetTargetingData(
-                RuleDefinitions.Side.Enemy,
-                RuleDefinitions.RangeType.Distance,
-                12,
-                RuleDefinitions.TargetType.Individuals,
-                1,
-                1,
-                ActionDefinitions.ItemSelectionType.None)
-            .AddEffectForm(effectForm);
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Instantaneous,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy,
+                    RuleDefinitions.RangeType.Distance,
+                    12,
+                    RuleDefinitions.TargetType.Individuals)
+                .AddEffectForm(effectForm);
 
             return SpellDefinitionBuilder
                 .Create("DHPowerWordKillSpell", DhBaseGuid)
@@ -1744,10 +2052,7 @@ namespace SolastaCommunityExpansion.Spells
                     RuleDefinitions.Side.Ally,
                     RuleDefinitions.RangeType.Distance,
                     12,
-                    RuleDefinitions.TargetType.Self,
-                    1,
-                    1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    RuleDefinitions.TargetType.Self)
                 .AddEffectForm(effectForm)
                 .SetCreatedByCharacter()
                 .SetParticleEffectParameters(PowerDruidWildShape.EffectDescription.EffectParticleParameters);
@@ -1769,26 +2074,25 @@ namespace SolastaCommunityExpansion.Spells
         private static SpellDefinition BuildTimeStop()
         {
             var effectDescription = new EffectDescriptionBuilder()
-            .SetDurationData(
-                RuleDefinitions.DurationType.Round,
-                3,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetTargetingData(
-                RuleDefinitions.Side.All,
-                RuleDefinitions.RangeType.Self,
-                0,
-                RuleDefinitions.TargetType.Cylinder,
-                20,
-                10,
-                ActionDefinitions.ItemSelectionType.None)
-            .AddEffectForm(new EffectFormBuilder()
-                .SetConditionForm(
-                    TimeStopConditionBuilder.TimeStopCondition,
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false,
-                    new List<ConditionDefinition>()).Build())
-            .ExcludeCaster();
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Round,
+                    3,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.All,
+                    RuleDefinitions.RangeType.Self,
+                    0,
+                    RuleDefinitions.TargetType.Cylinder,
+                    20,
+                    10)
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
+                        TimeStopConditionBuilder.TimeStopCondition,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false,
+                        new List<ConditionDefinition>()).Build())
+                .ExcludeCaster();
 
             return SpellDefinitionBuilder
                 .Create("DHTimeStopSpell", DhBaseGuid)
@@ -1843,8 +2147,7 @@ namespace SolastaCommunityExpansion.Spells
                     12,
                     RuleDefinitions.TargetType.Sphere,
                     6,
-                    6,
-                    ActionDefinitions.ItemSelectionType.None)
+                    6)
                 .SetSavingThrowData(
                     true,
                     false,
@@ -1887,13 +2190,15 @@ namespace SolastaCommunityExpansion.Spells
             private const string TitleString = "Condition/&DHWeirdSpellTitle";
             private const string DescriptionString = "Condition/&DHWeirdSpellDescription";
 
-            protected WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name, guid)
+            protected WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name,
+                guid)
             {
                 Definition.GuiPresentation.Title = TitleString;
                 Definition.GuiPresentation.Description = DescriptionString;
 
                 // weird condition is the same as phantasma killer condition, just for more people
             }
+
             private static ConditionDefinition CreateAndAddToDB(string name, string guid)
             {
                 return new WeirdConditionBuilder(name, guid).AddToDB();

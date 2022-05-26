@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ItemPropertyForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ItemPropertyFormExtensions
+    [TargetType(typeof(ItemPropertyForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ItemPropertyFormExtensions
     {
         public static T AddFeatureBySlotLevel<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : ItemPropertyForm
@@ -55,7 +56,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsageLimitation<T>(this T entity, RuleDefinitions.ItemPropertyUsage value)
+        public static T SetUsageLimitation<T>(this T entity, ItemPropertyUsage value)
             where T : ItemPropertyForm
         {
             entity.SetField("usageLimitation", value);

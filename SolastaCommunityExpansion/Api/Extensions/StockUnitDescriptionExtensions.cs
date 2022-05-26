@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(StockUnitDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class StockUnitDescriptionExtensions
+    [TargetType(typeof(StockUnitDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class StockUnitDescriptionExtensions
     {
         public static T SetFactionStatus<T>(this T entity, System.String value)
             where T : StockUnitDescription
@@ -60,7 +61,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReassortRateType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetReassortRateType<T>(this T entity, DurationType value)
             where T : StockUnitDescription
         {
             entity.ReassortRateType = value;

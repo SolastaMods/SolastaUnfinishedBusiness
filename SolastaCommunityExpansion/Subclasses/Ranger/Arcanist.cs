@@ -18,10 +18,12 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
     internal class Arcanist : AbstractSubclass
     {
         private CharacterSubclassDefinition Subclass;
+
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
             return FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
         }
+
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass ??= BuildAndAddSubclass();
@@ -52,9 +54,11 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         }
 
         private static ConditionDefinition markedByArcanist;
+
         private static ConditionDefinition MarkedByArcanist => markedByArcanist ??= ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist", RA_BASE_GUID)
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite.GuiPresentation.SpriteReference)
+            .SetGuiPresentation(Category.Condition,
+                ConditionDefinitions.ConditionMarkedByBrandingSmite.GuiPresentation.SpriteReference)
             .SetAllowMultipleInstances(false)
             .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
             .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
@@ -83,13 +87,15 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 
             //Not actually used anywhere, but leaving this just in case some old character would need it
             FeatureDefinitionFeatureSetBuilder
-                .Create("RangerArcanistMagic", GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian").ToString()) // Oops, will have to live with this name being off)
+                .Create("RangerArcanistMagic",
+                    GuidHelper.Create(RA_BASE_GUID, "RangerArcanistManaTouchedGuardian")
+                        .ToString()) // Oops, will have to live with this name being off)
                 .SetGuiPresentationNoContent(true)
                 .SetFeatureSet(preparedSpells, arcanist_affinity)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .AddToDB();
 
-            return new FeatureDefinition[] { preparedSpells, arcanist_affinity };
+            return new FeatureDefinition[] {preparedSpells, arcanist_affinity};
         }
 
         private static FeatureDefinitionAdditionalDamage CreateArcanistMark()
@@ -124,7 +130,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 .SetSpecificDamageType("DamageForce")
                 .SetDamageDice(RuleDefinitions.DieType.D6, 1)
                 .SetNotificationTag("ArcanistMark")
-                .SetTargetCondition(MarkedByArcanist, RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
+                .SetTargetCondition(MarkedByArcanist,
+                    RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
                 .SetNoSave()
                 .SetConditionOperations(
                     new ConditionOperationDescription
@@ -168,12 +175,12 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 .AddToDB();
         }
 
-        private static (FeatureDefinitionPower arcane_pulse_action, FeatureDefinitionPower arcane_pulse_upgrade_action) CreateArcanePulsePowers()
+        private static (FeatureDefinitionPower arcane_pulse_action, FeatureDefinitionPower arcane_pulse_upgrade_action)
+            CreateArcanePulsePowers()
         {
             var marked_effect = new EffectForm
             {
-                ConditionForm = new ConditionForm(),
-                FormType = EffectForm.EffectFormType.Condition
+                ConditionForm = new ConditionForm(), FormType = EffectForm.EffectFormType.Condition
             };
             marked_effect.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
             marked_effect.ConditionForm.ConditionDefinition = MarkedByArcanist;
@@ -182,9 +189,7 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             {
                 DamageForm = new DamageForm
                 {
-                    DamageType = "DamageForce",
-                    DieType = RuleDefinitions.DieType.D8,
-                    DiceNumber = 4
+                    DamageType = "DamageForce", DieType = RuleDefinitions.DieType.D8, DiceNumber = 4
                 }
             };
             damage_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
@@ -194,23 +199,24 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
             {
                 DamageForm = new DamageForm
                 {
-                    DamageType = "DamageForce",
-                    DieType = RuleDefinitions.DieType.D8,
-                    DiceNumber = 8
+                    DamageType = "DamageForce", DieType = RuleDefinitions.DieType.D8, DiceNumber = 8
                 }
             };
             damage_upgrade_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
             damage_upgrade_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
-            var arcane_pulse_action = CreateArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_effect);
+            var arcane_pulse_action = CreateArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle",
+                "Feature/&ArcanePulseDescription", marked_effect, damage_effect);
 
-            var arcane_pulse_upgrade_action = CreateArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle", "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
+            var arcane_pulse_upgrade_action = CreateArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle",
+                "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
             arcane_pulse_upgrade_action.SetOverriddenPower(arcane_pulse_action);
 
             return (arcane_pulse_action, arcane_pulse_upgrade_action);
         }
 
-        private static FeatureDefinitionPower CreateArcanePulse(string name, string title, string description, EffectForm marked_effect, EffectForm damage_effect)
+        private static FeatureDefinitionPower CreateArcanePulse(string name, string title, string description,
+            EffectForm marked_effect, EffectForm damage_effect)
         {
             var pulse_description = new EffectDescription();
             pulse_description.Copy(MagicMissile.EffectDescription);
@@ -224,7 +230,8 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 
             return FeatureDefinitionPowerBuilder
                 .Create(name, RA_BASE_GUID)
-                .SetGuiPresentation(title, description, PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(title, description,
+                    PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference)
                 .SetUsesAbility(0, AttributeDefinitions.Wisdom)
                 .SetShowCasting(true)
                 .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)

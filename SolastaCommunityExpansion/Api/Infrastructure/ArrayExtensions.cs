@@ -15,8 +15,7 @@ namespace SolastaModApi.Infrastructure
             do
             {
                 action(array, walker.Position);
-            }
-            while (walker.Step());
+            } while (walker.Step());
         }
     }
 
@@ -33,6 +32,7 @@ namespace SolastaModApi.Infrastructure
             {
                 maxLengths[i] = array.GetLength(i) - 1;
             }
+
             Position = new int[array.Rank];
         }
 
@@ -47,9 +47,11 @@ namespace SolastaModApi.Infrastructure
                     {
                         Position[j] = 0;
                     }
+
                     return true;
                 }
             }
+
             return false;
         }
     }

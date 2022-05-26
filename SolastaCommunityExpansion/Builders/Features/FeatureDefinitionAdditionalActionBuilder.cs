@@ -6,24 +6,30 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction, FeatureDefinitionAdditionalActionBuilder>
+    public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction,
+        FeatureDefinitionAdditionalActionBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalActionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionAdditionalActionBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
@@ -38,7 +44,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
+        public FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(
+            RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
         {
             Definition.SetTriggerCondition(triggerCondition);
             return this;
@@ -47,12 +54,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         /**
          * The list of actions which are forbidden to use
          */
-        public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(params ActionDefinitions.Id[] forbiddenActions)
+        public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
+            params ActionDefinitions.Id[] forbiddenActions)
         {
             return SetForbiddenActions(forbiddenActions.AsEnumerable());
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(IEnumerable<ActionDefinitions.Id> forbiddenActions)
+        public FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
+            IEnumerable<ActionDefinitions.Id> forbiddenActions)
         {
             Definition.ForbiddenActions.SetRange(forbiddenActions);
             Definition.ForbiddenActions.Sort();
@@ -62,12 +71,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         /**
          * The list of actions which are individually greenlighted
          */
-        public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(params ActionDefinitions.Id[] authorizedActions)
+        public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(
+            params ActionDefinitions.Id[] authorizedActions)
         {
             return SetAuthorizedActions(authorizedActions.AsEnumerable());
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(IEnumerable<ActionDefinitions.Id> authorizedActions)
+        public FeatureDefinitionAdditionalActionBuilder SetAuthorizedActions(
+            IEnumerable<ActionDefinitions.Id> authorizedActions)
         {
             Definition.AuthorizedActions.SetRange(authorizedActions);
             Definition.AuthorizedActions.Sort();
@@ -77,12 +88,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         /**
          * The list of the only actions which are authorized (when non empty)
          */
-        public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(params ActionDefinitions.Id[] restrictedActions)
+        public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
+            params ActionDefinitions.Id[] restrictedActions)
         {
             return SetRestrictedActions(restrictedActions.AsEnumerable());
         }
 
-        public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(IEnumerable<ActionDefinitions.Id> restrictedActions)
+        public FeatureDefinitionAdditionalActionBuilder SetRestrictedActions(
+            IEnumerable<ActionDefinitions.Id> restrictedActions)
         {
             Definition.RestrictedActions.SetRange(restrictedActions);
             Definition.RestrictedActions.Sort();

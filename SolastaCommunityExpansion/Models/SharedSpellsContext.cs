@@ -24,9 +24,9 @@ namespace SolastaCommunityExpansion.Models
     {
         public static Dictionary<string, BaseDefinition> RecoverySlots { get; } = new()
         {
-            { "PowerCircleLandNaturalRecovery", Druid },
-            { "PowerWizardArcaneRecovery", Wizard },
-            { "PowerSpellMasterBonusRecovery", Wizard },
+            {"PowerCircleLandNaturalRecovery", Druid},
+            {"PowerWizardArcaneRecovery", Wizard},
+            {"PowerSpellMasterBonusRecovery", Wizard}
             // added during load
             //{ "TinkererSpellStoringItem", TinkererClass },
             //{ "ArtificerInfusionSpellRefuelingRing", TinkererClass },
@@ -35,12 +35,12 @@ namespace SolastaCommunityExpansion.Models
 
         public static Dictionary<CharacterClassDefinition, CasterType> ClassCasterType { get; } = new()
         {
-            { Cleric, CasterType.Full },
-            { Druid, CasterType.Full },
-            { Sorcerer, CasterType.Full },
-            { Wizard, CasterType.Full },
-            { Paladin, CasterType.Half },
-            { Ranger, CasterType.Half }
+            {Cleric, CasterType.Full},
+            {Druid, CasterType.Full},
+            {Sorcerer, CasterType.Full},
+            {Wizard, CasterType.Full},
+            {Paladin, CasterType.Half},
+            {Ranger, CasterType.Half}
             // added during load
             //{ TinkererClass, CasterType.HalfRoundUp },
             //{ WitchClass, CasterType.Full },
@@ -48,8 +48,7 @@ namespace SolastaCommunityExpansion.Models
 
         public static Dictionary<CharacterSubclassDefinition, CasterType> SubclassCasterType { get; } = new()
         {
-            { MartialSpellblade, CasterType.OneThird },
-            { RoguishShadowCaster, CasterType.OneThird }
+            {MartialSpellblade, CasterType.OneThird}, {RoguishShadowCaster, CasterType.OneThird}
             // added during load
             //{ ConArtistSubclass, CasterType.OneThird }, // ChrisJohnDigital
             //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
@@ -61,17 +60,20 @@ namespace SolastaCommunityExpansion.Models
 
             public CasterLevelContext()
             {
-                levels = new()
+                levels = new Dictionary<CasterType, int>
                 {
-                    { CasterType.None, 0 },
-                    { CasterType.Full, 0 },
-                    { CasterType.Half, 0 },
-                    { CasterType.HalfRoundUp, 0 },
-                    { CasterType.OneThird, 0 },
+                    {CasterType.None, 0},
+                    {CasterType.Full, 0},
+                    {CasterType.Half, 0},
+                    {CasterType.HalfRoundUp, 0},
+                    {CasterType.OneThird, 0}
                 };
             }
 
-            public void IncrementCasterLevel(CasterType casterType, int increment) => levels[casterType] += increment;
+            public void IncrementCasterLevel(CasterType casterType, int increment)
+            {
+                levels[casterType] += increment;
+            }
 
             public int GetCasterLevel()
             {
@@ -100,7 +102,8 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        private static CasterType GetCasterTypeForClassOrSubclass(CharacterClassDefinition characterClassDefinition, CharacterSubclassDefinition characterSubclassDefinition)
+        private static CasterType GetCasterTypeForClassOrSubclass(CharacterClassDefinition characterClassDefinition,
+            CharacterSubclassDefinition characterSubclassDefinition)
         {
             if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition))
             {
@@ -122,7 +125,8 @@ namespace SolastaCommunityExpansion.Models
 
             if (gameCampaign != null)
             {
-                var gameCampaignCharacter = gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
+                var gameCampaignCharacter =
+                    gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
 
                 if (gameCampaignCharacter != null
                     && gameCampaignCharacter.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero)
@@ -143,21 +147,27 @@ namespace SolastaCommunityExpansion.Models
             return Global.InspectedHero;
         }
 
-        public static bool IsWarlock(CharacterClassDefinition characterClassDefinition) =>
-            characterClassDefinition == WarlockClass;
+        public static bool IsWarlock(CharacterClassDefinition characterClassDefinition)
+        {
+            return characterClassDefinition == WarlockClass;
+        }
 
         // need the null check for companions who don't have repertoires
-        public static bool IsMulticaster(RulesetCharacterHero rulesetCharacterHero) =>
-            rulesetCharacterHero != null
-            && rulesetCharacterHero.SpellRepertoires
-                .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
+        public static bool IsMulticaster(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return rulesetCharacterHero != null
+                   && rulesetCharacterHero.SpellRepertoires
+                       .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
+        }
 
         // need the null check for companions who don't have repertoires
-        public static bool IsSharedcaster(RulesetCharacterHero rulesetCharacterHero) =>
-            rulesetCharacterHero != null
-            && rulesetCharacterHero.SpellRepertoires
-                .Where(sr => sr.SpellCastingClass != WarlockClass)
-                .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
+        public static bool IsSharedcaster(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return rulesetCharacterHero != null
+                   && rulesetCharacterHero.SpellRepertoires
+                       .Where(sr => sr.SpellCastingClass != WarlockClass)
+                       .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
+        }
 
         // need the null check for companions who don't have repertoires
         private static int GetWarlockLevel(RulesetCharacterHero rulesetCharacterHero)
@@ -217,8 +227,10 @@ namespace SolastaCommunityExpansion.Models
             return 0;
         }
 
-        public static RulesetSpellRepertoire GetWarlockSpellRepertoire(RulesetCharacterHero rulesetCharacterHero) =>
-            rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => IsWarlock(x.SpellCastingClass));
+        public static RulesetSpellRepertoire GetWarlockSpellRepertoire(RulesetCharacterHero rulesetCharacterHero)
+        {
+            return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x => IsWarlock(x.SpellCastingClass));
+        }
 
         public static int GetSharedCasterLevel(RulesetCharacterHero rulesetCharacterHero)
         {
@@ -233,9 +245,11 @@ namespace SolastaCommunityExpansion.Models
             {
                 var currentCharacterClassDefinition = classAndLevel.Key;
 
-                rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition, out var currentCharacterSubclassDefinition);
+                rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(currentCharacterClassDefinition,
+                    out var currentCharacterSubclassDefinition);
 
-                var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition, currentCharacterSubclassDefinition);
+                var casterType = GetCasterTypeForClassOrSubclass(currentCharacterClassDefinition,
+                    currentCharacterSubclassDefinition);
 
                 casterLevelContext.IncrementCasterLevel(casterType, classAndLevel.Value);
             }
@@ -248,7 +262,8 @@ namespace SolastaCommunityExpansion.Models
             if (!IsSharedcaster(rulesetCharacterHero))
             {
                 var repertoire = rulesetCharacterHero.SpellRepertoires
-                    .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race && x.SpellCastingClass != WarlockClass);
+                    .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race &&
+                               x.SpellCastingClass != WarlockClass);
 
                 return GetClassSpellLevel(repertoire);
             }
@@ -267,7 +282,8 @@ namespace SolastaCommunityExpansion.Models
         {
             if (spellRepertoire != null && spellRepertoire.SpellCastingFeature.SlotsPerLevels != null)
             {
-                var slotsPerLevel = spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
+                var slotsPerLevel =
+                    spellRepertoire.SpellCastingFeature.SlotsPerLevels[spellRepertoire.SpellCastingLevel - 1];
 
                 return slotsPerLevel.Slots.IndexOf(0);
             }

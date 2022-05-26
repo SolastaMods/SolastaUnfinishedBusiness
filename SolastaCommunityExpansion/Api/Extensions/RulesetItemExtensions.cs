@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetItem)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class RulesetItemExtensions
+    [TargetType(typeof(RulesetItem))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class RulesetItemExtensions
     {
         public static T AddDynamicItemProperties<T>(this T entity, params RulesetItemProperty[] value)
             where T : RulesetItem
@@ -34,16 +35,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static System.Collections.Generic.List<FeatureDefinition> GetAttackModifiers<T>(this T entity)
+        public static List<FeatureDefinition> GetAttackModifiers<T>(this T entity)
             where T : RulesetItem
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("attackModifiers");
+            return entity.GetField<List<FeatureDefinition>>("attackModifiers");
         }
 
-        public static System.Collections.Generic.List<RulesetItemProperty> GetToRemove<T>(this T entity)
+        public static List<RulesetItemProperty> GetToRemove<T>(this T entity)
             where T : RulesetItem
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetItemProperty>>("toRemove");
+            return entity.GetField<List<RulesetItemProperty>>("toRemove");
         }
 
         public static T SetAttunedToCharacter<T>(this T entity, System.String value)

@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionCombatAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionCombatAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionCombatAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionCombatAffinityExtensions
     {
         public static T AddNullifiedBySenses<T>(this T entity, params SenseMode.Type[] value)
             where T : FeatureDefinitionCombatAffinity
@@ -41,14 +42,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackOfOpportunityOnMeAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetAttackOfOpportunityOnMeAdvantageType<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("attackOfOpportunityOnMeAdvantageType", value);
             return entity;
         }
 
-        public static T SetAttackOnMeAdvantage<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetAttackOnMeAdvantage<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("attackOnMeAdvantage", value);
@@ -97,7 +98,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetInitiativeAffinity<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetInitiativeAffinity<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("initiativeAffinity", value);
@@ -118,14 +119,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMyAttackAdvantage<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetMyAttackAdvantage<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackAdvantage", value);
             return entity;
         }
 
-        public static T SetMyAttackAffinityFilter<T>(this T entity, RuleDefinitions.AttackAffinityFilter value)
+        public static T SetMyAttackAffinityFilter<T>(this T entity, AttackAffinityFilter value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackAffinityFilter", value);
@@ -146,21 +147,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMyAttackModifierDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetMyAttackModifierDieType<T>(this T entity, DieType value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackModifierDieType", value);
             return entity;
         }
 
-        public static T SetMyAttackModifierSign<T>(this T entity, RuleDefinitions.AttackModifierSign value)
+        public static T SetMyAttackModifierSign<T>(this T entity, AttackModifierSign value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackModifierSign", value);
             return entity;
         }
 
-        public static T SetMyAttackModifierValueDetermination<T>(this T entity, RuleDefinitions.CombatAddinityValueDetermination value)
+        public static T SetMyAttackModifierValueDetermination<T>(this T entity, CombatAddinityValueDetermination value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackModifierValueDetermination", value);
@@ -188,7 +189,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSituationalContext<T>(this T entity, RuleDefinitions.SituationalContext value)
+        public static T SetSituationalContext<T>(this T entity, SituationalContext value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("situationalContext", value);

@@ -17,7 +17,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjura
 
             involvedGameCharacters.RemoveAll(
                 x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                    && Models.ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster.MonsterDefinition));
+                     && Models.ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster
+                         .MonsterDefinition));
         }
     }
 }

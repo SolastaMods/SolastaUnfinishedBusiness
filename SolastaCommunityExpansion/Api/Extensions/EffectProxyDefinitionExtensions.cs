@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(EffectProxyDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class EffectProxyDefinitionExtensions
+    [TargetType(typeof(EffectProxyDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class EffectProxyDefinitionExtensions
     {
         public static T AddAdditionalFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : EffectProxyDefinition
@@ -76,7 +77,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackMethod<T>(this T entity, RuleDefinitions.ProxyAttackMethod value)
+        public static T SetAttackMethod<T>(this T entity, ProxyAttackMethod value)
             where T : EffectProxyDefinition
         {
             entity.SetField("attackMethod", value);
@@ -146,7 +147,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetDamageDie<T>(this T entity, DieType value)
             where T : EffectProxyDefinition
         {
             entity.SetField("damageDie", value);
@@ -237,7 +238,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPortraitSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
+        public static T SetPortraitSpriteReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : EffectProxyDefinition
         {
             entity.SetField("portraitSpriteReference", value);

@@ -17,18 +17,24 @@ namespace SolastaCommunityExpansion.Feats
         internal static void CreateFeats(List<FeatDefinition> feats)
         {
             var crafty_int = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierCreed_Of_Pakri, "AttributeModifierFeatCraftyInt", "b23c3b73-7690-42ba-aa49-7ca3451daa05")
-                .SetGuiPresentation("AttributeInt", Category.CraftyFeats, AttributeModifierCreed_Of_Pakri.GuiPresentation.SpriteReference)
+                .Create(AttributeModifierCreed_Of_Pakri, "AttributeModifierFeatCraftyInt",
+                    "b23c3b73-7690-42ba-aa49-7ca3451daa05")
+                .SetGuiPresentation("AttributeInt", Category.CraftyFeats,
+                    AttributeModifierCreed_Of_Pakri.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             var crafty_wis = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierCreed_Of_Maraike, "AttributeModifierFeatCraftyWis", "23f944c7-2359-43cc-8bdc-71833bf35302")
-                .SetGuiPresentation("AttributeWis", Category.CraftyFeats, AttributeModifierCreed_Of_Maraike.GuiPresentation.SpriteReference)
+                .Create(AttributeModifierCreed_Of_Maraike, "AttributeModifierFeatCraftyWis",
+                    "23f944c7-2359-43cc-8bdc-71833bf35302")
+                .SetGuiPresentation("AttributeWis", Category.CraftyFeats,
+                    AttributeModifierCreed_Of_Maraike.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             var crafty_dex = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierCreed_Of_Maraike, "AttributeModifierFeatCraftyDex", "4db12466-67da-47a4-8d96-a9bf9cf3a251")
-                .SetGuiPresentation("AttributeDex", Category.CraftyFeats, AttributeModifierCreed_Of_Misaye.GuiPresentation.SpriteReference)
+                .Create(AttributeModifierCreed_Of_Maraike, "AttributeModifierFeatCraftyDex",
+                    "4db12466-67da-47a4-8d96-a9bf9cf3a251")
+                .SetGuiPresentation("AttributeDex", Category.CraftyFeats,
+                    AttributeModifierCreed_Of_Misaye.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             var crafty_arcana = FeatureDefinitionProficiencyBuilder
@@ -82,7 +88,8 @@ namespace SolastaCommunityExpansion.Feats
             var crafty_bows = FeatureDefinitionProficiencyBuilder
                 .Create(ProficiencyAllLanguages, "CraftyBows", "62a71277-b62d-41e6-9546-19f6faa2b5a7")
                 .SetGuiPresentation("CraftyFeats/&CraftyBowsTitle", "CraftyFeats/&CraftyBowsDescription")
-                .SetProficiencies(ProficiencyType.Weapon, ShortbowType.Name, LongbowType.Name, LightCrossbowType.Name, HeavyCrossbowType.Name)
+                .SetProficiencies(ProficiencyType.Weapon, ShortbowType.Name, LongbowType.Name, LightCrossbowType.Name,
+                    HeavyCrossbowType.Name)
                 .AddToDB();
 
             var apothecaryIntFeat = FeatDefinitionBuilder
@@ -99,19 +106,22 @@ namespace SolastaCommunityExpansion.Feats
 
             var manacalonCrafter = FeatDefinitionBuilder
                 .Create(MasterEnchanter, "ManacalonCrafter", "290f73c8-201c-489e-bdcb-7a39ab40915c")
-                .SetGuiPresentation("CraftyFeats/&ManacalonCrafterFeatTitle", "CraftyFeats/&ManacalonCrafterFeatDescription")
+                .SetGuiPresentation("CraftyFeats/&ManacalonCrafterFeatTitle",
+                    "CraftyFeats/&ManacalonCrafterFeatDescription")
                 .SetFeatures(crafty_int, crafty_manacalon_rosary, crafty_arcana)
                 .AddToDB();
 
             var toxicologistInt = FeatDefinitionBuilder
                 .Create(ArmorMaster, "ToxicologistInt", "702d1b4d-953c-406d-a900-d5d376ed29d3")
-                .SetGuiPresentation("CraftyFeats/&ToxicologistIntFeatTitle", "CraftyFeats/&ToxicologistIntFeatDescription")
+                .SetGuiPresentation("CraftyFeats/&ToxicologistIntFeatTitle",
+                    "CraftyFeats/&ToxicologistIntFeatDescription")
                 .SetFeatures(crafty_int, crafty_poisoners_kit, crafty_nature)
                 .AddToDB();
 
             var toxicologistWis = FeatDefinitionBuilder
                 .Create(ArmorMaster, "ToxicologistWis", "1bb4acbd-1890-48ae-9f86-46c2cb95cb79")
-                .SetGuiPresentation("CraftyFeats/&ToxicologistWisFeatTitle", "CraftyFeats/&ToxicologistWisFeatDescription")
+                .SetGuiPresentation("CraftyFeats/&ToxicologistWisFeatTitle",
+                    "CraftyFeats/&ToxicologistWisFeatDescription")
                 .SetFeatures(crafty_wis, crafty_poisoners_kit, crafty_medicine)
                 .AddToDB();
 
@@ -123,11 +133,13 @@ namespace SolastaCommunityExpansion.Feats
 
             var craftyFletcher = FeatDefinitionBuilder
                 .Create(ArmorMaster, "CraftyFletcher", "67c5f2d2-a98c-49a1-a1ab-16cc8f4b4ba4")
-                .SetGuiPresentation("CraftyFeats/&CraftyFletcherFeatTitle", "CraftyFeats/&CraftyFletcherFeatDescription")
+                .SetGuiPresentation("CraftyFeats/&CraftyFletcherFeatTitle",
+                    "CraftyFeats/&CraftyFletcherFeatDescription")
                 .SetFeatures(crafty_dex, crafty_smiths_tools, crafty_bows)
                 .AddToDB();
 
-            feats.AddRange(apothecaryIntFeat, apothecaryWisFeat, manacalonCrafter, toxicologistInt, toxicologistWis, craftyScribe, craftyFletcher);
+            feats.AddRange(apothecaryIntFeat, apothecaryWisFeat, manacalonCrafter, toxicologistInt, toxicologistWis,
+                craftyScribe, craftyFletcher);
         }
     }
 }

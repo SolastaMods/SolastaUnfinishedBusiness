@@ -10,13 +10,17 @@ namespace SolastaCommunityExpansion.Models
         internal const string VOTP_CAMPAIGN = "DLC1_ValleyOfThePast_Campaign";
         internal const string USER_CAMPAIGN = "UserCampaign";
 
-        internal static readonly string DefaultSaveGameDirectory = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
+        internal static readonly string DefaultSaveGameDirectory =
+            Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
 
         internal const string LocationSaveFolder = @"CE\Location";
         internal const string CampaignSaveFolder = @"CE\Campaign";
 
-        internal static readonly string LocationSaveGameDirectory = Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
-        internal static readonly string CampaignSaveGameDirectory = Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
+        internal static readonly string LocationSaveGameDirectory =
+            Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
+
+        internal static readonly string CampaignSaveGameDirectory =
+            Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
 
         internal static class ServiceRepositoryEx
         {
@@ -110,7 +114,8 @@ namespace SolastaCommunityExpansion.Models
                 .Select(d => new
                 {
                     Path = d,
-                    LastWriteTime = Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                    LastWriteTime =
+                        Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                     LocationType = LocationType.UserLocation
                 })
                 .Concat(
@@ -118,7 +123,9 @@ namespace SolastaCommunityExpansion.Models
                         .Select(d => new
                         {
                             Path = d,
-                            LastWriteTime = Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                            LastWriteTime =
+                                Directory.EnumerateFiles(d, "*.sav")
+                                    .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                             LocationType = LocationType.CustomCampaign
                         })
                 )
@@ -127,10 +134,12 @@ namespace SolastaCommunityExpansion.Models
                         new
                         {
                             Path = DefaultSaveGameDirectory,
-                            LastWriteTime = Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                            LastWriteTime =
+                                Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav")
+                                    .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
                             LocationType = LocationType.StandardCampaign
                         }
-                    , 1)
+                        , 1)
                 )
                 .Where(d => d.LastWriteTime.HasValue)
                 .OrderByDescending(d => d.LastWriteTime)
@@ -162,23 +171,23 @@ namespace SolastaCommunityExpansion.Models
             switch (locationType)
             {
                 case LocationType.UserLocation:
-                    {
-                        var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
+                {
+                    var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
 
-                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-                    }
+                    return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                }
                 case LocationType.CustomCampaign:
-                    {
-                        var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
+                {
+                    var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
 
-                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-                    }
+                    return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                }
                 case LocationType.StandardCampaign:
-                    {
-                        var saveFolder = DefaultSaveGameDirectory;
+                {
+                    var saveFolder = DefaultSaveGameDirectory;
 
-                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-                    }
+                    return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                }
                 default:
                     Main.Error($"Unknown LocationType: {locationType}");
                     break;

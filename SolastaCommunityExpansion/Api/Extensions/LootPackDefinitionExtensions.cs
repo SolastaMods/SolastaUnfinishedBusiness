@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(LootPackDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class LootPackDefinitionExtensions
+    [TargetType(typeof(LootPackDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class LootPackDefinitionExtensions
     {
         public static T AddItemOccurencesList<T>(this T entity, params ItemOccurence[] value)
             where T : LootPackDefinition

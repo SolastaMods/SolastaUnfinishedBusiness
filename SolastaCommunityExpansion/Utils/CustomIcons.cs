@@ -18,6 +18,7 @@ namespace SolastaCommunityExpansion.Utils
         internal static readonly Dictionary<string, Sprite> SpritesByGuid = new();
 
         #region Helpers
+
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
             var bytes = File.ReadAllBytes(filePath);
@@ -44,10 +45,8 @@ namespace SolastaCommunityExpansion.Utils
 
                 return newText;
             }
-            else
-            {
-                return sprite.texture;
-            }
+
+            return sprite.texture;
         }
 
         internal static Texture2D DuplicateTexture(Texture2D source)
@@ -156,7 +155,8 @@ namespace SolastaCommunityExpansion.Utils
             using var innerImage = new Bitmap(originalImage, new Size(innerImageScale.Item1, innerImageScale.Item2));
 
             var sourceRegion = new Rectangle(0, 0, innerImageScale.Item1, innerImageScale.Item2);
-            var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2, innerImageScale.Item1, innerImageScale.Item2);
+            var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2,
+                innerImageScale.Item1, innerImageScale.Item2);
 
             using (var g = Graphics.FromImage(baseImage))
             {
@@ -165,17 +165,20 @@ namespace SolastaCommunityExpansion.Utils
 
             baseImage.Save(finalImageFilename);
         }
+
         #endregion
 
         /// <summary>
         /// Convert a bitmap stored as an embedded resource to a Sprite.
         /// </summary>
-        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int size, bool throwIfAlreadyExists = false)
+        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int size,
+            bool throwIfAlreadyExists = false)
         {
             return GetOrCreateSprite(name, bitmap, size, size, throwIfAlreadyExists);
         }
 
-        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey, bool throwIfAlreadyExists = false)
+        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey,
+            bool throwIfAlreadyExists = false)
         {
             var (id, guid) = GetSpriteIds(name, sizex, sizey);
 
@@ -183,19 +186,17 @@ namespace SolastaCommunityExpansion.Utils
             {
                 if (throwIfAlreadyExists)
                 {
-                    throw new SolastaModApiException($"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
+                    throw new SolastaModApiException(
+                        $"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
                 }
-                else
-                {
 #if DEBUG
                     if (id != sprite.name)
                     {
                         throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
                     }
 #endif
-                    Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");
-                    return sprite;
-                }
+                Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");
+                return sprite;
             }
 
             var texture = new Texture2D(sizex, sizey, TextureFormat.DXT5, false);
@@ -239,7 +240,8 @@ namespace SolastaCommunityExpansion.Utils
             return CreateAssetReferenceSprite(name, bitmap, size, size);
         }
 
-        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int sizex, int sizey)
+        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int sizex,
+            int sizey)
         {
             var sprite = GetOrCreateSprite(name, bitmap, sizex, sizey);
             return new AssetReferenceSprite(GetSpriteGuid(sprite.name));

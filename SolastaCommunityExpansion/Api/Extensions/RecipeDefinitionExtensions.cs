@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RecipeDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class RecipeDefinitionExtensions
+    [TargetType(typeof(RecipeDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class RecipeDefinitionExtensions
     {
         public static T AddIngredients<T>(this T entity, params IngredientOccurenceDescription[] value)
             where T : RecipeDefinition

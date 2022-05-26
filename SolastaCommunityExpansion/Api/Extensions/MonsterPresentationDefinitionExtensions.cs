@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MonsterPresentationDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class MonsterPresentationDefinitionExtensions
+    [TargetType(typeof(MonsterPresentationDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class MonsterPresentationDefinitionExtensions
     {
         public static T SetCustomMaterials<T>(this T entity, UnityEngine.AddressableAssets.AssetReference[] value)
             where T : MonsterPresentationDefinition
@@ -32,7 +33,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSex<T>(this T entity, RuleDefinitions.CreatureSex value)
+        public static T SetSex<T>(this T entity, CreatureSex value)
             where T : MonsterPresentationDefinition
         {
             entity.SetField("sex", value);

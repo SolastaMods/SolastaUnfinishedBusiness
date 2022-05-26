@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Models
             FeyBear, // CR 4
             Green_Hag, // CR 3
             FeyWolf, // CR 2
-            FeyDriad, // CR 1
+            FeyDriad // CR 1
         };
 
         /// <summary>
@@ -68,11 +68,13 @@ namespace SolastaCommunityExpansion.Models
         internal static void AddSummonsSubSpells()
         {
             // Invisible Stalker
-            if (!DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement(InvisibleStalkerSubspellName, out var _))
+            if (!DatabaseRepository.GetDatabase<SpellDefinition>()
+                    .TryGetElement(InvisibleStalkerSubspellName, out var _))
             {
                 var definition = SpellDefinitionBuilder
                     .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
-                    .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle", "Spell/&ConjureElementalDescription")
+                    .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle",
+                        "Spell/&ConjureElementalDescription")
                     .AddToDB();
 
                 var summonForm = definition.EffectDescription

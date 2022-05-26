@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(SpellDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class SpellDefinitionExtensions
+    [TargetType(typeof(SpellDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class SpellDefinitionExtensions
     {
         public static T AddSubspellsList<T>(this T entity, params SpellDefinition[] value)
             where T : SpellDefinition
@@ -41,7 +42,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCastingTime<T>(this T entity, RuleDefinitions.ActivationTime value)
+        public static T SetCastingTime<T>(this T entity, ActivationTime value)
             where T : SpellDefinition
         {
             entity.SetField("castingTime", value);
@@ -76,7 +77,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaterialComponentType<T>(this T entity, RuleDefinitions.MaterialComponentType value)
+        public static T SetMaterialComponentType<T>(this T entity, MaterialComponentType value)
             where T : SpellDefinition
         {
             entity.SetField("materialComponentType", value);
@@ -97,7 +98,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRitualCastingTime<T>(this T entity, RuleDefinitions.ActivationTime value)
+        public static T SetRitualCastingTime<T>(this T entity, ActivationTime value)
             where T : SpellDefinition
         {
             entity.SetField("ritualCastingTime", value);
@@ -188,7 +189,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetVocalSpellSemeType<T>(this T entity, RuleDefinitions.VocalSpellSemeType value)
+        public static T SetVocalSpellSemeType<T>(this T entity, VocalSpellSemeType value)
             where T : SpellDefinition
         {
             entity.SetField("vocalSpellSemeType", value);

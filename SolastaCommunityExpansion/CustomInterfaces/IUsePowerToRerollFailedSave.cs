@@ -3,6 +3,8 @@
     public interface IUsePowerToRerollFailedSave
     {
         string ReactionName { get; }
-        FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome);
+
+        FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character,
+            RuleDefinitions.RollOutcome saveOutcome);
     }
 }

@@ -38,9 +38,9 @@ namespace SolastaCommunityExpansion.Feats
                         .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, style)
                         .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
                         .AddToDB()
-            )
-            .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
-            .AddToDB();
+                )
+                .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
+                .AddToDB();
         }
 
         private static FeatDefinition BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
@@ -53,9 +53,9 @@ namespace SolastaCommunityExpansion.Feats
                         .SetProficiencies(RuleDefinitions.ProficiencyType.FightingStyle, fightingStyle.Name)
                         .SetGuiPresentation(fightingStyle.GuiPresentation)
                         .AddToDB()
-            )
-            .SetGuiPresentation(Category.Feat)
-            .AddToDB();
+                )
+                .SetGuiPresentation(Category.Feat)
+                .AddToDB();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
             if (hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
             {
-                subclasses = new() { characterSubclassDefinition.Name };
+                subclasses = new List<string> {characterSubclassDefinition.Name};
             }
         }
     }

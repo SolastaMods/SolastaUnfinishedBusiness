@@ -9,24 +9,24 @@
             GameLocationCharacter attacker, bool isCanrip)
             : base("CastSpellInRetribution", actionParams)
         {
-            this.attackerName = attacker.Name;
-            if (!isCanrip) { this.BuildSlotSubOptions(); }
+            attackerName = attacker.Name;
+            if (!isCanrip) { BuildSlotSubOptions(); }
         }
 
-        public override string SuboptionTag { get => "SlotLevel"; }
+        public override string SuboptionTag => "SlotLevel";
 
         public override string FormatDescription()
         {
-            var spellName = (this.ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
+            var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
                 .Title;
-            return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionDescription"), this.attackerName,
-                this.Character.Name,
+            return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionDescription"), attackerName,
+                Character.Name,
                 spellName);
         }
 
         public override string FormatReactDescription()
         {
-            var spellName = (this.ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
+            var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
                 .Title;
             return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionReactDescription"), spellName);
         }

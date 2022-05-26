@@ -12,11 +12,12 @@ namespace SolastaCommunityExpansion.Level20.Classes
         internal static void Load()
         {
             // add missing progression
-            Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
+            Wizard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
                 // TODO 14: Overchannel
-                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
+                new(FeatureSetAbilityScoreChoice, 16),
                 // TODO 18: Spell Mastery
-                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
+                new(FeatureSetAbilityScoreChoice, 19)
                 // TODO 20: Signature Spells
             });
 

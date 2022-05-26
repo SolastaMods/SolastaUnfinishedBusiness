@@ -11,13 +11,14 @@ namespace SolastaCommunityExpansion.Level20.Classes
     {
         internal static void Load()
         {
-            Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
+            Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
                 // TODO 15: Persistent Rage
-                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
-                new FeatureUnlockByLevel(AttributeModifierBarbarianBrutalCriticalAdd, 17),
-                new FeatureUnlockByLevel(FeatureDefinitionIndomitableMight, 18),
-                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
-                new FeatureUnlockByLevel(FeatureDefinitionPrimalChampion, 20),
+                new(FeatureSetAbilityScoreChoice, 16),
+                new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
+                new(FeatureDefinitionIndomitableMight, 18),
+                new(FeatureSetAbilityScoreChoice, 19),
+                new(FeatureDefinitionPrimalChampion, 20)
             });
         }
     }

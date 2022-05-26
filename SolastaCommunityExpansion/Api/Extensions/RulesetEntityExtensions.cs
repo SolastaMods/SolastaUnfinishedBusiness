@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetEntity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class RulesetEntityExtensions
+    [TargetType(typeof(RulesetEntity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class RulesetEntityExtensions
     {
         public static T SetDescriptionChanged<T>(this T entity, EntityDescription.DescriptionChangedHandler value)
             where T : RulesetEntity

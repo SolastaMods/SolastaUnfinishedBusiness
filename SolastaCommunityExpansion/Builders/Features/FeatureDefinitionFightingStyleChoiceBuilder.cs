@@ -5,24 +5,31 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionFightingStyleChoiceBuilder : FeatureDefinitionBuilder<FeatureDefinitionFightingStyleChoice, FeatureDefinitionFightingStyleChoiceBuilder>
+    public class FeatureDefinitionFightingStyleChoiceBuilder : FeatureDefinitionBuilder<
+        FeatureDefinitionFightingStyleChoice, FeatureDefinitionFightingStyleChoiceBuilder>
     {
         #region Constructors
-        protected FeatureDefinitionFightingStyleChoiceBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+
+        protected FeatureDefinitionFightingStyleChoiceBuilder(string name, Guid namespaceGuid) : base(name,
+            namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFightingStyleChoiceBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionFightingStyleChoiceBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
         {
         }
 
-        protected FeatureDefinitionFightingStyleChoiceBuilder(FeatureDefinitionFightingStyleChoice original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFightingStyleChoiceBuilder(FeatureDefinitionFightingStyleChoice original,
+            string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFightingStyleChoiceBuilder(FeatureDefinitionFightingStyleChoice original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionFightingStyleChoiceBuilder(FeatureDefinitionFightingStyleChoice original,
+            string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public FeatureDefinitionFightingStyleChoiceBuilder ClearFightingStyles()

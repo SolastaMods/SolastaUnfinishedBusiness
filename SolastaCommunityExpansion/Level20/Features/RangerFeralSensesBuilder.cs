@@ -4,7 +4,8 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class RangerFeralSensesBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, RangerFeralSensesBuilder>
+    internal sealed class
+        RangerFeralSensesBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, RangerFeralSensesBuilder>
     {
         private const string RangerFeralSensesName = "ZSRangerFeralSenses";
         private const string RangerFeralSensesGuid = "0e3207505ac04a499477ca1185287117";

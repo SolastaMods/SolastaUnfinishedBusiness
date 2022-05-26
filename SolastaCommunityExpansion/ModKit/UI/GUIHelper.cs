@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 namespace ModKit.Utility
 {
     public static class GUIHelper
@@ -20,7 +21,7 @@ namespace ModKit.Utility
                 ToggleState.Off => string.Format(FormatOff, text),
                 ToggleState.On => string.Format(FormatOn, text),
                 ToggleState.None => string.Format(FormatNone, text),
-                _ => string.Format(FormatNone),
+                _ => string.Format(FormatNone)
             };
         }
 
@@ -48,7 +49,10 @@ namespace ModKit.Utility
             return value != oldValue;
         }
 
-        public static void Hyperlink(string url, Color normalColor, Color hoverColor, GUIStyle style) => Hyperlink(url, url, normalColor, hoverColor, style);
+        public static void Hyperlink(string url, Color normalColor, Color hoverColor, GUIStyle style)
+        {
+            Hyperlink(url, url, normalColor, hoverColor, style);
+        }
 
         public static void Hyperlink(string text, string url, Color normalColor, Color hoverColor, GUIStyle style)
         {
@@ -68,11 +72,19 @@ namespace ModKit.Utility
             GUI.color = color;
         }
 
-        public static void TextField(ref string value, GUIStyle style = null, params GUILayoutOption[] options) => value = GUILayout.TextField(value, style ?? GUI.skin.textField, options);
+        public static void TextField(ref string value, GUIStyle style = null, params GUILayoutOption[] options)
+        {
+            value = GUILayout.TextField(value, style ?? GUI.skin.textField, options);
+        }
 
-        public static void TextField(ref string value, Action onChanged, GUIStyle style = null, params GUILayoutOption[] options) => TextField(ref value, null, onChanged, style, options);
+        public static void TextField(ref string value, Action onChanged, GUIStyle style = null,
+            params GUILayoutOption[] options)
+        {
+            TextField(ref value, null, onChanged, style, options);
+        }
 
-        public static void TextField(ref string value, Action onClear, Action onChanged, GUIStyle style = null, params GUILayoutOption[] options)
+        public static void TextField(ref string value, Action onClear, Action onChanged, GUIStyle style = null,
+            params GUILayoutOption[] options)
         {
             var old = value;
             TextField(ref value, style, options);
@@ -109,19 +121,22 @@ namespace ModKit.Utility
             return CheckboxPrivate(ref value, title, style, options);
         }
 #endif
-        public static ToggleState ToggleButton(ToggleState toggle, string text, GUIStyle style = null, params GUILayoutOption[] options)
+        public static ToggleState ToggleButton(ToggleState toggle, string text, GUIStyle style = null,
+            params GUILayoutOption[] options)
         {
             UI.ToggleButton(ref toggle, text, style, options);
             return toggle;
         }
 
-        public static ToggleState ToggleButton(ToggleState toggle, string text, Action on, Action off, GUIStyle style = null, params GUILayoutOption[] options)
+        public static ToggleState ToggleButton(ToggleState toggle, string text, Action on, Action off,
+            GUIStyle style = null, params GUILayoutOption[] options)
         {
             ToggleButton(ref toggle, text, on, off, style, options);
             return toggle;
         }
 
-        public static void ToggleButton(ref ToggleState toggle, string text, Action on, Action off, GUIStyle style = null, params GUILayoutOption[] options)
+        public static void ToggleButton(ref ToggleState toggle, string text, Action on, Action off,
+            GUIStyle style = null, params GUILayoutOption[] options)
         {
             var old = toggle;
             UI.ToggleButton(ref toggle, text, style, options);
@@ -138,18 +153,21 @@ namespace ModKit.Utility
             }
         }
 
-        public static void ToggleButton(ref ToggleState toggle, string text, ref float minWidth, GUIStyle style = null, params GUILayoutOption[] options)
+        public static void ToggleButton(ref ToggleState toggle, string text, ref float minWidth, GUIStyle style = null,
+            params GUILayoutOption[] options)
         {
             GUIContent content = new(GetToggleText(toggle, text));
             style ??= GUI.skin.button;
             minWidth = Math.Max(minWidth, style.CalcSize(content).x);
-            if (GUILayout.Button(content, style, options?.Concat(new[] { GUILayout.Width(minWidth) }).ToArray() ?? new[] { GUILayout.Width(minWidth) }))
+            if (GUILayout.Button(content, style,
+                    options?.Concat(new[] {GUILayout.Width(minWidth)}).ToArray() ?? new[] {GUILayout.Width(minWidth)}))
             {
                 toggle = toggle.Flip();
             }
         }
 
-        public static void ToggleButton(ref ToggleState toggle, string text, ref float minWidth, Action on, Action off, GUIStyle style = null, params GUILayoutOption[] options)
+        public static void ToggleButton(ref ToggleState toggle, string text, ref float minWidth, Action on, Action off,
+            GUIStyle style = null, params GUILayoutOption[] options)
         {
             var old = toggle;
             ToggleButton(ref toggle, text, ref minWidth, style, options);
@@ -166,7 +184,8 @@ namespace ModKit.Utility
             }
         }
 
-        public static ToggleState ToggleTypeList(ToggleState toggle, string text, HashSet<string> selectedTypes, HashSet<Type> allTypes, GUIStyle style = null, params GUILayoutOption[] options)
+        public static ToggleState ToggleTypeList(ToggleState toggle, string text, HashSet<string> selectedTypes,
+            HashSet<Type> allTypes, GUIStyle style = null, params GUILayoutOption[] options)
         {
             GUILayout.BeginHorizontal();
 
@@ -185,6 +204,7 @@ namespace ModKit.Utility
                                 selectedTypes.Add(type.FullName);
                             }
                         }
+
                         if (GUILayout.Button("Deselect All"))
                         {
                             selectedTypes.Clear();
@@ -193,7 +213,8 @@ namespace ModKit.Utility
 
                     foreach (var type in allTypes)
                     {
-                        ToggleButton(selectedTypes.Contains(type.FullName) ? ToggleState.On : ToggleState.Off, type.Name.ToSentence(),
+                        ToggleButton(selectedTypes.Contains(type.FullName) ? ToggleState.On : ToggleState.Off,
+                            type.Name.ToSentence(),
                             () => selectedTypes.Add(type.FullName),
                             () => selectedTypes.Remove(type.FullName),
                             style, options);
@@ -206,11 +227,20 @@ namespace ModKit.Utility
             return toggle;
         }
 
-        public static void Toolbar(ref int selected, string[] texts, GUIStyle style = null, params GUILayoutOption[] options) => selected = GUILayout.Toolbar(selected, texts, style ?? GUI.skin.button, options);
+        public static void Toolbar(ref int selected, string[] texts, GUIStyle style = null,
+            params GUILayoutOption[] options)
+        {
+            selected = GUILayout.Toolbar(selected, texts, style ?? GUI.skin.button, options);
+        }
 
-        public static void SelectionGrid(ref int selected, string[] texts, int xCount, GUIStyle style = null, params GUILayoutOption[] options) => selected = GUILayout.SelectionGrid(selected, texts, xCount, style ?? GUI.skin.button, options);
+        public static void SelectionGrid(ref int selected, string[] texts, int xCount, GUIStyle style = null,
+            params GUILayoutOption[] options)
+        {
+            selected = GUILayout.SelectionGrid(selected, texts, xCount, style ?? GUI.skin.button, options);
+        }
 
-        public static void SelectionGrid(ref int selected, string[] texts, int xCount, Action onChanged, GUIStyle style = null, params GUILayoutOption[] options)
+        public static void SelectionGrid(ref int selected, string[] texts, int xCount, Action onChanged,
+            GUIStyle style = null, params GUILayoutOption[] options)
         {
             var old = selected;
             SelectionGrid(ref selected, texts, xCount, style, options);
@@ -220,22 +250,22 @@ namespace ModKit.Utility
             }
         }
 
-        public static float RoundedHorizontalSlider(float value, int digits, float leftValue, float rightValue, params GUILayoutOption[] options)
+        public static float RoundedHorizontalSlider(float value, int digits, float leftValue, float rightValue,
+            params GUILayoutOption[] options)
         {
             if (digits < 0)
             {
                 var num = (float)Math.Pow(10d, -digits);
-                return (float)Math.Round(GUILayout.HorizontalSlider(value, leftValue, rightValue, options) / num, 0) * num;
+                return (float)Math.Round(GUILayout.HorizontalSlider(value, leftValue, rightValue, options) / num, 0) *
+                       num;
             }
-            else
-            {
-                return (float)Math.Round(GUILayout.HorizontalSlider(value, leftValue, rightValue, options), digits);
-            }
+
+            return (float)Math.Round(GUILayout.HorizontalSlider(value, leftValue, rightValue, options), digits);
         }
 
-        private static Texture2D fillTexture = null;
-        private static GUIStyle fillStyle = null;
-        private static Color fillColor = new(1f, 1f, 1f, 0.65f);
+        private static Texture2D fillTexture;
+        private static GUIStyle fillStyle;
+        private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
         private static readonly Color color = new(1f, 1f, 1f, 0.35f);
         private static Color fillColor2 = color;
 
@@ -258,7 +288,12 @@ namespace ModKit.Utility
             fillStyle.normal.background = fillTexture;
             return fillStyle;
         }
-        public static void GUIDrawRect(Rect position, Color color) => GUI.Box(position, GUIContent.none, FillStyle(color));
+
+        public static void GUIDrawRect(Rect position, Color color)
+        {
+            GUI.Box(position, GUIContent.none, FillStyle(color));
+        }
+
         //private static GUIStyle divStyle;
         public static void Div(Color color, float indent = 0, float height = 0, float width = 0)
         {
@@ -267,10 +302,7 @@ namespace ModKit.Utility
                 fillTexture = new Texture2D(1, 1);
             }
 
-            var divStyle = new GUIStyle
-            {
-                fixedHeight = 1
-            };
+            var divStyle = new GUIStyle {fixedHeight = 1};
             fillTexture.SetPixel(0, 0, color);
             fillTexture.Apply();
             divStyle.normal.background = fillTexture;
@@ -289,7 +321,9 @@ namespace ModKit.Utility
             GUILayout.Space(height / 2f);
         }
 
-        public static void Div(float indent = 0, float height = 25, float width = 0) => Div(fillColor, indent, height, width);
-
+        public static void Div(float indent = 0, float height = 25, float width = 0)
+        {
+            Div(fillColor, indent, height, width);
+        }
     }
 }

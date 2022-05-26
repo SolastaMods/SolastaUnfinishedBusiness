@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(IngredientOccurenceDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class IngredientOccurenceDescriptionExtensions
+    [TargetType(typeof(IngredientOccurenceDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class IngredientOccurenceDescriptionExtensions
     {
         public static T SetAmount<T>(this T entity, System.Int32 value)
             where T : IngredientOccurenceDescription

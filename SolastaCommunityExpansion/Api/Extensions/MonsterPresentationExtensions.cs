@@ -8,22 +8,25 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MonsterPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class MonsterPresentationExtensions
+    [TargetType(typeof(MonsterPresentation))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class MonsterPresentationExtensions
     {
         public static MonsterPresentation Copy(this MonsterPresentation entity)
         {
             return new MonsterPresentation(entity);
         }
 
-        public static T SetAttachedParticlesReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetAttachedParticlesReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterPresentation
         {
             entity.SetField("attachedParticlesReference", value);
             return entity;
         }
 
-        public static T SetBestiaryAttachedParticlesReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetBestiaryAttachedParticlesReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterPresentation
         {
             entity.SetField("bestiaryAttachedParticlesReference", value);
@@ -121,7 +124,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHumanoidMonsterPresentationDefinitions<T>(this T entity, HumanoidMonsterPresentationDefinition[] value)
+        public static T SetHumanoidMonsterPresentationDefinitions<T>(this T entity,
+            HumanoidMonsterPresentationDefinition[] value)
             where T : MonsterPresentation
         {
             entity.SetField("humanoidMonsterPresentationDefinitions", value);

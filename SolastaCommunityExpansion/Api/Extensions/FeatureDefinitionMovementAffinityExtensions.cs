@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionMovementAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionMovementAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionMovementAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionMovementAffinityExtensions
     {
         public static T SetAdditionalDashTag<T>(this T entity, System.String value)
             where T : FeatureDefinitionMovementAffinity
@@ -151,14 +152,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMoveMode<T>(this T entity, RuleDefinitions.MoveMode value)
+        public static T SetMoveMode<T>(this T entity, MoveMode value)
             where T : FeatureDefinitionMovementAffinity
         {
             entity.SetField("moveMode", value);
             return entity;
         }
 
-        public static T SetSituationalContext<T>(this T entity, RuleDefinitions.SituationalContext value)
+        public static T SetSituationalContext<T>(this T entity, SituationalContext value)
             where T : FeatureDefinitionMovementAffinity
         {
             entity.SetField("situationalContext", value);

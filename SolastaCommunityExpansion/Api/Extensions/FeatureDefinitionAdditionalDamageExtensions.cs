@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAdditionalDamage)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionAdditionalDamageExtensions
+    [TargetType(typeof(FeatureDefinitionAdditionalDamage))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionAdditionalDamageExtensions
     {
         public static T AddConditionOperations<T>(this T entity, params ConditionOperationDescription[] value)
             where T : FeatureDefinitionAdditionalDamage
@@ -76,14 +77,15 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAcidImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetAcidImpactParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("acidImpactParticleReference", value);
             return entity;
         }
 
-        public static T SetAdditionalDamageType<T>(this T entity, RuleDefinitions.AdditionalDamageType value)
+        public static T SetAdditionalDamageType<T>(this T entity, AdditionalDamageType value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("additionalDamageType", value);
@@ -104,7 +106,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetColdImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetColdImpactParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("coldImpactParticleReference", value);
@@ -132,7 +135,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageAdvancement<T>(this T entity, RuleDefinitions.AdditionalDamageAdvancement value)
+        public static T SetDamageAdvancement<T>(this T entity, AdditionalDamageAdvancement value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("damageAdvancement", value);
@@ -146,28 +149,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetDamageDieType<T>(this T entity, DieType value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("damageDieType", value);
             return entity;
         }
 
-        public static T SetDamageSaveAffinity<T>(this T entity, RuleDefinitions.EffectSavingThrowType value)
+        public static T SetDamageSaveAffinity<T>(this T entity, EffectSavingThrowType value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("damageSaveAffinity", value);
             return entity;
         }
 
-        public static T SetDamageValueDetermination<T>(this T entity, RuleDefinitions.AdditionalDamageValueDetermination value)
+        public static T SetDamageValueDetermination<T>(this T entity, AdditionalDamageValueDetermination value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("damageValueDetermination", value);
             return entity;
         }
 
-        public static T SetDcComputation<T>(this T entity, RuleDefinitions.EffectDifficultyClassComputation value)
+        public static T SetDcComputation<T>(this T entity, EffectDifficultyClassComputation value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("dcComputation", value);
@@ -209,7 +212,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFireImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetFireImpactParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("fireImpactParticleReference", value);
@@ -237,7 +241,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLightningImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetLightningImpactParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("lightningImpactParticleReference", value);
@@ -251,7 +256,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLimitedUsage<T>(this T entity, RuleDefinitions.FeatureLimitedUsage value)
+        public static T SetLimitedUsage<T>(this T entity, FeatureLimitedUsage value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("limitedUsage", value);
@@ -272,7 +277,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPoisonImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetPoisonImpactParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("poisonImpactParticleReference", value);
@@ -286,7 +292,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiredProperty<T>(this T entity, RuleDefinitions.AdditionalDamageRequiredProperty value)
+        public static T SetRequiredProperty<T>(this T entity, AdditionalDamageRequiredProperty value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("requiredProperty", value);
@@ -335,7 +341,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTriggerCondition<T>(this T entity, RuleDefinitions.AdditionalDamageTriggerCondition value)
+        public static T SetTriggerCondition<T>(this T entity, AdditionalDamageTriggerCondition value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("triggerCondition", value);

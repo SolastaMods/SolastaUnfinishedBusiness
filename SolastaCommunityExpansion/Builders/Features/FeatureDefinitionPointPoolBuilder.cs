@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -28,6 +29,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public TBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
@@ -72,6 +74,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         FeatureDefinitionPointPoolBuilder>
     {
         #region Constructors
+
         public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -89,6 +92,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

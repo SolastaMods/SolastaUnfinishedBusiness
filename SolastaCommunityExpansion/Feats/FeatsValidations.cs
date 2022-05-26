@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Feats
         // validation routines for FeatDefinitionWithPrerequisites
         //
 
-        internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(int minCharLevel)
+        internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
+            int minCharLevel)
         {
             return (_, hero) =>
             {
@@ -21,11 +22,14 @@ namespace SolastaCommunityExpansion.Feats
                     return (true, Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()));
                 }
 
-                return (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()), "EA7171"));
+                return (false,
+                    Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteLevelFormat", minCharLevel.ToString()),
+                        "EA7171"));
             };
         }
 
-        internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(CharacterClassDefinition characterClassDefinition)
+        internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
+            CharacterClassDefinition characterClassDefinition)
         {
             var className = characterClassDefinition.Name;
 
@@ -54,10 +58,8 @@ namespace SolastaCommunityExpansion.Feats
             {
                 return (true, Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack"));
             }
-            else
-            {
-                return (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
-            }
+
+            return (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
         }
     }
 }

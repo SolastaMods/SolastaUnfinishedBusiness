@@ -13,7 +13,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         private OnMagicalAttackDamageDelegate beforeOnMagicalAttackDamage;
         private OnMagicalAttackDamageDelegate afterOnMagicalAttackDamage;
 
-        internal void SetOnMagicalAttackDamageDelegates(OnMagicalAttackDamageDelegate before = null, OnMagicalAttackDamageDelegate after = null)
+        internal void SetOnMagicalAttackDamageDelegates(OnMagicalAttackDamageDelegate before = null,
+            OnMagicalAttackDamageDelegate after = null)
         {
             beforeOnMagicalAttackDamage = before;
             afterOnMagicalAttackDamage = after;
@@ -28,7 +29,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             bool firstTarget,
             bool criticalHit)
         {
-            beforeOnMagicalAttackDamage?.Invoke(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+            beforeOnMagicalAttackDamage?.Invoke(attacker, defender, magicModifier, rulesetEffect, actualEffectForms,
+                firstTarget, criticalHit);
         }
 
         public void AfterOnMagicalAttackDamage(
@@ -40,7 +42,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             bool firstTarget,
             bool criticalHit)
         {
-            afterOnMagicalAttackDamage?.Invoke(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+            afterOnMagicalAttackDamage?.Invoke(attacker, defender, magicModifier, rulesetEffect, actualEffectForms,
+                firstTarget, criticalHit);
         }
     }
 }

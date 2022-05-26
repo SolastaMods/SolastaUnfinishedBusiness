@@ -72,7 +72,8 @@ namespace SolastaCommunityExpansion.Models
 
         private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
         {
-            characterClassDefinition.GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
+            characterClassDefinition.GuiPresentation.SetHidden(
+                !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
         }
 
         internal static void Switch(CharacterClassDefinition characterClassDefinition, bool active)

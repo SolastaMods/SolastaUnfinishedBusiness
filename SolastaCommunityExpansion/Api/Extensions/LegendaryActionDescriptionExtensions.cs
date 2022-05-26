@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(LegendaryActionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class LegendaryActionDescriptionExtensions
+    [TargetType(typeof(LegendaryActionDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class LegendaryActionDescriptionExtensions
     {
         public static LegendaryActionDescription Copy(this LegendaryActionDescription entity)
         {

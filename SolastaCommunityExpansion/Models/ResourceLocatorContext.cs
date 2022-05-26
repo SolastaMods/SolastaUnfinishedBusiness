@@ -27,13 +27,14 @@ namespace SolastaCommunityExpansion.Models
     // ResourceProvider provides the resource given the resource location
     internal class SpriteResourceProvider : ResourceProviderBase
     {
-        public static SpriteResourceProvider Instance { get; } = new SpriteResourceProvider();
+        public static SpriteResourceProvider Instance { get; } = new();
 
         public override void Provide(ProvideHandle provideHandle)
         {
             var location = (SpriteResourceLocation)provideHandle.Location;
 
-            Main.Log($"SpriteResourceProvider.Provide: InternalId='{location.InternalId}', ProviderId='{location.ProviderId}', PrimaryKey='{location.PrimaryKey}', SpriteName='{location.Sprite.name}'.");
+            Main.Log(
+                $"SpriteResourceProvider.Provide: InternalId='{location.InternalId}', ProviderId='{location.ProviderId}', PrimaryKey='{location.PrimaryKey}', SpriteName='{location.Sprite.name}'.");
 
             provideHandle.Complete(location.Sprite, true, null);
         }
@@ -42,7 +43,8 @@ namespace SolastaCommunityExpansion.Models
         {
             var canProvide = base.CanProvide(t, location);
 
-            Main.Log($"SpriteResourceProvider.CanProvide: TypeName='{t.Name}', InternalId='{location.InternalId}', CanProvide={canProvide}");
+            Main.Log(
+                $"SpriteResourceProvider.CanProvide: TypeName='{t.Name}', InternalId='{location.InternalId}', CanProvide={canProvide}");
 
             return canProvide;
         }
@@ -61,7 +63,7 @@ namespace SolastaCommunityExpansion.Models
         private static readonly Dictionary<string, SpriteResourceLocation> locationsCache = new();
         private static readonly List<IResourceLocation> emptyList = new();
 
-        public static SpriteResourceLocator Instance { get; } = new SpriteResourceLocator();
+        public static SpriteResourceLocator Instance { get; } = new();
 
         // These two properties don't seem to be used
         public string LocatorId => GetType().FullName;
@@ -82,14 +84,12 @@ namespace SolastaCommunityExpansion.Models
                     locationsCache.Add(id, location);
                 }
 
-                locations = new List<IResourceLocation> { location };
+                locations = new List<IResourceLocation> {location};
                 return true;
             }
-            else
-            {
-                locations = emptyList;
-                return false;
-            }
+
+            locations = emptyList;
+            return false;
         }
 
         protected SpriteResourceLocator() { }
@@ -108,10 +108,7 @@ namespace SolastaCommunityExpansion.Models
 
                 return sprite;
             }
-            private set
-            {
-                sprite = value;
-            }
+            private set => sprite = value;
         }
 
         public SpriteResourceLocation(Sprite sprite, string name, string id)

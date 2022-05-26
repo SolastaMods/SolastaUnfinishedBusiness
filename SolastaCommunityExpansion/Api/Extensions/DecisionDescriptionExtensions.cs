@@ -9,8 +9,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DecisionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class DecisionDescriptionExtensions
+    [TargetType(typeof(DecisionDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class DecisionDescriptionExtensions
     {
         public static T SetActivityType<T>(this T entity, System.String value)
             where T : DecisionDescription
@@ -54,7 +55,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetScorer<T>(this T entity, TA.AI.ActivityScorerDefinition value)
+        public static T SetScorer<T>(this T entity, ActivityScorerDefinition value)
             where T : DecisionDescription
         {
             entity.SetField("scorer", value);

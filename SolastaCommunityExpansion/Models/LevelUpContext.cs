@@ -29,7 +29,9 @@ namespace SolastaCommunityExpansion.Models
         private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
 
         public static RulesetCharacterHero GetHero(string name)
-            => LevelUpTab.FirstOrDefault(x => x.Key.Name == name).Key;
+        {
+            return LevelUpTab.FirstOrDefault(x => x.Key.Name == name).Key;
+        }
 
         public static void RegisterHero(
             RulesetCharacterHero rulesetCharacterHero,
@@ -37,17 +39,17 @@ namespace SolastaCommunityExpansion.Models
             CharacterSubclassDefinition lastSubclass,
             bool levelingUp = false)
         {
-            LevelUpTab.TryAdd(rulesetCharacterHero, new()
-            {
-                SelectedClass = lastClass,
-                SelectedSubclass = lastSubclass,
-                IsLevelingUp = levelingUp
-            });
+            LevelUpTab.TryAdd(rulesetCharacterHero,
+                new LevelUpData
+                {
+                    SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp
+                });
 
             //
             // allows heroes created with other level limits to be rebased during level up
             //
-            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = HeroDefinitions.MaxHeroExperience();
+            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue =
+                HeroDefinitions.MaxHeroExperience();
             rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = System.Math.Max(
                 Main.Settings.MaxAllowedLevels,
                 rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue);
@@ -55,14 +57,19 @@ namespace SolastaCommunityExpansion.Models
 
 
         public static void UnregisterHero(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.Remove(rulesetCharacterHero);
+        {
+            LevelUpTab.Remove(rulesetCharacterHero);
+        }
 
         public static CharacterClassDefinition GetSelectedClass(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                 ? levelUpData.SelectedClass
                 : null;
+        }
 
-        public static void SetSelectedClass(RulesetCharacterHero rulesetCharacterHero, CharacterClassDefinition characterClassDefinition)
+        public static void SetSelectedClass(RulesetCharacterHero rulesetCharacterHero,
+            CharacterClassDefinition characterClassDefinition)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -81,7 +88,7 @@ namespace SolastaCommunityExpansion.Models
                 (levelUpData.SelectedClass == Cleric && !classesAndLevels.ContainsKey(Cleric))
                 || (levelUpData.SelectedClass == Paladin && rulesetCharacterHero.DeityDefinition == null);
 
-            levelUpData.GrantedItems = new();
+            levelUpData.GrantedItems = new HashSet<ItemDefinition>();
 
             // Holy Symbol
             required =
@@ -92,7 +99,7 @@ namespace SolastaCommunityExpansion.Models
                 !(
                     classesAndLevels.ContainsKey(Cleric) ||
                     classesAndLevels.ContainsKey(Paladin)
-                 );
+                );
 
             if (required)
             {
@@ -134,7 +141,7 @@ namespace SolastaCommunityExpansion.Models
 
             // Druidic Focus
             required =
-                (levelUpData.SelectedClass == Druid) && !classesAndLevels.ContainsKey(Druid);
+                levelUpData.SelectedClass == Druid && !classesAndLevels.ContainsKey(Druid);
 
             if (required)
             {
@@ -152,11 +159,14 @@ namespace SolastaCommunityExpansion.Models
         }
 
         public static CharacterSubclassDefinition GetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
                 ? levelUpData.SelectedSubclass
                 : null;
+        }
 
-        public static void SetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero, CharacterSubclassDefinition characterSubclassDefinition)
+        public static void SetSelectedSubclass(RulesetCharacterHero rulesetCharacterHero,
+            CharacterSubclassDefinition characterSubclassDefinition)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -166,12 +176,17 @@ namespace SolastaCommunityExpansion.Models
             levelUpData.SelectedSubclass = characterSubclassDefinition;
         }
 
-        public static RulesetSpellRepertoire GetSelectedClassOrSubclassRepertoire(RulesetCharacterHero rulesetCharacterHero)
-            => rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x =>
+        public static RulesetSpellRepertoire GetSelectedClassOrSubclassRepertoire(
+            RulesetCharacterHero rulesetCharacterHero)
+        {
+            return rulesetCharacterHero.SpellRepertoires.FirstOrDefault(x =>
                 (x.SpellCastingClass != null && x.SpellCastingClass == GetSelectedClass(rulesetCharacterHero))
-                || (x.SpellCastingSubclass != null && x.SpellCastingSubclass == GetSelectedSubclass(rulesetCharacterHero)));
+                || (x.SpellCastingSubclass != null &&
+                    x.SpellCastingSubclass == GetSelectedSubclass(rulesetCharacterHero)));
+        }
 
-        public static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero, bool isClassSelectionStage)
+        public static void SetIsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero,
+            bool isClassSelectionStage)
         {
             if (!LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData))
             {
@@ -182,15 +197,18 @@ namespace SolastaCommunityExpansion.Models
         }
 
         public static bool RequiresDeity(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
-                && levelUpData.RequiresDeity;
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                   && levelUpData.RequiresDeity;
+        }
 
         // also referenced by 4 transpilers in PatchingContext
         public static int GetSelectedClassLevel(RulesetCharacterHero rulesetCharacterHero)
         {
             var selectedClass = GetSelectedClass(rulesetCharacterHero);
 
-            if (selectedClass != null && rulesetCharacterHero.ClassesAndLevels.TryGetValue(selectedClass, out var classLevel))
+            if (selectedClass != null &&
+                rulesetCharacterHero.ClassesAndLevels.TryGetValue(selectedClass, out var classLevel))
             {
                 return classLevel;
             }
@@ -200,38 +218,51 @@ namespace SolastaCommunityExpansion.Models
         }
 
         public static bool IsClassSelectionStage(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsClassSelectionStage;
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) &&
+                   levelUpData.IsClassSelectionStage;
+        }
 
         public static bool IsLevelingUp(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsLevelingUp;
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData) && levelUpData.IsLevelingUp;
+        }
 
         public static bool IsMulticlass(RulesetCharacterHero rulesetCharacterHero)
-            => LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
-                && levelUpData.SelectedClass != null
-                && (rulesetCharacterHero.ClassesAndLevels.Count > 1
-                    || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
+        {
+            return LevelUpTab.TryGetValue(rulesetCharacterHero, out var levelUpData)
+                   && levelUpData.SelectedClass != null
+                   && (rulesetCharacterHero.ClassesAndLevels.Count > 1
+                       || !rulesetCharacterHero.ClassesAndLevels.ContainsKey(levelUpData.SelectedClass));
+        }
 
-        public static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero, RulesetSpellRepertoire rulesetSpellRepertoire)
+        public static bool IsRepertoireFromSelectedClassSubclass(RulesetCharacterHero rulesetCharacterHero,
+            RulesetSpellRepertoire rulesetSpellRepertoire)
         {
             var selectedClass = GetSelectedClass(rulesetCharacterHero);
             var selectedSubclass = GetSelectedSubclass(rulesetCharacterHero);
 
             return
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class
-                    && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
-                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass
-                    && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
+                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
+                 FeatureDefinitionCastSpell.CastingOrigin.Class
+                 && rulesetSpellRepertoire.SpellCastingClass == selectedClass) ||
+                (rulesetSpellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
+                 FeatureDefinitionCastSpell.CastingOrigin.Subclass
+                 && rulesetSpellRepertoire.SpellCastingSubclass == selectedSubclass);
         }
 
-        private static HashSet<SpellDefinition> CacheAllowedAutoPreparedSpells(IEnumerable<FeatureDefinition> featureDefinitions)
+        private static HashSet<SpellDefinition> CacheAllowedAutoPreparedSpells(
+            IEnumerable<FeatureDefinition> featureDefinitions)
         {
             var allowedAutoPreparedSpells = new List<SpellDefinition>();
 
             foreach (var featureDefinition in featureDefinitions)
             {
-                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
+                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells &&
+                    featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
                 {
-                    allowedAutoPreparedSpells.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                    allowedAutoPreparedSpells.AddRange(
+                        featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
                 }
             }
 
@@ -244,21 +275,28 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var featureDefinition in featureDefinitions)
             {
-                if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell && featureDefinitionCastSpell.SpellListDefinition != null)
+                if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell &&
+                    featureDefinitionCastSpell.SpellListDefinition != null)
                 {
-                    allowedSpells.AddRange(featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(x => x.Spells));
+                    allowedSpells.AddRange(
+                        featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(x => x.Spells));
                 }
-                else if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity && featureDefinitionMagicAffinity.ExtendedSpellList != null)
+                else if (featureDefinition is FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity &&
+                         featureDefinitionMagicAffinity.ExtendedSpellList != null)
                 {
-                    allowedSpells.AddRange(featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
+                    allowedSpells.AddRange(
+                        featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(x => x.Spells));
                 }
-                else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips && featureDefinitionBonusCantrips.BonusCantrips != null)
+                else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips &&
+                         featureDefinitionBonusCantrips.BonusCantrips != null)
                 {
                     allowedSpells.AddRange(featureDefinitionBonusCantrips.BonusCantrips);
                 }
-                else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
+                else if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells &&
+                         featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups != null)
                 {
-                    allowedSpells.AddRange(featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
+                    allowedSpells.AddRange(
+                        featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.SelectMany(x => x.SpellsList));
                 }
             }
 
@@ -271,7 +309,7 @@ namespace SolastaCommunityExpansion.Models
             var otherClassesKnownSpells = new List<SpellDefinition>();
 
             foreach (var spellRepertoire in hero.SpellRepertoires
-                .Where(x => x != selectedRepertoire))
+                         .Where(x => x != selectedRepertoire))
             {
                 otherClassesKnownSpells.AddRange(spellRepertoire.AutoPreparedSpells);
                 otherClassesKnownSpells.AddRange(spellRepertoire.KnownCantrips);
@@ -323,7 +361,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
-                return new();
+                return new HashSet<SpellDefinition>();
             }
 
             return levelUpData.AllowedSpells;
@@ -333,7 +371,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
-                return new();
+                return new HashSet<SpellDefinition>();
             }
 
             return levelUpData.AllowedAutoPreparedSpells;
@@ -343,7 +381,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (!LevelUpTab.TryGetValue(hero, out var levelUpData))
             {
-                return new();
+                return new HashSet<SpellDefinition>();
             }
 
             return levelUpData.OtherClassesKnownSpells;
@@ -358,7 +396,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var grantedItem in levelUpData.GrantedItems)
             {
-                rulesetCharacterHero.GrantItem(grantedItem, tryToEquip: false);
+                rulesetCharacterHero.GrantItem(grantedItem, false);
             }
         }
 
@@ -371,7 +409,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var grantedItem in levelUpData.GrantedItems)
             {
-                rulesetCharacterHero.LoseItem(grantedItem, allInstances: false);
+                rulesetCharacterHero.LoseItem(grantedItem, false);
             }
         }
     }

@@ -1,48 +1,60 @@
 ﻿using System.Collections.Generic;
 using SolastaModApi;
 
-namespace SolastaCommunityExpansion.Models;
-
-public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
-
-public static class WeaponValidators
+namespace SolastaCommunityExpansion.Models
 {
-    public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
 
-    public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
-        HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
-
-    public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+    public static class WeaponValidators
     {
-        var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
-        if (item != null)
+        public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+
+        public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
+            HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
+
+        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            return item.WeaponDescription?.WeaponTypeDefinition ==
-                   DatabaseHelper.WeaponTypeDefinitions.UnarmedStrikeType;
+            var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
+            if (item != null)
+            {
+                return item.WeaponDescription?.WeaponTypeDefinition ==
+                       DatabaseHelper.WeaponTypeDefinitions.UnarmedStrikeType;
+            }
+
+            return weapon == null;
         }
 
-        return weapon == null;
-    }
-
-    public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
-    {
-        return IsUnarmedWeapon(attackMode, null);
-    }
-
-    public static bool IsUnarmedWeapon(RulesetItem weapon)
-    {
-        return IsUnarmedWeapon(null, weapon);
-    }
-
-    private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
-    {
-        var hasTag = false;
-        if (mode != null)
+        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
         {
-            hasTag = mode.AttackTags.Contains(tag);
-            if (!hasTag)
+            return IsUnarmedWeapon(attackMode, null);
+        }
+
+        public static bool IsUnarmedWeapon(RulesetItem weapon)
+        {
+            return IsUnarmedWeapon(null, weapon);
+        }
+
+        private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
+        {
+            var hasTag = false;
+            if (mode != null)
             {
-                var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
+                hasTag = mode.AttackTags.Contains(tag);
+                if (!hasTag)
+                {
+                    var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
+                    if (tags != null && tags.Contains(tag))
+                    {
+                        hasTag = true;
+                    }
+                }
+
+                return hasTag;
+            }
+
+            if (weapon != null)
+            {
+                var tags = GetWeaponTags(weapon.ItemDefinition);
                 if (tags != null && tags.Contains(tag))
                 {
                     hasTag = true;
@@ -52,25 +64,14 @@ public static class WeaponValidators
             return hasTag;
         }
 
-        if (weapon != null)
+        private static List<string> GetWeaponTags(ItemDefinition item)
         {
-            var tags = GetWeaponTags(weapon.ItemDefinition);
-            if (tags != null && tags.Contains(tag))
+            if (item != null)
             {
-                hasTag = true;
+                return item.WeaponDescription?.WeaponTags;
             }
+
+            return null;
         }
-
-        return hasTag;
-    }
-
-    private static List<string> GetWeaponTags(ItemDefinition item)
-    {
-        if (item != null)
-        {
-            return item.WeaponDescription?.WeaponTags;
-        }
-
-        return null;
     }
 }

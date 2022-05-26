@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class RespecContext
     {
-        private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled = (RestActivityDefinition.ActivityCondition)(-1001);
+        private const RestActivityDefinition.ActivityCondition ActivityConditionDisabled =
+            (RestActivityDefinition.ActivityCondition)(-1001);
 
         private const string LevelDownName = "LevelDown";
         private const string RespecName = "Respec";
@@ -45,7 +46,6 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.EnableRespec)
             {
-
                 RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
                 RestActivityRespec.SetCondition(RestActivityDefinition.ActivityCondition.None);
             }
@@ -60,10 +60,12 @@ namespace SolastaCommunityExpansion.Models
         {
             internal static bool IsRespecing { get; set; }
 
-            public override IEnumerator Execute(FunctorParametersDescription functorParameters, FunctorExecutionContext context)
+            public override IEnumerator Execute(FunctorParametersDescription functorParameters,
+                FunctorExecutionContext context)
             {
                 var gameLocationScreenExploration = Gui.GuiService.GetScreen<GameLocationScreenExploration>();
-                var gameLocationscreenExplorationVisible = gameLocationScreenExploration && gameLocationScreenExploration.Visible;
+                var gameLocationscreenExplorationVisible =
+                    gameLocationScreenExploration && gameLocationScreenExploration.Visible;
 
                 if (Global.IsMultiplayer || !gameLocationscreenExplorationVisible)
                 {
@@ -123,8 +125,10 @@ namespace SolastaCommunityExpansion.Models
                 var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
                 var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
                 var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
-                var worldLocationEntityFactoryService = ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
-                var gameLocationCharacter = gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
+                var worldLocationEntityFactoryService =
+                    ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
+                var gameLocationCharacter =
+                    gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
                 newHero.SetGuid(guid);
                 newHero.Tags.AddRange(tags);
@@ -138,7 +142,8 @@ namespace SolastaCommunityExpansion.Models
 
                 gameLocationCharacter.SetRuleset(newHero);
 
-                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter, out var worldLocationCharacter))
+                if (worldLocationEntityFactoryService.TryFindWorldCharacter(gameLocationCharacter,
+                        out var worldLocationCharacter))
                 {
                     worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
@@ -149,7 +154,8 @@ namespace SolastaCommunityExpansion.Models
                 IsRespecing = false;
             }
 
-            internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero, TA.int3 position)
+            internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero,
+                TA.int3 position)
             {
                 var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
                 var personalSlots = oldHero.CharacterInventory.PersonalContainer.InventorySlots;
@@ -172,7 +178,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
                 var restAfterPanel = restModalScreen.GetField<RestModal, RestAfterPanel>("restAfterPanel");
-                var characterPlatesTable = restAfterPanel.GetField<RestAfterPanel, RectTransform>("characterPlatesTable");
+                var characterPlatesTable =
+                    restAfterPanel.GetField<RestAfterPanel, RectTransform>("characterPlatesTable");
 
                 for (var index = 0; index < characterPlatesTable.childCount; ++index)
                 {
@@ -183,7 +190,8 @@ namespace SolastaCommunityExpansion.Models
 
                     if (index < gameCampaignCharacters.Count)
                     {
-                        component.Bind(gameCampaignCharacters[index].RulesetCharacter, TooltipDefinitions.AnchorMode.BOTTOM_CENTER);
+                        component.Bind(gameCampaignCharacters[index].RulesetCharacter,
+                            TooltipDefinitions.AnchorMode.BOTTOM_CENTER);
                         component.Refresh();
                     }
 

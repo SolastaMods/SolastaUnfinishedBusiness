@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DeviceFunctionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class DeviceFunctionDescriptionExtensions
+    [TargetType(typeof(DeviceFunctionDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class DeviceFunctionDescriptionExtensions
     {
         public static DeviceFunctionDescription Copy(this DeviceFunctionDescription entity)
         {
@@ -23,7 +24,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetDurationType<T>(this T entity, DurationType value)
             where T : DeviceFunctionDescription
         {
             entity.SetField("durationType", value);
@@ -44,7 +45,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRechargeRate<T>(this T entity, RuleDefinitions.RechargeRate value)
+        public static T SetRechargeRate<T>(this T entity, RechargeRate value)
             where T : DeviceFunctionDescription
         {
             entity.SetField("rechargeRate", value);

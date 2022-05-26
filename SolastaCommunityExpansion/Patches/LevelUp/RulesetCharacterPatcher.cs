@@ -38,6 +38,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                     }
                 }
             }
+
             // This includes all the logic for the base function and a little extra, so skip it.
             return false;
         }
@@ -50,11 +51,13 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 {
                     return hero.ClassesAndLevels[spellRepertoire.SpellCastingClass];
                 }
+
                 if (spellRepertoire.SpellCastingSubclass != null)
                 {
                     return hero.ComputeSubclassLevel(spellRepertoire.SpellCastingSubclass);
                 }
             }
+
             return character.GetAttribute(AttributeDefinitions.CharacterLevel).BaseValue;
         }
 
@@ -68,6 +71,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                     {
                         return subclassChoice.Subclasses.Contains(subclass.Name);
                     }
+
                     return false;
                 });
             });

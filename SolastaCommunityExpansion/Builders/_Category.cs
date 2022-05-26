@@ -38,6 +38,6 @@
         Screen,
         Spell,
         SpellList,
-        Subclass,
+        Subclass
     }
 }

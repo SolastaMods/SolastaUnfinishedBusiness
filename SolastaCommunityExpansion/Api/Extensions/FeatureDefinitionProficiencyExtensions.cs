@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionProficiency)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionProficiencyExtensions
+    [TargetType(typeof(FeatureDefinitionProficiency))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionProficiencyExtensions
     {
         public static T AddForbiddenItemTags<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionProficiency
@@ -90,7 +91,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetProficiencyType<T>(this T entity, RuleDefinitions.ProficiencyType value)
+        public static T SetProficiencyType<T>(this T entity, ProficiencyType value)
             where T : FeatureDefinitionProficiency
         {
             entity.SetField("proficiencyType", value);

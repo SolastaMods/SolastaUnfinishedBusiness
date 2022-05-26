@@ -12,18 +12,21 @@ namespace SolastaCommunityExpansion.Races
 
         internal static CharacterRaceDefinition BuildGnome()
         {
-            var gnomeSpriteReference = Utils.CustomIcons.CreateAssetReferenceSprite("Gnome", Properties.Resources.Gnome, 1024, 512);
+            var gnomeSpriteReference =
+                Utils.CustomIcons.CreateAssetReferenceSprite("Gnome", Properties.Resources.Gnome, 1024, 512);
 
             var gnomeAbilityScoreModifier = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierGnomeAbilityScoreIncrease", "b1475c33-f9ba-4224-b4b1-a55621f4dcd1")
                 .SetGuiPresentation(Category.Feature)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Intelligence, 2)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.Intelligence, 2)
                 .AddToDB();
 
             var forestGnomeAbilityScoreModifier = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierForestGnomeAbilityScoreIncrease", "b7f18e2f-532f-46bf-96d2-f3612026295f")
                 .SetGuiPresentation(Category.Feature)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Dexterity, 1)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.Dexterity, 1)
                 .AddToDB();
 
             var gnomeCunning = FeatureDefinitionSavingThrowAffinityBuilder
@@ -38,14 +41,16 @@ namespace SolastaCommunityExpansion.Races
                 .AddToDB();
 
             var gnomeNaturalIllusionistSpellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListWizard, "NaturalIllusionistSpellList", "ead60aeb-3a72-4296-af36-2e14b110bb0b")
+                .Create(SpellListDefinitions.SpellListWizard, "NaturalIllusionistSpellList",
+                    "ead60aeb-3a72-4296-af36-2e14b110bb0b")
                 .SetGuiPresentationNoContent()
                 .SetSpellsAtLevel(0, SpellDefinitions.AnnoyingBee)
                 .FinalizeSpells()
                 .AddToDB();
 
             var gnomeNaturalIllusionist = FeatureDefinitionCastSpellBuilder
-                .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "GnomeNaturalIllusionist", "bfb1b55f-dbce-49b7-b76d-5b5b3c4fe992")
+                .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "GnomeNaturalIllusionist",
+                    "bfb1b55f-dbce-49b7-b76d-5b5b3c4fe992")
                 .SetGuiPresentation(Category.Feature)
                 .SetSpellList(gnomeNaturalIllusionistSpellList)
                 .SetSpellCastingAbility(AttributeDefinitions.Intelligence)

@@ -120,16 +120,16 @@ namespace SolastaCommunityExpansion.Classes.Monk
             Class = CharacterClassDefinitionBuilder
                 .Create(ClassName, GUID)
 
-            #region Presentation
+                #region Presentation
 
                 .SetGuiPresentation(Category.Class, MonkClassSprite)
                 .SetPictogram(MonkPictogram)
                 //.AddPersonality() //TODO: Add personality flags
                 .SetAnimationId(AnimationDefinitions.ClassAnimationId.Fighter)
 
-            #endregion
+                #endregion
 
-            #region Priorities
+                #region Priorities
 
                 .SetAbilityScorePriorities(
                     AttributeDefinitions.Wisdom,
@@ -155,13 +155,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 //TODO: add dynamic preferred feats that can include ones that are disabled, but offered if enabled
                 .AddFeatPreferences() //TODO: Add preferred feats
 
-            #endregion
+                #endregion
 
                 .SetBattleAI(DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
                 .SetIngredientGatheringOdds(CharacterClassDefinitions.Fighter.IngredientGatheringOdds)
                 .SetHitDice(DieType.D8)
 
-            #region Equipment
+                #region Equipment
 
                 .AddEquipmentRow(
                     new List<CharacterClassDefinition.HeroEquipmentOption>
@@ -208,9 +208,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                             EquipmentDefinitions.OptionWeapon, 5)
                     })
 
-            #endregion
+                #endregion
 
-            #region Proficiencies
+                #region Proficiencies
 
                 // Weapons
                 .AddFeatureAtLevel(1, FeatureDefinitionProficiencyBuilder
@@ -246,9 +246,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     )
                     .AddToDB())
 
-            #endregion
+                #endregion
 
-            #region Level 01
+                #region Level 01
 
                 //TODO: make sure it doesn't work with shields
                 //TODO: make sure it doesn't stack with other `ability bonus to AC` features
@@ -264,38 +264,38 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddFeatureAtLevel(1, martialArts)
                 .AddFeatureAtLevel(1, UnarmoredMovement)
 
-            #endregion
+                #endregion
 
-            #region Level 02
+                #region Level 02
 
                 .AddFeaturesAtLevel(2, ki)
 
-            #endregion
+                #endregion
 
-            #region Subclasses
+                #region Subclasses
 
-            .AddFeatureAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
-                .Create("ClassMonkSubclassChoice", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("ClassMonkTradition", Category.Subclass)
-                .SetSubclassSuffix("ClassMonkTradition")
-                .SetFilterByDeity(false)
-                .SetSubclasses(
-                    WayOfTheOpenHand.Build()
-                )
-                .AddToDB())
+                .AddFeatureAtLevel(3, FeatureDefinitionSubclassChoiceBuilder
+                    .Create("ClassMonkSubclassChoice", DefinitionBuilder.CENamespaceGuid)
+                    .SetGuiPresentation("ClassMonkTradition", Category.Subclass)
+                    .SetSubclassSuffix("ClassMonkTradition")
+                    .SetFilterByDeity(false)
+                    .SetSubclasses(
+                        WayOfTheOpenHand.Build()
+                    )
+                    .AddToDB())
 
-            #endregion
+                #endregion
 
-            #region Level 03
+                #region Level 03
 
                 .AddFeaturesAtLevel(3,
                     BuildKiPoolIncrease(),
                     BuildDeflectMissile()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 04
+                #region Level 04
 
                 .AddFeaturesAtLevel(4,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
@@ -303,9 +303,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 05
+                #region Level 05
 
                 .AddFeaturesAtLevel(5,
                     BuildMartialDiceProgression(),
@@ -314,9 +314,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 06
+                #region Level 06
 
                 .AddFeaturesAtLevel(6,
                     BuildUnarmoredMovementImprovement(),
@@ -324,9 +324,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 07
+                #region Level 07
 
                 .AddFeaturesAtLevel(7,
                     FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion,
@@ -334,27 +334,27 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 08
+                #region Level 08
 
                 .AddFeaturesAtLevel(8,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 09
+                #region Level 09
 
                 .AddFeaturesAtLevel(9,
                     BuildUnarmoredMovementVerticalSurface(),
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 10
+                #region Level 10
 
                 .AddFeaturesAtLevel(10,
                     BuildUnarmoredMovementImprovement(),
@@ -362,36 +362,36 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 11
+                #region Level 11
 
                 .AddFeaturesAtLevel(11,
                     BuildMartialDiceProgression(),
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 12
+                #region Level 12
 
                 .AddFeaturesAtLevel(12,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 13
+                #region Level 13
 
                 .AddFeaturesAtLevel(13,
                     BuildTongueOfSunAndMoon(),
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 14
+                #region Level 14
 
                 .AddFeaturesAtLevel(14,
                     BuildUnarmoredMovementImprovement(),
@@ -399,35 +399,35 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 15
+                #region Level 15
 
                 .AddFeaturesAtLevel(15,
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 16
+                #region Level 16
 
                 .AddFeaturesAtLevel(16,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 17
+                #region Level 17
 
                 .AddFeaturesAtLevel(17,
                     BuildMartialDiceProgression(),
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 18
+                #region Level 18
 
                 .AddFeaturesAtLevel(18,
                     BuildUnarmoredMovementImprovement(),
@@ -435,25 +435,25 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 19
+                #region Level 19
 
                 .AddFeaturesAtLevel(19,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
-            #region Level 20
+                #region Level 20
 
                 .AddFeaturesAtLevel(20,
                     BuildPerfectSelf(),
                     BuildKiPoolIncrease()
                 )
 
-            #endregion
+                #endregion
 
                 .AddToDB();
 
@@ -571,7 +571,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
-                    CharacterValidators.NoArmor, CharacterValidators.NoShield)
+                        CharacterValidators.NoArmor, CharacterValidators.NoShield)
                     .SetTags(FlurryTag))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
                 .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
@@ -603,7 +603,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                                 .SetDuration(DurationType.Round, 0, false)
                                 .SetSpecialDuration(true)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                                .SetSpecialInterruptions(ConditionInterruption.BattleEnd, ConditionInterruption.AnyBattleTurnEnd)
+                                .SetSpecialInterruptions(ConditionInterruption.BattleEnd,
+                                    ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(extraFlurryAttack1, extraFlurryAttack2)
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add, true, true)
@@ -711,7 +712,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     )
                     .SetEffectForms(new EffectFormBuilder()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel, 1)
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
                         .SetConditionForm(ConditionDefinitions.ConditionStunned, ConditionForm.ConditionOperation.Add)
                         .Build())
                     .Build())
@@ -733,11 +734,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .Create("ClassMonkDeflectMissile", GUID)
                 .SetGuiPresentation(Category.Feature)
                 .SetAuthorizedActions(ActionDefinitions.Id.DeflectMissile)
-                .SetCustomSubFeatures(new CustomMissileDeflection()
-                { characterClass = ClassName, classLevelMult = 1, descriptionTag = "Monk" })
+                .SetCustomSubFeatures(new CustomMissileDeflection
+                {
+                    characterClass = ClassName, classLevelMult = 1, descriptionTag = "Monk"
+                })
                 .AddToDB();
 
-            deflectMissile.AllowedActionTypes = new[] { true, true, true, true, true, true };
+            deflectMissile.AllowedActionTypes = new[] {true, true, true, true, true, true};
 
             return deflectMissile;
         }
@@ -779,7 +782,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return FeatureDefinitionBuilder
                 .Create("ClassMonkKiEmpoweredStrikes", GUID)
                 .SetGuiPresentation(Category.Feature)
-                .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical, WeaponValidators.IsUnarmedWeapon))
+                .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical,
+                    WeaponValidators.IsUnarmedWeapon))
                 .AddToDB();
         }
 
@@ -919,7 +923,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         public static bool IsMonkWeapon(RulesetAttackMode attackMode)
         {
-            if (attackMode is not { SourceDefinition: ItemDefinition item })
+            if (attackMode is not {SourceDefinition: ItemDefinition item})
             {
                 return false;
             }
@@ -961,11 +965,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
             {
                 return (DieType.D10, 1);
             }
-            else if (level >= 11)
+
+            if (level >= 11)
             {
                 return (DieType.D8, 1);
             }
-            else if (level >= 5)
+
+            if (level >= 5)
             {
                 return (DieType.D6, 1);
             }
@@ -979,10 +985,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
             private static readonly string CATEGORY = "MonkClimbing";
             private static readonly HashSet<string> Forbidden = new();
 
-            private static readonly CharacterValidator[] validators = new[]
+            private static readonly CharacterValidator[] validators =
             {
-                CharacterValidators.NoArmor,
-                CharacterValidators.NoShield
+                CharacterValidators.NoArmor, CharacterValidators.NoShield
             };
 
             public void OnBeforeAction(CharacterAction characterAction)
@@ -1067,7 +1072,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     TurnOccurenceType.StartOfTurn,
                     character.Guid,
                     character.CurrentFaction.Name
-                ), true);
+                ));
             }
 
             private static void ForbidClimbing(RulesetCharacter character)

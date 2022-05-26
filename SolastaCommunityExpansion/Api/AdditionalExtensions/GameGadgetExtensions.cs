@@ -36,14 +36,15 @@ namespace SolastaModApi.Extensions
             var enabled = gadget.CheckConditionName(Enabled, true, false);
             var paramEnabled = gadget.CheckConditionName(ParamEnabled, true, false);
 
-            SolastaCommunityExpansion.Main.Log($"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
+            SolastaCommunityExpansion.Main.Log(
+                $"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
 
             return enabled || paramEnabled;
         }
 
         public static bool CheckConditionName(this GameGadget gadget, string name, bool value, bool valueIfMissing)
         {
-            return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] { name, value, valueIfMissing });
+            return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] {name, value, valueIfMissing});
         }
 
         private static readonly MethodInfo CheckConditionNameMethod
@@ -70,7 +71,7 @@ namespace SolastaModApi.Extensions
         Revive = EffectForm.EffectFormType.Revive,
         Kill = EffectForm.EffectFormType.Kill,
         ShapeChange = EffectForm.EffectFormType.ShapeChange,
-        Custom = 9000,
+        Custom = 9000
     }
 
     public enum ExtraRitualCasting

@@ -16,10 +16,6 @@ namespace SolastaCommunityExpansion.Builders
 {
     public abstract class DefinitionBuilder
     {
-        protected DefinitionBuilder()
-        {
-        }
-
         // NOTE: CreateGuid uses .ToString() which results in a guid of form b503ccb3-faac-4730-804c-d537bb61a582
         public static string CreateGuid(Guid guid, string name)
         {
@@ -54,9 +50,9 @@ namespace SolastaCommunityExpansion.Builders
             if (DefinitionNames.TryGetValue(definitionName, out var item))
             {
                 var msg = Environment.NewLine +
-                    $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
-                    Environment.NewLine +
-                    $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
+                          $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
+                          Environment.NewLine +
+                          $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
 
 #if DEBUG
                 throw new SolastaModApiException(msg);
@@ -68,13 +64,15 @@ namespace SolastaCommunityExpansion.Builders
             DefinitionNames.Add(definitionName, (definitionTypeName, true));
         }
 
-        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } = GetAllDefinitionNames();
+        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
+            GetAllDefinitionNames();
 
         private static Dictionary<string, (string typeName, bool isCeDef)> GetAllDefinitionNames()
         {
             var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
 
-            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
+                         .GetValue(null))
             {
                 foreach (var bd in (IEnumerable)db.Value)
                 {
@@ -106,7 +104,8 @@ namespace SolastaCommunityExpansion.Builders
     ///     Base class builder for all classes derived from BaseDefinition (for internal use only)
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
-    public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder where TDefinition : BaseDefinition
+    public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
+        where TDefinition : BaseDefinition
     {
         #region Helpers
 
@@ -133,20 +132,22 @@ namespace SolastaCommunityExpansion.Builders
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
             void InitializeCollectionFields(Type type)
             {
-                if (type == null || type == typeof(object) || type == typeof(BaseDefinition) || type == typeof(UnityEngine.Object))
+                if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
+                    type == typeof(UnityEngine.Object))
                 {
                     return;
                 }
 
                 // Reflection will only return private fields declared on this type, not base classes
                 foreach (var field in type
-                    .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                    .Where(f => f.FieldType.IsGenericType)
-                    .Where(f => f.GetValue(Definition) == null))
+                             .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                             .Where(f => f.FieldType.IsGenericType)
+                             .Where(f => f.GetValue(Definition) == null))
                 {
                     try
                     {
-                        LogFieldInitialization($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+                        LogFieldInitialization(
+                            $"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
 
                         field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
                     }
@@ -258,7 +259,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // TODO: two very similar ctors - worth combining?
-        private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
+        private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid,
+            bool useNamespaceGuid)
         {
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
@@ -283,14 +285,16 @@ namespace SolastaCommunityExpansion.Builders
                 // create guid from namespace+name
                 Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
-                LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, namespace={namespaceGuid}, {Definition.GUID})");
+                LogDefinition(
+                    $"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, namespace={namespaceGuid}, {Definition.GUID})");
             }
             else
             {
                 // directly assign guid
                 Definition.SetUserContentGUID(definitionGuid);
 
-                LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
+                LogDefinition(
+                    $"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
         }
 
@@ -324,6 +328,7 @@ namespace SolastaCommunityExpansion.Builders
         internal virtual void Validate() { }
 
         #region Add to dbs
+
         /// <summary>
         /// Add the TDefinition to every compatible database
         /// </summary>
@@ -345,7 +350,8 @@ namespace SolastaCommunityExpansion.Builders
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="SolastaModApiException"></exception>
-        public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright, GamingPlatformDefinitions.ContentPack? contentPack)
+        public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
+            GamingPlatformDefinitions.ContentPack? contentPack)
         {
             Preconditions.IsNotNull(Definition, nameof(Definition));
             Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
@@ -436,7 +442,7 @@ namespace SolastaCommunityExpansion.Builders
                         throw new SolastaModApiException($"Could not locate the 'Add' method for {dbType.FullName}.");
                     }
 
-                    methodInfo.Invoke(db, new object[] { Definition });
+                    methodInfo.Invoke(db, new object[] {Definition});
                 }
 
                 bool dbHasElement(string name)
@@ -449,7 +455,7 @@ namespace SolastaCommunityExpansion.Builders
                             $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                     }
 
-                    return (bool)methodInfo.Invoke(db, new object[] { name });
+                    return (bool)methodInfo.Invoke(db, new object[] {name});
                 }
 
                 bool dbHasElementByGuid(string guid)
@@ -462,7 +468,7 @@ namespace SolastaCommunityExpansion.Builders
                             $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
                     }
 
-                    return (bool)methodInfo.Invoke(db, new object[] { guid });
+                    return (bool)methodInfo.Invoke(db, new object[] {guid});
                 }
             }
 
@@ -473,17 +479,16 @@ namespace SolastaCommunityExpansion.Builders
                 {
                     return Enumerable.Repeat(t, 1).Concat(GetBaseTypes(t.BaseType));
                 }
-                else
-                {
-                    return Enumerable.Empty<Type>();
-                }
+
+                return Enumerable.Empty<Type>();
             }
 
             void VerifyGuiPresentation()
             {
                 if (Definition.GuiPresentation == null)
                 {
-                    Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
+                    Main.Log(
+                        $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
 
                     Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
                 }
@@ -491,14 +496,16 @@ namespace SolastaCommunityExpansion.Builders
                 {
                     if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
                     {
-                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
+                        Main.Log(
+                            $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
 
                         Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
                     }
 
                     if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
                     {
-                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+                        Main.Log(
+                            $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
 
                         Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
                     }
@@ -528,8 +535,15 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
         private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
 
-        private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
-        private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
+        private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
+        {
+        }
+
+        private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
+            name, definitionGuid)
+        {
+        }
 
         /// <summary>
         /// Override this in a derived builder (and set to true) to disable the standard set of Create methods.
@@ -541,18 +555,21 @@ namespace SolastaCommunityExpansion.Builders
         {
             var parameterTypes = parameters.Select(p => p.GetType()).ToArray();
 
-            var ctor = typeof(TBuilder).GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public, null, parameterTypes, null);
+            var ctor = typeof(TBuilder).GetConstructor(
+                BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public, null, parameterTypes, null);
 
             if (ctor == null)
             {
-                throw new SolastaModApiException($"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
+                throw new SolastaModApiException(
+                    $"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
             }
 
             var builder = (TBuilder)ctor.Invoke(parameters);
 
             if (builder.DisableStandardCreateMethods)
             {
-                throw new SolastaModApiException($"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
+                throw new SolastaModApiException(
+                    $"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
             }
 
             builder.Initialise();

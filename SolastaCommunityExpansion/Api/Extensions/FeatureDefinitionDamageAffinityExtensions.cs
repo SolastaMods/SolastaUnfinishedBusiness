@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionDamageAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionDamageAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionDamageAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionDamageAffinityExtensions
     {
         public static T AddTagsIgnoringAffinity<T>(this T entity, params System.String[] value)
             where T : FeatureDefinitionDamageAffinity
@@ -41,7 +42,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageAffinityType<T>(this T entity, RuleDefinitions.DamageAffinityType value)
+        public static T SetDamageAffinityType<T>(this T entity, DamageAffinityType value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.DamageAffinityType = value;
@@ -83,7 +84,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnockOutAffinity<T>(this T entity, RuleDefinitions.KnockoutAffinity value)
+        public static T SetKnockOutAffinity<T>(this T entity, KnockoutAffinity value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("knockOutAffinity", value);
@@ -118,7 +119,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRetaliateProximity<T>(this T entity, RuleDefinitions.AttackProximity value)
+        public static T SetRetaliateProximity<T>(this T entity, AttackProximity value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("retaliateProximity", value);
@@ -139,7 +140,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetSavingThrowAdvantageType<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SavingThrowAdvantageType = value;
@@ -153,7 +154,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSituationalContext<T>(this T entity, RuleDefinitions.SituationalContext value)
+        public static T SetSituationalContext<T>(this T entity, SituationalContext value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("situationalContext", value);

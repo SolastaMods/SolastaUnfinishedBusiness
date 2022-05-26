@@ -4,9 +4,11 @@ using System.Linq;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
+    public class
+        TreasureTableDefinitionBuilder : DefinitionBuilder<TreasureTableDefinition, TreasureTableDefinitionBuilder>
     {
         #region Constructors
+
         protected TreasureTableDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -15,13 +17,16 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
         {
         }
 
-        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected TreasureTableDefinitionBuilder(TreasureTableDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public TreasureTableDefinitionBuilder AddTreasureOptions(params TreasureOption[] treasureOptions)

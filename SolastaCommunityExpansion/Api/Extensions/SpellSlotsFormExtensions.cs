@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(SpellSlotsForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class SpellSlotsFormExtensions
+    [TargetType(typeof(SpellSlotsForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class SpellSlotsFormExtensions
     {
         public static SpellSlotsForm Copy(this SpellSlotsForm entity)
         {

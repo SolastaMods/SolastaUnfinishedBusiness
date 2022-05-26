@@ -12,22 +12,26 @@ namespace SolastaCommunityExpansion.Races
 
         private static CharacterRaceDefinition BuildBolgrif()
         {
-            var bolgrifSpriteReference = Utils.CustomIcons.CreateAssetReferenceSprite("Bolgrif", Properties.Resources.Bolgrif, 1024, 512);
+            var bolgrifSpriteReference =
+                Utils.CustomIcons.CreateAssetReferenceSprite("Bolgrif", Properties.Resources.Bolgrif, 1024, 512);
 
             var bolgrifAbilityScoreModifierWisdom = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease", "4099c645-fc05-4ba1-833f-eabb94b865d0")
                 .SetGuiPresentation(Category.Feature)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Wisdom, 2)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.Wisdom, 2)
                 .AddToDB();
 
             var bolgrifAbilityScoreModifierStrength = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierBolgrifStrengthAbilityScoreIncrease", "7b8d459b-c1f2-4373-bc4d-5e29ea4851f3")
                 .SetGuiPresentation(Category.Feature)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.Strength, 1)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.Strength, 1)
                 .AddToDB();
 
             var bolgrifPowerfulBuild = FeatureDefinitionEquipmentAffinityBuilder
-                .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler, "BolgrifPowerfulBuild", "3f635935-28a3-4bfd-8f51-77417ad7eb8a")
+                .Create(FeatureDefinitionEquipmentAffinitys.EquipmentAffinityFeatHauler, "BolgrifPowerfulBuild",
+                    "3f635935-28a3-4bfd-8f51-77417ad7eb8a")
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
@@ -37,8 +41,7 @@ namespace SolastaCommunityExpansion.Races
                 .SetTargetingData(
                     RuleDefinitions.Side.Ally,
                     RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self, 1, 1,
-                    ActionDefinitions.ItemSelectionType.None)
+                    RuleDefinitions.TargetType.Self)
                 .Build();
 
             bolgrifInvisibilityEffect.EffectAdvancement.Clear();
@@ -54,7 +57,8 @@ namespace SolastaCommunityExpansion.Races
                 .AddToDB();
 
             var bolgrifDruidicMagicSpellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListDruid, "BolgrifDruidicMagicSpellList", "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
+                .Create(SpellListDefinitions.SpellListDruid, "BolgrifDruidicMagicSpellList",
+                    "3ac97eec-8d09-4ce3-8d29-40ea8b423798")
                 .SetGuiPresentationNoContent()
                 .ClearSpells()
                 .SetSpellsAtLevel(0, SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells)
@@ -62,7 +66,8 @@ namespace SolastaCommunityExpansion.Races
                 .AddToDB();
 
             var bolgrifDruidicMagic = FeatureDefinitionCastSpellBuilder
-                .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "BolgrifDruidicMagic", "ea2a9c8e-6ca9-490b-a056-d768182b5cd2")
+                .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "BolgrifDruidicMagic",
+                    "ea2a9c8e-6ca9-490b-a056-d768182b5cd2")
                 .SetGuiPresentation(Category.Feature)
                 .SetSpellCastingAbility(AttributeDefinitions.Wisdom)
                 .SetSpellList(bolgrifDruidicMagicSpellList)
@@ -71,7 +76,8 @@ namespace SolastaCommunityExpansion.Races
             var bolgrifLanguageProficiency = FeatureDefinitionProficiencyBuilder
                 .Create("ProficiencyBolgrifLanguages", "dc03c8d7-5098-4dec-9f60-46e3af0d63c9")
                 .SetGuiPresentation(Category.Feature)
-                .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", "Language_Giant", "Language_Elvish")
+                .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", "Language_Giant",
+                    "Language_Elvish")
                 .AddToDB();
 
             var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();

@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Patches.BugFix
             bool forceRefresh,
             GuiCharacter wieldedConfigurationSelectorGuiCharacter) // OpCodes.Ldarg_1 below...
         {
-            inventorySlotBox.Bind(rulesetInventorySlot, guiCharacter ?? wieldedConfigurationSelectorGuiCharacter, inMainHud, forceRefresh);
+            inventorySlotBox.Bind(rulesetInventorySlot, guiCharacter ?? wieldedConfigurationSelectorGuiCharacter,
+                inMainHud, forceRefresh);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

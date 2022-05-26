@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RestActivityDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class RestActivityDefinitionExtensions
+    [TargetType(typeof(RestActivityDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class RestActivityDefinitionExtensions
     {
         public static T SetCheckConsciousness<T>(this T entity, System.Boolean value)
             where T : RestActivityDefinition
@@ -39,7 +40,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRestType<T>(this T entity, RuleDefinitions.RestType value)
+        public static T SetRestType<T>(this T entity, RestType value)
             where T : RestActivityDefinition
         {
             entity.SetField("restType", value);

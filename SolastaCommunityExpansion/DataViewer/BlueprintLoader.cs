@@ -24,6 +24,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     _shared = new GameObject().AddComponent<BlueprintLoader>();
                     DontDestroyOnLoad(_shared.gameObject);
                 }
+
                 return _shared;
             }
         }
@@ -42,16 +43,19 @@ namespace SolastaCommunityExpansion.DataViewer
 
             Progress = loaded / (float)total;
         }
+
         private IEnumerator LoadBlueprints()
         {
             // safe access to the database
-            var databases = (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null);
+            var databases =
+                (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null);
             var loaded = 0;
             var total = databases.Count;
 
             // iterate over all DBs / BPs and collect them
             var blueprints = new List<BaseDefinition>();
-            foreach (IEnumerable<BaseDefinition> db in databases.Values.OrderBy(db => db.GetType().GetGenericArguments()[0].Name))
+            foreach (IEnumerable<BaseDefinition> db in databases.Values.OrderBy(db =>
+                         db.GetType().GetGenericArguments()[0].Name))
             {
                 yield return null;
                 loaded++;

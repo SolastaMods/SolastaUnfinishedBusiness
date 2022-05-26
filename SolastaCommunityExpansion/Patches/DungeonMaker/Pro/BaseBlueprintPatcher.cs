@@ -23,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
                 return true;
             }
 
-            var a = propBlueprint.Name.Split(new[] { '~' }, 3);
+            var a = propBlueprint.Name.Split(new[] {'~'}, 3);
 
             if (a.Length != 3)
             {
@@ -36,7 +36,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             var str2 = "User_Props_" + propName;
             var postfix = perspective ? "_Pers" : "_Top";
 
-            if (environmentDefinition != null && prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
+            if (environmentDefinition != null &&
+                prefabByEnvironmentDescription.Environment == environmentDefinition.Name)
             {
                 str1 = "Gui/Bitmaps/Props-" + environmentName + "/";
                 str2 = str2 + "_" + environmentName;

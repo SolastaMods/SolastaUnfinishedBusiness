@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MorphotypeCategoryDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class MorphotypeCategoryDefinitionExtensions
+    [TargetType(typeof(MorphotypeCategoryDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class MorphotypeCategoryDefinitionExtensions
     {
         public static T SetChoiceForm<T>(this T entity, MorphotypeCategoryDefinition.Form value)
             where T : MorphotypeCategoryDefinition

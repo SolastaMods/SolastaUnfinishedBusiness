@@ -34,7 +34,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             // get more real state for the toggles on top
             ___toggleGroup.transform.position =
-                new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f, ___toggleGroup.transform.position.y, 0);
+                new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f,
+                    ___toggleGroup.transform.position.y, 0);
         }
     }
 

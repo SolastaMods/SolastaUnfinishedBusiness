@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DocumentDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class DocumentDescriptionExtensions
+    [TargetType(typeof(DocumentDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class DocumentDescriptionExtensions
     {
         public static T AddContentFragments<T>(this T entity, params ContentFragmentDescription[] value)
             where T : DocumentDescription
@@ -109,7 +110,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLoreType<T>(this T entity, RuleDefinitions.LoreType value)
+        public static T SetLoreType<T>(this T entity, LoreType value)
             where T : DocumentDescription
         {
             entity.SetField("loreType", value);

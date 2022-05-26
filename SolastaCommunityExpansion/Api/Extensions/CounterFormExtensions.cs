@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CounterForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CounterFormExtensions
+    [TargetType(typeof(CounterForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CounterFormExtensions
     {
         public static CounterForm Copy(this CounterForm entity)
         {

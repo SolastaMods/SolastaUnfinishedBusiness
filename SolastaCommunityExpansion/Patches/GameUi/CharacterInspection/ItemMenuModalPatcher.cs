@@ -24,8 +24,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
         {
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");
             var myRequiresDeityMethod = typeof(ItemMenuModal_SetupFromItem).GetMethod("RequiresDeity");
-            var maxSpellLevelOfSpellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
-            var myMaxSpellLevelOfSpellCastingLevelMethod = typeof(ItemMenuModal_SetupFromItem).GetMethod("MaxSpellLevelOfSpellCastingLevel");
+            var maxSpellLevelOfSpellCastingLevelMethod =
+                typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
+            var myMaxSpellLevelOfSpellCastingLevelMethod =
+                typeof(ItemMenuModal_SetupFromItem).GetMethod("MaxSpellLevelOfSpellCastingLevel");
 
             foreach (var instruction in instructions)
             {

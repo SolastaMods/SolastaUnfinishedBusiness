@@ -32,7 +32,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                     return true;
                 }
-                else if (featureDefinition is FeatureDefinitionFeatureSet definitionFeatureSet
+
+                if (featureDefinition is FeatureDefinitionFeatureSet definitionFeatureSet
                     && definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion
                     && definitionFeatureSet.FeatureSet.Contains(subFeature))
                 {
@@ -248,7 +249,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                     childToggle.gameObject.SetActive(true);
 
-                    labelChoiceToggle.Bind(i, classesTitles[i], (x) =>
+                    labelChoiceToggle.Bind(i, classesTitles[i], x =>
                     {
                         var screen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
 
@@ -295,8 +296,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             var containsMethod = typeof(string).GetMethod("Contains");
-            var getSelectedClassSearchTermMethod = typeof(InspectionPanelContext).GetMethod("GetSelectedClassSearchTerm");
-            var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            var getSelectedClassSearchTermMethod =
+                typeof(InspectionPanelContext).GetMethod("GetSelectedClassSearchTerm");
+            var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
+                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             var myEnumerateClassBadgesMethod = typeof(InspectionPanelContext).GetMethod("EnumerateClassBadges");
             var found = 0;
 

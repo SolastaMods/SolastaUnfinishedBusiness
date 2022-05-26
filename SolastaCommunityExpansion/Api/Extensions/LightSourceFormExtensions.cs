@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(LightSourceForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class LightSourceFormExtensions
+    [TargetType(typeof(LightSourceForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class LightSourceFormExtensions
     {
         public static LightSourceForm Copy(this LightSourceForm entity)
         {
@@ -53,7 +54,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLightSourceType<T>(this T entity, RuleDefinitions.LightSourceType value)
+        public static T SetLightSourceType<T>(this T entity, LightSourceType value)
             where T : LightSourceForm
         {
             entity.SetField("lightSourceType", value);

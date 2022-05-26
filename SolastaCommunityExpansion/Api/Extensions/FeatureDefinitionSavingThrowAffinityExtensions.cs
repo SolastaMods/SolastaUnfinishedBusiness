@@ -10,17 +10,20 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSavingThrowAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionSavingThrowAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionSavingThrowAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionSavingThrowAffinityExtensions
     {
-        public static T AddAffinityGroups<T>(this T entity, params FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup[] value)
+        public static T AddAffinityGroups<T>(this T entity,
+            params FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup[] value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             AddAffinityGroups(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAffinityGroups<T>(this T entity, IEnumerable<FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup> value)
+        public static T AddAffinityGroups<T>(this T entity,
+            IEnumerable<FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup> value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             entity.AffinityGroups.AddRange(value);
@@ -34,14 +37,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAffinityGroups<T>(this T entity, params FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup[] value)
+        public static T SetAffinityGroups<T>(this T entity,
+            params FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup[] value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             SetAffinityGroups(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAffinityGroups<T>(this T entity, IEnumerable<FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup> value)
+        public static T SetAffinityGroups<T>(this T entity,
+            IEnumerable<FeatureDefinitionSavingThrowAffinity.SavingThrowAffinityGroup> value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             entity.AffinityGroups.SetRange(value);

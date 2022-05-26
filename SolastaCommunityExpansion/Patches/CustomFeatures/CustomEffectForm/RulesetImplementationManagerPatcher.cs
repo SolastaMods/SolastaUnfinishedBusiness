@@ -19,7 +19,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
         {
             foreach (var customEffect in effectForms.OfType<CustomDefinitions.CustomEffectForm>())
             {
-                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication, filters);
+                customEffect.ApplyForm(formsParams, retargeting, proxyOnly, forceSelfConditionOnly, effectApplication,
+                    filters);
             }
         }
     }

@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                 return;
             }
 
-            if (Models.GameUiContext.IsGadgetExit(__instance.UserGadget.GadgetBlueprint, onlyWithGizmos: true))
+            if (Models.GameUiContext.IsGadgetExit(__instance.UserGadget.GadgetBlueprint, true))
             {
                 return;
             }
@@ -53,11 +53,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                         continue;
                     }
 
-                    var position = new TA.int3((int)feedbackPosition.x + x, (int)feedbackPosition.y, (int)feedbackPosition.z + z);
+                    var position = new TA.int3((int)feedbackPosition.x + x, (int)feedbackPosition.y,
+                        (int)feedbackPosition.z + z);
 
                     foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
                     {
-                        visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+                        visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position,
+                            gameLocationCharacter);
 
                         if (visible)
                         {

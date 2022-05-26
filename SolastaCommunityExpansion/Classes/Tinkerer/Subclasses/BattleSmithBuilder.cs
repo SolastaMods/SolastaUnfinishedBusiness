@@ -17,7 +17,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             // Make Battle Smith subclass
             var battleSmith = CharacterSubclassDefinitionBuilder
                 .Create("BattleSmith", TinkererClass.GuidNamespace)
-                .SetGuiPresentation("ArtificerBattleSmith", Category.Subclass, MartialSpellblade.GuiPresentation.SpriteReference);
+                .SetGuiPresentation("ArtificerBattleSmith", Category.Subclass,
+                    MartialSpellblade.GuiPresentation.SpriteReference);
 
             var battleSmithPrepSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArtificerBattleSmithAutoPrepSpells", TinkererClass.GuidNamespace)
@@ -34,7 +35,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             battleSmith.AddFeatureAtLevel(battleSmithPrepSpells, 3);
 
             var weaponProf = FeatureHelpers
-                .BuildProficiency("ProficiencyWeaponArtificerBattleSmith", ProficiencyType.Weapon, EquipmentDefinitions.MartialWeaponCategory)
+                .BuildProficiency("ProficiencyWeaponArtificerBattleSmith", ProficiencyType.Weapon,
+                    EquipmentDefinitions.MartialWeaponCategory)
                 .SetGuiPresentation("WeaponProfArtificerBattleSmith", Category.Subclass)
                 .AddToDB();
 
@@ -51,16 +53,19 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                     "AttackModifierArtificerBattleSmithWeapon", TinkererClass.GuidNamespace,
                     // Note this is not magical because that causes a conflict with the enhanced weapon effect.
                     AbilityScoreReplacement.SpellcastingAbility, "")
-                .SetGuiPresentation("AttackModifierArtificerBattleSmithWeapon", Category.Subclass, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("AttackModifierArtificerBattleSmithWeapon", Category.Subclass,
+                    FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference)
                 .AddToDB();
 
             var infuseWeaponGui = new GuiPresentationBuilder(
                 "Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle",
                 "Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription");
-            infuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            infuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade
+                .GuiPresentation.SpriteReference);
 
             var enchantWeapon = InfusionHelpers.BuildItemModifierInfusion(battleSmithInfusedWeapon,
-               ActionDefinitions.ItemSelectionType.Weapon, "PowerBattleSmithWeapon", infuseWeaponGui.Build()).AddToDB();
+                    ActionDefinitions.ItemSelectionType.Weapon, "PowerBattleSmithWeapon", infuseWeaponGui.Build())
+                .AddToDB();
             battleSmith.AddFeatureAtLevel(enchantWeapon, 3);
 
             battleSmith.AddFeatureAtLevel(ProtectorConstructFeatureSetBuilder.ProtectorConstructFeatureSet, 3);
@@ -70,7 +75,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle",
                 "Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription");
             var extraAttack = FeatureHelpers.BuildAttributeModifier("AttributeModifierBattleSmithExtraAttack",
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.AttacksNumber,
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.AttacksNumber,
                 1, extraAttackGui.Build());
             battleSmith.AddFeatureAtLevel(extraAttack, 5);
 
@@ -78,40 +84,47 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "Feat/&AttackModifierArtificerBattleSmithJoltTitle",
                 "Feat/&AttackModifierArtificerBattleSmithJoltDescription");
             var joltAttack = FeatureHelpers.BuildAttackModifier(
-                "AttackModifierArtificerBattleSmithJolt",                 // Note ability score bonus only works if it's applied to a weapon, not a character.
+                "AttackModifierArtificerBattleSmithJolt", // Note ability score bonus only works if it's applied to a weapon, not a character.
                 AttackModifierMethod.None, 0,
-                AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false,
+                AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence,
+                false,
                 "Magical", joltAttackGui.Build());
             battleSmith.AddFeatureAtLevel(joltAttack, 9);
 
             var improvedInfuseWeaponGui = new GuiPresentationBuilder(
                 "Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle",
                 "Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription");
-            improvedInfuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade.GuiPresentation.SpriteReference);
+            improvedInfuseWeaponGui.SetSpriteReference(FeatureDefinitionPowers.PowerDomainElementalLightningBlade
+                .GuiPresentation.SpriteReference);
 
             var attackImprovedModGui = new GuiPresentationBuilder(
                 "Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle",
                 "Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription");
-            attackImprovedModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon.GuiPresentation.SpriteReference);
+            attackImprovedModGui.SetSpriteReference(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon
+                .GuiPresentation.SpriteReference);
 
             var jolt2AttackGui = new GuiPresentationBuilder(
                 "Feat/&AttackModifierArtificerBattleSmithJolt2Title",
                 "Feat/&AttackModifierArtificerBattleSmithJolt2Description");
             var jolt2Attack = FeatureHelpers.BuildAttackModifier(
-                "AttackModifierArtificerBattleSmithJolt2",                 // Note ability score bonus only works if it's applied to a weapon, not a character.
+                "AttackModifierArtificerBattleSmithJolt2", // Note ability score bonus only works if it's applied to a weapon, not a character.
                 AttackModifierMethod.None, 0,
-                AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence, false,
+                AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence,
+                false,
                 "Magical", jolt2AttackGui.Build());
             battleSmith.AddFeatureAtLevel(jolt2Attack, 15);
-            battleSmith.AddFeatureAtLevel(ProtectorConstructUpgradeFeatureSetBuilder.ProtectorConstructUpgradeFeatureSet, 15);
+            battleSmith.AddFeatureAtLevel(
+                ProtectorConstructUpgradeFeatureSetBuilder.ProtectorConstructUpgradeFeatureSet, 15);
 
             // build the subclass and add tot he db
             return battleSmith.AddToDB();
         }
 
-        private sealed class FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
+        private sealed class
+            FeatureDefinitionAttackModifierBuilder : Builders.Features.FeatureDefinitionAttackModifierBuilder
         {
-            public FeatureDefinitionAttackModifierBuilder(string name, Guid guidNamespace, AbilityScoreReplacement abilityReplacement, string additionalAttackTag) : base(name, guidNamespace)
+            public FeatureDefinitionAttackModifierBuilder(string name, Guid guidNamespace,
+                AbilityScoreReplacement abilityReplacement, string additionalAttackTag) : base(name, guidNamespace)
             {
                 Definition.SetAbilityScoreReplacement(abilityReplacement);
                 Definition.SetAdditionalAttackTag(additionalAttackTag);

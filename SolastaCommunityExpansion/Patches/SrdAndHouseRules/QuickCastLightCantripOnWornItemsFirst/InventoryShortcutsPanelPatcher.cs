@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class InventoryShortcutsPanel_OnCastLightCb
     {
-        public static bool MyTryFindTargetWieldedItem(RulesetCharacterHero rulesetCharacterHero, out RulesetItem targetItem)
+        public static bool MyTryFindTargetWieldedItem(RulesetCharacterHero rulesetCharacterHero,
+            out RulesetItem targetItem)
         {
             if (!Main.Settings.QuickCastLightCantripOnWornItemsFirst)
             {
@@ -49,10 +50,12 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.QuickCastLightCantr
             // Else default MainHand, OffHand
             return rulesetCharacterHero.TryFindTargetWieldedItem(out targetItem);
         }
+
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var tryFindTargetWieldedItemMethod = typeof(RulesetCharacter).GetMethod("TryFindTargetWieldedItem");
-            var myTryFindTargetWieldedItemMethod = typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
+            var myTryFindTargetWieldedItemMethod =
+                typeof(InventoryShortcutsPanel_OnCastLightCb).GetMethod("MyTryFindTargetWieldedItem");
 
             foreach (var instruction in instructions)
             {

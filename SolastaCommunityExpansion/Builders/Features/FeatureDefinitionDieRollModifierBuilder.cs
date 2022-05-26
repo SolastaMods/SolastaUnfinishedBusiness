@@ -7,21 +7,26 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionDieRollModifier, FeatureDefinitionDieRollModifierBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionDieRollModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionDieRollModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionDieRollModifierBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
         {
         }
 
-        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionDieRollModifierBuilder(FeatureDefinitionDieRollModifier original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public FeatureDefinitionDieRollModifierBuilder SetModifiers(

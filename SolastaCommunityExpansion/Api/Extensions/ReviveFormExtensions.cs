@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ReviveForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ReviveFormExtensions
+    [TargetType(typeof(ReviveForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ReviveFormExtensions
     {
         public static T AddRemovedConditions<T>(this T entity, params ConditionDefinition[] value)
             where T : ReviveForm
@@ -62,7 +63,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReviveHitPoints<T>(this T entity, RuleDefinitions.ReviveHitPoints value)
+        public static T SetReviveHitPoints<T>(this T entity, ReviveHitPoints value)
             where T : ReviveForm
         {
             entity.SetField("reviveHitPoints", value);

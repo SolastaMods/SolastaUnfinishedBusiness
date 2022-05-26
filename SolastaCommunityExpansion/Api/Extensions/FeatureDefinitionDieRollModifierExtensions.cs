@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionDieRollModifier)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionDieRollModifierExtensions
+    [TargetType(typeof(FeatureDefinitionDieRollModifier))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionDieRollModifierExtensions
     {
         public static T SetForcedMinimalHalfDamageOnDice<T>(this T entity, System.Boolean value)
             where T : FeatureDefinitionDieRollModifier
@@ -60,7 +61,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetValidityContext<T>(this T entity, RuleDefinitions.RollContext value)
+        public static T SetValidityContext<T>(this T entity, RollContext value)
             where T : FeatureDefinitionDieRollModifier
         {
             entity.SetField("validityContext", value);

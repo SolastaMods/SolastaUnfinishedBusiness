@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FightingStyleDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FightingStyleDefinitionExtensions
+    [TargetType(typeof(FightingStyleDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FightingStyleDefinitionExtensions
     {
         public static T AddFeatures<T>(this T entity, params FeatureDefinition[] value)
             where T : FightingStyleDefinition

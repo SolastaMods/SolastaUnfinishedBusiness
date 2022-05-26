@@ -40,4 +40,3 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
         }
     }
 }
-

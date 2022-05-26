@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 {
                     if (!spells.ContainsKey(duplet.Level))
                     {
-                        spells.Add(duplet.Level, new());
+                        spells.Add(duplet.Level, new List<SpellDefinition>());
                         levels.Add(duplet.Level);
                     }
 
@@ -104,7 +104,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 }
 
                 var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
-                var myFormatMethod = typeof(FeatureDefinitionMagicAffinity_FormatDescription).GetMethod("FormatSpellList");
+                var myFormatMethod =
+                    typeof(FeatureDefinitionMagicAffinity_FormatDescription).GetMethod("FormatSpellList");
                 var found = 0;
 
                 foreach (var instruction in instructions)

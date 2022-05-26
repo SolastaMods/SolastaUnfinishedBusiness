@@ -2,7 +2,8 @@
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionSenseBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, FeatureDefinitionSenseBuilder>
+    public class
+        FeatureDefinitionSenseBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, FeatureDefinitionSenseBuilder>
     {
         #region Constructors
 
@@ -14,13 +15,16 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionSenseBuilder(FeatureDefinitionSense original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

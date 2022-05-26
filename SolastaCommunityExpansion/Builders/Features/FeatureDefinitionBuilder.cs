@@ -7,6 +7,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TBuilder : FeatureDefinitionBuilder<TDefinition, TBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -15,13 +16,16 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
+            namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
+            name, definitionGuid)
         {
         }
+
         #endregion
 
         // TODO: methods specific to FeatureDefinition
@@ -30,6 +34,7 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionBuilder : FeatureDefinitionBuilder<FeatureDefinition, FeatureDefinitionBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -38,13 +43,16 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionBuilder(FeatureDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

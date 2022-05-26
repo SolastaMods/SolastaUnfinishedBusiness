@@ -19,7 +19,8 @@ namespace SolastaCommunityExpansion.Models
         {
             internal static readonly HashSet<StockUnitDescription> StockFocus = new();
 
-            private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
+            private WandIdentifyBuilder(string name, string guid, string title, string description,
+                ItemDefinition original) : base(original, name, guid)
             {
                 Definition.GuiPresentation.Title = title;
                 Definition.GuiPresentation.Description = description;
@@ -41,7 +42,8 @@ namespace SolastaCommunityExpansion.Models
                 StockFocus.Add(stockFocus);
             }
 
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original)
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description,
+                ItemDefinition original)
             {
                 return new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
             }
@@ -114,7 +116,8 @@ namespace SolastaCommunityExpansion.Models
                 AssetReferenceSprite assetReferenceSprite,
                 params string[] slotTypes)
             {
-                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite, slotTypes).AddToDB();
+                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite,
+                    slotTypes).AddToDB();
             }
 
             internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
@@ -158,15 +161,8 @@ namespace SolastaCommunityExpansion.Models
 
         internal static readonly string[] EmpressGarbAppearances =
         {
-            "Normal",
-            "Barbarian Clothes",
-            "Druid Leather",
-            "Elven Chain",
-            "Plain Shirt",
-            "Sorcerer's Armor",
-            "Studded Leather",
-            "Sylvan Armor",
-            "Wizard Clothes"
+            "Normal", "Barbarian Clothes", "Druid Leather", "Elven Chain", "Plain Shirt", "Sorcerer's Armor",
+            "Studded Leather", "Sylvan Armor", "Wizard Clothes"
         };
 
         private static readonly List<ItemDefinition> Crowns = new()
@@ -194,7 +190,9 @@ namespace SolastaCommunityExpansion.Models
             }
 
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
-                x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo && x != ClothesWizard_B))
+                         x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical &&
+                              !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo &&
+                              x != ClothesWizard_B))
             {
                 var stockClothing = new StockUnitDescription();
 
@@ -215,8 +213,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchSetBeltOfDwarvenKindBeardChances()
         {
-            CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(Main.Settings.SetBeltOfDwarvenKindBeardChances);
-            CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(Gui.Format("Feature/&AlwaysBeardDescription", Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));
+            CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(
+                Main.Settings.SetBeltOfDwarvenKindBeardChances);
+            CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(
+                Gui.Format("Feature/&AlwaysBeardDescription",
+                    Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));
         }
 
         internal static void SwitchCrownOfTheMagister()
@@ -225,7 +226,9 @@ namespace SolastaCommunityExpansion.Models
             {
                 var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
 
-                maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
+                maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
+                    ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape
+                    : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
             }
         }
 
@@ -239,9 +242,11 @@ namespace SolastaCommunityExpansion.Models
             }
             else
             {
-                if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(TagsDefinitions.ItemTagMetal))
+                if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(
+                        TagsDefinitions.ItemTagMetal))
                 {
-                    DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);
+                    DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(
+                        TagsDefinitions.ItemTagMetal);
                 }
             }
         }
@@ -298,8 +303,10 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.StockHugoStoreWithAdditionalFoci)
             {
-                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(WandIdentifyBuilder.StockFocus);
-                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(FocusDefinitionBuilder.StockFocus);
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions
+                    .AddRange(WandIdentifyBuilder.StockFocus);
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(FocusDefinitionBuilder
+                    .StockFocus);
             }
             else
             {
@@ -316,10 +323,14 @@ namespace SolastaCommunityExpansion.Models
 
             WandIdentifyBuilder.WandIdentify.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
 
-            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
-            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(
+                !Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings
+                .StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings
+                .StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings
+                .StockHugoStoreWithAdditionalFoci);
         }
 
         internal static void SwitchFociItemsDungeonMaker()
@@ -333,9 +344,9 @@ namespace SolastaCommunityExpansion.Models
         internal static void SwitchMagicStaffFoci()
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
-                .Where(x => x.IsWeapon) // WeaponDescription could be null
-                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
-                .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
+                         .Where(x => x.IsWeapon) // WeaponDescription could be null
+                         .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
+                         .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
             {
                 if (Main.Settings.MakeAllMagicStaveArcaneFoci)
                 {
@@ -353,7 +364,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             foreach (var stock in Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
-                x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
+                         x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
                 stock.SetReassortAmount(1);
                 stock.SetReassortRateValue(7);

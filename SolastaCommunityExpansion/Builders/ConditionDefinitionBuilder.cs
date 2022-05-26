@@ -38,6 +38,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #region Constructors
+
         protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
             SetEmptyParticleReferencesWhereNull();
@@ -48,13 +49,16 @@ namespace SolastaCommunityExpansion.Builders
             SetEmptyParticleReferencesWhereNull();
         }
 
-        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
         {
         }
 
-        protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
+            name, definitionGuid)
         {
         }
+
         #endregion
 
         // Setters delegating to Definition
@@ -127,7 +131,8 @@ namespace SolastaCommunityExpansion.Builders
             return SetFeatures(value.AsEnumerable());
         }
 
-        public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie, ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
+        public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
+            ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
         {
             Definition
                 .SetAdditionalDamageWhenHit(additionalDamageWhenHit)
@@ -251,6 +256,7 @@ namespace SolastaCommunityExpansion.Builders
                 Definition.SetSilentWhenAdded(true);
                 Definition.SetSilentWhenRemoved(true);
             }
+
             return This();
         }
     }
@@ -262,6 +268,7 @@ namespace SolastaCommunityExpansion.Builders
         ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>
     {
         #region Constructors
+
         protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -270,13 +277,16 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
         {
         }
 
-        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected ConditionDefinitionBuilder(ConditionDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

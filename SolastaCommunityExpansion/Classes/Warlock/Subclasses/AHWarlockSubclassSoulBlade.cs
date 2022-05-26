@@ -14,7 +14,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         internal static CharacterSubclassDefinition Build()
         {
             var summonPactWeaponPower = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury, "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury,
+                    "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
                 .SetEffectDescription(SpiritualWeapon.EffectDescription)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -22,7 +23,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var additionalDamageBonus = FeatureDefinitionAdditionalDamageBuilder
-                .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery, "AHSoulBladeEmpowerWeaponDamageBonus", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery,
+                    "AHSoulBladeEmpowerWeaponDamageBonus", DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Feature)
                 .SetRequiredProperty(AdditionalDamageRequiredProperty.None)
                 .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
@@ -31,7 +33,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var weaponCondition = ConditionDefinitionBuilder
-                .Create(ConditionDefinitions.ConditionHeraldOfBattle, "AHSoulBladeEmpowerWeaponCondition", DefinitionBuilder.CENamespaceGuid)
+                .Create(ConditionDefinitions.ConditionHeraldOfBattle, "AHSoulBladeEmpowerWeaponCondition",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Feature)
                 .SetAllowMultipleInstances(false)
                 .SetFeatures(additionalDamageBonus)
@@ -59,13 +62,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             var attackMod = FeatureDefinitionAttackModifierBuilder
                 .Create("AHWarlockSoulBladePactEmpowerWeaponModifier", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Modifier, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Modifier,
+                    FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                 .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                 .AddToDB();
 
             var empowerWeaponPower = FeatureDefinitionPowerBuilder
                 .Create("AHWarlockSoulBladePactEmpowerWeaponPower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Feature,
+                    FeatureDefinitionPowers.PowerOathOfDevotionSacredWeapon.GuiPresentation.SpriteReference)
                 .SetShortTitleOverride("Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle")
                 .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
                 .SetRechargeRate(RechargeRate.LongRest)
@@ -95,7 +100,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var shieldPower = FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "AHWarlockSoulBladePactSoulShieldPower", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionPowers.PowerFighterSecondWind, "AHWarlockSoulBladePactSoulShieldPower",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Feature)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetFixedUsesPerRecharge(1)
@@ -108,13 +114,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                         .Create()
                         .SetTempHPForm(-1, DieType.D1, 1)
                         .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel, 1)
+                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
                         .Build())
                     .SetDurationType(DurationType.UntilLongRest))
                 .AddToDB();
 
             var spellList = SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListPaladin, "AHWarlockSoulBladePactSpellList", DefinitionBuilder.CENamespaceGuid)
+                .Create(SpellListDefinitions.SpellListPaladin, "AHWarlockSoulBladePactSpellList",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .ClearSpells()
                 .SetSpellsAtLevel(1, Shield, FalseLife)
@@ -126,7 +133,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var extendedSpellList = FeatureDefinitionMagicAffinityBuilder
-                .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList, "AHWarlockSoulBladePactExtendedSpellList", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList,
+                    "AHWarlockSoulBladePactExtendedSpellList", DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation(Category.Feature)
                 .SetExtendedSpellList(spellList)
                 .AddToDB();
@@ -143,7 +151,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             return CharacterSubclassDefinitionBuilder
                 .Create("AHWarlockSubclassSoulBladePact", DefinitionBuilder.CENamespaceGuid)
-                .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
+                .SetOrUpdateGuiPresentation(Category.Subclass,
+                    CharacterSubclassDefinitions.OathOfTheMotherland.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(extendedSpellList, 1) // Extra Soulblade spells
                 .AddFeatureAtLevel(proficiencySoulBladeArmor, 1) // Martial weapons
                 .AddFeatureAtLevel(proficiencySoulBladeWeapon, 1) // Medium armor and shield

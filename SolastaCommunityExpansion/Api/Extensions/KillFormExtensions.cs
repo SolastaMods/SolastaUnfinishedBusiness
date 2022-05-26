@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(KillForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class KillFormExtensions
+    [TargetType(typeof(KillForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class KillFormExtensions
     {
         public static KillForm Copy(this KillForm entity)
         {
@@ -32,7 +33,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKillCondition<T>(this T entity, RuleDefinitions.KillCondition value)
+        public static T SetKillCondition<T>(this T entity, KillCondition value)
             where T : KillForm
         {
             entity.SetField("killCondition", value);

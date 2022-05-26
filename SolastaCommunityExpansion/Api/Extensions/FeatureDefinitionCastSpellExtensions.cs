@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionCastSpell)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionCastSpellExtensions
+    [TargetType(typeof(FeatureDefinitionCastSpell))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionCastSpellExtensions
     {
         public static T AddKnownCantrips<T>(this T entity, params System.Int32[] value)
             where T : FeatureDefinitionCastSpell
@@ -83,14 +84,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotsPerLevels<T>(this T entity, params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] value)
+        public static T AddSlotsPerLevels<T>(this T entity,
+            params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] value)
             where T : FeatureDefinitionCastSpell
         {
             AddSlotsPerLevels(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSlotsPerLevels<T>(this T entity, IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> value)
+        public static T AddSlotsPerLevels<T>(this T entity,
+            IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SlotsPerLevels.AddRange(value);
@@ -216,21 +219,23 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSlotsPerLevels<T>(this T entity, params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] value)
+        public static T SetSlotsPerLevels<T>(this T entity,
+            params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] value)
             where T : FeatureDefinitionCastSpell
         {
             SetSlotsPerLevels(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSlotsPerLevels<T>(this T entity, IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> value)
+        public static T SetSlotsPerLevels<T>(this T entity,
+            IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SlotsPerLevels.SetRange(value);
             return entity;
         }
 
-        public static T SetSlotsRecharge<T>(this T entity, RuleDefinitions.RechargeRate value)
+        public static T SetSlotsRecharge<T>(this T entity, RechargeRate value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SetField("slotsRecharge", value);
@@ -258,14 +263,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellcastingParametersComputation<T>(this T entity, RuleDefinitions.SpellcastingParametersComputation value)
+        public static T SetSpellcastingParametersComputation<T>(this T entity, SpellcastingParametersComputation value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SetField("spellcastingParametersComputation", value);
             return entity;
         }
 
-        public static T SetSpellKnowledge<T>(this T entity, RuleDefinitions.SpellKnowledge value)
+        public static T SetSpellKnowledge<T>(this T entity, SpellKnowledge value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SetField("spellKnowledge", value);
@@ -279,14 +284,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellPreparationCount<T>(this T entity, RuleDefinitions.SpellPreparationCount value)
+        public static T SetSpellPreparationCount<T>(this T entity, SpellPreparationCount value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SetField("spellPreparationCount", value);
             return entity;
         }
 
-        public static T SetSpellReadyness<T>(this T entity, RuleDefinitions.SpellReadyness value)
+        public static T SetSpellReadyness<T>(this T entity, SpellReadyness value)
             where T : FeatureDefinitionCastSpell
         {
             entity.SetField("spellReadyness", value);

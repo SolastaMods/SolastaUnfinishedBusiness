@@ -6,6 +6,7 @@ namespace SolastaCommunityExpansion.Builders
     public class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, ActionDefinitionBuilder>
     {
         #region Constructors
+
         protected ActionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -14,13 +15,16 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected ActionDefinitionBuilder(ActionDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected ActionDefinitionBuilder(ActionDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
         {
         }
 
-        protected ActionDefinitionBuilder(ActionDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected ActionDefinitionBuilder(ActionDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public ActionDefinitionBuilder SetId(ActionDefinitions.Id value)

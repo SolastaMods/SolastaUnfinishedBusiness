@@ -31,7 +31,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
                 {
-                    Main.Log($"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
+                    Main.Log(
+                        $"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
 
                     if (gameGadget.Revealed) // Not checking for Enabled here unlike game code
                     {
@@ -41,12 +42,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
                         {
                             itemType = (MapGadgetItem.ItemType)(-1);
                         }
-                        else if ((gameGadget.UniqueNameId.StartsWith("Exit") || gameGadget.UniqueNameId.StartsWith("VirtualExit")) && gameGadget.IsEnabled())
+                        else if ((gameGadget.UniqueNameId.StartsWith("Exit") ||
+                                  gameGadget.UniqueNameId.StartsWith("VirtualExit")) && gameGadget.IsEnabled())
                         {
                             itemType = (MapGadgetItem.ItemType)(-2);
                         }
                         else if (gameGadget.UniqueNameId.StartsWith("Teleporter")
-                            && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
+                                 && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
                         {
                             itemType = (MapGadgetItem.ItemType)(-3);
                         }
@@ -76,6 +78,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
                                     ___mapGadgetItems.Add(mapGadgetItem);
                                 }
                             }
+
                             ___mapGadgetItems[___activeMapGadgetItems - 1].Bind(gameGadget, itemType);
                         }
                     }

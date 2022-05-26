@@ -30,11 +30,13 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             var roomTransformPos = Main.IsDebugBuild ? 8 : 4;
             var userRoomPos = Main.IsDebugBuild ? 4 : 2;
             var setLocalPositionMethod = typeof(Transform).GetMethod("set_localPosition");
-            var getTemplateVegetationMaskAreaMethod = typeof(Models.DmProRendererContext).GetMethod("GetTemplateVegetationMaskArea");
+            var getTemplateVegetationMaskAreaMethod =
+                typeof(Models.DmProRendererContext).GetMethod("GetTemplateVegetationMaskArea");
             var setupLocationTerrainMethod = typeof(Models.DmProRendererContext).GetMethod("SetupLocationTerrain");
             var setupFlatRoomsMethod = typeof(Models.DmProRendererContext).GetMethod("SetupFlatRooms");
             var addVegetationMaskAreaMethod = typeof(Models.DmProRendererContext).GetMethod("AddVegetationMaskArea");
-            var fixFlatRoomReflectionProbeMethod = typeof(Models.DmProRendererContext).GetMethod("FixFlatRoomReflectionProbe");
+            var fixFlatRoomReflectionProbeMethod =
+                typeof(Models.DmProRendererContext).GetMethod("FixFlatRoomReflectionProbe");
 
             yield return new CodeInstruction(OpCodes.Ldarg_0);
             yield return new CodeInstruction(OpCodes.Call, getTemplateVegetationMaskAreaMethod);

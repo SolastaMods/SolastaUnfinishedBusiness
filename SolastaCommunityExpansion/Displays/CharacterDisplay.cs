@@ -24,13 +24,15 @@ namespace SolastaCommunityExpansion.Displays
 
             // TODO: vision changes only take effect when creating a character. not sure if new block label is clear enough on intentions or we need more explanation here.
             toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
-            if (UI.Toggle("Disable " + "Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Disable " + "Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
             }
 
             toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
-            if (UI.Toggle("Disable " + "Superior Sense Dark Vision".orange() + " from all races " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Disable " + "Superior Sense Dark Vision".orange() + " from all races " + RequiresRestart,
+                    ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
             }
@@ -38,28 +40,38 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAlternateHuman;
-            if (UI.Toggle("Enable the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(
+                    "Enable the alternate human " + "[+1 feat / +2 attribute choices / +1 skill]".italic().yellow(),
+                    ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAlternateHuman = toggle;
                 InitialChoicesContext.SwitchFirstLevelTotalFeats();
             }
 
             toggle = Main.Settings.EnableFlexibleBackgrounds;
-            if (UI.Toggle("Enable flexible backgrounds " + "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(
+                    "Enable flexible backgrounds " +
+                    "[select skill and tool proficiencies from backgrounds]".italic().yellow(), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleBackgrounds = toggle;
                 FlexibleBackgroundsContext.Switch();
             }
 
             toggle = Main.Settings.EnableFlexibleRaces;
-            if (UI.Toggle("Enable flexible races " + "[assign ability score points instead of the racial defaults]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(
+                    "Enable flexible races " +
+                    "[assign ability score points instead of the racial defaults]".italic().yellow(), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.EnableFlexibleRaces = toggle;
                 FlexibleRacesContext.Switch();
             }
 
             toggle = Main.Settings.EnableEpicPointsAndArray;
-            if (UI.Toggle("Enable an epic 35 points buy system and array " + "[17,15,13,12,10,8] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(
+                    "Enable an epic 35 points buy system and array " + "[17,15,13,12,10,8] ".italic().yellow() +
+                    RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableEpicPointsAndArray = toggle;
             }
@@ -67,7 +79,9 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.TotalFeatsGrantedFistLevel;
-            if (UI.Slider("Total feats granted at first level".white(), ref intValue, InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "", UI.AutoWidth()))
+            if (UI.Slider("Total feats granted at first level".white(), ref intValue,
+                    InitialChoicesContext.MIN_INITIAL_FEATS, InitialChoicesContext.MAX_INITIAL_FEATS, 0, "",
+                    UI.AutoWidth()))
             {
                 Main.Settings.TotalFeatsGrantedFistLevel = intValue;
                 InitialChoicesContext.SwitchFirstLevelTotalFeats();
@@ -84,7 +98,8 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.EnableRelearnSpells;
-            if (UI.Toggle("Can select cantrips or spells already learned from other classes", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Can select cantrips or spells already learned from other classes", ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.EnableRelearnSpells = toggle;
             }
@@ -98,7 +113,8 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.MaxAllowedClasses;
-            if (UI.Slider("Max allowed classes ".white() + RequiresRestart, ref intValue, 1, MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
+            if (UI.Slider("Max allowed classes ".white() + RequiresRestart, ref intValue, 1,
+                    MulticlassContext.MAX_CLASSES, MulticlassContext.MAX_CLASSES, "", UI.Width(50)))
             {
                 Main.Settings.MaxAllowedClasses = intValue;
             }
@@ -108,7 +124,9 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
-            if (UI.Toggle("Enable both attribute scores increase and feat selection " + "[instead of an exclusive choice]".yellow().italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(
+                    "Enable both attribute scores increase and feat selection " +
+                    "[instead of an exclusive choice]".yellow().italic(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnablesAsiAndFeat = toggle;
                 InitialChoicesContext.SwitchAsiAndFeat();
@@ -124,7 +142,8 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.MaxAllowedLevels;
-            if (UI.Slider("Max allowed levels ".white() + RequiresRestart, ref intValue, Level20Context.GAME_MAX_LEVEL, Level20Context.MOD_MAX_LEVEL, Level20Context.GAME_MAX_LEVEL, "", UI.Width(50)))
+            if (UI.Slider("Max allowed levels ".white() + RequiresRestart, ref intValue, Level20Context.GAME_MAX_LEVEL,
+                    Level20Context.MOD_MAX_LEVEL, Level20Context.GAME_MAX_LEVEL, "", UI.Width(50)))
             {
                 Main.Settings.MaxAllowedLevels = intValue;
             }

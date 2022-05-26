@@ -65,7 +65,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
             scaledCosts[3] = (scaledAndRoundedCopper - scaledCosts[4]) / 10 % 10;
             // scaledCosts[2] always zero?
             scaledCosts[1] = (scaledAndRoundedCopper - (scaledCosts[3] * 10) - scaledCosts[4]) / 100 % 10;
-            scaledCosts[0] = (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
+            scaledCosts[0] =
+                (scaledAndRoundedCopper - (scaledCosts[1] * 100) - (scaledCosts[3] * 10) - scaledCosts[4]) / 1000;
 
             // only show platinum if baseCosts had platinum
             if (baseCosts[0] == 0)

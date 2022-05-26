@@ -25,7 +25,8 @@ namespace SolastaCommunityExpansion.Spells
         {
             private const string PactMarkSpellName = "AHPactMarkSpell";
 
-            protected PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name, DefinitionBuilder.CENamespaceGuid)
+            protected PactMarkSpellBuilder(string name) : base(DatabaseHelper.SpellDefinitions.HuntersMark, name,
+                CENamespaceGuid)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkSpellTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkSpellDescription";
@@ -78,7 +79,8 @@ namespace SolastaCommunityExpansion.Spells
         {
             private const string PactMarkPactMarkConditionName = "AHPactMarkPactMarkCondition";
 
-            protected PactMarkPactMarkConditionBuilder(string name) : base(DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, DefinitionBuilder.CENamespaceGuid)
+            protected PactMarkPactMarkConditionBuilder(string name) : base(
+                DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, CENamespaceGuid)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkPactMarkConditionTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkPactMarkConditionDescription";
@@ -91,14 +93,16 @@ namespace SolastaCommunityExpansion.Spells
                 return new PactMarkPactMarkConditionBuilder(name).AddToDB();
             }
 
-            public static readonly ConditionDefinition PactMarkCondition = CreateAndAddToDB(PactMarkPactMarkConditionName);
+            public static readonly ConditionDefinition PactMarkCondition =
+                CreateAndAddToDB(PactMarkPactMarkConditionName);
         }
 
         internal class PactMarkMarkedByPactConditionBuilder : ConditionDefinitionBuilder
         {
             private const string PactMarkMarkedByPactConditionName = "AHPactMarkMarkedByPactCondition";
 
-            protected PactMarkMarkedByPactConditionBuilder(string name) : base(DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, DefinitionBuilder.CENamespaceGuid)
+            protected PactMarkMarkedByPactConditionBuilder(string name) : base(
+                DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, CENamespaceGuid)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkMarkedByPactConditionTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkMarkedByPactConditionDescription";
@@ -109,14 +113,16 @@ namespace SolastaCommunityExpansion.Spells
                 return new PactMarkMarkedByPactConditionBuilder(name).AddToDB();
             }
 
-            public static readonly ConditionDefinition MarkedByPactCondition = CreateAndAddToDB(PactMarkMarkedByPactConditionName);
+            public static readonly ConditionDefinition MarkedByPactCondition =
+                CreateAndAddToDB(PactMarkMarkedByPactConditionName);
         }
 
         internal class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
         {
             private const string PactMarkAdditionalDamageBuilderName = "AHPactMarkAdditionalDamage";
 
-            protected PactMarkAdditionalDamageBuilder(string name) : base(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, DefinitionBuilder.CENamespaceGuid)
+            protected PactMarkAdditionalDamageBuilder(string name) : base(
+                DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, CENamespaceGuid)
             {
                 Definition.GuiPresentation.Title = "Spell/&AHPactMarkAdditionalDamageTitle";
                 Definition.GuiPresentation.Description = "Spell/&AHPactMarkAdditionalDamageDescription";
@@ -130,14 +136,17 @@ namespace SolastaCommunityExpansion.Spells
                 return new PactMarkAdditionalDamageBuilder(name).AddToDB();
             }
 
-            public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage = CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
+            public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage =
+                CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
         }
 
-        static SpellDefinition BuildHellishRebuke()
+        private static SpellDefinition BuildHellishRebuke()
         {
             return SpellDefinitionBuilder
                 .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Spell, Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke, 128, 128))
+                .SetGuiPresentation(Category.Spell,
+                    Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke,
+                        128, 128))
                 .SetSpellLevel(1)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
@@ -165,17 +174,16 @@ namespace SolastaCommunityExpansion.Spells
                         additionalDicePerIncrement: 1
                     )
                     .SetEffectForms(new EffectFormBuilder()
-                            .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(
-                                false,
-                                RuleDefinitions.DieType.D10,
-                                RuleDefinitions.DamageTypeFire,
-                                0,
-                                RuleDefinitions.DieType.D10,
-                                2,
-                                RuleDefinitions.HealFromInflictedDamage.Never
-                            )
-                            .Build()
+                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
+                        .SetDamageForm(
+                            false,
+                            RuleDefinitions.DieType.D10,
+                            RuleDefinitions.DamageTypeFire,
+                            0,
+                            RuleDefinitions.DieType.D10,
+                            2
+                        )
+                        .Build()
                     )
                     .Build()
                 )

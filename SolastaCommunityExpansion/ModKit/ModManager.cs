@@ -89,6 +89,7 @@ namespace ModKit
                             }
                         }
                     }
+
                     Patched = true;
                 }
 
@@ -96,12 +97,14 @@ namespace ModKit
 
                 process.Log("Registering events.");
                 _eventHandlers = types.Where(type => type != typeof(TCore) &&
-                    !type.IsInterface && !type.IsAbstract && typeof(IModEventHandler).IsAssignableFrom(type))
+                                                     !type.IsInterface && !type.IsAbstract &&
+                                                     typeof(IModEventHandler).IsAssignableFrom(type))
                     .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
                 if (Core is IModEventHandler core)
                 {
                     _eventHandlers.Add(core);
                 }
+
                 _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
 
                 process.Log("Raising events: OnEnable()");
@@ -166,6 +169,7 @@ namespace ModKit
             process.Log("Disabled.");
         }
 #endif
+
         #endregion
 
         #region Settings
@@ -176,7 +180,10 @@ namespace ModKit
         //    }
         //}
 
-        private void HandleSaveGUI(UnityModManager.ModEntry modEntry) => UnityModManager.ModSettings.Save(Settings, modEntry);
+        private void HandleSaveGUI(UnityModManager.ModEntry modEntry)
+        {
+            UnityModManager.ModSettings.Save(Settings, modEntry);
+        }
 
         #endregion
 
@@ -211,7 +218,10 @@ namespace ModKit
         //public void Debug(MethodBase method, params object[] parameters) => _logger.Log($"{method.DeclaringType.Name}.{method.Name}({string.Join(", ", parameters)})");
 
         [Conditional("DEBUG")]
-        public void Debug(string str) => _logger.Log(str);
+        public void Debug(string str)
+        {
+            _logger.Log(str);
+        }
 
         //[Conditional("DEBUG")]
         //public void Debug(object obj) => _logger.Log(obj?.ToString() ?? "null");
@@ -229,10 +239,16 @@ namespace ModKit
                 _stopWatch.Start();
             }
 
-            public void Dispose() => _stopWatch.Stop();
+            public void Dispose()
+            {
+                _stopWatch.Stop();
+            }
 
             [Conditional("DEBUG")]
-            public void Log(string status) => _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
+            public void Log(string status)
+            {
+                _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
+            }
         }
     }
 }

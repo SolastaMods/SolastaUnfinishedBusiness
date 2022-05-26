@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionPower)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionPowerExtensions
+    [TargetType(typeof(FeatureDefinitionPower))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionPowerExtensions
     {
         public static T SetAbilityScore<T>(this T entity, System.String value)
             where T : FeatureDefinitionPower
@@ -25,21 +26,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAbilityScoreDetermination<T>(this T entity, RuleDefinitions.AbilityScoreDetermination value)
+        public static T SetAbilityScoreDetermination<T>(this T entity, AbilityScoreDetermination value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("abilityScoreDetermination", value);
             return entity;
         }
 
-        public static T SetActivationTime<T>(this T entity, RuleDefinitions.ActivationTime value)
+        public static T SetActivationTime<T>(this T entity, ActivationTime value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("activationTime", value);
             return entity;
         }
 
-        public static T SetAttackHitComputation<T>(this T entity, RuleDefinitions.PowerAttackHitComputation value)
+        public static T SetAttackHitComputation<T>(this T entity, PowerAttackHitComputation value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("attackHitComputation", value);
@@ -53,7 +54,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCastingSuccessComputation<T>(this T entity, RuleDefinitions.CastingSuccessComputation value)
+        public static T SetCastingSuccessComputation<T>(this T entity, CastingSuccessComputation value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("castingSuccessComputation", value);
@@ -137,7 +138,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReactionContext<T>(this T entity, RuleDefinitions.ReactionTriggerContext value)
+        public static T SetReactionContext<T>(this T entity, ReactionTriggerContext value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("reactionContext", value);
@@ -151,7 +152,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRechargeRate<T>(this T entity, RuleDefinitions.RechargeRate value)
+        public static T SetRechargeRate<T>(this T entity, RechargeRate value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("rechargeRate", value);
@@ -207,7 +208,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsesDetermination<T>(this T entity, RuleDefinitions.UsesDetermination value)
+        public static T SetUsesDetermination<T>(this T entity, UsesDetermination value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("usesDetermination", value);

@@ -56,11 +56,12 @@ namespace SolastaCommunityExpansion.DataViewer
      *      foreach Node in Tree, this.matches.Clear()
      *
      */
-    public partial class ReflectionSearch : MonoBehaviour
+    public class ReflectionSearch : MonoBehaviour
     {
         public delegate void SearchProgress(int visitCount, int depth, int breadth);
+
         public bool IsSearching => searchCoroutine != null;
-        private static readonly HashSet<int> VisitedInstanceIDs = new() { };
+        private static readonly HashSet<int> VisitedInstanceIDs = new();
         public static int SequenceNumber { get; private set; }
         private IEnumerator searchCoroutine;
         private static ReflectionSearch _shared;
@@ -74,6 +75,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     _shared = new GameObject().AddComponent<ReflectionSearch>();
                     DontDestroyOnLoad(_shared.gameObject);
                 }
+
                 return _shared;
             }
         }
@@ -85,6 +87,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 StopCoroutine(searchCoroutine);
                 searchCoroutine = null;
             }
+
             VisitedInstanceIDs.Clear();
             resultRoot.Clear();
             resultRoot.Node = node;
@@ -99,12 +102,13 @@ namespace SolastaCommunityExpansion.DataViewer
             Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
             if (searchText.Length != 0)
             {
-                var todo = new List<Node> { node };
+                var todo = new List<Node> {node};
 
                 searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
                 StartCoroutine(searchCoroutine);
             }
         }
+
         public void Stop()
         {
             if (searchCoroutine != null)
@@ -112,9 +116,12 @@ namespace SolastaCommunityExpansion.DataViewer
                 StopCoroutine(searchCoroutine);
                 searchCoroutine = null;
             }
+
             StopAllCoroutines();
         }
-        private IEnumerator Search(string searchText, List<Node> todo, int depth, int visitCount, int sequenceNumber, SearchProgress updator, ReflectionSearchResult resultRoot)
+
+        private IEnumerator Search(string searchText, List<Node> todo, int depth, int visitCount, int sequenceNumber,
+            SearchProgress updator, ReflectionSearchResult resultRoot)
         {
             yield return null;
             if (sequenceNumber != SequenceNumber)
@@ -140,6 +147,7 @@ namespace SolastaCommunityExpansion.DataViewer
                         VisitedInstanceIDs.Add(instID);
                     }
                 }
+
                 visitCount++;
 
                 try
@@ -164,9 +172,10 @@ namespace SolastaCommunityExpansion.DataViewer
                 {
                     updator(visitCount, depth, breadth);
                 }
+
                 if (node.hasChildren && !alreadyVisted)
                 {
-                    if (node.InstanceID is int instID2 && instID2 == this.GetInstanceID())
+                    if (node.InstanceID is int instID2 && instID2 == GetInstanceID())
                     {
                         break;
                     }
@@ -175,6 +184,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     {
                         break;
                     }
+
                     try
                     {
                         foreach (var child in node.GetItemNodes())
@@ -186,6 +196,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     {
                         Main.Log($"{depth} caught - {e}");
                     }
+
                     try
                     {
                         foreach (var child in node.GetComponentNodes())
@@ -197,6 +208,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     {
                         Main.Log($"{depth} caught - {e}");
                     }
+
                     try
                     {
                         foreach (var child in node.GetPropertyNodes())
@@ -208,6 +220,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     {
                         Main.Log($"{depth} caught - {e}");
                     }
+
                     try
                     {
                         foreach (var child in node.GetFieldNodes())
@@ -220,11 +233,13 @@ namespace SolastaCommunityExpansion.DataViewer
                         Main.Log($"{depth} caught - {e}");
                     }
                 }
+
                 if (visitCount % 1000 == 0)
                 {
                     yield return null;
                 }
             }
+
             if (newTodo.Count > 0 && depth < Main.Settings.MaxSearchDepth)
             {
                 yield return Search(searchText, newTodo, depth + 1, visitCount, sequenceNumber, updator, resultRoot);

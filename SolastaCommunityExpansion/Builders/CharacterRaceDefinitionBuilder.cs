@@ -4,9 +4,11 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class CharacterRaceDefinitionBuilder : DefinitionBuilder<CharacterRaceDefinition, CharacterRaceDefinitionBuilder>
+    public class
+        CharacterRaceDefinitionBuilder : DefinitionBuilder<CharacterRaceDefinition, CharacterRaceDefinitionBuilder>
     {
         #region Constructors
+
         protected CharacterRaceDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -15,13 +17,16 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
         {
         }
 
-        protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected CharacterRaceDefinitionBuilder(CharacterRaceDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public CharacterRaceDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition characterSizeDefinition)

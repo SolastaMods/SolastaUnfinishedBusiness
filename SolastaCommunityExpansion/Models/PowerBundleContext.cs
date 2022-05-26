@@ -26,6 +26,7 @@ namespace SolastaCommunityExpansion.Models
              * from this bundle can be in effect
              */
             public bool TerminateAll { get; internal set; }
+
             public List<FeatureDefinitionPower> SubPowers { get; } = new();
         }
 
@@ -36,7 +37,7 @@ namespace SolastaCommunityExpansion.Models
         }
 
         public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
-                IEnumerable<FeatureDefinitionPower> subPowers)
+            IEnumerable<FeatureDefinitionPower> subPowers)
         {
             if (Bundles.ContainsKey(masterPower))
             {
@@ -181,7 +182,8 @@ namespace SolastaCommunityExpansion.Models
                     var actionParams = new CharacterActionParams(fromActor, ActionDefinitions.Id.PowerMain);
                     actionParams.TargetCharacters.Add(fromActor);
                     actionParams.ActionModifiers.Add(new ActionModifier());
-                    actionParams.RulesetEffect = rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
+                    actionParams.RulesetEffect =
+                        rules.InstantiateEffectPower(fromActor.RulesetCharacter, usablePower, true);
                     actionParams.SkipAnimationsAndVFX = true;
                     ServiceRepository.GetService<ICommandService>()
                         .ExecuteAction(actionParams, functor.ActionExecuted, false);
@@ -200,13 +202,17 @@ namespace SolastaCommunityExpansion.Models
                     rules.ApplyEffectForms(power.EffectDescription.EffectForms, formsParams);
                     ruleChar.UpdateUsageForPowerPool(usablePower, power.CostPerUse);
 
-                    GameConsoleHelper.LogCharacterUsedPower(ruleChar, power, $"Feedback/&{power.Name}UsedWhileTravellingFormat");
+                    GameConsoleHelper.LogCharacterUsedPower(ruleChar, power,
+                        $"Feedback/&{power.Name}UsedWhileTravellingFormat");
                 }
             }
 
             Trace.LogWarning("Unable to assign targets to power");
         }
 
-        private void ActionExecuted(CharacterAction action) => this.powerUsed = true;
+        private void ActionExecuted(CharacterAction action)
+        {
+            powerUsed = true;
+        }
     }
 }

@@ -75,7 +75,8 @@ namespace SolastaCommunityExpansion.DataMiner
                 return;
             }
 
-            var coroutine = ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, exportOriginalCopy, path);
+            var coroutine =
+ ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, exportOriginalCopy, path);
 
             SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
         }

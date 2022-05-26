@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MonsterDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class MonsterDefinitionExtensions
+    [TargetType(typeof(MonsterDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class MonsterDefinitionExtensions
     {
         public static T AddAttackIterations<T>(this T entity, params MonsterAttackIteration[] value)
             where T : MonsterDefinition
@@ -349,7 +350,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBestiarySpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
+        public static T SetBestiarySpriteReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : MonsterDefinition
         {
             entity.SetField("bestiarySpriteReference", value);
@@ -517,7 +519,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHitDiceType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetHitDiceType<T>(this T entity, DieType value)
             where T : MonsterDefinition
         {
             entity.SetField("hitDiceType", value);

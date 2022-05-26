@@ -9,7 +9,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
-        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure);
+        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
+            GameLocationCharacter target, out string failure);
+
         delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
 
         CanUseHandler CanBeUsedToAttack { get; set; }
@@ -51,7 +53,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
-            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
+                target.LocationPosition, attackModifier);
 
             return battleService.CanAttack(evalParams);
         }
@@ -103,7 +106,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return null;
         }
 
-        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure)
+        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
+            GameLocationCharacter target, out string failure)
         {
             failure = String.Empty;
             //TODO: implement setting to tell how many targets must meet weapon attack requirements

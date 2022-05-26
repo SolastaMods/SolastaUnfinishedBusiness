@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(EffectForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class EffectFormExtensions
+    [TargetType(typeof(EffectForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class EffectFormExtensions
     {
         public static EffectForm Copy(this EffectForm entity)
         {
@@ -18,7 +19,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetAddBonusMode<T>(this T entity, RuleDefinitions.AddBonusMode value)
+        public static T SetAddBonusMode<T>(this T entity, AddBonusMode value)
             where T : EffectForm
         {
             entity.AddBonusMode = value;
@@ -151,7 +152,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLevelType<T>(this T entity, RuleDefinitions.LevelSourceType value)
+        public static T SetLevelType<T>(this T entity, LevelSourceType value)
             where T : EffectForm
         {
             entity.SetField("levelType", value);
@@ -186,14 +187,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSaveOccurence<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetSaveOccurence<T>(this T entity, TurnOccurenceType value)
             where T : EffectForm
         {
             entity.SaveOccurence = value;
             return entity;
         }
 
-        public static T SetSavingThrowAffinity<T>(this T entity, RuleDefinitions.EffectSavingThrowType value)
+        public static T SetSavingThrowAffinity<T>(this T entity, EffectSavingThrowType value)
             where T : EffectForm
         {
             entity.SavingThrowAffinity = value;

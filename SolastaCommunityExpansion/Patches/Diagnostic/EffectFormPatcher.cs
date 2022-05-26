@@ -243,4 +243,3 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     }
 }
 #endif
-

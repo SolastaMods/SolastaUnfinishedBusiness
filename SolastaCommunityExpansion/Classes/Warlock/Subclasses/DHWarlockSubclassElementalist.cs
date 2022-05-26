@@ -25,7 +25,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         {
             ElementalFormPool = FeatureDefinitionPowerPoolBuilder
                 .Create("DH_ElementalFormPool", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("ElementalForm", Properties.Resources.ElementalForm, 128, 64))
+                .SetGuiPresentation(Category.Power,
+                    Utils.CustomIcons.CreateAssetReferenceSprite("ElementalForm", Properties.Resources.ElementalForm,
+                        128, 64))
                 .SetUsesProficiency()
                 .SetRechargeRate(RechargeRate.LongRest)
                 .SetActivation(ActivationTime.BonusAction, 1)
@@ -33,7 +35,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             EnhancedElementalFormPool = FeatureDefinitionPowerPoolBuilder
                 .Create("DH_ElementalFormPoolEnhanced", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced", Properties.Resources.ElementalFormEnhanced, 128, 64))
+                .SetGuiPresentation(Category.Power,
+                    Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormEnhanced",
+                        Properties.Resources.ElementalFormEnhanced, 128, 64))
                 .SetShortTitle("Power/&DH_ElementalFormPoolEnhancedTitleShort")
                 .SetUsesProficiency()
                 .SetRechargeRate(RechargeRate.LongRest)
@@ -47,7 +51,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             //Leaving this so that characters who took this subclass befre would load properly
             var FeatureSet_Level01 = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level01", DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
+                    "ElementalPatronFeatureSet_Level01", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("Feature/&ElementalPatronDummyFeatureSetTitle", Gui.NoLocalization)
                 .ClearFeatureSet()
                 .AddFeatureSet(ElementalFormPool)
@@ -59,13 +64,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var FeatureSet_Level06 = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, "ElementalPatronFeatureSet_Level06", DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
+                    "ElementalPatronFeatureSet_Level06", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .ClearFeatureSet()
-                .AddFeatureSet(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageRangerFavoredEnemyElemental)
+                .AddFeatureSet(DatabaseHelper.FeatureDefinitionAdditionalDamages
+                    .AdditionalDamageRangerFavoredEnemyElemental)
                 .AddFeatureSet(DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityProtectedFromEvil)
-                .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardCharmed)
-                .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCircleLandNaturesWardFrightened)
+                .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys
+                    .ConditionAffinityCircleLandNaturesWardCharmed)
+                .AddFeatureSet(DatabaseHelper.FeatureDefinitionConditionAffinitys
+                    .ConditionAffinityCircleLandNaturesWardFrightened)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
                 .AddToDB();
@@ -84,8 +93,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             //Leaving this so that characters who took this subclass befre would load properly
             var FeatureSet_Level10 = FeatureDefinitionFeatureSetBuilder.Create(
-                DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
-                "ElementalPatronFeatureSet_Level10", DefinitionBuilder.CENamespaceGuid)
+                    DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest,
+                    "ElementalPatronFeatureSet_Level10", DefinitionBuilder.CENamespaceGuid)
                 // .SetGuiPresentation(Category.Feature)
                 .SetGuiPresentation("Feature/&ElementalPatronDummyFeatureSetTitle", Gui.NoLocalization)
                 .ClearFeatureSet()
@@ -98,7 +107,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             AtWillConjureMinorElementals();
 
             return CharacterSubclassDefinitionBuilder.Create(Name, DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Subclass, DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Subclass,
+                    DatabaseHelper.CharacterSubclassDefinitions.TraditionLoremaster.GuiPresentation.SpriteReference)
                 // .AddFeatureAtLevel(FeatureSet_Level01, 1)
                 .AddFeaturesAtLevel(1, ElementalistMagicAffinity, ElementalFormPool)
                 .AddFeatureAtLevel(FeatureSet_Level06, 6)
@@ -109,8 +119,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
         private static void BuildElementalForms()
         {
-            var iconRegular = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIcon", Properties.Resources.ElementalFormIcon, 24, 24);
-            var iconEnhanced = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced", Properties.Resources.ElementalFormIconEnhanced, 24, 24);
+            var iconRegular = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIcon",
+                Properties.Resources.ElementalFormIcon, 24, 24);
+            var iconEnhanced = Utils.CustomIcons.CreateAssetReferenceSprite("ElementalFormIconEnhanced",
+                Properties.Resources.ElementalFormIconEnhanced, 24, 24);
 
             var regularPowers = new List<FeatureDefinitionPower>();
             var enhancedPowers = new List<FeatureDefinitionPower>();
@@ -133,6 +145,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             internal FeatureDefinitionDamageAffinity Immunity;
 
             internal AssetReference Particles;
+
             internal AssetReference Shaders;
             // internal AssetReferenceSprite Sprite;
         }
@@ -183,8 +196,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     DamageType = DamageFire,
                     Resistance = DamageAffinityFireResistance,
                     Immunity = DamageAffinityFireImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"), // fire jester,
-                    Shaders = DatabaseHelper.MonsterDefinitions.Fire_Elemental.MonsterPresentation.CustomShaderReference, // fire jester,
+                    Particles = DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation
+                        .GetField<AssetReference>("attachedParticlesReference"), // fire jester,
+                    Shaders = DatabaseHelper.MonsterDefinitions.Fire_Elemental.MonsterPresentation
+                        .CustomShaderReference // fire jester,
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire.GuiPresentation.SpriteReference,
                 }
             },
@@ -195,8 +210,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     DamageType = DamageBludgeoning,
                     Resistance = DamageAffinityBludgeoningResistance,
                     Immunity = DamageAffinityBludgeoningImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"), // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
-                    Shaders =  DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.CustomShaderReference, // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
+                    Particles =
+                        DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>(
+                            "attachedParticlesReference"), // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
+                    Shaders = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation
+                        .CustomShaderReference // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
                 }
             },
@@ -207,8 +225,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     DamageType = DamageCold,
                     Resistance = DamageAffinityColdResistance,
                     Immunity = DamageAffinityColdImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),// skarn ghoul,
-                    Shaders = DatabaseHelper.MonsterDefinitions.SkarnGhoul.MonsterPresentation.CustomShaderReference,// skarn ghoul
+                    Particles =
+                        DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>(
+                            "attachedParticlesReference"), // skarn ghoul,
+                    Shaders = DatabaseHelper.MonsterDefinitions.SkarnGhoul.MonsterPresentation
+                        .CustomShaderReference // skarn ghoul
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold.GuiPresentation.SpriteReference,
                 }
             },
@@ -219,14 +240,17 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     DamageType = DamageThunder,
                     Resistance = DamageAffinityThunderResistance,
                     Immunity = DamageAffinityThunderImmunity,
-                    Particles = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),
-                    Shaders = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.CustomShaderReference,
+                    Particles =
+                        DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>(
+                            "attachedParticlesReference"),
+                    Shaders = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.CustomShaderReference
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference,
                 }
             }
         };
 
-        private static GuiPresentation GuiPresentation(string type, string text, ElementalFormConfig cfg, AssetReferenceSprite sprite = null)
+        private static GuiPresentation GuiPresentation(string type, string text, ElementalFormConfig cfg,
+            AssetReferenceSprite sprite = null)
         {
             var damageType = cfg.DamageType.GuiPresentation.Title;
             var planeText = $"Feature/&ElementalPact{text}Plane";
@@ -341,7 +365,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void AtWillConjureMinorElementals()
         {
             var AtWillConjureMinorElementalsBuilder = SpellDefinitionBuilder
-                    .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
+                .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
             AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
 
             MinorElementalBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
@@ -355,7 +379,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
         public static void ElementalistSpells()
         {
             var ElementalistSpellList = SpellListDefinitionBuilder
-                .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList", DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.SpellListDefinitions.SpellListPaladin, "ElementalistSpellsList",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.SpellList)
                 .ClearSpells()
                 .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)

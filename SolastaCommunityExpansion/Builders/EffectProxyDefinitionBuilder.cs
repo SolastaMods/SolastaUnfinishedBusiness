@@ -79,7 +79,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectProxyDefinitionBuilder SetSoundEffectOnHitDescription(SoundEffectOnHitDescription soundEffectOnHitDescription)
+        public EffectProxyDefinitionBuilder SetSoundEffectOnHitDescription(
+            SoundEffectOnHitDescription soundEffectOnHitDescription)
         {
             Definition.SetSoundEffectOnHitDescription(soundEffectOnHitDescription);
             return this;
@@ -103,7 +104,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectProxyDefinitionBuilder SetPresentationInformation(bool hasPresentation, AssetReference prefabReference, bool isEmptyPresentation)
+        public EffectProxyDefinitionBuilder SetPresentationInformation(bool hasPresentation,
+            AssetReference prefabReference, bool isEmptyPresentation)
         {
             Definition.SetHasPresentation(hasPresentation);
             Definition.SetPrefabReference(prefabReference);

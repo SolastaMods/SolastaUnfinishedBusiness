@@ -9,8 +9,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(HeroEquipmentOption)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class HeroEquipmentOptionExtensions
+    [TargetType(typeof(HeroEquipmentOption))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class HeroEquipmentOptionExtensions
     {
         public static T SetDefaultChoice<T>(this T entity, System.String value)
             where T : HeroEquipmentOption

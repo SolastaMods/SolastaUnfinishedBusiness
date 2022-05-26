@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(GuiPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class GuiPresentationExtensions
+    [TargetType(typeof(GuiPresentation))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class GuiPresentationExtensions
     {
         public static GuiPresentation Copy(this GuiPresentation entity)
         {

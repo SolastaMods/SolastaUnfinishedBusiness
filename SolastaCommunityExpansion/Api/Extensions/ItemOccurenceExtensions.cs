@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ItemOccurence)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ItemOccurenceExtensions
+    [TargetType(typeof(ItemOccurence))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ItemOccurenceExtensions
     {
         public static ItemOccurence Copy(this ItemOccurence entity)
         {
@@ -30,7 +31,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDiceType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetDiceType<T>(this T entity, DieType value)
             where T : ItemOccurence
         {
             entity.DiceType = value;

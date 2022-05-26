@@ -5,9 +5,11 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity, FeatureDefinitionMagicAffinityBuilder>
+    public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity
+        , FeatureDefinitionMagicAffinityBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
             : base(name, guid)
         {
@@ -18,28 +20,34 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, string guid)
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
+            string guid)
             : base(original, name, guid)
         {
         }
 
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name, Guid namespaceGuid)
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
+            Guid namespaceGuid)
             : base(original, name, namespaceGuid)
         {
         }
+
         #endregion
 
-        public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold)
+        public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
+            RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold)
         {
             Definition.SetConcentrationAffinity(concentrationAffinity);
             if (threshold > 0)
             {
                 Definition.SetOverConcentrationThreshold(threshold);
             }
+
             return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(bool weapon, bool weaponOrShield, bool weaponAsFocus)
+        public FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(bool weapon, bool weaponOrShield,
+            bool weaponAsFocus)
         {
             Definition.SetSomaticWithWeaponOrShield(weaponOrShield);
             Definition.SetSomaticWithWeapon(weapon);
@@ -47,7 +55,10 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(int attackModifier, RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier, RuleDefinitions.SpellParamsModifierType dcModifierType, bool noProximityPenalty, bool cantripRetribution, bool halfDamageCantrips)
+        public FeatureDefinitionMagicAffinityBuilder SetCastingModifiers(int attackModifier,
+            RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier,
+            RuleDefinitions.SpellParamsModifierType dcModifierType, bool noProximityPenalty, bool cantripRetribution,
+            bool halfDamageCantrips)
         {
             Definition.SetSpellAttackModifierType(attackModifierType);
             Definition.SetSpellAttackModifier(attackModifier);
@@ -75,7 +86,8 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
             float scribeDurationMultiplier, float scribeCostMultiplier,
-            int additionalScribedSpells, RuleDefinitions.AdvantageType scribeAdvantage, RuleDefinitions.PreparedSpellsModifier preparedModifier)
+            int additionalScribedSpells, RuleDefinitions.AdvantageType scribeAdvantage,
+            RuleDefinitions.PreparedSpellsModifier preparedModifier)
         {
             Definition.SetScribeCostMultiplier(scribeCostMultiplier);
             Definition.SetScribeDurationMultiplier(scribeDurationMultiplier);

@@ -1,4 +1,5 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
+
 using System;
 
 namespace ModKit
@@ -8,6 +9,7 @@ namespace ModKit
         public string name { get; }
         public Action action { get; }
         public Func<bool> canPerform { get; }
+
         public NamedAction(string name, Action action, Func<bool> canPerform = null)
         {
             this.name = name;
@@ -32,6 +34,7 @@ namespace ModKit
         public string name { get; }
         public Func<T> func { get; }
         public Func<bool> canPerform { get; }
+
         public NamedFunc(string name, Func<T> func, Func<bool> canPerform = null)
         {
             this.name = name;

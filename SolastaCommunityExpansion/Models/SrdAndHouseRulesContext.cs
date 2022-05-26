@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Models
         /// </summary>
         internal static void AllowTargetingSelectionWhenCastingChainLightningSpell()
         {
-            var spell = SolastaModApi.DatabaseHelper.SpellDefinitions.ChainLightning.EffectDescription;
+            var spell = DatabaseHelper.SpellDefinitions.ChainLightning.EffectDescription;
 
             if (Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell)
             {

@@ -52,7 +52,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         private static void BuildProficiencies()
         {
-            static FeatureDefinitionProficiency BuildProficiency(string name, RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+            static FeatureDefinitionProficiency BuildProficiency(string name, RuleDefinitions.ProficiencyType type,
+                params string[] proficiencies)
             {
                 return FeatureDefinitionProficiencyBuilder
                     .Create(name, DefinitionBuilder.CENamespaceGuid)
@@ -62,16 +63,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock
             }
 
             FeatureDefinitionProficiencyArmor =
-                BuildProficiency("ClassWarlockArmorProficiency", RuleDefinitions.ProficiencyType.Armor, LightArmorCategory);
+                BuildProficiency("ClassWarlockArmorProficiency", RuleDefinitions.ProficiencyType.Armor,
+                    LightArmorCategory);
 
             FeatureDefinitionProficiencyWeapon =
-                BuildProficiency("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Weapon, SimpleWeaponCategory);
+                BuildProficiency("ClassWarlockWeaponProficiency", RuleDefinitions.ProficiencyType.Weapon,
+                    SimpleWeaponCategory);
 
             FeatureDefinitionProficiencyTool =
-                BuildProficiency("ClassWarlockToolsProficiency", RuleDefinitions.ProficiencyType.Tool, EnchantingToolType.Name, HerbalismKitType.Name);
+                BuildProficiency("ClassWarlockToolsProficiency", RuleDefinitions.ProficiencyType.Tool,
+                    EnchantingToolType.Name, HerbalismKitType.Name);
 
             FeatureDefinitionProficiencySavingThrow =
-                BuildProficiency("ClassWarlockSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom);
+                BuildProficiency("ClassWarlockSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow,
+                    AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom);
 
             FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder
                 .Create("ClassWarlockSkillProficiency", DefinitionBuilder.CENamespaceGuid)
@@ -92,7 +97,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         private static void BuildSpells()
         {
             var classWarlockCastSpell = FeatureDefinitionCastSpellBuilder
-                .Create(FeatureDefinitionCastSpells.CastSpellSorcerer, "ClassWarlockCastSpell", DefinitionBuilder.CENamespaceGuid)
+                .Create(FeatureDefinitionCastSpells.CastSpellSorcerer, "ClassWarlockCastSpell",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ClassWarlockSpellcasting", Category.Feature)
                 .SetKnownCantrips(2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4)
                 .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15)
@@ -125,7 +131,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     // needs more work and verification, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
                     // DHWarlockSubclassUrPriestPatron.Build(),
                     DHWarlockSubclassToadKingPatron.Build()
-                    )
+                )
                 .AddToDB();
 
             classWarlockBuilder
@@ -138,96 +144,77 @@ namespace SolastaCommunityExpansion.Classes.Warlock
                     FeatureDefinitionClassWarlockCastSpell,
                     subclassChoices
                 )
-
                 .AddFeaturesAtLevel(2,
                     WarlockEldritchInvocationSet,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(3,
                     WarlockClassPactBoonSetBuilder.WarlockClassPactBoonSet,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(4,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(5,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(6,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(7,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(8,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(9,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(10,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(11,
                     WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(12,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(13,
                     WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(14,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(15,
                     WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(16,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(17,
                     WarlockMysticArcanumSet,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(18,
                     WarlockEldritchInvocationReplacer,
                     WarlockEldritchInvocationSet
                 )
-
                 .AddFeaturesAtLevel(19,
                     FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice,
                     WarlockEldritchInvocationReplacer
                 )
-
                 .AddFeaturesAtLevel(20,
                     WarlockEldritchMasterPower,
                     WarlockEldritchInvocationReplacer
@@ -236,12 +223,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock
 
         internal static CharacterClassDefinition BuildWarlockClass()
         {
-            var warlockSpriteReference = Utils.CustomIcons.CreateAssetReferenceSprite("Warlock", Properties.Resources.Warlock, 1024, 576);
+            var warlockSpriteReference =
+                Utils.CustomIcons.CreateAssetReferenceSprite("Warlock", Properties.Resources.Warlock, 1024, 576);
 
             var classWarlockBuilder = CharacterClassDefinitionBuilder
                 .Create("ClassWarlock", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Class, warlockSpriteReference, 1)
-                .AddFeatPreferences(FeatDefinitions.PowerfulCantrip, FeatDefinitions.FlawlessConcentration, FeatDefinitions.Robust)
+                .AddFeatPreferences(FeatDefinitions.PowerfulCantrip, FeatDefinitions.FlawlessConcentration,
+                    FeatDefinitions.Robust)
                 .AddPersonality(PersonalityFlagDefinitions.Violence, 3)
                 .AddPersonality(PersonalityFlagDefinitions.Self_Preservation, 3)
                 .AddPersonality(PersonalityFlagDefinitions.Normal, 3)

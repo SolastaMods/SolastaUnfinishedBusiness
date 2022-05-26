@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionCharacterPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionCharacterPresentationExtensions
+    [TargetType(typeof(FeatureDefinitionCharacterPresentation))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionCharacterPresentationExtensions
     {
         public static T SetForcedBeard<T>(this T entity, System.String value)
             where T : FeatureDefinitionCharacterPresentation

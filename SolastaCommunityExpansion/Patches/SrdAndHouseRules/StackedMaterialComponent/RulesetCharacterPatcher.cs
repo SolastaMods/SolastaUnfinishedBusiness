@@ -17,7 +17,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_IsComponentMaterialValid
     {
-        public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition, ref string failure, ref bool __result)
+        public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition, ref string failure,
+            ref bool __result)
         {
             if (!Main.Settings.AllowStackedMaterialComponent)
             {
@@ -89,7 +90,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
                 {
                     item.RulesetItem,
                     item.Cost,
-                    StackCountRequired = (int)Math.Ceiling(spellDefinition.SpecificMaterialComponentCostGp / (double)item.Cost),
+                    StackCountRequired =
+                        (int)Math.Ceiling(spellDefinition.SpecificMaterialComponentCostGp / (double)item.Cost)
                 })
                 .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
                 .Select(item => new
@@ -125,7 +127,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
 
             var rulesetItem = itemToUse.RulesetItem;
 
-            if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 && itemToUse.StackCountRequired < rulesetItem.StackCount)
+            if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 &&
+                itemToUse.StackCountRequired < rulesetItem.StackCount)
             {
                 Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 

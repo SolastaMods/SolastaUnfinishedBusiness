@@ -8,7 +8,8 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class CeContentPackContext
     {
-        internal const GamingPlatformDefinitions.ContentPack CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
+        internal const GamingPlatformDefinitions.ContentPack
+            CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
         internal static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
 
@@ -32,13 +33,16 @@ namespace SolastaCommunityExpansion.Models
             autoUnlockedPacks.Add(CeContentPack);
         }
 
-        private sealed class ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
+        private sealed class
+            ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
         {
             #region Constructors
+
             internal ContentPackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
             {
             }
-            #endregion 
+
+            #endregion
         }
     }
 }

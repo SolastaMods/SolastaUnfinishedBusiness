@@ -10,6 +10,7 @@ namespace SolastaCommunityExpansion.Builders
     public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
     {
         #region Constructors
+
         protected SpellListDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -18,13 +19,16 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
         {
         }
 
-        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public SpellListDefinitionBuilder ClearSpells()
@@ -46,7 +50,10 @@ namespace SolastaCommunityExpansion.Builders
                 if (Definition.SpellsByLevel.Count < level + 1)
                 {
                     // Add new duplet
-                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet { Level = level, Spells = new() });
+                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet
+                    {
+                        Level = level, Spells = new List<SpellDefinition>()
+                    });
                 }
 
                 // Check this level matches
@@ -58,7 +65,7 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // Ensure spells list is set
-                spells.Spells ??= new();
+                spells.Spells ??= new List<SpellDefinition>();
             }
         }
 
@@ -91,7 +98,8 @@ namespace SolastaCommunityExpansion.Builders
 #endif
 
             // Set the spells - remove duplicates - sort to add to list in determistic order
-            Definition.SpellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
+            Definition.SpellsByLevel[level].Spells
+                .SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
 
             return this;
         }

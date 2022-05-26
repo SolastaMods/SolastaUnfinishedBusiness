@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ShapeChangeForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ShapeChangeFormExtensions
+    [TargetType(typeof(ShapeChangeForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ShapeChangeFormExtensions
     {
         public static T AddShapeOptions<T>(this T entity, params ShapeOptionDescription[] value)
             where T : ShapeChangeForm

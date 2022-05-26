@@ -19,7 +19,10 @@ namespace SolastaCommunityExpansion.Models
             LoadHelpPower();
         }
 
-        internal static void LateLoad() => Switch();
+        internal static void LateLoad()
+        {
+            Switch();
+        }
 
         internal static void Switch()
         {
@@ -37,17 +40,21 @@ namespace SolastaCommunityExpansion.Models
             if (Main.Settings.AddHelpActionToAllRaces)
             {
                 foreach (var characterRaceDefinition in races
-                    .Where(a => !a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
+                             .Where(a => !a.FeatureUnlocks.Exists(x =>
+                                 x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
-                    characterRaceDefinition.FeatureUnlocks.Add(new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
+                    characterRaceDefinition.FeatureUnlocks.Add(
+                        new FeatureUnlockByLevel(FeatureDefinitionPowerHelpAction, 1));
                 }
             }
             else
             {
                 foreach (var characterRaceDefinition in races
-                    .Where(a => a.FeatureUnlocks.Exists(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
+                             .Where(a => a.FeatureUnlocks.Exists(x =>
+                                 x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction)))
                 {
-                    characterRaceDefinition.FeatureUnlocks.RemoveAll(x => x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
+                    characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
+                        x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
                 }
             }
         }
@@ -61,7 +68,8 @@ namespace SolastaCommunityExpansion.Models
             effectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
 
             var helpPowerCondition = ConditionDefinitionBuilder
-                .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionHelpPower", DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionTrueStrike, "ConditionHelpPower",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetOrUpdateGuiPresentation("HelpAction", Category.Condition)
                 .AddToDB();
 

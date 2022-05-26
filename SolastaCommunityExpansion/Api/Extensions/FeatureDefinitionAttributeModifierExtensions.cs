@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAttributeModifier)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionAttributeModifierExtensions
+    [TargetType(typeof(FeatureDefinitionAttributeModifier))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionAttributeModifierExtensions
     {
         public static T SetModifiedAttribute<T>(this T entity, System.String value)
             where T : FeatureDefinitionAttributeModifier
@@ -25,7 +26,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetModifierType2<T>(this T entity, FeatureDefinitionAttributeModifier.AttributeModifierOperation value)
+        public static T SetModifierType2<T>(this T entity,
+            FeatureDefinitionAttributeModifier.AttributeModifierOperation value)
             where T : FeatureDefinitionAttributeModifier
         {
             entity.SetField("modifierType2", value);
@@ -39,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSituationalContext<T>(this T entity, RuleDefinitions.SituationalContext value)
+        public static T SetSituationalContext<T>(this T entity, SituationalContext value)
             where T : FeatureDefinitionAttributeModifier
         {
             entity.SetField("situationalContext", value);

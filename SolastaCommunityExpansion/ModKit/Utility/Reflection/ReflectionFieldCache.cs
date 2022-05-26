@@ -31,6 +31,7 @@ namespace ModKit.Utility
                 _fieldCache[typeof(T), name] = new WeakReference(cache);
                 EnqueueCache(cache);
             }
+
             return cache as CachedField<TField>;
         }
 
@@ -59,9 +60,15 @@ namespace ModKit.Utility
 
         //public static ref TField GetFieldRef<T, TField>(this T instance, string name) where T : class => ref (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).GetRef(instance);
 
-        public static TField GetFieldValue<T, TField>(this ref T instance, string name) where T : struct => (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Get(ref instance);
+        public static TField GetFieldValue<T, TField>(this ref T instance, string name) where T : struct
+        {
+            return (GetFieldCache<T, TField>(name) as CachedFieldOfStruct<T, TField>).Get(ref instance);
+        }
 
-        public static TField GetFieldValue<T, TField>(this T instance, string name) where T : class => (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Get(instance);
+        public static TField GetFieldValue<T, TField>(this T instance, string name) where T : class
+        {
+            return (GetFieldCache<T, TField>(name) as CachedFieldOfClass<T, TField>).Get(instance);
+        }
 
         //public static TField GetFieldValue<T, TField>(string name) => GetFieldCache<T, TField>(name).Get();
 
@@ -98,11 +105,11 @@ namespace ModKit.Utility
             protected Delegate CreateGetter(Type delType, bool isInstByRef)
             {
                 DynamicMethod method = new(
-                    name: "get_" + Info.Name,
-                    returnType: Info.FieldType,
-                    parameterTypes: new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType },
-                    owner: typeof(CachedField<TField>),
-                    skipVisibility: true);
+                    "get_" + Info.Name,
+                    Info.FieldType,
+                    new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType},
+                    typeof(CachedField<TField>),
+                    true);
                 method.DefineParameter(1, ParameterAttributes.In, "instance");
 
                 var il = method.GetILGenerator();
@@ -115,6 +122,7 @@ namespace ModKit.Utility
                     il.Emit(OpCodes.Ldarg_0);
                     il.Emit(OpCodes.Ldfld, Info);
                 }
+
                 il.Emit(OpCodes.Ret);
 
                 return method.CreateDelegate(delType);
@@ -125,10 +133,10 @@ namespace ModKit.Utility
                 // DynamicMethod does not allow ref return type before .Net Core 2.1
                 var typeBuilder = RequestTypeBuilder();
                 var methodBuilder = typeBuilder.DefineMethod(
-                    name: "getRef_" + Info.Name,
-                    attributes: MethodAttributes.Static | MethodAttributes.Public,
-                    returnType: Info.FieldType.MakeByRefType(),
-                    parameterTypes: new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType });
+                    "getRef_" + Info.Name,
+                    MethodAttributes.Static | MethodAttributes.Public,
+                    Info.FieldType.MakeByRefType(),
+                    new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType});
                 methodBuilder.DefineParameter(1, ParameterAttributes.In, "instance");
 
                 var il = methodBuilder.GetILGenerator();
@@ -141,6 +149,7 @@ namespace ModKit.Utility
                     il.Emit(OpCodes.Ldarg_0);
                     il.Emit(OpCodes.Ldflda, Info);
                 }
+
                 il.Emit(OpCodes.Ret);
 
                 var t = typeBuilder.CreateType();
@@ -152,11 +161,11 @@ namespace ModKit.Utility
             protected Delegate CreateSetter(Type delType, bool isInstByRef)
             {
                 DynamicMethod method = new(
-                    name: "set_" + Info.Name,
-                    returnType: null,
-                    parameterTypes: new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.FieldType },
-                    owner: typeof(CachedField<TField>),
-                    skipVisibility: true);
+                    "set_" + Info.Name,
+                    null,
+                    new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.FieldType},
+                    typeof(CachedField<TField>),
+                    true);
                 method.DefineParameter(1, ParameterAttributes.In, "instance");
                 method.DefineParameter(2, ParameterAttributes.In, "value");
 
@@ -172,6 +181,7 @@ namespace ModKit.Utility
                     il.Emit(OpCodes.Ldarg_1);
                     il.Emit(OpCodes.Stfld, Info);
                 }
+
                 il.Emit(OpCodes.Ret);
 
                 return method.CreateDelegate(delType);
@@ -181,23 +191,36 @@ namespace ModKit.Utility
         private class CachedFieldOfStruct<T, TField> : CachedField<TField>
         {
             private delegate TField Getter(ref T instance);
+
             private delegate ref TField RefGetter(ref T instance);
+
             private delegate void Setter(ref T instance, TField value);
 
-            private T _dummy = default;
+            private T _dummy;
+
             private Getter _getter;
+
             //private RefGetter _refGetter;
             private Setter _setter;
 
             public CachedFieldOfStruct(string name) : base(typeof(T), name) { }
 
-            public override TField Get() => (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref _dummy);
+            public override TField Get()
+            {
+                return (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref _dummy);
+            }
 
-            public TField Get(ref T instance) => (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref instance);
+            public TField Get(ref T instance)
+            {
+                return (_getter ??= CreateGetter(typeof(Getter), true) as Getter)(ref instance);
+            }
 
             //public ref TField GetRef(ref T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), true) as RefGetter)(ref instance);
 
-            public override void Set(TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref _dummy, value);
+            public override void Set(TField value)
+            {
+                (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref _dummy, value);
+            }
 
             //public void Set(ref T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref instance, value);
         }
@@ -205,23 +228,36 @@ namespace ModKit.Utility
         private class CachedFieldOfClass<T, TField> : CachedField<TField>
         {
             private delegate TField Getter(T instance);
+
             private delegate ref TField RefGetter(T instance);
+
             private delegate void Setter(T instance, TField value);
 
             private readonly T _dummy = default;
+
             private Getter _getter;
+
             //private RefGetter _refGetter;
             private Setter _setter;
 
             public CachedFieldOfClass(string name) : base(typeof(T), name) { }
 
-            public override TField Get() => (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(_dummy);
+            public override TField Get()
+            {
+                return (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(_dummy);
+            }
 
-            public TField Get(T instance) => (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(instance);
+            public TField Get(T instance)
+            {
+                return (_getter ??= CreateGetter(typeof(Getter), false) as Getter)(instance);
+            }
 
             //public ref TField GetRef(T instance) => ref (_refGetter ??= CreateRefGetter(typeof(RefGetter), false) as RefGetter)(instance);
 
-            public override void Set(TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(_dummy, value);
+            public override void Set(TField value)
+            {
+                (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(_dummy, value);
+            }
 
             //public void Set(T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(instance, value);
         }
@@ -229,6 +265,7 @@ namespace ModKit.Utility
         private class CachedFieldOfStatic<TField> : CachedField<TField>
         {
             private delegate TField Getter();
+
             private delegate void Setter(TField value);
 
             private Getter _getter;
@@ -240,18 +277,24 @@ namespace ModKit.Utility
                 //    throw new InvalidOperationException();
             }
 
-            public override TField Get() => (_getter ??= CreateGetter())();
+            public override TField Get()
+            {
+                return (_getter ??= CreateGetter())();
+            }
 
-            public override void Set(TField value) => (_setter ??= CreateSetter())(value);
+            public override void Set(TField value)
+            {
+                (_setter ??= CreateSetter())(value);
+            }
 
             private Getter CreateGetter()
             {
                 DynamicMethod method = new(
-                    name: "get_" + Info.Name,
-                    returnType: Info.FieldType,
-                    parameterTypes: null,
-                    owner: typeof(CachedField<TField>),
-                    skipVisibility: true);
+                    "get_" + Info.Name,
+                    Info.FieldType,
+                    null,
+                    typeof(CachedField<TField>),
+                    true);
 
                 var il = method.GetILGenerator();
                 il.Emit(OpCodes.Ldsfld, Info);
@@ -263,11 +306,11 @@ namespace ModKit.Utility
             private Setter CreateSetter()
             {
                 DynamicMethod method = new(
-                    name: "set_" + Info.Name,
-                    returnType: null,
-                    parameterTypes: new[] { Info.FieldType },
-                    owner: typeof(CachedField<TField>),
-                    skipVisibility: true);
+                    "set_" + Info.Name,
+                    null,
+                    new[] {Info.FieldType},
+                    typeof(CachedField<TField>),
+                    true);
                 method.DefineParameter(1, ParameterAttributes.In, "value");
 
                 var il = method.GetILGenerator();

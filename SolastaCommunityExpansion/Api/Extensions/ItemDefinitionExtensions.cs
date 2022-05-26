@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ItemDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ItemDefinitionExtensions
+    [TargetType(typeof(ItemDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ItemDefinitionExtensions
     {
         public static T AddActiveTags<T>(this T entity, params System.String[] value)
             where T : ItemDefinition
@@ -426,7 +427,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetItemRarity<T>(this T entity, RuleDefinitions.ItemRarity value)
+        public static T SetItemRarity<T>(this T entity, ItemRarity value)
             where T : ItemDefinition
         {
             entity.SetField("itemRarity", value);

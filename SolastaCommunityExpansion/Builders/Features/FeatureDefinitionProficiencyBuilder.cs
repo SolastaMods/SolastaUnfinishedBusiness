@@ -5,9 +5,11 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<FeatureDefinitionProficiency, FeatureDefinitionProficiencyBuilder>
+    public class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<FeatureDefinitionProficiency,
+        FeatureDefinitionProficiencyBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionProficiencyBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -16,21 +18,26 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionProficiencyBuilder(FeatureDefinitionProficiency original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
-        public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+        public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
+            params string[] proficiencies)
         {
             return SetProficiencies(type, proficiencies.AsEnumerable());
         }
 
-        public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type, IEnumerable<string> proficiencies)
+        public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
+            IEnumerable<string> proficiencies)
         {
             Definition.SetProficiencyType(type);
             Definition.SetProficiencies(proficiencies);

@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(EffectAdvancement)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class EffectAdvancementExtensions
+    [TargetType(typeof(EffectAdvancement))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class EffectAdvancementExtensions
     {
         public static EffectAdvancement Copy(this EffectAdvancement entity)
         {
@@ -88,14 +89,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAlteredDuration<T>(this T entity, RuleDefinitions.AdvancementDuration value)
+        public static T SetAlteredDuration<T>(this T entity, AdvancementDuration value)
             where T : EffectAdvancement
         {
             entity.SetField("alteredDuration", value);
             return entity;
         }
 
-        public static T SetEffectIncrementMethod<T>(this T entity, RuleDefinitions.EffectIncrementMethod value)
+        public static T SetEffectIncrementMethod<T>(this T entity, EffectIncrementMethod value)
             where T : EffectAdvancement
         {
             entity.SetField("effectIncrementMethod", value);

@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetCharacterHero)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class RulesetCharacterHeroExtensions
+    [TargetType(typeof(RulesetCharacterHero))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class RulesetCharacterHeroExtensions
     {
         public static T AddActiveFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)
             where T : RulesetCharacterHero
@@ -475,88 +476,90 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static System.Collections.Generic.Dictionary<ItemDefinition, System.Collections.Generic.List<FeatureDefinition>> GetActiveItemFeatures<T>(this T entity)
+        public static Dictionary<ItemDefinition, List<FeatureDefinition>> GetActiveItemFeatures<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.Dictionary<ItemDefinition, System.Collections.Generic.List<FeatureDefinition>>>("activeItemFeatures");
+            return entity.GetField<Dictionary<ItemDefinition, List<FeatureDefinition>>>("activeItemFeatures");
         }
 
-        public static System.Collections.Generic.List<System.String> GetAlignmentOptionalPersonalityFlags<T>(this T entity)
+        public static List<System.String> GetAlignmentOptionalPersonalityFlags<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<System.String>>("alignmentOptionalPersonalityFlags");
+            return entity.GetField<List<System.String>>("alignmentOptionalPersonalityFlags");
         }
 
-        public static System.Collections.Generic.List<IAttackModificationProvider> GetAttackModifiers<T>(this T entity)
+        public static List<IAttackModificationProvider> GetAttackModifiers<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<IAttackModificationProvider>>("attackModifiers");
+            return entity.GetField<List<IAttackModificationProvider>>("attackModifiers");
         }
 
-        public static System.Collections.Generic.Dictionary<ItemDefinition, System.Int32> GetBonusByItem<T>(this T entity)
+        public static Dictionary<ItemDefinition, System.Int32> GetBonusByItem<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.Dictionary<ItemDefinition, System.Int32>>("bonusByItem");
+            return entity.GetField<Dictionary<ItemDefinition, System.Int32>>("bonusByItem");
         }
 
-        public static System.Collections.Generic.List<RulesetItem> GetCarriedItems<T>(this T entity)
+        public static List<RulesetItem> GetCarriedItems<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("carriedItems");
+            return entity.GetField<List<RulesetItem>>("carriedItems");
         }
 
-        public static System.Collections.Generic.Dictionary<CharacterClassDefinition, CharacterSubclassDefinition> GetClassesAndSublasses<T>(this T entity)
+        public static Dictionary<CharacterClassDefinition, CharacterSubclassDefinition> GetClassesAndSublasses<T>(
+            this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.Dictionary<CharacterClassDefinition, CharacterSubclassDefinition>>("classesAndSublasses");
+            return entity.GetField<Dictionary<CharacterClassDefinition, CharacterSubclassDefinition>>(
+                "classesAndSublasses");
         }
 
-        public static System.Collections.Generic.List<RulesetItem> GetDestroyedItems<T>(this T entity)
+        public static List<RulesetItem> GetDestroyedItems<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("destroyedItems");
+            return entity.GetField<List<RulesetItem>>("destroyedItems");
         }
 
-        public static System.Collections.Generic.List<FeatureDefinition> GetEquipmentBrowseList<T>(this T entity)
+        public static List<FeatureDefinition> GetEquipmentBrowseList<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("equipmentBrowseList");
+            return entity.GetField<List<FeatureDefinition>>("equipmentBrowseList");
         }
 
-        public static System.Collections.Generic.List<System.String> GetForbiddenArmorTags<T>(this T entity)
+        public static List<System.String> GetForbiddenArmorTags<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<System.String>>("forbiddenArmorTags");
+            return entity.GetField<List<System.String>>("forbiddenArmorTags");
         }
 
-        public static System.Collections.Generic.List<System.Int32> GetHitPointsGainHistory<T>(this T entity)
+        public static List<System.Int32> GetHitPointsGainHistory<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<System.Int32>>("hitPointsGainHistory");
+            return entity.GetField<List<System.Int32>>("hitPointsGainHistory");
         }
 
-        public static System.Collections.Generic.List<RulesetAttributeModifier> GetModifiers<T>(this T entity)
+        public static List<RulesetAttributeModifier> GetModifiers<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetAttributeModifier>>("modifiers");
+            return entity.GetField<List<RulesetAttributeModifier>>("modifiers");
         }
 
-        public static System.Collections.Generic.Dictionary<RuleDefinitions.DieType, System.Int32> GetSpentHitDice<T>(this T entity)
+        public static Dictionary<DieType, System.Int32> GetSpentHitDice<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.Dictionary<RuleDefinitions.DieType, System.Int32>>("spentHitDice");
+            return entity.GetField<Dictionary<DieType, System.Int32>>("spentHitDice");
         }
 
-        public static System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
+        public static Dictionary<System.String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.Dictionary<System.String, TagsDefinitions.Criticity>>("tagsMap");
+            return entity.GetField<Dictionary<System.String, TagsDefinitions.Criticity>>("tagsMap");
         }
 
-        public static System.Collections.Generic.List<FeatureDefinition> GetWeaponModifiers<T>(this T entity)
+        public static List<FeatureDefinition> GetWeaponModifiers<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("weaponModifiers");
+            return entity.GetField<List<FeatureDefinition>>("weaponModifiers");
         }
 
         public static T SetActiveFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)
@@ -699,7 +702,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCharacterClassChanged<T>(this T entity, RulesetCharacterHero.CharacterClassChangedHandler value)
+        public static T SetCharacterClassChanged<T>(this T entity,
+            RulesetCharacterHero.CharacterClassChangedHandler value)
             where T : RulesetCharacterHero
         {
             entity.SetField("<CharacterClassChanged>k__BackingField", value);
@@ -727,7 +731,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetContextParams<T>(this T entity, RulesetImplementationDefinitions.SituationalContextParams value)
+        public static T SetContextParams<T>(this T entity,
+            RulesetImplementationDefinitions.SituationalContextParams value)
             where T : RulesetCharacterHero
         {
             entity.SetField("contextParams", value);
@@ -755,14 +760,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDeviceAutoIdentified<T>(this T entity, RulesetCharacterHero.DeviceAutoIdentifiedHandler value)
+        public static T SetDeviceAutoIdentified<T>(this T entity,
+            RulesetCharacterHero.DeviceAutoIdentifiedHandler value)
             where T : RulesetCharacterHero
         {
             entity.SetField("<DeviceAutoIdentified>k__BackingField", value);
             return entity;
         }
 
-        public static T SetDeviceLastChargeUsed<T>(this T entity, RulesetCharacterHero.DeviceLastChargeUsedHandler value)
+        public static T SetDeviceLastChargeUsed<T>(this T entity,
+            RulesetCharacterHero.DeviceLastChargeUsedHandler value)
             where T : RulesetCharacterHero
         {
             entity.SetField("<DeviceLastChargeUsed>k__BackingField", value);
@@ -916,14 +923,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMorphotypeElementAdditionalValueChanged<T>(this T entity, RulesetCharacterHero.MorphotypeElementAdditionalValueChangedHandler value)
+        public static T SetMorphotypeElementAdditionalValueChanged<T>(this T entity,
+            RulesetCharacterHero.MorphotypeElementAdditionalValueChangedHandler value)
             where T : RulesetCharacterHero
         {
             entity.SetField("<MorphotypeElementAdditionalValueChanged>k__BackingField", value);
             return entity;
         }
 
-        public static T SetMorphotypeElementChanged<T>(this T entity, RulesetCharacterHero.MorphotypeElementChangedHandler value)
+        public static T SetMorphotypeElementChanged<T>(this T entity,
+            RulesetCharacterHero.MorphotypeElementChangedHandler value)
             where T : RulesetCharacterHero
         {
             entity.SetField("<MorphotypeElementChanged>k__BackingField", value);

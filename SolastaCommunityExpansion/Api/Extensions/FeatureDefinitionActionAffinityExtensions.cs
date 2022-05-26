@@ -10,17 +10,20 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionActionAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionActionAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionActionAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionActionAffinityExtensions
     {
-        public static T AddActionExecutionModifiers<T>(this T entity, params ActionDefinitions.ActionExecutionModifier[] value)
+        public static T AddActionExecutionModifiers<T>(this T entity,
+            params ActionDefinitions.ActionExecutionModifier[] value)
             where T : FeatureDefinitionActionAffinity
         {
             AddActionExecutionModifiers(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddActionExecutionModifiers<T>(this T entity, IEnumerable<ActionDefinitions.ActionExecutionModifier> value)
+        public static T AddActionExecutionModifiers<T>(this T entity,
+            IEnumerable<ActionDefinitions.ActionExecutionModifier> value)
             where T : FeatureDefinitionActionAffinity
         {
             entity.ActionExecutionModifiers.AddRange(value);
@@ -118,14 +121,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetActionExecutionModifiers<T>(this T entity, params ActionDefinitions.ActionExecutionModifier[] value)
+        public static T SetActionExecutionModifiers<T>(this T entity,
+            params ActionDefinitions.ActionExecutionModifier[] value)
             where T : FeatureDefinitionActionAffinity
         {
             SetActionExecutionModifiers(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetActionExecutionModifiers<T>(this T entity, IEnumerable<ActionDefinitions.ActionExecutionModifier> value)
+        public static T SetActionExecutionModifiers<T>(this T entity,
+            IEnumerable<ActionDefinitions.ActionExecutionModifier> value)
             where T : FeatureDefinitionActionAffinity
         {
             entity.ActionExecutionModifiers.SetRange(value);
@@ -181,7 +186,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRandomBehaviorDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetRandomBehaviorDie<T>(this T entity, DieType value)
             where T : FeatureDefinitionActionAffinity
         {
             entity.SetField("randomBehaviorDie", value);
@@ -216,7 +221,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpecialBehaviour<T>(this T entity, RuleDefinitions.SpecialBehaviour value)
+        public static T SetSpecialBehaviour<T>(this T entity, SpecialBehaviour value)
             where T : FeatureDefinitionActionAffinity
         {
             entity.SetField("specialBehaviour", value);

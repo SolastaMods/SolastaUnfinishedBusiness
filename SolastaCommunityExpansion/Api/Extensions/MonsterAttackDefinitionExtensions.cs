@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MonsterAttackDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class MonsterAttackDefinitionExtensions
+    [TargetType(typeof(MonsterAttackDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class MonsterAttackDefinitionExtensions
     {
         public static MonsterAttackDefinition Copy(this MonsterAttackDefinition entity)
         {
@@ -151,7 +152,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetProximity<T>(this T entity, RuleDefinitions.AttackProximity value)
+        public static T SetProximity<T>(this T entity, AttackProximity value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("proximity", value);

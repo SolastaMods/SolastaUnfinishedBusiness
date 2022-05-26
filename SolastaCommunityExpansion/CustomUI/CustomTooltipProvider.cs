@@ -12,9 +12,12 @@ namespace SolastaCommunityExpansion.CustomUI
         private string _prerequisites = string.Empty;
         private string _subtitle;
 
-        public string Subtitle => _subtitle ??= GetDefaultSubtitle(); //Just in case. This is actually set in constructor + check for null in the setter.
+        public string Subtitle =>
+            _subtitle ??=
+                GetDefaultSubtitle(); //Just in case. This is actually set in constructor + check for null in the setter.
 
-        public CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(baseDefinition)
+        public CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(
+            baseDefinition)
         {
             _guiPresentation = guiPresentation;
             _subtitle = GetDefaultSubtitle();
@@ -29,7 +32,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 FeatureDefinitionPower => "UI/&CustomFeatureSelectionTooltipTypePower",
                 FeatureDefinitionBonusCantrips => "UI/&CustomFeatureSelectionTooltipTypeCantrip",
                 FeatureDefinitionProficiency => "UI/&CustomFeatureSelectionTooltipTypeProficiency",
-                _ => "UI/&CustomFeatureSelectionTooltipTypeFeature",
+                _ => "UI/&CustomFeatureSelectionTooltipTypeFeature"
             };
         }
 
@@ -40,7 +43,9 @@ namespace SolastaCommunityExpansion.CustomUI
                 ReleaseSprite(image);
                 image.sprite = null;
             }
-            if (_guiPresentation != null && _guiPresentation.SpriteReference != null && _guiPresentation.SpriteReference.RuntimeKeyIsValid())
+
+            if (_guiPresentation != null && _guiPresentation.SpriteReference != null &&
+                _guiPresentation.SpriteReference.RuntimeKeyIsValid())
             {
                 image.gameObject.SetActive(true);
                 image.sprite = Gui.LoadAssetSync<Sprite>(_guiPresentation.SpriteReference);

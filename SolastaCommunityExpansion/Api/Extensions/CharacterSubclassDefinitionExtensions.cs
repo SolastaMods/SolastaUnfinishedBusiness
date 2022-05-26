@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CharacterSubclassDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CharacterSubclassDefinitionExtensions
+    [TargetType(typeof(CharacterSubclassDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CharacterSubclassDefinitionExtensions
     {
         public static T AddFeatureUnlocks<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : CharacterSubclassDefinition
@@ -69,7 +70,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMorphotypeSubclassFilterTag<T>(this T entity, GraphicsDefinitions.MorphotypeSubclassFilterTag value)
+        public static T SetMorphotypeSubclassFilterTag<T>(this T entity,
+            GraphicsDefinitions.MorphotypeSubclassFilterTag value)
             where T : CharacterSubclassDefinition
         {
             entity.SetField("morphotypeSubclassFilterTag", value);

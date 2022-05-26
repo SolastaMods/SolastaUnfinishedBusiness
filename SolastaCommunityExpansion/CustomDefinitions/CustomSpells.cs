@@ -29,7 +29,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class SpellModifyingFeatureDefinition : FeatureDefinition, IModifySpellEffect
     {
-        public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster);
+        public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect,
+            RulesetCharacter caster);
 
         private ModifySpellEffectDelegate _spellModifier;
 
@@ -40,6 +41,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return _spellModifier != null ? _spellModifier(spell, effect, caster) : effect;
         }
     }
+
     internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     {
         private readonly EffectDescription _upgraded;
@@ -59,5 +61,4 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return _upgraded;
         }
     }
-
 }

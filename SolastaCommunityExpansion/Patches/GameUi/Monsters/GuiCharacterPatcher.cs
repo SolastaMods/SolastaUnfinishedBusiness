@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
             if (!__state)
             {
-                return;  // health wasn't dirty so healthGauge hasn't been updated
+                return; // health wasn't dirty so healthGauge hasn't been updated
             }
 
             if (__instance.RulesetCharacterMonster != null &&
@@ -49,7 +49,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
                 ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
 
-                healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x, (float)(-parentHeight * (1.0 - ratio)));
+                healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
+                    (float)(-parentHeight * (1.0 - ratio)));
             }
         }
     }
@@ -61,7 +62,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiCharacter_FormatHealthLabel
     {
-        private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})", RegexOptions.Compiled | RegexOptions.Singleline);
+        private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})",
+            RegexOptions.Compiled | RegexOptions.Singleline);
 
         internal static void Prefix(GuiCharacter __instance, bool ___healthLabelDirty, out bool __state)
         {
@@ -86,7 +88,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
             if (!__state)
             {
-                return;  // health wasn't dirty so healthLabel hasn't been updated
+                return; // health wasn't dirty so healthLabel hasn't been updated
             }
 
             // A monster has __instance.RulesetCharacterMonster != null and __instance.RulesetCharacter != null
@@ -111,7 +113,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
                 // extract current and max hp
                 var match = HitPointRegex.Match(text);
 
-                if (match.Success && (match.Groups["current_hp"].Value != match.Groups["max_hp"].Value))
+                if (match.Success && match.Groups["current_hp"].Value != match.Groups["max_hp"].Value)
                 {
                     var hp = match.Groups["current_hp"].Value;
                     var hpLen = hp.Length;

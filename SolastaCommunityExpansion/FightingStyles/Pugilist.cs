@@ -16,11 +16,11 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>()
+            return new List<FeatureDefinitionFightingStyleChoice>
             {
                 FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
                 FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
-                FeatureDefinitionFightingStyleChoices.FightingStyleRanger,
+                FeatureDefinitionFightingStyleChoices.FightingStyleRanger
             };
         }
 
@@ -30,8 +30,7 @@ namespace SolastaCommunityExpansion.FightingStyles
             {
                 var offhandEffect = new EffectDescriptionBuilder();
                 offhandEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.MeleeHit, 1,
-                    RuleDefinitions.TargetType.Individuals,
-                    1, 1, ActionDefinitions.ItemSelectionType.None);
+                    RuleDefinitions.TargetType.Individuals);
                 offhandEffect.AddEffectForm(new EffectFormBuilder().CreatedByCharacter()
                     .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
                     .SetDamageForm(false, RuleDefinitions.DieType.D10, "DamageBludgeoning", 1,
@@ -76,6 +75,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
             return instance;
         }
+
         private class AdditionalUnarmedDice : IModifyAttackModeForWeapon
         {
             public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)

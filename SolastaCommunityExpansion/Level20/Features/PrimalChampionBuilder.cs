@@ -3,7 +3,8 @@ using SolastaCommunityExpansion.CustomInterfaces;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class FeatureDefinitionPrimalChampionBuilder : FeatureDefinitionBuilder<FeatureDefinitionPrimalChampion, FeatureDefinitionPrimalChampionBuilder>
+    internal sealed class FeatureDefinitionPrimalChampionBuilder : FeatureDefinitionBuilder<
+        FeatureDefinitionPrimalChampion, FeatureDefinitionPrimalChampionBuilder>
     {
         private const string PrimalChampionName = "ZSPrimalChampion";
         private const string PrimalChampionGuid = "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5";

@@ -12,7 +12,9 @@ namespace SolastaCommunityExpansion
 {
     public static class Main
     {
-        internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static string MOD_FOLDER { get; private set; } =
+            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
         internal static bool Enabled { get; set; }
         internal static bool IsDebugBuild = UnityEngine.Debug.isDebugBuild;
 

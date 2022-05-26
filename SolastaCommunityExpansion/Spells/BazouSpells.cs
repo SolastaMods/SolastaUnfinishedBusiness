@@ -96,7 +96,8 @@ namespace SolastaCommunityExpansion.Spells
             effectForm.SetHasSavingThrow(false).SetLevelMultiplier(1);
             // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
             //effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
-            effectForm.DamageForm.SetDiceNumber(1).SetDieType(RuleDefinitions.DieType.D4).SetDamageType(RuleDefinitions.DamageTypeForce);
+            effectForm.DamageForm.SetDiceNumber(1).SetDieType(RuleDefinitions.DieType.D4)
+                .SetDamageType(RuleDefinitions.DamageTypeForce);
 
             // Not sure if I prefer copying and editing existing effect forms
             // or creating one from scratch through API
@@ -144,7 +145,8 @@ namespace SolastaCommunityExpansion.Spells
                 .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
                 .SetChallengeRating(0)
                 .SetDroppedLootDefinition(null)
-                .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
+                .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions
+                    .DefaultSupportCasterWithBackupAttacksDecisions)
                 .SetFullyControlledWhenAllied(true)
                 .SetDefaultFaction("Party")
                 .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
@@ -266,14 +268,17 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
-            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
+            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
+                .CasterLevelTable);
 
             spell.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
-            spell.EffectDescription.EffectForms[1].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+            spell.EffectDescription.EffectForms[1]
+                .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(1);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeNecrotic);
-            spell.EffectDescription.EffectForms[1].DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Full);
+            spell.EffectDescription.EffectForms[1].DamageForm
+                .SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Full);
             spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
             // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
             //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
@@ -308,10 +313,12 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetRecurrentEffect((RuleDefinitions.RecurrentEffect)20);
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(2);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
-            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
+            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
+                .PerAdditionalSlotLevel);
 
             spell.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
-            spell.EffectDescription.EffectForms[0].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+            spell.EffectDescription.EffectForms[0]
+                .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
             spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
             spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
             spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
@@ -362,14 +369,17 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetHasSavingThrow(true);
             spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
             spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
-            spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
+            spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
+                .AbilityScoreAndProficiency);
 
             spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
             spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
-            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel);
+            spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
+                .PerAdditionalSlotLevel);
 
             spell.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
-            spell.EffectDescription.EffectForms[1].SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            spell.EffectDescription.EffectForms[1]
+                .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(4);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
             spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypePsychic);

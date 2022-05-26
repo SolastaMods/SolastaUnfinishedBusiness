@@ -13,9 +13,9 @@ namespace SolastaCommunityExpansion.ItemCrafting
 
             public MagicItemDataHolder(string name, ItemDefinition item, RecipeDefinition recipe)
             {
-                this.Name = name;
-                this.Item = item;
-                this.Recipe = recipe;
+                Name = name;
+                Item = item;
+                Recipe = recipe;
             }
         }
 

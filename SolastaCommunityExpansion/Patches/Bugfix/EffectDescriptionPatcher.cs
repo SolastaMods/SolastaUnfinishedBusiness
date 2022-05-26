@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 AdvancementDurationEx.DominateMonster => slotLevel switch // currently a DubHerder CE specific spell
                 {
                     <= 8 => ComputeRoundsDuration(DurationType.Hour, 1),
-                    _ => ComputeRoundsDuration(DurationType.Hour, 8),
+                    _ => ComputeRoundsDuration(DurationType.Hour, 8)
                 },
                 _ => -1
             };

@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(UsableDeviceDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class UsableDeviceDescriptionExtensions
+    [TargetType(typeof(UsableDeviceDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class UsableDeviceDescriptionExtensions
     {
         public static T AddDeviceFunctions<T>(this T entity, params DeviceFunctionDescription[] value)
             where T : UsableDeviceDescription
@@ -74,7 +75,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetChargesCapitalDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetChargesCapitalDie<T>(this T entity, DieType value)
             where T : UsableDeviceDescription
         {
             entity.SetField("chargesCapitalDie", value);
@@ -130,7 +131,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRechargeDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetRechargeDie<T>(this T entity, DieType value)
             where T : UsableDeviceDescription
         {
             entity.SetField("rechargeDie", value);
@@ -144,7 +145,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRechargeRate<T>(this T entity, RuleDefinitions.RechargeRate value)
+        public static T SetRechargeRate<T>(this T entity, RechargeRate value)
             where T : UsableDeviceDescription
         {
             entity.SetField("rechargeRate", value);

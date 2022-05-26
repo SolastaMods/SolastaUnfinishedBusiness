@@ -8,10 +8,11 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAttackModifier)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionAttackModifierExtensions
+    [TargetType(typeof(FeatureDefinitionAttackModifier))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionAttackModifierExtensions
     {
-        public static T SetAbilityScoreReplacement<T>(this T entity, RuleDefinitions.AbilityScoreReplacement value)
+        public static T SetAbilityScoreReplacement<T>(this T entity, AbilityScoreReplacement value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("abilityScoreReplacement", value);
@@ -53,7 +54,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackRollModifierMethod<T>(this T entity, RuleDefinitions.AttackModifierMethod value)
+        public static T SetAttackRollModifierMethod<T>(this T entity, AttackModifierMethod value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("attackRollModifierMethod", value);
@@ -74,7 +75,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageDieReplacement<T>(this T entity, RuleDefinitions.DamageDieReplacement value)
+        public static T SetDamageDieReplacement<T>(this T entity, DamageDieReplacement value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("damageDieReplacement", value);
@@ -95,7 +96,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageRollModifierMethod<T>(this T entity, RuleDefinitions.AttackModifierMethod value)
+        public static T SetDamageRollModifierMethod<T>(this T entity, AttackModifierMethod value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("damageRollModifierMethod", value);
@@ -109,7 +110,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFollowUpDamageDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetFollowUpDamageDie<T>(this T entity, DieType value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("followUpDamageDie", value);
@@ -130,7 +131,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReplacedDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetReplacedDieType<T>(this T entity, DieType value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("replacedDieType", value);

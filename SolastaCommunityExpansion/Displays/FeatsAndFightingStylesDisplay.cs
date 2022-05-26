@@ -20,7 +20,6 @@ namespace SolastaCommunityExpansion.Displays
 
             if (!Main.Settings.DisplayFeatFightingStyleToggle)
             {
-                return;
             }
         }
 

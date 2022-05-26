@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CharacterClassDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CharacterClassDefinitionExtensions
+    [TargetType(typeof(CharacterClassDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CharacterClassDefinitionExtensions
     {
         public static T AddAbilityScoresPriority<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
@@ -223,7 +224,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetClassPictogramReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
+        public static T SetClassPictogramReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : CharacterClassDefinition
         {
             entity.SetField("classPictogramReference", value);
@@ -293,7 +295,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHitDice<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetHitDice<T>(this T entity, DieType value)
             where T : CharacterClassDefinition
         {
             entity.SetField("hitDice", value);
@@ -370,7 +372,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetVocalSpellSemeClass<T>(this T entity, RuleDefinitions.VocalSpellSemeClass value)
+        public static T SetVocalSpellSemeClass<T>(this T entity, VocalSpellSemeClass value)
             where T : CharacterClassDefinition
         {
             entity.SetField("vocalSpellSemeClass", value);

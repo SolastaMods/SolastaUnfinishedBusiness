@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ItemPresentation)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ItemPresentationExtensions
+    [TargetType(typeof(ItemPresentation))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ItemPresentationExtensions
     {
         public static T AddItemFlags<T>(this T entity, params ItemFlagDefinition[] value)
             where T : ItemPresentation
@@ -67,7 +68,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFemaleBodyPartBehaviours<T>(this T entity, GraphicsCharacterDefinitions.BodyPartBehaviour[] value)
+        public static T SetFemaleBodyPartBehaviours<T>(this T entity,
+            GraphicsCharacterDefinitions.BodyPartBehaviour[] value)
             where T : ItemPresentation
         {
             entity.SetField("femaleBodyPartBehaviours", value);
@@ -95,7 +97,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaleBodyPartBehaviours<T>(this T entity, GraphicsCharacterDefinitions.BodyPartBehaviour[] value)
+        public static T SetMaleBodyPartBehaviours<T>(this T entity,
+            GraphicsCharacterDefinitions.BodyPartBehaviour[] value)
             where T : ItemPresentation
         {
             entity.SetField("maleBodyPartBehaviours", value);

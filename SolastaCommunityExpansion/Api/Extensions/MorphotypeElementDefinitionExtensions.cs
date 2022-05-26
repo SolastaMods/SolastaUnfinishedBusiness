@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MorphotypeElementDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class MorphotypeElementDefinitionExtensions
+    [TargetType(typeof(MorphotypeElementDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class MorphotypeElementDefinitionExtensions
     {
         public static T SetBodyDecorationBlendFactor<T>(this T entity, System.Single value)
             where T : MorphotypeElementDefinition

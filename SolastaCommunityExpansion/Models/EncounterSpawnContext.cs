@@ -31,7 +31,8 @@ namespace SolastaCommunityExpansion.Models
         {
             if (EncounterCharacters.Count < MAX_ENCOUNTER_CHARACTERS)
             {
-                EncounterCharacters.Add(new RulesetCharacterMonster(monsterDefinition, 0, new RuleDefinitions.SpawnOverrides(), GadgetDefinitions.CreatureSex.Male));
+                EncounterCharacters.Add(new RulesetCharacterMonster(monsterDefinition, 0,
+                    new RuleDefinitions.SpawnOverrides(), GadgetDefinitions.CreatureSex.Male));
             }
         }
 
@@ -51,7 +52,8 @@ namespace SolastaCommunityExpansion.Models
 
                 if (monsterDefinitionDatabase != null)
                 {
-                    Monsters.AddRange(monsterDefinitionDatabase.Where(x => x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
+                    Monsters.AddRange(monsterDefinitionDatabase.Where(x =>
+                        x.DungeonMakerPresence == MonsterDefinition.DungeonMaker.Monster));
                     Monsters.Sort((a, b) =>
                     {
                         if (a.ChallengeRating == b.ChallengeRating)
@@ -124,7 +126,8 @@ namespace SolastaCommunityExpansion.Models
                 Gui.GuiService.ShowMessage(
                     MessageModal.Severity.Attention2,
                     "Message/&SpawnCustomEncounterTitle",
-                    Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(), position.x.ToString()),
+                    Gui.Format("Message/&SpawnCustomEncounterDescription", position.x.ToString(),
+                        position.x.ToString()),
                     "Message/&MessageYesTitle", "Message/&MessageNoTitle",
                     () => StageEncounter(position),
                     null);
@@ -160,13 +163,15 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var character in EncounterCharacters)
             {
-                var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy, new GameLocationBehaviourPackage
-                {
-                    BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
-                    DecisionPackageDefinition = IdleGuard_Default,
-                    EncounterId = EncounterId++,
-                    FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
-                });
+                var gameLocationCharacter = gameLocationCharacterService.CreateCharacter(
+                    PlayerControllerManager.DmControllerId, character, RuleDefinitions.Side.Enemy,
+                    new GameLocationBehaviourPackage
+                    {
+                        BattleStartBehavior = GameLocationBehaviourPackage.BattleStartBehaviorType.DoNotRaiseAlarm,
+                        DecisionPackageDefinition = IdleGuard_Default,
+                        EncounterId = EncounterId++,
+                        FormationDefinition = EncounterCharacters.Count > 1 ? Squad4 : SingleCreature
+                    });
 
                 gameLocationCharacter.CollectExistingLightSources(true);
                 gameLocationCharacter.RefreshActionPerformances();
@@ -175,11 +180,13 @@ namespace SolastaCommunityExpansion.Models
             }
 
             gameLocationPositioningService.ComputeFormationPlacementPositions(
-                characters, position, LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station, positions, sizeList, 25);
+                characters, position, LocationDefinitions.Orientation.North, formationPositions,
+                CellHelpers.PlacementMode.Station, positions, sizeList, 25);
 
             for (var index = 0; index < positions.Count; index++)
             {
-                gameLocationPositioningService.PlaceCharacter(characters[index], positions[index], LocationDefinitions.Orientation.North);
+                gameLocationPositioningService.PlaceCharacter(characters[index], positions[index],
+                    LocationDefinitions.Orientation.North);
                 gameLocationCharacterService.RevealCharacter(characters[index]);
             }
 

@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Builders
         where TBuilder : SpellDefinitionBuilder<TDefinition, TBuilder>
     {
         #region Constructors
+
         protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
         {
             InitializeFields();
@@ -31,6 +32,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             InitializeFields();
         }
+
         #endregion
 
         private void InitializeFields()

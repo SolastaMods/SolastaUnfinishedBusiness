@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CampaignDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CampaignDefinitionExtensions
+    [TargetType(typeof(CampaignDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CampaignDefinitionExtensions
     {
         public static T AddAutoGameplayRoles<T>(this T entity, params CampaignDefinition.GameplayRoleFilter[] value)
             where T : CampaignDefinition
@@ -90,7 +91,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+        public static T AddRegisteredFactions<T>(this T entity,
+            IEnumerable<CampaignDefinition.FactionRegistration> value)
             where T : CampaignDefinition
         {
             entity.RegisteredFactions.AddRange(value);
@@ -111,14 +113,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkipIntroRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity,
+            params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             AddSkipIntroRegisteredVariables(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSkipIntroRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity,
+            IEnumerable<VariableRegistrationDescription> value)
             where T : CampaignDefinition
         {
             entity.SkipIntroRegisteredVariables.AddRange(value);
@@ -251,7 +255,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetGraphicsCampaignMapReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetGraphicsCampaignMapReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : CampaignDefinition
         {
             entity.SetField("graphicsCampaignMapReference", value);
@@ -342,7 +347,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLocationProfile<T>(this T entity, UnityEngine.Rendering.PostProcessing.PostProcessProfile value)
+        public static T SetLocationProfile<T>(this T entity,
+            UnityEngine.Rendering.PostProcessing.PostProcessProfile value)
             where T : CampaignDefinition
         {
             entity.SetField("locationProfile", value);
@@ -405,7 +411,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+        public static T SetRegisteredFactions<T>(this T entity,
+            IEnumerable<CampaignDefinition.FactionRegistration> value)
             where T : CampaignDefinition
         {
             entity.RegisteredFactions.SetRange(value);
@@ -461,14 +468,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSkipIntroRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity,
+            params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             SetSkipIntroRegisteredVariables(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSkipIntroRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity,
+            IEnumerable<VariableRegistrationDescription> value)
             where T : CampaignDefinition
         {
             entity.SkipIntroRegisteredVariables.SetRange(value);

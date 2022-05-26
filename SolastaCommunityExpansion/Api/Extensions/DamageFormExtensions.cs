@@ -10,17 +10,18 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DamageForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class DamageFormExtensions
+    [TargetType(typeof(DamageForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class DamageFormExtensions
     {
-        public static T AddDamageBonusTrends<T>(this T entity, params RuleDefinitions.TrendInfo[] value)
+        public static T AddDamageBonusTrends<T>(this T entity, params TrendInfo[] value)
             where T : DamageForm
         {
             AddDamageBonusTrends(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddDamageBonusTrends<T>(this T entity, IEnumerable<RuleDefinitions.TrendInfo> value)
+        public static T AddDamageBonusTrends<T>(this T entity, IEnumerable<TrendInfo> value)
             where T : DamageForm
         {
             entity.DamageBonusTrends.AddRange(value);
@@ -48,14 +49,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageBonusTrends<T>(this T entity, params RuleDefinitions.TrendInfo[] value)
+        public static T SetDamageBonusTrends<T>(this T entity, params TrendInfo[] value)
             where T : DamageForm
         {
             SetDamageBonusTrends(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetDamageBonusTrends<T>(this T entity, IEnumerable<RuleDefinitions.TrendInfo> value)
+        public static T SetDamageBonusTrends<T>(this T entity, IEnumerable<TrendInfo> value)
             where T : DamageForm
         {
             entity.DamageBonusTrends.SetRange(value);
@@ -76,7 +77,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetDieType<T>(this T entity, DieType value)
             where T : DamageForm
         {
             entity.DieType = value;
@@ -90,7 +91,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHealFromInflictedDamage<T>(this T entity, RuleDefinitions.HealFromInflictedDamage value)
+        public static T SetHealFromInflictedDamage<T>(this T entity, HealFromInflictedDamage value)
             where T : DamageForm
         {
             entity.SetField("healFromInflictedDamage", value);
@@ -139,7 +140,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetVersatileDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetVersatileDieType<T>(this T entity, DieType value)
             where T : DamageForm
         {
             entity.VersatileDieType = value;

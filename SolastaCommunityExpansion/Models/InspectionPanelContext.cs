@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static int SelectedClassIndex { get; set; }
 
-        public static CharacterClassDefinition SelectedClass => Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
+        public static CharacterClassDefinition SelectedClass =>
+            Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
 
         public static string GetSelectedClassSearchTerm(string original)
         {
@@ -23,13 +24,15 @@ namespace SolastaCommunityExpansion.Models
 
         public static void EnumerateClassBadges(CharacterInformationPanel __instance)
         {
-            var badgeDefinitions = __instance.GetField<CharacterInformationPanel, List<BaseDefinition>>("badgeDefinitions");
+            var badgeDefinitions =
+                __instance.GetField<CharacterInformationPanel, List<BaseDefinition>>("badgeDefinitions");
             var classBadgesTable = __instance.GetField<CharacterInformationPanel, RectTransform>("classBadgesTable");
             var classBadgePrefab = __instance.GetField<CharacterInformationPanel, GameObject>("classBadgePrefab");
 
             badgeDefinitions.Clear();
 
-            foreach (var classesAndSubclass in Global.InspectedHero.ClassesAndSubclasses.Where(x => x.Key == SelectedClass))
+            foreach (var classesAndSubclass in Global.InspectedHero.ClassesAndSubclasses.Where(x =>
+                         x.Key == SelectedClass))
             {
                 badgeDefinitions.Add(classesAndSubclass.Value);
             }
@@ -76,17 +79,18 @@ namespace SolastaCommunityExpansion.Models
             var classBadges = new HashSet<FightingStyleDefinition>();
 
             foreach (var activeFeature in Global.InspectedHero.ActiveFeatures
-                .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
+                         .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
             {
                 foreach (var featureDefinition in activeFeature.Value
-                    .OfType<FeatureDefinitionFightingStyleChoice>())
+                             .OfType<FeatureDefinitionFightingStyleChoice>())
                 {
-                    classLevelFightingStyle.Add(activeFeature.Key, Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
+                    classLevelFightingStyle.Add(activeFeature.Key,
+                        Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
                 }
             }
 
             foreach (var kvp in classLevelFightingStyle
-                .Where(x => x.Key.Contains(SelectedClass.Name)))
+                         .Where(x => x.Key.Contains(SelectedClass.Name)))
             {
                 classBadges.Add(kvp.Value);
             }

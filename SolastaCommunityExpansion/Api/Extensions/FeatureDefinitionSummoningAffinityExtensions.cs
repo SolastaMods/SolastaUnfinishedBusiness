@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSummoningAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionSummoningAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionSummoningAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionSummoningAffinityExtensions
     {
         public static T AddAddedConditions<T>(this T entity, params ConditionDefinition[] value)
             where T : FeatureDefinitionSummoningAffinity

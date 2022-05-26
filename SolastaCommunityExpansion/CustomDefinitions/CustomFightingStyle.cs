@@ -20,7 +20,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         }
     }
 
-    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable, CustomizableFightingStyleBuilder>
+    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable,
+        CustomizableFightingStyleBuilder>
     {
         protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
         {

@@ -10,17 +10,20 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(BaseBlueprint)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class BaseBlueprintExtensions
+    [TargetType(typeof(BaseBlueprint))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class BaseBlueprintExtensions
     {
-        public static T AddPrefabsByEnvironment<T>(this T entity, params BaseBlueprint.PrefabByEnvironmentDescription[] value)
+        public static T AddPrefabsByEnvironment<T>(this T entity,
+            params BaseBlueprint.PrefabByEnvironmentDescription[] value)
             where T : BaseBlueprint
         {
             AddPrefabsByEnvironment(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddPrefabsByEnvironment<T>(this T entity, IEnumerable<BaseBlueprint.PrefabByEnvironmentDescription> value)
+        public static T AddPrefabsByEnvironment<T>(this T entity,
+            IEnumerable<BaseBlueprint.PrefabByEnvironmentDescription> value)
             where T : BaseBlueprint
         {
             entity.PrefabsByEnvironment.AddRange(value);
@@ -48,14 +51,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPrefabsByEnvironment<T>(this T entity, params BaseBlueprint.PrefabByEnvironmentDescription[] value)
+        public static T SetPrefabsByEnvironment<T>(this T entity,
+            params BaseBlueprint.PrefabByEnvironmentDescription[] value)
             where T : BaseBlueprint
         {
             SetPrefabsByEnvironment(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetPrefabsByEnvironment<T>(this T entity, IEnumerable<BaseBlueprint.PrefabByEnvironmentDescription> value)
+        public static T SetPrefabsByEnvironment<T>(this T entity,
+            IEnumerable<BaseBlueprint.PrefabByEnvironmentDescription> value)
             where T : BaseBlueprint
         {
             entity.PrefabsByEnvironment.SetRange(value);

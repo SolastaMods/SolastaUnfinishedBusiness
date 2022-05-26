@@ -10,7 +10,8 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(EffectDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    [TargetType(typeof(EffectDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class EffectDescriptionExtensions
     {
         public static T AddEffectFormFilters<T>(this T entity, params EffectFormFilter[] value)
@@ -69,14 +70,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRestrictedCharacterSizes<T>(this T entity, params RuleDefinitions.CreatureSize[] value)
+        public static T AddRestrictedCharacterSizes<T>(this T entity, params CreatureSize[] value)
             where T : EffectDescription
         {
             AddRestrictedCharacterSizes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddRestrictedCharacterSizes<T>(this T entity, IEnumerable<RuleDefinitions.CreatureSize> value)
+        public static T AddRestrictedCharacterSizes<T>(this T entity, IEnumerable<CreatureSize> value)
             where T : EffectDescription
         {
             entity.RestrictedCharacterSizes.AddRange(value);
@@ -97,14 +98,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity, params SaveAffinityByFamilyDescription[] value)
+        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity,
+            params SaveAffinityByFamilyDescription[] value)
             where T : EffectDescription
         {
             AddSavingThrowAffinitiesByFamily(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity, IEnumerable<SaveAffinityByFamilyDescription> value)
+        public static T AddSavingThrowAffinitiesByFamily<T>(this T entity,
+            IEnumerable<SaveAffinityByFamilyDescription> value)
             where T : EffectDescription
         {
             entity.SavingThrowAffinitiesByFamily.AddRange(value);
@@ -118,7 +121,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSavingThrowAffinitiesBySense<T>(this T entity, IEnumerable<SaveAffinityBySenseDescription> value)
+        public static T AddSavingThrowAffinitiesBySense<T>(this T entity,
+            IEnumerable<SaveAffinityBySenseDescription> value)
             where T : EffectDescription
         {
             entity.SavingThrowAffinitiesBySense.AddRange(value);
@@ -244,7 +248,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDifficultyClassComputation<T>(this T entity, RuleDefinitions.EffectDifficultyClassComputation value)
+        public static T SetDifficultyClassComputation<T>(this T entity, EffectDifficultyClassComputation value)
             where T : EffectDescription
         {
             entity.SetField("difficultyClassComputation", value);
@@ -265,7 +269,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetDurationType<T>(this T entity, DurationType value)
             where T : EffectDescription
         {
             entity.DurationType = value;
@@ -286,7 +290,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEffectApplication<T>(this T entity, RuleDefinitions.EffectApplication value)
+        public static T SetEffectApplication<T>(this T entity, EffectApplication value)
             where T : EffectDescription
         {
             entity.SetField("effectApplication", value);
@@ -335,7 +339,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEmissiveBorder<T>(this T entity, RuleDefinitions.EmissiveBorder value)
+        public static T SetEmissiveBorder<T>(this T entity, EmissiveBorder value)
             where T : EffectDescription
         {
             entity.SetField("emissiveBorder", value);
@@ -349,7 +353,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEndOfEffect<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetEndOfEffect<T>(this T entity, TurnOccurenceType value)
             where T : EffectDescription
         {
             entity.EndOfEffect = value;
@@ -482,7 +486,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPoolFilterDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetPoolFilterDieType<T>(this T entity, DieType value)
             where T : EffectDescription
         {
             entity.SetField("poolFilterDieType", value);
@@ -496,14 +500,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRangeType<T>(this T entity, RuleDefinitions.RangeType value)
+        public static T SetRangeType<T>(this T entity, RangeType value)
             where T : EffectDescription
         {
             entity.RangeType = value;
             return entity;
         }
 
-        public static T SetRecurrentEffect<T>(this T entity, RuleDefinitions.RecurrentEffect value)
+        public static T SetRecurrentEffect<T>(this T entity, RecurrentEffect value)
             where T : EffectDescription
         {
             entity.SetField("recurrentEffect", value);
@@ -524,14 +528,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRestrictedCharacterSizes<T>(this T entity, params RuleDefinitions.CreatureSize[] value)
+        public static T SetRestrictedCharacterSizes<T>(this T entity, params CreatureSize[] value)
             where T : EffectDescription
         {
             SetRestrictedCharacterSizes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetRestrictedCharacterSizes<T>(this T entity, IEnumerable<RuleDefinitions.CreatureSize> value)
+        public static T SetRestrictedCharacterSizes<T>(this T entity, IEnumerable<CreatureSize> value)
             where T : EffectDescription
         {
             entity.RestrictedCharacterSizes.SetRange(value);
@@ -573,14 +577,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity, params SaveAffinityByFamilyDescription[] value)
+        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity,
+            params SaveAffinityByFamilyDescription[] value)
             where T : EffectDescription
         {
             SetSavingThrowAffinitiesByFamily(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity, IEnumerable<SaveAffinityByFamilyDescription> value)
+        public static T SetSavingThrowAffinitiesByFamily<T>(this T entity,
+            IEnumerable<SaveAffinityByFamilyDescription> value)
             where T : EffectDescription
         {
             entity.SavingThrowAffinitiesByFamily.SetRange(value);
@@ -594,7 +600,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowAffinitiesBySense<T>(this T entity, IEnumerable<SaveAffinityBySenseDescription> value)
+        public static T SetSavingThrowAffinitiesBySense<T>(this T entity,
+            IEnumerable<SaveAffinityBySenseDescription> value)
             where T : EffectDescription
         {
             entity.SavingThrowAffinitiesBySense.SetRange(value);
@@ -636,7 +643,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpeedType<T>(this T entity, RuleDefinitions.SpeedType value)
+        public static T SetSpeedType<T>(this T entity, SpeedType value)
             where T : EffectDescription
         {
             entity.SetField("speedType", value);
@@ -664,14 +671,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTargetFilteringMethod<T>(this T entity, RuleDefinitions.TargetFilteringMethod value)
+        public static T SetTargetFilteringMethod<T>(this T entity, TargetFilteringMethod value)
             where T : EffectDescription
         {
             entity.SetField("targetFilteringMethod", value);
             return entity;
         }
 
-        public static T SetTargetFilteringTag<T>(this T entity, RuleDefinitions.TargetFilteringTag value)
+        public static T SetTargetFilteringTag<T>(this T entity, TargetFilteringTag value)
             where T : EffectDescription
         {
             entity.SetField("targetFilteringTag", value);
@@ -699,21 +706,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTargetSide<T>(this T entity, RuleDefinitions.Side value)
+        public static T SetTargetSide<T>(this T entity, Side value)
             where T : EffectDescription
         {
             entity.TargetSide = value;
             return entity;
         }
 
-        public static T SetTargetType<T>(this T entity, RuleDefinitions.TargetType value)
+        public static T SetTargetType<T>(this T entity, TargetType value)
             where T : EffectDescription
         {
             entity.TargetType = value;
             return entity;
         }
 
-        public static T SetTrapRangeType<T>(this T entity, RuleDefinitions.TrapRangeType value)
+        public static T SetTrapRangeType<T>(this T entity, TrapRangeType value)
             where T : EffectDescription
         {
             entity.SetField("trapRangeType", value);
@@ -727,7 +734,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetVelocityType<T>(this T entity, RuleDefinitions.VelocityType value)
+        public static T SetVelocityType<T>(this T entity, VelocityType value)
             where T : EffectDescription
         {
             entity.SetField("velocityType", value);

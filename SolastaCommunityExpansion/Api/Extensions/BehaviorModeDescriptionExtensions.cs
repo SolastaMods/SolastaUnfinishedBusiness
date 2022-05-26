@@ -8,10 +8,11 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(BehaviorModeDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class BehaviorModeDescriptionExtensions
+    [TargetType(typeof(BehaviorModeDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class BehaviorModeDescriptionExtensions
     {
-        public static T SetBehaviour<T>(this T entity, RuleDefinitions.RandomBehaviour value)
+        public static T SetBehaviour<T>(this T entity, RandomBehaviour value)
             where T : BehaviorModeDescription
         {
             entity.SetField("behaviour", value);

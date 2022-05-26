@@ -21,11 +21,13 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             }
 
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
-            var max = System.Math.Min(Main.Settings.DefaultPartyHeroes.Count, ___characterSessionPlatesTable.childCount);
+            var max = System.Math.Min(Main.Settings.DefaultPartyHeroes.Count,
+                ___characterSessionPlatesTable.childCount);
 
             for (var i = 0; i < max; i++)
             {
-                var characterPlateSession = ___characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
+                var characterPlateSession =
+                    ___characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
 
                 if (characterPlateSession.gameObject.activeSelf)
                 {

@@ -24,12 +24,14 @@ namespace SolastaCommunityExpansion.Models
 
         private static bool IsDynamicFlatRoom(UserRoom userRoom)
         {
-            return IsFlatRoom(userRoom) && int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var _);
+            return IsFlatRoom(userRoom) &&
+                   int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var _);
         }
 
         public static void GetTemplateVegetationMaskArea(WorldLocation worldLocation)
         {
-            var prefabByReference = worldLocation.GetField<WorldLocation, Dictionary<AssetReference, GameObject>>("prefabByReference");
+            var prefabByReference =
+                worldLocation.GetField<WorldLocation, Dictionary<AssetReference, GameObject>>("prefabByReference");
 
             foreach (var prefab in prefabByReference.Values)
             {
@@ -68,7 +70,9 @@ namespace SolastaCommunityExpansion.Models
                 {
                     for (var y = 0; y < oh; y++)
                     {
-                        var lowGround = isIndoor && ((x >= border && x <= ow - border && y >= border && y <= oh - border) || userRoom.GetCellType(x, y) == RoomBlueprint.CellType.GroundLow);
+                        var lowGround = isIndoor &&
+                                        ((x >= border && x <= ow - border && y >= border && y <= oh - border) ||
+                                         userRoom.GetCellType(x, y) == RoomBlueprint.CellType.GroundLow);
 
                         mapHeights[MARGIN + px + x, MARGIN + py + y] = lowGround ? 1 : 0;
                     }
@@ -92,11 +96,14 @@ namespace SolastaCommunityExpansion.Models
 
             // adjusts terrain to new settings
             masterTerrain.terrainData = TerrainDataCloner.Clone(masterTerrain.terrainData);
-            masterTerrain.terrainData.size = new Vector3(locationSize + (MARGIN * 2f), 5f, locationSize + (MARGIN * 2f));
+            masterTerrain.terrainData.size =
+                new Vector3(locationSize + (MARGIN * 2f), 5f, locationSize + (MARGIN * 2f));
             masterTerrain.terrainData.SetHeights(0, 0, heights);
-            masterTerrain.transform.position = new Vector3(masterTerrain.transform.position.x, -5.01f, masterTerrain.transform.position.z);
+            masterTerrain.transform.position = new Vector3(masterTerrain.transform.position.x, -5.01f,
+                masterTerrain.transform.position.z);
 
-            worldLocation.GetField<WorldLocation, List<TerrainData>>("duplicatedTerrainData").Add(masterTerrain.terrainData);
+            worldLocation.GetField<WorldLocation, List<TerrainData>>("duplicatedTerrainData")
+                .Add(masterTerrain.terrainData);
 
             // updates the biome to cover the entire location
             var biomeMaskArea = worldLocation.gameObject.GetComponentInChildren<BiomeMaskArea>();
@@ -107,10 +114,14 @@ namespace SolastaCommunityExpansion.Models
             }
 
             biomeMaskArea.ClearNodes();
-            biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(-MARGIN, 0, locationSize + MARGIN)));
+            biomeMaskArea.AddNode(
+                biomeMaskArea.transform.InverseTransformDirection(new Vector3(-MARGIN, 0, locationSize + MARGIN)));
             biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(-MARGIN, 0, -MARGIN)));
-            biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + MARGIN, 0, -MARGIN)));
-            biomeMaskArea.AddNode(biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + MARGIN, 0, locationSize + MARGIN)));
+            biomeMaskArea.AddNode(
+                biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + MARGIN, 0, -MARGIN)));
+            biomeMaskArea.AddNode(
+                biomeMaskArea.transform.InverseTransformDirection(new Vector3(locationSize + MARGIN, 0,
+                    locationSize + MARGIN)));
             biomeMaskArea.UpdateBiomeMask();
             worldLocation.gameObject.GetComponentInChildren<VegetationSystemPro>()?.CalculateVegetationSystemBounds();
         }
@@ -126,7 +137,8 @@ namespace SolastaCommunityExpansion.Models
 
                 var name = transform.gameObject.name;
 
-                if ((name.Contains("Wall") && !name.Contains("Drain")) || name.Contains("Column") || name.Contains("DM_Dirt_Pack"))
+                if ((name.Contains("Wall") && !name.Contains("Drain")) || name.Contains("Column") ||
+                    name.Contains("DM_Dirt_Pack"))
                 {
                     // need to keep parents around otherwise pure flat locations don't render correctly
                     if (transform.childCount > 0)
@@ -151,7 +163,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 var rnd = new System.Random();
 
-                roomTransform.position = new Vector3(roomTransform.position.x - ((multiplier - 1) * FLAT_ROOM_SIZE / 2), 0, roomTransform.position.z - ((multiplier - 1) * FLAT_ROOM_SIZE / 2));
+                roomTransform.position = new Vector3(roomTransform.position.x - ((multiplier - 1) * FLAT_ROOM_SIZE / 2),
+                    0, roomTransform.position.z - ((multiplier - 1) * FLAT_ROOM_SIZE / 2));
 
                 for (var x = 0; x < multiplier; x++)
                 {
@@ -160,8 +173,12 @@ namespace SolastaCommunityExpansion.Models
                         if (x > 0 || z > 0)
                         {
                             // placing textures using a random angle to remove the repetition feeling a bit
-                            var angle = LocationDefinitions.OrientationToAngle((LocationDefinitions.Orientation)rnd.Next(0, 3));
-                            var newRoom = Object.Instantiate(roomTransform.gameObject, new Vector3(roomTransform.position.x + (FLAT_ROOM_SIZE * x), 0, roomTransform.position.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity, roomTransform.parent);
+                            var angle = LocationDefinitions.OrientationToAngle(
+                                (LocationDefinitions.Orientation)rnd.Next(0, 3));
+                            var newRoom = Object.Instantiate(roomTransform.gameObject,
+                                new Vector3(roomTransform.position.x + (FLAT_ROOM_SIZE * x), 0,
+                                    roomTransform.position.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity,
+                                roomTransform.parent);
 
                             newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
                         }
@@ -175,7 +192,8 @@ namespace SolastaCommunityExpansion.Models
 
         public static void AddVegetationMaskArea(Transform roomTransform, UserRoom userRoom)
         {
-            if (TemplateVegetationMaskArea == null || DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
+            if (TemplateVegetationMaskArea == null ||
+                DmProEditorContext.OutdoorRooms.Contains(userRoom.RoomBlueprint.name))
             {
                 return;
             }
@@ -191,7 +209,8 @@ namespace SolastaCommunityExpansion.Models
                 sizey = FLAT_ROOM_SIZE;
             }
 
-            vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + (sizex / 2f), 0, userRoom.Position.y + (sizey / 2f));
+            vegetationMaskArea.transform.position = new Vector3(userRoom.Position.x + (sizex / 2f), 0,
+                userRoom.Position.y + (sizey / 2f));
             vegetationMaskArea.AdditionalGrassPerimiter = 0;
             vegetationMaskArea.RemoveGrass = true;
             vegetationMaskArea.RemoveLargeObjects = true;
@@ -210,9 +229,11 @@ namespace SolastaCommunityExpansion.Models
         {
             var reflectionProbes = worldLocation.GetComponentsInChildren<ReflectionProbe>();
 
-            foreach (var reflectionProbe in reflectionProbes.Where(x => x.transform.parent.name.StartsWith(FLAT_ROOM_TAG)))
+            foreach (var reflectionProbe in reflectionProbes.Where(x =>
+                         x.transform.parent.name.StartsWith(FLAT_ROOM_TAG)))
             {
-                reflectionProbe.transform.position = new Vector3(reflectionProbe.size.x / 2f, reflectionProbe.size.y, reflectionProbe.size.z / 2f);
+                reflectionProbe.transform.position = new Vector3(reflectionProbe.size.x / 2f, reflectionProbe.size.y,
+                    reflectionProbe.size.z / 2f);
             }
         }
     }

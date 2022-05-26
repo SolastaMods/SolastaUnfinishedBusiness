@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionMagicAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionMagicAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionMagicAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionMagicAffinityExtensions
     {
         public static T AddAdditionalSlots<T>(this T entity, params AdditionalSlotsDuplet[] value)
             where T : FeatureDefinitionMagicAffinity
@@ -160,21 +161,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCastingAffinity<T>(this T entity, RuleDefinitions.CastingAffinity value)
+        public static T SetCastingAffinity<T>(this T entity, CastingAffinity value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("castingAffinity", value);
             return entity;
         }
 
-        public static T SetConcentrationAffinity<T>(this T entity, RuleDefinitions.ConcentrationAffinity value)
+        public static T SetConcentrationAffinity<T>(this T entity, ConcentrationAffinity value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("concentrationAffinity", value);
             return entity;
         }
 
-        public static T SetCounterspellAffinity<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetCounterspellAffinity<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("counterspellAffinity", value);
@@ -202,7 +203,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForcedSavingThrowAffinity<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetForcedSavingThrowAffinity<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("forcedSavingThrowAffinity", value);
@@ -258,7 +259,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPreparedSpellModifier<T>(this T entity, RuleDefinitions.PreparedSpellsModifier value)
+        public static T SetPreparedSpellModifier<T>(this T entity, PreparedSpellsModifier value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("preparedSpellModifier", value);
@@ -293,7 +294,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRitualCasting<T>(this T entity, RuleDefinitions.RitualCasting value)
+        public static T SetRitualCasting<T>(this T entity, RitualCasting value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("ritualCasting", value);
@@ -307,14 +308,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSaveDCModifierType<T>(this T entity, RuleDefinitions.SpellParamsModifierType value)
+        public static T SetSaveDCModifierType<T>(this T entity, SpellParamsModifierType value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("saveDCModifierType", value);
             return entity;
         }
 
-        public static T SetScribeAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetScribeAdvantageType<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("scribeAdvantageType", value);
@@ -356,7 +357,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellAttackModifierType<T>(this T entity, RuleDefinitions.SpellParamsModifierType value)
+        public static T SetSpellAttackModifierType<T>(this T entity, SpellParamsModifierType value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("spellAttackModifierType", value);
@@ -384,7 +385,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellsCounterAffinity<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetSpellsCounterAffinity<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("spellsCounterAffinity", value);

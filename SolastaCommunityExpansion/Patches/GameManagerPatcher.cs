@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Patches
             // Only a functor registration
             PowerBundleContext.Load();
 
-            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
+            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
             {
                 // Late initialized to allow feats and races from other mods
                 FlexibleRacesContext.LateLoad();

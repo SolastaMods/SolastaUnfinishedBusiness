@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -22,10 +21,8 @@ namespace SolastaCommunityExpansion.Displays
                 {
                     return _allBlueprints;
                 }
-                else
-                {
-                    BlueprintLoader.Shared.Load((bps) => _allBlueprints = bps);
-                }
+
+                BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
             }
 
             return _allBlueprints;
@@ -56,7 +53,7 @@ namespace SolastaCommunityExpansion.Displays
         // search selection
         private static ToggleState _searchExpanded;
 
-        private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+        private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
 
         private static void RefreshBPSearchData()
         {
@@ -71,19 +68,23 @@ namespace SolastaCommunityExpansion.Displays
                 _treeView.Clear();
             }
 
-            _bpFields = Node.GetFields(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name).ToDictionary(info => info.Name);
-            _bpProperties = Node.GetProperties(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name).ToDictionary(info => info.Name);
+            _bpFields = Node.GetFields(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name)
+                .ToDictionary(info => info.Name);
+            _bpProperties = Node.GetProperties(_bpTypes[_bpTypeIndex]).OrderBy(info => info.Name)
+                .ToDictionary(info => info.Name);
             _bpChildNames = _bpFields.Keys.Concat(_bpProperties.Keys).OrderBy(key => key).ToArray();
             _searchIndex = Array.IndexOf(_bpChildNames, "name");
         }
 
         public static void RefreshTypeNames()
         {
-            _bpTypes = new Type[] { null }.Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
+            _bpTypes = new Type[] {null}
+                .Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
 
             if (!string.IsNullOrEmpty(_selectionSearchText))
             {
-                _bpTypes = _bpTypes.Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText)).ToArray();
+                _bpTypes = _bpTypes
+                    .Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText)).ToArray();
             }
 
             _bpTypeNames = _bpTypes.Select(type => type?.Name).ToArray();
@@ -108,7 +109,8 @@ namespace SolastaCommunityExpansion.Displays
                     {
                         try
                         {
-                            return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed;
+                            return (f.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) !=
+                                   _searchReversed;
                         }
                         catch
                         {
@@ -122,7 +124,8 @@ namespace SolastaCommunityExpansion.Displays
                     {
                         try
                         {
-                            return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) != _searchReversed;
+                            return (p.GetValue(bp)?.ToString()?.ToLower().Contains(searchText) ?? false) !=
+                                   _searchReversed;
                         }
                         catch
                         {
@@ -147,9 +150,11 @@ namespace SolastaCommunityExpansion.Displays
                 {
                     if (GetBlueprints() == null)
                     {
-                        GUILayout.Label("Blueprints".Orange().Bold() + " loading: " + BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+                        GUILayout.Label("Blueprints".Orange().Bold() + " loading: " +
+                                        BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
                         return;
                     }
+
                     RefreshTypeNames();
                     RefreshBPSearchData();
                 }
@@ -168,7 +173,8 @@ namespace SolastaCommunityExpansion.Displays
                             // Header and Search Field
                             GUILayout.Label($"{_bpTypeNames[_bpTypeIndex]}".Cyan(), GUILayout.Width(300));
                             GUILayout.Space(10);
-                            GUIHelper.TextField(ref _selectionSearchText, () => blueprintListIsDirty = true, null, GUILayout.MinWidth(150));
+                            GUIHelper.TextField(ref _selectionSearchText, () => blueprintListIsDirty = true, null,
+                                GUILayout.MinWidth(150));
                         }
 
                         if (blueprintListIsDirty)
@@ -186,7 +192,9 @@ namespace SolastaCommunityExpansion.Displays
                         {
                             _searchText = null;
                             RefreshBPSearchData();
-                            _filteredBPs = _bpTypeIndex == 0 ? GetBlueprints() : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
+                            _filteredBPs = _bpTypeIndex == 0
+                                ? GetBlueprints()
+                                : GetBlueprints().Where(item => item.GetType() == _bpTypes[_bpTypeIndex]).ToList();
                             _treeView.SetRoot(_filteredBPs);
                         }, _buttonStyle, GUILayout.Width(450));
                     }
@@ -205,11 +213,13 @@ namespace SolastaCommunityExpansion.Displays
                                 // slelection - button
                                 using (new GUILayout.HorizontalScope())
                                 {
-                                    UI.ToggleButton(ref _searchExpanded, $"Search: {_bpChildNames[_searchIndex]}", _buttonStyle, GUILayout.ExpandWidth(false));
+                                    UI.ToggleButton(ref _searchExpanded, $"Search: {_bpChildNames[_searchIndex]}",
+                                        _buttonStyle, GUILayout.ExpandWidth(false));
 
                                     // _searchText input
                                     GUILayout.Space(10);
-                                    GUIHelper.TextField(ref _searchText, () => isDirty = true, null, GUILayout.Width(450));
+                                    GUIHelper.TextField(ref _searchText, () => isDirty = true, null,
+                                        GUILayout.Width(450));
                                     GUILayout.Space(10f);
 
                                     if (UI.Toggle("By Excluding", ref _searchReversed, GUILayout.ExpandWidth(false)))
@@ -224,6 +234,7 @@ namespace SolastaCommunityExpansion.Displays
                                 }
                             }
                         }
+
                         // Data Search Field Picker
                         if (_searchExpanded.IsOn())
                         {
@@ -231,18 +242,21 @@ namespace SolastaCommunityExpansion.Displays
                             GUIHelper.Div();
                             const float availableWidth = 960f - 550;
                             var xCols = (int)Math.Ceiling(availableWidth / 300);
-                            GUIHelper.SelectionGrid(ref _searchIndex, _bpChildNames, xCols, () => isDirty = true, _buttonStyle, GUILayout.Width(availableWidth));
+                            GUIHelper.SelectionGrid(ref _searchIndex, _bpChildNames, xCols, () => isDirty = true,
+                                _buttonStyle, GUILayout.Width(availableWidth));
                         }
+
                         // Do the search
                         if (isDirty)
                         {
                             UpdateSearchResults();
                         }
+
                         GUIHelper.Div();
                         // tree view
                         using (new GUILayout.VerticalScope())
                         {
-                            _treeView.OnGUI(true, false);
+                            _treeView.OnGUI();
                         }
                     }
                 }

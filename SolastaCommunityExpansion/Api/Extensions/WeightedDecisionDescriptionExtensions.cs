@@ -9,8 +9,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(WeightedDecisionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class WeightedDecisionDescriptionExtensions
+    [TargetType(typeof(WeightedDecisionDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class WeightedDecisionDescriptionExtensions
     {
         public static T SetCooldown<T>(this T entity, System.Int32 value)
             where T : WeightedDecisionDescription
@@ -19,7 +20,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDecision<T>(this T entity, TA.AI.DecisionDefinition value)
+        public static T SetDecision<T>(this T entity, DecisionDefinition value)
             where T : WeightedDecisionDescription
         {
             entity.SetField("decision", value);

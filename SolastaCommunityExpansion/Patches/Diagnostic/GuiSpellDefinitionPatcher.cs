@@ -13,13 +13,13 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out var record))
             {
                 TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                    "CommunityExpansion", TagsDefinitions.Criticity.Normal, true);
+                    "CommunityExpansion", TagsDefinitions.Criticity.Normal);
             }
             else if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
             {
                 // Not all CE spells are registered in SpellsContext
                 TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                    "CommunityExpansion", TagsDefinitions.Criticity.Normal, true);
+                    "CommunityExpansion", TagsDefinitions.Criticity.Normal);
             }
         }
     }

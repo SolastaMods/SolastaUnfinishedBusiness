@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSense)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionSenseExtensions
+    [TargetType(typeof(FeatureDefinitionSense))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionSenseExtensions
     {
         public static T SetRevealsHiddenObjects<T>(this T entity, System.Boolean value)
             where T : FeatureDefinitionSense

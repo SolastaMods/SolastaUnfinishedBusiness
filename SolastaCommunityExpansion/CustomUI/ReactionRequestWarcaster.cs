@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.CustomUI
             ReactionParams.StringParameter2 = "Warcaster";
         }
 
-        void BuildSuboptions()
+        private void BuildSuboptions()
         {
             SubOptionsAvailability.Clear();
             SubOptionsAvailability.Add(0, true);
@@ -39,6 +39,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 SelectSubOption(0);
                 return;
             }
+
             var reactionParams = ReactionParams;
             var actingCharacter = reactionParams.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -186,7 +187,10 @@ namespace SolastaCommunityExpansion.CustomUI
             return Gui.Format(base.FormatDescription(), target.Name);
         }
 
-        public override string FormatReactDescription() => Gui.Format(base.FormatReactDescription(), "");
+        public override string FormatReactDescription()
+        {
+            return Gui.Format(base.FormatReactDescription(), "");
+        }
 
         public override void OnSetInvalid()
         {

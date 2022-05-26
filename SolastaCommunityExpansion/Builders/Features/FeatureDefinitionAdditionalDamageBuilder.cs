@@ -7,26 +7,33 @@ using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public abstract class FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+    public abstract class
+        FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition,
+            TBuilder>
         where TDefinition : FeatureDefinitionAdditionalDamage
         where TBuilder : FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder>
     {
         #region Constructors
+
         protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
         {
         }
+
         #endregion
 
         public TBuilder SetSpecificDamageType(string damageType)
@@ -56,9 +63,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params (int rank, int dice)[] diceByRank)
+        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
+            params (int rank, int dice)[] diceByRank)
         {
-            return SetAdvancement(advancement, diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
+            return SetAdvancement(advancement,
+                diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         }
 
         //public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, params DiceByRank[] diceByRanks)
@@ -66,7 +75,8 @@ namespace SolastaCommunityExpansion.Builders.Features
         //    return SetAdvancement(advancement, diceByRanks.AsEnumerable());
         //}
 
-        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement, IEnumerable<DiceByRank> diceByRanks)
+        public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
+            IEnumerable<DiceByRank> diceByRanks)
         {
             Definition.SetDamageAdvancement(advancement);
             Definition.DiceByRankTable.SetRange(diceByRanks);
@@ -96,7 +106,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        public TBuilder SetTargetCondition(ConditionDefinition requiredCondition, RuleDefinitions.AdditionalDamageTriggerCondition trigger)
+        public TBuilder SetTargetCondition(ConditionDefinition requiredCondition,
+            RuleDefinitions.AdditionalDamageTriggerCondition trigger)
         {
             Definition.SetRequiredTargetCondition(requiredCondition);
             Definition.SetTriggerCondition(trigger);
@@ -152,16 +163,20 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
     }
 
-    public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
+    public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<
+        FeatureDefinitionAdditionalDamage, FeatureDefinitionAdditionalDamageBuilder>
     {
         // Can we give this a specific name? ConfigureXXX.
         // Or move into ArcaneFighter.
         public FeatureDefinitionAdditionalDamageBuilder Configure(
             string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
             RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
-            RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
-            bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
-            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable)
+            RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition,
+            RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
+            bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber,
+            RuleDefinitions.AdditionalDamageType additionalDamageType,
+            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement,
+            List<DiceByRank> diceByRankTable)
         {
             // this should be first to avoid issues with Damage Value determination
             SetDamageDice(damageDieType, damageDiceNumber);
@@ -185,21 +200,26 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #region Constructors
+
         protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionAdditionalDamageBuilder(FeatureDefinitionAdditionalDamage original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

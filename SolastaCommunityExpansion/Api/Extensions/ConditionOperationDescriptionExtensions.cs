@@ -8,8 +8,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ConditionOperationDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ConditionOperationDescriptionExtensions
+    [TargetType(typeof(ConditionOperationDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ConditionOperationDescriptionExtensions
     {
         public static T SetCanSaveToCancel<T>(this T entity, System.Boolean value)
             where T : ConditionOperationDescription
@@ -46,14 +47,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSaveAffinity<T>(this T entity, RuleDefinitions.EffectSavingThrowType value)
+        public static T SetSaveAffinity<T>(this T entity, EffectSavingThrowType value)
             where T : ConditionOperationDescription
         {
             entity.SetField("saveAffinity", value);
             return entity;
         }
 
-        public static T SetSaveOccurence<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetSaveOccurence<T>(this T entity, TurnOccurenceType value)
             where T : ConditionOperationDescription
         {
             entity.SetField("saveOccurence", value);

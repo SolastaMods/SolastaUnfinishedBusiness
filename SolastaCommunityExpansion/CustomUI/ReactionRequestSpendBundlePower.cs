@@ -141,8 +141,10 @@ namespace SolastaCommunityExpansion.CustomUI
             ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
                 .Contains(target) && !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
 
-        public override string FormatTitle() =>
-            Gui.Localize($"Reaction/&SpendPowerBundle{ReactionParams.StringParameter}Title");
+        public override string FormatTitle()
+        {
+            return Gui.Localize($"Reaction/&SpendPowerBundle{ReactionParams.StringParameter}Title");
+        }
 
         public override string FormatDescription()
         {

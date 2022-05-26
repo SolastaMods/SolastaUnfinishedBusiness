@@ -10,8 +10,9 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ConditionForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ConditionFormExtensions
+    [TargetType(typeof(ConditionForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ConditionFormExtensions
     {
         public static T AddConditionsList<T>(this T entity, params ConditionDefinition[] value)
             where T : ConditionForm

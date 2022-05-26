@@ -12,7 +12,8 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PowerClericTurnUndead17Name = "ZSPowerClericTurnUndead17";
         private const string PowerClericTurnUndead17Guid = "b0ef65ba1e784628b1c5b4af75d4f395";
 
-        private PowerClericTurnUndeadBuilder(string name, string guid, int challengeRating) : base(PowerClericTurnUndead8, name, guid)
+        private PowerClericTurnUndeadBuilder(string name, string guid, int challengeRating) : base(
+            PowerClericTurnUndead8, name, guid)
         {
             Definition.EffectDescription.EffectForms[0].KillForm.SetChallengeRating(challengeRating);
         }

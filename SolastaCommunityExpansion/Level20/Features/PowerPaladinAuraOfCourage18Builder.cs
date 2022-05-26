@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PowerPaladinAuraOfCourage18Name = "ZSPowerPaladinAuraOfCourage18";
         private const string PowerPaladinAuraOfCourage18Guid = "d68c46024ea8432b981506a13ae35ecd";
 
-        public PowerPaladinAuraOfCourage18Builder() : base(PowerPaladinAuraOfCourage, PowerPaladinAuraOfCourage18Name, PowerPaladinAuraOfCourage18Guid)
+        public PowerPaladinAuraOfCourage18Builder() : base(PowerPaladinAuraOfCourage, PowerPaladinAuraOfCourage18Name,
+            PowerPaladinAuraOfCourage18Guid)
         {
             var ed = Definition.EffectDescription;
 
@@ -24,6 +25,7 @@ namespace SolastaCommunityExpansion.Level20.Features
             Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfCourage18Title";
         }
 
-        internal static FeatureDefinitionPower Instance => _instance ??= new PowerPaladinAuraOfCourage18Builder().AddToDB();
+        internal static FeatureDefinitionPower Instance =>
+            _instance ??= new PowerPaladinAuraOfCourage18Builder().AddToDB();
     }
 }

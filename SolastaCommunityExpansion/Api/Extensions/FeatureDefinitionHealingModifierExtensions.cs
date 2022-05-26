@@ -8,17 +8,18 @@ namespace SolastaModApi.Extensions
     /// This helper extensions class was automatically generated.
     /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionHealingModifier)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionHealingModifierExtensions
+    [TargetType(typeof(FeatureDefinitionHealingModifier))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionHealingModifierExtensions
     {
-        public static T SetAddedConditionOccurenceType<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetAddedConditionOccurenceType<T>(this T entity, TurnOccurenceType value)
             where T : FeatureDefinitionHealingModifier
         {
             entity.SetField("addedConditionOccurenceType", value);
             return entity;
         }
 
-        public static T SetAddLevel<T>(this T entity, RuleDefinitions.LevelSourceType value)
+        public static T SetAddLevel<T>(this T entity, LevelSourceType value)
             where T : FeatureDefinitionHealingModifier
         {
             entity.SetField("addLevel", value);
@@ -53,14 +54,15 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHealingBonusDiceType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetHealingBonusDiceType<T>(this T entity, DieType value)
             where T : FeatureDefinitionHealingModifier
         {
             entity.SetField("healingBonusDiceType", value);
             return entity;
         }
 
-        public static T SetHealingReceivedParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetHealingReceivedParticleReference<T>(this T entity,
+            UnityEngine.AddressableAssets.AssetReference value)
             where T : FeatureDefinitionHealingModifier
         {
             entity.SetField("healingReceivedParticleReference", value);
@@ -95,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSelfHealingAddLevel<T>(this T entity, RuleDefinitions.LevelSourceType value)
+        public static T SetSelfHealingAddLevel<T>(this T entity, LevelSourceType value)
             where T : FeatureDefinitionHealingModifier
         {
             entity.SetField("selfHealingAddLevel", value);
@@ -109,7 +111,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSelfHealingDiceType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetSelfHealingDiceType<T>(this T entity, DieType value)
             where T : FeatureDefinitionHealingModifier
         {
             entity.SetField("selfHealingDiceType", value);
