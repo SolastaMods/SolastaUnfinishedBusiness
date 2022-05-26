@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private static FeatureDefinition BuildZenArrow()
         {
-           var technique = FeatureDefinitionPowerBuilder
+            var technique = FeatureDefinitionPowerBuilder
                 .Create("ClassMonkZenArrowTechnique", Monk.GUID)
                 .SetGuiPresentation(Category.Power)
                 .SetActivationTime(ActivationTime.OnAttackHit)
@@ -195,10 +195,12 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
         {
             return System.Array.Empty<FeatureDefinition>();
         }
-        
+
         private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
         {
-            return mode is { Reach: false, Magical: false, Ranged: true } && Monk.IsMonkWeapon(character, mode);
+            return mode is {Reach: false, Magical: false}
+                   && (mode.Ranged || mode.Thrown)
+                   && Monk.IsMonkWeapon(character, mode);
         }
 
         private class ZenArcherMarker
