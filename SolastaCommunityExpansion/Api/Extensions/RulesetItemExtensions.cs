@@ -1,14 +1,14 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(RulesetItem))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -47,21 +47,21 @@ namespace SolastaModApi.Extensions
             return entity.GetField<List<RulesetItemProperty>>("toRemove");
         }
 
-        public static T SetAttunedToCharacter<T>(this T entity, System.String value)
+        public static T SetAttunedToCharacter<T>(this T entity, String value)
             where T : RulesetItem
         {
             entity.AttunedToCharacter = value;
             return entity;
         }
 
-        public static T SetBearerGuid<T>(this T entity, System.UInt64 value)
+        public static T SetBearerGuid<T>(this T entity, UInt64 value)
             where T : RulesetItem
         {
             entity.BearerGuid = value;
             return entity;
         }
 
-        public static T SetDeityMark<T>(this T entity, System.String value)
+        public static T SetDeityMark<T>(this T entity, String value)
             where T : RulesetItem
         {
             entity.DeityMark = value;
@@ -82,14 +82,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetGains<T>(this T entity, System.Int32[] value)
+        public static T SetGains<T>(this T entity, Int32[] value)
             where T : RulesetItem
         {
             entity.SetField("gains", value);
             return entity;
         }
 
-        public static T SetIdentified<T>(this T entity, System.Boolean value)
+        public static T SetIdentified<T>(this T entity, Boolean value)
             where T : RulesetItem
         {
             entity.Identified = value;
@@ -124,21 +124,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMagicDetected<T>(this T entity, System.Boolean value)
+        public static T SetMagicDetected<T>(this T entity, Boolean value)
             where T : RulesetItem
         {
             entity.MagicDetected = value;
             return entity;
         }
 
-        public static T SetName<T>(this T entity, System.String value)
+        public static T SetName<T>(this T entity, String value)
             where T : RulesetItem
         {
             entity.Name = value;
             return entity;
         }
 
-        public static T SetOwnerName<T>(this T entity, System.String value)
+        public static T SetOwnerName<T>(this T entity, String value)
             where T : RulesetItem
         {
             entity.OwnerName = value;
@@ -152,7 +152,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSourceSummoningEffectGuid<T>(this T entity, System.UInt64 value)
+        public static T SetSourceSummoningEffectGuid<T>(this T entity, UInt64 value)
             where T : RulesetItem
         {
             entity.SourceSummoningEffectGuid = value;

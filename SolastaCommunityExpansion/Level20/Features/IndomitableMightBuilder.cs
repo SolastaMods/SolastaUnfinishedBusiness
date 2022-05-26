@@ -12,6 +12,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string IndomitableMightName = "ZSBarbarianIndomitableMight";
         private const string IndomitableMightGuid = "2a0e9082-c81d-4d02-800a-92f04fbe85dc";
 
+        internal static readonly FeatureDefinition FeatureDefinitionIndomitableMight =
+            CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
+
         private FeatureDefinitionIndomitableMightBuilder(string name, string guid) : base(name, guid)
         {
             var guiPresentationBuilder = new GuiPresentationBuilder(
@@ -25,9 +28,6 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new FeatureDefinitionIndomitableMightBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinition FeatureDefinitionIndomitableMight =
-            CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
     }
 
     internal sealed class FeatureDefinitionIndomitableMight : FeatureDefinition, IChangeAbilityCheck

@@ -230,8 +230,8 @@ namespace ModKit
 
         private class ProcessLogger : IDisposable
         {
-            private readonly Stopwatch _stopWatch = new();
             private readonly UnityModManager.ModEntry.ModLogger _logger;
+            private readonly Stopwatch _stopWatch = new();
 
             public ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
             {

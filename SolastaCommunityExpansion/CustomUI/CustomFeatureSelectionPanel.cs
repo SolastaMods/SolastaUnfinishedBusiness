@@ -20,25 +20,48 @@ namespace SolastaCommunityExpansion.CustomUI
 {
     public class CustomFeatureSelectionPanel : CharacterStagePanel
     {
-        #region Fields from CharacterStageSpellSelectionPanel
+        private const float ScrollDuration = 0.3f;
+        private const float SpellsByLevelMargin = 10.0f;
+        private readonly List<FeaturePool> allPools = new();
 
-        private CharacterStageSpellSelectionPanel spellsPanel;
+        private readonly List<(string, FeatureDefinitionFeatureSetCustom)> gainedCustomFeatures = new();
+        private readonly Dictionary<PoolId, List<FeatureDefinition>> learnedFeatures = new();
 
-        private RectTransform spellsByLevelTable;
-        private GameObject spellsByLevelPrefab;
-        private ScrollRect spellsScrollRect;
-        private RectTransform learnStepsTable;
-        private GameObject learnStepPrefab;
-        private AssetReferenceSprite backdropReference;
-        private Image backdrop;
-        private AnimationCurve curve;
-        private RectTransform levelButtonsTable;
-        private GameObject levelButtonPrefab;
-        private GuiLabel stageTitleLabel;
-        private GuiLabel righrFeaturesLabel;
-        private GuiLabel rightFeaturesDescription;
+        private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
+        {
+            var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
 
-        #endregion
+            if (r != 0)
+            {
+                return r;
+            }
+
+            if (a.IsReplacer == b.IsReplacer)
+            {
+                return String.CompareOrdinal(a.Id.Name, b.Id.Name);
+            }
+
+            if (a.IsReplacer)
+            {
+                return -1;
+            }
+
+            return 1;
+        };
+
+        private int currentLearnStep;
+        private int gainedCharacterLevel;
+        private CharacterClassDefinition gainedClass;
+        private int gainedClassLevel;
+        private CharacterSubclassDefinition gainedSubclass;
+
+        private bool initialized;
+        private bool wasClicked;
+
+        public override string Name => "CustomFeatureSelection";
+        public override string Title => "UI/&CustomFeatureSelectionStageTitle";
+        public override string Description => "UI/&CustomFeatureSelectionStageDescription";
+        private bool IsFinalStep => currentLearnStep >= allPools.Count;
 
         internal void Setup(CharacterStageSpellSelectionPanel spells)
         {
@@ -64,88 +87,6 @@ namespace SolastaCommunityExpansion.CustomUI
             CharacterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
             currentHero = spellsPanel.GetField<RulesetCharacterHero>("currentHero");
         }
-
-        private const float ScrollDuration = 0.3f;
-        private const float SpellsByLevelMargin = 10.0f;
-
-        public override string Name => "CustomFeatureSelection";
-        public override string Title => "UI/&CustomFeatureSelectionStageTitle";
-        public override string Description => "UI/&CustomFeatureSelectionStageDescription";
-        private bool IsFinalStep => currentLearnStep >= allPools.Count;
-
-        private bool initialized;
-        private int gainedClassLevel;
-        private int gainedCharacterLevel;
-        private CharacterClassDefinition gainedClass;
-        private CharacterSubclassDefinition gainedSubclass;
-
-        private int currentLearnStep;
-        private readonly List<FeaturePool> allPools = new();
-        private readonly Dictionary<PoolId, List<FeatureDefinition>> learnedFeatures = new();
-        private bool wasClicked;
-
-        private readonly Comparison<FeaturePool> poolCompare = (a, b) =>
-        {
-            var r = String.CompareOrdinal(a.Id.Tag, b.Id.Tag);
-
-            if (r != 0)
-            {
-                return r;
-            }
-
-            if (a.IsReplacer == b.IsReplacer)
-            {
-                return String.CompareOrdinal(a.Id.Name, b.Id.Name);
-            }
-
-            if (a.IsReplacer)
-            {
-                return -1;
-            }
-
-            return 1;
-        };
-
-        public class FeaturePool
-        {
-            public PoolId Id { get; }
-            public int Max { get; set; }
-            public int Used { get; set; }
-            public int Remaining => Skipped ? 0 : Max - Used;
-            public FeatureDefinitionFeatureSetCustom FeatureSet { get; set; }
-            public bool IsReplacer => FeatureSet is FeatureDefinitionFeatureSetReplaceCustom;
-            public FeaturePool(PoolId id) { Id = id; }
-            public bool Skipped;
-        }
-
-        public class PoolId
-        {
-            public PoolId(string name, string tag)
-            {
-                Name = name;
-                Tag = tag;
-            }
-
-            public string Name { get; }
-            public string Tag { get; }
-
-            public override bool Equals(object obj)
-            {
-                if (obj is not PoolId pool)
-                {
-                    return false;
-                }
-
-                return Name == pool.Name && Tag == pool.Tag;
-            }
-
-            public override int GetHashCode()
-            {
-                return $"{Name}[{Tag}]".GetHashCode();
-            }
-        }
-
-        private readonly List<(string, FeatureDefinitionFeatureSetCustom)> gainedCustomFeatures = new();
 
         public override void SetScrollSensitivity(float scrollSensitivity)
         {
@@ -852,6 +793,65 @@ namespace SolastaCommunityExpansion.CustomUI
 
             GrantAcquiredFeatures(onDone);
         }
+
+        public class FeaturePool
+        {
+            public bool Skipped;
+            public FeaturePool(PoolId id) { Id = id; }
+            public PoolId Id { get; }
+            public int Max { get; set; }
+            public int Used { get; set; }
+            public int Remaining => Skipped ? 0 : Max - Used;
+            public FeatureDefinitionFeatureSetCustom FeatureSet { get; set; }
+            public bool IsReplacer => FeatureSet is FeatureDefinitionFeatureSetReplaceCustom;
+        }
+
+        public class PoolId
+        {
+            public PoolId(string name, string tag)
+            {
+                Name = name;
+                Tag = tag;
+            }
+
+            public string Name { get; }
+            public string Tag { get; }
+
+            public override bool Equals(object obj)
+            {
+                if (obj is not PoolId pool)
+                {
+                    return false;
+                }
+
+                return Name == pool.Name && Tag == pool.Tag;
+            }
+
+            public override int GetHashCode()
+            {
+                return $"{Name}[{Tag}]".GetHashCode();
+            }
+        }
+
+        #region Fields from CharacterStageSpellSelectionPanel
+
+        private CharacterStageSpellSelectionPanel spellsPanel;
+
+        private RectTransform spellsByLevelTable;
+        private GameObject spellsByLevelPrefab;
+        private ScrollRect spellsScrollRect;
+        private RectTransform learnStepsTable;
+        private GameObject learnStepPrefab;
+        private AssetReferenceSprite backdropReference;
+        private Image backdrop;
+        private AnimationCurve curve;
+        private RectTransform levelButtonsTable;
+        private GameObject levelButtonPrefab;
+        private GuiLabel stageTitleLabel;
+        private GuiLabel righrFeaturesLabel;
+        private GuiLabel rightFeaturesDescription;
+
+        #endregion
 
         #region UI helpers
 

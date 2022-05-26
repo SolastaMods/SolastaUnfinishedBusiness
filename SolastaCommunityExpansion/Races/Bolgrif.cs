@@ -1,19 +1,22 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using TA;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Races
 {
     internal static class BolgrifRaceBuilder
     {
-        internal static CharacterRaceDefinition BolgrifRace { get; private set; } = BuildBolgrif();
+        internal static CharacterRaceDefinition BolgrifRace { get; } = BuildBolgrif();
 
         private static CharacterRaceDefinition BuildBolgrif()
         {
             var bolgrifSpriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite("Bolgrif", Properties.Resources.Bolgrif, 1024, 512);
+                CustomIcons.CreateAssetReferenceSprite("Bolgrif", Resources.Bolgrif, 1024, 512);
 
             var bolgrifAbilityScoreModifierWisdom = FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierBolgrifWisdomAbilityScoreIncrease", "4099c645-fc05-4ba1-833f-eabb94b865d0")
@@ -82,8 +85,8 @@ namespace SolastaCommunityExpansion.Races
 
             var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
 
-            bolgrifRacePresentation.SetPreferedSkinColors(new TA.RangedInt(45, 48));
-            bolgrifRacePresentation.SetPreferedHairColors(new TA.RangedInt(16, 32));
+            bolgrifRacePresentation.SetPreferedSkinColors(new RangedInt(45, 48));
+            bolgrifRacePresentation.SetPreferedHairColors(new RangedInt(16, 32));
             bolgrifRacePresentation.SetNeedBeard(false);
             bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);
 

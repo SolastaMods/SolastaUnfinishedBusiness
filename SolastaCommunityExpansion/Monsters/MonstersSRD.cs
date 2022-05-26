@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using SolastaMonsters.Models;
 using UnityEngine.AddressableAssets;
 
 //******************************************************************************************
@@ -13,9 +15,9 @@ namespace SolastaMonsters.Monsters
 {
     internal static class MonstersSRD
     {
-        public static List<Models.MonsterContext.CustomMonster> Definitions = new()
+        public static List<MonsterContext.CustomMonster> Definitions = new()
         {
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Ancient Black Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy,
@@ -84,7 +86,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Ancient Blue Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SpectralDragon_02,
@@ -154,7 +156,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.SpectralDragon_02.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Ancient Green Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration,
@@ -227,7 +229,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Ancient Red Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai,
@@ -297,7 +299,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Ancient White Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess,
@@ -368,7 +370,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Archmage",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SRD_Mage,
@@ -421,10 +423,7 @@ namespace SolastaMonsters.Monsters
                         MonstersAttributes.ArchmagemonsterSkillProficiency_2
                     },
                 AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0]
-                    },
+                    new List<MonsterAttackIteration> {DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0]},
                 LegendaryActionOptions = new List<LegendaryActionDescription>(),
                 DefaultBattleDecisionPackage = NewMonsterAttributes.HighLevelCaster_CombatDecisions,
                 GroupAttacks = false,
@@ -432,7 +431,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.SRD_Mage.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Balor",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Minotaur,
@@ -496,7 +495,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.BalorassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.MinotaurElite.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Deva",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
@@ -558,7 +557,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Djinni",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Jester,
@@ -614,7 +613,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.HumanoidMonsterPresentationDefinitions.NPC_Presentation_Emtan_Ghost
                     .GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Efreeti",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Jester,
@@ -668,7 +667,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EfreetiassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Fire_Jester.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Erinyes",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Estalla,
@@ -734,7 +733,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Estalla.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Guardian Naga",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Tiger_Drake,
@@ -788,7 +787,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Tiger_Drake.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Horned Devil",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin,
@@ -857,7 +856,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Ice Devil",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SkarnGhoul,
@@ -923,7 +922,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.SkarnGhoul.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Lich",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.MummyLord,
@@ -1007,7 +1006,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.LichassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Adam_The_Twelth.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Nalfeshnee",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Ogre_Zombie,
@@ -1071,7 +1070,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Ogre_Zombie.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Pit Fiend",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
@@ -1145,7 +1144,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Planetar",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard,
@@ -1205,7 +1204,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Roc",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Eagle,
@@ -1257,7 +1256,7 @@ namespace SolastaMonsters.Monsters
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Giant_Eagle.GuiPresentation.SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Solar",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric,
@@ -1391,7 +1390,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference=DatabaseHelper.MonsterDefinitions.Giant_Frost.GuiPresentation.SpriteReference,
              }      ,
 */
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Tarrasque",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
@@ -1470,7 +1469,7 @@ namespace SolastaMonsters.Monsters
                 SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation
                     .SpriteReference
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Vampire",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Razan,
@@ -1570,7 +1569,7 @@ namespace SolastaMonsters.Monsters
 
 
                 NewMonster.SetInDungeonEditor(false);
-                if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+                if (Main.Settings.EnableExtraHighLevelMonsters)
                 {
                     NewMonster.SetInDungeonEditor(true);
                 }

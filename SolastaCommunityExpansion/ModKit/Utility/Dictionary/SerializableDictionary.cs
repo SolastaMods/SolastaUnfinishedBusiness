@@ -15,17 +15,17 @@ namespace ModKit.Utility
 
         public SerializableDictionary(IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
 
-        public XmlSchema GetSchema()
-        {
-            return null;
-        }
-
         public void AddMissingKeys(IUpdatableSettings from)
         {
             if (from is SerializableDictionary<TKey, TValue> fromDict)
             {
                 this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
             }
+        }
+
+        public XmlSchema GetSchema()
+        {
+            return null;
         }
 
         public void ReadXml(XmlReader reader)

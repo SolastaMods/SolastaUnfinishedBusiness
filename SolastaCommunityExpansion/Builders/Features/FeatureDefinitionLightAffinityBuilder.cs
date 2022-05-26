@@ -6,6 +6,13 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionLightAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionLightAffinity,
         FeatureDefinitionLightAffinityBuilder>
     {
+        public FeatureDefinitionLightAffinityBuilder AddLightingEffectAndCondition(
+            FeatureDefinitionLightAffinity.LightingEffectAndCondition lightingEffectAndCondition)
+        {
+            Definition.AddLightingEffectAndConditionList(lightingEffectAndCondition);
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionLightAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -27,12 +34,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionLightAffinityBuilder AddLightingEffectAndCondition(
-            FeatureDefinitionLightAffinity.LightingEffectAndCondition lightingEffectAndCondition)
-        {
-            Definition.AddLightingEffectAndConditionList(lightingEffectAndCondition);
-            return this;
-        }
     }
 }

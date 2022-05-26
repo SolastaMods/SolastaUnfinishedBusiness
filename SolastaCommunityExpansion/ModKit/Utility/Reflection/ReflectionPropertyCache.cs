@@ -48,13 +48,10 @@ namespace ModKit.Utility
                 cache =
                     IsStatic(type)
                         ? new CachedPropertyOfStatic<TProperty>(type, name)
-                        :
-                        type.IsValueType
-                            ?
-                            Activator.CreateInstance(
+                        : type.IsValueType
+                            ? Activator.CreateInstance(
                                 typeof(CachedPropertyOfStruct<,>).MakeGenericType(type, typeof(TProperty)), name)
-                            :
-                            Activator.CreateInstance(
+                            : Activator.CreateInstance(
                                 typeof(CachedPropertyOfClass<,>).MakeGenericType(type, typeof(TProperty)), name);
                 _propertieCache[type, name] = new WeakReference(cache);
                 EnqueueCache(cache);
@@ -162,10 +159,6 @@ namespace ModKit.Utility
 
         private class CachedPropertyOfStruct<T, TProperty> : CachedProperty<TProperty>
         {
-            private delegate TProperty Getter(ref T instance);
-
-            private delegate void Setter(ref T instance, TProperty value);
-
             private T _dummy;
             private Getter _getter;
             private Setter _setter;
@@ -187,15 +180,15 @@ namespace ModKit.Utility
                 (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref _dummy, value);
             }
 
+            private delegate TProperty Getter(ref T instance);
+
+            private delegate void Setter(ref T instance, TProperty value);
+
             //public void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
         }
 
         private class CachedPropertyOfClass<T, TProperty> : CachedProperty<TProperty>
         {
-            private delegate TProperty Getter(T instance);
-
-            private delegate void Setter(T instance, TProperty value);
-
             private readonly T _dummy = default;
             private Getter _getter;
             private Setter _setter;
@@ -217,15 +210,15 @@ namespace ModKit.Utility
                 (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(_dummy, value);
             }
 
+            private delegate TProperty Getter(T instance);
+
+            private delegate void Setter(T instance, TProperty value);
+
             //public void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
         }
 
         private class CachedPropertyOfStatic<TProperty> : CachedProperty<TProperty>
         {
-            private delegate TProperty Getter();
-
-            private delegate void Setter(TProperty value);
-
             private Getter _getter;
             private Setter _setter;
 
@@ -254,6 +247,10 @@ namespace ModKit.Utility
             {
                 return Delegate.CreateDelegate(typeof(Setter), Info.SetMethod) as Setter;
             }
+
+            private delegate TProperty Getter();
+
+            private delegate void Setter(TProperty value);
         }
     }
 }

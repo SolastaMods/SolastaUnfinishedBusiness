@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static GuiDropdown;
 using static SolastaModApi.DatabaseHelper;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -28,7 +31,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static GuiDropdown SortGuiDropdown { get; set; }
 
-        internal static System.Action SelectionChanged { get; set; }
+        internal static Action SelectionChanged { get; set; }
 
         internal static void Load()
         {
@@ -76,7 +79,7 @@ namespace SolastaCommunityExpansion.Models
             // changes the reorder button label and refactor the listener
 
             var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
-            var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
+            var reorderButton = reorder.GetComponent<Button>();
             var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
 
             reorder.localPosition = new Vector3(-32f, 358f, 0f);

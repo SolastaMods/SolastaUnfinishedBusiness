@@ -7,6 +7,13 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionOnAttackDamageEffectBuilder : FeatureDefinitionBuilder<
         FeatureDefinitionOnAttackDamageEffect, FeatureDefinitionOnAttackDamageEffectBuilder>
     {
+        public FeatureDefinitionOnAttackDamageEffectBuilder SetOnAttackDamageDelegates(OnAttackDamageDelegate before,
+            OnAttackDamageDelegate after)
+        {
+            Definition.SetOnAttackDamageDelegates(before, after);
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionOnAttackDamageEffectBuilder(string name, Guid namespaceGuid) : base(name,
@@ -30,12 +37,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionOnAttackDamageEffectBuilder SetOnAttackDamageDelegates(OnAttackDamageDelegate before,
-            OnAttackDamageDelegate after)
-        {
-            Definition.SetOnAttackDamageDelegates(before, after);
-            return this;
-        }
     }
 }

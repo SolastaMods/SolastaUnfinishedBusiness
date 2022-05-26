@@ -3,6 +3,8 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
@@ -31,8 +33,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             FeatureDefinitionFeatureSetCustomBuilder
                 .Create("ClassWarlockEldritchInvocationSetLevel", CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature,
-                    Utils.CustomIcons.CreateAssetReferenceSprite("EldritchInvocation",
-                        Properties.Resources.EldritchInvocation, 128, 128)
+                    CustomIcons.CreateAssetReferenceSprite("EldritchInvocation",
+                        Resources.EldritchInvocation, 128, 128)
                 )
                 .SetRequireClassLevels(true)
                 .SetLevelFeatures(1,

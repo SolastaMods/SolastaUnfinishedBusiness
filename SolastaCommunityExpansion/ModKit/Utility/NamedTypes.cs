@@ -6,16 +6,16 @@ namespace ModKit
 {
     public class NamedAction
     {
-        public string name { get; }
-        public Action action { get; }
-        public Func<bool> canPerform { get; }
-
         public NamedAction(string name, Action action, Func<bool> canPerform = null)
         {
             this.name = name;
             this.action = action;
             this.canPerform = canPerform ?? (() => { return true; });
         }
+
+        public string name { get; }
+        public Action action { get; }
+        public Func<bool> canPerform { get; }
     }
 
     //public class NamedAction<T> {
@@ -31,16 +31,16 @@ namespace ModKit
 
     public class NamedFunc<T>
     {
-        public string name { get; }
-        public Func<T> func { get; }
-        public Func<bool> canPerform { get; }
-
         public NamedFunc(string name, Func<T> func, Func<bool> canPerform = null)
         {
             this.name = name;
             this.func = func;
             this.canPerform = canPerform ?? (() => { return true; });
         }
+
+        public string name { get; }
+        public Func<T> func { get; }
+        public Func<bool> canPerform { get; }
     }
 
     //public class NamedMutator<Target, T> {

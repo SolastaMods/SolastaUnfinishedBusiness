@@ -1,12 +1,14 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(FeatureDefinitionAttackModifier))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -19,35 +21,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalAttackTag<T>(this T entity, System.String value)
+        public static T SetAdditionalAttackTag<T>(this T entity, String value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("additionalAttackTag", value);
             return entity;
         }
 
-        public static T SetAdditionalBonusAttackFromMain<T>(this T entity, System.Boolean value)
+        public static T SetAdditionalBonusAttackFromMain<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("additionalBonusAttackFromMain", value);
             return entity;
         }
 
-        public static T SetAdditionalDamageDice<T>(this T entity, System.Int32 value)
+        public static T SetAdditionalDamageDice<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("additionalDamageDice", value);
             return entity;
         }
 
-        public static T SetAttackRollAbilityScore<T>(this T entity, System.String value)
+        public static T SetAttackRollAbilityScore<T>(this T entity, String value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("attackRollAbilityScore", value);
             return entity;
         }
 
-        public static T SetAttackRollModifier<T>(this T entity, System.Int32 value)
+        public static T SetAttackRollModifier<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("attackRollModifier", value);
@@ -61,14 +63,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanAddAbilityBonusToSecondary<T>(this T entity, System.Boolean value)
+        public static T SetCanAddAbilityBonusToSecondary<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("canAddAbilityBonusToSecondary", value);
             return entity;
         }
 
-        public static T SetCanDualWieldNonLight<T>(this T entity, System.Boolean value)
+        public static T SetCanDualWieldNonLight<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("canDualWieldNonLight", value);
@@ -82,14 +84,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageRollAbilityScore<T>(this T entity, System.String value)
+        public static T SetDamageRollAbilityScore<T>(this T entity, String value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("damageRollAbilityScore", value);
             return entity;
         }
 
-        public static T SetDamageRollModifier<T>(this T entity, System.Int32 value)
+        public static T SetDamageRollModifier<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("damageRollModifier", value);
@@ -103,7 +105,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFollowUpAddAbilityBonus<T>(this T entity, System.Boolean value)
+        public static T SetFollowUpAddAbilityBonus<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("followUpAddAbilityBonus", value);
@@ -117,14 +119,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFollowUpStrike<T>(this T entity, System.Boolean value)
+        public static T SetFollowUpStrike<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("followUpStrike", value);
             return entity;
         }
 
-        public static T SetImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetImpactParticleReference<T>(this T entity, AssetReference value)
             where T : FeatureDefinitionAttackModifier
         {
             entity.SetField("impactParticleReference", value);

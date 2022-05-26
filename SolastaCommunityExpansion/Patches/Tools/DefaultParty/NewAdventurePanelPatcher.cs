@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             }
 
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
-            var max = System.Math.Min(Main.Settings.DefaultPartyHeroes.Count,
+            var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
                 ___characterSessionPlatesTable.childCount);
 
             for (var i = 0; i < max; i++)

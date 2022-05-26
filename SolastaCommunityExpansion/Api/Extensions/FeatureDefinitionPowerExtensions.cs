@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -5,21 +6,21 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(FeatureDefinitionPower))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static class FeatureDefinitionPowerExtensions
     {
-        public static T SetAbilityScore<T>(this T entity, System.String value)
+        public static T SetAbilityScore<T>(this T entity, String value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("abilityScore", value);
             return entity;
         }
 
-        public static T SetAbilityScoreBonusToAttack<T>(this T entity, System.Boolean value)
+        public static T SetAbilityScoreBonusToAttack<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("abilityScoreBonusToAttack", value);
@@ -47,7 +48,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanUseInDialog<T>(this T entity, System.Boolean value)
+        public static T SetCanUseInDialog<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("canUseInDialog", value);
@@ -61,14 +62,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCostPerUse<T>(this T entity, System.Int32 value)
+        public static T SetCostPerUse<T>(this T entity, Int32 value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("costPerUse", value);
             return entity;
         }
 
-        public static T SetDelegatedToAction<T>(this T entity, System.Boolean value)
+        public static T SetDelegatedToAction<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("delegatedToAction", value);
@@ -89,35 +90,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFixedAttackHit<T>(this T entity, System.Int32 value)
+        public static T SetFixedAttackHit<T>(this T entity, Int32 value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("fixedAttackHit", value);
             return entity;
         }
 
-        public static T SetFixedUsesPerRecharge<T>(this T entity, System.Int32 value)
+        public static T SetFixedUsesPerRecharge<T>(this T entity, Int32 value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("fixedUsesPerRecharge", value);
             return entity;
         }
 
-        public static T SetHasCastingFailure<T>(this T entity, System.Boolean value)
+        public static T SetHasCastingFailure<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("hasCastingFailure", value);
             return entity;
         }
 
-        public static T SetIncludeBaseDescription<T>(this T entity, System.Boolean value)
+        public static T SetIncludeBaseDescription<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("includeBaseDescription", value);
             return entity;
         }
 
-        public static T SetMagical<T>(this T entity, System.Boolean value)
+        public static T SetMagical<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("magical", value);
@@ -131,7 +132,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetProficiencyBonusToAttack<T>(this T entity, System.Boolean value)
+        public static T SetProficiencyBonusToAttack<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("proficiencyBonusToAttack", value);
@@ -145,7 +146,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReactionName<T>(this T entity, System.String value)
+        public static T SetReactionName<T>(this T entity, String value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("reactionName", value);
@@ -159,14 +160,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetShortTitleOverride<T>(this T entity, System.String value)
+        public static T SetShortTitleOverride<T>(this T entity, String value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("shortTitleOverride", value);
             return entity;
         }
 
-        public static T SetShowCasting<T>(this T entity, System.Boolean value)
+        public static T SetShowCasting<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("showCasting", value);
@@ -187,21 +188,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTriggeredBySpecialMove<T>(this T entity, System.Boolean value)
+        public static T SetTriggeredBySpecialMove<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("triggeredBySpecialMove", value);
             return entity;
         }
 
-        public static T SetUniqueInstance<T>(this T entity, System.Boolean value)
+        public static T SetUniqueInstance<T>(this T entity, Boolean value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("uniqueInstance", value);
             return entity;
         }
 
-        public static T SetUsesAbilityScoreName<T>(this T entity, System.String value)
+        public static T SetUsesAbilityScoreName<T>(this T entity, String value)
             where T : FeatureDefinitionPower
         {
             entity.SetField("usesAbilityScoreName", value);

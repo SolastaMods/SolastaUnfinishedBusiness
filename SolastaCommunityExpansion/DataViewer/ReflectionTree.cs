@@ -8,6 +8,7 @@ using System.Text;
 using ModKit;
 using UnityEngine;
 using static ModKit.Utility.ReflectionCache;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.DataViewer
 {
@@ -30,14 +31,14 @@ namespace SolastaCommunityExpansion.DataViewer
     {
         private RootNode<TRoot> _root;
 
-        public TRoot Root => _root.Value;
-
-        public Node RootNode => _root;
-
         public ReflectionTree(TRoot root)
         {
             SetRoot(root);
         }
+
+        public TRoot Root => _root.Value;
+
+        public Node RootNode => _root;
 
         public void SetRoot(TRoot root)
         {
@@ -58,11 +59,6 @@ namespace SolastaCommunityExpansion.DataViewer
         protected const BindingFlags ALL_FLAGS =
             BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-
-        public readonly NodeType NodeType;
-        public readonly Type Type;
-
-        public readonly bool IsNullable;
 
         // the graph will not show any child nodes of following types
         internal static readonly HashSet<Type> BASE_TYPES = new()
@@ -87,6 +83,11 @@ namespace SolastaCommunityExpansion.DataViewer
             typeof(IntPtr),
             typeof(UIntPtr)
         };
+
+        public readonly bool IsNullable;
+
+        public readonly NodeType NodeType;
+        public readonly Type Type;
 
         protected Node(Type type, NodeType nodeType)
         {
@@ -249,22 +250,22 @@ namespace SolastaCommunityExpansion.DataViewer
 
     internal abstract class GenericNode<TNode> : Node
     {
+        private bool _componentIsDirty;
+
+        private List<Node> _componentNodes;
+        private bool _fieldIsDirty;
+        private List<Node> _fieldNodes;
         private Type _instType;
         private bool? _isBaseType;
         private bool? _isEnumerable;
         private bool? _isGameObject;
+        private bool _itemIsDirty;
+        private List<Node> _itemNodes;
+        private bool _propertyIsDirty;
+        private List<Node> _propertyNodes;
 
         private TNode _value;
         private bool _valueIsDirty = true;
-
-        private List<Node> _componentNodes;
-        private List<Node> _itemNodes;
-        private List<Node> _fieldNodes;
-        private List<Node> _propertyNodes;
-        private bool _componentIsDirty;
-        private bool _itemIsDirty;
-        private bool _fieldIsDirty;
-        private bool _propertyIsDirty;
 
         protected GenericNode(NodeType nodeType) : base(typeof(TNode), nodeType)
         {
@@ -349,7 +350,7 @@ namespace SolastaCommunityExpansion.DataViewer
             get
             {
                 int? result = null;
-                if (Value is UnityEngine.Object unityObject)
+                if (Value is Object unityObject)
                 {
                     result = unityObject.GetInstanceID();
                 }
@@ -363,7 +364,7 @@ namespace SolastaCommunityExpansion.DataViewer
             }
         }
 
-        public override bool IsNull => Value == null || (Value is UnityEngine.Object unityObject && !unityObject);
+        public override bool IsNull => Value == null || (Value is Object unityObject && !unityObject);
 
         public override IReadOnlyCollection<Node> GetComponentNodes()
         {
@@ -566,13 +567,13 @@ namespace SolastaCommunityExpansion.DataViewer
 
     internal abstract class PassiveNode<TNode> : GenericNode<TNode>
     {
-        public override bool IsException => false;
-
         protected PassiveNode(string name, TNode value, NodeType nodeType) : base(nodeType)
         {
             Name = name;
             Value = value;
         }
+
+        public override bool IsException => false;
 
         internal override void SetValue(object value)
         {
@@ -636,8 +637,14 @@ namespace SolastaCommunityExpansion.DataViewer
 
     internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
     {
-        protected bool _isException;
         protected readonly WeakReference<GenericNode<TParent>> _parentNode;
+        protected bool _isException;
+
+        protected ChildNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(nodeType)
+        {
+            _parentNode = new WeakReference<GenericNode<TParent>>(parentNode);
+            Name = name;
+        }
 
         public override bool IsException
         {
@@ -646,12 +653,6 @@ namespace SolastaCommunityExpansion.DataViewer
                 UpdateValue();
                 return _isException;
             }
-        }
-
-        protected ChildNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(nodeType)
-        {
-            _parentNode = new WeakReference<GenericNode<TParent>>(parentNode);
-            Name = name;
         }
 
         internal override void SetValue(object value)

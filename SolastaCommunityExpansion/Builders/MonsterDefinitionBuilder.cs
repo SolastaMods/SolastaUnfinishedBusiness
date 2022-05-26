@@ -13,28 +13,6 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, MonsterDefinitionBuilder>
     {
-        #region Constructors
-
-        protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected MonsterDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public MonsterDefinitionBuilder SetSpriteReference(AssetReferenceSprite sprite)
         {
             Definition.GuiPresentation.SetSpriteReference(sprite);
@@ -604,5 +582,27 @@ namespace SolastaCommunityExpansion.Builders
             Definition.MonsterPresentation.SetCustomMaterials(assetReference);
             return this;
         }
+
+        #region Constructors
+
+        protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp
 {
@@ -12,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         {
             foreach (var feat in feats)
             {
-                Models.CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
+                CustomFeaturesContext.RecursiveGrantCustomFeatures(__instance, null, feat.Features);
             }
         }
     }

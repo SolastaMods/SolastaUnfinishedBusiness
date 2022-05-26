@@ -207,13 +207,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 "MagicAffinityArtificerAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
             alchemicalSavantSpells.SetForceHalfDamageOnCantrips(true);
 
-            var restorativeElixirsPower = new FeatureHelpers
-                    .FeatureDefinitionPowerBuilder(
-                        "PowerAlchemistRestorativeElixirs", TinkererClass.GuidNamespace,
-                        0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
-                        ActivationTime.Action, 1, RechargeRate.LongRest,
-                        false, false, AttributeDefinitions.Intelligence,
-                        LesserRestoration.EffectDescription)
+            var restorativeElixirsPower = new FeatureHelpers.FeatureDefinitionPowerBuilder(
+                    "PowerAlchemistRestorativeElixirs", TinkererClass.GuidNamespace,
+                    0, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
+                    ActivationTime.Action, 1, RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    LesserRestoration.EffectDescription)
                 .SetGuiPresentation("PowerAlchemistRestorativeElixirs", Category.Feat,
                     LesserRestoration.GuiPresentation.SpriteReference)
                 .AddToDB();
@@ -241,13 +240,13 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .SetGuiPresentation("PowerAlchemistEmboldeningShots", Category.Feat)
                 .AddToDB();
 
-            var greaterRestorativeElixirs = new FeatureHelpers
-                    .FeatureDefinitionPowerBuilder("PowerAlchemistGreaterRestorativeElixirs",
-                        TinkererClass.GuidNamespace,
-                        1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                        ActivationTime.Action, 1, RechargeRate.LongRest,
-                        false, false, AttributeDefinitions.Intelligence,
-                        GreaterRestoration.EffectDescription)
+            var greaterRestorativeElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder(
+                    "PowerAlchemistGreaterRestorativeElixirs",
+                    TinkererClass.GuidNamespace,
+                    1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                    ActivationTime.Action, 1, RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    GreaterRestoration.EffectDescription)
                 .SetGuiPresentation("PowerAlchemistGreaterRestorativeElixirs", Category.Feat,
                     GreaterRestoration.GuiPresentation.SpriteReference)
                 .AddToDB();
@@ -276,12 +275,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             healSpellEffect.SetDurationData(DurationType.Instantaneous, 1, TurnOccurenceType.EndOfTurn);
             healSpellEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
-            var greatHealElixirs = new FeatureHelpers
-                    .FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs", TinkererClass.GuidNamespace,
-                        1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                        ActivationTime.Action, 1, RechargeRate.LongRest,
-                        false, false, AttributeDefinitions.Intelligence,
-                        healSpellEffect.Build())
+            var greatHealElixirs = new FeatureHelpers.FeatureDefinitionPowerBuilder("PowerAlchemistHealElixirs",
+                    TinkererClass.GuidNamespace,
+                    1, UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                    ActivationTime.Action, 1, RechargeRate.LongRest,
+                    false, false, AttributeDefinitions.Intelligence,
+                    healSpellEffect.Build())
                 .SetGuiPresentation("PowerAlchemistHealElixirs", Category.Feat)
                 .AddToDB();
 

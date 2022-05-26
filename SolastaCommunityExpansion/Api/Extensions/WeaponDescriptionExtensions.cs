@@ -1,27 +1,27 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(WeaponDescription))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static class WeaponDescriptionExtensions
     {
-        public static T AddWeaponTags<T>(this T entity, params System.String[] value)
+        public static T AddWeaponTags<T>(this T entity, params String[] value)
             where T : WeaponDescription
         {
             AddWeaponTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddWeaponTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddWeaponTags<T>(this T entity, IEnumerable<String> value)
             where T : WeaponDescription
         {
             entity.WeaponTags.AddRange(value);
@@ -40,14 +40,14 @@ namespace SolastaModApi.Extensions
             return new WeaponDescription(entity);
         }
 
-        public static T SetAmmunitionType<T>(this T entity, System.String value)
+        public static T SetAmmunitionType<T>(this T entity, String value)
             where T : WeaponDescription
         {
             entity.SetField("ammunitionType", value);
             return entity;
         }
 
-        public static T SetCloseRange<T>(this T entity, System.Int32 value)
+        public static T SetCloseRange<T>(this T entity, Int32 value)
             where T : WeaponDescription
         {
             entity.SetField("closeRange", value);
@@ -61,35 +61,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaxRange<T>(this T entity, System.Int32 value)
+        public static T SetMaxRange<T>(this T entity, Int32 value)
             where T : WeaponDescription
         {
             entity.SetField("maxRange", value);
             return entity;
         }
 
-        public static T SetReachRange<T>(this T entity, System.Int32 value)
+        public static T SetReachRange<T>(this T entity, Int32 value)
             where T : WeaponDescription
         {
             entity.SetField("reachRange", value);
             return entity;
         }
 
-        public static T SetWeaponTags<T>(this T entity, params System.String[] value)
+        public static T SetWeaponTags<T>(this T entity, params String[] value)
             where T : WeaponDescription
         {
             SetWeaponTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetWeaponTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetWeaponTags<T>(this T entity, IEnumerable<String> value)
             where T : WeaponDescription
         {
             entity.WeaponTags.SetRange(value);
             return entity;
         }
 
-        public static T SetWeaponType<T>(this T entity, System.String value)
+        public static T SetWeaponType<T>(this T entity, String value)
             where T : WeaponDescription
         {
             entity.SetField("weaponType", value);

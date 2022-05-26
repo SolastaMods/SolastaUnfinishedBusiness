@@ -10,36 +10,215 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell,
         FeatureDefinitionCastSpellBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-            InitializeFields();
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-            InitializeFields();
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public enum CasterProgression
         {
             FULL_CASTER,
             HALF_CASTER,
             THIRD_CASTER
         }
+
+        private readonly int[] BonusSpellsKnownByCasterLevel =
+        {
+            0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13
+        };
+
+        private readonly int[] BonusSpellsKnownThirdCaster =
+        {
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4
+        };
+
+        private readonly List<int>[] SlotsByCasterLevel =
+        {
+            new()
+            {
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                2,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                1,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                2,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                1,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                3,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                3,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                3,
+                0
+            }
+        };
 
         private void InitializeFields()
         {
@@ -264,16 +443,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             }
         }
 
-        private readonly int[] BonusSpellsKnownByCasterLevel =
-        {
-            0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13
-        };
-
-        private readonly int[] BonusSpellsKnownThirdCaster =
-        {
-            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4
-        };
-
         public FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
         {
             return SetKnownSpells(spellsCount.AsEnumerable());
@@ -364,199 +533,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        private readonly List<int>[] SlotsByCasterLevel =
-        {
-            new()
-            {
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                2,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                3,
-                0,
-                0,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                2,
-                0,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                0,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                2,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                0,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                1,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                2,
-                0,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                1,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                2,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                3,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                3,
-                0
-            },
-            new()
-            {
-                4,
-                3,
-                3,
-                3,
-                3,
-                0
-            }
-        };
-
         public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
             params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
         {
@@ -621,5 +597,29 @@ namespace SolastaCommunityExpansion.Builders.Features
 
             return this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

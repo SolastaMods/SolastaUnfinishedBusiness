@@ -27,6 +27,7 @@ namespace SolastaCommunityExpansion.Models
     // ResourceProvider provides the resource given the resource location
     internal class SpriteResourceProvider : ResourceProviderBase
     {
+        protected SpriteResourceProvider() { }
         public static SpriteResourceProvider Instance { get; } = new();
 
         public override void Provide(ProvideHandle provideHandle)
@@ -53,8 +54,6 @@ namespace SolastaCommunityExpansion.Models
         {
             return typeof(Sprite);
         }
-
-        protected SpriteResourceProvider() { }
     }
 
     // ResourceLocator returns location of resource
@@ -62,6 +61,8 @@ namespace SolastaCommunityExpansion.Models
     {
         private static readonly Dictionary<string, SpriteResourceLocation> locationsCache = new();
         private static readonly List<IResourceLocation> emptyList = new();
+
+        protected SpriteResourceLocator() { }
 
         public static SpriteResourceLocator Instance { get; } = new();
 
@@ -91,14 +92,18 @@ namespace SolastaCommunityExpansion.Models
             locations = emptyList;
             return false;
         }
-
-        protected SpriteResourceLocator() { }
     }
 
     // ResourceLocation of sprite used by ResourceProvider.  We're using it to directly hold the sprite.
     internal class SpriteResourceLocation : ResourceLocationBase
     {
         private Sprite sprite;
+
+        public SpriteResourceLocation(Sprite sprite, string name, string id)
+            : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
+        {
+            Sprite = sprite;
+        }
 
         public Sprite Sprite
         {
@@ -109,12 +114,6 @@ namespace SolastaCommunityExpansion.Models
                 return sprite;
             }
             private set => sprite = value;
-        }
-
-        public SpriteResourceLocation(Sprite sprite, string name, string id)
-            : base(name, id, typeof(SpriteResourceProvider).FullName, typeof(Sprite))
-        {
-            Sprite = sprite;
         }
     }
 }

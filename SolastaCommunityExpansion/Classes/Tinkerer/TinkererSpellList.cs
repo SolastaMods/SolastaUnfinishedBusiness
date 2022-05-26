@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer

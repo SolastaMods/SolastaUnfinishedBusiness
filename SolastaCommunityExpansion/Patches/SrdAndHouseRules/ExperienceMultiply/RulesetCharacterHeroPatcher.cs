@@ -27,9 +27,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ExperienceMultiply
     }
 
     /// <summary>
-    /// This is *only* called from FunctorGrantExperience as of 1.1.12.
-    /// By default don't modify the return value from this method.  This means requests to level up will be scaled by MultiplyTheExperienceGainedBy.
-    /// At certain quest specific points the level up must not be scaled.
+    ///     This is *only* called from FunctorGrantExperience as of 1.1.12.
+    ///     By default don't modify the return value from this method.  This means requests to level up will be scaled by
+    ///     MultiplyTheExperienceGainedBy.
+    ///     At certain quest specific points the level up must not be scaled.
     /// </summary>
     [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeNeededExperienceToReachLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

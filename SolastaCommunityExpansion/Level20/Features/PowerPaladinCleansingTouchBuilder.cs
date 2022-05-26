@@ -10,6 +10,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PowerPaladinCleansingTouchName = "ZSPowerPaladinCleansingTouch";
         private const string PowerPaladinCleansingTouchGuid = "71861ca1-61ed-4344-bb26-ef21232adddd";
 
+        internal static readonly FeatureDefinitionPower PowerPaladinCleansingTouch =
+            CreateAndAddToDB(PowerPaladinCleansingTouchName, PowerPaladinCleansingTouchGuid);
+
         private PowerPaladinCleansingTouchBuilder(string name, string guid) : base(name, guid)
         {
             Definition.SetFixedUsesPerRecharge(0);
@@ -42,8 +45,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new PowerPaladinCleansingTouchBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionPower PowerPaladinCleansingTouch =
-            CreateAndAddToDB(PowerPaladinCleansingTouchName, PowerPaladinCleansingTouchGuid);
     }
 }

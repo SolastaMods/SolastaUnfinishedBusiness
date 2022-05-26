@@ -9,6 +9,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string AttributeModifierFighterIndomitableAddName = "ZSAttributeModifierFighterIndomitableAdd";
         private const string AttributeModifierFighterIndomitableAddGuid = "8a2f09cafd7b47d886cb0ce098c4f477";
 
+        internal static readonly FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd =
+            CreateAndAddToDB(AttributeModifierFighterIndomitableAddName, AttributeModifierFighterIndomitableAddGuid);
+
         private AttributeModifierFighterIndomitableBuilder(string name, string guid) : base(
             AttributeModifierFighterIndomitable, name, guid)
         {
@@ -21,8 +24,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new AttributeModifierFighterIndomitableBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd =
-            CreateAndAddToDB(AttributeModifierFighterIndomitableAddName, AttributeModifierFighterIndomitableAddGuid);
     }
 }

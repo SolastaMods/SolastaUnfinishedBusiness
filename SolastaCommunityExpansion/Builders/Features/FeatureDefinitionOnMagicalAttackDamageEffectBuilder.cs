@@ -7,6 +7,13 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionOnMagicalAttackDamageEffectBuilder : FeatureDefinitionBuilder<
         FeatureDefinitionOnMagicalAttackDamageEffect, FeatureDefinitionOnMagicalAttackDamageEffectBuilder>
     {
+        public FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnMagicalAttackDamageDelegates(
+            OnMagicalAttackDamageDelegate before, OnMagicalAttackDamageDelegate after)
+        {
+            Definition.SetOnMagicalAttackDamageDelegates(before, after);
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionOnMagicalAttackDamageEffectBuilder(string name, Guid namespaceGuid) : base(name,
@@ -32,12 +39,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionOnMagicalAttackDamageEffectBuilder SetOnMagicalAttackDamageDelegates(
-            OnMagicalAttackDamageDelegate before, OnMagicalAttackDamageDelegate after)
-        {
-            Definition.SetOnMagicalAttackDamageDelegates(before, after);
-            return this;
-        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
@@ -31,12 +32,12 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             var userRoomPos = Main.IsDebugBuild ? 4 : 2;
             var setLocalPositionMethod = typeof(Transform).GetMethod("set_localPosition");
             var getTemplateVegetationMaskAreaMethod =
-                typeof(Models.DmProRendererContext).GetMethod("GetTemplateVegetationMaskArea");
-            var setupLocationTerrainMethod = typeof(Models.DmProRendererContext).GetMethod("SetupLocationTerrain");
-            var setupFlatRoomsMethod = typeof(Models.DmProRendererContext).GetMethod("SetupFlatRooms");
-            var addVegetationMaskAreaMethod = typeof(Models.DmProRendererContext).GetMethod("AddVegetationMaskArea");
+                typeof(DmProRendererContext).GetMethod("GetTemplateVegetationMaskArea");
+            var setupLocationTerrainMethod = typeof(DmProRendererContext).GetMethod("SetupLocationTerrain");
+            var setupFlatRoomsMethod = typeof(DmProRendererContext).GetMethod("SetupFlatRooms");
+            var addVegetationMaskAreaMethod = typeof(DmProRendererContext).GetMethod("AddVegetationMaskArea");
             var fixFlatRoomReflectionProbeMethod =
-                typeof(Models.DmProRendererContext).GetMethod("FixFlatRoomReflectionProbe");
+                typeof(DmProRendererContext).GetMethod("FixFlatRoomReflectionProbe");
 
             yield return new CodeInstruction(OpCodes.Ldarg_0);
             yield return new CodeInstruction(OpCodes.Call, getTemplateVegetationMaskAreaMethod);

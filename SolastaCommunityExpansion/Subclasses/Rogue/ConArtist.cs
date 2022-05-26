@@ -11,28 +11,9 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
     internal class ConArtist : AbstractSubclass
     {
         private static readonly Guid SubclassNamespace = new("fdf8dc11-5006-489e-951c-92a8d72ca4c0");
-        private readonly CharacterSubclassDefinition Subclass;
 
         private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
-            FeatureDefinitionMagicAffinityBuilder
-                .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
-                .SetGuiPresentation(GetSpellDCPresentation().Build())
-                .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
-                    Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
-                    RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
-                .AddToDB();
-
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
-        }
-
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
+        private readonly CharacterSubclassDefinition Subclass;
 
         internal ConArtist()
         {
@@ -114,6 +95,25 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .AddFeatureAtLevel(feint, 9)
                 .AddFeatureAtLevel(DcIncreaseAffinity, 13)
                 .AddFeatureAtLevel(proficiency, 17).AddToDB();
+        }
+
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity => _dcIncreaseAffinity ??=
+            FeatureDefinitionMagicAffinityBuilder
+                .Create("MagicAffinityRoguishConArtistDC", SubclassNamespace)
+                .SetGuiPresentation(GetSpellDCPresentation().Build())
+                .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
+                    Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc,
+                    RuleDefinitions.SpellParamsModifierType.FlatValue, false, false, false)
+                .AddToDB();
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
         }
 
         private static GuiPresentationBuilder GetSpellDCPresentation()

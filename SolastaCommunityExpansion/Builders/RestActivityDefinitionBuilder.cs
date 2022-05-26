@@ -6,6 +6,19 @@ namespace SolastaCommunityExpansion.Builders
     public class
         RestActivityDefinitionBuilder : DefinitionBuilder<RestActivityDefinition, RestActivityDefinitionBuilder>
     {
+        internal RestActivityDefinitionBuilder SetRestData(
+            RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
+            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
+        {
+            Definition.SetRestStage(restStage);
+            Definition.SetRestType(restType);
+            Definition.SetCondition(condition);
+            Definition.SetFunctor(functor);
+            Definition.SetStringParameter(stringParameter);
+
+            return This();
+        }
+
         #region Constructors
 
         protected RestActivityDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -27,18 +40,5 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
-
-        internal RestActivityDefinitionBuilder SetRestData(
-            RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
-            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
-        {
-            Definition.SetRestStage(restStage);
-            Definition.SetRestType(restType);
-            Definition.SetCondition(condition);
-            Definition.SetFunctor(functor);
-            Definition.SetStringParameter(stringParameter);
-
-            return This();
-        }
     }
 }

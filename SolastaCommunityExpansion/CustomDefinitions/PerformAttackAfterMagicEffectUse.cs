@@ -7,12 +7,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IPerformAttackAfterMagicEffectUse
     {
-        delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
+        delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
 
         delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
             GameLocationCharacter target, out string failure);
 
-        delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
+        delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
         CanUseHandler CanBeUsedToAttack { get; set; }
         GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
@@ -21,13 +21,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
     {
+        public static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
         public RuleDefinitions.RollOutcome minOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
         public RuleDefinitions.RollOutcome minSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-
-        public CanUseHandler CanBeUsedToAttack { get; set; }
-
-        public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
-        public CanAttackHandler CanAttack { get; set; }
 
         public PerformAttackAfterMagicEffectUse()
         {
@@ -35,6 +31,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             CanBeUsedToAttack = DefaultCanUseHandler;
             PerformAttackAfterUse = DefautlAttackHandler;
         }
+
+        public CanUseHandler CanBeUsedToAttack { get; set; }
+
+        public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
+        public CanAttackHandler CanAttack { get; set; }
 
         private bool CanMeleeAttack(GameLocationCharacter caster, GameLocationCharacter target)
         {
@@ -128,8 +129,5 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
             return canAttack;
         }
-
-
-        public static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
     }
 }

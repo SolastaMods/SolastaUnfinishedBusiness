@@ -11,32 +11,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity,
             FeatureDefinitionSavingThrowAffinityBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
-            string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
-            string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-
-        #endregion
-
         public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
             RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, params string[] abilityScores)
         {
@@ -72,5 +46,31 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.AffinityGroups.Sort(Sorting.Compare);
             return this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
+            string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
+            string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
+        {
+        }
+
+        #endregion
     }
 }

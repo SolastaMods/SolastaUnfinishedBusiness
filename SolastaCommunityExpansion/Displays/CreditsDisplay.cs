@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using ModKit;
+using UnityExplorer;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
 using static SolastaCommunityExpansion.Displays.Shared;
 
@@ -9,12 +10,6 @@ namespace SolastaCommunityExpansion.Displays
     internal static class CreditsDisplay
     {
         private static bool displayPatches;
-
-        private static bool IsUnityExplorerInstalled { get; } =
-            File.Exists(Path.Combine(Main.MOD_FOLDER, "UnityExplorer.STANDALONE.Mono.dll")) &&
-            File.Exists(Path.Combine(Main.MOD_FOLDER, "UniverseLib.Mono.dll"));
-
-        private static bool IsUnityExplorerEnabled { get; set; }
 
         internal static readonly Dictionary<string, string> CreditsTable = new()
         {
@@ -64,6 +59,12 @@ namespace SolastaCommunityExpansion.Displays
             }
         };
 
+        private static bool IsUnityExplorerInstalled { get; } =
+            File.Exists(Path.Combine(Main.MOD_FOLDER, "UnityExplorer.STANDALONE.Mono.dll")) &&
+            File.Exists(Path.Combine(Main.MOD_FOLDER, "UniverseLib.Mono.dll"));
+
+        private static bool IsUnityExplorerEnabled { get; set; }
+
         internal static void DisplayCredits()
         {
             if (IsUnityExplorerInstalled)
@@ -77,7 +78,7 @@ namespace SolastaCommunityExpansion.Displays
 
                         try
                         {
-                            UnityExplorer.ExplorerStandalone.CreateInstance();
+                            ExplorerStandalone.CreateInstance();
                         }
                         catch
                         {

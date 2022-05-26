@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -16,20 +17,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class EldritchInvocationsBuilder
     {
+        private const string EldritchBlastName = "EldritchBlast";
+
         public static AssetReferenceSprite EldritchBLastIcon =
-            CustomIcons.CreateAssetReferenceSprite("EldritchBlast", Properties.Resources.EldritchBlast, 128, 128);
+            CustomIcons.CreateAssetReferenceSprite("EldritchBlast", Resources.EldritchBlast, 128, 128);
 
         public static AssetReferenceSprite EldritchBLastIconGrasp =
-            CustomIcons.CreateAssetReferenceSprite("EldritchBlastGrasp", Properties.Resources.EldritchBlastGrasp, 128,
+            CustomIcons.CreateAssetReferenceSprite("EldritchBlastGrasp", Resources.EldritchBlastGrasp, 128,
                 128);
 
         public static AssetReferenceSprite EldritchBLastIconRepell =
-            CustomIcons.CreateAssetReferenceSprite("EldritchBlastRepell", Properties.Resources.EldritchBlastRepell, 128,
+            CustomIcons.CreateAssetReferenceSprite("EldritchBlastRepell", Resources.EldritchBlastRepell, 128,
                 128);
-
-        internal static SpellDefinition EldritchBlast { get; set; }
-
-        internal static Dictionary<string, FeatureDefinition> EldritchInvocations { get; private set; } = new();
 
         private static readonly IFeatureDefinitionWithPrerequisites.Validate RequireEldritchBlast = () =>
             Global.ActiveLevelUpHeroHasCantrip(EldritchBlast)
@@ -52,14 +51,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 ? null
                 : "Requirement/&WarlockRequiresPactOfChain";
 
+        internal static SpellDefinition EldritchBlast { get; set; }
+
+        internal static Dictionary<string, FeatureDefinition> EldritchInvocations { get; } = new();
+
         internal static void Build()
         {
             BuildEldritchBlastAndInvocations();
             BuildEldritchInvocationsSpellsToCantrips();
             BuildEldritchInvocationsAttributeModifiers();
         }
-
-        private const string EldritchBlastName = "EldritchBlast";
 
         private static void BuildEldritchBlastAndInvocations()
         {

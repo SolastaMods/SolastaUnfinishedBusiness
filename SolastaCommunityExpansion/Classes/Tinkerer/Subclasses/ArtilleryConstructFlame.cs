@@ -16,6 +16,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string FlameArtilleryName = "FlameArtillery";
         private const string FlameArtilleryGuid = "3a93be16-4398-47cb-9c1c-4ec56903bd2f";
 
+        public static readonly FeatureDefinitionPower FlameArtillery =
+            CreateAndAddToDB(FlameArtilleryName, FlameArtilleryGuid);
+
         private FlameArtilleryBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire, name, guid)
         {
@@ -69,9 +72,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new FlameArtilleryBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower FlameArtillery =
-            CreateAndAddToDB(FlameArtilleryName, FlameArtilleryGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -82,6 +82,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string FlameArtillery_2Name = "FlameArtillery_2";
         private const string FlameArtillery_2Guid = "2ba003a5-718a-4eea-a0f8-33fa79884cb1";
+
+        public static readonly FeatureDefinitionPower FlameArtillery2 =
+            CreateAndAddToDB(FlameArtillery_2Name, FlameArtillery_2Guid);
 
         private FlameArtillery2Builder(string name, string guid) : base(FlameArtilleryBuilder.FlameArtillery, name,
             guid)
@@ -99,9 +102,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new FlameArtillery2Builder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower FlameArtillery2 =
-            CreateAndAddToDB(FlameArtillery_2Name, FlameArtillery_2Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -112,6 +112,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string FlameArtilleryConstructName = "FlameArtilleryConstruct";
         private const string FlameArtilleryConstructGuid = "26631741-1de8-4f4c-871e-0d71a2ed8c4b";
+
+        public static readonly MonsterDefinition FlameArtilleryConstruct =
+            CreateAndAddToDB(FlameArtilleryConstructName, FlameArtilleryConstructGuid);
 
         private FlameArtilleryConstructBuilder(string name, string guid) : base(
             DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
@@ -183,15 +186,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new FlameArtilleryConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition FlameArtilleryConstruct =
-            CreateAndAddToDB(FlameArtilleryConstructName, FlameArtilleryConstructGuid);
     }
 
     internal sealed class FlameArtilleryConstruct9Builder : MonsterDefinitionBuilder
     {
         private const string FlameArtilleryConstruct_9Name = "FlameArtilleryConstruct_9";
         private const string FlameArtilleryConstruct_9Guid = "3445274f-9668-4606-8a91-4c6a420a7c30";
+
+        public static readonly MonsterDefinition FlameArtilleryConstruct9 =
+            CreateAndAddToDB(FlameArtilleryConstruct_9Name, FlameArtilleryConstruct_9Guid);
 
         private FlameArtilleryConstruct9Builder(string name, string guid) : base(
             FlameArtilleryConstructBuilder.FlameArtilleryConstruct, name, guid)
@@ -206,9 +209,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new FlameArtilleryConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition FlameArtilleryConstruct9 =
-            CreateAndAddToDB(FlameArtilleryConstruct_9Name, FlameArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -219,6 +219,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string FlameArtilleryConstruct_15Name = "FlameArtilleryConstruct_15";
         private const string FlameArtilleryConstruct_15Guid = "8c4ff931-4a17-4de4-8571-6c94e8327e8e";
+
+        public static readonly MonsterDefinition FlameArtilleryConstruct15 =
+            CreateAndAddToDB(FlameArtilleryConstruct_15Name, FlameArtilleryConstruct_15Guid);
 
         private FlameArtilleryConstruct15Builder(string name, string guid) : base(
             FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9, name, guid)
@@ -232,9 +235,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new FlameArtilleryConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition FlameArtilleryConstruct15 =
-            CreateAndAddToDB(FlameArtilleryConstruct_15Name, FlameArtilleryConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -245,6 +245,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonFlameArtilleryConstructName = "SummonFlameArtilleryConstruct";
         private const string SummonFlameArtilleryConstructGuid = "785ca8dc-27a3-4805-88fd-6d013631bbbb";
+
+        public static readonly SpellDefinition SummonFlameArtilleryConstruct =
+            CreateAndAddToDB(SummonFlameArtilleryConstructName, SummonFlameArtilleryConstructGuid);
 
         private SummonFlameArtillerySpellConstructBuilder(string name, string guid) : base(
             DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
@@ -267,9 +270,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonFlameArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonFlameArtilleryConstruct =
-            CreateAndAddToDB(SummonFlameArtilleryConstructName, SummonFlameArtilleryConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -280,6 +280,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonFlameArtilleryConstruct_9Name = "SummonFlameArtilleryConstruct_9";
         private const string SummonFlameArtilleryConstruct_9Guid = "4aaaf381-c54c-4285-9045-6a4d69aa37c9";
+
+        public static readonly SpellDefinition SummonFlameArtilleryConstruct9 =
+            CreateAndAddToDB(SummonFlameArtilleryConstruct_9Name, SummonFlameArtilleryConstruct_9Guid);
 
         private SummonFlameArtillerySpellConstruct9Builder(string name, string guid) : base(
             SummonFlameArtillerySpellConstructBuilder.SummonFlameArtilleryConstruct, name, guid)
@@ -294,9 +297,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonFlameArtillerySpellConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonFlameArtilleryConstruct9 =
-            CreateAndAddToDB(SummonFlameArtilleryConstruct_9Name, SummonFlameArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -307,6 +307,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonFlameArtilleryConstruct_15Name = "SummonFlameArtilleryConstruct_15";
         private const string SummonFlameArtilleryConstruct_15Guid = "68aba04a-07c5-4b83-bda7-db08cec2dec8";
+
+        public static readonly SpellDefinition SummonFlameArtilleryConstruct15 =
+            CreateAndAddToDB(SummonFlameArtilleryConstruct_15Name, SummonFlameArtilleryConstruct_15Guid);
 
         private SummonFlameArtillerySpellConstruct15Builder(string name, string guid) : base(
             SummonFlameArtillerySpellConstructBuilder.SummonFlameArtilleryConstruct, name, guid)
@@ -322,8 +325,5 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonFlameArtillerySpellConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonFlameArtilleryConstruct15 =
-            CreateAndAddToDB(SummonFlameArtilleryConstruct_15Name, SummonFlameArtilleryConstruct_15Guid);
     }
 }

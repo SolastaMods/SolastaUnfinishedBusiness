@@ -7,6 +7,26 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<FeatureDefinitionActionAffinity,
         FeatureDefinitionActionAffinityBuilder>
     {
+        public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
+        {
+            Definition.SetAuthorizedActions(actions);
+            Definition.AuthorizedActions.Sort();
+            return This();
+        }
+
+        public FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
+            params ActionDefinitions.ActionExecutionModifier[] modifiers)
+        {
+            Definition.ActionExecutionModifiers.SetRange(modifiers);
+            return This();
+        }
+
+        public FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
+        {
+            Definition.AllowedActionTypes = new[] {true, true, true, true, true, true};
+            return This();
+        }
+
         #region Constructors
 
         protected FeatureDefinitionActionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -29,25 +49,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
-        {
-            Definition.SetAuthorizedActions(actions);
-            Definition.AuthorizedActions.Sort();
-            return This();
-        }
-
-        public FeatureDefinitionActionAffinityBuilder SetActionExecutionModifiers(
-            params ActionDefinitions.ActionExecutionModifier[] modifiers)
-        {
-            Definition.ActionExecutionModifiers.SetRange(modifiers);
-            return This();
-        }
-
-        public FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActonTypes()
-        {
-            Definition.AllowedActionTypes = new[] {true, true, true, true, true, true};
-            return This();
-        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
@@ -69,7 +70,7 @@ namespace SolastaCommunityExpansion.Models
 
             guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap")
                 .Clear();
-            methodRuntimeLoaded.Invoke(guiWrapperService, System.Array.Empty<object>());
+            methodRuntimeLoaded.Invoke(guiWrapperService, Array.Empty<object>());
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Object = UnityEngine.Object;
 
 namespace SolastaModApi.Infrastructure
 {
@@ -107,7 +108,7 @@ namespace SolastaModApi.Infrastructure
 
         public static T DeepCopy<T>(this T original)
         {
-            if (original is UnityEngine.Object)
+            if (original is Object)
             {
                 throw new ArgumentException(
                     "The object being copied is a UnityEngine.Object. Use Object.Instantiate to copy Unity objects.",

@@ -9,6 +9,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PrimalChampionName = "ZSPrimalChampion";
         private const string PrimalChampionGuid = "118a5ea1-8a19-4bee-9db1-7a2464c8e7b5";
 
+        internal static readonly FeatureDefinitionPrimalChampion FeatureDefinitionPrimalChampion =
+            CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);
+
         private FeatureDefinitionPrimalChampionBuilder(string name, string guid) : base(name, guid)
         {
             Definition.GuiPresentation.Description = "Feature/&PrimalChampionDescription";
@@ -19,9 +22,6 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new FeatureDefinitionPrimalChampionBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionPrimalChampion FeatureDefinitionPrimalChampion =
-            CreateAndAddToDB(PrimalChampionName, PrimalChampionGuid);
     }
 
     internal sealed class FeatureDefinitionPrimalChampion : FeatureDefinition, IFeatureDefinitionCustomCode

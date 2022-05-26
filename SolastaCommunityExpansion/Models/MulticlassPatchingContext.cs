@@ -14,6 +14,55 @@ namespace SolastaCommunityExpansion.Models
     {
         private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
+        // these features will be replaced to comply to SRD multiclass rules
+        private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
+        {
+            {ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass},
+            {ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass},
+            {ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass},
+            {
+                PointPoolRangerSkillPoints,
+                SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass
+            },
+            {PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass}
+        };
+
+        // these features will be removed to comply with SRD multiclass rules
+        private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
+        {
+            {
+                Barbarian, new List<FeatureDefinition> {PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow}
+            },
+            {
+                Cleric,
+                new List<FeatureDefinition>
+                {
+                    ProficiencyClericWeapon, PointPoolClericSkillPoints, ProficiencyClericSavingThrow
+                }
+            },
+            {Druid, new List<FeatureDefinition> {PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow}},
+            {Fighter, new List<FeatureDefinition> {PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow}},
+            {Paladin, new List<FeatureDefinition> {PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow}},
+            {Ranger, new List<FeatureDefinition> {ProficiencyRangerSavingThrow}},
+            {Rogue, new List<FeatureDefinition> {ProficiencyRogueWeapon, ProficiencyRogueSavingThrow}},
+            {
+                Sorcerer,
+                new List<FeatureDefinition>
+                {
+                    ProficiencySorcererWeapon, PointPoolSorcererSkillPoints, ProficiencySorcererSavingThrow
+                }
+            },
+            {
+                Wizard,
+                new List<FeatureDefinition>
+                {
+                    ProficiencyWizardWeapon, PointPoolWizardSkillPoints, ProficiencyWizardSavingThrow
+                }
+            }
+        };
+
+        private static KeyValuePair<MethodInfo, HeroContext> FeatureUnlocksContext { get; set; }
+
         internal static void Load()
         {
             PatchClassLevel();
@@ -85,53 +134,6 @@ namespace SolastaCommunityExpansion.Models
                     dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
                 });
         }
-
-        // these features will be replaced to comply to SRD multiclass rules
-        private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
-        {
-            {ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass},
-            {ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass},
-            {ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass},
-            {
-                PointPoolRangerSkillPoints,
-                SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass
-            },
-            {PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass}
-        };
-
-        // these features will be removed to comply with SRD multiclass rules
-        private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
-        {
-            {
-                Barbarian, new List<FeatureDefinition> {PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow}
-            },
-            {
-                Cleric,
-                new List<FeatureDefinition>
-                {
-                    ProficiencyClericWeapon, PointPoolClericSkillPoints, ProficiencyClericSavingThrow
-                }
-            },
-            {Druid, new List<FeatureDefinition> {PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow}},
-            {Fighter, new List<FeatureDefinition> {PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow}},
-            {Paladin, new List<FeatureDefinition> {PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow}},
-            {Ranger, new List<FeatureDefinition> {ProficiencyRangerSavingThrow}},
-            {Rogue, new List<FeatureDefinition> {ProficiencyRogueWeapon, ProficiencyRogueSavingThrow}},
-            {
-                Sorcerer,
-                new List<FeatureDefinition>
-                {
-                    ProficiencySorcererWeapon, PointPoolSorcererSkillPoints, ProficiencySorcererSavingThrow
-                }
-            },
-            {
-                Wizard,
-                new List<FeatureDefinition>
-                {
-                    ProficiencyWizardWeapon, PointPoolWizardSkillPoints, ProficiencyWizardSavingThrow
-                }
-            }
-        };
 
         //
         // ClassLevel patching support
@@ -221,20 +223,6 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        //
-        // FeatureUnlocks patching support
-        //
-
-        private enum HeroContext
-        {
-            BuildingManager,
-            CharacterHero,
-            StagePanel,
-            InformationPanel
-        }
-
-        private static KeyValuePair<MethodInfo, HeroContext> FeatureUnlocksContext { get; set; }
-
         internal static void PatchFeatureUnlocks()
         {
             var patches = new Dictionary<MethodInfo, HeroContext>
@@ -267,10 +255,7 @@ namespace SolastaCommunityExpansion.Models
                     typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding),
                     HeroContext.StagePanel
                 },
-                {
-                    typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding),
-                    HeroContext.StagePanel
-                },
+                {typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel},
                 {typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
                 {
                     typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures",
@@ -470,6 +455,18 @@ namespace SolastaCommunityExpansion.Models
             }
 
             return filteredFeatureUnlockByLevels;
+        }
+
+        //
+        // FeatureUnlocks patching support
+        //
+
+        private enum HeroContext
+        {
+            BuildingManager,
+            CharacterHero,
+            StagePanel,
+            InformationPanel
         }
     }
 }

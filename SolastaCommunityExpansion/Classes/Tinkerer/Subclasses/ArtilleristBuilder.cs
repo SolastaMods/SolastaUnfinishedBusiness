@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
@@ -22,7 +23,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .SetGuiPresentation("ArtificerArtillerist", Category.Subclass,
                     TraditionShockArcanist.GuiPresentation.SpriteReference);
 
-            var artilleristPreparedSpells = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+            var artilleristPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArtificerArtilleristAutoPrepSpells", TinkererClass.GuidNamespace)
                 .SetGuiPresentation("ArtilleristSubclassSpells", Category.Feat)
                 .SetCastingClass(artificer)
@@ -50,7 +51,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             fireEffect.SetParticleEffectParameters(BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            var flameAttack = new FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack",
+            var flameAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlameCannonAttack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence,
@@ -71,7 +72,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             forceEffect.SetParticleEffectParameters(MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            var forceAttack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack",
+            var forceAttack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannonAttack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence,
@@ -90,7 +91,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             protectorEffect.SetParticleEffectParameters(FalseLife.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            var protectorActivation = new FeatureDefinitionPowerBuilder("ArtilleristProtectorCannonAttack",
+            var protectorActivation = new FeatureHelpers.FeatureDefinitionPowerBuilder(
+                    "ArtilleristProtectorCannonAttack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence,
@@ -103,8 +105,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             artillerist.AddFeatureAtLevel(
                 ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryConstructlevel03FeatureSet, 3);
 
-            var artilleryConstructLevel03AutopreparedSpells = Builders.Features
-                .FeatureDefinitionAutoPreparedSpellsBuilder
+            var artilleryConstructLevel03AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArtilleryConstructLevel03AutopreparedSpells", TinkererClass.GuidNamespace)
                 .SetGuiPresentation(Category.Feat)
                 .SetCastingClass(artificer)
@@ -118,7 +119,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             var arcaneFirearmGui = new GuiPresentationBuilder(
                 "Feat/&ArtificerArtilleristArcaneFirearmTitle",
                 "Feat/&ArtificerArtilleristArcaneFirearmDescription");
-            var arcaneFirearm = new FeatureDefinitionAdditionalDamageBuilder("ArtificerArtilleristArcaneFirearm",
+            var arcaneFirearm = new FeatureHelpers.FeatureDefinitionAdditionalDamageBuilder(
+                "ArtificerArtilleristArcaneFirearm",
                 TinkererClass.GuidNamespace, "ArcaneFirearm",
                 FeatureLimitedUsage.OncePerTurn, AdditionalDamageValueDetermination.Die,
                 AdditionalDamageTriggerCondition.EvocationSpellDamage, AdditionalDamageRequiredProperty.None,
@@ -157,7 +159,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             // TODO- add an option to enable the power/spell version of the Blaster (there have been some requests for this) instead of the summons
 #pragma warning disable IDE0059, S1481 // Unused local variables should be removed
-            var artilleristDetonationSpell = Builders.Features.FeatureDefinitionAutoPreparedSpellsBuilder
+            var artilleristDetonationSpell = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArtificerArtillerstDetonationSpellPrepared", TinkererClass.GuidNamespace)
                 .SetGuiPresentation(Category.Feat)
                 .SetCastingClass(artificer)
@@ -179,7 +181,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             fire9Effect.SetParticleEffectParameters(BurningHands.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            var flame9Attack = new FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack",
+            var flame9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame9CannonAttack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0, RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence,
@@ -201,7 +203,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             force9Effect.SetParticleEffectParameters(MagicMissile.EffectDescription.EffectParticleParameters);
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
-            var force9Attack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack",
+            var force9Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon9Attack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0, RechargeRate.AtWill, true, true, AttributeDefinitions.Intelligence,
@@ -214,8 +216,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             artillerist.AddFeatureAtLevel(
                 ArtilleryConstructlevel09FeatureSetBuilder.ArtilleryConstructlevel09FeatureSet, 9);
 
-            var artilleryConstructLevel09AutopreparedSpells = Builders.Features
-                .FeatureDefinitionAutoPreparedSpellsBuilder
+            var artilleryConstructLevel09AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArtilleryConstructLevel09AutopreparedSpells", TinkererClass.GuidNamespace)
                 .SetGuiPresentation(Category.Feat)
                 .SetCastingClass(artificer)
@@ -240,7 +241,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            var flame15Attack = new FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack",
+            var flame15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristFlame15CannonAttack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0,
@@ -265,7 +266,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            var force15Attack = new FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack",
+            var force15Attack = new FeatureHelpers.FeatureDefinitionPowerBuilder("ArtilleristForceCannon15Attack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction,
@@ -287,7 +288,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             // TODO- add an option to enable the power version of the Blaster (there have been some requests for this) instead of the summons
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            var protector15Activation = new FeatureDefinitionPowerBuilder("ArtilleristProtector15CannonAttack",
+            var protector15Activation = new FeatureHelpers.FeatureDefinitionPowerBuilder(
+                    "ArtilleristProtector15CannonAttack",
                     TinkererClass.GuidNamespace,
                     1, UsesDetermination.AbilityBonusPlusFixed, AttributeDefinitions.Intelligence,
                     ActivationTime.BonusAction, 0, RechargeRate.AtWill,
@@ -301,8 +303,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             artillerist.AddFeatureAtLevel(
                 ArtilleryConstructlevel15FeatureSetBuilder.ArtilleryConstructlevel15FeatureSet, 15);
 
-            var artilleryConstructLevel15AutopreparedSpells = Builders.Features
-                .FeatureDefinitionAutoPreparedSpellsBuilder
+            var artilleryConstructLevel15AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create("ArtilleryConstructLevel15AutopreparedSpells", TinkererClass.GuidNamespace)
                 .SetGuiPresentation(Category.Feat)
                 .SetCastingClass(artificer)

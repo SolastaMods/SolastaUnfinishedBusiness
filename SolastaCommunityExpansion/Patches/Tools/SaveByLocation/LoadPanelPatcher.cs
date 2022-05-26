@@ -10,6 +10,7 @@ using UnityEngine.UI;
 using static GuiDropdown;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 {
@@ -180,7 +181,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
                 {
                     var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                    Dropdown = UnityEngine.Object.Instantiate(dropdownPrefab);
+                    Dropdown = Object.Instantiate(dropdownPrefab);
                     Dropdown.name = "LoadMenuDropDown";
 
                     dd = Dropdown.GetComponent<GuiDropdown>();

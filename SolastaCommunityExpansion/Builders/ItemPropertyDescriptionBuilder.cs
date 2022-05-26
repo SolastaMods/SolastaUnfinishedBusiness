@@ -8,6 +8,16 @@ namespace SolastaCommunityExpansion.Builders
     {
         private readonly ItemPropertyDescription property;
 
+        public ItemPropertyDescriptionBuilder()
+        {
+            property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0]);
+            property.SetConditionDefinition(null);
+            property.SetFeatureDefinition(null);
+            property.SetType(ItemPropertyDescription.PropertyType.Feature);
+            property.SetAppliesOnItemOnly(true);
+            property.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden);
+        }
+
         public static ItemPropertyDescriptionBuilder From(FeatureDefinition feature, bool appliesOnItemOnly = true,
             EquipmentDefinitions.KnowledgeAffinity knowledgeAffinity =
                 EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden)
@@ -26,16 +36,6 @@ namespace SolastaCommunityExpansion.Builders
                 .SetConditionDefinition(conditione)
                 .SetAppliesOnItemOnly(appliesOnItemOnly)
                 .SetKnowledgeAffinity(knowledgeAffinity);
-        }
-
-        public ItemPropertyDescriptionBuilder()
-        {
-            property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0]);
-            property.SetConditionDefinition(null);
-            property.SetFeatureDefinition(null);
-            property.SetType(ItemPropertyDescription.PropertyType.Feature);
-            property.SetAppliesOnItemOnly(true);
-            property.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden);
         }
 
         public ItemPropertyDescriptionBuilder SetConditionDefinition(ConditionDefinition condition)

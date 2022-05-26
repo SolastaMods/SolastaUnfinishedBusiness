@@ -12,6 +12,8 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class PickPocketContext
     {
+        private static bool initialized;
+
         internal static void CreateFeats(ICollection<FeatDefinition> feats)
         {
             var pickpocket_check_affinity = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -49,8 +51,6 @@ namespace SolastaCommunityExpansion.Models
 
             feats.Add(pickPocketFeat);
         }
-
-        private static bool initialized;
 
         internal static void Load()
         {

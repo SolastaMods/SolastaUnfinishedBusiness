@@ -24,6 +24,18 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PowerClericDivineInterventionImprovementWizardGuid =
             "78b25422-6497-441e-a285-b4dd97211a32";
 
+        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
+            CreateAndAddToDB(PowerClericDivineInterventionCleric, PowerClericDivineInterventionImprovementClericName,
+                PowerClericDivineInterventionImprovementClericGuid);
+
+        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementPaladin =
+            CreateAndAddToDB(PowerClericDivineInterventionPaladin, PowerClericDivineInterventionImprovementPaladinName,
+                PowerClericDivineInterventionImprovementPaladinGuid);
+
+        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementWizard =
+            CreateAndAddToDB(PowerClericDivineInterventionWizard, PowerClericDivineInterventionImprovementWizardName,
+                PowerClericDivineInterventionImprovementWizardGuid);
+
         private PowerClericDivineInterventionImprovementBuilder(FeatureDefinitionPower basePower, string name,
             string guid) : base(basePower, name, guid)
         {
@@ -36,17 +48,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new PowerClericDivineInterventionImprovementBuilder(basePower, name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementCleric =
-            CreateAndAddToDB(PowerClericDivineInterventionCleric, PowerClericDivineInterventionImprovementClericName,
-                PowerClericDivineInterventionImprovementClericGuid);
-
-        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementPaladin =
-            CreateAndAddToDB(PowerClericDivineInterventionPaladin, PowerClericDivineInterventionImprovementPaladinName,
-                PowerClericDivineInterventionImprovementPaladinGuid);
-
-        internal static readonly FeatureDefinitionPower PowerClericDivineInterventionImprovementWizard =
-            CreateAndAddToDB(PowerClericDivineInterventionWizard, PowerClericDivineInterventionImprovementWizardName,
-                PowerClericDivineInterventionImprovementWizardGuid);
     }
 }

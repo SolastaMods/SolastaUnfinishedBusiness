@@ -10,93 +10,17 @@ namespace SolastaCommunityExpansion.Models
         internal const string VOTP_CAMPAIGN = "DLC1_ValleyOfThePast_Campaign";
         internal const string USER_CAMPAIGN = "UserCampaign";
 
-        internal static readonly string DefaultSaveGameDirectory =
-            Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
-
         internal const string LocationSaveFolder = @"CE\Location";
         internal const string CampaignSaveFolder = @"CE\Campaign";
+
+        internal static readonly string DefaultSaveGameDirectory =
+            Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
 
         internal static readonly string LocationSaveGameDirectory =
             Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
 
         internal static readonly string CampaignSaveGameDirectory =
             Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
-
-        internal static class ServiceRepositoryEx
-        {
-            public static T GetOrCreateService<T>() where T : class, IService, new()
-            {
-                var repo = ServiceRepository.GetService<T>();
-
-                if (repo == null)
-                {
-                    repo = new T();
-                    ServiceRepository.AddService(repo);
-                }
-
-                return repo;
-            }
-        }
-
-        internal interface ISelectedCampaignService : IService
-        {
-            string CampaignOrLocationName { get; }
-            void SetCampaignLocation(string campaign, string location);
-            LocationType LocationType { get; }
-            string SaveGameDirectory { get; }
-        }
-
-        internal enum LocationType
-        {
-            StandardCampaign,
-            UserLocation,
-            CustomCampaign
-        }
-
-        internal class SelectedCampaignService : ISelectedCampaignService
-        {
-            public string CampaignOrLocationName { get; private set; }
-            public LocationType LocationType { get; private set; }
-            public string SaveGameDirectory { get; private set; }
-
-            public void SetStandardCampaignLocation()
-            {
-                SetCampaignLocation(string.Empty, string.Empty);
-            }
-
-            public void SetCampaignLocation(string campaign, string location)
-            {
-                Main.Log($"SetCampaignLocation: Campaign='{campaign}', Location='{location}'");
-
-                var camp = campaign?.Trim() ?? string.Empty;
-                var loc = location?.Trim() ?? string.Empty;
-
-                if ((camp == USER_CAMPAIGN || string.IsNullOrWhiteSpace(camp)) && !string.IsNullOrWhiteSpace(loc))
-                {
-                    // User individual location
-                    SaveGameDirectory = Path.Combine(LocationSaveGameDirectory, loc);
-                    LocationType = LocationType.UserLocation;
-                    CampaignOrLocationName = location;
-                }
-                // this check not really needed, could just be !string.IsNullOrWhiteSpace(camp)
-                else if (camp != COTM_CAMPAIGN && camp != VOTP_CAMPAIGN && !string.IsNullOrWhiteSpace(camp))
-                {
-                    // User campaign
-                    SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);
-                    LocationType = LocationType.CustomCampaign;
-                    CampaignOrLocationName = campaign;
-                }
-                else
-                {
-                    // Crown of the Magister or Lost Valley
-                    SaveGameDirectory = DefaultSaveGameDirectory;
-                    LocationType = LocationType.StandardCampaign;
-                    CampaignOrLocationName = string.Empty;
-                }
-
-                Main.Log($"SelectedCampaignService: Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
-            }
-        }
 
         internal static void LateLoad()
         {
@@ -194,6 +118,82 @@ namespace SolastaCommunityExpansion.Models
             }
 
             return 0;
+        }
+
+        internal static class ServiceRepositoryEx
+        {
+            public static T GetOrCreateService<T>() where T : class, IService, new()
+            {
+                var repo = ServiceRepository.GetService<T>();
+
+                if (repo == null)
+                {
+                    repo = new T();
+                    ServiceRepository.AddService(repo);
+                }
+
+                return repo;
+            }
+        }
+
+        internal interface ISelectedCampaignService : IService
+        {
+            string CampaignOrLocationName { get; }
+            LocationType LocationType { get; }
+            string SaveGameDirectory { get; }
+            void SetCampaignLocation(string campaign, string location);
+        }
+
+        internal enum LocationType
+        {
+            StandardCampaign,
+            UserLocation,
+            CustomCampaign
+        }
+
+        internal class SelectedCampaignService : ISelectedCampaignService
+        {
+            public string CampaignOrLocationName { get; private set; }
+            public LocationType LocationType { get; private set; }
+            public string SaveGameDirectory { get; private set; }
+
+            public void SetCampaignLocation(string campaign, string location)
+            {
+                Main.Log($"SetCampaignLocation: Campaign='{campaign}', Location='{location}'");
+
+                var camp = campaign?.Trim() ?? string.Empty;
+                var loc = location?.Trim() ?? string.Empty;
+
+                if ((camp == USER_CAMPAIGN || string.IsNullOrWhiteSpace(camp)) && !string.IsNullOrWhiteSpace(loc))
+                {
+                    // User individual location
+                    SaveGameDirectory = Path.Combine(LocationSaveGameDirectory, loc);
+                    LocationType = LocationType.UserLocation;
+                    CampaignOrLocationName = location;
+                }
+                // this check not really needed, could just be !string.IsNullOrWhiteSpace(camp)
+                else if (camp != COTM_CAMPAIGN && camp != VOTP_CAMPAIGN && !string.IsNullOrWhiteSpace(camp))
+                {
+                    // User campaign
+                    SaveGameDirectory = Path.Combine(CampaignSaveGameDirectory, camp);
+                    LocationType = LocationType.CustomCampaign;
+                    CampaignOrLocationName = campaign;
+                }
+                else
+                {
+                    // Crown of the Magister or Lost Valley
+                    SaveGameDirectory = DefaultSaveGameDirectory;
+                    LocationType = LocationType.StandardCampaign;
+                    CampaignOrLocationName = string.Empty;
+                }
+
+                Main.Log($"SelectedCampaignService: Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
+            }
+
+            public void SetStandardCampaignLocation()
+            {
+                SetCampaignLocation(string.Empty, string.Empty);
+            }
         }
     }
 }

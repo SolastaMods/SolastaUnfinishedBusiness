@@ -9,9 +9,9 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new();
 
-        private static int[] playerCharactersChoices { get; set; }
-
         internal static readonly string[] Controllers = {"Human", "AI"};
+
+        private static int[] playerCharactersChoices { get; set; }
 
         internal static List<GameLocationCharacter> PlayerCharacters { get; } = new();
 

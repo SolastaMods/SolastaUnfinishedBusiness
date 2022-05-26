@@ -9,6 +9,18 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionConditionAffinity
         where TBuilder : FeatureDefinitionConditionAffinityBuilder<TDefinition, TBuilder>
     {
+        public TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
+        {
+            Definition.SetConditionAffinityType(value);
+            return This();
+        }
+
+        public TBuilder SetConditionType(ConditionDefinition value)
+        {
+            Definition.SetConditionType(value.Name);
+            return This();
+        }
+
         #region Constructors
 
         protected FeatureDefinitionConditionAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -31,18 +43,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
-        {
-            Definition.SetConditionAffinityType(value);
-            return This();
-        }
-
-        public TBuilder SetConditionType(ConditionDefinition value)
-        {
-            Definition.SetConditionType(value.Name);
-            return This();
-        }
     }
 
     public class FeatureDefinitionConditionAffinityBuilder

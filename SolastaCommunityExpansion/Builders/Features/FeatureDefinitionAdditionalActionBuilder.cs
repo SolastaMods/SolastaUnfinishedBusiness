@@ -9,29 +9,6 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder<FeatureDefinitionAdditionalAction,
         FeatureDefinitionAdditionalActionBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalActionBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
         {
             Definition.SetActionType(actionType);
@@ -101,5 +78,28 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.RestrictedActions.Sort();
             return this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionAdditionalActionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalActionBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalActionBuilder(FeatureDefinitionAdditionalAction original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

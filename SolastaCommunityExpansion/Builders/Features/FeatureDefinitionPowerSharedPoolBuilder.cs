@@ -8,6 +8,36 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBuilder<
         FeatureDefinitionPowerSharedPool, FeatureDefinitionPowerSharedPoolBuilder>
     {
+        public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
+            FeatureDefinitionPower poolPower,
+            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+            EffectDescription effectDescription,
+            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
+        {
+            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
+
+            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
+                abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
+
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
+        public FeatureDefinitionPowerSharedPoolBuilder(string name,
+            FeatureDefinitionPower poolPower,
+            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
+            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
+            EffectDescription effectDescription,
+            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CENamespaceGuid)
+        {
+            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
+
+            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
+                abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
+
+            Definition.SetGuiPresentation(guiPresentation);
+        }
+
         protected override void Initialise()
         {
             base.Initialise();
@@ -54,36 +84,6 @@ namespace SolastaCommunityExpansion.Builders.Features
                 $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
             Definition.SharedPool = poolPower;
             return this;
-        }
-
-        public FeatureDefinitionPowerSharedPoolBuilder(string name, string guid,
-            FeatureDefinitionPower poolPower,
-            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-            EffectDescription effectDescription,
-            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, guid)
-        {
-            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
-
-            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
-
-            Definition.SetGuiPresentation(guiPresentation);
-        }
-
-        public FeatureDefinitionPowerSharedPoolBuilder(string name,
-            FeatureDefinitionPower poolPower,
-            RuleDefinitions.RechargeRate recharge, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-            bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
-            EffectDescription effectDescription,
-            GuiPresentation guiPresentation, bool uniqueInstance) : base(name, CENamespaceGuid)
-        {
-            Preconditions.IsNotNull(poolPower, $"FeatureDefinitionPowerSharedPoolBuilder[{name}] poolPower is null.");
-
-            Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
-                abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
-
-            Definition.SetGuiPresentation(guiPresentation);
         }
 
         #region Constructors

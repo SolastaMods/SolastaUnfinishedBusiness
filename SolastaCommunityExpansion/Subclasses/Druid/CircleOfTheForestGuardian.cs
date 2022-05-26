@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -15,6 +14,8 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 {
     internal class CircleOfTheForestGuardian : AbstractSubclass
     {
+        private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
+        internal static readonly Guid BaseGuid = new("45a7595b-5d5f-4351-b7f1-cb78c9d0a136");
         private CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
@@ -26,9 +27,6 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         {
             return Subclass ??= BuildAndAddSubclass();
         }
-
-        private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
-        internal static readonly Guid BaseGuid = new("45a7595b-5d5f-4351-b7f1-cb78c9d0a136");
 
         private static CharacterSubclassDefinition BuildAndAddSubclass()
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Models
@@ -15,7 +16,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static ContentPackDefinition CreateContentPackDefinition()
         {
-            var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Properties.Resources.ContentPack, 128);
+            var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Resources.ContentPack, 128);
 
             return ContentPackDefinitionBuilder
                 .Create("CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)

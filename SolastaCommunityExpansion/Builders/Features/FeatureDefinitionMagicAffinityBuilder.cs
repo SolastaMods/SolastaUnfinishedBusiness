@@ -8,32 +8,6 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBuilder<FeatureDefinitionMagicAffinity
         , FeatureDefinitionMagicAffinityBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        protected FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
-            string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
-            Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-
-        #endregion
-
         public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
             RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold)
         {
@@ -109,5 +83,31 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetExtendedSpellList(spellListDefinition);
             return this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionMagicAffinityBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        protected FeatureDefinitionMagicAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
+            string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        protected FeatureDefinitionMagicAffinityBuilder(FeatureDefinitionMagicAffinity original, string name,
+            Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
+        {
+        }
+
+        #endregion
     }
 }

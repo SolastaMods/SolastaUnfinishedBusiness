@@ -9,30 +9,21 @@ namespace ModKit
         private static GUIStyle fillStyle;
         private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
 
-        private static int point(this int x)
-        {
-            return UnityModManager.UI.Scale(x);
-        }
-
-        public static GUIStyle FillStyle(Color color)
-        {
-            if (fillTexture == null)
-            {
-                fillTexture = new Texture2D(1, 1);
-            }
-
-            if (fillStyle == null)
-            {
-                fillStyle = new GUIStyle();
-            }
-
-            fillTexture.SetPixel(0, 0, color);
-            fillTexture.Apply();
-            fillStyle.normal.background = fillTexture;
-            return fillStyle;
-        }
-
         private static GUIStyle _buttonStyle;
+
+        private static GUIStyle _largeStyle;
+
+        private static GUIStyle _textBoxStyle;
+
+        private static GUIStyle _toggleStyle;
+
+        public static GUIStyle divStyle;
+
+        private static Texture2D _rarityTexture;
+
+        private static GUIStyle _rarityStyle;
+
+        private static GUIStyle _rarityButtonStyle;
 
         public static GUIStyle buttonStyle
         {
@@ -46,8 +37,6 @@ namespace ModKit
                 return _buttonStyle;
             }
         }
-
-        private static GUIStyle _largeStyle;
 
         public static GUIStyle largeStyle
         {
@@ -72,8 +61,6 @@ namespace ModKit
             }
         }
 
-        private static GUIStyle _textBoxStyle;
-
         public static GUIStyle textBoxStyle
         {
             get
@@ -96,8 +83,6 @@ namespace ModKit
             }
         }
 
-        private static GUIStyle _toggleStyle;
-
         public static GUIStyle toggleStyle
         {
             get
@@ -111,7 +96,71 @@ namespace ModKit
             }
         }
 
-        public static GUIStyle divStyle;
+        public static Texture2D RarityTexture
+        {
+            get
+            {
+                if (_rarityTexture == null)
+                {
+                    _rarityTexture = new Texture2D(1, 1);
+                }
+
+                _rarityTexture.SetPixel(0, 0, RGBA.black.color());
+                _rarityTexture.Apply();
+                return _rarityTexture;
+            }
+        }
+
+        public static GUIStyle rarityStyle
+        {
+            get
+            {
+                if (_rarityStyle == null)
+                {
+                    _rarityStyle = new GUIStyle(GUI.skin.button);
+                    _rarityStyle.normal.background = RarityTexture;
+                }
+
+                return _rarityStyle;
+            }
+        }
+
+        public static GUIStyle rarityButtonStyle
+        {
+            get
+            {
+                if (_rarityButtonStyle == null)
+                {
+                    _rarityButtonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+                    _rarityButtonStyle.normal.background = RarityTexture;
+                }
+
+                return _rarityButtonStyle;
+            }
+        }
+
+        private static int point(this int x)
+        {
+            return UnityModManager.UI.Scale(x);
+        }
+
+        public static GUIStyle FillStyle(Color color)
+        {
+            if (fillTexture == null)
+            {
+                fillTexture = new Texture2D(1, 1);
+            }
+
+            if (fillStyle == null)
+            {
+                fillStyle = new GUIStyle();
+            }
+
+            fillTexture.SetPixel(0, 0, color);
+            fillTexture.Apply();
+            fillStyle.normal.background = fillTexture;
+            return fillStyle;
+        }
 
         public static void Div(Color color, float indent = 0, float height = 0, float width = 0)
         {
@@ -147,55 +196,6 @@ namespace ModKit
             Space(2f * height / 3f);
             GUILayout.Box(GUIContent.none, divStyle);
             Space(height / 3f);
-        }
-
-        private static Texture2D _rarityTexture;
-
-        public static Texture2D RarityTexture
-        {
-            get
-            {
-                if (_rarityTexture == null)
-                {
-                    _rarityTexture = new Texture2D(1, 1);
-                }
-
-                _rarityTexture.SetPixel(0, 0, RGBA.black.color());
-                _rarityTexture.Apply();
-                return _rarityTexture;
-            }
-        }
-
-        private static GUIStyle _rarityStyle;
-
-        public static GUIStyle rarityStyle
-        {
-            get
-            {
-                if (_rarityStyle == null)
-                {
-                    _rarityStyle = new GUIStyle(GUI.skin.button);
-                    _rarityStyle.normal.background = RarityTexture;
-                }
-
-                return _rarityStyle;
-            }
-        }
-
-        private static GUIStyle _rarityButtonStyle;
-
-        public static GUIStyle rarityButtonStyle
-        {
-            get
-            {
-                if (_rarityButtonStyle == null)
-                {
-                    _rarityButtonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
-                    _rarityButtonStyle.normal.background = RarityTexture;
-                }
-
-                return _rarityButtonStyle;
-            }
         }
     }
 }

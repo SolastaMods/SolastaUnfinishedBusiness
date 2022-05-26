@@ -13,30 +13,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionAbilityCheckAffinity
         where TBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,
-            namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAbilityCheckAffinityBuilder(TDefinition original, string name, Guid namespaceGuid) :
-            base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAbilityCheckAffinityBuilder(TDefinition original, string name, string definitionGuid)
-            : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public TBuilder BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity affinityType,
             DieType dieType, int diceNumber,
             params (string abilityScoreName, string proficiencyName)[] abilityProficiencyPairs)
@@ -72,6 +48,30 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             return SetAffinityGroups(affinityGroups.AsEnumerable());
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, Guid namespaceGuid) : base(name,
+            namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(TDefinition original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAbilityCheckAffinityBuilder(TDefinition original, string name, string definitionGuid)
+            : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class FeatureDefinitionAbilityCheckAffinityBuilder : FeatureDefinitionAbilityCheckAffinityBuilder<

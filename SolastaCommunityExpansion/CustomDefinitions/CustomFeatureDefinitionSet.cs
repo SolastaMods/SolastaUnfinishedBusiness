@@ -15,9 +15,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class FeatureDefinitionFeatureSetCustom : FeatureDefinition
     {
-        private bool _fullSetIsDirty;
         private readonly List<FeatureDefinition> _allFeatureSet = new();
         private readonly Dictionary<int, List<FeatureDefinition>> FeaturesByLevel = new();
+        private bool _fullSetIsDirty;
 
         /**Are level requirements in character levels or class levels?*/
         public bool RequireClassLevels { get; set; }
@@ -160,29 +160,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     public class FeatureDefinitionRemoverBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionRemover, FeatureDefinitionRemoverBuilder>
     {
-        #region Constructors
-
-        public FeatureDefinitionRemoverBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionRemoverBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        public FeatureDefinitionRemoverBuilder(FeatureDefinitionRemover original, string name, Guid namespaceGuid) :
-            base(
-                original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionRemoverBuilder(FeatureDefinitionRemover original, string name, string definitionGuid) :
-            base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         private static string WrapName(string name) { return $"{$"{name}Remover"}"; }
 
         public static FeatureDefinitionRemoverBuilder CreateFrom(FeatureDefinition feature)
@@ -219,6 +196,29 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             Definition.FeatureToRemove = feature;
             return this;
         }
+
+        #region Constructors
+
+        public FeatureDefinitionRemoverBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionRemoverBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionRemoverBuilder(FeatureDefinitionRemover original, string name, Guid namespaceGuid) :
+            base(
+                original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionRemoverBuilder(FeatureDefinitionRemover original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeatureSetCustom

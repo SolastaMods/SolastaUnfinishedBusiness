@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -5,8 +6,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(KillForm))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -19,14 +20,14 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetChallengeRating<T>(this T entity, System.Single value)
+        public static T SetChallengeRating<T>(this T entity, Single value)
             where T : KillForm
         {
             entity.SetField("challengeRating", value);
             return entity;
         }
 
-        public static T SetHitPoints<T>(this T entity, System.Int32 value)
+        public static T SetHitPoints<T>(this T entity, Int32 value)
             where T : KillForm
         {
             entity.SetField("hitPoints", value);

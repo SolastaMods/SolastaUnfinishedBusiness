@@ -143,104 +143,6 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        private sealed class DivineWordEffectForm : CustomEffectForm
-        {
-            private readonly List<string> monsterFamilyPlaneshiftList = new()
-            {
-                "Celestial", "Elemental", "Fey", "Fiend"
-            };
-
-            public override void ApplyForm(
-                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-                bool retargeting,
-                bool proxyOnly,
-                bool forceSelfConditionOnly,
-                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
-                List<EffectFormFilter> filters = null)
-            {
-                if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess ||
-                    formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
-                {
-                    return;
-                }
-
-                // If the target is in one of the special families, banish it.
-                if (formsParams.targetCharacter is RulesetCharacterMonster monster &&
-                    monsterFamilyPlaneshiftList.Contains(monster.CharacterFamily))
-                {
-                    ApplyCondition(formsParams, ConditionBanished, RuleDefinitions.DurationType.Day, 1);
-
-                    return;
-                }
-
-                var curHP = formsParams.targetCharacter.CurrentHitPoints;
-
-                if (curHP <= 20)
-                {
-                    if (formsParams.targetCharacter.IsDead)
-                    {
-                        return;
-                    }
-
-                    ServiceRepository.GetService<IGameLocationActionService>()
-                        .InstantKillCharacter(formsParams.targetCharacter as RulesetCharacter);
-                }
-                else if (curHP <= 30)
-                {
-                    // blind, deafened, stunned 1 hour
-                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Hour, 1);
-                    ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Hour, 1);
-                    ApplyCondition(formsParams, ConditionStunned, RuleDefinitions.DurationType.Hour, 1);
-                }
-                else if (curHP <= 40)
-                {
-                    // deafened, blinded 10 minutes
-                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 10);
-                    ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Minute, 10);
-                }
-                else if (curHP <= 50)
-                {
-                    // deafened 1 minute
-                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 1);
-                }
-            }
-
-            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
-            {
-                ConditionDeafened.FillTags(tagsMap);
-                ConditionBlinded.FillTags(tagsMap);
-                ConditionStunned.FillTags(tagsMap);
-                ConditionBanished.FillTags(tagsMap);
-            }
-
-            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-                ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
-            {
-                // Prepare params for inflicting conditions
-                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                var sourceFaction = formsParams.sourceCharacter != null
-                    ? formsParams.sourceCharacter.CurrentFaction.Name
-                    : string.Empty;
-                var effectDefinitionName = string.Empty;
-
-                if (formsParams.attackMode != null)
-                {
-                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
-                }
-                else if (formsParams.activeEffect != null)
-                {
-                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
-                }
-
-                var sourceAbilityBonus =
-                    formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
-
-                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction,
-                    formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
-            }
-        }
-
         //
         // DubbHerder SRD Spells
         //
@@ -398,31 +300,6 @@ namespace SolastaCommunityExpansion.Spells
                 .SetAiParameters(new SpellAIParameters())
                 .SetRequiresConcentration(true)
                 .AddToDB();
-        }
-
-        internal class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "DHReverseGravitySpellcondition";
-            private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
-
-            protected ReverseGravityConditionBuilder(string name, string guid) : base(ConditionLevitate, name, guid)
-            {
-                Definition.SetConditionType(RuleDefinitions.ConditionType.Neutral);
-                Definition.Features.SetRange
-                (
-                    FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
-                    FeatureDefinitionMoveModes.MoveModeFly2
-                );
-            }
-
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new ReverseGravityConditionBuilder(name, guid)
-                    .SetOrUpdateGuiPresentation("DHReverseGravitySpell", Category.Condition)
-                    .AddToDB();
-            }
-
-            internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildConjureCelestial()
@@ -1156,124 +1033,6 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class FeeblemindConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "DHFeeblemindSpellcondition";
-            private const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
-            private const string TitleString = "Condition/&DHFeeblemindSpellTitle";
-            private const string DescriptionString = "Condition/&DHFeeblemindSpellDescription";
-
-            protected FeeblemindConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
-                Definition.Features.SetRange(
-                    FeatureDefinitionMagicAffinitys.MagicAffinitySilenced,
-                    FeatureDefinitionMagicAffinitys.MagicAffinityConditionRaging,
-                    FeeblemindIntAttributeModifierBuilder.FeeblemindIntAttributeModifier,
-                    FeeblemindChaAttributeModifierBuilder.FeeblemindCha_AttributeModifier,
-                    FeeblemindActionAffinityBuilder.FeeblemindActionAffinity);
-            }
-
-            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new FeeblemindConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition FeeblemindCondition = CreateAndAddToDB(Name, Guid);
-        }
-
-        internal class FeeblemindIntAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
-        {
-            private const string Name = "DHFeeblemindIntSpellAttributeModifier";
-            private const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
-            private const string TitleString = "AttributeModifier/&DHFeeblemindIntSpellTitle";
-            private const string DescriptionString = "AttributeModifier/&DHFeeblemindIntSpellDescription";
-
-            protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(
-                FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.SetModifiedAttribute(SmartAttributeDefinitions.Intelligence.name);
-                Definition.SetModifierAbilityScore(SmartAttributeDefinitions.Intelligence.name);
-                Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
-                Definition.SetModifierValue(1);
-                Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
-            }
-
-            private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-            {
-                return new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier =
-                CreateAndAddToDB(Name, Guid);
-        }
-
-        internal class FeeblemindChaAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
-        {
-            private const string Name = "DHFeeblemindChaSpellAttributeModifier";
-            private const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
-            private const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
-            private const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
-
-            protected FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(
-                FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.SetModifiedAttribute(SmartAttributeDefinitions.Charisma.name);
-                Definition.SetModifierAbilityScore(SmartAttributeDefinitions.Charisma.name);
-                Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
-                Definition.SetModifierValue(1);
-                Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
-            }
-
-            private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
-            {
-                return new FeeblemindChaAttributeModifierBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier =
-                CreateAndAddToDB(Name, Guid);
-        }
-
-        internal class FeeblemindActionAffinityBuilder : FeatureDefinitionActionAffinityBuilder
-        {
-            private const string Name = "DHFeeblemindSpellActionAffinity";
-            private const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
-            private const string TitleString = "ActionAffinity/&DHFeeblemindSpellTitle";
-            private const string DescriptionString = "ActionAffinity/&DHFeeblemindSpellDescription";
-
-            protected FeeblemindActionAffinityBuilder(string name, string guid) : base(
-                FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.ForbiddenActions.Clear();
-                Definition.ForbiddenActions.Empty();
-                Definition.ForbiddenActions.AddRange
-                (
-                    DatabaseHelper.ActionDefinitions.CastBonus.Id,
-                    DatabaseHelper.ActionDefinitions.CastMain.Id,
-                    DatabaseHelper.ActionDefinitions.CastNoCost.Id,
-                    DatabaseHelper.ActionDefinitions.CastReaction.Id,
-                    DatabaseHelper.ActionDefinitions.CastReadied.Id,
-                    DatabaseHelper.ActionDefinitions.CastRitual.Id
-                );
-            }
-
-            private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
-            {
-                return new FeeblemindActionAffinityBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity =
-                CreateAndAddToDB(Name, Guid);
-        }
-
         private static SpellDefinition BuildHolyAura()
         {
             var effectDescription = new EffectDescriptionBuilder()
@@ -1311,109 +1070,6 @@ namespace SolastaCommunityExpansion.Spells
                 .SetAiParameters(new SpellAIParameters())
                 .SetRequiresConcentration(true)
                 .AddToDB();
-        }
-
-        internal class HolyAuraConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "DHHolyAuraSpellcondition";
-            private const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
-            private const string TitleString = "Condition/&DHHolyAuraSpellTitle";
-            private const string DescriptionString = "Condition/&DHHolyAuraSpellDescription";
-
-            protected HolyAuraConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-                Definition.Features.SetRange
-                (
-                    FeatureDefinitionCombatAffinitys.CombatAffinityDodging,
-                    FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze,
-                    HolyAuraDamageAffinityBuilder.HolyAuraDamageAffinity
-                );
-            }
-
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new HolyAuraConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition HolyAuraCondition = CreateAndAddToDB(Name, Guid);
-        }
-
-        internal class HolyAuraDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder
-        {
-            private const string Name = "DHHolyAuraSpellDamageAffinity";
-            private const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";
-            private const string TitleString = "DamageAffinity/&DHHolyAuraSpellTitle";
-            private const string DescriptionString = "DamageAffinity/&DHHolyAuraSpellDescription";
-
-            protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(
-                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.SetDamageAffinityType(RuleDefinitions.DamageAffinityType.None);
-                Definition.SetSavingThrowAdvantageType(RuleDefinitions.AdvantageType.None);
-                Definition.SetKnockOutAffinity(RuleDefinitions.KnockoutAffinity.None);
-                Definition.SetRetaliateWhenHit(true);
-                Definition.SetRetaliateProximity(RuleDefinitions.AttackProximity.Melee);
-                Definition.SetRetaliateRangeCells(1);
-                Definition.SetRetaliatePower(HolyAuraBlindingPowerBuilder.HolyAuraBlindingPower);
-            }
-
-            internal static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
-            {
-                return new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity =
-                CreateAndAddToDB(Name, Guid);
-        }
-
-        internal class HolyAuraBlindingPowerBuilder : FeatureDefinitionPowerBuilder
-        {
-            private const string Name = "DHHolyAuraSpellBlindingPower";
-            private const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
-            private const string TitleString = "Feature/&DHHolyAuraBlindingPowerTitle";
-            private const string DescriptionString = "Feature/&DHHolyAuraBlindingPowerDescription";
-
-            protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(PowerOathOfMotherlandFieryPresence,
-                name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-
-                var effectDescription = new EffectDescriptionBuilder()
-                    .SetDurationData(
-                        RuleDefinitions.DurationType.Minute,
-                        1,
-                        RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                    .SetTargetingData(
-                        RuleDefinitions.Side.Enemy,
-                        RuleDefinitions.RangeType.Distance,
-                        12,
-                        RuleDefinitions.TargetType.Individuals)
-                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
-                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Undead)
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(
-                            ConditionBlinded,
-                            ConditionForm.ConditionOperation.Add,
-                            false,
-                            false,
-                            new List<ConditionDefinition>())
-                        .Build());
-
-                Definition.SetEffectDescription(effectDescription.Build());
-            }
-
-            private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-            {
-                return new HolyAuraBlindingPowerBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly FeatureDefinitionPower HolyAuraBlindingPower = CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildIncendiaryCloud()
@@ -1595,32 +1251,6 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class MindBlankConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "DHMindBlankSpellcondition";
-            private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
-            private const string TitleString = "Condition/&DHMindBlankSpellTitle";
-            private const string DescriptionString = "Condition/&DHMindBlankSpellDescription";
-
-            protected MindBlankConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.Features.SetRange(
-                    FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                    FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
-                    FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
-                    FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity);
-            }
-
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new MindBlankConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
-        }
-
         private static SpellDefinition BuildPowerWordStun()
         {
             var conditionForm = new ConditionForm()
@@ -1786,38 +1416,6 @@ namespace SolastaCommunityExpansion.Spells
                 .SetEffectDescription(effectDescription.Build())
                 .SetAiParameters(new SpellAIParameters())
                 .AddToDB();
-        }
-
-        internal class ForesightConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "DHForesightSpellcondition";
-            private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
-            private const string TitleString = "Condition/&DHForesightSpellTitle";
-            private const string DescriptionString = "Condition/&DHForesightSpellDescription";
-
-            protected ForesightConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.Features.SetRange
-                (
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionCatsGrace,
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionEaglesSplendor,
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionFoxsCunning,
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionOwlsWisdom,
-                    FeatureDefinitionCombatAffinitys.CombatAffinityStealthy,
-                    FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze
-                );
-            }
-
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new ForesightConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
         }
 
         private static SpellDefinition BuildMassHeal()
@@ -2107,33 +1705,6 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
-        internal class TimeStopConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "DHTimeStopSpellCondition";
-            private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
-            private const string TitleString = "Condition/&DHTimeStopSpellTitle";
-            private const string DescriptionString = "Condition/&DHTimeStopSpellDescription";
-
-            protected TimeStopConditionBuilder(string name, string guid) : base(ConditionIncapacitated, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-                Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Attacked);
-                Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
-                Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
-                Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Damaged);
-                Definition.SetInterruptionDamageThreshold(1);
-                Definition.SetInterruptionRequiresSavingThrow(false);
-            }
-
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new TimeStopConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
-        }
-
         private static SpellDefinition BuildWeird()
         {
             var effectDescription = new EffectDescriptionBuilder()
@@ -2183,12 +1754,443 @@ namespace SolastaCommunityExpansion.Spells
                 .AddToDB();
         }
 
+        private sealed class DivineWordEffectForm : CustomEffectForm
+        {
+            private readonly List<string> monsterFamilyPlaneshiftList = new()
+            {
+                "Celestial", "Elemental", "Fey", "Fiend"
+            };
+
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                bool retargeting,
+                bool proxyOnly,
+                bool forceSelfConditionOnly,
+                RuleDefinitions.EffectApplication effectApplication = RuleDefinitions.EffectApplication.All,
+                List<EffectFormFilter> filters = null)
+            {
+                if (formsParams.saveOutcome == RuleDefinitions.RollOutcome.CriticalSuccess ||
+                    formsParams.saveOutcome == RuleDefinitions.RollOutcome.Success)
+                {
+                    return;
+                }
+
+                // If the target is in one of the special families, banish it.
+                if (formsParams.targetCharacter is RulesetCharacterMonster monster &&
+                    monsterFamilyPlaneshiftList.Contains(monster.CharacterFamily))
+                {
+                    ApplyCondition(formsParams, ConditionBanished, RuleDefinitions.DurationType.Day, 1);
+
+                    return;
+                }
+
+                var curHP = formsParams.targetCharacter.CurrentHitPoints;
+
+                if (curHP <= 20)
+                {
+                    if (formsParams.targetCharacter.IsDead)
+                    {
+                        return;
+                    }
+
+                    ServiceRepository.GetService<IGameLocationActionService>()
+                        .InstantKillCharacter(formsParams.targetCharacter as RulesetCharacter);
+                }
+                else if (curHP <= 30)
+                {
+                    // blind, deafened, stunned 1 hour
+                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Hour, 1);
+                    ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Hour, 1);
+                    ApplyCondition(formsParams, ConditionStunned, RuleDefinitions.DurationType.Hour, 1);
+                }
+                else if (curHP <= 40)
+                {
+                    // deafened, blinded 10 minutes
+                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 10);
+                    ApplyCondition(formsParams, ConditionBlinded, RuleDefinitions.DurationType.Minute, 10);
+                }
+                else if (curHP <= 50)
+                {
+                    // deafened 1 minute
+                    ApplyCondition(formsParams, ConditionDeafened, RuleDefinitions.DurationType.Minute, 1);
+                }
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                ConditionDeafened.FillTags(tagsMap);
+                ConditionBlinded.FillTags(tagsMap);
+                ConditionStunned.FillTags(tagsMap);
+                ConditionBanished.FillTags(tagsMap);
+            }
+
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                var sourceFaction = formsParams.sourceCharacter != null
+                    ? formsParams.sourceCharacter.CurrentFaction.Name
+                    : string.Empty;
+                var effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                var sourceAbilityBonus =
+                    formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction,
+                    formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
+            }
+        }
+
+        internal class ReverseGravityConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "DHReverseGravitySpellcondition";
+            private const string Guid = "809f1cef-6bdc-4b5a-93bf-275af8ab0b36";
+
+            internal static readonly ConditionDefinition ReverseGravityCondition = CreateAndAddToDB(Name, Guid);
+
+            protected ReverseGravityConditionBuilder(string name, string guid) : base(ConditionLevitate, name, guid)
+            {
+                Definition.SetConditionType(RuleDefinitions.ConditionType.Neutral);
+                Definition.Features.SetRange
+                (
+                    FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
+                    FeatureDefinitionMoveModes.MoveModeFly2
+                );
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new ReverseGravityConditionBuilder(name, guid)
+                    .SetOrUpdateGuiPresentation("DHReverseGravitySpell", Category.Condition)
+                    .AddToDB();
+            }
+        }
+
+        internal class FeeblemindConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "DHFeeblemindSpellcondition";
+            private const string Guid = "965a09b2-cb22-452b-b93c-2bccdcda4871";
+            private const string TitleString = "Condition/&DHFeeblemindSpellTitle";
+            private const string DescriptionString = "Condition/&DHFeeblemindSpellDescription";
+
+            internal static readonly ConditionDefinition FeeblemindCondition = CreateAndAddToDB(Name, Guid);
+
+            protected FeeblemindConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+                Definition.Features.SetRange(
+                    FeatureDefinitionMagicAffinitys.MagicAffinitySilenced,
+                    FeatureDefinitionMagicAffinitys.MagicAffinityConditionRaging,
+                    FeeblemindIntAttributeModifierBuilder.FeeblemindIntAttributeModifier,
+                    FeeblemindChaAttributeModifierBuilder.FeeblemindCha_AttributeModifier,
+                    FeeblemindActionAffinityBuilder.FeeblemindActionAffinity);
+            }
+
+            internal static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new FeeblemindConditionBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class FeeblemindIntAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
+        {
+            private const string Name = "DHFeeblemindIntSpellAttributeModifier";
+            private const string Guid = "a2a16bda-e7b1-4a87-9f0e-3e4c21870fd8";
+            private const string TitleString = "AttributeModifier/&DHFeeblemindIntSpellTitle";
+            private const string DescriptionString = "AttributeModifier/&DHFeeblemindIntSpellDescription";
+
+            internal static readonly FeatureDefinitionAttributeModifier FeeblemindIntAttributeModifier =
+                CreateAndAddToDB(Name, Guid);
+
+            protected FeeblemindIntAttributeModifierBuilder(string name, string guid) : base(
+                FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.SetModifiedAttribute(SmartAttributeDefinitions.Intelligence.name);
+                Definition.SetModifierAbilityScore(SmartAttributeDefinitions.Intelligence.name);
+                Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
+                Definition.SetModifierValue(1);
+                Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
+            }
+
+            private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
+            {
+                return new FeeblemindIntAttributeModifierBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class FeeblemindChaAttributeModifierBuilder : FeatureDefinitionAttributeModifierBuilder
+        {
+            private const string Name = "DHFeeblemindChaSpellAttributeModifier";
+            private const string Guid = "6721abe1-19eb-4a8c-9702-2fdea2070464";
+            private const string TitleString = "AttributeModifier/&DHFeeblemindChaSpellTitle";
+            private const string DescriptionString = "AttributeModifier/&DHFeeblemindChaSpellDescription";
+
+            internal static readonly FeatureDefinitionAttributeModifier FeeblemindCha_AttributeModifier =
+                CreateAndAddToDB(Name, Guid);
+
+            protected FeeblemindChaAttributeModifierBuilder(string name, string guid) : base(
+                FeatureDefinitionAttributeModifiers.AttributeModifierHeadbandOfIntellect, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.SetModifiedAttribute(SmartAttributeDefinitions.Charisma.name);
+                Definition.SetModifierAbilityScore(SmartAttributeDefinitions.Charisma.name);
+                Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
+                Definition.SetModifierValue(1);
+                Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
+            }
+
+            private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
+            {
+                return new FeeblemindChaAttributeModifierBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class FeeblemindActionAffinityBuilder : FeatureDefinitionActionAffinityBuilder
+        {
+            private const string Name = "DHFeeblemindSpellActionAffinity";
+            private const string Guid = "749a9572-07f6-4678-9458-904c04b9ab22";
+            private const string TitleString = "ActionAffinity/&DHFeeblemindSpellTitle";
+            private const string DescriptionString = "ActionAffinity/&DHFeeblemindSpellDescription";
+
+            internal static readonly FeatureDefinitionActionAffinity FeeblemindActionAffinity =
+                CreateAndAddToDB(Name, Guid);
+
+            protected FeeblemindActionAffinityBuilder(string name, string guid) : base(
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRaging, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.ForbiddenActions.Clear();
+                Definition.ForbiddenActions.Empty();
+                Definition.ForbiddenActions.AddRange
+                (
+                    DatabaseHelper.ActionDefinitions.CastBonus.Id,
+                    DatabaseHelper.ActionDefinitions.CastMain.Id,
+                    DatabaseHelper.ActionDefinitions.CastNoCost.Id,
+                    DatabaseHelper.ActionDefinitions.CastReaction.Id,
+                    DatabaseHelper.ActionDefinitions.CastReadied.Id,
+                    DatabaseHelper.ActionDefinitions.CastRitual.Id
+                );
+            }
+
+            private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)
+            {
+                return new FeeblemindActionAffinityBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class HolyAuraConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "DHHolyAuraSpellcondition";
+            private const string Guid = "1808ca4b-8f46-41bf-a59c-0bcbd4f60248";
+            private const string TitleString = "Condition/&DHHolyAuraSpellTitle";
+            private const string DescriptionString = "Condition/&DHHolyAuraSpellDescription";
+
+            internal static readonly ConditionDefinition HolyAuraCondition = CreateAndAddToDB(Name, Guid);
+
+            protected HolyAuraConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+                Definition.Features.SetRange
+                (
+                    FeatureDefinitionCombatAffinitys.CombatAffinityDodging,
+                    FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze,
+                    HolyAuraDamageAffinityBuilder.HolyAuraDamageAffinity
+                );
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new HolyAuraConditionBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class HolyAuraDamageAffinityBuilder : FeatureDefinitionDamageAffinityBuilder
+        {
+            private const string Name = "DHHolyAuraSpellDamageAffinity";
+            private const string Guid = "c83aceae-e4c4-4a9c-a83d-58ffebe92007";
+            private const string TitleString = "DamageAffinity/&DHHolyAuraSpellTitle";
+            private const string DescriptionString = "DamageAffinity/&DHHolyAuraSpellDescription";
+
+            internal static readonly FeatureDefinitionDamageAffinity HolyAuraDamageAffinity =
+                CreateAndAddToDB(Name, Guid);
+
+            protected HolyAuraDamageAffinityBuilder(string name, string guid) : base(
+                FeatureDefinitionDamageAffinitys.DamageAffinityPoisonAdvantage, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.SetDamageAffinityType(RuleDefinitions.DamageAffinityType.None);
+                Definition.SetSavingThrowAdvantageType(RuleDefinitions.AdvantageType.None);
+                Definition.SetKnockOutAffinity(RuleDefinitions.KnockoutAffinity.None);
+                Definition.SetRetaliateWhenHit(true);
+                Definition.SetRetaliateProximity(RuleDefinitions.AttackProximity.Melee);
+                Definition.SetRetaliateRangeCells(1);
+                Definition.SetRetaliatePower(HolyAuraBlindingPowerBuilder.HolyAuraBlindingPower);
+            }
+
+            internal static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
+            {
+                return new HolyAuraDamageAffinityBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class HolyAuraBlindingPowerBuilder : FeatureDefinitionPowerBuilder
+        {
+            private const string Name = "DHHolyAuraSpellBlindingPower";
+            private const string Guid = "40366ca2-00a0-471a-b370-8c81f6283ce1";
+            private const string TitleString = "Feature/&DHHolyAuraBlindingPowerTitle";
+            private const string DescriptionString = "Feature/&DHHolyAuraBlindingPowerDescription";
+
+            internal static readonly FeatureDefinitionPower HolyAuraBlindingPower = CreateAndAddToDB(Name, Guid);
+
+            protected HolyAuraBlindingPowerBuilder(string name, string guid) : base(PowerOathOfMotherlandFieryPresence,
+                name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+
+                var effectDescription = new EffectDescriptionBuilder()
+                    .SetDurationData(
+                        RuleDefinitions.DurationType.Minute,
+                        1,
+                        RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Enemy,
+                        RuleDefinitions.RangeType.Distance,
+                        12,
+                        RuleDefinitions.TargetType.Individuals)
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Fiend)
+                    .AddRestrictedCreatureFamily(CharacterFamilyDefinitions.Undead)
+                    .AddEffectForm(new EffectFormBuilder()
+                        .SetConditionForm(
+                            ConditionBlinded,
+                            ConditionForm.ConditionOperation.Add,
+                            false,
+                            false,
+                            new List<ConditionDefinition>())
+                        .Build());
+
+                Definition.SetEffectDescription(effectDescription.Build());
+            }
+
+            private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
+            {
+                return new HolyAuraBlindingPowerBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class MindBlankConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "DHMindBlankSpellcondition";
+            private const string Guid = "74f77a4c-b5cb-45d6-ac6d-d9fa2ebe3869";
+            private const string TitleString = "Condition/&DHMindBlankSpellTitle";
+            private const string DescriptionString = "Condition/&DHMindBlankSpellDescription";
+
+            internal static readonly ConditionDefinition MindBlankCondition = CreateAndAddToDB(Name, Guid);
+
+            protected MindBlankConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.Features.SetRange(
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                    FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                    FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity);
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new MindBlankConditionBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class ForesightConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "DHForesightSpellcondition";
+            private const string Guid = "4615c639-95f2-4c04-b904-e79f5b916b68";
+            private const string TitleString = "Condition/&DHForesightSpellTitle";
+            private const string DescriptionString = "Condition/&DHForesightSpellDescription";
+
+            internal static readonly ConditionDefinition ForesightCondition = CreateAndAddToDB(Name, Guid);
+
+            protected ForesightConditionBuilder(string name, string guid) : base(ConditionBearsEndurance, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.Features.SetRange
+                (
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBullsStrength,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionCatsGrace,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionEaglesSplendor,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionFoxsCunning,
+                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionOwlsWisdom,
+                    FeatureDefinitionCombatAffinitys.CombatAffinityStealthy,
+                    FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze
+                );
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new ForesightConditionBuilder(name, guid).AddToDB();
+            }
+        }
+
+        internal class TimeStopConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "DHTimeStopSpellCondition";
+            private const string Guid = "f00e592f-61c3-4cbf-a800-97596e83028d";
+            private const string TitleString = "Condition/&DHTimeStopSpellTitle";
+            private const string DescriptionString = "Condition/&DHTimeStopSpellDescription";
+
+            internal static readonly ConditionDefinition TimeStopCondition = CreateAndAddToDB(Name, Guid);
+
+            protected TimeStopConditionBuilder(string name, string guid) : base(ConditionIncapacitated, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+                Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Attacked);
+                Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
+                Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
+                Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Damaged);
+                Definition.SetInterruptionDamageThreshold(1);
+                Definition.SetInterruptionRequiresSavingThrow(false);
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new TimeStopConditionBuilder(name, guid).AddToDB();
+            }
+        }
+
         internal class WeirdConditionBuilder : ConditionDefinitionBuilder
         {
             private const string Name = "DHWeirdSpellCondition";
             private const string Guid = "0f76e7e1-4490-4ee8-a13f-a4a967ba1c08";
             private const string TitleString = "Condition/&DHWeirdSpellTitle";
             private const string DescriptionString = "Condition/&DHWeirdSpellDescription";
+
+            internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
 
             protected WeirdConditionBuilder(string name, string guid) : base(ConditionFrightenedPhantasmalKiller, name,
                 guid)
@@ -2203,8 +2205,6 @@ namespace SolastaCommunityExpansion.Spells
             {
                 return new WeirdConditionBuilder(name, guid).AddToDB();
             }
-
-            internal static readonly ConditionDefinition WeirdCondition = CreateAndAddToDB(Name, Guid);
         }
 
         /*

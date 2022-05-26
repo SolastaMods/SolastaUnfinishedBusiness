@@ -13,21 +13,6 @@ namespace SolastaCommunityExpansion.Displays
     {
         private static IEnumerable<BaseDefinition> _allBlueprints;
 
-        private static IEnumerable<BaseDefinition> GetBlueprints()
-        {
-            if (_allBlueprints == null)
-            {
-                if (BlueprintLoader.Shared.LoadInProgress())
-                {
-                    return _allBlueprints;
-                }
-
-                BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
-            }
-
-            return _allBlueprints;
-        }
-
         // blueprint info
         private static Type[] _bpTypes;
         private static string[] _bpTypeNames;
@@ -54,6 +39,21 @@ namespace SolastaCommunityExpansion.Displays
         private static ToggleState _searchExpanded;
 
         private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+
+        private static IEnumerable<BaseDefinition> GetBlueprints()
+        {
+            if (_allBlueprints == null)
+            {
+                if (BlueprintLoader.Shared.LoadInProgress())
+                {
+                    return _allBlueprints;
+                }
+
+                BlueprintLoader.Shared.Load(bps => _allBlueprints = bps);
+            }
+
+            return _allBlueprints;
+        }
 
         private static void RefreshBPSearchData()
         {

@@ -10,6 +10,9 @@ namespace ModKit
 {
     public static partial class UI
     {
+        private const int sliderTop = 3;
+        private const int sliderBottom = -7;
+
         private static readonly HashSet<Type> widthTypes = new()
         {
             Width(0).GetType(), MinWidth(0).GetType(), MaxWidth(0).GetType(), AutoWidth().GetType()
@@ -409,9 +412,6 @@ namespace ModKit
             value = newValue;
             return changed;
         }
-
-        private const int sliderTop = 3;
-        private const int sliderBottom = -7;
 
         public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
             int decimals = 0, string units = "", params GUILayoutOption[] options)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogic
 {
@@ -40,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
             ref string failure)
         {
             if (!Main.Settings.FixSorcererTwinnedLogic
-                || metamagicOption != SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
+                || metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
                 || caster is not RulesetCharacterHero hero)
             {
                 return;

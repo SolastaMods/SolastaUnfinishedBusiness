@@ -16,10 +16,10 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
 {
     internal class PathOfTheLight : AbstractSubclass
     {
-        private static readonly Guid SubclassNamespace = new("c2067110-5086-45c0-b0c2-4c140599605c");
         private const string IlluminatedConditionName = "PathOfTheLightIlluminatedCondition";
         private const string IlluminatingStrikeName = "PathOfTheLightIlluminatingStrike";
         private const string IlluminatingBurstName = "PathOfTheLightIlluminatingBurst";
+        private static readonly Guid SubclassNamespace = new("c2067110-5086-45c0-b0c2-4c140599605c");
 
         private static readonly List<ConditionDefinition> InvisibleConditions =
             new() {ConditionInvisibleBase, ConditionInvisible, ConditionInvisibleGreater};
@@ -43,15 +43,27 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             {20, 10}
         };
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
-        }
+        private static ConditionDefinitionIlluminated illuminatedCondition;
 
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
+        private static FeatureDefinition illuminatingStrike;
+
+        // Dummy feature to show in UI
+        private static FeatureDefinition illuminatingStrikeImprovement;
+
+        private static FeatureDefinition pierceTheDarkness;
+
+        private static FeatureDefinition lightsProtection;
+
+        private static FeatureDefinition eyesOfTruth;
+
+        private static FeatureDefinition illuminatingBurst;
+
+        private static FeatureDefinitionAttackDisadvantageAgainstNonSource disadvantageAgainstNonSource;
+
+        // Prevents a creature from turning invisible by "granting" immunity to invisibility
+        private static FeatureDefinition preventInvisibility;
+
+        private static ConditionDefinition illuminatingBurstSuppressedCondition;
 
         private CharacterSubclassDefinition Subclass { get; } = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight", SubclassNamespace)
@@ -63,8 +75,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .AddFeatureAtLevel(IlluminatingStrikeImprovement, 10)
             .AddFeatureAtLevel(IlluminatingBurst, 14)
             .AddToDB();
-
-        private static ConditionDefinitionIlluminated illuminatedCondition;
 
         private static ConditionDefinitionIlluminated IlluminatedCondition => illuminatedCondition ??=
             ConditionDefinitionIlluminatedBuilder
@@ -79,8 +89,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .AddFeatures(DisadvantageAgainstNonSource, PreventInvisibility)
                 .AddToDB();
 
-        private static FeatureDefinition illuminatingStrike;
-
         private static FeatureDefinition IlluminatingStrike => illuminatingStrike ??= FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightIlluminatingStrikeFeatureSet", SubclassNamespace)
             .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrike", Category.Subclass)
@@ -93,16 +101,11 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .AddToDB())
             .AddToDB();
 
-        // Dummy feature to show in UI
-        private static FeatureDefinition illuminatingStrikeImprovement;
-
         private static FeatureDefinition IlluminatingStrikeImprovement => illuminatingStrikeImprovement ??=
             FeatureDefinitionBuilder
                 .Create("PathOfTheLightIlluminatingStrikeImprovement", SubclassNamespace)
                 .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingStrikeImprovement", Category.Subclass)
                 .AddToDB();
-
-        private static FeatureDefinition pierceTheDarkness;
 
         private static FeatureDefinition PierceTheDarkness => pierceTheDarkness ??= FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightPierceTheDarkness", SubclassNamespace)
@@ -112,8 +115,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
             .SetUniqueChoices(false)
             .AddFeatureSet(FeatureDefinitionSenses.SenseSuperiorDarkvision)
             .AddToDB();
-
-        private static FeatureDefinition lightsProtection;
 
         private static FeatureDefinition LightsProtection => lightsProtection ??= FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheLightLightsProtection", SubclassNamespace)
@@ -128,6 +129,75 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                     .SetConditionName(IlluminatedConditionName)
                     .AddToDB())
             .AddToDB();
+
+        private static FeatureDefinition EyesOfTruth => eyesOfTruth ??= CreateEyesOfTruth();
+
+        private static FeatureDefinition IlluminatingBurst => illuminatingBurst ??= FeatureDefinitionFeatureSetBuilder
+            .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
+            .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
+            .SetEnumerateInDescription(false)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .SetUniqueChoices(false)
+            .SetFeatureSet(
+                IlluminatingBurstInitiatorBuilder
+                    .Create("PathOfTheLightIlluminatingBurstInitiator", SubclassNamespace,
+                        IlluminatingBurstSuppressedCondition)
+                    .SetGuiPresentationNoContent(true)
+                    .AddToDB(),
+                PowerIlluminatingBurstBuilder
+                    .Create(IlluminatingBurstName, SubclassNamespace, IlluminatedCondition,
+                        IlluminatingBurstSuppressedCondition)
+                    .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurstPower", Category.Subclass,
+                        PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
+                    .AddToDB(),
+                CreateIlluminatingBurstSuppressor())
+            .AddToDB();
+
+        private static FeatureDefinitionAttackDisadvantageAgainstNonSource DisadvantageAgainstNonSource =>
+            disadvantageAgainstNonSource ??=
+                FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
+                    .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
+                    .SetGuiPresentation("Feature/&NoContentTitle",
+                        "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription")
+                    .SetConditionName(IlluminatedConditionName)
+                    .AddToDB();
+
+        private static FeatureDefinition PreventInvisibility => preventInvisibility ??=
+            FeatureDefinitionFeatureSetBuilder
+                .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
+                .SetGuiPresentation("Feature/&NoContentTitle",
+                    "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription")
+                .SetEnumerateInDescription(false)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .SetUniqueChoices(false)
+                .AddFeatureSet(InvisibleConditions
+                    .Select(ic => FeatureDefinitionConditionAffinityBuilder
+                        .Create("PathOfTheLightIlluminatedPreventInvisibility" + ic.Name, SubclassNamespace)
+                        .SetGuiPresentationNoContent()
+                        .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
+                        .SetConditionType(ic)
+                        .AddToDB()))
+                .AddToDB();
+
+        private static ConditionDefinition IlluminatingBurstSuppressedCondition =>
+            illuminatingBurstSuppressedCondition ??= ConditionDefinitionBuilder
+                .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
+                .SetGuiPresentationNoContent(true)
+                .SetAllowMultipleInstances(false)
+                .SetConditionType(RuleDefinitions.ConditionType.Neutral)
+                .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false) // don't validate inconsistent data
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .AddToDB();
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
+        }
 
         private static void ApplyLightsProtectionHealing(ulong sourceGuid)
         {
@@ -155,9 +225,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
             }
         }
-
-        private static FeatureDefinition eyesOfTruth;
-        private static FeatureDefinition EyesOfTruth => eyesOfTruth ??= CreateEyesOfTruth();
 
         private static FeatureDefinition CreateEyesOfTruth()
         {
@@ -211,29 +278,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .AddToDB();
         }
 
-        private static FeatureDefinition illuminatingBurst;
-
-        private static FeatureDefinition IlluminatingBurst => illuminatingBurst ??= FeatureDefinitionFeatureSetBuilder
-            .Create("PathOfTheLightIlluminatingBurstFeatureSet", SubclassNamespace)
-            .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurst", Category.Subclass)
-            .SetEnumerateInDescription(false)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .SetUniqueChoices(false)
-            .SetFeatureSet(
-                IlluminatingBurstInitiatorBuilder
-                    .Create("PathOfTheLightIlluminatingBurstInitiator", SubclassNamespace,
-                        IlluminatingBurstSuppressedCondition)
-                    .SetGuiPresentationNoContent(true)
-                    .AddToDB(),
-                PowerIlluminatingBurstBuilder
-                    .Create(IlluminatingBurstName, SubclassNamespace, IlluminatedCondition,
-                        IlluminatingBurstSuppressedCondition)
-                    .SetGuiPresentation("BarbarianPathOfTheLightIlluminatingBurstPower", Category.Subclass,
-                        PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference)
-                    .AddToDB(),
-                CreateIlluminatingBurstSuppressor())
-            .AddToDB();
-
         // TODO: create IlluminatingBurstSuppressorBuilder
         private static FeatureDefinition CreateIlluminatingBurstSuppressor()
         {
@@ -267,49 +311,6 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
                 .SetEffectDescription(suppressIlluminatingBurstEffect)
                 .AddToDB();
         }
-
-        private static FeatureDefinitionAttackDisadvantageAgainstNonSource disadvantageAgainstNonSource;
-
-        private static FeatureDefinitionAttackDisadvantageAgainstNonSource DisadvantageAgainstNonSource =>
-            disadvantageAgainstNonSource ??=
-                FeatureDefinitionAttackDisadvantageAgainstNonSourceBuilder
-                    .Create("PathOfTheLightIlluminatedDisadvantage", SubclassNamespace)
-                    .SetGuiPresentation("Feature/&NoContentTitle",
-                        "Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription")
-                    .SetConditionName(IlluminatedConditionName)
-                    .AddToDB();
-
-        // Prevents a creature from turning invisible by "granting" immunity to invisibility
-        private static FeatureDefinition preventInvisibility;
-
-        private static FeatureDefinition PreventInvisibility => preventInvisibility ??=
-            FeatureDefinitionFeatureSetBuilder
-                .Create("PathOfTheLightIlluminatedPreventInvisibility", SubclassNamespace)
-                .SetGuiPresentation("Feature/&NoContentTitle",
-                    "Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription")
-                .SetEnumerateInDescription(false)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetUniqueChoices(false)
-                .AddFeatureSet(InvisibleConditions
-                    .Select(ic => FeatureDefinitionConditionAffinityBuilder
-                        .Create("PathOfTheLightIlluminatedPreventInvisibility" + ic.Name, SubclassNamespace)
-                        .SetGuiPresentationNoContent()
-                        .SetConditionAffinityType(RuleDefinitions.ConditionAffinityType.Immunity)
-                        .SetConditionType(ic)
-                        .AddToDB()))
-                .AddToDB();
-
-        private static ConditionDefinition illuminatingBurstSuppressedCondition;
-
-        private static ConditionDefinition IlluminatingBurstSuppressedCondition =>
-            illuminatingBurstSuppressedCondition ??= ConditionDefinitionBuilder
-                .Create("PathOfTheLightIlluminatingBurstSuppressedCondition", SubclassNamespace)
-                .SetGuiPresentationNoContent(true)
-                .SetAllowMultipleInstances(false)
-                .SetConditionType(RuleDefinitions.ConditionType.Neutral)
-                .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false) // don't validate inconsistent data
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .AddToDB();
 
         private static void HandleAfterIlluminatedConditionRemoved(RulesetActor removedFrom)
         {
@@ -469,7 +470,7 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         }
 
         /// <summary>
-        /// Builds the power that enables Illuminating Strike while you're raging.
+        ///     Builds the power that enables Illuminating Strike while you're raging.
         /// </summary>
         private sealed class IlluminatingStrikeInitiatorBuilder : FeatureDefinitionPowerBuilder
         {
@@ -654,7 +655,8 @@ namespace SolastaCommunityExpansion.Subclasses.Barbarian
         }
 
         /// <summary>
-        /// Builds the power that enables Illuminating Burst on the turn you enter a rage (by removing the condition disabling it).
+        ///     Builds the power that enables Illuminating Burst on the turn you enter a rage (by removing the condition disabling
+        ///     it).
         /// </summary>
         private sealed class IlluminatingBurstInitiatorBuilder : FeatureDefinitionPowerBuilder
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
@@ -136,7 +137,7 @@ namespace SolastaMonsters.Monsters
             var TarrasqueSwallowingCondition = NewMonsterAttacks.BuildNewCondition(
                 "DH_Custom_TarrasqueSwallowingcondition",
                 DatabaseHelper.ConditionDefinitions.ConditionSwallowingRemorhaz,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_TarrasqueSwallowingcondition")
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_TarrasqueSwallowingcondition")
                     .ToString(),
                 "MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title",
                 "MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description"
@@ -149,7 +150,7 @@ namespace SolastaMonsters.Monsters
             var TarrasqueSwallowedCondition = NewMonsterAttacks.BuildNewCondition(
                 "DH_Custom_TarrasqueSwallowedcondition",
                 DatabaseHelper.ConditionDefinitions.ConditionSwallowedRemorhaz,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_TarrasqueSwallowedcondition")
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_TarrasqueSwallowedcondition")
                     .ToString(),
                 "MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title",
                 "MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description"
@@ -161,7 +162,7 @@ namespace SolastaMonsters.Monsters
             TarrasqueSwallowPower = BuildNewPower(
                 text + "DH_Custom",
                 DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -192,7 +193,7 @@ namespace SolastaMonsters.Monsters
             ErinyesParry_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerFeatTwinBlade,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -210,7 +211,7 @@ namespace SolastaMonsters.Monsters
             VampireCharmPower = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -255,7 +256,7 @@ namespace SolastaMonsters.Monsters
             Generic_Lightning_Attack_Power = BuildNewPower(
                 text + "DH_Custom_Power",
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), text + "DH_Custom_Power").ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), text + "DH_Custom_Power").ToString(),
                 "Feature/&DH_" + text + "_Custom_Power_Title",
                 "Feature/&DH_" + text + "_Custom_Power_Description"
             );
@@ -321,8 +322,8 @@ namespace SolastaMonsters.Monsters
             Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBreathEffectparticles = new()
             {
                 {
-                    "Ancient Black Dragon",
-                    DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Acid.EffectDescription
+                    "Ancient Black Dragon", DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Acid
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
@@ -330,13 +331,13 @@ namespace SolastaMonsters.Monsters
                     DatabaseHelper.SpellDefinitions.LightningBolt.EffectDescription.EffectParticleParameters
                 },
                 {
-                    "Ancient Green Dragon",
-                    DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Poison.EffectDescription
+                    "Ancient Green Dragon", DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Poison
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
-                    "Ancient Red Dragon",
-                    DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire.EffectDescription
+                    "Ancient Red Dragon", DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
@@ -354,7 +355,7 @@ namespace SolastaMonsters.Monsters
                 var Dragon_Breath_Power = BuildNewPower(
                     "PowerDragonBreath_DH_Custom_" + text,
                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Fire,
-                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "MonsterPower/&DH_" + text + "_Breath_Power" + "_Title",
                     "MonsterPower/&DH_" + text + "_Breath_Power" + "_Description"
                 );
@@ -388,7 +389,7 @@ namespace SolastaMonsters.Monsters
             Balor_FireAura_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerArrokAuraOfFire,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -410,7 +411,7 @@ namespace SolastaMonsters.Monsters
             Lich_DisruptLife_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -438,7 +439,7 @@ namespace SolastaMonsters.Monsters
             AncientDragon_Wing_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -469,7 +470,7 @@ namespace SolastaMonsters.Monsters
                 SummonCreature_Elemental_Power = BuildNewPower(
                     text,
                     DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
-                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "MonsterPower/&DH_" + text + "_Title",
                     "MonsterPower/&DH_" + text + "_Description"
                 );
@@ -500,7 +501,7 @@ namespace SolastaMonsters.Monsters
             SearingBurst_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -551,7 +552,7 @@ namespace SolastaMonsters.Monsters
             BlindingGaze_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -571,7 +572,7 @@ namespace SolastaMonsters.Monsters
             AtWillSelfBuff_Invisibility_Power = BuildNewPower(
                 text + "_DH_Custom",
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -592,7 +593,7 @@ namespace SolastaMonsters.Monsters
             AtWillAOE_Fireball_Power = BuildNewPower(
                 text + "_DH_Custom",
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -618,7 +619,7 @@ namespace SolastaMonsters.Monsters
             LimitedPerDayTargetDebuff_HoldMonster_Power = BuildNewPower(
                 text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawAnathema,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -648,7 +649,7 @@ namespace SolastaMonsters.Monsters
             LimitedPerDayAOE_WallOfFire_Power = BuildNewPower(
                 text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -676,7 +677,7 @@ namespace SolastaMonsters.Monsters
             SummonCreature_Erinyes_Power = BuildNewPower(
                 text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -700,7 +701,7 @@ namespace SolastaMonsters.Monsters
             SummonCreature_Nalfeshnee_Power = BuildNewPower(
                 text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -725,7 +726,7 @@ namespace SolastaMonsters.Monsters
             SummonCreature_Wolves_Power = BuildNewPower(
                 text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -751,7 +752,7 @@ namespace SolastaMonsters.Monsters
             AirTitan_Gale_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -814,7 +815,7 @@ namespace SolastaMonsters.Monsters
             FireTitan_Aura_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerArrokAuraOfFire,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -837,7 +838,7 @@ namespace SolastaMonsters.Monsters
             AirTitan_Lightning_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -885,7 +886,7 @@ namespace SolastaMonsters.Monsters
             AirTitan_LightningStorm_Attack_Power = BuildNewPower(
                 "LimitedPerDayAOE_" + text + "DH_Custom_Power",
                 DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalLightningBlade,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), text + "DH_Custom_Power").ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), text + "DH_Custom_Power").ToString(),
                 "Feature/&DH_" + text + "_Custom_Power_Title",
                 "Feature/&DH_" + text + "_Custom_Power_Description"
             );
@@ -924,7 +925,7 @@ namespace SolastaMonsters.Monsters
             IlluminatingCrystals_Power = BuildNewPower(
                 "AtWillAOE_DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -949,7 +950,7 @@ namespace SolastaMonsters.Monsters
             DisintegratingBeam_Power = BuildNewPower(
                 "PowerDragonBreath_DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonBreath_Acid,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -987,7 +988,7 @@ namespace SolastaMonsters.Monsters
             IncreasedGravityZone_Power = BuildNewPower(
                 "AtWillAOEDH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -1056,7 +1057,7 @@ namespace SolastaMonsters.Monsters
             SummonCreature_LesserConstruct_Power = BuildNewPower(
                 text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionPaladin,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );
@@ -1082,7 +1083,7 @@ namespace SolastaMonsters.Monsters
             EarthTitan_Earthquake_Power = BuildNewPower(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterPower/&DH_" + text + "_Title",
                 "MonsterPower/&DH_" + text + "_Description"
             );

@@ -9,28 +9,6 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
     {
-        #region Constructors
-
-        protected SpellListDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected SpellListDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
-        {
-        }
-
-        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public SpellListDefinitionBuilder ClearSpells()
         {
             // Clear everything
@@ -105,8 +83,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Sets the max spell level and whether this list has cantrips
-        /// calculated from the spells currently in the list.
+        ///     Sets the max spell level and whether this list has cantrips
+        ///     calculated from the spells currently in the list.
         /// </summary>
         /// <returns></returns>
         public SpellListDefinitionBuilder FinalizeSpells()
@@ -126,7 +104,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Explicitly set the max spell level and whether this list has cantrips
+        ///     Explicitly set the max spell level and whether this list has cantrips
         /// </summary>
         /// <param name="maxLevel"></param>
         /// <param name="hasCantrips"></param>
@@ -137,5 +115,27 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetHasCantrips(hasCantrips);
             return this;
         }
+
+        #region Constructors
+
+        protected SpellListDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

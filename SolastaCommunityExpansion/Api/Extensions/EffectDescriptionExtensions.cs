@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(EffectDescription))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -56,14 +57,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddImmuneCreatureFamilies<T>(this T entity, params System.String[] value)
+        public static T AddImmuneCreatureFamilies<T>(this T entity, params String[] value)
             where T : EffectDescription
         {
             AddImmuneCreatureFamilies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddImmuneCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddImmuneCreatureFamilies<T>(this T entity, IEnumerable<String> value)
             where T : EffectDescription
         {
             entity.ImmuneCreatureFamilies.AddRange(value);
@@ -84,14 +85,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRestrictedCreatureFamilies<T>(this T entity, params System.String[] value)
+        public static T AddRestrictedCreatureFamilies<T>(this T entity, params String[] value)
             where T : EffectDescription
         {
             AddRestrictedCreatureFamilies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddRestrictedCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddRestrictedCreatureFamilies<T>(this T entity, IEnumerable<String> value)
             where T : EffectDescription
         {
             entity.RestrictedCreatureFamilies.AddRange(value);
@@ -129,14 +130,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotTypes<T>(this T entity, params System.String[] value)
+        public static T AddSlotTypes<T>(this T entity, params String[] value)
             where T : EffectDescription
         {
             AddSlotTypes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddSlotTypes<T>(this T entity, IEnumerable<String> value)
             where T : EffectDescription
         {
             entity.SlotTypes.AddRange(value);
@@ -213,7 +214,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetAdvantageForEnemies<T>(this T entity, System.Boolean value)
+        public static T SetAdvantageForEnemies<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.AdvantageForEnemies = value;
@@ -227,21 +228,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanBeDispersed<T>(this T entity, System.Boolean value)
+        public static T SetCanBeDispersed<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("canBeDispersed", value);
             return entity;
         }
 
-        public static T SetCanBePlacedOnCharacter<T>(this T entity, System.Boolean value)
+        public static T SetCanBePlacedOnCharacter<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("canBePlacedOnCharacter", value);
             return entity;
         }
 
-        public static T SetCreatedByCharacter<T>(this T entity, System.Boolean value)
+        public static T SetCreatedByCharacter<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("createdByCharacter", value);
@@ -255,14 +256,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDisableSavingThrowOnAllies<T>(this T entity, System.Boolean value)
+        public static T SetDisableSavingThrowOnAllies<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("disableSavingThrowOnAllies", value);
             return entity;
         }
 
-        public static T SetDurationParameter<T>(this T entity, System.Int32 value)
+        public static T SetDurationParameter<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.DurationParameter = value;
@@ -332,7 +333,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEffectPoolAmount<T>(this T entity, System.Int32 value)
+        public static T SetEffectPoolAmount<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("effectPoolAmount", value);
@@ -346,7 +347,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEmissiveParameter<T>(this T entity, System.Int32 value)
+        public static T SetEmissiveParameter<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("emissiveParameter", value);
@@ -360,7 +361,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFixedSavingThrowDifficultyClass<T>(this T entity, System.Int32 value)
+        public static T SetFixedSavingThrowDifficultyClass<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.FixedSavingThrowDifficultyClass = value;
@@ -374,35 +375,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHalfDamageOnAMiss<T>(this T entity, System.Boolean value)
+        public static T SetHalfDamageOnAMiss<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("halfDamageOnAMiss", value);
             return entity;
         }
 
-        public static T SetHasLimitedEffectPool<T>(this T entity, System.Boolean value)
+        public static T SetHasLimitedEffectPool<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("hasLimitedEffectPool", value);
             return entity;
         }
 
-        public static T SetHasSavingThrow<T>(this T entity, System.Boolean value)
+        public static T SetHasSavingThrow<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.HasSavingThrow = value;
             return entity;
         }
 
-        public static T SetHasShoveRoll<T>(this T entity, System.Boolean value)
+        public static T SetHasShoveRoll<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("hasShoveRoll", value);
             return entity;
         }
 
-        public static T SetHasVelocity<T>(this T entity, System.Boolean value)
+        public static T SetHasVelocity<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("hasVelocity", value);
@@ -423,28 +424,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetIgnoreCover<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreCover<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.IgnoreCover = value;
             return entity;
         }
 
-        public static T SetImmuneCreatureFamilies<T>(this T entity, params System.String[] value)
+        public static T SetImmuneCreatureFamilies<T>(this T entity, params String[] value)
             where T : EffectDescription
         {
             SetImmuneCreatureFamilies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetImmuneCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetImmuneCreatureFamilies<T>(this T entity, IEnumerable<String> value)
             where T : EffectDescription
         {
             entity.ImmuneCreatureFamilies.SetRange(value);
             return entity;
         }
 
-        public static T SetInviteOptionalAlly<T>(this T entity, System.Boolean value)
+        public static T SetInviteOptionalAlly<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("inviteOptionalAlly", value);
@@ -458,28 +459,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetOffsetImpactTimeBasedOnDistance<T>(this T entity, System.Boolean value)
+        public static T SetOffsetImpactTimeBasedOnDistance<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("offsetImpactTimeBasedOnDistance", value);
             return entity;
         }
 
-        public static T SetOffsetImpactTimeBasedOnDistanceFactor<T>(this T entity, System.Single value)
+        public static T SetOffsetImpactTimeBasedOnDistanceFactor<T>(this T entity, Single value)
             where T : EffectDescription
         {
             entity.SetField("offsetImpactTimeBasedOnDistanceFactor", value);
             return entity;
         }
 
-        public static T SetOffsetImpactTimePerTarget<T>(this T entity, System.Single value)
+        public static T SetOffsetImpactTimePerTarget<T>(this T entity, Single value)
             where T : EffectDescription
         {
             entity.SetField("offsetImpactTimePerTarget", value);
             return entity;
         }
 
-        public static T SetPoolFilterDiceNumber<T>(this T entity, System.Int32 value)
+        public static T SetPoolFilterDiceNumber<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("poolFilterDiceNumber", value);
@@ -493,7 +494,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRangeParameter<T>(this T entity, System.Int32 value)
+        public static T SetRangeParameter<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("rangeParameter", value);
@@ -514,14 +515,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiresTargetProximity<T>(this T entity, System.Boolean value)
+        public static T SetRequiresTargetProximity<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("requiresTargetProximity", value);
             return entity;
         }
 
-        public static T SetRequiresVisibilityForPosition<T>(this T entity, System.Boolean value)
+        public static T SetRequiresVisibilityForPosition<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("requiresVisibilityForPosition", value);
@@ -542,14 +543,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRestrictedCreatureFamilies<T>(this T entity, params System.String[] value)
+        public static T SetRestrictedCreatureFamilies<T>(this T entity, params String[] value)
             where T : EffectDescription
         {
             SetRestrictedCreatureFamilies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetRestrictedCreatureFamilies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetRestrictedCreatureFamilies<T>(this T entity, IEnumerable<String> value)
             where T : EffectDescription
         {
             entity.RestrictedCreatureFamilies.SetRange(value);
@@ -563,14 +564,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRetargetAfterDeath<T>(this T entity, System.Boolean value)
+        public static T SetRetargetAfterDeath<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("retargetAfterDeath", value);
             return entity;
         }
 
-        public static T SetSavingThrowAbility<T>(this T entity, System.String value)
+        public static T SetSavingThrowAbility<T>(this T entity, String value)
             where T : EffectDescription
         {
             entity.SavingThrowAbility = value;
@@ -608,35 +609,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowDifficultyAbility<T>(this T entity, System.String value)
+        public static T SetSavingThrowDifficultyAbility<T>(this T entity, String value)
             where T : EffectDescription
         {
             entity.SavingThrowDifficultyAbility = value;
             return entity;
         }
 
-        public static T SetSlotTypes<T>(this T entity, params System.String[] value)
+        public static T SetSlotTypes<T>(this T entity, params String[] value)
             where T : EffectDescription
         {
             SetSlotTypes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetSlotTypes<T>(this T entity, IEnumerable<String> value)
             where T : EffectDescription
         {
             entity.SlotTypes.SetRange(value);
             return entity;
         }
 
-        public static T SetSpecialFormsDescription<T>(this T entity, System.String value)
+        public static T SetSpecialFormsDescription<T>(this T entity, String value)
             where T : EffectDescription
         {
             entity.SetField("specialFormsDescription", value);
             return entity;
         }
 
-        public static T SetSpeedParameter<T>(this T entity, System.Single value)
+        public static T SetSpeedParameter<T>(this T entity, Single value)
             where T : EffectDescription
         {
             entity.SetField("speedParameter", value);
@@ -657,14 +658,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTargetConditionName<T>(this T entity, System.String value)
+        public static T SetTargetConditionName<T>(this T entity, String value)
             where T : EffectDescription
         {
             entity.SetField("targetConditionName", value);
             return entity;
         }
 
-        public static T SetTargetExcludeCaster<T>(this T entity, System.Boolean value)
+        public static T SetTargetExcludeCaster<T>(this T entity, Boolean value)
             where T : EffectDescription
         {
             entity.SetField("targetExcludeCaster", value);
@@ -685,21 +686,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTargetParameter<T>(this T entity, System.Int32 value)
+        public static T SetTargetParameter<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("targetParameter", value);
             return entity;
         }
 
-        public static T SetTargetParameter2<T>(this T entity, System.Int32 value)
+        public static T SetTargetParameter2<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("targetParameter2", value);
             return entity;
         }
 
-        public static T SetTargetProximityDistance<T>(this T entity, System.Int32 value)
+        public static T SetTargetProximityDistance<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("targetProximityDistance", value);
@@ -727,7 +728,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetVelocityCellsPerRound<T>(this T entity, System.Int32 value)
+        public static T SetVelocityCellsPerRound<T>(this T entity, Int32 value)
             where T : EffectDescription
         {
             entity.SetField("velocityCellsPerRound", value);

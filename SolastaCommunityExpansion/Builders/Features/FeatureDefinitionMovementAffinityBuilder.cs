@@ -6,6 +6,12 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionMovementAffinityBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionMovementAffinity, FeatureDefinitionMovementAffinityBuilder>
     {
+        public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedAdditiveModifier(int value)
+        {
+            Definition.SetBaseSpeedAdditiveModifier(value);
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionMovementAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -28,11 +34,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedAdditiveModifier(int value)
-        {
-            Definition.SetBaseSpeedAdditiveModifier(value);
-            return this;
-        }
     }
 }

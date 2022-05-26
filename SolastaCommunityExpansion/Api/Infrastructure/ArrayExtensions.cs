@@ -21,8 +21,6 @@ namespace SolastaModApi.Infrastructure
 
     internal class ArrayTraverse
     {
-        public int[] Position { get; private set; }
-
         private readonly int[] maxLengths;
 
         public ArrayTraverse(Array array)
@@ -35,6 +33,8 @@ namespace SolastaModApi.Infrastructure
 
             Position = new int[array.Rank];
         }
+
+        public int[] Position { get; }
 
         public bool Step()
         {

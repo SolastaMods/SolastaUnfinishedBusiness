@@ -2,8 +2,6 @@
 {
     public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
     {
-        private string attackerName { get; set; }
-
         public ReactionRequestCastDamageSpell(
             CharacterActionParams actionParams,
             GameLocationCharacter attacker, bool isCanrip)
@@ -12,6 +10,8 @@
             attackerName = attacker.Name;
             if (!isCanrip) { BuildSlotSubOptions(); }
         }
+
+        private string attackerName { get; }
 
         public override string SuboptionTag => "SlotLevel";
 

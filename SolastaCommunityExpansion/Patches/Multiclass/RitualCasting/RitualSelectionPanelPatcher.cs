@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
@@ -69,7 +70,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
                     continue;
                 }
 
-                var maxSpellLevel = Models.SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
+                var maxSpellLevel = SharedSpellsContext.GetClassSpellLevel(spellRepertoire);
 
                 if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.Prepared
                     && spellRepertoire.SpellCastingFeature.SpellReadyness == RuleDefinitions.SpellReadyness.Prepared

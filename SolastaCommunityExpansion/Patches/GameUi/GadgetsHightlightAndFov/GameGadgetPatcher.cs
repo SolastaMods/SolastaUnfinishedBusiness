@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using TA;
 
@@ -24,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                 .SelectMany(a => a.UserGadgets)
                 .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
 
-            if (userGadget == null || !Models.GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
+            if (userGadget == null || !GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
             {
                 return;
             }

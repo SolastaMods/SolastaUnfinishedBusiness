@@ -11,11 +11,20 @@ using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public abstract class DefinitionBuilder
     {
+        private protected static readonly MethodInfo GetDatabaseMethodInfo =
+            typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
+
+        public static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
+
+        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
+            GetAllDefinitionNames();
+
         // NOTE: CreateGuid uses .ToString() which results in a guid of form b503ccb3-faac-4730-804c-d537bb61a582
         public static string CreateGuid(Guid guid, string name)
         {
@@ -64,9 +73,6 @@ namespace SolastaCommunityExpansion.Builders
             DefinitionNames.Add(definitionName, (definitionTypeName, true));
         }
 
-        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
-            GetAllDefinitionNames();
-
         private static Dictionary<string, (string typeName, bool isCeDef)> GetAllDefinitionNames()
         {
             var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
@@ -83,11 +89,6 @@ namespace SolastaCommunityExpansion.Builders
 
             return definitions;
         }
-
-        private protected static readonly MethodInfo GetDatabaseMethodInfo =
-            typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
-
-        public static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
@@ -95,9 +96,9 @@ namespace SolastaCommunityExpansion.Builders
     // Ok, could have used a different name...
     public interface IDefinitionBuilder
     {
+        string Name { get; }
         void SetGuiPresentation(GuiPresentation presentation);
         GuiPresentation GetGuiPresentation();
-        string Name { get; }
     }
 
     /// <summary>
@@ -107,6 +108,25 @@ namespace SolastaCommunityExpansion.Builders
     public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
         where TDefinition : BaseDefinition
     {
+        /// <summary>
+        ///     Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
+        /// </summary>
+        protected bool IsNew { get; }
+
+        protected TDefinition Definition { get; }
+
+        /// <summary>
+        ///     Implement in derived builders to enforce any require preconditions, values etc, e.g.
+        ///     <code>Definition.EffectDescription = new ();</code>
+        /// </summary>
+        protected virtual void Initialise() { }
+
+        /// <summary>
+        ///     Called before the definition is added to the databases.
+        ///     Verify post-condition checks here.
+        /// </summary>
+        internal virtual void Validate() { }
+
         #region Helpers
 
         // Explicit implementation not visible by default so doesn't clash with other extension methods
@@ -133,7 +153,7 @@ namespace SolastaCommunityExpansion.Builders
             void InitializeCollectionFields(Type type)
             {
                 if (type == null || type == typeof(object) || type == typeof(BaseDefinition) ||
-                    type == typeof(UnityEngine.Object))
+                    type == typeof(Object))
                 {
                     return;
                 }
@@ -177,7 +197,8 @@ namespace SolastaCommunityExpansion.Builders
         #region Constructors
 
         /// <summary>
-        /// Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
+        ///     Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid" /> plus
+        ///     <paramref name="name" />.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
@@ -187,7 +208,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create a new instance of TDefinition.  Assign the supplied guid as the definition guid.
+        ///     Create a new instance of TDefinition.  Assign the supplied guid as the definition guid.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
@@ -237,7 +258,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create a clone of <paramref name="original"/> and rename as <paramref name="name"/>. Automatically generate a guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
+        ///     Create a clone of <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a
+        ///     guid from <paramref name="namespaceGuid" /> plus <paramref name="name" />.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -248,7 +270,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create clone and rename as <paramref name="name"/>. Assign the supplied <paramref name="definitionGuid"/> as the definition guid.
+        ///     Create clone and rename as <paramref name="name" />. Assign the supplied <paramref name="definitionGuid" /> as the
+        ///     definition guid.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -268,7 +291,7 @@ namespace SolastaCommunityExpansion.Builders
             var originalName = original.name;
             var originalGuid = original.GUID;
 
-            Definition = UnityEngine.Object.Instantiate(original);
+            Definition = Object.Instantiate(original);
             Definition.name = name;
 
             VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
@@ -299,7 +322,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Take ownership of a definition without changing the name or guid.
+        ///     Take ownership of a definition without changing the name or guid.
         /// </summary>
         /// <param name="original">The definition</param>
         private protected DefinitionBuilder(TDefinition original)
@@ -310,31 +333,14 @@ namespace SolastaCommunityExpansion.Builders
 
         #endregion
 
-        /// <summary>
-        /// Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
-        /// </summary>
-        protected bool IsNew { get; }
-
-        /// <summary>
-        /// Implement in derived builders to enforce any require preconditions, values etc, e.g.
-        /// <code>Definition.EffectDescription = new ();</code>
-        /// </summary>
-        protected virtual void Initialise() { }
-
-        /// <summary>
-        /// Called before the definition is added to the databases.
-        /// Verify post-condition checks here.
-        /// </summary>
-        internal virtual void Validate() { }
-
         #region Add to dbs
 
         /// <summary>
-        /// Add the TDefinition to every compatible database
+        ///     Add the TDefinition to every compatible database
         /// </summary>
         /// <remarks>
-        /// By default AddToDB will set the copyright to 'User Content' and the content pack to 'Community Expansion'.
-        /// To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
+        ///     By default AddToDB will set the copyright to 'User Content' and the content pack to 'Community Expansion'.
+        ///     To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
         /// </remarks>
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
@@ -345,7 +351,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Add the TDefinition to every compatible database
+        ///     Add the TDefinition to every compatible database
         /// </summary>
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
@@ -514,14 +520,12 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
-
-        protected TDefinition Definition { get; }
     }
 
     /// <summary>
     ///     <para>Base class builder for all classes derived from BaseDefinition (for internal use only).</para>
     ///     <para>
-    ///     This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder"/>.  
+    ///         This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder" />.
     ///     </para>
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
@@ -546,8 +550,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Override this in a derived builder (and set to true) to disable the standard set of Create methods.
-        /// You must then provide your own specialized constructor and/or Create method.
+        ///     Override this in a derived builder (and set to true) to disable the standard set of Create methods.
+        ///     You must then provide your own specialized constructor and/or Create method.
         /// </summary>
         protected virtual bool DisableStandardCreateMethods => false;
 
@@ -583,7 +587,8 @@ namespace SolastaCommunityExpansion.Builders
         // use private ctors in Create methods
 
         /// <summary>
-        /// Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
+        ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
+        ///     <paramref name="namespaceGuid" /> plus <paramref name="name" />.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
@@ -593,7 +598,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create a new instance of TBuilder with an associated Definition.  Assign the supplied guid as the definition guid.
+        ///     Create a new instance of TBuilder with an associated Definition.  Assign the supplied guid as the definition guid.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
@@ -603,7 +608,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create clone or <paramref name="original"/> and rename as <paramref name="name"/>. Automatically generate a guid from <paramref name="name"/> plus <paramref name="namespaceGuid"/>.
+        ///     Create clone or <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a guid
+        ///     from <paramref name="name" /> plus <paramref name="namespaceGuid" />.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -614,7 +620,8 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Create clone and rename as <paramref name="name"/>. Assign the supplied <paramref name="definitionGuid"/> as the definition guid.
+        ///     Create clone and rename as <paramref name="name" />. Assign the supplied <paramref name="definitionGuid" /> as the
+        ///     definition guid.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>

@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(RulesetActor))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -231,7 +232,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCurrentHitPoints<T>(this T entity, System.Int32 value)
+        public static T SetCurrentHitPoints<T>(this T entity, Int32 value)
             where T : RulesetActor
         {
             entity.SetProperty("CurrentHitPoints", value);
@@ -294,7 +295,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForcedName<T>(this T entity, System.String value)
+        public static T SetForcedName<T>(this T entity, String value)
             where T : RulesetActor
         {
             entity.SetField("<ForcedName>k__BackingField", value);
@@ -358,35 +359,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMatchingCancellingCondition<T>(this T entity, System.Boolean value)
+        public static T SetMatchingCancellingCondition<T>(this T entity, Boolean value)
             where T : RulesetActor
         {
             entity.SetField("matchingCancellingCondition", value);
             return entity;
         }
 
-        public static T SetMatchingInterruption<T>(this T entity, System.Boolean value)
+        public static T SetMatchingInterruption<T>(this T entity, Boolean value)
             where T : RulesetActor
         {
             entity.SetField("matchingInterruption", value);
             return entity;
         }
 
-        public static T SetMaxExtentY<T>(this T entity, System.Int32 value)
+        public static T SetMaxExtentY<T>(this T entity, Int32 value)
             where T : RulesetActor
         {
             entity.SetProperty("MaxExtentY", value);
             return entity;
         }
 
-        public static T SetName<T>(this T entity, System.String value)
+        public static T SetName<T>(this T entity, String value)
             where T : RulesetActor
         {
             entity.Name = value;
             return entity;
         }
 
-        public static T SetPostLoaded<T>(this T entity, System.Boolean value)
+        public static T SetPostLoaded<T>(this T entity, Boolean value)
             where T : RulesetActor
         {
             entity.SetField("<PostLoaded>k__BackingField", value);
@@ -422,7 +423,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSortIndex<T>(this T entity, System.Int32 value)
+        public static T SetSortIndex<T>(this T entity, Int32 value)
             where T : RulesetActor
         {
             entity.SortIndex = value;

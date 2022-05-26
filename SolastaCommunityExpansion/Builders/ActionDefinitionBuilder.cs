@@ -5,6 +5,12 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, ActionDefinitionBuilder>
     {
+        public ActionDefinitionBuilder SetId(ActionDefinitions.Id value)
+        {
+            Definition.SetId(value);
+            return this;
+        }
+
         #region Constructors
 
         protected ActionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -26,11 +32,5 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
-
-        public ActionDefinitionBuilder SetId(ActionDefinitions.Id value)
-        {
-            Definition.SetId(value);
-            return this;
-        }
     }
 }

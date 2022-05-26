@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -29,7 +30,7 @@ namespace SolastaMonsters.Monsters
                 //DatabaseHelper.MonsterDefinitions.Golem_Iron						// CR 16
             };
 
-            if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+            if (Main.Settings.EnableExtraHighLevelMonsters)
             {
                 foreach (var monster in listofExistingMonsters)
                 {

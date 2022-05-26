@@ -12,16 +12,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private static readonly Guid SubclassNamespace = new("d4732dc2-c4f9-4a35-a12a-ae2d7858ff74");
         private readonly CharacterSubclassDefinition Subclass;
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
-        }
-
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
-
         internal SpellShield()
         {
             var magicAffinity = FeatureDefinitionMagicAffinityBuilder
@@ -125,6 +115,16 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .AddFeatureAtLevel(bonusSpell, 10)
                 .AddFeatureAtLevel(arcaneDeflectionPower, 15)
                 .AddFeatureAtLevel(actionAffinitySpellShieldRangedDefense, 18).AddToDB();
+        }
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
         }
     }
 }

@@ -8,29 +8,30 @@ namespace SolastaCommunityExpansion.DataViewer
 {
     public class ReflectionTreeView
     {
-        private ReflectionTree _tree;
         private readonly ReflectionSearchResult _searchResults = new();
+        private GUIStyle _buttonStyle;
         private float _height;
         private bool _mouseOver;
-        private GUIStyle _buttonStyle;
-        private GUIStyle _valueStyle;
-        private int _totalNodeCount;
         private int _nodesCount;
-        private int _startIndex;
         private int _skipLevels;
-        private string searchText = "";
-        private int visitCount;
-        private int searchDepth;
-        private int searchBreadth;
-
-        private void updateCounts(int visitCount, int depth, int breadth)
-        {
-            this.visitCount = visitCount;
-            searchDepth = depth;
-            searchBreadth = breadth;
-        }
+        private int _startIndex;
+        private int _totalNodeCount;
+        private ReflectionTree _tree;
+        private GUIStyle _valueStyle;
 
         private Rect _viewerRect;
+        private int searchBreadth;
+        private int searchDepth;
+        private string searchText = "";
+        private int visitCount;
+
+        public ReflectionTreeView() { }
+
+        public ReflectionTreeView(object root)
+        {
+            SetRoot(root);
+        }
+
         public float DepthDelta { get; set; } = 30f;
 
         public static int MaxRows => Main.Settings.MaxRows;
@@ -39,11 +40,11 @@ namespace SolastaCommunityExpansion.DataViewer
 
         public float TitleMinWidth { get; set; } = 300f;
 
-        public ReflectionTreeView() { }
-
-        public ReflectionTreeView(object root)
+        private void updateCounts(int visitCount, int depth, int breadth)
         {
-            SetRoot(root);
+            this.visitCount = visitCount;
+            searchDepth = depth;
+            searchBreadth = breadth;
         }
 
         public void Clear()

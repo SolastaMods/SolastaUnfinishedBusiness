@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using SolastaMonsters.Models;
 using UnityEngine.AddressableAssets;
 
 //******************************************************************************************
@@ -13,9 +15,9 @@ namespace SolastaMonsters.Monsters
 {
     internal static class MonstersHomebrew
     {
-        public static List<Models.MonsterContext.CustomMonster> Definitions = new()
+        public static List<MonsterContext.CustomMonster> Definitions = new()
         {
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Air Titan",
                 CR = 23,
@@ -73,7 +75,7 @@ namespace SolastaMonsters.Monsters
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityThunderImmunity
                 }
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Earth Titan",
                 CR = 20,
@@ -124,7 +126,7 @@ namespace SolastaMonsters.Monsters
                         .AttackModifierMartialSpellBladeMagicWeapon
                 }
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Fire Titan",
                 CR = 23,
@@ -180,7 +182,7 @@ namespace SolastaMonsters.Monsters
                         .AttackModifierMartialSpellBladeMagicWeapon
                 }
             },
-            new Models.MonsterContext.CustomMonster
+            new MonsterContext.CustomMonster
             {
                 MonsterName = "Construct Titan",
                 CR = 25,
@@ -265,9 +267,9 @@ namespace SolastaMonsters.Monsters
                         Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
                 NewMonster.SetInDungeonEditor(false);
-                if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+                if (Main.Settings.EnableExtraHighLevelMonsters)
                 {
-                    NewMonster.SetInDungeonEditor(SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters);
+                    NewMonster.SetInDungeonEditor(Main.Settings.EnableExtraHighLevelMonsters);
                 }
 
                 ;

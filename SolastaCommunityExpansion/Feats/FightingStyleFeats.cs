@@ -51,11 +51,15 @@ namespace SolastaCommunityExpansion.Feats
 
                     if (!hasFightingStyle)
                     {
-                        return (true, Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()));
+                        return (true,
+                            Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
+                                fightingStyle.FormatTitle()));
                     }
 
                     return (false,
-                        Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()),
+                        Gui.Colorize(
+                            Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
+                                fightingStyle.FormatTitle()),
                             "EA7171"));
                 })
                 .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
@@ -80,11 +84,15 @@ namespace SolastaCommunityExpansion.Feats
 
                     if (!hasFightingStyle)
                     {
-                        return (true, Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()));
+                        return (true,
+                            Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
+                                fightingStyle.FormatTitle()));
                     }
 
                     return (false,
-                        Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()),
+                        Gui.Colorize(
+                            Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle",
+                                fightingStyle.FormatTitle()),
                             "EA7171"));
                 })
                 .SetGuiPresentation(Category.Feat)

@@ -12,6 +12,7 @@ using static ConditionOperationDescription;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
+using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -54,7 +55,7 @@ namespace SolastaCommunityExpansion.Spells
             return SpellDefinitionBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
-                    CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Properties.Resources.SunlightBlade, 128,
+                    CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128,
                         128))
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
@@ -188,7 +189,7 @@ namespace SolastaCommunityExpansion.Spells
             return SpellDefinitionBuilder
                 .Create("EWResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
-                    CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Properties.Resources.ResonatingStrike,
+                    CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike,
                         128, 128)) //TODO: replace sprite with actual image
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
@@ -268,8 +269,8 @@ namespace SolastaCommunityExpansion.Spells
 
     internal class ChainSpellEffectOnAttackHit : IChainMagicEffect
     {
-        private readonly SpellDefinition _spell;
         private readonly string _notificationTag;
+        private readonly SpellDefinition _spell;
 
 
         public ChainSpellEffectOnAttackHit(SpellDefinition spell, string notificationTag = null)

@@ -9,28 +9,6 @@ namespace SolastaCommunityExpansion.Builders
         CharacterSubclassDefinitionBuilder : DefinitionBuilder<CharacterSubclassDefinition,
             CharacterSubclassDefinitionBuilder>
     {
-        #region Constructors
-
-        protected CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected CharacterSubclassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public CharacterSubclassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
         {
             Definition.PersonalityFlagOccurences.Add(
@@ -61,5 +39,27 @@ namespace SolastaCommunityExpansion.Builders
             Definition.FeatureUnlocks.Sort(Sorting.Compare);
             return this;
         }
+
+        #region Constructors
+
+        protected CharacterSubclassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected CharacterSubclassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected CharacterSubclassDefinitionBuilder(CharacterSubclassDefinition original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

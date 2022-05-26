@@ -36,7 +36,7 @@ namespace SolastaCommunityExpansion.Models
         }
 
         /// <summary>
-        /// Allow the user to select targets when using 'Chain Lightning'.
+        ///     Allow the user to select targets when using 'Chain Lightning'.
         /// </summary>
         internal static void AllowTargetingSelectionWhenCastingChainLightningSpell()
         {

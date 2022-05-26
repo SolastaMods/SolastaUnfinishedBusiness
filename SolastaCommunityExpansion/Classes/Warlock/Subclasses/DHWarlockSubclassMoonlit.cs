@@ -266,11 +266,48 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,
         ICustomConditionFeature
     {
+        private static readonly string CATEGORY_REVEALED = "MoonlitRevealed";
+        private static readonly string CATEGORY_HIDDEN = "MoonlitHidden";
         private static ConditionDefinition RevealedCondition { get; set; }
         private static ConditionDefinition InvisibilityCondition { get; set; }
 
-        private static readonly string CATEGORY_REVEALED = "MoonlitRevealed";
-        private static readonly string CATEGORY_HIDDEN = "MoonlitHidden";
+        public void ApplyFeature(RulesetCharacter hero)
+        {
+            if (!hero.HasConditionOfType(RevealedCondition))
+            {
+                BecomeInvisible(hero);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter hero)
+        {
+            hero.RemoveAllConditionsOfCategory(CATEGORY_HIDDEN, false);
+        }
+
+        public void OnBeforeAction(CharacterAction characterAction)
+        {
+            // Let's try this invis without movement breaking it
+            // var hero = characterAction.ActingCharacter.RulesetCharacter;
+            // var action = characterAction.ActionDefinition;
+            //
+            // if (action == ExplorationMove || action == TacticalMove)
+            //     BecomeRevealed(hero);
+        }
+
+        public void OnAfterAction(CharacterAction characterAction)
+        {
+            var hero = characterAction.ActingCharacter.RulesetCharacter;
+            var action = characterAction.ActionDefinition;
+
+            if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith("Power"))
+            {
+                var ruleEffect = characterAction.ActionParams.RulesetEffect;
+                if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+                {
+                    BecomeRevealed(hero);
+                }
+            }
+        }
 
         public static FeatureDefinition Build()
         {
@@ -369,44 +406,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 hero.Guid,
                 hero.CurrentFaction.Name
             ), false);
-        }
-
-        public void OnBeforeAction(CharacterAction characterAction)
-        {
-            // Let's try this invis without movement breaking it
-            // var hero = characterAction.ActingCharacter.RulesetCharacter;
-            // var action = characterAction.ActionDefinition;
-            //
-            // if (action == ExplorationMove || action == TacticalMove)
-            //     BecomeRevealed(hero);
-        }
-
-        public void OnAfterAction(CharacterAction characterAction)
-        {
-            var hero = characterAction.ActingCharacter.RulesetCharacter;
-            var action = characterAction.ActionDefinition;
-
-            if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith("Power"))
-            {
-                var ruleEffect = characterAction.ActionParams.RulesetEffect;
-                if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
-                {
-                    BecomeRevealed(hero);
-                }
-            }
-        }
-
-        public void ApplyFeature(RulesetCharacter hero)
-        {
-            if (!hero.HasConditionOfType(RevealedCondition))
-            {
-                BecomeInvisible(hero);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacter hero)
-        {
-            hero.RemoveAllConditionsOfCategory(CATEGORY_HIDDEN, false);
         }
 
         private class FeatureDefinitionMoonlitInvisibilityBuilder : FeatureDefinitionBuilder<

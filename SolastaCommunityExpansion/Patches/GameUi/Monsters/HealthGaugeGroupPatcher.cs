@@ -6,8 +6,8 @@ using UnityEngine;
 namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 {
     /// <summary>
-    /// This mods the horizontal gauge in the monster tooltip.
-    /// The gauge now shows health in steps instead of a continuous value.
+    ///     This mods the horizontal gauge in the monster tooltip.
+    ///     The gauge now shows health in steps instead of a continuous value.
     /// </summary>
     [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

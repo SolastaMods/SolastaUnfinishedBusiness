@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Builders.Features;
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
     /// <summary>
-    /// Imposes disadvantage when attacking anyone but the source of the specified condition.
+    ///     Imposes disadvantage when attacking anyone but the source of the specified condition.
     /// </summary>
     public class FeatureDefinitionAttackDisadvantageAgainstNonSource : FeatureDefinition, ICombatAffinityProvider
     {

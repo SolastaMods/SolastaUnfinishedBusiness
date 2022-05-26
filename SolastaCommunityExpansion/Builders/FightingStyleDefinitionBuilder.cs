@@ -10,6 +10,18 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : FightingStyleDefinition
         where TBuilder : FightingStyleDefinitionBuilder<TDefinition, TBuilder>
     {
+        public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
+        {
+            Definition.SetFeatures(features.OrderBy(f => f.Name));
+            Definition.Features.Sort(Sorting.Compare);
+            return This();
+        }
+
+        public TBuilder SetFeatures(params FeatureDefinition[] features)
+        {
+            return SetFeatures(features.AsEnumerable());
+        }
+
         #region Constructors
 
         protected FightingStyleDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -31,17 +43,5 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
-
-        public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
-        {
-            Definition.SetFeatures(features.OrderBy(f => f.Name));
-            Definition.Features.Sort(Sorting.Compare);
-            return This();
-        }
-
-        public TBuilder SetFeatures(params FeatureDefinition[] features)
-        {
-            return SetFeatures(features.AsEnumerable());
-        }
     }
 }

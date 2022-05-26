@@ -36,6 +36,41 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
+        public UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
+        {
+            description.SetOutOfChargesConsequence(consequence);
+            return this;
+        }
+
+        public UsableDeviceDescriptionBuilder SetMagicAttackBonus(int bonus)
+        {
+            description.SetMagicAttackBonus(bonus);
+            return this;
+        }
+
+        public UsableDeviceDescriptionBuilder SetSaveDC(int DC)
+        {
+            description.SetSaveDC(DC);
+            return this;
+        }
+
+        public UsableDeviceDescriptionBuilder SetOnUseParticle(AssetReference asset)
+        {
+            description.SetOnUseParticle(asset);
+            return this;
+        }
+
+        public UsableDeviceDescriptionBuilder AddFunctions(params DeviceFunctionDescription[] functions)
+        {
+            description.DeviceFunctions.AddRange(functions);
+            return this;
+        }
+
+        public UsableDeviceDescription Build()
+        {
+            return description;
+        }
+
         #region Charge
 
         public UsableDeviceDescriptionBuilder SetCharges(
@@ -117,40 +152,5 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
-
-        public UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
-        {
-            description.SetOutOfChargesConsequence(consequence);
-            return this;
-        }
-
-        public UsableDeviceDescriptionBuilder SetMagicAttackBonus(int bonus)
-        {
-            description.SetMagicAttackBonus(bonus);
-            return this;
-        }
-
-        public UsableDeviceDescriptionBuilder SetSaveDC(int DC)
-        {
-            description.SetSaveDC(DC);
-            return this;
-        }
-
-        public UsableDeviceDescriptionBuilder SetOnUseParticle(AssetReference asset)
-        {
-            description.SetOnUseParticle(asset);
-            return this;
-        }
-
-        public UsableDeviceDescriptionBuilder AddFunctions(params DeviceFunctionDescription[] functions)
-        {
-            description.DeviceFunctions.AddRange(functions);
-            return this;
-        }
-
-        public UsableDeviceDescription Build()
-        {
-            return description;
-        }
     }
 }

@@ -18,6 +18,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "ProtectorConstructFeatureSet";
         private const string Guid = "9b699719-0d02-4949-ad94-cff6a05f36c7";
 
+        public static readonly FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
+
         private ProtectorConstructFeatureSetBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
         {
@@ -35,14 +37,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructFeatureSetBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
     }
 
     public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
     {
         private const string Name = "ProtectorConstructLevel3AutopreparedSpells";
         private const string Guid = "25403813-58eb-47f4-b5ee-b7956cc02ccf";
+
+        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel3AutopreparedSpells =
+            CreateAndAddToDB(Name, Guid);
 
         private ProtectorConstructLevel3AutopreparedSpellsBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
@@ -64,9 +67,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructLevel3AutopreparedSpellsBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel3AutopreparedSpells =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -77,6 +77,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string Name = "SummoningAffinityTinkererConstruct";
         private const string Guid = "0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b";
+
+        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct =
+            CreateAndAddToDB(Name, Guid);
 
         private SummoningAffinityTinkererConstructBuilder(string name, string guid)
             : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
@@ -123,9 +126,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummoningAffinityTinkererConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -136,6 +136,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonProtectorConstructName = "SummonProtectorConstruct";
         private const string SummonProtectorConstructNameGuid = "20b5ab3e-5124-4d08-9907-347f2f1284d4";
+
+        public static readonly FeatureDefinitionPower SummonProtectorConstruct =
+            CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
 
         private SummonProtectorPowerConstructBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionCleric, name, guid)
@@ -168,9 +171,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonProtectorPowerConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower SummonProtectorConstruct =
-            CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -181,6 +181,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string Name = "SummonProtectorPowerConstruct_Upgrade";
         private const string Guid = "34c307e9-5883-438c-9130-1f286b9cdafc";
+
+        public static readonly FeatureDefinitionPower SummonProtectorPowerConstructUpgrade =
+            CreateAndAddToDB(Name, Guid);
 
         private SummonProtectorPowerConstructUpgradeBuilder(string name, string guid) : base(
             SummonProtectorPowerConstructBuilder.SummonProtectorConstruct, name, guid)
@@ -198,9 +201,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonProtectorPowerConstructUpgradeBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower SummonProtectorPowerConstructUpgrade =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -211,6 +211,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonProtectorConstructName = "SummonProtectorConstruct";
         private const string SummonProtectorConstructNameGuid = "60f2462e-b801-48ee-a543-c69771e3917c";
+
+        public static readonly SpellDefinition SummonProtectorConstruct =
+            CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
 
         private SummonProtectorSpellConstructBuilder(string name, string guid) : base(
             DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
@@ -236,9 +239,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonProtectorSpellConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonProtectorConstruct =
-            CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
     }
     //*****************************************************************************************************************************************
     //***********************************		SummonProtectorSpellConstruct_UpgradeBuilder		*******************************************************************
@@ -252,6 +252,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string Name = "SummonProtectorConstruct_Upgrade";
         private const string Guid = "ccd2a793-e566-4c1e-9588-ac36b578ae89";
+
+        public static readonly SpellDefinition SummonProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
 
         private SummonProtectorSpellConstructUpgradeBuilder(string name, string guid) : base(
             SummonProtectorSpellConstructBuilder.SummonProtectorConstruct, name, guid)
@@ -267,14 +269,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonProtectorSpellConstructUpgradeBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
     }
 
     public sealed class ProtectorConstructLevel15AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
     {
         private const string Name = "ProtectorConstructLevel15AutopreparedSpells";
         private const string Guid = "4515c27b-f17b-4262-9e8c-a19c251f666e";
+
+        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel15AutopreparedSpells =
+            CreateAndAddToDB(Name, Guid);
 
         private ProtectorConstructLevel15AutopreparedSpellsBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
@@ -298,9 +301,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructLevel15AutopreparedSpellsBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel15AutopreparedSpells =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -311,6 +311,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string Name = "ProtectorConstructUpgradeFeatureSet";
         private const string Guid = "59bc566d-5204-4e53-89cb-eebc537ae6ab";
+
+        public static readonly FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet =
+            CreateAndAddToDB(Name, Guid);
 
         private ProtectorConstructUpgradeFeatureSetBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
@@ -328,9 +331,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructUpgradeFeatureSetBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -341,6 +341,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string ProtectorConstructName = "ProtectorConstruct";
         private const string ProtectorConstructNameGuid = "db1cd36f-7dc7-454f-baeb-143cd9dd374f";
+
+        public static readonly MonsterDefinition ProtectorConstruct =
+            CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
 
         private ProtectorConstructBuilder(string name, string guid) : base(
             DatabaseHelper.MonsterDefinitions.ConjuredEightBeast_Wolf, name, guid)
@@ -407,9 +410,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition ProtectorConstruct =
-            CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
     }
     //*****************************************************************************************************************************************
     //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
@@ -419,6 +419,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string Name = "ProtectorConstruct_Upgrade";
         private const string Guid = "c6f711d8-9b83-497f-8e90-6440776cf644";
+
+        public static readonly MonsterDefinition ProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
 
         private ProtectorConstructUpgradeBuilder(string name, string guid) : base(
             ProtectorConstructBuilder.ProtectorConstruct, name, guid)
@@ -434,8 +436,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructUpgradeBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition ProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -446,6 +446,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string ProtectorConstructAttacksName = "ProtectorConstructAttacks";
         private const string ProtectorConstructAttacksGuid = "dad5a3f6-3b44-4476-85fc-d5235b9ad9cd";
+
+        public static readonly MonsterAttackDefinition ProtectorConstructAttack =
+            CreateAndAddToDB(ProtectorConstructAttacksName, ProtectorConstructAttacksGuid);
 
         private ProtectorConstructAttackBuilder(string name, string guid) : base(
             DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, name, guid)
@@ -493,9 +496,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ProtectorConstructAttackBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterAttackDefinition ProtectorConstructAttack =
-            CreateAndAddToDB(ProtectorConstructAttacksName, ProtectorConstructAttacksGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -506,6 +506,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SelfRepairName = "SelfRepair";
         private const string SelfRepairNameGuid = "68db5cab-6fc9-4795-88a6-f89d81b0e4ef";
+
+        public static readonly FeatureDefinitionPower SelfRepair = CreateAndAddToDB(SelfRepairName, SelfRepairNameGuid);
 
         private SelfRepairBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind, name, guid)
@@ -536,8 +538,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SelfRepairBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower SelfRepair = CreateAndAddToDB(SelfRepairName, SelfRepairNameGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -548,6 +548,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string RetributionName = "Retribution";
         private const string RetributionNameGuid = "1fc63d9f-263c-4642-b75c-f7684ca6dd3d";
+
+        public static readonly FeatureDefinitionPower Retribution =
+            CreateAndAddToDB(RetributionName, RetributionNameGuid);
 
         private RetributionBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution, name, guid)
@@ -570,8 +573,5 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new RetributionBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower Retribution =
-            CreateAndAddToDB(RetributionName, RetributionNameGuid);
     }
 }

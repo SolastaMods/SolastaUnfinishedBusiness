@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(FeatureDefinitionCombatAffinity))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -35,7 +36,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackOfOpportunityImmunity<T>(this T entity, System.Boolean value)
+        public static T SetAttackOfOpportunityImmunity<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("attackOfOpportunityImmunity", value);
@@ -56,42 +57,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAttackOnMeCountLimit<T>(this T entity, System.Int32 value)
+        public static T SetAttackOnMeCountLimit<T>(this T entity, Int32 value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("attackOnMeCountLimit", value);
             return entity;
         }
 
-        public static T SetAutoCritical<T>(this T entity, System.Boolean value)
+        public static T SetAutoCritical<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("autoCritical", value);
             return entity;
         }
 
-        public static T SetCanRageToOvercomeSurprise<T>(this T entity, System.Boolean value)
+        public static T SetCanRageToOvercomeSurprise<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("canRageToOvercomeSurprise", value);
             return entity;
         }
 
-        public static T SetCriticalHitImmunity<T>(this T entity, System.Boolean value)
+        public static T SetCriticalHitImmunity<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("criticalHitImmunity", value);
             return entity;
         }
 
-        public static T SetIgnoreCover<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreCover<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("ignoreCover", value);
             return entity;
         }
 
-        public static T SetIgnoreRangeAdvantage<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreRangeAdvantage<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("ignoreRangeAdvantage", value);
@@ -105,14 +106,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMultiAttackAffinity<T>(this T entity, System.Boolean value)
+        public static T SetMultiAttackAffinity<T>(this T entity, Boolean value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("multiAttackAffinity", value);
             return entity;
         }
 
-        public static T SetMultiAttackDefenseValue<T>(this T entity, System.Int32 value)
+        public static T SetMultiAttackDefenseValue<T>(this T entity, Int32 value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("multiAttackDefenseValue", value);
@@ -133,14 +134,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMyAttackDamageMultiplier<T>(this T entity, System.Single value)
+        public static T SetMyAttackDamageMultiplier<T>(this T entity, Single value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackDamageMultiplier", value);
             return entity;
         }
 
-        public static T SetMyAttackModifierDiceNumber<T>(this T entity, System.Int32 value)
+        public static T SetMyAttackModifierDiceNumber<T>(this T entity, Int32 value)
             where T : FeatureDefinitionCombatAffinity
         {
             entity.SetField("myAttackModifierDiceNumber", value);

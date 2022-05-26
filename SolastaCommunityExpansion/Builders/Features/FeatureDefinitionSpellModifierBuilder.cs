@@ -8,6 +8,13 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : SpellModifyingFeatureDefinition
         where TBuilder : FeatureDefinitionSpellModifierBuilder<TDefinition, TBuilder>
     {
+        public TBuilder SetEffectModifier(
+            SpellModifyingFeatureDefinition.ModifySpellEffectDelegate modifier)
+        {
+            Definition.SpellModifier = modifier;
+            return This();
+        }
+
         #region Constructors
 
         protected FeatureDefinitionSpellModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -30,13 +37,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public TBuilder SetEffectModifier(
-            SpellModifyingFeatureDefinition.ModifySpellEffectDelegate modifier)
-        {
-            Definition.SpellModifier = modifier;
-            return This();
-        }
     }
 
     public class FeatureDefinitionSpellModifierBuilder : FeatureDefinitionSpellModifierBuilder<

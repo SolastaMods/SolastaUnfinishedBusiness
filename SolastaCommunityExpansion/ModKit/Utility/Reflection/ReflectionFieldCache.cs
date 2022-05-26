@@ -190,12 +190,6 @@ namespace ModKit.Utility
 
         private class CachedFieldOfStruct<T, TField> : CachedField<TField>
         {
-            private delegate TField Getter(ref T instance);
-
-            private delegate ref TField RefGetter(ref T instance);
-
-            private delegate void Setter(ref T instance, TField value);
-
             private T _dummy;
 
             private Getter _getter;
@@ -222,17 +216,17 @@ namespace ModKit.Utility
                 (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref _dummy, value);
             }
 
+            private delegate TField Getter(ref T instance);
+
+            private delegate ref TField RefGetter(ref T instance);
+
+            private delegate void Setter(ref T instance, TField value);
+
             //public void Set(ref T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), true) as Setter)(ref instance, value);
         }
 
         private class CachedFieldOfClass<T, TField> : CachedField<TField>
         {
-            private delegate TField Getter(T instance);
-
-            private delegate ref TField RefGetter(T instance);
-
-            private delegate void Setter(T instance, TField value);
-
             private readonly T _dummy = default;
 
             private Getter _getter;
@@ -259,15 +253,17 @@ namespace ModKit.Utility
                 (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(_dummy, value);
             }
 
+            private delegate TField Getter(T instance);
+
+            private delegate ref TField RefGetter(T instance);
+
+            private delegate void Setter(T instance, TField value);
+
             //public void Set(T instance, TField value) => (_setter ??= CreateSetter(typeof(Setter), false) as Setter)(instance, value);
         }
 
         private class CachedFieldOfStatic<TField> : CachedField<TField>
         {
-            private delegate TField Getter();
-
-            private delegate void Setter(TField value);
-
             private Getter _getter;
             private Setter _setter;
 
@@ -320,6 +316,10 @@ namespace ModKit.Utility
 
                 return method.CreateDelegate(typeof(Setter)) as Setter;
             }
+
+            private delegate TField Getter();
+
+            private delegate void Setter(TField value);
         }
     }
 }

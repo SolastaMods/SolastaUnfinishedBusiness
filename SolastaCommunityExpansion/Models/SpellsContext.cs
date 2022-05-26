@@ -10,12 +10,6 @@ namespace SolastaCommunityExpansion.Models
 
         internal sealed class SpellListContext
         {
-            private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
-            public SpellListDefinition SpellList { get; private set; }
-            public HashSet<SpellDefinition> AllSpells { get; private set; }
-            public HashSet<SpellDefinition> MinimumSpells { get; private set; }
-            public HashSet<SpellDefinition> SuggestedSpells { get; private set; }
-
             public SpellListContext(SpellListDefinition spellListDefinition)
             {
                 SpellList = spellListDefinition;
@@ -23,6 +17,12 @@ namespace SolastaCommunityExpansion.Models
                 MinimumSpells = new HashSet<SpellDefinition>();
                 SuggestedSpells = new HashSet<SpellDefinition>();
             }
+
+            private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
+            public SpellListDefinition SpellList { get; }
+            public HashSet<SpellDefinition> AllSpells { get; }
+            public HashSet<SpellDefinition> MinimumSpells { get; }
+            public HashSet<SpellDefinition> SuggestedSpells { get; }
 
             public bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
 

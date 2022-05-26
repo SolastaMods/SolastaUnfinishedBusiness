@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -43,27 +42,6 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             }
         }
 
-        internal class DebilitatedConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "Debilitated";
-            private const string TitleString = "Condition/&DebilitatedConditionTitle";
-            private const string DescriptionString = "Condition/&DebilitatedConditionDescription";
-
-            protected DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-            }
-
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new DebilitatedConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition DebilitatedCondition =
-                CreateAndAddToDB(Name, SubclassNamespace.ToString());
-        }
-
         private static CharacterSubclassDefinition CreateOpportunist()
         {
             var subclassNamespace = new Guid("b217342c-5b1b-46eb-9f2f-86239c3088bf");
@@ -87,8 +65,7 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                     0, // I think this parameter is irrelevant if range type is meleehit.
                     RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
                     0,
-                    0,
-                    ActionDefinitions.ItemSelectionType.None)
+                    0)
                 .SetSavingThrowData(
                     true,
                     false,
@@ -139,6 +116,27 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .AddFeatureAtLevel(debilitatingStrikePower, 9)
                 //.AddFeatureAtLevel(thugOvercomeCompetition, 13)
                 .AddToDB();
+        }
+
+        internal class DebilitatedConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "Debilitated";
+            private const string TitleString = "Condition/&DebilitatedConditionTitle";
+            private const string DescriptionString = "Condition/&DebilitatedConditionDescription";
+
+            internal static readonly ConditionDefinition DebilitatedCondition =
+                CreateAndAddToDB(Name, SubclassNamespace.ToString());
+
+            protected DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new DebilitatedConditionBuilder(name, guid).AddToDB();
+            }
         }
     }
 }

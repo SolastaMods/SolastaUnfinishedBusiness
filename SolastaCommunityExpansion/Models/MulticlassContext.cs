@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -86,19 +85,6 @@ namespace SolastaCommunityExpansion.Models
         private const string WardenArmorProficiencyMulticlassName = "WardenArmorProficiencyMulticlass";
         private const string WardenArmorProficiencyMulticlassGuid = "19666e846975401b819d1ae72c5d27ac";
 
-        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
-            params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
-        {
-            Definition.Proficiencies.SetRange(proficienciesToReplace);
-            Definition.GuiPresentation.Title = title;
-        }
-
-        private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title,
-            params string[] proficienciesToReplace)
-        {
-            return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
-        }
-
         public static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass =
             CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid,
                 "Feature/&BarbarianArmorProficiencyTitle",
@@ -128,6 +114,19 @@ namespace SolastaCommunityExpansion.Models
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
             );
+
+        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
+            params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+        {
+            Definition.Proficiencies.SetRange(proficienciesToReplace);
+            Definition.GuiPresentation.Title = title;
+        }
+
+        private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title,
+            params string[] proficienciesToReplace)
+        {
+            return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
+        }
     }
 
     public static class SkillProficiencyPointPoolSkillsBuilder

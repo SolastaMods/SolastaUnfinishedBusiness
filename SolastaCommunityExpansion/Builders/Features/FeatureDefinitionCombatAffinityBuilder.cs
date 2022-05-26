@@ -9,6 +9,14 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionCombatAffinity
         where TBuilder : FeatureDefinitionCombatAffinityBuilder<TDefinition, TBuilder>
     {
+        // Methods specific to FeatureDefinitionCombatAffinity
+
+        public TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
+        {
+            Definition.SetMyAttackModifierDieType(dieType);
+            return This();
+        }
+
         #region Constructors
 
         protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -31,14 +39,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        // Methods specific to FeatureDefinitionCombatAffinity
-
-        public TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
-        {
-            Definition.SetMyAttackModifierDieType(dieType);
-            return This();
-        }
     }
 
     public class FeatureDefinitionCombatAffinityBuilder

@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ScaleMerchantPrices
     }
 
     /// <summary>
-    /// Borrowed from https://stackoverflow.com/questions/158172/formatting-numbers-with-significant-figures-in-c-sharp
+    ///     Borrowed from https://stackoverflow.com/questions/158172/formatting-numbers-with-significant-figures-in-c-sharp
     /// </summary>
     internal static class Precision
     {

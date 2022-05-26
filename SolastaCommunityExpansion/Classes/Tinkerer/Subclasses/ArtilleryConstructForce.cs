@@ -17,6 +17,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string ForceArtilleryConstructName = "ForceArtilleryConstruct";
         private const string ForceArtilleryConstructGuid = "91cc706f-97b7-47d9-a46e-89b251fd5efe";
 
+        public static readonly MonsterDefinition ForceArtilleryConstruct =
+            CreateAndAddToDB(ForceArtilleryConstructName, ForceArtilleryConstructGuid);
+
         private ForceArtilleryConstructBuilder(string name, string guid) : base(
             DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
         {
@@ -97,9 +100,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ForceArtilleryConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition ForceArtilleryConstruct =
-            CreateAndAddToDB(ForceArtilleryConstructName, ForceArtilleryConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -110,6 +110,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string ForceArtilleryConstruct_9Name = "ForceArtilleryConstruct_9";
         private const string ForceArtilleryConstruct_9Guid = "1a479ea4-0f72-4847-bd0b-54b2ded48057";
+
+        public static readonly MonsterDefinition ForceArtilleryConstruct9 =
+            CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
 
         private ForceArtilleryConstruct9Builder(string name, string guid) : base(
             ForceArtilleryConstructBuilder.ForceArtilleryConstruct, name, guid)
@@ -127,9 +130,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ForceArtilleryConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition ForceArtilleryConstruct9 =
-            CreateAndAddToDB(ForceArtilleryConstruct_9Name, ForceArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -140,6 +140,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string ForceArtilleryConstruct_15Name = "ForceArtilleryConstruct_15";
         private const string ForceArtilleryConstruct_15Guid = "e7d49f53-cb44-4348-82d7-b8b561861448";
+
+        public static readonly MonsterDefinition ForceArtilleryConstruct15 =
+            CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
 
         private ForceArtilleryConstruct15Builder(string name, string guid) : base(
             ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9, name, guid)
@@ -154,9 +157,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ForceArtilleryConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition ForceArtilleryConstruct15 =
-            CreateAndAddToDB(ForceArtilleryConstruct_15Name, ForceArtilleryConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -167,6 +167,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonForceArtilleryConstructName = "SummonForceArtilleryConstruct";
         private const string SummonForceArtilleryConstructGuid = "c584b73c-9fa8-453f-90ad-944b8d1b5b05";
+
+        public static readonly SpellDefinition SummonForceArtilleryConstruct =
+            CreateAndAddToDB(SummonForceArtilleryConstructName, SummonForceArtilleryConstructGuid);
 
         private SummonForceArtillerySpellConstructBuilder(string name, string guid) : base(
             DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
@@ -189,9 +192,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonForceArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonForceArtilleryConstruct =
-            CreateAndAddToDB(SummonForceArtilleryConstructName, SummonForceArtilleryConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -202,6 +202,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonForceArtilleryConstruct_9Name = "SummonForceArtilleryConstruct_9";
         private const string SummonForceArtilleryConstruct_9Guid = "f1e8d7e1-44d9-4a82-ac23-5e0013b40650";
+
+        public static readonly SpellDefinition SummonForceArtilleryConstruct_9 =
+            CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
 
         private SummonForceArtillerySpellConstruct9Builder(string name, string guid) : base(
             SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
@@ -217,9 +220,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonForceArtillerySpellConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonForceArtilleryConstruct_9 =
-            CreateAndAddToDB(SummonForceArtilleryConstruct_9Name, SummonForceArtilleryConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -230,6 +230,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonForceArtilleryConstruct_15Name = "SummonForceArtilleryConstruct_15";
         private const string SummonForceArtilleryConstruct_15Guid = "b529386c-defa-4c39-a03c-09a08a104cc6";
+
+        public static readonly SpellDefinition SummonForceArtilleryConstruct15 =
+            CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
 
         private SummonForceArtillerySpellConstruct15Builder(string name, string guid) : base(
             SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct, name, guid)
@@ -246,15 +249,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonForceArtillerySpellConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonForceArtilleryConstruct15 =
-            CreateAndAddToDB(SummonForceArtilleryConstruct_15Name, SummonForceArtilleryConstruct_15Guid);
     }
 
     internal sealed class ForceArtilleryAttackBuilder : MonsterAttackDefinitionBuilder
     {
         private const string ForceArtilleryAttackName = "ForceArtilleryAttack";
         private const string ForceArtilleryAttackGuid = "39c5b7ef-47f9-462c-9f24-accaee85d325";
+
+        public static readonly MonsterAttackDefinition ForceArtilleryAttack =
+            CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
 
         private ForceArtilleryAttackBuilder(string name, string guid) : base(
             DatabaseHelper.MonsterAttackDefinitions.Attack_Orc_Grimblade_IceDagger, name, guid)
@@ -347,15 +350,15 @@ Web
         {
             return new ForceArtilleryAttackBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterAttackDefinition ForceArtilleryAttack =
-            CreateAndAddToDB(ForceArtilleryAttackName, ForceArtilleryAttackGuid);
     }
 
     internal sealed class ForceArtilleryAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
     {
         private const string ForceArtilleryAdditionalDamageName = "ForceArtilleryAdditionalDamage";
         private const string ForceArtilleryAdditionalDamageGuid = "2e726b2e-052f-482f-a869-721851fcb407";
+
+        public static readonly FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage =
+            CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
 
         private ForceArtilleryAdditionalDamageBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageDomainLifeDivineStrike, name, guid)
@@ -377,15 +380,15 @@ Web
         {
             return new ForceArtilleryAdditionalDamageBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionAdditionalDamage ForceArtilleryAdditionalDamage =
-            CreateAndAddToDB(ForceArtilleryAdditionalDamageName, ForceArtilleryAdditionalDamageGuid);
     }
 
     internal sealed class ForceArtilleryProjectileBuilder : ItemDefinitionBuilder
     {
         private const string ForceArtilleryProjectileName = "ForceArtilleryProjectile";
         private const string ForceArtilleryProjectileGuid = "b30b1971-6ad6-4ea2-af5b-998043415f04";
+
+        public static readonly ItemDefinition ForceArtilleryProjectile =
+            CreateAndAddToDB(ForceArtilleryProjectileName, ForceArtilleryProjectileGuid);
 
         private ForceArtilleryProjectileBuilder(string name, string guid) : base(
             DatabaseHelper.ItemDefinitions.OrcGrimblade_IceDagger, name, guid)
@@ -405,8 +408,5 @@ Web
         {
             return new ForceArtilleryProjectileBuilder(name, guid).AddToDB();
         }
-
-        public static readonly ItemDefinition ForceArtilleryProjectile =
-            CreateAndAddToDB(ForceArtilleryProjectileName, ForceArtilleryProjectileGuid);
     }
 }

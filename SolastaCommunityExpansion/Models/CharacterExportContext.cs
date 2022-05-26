@@ -5,6 +5,7 @@ using System.Linq;
 using SolastaModApi.Extensions;
 using TMPro;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -25,7 +26,7 @@ namespace SolastaCommunityExpansion.Models
             var firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField")
                 .GetComponent<TMP_InputField>();
 
-            InputField = UnityEngine.Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
+            InputField = Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
 
             InputField.characterLimit = 20;
             InputField.onValueChanged = null;

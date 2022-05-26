@@ -3,6 +3,8 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using static EquipmentDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
@@ -224,7 +226,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock
         internal static CharacterClassDefinition BuildWarlockClass()
         {
             var warlockSpriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite("Warlock", Properties.Resources.Warlock, 1024, 576);
+                CustomIcons.CreateAssetReferenceSprite("Warlock", Resources.Warlock, 1024, 576);
 
             var classWarlockBuilder = CharacterClassDefinitionBuilder
                 .Create("ClassWarlock", DefinitionBuilder.CENamespaceGuid)

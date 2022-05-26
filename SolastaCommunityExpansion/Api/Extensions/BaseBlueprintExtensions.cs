@@ -1,14 +1,15 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
+using UnityEngine;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(BaseBlueprint))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -37,14 +38,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCategory<T>(this T entity, System.String value)
+        public static T SetCategory<T>(this T entity, String value)
             where T : BaseBlueprint
         {
             entity.SetField("category", value);
             return entity;
         }
 
-        public static T SetDimensions<T>(this T entity, UnityEngine.Vector2Int value)
+        public static T SetDimensions<T>(this T entity, Vector2Int value)
             where T : BaseBlueprint
         {
             entity.SetField("dimensions", value);

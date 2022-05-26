@@ -12,10 +12,6 @@ namespace SolastaCommunityExpansion.CustomUI
         private string _prerequisites = string.Empty;
         private string _subtitle;
 
-        public string Subtitle =>
-            _subtitle ??=
-                GetDefaultSubtitle(); //Just in case. This is actually set in constructor + check for null in the setter.
-
         public CustomTooltipProvider(BaseDefinition baseDefinition, GuiPresentation guiPresentation) : base(
             baseDefinition)
         {
@@ -24,6 +20,15 @@ namespace SolastaCommunityExpansion.CustomUI
         }
 
         public override string Description => BaseDefinition.FormatDescription();
+
+        public string EnumeratePrerequisites(RulesetCharacterHero hero)
+        {
+            return _prerequisites;
+        }
+
+        public string Subtitle =>
+            _subtitle ??=
+                GetDefaultSubtitle(); //Just in case. This is actually set in constructor + check for null in the setter.
 
         private string GetDefaultSubtitle()
         {
@@ -77,11 +82,6 @@ namespace SolastaCommunityExpansion.CustomUI
                 : subtitle;
 
             return this;
-        }
-
-        public string EnumeratePrerequisites(RulesetCharacterHero hero)
-        {
-            return _prerequisites;
         }
     }
 }

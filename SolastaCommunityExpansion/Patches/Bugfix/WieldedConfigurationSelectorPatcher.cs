@@ -6,8 +6,8 @@ using HarmonyLib;
 namespace SolastaCommunityExpansion.Patches.BugFix
 {
     /// <summary>
-    /// Issue: WieldedConfigurationSelector.Bind passes character=null to mainHandSlotBox.Bind and offHandSlotBox.Bind
-    /// Not fixed as of 1.3.40.
+    ///     Issue: WieldedConfigurationSelector.Bind passes character=null to mainHandSlotBox.Bind and offHandSlotBox.Bind
+    ///     Not fixed as of 1.3.40.
     /// </summary>
     [HarmonyPatch(typeof(WieldedConfigurationSelector), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

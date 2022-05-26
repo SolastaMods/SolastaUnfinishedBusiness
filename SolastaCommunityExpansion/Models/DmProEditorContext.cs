@@ -1,23 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class DmProEditorContext
     {
-        private static readonly System.Guid GUID = new("bff53ba4bb694bf5a69b3ae280eec118");
+        private static readonly Guid GUID = new("bff53ba4bb694bf5a69b3ae280eec118");
 
         internal static readonly List<string> OutdoorRooms = new();
-
-        internal enum ExtendedDungeonSize
-        {
-            Huge = UserLocationDefinitions.Size.Large + 1,
-            Gargantuan
-        }
 
         internal static void Load()
         {
@@ -117,7 +115,7 @@ namespace SolastaCommunityExpansion.Models
             var flatRoomsCategory = Object.Instantiate(emptyRoomsCategory);
 
             flatRoomsCategory.name = "FlatRooms";
-            flatRoomsCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoomsCategory.name).ToString());
+            flatRoomsCategory.SetGuid(GuidHelper.Create(GUID, flatRoomsCategory.name).ToString());
             flatRoomsCategory.GuiPresentation.Title =
                 Gui.Format($"BlueprintCategory/&{flatRoomsCategory.name}Title").yellow();
             dbBlueprintCategory.Add(flatRoomsCategory);
@@ -131,7 +129,7 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = blueprintCategory.Name + "~" + environmentName + "~MOD";
 
                     newBlueprintCategory.name = categoryName;
-                    newBlueprintCategory.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newBlueprintCategory.name)
+                    newBlueprintCategory.SetGuid(GuidHelper.Create(GUID, newBlueprintCategory.name)
                         .ToString());
                     newBlueprintCategory.GuiPresentation.Title = Gui.Format(blueprintCategory.GuiPresentation.Title) +
                                                                  " " + Gui.Format(environmentDefinition.GuiPresentation
@@ -165,7 +163,7 @@ namespace SolastaCommunityExpansion.Models
                 var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
                 flatRoom.name = $"Flat{multiplier:D2}Room";
-                flatRoom.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoom.name).ToString());
+                flatRoom.SetGuid(GuidHelper.Create(GUID, flatRoom.name).ToString());
                 flatRoom.GuiPresentation.Title = "Flat".yellow() + " Room";
                 flatRoom.GuiPresentation.SetSortOrder(multiplier);
                 flatRoom.GuiPresentation.SetHidden(true);
@@ -173,8 +171,8 @@ namespace SolastaCommunityExpansion.Models
                 flatRoom.SetDimensions(new Vector2Int(flatRoom.Dimensions.x * multiplier,
                     flatRoom.Dimensions.y * multiplier));
                 flatRoom.SetCellInfos(new int[flatRoom.Dimensions.x * flatRoom.Dimensions.y]);
-                flatRoom.SetWallSpriteReference(new UnityEngine.AddressableAssets.AssetReferenceSprite(""));
-                flatRoom.SetWallAndOpeningSpriteReference(new UnityEngine.AddressableAssets.AssetReferenceSprite(""));
+                flatRoom.SetWallSpriteReference(new AssetReferenceSprite(""));
+                flatRoom.SetWallAndOpeningSpriteReference(new AssetReferenceSprite(""));
 
                 for (var i = 0; i < flatRoom.CellInfos.Length; i++)
                 {
@@ -191,7 +189,7 @@ namespace SolastaCommunityExpansion.Models
             var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
             flatRoom.name = "Flat" + template;
-            flatRoom.SetGuid(SolastaModApi.GuidHelper.Create(GUID, flatRoom.name).ToString());
+            flatRoom.SetGuid(GuidHelper.Create(GUID, flatRoom.name).ToString());
             flatRoom.GuiPresentation.Title = "Flat".yellow() + " " + Gui.Format(flatRoom.GuiPresentation.Title);
             flatRoom.GuiPresentation.SetSortOrder(sortOrder);
             flatRoom.GuiPresentation.SetHidden(true);
@@ -226,7 +224,7 @@ namespace SolastaCommunityExpansion.Models
 
                     newGadgetBlueprint.name = gadgetBlueprint.Name + "~" + environmentName + "~MOD";
                     newGadgetBlueprint.SetGuid(
-                        SolastaModApi.GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString());
+                        GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString());
                     newGadgetBlueprint.GuiPresentation.Title = Gui.Format(gadgetBlueprint.GuiPresentation.Title) + " " +
                                                                Gui.Format(prefabEnvironmentDefinition.GuiPresentation
                                                                    .Title).yellow();
@@ -267,7 +265,7 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = propBlueprint.Category + "~" + environmentName + "~MOD";
 
                     newPropBlueprint.name = propBlueprint.Name + "~" + environmentName + "~MOD";
-                    newPropBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newPropBlueprint.name).ToString());
+                    newPropBlueprint.SetGuid(GuidHelper.Create(GUID, newPropBlueprint.name).ToString());
                     newPropBlueprint.GuiPresentation.Title = Gui.Format(propBlueprint.GuiPresentation.Title) + " " +
                                                              Gui.Format(prefabEnvironmentDefinition.GuiPresentation
                                                                  .Title).yellow();
@@ -309,7 +307,7 @@ namespace SolastaCommunityExpansion.Models
                     var categoryName = roomBlueprint.Category + "~" + environmentName + "~MOD";
 
                     newRoomBlueprint.name = roomBlueprint.Name + "~" + environmentName + "~MOD";
-                    newRoomBlueprint.SetGuid(SolastaModApi.GuidHelper.Create(GUID, newRoomBlueprint.name).ToString());
+                    newRoomBlueprint.SetGuid(GuidHelper.Create(GUID, newRoomBlueprint.name).ToString());
                     newRoomBlueprint.GuiPresentation.Title = Gui.Format(roomBlueprint.GuiPresentation.Title) + " " +
                                                              Gui.Format(prefabEnvironmentDefinition.GuiPresentation
                                                                  .Title).yellow();
@@ -374,6 +372,12 @@ namespace SolastaCommunityExpansion.Models
             dbRoomBlueprint
                 .Where(x => x.Name.StartsWith("Flat")).ToList()
                 .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+        }
+
+        internal enum ExtendedDungeonSize
+        {
+            Huge = UserLocationDefinitions.Size.Large + 1,
+            Gargantuan
         }
     }
 }

@@ -13,18 +13,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static readonly Guid SubclassNamespace = new("9f322734-1498-4f65-ace5-e6072b1d99be");
         private readonly CharacterSubclassDefinition Subclass;
 
-        internal static FeatureDefinitionPower BonusRecovery { get; private set; }
-
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-        }
-
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
-
         internal SpellMaster()
         {
             var prepared = FeatureDefinitionMagicAffinityBuilder
@@ -119,6 +107,18 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddToDB();
 
             Subclass = spellMaster;
+        }
+
+        internal static FeatureDefinitionPower BonusRecovery { get; private set; }
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
         }
 
         internal static void UpdateBonusRecovery()

@@ -1,14 +1,14 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(FeatureDefinitionSavingThrowAffinity))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -53,28 +53,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanBorrowLuck<T>(this T entity, System.Boolean value)
+        public static T SetCanBorrowLuck<T>(this T entity, Boolean value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             entity.SetField("canBorrowLuck", value);
             return entity;
         }
 
-        public static T SetIndomitableSavingThrows<T>(this T entity, System.Int32 value)
+        public static T SetIndomitableSavingThrows<T>(this T entity, Int32 value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             entity.SetField("indomitableSavingThrows", value);
             return entity;
         }
 
-        public static T SetPriorityAbilityScore<T>(this T entity, System.String value)
+        public static T SetPriorityAbilityScore<T>(this T entity, String value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             entity.SetField("priorityAbilityScore", value);
             return entity;
         }
 
-        public static T SetUseControllerSavingThrows<T>(this T entity, System.Boolean value)
+        public static T SetUseControllerSavingThrows<T>(this T entity, Boolean value)
             where T : FeatureDefinitionSavingThrowAffinity
         {
             entity.SetField("useControllerSavingThrows", value);

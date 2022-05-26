@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
@@ -34,7 +35,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             // get more real state for the toggles on top
             ___toggleGroup.transform.position =
-                new UnityEngine.Vector3(___characterPlate.transform.position.x / 2f,
+                new Vector3(___characterPlate.transform.position.x / 2f,
                     ___toggleGroup.transform.position.y, 0);
         }
     }

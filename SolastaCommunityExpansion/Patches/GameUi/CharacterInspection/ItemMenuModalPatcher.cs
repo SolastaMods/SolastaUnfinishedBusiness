@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
@@ -17,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
         public static int MaxSpellLevelOfSpellCastingLevel(RulesetSpellRepertoire repertoire)
         {
-            return Models.SharedSpellsContext.GetClassSpellLevel(repertoire);
+            return SharedSpellsContext.GetClassSpellLevel(repertoire);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

@@ -6,16 +6,16 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class StockUnitDescriptionBuilder
     {
-        private ItemDefinition _itemDefinition;
-        private int _stackCount = 1;
+        private string _factionStatus = DatabaseHelper.FactionStatusDefinitions.Alliance.Name;
         private int _initialAmount = 1;
-        private int _minAmount;
+        private ItemDefinition _itemDefinition;
         private int _maxAmount = 1;
+        private int _minAmount;
         private int _reassortAmount;
         private RuleDefinitions.DurationType _reassortRateType = RuleDefinitions.DurationType.Day;
         private int _reassortRateValue = 1;
         private string _requiredFaction = string.Empty;
-        private string _factionStatus = DatabaseHelper.FactionStatusDefinitions.Alliance.Name;
+        private int _stackCount = 1;
 
         public StockUnitDescriptionBuilder()
         {

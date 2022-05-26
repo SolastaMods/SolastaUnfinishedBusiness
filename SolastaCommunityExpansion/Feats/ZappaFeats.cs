@@ -530,20 +530,6 @@ namespace SolastaCommunityExpansion.Feats
         private const string MetamagicLearnTwinnedName = "MetamagicLearnTwinned";
         private const string MetamagicLearnTwinnedGuid = "84572060-3187-41f7-abad-30ad4a217511";
 
-        private FeatureDefinitionMetamagicOptionBuilder(string name, string guid,
-            MetamagicOptionDefinition metamagicOption) : base(name, guid)
-        {
-            Definition.MetamagicOption = metamagicOption;
-        }
-
-        private static FeatureDefinitionMetamagicOption CreateAndAddToDB(string name, string guid,
-            MetamagicOptionDefinition metamagicOption)
-        {
-            return new FeatureDefinitionMetamagicOptionBuilder(name, guid, metamagicOption)
-                .SetGuiPresentationNoContent()
-                .AddToDB();
-        }
-
         internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnCareful =
             CreateAndAddToDB(MetamagicLearnCarefulName, MetamagicLearnCarefulGuid, MetamagicCarefullSpell);
 
@@ -564,6 +550,20 @@ namespace SolastaCommunityExpansion.Feats
 
         internal static readonly FeatureDefinitionMetamagicOption MetamagicLearnTwinned =
             CreateAndAddToDB(MetamagicLearnTwinnedName, MetamagicLearnTwinnedGuid, MetamagicTwinnedSpell);
+
+        private FeatureDefinitionMetamagicOptionBuilder(string name, string guid,
+            MetamagicOptionDefinition metamagicOption) : base(name, guid)
+        {
+            Definition.MetamagicOption = metamagicOption;
+        }
+
+        private static FeatureDefinitionMetamagicOption CreateAndAddToDB(string name, string guid,
+            MetamagicOptionDefinition metamagicOption)
+        {
+            return new FeatureDefinitionMetamagicOptionBuilder(name, guid, metamagicOption)
+                .SetGuiPresentationNoContent()
+                .AddToDB();
+        }
     }
 
     internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFeatureDefinitionCustomCode

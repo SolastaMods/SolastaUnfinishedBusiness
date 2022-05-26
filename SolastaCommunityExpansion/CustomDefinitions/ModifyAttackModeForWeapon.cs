@@ -45,12 +45,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class UpgradeWeaponDice : IModifyAttackModeForWeapon
     {
-        private readonly CharacterValidator[] _validators;
-        private readonly IsWeaponValidHandler isWeaponValid;
-        private readonly GetWeaponDiceHandler getWeaponDice;
-
         public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
             RulesetItem weapon);
+
+        private readonly CharacterValidator[] _validators;
+        private readonly GetWeaponDiceHandler getWeaponDice;
+        private readonly IsWeaponValidHandler isWeaponValid;
 
         public UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
             params CharacterValidator[] validators)

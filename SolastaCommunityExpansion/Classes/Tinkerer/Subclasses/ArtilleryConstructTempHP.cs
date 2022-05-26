@@ -15,6 +15,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string TempHPShieldName = "TempHPShield";
         private const string TempHPShieldGuid = "9ca27524-0b49-479e-b11d-085e00e77b8f";
 
+        public static readonly FeatureDefinitionPower TempHPShield =
+            CreateAndAddToDB(TempHPShieldName, TempHPShieldGuid);
+
         private TempHPShieldBuilder(string name, string guid) : base(ThunderShieldBuilder.ThunderShield, name, guid)
         {
             Definition.GuiPresentation.Title = "Feature/&TempHPShieldTitle";
@@ -64,9 +67,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new TempHPShieldBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower TempHPShield =
-            CreateAndAddToDB(TempHPShieldName, TempHPShieldGuid);
     }
     //*****************************************************************************************************************************************
     //***********************************		TempHPShieldConstructBuilder		*******************************************************************
@@ -76,6 +76,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string TempHPShieldConstructName = "TempHPShieldConstruct";
         private const string TempHPShieldConstructGuid = "65223373-24a2-4596-b778-75e6f197b73f";
+
+        public static readonly MonsterDefinition TempHPShieldConstruct =
+            CreateAndAddToDB(TempHPShieldConstructName, TempHPShieldConstructGuid);
 
         private TempHPShieldConstructBuilder(string name, string guid) : base(
             DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
@@ -153,9 +156,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new TempHPShieldConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition TempHPShieldConstruct =
-            CreateAndAddToDB(TempHPShieldConstructName, TempHPShieldConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -166,6 +166,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string TempHPShieldConstruct_9Name = "TempHPShieldConstruct_9";
         private const string TempHPShieldConstruct_9Guid = "75f8541a-65c3-4226-9c42-a80dd76b04cd";
+
+        public static readonly MonsterDefinition TempHPShieldConstruct9 =
+            CreateAndAddToDB(TempHPShieldConstruct_9Name, TempHPShieldConstruct_9Guid);
 
         private TempHPShieldConstruct9Builder(string name, string guid) : base(
             TempHPShieldConstructBuilder.TempHPShieldConstruct, name, guid)
@@ -179,9 +182,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new TempHPShieldConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition TempHPShieldConstruct9 =
-            CreateAndAddToDB(TempHPShieldConstruct_9Name, TempHPShieldConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -192,6 +192,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string TempHPShieldConstruct_15Name = "TempHPShieldConstruct_15";
         private const string TempHPShieldConstruct_15Guid = "243d5f04-2106-4c20-a3f2-38484ecc345c";
+
+        public static readonly MonsterDefinition TempHPShieldConstruct15 =
+            CreateAndAddToDB(TempHPShieldConstruct_15Name, TempHPShieldConstruct_15Guid);
 
         private TempHPShieldConstruct15Builder(string name, string guid) : base(
             TempHPShieldConstruct9Builder.TempHPShieldConstruct9, name, guid)
@@ -205,9 +208,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new TempHPShieldConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition TempHPShieldConstruct15 =
-            CreateAndAddToDB(TempHPShieldConstruct_15Name, TempHPShieldConstruct_15Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -218,6 +218,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonTempHPShieldConstructName = "SummonTempHPShieldConstruct";
         private const string SummonTempHPShieldConstructGuid = "db9e7e8e-b749-4b46-9ba3-60a7bf221b0b";
+
+        public static readonly SpellDefinition SummonTempHPShieldConstruct =
+            CreateAndAddToDB(SummonTempHPShieldConstructName, SummonTempHPShieldConstructGuid);
 
         private SummonTempHPShieldSpellConstructBuilder(string name, string guid) : base(
             DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
@@ -240,9 +243,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonTempHPShieldSpellConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonTempHPShieldConstruct =
-            CreateAndAddToDB(SummonTempHPShieldConstructName, SummonTempHPShieldConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -253,6 +253,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonTempHPShieldConstruct_9Name = "SummonTempHPShieldConstruct_9";
         private const string SummonTempHPShieldConstruct_9Guid = "f1e88575-40ca-4f4e-9447-616058e213a4";
+
+        public static readonly SpellDefinition SummonTempHPShieldConstruct_9 =
+            CreateAndAddToDB(SummonTempHPShieldConstruct_9Name, SummonTempHPShieldConstruct_9Guid);
 
         private SummonTempHPShieldSpellConstruct9Builder(string name, string guid) : base(
             SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct, name, guid)
@@ -268,9 +271,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonTempHPShieldSpellConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonTempHPShieldConstruct_9 =
-            CreateAndAddToDB(SummonTempHPShieldConstruct_9Name, SummonTempHPShieldConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -281,6 +281,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonTempHPShieldConstruct_15Name = "SummonTempHPShieldConstruct_15";
         private const string SummonTempHPShieldConstruct_15Guid = "84ddce96-ec58-4141-933d-371080d611d2";
+
+        public static readonly SpellDefinition SummonTempHPShieldConstruct15 =
+            CreateAndAddToDB(SummonTempHPShieldConstruct_15Name, SummonTempHPShieldConstruct_15Guid);
 
         private SummonTempHPShieldSpellConstruct15Builder(string name, string guid) : base(
             SummonTempHPShieldSpellConstructBuilder.SummonTempHPShieldConstruct, name, guid)
@@ -296,8 +299,5 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonTempHPShieldSpellConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonTempHPShieldConstruct15 =
-            CreateAndAddToDB(SummonTempHPShieldConstruct_15Name, SummonTempHPShieldConstruct_15Guid);
     }
 }

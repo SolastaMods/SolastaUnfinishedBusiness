@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Utils;
 using UnityEngine;
+using UnityEngine.UI;
+using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
 {
@@ -13,8 +16,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             GameGadget gameGadget, MapGadgetItem.ItemType itemType,
             ref GameGadget ___gameGadget,
             GuiTooltip ___guiTooltip,
-            UnityEngine.UI.Image ___backgroundImage,
-            UnityEngine.UI.Image ___iconImage,
+            Image ___backgroundImage,
+            Image ___iconImage,
             Sprite[] ___backgroundSprites)
         {
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
@@ -32,19 +35,19 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             {
                 case -1:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = Utils.CustomIcons.GetOrCreateSprite("Fire", Properties.Resources.Fire, 24);
+                    ___iconImage.sprite = CustomIcons.GetOrCreateSprite("Fire", Resources.Fire, 24);
                     ___guiTooltip.Content = "Camp";
                     break;
                 case -2:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
                     ___iconImage.sprite =
-                        Utils.CustomIcons.GetOrCreateSprite("Entrance", Properties.Resources.Entry, 24);
+                        CustomIcons.GetOrCreateSprite("Entrance", Resources.Entry, 24);
                     ___guiTooltip.Content = "Exit";
                     break;
                 case -3:
                     ___backgroundImage.sprite = ___backgroundSprites[2];
                     ___iconImage.sprite =
-                        Utils.CustomIcons.GetOrCreateSprite("Teleport", Properties.Resources.Teleport, 24);
+                        CustomIcons.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
                     ___guiTooltip.Content = "Teleporter";
                     break;
                 default:

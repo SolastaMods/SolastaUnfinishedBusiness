@@ -13,16 +13,6 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static readonly Guid SubclassNamespace = new("81cdcf44-5f04-4aea-8232-b22a1c264065");
         private readonly CharacterSubclassDefinition Subclass;
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-        }
-
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
-
         internal LifeTransmuter()
         {
             var lifeTransmuterAffinity = FeatureDefinitionMagicAffinityBuilder
@@ -166,6 +156,16 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddFeatureAtLevel(transmuteForceExtraBonus, 14)
                 .AddFeatureAtLevel(FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance, 14)
                 .AddToDB();
+        }
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
         }
 
         private static ConditionDefinitionBuilder BuildCondition(RuleDefinitions.DurationType durationType,

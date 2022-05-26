@@ -267,9 +267,8 @@ namespace ModKit.Utility
         private static GUIStyle fillStyle;
         private static readonly Color fillColor = new(1f, 1f, 1f, 0.65f);
         private static readonly Color color = new(1f, 1f, 1f, 0.35f);
-        private static Color fillColor2 = color;
 
-        public static Color FillColor2 { get => fillColor2; set => fillColor2 = value; }
+        public static Color FillColor2 { get; set; } = color;
 
         public static GUIStyle FillStyle(Color color)
         {

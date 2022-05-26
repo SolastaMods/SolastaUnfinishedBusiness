@@ -43,27 +43,6 @@ namespace ModKit
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        #region Fields
-
-        private int _tabIndex;
-
-        public int tabIndex
-        {
-            get => _tabIndex;
-            set
-            {
-                _tabIndex = value;
-                NotifyPropertyChanged();
-            }
-        }
-
-        private readonly List<IMenuTopPage> _topPages = new();
-        private readonly List<IMenuSelectablePage> _selectablePages = new();
-        private readonly List<IMenuBottomPage> _bottomPages = new();
-        private static Exception caughtException;
-
-        #endregion
-
         #region Toggle
 
         public void Enable(UnityModManager.ModEntry modEntry, Assembly _assembly)
@@ -183,5 +162,26 @@ namespace ModKit
                 caughtException = e;
             }
         }
+
+        #region Fields
+
+        private int _tabIndex;
+
+        public int tabIndex
+        {
+            get => _tabIndex;
+            set
+            {
+                _tabIndex = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private readonly List<IMenuTopPage> _topPages = new();
+        private readonly List<IMenuSelectablePage> _selectablePages = new();
+        private readonly List<IMenuBottomPage> _bottomPages = new();
+        private static Exception caughtException;
+
+        #endregion
     }
 }

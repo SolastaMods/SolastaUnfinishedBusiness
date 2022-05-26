@@ -12,28 +12,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionFeatureSet
         where TBuilder : FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public TBuilder ClearFeatureSet()
         {
             Definition.ClearFeatureSet();
@@ -81,6 +59,28 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUniqueChoices(uniqueChoice);
             return (TBuilder)this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSet,
@@ -112,6 +112,14 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionFeatureSetWithPreRequisitesBuilder : FeatureDefinitionFeatureSetBuilder<
         FeatureDefinitionFeatureSetWithPreRequisites, FeatureDefinitionFeatureSetWithPreRequisitesBuilder>
     {
+        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(
+            params IFeatureDefinitionWithPrerequisites.Validate[] validators)
+        {
+            Definition.Validators.AddRange(validators);
+
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, Guid namespaceGuid) : base(name,
@@ -137,13 +145,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(
-            params IFeatureDefinitionWithPrerequisites.Validate[] validators)
-        {
-            Definition.Validators.AddRange(validators);
-
-            return this;
-        }
     }
 }

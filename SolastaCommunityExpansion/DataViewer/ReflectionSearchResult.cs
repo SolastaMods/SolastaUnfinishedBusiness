@@ -21,12 +21,11 @@ namespace SolastaCommunityExpansion.DataViewer
 
     public class ResultNode<TNode> : ResultNode where TNode : class
     {
+        public delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         protected const BindingFlags ALL_FLAGS =
             BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-
-        public delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
 
         public TNode Node { get; set; }
 

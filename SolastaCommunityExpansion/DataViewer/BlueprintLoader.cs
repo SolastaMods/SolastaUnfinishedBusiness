@@ -11,9 +11,11 @@ namespace SolastaCommunityExpansion.DataViewer
     {
         public delegate void LoadBlueprintsCallback(IEnumerable<BaseDefinition> blueprints);
 
+        private static BlueprintLoader _shared;
+
         private LoadBlueprintsCallback callback;
 
-        private static BlueprintLoader _shared;
+        private IEnumerator coroutine;
 
         public static BlueprintLoader Shared
         {
@@ -30,8 +32,6 @@ namespace SolastaCommunityExpansion.DataViewer
         }
 
         public float Progress { get; set; }
-
-        private IEnumerator coroutine;
 
         private void UpdateProgress(int loaded, int total)
         {

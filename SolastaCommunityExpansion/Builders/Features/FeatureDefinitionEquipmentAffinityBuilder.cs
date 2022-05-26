@@ -7,6 +7,19 @@ namespace SolastaCommunityExpansion.Builders.Features
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionEquipmentAffinity,
             FeatureDefinitionEquipmentAffinityBuilder>
     {
+        public FeatureDefinitionEquipmentAffinityBuilder SetCarryingCapacityMultiplier(float carryingCapacityMultiplier,
+            float? additionalCarryingCapacity)
+        {
+            Definition.SetCarryingCapacityMultiplier(carryingCapacityMultiplier);
+
+            if (additionalCarryingCapacity != null)
+            {
+                Definition.SetAdditionalCarryingCapacity(additionalCarryingCapacity.Value);
+            }
+
+            return This();
+        }
+
         #region Constructors
 
         protected FeatureDefinitionEquipmentAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -29,18 +42,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionEquipmentAffinityBuilder SetCarryingCapacityMultiplier(float carryingCapacityMultiplier,
-            float? additionalCarryingCapacity)
-        {
-            Definition.SetCarryingCapacityMultiplier(carryingCapacityMultiplier);
-
-            if (additionalCarryingCapacity != null)
-            {
-                Definition.SetAdditionalCarryingCapacity(additionalCarryingCapacity.Value);
-            }
-
-            return This();
-        }
     }
 }

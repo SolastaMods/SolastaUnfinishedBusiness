@@ -10,10 +10,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class WarlockPactOfTheChainSummons
     {
+        private static FeatureDefinition _help;
         public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
         public static FeatureDefinitionPower PactofChainFamiliarScarePower { get; private set; }
-
-        private static FeatureDefinition _help;
 
         private static FeatureDefinition Help
         {

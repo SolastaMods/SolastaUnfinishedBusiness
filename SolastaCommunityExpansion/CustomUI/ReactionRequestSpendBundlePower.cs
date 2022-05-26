@@ -8,11 +8,11 @@ namespace SolastaCommunityExpansion.CustomUI
     public class ReactionRequestSpendBundlePower : ReactionRequest
     {
         private const string Name = "SpendPowerBundle";
-
-        private readonly GameLocationCharacter target;
-        private readonly ActionModifier modifier;
         private readonly GuiCharacter guiCharacter;
         private readonly FeatureDefinitionPower masterPower;
+        private readonly ActionModifier modifier;
+
+        private readonly GameLocationCharacter target;
 
         public ReactionRequestSpendBundlePower(CharacterActionParams reactionParams)
             : base(Name, reactionParams)
@@ -23,6 +23,28 @@ namespace SolastaCommunityExpansion.CustomUI
             masterPower = ((RulesetEffectPower)reactionParams.RulesetEffect).PowerDefinition;
             BuildSuboptions();
         }
+
+        public override int SelectedSubOption
+        {
+            get
+            {
+                var power = (ReactionParams.RulesetEffect as RulesetEffectPower)?.PowerDefinition;
+                if (power == null)
+                {
+                    return -1;
+                }
+
+                var subPowers = PowerBundleContext.GetBundle(masterPower)?.SubPowers;
+                return subPowers?.FindIndex(p => p == power) ?? -1;
+            }
+        }
+
+
+        public override string SuboptionTag => "PowerBundle";
+
+        public override bool IsStillValid =>
+            ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
+                .Contains(target) && !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
 
         private void BuildSuboptions()
         {
@@ -63,21 +85,6 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             return character.GetRemainingPowerUses(power) > 0;
-        }
-
-        public override int SelectedSubOption
-        {
-            get
-            {
-                var power = (ReactionParams.RulesetEffect as RulesetEffectPower)?.PowerDefinition;
-                if (power == null)
-                {
-                    return -1;
-                }
-
-                var subPowers = PowerBundleContext.GetBundle(masterPower)?.SubPowers;
-                return subPowers?.FindIndex(p => p == power) ?? -1;
-            }
         }
 
         public override void SelectSubOption(int option)
@@ -133,13 +140,6 @@ namespace SolastaCommunityExpansion.CustomUI
                 }
             }
         }
-
-
-        public override string SuboptionTag => "PowerBundle";
-
-        public override bool IsStillValid =>
-            ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
-                .Contains(target) && !target.RulesetCharacter.IsDeadOrDyingOrUnconscious;
 
         public override string FormatTitle()
         {

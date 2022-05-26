@@ -8,30 +8,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         FeatureDefinitionIgnoreDynamicVisionImpairment,
         IgnoreDynamicVisionImpairmentBuilder>
     {
-        #region Constructors
-
-        public IgnoreDynamicVisionImpairmentBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        public IgnoreDynamicVisionImpairmentBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        public IgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original,
-            string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public IgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original,
-            string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public IgnoreDynamicVisionImpairmentBuilder SetMaxRange(float range)
         {
             Definition.maxRange = range;
@@ -61,5 +37,29 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.forbiddenFeatures.AddRange(features);
             return this;
         }
+
+        #region Constructors
+
+        public IgnoreDynamicVisionImpairmentBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        public IgnoreDynamicVisionImpairmentBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        public IgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original,
+            string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public IgnoreDynamicVisionImpairmentBuilder(FeatureDefinitionIgnoreDynamicVisionImpairment original,
+            string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

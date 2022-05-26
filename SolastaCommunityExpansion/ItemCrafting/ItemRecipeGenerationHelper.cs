@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -44,12 +45,12 @@ namespace SolastaCommunityExpansion.ItemCrafting
                         newRecipe, Main.Settings.RecipeCost,
                         DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation);
 
-                    if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
+                    if (!ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                     {
-                        Models.ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
+                        ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
                     }
 
-                    Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
+                    ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
                     if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
                     {
@@ -96,12 +97,12 @@ namespace SolastaCommunityExpansion.ItemCrafting
                         newRecipe, Main.Settings.RecipeCost,
                         DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
-                    if (!Models.ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
+                    if (!ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                     {
-                        Models.ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
+                        ItemCraftingContext.RecipeBooks.Add(baseItem.Name, new List<ItemDefinition>());
                     }
 
-                    Models.ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
+                    ItemCraftingContext.RecipeBooks[baseItem.Name].Add(craftingManual);
 
                     if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
                     {
@@ -220,7 +221,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             }
 
             const string groupKey = "EnchantingIngredients";
-            Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+            ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
             foreach (var recipe in recipes)
             {
@@ -229,7 +230,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     recipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
-                Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
+                ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
                 if (Main.Settings.CraftingInStore.Contains(groupKey))
                 {
@@ -280,7 +281,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             var recipes = primedToBase.Keys.Select(item => CreatePrimingRecipe(baseGuid, primedToBase[item], item));
 
             const string groupKey = "PrimedItems";
-            Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+            ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
             foreach (var recipe in recipes)
             {
@@ -290,7 +291,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     recipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
 
-                Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
+                ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
                 if (Main.Settings.CraftingInStore.Contains(groupKey))
                 {
@@ -375,7 +376,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
             }
 
             const string groupKey = "RelicForgeries";
-            Models.ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
+            ItemCraftingContext.RecipeBooks.Add(groupKey, new List<ItemDefinition>());
 
             foreach (var recipe in recipes)
             {
@@ -384,7 +385,7 @@ namespace SolastaCommunityExpansion.ItemCrafting
                     recipe, Main.Settings.RecipeCost,
                     DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
 
-                Models.ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
+                ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
                 if (Main.Settings.CraftingInStore.Contains(groupKey))
                 {

@@ -3,7 +3,7 @@
 namespace SolastaModApi.Infrastructure
 {
     /// <summary>
-    /// Attribute to support testing
+    ///     Attribute to support testing
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class TargetTypeAttribute : Attribute

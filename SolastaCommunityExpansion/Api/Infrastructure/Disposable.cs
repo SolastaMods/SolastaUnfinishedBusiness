@@ -4,19 +4,6 @@ namespace SolastaModApi.Infrastructure
 {
     public abstract class Disposable : IDisposable
     {
-        #region Constructors and Destructors
-
-        /// <summary>
-        ///     Releases unmanaged resources and performs other cleanup operations before the
-        ///     <see cref="Disposable" /> is reclaimed by garbage collection.
-        /// </summary>
-        ~Disposable()
-        {
-            Dispose(false);
-        }
-
-        #endregion
-
         #region Public Methods and Operators
 
         /// <summary>
@@ -27,6 +14,19 @@ namespace SolastaModApi.Infrastructure
             Dispose(true);
 
             GC.SuppressFinalize(this);
+        }
+
+        #endregion
+
+        #region Constructors and Destructors
+
+        /// <summary>
+        ///     Releases unmanaged resources and performs other cleanup operations before the
+        ///     <see cref="Disposable" /> is reclaimed by garbage collection.
+        /// </summary>
+        ~Disposable()
+        {
+            Dispose(false);
         }
 
         #endregion

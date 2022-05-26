@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using SolastaCommunityExpansion;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaModApi.Extensions
@@ -13,8 +14,13 @@ namespace SolastaModApi.Extensions
         public const string ParamEnabled = "Param_Enabled";
         public const string Invisible = "Invisible";
 
+        private static readonly MethodInfo CheckConditionNameMethod
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+            = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+
         /// <summary>
-        /// Returns state of Invisible parameter, or false if not present
+        ///     Returns state of Invisible parameter, or false if not present
         /// </summary>
         public static bool IsInvisible(this GameGadget gadget)
         {
@@ -36,7 +42,7 @@ namespace SolastaModApi.Extensions
             var enabled = gadget.CheckConditionName(Enabled, true, false);
             var paramEnabled = gadget.CheckConditionName(ParamEnabled, true, false);
 
-            SolastaCommunityExpansion.Main.Log(
+            Main.Log(
                 $"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
 
             return enabled || paramEnabled;
@@ -46,11 +52,6 @@ namespace SolastaModApi.Extensions
         {
             return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] {name, value, valueIfMissing});
         }
-
-        private static readonly MethodInfo CheckConditionNameMethod
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-            = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
     }
 
     public enum ExtraEffectFormType

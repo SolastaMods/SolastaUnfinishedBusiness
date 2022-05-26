@@ -1,6 +1,8 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
@@ -19,6 +21,56 @@ namespace SolastaCommunityExpansion.Spells
         {
             RegisterSpell(PactMarkSpell, 1, WarlockSpellList);
             RegisterSpell(HellishRebukeSpell, 1, WarlockSpellList);
+        }
+
+        private static SpellDefinition BuildHellishRebuke()
+        {
+            return SpellDefinitionBuilder
+                .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Spell,
+                    CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Resources.HellishRebuke,
+                        128, 128))
+                .SetSpellLevel(1)
+                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
+                .SetSomaticComponent(true)
+                .SetVerboseComponent(true)
+                .SetCustomSubFeatures(CustomReactionsContext.AlwaysReactToDamaged)
+                .SetCastingTime(RuleDefinitions.ActivationTime.Reaction)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
+                    .SetTargetingData(
+                        RuleDefinitions.Side.Enemy,
+                        RuleDefinitions.RangeType.Distance,
+                        12,
+                        RuleDefinitions.TargetType.Individuals
+                    )
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Charisma
+                    )
+                    .SetEffectAdvancement(
+                        RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalDicePerIncrement: 1
+                    )
+                    .SetEffectForms(new EffectFormBuilder()
+                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
+                        .SetDamageForm(
+                            false,
+                            RuleDefinitions.DieType.D10,
+                            RuleDefinitions.DamageTypeFire,
+                            0,
+                            RuleDefinitions.DieType.D10,
+                            2
+                        )
+                        .Build()
+                    )
+                    .Build()
+                )
+                .AddToDB();
         }
 
         internal class PactMarkSpellBuilder : SpellDefinitionBuilder
@@ -79,6 +131,9 @@ namespace SolastaCommunityExpansion.Spells
         {
             private const string PactMarkPactMarkConditionName = "AHPactMarkPactMarkCondition";
 
+            public static readonly ConditionDefinition PactMarkCondition =
+                CreateAndAddToDB(PactMarkPactMarkConditionName);
+
             protected PactMarkPactMarkConditionBuilder(string name) : base(
                 DatabaseHelper.ConditionDefinitions.ConditionHuntersMark, name, CENamespaceGuid)
             {
@@ -92,14 +147,14 @@ namespace SolastaCommunityExpansion.Spells
             {
                 return new PactMarkPactMarkConditionBuilder(name).AddToDB();
             }
-
-            public static readonly ConditionDefinition PactMarkCondition =
-                CreateAndAddToDB(PactMarkPactMarkConditionName);
         }
 
         internal class PactMarkMarkedByPactConditionBuilder : ConditionDefinitionBuilder
         {
             private const string PactMarkMarkedByPactConditionName = "AHPactMarkMarkedByPactCondition";
+
+            public static readonly ConditionDefinition MarkedByPactCondition =
+                CreateAndAddToDB(PactMarkMarkedByPactConditionName);
 
             protected PactMarkMarkedByPactConditionBuilder(string name) : base(
                 DatabaseHelper.ConditionDefinitions.ConditionMarkedByHunter, name, CENamespaceGuid)
@@ -112,14 +167,14 @@ namespace SolastaCommunityExpansion.Spells
             {
                 return new PactMarkMarkedByPactConditionBuilder(name).AddToDB();
             }
-
-            public static readonly ConditionDefinition MarkedByPactCondition =
-                CreateAndAddToDB(PactMarkMarkedByPactConditionName);
         }
 
         internal class PactMarkAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder
         {
             private const string PactMarkAdditionalDamageBuilderName = "AHPactMarkAdditionalDamage";
+
+            public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage =
+                CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
 
             protected PactMarkAdditionalDamageBuilder(string name) : base(
                 DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageHuntersMark, name, CENamespaceGuid)
@@ -135,59 +190,6 @@ namespace SolastaCommunityExpansion.Spells
             {
                 return new PactMarkAdditionalDamageBuilder(name).AddToDB();
             }
-
-            public static readonly FeatureDefinitionAdditionalDamage PactMarkAdditionalDamage =
-                CreateAndAddToDB(PactMarkAdditionalDamageBuilderName);
-        }
-
-        private static SpellDefinition BuildHellishRebuke()
-        {
-            return SpellDefinitionBuilder
-                .Create("AHHellishRebuke", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Spell,
-                    Utils.CustomIcons.CreateAssetReferenceSprite("HellishRebuke", Properties.Resources.HellishRebuke,
-                        128, 128))
-                .SetSpellLevel(1)
-                .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
-                .SetSomaticComponent(true)
-                .SetVerboseComponent(true)
-                .SetCustomSubFeatures(CustomReactionsContext.AlwaysReactToDamaged)
-                .SetCastingTime(RuleDefinitions.ActivationTime.Reaction)
-                .SetEffectDescription(new EffectDescriptionBuilder()
-                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ScorchingRay)
-                    .SetTargetingData(
-                        RuleDefinitions.Side.Enemy,
-                        RuleDefinitions.RangeType.Distance,
-                        12,
-                        RuleDefinitions.TargetType.Individuals
-                    )
-                    .SetSavingThrowData(
-                        true,
-                        false,
-                        AttributeDefinitions.Dexterity,
-                        true,
-                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
-                        AttributeDefinitions.Charisma
-                    )
-                    .SetEffectAdvancement(
-                        RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                        additionalDicePerIncrement: 1
-                    )
-                    .SetEffectForms(new EffectFormBuilder()
-                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
-                        .SetDamageForm(
-                            false,
-                            RuleDefinitions.DieType.D10,
-                            RuleDefinitions.DamageTypeFire,
-                            0,
-                            RuleDefinitions.DieType.D10,
-                            2
-                        )
-                        .Build()
-                    )
-                    .Build()
-                )
-                .AddToDB();
         }
     }
 }

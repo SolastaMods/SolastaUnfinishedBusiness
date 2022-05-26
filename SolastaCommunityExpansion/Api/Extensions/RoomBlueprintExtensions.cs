@@ -1,18 +1,19 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(RoomBlueprint))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static class RoomBlueprintExtensions
     {
-        public static T SetCellInfos<T>(this T entity, System.Int32[] value)
+        public static T SetCellInfos<T>(this T entity, Int32[] value)
             where T : RoomBlueprint
         {
             entity.SetField("cellInfos", value);
@@ -34,7 +35,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetGroundElevationSpriteReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReferenceSprite value)
+            AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("groundElevationSpriteReference", value);
@@ -42,14 +43,14 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetGroundMaskSpriteReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReferenceSprite value)
+            AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("groundMaskSpriteReference", value);
             return entity;
         }
 
-        public static T SetSurfaceInfos<T>(this T entity, System.Int32[] value)
+        public static T SetSurfaceInfos<T>(this T entity, Int32[] value)
             where T : RoomBlueprint
         {
             entity.SetField("surfaceInfos", value);
@@ -57,7 +58,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetWallAndOpeningSpriteReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReferenceSprite value)
+            AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("wallAndOpeningSpriteReference", value);
@@ -65,7 +66,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetWallSpriteReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReferenceSprite value)
+            AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("wallSpriteReference", value);

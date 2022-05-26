@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Level20
     public static class SpellsHelper
     {
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        public static List<SlotsByLevelDuplet> FullCastingSlots { get; private set; } = new()
+        public static List<SlotsByLevelDuplet> FullCastingSlots { get; } = new()
         {
             new SlotsByLevelDuplet
             {
@@ -352,7 +352,7 @@ namespace SolastaCommunityExpansion.Level20
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static List<SlotsByLevelDuplet> HalfCastingSlots { get; private set; } = new()
+        internal static List<SlotsByLevelDuplet> HalfCastingSlots { get; } = new()
         {
             new SlotsByLevelDuplet
             {
@@ -617,7 +617,7 @@ namespace SolastaCommunityExpansion.Level20
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static List<SlotsByLevelDuplet> ArtificerCastingSlots { get; private set; } = new()
+        internal static List<SlotsByLevelDuplet> ArtificerCastingSlots { get; } = new()
         {
             new SlotsByLevelDuplet
             {
@@ -882,7 +882,7 @@ namespace SolastaCommunityExpansion.Level20
         };
 
         // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static List<SlotsByLevelDuplet> OneThirdCastingSlots { get; private set; } = new()
+        internal static List<SlotsByLevelDuplet> OneThirdCastingSlots { get; } = new()
         {
             new SlotsByLevelDuplet
             {
@@ -1126,7 +1126,7 @@ namespace SolastaCommunityExpansion.Level20
             }
         };
 
-        internal static List<int> EmptyReplacedSpells { get; private set; } = new()
+        internal static List<int> EmptyReplacedSpells { get; } = new()
         {
             0,
             0,
@@ -1150,7 +1150,7 @@ namespace SolastaCommunityExpansion.Level20
             0
         };
 
-        internal static List<int> FullCasterReplacedSpells { get; private set; } = new()
+        internal static List<int> FullCasterReplacedSpells { get; } = new()
         {
             0,
             1,
@@ -1174,7 +1174,7 @@ namespace SolastaCommunityExpansion.Level20
             1
         };
 
-        internal static List<int> HalfCasterReplacedSpells { get; private set; } = new()
+        internal static List<int> HalfCasterReplacedSpells { get; } = new()
         {
             0,
             0,
@@ -1198,7 +1198,7 @@ namespace SolastaCommunityExpansion.Level20
             1
         };
 
-        internal static List<int> OneThirdCasterReplacedSpells { get; private set; } = new()
+        internal static List<int> OneThirdCasterReplacedSpells { get; } = new()
         {
             0,
             0,
@@ -1222,7 +1222,7 @@ namespace SolastaCommunityExpansion.Level20
             1
         };
 
-        internal static List<int> SorcererKnownSpells { get; private set; } = new()
+        internal static List<int> SorcererKnownSpells { get; } = new()
         {
             2,
             3,

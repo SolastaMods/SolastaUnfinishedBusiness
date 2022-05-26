@@ -19,17 +19,6 @@ namespace SolastaCommunityExpansion.Models
         private static readonly Dictionary<FeatureDefinitionPower, SpellDefinition> Powers2Spells = new();
         private static readonly Dictionary<FeatureDefinitionPower, Bundle> Bundles = new();
 
-        public class Bundle
-        {
-            /**
-             * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
-             * from this bundle can be in effect
-             */
-            public bool TerminateAll { get; internal set; }
-
-            public List<FeatureDefinitionPower> SubPowers { get; } = new();
-        }
-
         public static void RegisterPowerBundle(FeatureDefinitionPower masterPower, bool terminateAll,
             params FeatureDefinitionPower[] subPowers)
         {
@@ -149,6 +138,17 @@ namespace SolastaCommunityExpansion.Models
         {
             ServiceRepository.GetService<IFunctorService>()
                 .RegisterFunctor(UseCustomRestPowerFunctorName, new FunctorUseCustomRestPower());
+        }
+
+        public class Bundle
+        {
+            /**
+             * If set to true will terminate all powers in this bundle when 1 is terminated, so only one power
+             * from this bundle can be in effect
+             */
+            public bool TerminateAll { get; internal set; }
+
+            public List<FeatureDefinitionPower> SubPowers { get; } = new();
         }
     }
 

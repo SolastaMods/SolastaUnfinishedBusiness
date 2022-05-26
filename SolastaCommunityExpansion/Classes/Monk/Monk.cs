@@ -25,9 +25,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
         public const string WeaponTag = "MonkWeapon";
         public const string FlurryTag = "MonkFlurryAttack";
         public static readonly Guid GUID = new("1478A002-D107-4E34-93A3-CEA260DA25C9");
-        public static CharacterClassDefinition Class { get; private set; }
-
-        public static FeatureDefinitionPower KiPool => kiPool;
 
         //TODO: maybe instead of a list make dynamic weapon checker that will tell if weapon is a monk one?
         // Monk weapons are unarmed, shortswords and any simple melee weapons that don't have the two-handed or heavy property.
@@ -54,6 +51,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
             _monkStillnessOfMindIcon,
             _monkSlowFallIcon,
             _monkEmptyBodyIcon;
+
+
+        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
+        private static ConditionalMovementModifier _movementBonusApplier;
+
+        private static ConditionDefinition attackedWithMonkWeaponCondition;
+        private static CharacterValidator attackedWithMonkWeapon;
+        private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind, stunningStrike;
+        private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
+
+        private static ConditionDefinition MonkClimbingCondition;
+        public static CharacterClassDefinition Class { get; private set; }
+
+        public static FeatureDefinitionPower KiPool { get; private set; }
 
         private static AssetReferenceSprite MonkClassSprite => _monkClassSprite ??=
             CreateAssetReferenceSprite("Monk", Resources.Monk, 1024, 576);
@@ -85,18 +96,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static AssetReferenceSprite MonkEmptyBodyIcon => _monkEmptyBodyIcon ??=
             CreateAssetReferenceSprite("MonkEmptyBody", Resources.MonkEmptyBody, 128, 64);
 
-
-        private static FeatureDefinition _unarmoredMovement, _unarmoredMovementBonus;
-        private static ConditionalMovementModifier _movementBonusApplier;
         private static FeatureDefinition UnarmoredMovement => _unarmoredMovement ??= BuildUnarmoredMovement();
-
-        private static ConditionDefinition attackedWithMonkWeaponCondition;
-        private static CharacterValidator attackedWithMonkWeapon;
-        private static FeatureDefinitionPower kiPool;
-        private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind, stunningStrike;
-        private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
-
-        private static ConditionDefinition MonkClimbingCondition;
 
         private static FeatureDefinition UnarmoredMovementBonus =>
             _unarmoredMovementBonus ??= BuildUnarmoredMovementBonus();
@@ -558,14 +558,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 CharacterValidators.NoArmor
             );
 
-            kiPool = FeatureDefinitionPowerBuilder
+            KiPool = FeatureDefinitionPowerBuilder
                 .Create("ClassMonkKiPool", GUID)
                 .SetGuiPresentation(Category.Power, hidden: true)
                 .SetUsesFixed(2)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .AddToDB();
 
-            kiPool.SetCustomSubFeatures(new CustomPortraitPoolPower(kiPool, icon: MonkKiIcon));
+            KiPool.SetCustomSubFeatures(new CustomPortraitPoolPower(KiPool, icon: MonkKiIcon));
 
             var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
@@ -587,7 +587,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             flurryOfBlows = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkFlurryOfBlows", GUID)
                 .SetGuiPresentation(Category.Power, MonkFlurryOfBlowsIcon)
-                .SetSharedPool(kiPool)
+                .SetSharedPool(KiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetCostPerUse(1)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -616,7 +616,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             patientDefense = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkPatientDefense", GUID)
                 .SetGuiPresentation(Category.Power, MonkPatientDefenseIcon)
-                .SetSharedPool(kiPool)
+                .SetSharedPool(KiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetCostPerUse(1)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -646,7 +646,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             stepOfTheWind = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkStepOfTheWind", GUID)
                 .SetGuiPresentation(Category.Power, MonkStepOfTheWindIcon)
-                .SetSharedPool(kiPool)
+                .SetSharedPool(KiPool)
                 .SetActivationTime(ActivationTime.BonusAction)
                 .SetCostPerUse(1)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -684,13 +684,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetGuiPresentation(Category.Feature)
                 .SetCustomSubFeatures(CustomSetDescription.Marker)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .SetFeatureSet(kiPool, flurryOfBlows, patientDefense, stepOfTheWind)
+                .SetFeatureSet(KiPool, flurryOfBlows, patientDefense, stepOfTheWind)
                 .AddToDB();
 
             stunningStrike = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkStunningStrike", GUID)
                 .SetGuiPresentation(Category.Power, MonkStunningStrikeIcon)
-                .SetSharedPool(kiPool)
+                .SetSharedPool(KiPool)
                 .SetActivationTime(ActivationTime.OnAttackHit)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetCostPerUse(1)
@@ -724,7 +724,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return FeatureDefinitionPowerPoolModifierBuilder
                 .Create($"ClassMonkKiPoolIncrease{kiPoolIncreases++:D2}", GUID)
                 .SetGuiPresentationNoContent(true)
-                .Configure(1, UsesDetermination.Fixed, "", kiPool)
+                .Configure(1, UsesDetermination.Fixed, "", KiPool)
                 .AddToDB();
         }
 
@@ -836,7 +836,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetCustomSubFeatures(new CustomRerollFailedSave(FeatureDefinitionPowerSharedPoolBuilder
                     .Create("ClassMonkDiamondSoulPower", GUID)
                     .SetGuiPresentation(Category.Power)
-                    .SetSharedPool(kiPool)
+                    .SetSharedPool(KiPool)
                     .SetCostPerUse(1)
                     .AddToDB(), "DiamondSoul"))
                 .AddToDB();
@@ -856,7 +856,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             return FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkEmptyBody", GUID)
                 .SetGuiPresentation(Category.Power, MonkEmptyBodyIcon)
-                .SetSharedPool(kiPool)
+                .SetSharedPool(KiPool)
                 .SetCostPerUse(4)
                 .SetActivationTime(ActivationTime.Action)
                 .SetRechargeRate(RechargeRate.ShortRest)
@@ -990,6 +990,30 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 CharacterValidators.NoArmor, CharacterValidators.NoShield
             };
 
+            public void OnChracterBattleEnded(GameLocationCharacter locationCharacter)
+            {
+                AllowClimbing(locationCharacter.RulesetCharacter);
+            }
+
+            public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
+            {
+                ForbidClimbing(locationCharacter.RulesetCharacter);
+            }
+
+            public void OnChracterTurnEnded(GameLocationCharacter locationCharacter)
+            {
+                var character = locationCharacter.RulesetCharacter;
+                ForbidClimbing(character);
+                LoseClimbing(character);
+            }
+
+            public void OnChracterTurnStarted(GameLocationCharacter locationCharacter)
+            {
+                var character = locationCharacter.RulesetCharacter;
+                AllowClimbing(character);
+                TryBecomeClimbing(character);
+            }
+
             public void OnBeforeAction(CharacterAction characterAction)
             {
                 if (characterAction.ActionId != ActionDefinitions.Id.TacticalMove
@@ -1006,30 +1030,6 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 var character = characterAction.ActingCharacter.RulesetCharacter;
                 AllowClimbing(character);
                 TryBecomeClimbing(character);
-            }
-
-            public void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
-            {
-                ForbidClimbing(locationCharacter.RulesetCharacter);
-            }
-
-            public void OnChracterBattleEnded(GameLocationCharacter locationCharacter)
-            {
-                AllowClimbing(locationCharacter.RulesetCharacter);
-            }
-
-            public void OnChracterTurnStarted(GameLocationCharacter locationCharacter)
-            {
-                var character = locationCharacter.RulesetCharacter;
-                AllowClimbing(character);
-                TryBecomeClimbing(character);
-            }
-
-            public void OnChracterTurnEnded(GameLocationCharacter locationCharacter)
-            {
-                var character = locationCharacter.RulesetCharacter;
-                ForbidClimbing(character);
-                LoseClimbing(character);
             }
 
             public void OnHeroRefreshed(RulesetCharacter character)
@@ -1115,9 +1115,9 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     return;
                 }
 
-                if (character.GetRemainingPowerUses(kiPool) == 0)
+                if (character.GetRemainingPowerUses(KiPool) == 0)
                 {
-                    character.UpdateUsageForPower(kiPool, -4);
+                    character.UpdateUsageForPower(KiPool, -4);
                     GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
                 }
             }

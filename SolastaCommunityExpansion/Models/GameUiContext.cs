@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using SolastaModApi.Infrastructure;
 using TA;
@@ -20,7 +21,7 @@ namespace SolastaCommunityExpansion.Models
 
         internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
         {
-            return System.Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
+            return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
         }
 
         internal static void Load()

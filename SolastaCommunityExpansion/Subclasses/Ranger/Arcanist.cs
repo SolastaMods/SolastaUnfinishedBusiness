@@ -17,7 +17,23 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
 {
     internal class Arcanist : AbstractSubclass
     {
+        private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
+
+        public static readonly Guid RA_BASE_GUID = new(RangerArcanistRangerSubclassGuid);
+
+        private static ConditionDefinition markedByArcanist;
         private CharacterSubclassDefinition Subclass;
+
+        private static ConditionDefinition MarkedByArcanist => markedByArcanist ??= ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist", RA_BASE_GUID)
+            .SetGuiPresentation(Category.Condition,
+                ConditionDefinitions.ConditionMarkedByBrandingSmite.GuiPresentation.SpriteReference)
+            .SetAllowMultipleInstances(false)
+            .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
+            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetPossessive(true)
+            .SetSpecialDuration(true)
+            .AddToDB();
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
@@ -28,10 +44,6 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
         {
             return Subclass ??= BuildAndAddSubclass();
         }
-
-        private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
-
-        public static readonly Guid RA_BASE_GUID = new(RangerArcanistRangerSubclassGuid);
 
         public static CharacterSubclassDefinition BuildAndAddSubclass()
         {
@@ -52,19 +64,6 @@ namespace SolastaCommunityExpansion.Subclasses.Ranger
                 .AddFeatureAtLevel(arcane_pulse_upgrade_action, 15)
                 .AddToDB();
         }
-
-        private static ConditionDefinition markedByArcanist;
-
-        private static ConditionDefinition MarkedByArcanist => markedByArcanist ??= ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist", RA_BASE_GUID)
-            .SetGuiPresentation(Category.Condition,
-                ConditionDefinitions.ConditionMarkedByBrandingSmite.GuiPresentation.SpriteReference)
-            .SetAllowMultipleInstances(false)
-            .SetDuration(RuleDefinitions.DurationType.Permanent, 1, false)
-            .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-            .SetPossessive(true)
-            .SetSpecialDuration(true)
-            .AddToDB();
 
         private static FeatureDefinition[] CreateRangerArcanistMagic()
         {

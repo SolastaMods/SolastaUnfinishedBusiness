@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(DamageForm))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -42,7 +43,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetBonusDamage<T>(this T entity, System.Int32 value)
+        public static T SetBonusDamage<T>(this T entity, Int32 value)
             where T : DamageForm
         {
             entity.BonusDamage = value;
@@ -63,14 +64,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageType<T>(this T entity, System.String value)
+        public static T SetDamageType<T>(this T entity, String value)
             where T : DamageForm
         {
             entity.DamageType = value;
             return entity;
         }
 
-        public static T SetDiceNumber<T>(this T entity, System.Int32 value)
+        public static T SetDiceNumber<T>(this T entity, Int32 value)
             where T : DamageForm
         {
             entity.DiceNumber = value;
@@ -84,7 +85,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForceKillOnZeroHp<T>(this T entity, System.Boolean value)
+        public static T SetForceKillOnZeroHp<T>(this T entity, Boolean value)
             where T : DamageForm
         {
             entity.SetField("forceKillOnZeroHp", value);
@@ -98,28 +99,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHitPointsFloor<T>(this T entity, System.Int32 value)
+        public static T SetHitPointsFloor<T>(this T entity, Int32 value)
             where T : DamageForm
         {
             entity.SetField("hitPointsFloor", value);
             return entity;
         }
 
-        public static T SetIgnoreCriticalDoubleDice<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreCriticalDoubleDice<T>(this T entity, Boolean value)
             where T : DamageForm
         {
             entity.IgnoreCriticalDoubleDice = value;
             return entity;
         }
 
-        public static T SetIgnoreFlyingCharacters<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreFlyingCharacters<T>(this T entity, Boolean value)
             where T : DamageForm
         {
             entity.IgnoreFlyingCharacters = value;
             return entity;
         }
 
-        public static T SetIgnoreSpellAdvancementDamageDice<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreSpellAdvancementDamageDice<T>(this T entity, Boolean value)
             where T : DamageForm
         {
             entity.IgnoreSpellAdvancementDamageDice = value;
@@ -133,7 +134,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetVersatile<T>(this T entity, System.Boolean value)
+        public static T SetVersatile<T>(this T entity, Boolean value)
             where T : DamageForm
         {
             entity.SetField("versatile", value);

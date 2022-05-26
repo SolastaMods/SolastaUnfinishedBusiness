@@ -12,17 +12,9 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
     internal class ArcaneFighter : AbstractSubclass
     {
         private static readonly Guid SubclassNamespace = new("cab151dd-cc94-4c4c-bfba-a712b9a0b53d");
+
+        private static FeatureDefinitionPower _enchantWeapon;
         private readonly CharacterSubclassDefinition Subclass;
-
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-        }
-
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
 
         internal ArcaneFighter()
         {
@@ -83,9 +75,17 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
                 .AddToDB();
         }
 
-        private static FeatureDefinitionPower _enchantWeapon;
-
         internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
+        }
 
         private static FeatureDefinitionPower BuildEnchantWeapon()
         {

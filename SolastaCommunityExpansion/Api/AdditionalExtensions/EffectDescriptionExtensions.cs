@@ -4,7 +4,7 @@ using SolastaModApi.Diagnostics;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// TODO: remove this extension and replace usage with EffectDescriptionBuilder
+    ///     TODO: remove this extension and replace usage with EffectDescriptionBuilder
     /// </summary>
     public static partial class EffectDescriptionExtensions
     {

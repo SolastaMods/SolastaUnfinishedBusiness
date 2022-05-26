@@ -7,15 +7,13 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class SpellDefinitionWithDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
     {
-        private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
-
-        public List<(List<FeatureDefinition>, EffectDescription)> FeaturesEffectList => _featuresEffectList;
+        public List<(List<FeatureDefinition>, EffectDescription)> FeaturesEffectList { get; } = new();
 
         public EffectDescription GetCustomEffect(RulesetCharacter caster)
         {
             var casterFeatures = caster.GetFeaturesByType<FeatureDefinition>().ToHashSet();
 
-            foreach (var (featureDefinitions, customEffect) in _featuresEffectList)
+            foreach (var (featureDefinitions, customEffect) in FeaturesEffectList)
             {
                 if (featureDefinitions.All(f => casterFeatures.Contains(f)))
                 {
@@ -32,20 +30,18 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect,
             RulesetCharacter caster);
 
-        private ModifySpellEffectDelegate _spellModifier;
-
-        public ModifySpellEffectDelegate SpellModifier { get => _spellModifier; set => _spellModifier = value; }
+        public ModifySpellEffectDelegate SpellModifier { get; set; }
 
         public EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster)
         {
-            return _spellModifier != null ? _spellModifier(spell, effect, caster) : effect;
+            return SpellModifier != null ? SpellModifier(spell, effect, caster) : effect;
         }
     }
 
     internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     {
-        private readonly EffectDescription _upgraded;
         private readonly int _level;
+        private readonly EffectDescription _upgraded;
 
         public UpgradeEffectFromLevel(EffectDescription upgraded, int level)
         {

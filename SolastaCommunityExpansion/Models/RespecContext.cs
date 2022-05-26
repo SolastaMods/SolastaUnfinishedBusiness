@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using TA;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
@@ -16,7 +17,7 @@ namespace SolastaCommunityExpansion.Models
         private const string LevelDownName = "LevelDown";
         private const string RespecName = "Respec";
 
-        public static RestActivityDefinition RestActivityLevelDown { get; private set; } = RestActivityDefinitionBuilder
+        public static RestActivityDefinition RestActivityLevelDown { get; } = RestActivityDefinitionBuilder
             .Create(LevelDownName, "fdb4d86eaef942d1a22dbf1fb5a7299f")
             .SetGuiPresentation("MainMenu/&ExportPdfTitle", "MainMenu/&ExportPdfDescription")
             .SetRestData(
@@ -24,7 +25,7 @@ namespace SolastaCommunityExpansion.Models
                 RestActivityDefinition.ActivityCondition.None, LevelDownName, string.Empty)
             .AddToDB();
 
-        public static RestActivityDefinition RestActivityRespec { get; private set; } = RestActivityDefinitionBuilder
+        public static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
             .Create(RespecName, "40824029eb224fb581f0d4e5989b6735")
             .SetGuiPresentation("RestActivity/&ZSRespecTitle", "RestActivity/&ZSRespecDescription")
             .SetRestData(
@@ -155,7 +156,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             internal static void CopyInventoryOver(RulesetCharacterHero oldHero, RulesetCharacterHero newHero,
-                TA.int3 position)
+                int3 position)
             {
                 var inventoryCommandService = ServiceRepository.GetService<IInventoryCommandService>();
                 var personalSlots = oldHero.CharacterInventory.PersonalContainer.InventorySlots;

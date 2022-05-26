@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Builders
     }
 
     /// <summary>
-    /// Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
+    ///     Abstract ConditionDefinitionBuilder that allows creating builders for custom ConditionDefinition types.
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
     /// <typeparam name="TBuilder"></typeparam>
@@ -36,30 +36,6 @@ namespace SolastaCommunityExpansion.Builders
         {
             Definition.SetEmptyParticleReferencesWhereNull();
         }
-
-        #region Constructors
-
-        protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-            SetEmptyParticleReferencesWhereNull();
-        }
-
-        protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-            SetEmptyParticleReferencesWhereNull();
-        }
-
-        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-            name, definitionGuid)
-        {
-        }
-
-        #endregion
 
         // Setters delegating to Definition
         public TBuilder SetAllowMultipleInstances(bool value)
@@ -259,10 +235,34 @@ namespace SolastaCommunityExpansion.Builders
 
             return This();
         }
+
+        #region Constructors
+
+        protected ConditionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+            SetEmptyParticleReferencesWhereNull();
+        }
+
+        protected ConditionDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+            SetEmptyParticleReferencesWhereNull();
+        }
+
+        protected ConditionDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
+        {
+        }
+
+        protected ConditionDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
+            name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     /// <summary>
-    /// Concrete ConditionDefinitionBuilder that allows building ConditionDefinition.
+    ///     Concrete ConditionDefinitionBuilder that allows building ConditionDefinition.
     /// </summary>
     public class ConditionDefinitionBuilder :
         ConditionDefinitionBuilder<ConditionDefinition, ConditionDefinitionBuilder>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AwesomeTechnologies;
 using AwesomeTechnologies.VegetationSystem;
@@ -6,6 +7,8 @@ using AwesomeTechnologies.VegetationSystem.Biomes;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Object = UnityEngine.Object;
+using Random = System.Random;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -87,8 +90,8 @@ namespace SolastaCommunityExpansion.Models
             {
                 for (var x = 0; x < resolution; x++)
                 {
-                    var sx = (int)System.Math.Round(x * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
-                    var sy = (int)System.Math.Round(y * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
+                    var sx = (int)Math.Round(x * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
+                    var sy = (int)Math.Round(y * (locationSize + (MARGIN * 2f) - 1f) / (resolution - 1f));
 
                     heights[y, x] = 1 - mapHeights[sx, sy];
                 }
@@ -161,7 +164,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var multiplier))
             {
-                var rnd = new System.Random();
+                var rnd = new Random();
 
                 roomTransform.position = new Vector3(roomTransform.position.x - ((multiplier - 1) * FLAT_ROOM_SIZE / 2),
                     0, roomTransform.position.z - ((multiplier - 1) * FLAT_ROOM_SIZE / 2));

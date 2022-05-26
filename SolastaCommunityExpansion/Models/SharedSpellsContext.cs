@@ -54,54 +54,6 @@ namespace SolastaCommunityExpansion.Models
             //{ SpellShieldSubclass, CasterType.OneThird } // ChrisJohnDigital
         };
 
-        public class CasterLevelContext
-        {
-            private readonly Dictionary<CasterType, int> levels;
-
-            public CasterLevelContext()
-            {
-                levels = new Dictionary<CasterType, int>
-                {
-                    {CasterType.None, 0},
-                    {CasterType.Full, 0},
-                    {CasterType.Half, 0},
-                    {CasterType.HalfRoundUp, 0},
-                    {CasterType.OneThird, 0}
-                };
-            }
-
-            public void IncrementCasterLevel(CasterType casterType, int increment)
-            {
-                levels[casterType] += increment;
-            }
-
-            public int GetCasterLevel()
-            {
-                var casterLevel = 0;
-
-                // Full Casters
-                casterLevel += levels[CasterType.Full];
-
-                // Tinkerer / ...
-                if (levels[CasterType.HalfRoundUp] == 1)
-                {
-                    casterLevel++;
-                }
-                // Half Casters
-                else
-                {
-                    casterLevel += (int)Math.Floor(levels[CasterType.HalfRoundUp] / 2.0);
-                }
-
-                casterLevel += (int)Math.Floor(levels[CasterType.Half] / 2.0);
-
-                // Con Artist / ...
-                casterLevel += (int)Math.Floor(levels[CasterType.OneThird] / 3.0);
-
-                return casterLevel;
-            }
-        }
-
         private static CasterType GetCasterTypeForClassOrSubclass(CharacterClassDefinition characterClassDefinition,
             CharacterSubclassDefinition characterSubclassDefinition)
         {
@@ -300,6 +252,54 @@ namespace SolastaCommunityExpansion.Models
             RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);
             RecoverySlots.Add("ArtificerInfusionSpellRefuelingRing", TinkererClass);
             RecoverySlots.Add("PowerAlchemistSpellBonusRecovery", TinkererClass);
+        }
+
+        public class CasterLevelContext
+        {
+            private readonly Dictionary<CasterType, int> levels;
+
+            public CasterLevelContext()
+            {
+                levels = new Dictionary<CasterType, int>
+                {
+                    {CasterType.None, 0},
+                    {CasterType.Full, 0},
+                    {CasterType.Half, 0},
+                    {CasterType.HalfRoundUp, 0},
+                    {CasterType.OneThird, 0}
+                };
+            }
+
+            public void IncrementCasterLevel(CasterType casterType, int increment)
+            {
+                levels[casterType] += increment;
+            }
+
+            public int GetCasterLevel()
+            {
+                var casterLevel = 0;
+
+                // Full Casters
+                casterLevel += levels[CasterType.Full];
+
+                // Tinkerer / ...
+                if (levels[CasterType.HalfRoundUp] == 1)
+                {
+                    casterLevel++;
+                }
+                // Half Casters
+                else
+                {
+                    casterLevel += (int)Math.Floor(levels[CasterType.HalfRoundUp] / 2.0);
+                }
+
+                casterLevel += (int)Math.Floor(levels[CasterType.Half] / 2.0);
+
+                // Con Artist / ...
+                casterLevel += (int)Math.Floor(levels[CasterType.OneThird] / 3.0);
+
+                return casterLevel;
+            }
         }
     }
 }

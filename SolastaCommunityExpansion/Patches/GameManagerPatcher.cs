@@ -2,8 +2,8 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
+using SolastaMonsters.Models;
 using UnityModManagerNet;
-
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -86,7 +86,7 @@ namespace SolastaCommunityExpansion.Patches
             MulticlassContext.Load();
 
             // Custom High Level Monsters
-            SolastaMonsters.Models.MonsterContext.Load();
+            MonsterContext.Load();
 
             // Only a functor registration
             PowerBundleContext.Load();

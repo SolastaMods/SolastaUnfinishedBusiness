@@ -6,6 +6,12 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionConditionalPowerBuilder
         : FeatureDefinitionPowerBuilder<FeatureDefinitionConditionalPower, FeatureDefinitionConditionalPowerBuilder>
     {
+        public FeatureDefinitionConditionalPowerBuilder SetIsActive(IsActiveConditionalPowerDelegate del)
+        {
+            Definition.SetIsActiveDelegate(del);
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionConditionalPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -28,11 +34,5 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #endregion
-
-        public FeatureDefinitionConditionalPowerBuilder SetIsActive(IsActiveConditionalPowerDelegate del)
-        {
-            Definition.SetIsActiveDelegate(del);
-            return this;
-        }
     }
 }

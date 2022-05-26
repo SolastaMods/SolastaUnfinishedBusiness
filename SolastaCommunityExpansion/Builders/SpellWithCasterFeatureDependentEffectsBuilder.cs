@@ -11,6 +11,24 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : SpellDefinitionWithDependentEffects
         where TBuilder : SpellDefinitionBuilder<TDefinition, TBuilder>
     {
+        public TBuilder AddFeatureEffects(params (List<FeatureDefinition>, EffectDescription)[] featureEffects)
+        {
+            Definition.FeaturesEffectList.AddRange(featureEffects);
+            return This();
+        }
+
+        public TBuilder SetFeatureEffects(params (List<FeatureDefinition>, EffectDescription)[] featureEffects)
+        {
+            Definition.FeaturesEffectList.SetRange(featureEffects);
+            return This();
+        }
+
+        public TBuilder ClearFeatureEffects()
+        {
+            Definition.FeaturesEffectList.Clear();
+            return This();
+        }
+
         #region Constructors
 
         protected SpellDefinitionWithDependentEffectsBuilder(string name, string guid) : base(name, guid)
@@ -33,24 +51,6 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion Constructors
-
-        public TBuilder AddFeatureEffects(params (List<FeatureDefinition>, EffectDescription)[] featureEffects)
-        {
-            Definition.FeaturesEffectList.AddRange(featureEffects);
-            return This();
-        }
-
-        public TBuilder SetFeatureEffects(params (List<FeatureDefinition>, EffectDescription)[] featureEffects)
-        {
-            Definition.FeaturesEffectList.SetRange(featureEffects);
-            return This();
-        }
-
-        public TBuilder ClearFeatureEffects()
-        {
-            Definition.FeaturesEffectList.Clear();
-            return This();
-        }
     }
 
     public class SpellDefinitionWithDependentEffectsBuilder : SpellDefinitionWithDependentEffectsBuilder<

@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(RulesetCharacterHero))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -42,56 +43,56 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAlignmentOptionaPersonalityFlags<T>(this T entity, params System.String[] value)
+        public static T AddAlignmentOptionaPersonalityFlags<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddAlignmentOptionaPersonalityFlags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAlignmentOptionaPersonalityFlags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddAlignmentOptionaPersonalityFlags<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.AlignmentOptionaPersonalityFlags.AddRange(value);
             return entity;
         }
 
-        public static T AddArmorCategoryProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddArmorCategoryProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddArmorCategoryProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddArmorCategoryProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddArmorCategoryProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ArmorCategoryProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddArmorTypeProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddArmorTypeProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddArmorTypeProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddArmorTypeProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddArmorTypeProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ArmorTypeProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddBackgroundOptionalPersonalityFlags<T>(this T entity, params System.String[] value)
+        public static T AddBackgroundOptionalPersonalityFlags<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddBackgroundOptionalPersonalityFlags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddBackgroundOptionalPersonalityFlags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddBackgroundOptionalPersonalityFlags<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.BackgroundOptionalPersonalityFlags.AddRange(value);
@@ -112,98 +113,98 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddExpertiseProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddExpertiseProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddExpertiseProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddExpertiseProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddExpertiseProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ExpertiseProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddFeatProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddFeatProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddFeatProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddFeatProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddFeatProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.FeatProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddLanguageProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddLanguageProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddLanguageProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddLanguageProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddLanguageProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.LanguageProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddMetamagicProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddMetamagicProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddMetamagicProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddMetamagicProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddMetamagicProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.MetamagicProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddSkillProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddSkillProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddSkillProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSkillProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddSkillProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.SkillProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddToolTypeProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddToolTypeProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddToolTypeProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddToolTypeProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddToolTypeProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ToolTypeProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddTrainedExpertises<T>(this T entity, params System.String[] value)
+        public static T AddTrainedExpertises<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddTrainedExpertises(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddTrainedExpertises<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddTrainedExpertises<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.TrainedExpertises.AddRange(value);
@@ -294,28 +295,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddWeaponCategoryProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddWeaponCategoryProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddWeaponCategoryProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddWeaponCategoryProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddWeaponCategoryProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.WeaponCategoryProficiencies.AddRange(value);
             return entity;
         }
 
-        public static T AddWeaponTypeProficiencies<T>(this T entity, params System.String[] value)
+        public static T AddWeaponTypeProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             AddWeaponTypeProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddWeaponTypeProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddWeaponTypeProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.WeaponTypeProficiencies.AddRange(value);
@@ -482,10 +483,10 @@ namespace SolastaModApi.Extensions
             return entity.GetField<Dictionary<ItemDefinition, List<FeatureDefinition>>>("activeItemFeatures");
         }
 
-        public static List<System.String> GetAlignmentOptionalPersonalityFlags<T>(this T entity)
+        public static List<String> GetAlignmentOptionalPersonalityFlags<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<System.String>>("alignmentOptionalPersonalityFlags");
+            return entity.GetField<List<String>>("alignmentOptionalPersonalityFlags");
         }
 
         public static List<IAttackModificationProvider> GetAttackModifiers<T>(this T entity)
@@ -494,10 +495,10 @@ namespace SolastaModApi.Extensions
             return entity.GetField<List<IAttackModificationProvider>>("attackModifiers");
         }
 
-        public static Dictionary<ItemDefinition, System.Int32> GetBonusByItem<T>(this T entity)
+        public static Dictionary<ItemDefinition, Int32> GetBonusByItem<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<ItemDefinition, System.Int32>>("bonusByItem");
+            return entity.GetField<Dictionary<ItemDefinition, Int32>>("bonusByItem");
         }
 
         public static List<RulesetItem> GetCarriedItems<T>(this T entity)
@@ -526,16 +527,16 @@ namespace SolastaModApi.Extensions
             return entity.GetField<List<FeatureDefinition>>("equipmentBrowseList");
         }
 
-        public static List<System.String> GetForbiddenArmorTags<T>(this T entity)
+        public static List<String> GetForbiddenArmorTags<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<System.String>>("forbiddenArmorTags");
+            return entity.GetField<List<String>>("forbiddenArmorTags");
         }
 
-        public static List<System.Int32> GetHitPointsGainHistory<T>(this T entity)
+        public static List<Int32> GetHitPointsGainHistory<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<System.Int32>>("hitPointsGainHistory");
+            return entity.GetField<List<Int32>>("hitPointsGainHistory");
         }
 
         public static List<RulesetAttributeModifier> GetModifiers<T>(this T entity)
@@ -544,16 +545,16 @@ namespace SolastaModApi.Extensions
             return entity.GetField<List<RulesetAttributeModifier>>("modifiers");
         }
 
-        public static Dictionary<DieType, System.Int32> GetSpentHitDice<T>(this T entity)
+        public static Dictionary<DieType, Int32> GetSpentHitDice<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<DieType, System.Int32>>("spentHitDice");
+            return entity.GetField<Dictionary<DieType, Int32>>("spentHitDice");
         }
 
-        public static Dictionary<System.String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
+        public static Dictionary<String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<System.String, TagsDefinitions.Criticity>>("tagsMap");
+            return entity.GetField<Dictionary<String, TagsDefinitions.Criticity>>("tagsMap");
         }
 
         public static List<FeatureDefinition> GetWeaponModifiers<T>(this T entity)
@@ -576,7 +577,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalBackstory<T>(this T entity, System.String value)
+        public static T SetAdditionalBackstory<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.AdditionalBackstory = value;
@@ -604,49 +605,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAlignmentOptionaPersonalityFlags<T>(this T entity, params System.String[] value)
+        public static T SetAlignmentOptionaPersonalityFlags<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetAlignmentOptionaPersonalityFlags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAlignmentOptionaPersonalityFlags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetAlignmentOptionaPersonalityFlags<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.AlignmentOptionaPersonalityFlags.SetRange(value);
             return entity;
         }
 
-        public static T SetArmorCategoryProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetArmorCategoryProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetArmorCategoryProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetArmorCategoryProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetArmorCategoryProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ArmorCategoryProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetArmorTypeProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetArmorTypeProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetArmorTypeProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetArmorTypeProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetArmorTypeProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ArmorTypeProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetAttunementCapital<T>(this T entity, System.Int32 value)
+        public static T SetAttunementCapital<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("attunementCapital", value);
@@ -660,28 +661,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBackgroundOptionalPersonalityFlags<T>(this T entity, params System.String[] value)
+        public static T SetBackgroundOptionalPersonalityFlags<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetBackgroundOptionalPersonalityFlags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetBackgroundOptionalPersonalityFlags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetBackgroundOptionalPersonalityFlags<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.BackgroundOptionalPersonalityFlags.SetRange(value);
             return entity;
         }
 
-        public static T SetBackgroundSubType<T>(this T entity, System.String value)
+        public static T SetBackgroundSubType<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.BackgroundSubType = value;
             return entity;
         }
 
-        public static T SetBodyAssetPrefix<T>(this T entity, System.String value)
+        public static T SetBodyAssetPrefix<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.SetField("bodyAssetPrefix", value);
@@ -695,7 +696,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBuiltIn<T>(this T entity, System.Boolean value)
+        public static T SetBuiltIn<T>(this T entity, Boolean value)
             where T : RulesetCharacterHero
         {
             entity.BuiltIn = value;
@@ -739,14 +740,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCriticalFailures<T>(this T entity, System.Int32 value)
+        public static T SetCriticalFailures<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("criticalFailures", value);
             return entity;
         }
 
-        public static T SetCriticalHits<T>(this T entity, System.Int32 value)
+        public static T SetCriticalHits<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("criticalHits", value);
@@ -776,35 +777,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDisplayBackstory<T>(this T entity, System.String value)
+        public static T SetDisplayBackstory<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.SetField("displayBackstory", value);
             return entity;
         }
 
-        public static T SetDisplayName<T>(this T entity, System.String value)
+        public static T SetDisplayName<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.SetField("displayName", value);
             return entity;
         }
 
-        public static T SetDisplaySurName<T>(this T entity, System.String value)
+        public static T SetDisplaySurName<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.SetField("displaySurName", value);
             return entity;
         }
 
-        public static T SetEarnedXP<T>(this T entity, System.Int32 value)
+        public static T SetEarnedXP<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("earnedXP", value);
             return entity;
         }
 
-        public static T SetEditorOnly<T>(this T entity, System.Boolean value)
+        public static T SetEditorOnly<T>(this T entity, Boolean value)
             where T : RulesetCharacterHero
         {
             entity.EditorOnly = value;
@@ -818,49 +819,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetExpertiseProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetExpertiseProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetExpertiseProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetExpertiseProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetExpertiseProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ExpertiseProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetFailedAttacks<T>(this T entity, System.Int32 value)
+        public static T SetFailedAttacks<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("failedAttacks", value);
             return entity;
         }
 
-        public static T SetFeatProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetFeatProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetFeatProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetFeatProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetFeatProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.FeatProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetIgnoreEquipmentOnAbilityScores<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreEquipmentOnAbilityScores<T>(this T entity, Boolean value)
             where T : RulesetCharacterHero
         {
             entity.SetField("<IgnoreEquipmentOnAbilityScores>k__BackingField", value);
             return entity;
         }
 
-        public static T SetInflictedDamage<T>(this T entity, System.Int32 value)
+        public static T SetInflictedDamage<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("inflictedDamage", value);
@@ -874,49 +875,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnockOuts<T>(this T entity, System.Int32 value)
+        public static T SetKnockOuts<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("knockOuts", value);
             return entity;
         }
 
-        public static T SetLanguageProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetLanguageProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetLanguageProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetLanguageProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetLanguageProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.LanguageProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetLastLongRestDay<T>(this T entity, System.Int32 value)
+        public static T SetLastLongRestDay<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("lastLongRestDay", value);
             return entity;
         }
 
-        public static T SetMetamagicProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetMetamagicProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetMetamagicProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetMetamagicProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetMetamagicProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.MetamagicProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetMorphotypeAssetPrefix<T>(this T entity, System.String value)
+        public static T SetMorphotypeAssetPrefix<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.SetField("morphotypeAssetPrefix", value);
@@ -939,7 +940,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetName<T>(this T entity, System.String value)
+        public static T SetName<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.Name = value;
@@ -953,49 +954,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRefreshing<T>(this T entity, System.Boolean value)
+        public static T SetRefreshing<T>(this T entity, Boolean value)
             where T : RulesetCharacterHero
         {
             entity.SetField("refreshing", value);
             return entity;
         }
 
-        public static T SetRemainingSleepHours<T>(this T entity, System.Int32 value)
+        public static T SetRemainingSleepHours<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.RemainingSleepHours = value;
             return entity;
         }
 
-        public static T SetRemainingSleepTime<T>(this T entity, System.Int32 value)
+        public static T SetRemainingSleepTime<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("remainingSleepTime", value);
             return entity;
         }
 
-        public static T SetRestoredHealth<T>(this T entity, System.Int32 value)
+        public static T SetRestoredHealth<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("restoredHealth", value);
             return entity;
         }
 
-        public static T SetSkillProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetSkillProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetSkillProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSkillProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetSkillProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.SkillProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetSlainEnemies<T>(this T entity, System.Int32 value)
+        public static T SetSlainEnemies<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("slainEnemies", value);
@@ -1009,21 +1010,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSuccessfulAttacks<T>(this T entity, System.Int32 value)
+        public static T SetSuccessfulAttacks<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("successfulAttacks", value);
             return entity;
         }
 
-        public static T SetSurName<T>(this T entity, System.String value)
+        public static T SetSurName<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.SurName = value;
             return entity;
         }
 
-        public static T SetSustainedInjuries<T>(this T entity, System.Int32 value)
+        public static T SetSustainedInjuries<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("sustainedInjuries", value);
@@ -1037,28 +1038,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetToolTypeProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetToolTypeProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetToolTypeProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetToolTypeProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetToolTypeProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.ToolTypeProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetTrainedExpertises<T>(this T entity, params System.String[] value)
+        public static T SetTrainedExpertises<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetTrainedExpertises(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetTrainedExpertises<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetTrainedExpertises<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.TrainedExpertises.SetRange(value);
@@ -1149,7 +1150,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTravelledCells<T>(this T entity, System.Int32 value)
+        public static T SetTravelledCells<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("travelledCells", value);
@@ -1170,42 +1171,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsedMagicAndPowers<T>(this T entity, System.Int32 value)
+        public static T SetUsedMagicAndPowers<T>(this T entity, Int32 value)
             where T : RulesetCharacterHero
         {
             entity.SetField("usedMagicAndPowers", value);
             return entity;
         }
 
-        public static T SetVoiceID<T>(this T entity, System.String value)
+        public static T SetVoiceID<T>(this T entity, String value)
             where T : RulesetCharacterHero
         {
             entity.VoiceID = value;
             return entity;
         }
 
-        public static T SetWeaponCategoryProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetWeaponCategoryProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetWeaponCategoryProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetWeaponCategoryProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetWeaponCategoryProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.WeaponCategoryProficiencies.SetRange(value);
             return entity;
         }
 
-        public static T SetWeaponTypeProficiencies<T>(this T entity, params System.String[] value)
+        public static T SetWeaponTypeProficiencies<T>(this T entity, params String[] value)
             where T : RulesetCharacterHero
         {
             SetWeaponTypeProficiencies(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetWeaponTypeProficiencies<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetWeaponTypeProficiencies<T>(this T entity, IEnumerable<String> value)
             where T : RulesetCharacterHero
         {
             entity.WeaponTypeProficiencies.SetRange(value);

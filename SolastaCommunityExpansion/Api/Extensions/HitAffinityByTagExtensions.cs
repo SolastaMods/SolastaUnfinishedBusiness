@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -5,8 +6,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(HitAffinityByTag))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -26,7 +27,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTag<T>(this T entity, System.String value)
+        public static T SetTag<T>(this T entity, String value)
             where T : HitAffinityByTag
         {
             entity.SetField("tag", value);

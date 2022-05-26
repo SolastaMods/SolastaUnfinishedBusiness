@@ -15,10 +15,11 @@ namespace ModKit
         public static Rect ummRect = new();
         public static float ummWidth = 960f;
         public static int ummTabID = 0;
-        public static bool IsNarrow => ummWidth < 1200;
-        public static bool IsWide => ummWidth >= 1920;
 
         public static Vector2[] ummScrollPosition;
+        public static bool IsNarrow => ummWidth < 1200;
+
+        public static bool IsWide => ummWidth >= 1920;
         /*** UI Builders
          * 
          * This is a simple UI framework that simulates the style of SwiftUI.  

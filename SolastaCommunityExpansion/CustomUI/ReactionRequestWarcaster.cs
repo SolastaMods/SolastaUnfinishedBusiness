@@ -12,6 +12,40 @@ namespace SolastaCommunityExpansion.CustomUI
         public const string Name = "WarcasterReaction";
         public static ReactionDefinition ReactWarcasterDefinition;
 
+        public ReactionRequestWarcaster(CharacterActionParams reactionParams)
+            : base(Name, reactionParams)
+        {
+            BuildSuboptions();
+            ReactionParams.StringParameter2 = "Warcaster";
+        }
+
+        public override int SelectedSubOption
+        {
+            get
+            {
+                var spell = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition;
+                if (spell == null)
+                {
+                    return 0;
+                }
+
+                return ReactionParams.SpellRepertoire.KnownSpells.FindIndex(s => s == spell) + 1;
+            }
+        }
+
+
+        public override string SuboptionTag => "Warcaster";
+
+        public override bool IsStillValid
+        {
+            get
+            {
+                var targetCharacter = ReactionParams.TargetCharacters[0];
+                return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
+                    .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+            }
+        }
+
         public static void Initialize()
         {
             ReactWarcasterDefinition = ReactionDefinitionBuilder
@@ -19,13 +53,6 @@ namespace SolastaCommunityExpansion.CustomUI
                     DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Reaction)
                 .AddToDB();
-        }
-
-        public ReactionRequestWarcaster(CharacterActionParams reactionParams)
-            : base(Name, reactionParams)
-        {
-            BuildSuboptions();
-            ReactionParams.StringParameter2 = "Warcaster";
         }
 
         private void BuildSuboptions()
@@ -96,20 +123,6 @@ namespace SolastaCommunityExpansion.CustomUI
             SelectSubOption(0);
         }
 
-        public override int SelectedSubOption
-        {
-            get
-            {
-                var spell = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition;
-                if (spell == null)
-                {
-                    return 0;
-                }
-
-                return ReactionParams.SpellRepertoire.KnownSpells.FindIndex(s => s == spell) + 1;
-            }
-        }
-
 
         public override void SelectSubOption(int option)
         {
@@ -165,19 +178,6 @@ namespace SolastaCommunityExpansion.CustomUI
                         reactionParams.ActionModifiers.Add(mod);
                     }
                 }
-            }
-        }
-
-
-        public override string SuboptionTag => "Warcaster";
-
-        public override bool IsStillValid
-        {
-            get
-            {
-                var targetCharacter = ReactionParams.TargetCharacters[0];
-                return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
-                    .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
             }
         }
 

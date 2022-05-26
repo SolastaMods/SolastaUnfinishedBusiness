@@ -10,15 +10,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
      */
     public class FeatureDefinitionOnAttackDamageEffect : FeatureDefinition, IOnAttackDamageEffect
     {
-        private OnAttackDamageDelegate beforeOnAttackDamage;
         private OnAttackDamageDelegate afterOnAttackDamage;
-
-        internal void SetOnAttackDamageDelegates(OnAttackDamageDelegate before = null,
-            OnAttackDamageDelegate after = null)
-        {
-            beforeOnAttackDamage = before;
-            afterOnAttackDamage = after;
-        }
+        private OnAttackDamageDelegate beforeOnAttackDamage;
 
         public void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
@@ -50,6 +43,13 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
             afterOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
                 actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+        }
+
+        internal void SetOnAttackDamageDelegates(OnAttackDamageDelegate before = null,
+            OnAttackDamageDelegate after = null)
+        {
+            beforeOnAttackDamage = before;
+            afterOnAttackDamage = after;
         }
     }
 }

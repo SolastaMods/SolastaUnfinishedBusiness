@@ -8,8 +8,8 @@ using UnityEngine.UI;
 namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 {
     /// <summary>
-    /// This mods the vertical gauge in the monster portrait.
-    /// The gauge now shows health in steps instead of a continuous value.
+    ///     This mods the vertical gauge in the monster portrait.
+    ///     The gauge now shows health in steps instead of a continuous value.
     /// </summary>
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthGauge")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
     }
 
     /// <summary>
-    /// Mods the monster health label (current/max) hit points to hide current hit points.
+    ///     Mods the monster health label (current/max) hit points to hide current hit points.
     /// </summary>
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthLabel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

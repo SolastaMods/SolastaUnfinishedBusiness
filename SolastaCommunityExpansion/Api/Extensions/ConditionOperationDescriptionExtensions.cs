@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -5,14 +6,14 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(ConditionOperationDescription))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static class ConditionOperationDescriptionExtensions
     {
-        public static T SetCanSaveToCancel<T>(this T entity, System.Boolean value)
+        public static T SetCanSaveToCancel<T>(this T entity, Boolean value)
             where T : ConditionOperationDescription
         {
             entity.SetField("canSaveToCancel", value);
@@ -26,14 +27,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionName<T>(this T entity, System.String value)
+        public static T SetConditionName<T>(this T entity, String value)
             where T : ConditionOperationDescription
         {
             entity.SetField("conditionName", value);
             return entity;
         }
 
-        public static T SetHasSavingThrow<T>(this T entity, System.Boolean value)
+        public static T SetHasSavingThrow<T>(this T entity, Boolean value)
             where T : ConditionOperationDescription
         {
             entity.SetField("hasSavingThrow", value);

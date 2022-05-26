@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -167,7 +168,7 @@ namespace SolastaMonsters.Monsters
             Roc_Beak_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_GiantEagle_Beak,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -189,7 +190,7 @@ namespace SolastaMonsters.Monsters
             Roc_Talons_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_GiantEagle_Talons,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -233,7 +234,7 @@ namespace SolastaMonsters.Monsters
             Ice_Bite_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -256,7 +257,7 @@ namespace SolastaMonsters.Monsters
             NagaSpit_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Spider_Crimson_Spit,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -289,7 +290,7 @@ namespace SolastaMonsters.Monsters
             NagaBite_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -341,7 +342,7 @@ namespace SolastaMonsters.Monsters
             Fork_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Skeleton_Spear,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -364,7 +365,7 @@ namespace SolastaMonsters.Monsters
             var BleedingWound_Condition = BuildNewCondition(
                 "DH_Custom_" + text + "condition",
                 DatabaseHelper.ConditionDefinitions.ConditionBleeding,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
                 "MonsterAttack/&DH_" + text + "condition" + "_Title",
                 "MonsterAttack/&DH_" + text + "condition" + "_Description"
             );
@@ -377,7 +378,7 @@ namespace SolastaMonsters.Monsters
             HornedDevilTail_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -426,7 +427,7 @@ namespace SolastaMonsters.Monsters
             PoisonLongsword_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Veteran_Sorak_Agent_Longsword,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -465,7 +466,7 @@ namespace SolastaMonsters.Monsters
             PoisonLongbow_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_BadlandHunter_Longbow,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -531,7 +532,7 @@ namespace SolastaMonsters.Monsters
             RadiantLongsword_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Hyeronimus_Greatsword,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -558,7 +559,7 @@ namespace SolastaMonsters.Monsters
             RadiantLongbow_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_BadlandHunter_Longbow,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -620,7 +621,7 @@ namespace SolastaMonsters.Monsters
             AirBlast_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -653,7 +654,7 @@ namespace SolastaMonsters.Monsters
             HurlFlame_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Fire_Jester_Firebolt,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -674,7 +675,7 @@ namespace SolastaMonsters.Monsters
             FireScimatar_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_Cutthroat_Scimitar,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -711,7 +712,7 @@ namespace SolastaMonsters.Monsters
             LightningScimatar_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_Cutthroat_Scimitar,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -749,7 +750,7 @@ namespace SolastaMonsters.Monsters
             Generic_Bite_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -769,7 +770,7 @@ namespace SolastaMonsters.Monsters
             Generic_Stronger_Bite_Attack = BuildNewAttack(
                 "DH_Custom_" + text_1,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text_1).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text_1).ToString(),
                 "MonsterAttack/&DH_" + text_1 + "_Title",
                 "MonsterAttack/&DH_" + text_1 + "_Description"
             );
@@ -796,7 +797,7 @@ namespace SolastaMonsters.Monsters
             AncientDragon_Claw_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -833,28 +834,28 @@ namespace SolastaMonsters.Monsters
             Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBiteEffectparticles = new()
             {
                 {
-                    "Ancient Black Dragon",
-                    DatabaseHelper.MonsterAttackDefinitions.Attack_Black_Dragon_Bite.EffectDescription
+                    "Ancient Black Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_Black_Dragon_Bite
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
-                    "Ancient Blue Dragon",
-                    DatabaseHelper.MonsterAttackDefinitions.Attack_ZealotShockingAntenna.EffectDescription
+                    "Ancient Blue Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_ZealotShockingAntenna
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
-                    "Ancient Green Dragon",
-                    DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite.EffectDescription
+                    "Ancient Green Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
-                    "Ancient Red Dragon",
-                    DatabaseHelper.MonsterAttackDefinitions.Attack_Fire_Elemental_Touch.EffectDescription
+                    "Ancient Red Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_Fire_Elemental_Touch
+                        .EffectDescription
                         .EffectParticleParameters
                 },
                 {
-                    "Ancient White Dragon",
-                    DatabaseHelper.MonsterAttackDefinitions.Attack_Orc_Grimblade_IceDagger.EffectDescription
+                    "Ancient White Dragon", DatabaseHelper.MonsterAttackDefinitions.Attack_Orc_Grimblade_IceDagger
+                        .EffectDescription
                         .EffectParticleParameters
                 }
             };
@@ -868,7 +869,7 @@ namespace SolastaMonsters.Monsters
                 var Dragon_Bite_Attack = BuildNewAttack(
                     "DH_Custom_" + text,
                     DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                     "MonsterAttack/&DH_" + text + "_Title",
                     "MonsterAttack/&DH_" + text + "_Description"
                 );
@@ -907,7 +908,7 @@ namespace SolastaMonsters.Monsters
             AncientDragon_Tail_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -929,7 +930,7 @@ namespace SolastaMonsters.Monsters
             var PitFiend_Bite_Condition = BuildNewCondition(
                 "DH_Custom_" + text + "condition",
                 DatabaseHelper.ConditionDefinitions.ConditionPoisoned_BasicPoison,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
                 "MonsterAttack/&DH_" + text + "condition" + "_Title",
                 "MonsterAttack/&DH_" + text + "condition" + "_Description"
             );
@@ -941,7 +942,7 @@ namespace SolastaMonsters.Monsters
             PitFiend_Bite_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Bite,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -982,7 +983,7 @@ namespace SolastaMonsters.Monsters
             PitFiend_Mace_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1009,7 +1010,7 @@ namespace SolastaMonsters.Monsters
             Balor_Longsword_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1041,7 +1042,7 @@ namespace SolastaMonsters.Monsters
             Balor_Whip_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Divine_Avatar,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1093,7 +1094,7 @@ namespace SolastaMonsters.Monsters
             Lich_ParalyzingTouch_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Ghost_Withering_Laethar,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1125,7 +1126,7 @@ namespace SolastaMonsters.Monsters
             FireTitan_Slam_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1164,7 +1165,7 @@ namespace SolastaMonsters.Monsters
             AirTitan_Slam_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1203,7 +1204,7 @@ namespace SolastaMonsters.Monsters
             EarthTitan_Slam_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1225,7 +1226,7 @@ namespace SolastaMonsters.Monsters
             ConstructTitan_Slam_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Air_Elemental_Slam,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1262,7 +1263,7 @@ namespace SolastaMonsters.Monsters
             ConstructTitan_ForceCannon_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1303,7 +1304,7 @@ namespace SolastaMonsters.Monsters
             EarthTitan_Boulder_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Giant_Fire_Rock,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1350,7 +1351,7 @@ namespace SolastaMonsters.Monsters
             TarrasqueGrappledRestrainedCondition = BuildNewCondition(
                 "DH_Custom_" + text + "condition",
                 DatabaseHelper.ConditionDefinitions.ConditionGrappledRestrainedRemorhaz,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
                 "MonsterAttack/&DH_" + text + "Condition" + "_Title",
                 "MonsterAttack/&DH_" + text + "Condition" + "_Description"
             );
@@ -1360,7 +1361,7 @@ namespace SolastaMonsters.Monsters
             Tarrasque_Bite_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Remorhaz_Bite,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1406,7 +1407,7 @@ namespace SolastaMonsters.Monsters
             Tarrasque_Claw_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1441,7 +1442,7 @@ namespace SolastaMonsters.Monsters
             Tarrasque_Tail_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );
@@ -1498,7 +1499,7 @@ namespace SolastaMonsters.Monsters
             Tarrasque_Horn_Attack = BuildNewAttack(
                 "DH_Custom_" + text,
                 DatabaseHelper.MonsterAttackDefinitions.Attack_Minotaur_Gore,
-                GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
                 "MonsterAttack/&DH_" + text + "_Title",
                 "MonsterAttack/&DH_" + text + "_Description"
             );

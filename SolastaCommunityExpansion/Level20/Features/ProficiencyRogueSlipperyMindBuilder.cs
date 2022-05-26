@@ -8,6 +8,9 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string ProficiencyRogueSlipperyMindName = "ZSProficiencyRogueSlipperyMind";
         private const string ProficiencyRogueSlipperyMindGuid = "b7eb00f96e13495ea4af1389fafca546";
 
+        internal static readonly FeatureDefinitionProficiency ProficiencyRogueSlipperyMind
+            = CreateAndAddToDB(ProficiencyRogueSlipperyMindName, ProficiencyRogueSlipperyMindGuid);
+
         private ProficiencyRogueSlipperyMindBuilder(string name, string guid) : base(ProficiencyRogueSavingThrow, name,
             guid)
         {
@@ -20,8 +23,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new ProficiencyRogueSlipperyMindBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionProficiency ProficiencyRogueSlipperyMind
-            = CreateAndAddToDB(ProficiencyRogueSlipperyMindName, ProficiencyRogueSlipperyMindGuid);
     }
 }

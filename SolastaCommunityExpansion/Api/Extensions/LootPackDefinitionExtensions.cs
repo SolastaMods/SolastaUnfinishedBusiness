@@ -1,14 +1,14 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(LootPackDefinition))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -35,7 +35,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetInDungeonEditor<T>(this T entity, System.Boolean value)
+        public static T SetInDungeonEditor<T>(this T entity, Boolean value)
             where T : LootPackDefinition
         {
             entity.InDungeonEditor = value;
@@ -77,7 +77,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUserLootPack<T>(this T entity, System.Boolean value)
+        public static T SetUserLootPack<T>(this T entity, Boolean value)
             where T : LootPackDefinition
         {
             entity.SetField("<UserLootPack>k__BackingField", value);

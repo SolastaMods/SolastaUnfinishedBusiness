@@ -35,28 +35,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionPower
         where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         protected override void Initialise()
         {
             base.Initialise();
@@ -288,5 +266,27 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetAbilityScore(ability);
             return This();
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

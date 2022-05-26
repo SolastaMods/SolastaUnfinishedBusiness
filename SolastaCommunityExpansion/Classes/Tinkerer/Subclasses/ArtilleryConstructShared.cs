@@ -19,19 +19,40 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Guid = "59f857e6-7b06-4c2b-a241-b73c42d64c23";
 
         private static FeatureDefinitionPower artilleryModePool;
-        public static FeatureDefinitionPower ArtilleryModePool => artilleryModePool ??= CreateArtilleryModePool();
 
         private static FeatureDefinitionPowerSharedPool flameArtillery_03modepower;
+
+        private static FeatureDefinitionPowerSharedPool forceArtillery_03modepower;
+
+        private static FeatureDefinitionPowerSharedPool tempHPShield_03modepower;
+
+        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel03FeatureSet =
+            CreateAndAddToDB(Name, Guid);
+
+        private ArtilleryConstructlevel03FeatureSetBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructTitle";
+            Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructDescription";
+
+            Definition.FeatureSet.Clear();
+            Definition.FeatureSet.Add(ArtilleryModePool);
+            Definition.FeatureSet.Add(TempHPShield_03modepower);
+            Definition.FeatureSet.Add(FlameArtillery_03modepower);
+            Definition.FeatureSet.Add(ForceArtillery_03modepower);
+            Definition.FeatureSet.Add(AddConstructCantripsBuilder.AddConstructCantrips);
+            //Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
+            Definition.FeatureSet.Add(SummoningAffinityTinkererArtilleryConstructBuilder
+                .SummoningAffinityTinkererArtilleryConstruct);
+        }
+
+        public static FeatureDefinitionPower ArtilleryModePool => artilleryModePool ??= CreateArtilleryModePool();
 
         public static FeatureDefinitionPowerSharedPool FlameArtillery_03modepower =>
             flameArtillery_03modepower ??= CreateFlameArtillery03ModePower();
 
-        private static FeatureDefinitionPowerSharedPool forceArtillery_03modepower;
-
         public static FeatureDefinitionPowerSharedPool ForceArtillery_03modepower =>
             forceArtillery_03modepower ??= CreateForceArtillery03ModePower();
-
-        private static FeatureDefinitionPowerSharedPool tempHPShield_03modepower;
 
         public static FeatureDefinitionPowerSharedPool TempHPShield_03modepower =>
             tempHPShield_03modepower ??= CreateTempHPShield03ModePower();
@@ -147,30 +168,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
                 .AddToDB();
         }
 
-        private ArtilleryConstructlevel03FeatureSetBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructTitle";
-            Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructDescription";
-
-            Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(ArtilleryModePool);
-            Definition.FeatureSet.Add(TempHPShield_03modepower);
-            Definition.FeatureSet.Add(FlameArtillery_03modepower);
-            Definition.FeatureSet.Add(ForceArtillery_03modepower);
-            Definition.FeatureSet.Add(AddConstructCantripsBuilder.AddConstructCantrips);
-            //Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
-            Definition.FeatureSet.Add(SummoningAffinityTinkererArtilleryConstructBuilder
-                .SummoningAffinityTinkererArtilleryConstruct);
-        }
-
         private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new ArtilleryConstructlevel03FeatureSetBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel03FeatureSet =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -184,15 +185,30 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool flameArtillery_09modepower;
 
+        private static FeatureDefinitionPowerSharedPool forceArtillery_09modepower;
+
+        private static FeatureDefinitionPowerSharedPool tempHPShield_09modepower;
+
+        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel09FeatureSet =
+            CreateAndAddToDB(Name, Guid);
+
+        private ArtilleryConstructlevel09FeatureSetBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel09Title";
+            Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel09Description";
+
+            Definition.FeatureSet.Clear();
+            Definition.FeatureSet.Add(TempHPShield_09modepower);
+            Definition.FeatureSet.Add(FlameArtillery_09modepower);
+            Definition.FeatureSet.Add(ForceArtillery_09modepower);
+        }
+
         public static FeatureDefinitionPowerSharedPool FlameArtillery_09modepower =>
             flameArtillery_09modepower ??= CreateFlameArtillery09ModePower();
 
-        private static FeatureDefinitionPowerSharedPool forceArtillery_09modepower;
-
         public static FeatureDefinitionPowerSharedPool ForceArtillery_09modepower =>
             forceArtillery_09modepower ??= CreateForceArtillery09ModePower();
-
-        private static FeatureDefinitionPowerSharedPool tempHPShield_09modepower;
 
         public static FeatureDefinitionPowerSharedPool TempHPShield_09modepower =>
             tempHPShield_09modepower ??= CreateTempHPShield09ModePower();
@@ -309,25 +325,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             return power;
         }
 
-        private ArtilleryConstructlevel09FeatureSetBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel09Title";
-            Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel09Description";
-
-            Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(TempHPShield_09modepower);
-            Definition.FeatureSet.Add(FlameArtillery_09modepower);
-            Definition.FeatureSet.Add(ForceArtillery_09modepower);
-        }
-
         private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new ArtilleryConstructlevel09FeatureSetBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel09FeatureSet =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -341,15 +342,38 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
         private static FeatureDefinitionPowerSharedPool flameArtillery_15modepower;
 
+        private static FeatureDefinitionPowerSharedPool forceArtillery_15modepower;
+
+        private static FeatureDefinitionPowerSharedPool tempHPShield_15modepower;
+
+        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel15FeatureSet =
+            CreateAndAddToDB(Name, Guid);
+
+        private ArtilleryConstructlevel15FeatureSetBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel15Title";
+            Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel15Description";
+
+            var artilleryPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
+                .Create("AttributeModiferArtilleryPoolIncrease", TinkererClass.GuidNamespace)
+                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                    ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool)
+                .SetGuiPresentation("HArtilleryIncrease", Category.Subclass)
+                .AddToDB();
+
+            Definition.FeatureSet.Clear();
+            Definition.FeatureSet.Add(artilleryPoolIncrease);
+            Definition.FeatureSet.Add(TempHPShield_15modepower);
+            Definition.FeatureSet.Add(FlameArtillery_15modepower);
+            Definition.FeatureSet.Add(ForceArtillery_15modepower);
+        }
+
         public static FeatureDefinitionPowerSharedPool FlameArtillery_15modepower =>
             flameArtillery_15modepower ??= CreateFlameArtillery15ModePower();
 
-        private static FeatureDefinitionPowerSharedPool forceArtillery_15modepower;
-
         public static FeatureDefinitionPowerSharedPool ForceArtillery_15modepower =>
             forceArtillery_15modepower ??= CreateForceArtillery15ModePower();
-
-        private static FeatureDefinitionPowerSharedPool tempHPShield_15modepower;
 
         public static FeatureDefinitionPowerSharedPool TempHPShield_15modepower =>
             tempHPShield_15modepower ??= CreateTempHPShield15ModePower();
@@ -466,33 +490,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             return power;
         }
 
-        private ArtilleryConstructlevel15FeatureSetBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonArtilleryConstructlevel15Title";
-            Definition.GuiPresentation.Description = "Feat/&SummonArtilleryConstructlevel15Description";
-
-            var artilleryPoolIncrease = FeatureDefinitionPowerPoolModifierBuilder
-                .Create("AttributeModiferArtilleryPoolIncrease", TinkererClass.GuidNamespace)
-                .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                    ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryModePool)
-                .SetGuiPresentation("HArtilleryIncrease", Category.Subclass)
-                .AddToDB();
-
-            Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(artilleryPoolIncrease);
-            Definition.FeatureSet.Add(TempHPShield_15modepower);
-            Definition.FeatureSet.Add(FlameArtillery_15modepower);
-            Definition.FeatureSet.Add(ForceArtillery_15modepower);
-        }
-
         private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
         {
             return new ArtilleryConstructlevel15FeatureSetBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionFeatureSet ArtilleryConstructlevel15FeatureSet =
-            CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -503,6 +504,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SelfDestructName = "SelfDestruct";
         private const string SelfDestructGuid = "68ecf3d9-f718-4c62-921c-f30df3708312";
+
+        public static readonly FeatureDefinitionPower SelfDestruct =
+            CreateAndAddToDB(SelfDestructName, SelfDestructGuid);
 
         private SelfDestructBuilder(string name, string guid) : base(ThunderShieldBuilder.ThunderShield, name, guid)
         {
@@ -583,9 +587,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SelfDestructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower SelfDestruct =
-            CreateAndAddToDB(SelfDestructName, SelfDestructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -596,6 +597,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SelfDestructionConditionName = "SelfDestructionCondition";
         private const string SelfDestructionConditionGuid = "c96984f4-0370-4775-ab8b-3ee6db0c8806";
+
+        public static readonly ConditionDefinition SelfDestructionCondition =
+            CreateAndAddToDB(SelfDestructionConditionName, SelfDestructionConditionGuid);
 
         private SelfDestructionConditionBuilder(string name, string guid) : base(
             DatabaseHelper.ConditionDefinitions.ConditionDummy, name, guid)
@@ -631,9 +635,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SelfDestructionConditionBuilder(name, guid).AddToDB();
         }
-
-        public static readonly ConditionDefinition SelfDestructionCondition =
-            CreateAndAddToDB(SelfDestructionConditionName, SelfDestructionConditionGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -644,6 +645,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string HalfCoverShieldName = "HalfCoverShield";
         private const string HalfCoverShieldGuid = "0fd3ccb3-0f15-4766-8eb8-32042838ce6d";
+
+        public static readonly FeatureDefinitionPower HalfCoverShield =
+            CreateAndAddToDB(HalfCoverShieldName, HalfCoverShieldGuid);
 
         private HalfCoverShieldBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleHeraldOfBattle, name, guid)
@@ -689,9 +693,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new HalfCoverShieldBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower HalfCoverShield =
-            CreateAndAddToDB(HalfCoverShieldName, HalfCoverShieldGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -702,6 +703,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string HalfCoverShieldConditionName = "HalfCoverShieldCondition";
         private const string HalfCoverShieldConditionGuid = "c160a20e-4714-478a-8bbb-6df5526728a9";
+
+        public static readonly ConditionDefinition HalfCoverShieldCondition =
+            CreateAndAddToDB(HalfCoverShieldConditionName, HalfCoverShieldConditionGuid);
 
         private HalfCoverShieldConditionBuilder(string name, string guid) : base(
             DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
@@ -717,9 +721,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new HalfCoverShieldConditionBuilder(name, guid).AddToDB();
         }
-
-        public static readonly ConditionDefinition HalfCoverShieldCondition =
-            CreateAndAddToDB(HalfCoverShieldConditionName, HalfCoverShieldConditionGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -730,6 +731,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string HalfCoverShieldAttributeName = "HalfCoverShieldAttribute";
         private const string HalfCoverShieldAttributeGuid = "4dd6548f-4d7f-4bbf-b120-70a17f79f8e0";
+
+        public static readonly FeatureDefinitionAttributeModifier HalfCoverShieldAttribute =
+            CreateAndAddToDB(HalfCoverShieldAttributeName, HalfCoverShieldAttributeGuid);
 
         private HalfCoverShieldAttributeBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionAttributeModifiers.AttributeModifierHeraldOfBattle, name, guid)
@@ -746,9 +750,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new HalfCoverShieldAttributeBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionAttributeModifier HalfCoverShieldAttribute =
-            CreateAndAddToDB(HalfCoverShieldAttributeName, HalfCoverShieldAttributeGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -759,6 +760,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonArtillerySpellConstructName = "SummonArtillerySpellConstruct";
         private const string SummonArtillerySpellConstructGuid = "214dab9d-f40e-424f-8730-b41acdae26ec";
+
+        public static readonly SpellDefinition SummonArtillerySpellConstruct =
+            CreateAndAddToDB(SummonArtillerySpellConstructName, SummonArtillerySpellConstructGuid);
 
         private SummonArtillerySpellConstructBuilder(string name, string guid) : base(DancingLights, name, guid)
         {
@@ -785,9 +789,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonArtillerySpellConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonArtillerySpellConstruct =
-            CreateAndAddToDB(SummonArtillerySpellConstructName, SummonArtillerySpellConstructGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -798,6 +799,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonArtillerySpellConstruct_9Name = "SummonArtillerySpellConstruct_9";
         private const string SummonArtillerySpellConstruct_9Guid = "9ad29b43-5207-46e8-bbc9-7b8138b2912f";
+
+        public static readonly SpellDefinition SummonArtillerySpellConstruct9 =
+            CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
 
         private SummonArtillerySpellConstruct9Builder(string name, string guid) : base(
             SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
@@ -817,9 +821,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonArtillerySpellConstruct9Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonArtillerySpellConstruct9 =
-            CreateAndAddToDB(SummonArtillerySpellConstruct_9Name, SummonArtillerySpellConstruct_9Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -830,6 +831,9 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
     {
         private const string SummonArtillerySpellConstruct_15Name = "SummonArtillerySpellConstruct_15";
         private const string SummonArtillerySpellConstruct_15Guid = "f0038039-423b-4265-b0cf-2eab2450f982";
+
+        public static readonly SpellDefinition SummonArtillerySpellConstruct15 =
+            CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
 
         private SummonArtillerySpellConstruct15Builder(string name, string guid) : base(
             SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct, name, guid)
@@ -849,15 +853,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummonArtillerySpellConstruct15Builder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition SummonArtillerySpellConstruct15 =
-            CreateAndAddToDB(SummonArtillerySpellConstruct_15Name, SummonArtillerySpellConstruct_15Guid);
     }
 
     internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
     {
         private const string Name = "SummoningAffinityTinkererArtilleryConstruct";
         private const string Guid = "edae2ec0-f871-4918-855a-117bd428d51e";
+
+        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererArtilleryConstruct =
+            CreateAndAddToDB(Name, Guid);
 
         private SummoningAffinityTinkererArtilleryConstructBuilder(string name, string guid) : base(
             DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
@@ -903,8 +907,5 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new SummoningAffinityTinkererArtilleryConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererArtilleryConstruct =
-            CreateAndAddToDB(Name, Guid);
     }
 }

@@ -14,14 +14,14 @@ namespace SolastaCommunityExpansion.Models
         internal const int MIN_INITIAL_FEATS = 0;
         internal const int MAX_INITIAL_FEATS = 10;
 
-        internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
-        internal static bool PreviousAlternateHuman { get; set; }
-
         internal const int GAME_MAX_ATTRIBUTE = 15;
         internal const int GAME_BUY_POINTS = 27;
 
         internal const int MOD_MAX_ATTRIBUTE = 17;
         internal const int MOD_BUY_POINTS = 35;
+
+        internal static int PreviousTotalFeatsGrantedFistLevel { get; set; } = -1;
+        internal static bool PreviousAlternateHuman { get; set; }
 
         internal static void Load()
         {

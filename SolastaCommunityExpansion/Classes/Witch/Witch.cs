@@ -29,6 +29,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
         public static readonly Guid WITCH_BASE_GUID = new("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
 
         public static readonly CharacterClassDefinition Instance = BuildAndAddClass();
+
+        private static SpellListDefinition _witchSpellList;
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; set; }
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencyWeapon { get; set; }
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencySavingThrow { get; set; }
@@ -40,6 +42,36 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static FeatureDefinitionFeatureSetCustom FeatureDefinitionFeatureSetMaledictions { get; set; }
         private static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; set; }
+
+        internal static SpellListDefinition WitchSpellList => _witchSpellList ??= SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
+            .SetGuiPresentationNoContent()
+            .ClearSpells()
+            .SetSpellsAtLevel(0,
+                AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
+                MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
+            .SetSpellsAtLevel(1,
+                AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
+                DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
+                ProtectionFromEvilGood, Sleep, Thunderwave)
+            .SetSpellsAtLevel(2,
+                Blindness, CalmEmotions, Darkness, Darkvision,
+                HoldPerson, Invisibility, Knock, Levitate,
+                MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement,
+                SeeInvisibility, Shatter, SpiderClimb)
+            .SetSpellsAtLevel(3,
+                BestowCurse, Counterspell, DispelMagic, Fear,
+                Fly, HypnoticPattern, RemoveCurse, Slow,
+                StinkingCloud, Tongues)
+            .SetSpellsAtLevel(4,
+                Banishment, BlackTentacles, Confusion, DimensionDoor,
+                DominateBeast, GreaterInvisibility, PhantasmalKiller)
+            .SetSpellsAtLevel(5,
+                Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
+            .SetSpellsAtLevel(6,
+                Eyebite, Frenzy, TrueSeeing)
+            .FinalizeSpells()
+            .AddToDB();
 
         private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
@@ -136,38 +168,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     ToolTypeDefinitions.PoisonersKitType.Name)
                 .AddToDB();
         }
-
-        private static SpellListDefinition _witchSpellList;
-
-        internal static SpellListDefinition WitchSpellList => _witchSpellList ??= SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
-            .SetGuiPresentationNoContent()
-            .ClearSpells()
-            .SetSpellsAtLevel(0,
-                AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
-                MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
-            .SetSpellsAtLevel(1,
-                AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
-                DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
-                ProtectionFromEvilGood, Sleep, Thunderwave)
-            .SetSpellsAtLevel(2,
-                Blindness, CalmEmotions, Darkness, Darkvision,
-                HoldPerson, Invisibility, Knock, Levitate,
-                MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement,
-                SeeInvisibility, Shatter, SpiderClimb)
-            .SetSpellsAtLevel(3,
-                BestowCurse, Counterspell, DispelMagic, Fear,
-                Fly, HypnoticPattern, RemoveCurse, Slow,
-                StinkingCloud, Tongues)
-            .SetSpellsAtLevel(4,
-                Banishment, BlackTentacles, Confusion, DimensionDoor,
-                DominateBeast, GreaterInvisibility, PhantasmalKiller)
-            .SetSpellsAtLevel(5,
-                Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
-            .SetSpellsAtLevel(6,
-                Eyebite, Frenzy, TrueSeeing)
-            .FinalizeSpells()
-            .AddToDB();
 
         private static void BuildSpells()
         {
@@ -1012,63 +1012,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
-        private sealed class CackleEffectForm : CustomEffectForm
-        {
-            public override void ApplyForm(
-                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-                bool retargeting,
-                bool proxyOnly,
-                bool forceSelfConditionOnly,
-                EffectApplication effectApplication = EffectApplication.All,
-                List<EffectFormFilter> filters = null)
-            {
-                var conditions = formsParams.targetCharacter.AllConditions;
-
-                var activeMaledictions = conditions
-                    .Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
-
-                foreach (var malediction in activeMaledictions)
-                {
-                    // Remove the condition in order to refresh it
-                    formsParams.targetCharacter.RemoveCondition(malediction);
-                    // Refresh the condition
-                    ApplyCondition(formsParams, malediction.ConditionDefinition, DurationType.Round, 1);
-                }
-            }
-
-            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
-            {
-                // Nothing
-            }
-
-            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-                ConditionDefinition condition, DurationType durationType, int durationParam)
-            {
-                // Prepare params for inflicting conditions
-                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                var sourceFaction = formsParams.sourceCharacter != null
-                    ? formsParams.sourceCharacter.CurrentFaction.Name
-                    : string.Empty;
-                var effectDefinitionName = string.Empty;
-
-                if (formsParams.attackMode != null)
-                {
-                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
-                }
-                else if (formsParams.activeEffect != null)
-                {
-                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
-                }
-
-                var sourceAbilityBonus =
-                    formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
-
-                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
-                    TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel,
-                    effectDefinitionName, 0, sourceAbilityBonus);
-            }
-        }
-
         private static CharacterClassDefinition BuildAndAddClass()
         {
             var classBuilder = CharacterClassDefinitionBuilder
@@ -1319,6 +1262,63 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 //            witch.AddFeatureAtLevel(GreaterMalediction,18);
                 // TODO: Another drop down list like Circle of the Land Druid
                 //            witch.AddFeatureAtLevel(AbsoluteMalediction,20);
+            }
+        }
+
+        private sealed class CackleEffectForm : CustomEffectForm
+        {
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                bool retargeting,
+                bool proxyOnly,
+                bool forceSelfConditionOnly,
+                EffectApplication effectApplication = EffectApplication.All,
+                List<EffectFormFilter> filters = null)
+            {
+                var conditions = formsParams.targetCharacter.AllConditions;
+
+                var activeMaledictions = conditions
+                    .Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
+
+                foreach (var malediction in activeMaledictions)
+                {
+                    // Remove the condition in order to refresh it
+                    formsParams.targetCharacter.RemoveCondition(malediction);
+                    // Refresh the condition
+                    ApplyCondition(formsParams, malediction.ConditionDefinition, DurationType.Round, 1);
+                }
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                // Nothing
+            }
+
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                ConditionDefinition condition, DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                var sourceFaction = formsParams.sourceCharacter != null
+                    ? formsParams.sourceCharacter.CurrentFaction.Name
+                    : string.Empty;
+                var effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                var sourceAbilityBonus =
+                    formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
+                    TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel,
+                    effectDefinitionName, 0, sourceAbilityBonus);
             }
         }
     }

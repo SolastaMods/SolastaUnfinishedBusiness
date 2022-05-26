@@ -5,7 +5,7 @@ namespace SolastaCommunityExpansion.Models
     internal static class HideMonsterHitPointsContext
     {
         /// <summary>
-        /// Call 'HasHealthUpdated' which returns true/false but as a side effect updates the health state and dirty flags.
+        ///     Call 'HasHealthUpdated' which returns true/false but as a side effect updates the health state and dirty flags.
         /// </summary>
         internal static bool UpdateHealthStatus(this GuiCharacter __instance)
         {
@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Models
         }
 
         /// <summary>
-        /// Converts continuous ratio into series of stepped values.
+        ///     Converts continuous ratio into series of stepped values.
         /// </summary>
         internal static float GetSteppedHealthRatio(float ratio)
         {

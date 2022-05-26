@@ -11,13 +11,13 @@ namespace SolastaCommunityExpansion.Models
     {
         internal const int MAX_ENCOUNTER_CHARACTERS = 16;
 
-        private static ulong EncounterId { get; set; } = 10000;
-
         private static readonly List<RulesetCharacterHero> Heroes = new();
 
         private static readonly List<MonsterDefinition> Monsters = new();
 
         internal static readonly List<RulesetCharacter> EncounterCharacters = new();
+
+        private static ulong EncounterId { get; set; } = 10000;
 
         internal static void AddToEncounter(RulesetCharacterHero hero)
         {

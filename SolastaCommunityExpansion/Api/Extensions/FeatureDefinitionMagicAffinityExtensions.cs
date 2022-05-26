@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(FeatureDefinitionMagicAffinity))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -28,14 +29,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddDeviceTagsAutoIdentifying<T>(this T entity, params System.String[] value)
+        public static T AddDeviceTagsAutoIdentifying<T>(this T entity, params String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddDeviceTagsAutoIdentifying(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddDeviceTagsAutoIdentifying<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddDeviceTagsAutoIdentifying<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.DeviceTagsAutoIdentifying.AddRange(value);
@@ -56,28 +57,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpellImmunities<T>(this T entity, params System.String[] value)
+        public static T AddSpellImmunities<T>(this T entity, params String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddSpellImmunities(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSpellImmunities<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddSpellImmunities<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SpellImmunities.AddRange(value);
             return entity;
         }
 
-        public static T AddWarListSpells<T>(this T entity, params System.String[] value)
+        public static T AddWarListSpells<T>(this T entity, params String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             AddWarListSpells(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddWarListSpells<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddWarListSpells<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.WarListSpells.AddRange(value);
@@ -119,14 +120,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalKnownSpellsCount<T>(this T entity, System.Int32 value)
+        public static T SetAdditionalKnownSpellsCount<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("additionalKnownSpellsCount", value);
             return entity;
         }
 
-        public static T SetAdditionalScribedSpells<T>(this T entity, System.Int32 value)
+        public static T SetAdditionalScribedSpells<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("additionalScribedSpells", value);
@@ -147,14 +148,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCantripRetribution<T>(this T entity, System.Boolean value)
+        public static T SetCantripRetribution<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("cantripRetribution", value);
             return entity;
         }
 
-        public static T SetCanUseProficientWeaponAsFocus<T>(this T entity, System.Boolean value)
+        public static T SetCanUseProficientWeaponAsFocus<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("canUseProficientWeaponAsFocus", value);
@@ -182,14 +183,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDeviceTagsAutoIdentifying<T>(this T entity, params System.String[] value)
+        public static T SetDeviceTagsAutoIdentifying<T>(this T entity, params String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetDeviceTagsAutoIdentifying(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetDeviceTagsAutoIdentifying<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetDeviceTagsAutoIdentifying<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.DeviceTagsAutoIdentifying.SetRange(value);
@@ -217,21 +218,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForceHalfDamageOnCantrips<T>(this T entity, System.Boolean value)
+        public static T SetForceHalfDamageOnCantrips<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("forceHalfDamageOnCantrips", value);
             return entity;
         }
 
-        public static T SetImpairedSpeech<T>(this T entity, System.Boolean value)
+        public static T SetImpairedSpeech<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("impairedSpeech", value);
             return entity;
         }
 
-        public static T SetMaxSpellLevelImmunity<T>(this T entity, System.Int32 value)
+        public static T SetMaxSpellLevelImmunity<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("maxSpellLevelImmunity", value);
@@ -252,7 +253,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetOverConcentrationThreshold<T>(this T entity, System.Int32 value)
+        public static T SetOverConcentrationThreshold<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("overConcentrationThreshold", value);
@@ -266,28 +267,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPreserveSlotLevelCap<T>(this T entity, System.Int32 value)
+        public static T SetPreserveSlotLevelCap<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("preserveSlotLevelCap", value);
             return entity;
         }
 
-        public static T SetPreserveSlotRoll<T>(this T entity, System.Boolean value)
+        public static T SetPreserveSlotRoll<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("preserveSlotRoll", value);
             return entity;
         }
 
-        public static T SetPreserveSlotThreshold<T>(this T entity, System.Int32 value)
+        public static T SetPreserveSlotThreshold<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("preserveSlotThreshold", value);
             return entity;
         }
 
-        public static T SetRangeSpellNoProximityPenalty<T>(this T entity, System.Boolean value)
+        public static T SetRangeSpellNoProximityPenalty<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("rangeSpellNoProximityPenalty", value);
@@ -301,7 +302,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSaveDCModifier<T>(this T entity, System.Int32 value)
+        public static T SetSaveDCModifier<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("saveDCModifier", value);
@@ -322,35 +323,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetScribeCostMultiplier<T>(this T entity, System.Single value)
+        public static T SetScribeCostMultiplier<T>(this T entity, Single value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("scribeCostMultiplier", value);
             return entity;
         }
 
-        public static T SetScribeDurationMultiplier<T>(this T entity, System.Single value)
+        public static T SetScribeDurationMultiplier<T>(this T entity, Single value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("scribeDurationMultiplier", value);
             return entity;
         }
 
-        public static T SetSomaticWithWeapon<T>(this T entity, System.Boolean value)
+        public static T SetSomaticWithWeapon<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("somaticWithWeapon", value);
             return entity;
         }
 
-        public static T SetSomaticWithWeaponOrShield<T>(this T entity, System.Boolean value)
+        public static T SetSomaticWithWeaponOrShield<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("somaticWithWeaponOrShield", value);
             return entity;
         }
 
-        public static T SetSpellAttackModifier<T>(this T entity, System.Int32 value)
+        public static T SetSpellAttackModifier<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("spellAttackModifier", value);
@@ -364,21 +365,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellcastingSuccessDC<T>(this T entity, System.Int32 value)
+        public static T SetSpellcastingSuccessDC<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("spellcastingSuccessDC", value);
             return entity;
         }
 
-        public static T SetSpellImmunities<T>(this T entity, params System.String[] value)
+        public static T SetSpellImmunities<T>(this T entity, params String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetSpellImmunities(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSpellImmunities<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetSpellImmunities<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SpellImmunities.SetRange(value);
@@ -392,28 +393,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsesWarList<T>(this T entity, System.Boolean value)
+        public static T SetUsesWarList<T>(this T entity, Boolean value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("usesWarList", value);
             return entity;
         }
 
-        public static T SetWarListSlotBonus<T>(this T entity, System.Int32 value)
+        public static T SetWarListSlotBonus<T>(this T entity, Int32 value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.SetField("warListSlotBonus", value);
             return entity;
         }
 
-        public static T SetWarListSpells<T>(this T entity, params System.String[] value)
+        public static T SetWarListSpells<T>(this T entity, params String[] value)
             where T : FeatureDefinitionMagicAffinity
         {
             SetWarListSpells(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetWarListSpells<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetWarListSpells<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionMagicAffinity
         {
             entity.WarListSpells.SetRange(value);

@@ -9,51 +9,6 @@ namespace SolastaCommunityExpansion.Models
     {
         public static bool IsLevelDown { get; set; }
 
-        public class FunctorLevelDown : Functor
-        {
-            public override IEnumerator Execute(
-                FunctorParametersDescription functorParameters,
-                FunctorExecutionContext context)
-            {
-                if (Global.IsMultiplayer)
-                {
-                    Gui.GuiService.ShowMessage(
-                        MessageModal.Severity.Informative1,
-                        "MainMenu/&ExportPdfTitle", "Message/&LevelDownMultiplayerAbortDescription",
-                        "Message/&MessageOkTitle", string.Empty,
-                        null, null);
-
-                    yield break;
-                }
-
-                var state = -1;
-
-                Gui.GuiService.ShowMessage(
-                    MessageModal.Severity.Attention2,
-                    "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
-                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    () => state = 1,
-                    () => state = 0);
-
-                while (state < 0)
-                {
-                    yield return null;
-                }
-
-                if (state > 0)
-                {
-                    if (functorParameters.RestingHero.ClassesHistory.Count > 1)
-                    {
-                        LevelDown(functorParameters.RestingHero);
-                    }
-                    else
-                    {
-                        yield return new FunctorRespec().Execute(functorParameters, context);
-                    }
-                }
-            }
-        }
-
         internal static void Load()
         {
             ServiceRepository.GetService<IFunctorService>().RegisterFunctor("LevelDown", new FunctorLevelDown());
@@ -226,6 +181,51 @@ namespace SolastaCommunityExpansion.Models
                     }
 
                     break;
+            }
+        }
+
+        public class FunctorLevelDown : Functor
+        {
+            public override IEnumerator Execute(
+                FunctorParametersDescription functorParameters,
+                FunctorExecutionContext context)
+            {
+                if (Global.IsMultiplayer)
+                {
+                    Gui.GuiService.ShowMessage(
+                        MessageModal.Severity.Informative1,
+                        "MainMenu/&ExportPdfTitle", "Message/&LevelDownMultiplayerAbortDescription",
+                        "Message/&MessageOkTitle", string.Empty,
+                        null, null);
+
+                    yield break;
+                }
+
+                var state = -1;
+
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Attention2,
+                    "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
+                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+                    () => state = 1,
+                    () => state = 0);
+
+                while (state < 0)
+                {
+                    yield return null;
+                }
+
+                if (state > 0)
+                {
+                    if (functorParameters.RestingHero.ClassesHistory.Count > 1)
+                    {
+                        LevelDown(functorParameters.RestingHero);
+                    }
+                    else
+                    {
+                        yield return new FunctorRespec().Execute(functorParameters, context);
+                    }
+                }
             }
         }
     }

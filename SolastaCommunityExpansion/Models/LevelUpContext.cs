@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
@@ -10,20 +11,6 @@ namespace SolastaCommunityExpansion.Models
     {
         public const bool THIS_CLASS = true;
         public const bool OTHER_CLASSES = false;
-
-        // keeps the multiclass level up context
-        private class LevelUpData
-        {
-            public CharacterClassDefinition SelectedClass;
-            public CharacterSubclassDefinition SelectedSubclass;
-            public bool IsClassSelectionStage { get; set; }
-            public bool IsLevelingUp { get; set; }
-            public bool RequiresDeity { get; set; }
-            public HashSet<ItemDefinition> GrantedItems { get; set; }
-            public HashSet<SpellDefinition> AllowedSpells { get; set; }
-            public HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
-            public HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
-        }
 
         // keeps a tab on all heroes leveling up
         private static readonly Dictionary<RulesetCharacterHero, LevelUpData> LevelUpTab = new();
@@ -50,7 +37,7 @@ namespace SolastaCommunityExpansion.Models
             //
             rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue =
                 HeroDefinitions.MaxHeroExperience();
-            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = System.Math.Max(
+            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = Math.Max(
                 Main.Settings.MaxAllowedLevels,
                 rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue);
         }
@@ -411,6 +398,20 @@ namespace SolastaCommunityExpansion.Models
             {
                 rulesetCharacterHero.LoseItem(grantedItem, false);
             }
+        }
+
+        // keeps the multiclass level up context
+        private class LevelUpData
+        {
+            public CharacterClassDefinition SelectedClass;
+            public CharacterSubclassDefinition SelectedSubclass;
+            public bool IsClassSelectionStage { get; set; }
+            public bool IsLevelingUp { get; set; }
+            public bool RequiresDeity { get; set; }
+            public HashSet<ItemDefinition> GrantedItems { get; set; }
+            public HashSet<SpellDefinition> AllowedSpells { get; set; }
+            public HashSet<SpellDefinition> AllowedAutoPreparedSpells { get; set; }
+            public HashSet<SpellDefinition> OtherClassesKnownSpells { get; set; }
         }
     }
 }

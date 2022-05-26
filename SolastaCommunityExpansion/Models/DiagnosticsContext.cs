@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HarmonyLib;
+using Object = UnityEngine.Object;
 #if DEBUG
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
@@ -100,7 +101,7 @@ namespace SolastaCommunityExpansion.Models
             TABaseDefinitionAndCopy = TABaseDefinitions
                 .ToDictionary(x => x, x =>
                 {
-                    var copy = UnityEngine.Object.Instantiate(x);
+                    var copy = Object.Instantiate(x);
                     copy.name = x.Name;
                     return copy;
                 });

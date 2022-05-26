@@ -13,6 +13,133 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
 {
     internal static class FeatureHelpers
     {
+        public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
+            RuleDefinitions.ProficiencyType type, params string[] proficiencies)
+        {
+            return FeatureDefinitionProficiencyBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetProficiencies(type, proficiencies);
+        }
+
+        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
+            AttributeModifierOperation modifierType, string attribute, int amount, GuiPresentation guiPresentation)
+        {
+            return new FeatureDefinitionAttributeModifierBuilder(name, TinkererClass.GuidNamespace,
+                modifierType, attribute, amount, guiPresentation).AddToDB();
+        }
+
+        public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(IEnumerable<string> spellNames,
+            int levelBonus, string name, GuiPresentation guiPresentation)
+        {
+            return new FeatureDefinitionMagicAffinityBuilder(name, TinkererClass.GuidNamespace, levelBonus,
+                guiPresentation, spellNames).AddToDB();
+        }
+
+        public static ConditionDefinition BuildCondition(string name, RuleDefinitions.DurationType durationType,
+            int durationParameter, bool silent, GuiPresentation guiPresentation,
+            params FeatureDefinition[] conditionFeatures)
+        {
+            return ConditionDefinitionBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(durationType, durationParameter, silent, conditionFeatures)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(string name, int attackModifier,
+            int dcModifier, GuiPresentation guiPresentation)
+        {
+            return FeatureDefinitionMagicAffinityBuilder
+                .Create(name, TinkererClass.GuidNamespace)
+                .SetCastingModifiers(
+                    attackModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
+                    dcModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
+                    false, false, false)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionPowerBuilder BuildSpellFormPower(string name, int usesPerRecharge,
+            RuleDefinitions.UsesDetermination usesDetermination, RuleDefinitions.ActivationTime activationTime,
+            int costPerUse, RuleDefinitions.RechargeRate recharge)
+        {
+            var effectDescriptionBuilder = new EffectDescriptionBuilder();
+            effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0,
+                0);
+            effectDescriptionBuilder.SetCreatedByCharacter();
+
+            var effectFormBuilder = new EffectFormBuilder();
+            effectFormBuilder.SetSpellForm(9);
+            effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
+            effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
+
+            var particleParams = new EffectParticleParameters();
+            particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription
+                .EffectParticleParameters);
+            effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
+
+            return new FeatureDefinitionPowerBuilder(name, TinkererClass.GuidNamespace,
+                usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse,
+                recharge, false, false, AttributeDefinitions.Intelligence,
+                effectDescriptionBuilder.Build());
+        }
+
+        public static RestActivityDefinitionBuilder BuildRestActivity(string name, RestDefinitions.RestStage restStage,
+            RuleDefinitions.RestType restType,
+            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
+        {
+            return new RestActivityDefinitionBuilder(name, TinkererClass.GuidNamespace, restStage, restType, condition,
+                functor, stringParameter);
+        }
+
+        public static FeatureDefinitionAttackModifier BuildAttackModifier(string name,
+            RuleDefinitions.AttackModifierMethod attackRollModifierMethod, int attackRollModifier,
+            string attackRollAbilityScore,
+            RuleDefinitions.AttackModifierMethod damageRollModifierMethod, int damageRollModifier,
+            string damageRollAbilityScore, bool canAddAbilityBonusToSecondary,
+            string additionalAttackTag, GuiPresentation guiPresentation)
+        {
+            return FeatureDefinitionAttackModifierBuilder.Create(name, TinkererClass.GuidNamespace)
+                .SetGuiPresentation(guiPresentation)
+                .Configure(
+                    attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
+                    damageRollModifier, damageRollAbilityScore, canAddAbilityBonusToSecondary, additionalAttackTag)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionMovementAffinity BuildMovementAffinity(string name, bool addBase, int speedAdd,
+            float speedMult, GuiPresentation guiPresentation)
+        {
+            return new FeatureDefinitionMovementAffinityBuilder(name, TinkererClass.GuidNamespace,
+                addBase, speedAdd, speedMult, guiPresentation).AddToDB();
+        }
+
+        public static FeatureDefinitionHealingModifier BuildHealingModifier(string name, int healingBonusDiceNumber,
+            RuleDefinitions.DieType healingBonusDiceType, RuleDefinitions.LevelSourceType addLevel,
+            GuiPresentation guiPresentation)
+        {
+            return new FeatureDefinitionHealingModifierBuilder(name, TinkererClass.GuidNamespace,
+                healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation).AddToDB();
+        }
+
+        public static FeatureDefinitionSavingThrowAffinity BuildSavingThrowAffinity(string name,
+            IEnumerable<string> abilityScores,
+            RuleDefinitions.CharacterSavingThrowAffinity affinityType,
+            FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber,
+            RuleDefinitions.DieType dieType, bool againstMagic, GuiPresentation guiPresentation)
+        {
+            return new FeatureDefinitionSavingThrowAffinityBuilder(name, TinkererClass.GuidNamespace,
+                    abilityScores, affinityType, modifierType, diceNumber, dieType, againstMagic, guiPresentation)
+                .AddToDB();
+        }
+
+        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(string name,
+            IEnumerable<Tuple<string, string>> abilityProficiencyPairs, int diceNumber, RuleDefinitions.DieType dieType,
+            RuleDefinitions.CharacterAbilityCheckAffinity affinityType, GuiPresentation guiPresentation)
+        {
+            return new FeatureDefinitionAbilityCheckAffinityBuilder(name, TinkererClass.GuidNamespace,
+                abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation).AddToDB();
+        }
+
         // TODO Most of theese builders should likely get moved/merged with the CE builders.
         public class FeatureDefinitionPowerBuilder : Builders.Features.FeatureDefinitionPowerBuilder
         {
@@ -261,133 +388,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 Definition.ConditionOperations.SetRange(conditionOperations);
                 Definition.SetGuiPresentation(guiPresentation);
             }
-        }
-
-        public static FeatureDefinitionProficiencyBuilder BuildProficiency(string name,
-            RuleDefinitions.ProficiencyType type, params string[] proficiencies)
-        {
-            return FeatureDefinitionProficiencyBuilder
-                .Create(name, TinkererClass.GuidNamespace)
-                .SetProficiencies(type, proficiencies);
-        }
-
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
-            AttributeModifierOperation modifierType, string attribute, int amount, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionAttributeModifierBuilder(name, TinkererClass.GuidNamespace,
-                modifierType, attribute, amount, guiPresentation).AddToDB();
-        }
-
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityHeightenedList(IEnumerable<string> spellNames,
-            int levelBonus, string name, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionMagicAffinityBuilder(name, TinkererClass.GuidNamespace, levelBonus,
-                guiPresentation, spellNames).AddToDB();
-        }
-
-        public static ConditionDefinition BuildCondition(string name, RuleDefinitions.DurationType durationType,
-            int durationParameter, bool silent, GuiPresentation guiPresentation,
-            params FeatureDefinition[] conditionFeatures)
-        {
-            return ConditionDefinitionBuilder
-                .Create(name, TinkererClass.GuidNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .Configure(durationType, durationParameter, silent, conditionFeatures)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(string name, int attackModifier,
-            int dcModifier, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionMagicAffinityBuilder
-                .Create(name, TinkererClass.GuidNamespace)
-                .SetCastingModifiers(
-                    attackModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
-                    dcModifier, RuleDefinitions.SpellParamsModifierType.FlatValue,
-                    false, false, false)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionPowerBuilder BuildSpellFormPower(string name, int usesPerRecharge,
-            RuleDefinitions.UsesDetermination usesDetermination, RuleDefinitions.ActivationTime activationTime,
-            int costPerUse, RuleDefinitions.RechargeRate recharge)
-        {
-            var effectDescriptionBuilder = new EffectDescriptionBuilder();
-            effectDescriptionBuilder.SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0,
-                0);
-            effectDescriptionBuilder.SetCreatedByCharacter();
-
-            var effectFormBuilder = new EffectFormBuilder();
-            effectFormBuilder.SetSpellForm(9);
-            effectDescriptionBuilder.AddEffectForm(effectFormBuilder.Build());
-            effectDescriptionBuilder.SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None);
-
-            var particleParams = new EffectParticleParameters();
-            particleParams.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.EffectDescription
-                .EffectParticleParameters);
-            effectDescriptionBuilder.SetParticleEffectParameters(particleParams);
-
-            return new FeatureDefinitionPowerBuilder(name, TinkererClass.GuidNamespace,
-                usesPerRecharge, usesDetermination, AttributeDefinitions.Intelligence, activationTime, costPerUse,
-                recharge, false, false, AttributeDefinitions.Intelligence,
-                effectDescriptionBuilder.Build());
-        }
-
-        public static RestActivityDefinitionBuilder BuildRestActivity(string name, RestDefinitions.RestStage restStage,
-            RuleDefinitions.RestType restType,
-            RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
-        {
-            return new RestActivityDefinitionBuilder(name, TinkererClass.GuidNamespace, restStage, restType, condition,
-                functor, stringParameter);
-        }
-
-        public static FeatureDefinitionAttackModifier BuildAttackModifier(string name,
-            RuleDefinitions.AttackModifierMethod attackRollModifierMethod, int attackRollModifier,
-            string attackRollAbilityScore,
-            RuleDefinitions.AttackModifierMethod damageRollModifierMethod, int damageRollModifier,
-            string damageRollAbilityScore, bool canAddAbilityBonusToSecondary,
-            string additionalAttackTag, GuiPresentation guiPresentation)
-        {
-            return FeatureDefinitionAttackModifierBuilder.Create(name, TinkererClass.GuidNamespace)
-                .SetGuiPresentation(guiPresentation)
-                .Configure(
-                    attackRollModifierMethod, attackRollModifier, attackRollAbilityScore, damageRollModifierMethod,
-                    damageRollModifier, damageRollAbilityScore, canAddAbilityBonusToSecondary, additionalAttackTag)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionMovementAffinity BuildMovementAffinity(string name, bool addBase, int speedAdd,
-            float speedMult, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionMovementAffinityBuilder(name, TinkererClass.GuidNamespace,
-                addBase, speedAdd, speedMult, guiPresentation).AddToDB();
-        }
-
-        public static FeatureDefinitionHealingModifier BuildHealingModifier(string name, int healingBonusDiceNumber,
-            RuleDefinitions.DieType healingBonusDiceType, RuleDefinitions.LevelSourceType addLevel,
-            GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionHealingModifierBuilder(name, TinkererClass.GuidNamespace,
-                healingBonusDiceNumber, healingBonusDiceType, addLevel, guiPresentation).AddToDB();
-        }
-
-        public static FeatureDefinitionSavingThrowAffinity BuildSavingThrowAffinity(string name,
-            IEnumerable<string> abilityScores,
-            RuleDefinitions.CharacterSavingThrowAffinity affinityType,
-            FeatureDefinitionSavingThrowAffinity.ModifierType modifierType, int diceNumber,
-            RuleDefinitions.DieType dieType, bool againstMagic, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionSavingThrowAffinityBuilder(name, TinkererClass.GuidNamespace,
-                    abilityScores, affinityType, modifierType, diceNumber, dieType, againstMagic, guiPresentation)
-                .AddToDB();
-        }
-
-        public static FeatureDefinitionAbilityCheckAffinity BuildAbilityAffinity(string name,
-            IEnumerable<Tuple<string, string>> abilityProficiencyPairs, int diceNumber, RuleDefinitions.DieType dieType,
-            RuleDefinitions.CharacterAbilityCheckAffinity affinityType, GuiPresentation guiPresentation)
-        {
-            return new FeatureDefinitionAbilityCheckAffinityBuilder(name, TinkererClass.GuidNamespace,
-                abilityProficiencyPairs, diceNumber, dieType, affinityType, guiPresentation).AddToDB();
         }
 
         public class FeatureDefinitionFeatureSetBuilder : Builders.Features.FeatureDefinitionFeatureSetBuilder

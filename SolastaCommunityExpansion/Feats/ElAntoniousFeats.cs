@@ -19,11 +19,14 @@ namespace SolastaCommunityExpansion.Feats
 
     internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
     {
-        public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string DualFlurryFeatName = "DualFlurryFeat";
+        public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
 
         private static readonly string DualFlurryFeatNameGuid =
             GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
+
+        public static readonly FeatDefinition DualFlurryFeat =
+            CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
 
         private DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
             name, guid)
@@ -41,9 +44,6 @@ namespace SolastaCommunityExpansion.Feats
         {
             return new DualFlurryFeatBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatDefinition DualFlurryFeat =
-            CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
 
         private static FeatureDefinition BuildFeatureDualFlurry()
         {
@@ -168,11 +168,14 @@ namespace SolastaCommunityExpansion.Feats
 
     internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
     {
-        private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
         private const string TorchbearerFeatName = "TorchbearerFeat";
+        private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
 
         private static readonly string TorchbearerFeatNameGuid =
             GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
+
+        public static readonly FeatDefinition TorchbearerFeat =
+            CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 
         private TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
             name, guid)
@@ -190,9 +193,6 @@ namespace SolastaCommunityExpansion.Feats
         {
             return new TorchbearerFeatBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatDefinition TorchbearerFeat =
-            CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 
         private static FeatureDefinition BuildFeatureTorchbearer()
         {

@@ -1,8 +1,9 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using static ActionDefinitions;
 using static EffectForm;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Models.SpellsContext;
@@ -48,7 +49,7 @@ namespace SolastaCommunityExpansion.Spells
             const string name = "AcidClaws";
 
             var spriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.AcidClaws, 128, 128);
+                CustomIcons.CreateAssetReferenceSprite(name, Resources.AcidClaws, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
@@ -83,7 +84,7 @@ namespace SolastaCommunityExpansion.Spells
             const string name = "AirBlast";
 
             var spriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.AirBlast, 128, 128);
+                CustomIcons.CreateAssetReferenceSprite(name, Resources.AirBlast, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
@@ -125,7 +126,7 @@ namespace SolastaCommunityExpansion.Spells
             const string name = "BurstOfRadiance";
 
             var spriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.BurstOfRadiance, 128, 128);
+                CustomIcons.CreateAssetReferenceSprite(name, Resources.BurstOfRadiance, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
@@ -201,7 +202,7 @@ namespace SolastaCommunityExpansion.Spells
             const string name = "EarthTremor";
 
             var spriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.EarthTremor, 128, 128);
+                CustomIcons.CreateAssetReferenceSprite(name, Resources.EarthTremor, 128, 128);
 
             //var rubbleProxy = EffectProxyDefinitionBuilder
             //    .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy", "")
@@ -254,7 +255,7 @@ namespace SolastaCommunityExpansion.Spells
             const string name = "WinterBreath";
 
             var spriteReference =
-                Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.WinterBreath, 128, 128);
+                CustomIcons.CreateAssetReferenceSprite(name, Resources.WinterBreath, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()

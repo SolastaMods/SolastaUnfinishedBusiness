@@ -339,12 +339,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer
                 RuleDefinitions.TurnOccurenceType.StartOfTurn);
             flashEffect.SetParticleEffectParameters(SpellDefinitions.Bless.EffectDescription.EffectParticleParameters);
 
-            var flashOfGenius = new FeatureHelpers
-                    .FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower", GuidNamespace,
-                        -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
-                        RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
-                        -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence,
-                        flashEffect.Build())
+            var flashOfGenius = new FeatureHelpers.FeatureDefinitionPowerBuilder("TinkererFlashOfGeniusPower",
+                    GuidNamespace,
+                    -1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Intelligence,
+                    RuleDefinitions.ActivationTime.PermanentUnlessIncapacitated,
+                    -1, RuleDefinitions.RechargeRate.AtWill, false, false, AttributeDefinitions.Intelligence,
+                    flashEffect.Build())
                 .SetGuiPresentation(Category.Subclass)
                 .AddToDB();
             artificerBuilder.AddFeatureAtLevel(7, flashOfGenius);

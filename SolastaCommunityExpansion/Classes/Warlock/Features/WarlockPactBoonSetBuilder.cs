@@ -1,6 +1,8 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -9,6 +11,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     internal class WarlockClassPactBoonSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string WarlockClassPactBoonSetName = "WarlockClassPactBoonSet";
+
+        internal static readonly FeatureDefinitionFeatureSet WarlockClassPactBoonSet =
+            CreateAndAddToDB(WarlockClassPactBoonSetName);
 
         protected WarlockClassPactBoonSetBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, CENamespaceGuid)
@@ -29,14 +34,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new WarlockClassPactBoonSetBuilder(name).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionFeatureSet WarlockClassPactBoonSet =
-            CreateAndAddToDB(WarlockClassPactBoonSetName);
     }
 
     internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string AHWarlockClassPactOfTheBladeSetName = "AHWarlockClassPactOfTheBladeSet";
+
+        internal static readonly FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet =
+            CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName);
 
         protected AHWarlockClassPactOfTheBladeSetBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, CENamespaceGuid)
@@ -56,14 +61,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new AHWarlockClassPactOfTheBladeSetBuilder(name).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet =
-            CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName);
     }
 
     internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string DHWarlockClassPactOfTheChainFeatureSetName = "DHWarlockClassPactOfTheChainFeatureSet";
+
+        internal static readonly FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet =
+            CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName);
 
         protected DHWarlockClassPactOfTheChainFeatureSetBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, CENamespaceGuid)
@@ -225,8 +230,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
                 .Create("FindFamiliarBundlePower", CENamespaceGuid)
                 .SetGuiPresentation(Category.Power,
-                    Utils.CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon",
-                        Properties.Resources.WarlockChainSummon, 128, 64))
+                    CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon",
+                        Resources.WarlockChainSummon, 128, 64))
                 .SetActivation(RuleDefinitions.ActivationTime.Hours1, 1)
                 .AddToDB();
 
@@ -253,9 +258,6 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHWarlockClassPactOfTheChainFeatureSetBuilder(name).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet =
-            CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName);
     }
 
 
@@ -270,6 +272,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)
                 .OnlyUniqueChoices()
                 .AddToDB();
+
+        internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet =
+            CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
 
         protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, CENamespaceGuid)
@@ -286,15 +291,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHPactOfTheTomeFeatureSetBuilder(name).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet =
-            CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
     }
 
 
     internal class DHPactOfTheTomeSpellListBuilder : SpellListDefinitionBuilder
     {
         private const string PactOfTheTomeSpellListName = "DHPactOfTheTomeSpellList";
+
+        internal static readonly SpellListDefinition DHPactOfTheTomeSpellList =
+            CreateAndAddToDB(PactOfTheTomeSpellListName);
 
         protected DHPactOfTheTomeSpellListBuilder(string name) : base(
             DatabaseHelper.SpellListDefinitions.SpellListKythaela_Cantrips, name, CENamespaceGuid)
@@ -318,15 +323,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHPactOfTheTomeSpellListBuilder(name).AddToDB();
         }
-
-        internal static readonly SpellListDefinition DHPactOfTheTomeSpellList =
-            CreateAndAddToDB(PactOfTheTomeSpellListName);
     }
 
 
     internal class DHPactOfTheTomeMagicAffinityBuilder : FeatureDefinitionMagicAffinityBuilder
     {
         private const string PactOfTheTomeMagicAffinityName = "DHPactOfTheTomeMagicAffinity";
+
+        internal static readonly FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity =
+            CreateAndAddToDB(PactOfTheTomeMagicAffinityName);
 
         protected DHPactOfTheTomeMagicAffinityBuilder(string name) : base(
             DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList, name, CENamespaceGuid)
@@ -341,8 +346,5 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHPactOfTheTomeMagicAffinityBuilder(name).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity =
-            CreateAndAddToDB(PactOfTheTomeMagicAffinityName);
     }
 }

@@ -1,14 +1,16 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
     [TargetType(typeof(FeatureDefinitionAdditionalDamage))]
     [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
@@ -42,14 +44,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddFamiliesWithAdditionalDice<T>(this T entity, params System.String[] value)
+        public static T AddFamiliesWithAdditionalDice<T>(this T entity, params String[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             AddFamiliesWithAdditionalDice(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddFamiliesWithAdditionalDice<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddFamiliesWithAdditionalDice<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.FamiliesWithAdditionalDice.AddRange(value);
@@ -78,7 +80,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetAcidImpactParticleReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReference value)
+            AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("acidImpactParticleReference", value);
@@ -92,14 +94,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAddLightSource<T>(this T entity, System.Boolean value)
+        public static T SetAddLightSource<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("addLightSource", value);
             return entity;
         }
 
-        public static T SetAttackModeOnly<T>(this T entity, System.Boolean value)
+        public static T SetAttackModeOnly<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("attackModeOnly", value);
@@ -107,14 +109,14 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetColdImpactParticleReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReference value)
+            AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("coldImpactParticleReference", value);
             return entity;
         }
 
-        public static T SetComputeDescription<T>(this T entity, System.Boolean value)
+        public static T SetComputeDescription<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("computeDescription", value);
@@ -142,7 +144,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageDiceNumber<T>(this T entity, System.Int32 value)
+        public static T SetDamageDiceNumber<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("damageDiceNumber", value);
@@ -191,21 +193,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFamiliesDiceNumber<T>(this T entity, System.Int32 value)
+        public static T SetFamiliesDiceNumber<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("familiesDiceNumber", value);
             return entity;
         }
 
-        public static T SetFamiliesWithAdditionalDice<T>(this T entity, params System.String[] value)
+        public static T SetFamiliesWithAdditionalDice<T>(this T entity, params String[] value)
             where T : FeatureDefinitionAdditionalDamage
         {
             SetFamiliesWithAdditionalDice(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetFamiliesWithAdditionalDice<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetFamiliesWithAdditionalDice<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.FamiliesWithAdditionalDice.SetRange(value);
@@ -213,28 +215,28 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetFireImpactParticleReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReference value)
+            AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("fireImpactParticleReference", value);
             return entity;
         }
 
-        public static T SetHasSavingThrow<T>(this T entity, System.Boolean value)
+        public static T SetHasSavingThrow<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("hasSavingThrow", value);
             return entity;
         }
 
-        public static T SetIgnoreCriticalDoubleDice<T>(this T entity, System.Boolean value)
+        public static T SetIgnoreCriticalDoubleDice<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("ignoreCriticalDoubleDice", value);
             return entity;
         }
 
-        public static T SetImpactParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetImpactParticleReference<T>(this T entity, AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("impactParticleReference", value);
@@ -242,7 +244,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetLightningImpactParticleReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReference value)
+            AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("lightningImpactParticleReference", value);
@@ -263,14 +265,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetNotificationTag<T>(this T entity, System.String value)
+        public static T SetNotificationTag<T>(this T entity, String value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("notificationTag", value);
             return entity;
         }
 
-        public static T SetParticlesBasedOnAncestryDamageType<T>(this T entity, System.Boolean value)
+        public static T SetParticlesBasedOnAncestryDamageType<T>(this T entity, Boolean value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("particlesBasedOnAncestryDamageType", value);
@@ -278,7 +280,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetPoisonImpactParticleReference<T>(this T entity,
-            UnityEngine.AddressableAssets.AssetReference value)
+            AssetReference value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("poisonImpactParticleReference", value);
@@ -306,7 +308,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiredTargetCreatureTag<T>(this T entity, System.String value)
+        public static T SetRequiredTargetCreatureTag<T>(this T entity, String value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("requiredTargetCreatureTag", value);
@@ -320,21 +322,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSavingThrowAbility<T>(this T entity, System.String value)
+        public static T SetSavingThrowAbility<T>(this T entity, String value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("savingThrowAbility", value);
             return entity;
         }
 
-        public static T SetSavingThrowDC<T>(this T entity, System.Int32 value)
+        public static T SetSavingThrowDC<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("savingThrowDC", value);
             return entity;
         }
 
-        public static T SetSpecificDamageType<T>(this T entity, System.String value)
+        public static T SetSpecificDamageType<T>(this T entity, String value)
             where T : FeatureDefinitionAdditionalDamage
         {
             entity.SetField("specificDamageType", value);

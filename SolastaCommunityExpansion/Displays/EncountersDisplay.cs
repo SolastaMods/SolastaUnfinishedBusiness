@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ModKit;
 using SolastaCommunityExpansion.Models;
@@ -22,7 +23,7 @@ namespace SolastaCommunityExpansion.Displays
             return Regex.Replace(Regex.Replace(str, @"(\P{Ll})(\P{Ll}\p{Ll})", "$1 $2"), @"(\p{Ll})(\P{Ll})", "$1 $2");
         }
 
-        private static void DisplayHeroStats(RulesetCharacterHero hero, string actionText, System.Action action)
+        private static void DisplayHeroStats(RulesetCharacterHero hero, string actionText, Action action)
         {
             var flip = false;
             var inventory = hero.CharacterInventory.EnumerateAllSlots(false, true);
@@ -96,7 +97,7 @@ namespace SolastaCommunityExpansion.Displays
         }
 
         private static void DisplayMonsterStats(MonsterDefinition monsterDefinition, string actionText,
-            System.Action action)
+            Action action)
         {
             var flip = false;
 

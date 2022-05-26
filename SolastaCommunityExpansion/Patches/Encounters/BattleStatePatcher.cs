@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Encounters
 {
@@ -9,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Encounters
     {
         internal static void Prefix(BattleState_TurnInitialize __instance)
         {
-            Models.PlayerControllerContext.Start(__instance.Battle);
+            PlayerControllerContext.Start(__instance.Battle);
         }
     }
 
@@ -19,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.Encounters
     {
         internal static void Prefix(BattleState_TurnEnd __instance)
         {
-            Models.PlayerControllerContext.Stop(__instance.Battle);
+            PlayerControllerContext.Stop(__instance.Battle);
         }
     }
 
@@ -29,7 +30,7 @@ namespace SolastaCommunityExpansion.Patches.Encounters
     {
         internal static void Prefix(BattleState_Victory __instance)
         {
-            Models.PlayerControllerContext.Stop(__instance.Battle);
+            PlayerControllerContext.Stop(__instance.Battle);
         }
     }
 }

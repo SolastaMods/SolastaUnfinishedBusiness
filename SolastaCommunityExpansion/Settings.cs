@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using ModKit.Utility;
+using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
@@ -110,7 +111,7 @@ namespace SolastaCommunityExpansion
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableFeatsAtEvenLevels { get; set; }
-        public int MaxAllowedLevels { get; set; } = Models.Level20Context.GAME_MAX_LEVEL;
+        public int MaxAllowedLevels { get; set; } = Level20Context.GAME_MAX_LEVEL;
 
         // Multiclass
         public bool EnableMinInOutAttributes { get; set; } = true;
@@ -232,7 +233,7 @@ namespace SolastaCommunityExpansion
         public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
         public List<string> DefaultPartyHeroes = new();
         public bool NoExperienceOnLevelUp { get; set; }
-        public int OverridePartySize { get; set; } = Models.DungeonMakerContext.GAME_PARTY_SIZE;
+        public int OverridePartySize { get; set; } = DungeonMakerContext.GAME_PARTY_SIZE;
         public int MultiplyTheExperienceGainedBy { get; set; } = 100;
         public int MaxBackupFilesPerLocationCampaign { get; set; } = 10;
 

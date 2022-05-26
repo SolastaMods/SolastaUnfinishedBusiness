@@ -13,29 +13,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionAdditionalDamage
         where TBuilder : FeatureDefinitionAdditionalDamageBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-
-        protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, Guid namespaceGuid) :
-            base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, string definitionGuid) :
-            base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public TBuilder SetSpecificDamageType(string damageType)
         {
             Definition.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific);
@@ -161,6 +138,29 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetLightSourceForm(form);
             return This();
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAdditionalDamageBuilder(TDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditionalDamageBuilder<
