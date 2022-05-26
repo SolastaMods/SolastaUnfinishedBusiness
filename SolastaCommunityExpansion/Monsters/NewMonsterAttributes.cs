@@ -211,9 +211,7 @@ namespace SolastaMonsters.Monsters
             TarrasqueSwallow_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -228,9 +226,7 @@ namespace SolastaMonsters.Monsters
             Tarrasque_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Tarrasque_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -394,9 +390,7 @@ namespace SolastaMonsters.Monsters
             Lich_spelllist = BuildNewSpelllist(
                 text,
                 DatabaseHelper.SpellListDefinitions.SpellListMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "SpellList/&SpellListWizardTitle",
-                "Feature/&NoContentTitle"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -502,9 +496,7 @@ namespace SolastaMonsters.Monsters
             CastSpell_Lich = BuildNewCaster(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Spell/&DH_" + text + "_Title",
-                "Spell/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -933,9 +925,7 @@ namespace SolastaMonsters.Monsters
             Archmage_spelllist = BuildNewSpelllist(
                 text,
                 DatabaseHelper.SpellListDefinitions.SpellListMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "SpellList/&SpellListWizardTitle",
-                "Feature/&NoContentTitle"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -1039,9 +1029,7 @@ namespace SolastaMonsters.Monsters
             CastSpell_ArchMage = BuildNewCaster(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Spell/&DH_" + text + "_Title",
-                "Spell/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -1462,9 +1450,7 @@ namespace SolastaMonsters.Monsters
             GuardianNaga_spelllist = BuildNewSpelllist(
                 text,
                 DatabaseHelper.SpellListDefinitions.SpellListHighPriest,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Feature/&GuardianNagaSpellListTitle",
-                "Feature/&GuardianNagaSpellListDescription"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -1542,9 +1528,7 @@ namespace SolastaMonsters.Monsters
             CastSpell_GuardianNaga = BuildNewCaster(
                 "DH_Custom_" + text,
                 DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Spell/&DH_" + text + "_Title",
-                "Spell/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -1975,9 +1959,7 @@ namespace SolastaMonsters.Monsters
             AncientDragon_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             AncientDragon_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2015,9 +1997,7 @@ namespace SolastaMonsters.Monsters
             SummonCreature_Magic_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             SummonCreature_Magic_Decision.Decision.SetEnumParameter((int)RuleDefinitions.MagicType.SummonsCreature);
@@ -2033,9 +2013,7 @@ namespace SolastaMonsters.Monsters
             AtWillAOE_Magic_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -2050,9 +2028,7 @@ namespace SolastaMonsters.Monsters
             CastMagic_Stoneskin_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -2067,9 +2043,7 @@ namespace SolastaMonsters.Monsters
             LimitedPerDayAOE_Magic_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             LimitedPerDayAOE_Magic_Decision.Decision.SetStringParameter("LimitedPerDayAOE");
@@ -2083,9 +2057,7 @@ namespace SolastaMonsters.Monsters
             AtWillSelfBuff_Magic_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
 
@@ -2100,9 +2072,7 @@ namespace SolastaMonsters.Monsters
             LimitedPerDayTargetDebuff_Magic_Decision = BuildNewDecisionDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             LimitedPerDayTargetDebuff_Magic_Decision.Decision.SetStringParameter("LimitedPerDayTargetDebuff");
@@ -2116,9 +2086,7 @@ namespace SolastaMonsters.Monsters
             Solar_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Solar_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2173,9 +2141,7 @@ namespace SolastaMonsters.Monsters
             HighLevelCaster_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2225,9 +2191,7 @@ namespace SolastaMonsters.Monsters
             Vampire_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.DefilerCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Vampire_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2301,9 +2265,7 @@ namespace SolastaMonsters.Monsters
             Titan_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Titan_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2382,9 +2344,7 @@ namespace SolastaMonsters.Monsters
             ConstructTitan_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             ConstructTitan_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2465,9 +2425,7 @@ namespace SolastaMonsters.Monsters
             Naga_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.FlyingSnakeCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Naga_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2536,9 +2494,7 @@ namespace SolastaMonsters.Monsters
             PitFiend_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             PitFiend_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2596,9 +2552,7 @@ namespace SolastaMonsters.Monsters
             Balor_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Balor_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2631,9 +2585,7 @@ namespace SolastaMonsters.Monsters
             Nalfeshnee_CombatDecisions = BuildNewDecisionPackageDefinition(
                 "DH_Custom_" + text,
                 DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
             );
 
             Nalfeshnee_CombatDecisions.Package.WeightedDecisions.Clear();
@@ -2664,11 +2616,12 @@ namespace SolastaMonsters.Monsters
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------------------------------
         public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster,
-            string guid, string title, string description)
+            string guid)
         {
             return FeatureDefinitionCastSpellBuilder
                 .Create(baseCaster, name, guid)
-                .SetOrUpdateGuiPresentation(title, description)
+                .SetGuiPresentationNoContent()
+                //.SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
@@ -2683,30 +2636,22 @@ namespace SolastaMonsters.Monsters
 
 
         public static DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name,
-            DecisionPackageDefinition baseDecisionPackageDefinition, string guid, string title,
-            string description)
+            DecisionPackageDefinition baseDecisionPackageDefinition, string guid)
         {
             return DecisionPackageDefinitionBuilder
                 .Create(baseDecisionPackageDefinition, name, guid)
-                .SetOrUpdateGuiPresentation(title, description)
+                .SetGuiPresentationNoContent()
+                //.SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
         public static DecisionDefinition BuildNewDecisionDefinition(string name,
-            DecisionDefinition baseDecisionDefinition, string guid, string title, string description)
+            DecisionDefinition baseDecisionDefinition, string guid)
         {
             return DecisionDefinitionBuilder
                 .Create(baseDecisionDefinition, name, guid)
-                .SetOrUpdateGuiPresentation(title, description)
-                .AddToDB();
-        }
-
-        public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name,
-            MonsterPresentationDefinition baseMonsterPresentation, string guid, string title, string description)
-        {
-            return MonsterPresentationDefinitionBuilder
-                .Create(baseMonsterPresentation, name, guid)
-                .SetOrUpdateGuiPresentation(title, description)
+                .SetGuiPresentationNoContent()
+                //.SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
 
@@ -2720,12 +2665,12 @@ namespace SolastaMonsters.Monsters
         }
 
 
-        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid,
-            string title, string description)
+        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid)
         {
             return SpellListDefinitionBuilder
                 .Create(baseSpellList, name, guid)
-                .SetOrUpdateGuiPresentation(title, description)
+                .SetGuiPresentationNoContent()
+                //.SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
     }
