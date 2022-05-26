@@ -90,7 +90,9 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
 
                     var spells = rulesetCharacter.Items
                         .OfType<RulesetItemSpellbook>()
-                        .SelectMany(x => x.ScribedSpells)
+                        .SelectMany(x => x.ScribedSpells);
+
+                    spells = spells
                         .Where(s => s.Ritual)
                         .Where(s => maxSpellLevel >= s.SpellLevel);
 
