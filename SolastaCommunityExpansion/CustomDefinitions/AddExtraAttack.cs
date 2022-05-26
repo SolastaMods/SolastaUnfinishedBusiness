@@ -11,10 +11,10 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     public class AddExtraUnarmedAttack : IAddExtraAttack
     {
         private readonly ActionDefinitions.ActionType actionType;
-        private readonly List<string> additionalTags = new();
         private readonly int attacksNumber;
         private readonly bool clearSameType;
         private readonly CharacterValidator[] validators;
+        private readonly List<string> additionalTags = new();
 
         public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType,
             params CharacterValidator[] validators)
@@ -28,6 +28,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
             this(actionType, 1, false, validators)
         {
+        }
+
+        public AddExtraUnarmedAttack SetTags(params string[] tags)
+        {
+            additionalTags.AddRange(tags);
+            return this;
         }
 
         public void TryAddExtraAttack(RulesetCharacterHero hero)
@@ -83,12 +89,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             {
                 attackModes.Add(attackMode);
             }
-        }
-
-        public AddExtraUnarmedAttack SetTags(params string[] tags)
-        {
-            additionalTags.AddRange(tags);
-            return this;
         }
     }
 

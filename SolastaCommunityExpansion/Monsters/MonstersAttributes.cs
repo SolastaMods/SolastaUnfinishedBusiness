@@ -12,6 +12,7 @@ namespace SolastaMonsters.Monsters
 {
     public class MonstersAttributes
     {
+
         public static MonsterAttackIteration BlackDragonBiteAttackIteration = new();
         public static MonsterAttackIteration BlueDragonBiteAttackIteration = new();
         public static MonsterAttackIteration GreenDragonBiteAttackIteration = new();
@@ -102,9 +103,7 @@ namespace SolastaMonsters.Monsters
 
         public static LegendaryActionDescription VampirelegendaryActionDescription = new();
         public static LegendaryActionDescription VampirelegendaryActionDescription_2 = new();
-
-        public static LegendaryActionDescription VampirelegendaryActionDescription_3 = new();
-
+        static public LegendaryActionDescription VampirelegendaryActionDescription_3 = new();
         //public static LegendaryActionDescription VampirelegendaryActionDescription_4 = new LegendaryActionDescription();
         public static MonsterSkillProficiency VampiremonsterSkillProficiency_1 = new();
         public static MonsterSkillProficiency VampiremonsterSkillProficiency_2 = new();
@@ -126,31 +125,26 @@ namespace SolastaMonsters.Monsters
 
         public static void EnableInDungeonMaker()
         {
-            BlackDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Black Dragon"]);
+
+            BlackDragonBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Black Dragon"]);
             BlackDragonBiteAttackIteration.SetField("number", 1);
 
-            BlueDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Blue Dragon"]);
+            BlueDragonBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Blue Dragon"]);
             BlueDragonBiteAttackIteration.SetField("number", 1);
 
-            GreenDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Green Dragon"]);
+            GreenDragonBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Green Dragon"]);
             GreenDragonBiteAttackIteration.SetField("number", 1);
 
-            RedDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Red Dragon"]);
+            RedDragonBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Red Dragon"]);
             RedDragonBiteAttackIteration.SetField("number", 1);
 
-            WhiteDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient White Dragon"]);
+            WhiteDragonBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient White Dragon"]);
             WhiteDragonBiteAttackIteration.SetField("number", 1);
 
             DragonClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AncientDragon_Claw_Attack);
             DragonClawAttackIteration.SetField("number", 1);
 
-            DragonClawAttackIteration_2.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.AncientDragon_Claw_Attack);
+            DragonClawAttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.AncientDragon_Claw_Attack);
             DragonClawAttackIteration_2.SetField("number", 1);
 
             DragonlegendaryActionDescription.SetCost(2);
@@ -158,14 +152,12 @@ namespace SolastaMonsters.Monsters
             DragonlegendaryActionDescription.SetCanMove(true);
             DragonlegendaryActionDescription.SetMoveMode(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6);
             DragonlegendaryActionDescription.SetFeatureDefinitionPower(NewMonsterPowers.AncientDragon_Wing_Power);
-            DragonlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDragonWingAttack);
+            DragonlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonWingAttack);
 
             DragonlegendaryActionDescription_2.SetCost(1);
             DragonlegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
             DragonlegendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.AncientDragon_Tail_Attack);
-            DragonlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDragonAttack);
+            DragonlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
             DragonmonsterSkillProficiency_1.SetField("skillName", "Perception");
             DragonmonsterSkillProficiency_1.SetField("bonus", 16);
@@ -233,19 +225,16 @@ namespace SolastaMonsters.Monsters
             HornedDevilClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.HurlFlame_Attack);
             HornedDevilClawAttackIteration.SetField("number", 1);
 
-            HornedDevilTailAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.HornedDevilTail_Attack);
+            HornedDevilTailAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.HornedDevilTail_Attack);
             HornedDevilTailAttackIteration.SetField("number", 1);
 
             IceDevilBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Ice_Bite_Attack);
             IceDevilBiteAttackIteration.SetField("number", 1);
 
-            IceDevilClawAttackIteration.SetField("monsterAttackDefinition",
-                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw);
+            IceDevilClawAttackIteration.SetField("monsterAttackDefinition", DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw);
             IceDevilClawAttackIteration.SetField("number", 1);
 
-            IceDevilTailAttackIteration.SetField("monsterAttackDefinition",
-                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail);
+            IceDevilTailAttackIteration.SetField("monsterAttackDefinition", DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail);
             IceDevilTailAttackIteration.SetField("number", 1);
 
             LichAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Lich_ParalyzingTouch_Attack);
@@ -256,33 +245,27 @@ namespace SolastaMonsters.Monsters
             LichlegendaryActionDescription_0.SetCost(1);
             LichlegendaryActionDescription_0.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
             LichlegendaryActionDescription_0.SetSpellDefinition(DatabaseHelper.SpellDefinitions.RayOfFrost);
-            LichlegendaryActionDescription_0.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryLaetharCast_Debuff);
+            LichlegendaryActionDescription_0.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
             LichlegendaryActionDescription_4.SetCost(1);
             LichlegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
             LichlegendaryActionDescription_4.SetSpellDefinition(DatabaseHelper.SpellDefinitions.ChillTouch);
-            LichlegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryLaetharCast_Debuff);
+            LichlegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
             LichlegendaryActionDescription.SetCost(2);
             LichlegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-            LichlegendaryActionDescription.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers
-                .PowerLaetharParalyzingGaze);
-            LichlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryLaetharCast_Debuff);
+            LichlegendaryActionDescription.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze);
+            LichlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
             LichlegendaryActionDescription_2.SetCost(2);
             LichlegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
             LichlegendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.Lich_ParalyzingTouch_Attack);
-            LichlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDragonAttack);
+            LichlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
             LichlegendaryActionDescription_3.SetCost(3);
             LichlegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
             LichlegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.Lich_DisruptLife_Power);
-            LichlegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryAoE_DpS);
+            LichlegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryAoE_DpS);
 
             LichmonsterSkillProficiency_1.SetField("skillName", "Arcana");
             LichmonsterSkillProficiency_1.SetField("bonus", 19);
@@ -296,30 +279,25 @@ namespace SolastaMonsters.Monsters
             LichmonsterSkillProficiency_4.SetField("skillName", "Perception");
             LichmonsterSkillProficiency_4.SetField("bonus", 9);
 
-            NalfeshneeBiteAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.Generic_Stronger_Bite_Attack);
+            NalfeshneeBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Generic_Stronger_Bite_Attack);
             NalfeshneeBiteAttackIteration.SetField("number", 1);
 
-            NalfeshneeClawAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.AncientDragon_Claw_Attack);
+            NalfeshneeClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AncientDragon_Claw_Attack);
             NalfeshneeClawAttackIteration.SetField("number", 1);
 
             PitFiendBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.PitFiend_Bite_Attack);
             PitFiendBiteAttackIteration.SetField("number", 1);
 
-            PitFiendClawAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.AncientDragon_Claw_Attack);
+            PitFiendClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AncientDragon_Claw_Attack);
             PitFiendClawAttackIteration.SetField("number", 1);
 
-            PitFiendTailAttackIteration.SetField("monsterAttackDefinition",
-                DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail);
+            PitFiendTailAttackIteration.SetField("monsterAttackDefinition", DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail);
             PitFiendTailAttackIteration.SetField("number", 1);
 
             PitFiendWeaponAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.PitFiend_Mace_Attack);
             PitFiendWeaponAttackIteration.SetField("number", 1);
 
-            PlanetarLongswordAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.RadiantLongsword_Attack);
+            PlanetarLongswordAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.RadiantLongsword_Attack);
             PlanetarLongswordAttackIteration.SetField("number", 2);
 
             PlanetarmonsterSkillProficiency_1.SetField("skillName", "Perception");
@@ -334,8 +312,7 @@ namespace SolastaMonsters.Monsters
             RocmonsterSkillProficiency_1.SetField("skillName", "Perception");
             RocmonsterSkillProficiency_1.SetField("bonus", 4);
 
-            SolarLongswordAttackIteration.SetField("monsterAttackDefinition",
-                NewMonsterAttacks.RadiantLongsword_Attack);
+            SolarLongswordAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.RadiantLongsword_Attack);
             SolarLongswordAttackIteration.SetField("number", 2);
 
             SolarLongbowAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.RadiantLongbow_Attack);
@@ -343,22 +320,18 @@ namespace SolastaMonsters.Monsters
 
             SolarlegendaryActionDescription.SetCost(1);
             SolarlegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-            SolarlegendaryActionDescription.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers
-                .PowerLaetharMistyFormEscape);
-            SolarlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryLaetharCast_Teleport);
+            SolarlegendaryActionDescription.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers.PowerLaetharMistyFormEscape);
+            SolarlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Teleport);
 
             SolarlegendaryActionDescription_2.SetCost(2);
             SolarlegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Power);
             SolarlegendaryActionDescription_2.SetFeatureDefinitionPower(NewMonsterPowers.SearingBurst_Power);
-            SolarlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryAoE_DpS);
+            SolarlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryAoE_DpS);
 
             SolarlegendaryActionDescription_3.SetCost(3);
             SolarlegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
             SolarlegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.BlindingGaze_Power);
-            SolarlegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryLaetharCast_Debuff);
+            SolarlegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
             SolarmonsterSkillProficiency_1.SetField("skillName", "Perception");
             SolarmonsterSkillProficiency_1.SetField("bonus", 14);
@@ -376,27 +349,22 @@ namespace SolastaMonsters.Monsters
 
             VampirelegendaryActionDescription.SetCost(1);
             VampirelegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-            VampirelegendaryActionDescription.SetMonsterAttackDefinition(DatabaseHelper.MonsterAttackDefinitions
-                .Attack_Defiler_Bite_Razan);
-            VampirelegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDefilerAttack);
+            VampirelegendaryActionDescription.SetMonsterAttackDefinition(DatabaseHelper.MonsterAttackDefinitions.Attack_Defiler_Bite_Razan);
+            VampirelegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDefilerAttack);
             VampirelegendaryActionDescription.SetCanMove(true);
             VampirelegendaryActionDescription.SetMoveMode(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6);
             VampirelegendaryActionDescription.SetNoOpportunityAttack(true);
 
             VampirelegendaryActionDescription_2.SetCost(1);
             VampirelegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-            VampirelegendaryActionDescription_2.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers
-                .PowerDefilerDarkness);
-            VampirelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDefilerDarkness);
+            VampirelegendaryActionDescription_2.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers.PowerDefilerDarkness);
+            VampirelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDefilerDarkness);
 
 
             VampirelegendaryActionDescription_3.SetCost(1);
             VampirelegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
             VampirelegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.VampireCharmPower);
-            VampirelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryLaetharCast_Debuff);
+            VampirelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
             //VampirelegendaryActionDescription_4.SetCost(3);
             //VampirelegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Power);
@@ -431,25 +399,30 @@ namespace SolastaMonsters.Monsters
             TarrasquelegendaryActionDescription.SetCanMove(true);
             TarrasquelegendaryActionDescription.SetMoveMode(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6);
             TarrasquelegendaryActionDescription.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Bite_Attack);
-            TarrasquelegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDragonAttack);
+            TarrasquelegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
             TarrasquelegendaryActionDescription_2.SetCost(1);
             TarrasquelegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
             TarrasquelegendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Tail_Attack);
-            TarrasquelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDragonAttack);
+            TarrasquelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
             TarrasquelegendaryActionDescription_3.SetCost(1);
             TarrasquelegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
             TarrasquelegendaryActionDescription_3.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Claw_Attack);
-            TarrasquelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                .LegendaryDragonAttack);
+            TarrasquelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryDragonAttack);
 
             //   TarrasquelegendaryActionDescription_4.SetCost(2);
             //   TarrasquelegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Power);
             //   TarrasquelegendaryActionDescription_4.SetFeatureDefinitionPower(NewMonsterPowers.TarrasqueSwallowPower);
             //   TarrasquelegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
         }
+
+
     }
+
+
+
+
 }
+
+

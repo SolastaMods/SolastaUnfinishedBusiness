@@ -11,42 +11,42 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemCraftingContext
     {
-        public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
+        public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new Dictionary<string, List<ItemDefinition>>();
 
         public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
         {
-            "PrimedItems", "EnchantingIngredients", "RelicForgeries"
+            "PrimedItems",
+            "EnchantingIngredients",
+            "RelicForgeries",
         };
 
         public static readonly Dictionary<string, string> RecipeTitles = new()
         {
-            {"PrimedItems", "Primed Items"},
-            {"EnchantingIngredients", "Enchanting Ingredients"},
-            {"RelicForgeries", "Relic Forgeries"},
-            {"LightCrossbow", "Light Crossbow"},
-            {"HeavyCrossbow", "Heavy Crossbow"},
-            {"Handaxe", "Handaxe"},
-            {"Javelin", "Javelin"},
-            {"Dart", "Dart"},
-            {"Club", "Club"},
-            {"Maul", "Maul"},
-            {"Warhammer", "Warhammer"},
-            {"Quarterstaff", "Quarterstaff"},
-            {"Rapier", "Rapier"},
-            {"Spear", "Spear"},
-            {"Scimitar", "Scimitar"},
-            {"Shield_Wooden", "Shield [Wooden]"},
-            {"Shield", "Shield"},
-            {"HideArmor", "Hide Armor"},
-            {"LeatherDruid", "Leather Druid"},
-            {"StuddedLeather", "Studded Leather"}
+            { "PrimedItems", "Primed Items" },
+            { "EnchantingIngredients", "Enchanting Ingredients" },
+            { "RelicForgeries", "Relic Forgeries" },
+            { "LightCrossbow", "Light Crossbow" },
+            { "HeavyCrossbow", "Heavy Crossbow" },
+            { "Handaxe", "Handaxe" },
+            { "Javelin", "Javelin" },
+            { "Dart", "Dart" },
+            { "Club", "Club" },
+            { "Maul", "Maul" },
+            { "Warhammer", "Warhammer" },
+            { "Quarterstaff", "Quarterstaff" },
+            { "Rapier", "Rapier" },
+            { "Spear", "Spear" },
+            { "Scimitar", "Scimitar" },
+            { "Shield_Wooden", "Shield [Wooden]" },
+            { "Shield", "Shield" },
+            { "HideArmor", "Hide Armor" },
+            { "LeatherDruid", "Leather Druid" },
+            { "StuddedLeather", "Studded Leather" },
         };
 
         internal static void Load()
         {
-            ItemRecipeGenerationHelper.StockItem(
-                DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                DatabaseHelper.ItemDefinitions.Maul);
+            ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, DatabaseHelper.ItemDefinitions.Maul);
 
             ItemRecipeGenerationHelper.AddPrimingRecipes();
             ItemRecipeGenerationHelper.AddIngredientEnchanting();
@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 foreach (var item in items)
                 {
-                    item.SetCosts(new[] {0, Main.Settings.RecipeCost, 0, 0, 0});
+                    item.SetCosts(new[] { 0, Main.Settings.RecipeCost, 0, 0, 0 });
                 }
             }
         }
@@ -88,8 +88,7 @@ namespace SolastaCommunityExpansion.Models
                 foreach (var item in RecipeBooks[key])
                 {
                     ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, item);
-                    ItemRecipeGenerationHelper.StockItem(
-                        DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, item);
+                    ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, item);
                 }
             }
         }
@@ -101,7 +100,6 @@ namespace SolastaCommunityExpansion.Models
                 // Don't touch the in dungeon state of base game items.
                 return;
             }
-
             var available = Main.Settings.CraftingItemsInDM.Contains(key);
             foreach (var recipeBookDefinition in RecipeBooks[key])
             {
@@ -125,7 +123,6 @@ namespace SolastaCommunityExpansion.Models
             {
                 return;
             }
-
             foreach (var recipeBookDefinition in RecipeBooks[key])
             {
                 gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);

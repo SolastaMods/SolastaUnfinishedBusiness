@@ -69,11 +69,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var targetParameter2Field =
- typeof(CursorLocationGeometricShape).GetField("targetParameter2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            var targetParameter2Field = typeof(CursorLocationGeometricShape).GetField("targetParameter2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             var updateCubePosition_RegularMethod = typeof(GeometricShape).GetMethod("UpdateCubePosition_Regular");
-            var myUpdateCubePosition_RegularMethod =
- typeof(CursorLocationGeometricShape_UpdateGeometricShape).GetMethod("MyUpdateCubePosition_Regular");
+            var myUpdateCubePosition_RegularMethod = typeof(CursorLocationGeometricShape_UpdateGeometricShape).GetMethod("MyUpdateCubePosition_Regular");
 
             foreach (CodeInstruction instruction in instructions)
             {
@@ -222,11 +220,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var geometricParameter2Field =
- typeof(GameLocationTargetingManager).GetField("geometricParameter2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            var geometricParameter2Field = typeof(GameLocationTargetingManager).GetField("geometricParameter2", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             var cubeContainsPoint_RegularMethod = typeof(GeometryUtils).GetMethod("CubeContainsPoint_Regular");
-            var myCubeContainsPoint_RegularMethod =
- typeof(GameLocationTargetingManager_DoesShapeContainPoint).GetMethod("MyCubeContainsPoint_Regular");
+            var myCubeContainsPoint_RegularMethod = typeof(GameLocationTargetingManager_DoesShapeContainPoint).GetMethod("MyCubeContainsPoint_Regular");
 
             foreach (CodeInstruction instruction in instructions)
             {

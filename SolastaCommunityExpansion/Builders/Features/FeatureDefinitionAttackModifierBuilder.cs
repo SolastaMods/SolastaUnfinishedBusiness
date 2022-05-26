@@ -7,6 +7,24 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionAttackModifierBuilder
         : FeatureDefinitionAffinityBuilder<FeatureDefinitionAttackModifier, FeatureDefinitionAttackModifierBuilder>
     {
+        #region Constructors
+        protected FeatureDefinitionAttackModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAttackModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         public FeatureDefinitionAttackModifierBuilder Configure(
             RuleDefinitions.AttackModifierMethod attackRollModifierMethod = RuleDefinitions.AttackModifierMethod.None,
             int attackRollModifier = 0,
@@ -29,8 +47,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
-        public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
-            RuleDefinitions.AbilityScoreReplacement replacement)
+        public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement replacement)
         {
             Definition.SetAbilityScoreReplacement(replacement);
 
@@ -50,28 +67,5 @@ namespace SolastaCommunityExpansion.Builders.Features
 
             return This();
         }
-
-        #region Constructors
-
-        protected FeatureDefinitionAttackModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAttackModifierBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAttackModifierBuilder(FeatureDefinitionAttackModifier original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 }

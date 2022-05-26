@@ -349,7 +349,18 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of huma [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_de {
+            get {
+                return ResourceManager.GetString("Monsters-en", resourceCulture);
+            }
+        }
+   
         /// <summary>
         ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
         ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
@@ -488,6 +499,22 @@ namespace SolastaCommunityExpansion.Properties {
             get {
                 object obj = ResourceManager.GetObject("Teleport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1
+        ///Attribu [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_de {
+            get {
+                return ResourceManager.GetString("Translations-en", resourceCulture);
             }
         }
         

@@ -11,8 +11,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterExport
     {
         public static void Postfix(CharacterInspectionScreen __instance, InputCommands.Id command)
         {
-            if (Main.Settings.EnableCharacterExport && command == Hotkeys.CTRL_SHIFT_E && Gui.Game != null &&
-                !CharacterExportContext.InputModalVisible)
+            if (Main.Settings.EnableCharacterExport && command == Hotkeys.CTRL_SHIFT_E && Gui.Game != null && !CharacterExportContext.InputModalVisible)
             {
                 CharacterExportContext.ExportInspectedCharacter(__instance.InspectedCharacter.RulesetCharacterHero);
             }

@@ -2,8 +2,8 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
-using SolastaMonsters.Models;
 using UnityModManagerNet;
+
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -86,12 +86,12 @@ namespace SolastaCommunityExpansion.Patches
             MulticlassContext.Load();
 
             // Custom High Level Monsters
-            MonsterContext.Load();
+            SolastaMonsters.Models.MonsterContext.Load();
 
             // Only a functor registration
             PowerBundleContext.Load();
 
-            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
+            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
             {
                 // Late initialized to allow feats and races from other mods
                 FlexibleRacesContext.LateLoad();

@@ -2,6 +2,7 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -14,19 +15,19 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 {
     internal class CircleOfTheForestGuardian : AbstractSubclass
     {
-        private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
-        internal static readonly Guid BaseGuid = new("45a7595b-5d5f-4351-b7f1-cb78c9d0a136");
         private CharacterSubclassDefinition Subclass;
 
         internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
         {
             return FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
         }
-
         internal override CharacterSubclassDefinition GetSubclass()
         {
             return Subclass ??= BuildAndAddSubclass();
         }
+
+        private const string DruidForestGuardianDruidSubclassName = "DruidForestGuardianDruidSubclass";
+        internal static readonly Guid BaseGuid = new("45a7595b-5d5f-4351-b7f1-cb78c9d0a136");
 
         private static CharacterSubclassDefinition BuildAndAddSubclass()
         {
@@ -57,8 +58,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
             // Create Sylvan War Magic
             var sylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
-                .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "DruidForestGuardianSylvanWarMagic",
-                    BaseGuid)
+                .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic, "DruidForestGuardianSylvanWarMagic", BaseGuid)
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB();
 
@@ -78,13 +78,12 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
         }
 
         // Create Bark Ward Wild Shape Power (and the two higher variants, improved and superior)
-        private static (FeatureDefinitionPowerSharedPool barkWard, FeatureDefinitionPowerSharedPool improvedBarkWard,
-            FeatureDefinitionPowerSharedPool superiorBarkWard) CreateBarkWard()
+        private static (FeatureDefinitionPowerSharedPool barkWard, FeatureDefinitionPowerSharedPool improvedBarkWard, FeatureDefinitionPowerSharedPool superiorBarkWard) CreateBarkWard()
         {
             var tempHPEffect = EffectFormBuilder
                 .Create()
                 .SetTempHPForm(4, DieType.D1, 0)
-                .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
+                .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel, 1)
                 .CreatedByCharacter()
                 .Build();
 
@@ -105,32 +104,32 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
 
             var barkWardEffectDescription = EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None)
                 .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
                 .AddEffectForm(tempHPEffect)
                 .AddEffectForm(barkWardBuff)
-                .SetEffectAdvancement(EffectIncrementMethod.None)
+                .SetEffectAdvancement(EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
                 .Build();
 
             var improvedBarkWardEffectDescription = EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None)
                 .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
                 .AddEffectForm(tempHPEffect)
                 .AddEffectForm(improvedBarkWardBuff)
-                .SetEffectAdvancement(EffectIncrementMethod.None)
+                .SetEffectAdvancement(EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
                 .Build();
 
             var superiorBarkWardEffectDescription = EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self, 1, 1, ActionDefinitions.ItemSelectionType.None)
                 .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Minute, 10, TurnOccurenceType.EndOfTurn)
                 .AddEffectForm(tempHPEffect)
                 .AddEffectForm(superiorBarkWardBuff)
-                .SetEffectAdvancement(EffectIncrementMethod.None)
+                .SetEffectAdvancement(EffectIncrementMethod.None, 1, 0, 0, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
                 .Build();
 
             var barkWard = FeatureDefinitionPowerSharedPoolBuilder
@@ -177,7 +176,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             {
                 var damageEffect = EffectFormBuilder
                     .Create()
-                    .SetDamageForm(false, DieType.D8, "DamagePiercing", 0, DieType.D8, 2)
+                    .SetDamageForm(false, DieType.D8, "DamagePiercing", 0, DieType.D8, 2, HealFromInflictedDamage.Never)
                     .CreatedByCondition()
                     .Build();
 
@@ -218,7 +217,7 @@ namespace SolastaCommunityExpansion.Subclasses.Druid
             {
                 var damageEffect = EffectFormBuilder
                     .Create()
-                    .SetDamageForm(false, DieType.D8, "DamagePiercing", 0, DieType.D8, 3)
+                    .SetDamageForm(false, DieType.D8, "DamagePiercing", 0, DieType.D8, 3, HealFromInflictedDamage.Never)
                     .CreatedByCondition()
                     .Build();
 

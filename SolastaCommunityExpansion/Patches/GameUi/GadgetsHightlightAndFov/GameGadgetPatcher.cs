@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using TA;
 
@@ -15,8 +14,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
     {
         internal static void Postfix(GameGadget __instance, ref bool ___revealed, ref bool __result)
         {
-            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null ||
-                !Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
+            if (!__instance.Revealed || Gui.GameLocation.UserLocation == null || !Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
             {
                 return;
             }
@@ -25,7 +23,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                 .SelectMany(a => a.UserGadgets)
                 .FirstOrDefault(b => b.UniqueName == __instance.UniqueNameId);
 
-            if (userGadget == null || !GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
+            if (userGadget == null || !Models.GameUiContext.IsGadgetExit(userGadget.GadgetBlueprint))
             {
                 return;
             }
@@ -55,8 +53,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
 
                     if (worldGadget != null)
                     {
-                        GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget,
-                            isEnabled && !isInvisible);
+                        GameLocationManager_ReadyLocation.SetTeleporterGadgetActiveAnimation(worldGadget, isEnabled && !isInvisible);
                     }
 
                     ___revealed = true;
@@ -72,8 +69,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_SetCondition
     {
-        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state,
-            List<string> ___conditionNames)
+        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> ___conditionNames)
         {
             if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
             {

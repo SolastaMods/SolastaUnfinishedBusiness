@@ -26,11 +26,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageRaceSelectionPanel_OnBeginShow
     {
-        internal static void Prefix(List<CharacterRaceDefinition> ___eligibleRaces,
-            Dictionary<int, int> ___selectedSubRace)
+        internal static void Prefix(List<CharacterRaceDefinition> ___eligibleRaces, Dictionary<int, int> ___selectedSubRace)
         {
-            var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden);
+            var visibleRaces = DatabaseRepository.GetDatabase<CharacterRaceDefinition>().Where(x => !x.GuiPresentation.Hidden);
             var visibleSubRaces = visibleRaces.SelectMany(x => x.SubRaces);
             var visibleMainRaces = visibleRaces.Where(x => !visibleSubRaces.Contains(x));
 

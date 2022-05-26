@@ -10,7 +10,6 @@ namespace SolastaCommunityExpansion.Displays
             bool toggle;
 
             #region DungeonMaker
-
             UI.Label("");
             UI.Label("Basic:".yellow());
             UI.Label("");
@@ -27,9 +26,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere;
-            if (UI.Toggle(
-                    "Allow gadgets and props to be placed anywhere on the map " + "[press ".italic().yellow() +
-                    "CTRL".italic().cyan() + " during placement to bypass any check]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Allow gadgets and props to be placed anywhere on the map " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " during placement to bypass any check]".italic().yellow(), ref toggle))
             {
                 Main.Settings.AllowGadgetsAndPropsToBePlacedAnywhere = toggle;
             }
@@ -37,21 +34,16 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.UnleashNpcAsEnemy;
-            if (UI.Toggle(
-                    "Allow NPCs to be selected on monster gadgets " + "[press ".italic().yellow() +
-                    "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Allow NPCs to be selected on monster gadgets " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
             {
                 Main.Settings.UnleashNpcAsEnemy = toggle;
             }
 
             toggle = Main.Settings.UnleashEnemyAsNpc;
-            if (UI.Toggle(
-                    "Allow Monsters to be selected on NPC gadgets " + "[press ".italic().yellow() +
-                    "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
+            if (UI.Toggle("Allow Monsters to be selected on NPC gadgets " + "[press ".italic().yellow() + "CTRL".italic().cyan() + " while clicking Select on gadget panel]".italic().yellow(), ref toggle))
             {
                 Main.Settings.UnleashEnemyAsNpc = toggle;
             }
-
             #endregion
 
             UI.Label("");
@@ -69,9 +61,9 @@ namespace SolastaCommunityExpansion.Displays
 
             toggle = Main.Settings.EnableDungeonMakerModdedContent;
             if (UI.Toggle("Enable Dungeon Maker Pro "
-                          + RequiresRestart
-                          + "\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments"
-                          + "\nyou must have at least one outdoor room if you pick an outdoor environment", ref toggle))
+                + RequiresRestart
+                + "\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments"
+                + "\nyou must have at least one outdoor room if you pick an outdoor environment", ref toggle))
             {
                 Main.Settings.EnableDungeonMakerModdedContent = toggle;
             }
@@ -81,9 +73,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableExtraHighLevelMonsters;
-            if (UI.Toggle(
-                    "Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + RequiresRestart,
-                    ref toggle))
+            if (UI.Toggle("Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns " + RequiresRestart, ref toggle))
             {
                 Main.Settings.EnableExtraHighLevelMonsters = toggle;
             }

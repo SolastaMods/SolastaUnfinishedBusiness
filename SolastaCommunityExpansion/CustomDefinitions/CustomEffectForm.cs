@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         protected CustomEffectForm()
         {
-            FormType = (EffectFormType)ExtraEffectFormType.Custom;
+            this.FormType = (EffectFormType)ExtraEffectFormType.Custom;
         }
 
         public abstract void ApplyForm(

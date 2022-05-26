@@ -6,8 +6,7 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class FightingStyleContext
     {
-        private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>>
-            FightingStylesChoiceList { get; } = new();
+        private static Dictionary<FightingStyleDefinition, List<FeatureDefinitionFightingStyleChoice>> FightingStylesChoiceList { get; set; } = new();
 
         internal static HashSet<FightingStyleDefinition> FightingStyles { get; private set; } = new();
 

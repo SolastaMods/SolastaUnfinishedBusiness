@@ -27,8 +27,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             }
         }
 
-        private static RulesetUsablePower GetReactionPowerToPreventFall(RulesetCharacter character,
-            RulesetCharacter target)
+        private static RulesetUsablePower GetReactionPowerToPreventFall(RulesetCharacter character, RulesetCharacter target)
         {
             var powers = character.UsablePowers.Where(power =>
             {

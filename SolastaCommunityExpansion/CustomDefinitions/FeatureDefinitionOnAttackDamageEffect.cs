@@ -10,8 +10,14 @@ namespace SolastaCommunityExpansion.CustomDefinitions
      */
     public class FeatureDefinitionOnAttackDamageEffect : FeatureDefinition, IOnAttackDamageEffect
     {
-        private OnAttackDamageDelegate afterOnAttackDamage;
         private OnAttackDamageDelegate beforeOnAttackDamage;
+        private OnAttackDamageDelegate afterOnAttackDamage;
+
+        internal void SetOnAttackDamageDelegates(OnAttackDamageDelegate before = null, OnAttackDamageDelegate after = null)
+        {
+            beforeOnAttackDamage = before;
+            afterOnAttackDamage = after;
+        }
 
         public void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
@@ -25,8 +31,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             bool criticalHit,
             bool firstTarget)
         {
-            beforeOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
-                actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+            beforeOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
 
         public void AfterOnAttackDamage(
@@ -41,15 +46,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             bool criticalHit,
             bool firstTarget)
         {
-            afterOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
-                actualEffectForms, rulesetEffect, criticalHit, firstTarget);
-        }
-
-        internal void SetOnAttackDamageDelegates(OnAttackDamageDelegate before = null,
-            OnAttackDamageDelegate after = null)
-        {
-            beforeOnAttackDamage = before;
-            afterOnAttackDamage = after;
+            afterOnAttackDamage?.Invoke(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
         }
     }
 }

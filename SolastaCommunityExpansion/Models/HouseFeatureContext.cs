@@ -23,7 +23,6 @@ namespace SolastaCommunityExpansion.Models
                 .SetAttackModeOnly(true)
                 .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon);
         }
-
         /**
          * Makes Mountaineer's `Shield Push` bonus shove work only with shield equipped.
          * This wasn't relevant until we removed forced shield check in the `GameLocationCharacter.GetActionStatus`.

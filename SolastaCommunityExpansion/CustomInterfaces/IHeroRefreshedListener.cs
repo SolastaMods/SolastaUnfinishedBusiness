@@ -5,3 +5,4 @@
         void OnHeroRefreshed(RulesetCharacter character);
     }
 }
+

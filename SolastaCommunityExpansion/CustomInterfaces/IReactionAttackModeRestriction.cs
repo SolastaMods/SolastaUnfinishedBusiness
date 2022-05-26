@@ -8,3 +8,4 @@
     public delegate bool ValidReactionModeHandler(RulesetAttackMode attackMode, RulesetCharacter character,
         RulesetCharacter target);
 }
+

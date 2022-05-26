@@ -3,7 +3,7 @@
 namespace SolastaCommunityExpansion.CustomInterfaces
 {
     /// <summary>
-    ///     Implement on a FeatureDefinition to be able to change the min roll value on ability checks
+    /// Implement on a FeatureDefinition to be able to change the min roll value on ability checks
     /// </summary>
     public interface IChangeAbilityCheck
     {

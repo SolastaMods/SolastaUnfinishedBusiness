@@ -10,8 +10,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetEffectSpell_ComputeTargetParameter
     {
-        public static int SpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire,
-            RulesetEffectSpell rulesetEffectSpell)
+        public static int SpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire, RulesetEffectSpell rulesetEffectSpell)
         {
             if (rulesetEffectSpell.Caster is RulesetCharacterHero hero
                 && rulesetEffectSpell.SpellDefinition.SpellLevel == 0)
@@ -25,8 +24,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
-            var mySpellCastingLevelMethod =
-                typeof(RulesetEffectSpell_ComputeTargetParameter).GetMethod("SpellCastingLevel");
+            var mySpellCastingLevelMethod = typeof(RulesetEffectSpell_ComputeTargetParameter).GetMethod("SpellCastingLevel");
 
             foreach (var instruction in instructions)
             {

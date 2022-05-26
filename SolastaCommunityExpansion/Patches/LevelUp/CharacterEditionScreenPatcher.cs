@@ -17,8 +17,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         internal static CustomFeatureSelectionPanel GetPanel(CharacterEditionScreen __instance)
         {
             var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-            var stagePanelPrefabs =
-                characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+            var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
             var container = __instance.StagesPanelContainer;
             var gameObject = Gui.GetPrefabFromPool(stagePanelPrefabs[8], container);
             var characterStageSpellSelectionPanel = gameObject.GetComponent<CharacterStageSpellSelectionPanel>();
@@ -59,16 +58,13 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             }
 
             var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-            var stagePanelPrefabs =
-                characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
-            var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer)
-                .GetComponent<CharacterStagePanel>();
-            var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer)
-                .GetComponent<CharacterStagePanel>();
+            var stagePanelPrefabs = characterCreationScreen.GetField<CharacterCreationScreen, GameObject[]>("stagePanelPrefabs");
+            var classSelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[1], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
+            var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer).GetComponent<CharacterStagePanel>();
             var newLevelUpSequence = new Dictionary<string, CharacterStagePanel>
-            {
-                {"ClassSelection", classSelectionPanel}
-            };
+                {
+                    { "ClassSelection", classSelectionPanel }
+                };
 
             foreach (var stagePanel in ___stagePanelsByName)
             {

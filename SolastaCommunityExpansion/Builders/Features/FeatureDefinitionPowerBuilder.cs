@@ -3,12 +3,9 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class
-        FeatureDefinitionPowerBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower,
-            FeatureDefinitionPowerBuilder>
+    public class FeatureDefinitionPowerBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerBuilder>
     {
         #region Constructors
-
         protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -17,24 +14,38 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) :
-            base(original, name, namespaceGuid)
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) :
-            base(original, name, definitionGuid)
+        protected FeatureDefinitionPowerBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
-
         #endregion
     }
 
-    public abstract class
-        FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+    public abstract class FeatureDefinitionPowerBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
         where TDefinition : FeatureDefinitionPower
         where TBuilder : FeatureDefinitionPowerBuilder<TDefinition, TBuilder>
     {
+        #region Constructors
+        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         protected override void Initialise()
         {
             base.Initialise();
@@ -47,8 +58,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-            RuleDefinitions.RechargeRate recharge,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription)
         {
@@ -67,8 +77,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-            RuleDefinitions.RechargeRate recharge,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription, FeatureDefinitionPower overridenPower)
         {
@@ -81,8 +90,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
-            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse,
-            RuleDefinitions.RechargeRate recharge,
+            string usesAbilityScoreName, RuleDefinitions.ActivationTime activationTime, int costPerUse, RuleDefinitions.RechargeRate recharge,
             bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
             EffectDescription effectDescription, bool uniqueInstance)
         {
@@ -266,27 +274,5 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetAbilityScore(ability);
             return This();
         }
-
-        #region Constructors
-
-        protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPowerBuilder(TDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 }

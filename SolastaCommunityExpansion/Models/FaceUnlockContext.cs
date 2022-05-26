@@ -15,9 +15,7 @@ namespace SolastaCommunityExpansion.Models
             if (Main.Settings.UnlockGlowingColorsForAllMarksAndTatoos)
             {
                 foreach (var morphotype in dbMorphotypeElementDefinition.Where(
-                             x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor &&
-                                  x.SubclassFilterMask == GraphicsDefinitions.MorphotypeSubclassFilterTag
-                                      .SorcererManaPainter))
+                    x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecorationColor && x.SubclassFilterMask == GraphicsDefinitions.MorphotypeSubclassFilterTag.SorcererManaPainter))
                 {
                     morphotype.SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All);
                 }
@@ -25,8 +23,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.UnlockGlowingEyeColors)
             {
-                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                             x.Category == MorphotypeElementDefinition.ElementCategory.EyeColor))
+                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.EyeColor))
                 {
                     morphotype.SetPlayerSelectable(true);
                 }
@@ -34,8 +31,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.UnlockEyeStyles)
             {
-                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                             x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
+                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
                 {
                     morphotype.SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All);
                 }
@@ -51,9 +47,7 @@ namespace SolastaCommunityExpansion.Models
                 Human.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_NPC_TavernGuy");
                 Human.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_NPC_TomWorker");
 
-                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                             x.Category == MorphotypeElementDefinition.ElementCategory.FaceShape &&
-                             x != FaceShape_NPC_Aksha))
+                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.FaceShape && x != FaceShape_NPC_Aksha))
                 {
                     morphotype.SetPlayerSelectable(true);
                 }
@@ -61,8 +55,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.UnlockMarkAndTatoosForAllCharacters)
             {
-                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
-                             x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
+                foreach (var morphotype in dbMorphotypeElementDefinition.Where(x => x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
                 {
                     morphotype.SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All);
                 }
@@ -70,14 +63,10 @@ namespace SolastaCommunityExpansion.Models
 
             if (Main.Settings.AllowUnmarkedSorcerers)
             {
-                SorcerousDraconicBloodline.SetMorphotypeSubclassFilterTag(GraphicsDefinitions
-                    .MorphotypeSubclassFilterTag.Default);
-                SorcerousManaPainter.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
-                    .Default);
-                SorcerousChildRift.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
-                    .Default);
-                SorcerousHauntedSoul.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
-                    .Default);
+                SorcerousDraconicBloodline.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
+                SorcerousManaPainter.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
+                SorcerousChildRift.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
+                SorcerousHauntedSoul.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default);
             }
         }
     }

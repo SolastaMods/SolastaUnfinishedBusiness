@@ -2,10 +2,10 @@
 using System.Linq;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
+//using SolastaCommunityExpansion.Classes.Warden;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
 using SolastaModApi.Extensions;
-//using SolastaCommunityExpansion.Classes.Warden;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -72,8 +72,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
         {
-            characterClassDefinition.GuiPresentation.SetHidden(
-                !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
+            characterClassDefinition.GuiPresentation.SetHidden(!Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
         }
 
         internal static void Switch(CharacterClassDefinition characterClassDefinition, bool active)

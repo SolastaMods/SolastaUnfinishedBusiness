@@ -10,9 +10,7 @@ namespace SolastaCommunityExpansion.Displays
             var service = ServiceRepository.GetService<IGameFactionService>();
             if (service != null)
             {
-                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
-                    value - service.FactionRelations[name], "",
-                    null /* this string and monster doesn't matter if we're using "SetValue" */);
+                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase, value - service.FactionRelations[name], "", null /* this string and monster doesn't matter if we're using "SetValue" */);
             }
         }
 
@@ -78,16 +76,13 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "",
-                    UI.Width(100)))
+            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "", UI.Width(100)))
             {
                 Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             }
 
             intValue = Main.Settings.OverridePartySize;
-            if (UI.Slider("Override the party size in custom adventures".white(), ref intValue,
-                    DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE,
-                    DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            if (UI.Slider("Override the party size in custom adventures".white(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
             {
                 Main.Settings.OverridePartySize = intValue;
             }
@@ -103,8 +98,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-            UI.Label(". Backup files are saved under " +
-                     "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
+            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
 
             UI.Label("");
             UI.Label("Faction Relations:".yellow());
@@ -115,8 +109,7 @@ namespace SolastaCommunityExpansion.Displays
             var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
             // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
-            if (gameFactionService != null && gameCampaign != null &&
-                gameCampaign.CampaignDefinitionName != "UserCampaign")
+            if (gameFactionService != null && gameCampaign != null && gameCampaign.CampaignDefinitionName != "UserCampaign")
             {
                 foreach (var faction in gameFactionService.RegisteredFactions)
                 {
@@ -145,8 +138,7 @@ namespace SolastaCommunityExpansion.Displays
 
                     intValue = gameFactionService.FactionRelations[faction.Name];
 
-                    if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
-                            faction.MaxRelationCap, 0, "", UI.AutoWidth()))
+                    if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
                         SetFactionRelation(faction.Name, intValue);
                     }

@@ -1,60 +1,48 @@
 ﻿using System.Collections.Generic;
 using SolastaModApi;
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaCommunityExpansion.Models;
+
+public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
+
+public static class WeaponValidators
 {
-    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
+    public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
 
-    public static class WeaponValidators
+    public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
+        HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
+
+    public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
     {
-        public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
-
-        public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
-            HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
-
-        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
+        if (item != null)
         {
-            var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
-            if (item != null)
-            {
-                return item.WeaponDescription?.WeaponTypeDefinition ==
-                       DatabaseHelper.WeaponTypeDefinitions.UnarmedStrikeType;
-            }
-
-            return weapon == null;
+            return item.WeaponDescription?.WeaponTypeDefinition ==
+                   DatabaseHelper.WeaponTypeDefinitions.UnarmedStrikeType;
         }
 
-        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
-        {
-            return IsUnarmedWeapon(attackMode, null);
-        }
+        return weapon == null;
+    }
 
-        public static bool IsUnarmedWeapon(RulesetItem weapon)
-        {
-            return IsUnarmedWeapon(null, weapon);
-        }
+    public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
+    {
+        return IsUnarmedWeapon(attackMode, null);
+    }
 
-        private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
+    public static bool IsUnarmedWeapon(RulesetItem weapon)
+    {
+        return IsUnarmedWeapon(null, weapon);
+    }
+
+    private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
+    {
+        var hasTag = false;
+        if (mode != null)
         {
-            var hasTag = false;
-            if (mode != null)
+            hasTag = mode.AttackTags.Contains(tag);
+            if (!hasTag)
             {
-                hasTag = mode.AttackTags.Contains(tag);
-                if (!hasTag)
-                {
-                    var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
-                    if (tags != null && tags.Contains(tag))
-                    {
-                        hasTag = true;
-                    }
-                }
-
-                return hasTag;
-            }
-
-            if (weapon != null)
-            {
-                var tags = GetWeaponTags(weapon.ItemDefinition);
+                var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
                 if (tags != null && tags.Contains(tag))
                 {
                     hasTag = true;
@@ -64,14 +52,25 @@ namespace SolastaCommunityExpansion.Models
             return hasTag;
         }
 
-        private static List<string> GetWeaponTags(ItemDefinition item)
+        if (weapon != null)
         {
-            if (item != null)
+            var tags = GetWeaponTags(weapon.ItemDefinition);
+            if (tags != null && tags.Contains(tag))
             {
-                return item.WeaponDescription?.WeaponTags;
+                hasTag = true;
             }
-
-            return null;
         }
+
+        return hasTag;
+    }
+
+    private static List<string> GetWeaponTags(ItemDefinition item)
+    {
+        if (item != null)
+        {
+            return item.WeaponDescription?.WeaponTags;
+        }
+
+        return null;
     }
 }

@@ -14,10 +14,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
         {
             if (Global.CharacterLabelEnabledConditions.Contains(condition.ConditionDefinition))
             {
-                var displayConditionLabelMethod = typeof(CharacterLabel).GetMethod("DisplayConditionLabel",
-                    BindingFlags.NonPublic | BindingFlags.Instance);
+                var displayConditionLabelMethod = typeof(CharacterLabel).GetMethod("DisplayConditionLabel", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                displayConditionLabelMethod.Invoke(__instance, new object[] {character, condition, false});
+                displayConditionLabelMethod.Invoke(__instance, new object[] { character, condition, false });
             }
         }
     }
@@ -31,10 +30,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
         {
             if (Global.CharacterLabelEnabledConditions.Contains(condition.ConditionDefinition))
             {
-                var displayConditionLabelMethod = typeof(CharacterLabel).GetMethod("DisplayConditionLabel",
-                    BindingFlags.NonPublic | BindingFlags.Instance);
+                var displayConditionLabelMethod = typeof(CharacterLabel).GetMethod("DisplayConditionLabel", BindingFlags.NonPublic | BindingFlags.Instance);
 
-                displayConditionLabelMethod.Invoke(__instance, new object[] {character, condition, true});
+                displayConditionLabelMethod.Invoke(__instance, new object[] { character, condition, true });
             }
         }
     }

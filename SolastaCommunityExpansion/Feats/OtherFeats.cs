@@ -22,9 +22,9 @@ namespace SolastaCommunityExpansion.Feats
                 .Create("FeatSavageAttacker", OtherFeatNamespace)
                 .SetFeatures(
                     BuildDieRollModifier("DieRollModifierFeatSavageAttacker",
-                        AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */),
+                        AttackDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */ ),
                     BuildDieRollModifier("DieRollModifierFeatSavageMagicAttacker",
-                        MagicDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */))
+                        MagicDamageValueRoll, 1 /* reroll count */, 1 /* reroll min value */ ))
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
 
@@ -68,13 +68,13 @@ namespace SolastaCommunityExpansion.Feats
                         // Shove as bonus action seems too OP for this feat
                         // .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
                         .SetActionExecutionModifiers(
-                            new ActionDefinitions.ActionExecutionModifier
+                            new ActionDefinitions.ActionExecutionModifier()
                             {
                                 actionId = ActionDefinitions.Id.Shove,
                                 advantageType = RuleDefinitions.AdvantageType.Advantage,
                                 equipmentContext = EquipmentDefinitions.EquipmentContext.WieldingShield
                             },
-                            new ActionDefinitions.ActionExecutionModifier
+                            new ActionDefinitions.ActionExecutionModifier()
                             {
                                 actionId = ActionDefinitions.Id.ShoveBonus,
                                 advantageType = RuleDefinitions.AdvantageType.Advantage,
@@ -92,8 +92,7 @@ namespace SolastaCommunityExpansion.Feats
                     FeatureDefinitionMagicAffinityBuilder
                         .Create("MagicAffinityWarCasterFeat", OtherFeatNamespace)
                         .SetGuiPresentation("FeatWarCaster", Category.Feat)
-                        .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0,
-                            RuleDefinitions.SpellParamsModifierType.None, false, false, false)
+                        .SetCastingModifiers(0, RuleDefinitions.SpellParamsModifierType.FlatValue, 0, RuleDefinitions.SpellParamsModifierType.None, false, false, false)
                         .SetConcentrationModifiers(RuleDefinitions.ConcentrationAffinity.Advantage, 0)
                         .SetHandsFullCastingModifiers(true, true, true)
                         .AddToDB())

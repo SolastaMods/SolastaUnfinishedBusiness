@@ -1,30 +1,26 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using TA.AI;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CharacterClassDefinition))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class CharacterClassDefinitionExtensions
+    [TargetType(typeof(CharacterClassDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class CharacterClassDefinitionExtensions
     {
-        public static T AddAbilityScoresPriority<T>(this T entity, params String[] value)
+        public static T AddAbilityScoresPriority<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddAbilityScoresPriority(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAbilityScoresPriority<T>(this T entity, IEnumerable<String> value)
+        public static T AddAbilityScoresPriority<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.AbilityScoresPriority.AddRange(value);
@@ -45,28 +41,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddExpertiseAutolearnPreference<T>(this T entity, params String[] value)
+        public static T AddExpertiseAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddExpertiseAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddExpertiseAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T AddExpertiseAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.ExpertiseAutolearnPreference.AddRange(value);
             return entity;
         }
 
-        public static T AddFeatAutolearnPreference<T>(this T entity, params String[] value)
+        public static T AddFeatAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddFeatAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddFeatAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T AddFeatAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.FeatAutolearnPreference.AddRange(value);
@@ -87,14 +83,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddMetamagicAutolearnPreference<T>(this T entity, params String[] value)
+        public static T AddMetamagicAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddMetamagicAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddMetamagicAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T AddMetamagicAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.MetamagicAutolearnPreference.AddRange(value);
@@ -115,28 +111,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkillAutolearnPreference<T>(this T entity, params String[] value)
+        public static T AddSkillAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddSkillAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSkillAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T AddSkillAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.SkillAutolearnPreference.AddRange(value);
             return entity;
         }
 
-        public static T AddToolAutolearnPreference<T>(this T entity, params String[] value)
+        public static T AddToolAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             AddToolAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddToolAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T AddToolAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.ToolAutolearnPreference.AddRange(value);
@@ -206,14 +202,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAbilityScoresPriority<T>(this T entity, params String[] value)
+        public static T SetAbilityScoresPriority<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetAbilityScoresPriority(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAbilityScoresPriority<T>(this T entity, IEnumerable<String> value)
+        public static T SetAbilityScoresPriority<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.AbilityScoresPriority.SetRange(value);
@@ -227,14 +223,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetClassPictogramReference<T>(this T entity, AssetReferenceSprite value)
+        public static T SetClassPictogramReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : CharacterClassDefinition
         {
             entity.SetField("classPictogramReference", value);
             return entity;
         }
 
-        public static T SetDefaultBattleDecisions<T>(this T entity, DecisionPackageDefinition value)
+        public static T SetDefaultBattleDecisions<T>(this T entity, TA.AI.DecisionPackageDefinition value)
             where T : CharacterClassDefinition
         {
             entity.SetField("defaultBattleDecisions", value);
@@ -255,28 +251,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetExpertiseAutolearnPreference<T>(this T entity, params String[] value)
+        public static T SetExpertiseAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetExpertiseAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetExpertiseAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T SetExpertiseAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.ExpertiseAutolearnPreference.SetRange(value);
             return entity;
         }
 
-        public static T SetFeatAutolearnPreference<T>(this T entity, params String[] value)
+        public static T SetFeatAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetFeatAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetFeatAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T SetFeatAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.FeatAutolearnPreference.SetRange(value);
@@ -297,28 +293,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHitDice<T>(this T entity, DieType value)
+        public static T SetHitDice<T>(this T entity, RuleDefinitions.DieType value)
             where T : CharacterClassDefinition
         {
             entity.SetField("hitDice", value);
             return entity;
         }
 
-        public static T SetIngredientGatheringOdds<T>(this T entity, Int32 value)
+        public static T SetIngredientGatheringOdds<T>(this T entity, System.Int32 value)
             where T : CharacterClassDefinition
         {
             entity.SetField("ingredientGatheringOdds", value);
             return entity;
         }
 
-        public static T SetMetamagicAutolearnPreference<T>(this T entity, params String[] value)
+        public static T SetMetamagicAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetMetamagicAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetMetamagicAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T SetMetamagicAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.MetamagicAutolearnPreference.SetRange(value);
@@ -339,42 +335,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiresDeity<T>(this T entity, Boolean value)
+        public static T SetRequiresDeity<T>(this T entity, System.Boolean value)
             where T : CharacterClassDefinition
         {
             entity.SetField("requiresDeity", value);
             return entity;
         }
 
-        public static T SetSkillAutolearnPreference<T>(this T entity, params String[] value)
+        public static T SetSkillAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetSkillAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSkillAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T SetSkillAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.SkillAutolearnPreference.SetRange(value);
             return entity;
         }
 
-        public static T SetToolAutolearnPreference<T>(this T entity, params String[] value)
+        public static T SetToolAutolearnPreference<T>(this T entity, params System.String[] value)
             where T : CharacterClassDefinition
         {
             SetToolAutolearnPreference(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetToolAutolearnPreference<T>(this T entity, IEnumerable<String> value)
+        public static T SetToolAutolearnPreference<T>(this T entity, IEnumerable<System.String> value)
             where T : CharacterClassDefinition
         {
             entity.ToolAutolearnPreference.SetRange(value);
             return entity;
         }
 
-        public static T SetVocalSpellSemeClass<T>(this T entity, VocalSpellSemeClass value)
+        public static T SetVocalSpellSemeClass<T>(this T entity, RuleDefinitions.VocalSpellSemeClass value)
             where T : CharacterClassDefinition
         {
             entity.SetField("vocalSpellSemeClass", value);

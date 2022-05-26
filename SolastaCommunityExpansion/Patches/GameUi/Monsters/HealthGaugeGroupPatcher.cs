@@ -6,8 +6,8 @@ using UnityEngine;
 namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 {
     /// <summary>
-    ///     This mods the horizontal gauge in the monster tooltip.
-    ///     The gauge now shows health in steps instead of a continuous value.
+    /// This mods the horizontal gauge in the monster tooltip.
+    /// The gauge now shows health in steps instead of a continuous value.
     /// </summary>
     [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -21,11 +21,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
             }
 
             if (__instance.GuiCharacter.RulesetCharacterMonster != null &&
-                __instance.GuiCharacter.RulesetCharacterMonster.Side ==
-                RuleDefinitions.Side.Enemy) // Only change for monsters
+                __instance.GuiCharacter.RulesetCharacterMonster.Side == RuleDefinitions.Side.Enemy) // Only change for monsters
             {
-                var ratio = Mathf.Clamp(
-                    __instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
+                var ratio = Mathf.Clamp(__instance.GuiCharacter.CurrentHitPoints / (float)__instance.GuiCharacter.HitPoints, 0.0f, 1f);
 
                 ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
 

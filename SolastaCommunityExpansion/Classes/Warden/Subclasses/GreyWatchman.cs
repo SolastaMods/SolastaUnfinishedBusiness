@@ -1,7 +1,6 @@
 ﻿//
 // TODO: looking for contributors to finish this class
 //
-
 #if false
 using System;
 using System.Collections.Generic;

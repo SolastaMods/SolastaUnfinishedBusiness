@@ -6,9 +6,26 @@ using SolastaModApi.Extensions;
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionSummoningAffinityBuilder
-        : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity,
-            FeatureDefinitionSummoningAffinityBuilder>
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionSummoningAffinity, FeatureDefinitionSummoningAffinityBuilder>
     {
+        #region Constructors
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionSummoningAffinityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         public FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
         {
             Definition.ClearEffectForms();
@@ -33,28 +50,5 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.AddedConditions.Sort(Sorting.Compare);
             return this;
         }
-
-        #region Constructors
-
-        protected FeatureDefinitionSummoningAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionSummoningAffinityBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionSummoningAffinityBuilder(FeatureDefinitionSummoningAffinity original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 }

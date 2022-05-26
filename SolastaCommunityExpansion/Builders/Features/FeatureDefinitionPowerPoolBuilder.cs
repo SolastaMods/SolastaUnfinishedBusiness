@@ -8,8 +8,7 @@ namespace SolastaCommunityExpansion.Builders.Features
      * Note if you want to use a modifier for the power pool later you should set uses determination
      * to fixed or ability bonus plus fixed.
      */
-    public class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower,
-        FeatureDefinitionPowerPoolBuilder>
+    public class FeatureDefinitionPowerPoolBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPower, FeatureDefinitionPowerPoolBuilder>
     {
         protected override void Initialise()
         {
@@ -29,8 +28,7 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             base.Validate();
 
-            Preconditions.AreEqual(Definition.CostPerUse, 1,
-                $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
+            Preconditions.AreEqual(Definition.CostPerUse, 1, $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
         }
 
         public FeatureDefinitionPowerPoolBuilder Configure(int usesPerRecharge,
@@ -47,7 +45,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #region Constructors
-
         protected FeatureDefinitionPowerPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -56,16 +53,13 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) :
-            base(original, name, namespaceGuid)
+        protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, string definitionGuid)
-            : base(original, name, definitionGuid)
+        protected FeatureDefinitionPowerPoolBuilder(FeatureDefinitionPower original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
-
         #endregion
     }
 }

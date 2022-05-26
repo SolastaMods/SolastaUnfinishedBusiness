@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Patches.Tools
 
     [HarmonyPatch(typeof(CharactersPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+
     internal static class CharactersPanel_Refresh
     {
         private static bool HasInit { get; set; }
@@ -25,15 +26,12 @@ namespace SolastaCommunityExpansion.Patches.Tools
             if (Main.Settings.EnableCharacterChecker)
             {
                 ___characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content = string.Empty;
-                ___characterCheckerButton.gameObject.SetActive(true);
-                ;
+                ___characterCheckerButton.gameObject.SetActive(true); ;
             }
 
             if (Main.Settings.EnableRespec)
             {
-                var characterLevel = ___selectedPlate >= 0
-                    ? ___characterPlates[___selectedPlate].GuiCharacter.CharacterLevel
-                    : 1;
+                var characterLevel = (___selectedPlate >= 0) ? ___characterPlates[___selectedPlate].GuiCharacter.CharacterLevel : 1;
 
                 SelectedPlate = ___selectedPlate;
                 ___exportPdfButton.gameObject.SetActive(characterLevel > 1);

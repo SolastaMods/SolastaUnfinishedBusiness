@@ -14,12 +14,11 @@ namespace SolastaCommunityExpansion.Level20.Classes
         internal static void Load()
         {
             // add missing progression
-            Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(FeatureSetAbilityScoreChoice, 16),
-                new(PointPoolSorcererAdditionalMetamagic, 17),
-                new(FeatureSetAbilityScoreChoice, 19),
-                new(SorcerousRestorationBuilder.SorcerousRestoration, 20)
+            Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
+                new FeatureUnlockByLevel(PointPoolSorcererAdditionalMetamagic, 17),
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
+                new FeatureUnlockByLevel(SorcerousRestorationBuilder.SorcerousRestoration, 20),
             });
 
             CastSpellSorcerer.SetSpellCastingLevel(9);

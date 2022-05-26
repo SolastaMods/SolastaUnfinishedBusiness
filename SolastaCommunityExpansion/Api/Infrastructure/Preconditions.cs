@@ -11,8 +11,7 @@ namespace SolastaModApi.Infrastructure
     {
         [ContractAnnotation("halt <= paramValue : null")]
         [AssertionMethod]
-        public static void IsNotNull<T>([NotNull] [NoEnumeration] T paramValue, [InvokerParameterName] string paramName)
-            where T : class
+        public static void IsNotNull<T>([NotNull, NoEnumeration] T paramValue, [InvokerParameterName] string paramName) where T : class
         {
             if (paramValue == null)
             {
@@ -48,17 +47,14 @@ namespace SolastaModApi.Infrastructure
             {
                 if (duration == 0)
                 {
-                    throw new ArgumentException($"A duration value is required for duration type {type}.",
-                        nameof(duration));
+                    throw new ArgumentException($"A duration value is required for duration type {type}.", nameof(duration));
                 }
             }
             else
             {
                 if (duration != 0)
                 {
-                    throw new ArgumentException(
-                        $"Duration={duration}. A duration value is not expected for duration type {type}.",
-                        nameof(duration));
+                    throw new ArgumentException($"Duration={duration}. A duration value is not expected for duration type {type}.", nameof(duration));
                 }
             }
         }

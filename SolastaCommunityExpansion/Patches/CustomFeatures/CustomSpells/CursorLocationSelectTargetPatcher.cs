@@ -23,8 +23,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
             var canBeUsedToAttack = actionParams?.RulesetEffect
                 ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
             if (canBeUsedToAttack != null &&
-                !canBeUsedToAttack(__instance, actionParams.GetField<GameLocationCharacter>("actingCharacter"), target,
-                    out var failure))
+                !canBeUsedToAttack(__instance, actionParams.GetField<GameLocationCharacter>("actingCharacter"), target, out var failure))
             {
                 __result = false;
                 __instance.GetField<ActionModifier>("actionModifier").FailureFlags.Add(failure);

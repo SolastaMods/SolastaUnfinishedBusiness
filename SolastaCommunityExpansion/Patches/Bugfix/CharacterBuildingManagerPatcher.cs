@@ -34,7 +34,6 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                         {
                             __instance.AcquireBonusCantrip(heroBuildingData, cantrip, spellTag);
                         }
-
                         continue;
                     case FeatureDefinitionProficiency proficiency:
                         if (proficiency.ProficiencyType == RuleDefinitions.ProficiencyType.FightingStyle)
@@ -58,7 +57,6 @@ namespace SolastaCommunityExpansion.Patches.BugFix
                             __instance.BrowseGrantedFeaturesHierarchically(heroBuildingData,
                                 featureSet.FeatureSet, tag);
                         }
-
                         continue;
                     default:
                         continue;

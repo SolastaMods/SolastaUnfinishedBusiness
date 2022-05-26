@@ -10,14 +10,30 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionAutoPreparedSpellsBuilder
         : FeatureDefinitionBuilder<FeatureDefinitionAutoPreparedSpells, FeatureDefinitionAutoPreparedSpellsBuilder>
     {
-        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
-            params AutoPreparedSpellsGroup[] autospelllists)
+        #region Constructors
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(params AutoPreparedSpellsGroup[] autospelllists)
         {
             return SetPreparedSpellGroups(autospelllists.AsEnumerable());
         }
 
-        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(
-            IEnumerable<AutoPreparedSpellsGroup> autospelllists)
+        public FeatureDefinitionAutoPreparedSpellsBuilder SetPreparedSpellGroups(IEnumerable<AutoPreparedSpellsGroup> autospelllists)
         {
             Definition.AutoPreparedSpellsGroups.SetRange(autospelllists);
             return this;
@@ -36,9 +52,9 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         /**
-         * * This tag is used to create a tooltip:
-         * * this.autoPreparedTitle.Text = string.Format("Screen/&{0}SpellTitle", autoPreparedTag);
-         * * this.autoPreparedTooltip.Content = string.Format("Screen/&{0}SpellDescription", autoPreparedTag);
+         * This tag is used to create a tooltip:
+         * this.autoPreparedTitle.Text = string.Format("Screen/&{0}SpellTitle", autoPreparedTag);
+	     * this.autoPreparedTooltip.Content = string.Format("Screen/&{0}SpellDescription", autoPreparedTag);
          */
         public FeatureDefinitionAutoPreparedSpellsBuilder SetAutoTag(string tag)
         {
@@ -51,30 +67,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetSpellcastingClass(characterClass);
             return this;
         }
-
-        #region Constructors
-
-        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, Guid namespaceGuid) : base(name,
-            namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAutoPreparedSpellsBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionAutoPreparedSpellsBuilder(FeatureDefinitionAutoPreparedSpells original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 
     public static class AutoPreparedSpellsGroupBuilder
@@ -86,7 +78,11 @@ namespace SolastaCommunityExpansion.Builders.Features
 
         public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
         {
-            return new AutoPreparedSpellsGroup {ClassLevel = classLevel, SpellsList = spellnames.ToList()};
+            return new AutoPreparedSpellsGroup
+            {
+                ClassLevel = classLevel,
+                SpellsList = spellnames.ToList()
+            };
         }
     }
 }

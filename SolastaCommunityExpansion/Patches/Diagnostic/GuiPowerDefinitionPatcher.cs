@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
             if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
             {
                 TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                    "CommunityExpansion", TagsDefinitions.Criticity.Normal);
+                    "CommunityExpansion", TagsDefinitions.Criticity.Normal, true);
             }
         }
     }

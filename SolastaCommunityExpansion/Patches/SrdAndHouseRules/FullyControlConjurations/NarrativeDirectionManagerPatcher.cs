@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjurations
 {
@@ -18,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.FullyControlConjura
 
             involvedGameCharacters.RemoveAll(
                 x => x.RulesetCharacter is RulesetCharacterMonster rulesetCharacterMonster
-                     && ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster.MonsterDefinition));
+                    && Models.ConjurationsContext.ConjuredMonsters.Contains(rulesetCharacterMonster.MonsterDefinition));
         }
     }
 }

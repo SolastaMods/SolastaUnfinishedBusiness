@@ -1,18 +1,17 @@
-using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetUsablePower))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class RulesetUsablePowerExtensions
+    [TargetType(typeof(RulesetUsablePower)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class RulesetUsablePowerExtensions
     {
-        public static T SetMaxUses<T>(this T entity, Int32 value)
+        public static T SetMaxUses<T>(this T entity, System.Int32 value)
             where T : RulesetUsablePower
         {
             entity.SetField("maxUses", value);
@@ -40,21 +39,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRemainingUses<T>(this T entity, Int32 value)
+        public static T SetRemainingUses<T>(this T entity, System.Int32 value)
             where T : RulesetUsablePower
         {
             entity.SetField("remainingUses", value);
             return entity;
         }
 
-        public static T SetSaveDC<T>(this T entity, Int32 value)
+        public static T SetSaveDC<T>(this T entity, System.Int32 value)
             where T : RulesetUsablePower
         {
             entity.SaveDC = value;
             return entity;
         }
 
-        public static T SetSpentPoints<T>(this T entity, Int32 value)
+        public static T SetSpentPoints<T>(this T entity, System.Int32 value)
             where T : RulesetUsablePower
         {
             entity.SetField("spentPoints", value);

@@ -4,9 +4,7 @@ using System.IO;
 using System.Reflection;
 using HarmonyLib;
 using ModKit;
-using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
-using Debug = UnityEngine.Debug;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion
@@ -14,18 +12,9 @@ namespace SolastaCommunityExpansion
 {
     public static class Main
     {
-        internal static bool IsDebugBuild = Debug.isDebugBuild;
-        internal static string MOD_FOLDER { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        internal static string MOD_FOLDER { get; private set; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         internal static bool Enabled { get; set; }
-
-        // need to be public for MC sidecar
-        public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
-
-        internal static ModManager<Core, Settings> Mod { get; private set; }
-        internal static MenuManager Menu { get; private set; }
-
-        // need to be public for MC sidecar
-        public static Settings Settings => Mod.Settings;
+        internal static bool IsDebugBuild = UnityEngine.Debug.isDebugBuild;
 
         // need to be public for MC sidecar
         [Conditional("DEBUG")]
@@ -61,6 +50,15 @@ namespace SolastaCommunityExpansion
             Logger?.Warning(msg);
         }
 
+        // need to be public for MC sidecar
+        public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
+
+        internal static ModManager<Core, Settings> Mod { get; private set; }
+        internal static MenuManager Menu { get; private set; }
+
+        // need to be public for MC sidecar
+        public static Settings Settings => Mod.Settings;
+
         internal static bool Load(UnityModManager.ModEntry modEntry)
         {
             try
@@ -90,7 +88,7 @@ namespace SolastaCommunityExpansion
         {
             if (Settings.EnableHeroesControlledByComputer)
             {
-                PlayerControllerContext.RefreshGuiState();
+                Models.PlayerControllerContext.RefreshGuiState();
             }
         }
 

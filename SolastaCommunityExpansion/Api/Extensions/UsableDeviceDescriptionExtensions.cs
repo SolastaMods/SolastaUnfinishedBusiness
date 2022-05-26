@@ -1,20 +1,17 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(UsableDeviceDescription))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class UsableDeviceDescriptionExtensions
+    [TargetType(typeof(UsableDeviceDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class UsableDeviceDescriptionExtensions
     {
         public static T AddDeviceFunctions<T>(this T entity, params DeviceFunctionDescription[] value)
             where T : UsableDeviceDescription
@@ -30,14 +27,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddUsableDeviceTags<T>(this T entity, params String[] value)
+        public static T AddUsableDeviceTags<T>(this T entity, params System.String[] value)
             where T : UsableDeviceDescription
         {
             AddUsableDeviceTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddUsableDeviceTags<T>(this T entity, IEnumerable<String> value)
+        public static T AddUsableDeviceTags<T>(this T entity, IEnumerable<System.String> value)
             where T : UsableDeviceDescription
         {
             entity.UsableDeviceTags.AddRange(value);
@@ -70,21 +67,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetChargesCapitalBonus<T>(this T entity, Int32 value)
+        public static T SetChargesCapitalBonus<T>(this T entity, System.Int32 value)
             where T : UsableDeviceDescription
         {
             entity.SetField("chargesCapitalBonus", value);
             return entity;
         }
 
-        public static T SetChargesCapitalDie<T>(this T entity, DieType value)
+        public static T SetChargesCapitalDie<T>(this T entity, RuleDefinitions.DieType value)
             where T : UsableDeviceDescription
         {
             entity.SetField("chargesCapitalDie", value);
             return entity;
         }
 
-        public static T SetChargesCapitalNumber<T>(this T entity, Int32 value)
+        public static T SetChargesCapitalNumber<T>(this T entity, System.Int32 value)
             where T : UsableDeviceDescription
         {
             entity.SetField("chargesCapitalNumber", value);
@@ -105,14 +102,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMagicAttackBonus<T>(this T entity, Int32 value)
+        public static T SetMagicAttackBonus<T>(this T entity, System.Int32 value)
             where T : UsableDeviceDescription
         {
             entity.SetField("magicAttackBonus", value);
             return entity;
         }
 
-        public static T SetOnUseParticle<T>(this T entity, AssetReference value)
+        public static T SetOnUseParticle<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : UsableDeviceDescription
         {
             entity.SetField("onUseParticle", value);
@@ -126,49 +123,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRechargeBonus<T>(this T entity, Int32 value)
+        public static T SetRechargeBonus<T>(this T entity, System.Int32 value)
             where T : UsableDeviceDescription
         {
             entity.SetField("rechargeBonus", value);
             return entity;
         }
 
-        public static T SetRechargeDie<T>(this T entity, DieType value)
+        public static T SetRechargeDie<T>(this T entity, RuleDefinitions.DieType value)
             where T : UsableDeviceDescription
         {
             entity.SetField("rechargeDie", value);
             return entity;
         }
 
-        public static T SetRechargeNumber<T>(this T entity, Int32 value)
+        public static T SetRechargeNumber<T>(this T entity, System.Int32 value)
             where T : UsableDeviceDescription
         {
             entity.SetField("rechargeNumber", value);
             return entity;
         }
 
-        public static T SetRechargeRate<T>(this T entity, RechargeRate value)
+        public static T SetRechargeRate<T>(this T entity, RuleDefinitions.RechargeRate value)
             where T : UsableDeviceDescription
         {
             entity.SetField("rechargeRate", value);
             return entity;
         }
 
-        public static T SetSaveDC<T>(this T entity, Int32 value)
+        public static T SetSaveDC<T>(this T entity, System.Int32 value)
             where T : UsableDeviceDescription
         {
             entity.SetField("saveDC", value);
             return entity;
         }
 
-        public static T SetUsableDeviceTags<T>(this T entity, params String[] value)
+        public static T SetUsableDeviceTags<T>(this T entity, params System.String[] value)
             where T : UsableDeviceDescription
         {
             SetUsableDeviceTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetUsableDeviceTags<T>(this T entity, IEnumerable<String> value)
+        public static T SetUsableDeviceTags<T>(this T entity, IEnumerable<System.String> value)
             where T : UsableDeviceDescription
         {
             entity.UsableDeviceTags.SetRange(value);

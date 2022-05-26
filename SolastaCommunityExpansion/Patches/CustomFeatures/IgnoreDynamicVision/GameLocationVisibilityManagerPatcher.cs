@@ -21,8 +21,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.IgnoreDynamicVision
             var positioning = ServiceRepository.GetService<IGameLocationPositioningService>();
             if (__result
                 || rulesetCharacter.ImpairedSight
-                || !((gridAccessor.RuntimeFlags(positioning.GetGridPositionFromWorldPosition(origin)) &
-                      CellFlags.Runtime.DynamicSightImpaired) > 0U)
+                || !((gridAccessor.RuntimeFlags(positioning.GetGridPositionFromWorldPosition(origin)) & CellFlags.Runtime.DynamicSightImpaired) > 0U)
                 || positioning.RaycastGridSightBlocker(origin, position, __instance.GameLocationService)
                )
             {
@@ -33,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.IgnoreDynamicVision
             if (features.Empty()) { return; }
 
             var range = (positioning.GetGridPositionFromWorldPosition(origin) -
-                         positioning.GetGridPositionFromWorldPosition(position)).magnitude;
+                           positioning.GetGridPositionFromWorldPosition(position)).magnitude;
 
             __result = features.Any(f => f.CanIgnoreDynamicVisionImpairment(rulesetCharacter, range));
         }

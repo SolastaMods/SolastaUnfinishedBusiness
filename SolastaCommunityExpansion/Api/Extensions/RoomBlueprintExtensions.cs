@@ -1,19 +1,17 @@
-using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RoomBlueprint))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class RoomBlueprintExtensions
+    [TargetType(typeof(RoomBlueprint)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class RoomBlueprintExtensions
     {
-        public static T SetCellInfos<T>(this T entity, Int32[] value)
+        public static T SetCellInfos<T>(this T entity, System.Int32[] value)
             where T : RoomBlueprint
         {
             entity.SetField("cellInfos", value);
@@ -34,35 +32,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetGroundElevationSpriteReference<T>(this T entity, AssetReferenceSprite value)
+        public static T SetGroundElevationSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("groundElevationSpriteReference", value);
             return entity;
         }
 
-        public static T SetGroundMaskSpriteReference<T>(this T entity, AssetReferenceSprite value)
+        public static T SetGroundMaskSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("groundMaskSpriteReference", value);
             return entity;
         }
 
-        public static T SetSurfaceInfos<T>(this T entity, Int32[] value)
+        public static T SetSurfaceInfos<T>(this T entity, System.Int32[] value)
             where T : RoomBlueprint
         {
             entity.SetField("surfaceInfos", value);
             return entity;
         }
 
-        public static T SetWallAndOpeningSpriteReference<T>(this T entity, AssetReferenceSprite value)
+        public static T SetWallAndOpeningSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("wallAndOpeningSpriteReference", value);
             return entity;
         }
 
-        public static T SetWallSpriteReference<T>(this T entity, AssetReferenceSprite value)
+        public static T SetWallSpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : RoomBlueprint
         {
             entity.SetField("wallSpriteReference", value);

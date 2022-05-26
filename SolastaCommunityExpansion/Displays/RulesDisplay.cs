@@ -24,17 +24,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AddBleedingToLesserRestoration;
-            if (UI.Toggle(
-                    "Add the " + "Bleeding".orange() + " condition to the conditions removed by " +
-                    "Greater and Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Add the " + "Bleeding".orange() + " condition to the conditions removed by " + "Greater and Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AddBleedingToLesserRestoration = toggle;
                 HouseSpellTweaks.AddBleedingToRestoration();
             }
 
             toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
-            if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
@@ -43,16 +40,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
-            if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
                 SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
             }
 
             toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
-            if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot", ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
             }
@@ -68,25 +63,20 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableUpcastConjureElementalAndFey)
             {
                 toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
-                if (UI.Toggle("+ Only show the most powerful creatures in the conjuration list".italic(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle("+ Only show the most powerful creatures in the conjuration list".italic(), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                 }
             }
 
             toggle = Main.Settings.FixSorcererTwinnedLogic;
-            if (UI.Toggle(
-                    "Fix " + "Sorcerer".orange() + " twinned metamagic use " +
-                    "[a spell must be incapable of targeting more than one creature at the spell's current level]"
-                        .italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Fix " + "Sorcerer".orange() + " twinned metamagic use " + "[a spell must be incapable of targeting more than one creature at the spell's current level]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FixSorcererTwinnedLogic = toggle;
             }
 
             toggle = Main.Settings.FullyControlConjurations;
-            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FullyControlConjurations = toggle;
                 ConjurationsContext.Load();
@@ -117,10 +107,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-            if (UI.Toggle(
-                    "Make all magic staves arcane foci " + "[except for ".italic().yellow() +
-                    "Staff of Healing".italic().orange() + " which is Universal] ".italic().yellow() + RequiresRestart,
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Make all magic staves arcane foci " + "[except for ".italic().yellow() + "Staff of Healing".italic().orange() + " which is Universal] ".italic().yellow() + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
                 ItemOptionsContext.SwitchMagicStaffFoci();
@@ -129,9 +116,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.IncreaseSenseNormalVision;
-            if (UI.Toggle(
-                    "Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " +
-                    RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " + RequiresRestart, ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.IncreaseSenseNormalVision = toggle;
             }
@@ -147,9 +132,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AddPickpocketableLoot;
-            if (UI.Toggle(
-                    "Add pickpocketable loot " + "[suggested if ".italic().yellow() + "Pickpocket".italic().orange() +
-                    " feat is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle("Add pickpocketable loot " + "[suggested if ".italic().yellow() + "Pickpocket".italic().orange() + " feat is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AddPickpocketableLoot = toggle;
                 if (toggle)
@@ -159,10 +142,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.AllowStackedMaterialComponent;
-            if (UI.Toggle(
-                    "Allow stacked material component " +
-                    "[e.g. 2x500gp diamond is equivalent to 1000gp diamond]".italic().yellow(), ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle("Allow stacked material component " + "[e.g. 2x500gp diamond is equivalent to 1000gp diamond]".italic().yellow(), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowStackedMaterialComponent = toggle;
             }

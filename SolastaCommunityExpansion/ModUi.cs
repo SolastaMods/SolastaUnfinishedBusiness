@@ -25,75 +25,68 @@ namespace SolastaCommunityExpansion
 {
     public class ModUi : IMenuSelectablePage
     {
-        private int characterSelectedPane;
         public string Name => "Character";
 
         public int Priority => 100;
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            DisplaySubMenu(ref characterSelectedPane,
-                new NamedAction("General", DisplayCharacter),
-                new NamedAction("Races, Classes & Subclasses", DisplayClassesAndSubclasses),
-                new NamedAction("Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
-                new NamedAction("Spells", DisplaySpells));
-        }
+        private int characterSelectedPane;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref characterSelectedPane,
+            new NamedAction("General", DisplayCharacter),
+            new NamedAction("Races, Classes & Subclasses", DisplayClassesAndSubclasses),
+            new NamedAction("Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
+            new NamedAction("Spells", DisplaySpells));
     }
 
     public class GameplayViewer : IMenuSelectablePage
     {
-        private int gamePlaySelectedPane;
         public string Name => "Gameplay";
 
         public int Priority => 200;
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            DisplaySubMenu(ref gamePlaySelectedPane,
-                new NamedAction("Rules", DisplayRules),
-                new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
-                new NamedAction("Tools", DisplayTools));
-        }
+        private int gamePlaySelectedPane;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref gamePlaySelectedPane,
+            new NamedAction("Rules", DisplayRules),
+            new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
+            new NamedAction("Tools", DisplayTools));
     }
 
     public class InterfaceViewer : IMenuSelectablePage
     {
-        private int interfaceSelectedPane;
         public string Name => "Interface";
 
         public int Priority => 300;
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            DisplaySubMenu(ref interfaceSelectedPane,
-                new NamedAction("Dungeon Maker", DisplayDungeonMaker),
-                new NamedAction("Game UI", DisplayGameUi),
-                new NamedAction("Keyboard & Mouse", DisplayKeyboardAndMouse));
-        }
+        private int interfaceSelectedPane;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref interfaceSelectedPane,
+            new NamedAction("Dungeon Maker", DisplayDungeonMaker),
+            new NamedAction("Game UI", DisplayGameUi),
+            new NamedAction("Keyboard & Mouse", DisplayKeyboardAndMouse));
     }
 
     public class EncountersViewer : IMenuSelectablePage
     {
-        private int encountersSelectedPane;
         public string Name => "Encounters";
 
         public int Priority => 400;
 
-        public void OnGUI(UnityModManager.ModEntry modEntry)
-        {
-            DisplaySubMenu(ref encountersSelectedPane,
-                new NamedAction("General", DisplayEncountersGeneral),
-                new NamedAction("Bestiary", DisplayBestiary),
-                new NamedAction("Characters Pool", DisplayNPCs));
-        }
+        private int encountersSelectedPane;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref encountersSelectedPane,
+            new NamedAction("General", DisplayEncountersGeneral),
+            new NamedAction("Bestiary", DisplayBestiary),
+            new NamedAction("Characters Pool", DisplayNPCs));
     }
 
     public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
-        private int creditsSelectedPane;
         public string Name => "Credits & Diagnostics";
 
         public int Priority => 999;
+
+        private int creditsSelectedPane;
 
         public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref creditsSelectedPane,
             new NamedAction("Credits", DisplayCredits),
@@ -102,6 +95,6 @@ namespace SolastaCommunityExpansion
 #endif
             new NamedAction("Blueprints", DisplayBlueprints),
             new NamedAction("Services", DisplayGameServices)
-        );
+            );
     }
 }

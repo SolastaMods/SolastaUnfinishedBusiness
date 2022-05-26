@@ -30,8 +30,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAbilityChecks
             if (features.Count > 0)
             {
                 var newMinRoll = features
-                    .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName,
-                        advantageTrends, modifierTrends));
+                    .Max(x => x.MinRoll(__instance, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends));
 
                 if (minRoll < newMinRoll)
                 {
@@ -65,15 +64,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAbilityChecks
             List<RuleDefinitions.TrendInfo> advantageTrends,
             List<RuleDefinitions.TrendInfo> modifierTrends)
         {
-            var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll,
-                out secondRoll, enumerateFeatures, canRerollDice);
+            var result = rulesetCharacter.RollDie(dieType, rollContext, isProficient, advantageType, out firstRoll, out secondRoll, enumerateFeatures, canRerollDice);
             var features = rulesetCharacter.EnumerateFeaturesToBrowse<IChangeAbilityCheck>();
 
             if (features.Count > 0)
             {
                 var newMinRoll = features
-                    .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName,
-                        advantageTrends, modifierTrends));
+                    .Max(x => x.MinRoll(rulesetCharacter, baseBonus, rollModifier, abilityScoreName, proficiencyName, advantageTrends, modifierTrends));
 
                 if (result < newMinRoll)
                 {

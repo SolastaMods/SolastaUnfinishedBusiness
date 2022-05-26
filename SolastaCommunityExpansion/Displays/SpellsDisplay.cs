@@ -17,13 +17,11 @@ namespace SolastaCommunityExpansion.Displays
             bool toggle;
 
             UI.Label("");
-            UI.Label(". You can individually assign each spell to any spell list or simply select the suggested set");
+            UI.Label($". You can individually assign each spell to any spell list or simply select the suggested set");
             UI.Label("");
 
             intValue = SpellLevelFilter;
-            if (UI.Slider(
-                    "spell level filter ".bold().italic().white() +
-                    "[-1 to display all spells]".bold().italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+            if (UI.Slider("spell level filter ".bold().italic().white() + "[-1 to display all spells]".bold().italic().yellow(), ref intValue, SHOW_ALL, 9, SHOW_ALL))
             {
                 SpellLevelFilter = intValue;
             }

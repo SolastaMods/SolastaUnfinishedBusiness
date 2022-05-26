@@ -5,8 +5,7 @@ using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-    internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites,
-        FeatDefinitionWithPrerequisitesBuilder>
+    internal class FeatDefinitionWithPrerequisitesBuilder : FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
     {
         public FeatDefinitionWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
@@ -16,19 +15,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
         }
 
-        public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
+        public FeatDefinitionWithPrerequisitesBuilder(FeatDefinitionWithPrerequisites original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
 
-        public FeatDefinitionWithPrerequisitesBuilder SetValidators(
-            params Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[]
-                validators)
+        public FeatDefinitionWithPrerequisitesBuilder SetValidators(params Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>[] validators)
         {
             Definition.Validators.AddRange(validators);
 
@@ -38,8 +33,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     internal class FeatDefinitionWithPrerequisites : FeatDefinition
     {
-        public List<Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>>
-            Validators { get; } = new();
+        public List<Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)>> Validators { get; } = new();
 
         public (bool result, string output) Validate(FeatDefinitionWithPrerequisites feat, RulesetCharacterHero hero)
         {

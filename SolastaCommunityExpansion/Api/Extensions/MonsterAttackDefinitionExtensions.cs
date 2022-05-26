@@ -1,18 +1,15 @@
-using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MonsterAttackDefinition))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class MonsterAttackDefinitionExtensions
+    [TargetType(typeof(MonsterAttackDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class MonsterAttackDefinitionExtensions
     {
         public static MonsterAttackDefinition Copy(this MonsterAttackDefinition entity)
         {
@@ -28,56 +25,56 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAfterChargeOnly<T>(this T entity, Boolean value)
+        public static T SetAfterChargeOnly<T>(this T entity, System.Boolean value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("afterChargeOnly", value);
             return entity;
         }
 
-        public static T SetAnimationTag<T>(this T entity, String value)
+        public static T SetAnimationTag<T>(this T entity, System.String value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("animationTag", value);
             return entity;
         }
 
-        public static T SetChargeEndParticle<T>(this T entity, AssetReference value)
+        public static T SetChargeEndParticle<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("chargeEndParticle", value);
             return entity;
         }
 
-        public static T SetChargeLoopParticle<T>(this T entity, AssetReference value)
+        public static T SetChargeLoopParticle<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("chargeLoopParticle", value);
             return entity;
         }
 
-        public static T SetChargePrepareParticle<T>(this T entity, AssetReference value)
+        public static T SetChargePrepareParticle<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("chargePrepareParticle", value);
             return entity;
         }
 
-        public static T SetChargeStartParticle<T>(this T entity, AssetReference value)
+        public static T SetChargeStartParticle<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("chargeStartParticle", value);
             return entity;
         }
 
-        public static T SetCloseRange<T>(this T entity, Int32 value)
+        public static T SetCloseRange<T>(this T entity, System.Int32 value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("closeRange", value);
             return entity;
         }
 
-        public static T SetDisplayedInEditor<T>(this T entity, Boolean value)
+        public static T SetDisplayedInEditor<T>(this T entity, System.Boolean value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("displayedInEditor", value);
@@ -105,42 +102,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLimitedUse<T>(this T entity, Boolean value)
+        public static T SetLimitedUse<T>(this T entity, System.Boolean value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("limitedUse", value);
             return entity;
         }
 
-        public static T SetMagical<T>(this T entity, Boolean value)
+        public static T SetMagical<T>(this T entity, System.Boolean value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("magical", value);
             return entity;
         }
 
-        public static T SetMaxRange<T>(this T entity, Int32 value)
+        public static T SetMaxRange<T>(this T entity, System.Int32 value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("maxRange", value);
             return entity;
         }
 
-        public static T SetMaxUses<T>(this T entity, Int32 value)
+        public static T SetMaxUses<T>(this T entity, System.Int32 value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("maxUses", value);
             return entity;
         }
 
-        public static T SetMethodName<T>(this T entity, String value)
+        public static T SetMethodName<T>(this T entity, System.String value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("methodName", value);
             return entity;
         }
 
-        public static T SetProjectile<T>(this T entity, String value)
+        public static T SetProjectile<T>(this T entity, System.String value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("projectile", value);
@@ -154,14 +151,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetProximity<T>(this T entity, AttackProximity value)
+        public static T SetProximity<T>(this T entity, RuleDefinitions.AttackProximity value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("proximity", value);
             return entity;
         }
 
-        public static T SetReachRange<T>(this T entity, Int32 value)
+        public static T SetReachRange<T>(this T entity, System.Int32 value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("reachRange", value);
@@ -175,14 +172,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetToHitBonus<T>(this T entity, Int32 value)
+        public static T SetToHitBonus<T>(this T entity, System.Int32 value)
             where T : MonsterAttackDefinition
         {
             entity.ToHitBonus = value;
             return entity;
         }
 
-        public static T SetUseAnimationTag<T>(this T entity, Boolean value)
+        public static T SetUseAnimationTag<T>(this T entity, System.Boolean value)
             where T : MonsterAttackDefinition
         {
             entity.SetField("useAnimationTag", value);

@@ -10,11 +10,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
 {
     [HarmonyPatch(typeof(SubspellSelectionModal), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [HarmonyPatch(new[]
-    {
+    [HarmonyPatch(new[] {
         typeof(SpellDefinition), typeof(RulesetCharacter), typeof(RulesetSpellRepertoire),
-        typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)
-    })]
+        typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)})]
     internal static class SubspellSelectionModal_Bind
     {
         public static List<SpellDefinition> FilteredSubspells { get; internal set; }
@@ -23,12 +21,11 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
         {
             var subspellsList = masterSpell.SubspellsList;
             var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
-                              || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
+                || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
                 ? slotLevel
                 : -1;
 
-            if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList == null ||
-                subspellsList.Count == 0)
+            if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList == null || subspellsList.Count == 0)
             {
                 return subspellsList;
             }
@@ -49,17 +46,15 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
                     s.SpellDefinition,
                     s.MonsterDefinitionName,
                     ChallengeRating =
-                        DatabaseRepository.GetDatabase<MonsterDefinition>()
-                            .TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
-                            ? monsterDefinition.ChallengeRating
-                            : int.MaxValue
+                        DatabaseRepository.GetDatabase<MonsterDefinition>().TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
+                        ? monsterDefinition.ChallengeRating
+                        : int.MaxValue
                 })
                 .GroupBy(s => s.ChallengeRating)
                 .Select(g => new
                 {
                     ChallengeRating = g.Key,
-                    SpellDefinitions = g.Select(s => s.SpellDefinition)
-                        .OrderBy(s => Gui.Format(s.GuiPresentation.Title))
+                    SpellDefinitions = g.Select(s => s.SpellDefinition).OrderBy(s => Gui.Format(s.GuiPresentation.Title))
                 })
                 .Where(s => s.ChallengeRating <= mySlotLevel)
                 .OrderByDescending(s => s.ChallengeRating)

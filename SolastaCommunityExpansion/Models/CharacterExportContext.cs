@@ -5,7 +5,6 @@ using System.Linq;
 using SolastaModApi.Extensions;
 using TMPro;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -23,17 +22,15 @@ namespace SolastaCommunityExpansion.Models
             var contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
 
             var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
-            var firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField")
-                .GetComponent<TMP_InputField>();
+            var firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField").GetComponent<TMP_InputField>();
 
-            InputField = Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
+            InputField = UnityEngine.Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
 
             InputField.characterLimit = 20;
             InputField.onValueChanged = null;
             InputField.fontAsset = contentText.font;
             InputField.pointSize = contentText.fontSize;
-            InputField.transform.localPosition = new Vector3(-50,
-                contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
+            InputField.transform.localPosition = new Vector3(-50, contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
         }
 
         private static string ParseText(string text)
@@ -49,7 +46,7 @@ namespace SolastaCommunityExpansion.Models
 
             messageModal.Show(MessageModal.Severity.Informative1,
                 "Message/&CharacterExportModalTitleDescription", INPUT_MODAL_MARK,
-                "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled);
+                "Message/&MessageOkTitle", "Message/&MessageCancelTitle", messageValidated, messageCancelled, true);
 
             void messageCancelled()
             {
@@ -77,7 +74,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     if (newFirstName.Contains(" "))
                     {
-                        var a = newFirstName.Split(new[] {' '}, 2);
+                        var a = newFirstName.Split(new[] { ' ' }, 2);
 
                         newFirstName = ParseText(a[0]);
                         newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
@@ -118,17 +115,15 @@ namespace SolastaCommunityExpansion.Models
 
             heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
-            var attunedItems = inventoryItems.ConvertAll(i => new {Item = i, Name = i.AttunedToCharacter});
+            var attunedItems = inventoryItems.ConvertAll(i => new { Item = i, Name = i.AttunedToCharacter });
 
             // NOTE: don't use Gui.GameLocation?. which bypasses Unity object lifetime check
             var customItems = (Gui.GameLocation
-                ? inventoryItems.FindAll(i =>
-                    Gui.GameLocation.UserCampaign?.UserItems?.Exists(ui =>
-                        ui.ReferenceItemDefinition == i.ItemDefinition) == true)
+                ? inventoryItems.FindAll(i => Gui.GameLocation.UserCampaign?.UserItems?.Exists(ui => ui.ReferenceItemDefinition == i.ItemDefinition) == true)
                 : Enumerable.Empty<RulesetItem>()).ToList();
 
-            var heroItemGuids = heroCharacter.Items.ConvertAll(i => new {Item = i, i.Guid});
-            var inventoryItemGuids = inventoryItems.ConvertAll(i => new {Item = i, i.Guid});
+            var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
+            var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
 
             try
             {
@@ -143,8 +138,7 @@ namespace SolastaCommunityExpansion.Models
                 {
                     // change items attuned to this character name to the new name
                     // unattune items attuned to another character in this characters inventory
-                    item.Item.AttunedToCharacter =
-                        item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
+                    item.Item.AttunedToCharacter = item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
                 }
 
                 heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);

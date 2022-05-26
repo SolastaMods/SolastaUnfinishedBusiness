@@ -10,16 +10,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 {
     internal static class WarlockPactOfTheChainSummons
     {
-        private static FeatureDefinition _help;
         public static FeatureDefinitionPower PactofChainFamiliarInvisibilityPower { get; private set; }
         public static FeatureDefinitionPower PactofChainFamiliarScarePower { get; private set; }
 
+        private static FeatureDefinition _help;
         private static FeatureDefinition Help
         {
             get
             {
-                if (_help == null && DatabaseRepository.GetDatabase<FeatureDefinition>()
-                        .TryGetElement("HelpAction", out var help))
+                if (_help == null && DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
                 {
                     _help = help;
                 }
@@ -36,8 +35,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             PactofChainFamiliarInvisibilityPower = FeatureDefinitionPowerBuilder
                 .Create("PactofChainFamiliarInvisibilityPower", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Power,
-                    DatabaseHelper.SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
+                .SetGuiPresentation(Category.Power, DatabaseHelper.SpellDefinitions.Invisibility.GuiPresentation.SpriteReference)
                 .SetUsesFixed(1)
                 .SetActivation(ActivationTime.Action, 0)
                 .SetRechargeRate(RechargeRate.AtWill)
@@ -46,14 +44,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                     .SetEffectForms(new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
-                                .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible,
-                                    "PactofChainFamiliarInvisibilityCondition", DefinitionBuilder.CENamespaceGuid)
-                                .SetGuiPresentation(DatabaseHelper.ConditionDefinitions.ConditionInvisible
-                                    .GuiPresentation)
+                                .Create(DatabaseHelper.ConditionDefinitions.ConditionInvisible, "PactofChainFamiliarInvisibilityCondition", DefinitionBuilder.CENamespaceGuid)
+                                .SetGuiPresentation(DatabaseHelper.ConditionDefinitions.ConditionInvisible.GuiPresentation)
                                 .SetConditionType(ConditionType.Beneficial)
                                 .SetDuration(DurationType.Permanent)
-                                .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.CastSpell,
-                                    ConditionInterruption.UsePower, ConditionInterruption.Damaged)
+                                .SetSpecialInterruptions(ConditionInterruption.Attacks, ConditionInterruption.CastSpell, ConditionInterruption.UsePower, ConditionInterruption.Damaged)
                                 .SetInterruptionDamageThreshold(1)
                                 .AddToDB(), ConditionForm.ConditionOperation.Add
                         )
@@ -61,6 +56,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     )
                     .Build())
                 .AddToDB();
+
         }
 
         public static void buildPactofChainFamiliarScarePower()
@@ -80,15 +76,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         AttributeDefinitions.Wisdom,
                         true,
                         EffectDifficultyClassComputation.FixedValue,
-                        AttributeDefinitions.Wisdom
+                        AttributeDefinitions.Wisdom,
+                        10
                     )
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 4, TargetType.Individuals)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(new EffectFormBuilder()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                        .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear,
-                            ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear, ConditionForm.ConditionOperation.Add)
                         .Build()
                     )
                     .Build())
@@ -151,14 +147,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var baseMonster = DatabaseHelper.MonsterDefinitions.Young_GreenDragon;
 
             var biteAttack = MonsterAttackDefinitionBuilder
-                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, "AttackWarlockDragonBite",
-                    DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, "AttackWarlockDragonBite", DefinitionBuilder.CENamespaceGuid)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetToHitBonus(4)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetEffectForms(new EffectFormBuilder()
-                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 2,
-                            damageType: DamageTypePiercing)
+                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 2, damageType: DamageTypePiercing)
                         .Build()
                     )
                     .Build()
@@ -166,8 +160,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
             var stingAttack = MonsterAttackDefinitionBuilder
-                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockDragonSting",
-                    DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockDragonSting", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.MonsterAttack)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetToHitBonus(4)
@@ -181,9 +174,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         11
                     )
                     .SetEffectForms(new EffectFormBuilder()
-                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 2,
-                                damageType: DamageTypePiercing)
-                            .Build(),
+                        .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 2, damageType: DamageTypePiercing)
+                        .Build(),
                         new EffectFormBuilder()
                             .HasSavingThrow(EffectSavingThrowType.Negates)
                             .SetConditionForm(
@@ -199,8 +191,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
             var monster = MonsterDefinitionBuilder
                 .Create(baseMonster, "PactOfChainDragon", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("PactOfChainCustomPseudodragon", Category.Monster,
-                    baseMonster.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("PactOfChainCustomPseudodragon", Category.Monster, baseMonster.GuiPresentation.SpriteReference)
                 .SetFeatures(
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove2,
@@ -209,6 +200,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight2,
 
                     //DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
+
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing
@@ -247,8 +239,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetHasPrefabVariants(false);
             monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
             monster.MonsterPresentation.SetUseCustomMaterials(true);
-            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
-                .Young_Green_Dragon_Presentation.CustomMaterials);
+            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Young_Green_Dragon_Presentation.CustomMaterials);
             monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
             monster.MonsterPresentation.SetCanGeneratePortrait(true);
 
@@ -289,7 +280,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         true,
                         AttributeDefinitions.Constitution,
                         false, EffectDifficultyClassComputation.FixedValue,
-                        null
+                        null,
+                        10
                     )
                     .SetEffectForms(new EffectFormBuilder()
                             .SetDamageForm(dieType: DieType.D1, diceNumber: 1, bonusDamage: 0,
@@ -382,8 +374,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 
             var stingAttack = MonsterAttackDefinitionBuilder
-                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockImpSting",
-                    DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Badlands_Spider_Bite, "AttackWarlockImpSting", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.MonsterAttack)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetToHitBonus(5)
@@ -397,8 +388,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         11
                     )
                     .SetEffectForms(new EffectFormBuilder()
-                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3,
-                                damageType: DamageTypePiercing)
+                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3, damageType: DamageTypePiercing)
                             .Build(),
                         new EffectFormBuilder()
                             .SetDamageForm(dieType: DieType.D6, diceNumber: 3, damageType: DamageTypePoison)
@@ -419,13 +409,16 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
                     //Todo: add devil's sight - magical darkness doesn't affect vision
+
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceExceptSilver,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceExceptSilver,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceExceptSilver,
+
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
 
                     //TODO: can we implement shapechange for monsters at all?
@@ -464,20 +457,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                 .AddToDB();
 
             monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-            monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin
-                .MonsterPresentation.MonsterPresentationDefinitions);
+            monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
             monster.MonsterPresentation.SetUseCustomMaterials(true);
-            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
-                .Orc_Female_Archer_RedScar.CustomMaterials);
+            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Orc_Female_Archer_RedScar.CustomMaterials);
 
             monster.MonsterPresentation.SetMaleModelScale(0.4f);
             monster.MonsterPresentation.SetFemaleModelScale(0.4f);
-            monster.MonsterPresentation.SetMalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "malePrefabReference"));
-            monster.MonsterPresentation.SetFemalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "femalePrefabReference"));
+            monster.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
+            monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("femalePrefabReference"));
 
             monster.MonsterPresentation.SetHasPrefabVariants(false);
 
@@ -491,8 +478,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             var baseMonster = DatabaseHelper.MonsterDefinitions.Goblin;
 
             var clawAttack = MonsterAttackDefinitionBuilder
-                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Zealot_Claw, "AttackWarlockImpClaw",
-                    DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.MonsterAttackDefinitions.Attack_Zealot_Claw, "AttackWarlockImpClaw", DefinitionBuilder.CENamespaceGuid)
                 .SetActionType(ActionDefinitions.ActionType.Main)
                 .SetToHitBonus(4)
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -501,11 +487,11 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                         true,
                         AttributeDefinitions.Constitution,
                         false, EffectDifficultyClassComputation.FixedValue,
-                        null
+                        null,
+                        10
                     )
                     .SetEffectForms(new EffectFormBuilder()
-                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3,
-                                damageType: DamageTypePiercing)
+                            .SetDamageForm(dieType: DieType.D4, diceNumber: 1, bonusDamage: 3, damageType: DamageTypePiercing)
                             .Build(),
                         new EffectFormBuilder()
                             .SetDamageForm(dieType: DieType.D4, diceNumber: 2, damageType: DamageTypePoison)
@@ -531,6 +517,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
                     DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision24,
+
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
@@ -538,7 +525,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+
                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+
                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
 
                     //TODO: can we implement shapechange for monsters at all?
@@ -577,20 +566,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetHasPrefabVariants(false);
 
             monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-            monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin
-                .MonsterPresentation.MonsterPresentationDefinitions);
+            monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
             monster.MonsterPresentation.SetUseCustomMaterials(true);
-            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
-                .Orc_Male_Chieftain_BladeFang.CustomMaterials);
+            monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Orc_Male_Chieftain_BladeFang.CustomMaterials);
 
             monster.MonsterPresentation.SetMaleModelScale(0.55f);
             monster.MonsterPresentation.SetFemaleModelScale(0.55f);
-            monster.MonsterPresentation.SetMalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "malePrefabReference"));
-            monster.MonsterPresentation.SetFemalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "malePrefabReference"));
+            monster.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
+            monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
 
             if (Help) { monster.Features.Add(Help); }
 

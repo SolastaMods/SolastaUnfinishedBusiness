@@ -1,4 +1,3 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +7,11 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ReviveForm))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class ReviveFormExtensions
+    [TargetType(typeof(ReviveForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class ReviveFormExtensions
     {
         public static T AddRemovedConditions<T>(this T entity, params ConditionDefinition[] value)
             where T : ReviveForm
@@ -43,7 +41,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetMaxSecondsSinceDeath<T>(this T entity, Int32 value)
+        public static T SetMaxSecondsSinceDeath<T>(this T entity, System.Int32 value)
             where T : ReviveForm
         {
             entity.SetField("maxSecondsSinceDeath", value);
@@ -64,7 +62,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReviveHitPoints<T>(this T entity, ReviveHitPoints value)
+        public static T SetReviveHitPoints<T>(this T entity, RuleDefinitions.ReviveHitPoints value)
             where T : ReviveForm
         {
             entity.SetField("reviveHitPoints", value);

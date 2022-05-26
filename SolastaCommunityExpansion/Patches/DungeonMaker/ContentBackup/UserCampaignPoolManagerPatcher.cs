@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup
 {
@@ -18,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var deleteMethod = typeof(File).GetMethod("Delete");
-            var backupAndDeleteMethod = typeof(DungeonMakerContext).GetMethod("BackupAndDelete");
+            var backupAndDeleteMethod = typeof(Models.DungeonMakerContext).GetMethod("BackupAndDelete");
 
             foreach (var instruction in instructions)
             {

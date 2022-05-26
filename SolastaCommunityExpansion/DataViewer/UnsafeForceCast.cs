@@ -29,9 +29,9 @@ namespace SolastaCommunityExpansion.DataViewer
         private static Func<TInput, TOutput> CreateDelegate<TInput, TOutput>()
         {
             var method = new DynamicMethod(
-                "UnsafeForceCast",
-                typeof(TOutput),
-                new[] {typeof(TInput)});
+                name: "UnsafeForceCast",
+                returnType: typeof(TOutput),
+                parameterTypes: new[] { typeof(TInput) });
 
             var il = method.GetILGenerator();
             il.Emit(OpCodes.Ldarg_0);

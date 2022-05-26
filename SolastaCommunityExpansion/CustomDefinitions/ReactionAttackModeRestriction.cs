@@ -5,10 +5,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
     {
-        public static readonly ValidReactionModeHandler MeleeOnly = (mode, _, _) =>
-            mode is {Reach: true, Ranged: false, Thrown: false};
-
         private readonly ValidReactionModeHandler[] validators;
+
+        public static readonly ValidReactionModeHandler MeleeOnly = (mode, _, _) =>
+            mode is { Reach: true, Ranged: false, Thrown: false };
+
+        public static ValidReactionModeHandler TargenHasNoCondition(ConditionDefinition condition)
+        {
+            return (_, _, target) => !target.HasConditionOfType(condition.Name);
+        }
 
         public ReactionAttackModeRestriction(params ValidReactionModeHandler[] validators)
         {
@@ -19,10 +24,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
             return validators.All(v => v(attackMode, character, target));
         }
-
-        public static ValidReactionModeHandler TargenHasNoCondition(ConditionDefinition condition)
-        {
-            return (_, _, target) => !target.HasConditionOfType(condition.Name);
-        }
     }
 }
+
+

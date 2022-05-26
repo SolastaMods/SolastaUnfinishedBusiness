@@ -26,7 +26,12 @@ namespace SolastaCommunityExpansion.Level20.Classes
             AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
                 {
-                    ClassLevel = 13, SpellsList = new List<SpellDefinition> {FreedomOfMovement, GuardianOfFaith}
+                    ClassLevel = 13,
+                    SpellsList = new List<SpellDefinition>
+                    {
+                        FreedomOfMovement,
+                        GuardianOfFaith
+                    }
                 });
 
             AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
@@ -44,13 +49,22 @@ namespace SolastaCommunityExpansion.Level20.Classes
             AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
                 {
-                    ClassLevel = 13, SpellsList = new List<SpellDefinition> {WallOfFire, Stoneskin}
+                    ClassLevel = 13,
+                    SpellsList = new List<SpellDefinition>
+                    {
+                        WallOfFire,
+                        Stoneskin
+                    }
                 });
 
             AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
                 {
-                    ClassLevel = 17, SpellsList = new List<SpellDefinition> {FlameStrike}
+                    ClassLevel = 17,
+                    SpellsList = new List<SpellDefinition>
+                    {
+                        FlameStrike
+                    }
                 });
 
             //// Oath of Tirmar
@@ -60,7 +74,7 @@ namespace SolastaCommunityExpansion.Level20.Classes
                     ClassLevel = 13,
                     SpellsList = new List<SpellDefinition>
                     {
-                        Banishment
+                        Banishment,
                         // Compulsion
                     }
                 });
@@ -68,7 +82,12 @@ namespace SolastaCommunityExpansion.Level20.Classes
             AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
                 new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
                 {
-                    ClassLevel = 17, SpellsList = new List<SpellDefinition> {WallOfForce, HoldMonster}
+                    ClassLevel = 17,
+                    SpellsList = new List<SpellDefinition>
+                    {
+                        WallOfForce,
+                        HoldMonster
+                    }
                 });
 
             CastSpellPaladin.SetSpellCastingLevel(5);

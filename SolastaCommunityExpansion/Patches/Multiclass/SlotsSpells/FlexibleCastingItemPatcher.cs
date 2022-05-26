@@ -19,8 +19,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             RectTransform ___slotStatusTable)
         {
             var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
-            var caster =
-                flexibleCastingModal.GetField<FlexibleCastingModal, RulesetCharacter>("caster") as RulesetCharacterHero;
+            var caster = flexibleCastingModal.GetField<FlexibleCastingModal, RulesetCharacter>("caster") as RulesetCharacterHero;
 
             if (caster is null)
             {

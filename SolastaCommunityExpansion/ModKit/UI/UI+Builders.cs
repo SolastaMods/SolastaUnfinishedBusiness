@@ -1,5 +1,4 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
-
 using System;
 using System.Linq;
 using UnityEngine;
@@ -15,11 +14,10 @@ namespace ModKit
         public static Rect ummRect = new();
         public static float ummWidth = 960f;
         public static int ummTabID = 0;
+        public static bool IsNarrow => ummWidth < 1200;
+        public static bool IsWide => ummWidth >= 1920;
 
         public static Vector2[] ummScrollPosition;
-        public static bool IsNarrow => ummWidth < 1200;
-
-        public static bool IsWide => ummWidth >= 1920;
         /*** UI Builders
          * 
          * This is a simple UI framework that simulates the style of SwiftUI.  
@@ -59,7 +57,6 @@ namespace ModKit
                 }
             }
         }
-
         public static void Group(params Action[] actions)
         {
             foreach (var action in actions)
@@ -67,12 +64,10 @@ namespace ModKit
                 action();
             }
         }
-
         public static void HStack(string title = null, int stride = 0, params Action[] actions)
         {
             var length = actions.Length;
             if (stride < 1) { stride = length; }
-
             if (IsNarrow)
             {
                 stride = Math.Min(3, stride);
@@ -87,33 +82,27 @@ namespace ModKit
                     if (ii == 0) { Label(title.bold(), Width(150f)); }
                     else { Space(153); }
                 }
-
                 var filteredActions = actions.Skip(ii).Take(stride);
                 foreach (var action in filteredActions)
                 {
                     action();
                 }
-
                 EndHorizontal();
             }
         }
-
         public static void VStack(string title = null, params Action[] actions)
         {
             BeginVertical();
             if (title != null) { Label(title); }
-
             Group(actions);
             EndVertical();
         }
-
         public static void Section(string title, params Action[] actions)
         {
             Space(25);
             Label($"====== {title} ======".bold(), GL.ExpandWidth(true));
             Space(25);
             foreach (var action in actions) { action(); }
-
             Space(10);
         }
 
@@ -126,7 +115,7 @@ namespace ModKit
 
             var sel = selected;
             var titles = actions.Select((a, i) => i == sel ? a.name.orange().bold() : a.name);
-            SelectionGrid(ref selected, titles.ToArray(), titles.Count(), ExpandWidth(true));
+            UI.SelectionGrid(ref selected, titles.ToArray(), titles.Count(), UI.ExpandWidth(true));
             GL.BeginVertical("box");
             header?.Invoke();
             actions[selected].action();

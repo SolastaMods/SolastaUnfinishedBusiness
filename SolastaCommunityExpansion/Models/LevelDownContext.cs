@@ -7,7 +7,52 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class LevelDownContext
     {
-        public static bool IsLevelDown { get; set; }
+        public static bool IsLevelDown { get; set; } = false;
+
+        public class FunctorLevelDown : Functor
+        {
+            public override IEnumerator Execute(
+                FunctorParametersDescription functorParameters,
+                FunctorExecutionContext context)
+            {
+                if (Global.IsMultiplayer)
+                {
+                    Gui.GuiService.ShowMessage(
+                        MessageModal.Severity.Informative1,
+                        "MainMenu/&ExportPdfTitle", "Message/&LevelDownMultiplayerAbortDescription",
+                        "Message/&MessageOkTitle", string.Empty,
+                        null, null);
+
+                    yield break;
+                }
+
+                var state = -1;
+
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Attention2,
+                    "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
+                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
+                    new MessageModal.MessageValidatedHandler(() => state = 1),
+                    new MessageModal.MessageCancelledHandler(() => state = 0));
+
+                while (state < 0)
+                {
+                    yield return null;
+                }
+
+                if (state > 0)
+                {
+                    if (functorParameters.RestingHero.ClassesHistory.Count > 1)
+                    {
+                        LevelDown(functorParameters.RestingHero);
+                    }
+                    else
+                    {
+                        yield return new FunctorRespec().Execute(functorParameters, context);
+                    }
+                }
+            }
+        }
 
         internal static void Load()
         {
@@ -27,8 +72,7 @@ namespace SolastaCommunityExpansion.Models
                 () => LevelDown(rulesetCharacterHero), null);
         }
 
-        private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition,
-            string tag)
+        private static void RemoveFeaturesByTag(RulesetCharacterHero hero, CharacterClassDefinition classDefinition, string tag)
         {
             if (hero.ActiveFeatures.ContainsKey(tag))
             {
@@ -57,8 +101,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (characterSubclassDefinition != null)
             {
-                subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel,
-                    characterSubclassDefinition);
+                subclassTag = AttributeDefinitions.GetSubclassTag(characterClassDefinition, classLevel, characterSubclassDefinition);
             }
 
             LevelUpContext.RegisterHero(hero, characterClassDefinition, characterSubclassDefinition);
@@ -116,9 +159,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void UnlearnSpells(RulesetCharacterHero hero, int indexLevel)
         {
-            var heroRepertoire =
-                hero.SpellRepertoires.FirstOrDefault(x =>
-                    LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
 
             if (heroRepertoire == null)
             {
@@ -126,8 +167,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             int spellsToRemove;
-            var cantripsToRemove = heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel] -
-                                   heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel - 1];
+            var cantripsToRemove = heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel] - heroRepertoire.SpellCastingFeature.KnownCantrips[indexLevel - 1];
 
             heroRepertoire.PreparedSpells.Clear();
 
@@ -160,8 +200,7 @@ namespace SolastaCommunityExpansion.Models
 
                     break;
 
-                case RuleDefinitions.SpellKnowledge.WholeList
-                    : // this is required after patch that adds WholeList to repertoire
+                case RuleDefinitions.SpellKnowledge.WholeList: // this is required after patch that adds WholeList to repertoire
                     var levels = hero.ClassesAndLevels[heroRepertoire.SpellCastingClass];
 
                     if (levels % 2 > 0)
@@ -172,8 +211,7 @@ namespace SolastaCommunityExpansion.Models
                     break;
 
                 case RuleDefinitions.SpellKnowledge.Selection:
-                    spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] -
-                                     heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
+                    spellsToRemove = heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel] - heroRepertoire.SpellCastingFeature.KnownSpells[indexLevel - 1];
 
                     while (spellsToRemove-- > 0)
                     {
@@ -181,51 +219,6 @@ namespace SolastaCommunityExpansion.Models
                     }
 
                     break;
-            }
-        }
-
-        public class FunctorLevelDown : Functor
-        {
-            public override IEnumerator Execute(
-                FunctorParametersDescription functorParameters,
-                FunctorExecutionContext context)
-            {
-                if (Global.IsMultiplayer)
-                {
-                    Gui.GuiService.ShowMessage(
-                        MessageModal.Severity.Informative1,
-                        "MainMenu/&ExportPdfTitle", "Message/&LevelDownMultiplayerAbortDescription",
-                        "Message/&MessageOkTitle", string.Empty,
-                        null, null);
-
-                    yield break;
-                }
-
-                var state = -1;
-
-                Gui.GuiService.ShowMessage(
-                    MessageModal.Severity.Attention2,
-                    "MainMenu/&ExportPdfTitle", "Message/&LevelDownConfirmationDescription",
-                    "Message/&MessageYesTitle", "Message/&MessageNoTitle",
-                    () => state = 1,
-                    () => state = 0);
-
-                while (state < 0)
-                {
-                    yield return null;
-                }
-
-                if (state > 0)
-                {
-                    if (functorParameters.RestingHero.ClassesHistory.Count > 1)
-                    {
-                        LevelDown(functorParameters.RestingHero);
-                    }
-                    else
-                    {
-                        yield return new FunctorRespec().Execute(functorParameters, context);
-                    }
-                }
             }
         }
     }

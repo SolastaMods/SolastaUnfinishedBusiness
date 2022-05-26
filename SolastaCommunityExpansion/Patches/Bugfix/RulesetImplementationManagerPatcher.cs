@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 return;
             }
 
-            if (activeEffect is {TrackedLightSourceGuids.Count: > 0})
+            if (activeEffect is { TrackedLightSourceGuids.Count: > 0 })
             {
                 var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
                 foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids)
@@ -37,10 +37,10 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                             RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
                         {
                             if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
-                                bearer is {CharacterInventory: { }})
+                                bearer is { CharacterInventory: { } })
                             {
                                 bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
-                                    bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
+                                        bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
                             }
 
                             var fromActor = GameLocationCharacter.GetFromActor(bearer);
@@ -71,7 +71,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 activeEffect.TrackedLightSourceGuids.Clear();
             }
 
-            if (activeEffect is {TrackedItemPropertyGuids.Count: > 0})
+            if (activeEffect is { TrackedItemPropertyGuids.Count: > 0 })
             {
                 foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
                 {
@@ -92,8 +92,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                                 if (characterInventory != null)
                                 {
                                     characterInventory.ItemAltered?.Invoke(characterInventory,
-                                        characterInventory.FindSlotHoldingItem(rulesetItem),
-                                        rulesetItem);
+                                            characterInventory.FindSlotHoldingItem(rulesetItem),
+                                            rulesetItem);
                                 }
 
                                 rulesetItemBearer.RefreshAll();

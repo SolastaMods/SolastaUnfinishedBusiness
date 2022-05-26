@@ -18,8 +18,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
         {
             foreach (var usablePower in __instance.UsablePowers)
             {
-                if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge &&
-                    usablePower.RemainingUses < usablePower.MaxUses)
+                if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge && usablePower.RemainingUses < usablePower.MaxUses)
                 {
                     usablePower.Recharge();
 
@@ -101,5 +100,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             return codes.AsEnumerable();
         }
+
     }
 }

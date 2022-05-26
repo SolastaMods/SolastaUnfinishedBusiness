@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Displays
         private static Dictionary<string, string> _modIdsToColor;
         private static string _modID;
         private static Dictionary<MethodBase, List<Patch>> _patches;
-        private static readonly Dictionary<MethodBase, List<Patch>> _disabled = new();
+        private static readonly Dictionary<MethodBase, List<Patch>> _disabled = new() { };
         private static GUIStyle _buttonStyle;
         private static bool firstTime = true;
         private static string searchText = "";
@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Displays
         {
             if (_buttonStyle == null)
             {
-                _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
             }
 
             if (firstTime)
@@ -31,7 +31,6 @@ namespace SolastaCommunityExpansion.Displays
                 RefreshPatchInfoOfAllMods();
                 firstTime = false;
             }
-
             try
             {
                 var selectedPatchName = "All".bold();
@@ -58,7 +57,6 @@ namespace SolastaCommunityExpansion.Displays
                                 _modID = null;
                                 RefreshPatchInfoOfAllMods();
                             }
-
                             foreach (var pair in _modIdsToColor)
                             {
                                 if (GUILayout.Button(pair.Key.Color(pair.Value).bold(), _buttonStyle))
@@ -73,33 +71,26 @@ namespace SolastaCommunityExpansion.Displays
                         // info selection
                         using (new GUILayout.VerticalScope())
                         {
-                            selectedPatchName = string.IsNullOrEmpty(_modID)
-                                ? "All".bold()
-                                : _modID.Color(_modIdsToColor[_modID]).bold();
-                            if (GUILayout.Button($"Refresh Patch Info ({selectedPatchName})", _buttonStyle,
-                                    UI.Width(200)))
+                            selectedPatchName = string.IsNullOrEmpty(_modID) ? "All".bold() : _modID.Color(_modIdsToColor[_modID]).bold();
+                            if (GUILayout.Button($"Refresh Patch Info ({selectedPatchName})", _buttonStyle, UI.Width(200)))
                             {
                                 RefreshPatchInfoOfAllMods();
                             }
-
-                            if (GUILayout.Button($"Potential Conflicts for ({selectedPatchName})", _buttonStyle,
-                                    UI.Width(200)))
+                            if (GUILayout.Button($"Potential Conflicts for ({selectedPatchName})", _buttonStyle, UI.Width(200)))
                             {
                                 RefreshPatchInfoOfPotentialConflict();
                             }
                         }
                     }
-
                     GUILayout.FlexibleSpace();
                 }
-
                 UI.Space(25);
                 var searchTextLower = searchText.ToLower();
                 var methodBases = _patches?.Keys.Concat(_disabled.Keys).Distinct().OrderBy(m => m.Name).Where(m =>
-                    searchText.Length == 0
+                       searchText.Length == 0
                     || m.DeclaringType.FullName.ToLower().Contains(searchTextLower)
                     || m.ToString().ToLower().Contains(searchTextLower)
-                );
+                    );
                 if (_modIdsToColor != null && methodBases != null)
                 {
                     GUILayout.Space(10f);
@@ -109,7 +100,6 @@ namespace SolastaCommunityExpansion.Displays
                         UI.Space(25);
                         UI.TextField(ref searchText, "Search", UI.Width(400));
                     }
-
                     UI.Space(25);
                     UI.Label($"Patches Found: {methodBases.Count().ToString().cyan()}".orange());
                     var index = 1;
@@ -128,10 +118,8 @@ namespace SolastaCommunityExpansion.Displays
                             {
                                 GUILayout.Label($"{index++}", GUI.skin.box, UI.AutoWidth());
                                 UI.Space(10);
-                                GUILayout.Label(
-                                    $"{returnTypeStr.Grey().Bold()} {methodName.Bold()}\t{typeStr.Grey().Italic()}");
+                                GUILayout.Label($"{returnTypeStr.Grey().Bold()} {methodName.Bold()}\t{typeStr.Grey().Italic()}");
                             }
-
                             var enabledPatches = EnabledPatchesForMethod(method);
                             var disabledPatches = DisabledPatchesForMethod(method);
 
@@ -163,7 +151,6 @@ namespace SolastaCommunityExpansion.Displays
                                         }
                                     }
                                 }
-
                                 using (new GUILayout.VerticalScope())
                                 {
                                     foreach (var patch in patches)
@@ -171,17 +158,14 @@ namespace SolastaCommunityExpansion.Displays
                                         GUILayout.Label(patch.PatchMethod.Name, GUI.skin.label);
                                     }
                                 }
-
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
                                     foreach (var patch in patches)
                                     {
-                                        GUILayout.Label(patch.owner.Color(_modIdsToColor[patch.owner]).bold(),
-                                            GUI.skin.label);
+                                        GUILayout.Label(patch.owner.Color(_modIdsToColor[patch.owner]).bold(), GUI.skin.label);
                                     }
                                 }
-
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
@@ -190,17 +174,14 @@ namespace SolastaCommunityExpansion.Displays
                                         GUILayout.Label(patch.priority.ToString(), GUI.skin.label);
                                     }
                                 }
-
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
                                     foreach (var patch in patches)
                                     {
-                                        GUILayout.Label(patch.PatchMethod.DeclaringType.DeclaringType?.Name ?? "---",
-                                            GUI.skin.label);
+                                        GUILayout.Label(patch.PatchMethod.DeclaringType.DeclaringType?.Name ?? "---", GUI.skin.label);
                                     }
                                 }
-
                                 UI.Space(10);
                                 using (new GUILayout.VerticalScope())
                                 {
@@ -209,7 +190,6 @@ namespace SolastaCommunityExpansion.Displays
                                         GUILayout.TextArea(patch.PatchMethod.DeclaringType.Name, GUI.skin.textField);
                                     }
                                 }
-
                                 GUILayout.FlexibleSpace();
                             }
                         }
@@ -225,17 +205,14 @@ namespace SolastaCommunityExpansion.Displays
 
             UI.Label("");
         }
-
         private static List<Patch> EnabledPatchesForMethod(MethodBase method)
         {
             return _patches.GetValueOrDefault(method, new List<Patch>());
         }
-
         private static List<Patch> DisabledPatchesForMethod(MethodBase method)
         {
             return _disabled.GetValueOrDefault(method, new List<Patch>());
         }
-
         private static void EnablePatchForMethod(bool enabled, Patch patch, MethodBase method)
         {
             var enabledPatches = EnabledPatchesForMethod(method);
@@ -250,11 +227,9 @@ namespace SolastaCommunityExpansion.Displays
                 disabledPatches.Add(patch);
                 enabledPatches.Remove(patch);
             }
-
             _patches[method] = enabledPatches;
             _disabled[method] = disabledPatches;
         }
-
         private static void RefreshListOfPatchOwners(bool reset = true)
         {
             if (reset || _modIdsToColor == null)
@@ -273,11 +248,11 @@ namespace SolastaCommunityExpansion.Displays
             {
                 if (!_modIdsToColor.ContainsKey(owner))
                 {
-                    var color = Random.ColorHSV(
-                        hue, hue,
-                        0.25f, .75f,
-                        0.75f, 1f
-                    );
+                    var color = UnityEngine.Random.ColorHSV(
+                            hue, hue,
+                            0.25f, .75f,
+                            0.75f, 1f
+                            );
                     _modIdsToColor[owner] = ColorUtility.ToHtmlStringRGBA(color);
                     hue = (hue + 0.1f) % 1.0f;
                 }

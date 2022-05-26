@@ -9,12 +9,11 @@ namespace ModKit.Utility
     [XmlRoot("SerializableDictionary")]
     public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable, IUpdatableSettings
     {
-        public SerializableDictionary()
-        {
-        }
+        public SerializableDictionary() : base() { }
 
         public SerializableDictionary(IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
 
+        public XmlSchema GetSchema() => null;
         public void AddMissingKeys(IUpdatableSettings from)
         {
             if (from is SerializableDictionary<TKey, TValue> fromDict)
@@ -22,12 +21,6 @@ namespace ModKit.Utility
                 this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
             }
         }
-
-        public XmlSchema GetSchema()
-        {
-            return null;
-        }
-
         public void ReadXml(XmlReader reader)
         {
             XmlSerializer keySerializer = new(typeof(TKey));
@@ -58,7 +51,6 @@ namespace ModKit.Utility
                 reader.ReadEndElement();
                 reader.MoveToContent();
             }
-
             reader.ReadEndElement();
         }
 

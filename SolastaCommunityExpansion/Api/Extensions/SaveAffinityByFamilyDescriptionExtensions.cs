@@ -1,4 +1,3 @@
-using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -6,12 +5,11 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(SaveAffinityByFamilyDescription))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class SaveAffinityByFamilyDescriptionExtensions
+    [TargetType(typeof(SaveAffinityByFamilyDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class SaveAffinityByFamilyDescriptionExtensions
     {
         public static SaveAffinityByFamilyDescription Copy(this SaveAffinityByFamilyDescription entity)
         {
@@ -20,14 +18,14 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetAdvantageType<T>(this T entity, AdvantageType value)
+        public static T SetAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
             where T : SaveAffinityByFamilyDescription
         {
             entity.SetField("advantageType", value);
             return entity;
         }
 
-        public static T SetFamily<T>(this T entity, String value)
+        public static T SetFamily<T>(this T entity, System.String value)
             where T : SaveAffinityByFamilyDescription
         {
             entity.SetField("family", value);

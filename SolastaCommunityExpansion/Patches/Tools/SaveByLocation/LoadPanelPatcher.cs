@@ -10,7 +10,6 @@ using UnityEngine.UI;
 using static GuiDropdown;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 {
@@ -20,8 +19,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
     {
         internal static GameObject Dropdown { get; private set; }
 
-        public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
-            [HarmonyArgument("instant")] bool _ = false)
+        public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview, [HarmonyArgument("instant")] bool _ = false)
         {
             if (!Main.Settings.EnableSaveByLocation)
             {
@@ -63,32 +61,38 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
             // add them together - each block sorted - can we have separators?
             var userContentList =
                 allCampaigns
-                    .Select(l => new {LocationType = LocationType.CustomCampaign, l.Title})
+                    .Select(l => new { LocationType = LocationType.CustomCampaign, l.Title })
                     .OrderBy(l => l.Title)
-                    .Concat(allLocations
-                        .Select(l => new {LocationType = LocationType.UserLocation, l.Title})
-                        .OrderBy(l => l.Title)
-                    )
-                    .ToList();
+                .Concat(allLocations
+                    .Select(l => new { LocationType = LocationType.UserLocation, l.Title })
+                    .OrderBy(l => l.Title)
+                )
+                .ToList();
 
             guiDropdown.AddOptions(
-                Enumerable.Repeat(new {LocationType = LocationType.StandardCampaign, Title = "Standard campaigns"}, 1)
-                    .Union(userContentList)
-                    .Select(opt => new
-                    {
-                        opt.LocationType, opt.Title, SaveFileCount = SaveFileCount(opt.LocationType, opt.Title)
-                    })
-                    .Select(opt => new LocationOptionData
-                    {
-                        LocationType = opt.LocationType,
-                        text = GetTitle(opt.LocationType, opt.Title),
-                        CampaignOrLocation = opt.Title,
-                        TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
-                        ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.StandardCampaign
-                    })
-                    .Where(opt => opt.ShowInDropdown) // Only show locations that have saves
-                    .Cast<OptionData>()
-                    .ToList());
+                Enumerable.Repeat(new
+                {
+                    LocationType = LocationType.StandardCampaign,
+                    Title = "Standard campaigns"
+                }, 1)
+                .Union(userContentList)
+                .Select(opt => new
+                {
+                    opt.LocationType,
+                    opt.Title,
+                    SaveFileCount = SaveFileCount(opt.LocationType, opt.Title)
+                })
+                .Select(opt => new LocationOptionData
+                {
+                    LocationType = opt.LocationType,
+                    text = GetTitle(opt.LocationType, opt.Title),
+                    CampaignOrLocation = opt.Title,
+                    TooltipContent = $"{opt.SaveFileCount} save{(opt.SaveFileCount == 1 ? "" : "s")}",
+                    ShowInDropdown = opt.SaveFileCount > 0 || opt.LocationType == LocationType.StandardCampaign
+                })
+                .Where(opt => opt.ShowInDropdown) // Only show locations that have saves
+                .Cast<OptionData>()
+                .ToList());
 
             // Get the current campaign location and select it in the dropdown
             var selectedCampaign = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
@@ -97,7 +101,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 
             var option = guiDropdown.options
                 .Cast<LocationOptionData>()
-                .Select((o, i) => new {o.CampaignOrLocation, o.LocationType, Index = i})
+                .Select((o, i) => new { o.CampaignOrLocation, o.LocationType, Index = i })
                 .Where(opt => opt.LocationType == selectedCampaign.LocationType)
                 .FirstOrDefault(o => o.CampaignOrLocation == selectedCampaign.CampaignOrLocationName);
 
@@ -144,8 +148,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 
                 var selected = dropdown.options.Skip(dropdown.value).FirstOrDefault() as LocationOptionData;
 
-                Main.Log(
-                    $"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
+                Main.Log($"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
 
                 switch (selected.LocationType)
                 {
@@ -181,7 +184,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
                 {
                     var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
 
-                    Dropdown = Object.Instantiate(dropdownPrefab);
+                    Dropdown = UnityEngine.Object.Instantiate(dropdownPrefab);
                     Dropdown.name = "LoadMenuDropDown";
 
                     dd = Dropdown.GetComponent<GuiDropdown>();

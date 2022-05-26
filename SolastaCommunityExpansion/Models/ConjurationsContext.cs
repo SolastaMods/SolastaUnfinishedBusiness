@@ -10,8 +10,6 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ConjurationsContext
     {
-        private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker_CE_SubSpell_CR6";
-
         internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
         {
             // Conjure animals (3)
@@ -40,13 +38,11 @@ namespace SolastaCommunityExpansion.Models
             FeyBear, // CR 4
             Green_Hag, // CR 3
             FeyWolf, // CR 2
-            FeyDriad // CR 1
+            FeyDriad, // CR 1
         };
 
-        private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
-
         /// <summary>
-        ///     Allow conjurations to fully controlled party members instead of AI controlled.
+        /// Allow conjurations to fully controlled party members instead of AI controlled.
         /// </summary>
         internal static void Load()
         {
@@ -65,16 +61,18 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        private static readonly Guid Namespace = new("de4539b8e0194684b1d0585100dd94e5");
+
+        private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker_CE_SubSpell_CR6";
+
         internal static void AddSummonsSubSpells()
         {
             // Invisible Stalker
-            if (!DatabaseRepository.GetDatabase<SpellDefinition>()
-                    .TryGetElement(InvisibleStalkerSubspellName, out var _))
+            if (!DatabaseRepository.GetDatabase<SpellDefinition>().TryGetElement(InvisibleStalkerSubspellName, out var _))
             {
                 var definition = SpellDefinitionBuilder
                     .Create(ConjureElementalFire, InvisibleStalkerSubspellName, Namespace)
-                    .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle",
-                        "Spell/&ConjureElementalDescription")
+                    .SetOrUpdateGuiPresentation("Spell/&IPConjureInvisibleStalkerTitle", "Spell/&ConjureElementalDescription")
                     .AddToDB();
 
                 var summonForm = definition.EffectDescription

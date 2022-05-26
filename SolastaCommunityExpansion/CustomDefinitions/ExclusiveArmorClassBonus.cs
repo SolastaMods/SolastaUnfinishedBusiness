@@ -2,7 +2,9 @@
 {
     public class ExclusiveArmorClassBonus
     {
-        public const string TAG = "AC_EXCLUSIVE";
         public static readonly ExclusiveArmorClassBonus MARKER = new();
+        public const string TAG = "AC_EXCLUSIVE";
     }
 }
+
+

@@ -55,7 +55,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
         {
             // For some reason TA do not set reactionParams.ReadyActionType to ReadyActionType.Cantrip
             // So we manualy detect it as casting spell level 0
-            if (reactionParams.RulesetEffect is RulesetEffectSpell {SlotLevel: 0} spell)
+            if (reactionParams.RulesetEffect is RulesetEffectSpell { SlotLevel: 0 } spell)
             {
                 var spelltargets = spell.ComputeTargetParameter();
                 if (reactionParams.RulesetEffect.EffectDescription.IsSingleTarget && spelltargets > 1)

@@ -24,11 +24,11 @@ namespace SolastaCommunityExpansion.CustomInterfaces
     }
 
     public delegate void OnMagicalAttackDamageDelegate(
-        GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        ActionModifier magicModifier,
-        RulesetEffect rulesetEffect,
-        List<EffectForm> actualEffectForms,
-        bool firstTarget,
-        bool criticalHit);
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier magicModifier,
+            RulesetEffect rulesetEffect,
+            List<EffectForm> actualEffectForms,
+            bool firstTarget,
+            bool criticalHit);
 }

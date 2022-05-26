@@ -1,29 +1,26 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAbilityCheckAffinity))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class FeatureDefinitionAbilityCheckAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionAbilityCheckAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class FeatureDefinitionAbilityCheckAffinityExtensions
     {
-        public static T AddAffinityGroups<T>(this T entity,
-            params FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup[] value)
+        public static T AddAffinityGroups<T>(this T entity, params FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup[] value)
             where T : FeatureDefinitionAbilityCheckAffinity
         {
             AddAffinityGroups(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAffinityGroups<T>(this T entity,
-            IEnumerable<FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup> value)
+        public static T AddAffinityGroups<T>(this T entity, IEnumerable<FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup> value)
             where T : FeatureDefinitionAbilityCheckAffinity
         {
             entity.AffinityGroups.AddRange(value);
@@ -37,23 +34,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAffinityGroups<T>(this T entity,
-            params FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup[] value)
+        public static T SetAffinityGroups<T>(this T entity, params FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup[] value)
             where T : FeatureDefinitionAbilityCheckAffinity
         {
             SetAffinityGroups(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAffinityGroups<T>(this T entity,
-            IEnumerable<FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup> value)
+        public static T SetAffinityGroups<T>(this T entity, IEnumerable<FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup> value)
             where T : FeatureDefinitionAbilityCheckAffinity
         {
             entity.AffinityGroups.SetRange(value);
             return entity;
         }
 
-        public static T SetUseControllerAbilityChecks<T>(this T entity, Boolean value)
+        public static T SetUseControllerAbilityChecks<T>(this T entity, System.Boolean value)
             where T : FeatureDefinitionAbilityCheckAffinity
         {
             entity.SetField("useControllerAbilityChecks", value);

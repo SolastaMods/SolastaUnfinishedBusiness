@@ -5,6 +5,23 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, RecipeDefinitionBuilder>
     {
+        #region Constructors
+        protected RecipeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected RecipeDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
         {
             Definition.SetCraftedItem(craftedItem);
@@ -18,8 +35,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC,
-            ToolTypeDefinition toolType)
+        public RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC, ToolTypeDefinition toolType)
         {
             Definition.SetCraftingHours(craftingHours);
             Definition.SetCraftingDC(craftingDC);
@@ -57,7 +73,6 @@ namespace SolastaCommunityExpansion.Builders
             {
                 AddIngredient(ingredient);
             }
-
             return this;
         }
 
@@ -66,27 +81,5 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetSpellDefinition(spellDefinition);
             return this;
         }
-
-        #region Constructors
-
-        protected RecipeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected RecipeDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected RecipeDefinitionBuilder(RecipeDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 }

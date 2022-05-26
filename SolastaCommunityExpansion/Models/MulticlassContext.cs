@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
 
@@ -9,7 +9,6 @@ namespace SolastaCommunityExpansion.Models
     internal static class MulticlassContext
     {
         internal const int MAX_CLASSES = 6;
-
         internal static void Load()
         {
             // ensure these are always referenced here for diagnostics dump
@@ -30,10 +29,7 @@ namespace SolastaCommunityExpansion.Models
 
                 while (spellsByLevel.Count < Level20Context.MAX_SPELL_LEVEL + (spellListDefinition.HasCantrips ? 1 : 0))
                 {
-                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
-                    {
-                        Level = spellsByLevel.Count, Spells = new List<SpellDefinition>()
-                    });
+                    spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet { Level = spellsByLevel.Count, Spells = new() });
                 }
             }
 
@@ -85,117 +81,108 @@ namespace SolastaCommunityExpansion.Models
         private const string WardenArmorProficiencyMulticlassName = "WardenArmorProficiencyMulticlass";
         private const string WardenArmorProficiencyMulticlassGuid = "19666e846975401b819d1ae72c5d27ac";
 
+        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title, params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
+        {
+            Definition.Proficiencies.SetRange(proficienciesToReplace);
+            Definition.GuiPresentation.Title = title;
+        }
+
+        private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title, params string[] proficienciesToReplace)
+        {
+            return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
+        }
+
         public static readonly FeatureDefinitionProficiency BarbarianArmorProficiencyMulticlass =
-            CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid,
-                "Feature/&BarbarianArmorProficiencyTitle",
+            CreateAndAddToDB(BarbarianArmorProficiencyMulticlassName, BarbarianArmorProficiencyMulticlassGuid, "Feature/&BarbarianArmorProficiencyTitle",
                 EquipmentDefinitions.ShieldCategory
             );
 
         public static readonly FeatureDefinitionProficiency FighterArmorProficiencyMulticlass =
-            CreateAndAddToDB(FighterArmorProficiencyMulticlassName, FighterArmorProficiencyMulticlassGuid,
-                "Feature/&FighterArmorProficiencyTitle",
+            CreateAndAddToDB(FighterArmorProficiencyMulticlassName, FighterArmorProficiencyMulticlassGuid, "Feature/&FighterArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
             );
 
         public static readonly FeatureDefinitionProficiency PaladinArmorProficiencyMulticlass =
-            CreateAndAddToDB(PaladinArmorProficiencyMulticlassName, PaladinArmorProficiencyMulticlassGuid,
-                "Feature/&PaladinArmorProficiencyTitle",
+            CreateAndAddToDB(PaladinArmorProficiencyMulticlassName, PaladinArmorProficiencyMulticlassGuid, "Feature/&PaladinArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
             );
 
         public static readonly FeatureDefinitionProficiency WardenArmorProficiencyMulticlass =
-            CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid,
-                "Feature/&WardenArmorProficiencyTitle",
+            CreateAndAddToDB(WardenArmorProficiencyMulticlassName, WardenArmorProficiencyMulticlassGuid, "Feature/&WardenArmorProficiencyTitle",
                 EquipmentDefinitions.LightArmorCategory,
                 EquipmentDefinitions.MediumArmorCategory,
                 EquipmentDefinitions.ShieldCategory
             );
-
-        private ArmorProficiencyMulticlassBuilder(string name, string guid, string title,
-            params string[] proficienciesToReplace) : base(ProficiencyFighterArmor, name, guid)
-        {
-            Definition.Proficiencies.SetRange(proficienciesToReplace);
-            Definition.GuiPresentation.Title = title;
-        }
-
-        private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid, string title,
-            params string[] proficienciesToReplace)
-        {
-            return new ArmorProficiencyMulticlassBuilder(name, guid, title, proficienciesToReplace).AddToDB();
-        }
     }
 
     public static class SkillProficiencyPointPoolSkillsBuilder
     {
-        public static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass =
-            FeatureDefinitionPointPoolBuilder
-                .Create("PointPoolBardSkillPointsMulticlass", "a69b2527569b4893abe57ad1f80e97ed")
-                // Non-standard pattern?
-                .SetGuiPresentation("Feature/&BardSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
-                .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-                .RestrictChoices(
-                    SkillDefinitions.Acrobatics,
-                    SkillDefinitions.AnimalHandling,
-                    SkillDefinitions.Arcana,
-                    SkillDefinitions.Athletics,
-                    SkillDefinitions.Deception,
-                    SkillDefinitions.History,
-                    SkillDefinitions.Insight,
-                    SkillDefinitions.Intimidation,
-                    SkillDefinitions.Investigation,
-                    SkillDefinitions.Medecine,
-                    SkillDefinitions.Nature,
-                    SkillDefinitions.Perception,
-                    SkillDefinitions.Performance,
-                    SkillDefinitions.Persuasion,
-                    SkillDefinitions.Religion,
-                    SkillDefinitions.SleightOfHand,
-                    SkillDefinitions.Stealth,
-                    SkillDefinitions.Survival
-                )
-                .AddToDB();
+        public static readonly FeatureDefinitionPointPool PointPoolBardSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolBardSkillPointsMulticlass", "a69b2527569b4893abe57ad1f80e97ed")
+            // Non-standard pattern?
+            .SetGuiPresentation("Feature/&BardSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+            .RestrictChoices(
+                SkillDefinitions.Acrobatics,
+                SkillDefinitions.AnimalHandling,
+                SkillDefinitions.Arcana,
+                SkillDefinitions.Athletics,
+                SkillDefinitions.Deception,
+                SkillDefinitions.History,
+                SkillDefinitions.Insight,
+                SkillDefinitions.Intimidation,
+                SkillDefinitions.Investigation,
+                SkillDefinitions.Medecine,
+                SkillDefinitions.Nature,
+                SkillDefinitions.Perception,
+                SkillDefinitions.Performance,
+                SkillDefinitions.Persuasion,
+                SkillDefinitions.Religion,
+                SkillDefinitions.SleightOfHand,
+                SkillDefinitions.Stealth,
+                SkillDefinitions.Survival
+            )
+            .AddToDB();
 
-        public static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass =
-            FeatureDefinitionPointPoolBuilder
-                .Create("PointPoolRangerSkillPointsMulticlass", "096e4e01b52b490e807cf8d458845aa5")
-                // Non-standard pattern?
-                .SetGuiPresentation("Feature/&RangerSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
-                .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-                .RestrictChoices(
-                    SkillDefinitions.AnimalHandling,
-                    SkillDefinitions.Athletics,
-                    SkillDefinitions.Insight,
-                    SkillDefinitions.Investigation,
-                    SkillDefinitions.Nature,
-                    SkillDefinitions.Perception,
-                    SkillDefinitions.Survival,
-                    SkillDefinitions.Stealth
-                )
-                .AddToDB();
+        public static readonly FeatureDefinitionPointPool PointPoolRangerSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolRangerSkillPointsMulticlass", "096e4e01b52b490e807cf8d458845aa5")
+            // Non-standard pattern?
+            .SetGuiPresentation("Feature/&RangerSkillsTitle", "Feature/&SkillGainChoicesPluralDescription")
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+            .RestrictChoices(
+                SkillDefinitions.AnimalHandling,
+                SkillDefinitions.Athletics,
+                SkillDefinitions.Insight,
+                SkillDefinitions.Investigation,
+                SkillDefinitions.Nature,
+                SkillDefinitions.Perception,
+                SkillDefinitions.Survival,
+                SkillDefinitions.Stealth
+            )
+            .AddToDB();
 
-        public static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass =
-            FeatureDefinitionPointPoolBuilder
-                .Create("PointPoolRogueSkillPointsMulticlass", "451259da8c5c41f4b1b363f00b01be4e")
-                // Non-standard pattern?
-                .SetGuiPresentation("Feature/&RogueSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
-                .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
-                .RestrictChoices(
-                    SkillDefinitions.Acrobatics,
-                    SkillDefinitions.Athletics,
-                    SkillDefinitions.Deception,
-                    SkillDefinitions.Insight,
-                    SkillDefinitions.Intimidation,
-                    SkillDefinitions.Investigation,
-                    SkillDefinitions.Perception,
-                    SkillDefinitions.Performance,
-                    SkillDefinitions.Persuasion,
-                    SkillDefinitions.SleightOfHand,
-                    SkillDefinitions.Stealth
-                )
-                .AddToDB();
+        public static readonly FeatureDefinitionPointPool PointPoolRogueSkillPointsMulticlass = FeatureDefinitionPointPoolBuilder
+            .Create("PointPoolRogueSkillPointsMulticlass", "451259da8c5c41f4b1b363f00b01be4e")
+            // Non-standard pattern?
+            .SetGuiPresentation("Feature/&RogueSkillPointsTitle", "Feature/&SkillGainChoicesPluralDescription")
+            .SetPool(HeroDefinitions.PointsPoolType.Skill, 1)
+            .RestrictChoices(
+                SkillDefinitions.Acrobatics,
+                SkillDefinitions.Athletics,
+                SkillDefinitions.Deception,
+                SkillDefinitions.Insight,
+                SkillDefinitions.Intimidation,
+                SkillDefinitions.Investigation,
+                SkillDefinitions.Perception,
+                SkillDefinitions.Performance,
+                SkillDefinitions.Persuasion,
+                SkillDefinitions.SleightOfHand,
+                SkillDefinitions.Stealth
+            )
+            .AddToDB();
     }
 }

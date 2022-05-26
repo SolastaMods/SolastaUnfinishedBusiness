@@ -14,10 +14,10 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
         public string ReactionName { get; }
 
-        public FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character,
-            RuleDefinitions.RollOutcome saveOutcome)
+        public FeatureDefinitionPower GetPowerToRerollFailedSave(RulesetCharacter character, RuleDefinitions.RollOutcome saveOutcome)
         {
             return power;
         }
     }
 }
+

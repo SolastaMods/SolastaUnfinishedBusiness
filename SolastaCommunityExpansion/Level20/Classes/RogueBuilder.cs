@@ -10,13 +10,12 @@ namespace SolastaCommunityExpansion.Level20.Classes
     {
         internal static void Load()
         {
-            Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(ProficiencyRogueBlindSense, 14),
-                new(ProficiencyRogueSlipperyMind, 15),
-                new(FeatureSetAbilityScoreChoice, 16),
+            Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
+                new FeatureUnlockByLevel(ProficiencyRogueBlindSense, 14),
+                new FeatureUnlockByLevel(ProficiencyRogueSlipperyMind, 15),
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
                 // TODO 18: Elusive
-                new(FeatureSetAbilityScoreChoice, 19)
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
                 // TODO 20: Stroke of Luck
             });
         }

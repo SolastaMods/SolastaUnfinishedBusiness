@@ -9,8 +9,14 @@ namespace SolastaCommunityExpansion.CustomDefinitions
      */
     public class FeatureDefinitionOnAttackEffect : FeatureDefinition, IOnAttackEffect
     {
-        private OnAttackDelegate afterOnAttack;
         private OnAttackDelegate beforeOnAttack;
+        private OnAttackDelegate afterOnAttack;
+
+        internal void SetOnAttackDelegates(OnAttackDelegate before = null, OnAttackDelegate after = null)
+        {
+            beforeOnAttack = before;
+            afterOnAttack = after;
+        }
 
         public void BeforeOnAttack(
             GameLocationCharacter attacker,
@@ -28,12 +34,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             RulesetAttackMode attackerAttackMode)
         {
             afterOnAttack?.Invoke(attacker, defender, attackModifier, attackerAttackMode);
-        }
-
-        internal void SetOnAttackDelegates(OnAttackDelegate before = null, OnAttackDelegate after = null)
-        {
-            beforeOnAttack = before;
-            afterOnAttack = after;
         }
     }
 }

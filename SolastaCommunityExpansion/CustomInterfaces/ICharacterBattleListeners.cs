@@ -20,3 +20,5 @@
         void OnChracterBattleEnded(GameLocationCharacter locationCharacter);
     }
 }
+
+

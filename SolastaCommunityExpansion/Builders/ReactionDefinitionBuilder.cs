@@ -12,13 +12,11 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        internal ReactionDefinitionBuilder(ReactionDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
+        internal ReactionDefinitionBuilder(ReactionDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        internal ReactionDefinitionBuilder(ReactionDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
+        internal ReactionDefinitionBuilder(ReactionDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
     }

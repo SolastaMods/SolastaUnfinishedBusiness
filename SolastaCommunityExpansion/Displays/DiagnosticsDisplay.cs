@@ -118,10 +118,8 @@ namespace SolastaCommunityExpansion.Displays
                 Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
             }
 
-            ItemDefinitionVerification.Mode =
- Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
-            EffectFormVerification.Mode =
- Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
+            ItemDefinitionVerification.Mode = Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
+            EffectFormVerification.Mode = Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
 
             UI.Label("");
         }

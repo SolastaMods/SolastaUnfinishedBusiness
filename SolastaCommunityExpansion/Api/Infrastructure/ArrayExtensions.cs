@@ -15,12 +15,15 @@ namespace SolastaModApi.Infrastructure
             do
             {
                 action(array, walker.Position);
-            } while (walker.Step());
+            }
+            while (walker.Step());
         }
     }
 
     internal class ArrayTraverse
     {
+        public int[] Position { get; private set; }
+
         private readonly int[] maxLengths;
 
         public ArrayTraverse(Array array)
@@ -30,11 +33,8 @@ namespace SolastaModApi.Infrastructure
             {
                 maxLengths[i] = array.GetLength(i) - 1;
             }
-
             Position = new int[array.Rank];
         }
-
-        public int[] Position { get; }
 
         public bool Step()
         {
@@ -47,11 +47,9 @@ namespace SolastaModApi.Infrastructure
                     {
                         Position[j] = 0;
                     }
-
                     return true;
                 }
             }
-
             return false;
         }
     }

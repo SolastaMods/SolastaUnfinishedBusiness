@@ -9,20 +9,20 @@ namespace SolastaModApi.Infrastructure
         public static bool FailOnMissingMember { get; set; } = true;
 
         /// <summary>
-        ///     Usage
-        ///     <code>
+        /// Usage
+        /// <code>
         /// var instanceWithPrivateFields = CreateInstance(...);
         /// instanceWithPrivateFields.SetField("privatefield", 2);
         /// </code>
         /// </summary>
         /// <remarks>
-        ///     This does the same job as
-        ///     <code>
+        /// This does the same job as
+        /// <code>
         /// Traverse.Create(instanceWithPrivateFields).Field("privatefield").SetValue(2);
         /// </code>
-        ///     But with more brevity and more error checking.
-        ///     Traverse will happily continue without error if you supply a field name that doesn't exist.
-        ///     SetField will throw an appropriate exception.
+        /// But with more brevity and more error checking.
+        /// Traverse will happily continue without error if you supply a field name that doesn't exist.
+        /// SetField will throw an appropriate exception.
         /// </remarks>
         public static void SetField<T, V>(this T instance, string fieldName, V value) where T : class
         {

@@ -11,19 +11,14 @@ using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Builders
 {
     public abstract class DefinitionBuilder
     {
-        private protected static readonly MethodInfo GetDatabaseMethodInfo =
-            typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
-
-        public static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
-
-        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
-            GetAllDefinitionNames();
+        protected DefinitionBuilder()
+        {
+        }
 
         // NOTE: CreateGuid uses .ToString() which results in a guid of form b503ccb3-faac-4730-804c-d537bb61a582
         public static string CreateGuid(Guid guid, string name)
@@ -59,9 +54,9 @@ namespace SolastaCommunityExpansion.Builders
             if (DefinitionNames.TryGetValue(definitionName, out var item))
             {
                 var msg = Environment.NewLine +
-                          $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
-                          Environment.NewLine +
-                          $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
+                    $"Adding definition of type '{definitionTypeName}' and name '{definitionName}'." +
+                    Environment.NewLine +
+                    $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
 
 #if DEBUG
                 throw new SolastaModApiException(msg);
@@ -73,12 +68,13 @@ namespace SolastaCommunityExpansion.Builders
             DefinitionNames.Add(definitionName, (definitionTypeName, true));
         }
 
+        private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } = GetAllDefinitionNames();
+
         private static Dictionary<string, (string typeName, bool isCeDef)> GetAllDefinitionNames()
         {
             var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
 
-            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
-                         .GetValue(null))
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
             {
                 foreach (var bd in (IEnumerable)db.Value)
                 {
@@ -89,6 +85,11 @@ namespace SolastaCommunityExpansion.Builders
 
             return definitions;
         }
+
+        private protected static readonly MethodInfo GetDatabaseMethodInfo =
+            typeof(DatabaseRepository).GetMethod("GetDatabase", BindingFlags.Public | BindingFlags.Static);
+
+        public static readonly Guid CENamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
     }
 
     // Used to allow extension methods in other mods to set GuiPresentation 
@@ -96,37 +97,17 @@ namespace SolastaCommunityExpansion.Builders
     // Ok, could have used a different name...
     public interface IDefinitionBuilder
     {
-        string Name { get; }
         void SetGuiPresentation(GuiPresentation presentation);
         GuiPresentation GetGuiPresentation();
+        string Name { get; }
     }
 
     /// <summary>
     ///     Base class builder for all classes derived from BaseDefinition (for internal use only)
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
-    public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder
-        where TDefinition : BaseDefinition
+    public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefinitionBuilder where TDefinition : BaseDefinition
     {
-        /// <summary>
-        ///     Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
-        /// </summary>
-        protected bool IsNew { get; }
-
-        protected TDefinition Definition { get; }
-
-        /// <summary>
-        ///     Implement in derived builders to enforce any require preconditions, values etc, e.g.
-        ///     <code>Definition.EffectDescription = new ();</code>
-        /// </summary>
-        protected virtual void Initialise() { }
-
-        /// <summary>
-        ///     Called before the definition is added to the databases.
-        ///     Verify post-condition checks here.
-        /// </summary>
-        internal virtual void Validate() { }
-
         #region Helpers
 
         // Explicit implementation not visible by default so doesn't clash with other extension methods
@@ -152,21 +133,20 @@ namespace SolastaCommunityExpansion.Builders
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
             void InitializeCollectionFields(Type type)
             {
-                if (type == null || type == typeof(object) || type == typeof(BaseDefinition) || type == typeof(Object))
+                if (type == null || type == typeof(object) || type == typeof(BaseDefinition) || type == typeof(UnityEngine.Object))
                 {
                     return;
                 }
 
                 // Reflection will only return private fields declared on this type, not base classes
                 foreach (var field in type
-                             .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                             .Where(f => f.FieldType.IsGenericType)
-                             .Where(f => f.GetValue(Definition) == null))
+                    .GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
+                    .Where(f => f.FieldType.IsGenericType)
+                    .Where(f => f.GetValue(Definition) == null))
                 {
                     try
                     {
-                        LogFieldInitialization(
-                            $"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
+                        LogFieldInitialization($"Initializing field {field.Name} on Type={Definition.GetType().Name}, Name={Definition.Name}");
 
                         field.SetValue(Definition, Activator.CreateInstance(field.FieldType));
                     }
@@ -196,8 +176,7 @@ namespace SolastaCommunityExpansion.Builders
         #region Constructors
 
         /// <summary>
-        ///     Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid" /> plus
-        ///     <paramref name="name" />.
+        /// Create a new instance of TDefinition. Generate Definition.Guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
@@ -207,7 +186,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Create a new instance of TDefinition.  Assign the supplied guid as the definition guid.
+        /// Create a new instance of TDefinition.  Assign the supplied guid as the definition guid.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
@@ -257,8 +236,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Create a clone of <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a
-        ///     guid from <paramref name="namespaceGuid" /> plus <paramref name="name" />.
+        /// Create a clone of <paramref name="original"/> and rename as <paramref name="name"/>. Automatically generate a guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -269,8 +247,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Create clone and rename as <paramref name="name" />. Assign the supplied <paramref name="definitionGuid" /> as the
-        ///     definition guid.
+        /// Create clone and rename as <paramref name="name"/>. Assign the supplied <paramref name="definitionGuid"/> as the definition guid.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -281,8 +258,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         // TODO: two very similar ctors - worth combining?
-        private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid,
-            bool useNamespaceGuid)
+        private DefinitionBuilder(TDefinition original, string name, string definitionGuid, Guid namespaceGuid, bool useNamespaceGuid)
         {
             Preconditions.IsNotNull(original, nameof(original));
             Preconditions.IsNotNullOrWhiteSpace(name, nameof(name));
@@ -290,7 +266,7 @@ namespace SolastaCommunityExpansion.Builders
             var originalName = original.name;
             var originalGuid = original.GUID;
 
-            Definition = Object.Instantiate(original);
+            Definition = UnityEngine.Object.Instantiate(original);
             Definition.name = name;
 
             VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
@@ -307,21 +283,19 @@ namespace SolastaCommunityExpansion.Builders
                 // create guid from namespace+name
                 Definition.SetUserContentGUID(CreateGuid(namespaceGuid, name));
 
-                LogDefinition(
-                    $"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, namespace={namespaceGuid}, {Definition.GUID})");
+                LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, namespace={namespaceGuid}, {Definition.GUID})");
             }
             else
             {
                 // directly assign guid
                 Definition.SetUserContentGUID(definitionGuid);
 
-                LogDefinition(
-                    $"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
+                LogDefinition($"New-Cloning definition: original({originalName}, {originalGuid}) => ({name}, {Definition.GUID})");
             }
         }
 
         /// <summary>
-        ///     Take ownership of a definition without changing the name or guid.
+        /// Take ownership of a definition without changing the name or guid.
         /// </summary>
         /// <param name="original">The definition</param>
         private protected DefinitionBuilder(TDefinition original)
@@ -332,14 +306,30 @@ namespace SolastaCommunityExpansion.Builders
 
         #endregion
 
-        #region Add to dbs
+        /// <summary>
+        /// Indicates if 'true' it's a brand new definition, 'false' it's a copy of an existing definition.
+        /// </summary>
+        protected bool IsNew { get; }
 
         /// <summary>
-        ///     Add the TDefinition to every compatible database
+        /// Implement in derived builders to enforce any require preconditions, values etc, e.g.
+        /// <code>Definition.EffectDescription = new ();</code>
+        /// </summary>
+        protected virtual void Initialise() { }
+
+        /// <summary>
+        /// Called before the definition is added to the databases.
+        /// Verify post-condition checks here.
+        /// </summary>
+        internal virtual void Validate() { }
+
+        #region Add to dbs
+        /// <summary>
+        /// Add the TDefinition to every compatible database
         /// </summary>
         /// <remarks>
-        ///     By default AddToDB will set the copyright to 'User Content' and the content pack to 'Community Expansion'.
-        ///     To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
+        /// By default AddToDB will set the copyright to 'User Content' and the content pack to 'Community Expansion'.
+        /// To set your own values use the AddToDB(true|false, copyright, contentpack) overload.
         /// </remarks>
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
@@ -350,13 +340,12 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Add the TDefinition to every compatible database
+        /// Add the TDefinition to every compatible database
         /// </summary>
         /// <param name="assertIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="SolastaModApiException"></exception>
-        public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
-            GamingPlatformDefinitions.ContentPack? contentPack)
+        public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright, GamingPlatformDefinitions.ContentPack? contentPack)
         {
             Preconditions.IsNotNull(Definition, nameof(Definition));
             Preconditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
@@ -447,7 +436,7 @@ namespace SolastaCommunityExpansion.Builders
                         throw new SolastaModApiException($"Could not locate the 'Add' method for {dbType.FullName}.");
                     }
 
-                    methodInfo.Invoke(db, new object[] {Definition});
+                    methodInfo.Invoke(db, new object[] { Definition });
                 }
 
                 bool dbHasElement(string name)
@@ -460,7 +449,7 @@ namespace SolastaCommunityExpansion.Builders
                             $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                     }
 
-                    return (bool)methodInfo.Invoke(db, new object[] {name});
+                    return (bool)methodInfo.Invoke(db, new object[] { name });
                 }
 
                 bool dbHasElementByGuid(string guid)
@@ -473,7 +462,7 @@ namespace SolastaCommunityExpansion.Builders
                             $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
                     }
 
-                    return (bool)methodInfo.Invoke(db, new object[] {guid});
+                    return (bool)methodInfo.Invoke(db, new object[] { guid });
                 }
             }
 
@@ -484,16 +473,17 @@ namespace SolastaCommunityExpansion.Builders
                 {
                     return Enumerable.Repeat(t, 1).Concat(GetBaseTypes(t.BaseType));
                 }
-
-                return Enumerable.Empty<Type>();
+                else
+                {
+                    return Enumerable.Empty<Type>();
+                }
             }
 
             void VerifyGuiPresentation()
             {
                 if (Definition.GuiPresentation == null)
                 {
-                    Main.Log(
-                        $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
+                    Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
 
                     Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
                 }
@@ -501,16 +491,14 @@ namespace SolastaCommunityExpansion.Builders
                 {
                     if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
                     {
-                        Main.Log(
-                            $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
+                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
 
                         Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
                     }
 
                     if (string.IsNullOrEmpty(Definition.GuiPresentation.Description))
                     {
-                        Main.Log(
-                            $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
+                        Main.Log($"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
 
                         Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
                     }
@@ -519,12 +507,14 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
+
+        protected TDefinition Definition { get; }
     }
 
     /// <summary>
     ///     <para>Base class builder for all classes derived from BaseDefinition (for internal use only).</para>
     ///     <para>
-    ///         This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder" />.
+    ///     This version of DefinitionBuilder allows passing the builder type as <typeparamref name="TBuilder"/>.  
     ///     </para>
     /// </summary>
     /// <typeparam name="TDefinition"></typeparam>
@@ -538,19 +528,12 @@ namespace SolastaCommunityExpansion.Builders
         private protected DefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid) { }
         private protected DefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid) { }
 
-        private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original,
-            name, definitionGuid)
-        {
-        }
+        private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid) { }
+        private protected DefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid) { }
 
         /// <summary>
-        ///     Override this in a derived builder (and set to true) to disable the standard set of Create methods.
-        ///     You must then provide your own specialized constructor and/or Create method.
+        /// Override this in a derived builder (and set to true) to disable the standard set of Create methods.
+        /// You must then provide your own specialized constructor and/or Create method.
         /// </summary>
         protected virtual bool DisableStandardCreateMethods => false;
 
@@ -558,21 +541,18 @@ namespace SolastaCommunityExpansion.Builders
         {
             var parameterTypes = parameters.Select(p => p.GetType()).ToArray();
 
-            var ctor = typeof(TBuilder).GetConstructor(
-                BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public, null, parameterTypes, null);
+            var ctor = typeof(TBuilder).GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public, null, parameterTypes, null);
 
             if (ctor == null)
             {
-                throw new SolastaModApiException(
-                    $"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
+                throw new SolastaModApiException($"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
             }
 
             var builder = (TBuilder)ctor.Invoke(parameters);
 
             if (builder.DisableStandardCreateMethods)
             {
-                throw new SolastaModApiException(
-                    $"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
+                throw new SolastaModApiException($"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
             }
 
             builder.Initialise();
@@ -586,8 +566,7 @@ namespace SolastaCommunityExpansion.Builders
         // use private ctors in Create methods
 
         /// <summary>
-        ///     Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from
-        ///     <paramref name="namespaceGuid" /> plus <paramref name="name" />.
+        /// Create a new instance of TBuilder with an associated Definition. Generate Definition.Guid from <paramref name="namespaceGuid"/> plus <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
@@ -597,7 +576,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Create a new instance of TBuilder with an associated Definition.  Assign the supplied guid as the definition guid.
+        /// Create a new instance of TBuilder with an associated Definition.  Assign the supplied guid as the definition guid.
         /// </summary>
         /// <param name="name">The name assigned to the definition (mandatory)</param>
         /// <param name="definitionGuid">The guid for this definition (mandatory)</param>
@@ -607,8 +586,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Create clone or <paramref name="original" /> and rename as <paramref name="name" />. Automatically generate a guid
-        ///     from <paramref name="name" /> plus <paramref name="namespaceGuid" />.
+        /// Create clone or <paramref name="original"/> and rename as <paramref name="name"/>. Automatically generate a guid from <paramref name="name"/> plus <paramref name="namespaceGuid"/>.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>
@@ -619,8 +597,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        ///     Create clone and rename as <paramref name="name" />. Assign the supplied <paramref name="definitionGuid" /> as the
-        ///     definition guid.
+        /// Create clone and rename as <paramref name="name"/>. Assign the supplied <paramref name="definitionGuid"/> as the definition guid.
         /// </summary>
         /// <param name="original">The definition being copied.</param>
         /// <param name="name">The name assigned to the definition (mandatory).</param>

@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,8 +14,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatSubPanel_Bind
     {
-        internal static void Prefix(List<FeatDefinition> ___relevantFeats, RectTransform ___table,
-            GameObject ___itemPrefab)
+        internal static void Prefix(List<FeatDefinition> ___relevantFeats, RectTransform ___table, GameObject ___itemPrefab)
         {
             var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
 
@@ -47,8 +44,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     {
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder).GetMethod("ForceRebuildLayoutImmediate",
-                BindingFlags.Static | BindingFlags.Public);
+            var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder).GetMethod("ForceRebuildLayoutImmediate", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public);
             var forceSameWidthMethod = typeof(FeatSubPanel_SetState).GetMethod("ForceSameWidth");
 
             var code = instructions.ToList();
@@ -69,7 +65,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
             if (active && Main.Settings.EnableSameWidthFeatSelection)
             {
-                var hero = Global.ActiveLevelUpHero;
+                var hero = Models.Global.ActiveLevelUpHero;
                 var buildingData = hero.GetHeroBuildingData();
 
                 if (buildingData == null)

@@ -1,5 +1,4 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +9,12 @@ namespace ModKit
 {
     public static partial class UI
     {
-        private const int sliderTop = 3;
-        private const int sliderBottom = -7;
-
-        private static readonly HashSet<Type> widthTypes = new()
-        {
-            Width(0).GetType(), MinWidth(0).GetType(), MaxWidth(0).GetType(), AutoWidth().GetType()
+        private static readonly HashSet<Type> widthTypes = new() {
+            UI.Width(0).GetType(),
+            UI.MinWidth(0).GetType(),
+            UI.MaxWidth(0).GetType(),
+            UI.AutoWidth().GetType()
         };
-
         public static GUILayoutOption[] AddDefaults(this GUILayoutOption[] options, params GUILayoutOption[] desired)
         {
             foreach (var option in options)
@@ -27,7 +24,6 @@ namespace ModKit
                     return options;
                 }
             }
-
             if (desired.Length > 0)
             {
                 options = options.Concat(desired).ToArray();
@@ -42,39 +38,28 @@ namespace ModKit
 
         // Labels
 
-        public static void Label(string title, params GUILayoutOption[] options)
-        {
+        public static void Label(string title, params GUILayoutOption[] options) =>
             // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
             GL.Label(title, options.AddDefaults());
-        }
-
-        public static void Label(string title, GUIStyle style, params GUILayoutOption[] options)
-        {
-            //  if (options.Length == 0) { options = new GUILayoutOption[] { GL.Width(150f) }; }
+        public static void Label(string title, GUIStyle style, params GUILayoutOption[] options) =>
             // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
+            //  if (options.Length == 0) { options = new GUILayoutOption[] { GL.Width(150f) }; }
             GL.Label(title, style, options.AddDefaults());
-        }
-
-        public static void Label(GUIContent content, params GUILayoutOption[] options)
-        {
-            //  if (options.Length == 0) { options = new GUILayoutOption[] { GL.Width(150f) }; }
+        public static void Label(GUIContent content, params GUILayoutOption[] options) =>
             // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
+            //  if (options.Length == 0) { options = new GUILayoutOption[] { GL.Width(150f) }; }
             GL.Label(content, options);
-        }
-
         public static void DescriptiveLabel(string title, string description, params GUILayoutOption[] options)
         {
-            options = options.AddDefaults(Width(300));
-            using (HorizontalScope())
+            options = options.AddDefaults(UI.Width(300));
+            using (UI.HorizontalScope())
             {
-                Label(title, options);
-                Space(25);
-                Label(description);
+                UI.Label(title, options);
+                UI.Space(25);
+                UI.Label(description);
             }
         }
-
-        public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth,
-            GUIStyle style, Func<string, string> formatter = null, params GUILayoutOption[] options)
+        public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth, GUIStyle style, Func<string, string> formatter = null, params GUILayoutOption[] options)
         {
             var changed = false;
             if (editState.Item1 != label)
@@ -100,7 +85,6 @@ namespace ModKit
                     {
                         editState = (null, null);
                     }
-
                     if (GL.Button("✔".green(), GUI.skin.box, AutoWidth())
                         || (userHasHitReturn && focusedControlName == label))
                     {
@@ -110,26 +94,18 @@ namespace ModKit
                     }
                 }
             }
-
             return changed;
         }
-
-        public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth,
-            Func<string, string> formatter = null, params GUILayoutOption[] options)
-        {
-            return EditableLabel(ref label, ref editState, minWidth, GUI.skin.label, formatter, options);
-        }
+        public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth, Func<string, string> formatter = null, params GUILayoutOption[] options) => EditableLabel(ref label, ref editState, minWidth, GUI.skin.label, formatter, options);
 
         // Text Fields
 
         public static string TextField(ref string text, string name = null, params GUILayoutOption[] options)
         {
             if (name != null) { GUI.SetNextControlName(name); }
-
             text = GL.TextField(text, options.AddDefaults());
             return text;
         }
-
         public static int IntTextField(ref int value, string name = null, params GUILayoutOption[] options)
         {
             var text = $"{value}";
@@ -137,7 +113,6 @@ namespace ModKit
             int.TryParse(text, out value);
             return value;
         }
-
         public static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
         {
             var text = $"{value}";
@@ -146,18 +121,17 @@ namespace ModKit
             {
                 value = val;
             }
-
             return value;
         }
 
         // Action Text Fields
 
         public static void ActionTextField(ref string text,
-            string name,
-            Action<string> action,
-            Action enterAction,
-            params GUILayoutOption[] options
-        )
+                string name,
+                Action<string> action,
+                Action enterAction,
+                params GUILayoutOption[] options
+            )
         {
             if (name != null)
             {
@@ -170,20 +144,14 @@ namespace ModKit
                 text = newText;
                 action?.Invoke(text);
             }
-
             if (name != null && enterAction != null && userHasHitReturn && focusedControlName == name)
             {
                 enterAction();
             }
         }
-
         public static void ActionTextField(ref string text,
             Action<string> action,
-            params GUILayoutOption[] options)
-        {
-            ActionTextField(ref text, null, action, null, options);
-        }
-
+            params GUILayoutOption[] options) => ActionTextField(ref text, null, action, null, options);
         public static void ActionIntTextField(
             ref int value,
             string name,
@@ -199,47 +167,35 @@ namespace ModKit
             var str = $"{value}";
             ActionTextField(ref str,
                 name,
-                text => { changed = true; },
+                (text) => { changed = true; },
                 () => { hitEnter = true; },
                 options);
             int.TryParse(str, out value);
             value = Math.Min(max, Math.Max(value, min));
             if (changed) { action(value); }
-
             if (hitEnter && enterAction != null) { enterAction(); }
         }
-
         public static void ActionIntTextField(
-            ref int value,
-            string name,
-            Action<int> action,
-            Action enterAction,
-            params GUILayoutOption[] options)
-        {
-            ActionIntTextField(ref value, name, action, enterAction, int.MinValue, int.MaxValue, options);
-        }
-
+                ref int value,
+                string name,
+                Action<int> action,
+                Action enterAction,
+                params GUILayoutOption[] options) => ActionIntTextField(ref value, name, action, enterAction, int.MinValue, int.MaxValue, options);
         public static void ActionIntTextField(
-            ref int value,
-            Action<int> action,
-            params GUILayoutOption[] options)
-        {
-            ActionIntTextField(ref value, null, action, null, int.MinValue, int.MaxValue, options);
-        }
+                ref int value,
+                Action<int> action,
+                params GUILayoutOption[] options) => ActionIntTextField(ref value, null, action, null, int.MinValue, int.MaxValue, options);
 
         // Buttons
 
         public static bool Button(string title, ref bool pressed, params GUILayoutOption[] options)
         {
             if (GL.Button(title, options.AddDefaults())) { pressed = true; }
-
             return pressed;
         }
-
         public static bool Button(string title, ref bool pressed, GUIStyle style, params GUILayoutOption[] options)
         {
             if (GL.Button(title, style, options.AddDefaults())) { pressed = true; }
-
             return pressed;
         }
 
@@ -249,31 +205,28 @@ namespace ModKit
         {
             if (GL.Button(title, options.AddDefaults())) { action(); }
         }
-
         public static void ActionButton(string title, Action action, GUIStyle style, params GUILayoutOption[] options)
         {
             if (GL.Button(title, style, options.AddDefaults())) { action(); }
         }
 
-        public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action,
-            params GUILayoutOption[] options)
+        public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action, params GUILayoutOption[] options)
         {
-            using (HorizontalScope())
+            using (UI.HorizontalScope())
             {
                 var areYouSure = areYouSureState;
                 ActionButton(title, () => { areYouSure = !areYouSure; });
                 if (areYouSureState)
                 {
-                    Space(25);
-                    Label("Are you sure?".yellow());
-                    Space(25);
+                    UI.Space(25);
+                    UI.Label("Are you sure?".yellow());
+                    UI.Space(25);
                     ActionButton("YES".yellow().bold(), action);
-                    Space(10);
+                    UI.Space(10);
                     ActionButton("NO".green(), () => areYouSure = false);
-                    Space(25);
-                    Label(warning.orange());
+                    UI.Space(25);
+                    UI.Label(warning.orange());
                 }
-
                 areYouSureState = areYouSure;
             }
         }
@@ -285,39 +238,34 @@ namespace ModKit
             var v = value;
             if (v > min)
             {
-                ActionButton(" < ", () => { v = Math.Max(v - increment, min); }, textBoxStyle, AutoWidth());
+                ActionButton(" < ", () => { v = Math.Max(v - increment, min); }, UI.textBoxStyle, AutoWidth());
             }
             else
             {
-                Space(-21);
-                ActionButton("min ".cyan(), () => { }, textBoxStyle, AutoWidth());
+                UI.Space(-21);
+                ActionButton("min ".cyan(), () => { }, UI.textBoxStyle, AutoWidth());
             }
-
             Space(-8);
             var temp = false;
-            Button($"{v}".orange().bold(), ref temp, textBoxStyle, AutoWidth());
+            UI.Button($"{v}".orange().bold(), ref temp, UI.textBoxStyle, AutoWidth());
             Space(-8);
             if (v < max)
             {
-                ActionButton(" > ", () => { v = Math.Min(v + increment, max); }, textBoxStyle, AutoWidth());
+                ActionButton(" > ", () => { v = Math.Min(v + increment, max); }, UI.textBoxStyle, AutoWidth());
             }
             else
             {
-                ActionButton(" max".cyan(), () => { }, textBoxStyle, AutoWidth());
-                Space(-27);
+                ActionButton(" max".cyan(), () => { }, UI.textBoxStyle, AutoWidth());
+                UI.Space(-27);
             }
-
             if (v != value)
             {
                 value = v;
                 return true;
             }
-
             return false;
         }
-
-        public static bool ValueAdjuster(Func<int> get, Action<int> set, int increment = 1, int min = 0,
-            int max = int.MaxValue)
+        public static bool ValueAdjuster(Func<int> get, Action<int> set, int increment = 1, int min = 0, int max = int.MaxValue)
         {
             var value = get();
             var changed = ValueAdjuster(ref value, increment, min, max);
@@ -329,49 +277,43 @@ namespace ModKit
             return changed;
         }
 
-        public static bool ValueAdjuster(string title, ref int value, int increment = 1, int min = 0,
-            int max = int.MaxValue, params GUILayoutOption[] options)
+        public static bool ValueAdjuster(string title, ref int value, int increment = 1, int min = 0, int max = int.MaxValue, params GUILayoutOption[] options)
         {
             var changed = false;
-            using (HorizontalScope(options))
+            using (UI.HorizontalScope(options))
             {
-                Label(title);
-                changed = ValueAdjuster(ref value, increment, min, max);
+                UI.Label(title);
+                changed = UI.ValueAdjuster(ref value, increment, min, max);
             }
-
             return changed;
         }
-
-        public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
-            int max = int.MaxValue, params GUILayoutOption[] options)
+        public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0, int max = int.MaxValue, params GUILayoutOption[] options)
         {
             var changed = false;
-            using (HorizontalScope(Width(400)))
+            using (UI.HorizontalScope(UI.Width(400)))
             {
-                Label(title.cyan(), Width(300));
-                Space(15);
+                UI.Label(title.cyan(), UI.Width(300));
+                UI.Space(15);
                 var value = get();
-                changed = ValueAdjuster(ref value, increment, min, max);
+                changed = UI.ValueAdjuster(ref value, increment, min, max);
                 if (changed)
                 {
                     set(value);
                 }
             }
-
             return changed;
         }
 
         // Value Editors 
 
-        public static bool ValueEditor(string title, Func<int> get, Action<int> set, ref int increment, int min = 0,
-            int max = int.MaxValue, params GUILayoutOption[] options)
+        public static bool ValueEditor(string title, Func<int> get, Action<int> set, ref int increment, int min = 0, int max = int.MaxValue, params GUILayoutOption[] options)
         {
             var changed = false;
             var value = get();
             var inc = increment;
-            using (HorizontalScope(options))
+            using (UI.HorizontalScope(options))
             {
-                Label(title.cyan(), ExpandWidth(true));
+                Label(title.cyan(), UI.ExpandWidth(true));
                 Space(25);
                 var fieldWidth = GUI.skin.textField.CalcSize(new GUIContent(max.ToString())).x;
                 if (ValueAdjuster(ref value, inc, min, max))
@@ -379,21 +321,18 @@ namespace ModKit
                     set(value);
                     changed = true;
                 }
-
                 Space(50);
-                ActionIntTextField(ref inc, title, v => { }, null, Width(fieldWidth + 25));
+                ActionIntTextField(ref inc, title, (v) => { }, null, Width(fieldWidth + 25));
                 increment = inc;
             }
-
             return changed;
         }
 
         // Sliders
 
-        public static bool Slider(ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0,
-            string units = "", params GUILayoutOption[] options)
+        public static bool Slider(ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
         {
-            value = Math.Max(min, Math.Min(max, value)); // clamp it
+            value = Math.Max(min, Math.Min(max, value));    // clamp it
             var newValue = (float)Math.Round(GL.HorizontalSlider(value, min, max, Width(200)), decimals);
             using (HorizontalScope(options))
             {
@@ -407,16 +346,16 @@ namespace ModKit
                 Space(25);
                 ActionButton("Reset", () => { newValue = defaultValue; }, AutoWidth());
             }
-
             var changed = value != newValue;
             value = newValue;
             return changed;
         }
 
-        public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
-            int decimals = 0, string units = "", params GUILayoutOption[] options)
+        private const int sliderTop = 3;
+        private const int sliderBottom = -7;
+        public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
         {
-            value = Math.Max(min, Math.Min(max, value)); // clamp it
+            value = Math.Max(min, Math.Min(max, value));    // clamp it
             var newValue = value;
             using (HorizontalScope(options))
             {
@@ -426,7 +365,6 @@ namespace ModKit
                     Label(title.cyan(), Width(300));
                     Space(sliderBottom.point());
                 }
-
                 Space(25);
                 using (VerticalScope(Width(200)))
                 {
@@ -434,7 +372,6 @@ namespace ModKit
                     newValue = (float)Math.Round(GL.HorizontalSlider(value, min, max, Width(200)), decimals);
                     Space(sliderBottom.point());
                 }
-
                 Space(25);
                 using (VerticalScope(Width(75)))
                 {
@@ -442,7 +379,6 @@ namespace ModKit
                     FloatTextField(ref newValue, null, Width(75));
                     Space(sliderBottom.point());
                 }
-
                 if (units.Length > 0)
                 {
                     Label($"{units}".orange().bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
@@ -456,15 +392,12 @@ namespace ModKit
                     Space(sliderBottom.point());
                 }
             }
-
             var changed = value != newValue;
             value = Math.Min(max, Math.Max(min, newValue));
             value = newValue;
             return changed;
         }
-
-        public static bool Slider(string title, Func<float> get, Action<float> set, float min, float max,
-            float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+        public static bool Slider(string title, Func<float> get, Action<float> set, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
         {
             var value = get();
             var changed = Slider(title, ref value, min, max, defaultValue, decimals, units, options);
@@ -475,18 +408,14 @@ namespace ModKit
 
             return changed;
         }
-
-        public static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1,
-            string units = "", params GUILayoutOption[] options)
+        public static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1, string units = "", params GUILayoutOption[] options)
         {
             float fvalue = value;
             var changed = Slider(title, ref fvalue, min, max, defaultValue, 0, units, options);
             value = (int)fvalue;
             return changed;
         }
-
-        public static bool Slider(string title, Func<int> get, Action<int> set, int min, int max, int defaultValue = 1,
-            string units = "", params GUILayoutOption[] options)
+        public static bool Slider(string title, Func<int> get, Action<int> set, int min, int max, int defaultValue = 1, string units = "", params GUILayoutOption[] options)
         {
             float fvalue = get();
             var changed = Slider(title, ref fvalue, min, max, defaultValue, 0, units, options);
@@ -498,17 +427,14 @@ namespace ModKit
             return changed;
         }
 
-        public static bool Slider(ref int value, int min, int max, int defaultValue = 1, string units = "",
-            params GUILayoutOption[] options)
+        public static bool Slider(ref int value, int min, int max, int defaultValue = 1, string units = "", params GUILayoutOption[] options)
         {
             float fvalue = value;
             var changed = Slider(ref fvalue, min, max, defaultValue, 0, units, options);
             value = (int)fvalue;
             return changed;
         }
-
-        public static bool LogSlider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
-            int decimals = 0, string units = "", params GUILayoutOption[] options)
+        public static bool LogSlider(string title, ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
         {
             if (min < 0)
             {
@@ -522,9 +448,8 @@ namespace ModKit
                 Label(title.cyan(), Width(300));
                 Space(sliderBottom.point());
             }
-
             Space(25);
-            value = Math.Max(min, Math.Min(max, value)); // clamp it
+            value = Math.Max(min, Math.Min(max, value));    // clamp it
             var offset = 1;
             var places = (int)Math.Max(0, Math.Min(15, decimals + 1.01 - Math.Log10(value + offset)));
             var logMin = 100f * (float)Math.Log10(min + offset);
@@ -534,10 +459,9 @@ namespace ModKit
             using (VerticalScope(Width(200)))
             {
                 Space((sliderTop + 4).point());
-                logNewValue = GL.HorizontalSlider(logValue, logMin, logMax, Width(200));
+                logNewValue = (float)GL.HorizontalSlider(logValue, logMin, logMax, Width(200));
                 Space(sliderBottom.point());
             }
-
             var newValue = (float)Math.Round(Math.Pow(10, logNewValue / 100f) - offset, places);
             Space(25);
             using (VerticalScope(Width(75)))
@@ -546,7 +470,6 @@ namespace ModKit
                 FloatTextField(ref newValue, null, Width(75));
                 Space(sliderBottom.point());
             }
-
             if (units.Length > 0)
             {
                 Label($"{units}".orange().bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
@@ -559,15 +482,12 @@ namespace ModKit
                 ActionButton("Reset", () => { newValue = defaultValue; }, AutoWidth());
                 Space(sliderBottom.point());
             }
-
             EndHorizontal();
             var changed = value != newValue;
             value = Math.Min(max, Math.Max(min, newValue));
             return changed;
         }
-
-        public static bool LogSlider(string title, Func<float> get, Action<float> set, float min, float max,
-            float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+        public static bool LogSlider(string title, Func<float> get, Action<float> set, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
         {
             var value = get();
             var changed = LogSlider(title, ref value, min, max, defaultValue, decimals, units, options);
@@ -577,6 +497,7 @@ namespace ModKit
             }
 
             return changed;
+
         }
     }
 }

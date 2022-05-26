@@ -9,15 +9,31 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefinitionBuilder>
     {
-        public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
-            params ContentFragmentDescription[] contentFragments)
+        #region Constructors
+        protected ItemDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected ItemDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected ItemDefinitionBuilder(ItemDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, params ContentFragmentDescription[] contentFragments)
         {
             SetDocumentInformation(recipeDefinition, contentFragments.AsEnumerable());
             return this;
         }
 
-        public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition,
-            IEnumerable<ContentFragmentDescription> contentFragments)
+        public ItemDefinitionBuilder SetDocumentInformation(RecipeDefinition recipeDefinition, IEnumerable<ContentFragmentDescription> contentFragments)
         {
             if (Definition.DocumentDescription == null)
             {
@@ -42,7 +58,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public ItemDefinitionBuilder SetGold(int gold)
         {
-            Definition.SetCosts(new[] {0, gold, 0, 0, 0});
+            Definition.SetCosts(new[] { 0, gold, 0, 0, 0 });
             return this;
         }
 
@@ -179,34 +195,10 @@ namespace SolastaCommunityExpansion.Builders
             foreach (var power in functions)
             {
                 var functionDescription =
-                    deviceFunction.Copy().SetType(DeviceFunctionDescription.FunctionType.Power)
-                        .SetFeatureDefinitionPower(power);
+                    deviceFunction.Copy().SetType(DeviceFunctionDescription.FunctionType.Power).SetFeatureDefinitionPower(power);
                 Definition.UsableDeviceDescription.DeviceFunctions.Add(functionDescription);
             }
-
             return this;
         }
-
-        #region Constructors
-
-        protected ItemDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected ItemDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid) : base(original, name,
-            namespaceGuid)
-        {
-        }
-
-        protected ItemDefinitionBuilder(ItemDefinition original, string name, string definitionGuid) : base(original,
-            name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 }

@@ -31,21 +31,17 @@ namespace SolastaCommunityExpansion.Feats
             var lightArmorFeat = BuildFeat("FeatLightArmor", lightArmorProficiency, dexterityModifier);
 
             // Note: medium armor feats have pre-req of light armor
-            var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency,
-                dexterityModifier);
-            var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory,
-                mediumArmorProficiency, strengthModifier);
+            var mediumDexArmorFeat = BuildFeat("FeatMediumArmorDex", LightArmorCategory, mediumArmorProficiency, dexterityModifier);
+            var mediumStrengthArmorFeat = BuildFeat("FeatMediumArmorStrength", LightArmorCategory, mediumArmorProficiency, strengthModifier);
 
             // Note: heavy armor master has pre-req of heavy armor
             var heavyArmorMasterFeat = BuildFeat("FeatHeavyArmorMasterClass", HeavyArmorCategory,
-                DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance,
-                DamageAffinityPiercingResistance);
+                DamageAffinityBludgeoningResistance, DamageAffinitySlashingResistance, DamageAffinityPiercingResistance);
 
             feats.AddRange(lightArmorFeat, mediumDexArmorFeat, mediumStrengthArmorFeat, heavyArmorMasterFeat);
         }
 
-        public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite,
-            params FeatureDefinition[] features)
+        public static FeatDefinition BuildFeat(string name, ArmorCategoryDefinition prerequisite, params FeatureDefinition[] features)
         {
             return FeatDefinitionBuilder
                 .Create(name, ArmorNamespace)
@@ -64,8 +60,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
         }
 
-        public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
-            params string[] proficiencies)
+        public static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type, params string[] proficiencies)
         {
             return FeatureDefinitionProficiencyBuilder
                 .Create(name, ArmorNamespace)
@@ -74,8 +69,7 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
         }
 
-        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name,
-            AttributeModifierOperation modifierType, string attribute, int amount)
+        public static FeatureDefinitionAttributeModifier BuildAttributeModifier(string name, AttributeModifierOperation modifierType, string attribute, int amount)
         {
             return FeatureDefinitionAttributeModifierBuilder
                 .Create(name, ArmorNamespace)

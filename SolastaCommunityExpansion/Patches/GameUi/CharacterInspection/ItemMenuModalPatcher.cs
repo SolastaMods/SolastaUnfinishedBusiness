@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
@@ -18,17 +17,15 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
         public static int MaxSpellLevelOfSpellCastingLevel(RulesetSpellRepertoire repertoire)
         {
-            return SharedSpellsContext.GetClassSpellLevel(repertoire);
+            return Models.SharedSpellsContext.GetClassSpellLevel(repertoire);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");
             var myRequiresDeityMethod = typeof(ItemMenuModal_SetupFromItem).GetMethod("RequiresDeity");
-            var maxSpellLevelOfSpellCastingLevelMethod =
-                typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
-            var myMaxSpellLevelOfSpellCastingLevelMethod =
-                typeof(ItemMenuModal_SetupFromItem).GetMethod("MaxSpellLevelOfSpellCastingLevel");
+            var maxSpellLevelOfSpellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_MaxSpellLevelOfSpellCastingLevel");
+            var myMaxSpellLevelOfSpellCastingLevelMethod = typeof(ItemMenuModal_SetupFromItem).GetMethod("MaxSpellLevelOfSpellCastingLevel");
 
             foreach (var instruction in instructions)
             {

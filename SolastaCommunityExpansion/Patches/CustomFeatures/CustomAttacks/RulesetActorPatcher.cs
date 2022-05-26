@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
             }
 
             foreach (var contender in battleService.Battle.AllContenders
-                         .Where(x => x != null && x.Valid && x.RulesetActor != null))
+                .Where(x => x != null && x.Valid && x.RulesetActor != null))
             {
                 var conditionsToRemove = new List<RulesetCondition>();
 
@@ -36,8 +36,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
                 {
                     foreach (var rulesetCondition in keyValuePair.Value)
                     {
-                        if (rulesetCondition.SourceGuid == __instance.Guid &&
-                            rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
+                        if (rulesetCondition.SourceGuid == __instance.Guid && rulesetCondition.ConditionDefinition is IConditionRemovedOnSourceTurnStart)
                         {
                             conditionsToRemove.Add(rulesetCondition);
                         }

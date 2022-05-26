@@ -91,7 +91,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
             {
                 return;
             }
-
             foreach (var listener in listeners)
             {
                 listener.OnHeroRefreshed(__instance);

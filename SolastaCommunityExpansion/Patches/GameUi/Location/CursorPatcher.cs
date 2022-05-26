@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
     internal static class Cursor_OnClickSecondaryPointer
     {
         /// <summary>
-        ///     Note: OnClickSecondaryPointer currently not used.  Need to check usage in future updates.
+        /// Note: OnClickSecondaryPointer currently not used.  Need to check usage in future updates.
         /// </summary>
         internal static void Postfix(Cursor __instance)
         {

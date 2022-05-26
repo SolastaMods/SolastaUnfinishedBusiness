@@ -16,16 +16,15 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>
-            {
-                FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin
-            };
+            return new List<FeatureDefinitionFightingStyleChoice>() {
+                FightingStyleChampionAdditional,
+                FightingStyleFighter,
+                FightingStylePaladin};
         }
 
         internal override FightingStyleDefinition GetStyle()
         {
-            void TitanFightingOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender,
-                ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
+            void TitanFightingOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
             {
                 // melee attack only
                 if (attacker == null || defender == null)
@@ -39,8 +38,7 @@ namespace SolastaCommunityExpansion.FightingStyles
                     || defender.RulesetCharacter.SizeDefinition == Gargantuan)
                 {
                     attackModifier.AttacktoHitTrends.Add(
-                        new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
-                            "TitanFighting", this));
+                        new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle, "TitanFighting", this));
                 }
             }
 
@@ -54,8 +52,7 @@ namespace SolastaCommunityExpansion.FightingStyles
 
                 instance = CustomizableFightingStyleBuilder
                     .Create("TitanFighting", "edc2a2d1-9f72-4825-b204-d810e911ed12")
-                    .SetGuiPresentation("TitanFighting", Category.FightingStyle,
-                        PathBerserker.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("TitanFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference)
                     .SetFeatures(titanFightingAttackModifier)
                     .AddToDB();
             }

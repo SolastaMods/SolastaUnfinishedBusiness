@@ -7,8 +7,7 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class MulticlassInOutRulesContext
     {
-        public static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero,
-            List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
+        public static void EnumerateHeroAllowedClassDefinitions(RulesetCharacterHero hero, List<CharacterClassDefinition> allowedClasses, ref int selectedClass)
         {
             var currentClass = hero.ClassesHistory[hero.ClassesHistory.Count - 1];
 
@@ -70,14 +69,12 @@ namespace SolastaCommunityExpansion.Models
             var currentValue = attribute.BaseValue;
 
             foreach (var activeModifier in activeModifiers
-                         .Where(x => x.Operation ==
-                                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
+                .Where(x => x.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive))
             {
                 currentValue += Mathf.FloorToInt(activeModifier.Value);
             }
 
-            return Mathf.Clamp(currentValue, int.MinValue,
-                attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
+            return Mathf.Clamp(currentValue, int.MinValue, attribute.MaxEditableValue > 0 ? attribute.MaxEditableValue : attribute.MaxValue);
         }
 
         private static Dictionary<string, int> GetItemsAttributeModifiers(RulesetCharacterHero hero)
@@ -85,7 +82,7 @@ namespace SolastaCommunityExpansion.Models
             var attributeModifiers = new Dictionary<string, int>();
             var items = new List<RulesetItem>();
 
-            hero.CharacterInventory.EnumerateAllItems(items, false);
+            hero.CharacterInventory.EnumerateAllItems(items, considerContainers: false);
 
             foreach (var attributeName in AttributeDefinitions.AbilityScoreNames)
             {
@@ -93,15 +90,12 @@ namespace SolastaCommunityExpansion.Models
             }
 
             foreach (var featureDefinitionAttributeModifier in items
-                         .SelectMany(x => x.ItemDefinition.StaticProperties
-                             .Select(y => y.FeatureDefinition)
-                             .OfType<FeatureDefinitionAttributeModifier>()
-                             .Where(z => AttributeDefinitions.AbilityScoreNames.Contains(z.ModifiedAttribute) &&
-                                         z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation
-                                             .Additive)))
+                .SelectMany(x => x.ItemDefinition.StaticProperties
+                    .Select(y => y.FeatureDefinition)
+                    .OfType<FeatureDefinitionAttributeModifier>()
+                    .Where(z => AttributeDefinitions.AbilityScoreNames.Contains(z.ModifiedAttribute) && z.ModifierType == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)))
             {
-                attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] +=
-                    featureDefinitionAttributeModifier.ModifierValue;
+                attributeModifiers[featureDefinitionAttributeModifier.ModifiedAttribute] += featureDefinitionAttributeModifier.ModifierValue;
             }
 
             return attributeModifiers;
@@ -116,16 +110,11 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var itemsAttributeModifiers = GetItemsAttributeModifiers(hero);
-            var strength = MyGetAttribute(hero, AttributeDefinitions.Strength) -
-                           itemsAttributeModifiers[AttributeDefinitions.Strength];
-            var dexterity = MyGetAttribute(hero, AttributeDefinitions.Dexterity) -
-                            itemsAttributeModifiers[AttributeDefinitions.Dexterity];
-            var intelligence = MyGetAttribute(hero, AttributeDefinitions.Intelligence) -
-                               itemsAttributeModifiers[AttributeDefinitions.Intelligence];
-            var wisdom = MyGetAttribute(hero, AttributeDefinitions.Wisdom) -
-                         itemsAttributeModifiers[AttributeDefinitions.Wisdom];
-            var charisma = MyGetAttribute(hero, AttributeDefinitions.Charisma) -
-                           itemsAttributeModifiers[AttributeDefinitions.Charisma];
+            var strength = MyGetAttribute(hero, AttributeDefinitions.Strength) - itemsAttributeModifiers[AttributeDefinitions.Strength];
+            var dexterity = MyGetAttribute(hero, AttributeDefinitions.Dexterity) - itemsAttributeModifiers[AttributeDefinitions.Dexterity];
+            var intelligence = MyGetAttribute(hero, AttributeDefinitions.Intelligence) - itemsAttributeModifiers[AttributeDefinitions.Intelligence];
+            var wisdom = MyGetAttribute(hero, AttributeDefinitions.Wisdom) - itemsAttributeModifiers[AttributeDefinitions.Wisdom];
+            var charisma = MyGetAttribute(hero, AttributeDefinitions.Charisma) - itemsAttributeModifiers[AttributeDefinitions.Charisma];
 
             switch (classDefinition.Name)
             {
@@ -168,9 +157,6 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        public static bool IsSupported(CharacterClassDefinition classDefinition)
-        {
-            return !classDefinition.GuiPresentation.Hidden;
-        }
+        public static bool IsSupported(CharacterClassDefinition classDefinition) => !classDefinition.GuiPresentation.Hidden;
     }
 }

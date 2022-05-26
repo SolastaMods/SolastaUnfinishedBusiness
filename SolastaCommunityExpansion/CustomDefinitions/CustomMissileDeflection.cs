@@ -5,15 +5,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class CustomMissileDeflection : ICustomMissileDeflection
     {
+        public RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D10;
+        public int dieNumber = 1;
         public RuleDefinitions.AdvantageType advantage = RuleDefinitions.AdvantageType.None;
         public string attribute = AttributeDefinitions.Dexterity;
-        public string characterClass = null;
+        public int proficiencyBonusMult = 0;
         public int characterLevelMult = 0;
         public int classLevelMult = 0;
+        public string characterClass = null;
         public string descriptionTag = null;
-        public int dieNumber = 1;
-        public RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D10;
-        public int proficiencyBonusMult = 0;
 
 
         public int GetDamageReduction(RulesetCharacter target, RulesetCharacter attacker)
@@ -70,3 +70,5 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         }
     }
 }
+
+

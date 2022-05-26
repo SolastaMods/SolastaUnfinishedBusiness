@@ -101,7 +101,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             }
             else if (Main.Settings.EnableGlobalUniqueEffectsPatch)
             {
-                Helper.TerminatePowers(__instance, powerDefinition, new[] {powerDefinition});
+                Helper.TerminatePowers(__instance, powerDefinition, new[] { powerDefinition });
             }
         }
     }

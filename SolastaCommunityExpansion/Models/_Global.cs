@@ -14,8 +14,7 @@ namespace SolastaCommunityExpansion.Models
         public static string LastLevelUpHeroName { get; set; }
 
         // level up hero
-        public static RulesetCharacterHero ActiveLevelUpHero =>
-            ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
+        public static RulesetCharacterHero ActiveLevelUpHero => ServiceRepository.GetService<ICharacterBuildingService>()?.CurrentLocalHeroCharacter;
 
         // holds the active player character when in battle
         public static GameLocationCharacter ActivePlayerCharacter { get; set; }
@@ -31,7 +30,6 @@ namespace SolastaCommunityExpansion.Models
 
         // holds the the casting repertoire
         public static RulesetSpellRepertoire CastedSpellRepertoire { get; set; }
-
         // last attack was a critical hit
         public static bool CriticalHit { get; set; }
 
@@ -72,13 +70,15 @@ namespace SolastaCommunityExpansion.Models
             {
                 return hero != null && hero.HasAllFeatures(set.FeatureSet);
             }
-
-            return hero == null || recursive
-                ? hero.HasAnyFeature(feature)
-                : hero.ActiveFeatures
-                      .SelectMany(x => x.Value)
-                      .Any(x => x == feature)
-                  || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+            else
+            {
+                return hero == null || recursive
+                    ? hero.HasAnyFeature(feature)
+                    : hero.ActiveFeatures
+                          .SelectMany(x => x.Value)
+                          .Any(x => x == feature)
+                      || hero.GetHeroBuildingData().AllActiveFeatures.Contains(feature);
+            }
         }
     }
 }

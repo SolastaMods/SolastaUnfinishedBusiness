@@ -1,18 +1,17 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DivinationForm))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class DivinationFormExtensions
+    [TargetType(typeof(DivinationForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class DivinationFormExtensions
     {
         public static T AddCreatureFamilies<T>(this T entity, params CharacterFamilyDefinition[] value)
             where T : DivinationForm
@@ -28,14 +27,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRevealedTags<T>(this T entity, params String[] value)
+        public static T AddRevealedTags<T>(this T entity, params System.String[] value)
             where T : DivinationForm
         {
             AddRevealedTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddRevealedTags<T>(this T entity, IEnumerable<String> value)
+        public static T AddRevealedTags<T>(this T entity, IEnumerable<System.String> value)
             where T : DivinationForm
         {
             entity.RevealedTags.AddRange(value);
@@ -84,21 +83,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRangeCells<T>(this T entity, Int32 value)
+        public static T SetRangeCells<T>(this T entity, System.Int32 value)
             where T : DivinationForm
         {
             entity.SetField("rangeCells", value);
             return entity;
         }
 
-        public static T SetRevealedTags<T>(this T entity, params String[] value)
+        public static T SetRevealedTags<T>(this T entity, params System.String[] value)
             where T : DivinationForm
         {
             SetRevealedTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetRevealedTags<T>(this T entity, IEnumerable<String> value)
+        public static T SetRevealedTags<T>(this T entity, IEnumerable<System.String> value)
             where T : DivinationForm
         {
             entity.RevealedTags.SetRange(value);

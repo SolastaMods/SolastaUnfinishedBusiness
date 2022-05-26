@@ -1,11 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using HarmonyLib;
 using UnityModManagerNet;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.Location
 {
-    [HarmonyPatch(typeof(UnityModManager.UI), "ToggleWindow", typeof(bool))]
+    [HarmonyPatch(typeof(UnityModManager.UI), "ToggleWindow", new Type[] { typeof(bool) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UnityModManager_UI_ToggleWindow
     {

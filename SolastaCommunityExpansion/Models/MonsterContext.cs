@@ -1,8 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaCommunityExpansion;
-using SolastaCommunityExpansion.Utils;
-using SolastaMonsters.Monsters;
-using TA.AI;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaMonsters.Models
@@ -10,27 +6,6 @@ namespace SolastaMonsters.Models
     internal static class MonsterContext
     {
         internal static string GUID = "d825a5ac-75bf-4ffa-81d3-b8c8b5f5d2a3";
-
-        public static void Load()
-        {
-            if (!Main.Settings.EnableExtraHighLevelMonsters)
-            {
-                return;
-            }
-
-            Translations.LoadTranslations("Monsters");
-
-            //following order of new blueprint creation should be maintained
-            NewMonsterAttributes.Create();
-            NewMonsterAttacks.Create();
-            NewMonsterPowers.Create();
-
-            MonstersHomebrew.EnableInDungeonMaker();
-            MonstersSolasta.EnableInDungeonMaker();
-
-            MonstersAttributes.EnableInDungeonMaker();
-            MonstersSRD.EnableInDungeonMaker();
-        }
 
         internal struct CustomMonster
         {
@@ -66,11 +41,32 @@ namespace SolastaMonsters.Models
             public List<MonsterSkillProficiency> SkillScores;
             public List<MonsterAttackIteration> AttackIterations;
             public List<LegendaryActionDescription> LegendaryActionOptions;
-            public DecisionPackageDefinition DefaultBattleDecisionPackage;
+            public TA.AI.DecisionPackageDefinition DefaultBattleDecisionPackage;
             public bool GroupAttacks;
             public bool PhantomDistortion;
             public AssetReference AttachedParticlesReference;
             public AssetReferenceSprite SpriteReference;
+        }
+
+        public static void Load()
+        {
+            if (!SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
+            {
+                return;
+            }
+
+            SolastaCommunityExpansion.Utils.Translations.LoadTranslations("Monsters");
+
+            //following order of new blueprint creation should be maintained
+            Monsters.NewMonsterAttributes.Create();
+            Monsters.NewMonsterAttacks.Create();
+            Monsters.NewMonsterPowers.Create();
+
+            Monsters.MonstersHomebrew.EnableInDungeonMaker();
+            Monsters.MonstersSolasta.EnableInDungeonMaker();
+
+            Monsters.MonstersAttributes.EnableInDungeonMaker();
+            Monsters.MonstersSRD.EnableInDungeonMaker();
         }
     }
 }

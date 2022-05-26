@@ -19,17 +19,11 @@ namespace SolastaCommunityExpansion.Feats
 
     internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
     {
-        private const string DualFlurryFeatName = "DualFlurryFeat";
         public static readonly Guid DualFlurryGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
+        private const string DualFlurryFeatName = "DualFlurryFeat";
+        private static readonly string DualFlurryFeatNameGuid = GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
 
-        private static readonly string DualFlurryFeatNameGuid =
-            GuidHelper.Create(DualFlurryGuid, DualFlurryFeatName).ToString();
-
-        public static readonly FeatDefinition DualFlurryFeat =
-            CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
-
-        private DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
-            name, guid)
+        private DualFlurryFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&DualFlurryTitle";
             Definition.GuiPresentation.Description = "Feat/&DualFlurryDescription";
@@ -45,6 +39,8 @@ namespace SolastaCommunityExpansion.Feats
             return new DualFlurryFeatBuilder(name, guid).AddToDB();
         }
 
+        public static readonly FeatDefinition DualFlurryFeat = CreateAndAddToDB(DualFlurryFeatName, DualFlurryFeatNameGuid);
+
         private static FeatureDefinition BuildFeatureDualFlurry()
         {
             return FeatureDefinitionOnAttackDamageEffectBuilder
@@ -55,9 +51,9 @@ namespace SolastaCommunityExpansion.Feats
         }
 
         private static void AfterOnAttackDamage(GameLocationCharacter attacker,
-            GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
-            bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
+                GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
+                bool rangedAttack, RuleDefinitions.AdvantageType advantageType, List<EffectForm> actualEffectForms,
+                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
         {
             // Note the game code currently always passes attackMode = null for magic attacks,
             // if that changes this will need to be updated.
@@ -66,24 +62,21 @@ namespace SolastaCommunityExpansion.Feats
                 return;
             }
 
-            var condition =
-                attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.GetOrAdd().Name)
-                    ? ConditionDualFlurryGrantBuilder.GetOrAdd()
-                    : ConditionDualFlurryApplyBuilder.GetOrAdd();
+            var condition = attacker.RulesetCharacter.HasConditionOfType(ConditionDualFlurryApplyBuilder.GetOrAdd().Name) ?
+                ConditionDualFlurryGrantBuilder.GetOrAdd() : ConditionDualFlurryApplyBuilder.GetOrAdd();
 
             var active_condition = RulesetCondition.CreateActiveCondition(attacker.RulesetCharacter.Guid,
-                condition, RuleDefinitions.DurationType.Round, 0,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
-            attacker.RulesetCharacter.AddConditionOfCategory("10Combat", active_condition);
+                                                                                       condition, RuleDefinitions.DurationType.Round, 0,
+                                                                                       RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                                                                                       attacker.RulesetCharacter.Guid,
+                                                                                       attacker.RulesetCharacter.CurrentFaction.Name);
+            attacker.RulesetCharacter.AddConditionOfCategory("10Combat", active_condition, true);
         }
     }
 
     internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuilder
     {
-        private ConditionDualFlurryApplyBuilder(string name, string guid) : base(
-            DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+        private ConditionDualFlurryApplyBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryApplyTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryApplyDescription";
@@ -101,26 +94,20 @@ namespace SolastaCommunityExpansion.Feats
 
         private static ConditionDefinition CreateAndAddToDB()
         {
-            return new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply",
-                    GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString())
-                .AddToDB();
+            return new ConditionDualFlurryApplyBuilder("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()).AddToDB();
         }
 
         // TODO: eliminate
         internal static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            return db.TryGetElement("ConditionDualFlurryApply",
-                       GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply")
-                           .ToString()) ??
-                   CreateAndAddToDB();
+            return db.TryGetElement("ConditionDualFlurryApply", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryApply").ToString()) ?? CreateAndAddToDB();
         }
     }
 
     internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuilder
     {
-        private ConditionDualFlurryGrantBuilder(string name, string guid) : base(
-            DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
+        private ConditionDualFlurryGrantBuilder(string name, string guid) : base(DatabaseHelper.ConditionDefinitions.ConditionSurged, name, guid)
         {
             Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryGrantTitle";
             Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryGrantDescription";
@@ -140,19 +127,14 @@ namespace SolastaCommunityExpansion.Feats
 
         private static ConditionDefinition CreateAndAddToDB()
         {
-            return new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant",
-                    GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString())
-                .AddToDB();
+            return new ConditionDualFlurryGrantBuilder("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()).AddToDB();
         }
 
         // TODO: eliminate
         internal static ConditionDefinition GetOrAdd()
         {
             var db = DatabaseRepository.GetDatabase<ConditionDefinition>();
-            return db.TryGetElement("ConditionDualFlurryGrant",
-                       GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant")
-                           .ToString()) ??
-                   CreateAndAddToDB();
+            return db.TryGetElement("ConditionDualFlurryGrant", GuidHelper.Create(DualFlurryFeatBuilder.DualFlurryGuid, "ConditionDualFlurryGrant").ToString()) ?? CreateAndAddToDB();
         }
 
         private static FeatureDefinition BuildAdditionalActionDualFlurry()
@@ -168,17 +150,11 @@ namespace SolastaCommunityExpansion.Feats
 
     internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
     {
-        private const string TorchbearerFeatName = "TorchbearerFeat";
         private static readonly Guid TorchbearerGuid = new("03C523EB-91B9-4F1B-A697-804D1BC2D6DD");
+        private const string TorchbearerFeatName = "TorchbearerFeat";
+        private static readonly string TorchbearerFeatNameGuid = GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
 
-        private static readonly string TorchbearerFeatNameGuid =
-            GuidHelper.Create(TorchbearerGuid, TorchbearerFeatName).ToString();
-
-        public static readonly FeatDefinition TorchbearerFeat =
-            CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
-
-        private TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous,
-            name, guid)
+        private TorchbearerFeatBuilder(string name, string guid) : base(DatabaseHelper.FeatDefinitions.Ambidextrous, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&TorchbearerTitle";
             Definition.GuiPresentation.Description = "Feat/&TorchbearerDescription";
@@ -193,6 +169,8 @@ namespace SolastaCommunityExpansion.Feats
         {
             return new TorchbearerFeatBuilder(name, guid).AddToDB();
         }
+
+        public static readonly FeatDefinition TorchbearerFeat = CreateAndAddToDB(TorchbearerFeatName, TorchbearerFeatNameGuid);
 
         private static FeatureDefinition BuildFeatureTorchbearer()
         {
@@ -217,8 +195,7 @@ namespace SolastaCommunityExpansion.Feats
             burn_description.SetHasSavingThrow(true);
             burn_description.SetSavingThrowAbility(AttributeDefinitions.Dexterity);
             burn_description.SetSavingThrowDifficultyAbility(AttributeDefinitions.Dexterity);
-            burn_description.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
-                .AbilityScoreAndProficiency);
+            burn_description.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency);
             burn_description.SetSpeedType(RuleDefinitions.SpeedType.Instant);
 
             burn_description.EffectForms.Clear();
@@ -241,9 +218,7 @@ namespace SolastaCommunityExpansion.Feats
             {
                 return false;
             }
-
-            var off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
-                .EquipedItem;
+            var off_item = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
             return off_item != null && off_item.ItemDefinition != null && off_item.ItemDefinition.IsLightSourceItem;
         }

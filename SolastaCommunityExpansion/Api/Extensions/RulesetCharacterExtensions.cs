@@ -1,4 +1,3 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +7,11 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetCharacter))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class RulesetCharacterExtensions
+    [TargetType(typeof(RulesetCharacter)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class RulesetCharacterExtensions
     {
         public static T AddAllUsableDeviceFunctions<T>(this T entity, params RulesetDeviceFunction[] value)
             where T : RulesetCharacter
@@ -71,14 +69,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLastReceivedDamageTypes<T>(this T entity, params String[] value)
+        public static T AddLastReceivedDamageTypes<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             AddLastReceivedDamageTypes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddLastReceivedDamageTypes<T>(this T entity, IEnumerable<String> value)
+        public static T AddLastReceivedDamageTypes<T>(this T entity, IEnumerable<System.String> value)
             where T : RulesetCharacter
         {
             entity.LastReceivedDamageTypes.AddRange(value);
@@ -141,14 +139,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddReviveOptionsCache<T>(this T entity, params ReviveOption[] value)
+        public static T AddReviveOptionsCache<T>(this T entity, params RuleDefinitions.ReviveOption[] value)
             where T : RulesetCharacter
         {
             AddReviveOptionsCache(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddReviveOptionsCache<T>(this T entity, IEnumerable<ReviveOption> value)
+        public static T AddReviveOptionsCache<T>(this T entity, IEnumerable<RuleDefinitions.ReviveOption> value)
             where T : RulesetCharacter
         {
             entity.ReviveOptionsCache.AddRange(value);
@@ -211,14 +209,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddTags<T>(this T entity, params String[] value)
+        public static T AddTags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             AddTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddTags<T>(this T entity, IEnumerable<String> value)
+        public static T AddTags<T>(this T entity, IEnumerable<System.String> value)
             where T : RulesetCharacter
         {
             entity.Tags.AddRange(value);
@@ -372,70 +370,70 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static List<RulesetItem> GetConsumedItems<T>(this T entity)
+        public static System.Collections.Generic.List<RulesetItem> GetConsumedItems<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetItem>>("consumedItems");
+            return entity.GetField<System.Collections.Generic.List<RulesetItem>>("consumedItems");
         }
 
-        public static List<FeatureDefinition> GetDeathTemperingFeatures<T>(this T entity)
+        public static System.Collections.Generic.List<FeatureDefinition> GetDeathTemperingFeatures<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<FeatureDefinition>>("deathTemperingFeatures");
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("deathTemperingFeatures");
         }
 
-        public static List<FeatureDefinition> GetHealingFeatures<T>(this T entity)
+        public static System.Collections.Generic.List<FeatureDefinition> GetHealingFeatures<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<FeatureDefinition>>("healingFeatures");
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("healingFeatures");
         }
 
-        public static List<TrendInfo> GetMagicAttackTrends<T>(this T entity)
+        public static System.Collections.Generic.List<RuleDefinitions.TrendInfo> GetMagicAttackTrends<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<TrendInfo>>("magicAttackTrends");
+            return entity.GetField<System.Collections.Generic.List<RuleDefinitions.TrendInfo>>("magicAttackTrends");
         }
 
-        public static List<FeatureDefinition> GetMagicFeatures<T>(this T entity)
+        public static System.Collections.Generic.List<FeatureDefinition> GetMagicFeatures<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<FeatureDefinition>>("magicFeatures");
+            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("magicFeatures");
         }
 
-        public static List<RulesetEffectPower> GetPowersToTerminate<T>(this T entity)
+        public static System.Collections.Generic.List<RulesetEffectPower> GetPowersToTerminate<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetEffectPower>>("powersToTerminate");
+            return entity.GetField<System.Collections.Generic.List<RulesetEffectPower>>("powersToTerminate");
         }
 
-        public static List<SpellDefinition> GetSortedSpellsToBrowseCache<T>(this T entity)
+        public static System.Collections.Generic.List<SpellDefinition> GetSortedSpellsToBrowseCache<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<SpellDefinition>>("sortedSpellsToBrowseCache");
+            return entity.GetField<System.Collections.Generic.List<SpellDefinition>>("sortedSpellsToBrowseCache");
         }
 
-        public static List<TrendInfo> GetSortedTrends<T>(this T entity)
+        public static System.Collections.Generic.List<RuleDefinitions.TrendInfo> GetSortedTrends<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<TrendInfo>>("sortedTrends");
+            return entity.GetField<System.Collections.Generic.List<RuleDefinitions.TrendInfo>>("sortedTrends");
         }
 
-        public static List<SpellDefinition> GetSpellsToBrowse<T>(this T entity)
+        public static System.Collections.Generic.List<SpellDefinition> GetSpellsToBrowse<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<SpellDefinition>>("spellsToBrowse");
+            return entity.GetField<System.Collections.Generic.List<SpellDefinition>>("spellsToBrowse");
         }
 
-        public static List<RulesetEffectSpell> GetSpellsToTerminate<T>(this T entity)
+        public static System.Collections.Generic.List<RulesetEffectSpell> GetSpellsToTerminate<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetEffectSpell>>("spellsToTerminate");
+            return entity.GetField<System.Collections.Generic.List<RulesetEffectSpell>>("spellsToTerminate");
         }
 
-        public static List<RulesetCondition> GetToRemove<T>(this T entity)
+        public static System.Collections.Generic.List<RulesetCondition> GetToRemove<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetCondition>>("toRemove");
+            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("toRemove");
         }
 
         public static T SetAbilityCheckRolled<T>(this T entity, RulesetCharacter.AbilityCheckRolledHandler value)
@@ -459,24 +457,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalAbilityCheckDieRolled<T>(this T entity,
-            RulesetCharacter.AdditionalAbilityCheckDieRolledHandler value)
+        public static T SetAdditionalAbilityCheckDieRolled<T>(this T entity, RulesetCharacter.AdditionalAbilityCheckDieRolledHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<AdditionalAbilityCheckDieRolled>k__BackingField", value);
             return entity;
         }
 
-        public static T SetAdditionalAttackDieRolled<T>(this T entity,
-            RulesetCharacter.AdditionalAttackDieRolledHandler value)
+        public static T SetAdditionalAttackDieRolled<T>(this T entity, RulesetCharacter.AdditionalAttackDieRolledHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<AdditionalAttackDieRolled>k__BackingField", value);
             return entity;
         }
 
-        public static T SetAdditionalDamageGenerated<T>(this T entity,
-            RulesetCharacter.AdditionalDamageGeneratedHandler value)
+        public static T SetAdditionalDamageGenerated<T>(this T entity, RulesetCharacter.AdditionalDamageGeneratedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<AdditionalDamageGenerated>k__BackingField", value);
@@ -518,7 +513,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAutoActivatingPower<T>(this T entity, Boolean value)
+        public static T SetAutoActivatingPower<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("autoActivatingPower", value);
@@ -553,23 +548,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCarryingSize<T>(this T entity, CreatureSize value)
+        public static T SetCarryingSize<T>(this T entity, RuleDefinitions.CreatureSize value)
             where T : RulesetCharacter
         {
             entity.SetField("carryingSize", value);
             return entity;
         }
 
-        public static T SetCharacterControlChanged<T>(this T entity,
-            RulesetCharacter.CharacterControlChangedHandler value)
+        public static T SetCharacterControlChanged<T>(this T entity, RulesetCharacter.CharacterControlChangedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<CharacterControlChanged>k__BackingField", value);
             return entity;
         }
 
-        public static T SetCharacterFactionChanged<T>(this T entity,
-            RulesetCharacter.CharacterFactionChangedHandler value)
+        public static T SetCharacterFactionChanged<T>(this T entity, RulesetCharacter.CharacterFactionChangedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<CharacterFactionChanged>k__BackingField", value);
@@ -597,16 +590,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCharacterWasStolenItems<T>(this T entity,
-            RulesetCharacter.CharacterWasStolenItemsHandler value)
+        public static T SetCharacterWasStolenItems<T>(this T entity, RulesetCharacter.CharacterWasStolenItemsHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<CharacterWasStolenItems>k__BackingField", value);
             return entity;
         }
 
-        public static T SetCharmedCharacterRemovedFromBattle<T>(this T entity,
-            RulesetCharacter.CharmedCharacterRemovedFromBattleHandler value)
+        public static T SetCharmedCharacterRemovedFromBattle<T>(this T entity, RulesetCharacter.CharmedCharacterRemovedFromBattleHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<CharmedCharacterRemovedFromBattle>k__BackingField", value);
@@ -620,7 +611,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConcentratedSpellIndex<T>(this T entity, Int32 value)
+        public static T SetConcentratedSpellIndex<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("concentratedSpellIndex", value);
@@ -634,8 +625,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConcentrationCheckRolled<T>(this T entity,
-            RulesetCharacter.ConcentrationCheckRolledHandler value)
+        public static T SetConcentrationCheckRolled<T>(this T entity, RulesetCharacter.ConcentrationCheckRolledHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<ConcentrationCheckRolled>k__BackingField", value);
@@ -684,8 +674,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDamageAbsorbedByTemporaryHitPoints<T>(this T entity,
-            RulesetCharacter.DamageAbsorbedByTemporaryHitPointsHandler value)
+        public static T SetDamageAbsorbedByTemporaryHitPoints<T>(this T entity, RulesetCharacter.DamageAbsorbedByTemporaryHitPointsHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<DamageAbsorbedByTemporaryHitPoints>k__BackingField", value);
@@ -713,7 +702,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDeathSaveFailures<T>(this T entity, Int32 value)
+        public static T SetDeathSaveFailures<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("deathSaveFailures", value);
@@ -734,7 +723,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDeathSaveSuccesses<T>(this T entity, Int32 value)
+        public static T SetDeathSaveSuccesses<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("deathSaveSuccesses", value);
@@ -755,14 +744,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDummy<T>(this T entity, String value)
+        public static T SetDummy<T>(this T entity, System.String value)
             where T : RulesetCharacter
         {
             entity.SetField("dummy", value);
             return entity;
         }
 
-        public static T SetExecutedAttacks<T>(this T entity, Int32 value)
+        public static T SetExecutedAttacks<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.ExecutedAttacks = value;
@@ -783,36 +772,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForceAutoBehavior<T>(this T entity, Boolean value)
+        public static T SetForceAutoBehavior<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.ForceAutoBehavior = value;
             return entity;
         }
 
-        public static T SetForcedBeardShape<T>(this T entity, String value)
+        public static T SetForcedBeardShape<T>(this T entity, System.String value)
             where T : RulesetCharacter
         {
             entity.SetField("<ForcedBeardShape>k__BackingField", value);
             return entity;
         }
 
-        public static T SetHasAccessToTreasury<T>(this T entity, Boolean value)
+        public static T SetHasAccessToTreasury<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.HasAccessToTreasury = value;
             return entity;
         }
 
-        public static T SetHasRegeneration<T>(this T entity, Boolean value)
+        public static T SetHasRegeneration<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("hasRegeneration", value);
             return entity;
         }
 
-        public static T SetHealingFromInflictedDamageReceived<T>(this T entity,
-            RulesetCharacter.HealingFromInflictedDamageReceivedHandler value)
+        public static T SetHealingFromInflictedDamageReceived<T>(this T entity, RulesetCharacter.HealingFromInflictedDamageReceivedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<HealingFromInflictedDamageReceived>k__BackingField", value);
@@ -840,15 +828,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetImpairedSight<T>(this T entity, Boolean value)
+        public static T SetImpairedSight<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("impairedSight", value);
             return entity;
         }
 
-        public static T SetIndomitableResistanceUsed<T>(this T entity,
-            RulesetCharacter.IndomitableResistanceUsedHandler value)
+        public static T SetIndomitableResistanceUsed<T>(this T entity, RulesetCharacter.IndomitableResistanceUsedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<IndomitableResistanceUsed>k__BackingField", value);
@@ -862,8 +849,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetInitiativeSequenceComplete<T>(this T entity,
-            RulesetCharacter.InitiativeSequenceCompleteHandler value)
+        public static T SetInitiativeSequenceComplete<T>(this T entity, RulesetCharacter.InitiativeSequenceCompleteHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<InitiativeSequenceComplete>k__BackingField", value);
@@ -877,56 +863,56 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetIsDead<T>(this T entity, Boolean value)
+        public static T SetIsDead<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isDead", value);
             return entity;
         }
 
-        public static T SetIsDeadOrDying<T>(this T entity, Boolean value)
+        public static T SetIsDeadOrDying<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isDeadOrDying", value);
             return entity;
         }
 
-        public static T SetIsDeadOrDyingOrUnconscious<T>(this T entity, Boolean value)
+        public static T SetIsDeadOrDyingOrUnconscious<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isDeadOrDyingOrUnconscious", value);
             return entity;
         }
 
-        public static T SetIsDeadOrUnconscious<T>(this T entity, Boolean value)
+        public static T SetIsDeadOrUnconscious<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isDeadOrUnconscious", value);
             return entity;
         }
 
-        public static T SetIsDying<T>(this T entity, Boolean value)
+        public static T SetIsDying<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isDying", value);
             return entity;
         }
 
-        public static T SetIsIncapacitated<T>(this T entity, Boolean value)
+        public static T SetIsIncapacitated<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isIncapacitated", value);
             return entity;
         }
 
-        public static T SetIsRemovedFromTheGame<T>(this T entity, Boolean value)
+        public static T SetIsRemovedFromTheGame<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isRemovedFromTheGame", value);
             return entity;
         }
 
-        public static T SetIsUnconscious<T>(this T entity, Boolean value)
+        public static T SetIsUnconscious<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("isUnconscious", value);
@@ -989,44 +975,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLastInitiativeModifier<T>(this T entity, Int32 value)
+        public static T SetLastInitiativeModifier<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("<LastInitiativeModifier>k__BackingField", value);
             return entity;
         }
 
-        public static T SetLastInitiativeRoll<T>(this T entity, Int32 value)
+        public static T SetLastInitiativeRoll<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("<LastInitiativeRoll>k__BackingField", value);
             return entity;
         }
 
-        public static T SetLastReceivedDamageTypes<T>(this T entity, params String[] value)
+        public static T SetLastReceivedDamageTypes<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             SetLastReceivedDamageTypes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetLastReceivedDamageTypes<T>(this T entity, IEnumerable<String> value)
+        public static T SetLastReceivedDamageTypes<T>(this T entity, IEnumerable<System.String> value)
             where T : RulesetCharacter
         {
             entity.LastReceivedDamageTypes.SetRange(value);
             return entity;
         }
 
-        public static T SetLineOfSightParametersModified<T>(this T entity,
-            RulesetCharacter.LineOfSightParametersModifiedHandler value)
+        public static T SetLineOfSightParametersModified<T>(this T entity, RulesetCharacter.LineOfSightParametersModifiedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<LineOfSightParametersModified>k__BackingField", value);
             return entity;
         }
 
-        public static T SetMagicalHitPointsPoolRolled<T>(this T entity,
-            RulesetCharacter.MagicalHitPointsPoolRolledHandler value)
+        public static T SetMagicalHitPointsPoolRolled<T>(this T entity, RulesetCharacter.MagicalHitPointsPoolRolledHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<MagicalHitPointsPoolRolled>k__BackingField", value);
@@ -1047,14 +1031,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaxClimbRange<T>(this T entity, Int32 value)
+        public static T SetMaxClimbRange<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("maxClimbRange", value);
             return entity;
         }
 
-        public static T SetMaxJumpRange<T>(this T entity, Int32 value)
+        public static T SetMaxJumpRange<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("maxJumpRange", value);
@@ -1068,7 +1052,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaxSenseRange<T>(this T entity, Int32 value)
+        public static T SetMaxSenseRange<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("maxSenseRange", value);
@@ -1082,15 +1066,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMinSizeDifferenceToGoThroughEnemy<T>(this T entity, Int32 value)
+        public static T SetMinSizeDifferenceToGoThroughEnemy<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("minSizeDifferenceToGoThroughEnemy", value);
             return entity;
         }
 
-        public static T SetMonsterIdentificationRolled<T>(this T entity,
-            RulesetCharacter.MonsterIdentificationRolledHandler value)
+        public static T SetMonsterIdentificationRolled<T>(this T entity, RulesetCharacter.MonsterIdentificationRolledHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<MonsterIdentificationRolled>k__BackingField", value);
@@ -1125,16 +1108,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPersonalLightSourceAdded<T>(this T entity,
-            RulesetCharacter.PersonalLightSourceAddedHandler value)
+        public static T SetPersonalLightSourceAdded<T>(this T entity, RulesetCharacter.PersonalLightSourceAddedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<PersonalLightSourceAdded>k__BackingField", value);
             return entity;
         }
 
-        public static T SetPersonalLightSourceRemoved<T>(this T entity,
-            RulesetCharacter.PersonalLightSourceRemovedHandler value)
+        public static T SetPersonalLightSourceRemoved<T>(this T entity, RulesetCharacter.PersonalLightSourceRemovedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<PersonalLightSourceRemoved>k__BackingField", value);
@@ -1148,8 +1129,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPowerAppliesNoAdditionalCondition<T>(this T entity,
-            RulesetCharacter.PowerAppliesNoAdditionalConditionHandler value)
+        public static T SetPowerAppliesNoAdditionalCondition<T>(this T entity, RulesetCharacter.PowerAppliesNoAdditionalConditionHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<PowerAppliesNoAdditionalCondition>k__BackingField", value);
@@ -1198,8 +1178,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPreventedFromActingThisTurn<T>(this T entity,
-            RulesetCharacter.PreventedToActThisTurnHandler value)
+        public static T SetPreventedFromActingThisTurn<T>(this T entity, RulesetCharacter.PreventedToActThisTurnHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<PreventedFromActingThisTurn>k__BackingField", value);
@@ -1234,7 +1213,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRegenerationLapse<T>(this T entity, Int32 value)
+        public static T SetRegenerationLapse<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("regenerationLapse", value);
@@ -1262,14 +1241,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetReviveOptionsCache<T>(this T entity, params ReviveOption[] value)
+        public static T SetReviveOptionsCache<T>(this T entity, params RuleDefinitions.ReviveOption[] value)
             where T : RulesetCharacter
         {
             SetReviveOptionsCache(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetReviveOptionsCache<T>(this T entity, IEnumerable<ReviveOption> value)
+        public static T SetReviveOptionsCache<T>(this T entity, IEnumerable<RuleDefinitions.ReviveOption> value)
             where T : RulesetCharacter
         {
             entity.ReviveOptionsCache.SetRange(value);
@@ -1297,7 +1276,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSex<T>(this T entity, CreatureSex value)
+        public static T SetSex<T>(this T entity, RuleDefinitions.CreatureSex value)
             where T : RulesetCharacter
         {
             entity.Sex = value;
@@ -1311,7 +1290,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetShouldClearOverridenFactionFromCharmSpells<T>(this T entity, Boolean value)
+        public static T SetShouldClearOverridenFactionFromCharmSpells<T>(this T entity, System.Boolean value)
             where T : RulesetCharacter
         {
             entity.SetField("shouldClearOverridenFactionFromCharmSpells", value);
@@ -1339,8 +1318,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellComponentConsumed<T>(this T entity,
-            RulesetCharacter.SpellComponentConsumedHandler value)
+        public static T SetSpellComponentConsumed<T>(this T entity, RulesetCharacter.SpellComponentConsumedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<SpellComponentConsumed>k__BackingField", value);
@@ -1389,8 +1367,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSpellRepertoireSlotsRecovered<T>(this T entity,
-            RulesetCharacter.SpellRepertoireSlotsRecoveredHandler value)
+        public static T SetSpellRepertoireSlotsRecovered<T>(this T entity, RulesetCharacter.SpellRepertoireSlotsRecoveredHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<SpellRepertoireSlotsRecovered>k__BackingField", value);
@@ -1439,36 +1416,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTags<T>(this T entity, params String[] value)
+        public static T SetTags<T>(this T entity, params System.String[] value)
             where T : RulesetCharacter
         {
             SetTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetTags<T>(this T entity, IEnumerable<String> value)
+        public static T SetTags<T>(this T entity, IEnumerable<System.String> value)
             where T : RulesetCharacter
         {
             entity.Tags.SetRange(value);
             return entity;
         }
 
-        public static T SetTemporaryHitPoints<T>(this T entity, Int32 value)
+        public static T SetTemporaryHitPoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.TemporaryHitPoints = value;
             return entity;
         }
 
-        public static T SetTemporaryHitPointsReceived<T>(this T entity,
-            RulesetCharacter.TemporaryHitPointsReceivedHandler value)
+        public static T SetTemporaryHitPointsReceived<T>(this T entity, RulesetCharacter.TemporaryHitPointsReceivedHandler value)
             where T : RulesetCharacter
         {
             entity.SetField("<TemporaryHitPointsReceived>k__BackingField", value);
             return entity;
         }
 
-        public static T SetTimeOfDeath<T>(this T entity, Int32 value)
+        public static T SetTimeOfDeath<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetField("timeOfDeath", value);
@@ -1510,77 +1486,77 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsedChannelDivinity<T>(this T entity, Int32 value)
+        public static T SetUsedChannelDivinity<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetProperty("UsedChannelDivinity", value);
             return entity;
         }
 
-        public static T SetUsedHealingPool<T>(this T entity, Int32 value)
+        public static T SetUsedHealingPool<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetProperty("UsedHealingPool", value);
             return entity;
         }
 
-        public static T SetUsedIndomitableResistances<T>(this T entity, Int32 value)
+        public static T SetUsedIndomitableResistances<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetProperty("UsedIndomitableResistances", value);
             return entity;
         }
 
-        public static T SetUsedKnockOutImmunityPerLongRest<T>(this T entity, Int32 value)
+        public static T SetUsedKnockOutImmunityPerLongRest<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.UsedKnockOutImmunityPerLongRest = value;
             return entity;
         }
 
-        public static T SetUsedMainAttacks<T>(this T entity, Int32 value)
+        public static T SetUsedMainAttacks<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.UsedMainAttacks = value;
             return entity;
         }
 
-        public static T SetUsedRagePoints<T>(this T entity, Int32 value)
+        public static T SetUsedRagePoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetProperty("UsedRagePoints", value);
             return entity;
         }
 
-        public static T SetUsedSorceryPoints<T>(this T entity, Int32 value)
+        public static T SetUsedSorceryPoints<T>(this T entity, System.Int32 value)
             where T : RulesetCharacter
         {
             entity.SetProperty("UsedSorceryPoints", value);
             return entity;
         }
 
-        public static T SetVisionHeight<T>(this T entity, Single value)
+        public static T SetVisionHeight<T>(this T entity, System.Single value)
             where T : RulesetCharacter
         {
             entity.SetField("visionHeight", value);
             return entity;
         }
 
-        public static T SetVisionHeightFactor<T>(this T entity, Single value)
+        public static T SetVisionHeightFactor<T>(this T entity, System.Single value)
             where T : RulesetCharacter
         {
             entity.SetField("visionHeightFactor", value);
             return entity;
         }
 
-        public static T SetVoiceID<T>(this T entity, String value)
+        public static T SetVoiceID<T>(this T entity, System.String value)
             where T : RulesetCharacter
         {
             entity.VoiceID = value;
             return entity;
         }
 
-        public static T SetWieldingSize<T>(this T entity, CreatureSize value)
+        public static T SetWieldingSize<T>(this T entity, RuleDefinitions.CreatureSize value)
             where T : RulesetCharacter
         {
             entity.SetField("wieldingSize", value);

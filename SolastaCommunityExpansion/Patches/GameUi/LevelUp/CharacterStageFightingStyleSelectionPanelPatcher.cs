@@ -12,8 +12,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     {
         private static Vector2 OriginalAnchoredPosition { get; set; } = Vector2.zero;
 
-        internal static void Prefix(List<FightingStyleDefinition> ___compatibleFightingStyles,
-            RectTransform ___fightingStylesTable)
+        internal static void Prefix(List<FightingStyleDefinition> ___compatibleFightingStyles, RectTransform ___fightingStylesTable)
         {
             if (Main.Settings.EnableSortingFightingStyles)
             {

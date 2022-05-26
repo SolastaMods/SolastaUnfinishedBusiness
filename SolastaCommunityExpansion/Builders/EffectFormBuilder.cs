@@ -86,31 +86,28 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetConditionForm(ConditionDefinition condition,
-            ConditionForm.ConditionOperation operation)
+        public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation)
         {
             return SetConditionForm(condition, operation, false, false, condition);
         }
 
-        public EffectFormBuilder SetConditionForm(ConditionDefinition condition,
-            ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf,
-            params ConditionDefinition[] detrimentalConditions)
+        public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, params ConditionDefinition[] detrimentalConditions)
         {
-            return SetConditionForm(condition, operation, applyToSelf, forceOnSelf,
-                detrimentalConditions.AsEnumerable());
+            return SetConditionForm(condition, operation, applyToSelf, forceOnSelf, detrimentalConditions.AsEnumerable());
         }
 
-        public EffectFormBuilder SetConditionForm(ConditionDefinition condition,
-            ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf,
-            IEnumerable<ConditionDefinition> detrimentalConditions)
+        public EffectFormBuilder SetConditionForm(ConditionDefinition condition, ConditionForm.ConditionOperation operation, bool applyToSelf, bool forceOnSelf, IEnumerable<ConditionDefinition> detrimentalConditions)
         {
             effectForm.FormType = EffectForm.EffectFormType.Condition;
-            var conditionForm = new ConditionForm {Operation = operation, ConditionDefinition = condition};
+            var conditionForm = new ConditionForm
+            {
+                Operation = operation,
+                ConditionDefinition = condition
+            };
             if (condition != null)
             {
                 conditionForm.SetConditionDefinitionName(condition.Name);
             }
-
             conditionForm.SetApplyToSelf(applyToSelf);
             conditionForm.SetForceOnSelf(forceOnSelf);
             conditionForm.ConditionsList.SetRange(detrimentalConditions.ToList());
@@ -118,8 +115,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetCounterForm(CounterForm.CounterType type, int automaticSpellLevel, int checkBaseDC,
-            bool addSpellCastingAbility, bool addProficiencyBonus)
+        public EffectFormBuilder SetCounterForm(CounterForm.CounterType type, int automaticSpellLevel, int checkBaseDC, bool addSpellCastingAbility, bool addProficiencyBonus)
         {
             effectForm.FormType = EffectForm.EffectFormType.Counter;
             var counterForm = new CounterForm();
@@ -132,18 +128,15 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetDamageForm(bool versatile = false, DieType versatileDieType = DieType.D1,
-            string damageType = DamageTypeBludgeoning, int bonusDamage = 0,
-            DieType dieType = DieType.D1, int diceNumber = 0,
-            HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
+        public EffectFormBuilder SetDamageForm(bool versatile = false, DieType versatileDieType = DieType.D1, string damageType = DamageTypeBludgeoning, int bonusDamage = 0,
+            DieType dieType = DieType.D1, int diceNumber = 0, HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
             params TrendInfo[] damageBonusTrends)
         {
             return SetDamageForm(versatile, versatileDieType, damageType, bonusDamage, dieType,
                 diceNumber, healFromInflictedDamage, damageBonusTrends.AsEnumerable());
         }
 
-        public EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType,
-            int bonusDamage,
+        public EffectFormBuilder SetDamageForm(bool versatile, DieType versatileDieType, string damageType, int bonusDamage,
             DieType dieType, int diceNumber, HealFromInflictedDamage healFromInflictedDamage,
             IEnumerable<TrendInfo> damageBonusTrends)
         {
@@ -172,8 +165,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetDivinationForm(DivinationForm.Type divinationType,
-            IEnumerable<CharacterFamilyDefinition> creatureFamilies,
+        public EffectFormBuilder SetDivinationForm(DivinationForm.Type divinationType, IEnumerable<CharacterFamilyDefinition> creatureFamilies,
             IEnumerable<string> revealedTags, int rangeCells)
         {
             effectForm.FormType = EffectForm.EffectFormType.Divination;
@@ -205,14 +197,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetItemPropertyForm(ItemPropertyUsage usageLimitation, int useAmount,
-            params FeatureUnlockByLevel[] featureBySlotLevel)
+        public EffectFormBuilder SetItemPropertyForm(ItemPropertyUsage usageLimitation, int useAmount, params FeatureUnlockByLevel[] featureBySlotLevel)
         {
             return SetItemPropertyForm(featureBySlotLevel.AsEnumerable(), usageLimitation, useAmount);
         }
 
-        public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel,
-            ItemPropertyUsage usageLimitation, int useAmount)
+        public EffectFormBuilder SetItemPropertyForm(IEnumerable<FeatureUnlockByLevel> featureBySlotLevel, ItemPropertyUsage usageLimitation, int useAmount)
         {
             effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
             var itemForm = new ItemPropertyForm();
@@ -223,8 +213,7 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetLightSourceForm(LightSourceType lightSourceType, int brightRange,
-            int dimAdditionalRange,
+        public EffectFormBuilder SetLightSourceForm(LightSourceType lightSourceType, int brightRange, int dimAdditionalRange,
             Color color, AssetReference graphicsPrefabReference)
         {
             effectForm.FormType = EffectForm.EffectFormType.LightSource;
@@ -277,10 +266,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetSummonForm(SummonForm.Type summonType, ItemDefinition item, int number,
-            string monsterDefinitionName, ConditionDefinition conditionDefinition,
-            bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage,
-            EffectProxyDefinition effectProxyDefinition)
+        public EffectFormBuilder SetSummonForm(SummonForm.Type summonType, ItemDefinition item, int number, string monsterDefinitionName, ConditionDefinition conditionDefinition,
+            bool persistOnConcentrationLoss, DecisionPackageDefinition decisionPackage, EffectProxyDefinition effectProxyDefinition)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
             var summonForm = new SummonForm();
@@ -297,8 +284,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         public EffectFormBuilder SetSummonCreatureForm(int number, string monsterDefinitionName,
-            bool persistOnConcentrationLoss = false, ConditionDefinition condition = null,
-            DecisionPackageDefinition decisionPackage = null)
+            bool persistOnConcentrationLoss = false, ConditionDefinition condition = null, DecisionPackageDefinition decisionPackage = null)
         {
             effectForm.FormType = EffectForm.EffectFormType.Summon;
             var summonForm = new SummonForm();
@@ -321,7 +307,7 @@ namespace SolastaCommunityExpansion.Builders
             summonForm.SetSummonType(SummonForm.Type.InventoryItem);
             summonForm.SetItemDefinition(item);
             summonForm.SetNumber(number);
-            summonForm.SetMonsterDefinitionName(""); //do we even need this?
+            summonForm.SetMonsterDefinitionName("");//do we even need this?
             summonForm.SetConditionDefinition(null);
             summonForm.SetPersistOnConcentrationLoss(true);
             summonForm.SetDecisionPackage(null);
@@ -330,12 +316,14 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectFormBuilder SetTempHPForm(int bonusHitPoints, DieType dieType, int diceNumber)
+        public EffectFormBuilder SetTempHPForm(int bonusHitPoints, RuleDefinitions.DieType dieType, int diceNumber)
         {
             effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
             var tempHPForm = new TemporaryHitPointsForm
             {
-                BonusHitPoints = bonusHitPoints, DieType = dieType, DiceNumber = diceNumber
+                BonusHitPoints = bonusHitPoints,
+                DieType = dieType,
+                DiceNumber = diceNumber
             };
             effectForm.SetTemporaryHitPointsForm(tempHPForm);
             return this;

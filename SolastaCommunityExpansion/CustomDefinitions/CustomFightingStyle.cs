@@ -9,19 +9,18 @@ namespace SolastaCommunityExpansion.CustomDefinitions
     {
         private IsActiveFightingStyleDelegate isActive;
 
-        public bool IsActive(RulesetCharacterHero character)
-        {
-            return isActive == null || isActive(character);
-        }
-
         internal void SetIsActiveDelegate(IsActiveFightingStyleDelegate del)
         {
             isActive = del;
         }
+
+        public bool IsActive(RulesetCharacterHero character)
+        {
+            return isActive == null || isActive(character);
+        }
     }
 
-    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable,
-        CustomizableFightingStyleBuilder>
+    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable, CustomizableFightingStyleBuilder>
     {
         protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
         {

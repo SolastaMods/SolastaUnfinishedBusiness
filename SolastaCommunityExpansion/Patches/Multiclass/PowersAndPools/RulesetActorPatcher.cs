@@ -12,16 +12,15 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.PowersAndPools
     {
         private static readonly Dictionary<string, CharacterClassDefinition> rules = new()
         {
-            {AttributeDefinitions.HealingPool, Paladin}, {AttributeDefinitions.SorceryPoints, Sorcerer}
+            { AttributeDefinitions.HealingPool, Paladin },
+            { AttributeDefinitions.SorceryPoints, Sorcerer }
         };
 
-        public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter,
-            string attribute)
+        public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter, string attribute)
         {
             if (rules.TryGetValue(attribute, out var characterClass))
             {
-                var hero = rulesetCharacter as RulesetCharacterHero ??
-                           rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+                var hero = rulesetCharacter as RulesetCharacterHero ?? rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
                 if (hero != null && hero.ClassesAndLevels.TryGetValue(characterClass, out var classLevel))
                 {
@@ -52,16 +51,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.PowersAndPools
             {
                 foreach (var activeModifier in attribute.Value.ActiveModifiers)
                 {
-                    if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation
-                            .MultiplyByCharacterLevel)
+                    if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByCharacterLevel)
                     {
                         activeModifier.Value = characterLevel;
                     }
-                    else if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation
-                                 .MultiplyByClassLevel)
+                    else if (activeModifier.Operation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel)
                     {
-                        activeModifier.Value =
-                            GetClassOrCharacterLevel(characterLevel, rulesetCharacter, attribute.Key);
+                        activeModifier.Value = GetClassOrCharacterLevel(characterLevel, rulesetCharacter, attribute.Key);
                     }
                 }
 

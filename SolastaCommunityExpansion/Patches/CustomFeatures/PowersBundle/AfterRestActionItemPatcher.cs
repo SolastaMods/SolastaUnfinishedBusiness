@@ -27,8 +27,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             var activity = __instance.RestActivityDefinition;
 
-            if (activity.Functor == PowerBundleContext.UseCustomRestPowerFunctorName &&
-                activity.StringParameter != null)
+            if (activity.Functor == PowerBundleContext.UseCustomRestPowerFunctorName && activity.StringParameter != null)
             {
                 var masterPower = PowerBundleContext.GetPower(activity.StringParameter);
 
@@ -42,8 +41,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
                     repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
 
-                    subspellSelectionModalScreen.Bind(masterSpell, __instance.Hero, repertoire, handler, 0,
-                        __instance.RectTransform);
+                    subspellSelectionModalScreen.Bind(masterSpell, __instance.Hero, repertoire, handler, 0, __instance.RectTransform);
                     subspellSelectionModalScreen.Show();
 
                     return false;
@@ -66,7 +64,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
         {
             item.SetField("executing", true);
 
-            var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
+            var parameters = new FunctorParametersDescription { RestingHero = item.Hero, StringParameter = powerName };
             var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
 
             yield return ServiceRepository.GetService<IFunctorService>()

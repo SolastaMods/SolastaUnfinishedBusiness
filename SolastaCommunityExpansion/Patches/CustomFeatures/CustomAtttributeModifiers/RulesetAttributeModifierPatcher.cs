@@ -12,9 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAtttributeModif
     {
         internal static void Postfix(RulesetAttributeModifier __instance, ref int __result, int originValue)
         {
-            if (__instance.Operation ==
-                (FeatureDefinitionAttributeModifier.AttributeModifierOperation)ExtraAttributeModifierOperation
-                    .AdditiveAtEnd)
+            if (__instance.Operation == (FeatureDefinitionAttributeModifier.AttributeModifierOperation)ExtraAttributeModifierOperation.AdditiveAtEnd)
             {
                 __result = Mathf.FloorToInt(__instance.Value + originValue);
             }

@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             SubspellItem.OnActivateHandler onActivate,
             GuiLabel ___spellTitle,
             GuiTooltip ___tooltip
-        )
+            )
         {
             if (!Main.Settings.EnablePowersBundlePatch)
             {
@@ -33,8 +33,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             __instance.SetField("index", index);
 
-            var guiPowerDefinition =
-                ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
+            var guiPowerDefinition = ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
             ___spellTitle.Text = guiPowerDefinition.Title;
 
             //add info about remaining spell slots if powers consume them

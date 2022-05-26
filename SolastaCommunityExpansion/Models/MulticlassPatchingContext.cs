@@ -14,55 +14,6 @@ namespace SolastaCommunityExpansion.Models
     {
         private const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
-        // these features will be replaced to comply to SRD multiclass rules
-        private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
-        {
-            {ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass},
-            {ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass},
-            {ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass},
-            {
-                PointPoolRangerSkillPoints,
-                SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass
-            },
-            {PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass}
-        };
-
-        // these features will be removed to comply with SRD multiclass rules
-        private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
-        {
-            {
-                Barbarian, new List<FeatureDefinition> {PointPoolBarbarianrSkillPoints, ProficiencyBarbarianSavingThrow}
-            },
-            {
-                Cleric,
-                new List<FeatureDefinition>
-                {
-                    ProficiencyClericWeapon, PointPoolClericSkillPoints, ProficiencyClericSavingThrow
-                }
-            },
-            {Druid, new List<FeatureDefinition> {PointPoolDruidSkillPoints, ProficiencyDruidSavingThrow}},
-            {Fighter, new List<FeatureDefinition> {PointPoolFighterSkillPoints, ProficiencyFighterSavingThrow}},
-            {Paladin, new List<FeatureDefinition> {PointPoolPaladinSkillPoints, ProficiencyPaladinSavingThrow}},
-            {Ranger, new List<FeatureDefinition> {ProficiencyRangerSavingThrow}},
-            {Rogue, new List<FeatureDefinition> {ProficiencyRogueWeapon, ProficiencyRogueSavingThrow}},
-            {
-                Sorcerer,
-                new List<FeatureDefinition>
-                {
-                    ProficiencySorcererWeapon, PointPoolSorcererSkillPoints, ProficiencySorcererSavingThrow
-                }
-            },
-            {
-                Wizard,
-                new List<FeatureDefinition>
-                {
-                    ProficiencyWizardWeapon, PointPoolWizardSkillPoints, ProficiencyWizardSavingThrow
-                }
-            }
-        };
-
-        private static KeyValuePair<MethodInfo, HeroContext> FeatureUnlocksContext { get; set; }
-
         internal static void Load()
         {
             PatchClassLevel();
@@ -94,23 +45,21 @@ namespace SolastaCommunityExpansion.Models
 #else
             if (Main.Settings.EnableBetaContent)
             {
-                FeaturesToExclude.Add(MonkClass,
-                    new List<FeatureDefinition>
-                    {
-                        dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
-                        dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
-                        dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
-                    });
+                FeaturesToExclude.Add(MonkClass, new()
+                {
+                    dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),
+                    dbFeatureDefinitionProficiency.GetElement("ClassMonkSavingThrowProficiency")
+                });
             }
 #endif
 
-            FeaturesToExclude.Add(TinkererClass,
-                new List<FeatureDefinition>
-                {
-                    dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
-                    dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
-                    dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
-                });
+            FeaturesToExclude.Add(TinkererClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("PointPoolTinkererSkillPoints"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWeaponTinkerer"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
+            });
 
             //FeaturesToExclude.Add(WardenClass, new()
             //{
@@ -118,22 +67,99 @@ namespace SolastaCommunityExpansion.Models
             //    dbFeatureDefinitionPointPool.GetElement("ProficiencyWardenSavingthrow")
             //});
 
-            FeaturesToExclude.Add(WitchClass,
-                new List<FeatureDefinition>
-                {
-                    dbFeatureDefinitionPointPool.GetElement("PointPoolWitchSkillPoints"),
-                    dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchWeapon"),
-                    dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchSavingthrow")
-                });
+            FeaturesToExclude.Add(WitchClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("PointPoolWitchSkillPoints"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchWeapon"),
+                dbFeatureDefinitionProficiency.GetElement("ProficiencyWitchSavingthrow")
+            });
 
-            FeaturesToExclude.Add(WarlockClass,
-                new List<FeatureDefinition>
-                {
-                    dbFeatureDefinitionPointPool.GetElement("ClassWarlockSkillProficiency"),
-                    dbFeatureDefinitionProficiency.GetElement("ClassWarlockWeaponProficiency"),
-                    dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
-                });
+            FeaturesToExclude.Add(WarlockClass, new()
+            {
+                dbFeatureDefinitionPointPool.GetElement("ClassWarlockSkillProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassWarlockWeaponProficiency"),
+                dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
+            });
         }
+
+        // these features will be replaced to comply to SRD multiclass rules
+        private static readonly Dictionary<FeatureDefinition, FeatureDefinition> FeaturesToReplace = new()
+        {
+            { ProficiencyBarbarianArmor, ArmorProficiencyMulticlassBuilder.BarbarianArmorProficiencyMulticlass },
+            { ProficiencyFighterArmor, ArmorProficiencyMulticlassBuilder.FighterArmorProficiencyMulticlass },
+            { ProficiencyPaladinArmor, ArmorProficiencyMulticlassBuilder.PaladinArmorProficiencyMulticlass },
+            { PointPoolRangerSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRangerSkillPointsMulticlass },
+            { PointPoolRogueSkillPoints, SkillProficiencyPointPoolSkillsBuilder.PointPoolRogueSkillPointsMulticlass }
+        };
+
+        // these features will be removed to comply with SRD multiclass rules
+        private static readonly Dictionary<CharacterClassDefinition, List<FeatureDefinition>> FeaturesToExclude = new()
+        {
+            {
+                Barbarian,
+                new() {
+                PointPoolBarbarianrSkillPoints,
+                ProficiencyBarbarianSavingThrow }
+            },
+
+            {
+                Cleric,
+                new() {
+                ProficiencyClericWeapon,
+                PointPoolClericSkillPoints,
+                ProficiencyClericSavingThrow }
+            },
+
+            {
+                Druid,
+                new() {
+                PointPoolDruidSkillPoints,
+                ProficiencyDruidSavingThrow }
+            },
+
+            {
+                Fighter,
+                new() {
+                PointPoolFighterSkillPoints,
+                ProficiencyFighterSavingThrow }
+            },
+
+            {
+                Paladin,
+                new() {
+                PointPoolPaladinSkillPoints,
+                ProficiencyPaladinSavingThrow }
+            },
+
+            {
+                Ranger,
+                new() {
+                ProficiencyRangerSavingThrow }
+            },
+
+            {
+                Rogue,
+                new() {
+                ProficiencyRogueWeapon,
+                ProficiencyRogueSavingThrow }
+            },
+
+            {
+                Sorcerer,
+                new() {
+                ProficiencySorcererWeapon,
+                PointPoolSorcererSkillPoints,
+                ProficiencySorcererSavingThrow }
+            },
+
+            {
+                Wizard,
+                new() {
+                ProficiencyWizardWeapon,
+                PointPoolWizardSkillPoints,
+                ProficiencyWizardSavingThrow }
+            }
+        };
 
         //
         // ClassLevel patching support
@@ -172,7 +198,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void PatchClassLevel()
         {
-            var methods = new[]
+            var methods = new MethodInfo[]
             {
                 // these use ClassesAndLevels[classDefinition]
                 typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
@@ -205,7 +231,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static void PatchEquipmentAssignment()
         {
-            var methods = new[]
+            var methods = new MethodInfo[]
             {
                 typeof(CharacterBuildingManager).GetMethod("BuildWieldedConfigurations"),
                 typeof(CharacterBuildingManager).GetMethod("ClearWieldedConfigurations"),
@@ -219,70 +245,53 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var method in methods)
             {
-                harmony.Patch(method, new HarmonyMethod(prefix));
+                harmony.Patch(method, prefix: new HarmonyMethod(prefix));
             }
         }
 
+        //
+        // FeatureUnlocks patching support
+        //
+
+        private enum HeroContext
+        {
+            BuildingManager,
+            CharacterHero,
+            StagePanel,
+            InformationPanel
+        }
+
+        private static KeyValuePair<MethodInfo, HeroContext> FeatureUnlocksContext { get; set; }
+
         internal static void PatchFeatureUnlocks()
         {
-            var patches = new Dictionary<MethodInfo, HeroContext>
+            var patches = new Dictionary<MethodInfo, HeroContext>()
             {
-                {typeof(CharacterStageClassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
-                {
-                    typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {
-                    typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
-                {
-                    typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {
-                    typeof(CharacterStageDeitySelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage"), HeroContext.StagePanel},
-                {typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb"), HeroContext.StagePanel},
-                {
-                    typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {
-                    typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {
-                    typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel},
-                {
-                    typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures",
-                        PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {
-                    typeof(CharacterStageSubclassSelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {
-                    typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding),
-                    HeroContext.StagePanel
-                },
-                {typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter"), HeroContext.BuildingManager},
-                {
-                    typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding),
-                    HeroContext.InformationPanel
-                },
-                {typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature"), HeroContext.CharacterHero},
-                {
-                    typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding),
-                    HeroContext.CharacterHero
-                }
+                { typeof(CharacterStageClassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel },
+                { typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding), HeroContext.StagePanel },
+
+                { typeof(CharacterStageDeitySelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel },
+                { typeof(CharacterStageDeitySelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageDeitySelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage"), HeroContext.StagePanel },
+
+                { typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb"), HeroContext.StagePanel },
+                { typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel },
+
+                { typeof(CharacterStageSubclassSelectionPanel).GetMethod("OnHigherLevelCb"), HeroContext.StagePanel },
+                { typeof(CharacterStageSubclassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageSubclassSelectionPanel).GetMethod("FillSubclassFeatures", PrivateBinding), HeroContext.StagePanel },
+                { typeof(CharacterStageSubclassSelectionPanel).GetMethod("Refresh", PrivateBinding), HeroContext.StagePanel },
+
+                { typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter"), HeroContext.BuildingManager },
+
+                { typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding), HeroContext.InformationPanel },
+
+                { typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature"), HeroContext.CharacterHero },
+                { typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding), HeroContext.CharacterHero }
             };
 
             var harmony = new Harmony("SolastaCommunityExpansion");
@@ -302,8 +311,7 @@ namespace SolastaCommunityExpansion.Models
             {
                 case HeroContext.StagePanel:
                     var classType = FeatureUnlocksContext.Key.DeclaringType;
-                    var currentHeroField =
-                        classType.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
+                    var currentHeroField = classType.GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
                     yield return new CodeInstruction(OpCodes.Ldfld, currentHeroField);
@@ -318,8 +326,7 @@ namespace SolastaCommunityExpansion.Models
                     break;
 
                 case HeroContext.InformationPanel:
-                    var inspectedCharacterMethod =
-                        typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
+                    var inspectedCharacterMethod = typeof(CharacterInformationPanel).GetMethod("get_InspectedCharacter");
                     var rulesetCharacterHeroMethod = typeof(GuiCharacter).GetMethod("get_RulesetCharacterHero");
 
                     yield return new CodeInstruction(OpCodes.Ldarg_0);
@@ -332,12 +339,10 @@ namespace SolastaCommunityExpansion.Models
         public static IEnumerable<CodeInstruction> FeatureUnlocksTranspiler(IEnumerable<CodeInstruction> instructions)
         {
             var classFeatureUnlocksMethod = typeof(CharacterClassDefinition).GetMethod("get_FeatureUnlocks");
-            var classFilteredFeatureUnlocksMethod =
-                typeof(MulticlassPatchingContext).GetMethod("ClassFilteredFeatureUnlocks");
+            var classFilteredFeatureUnlocksMethod = typeof(MulticlassPatchingContext).GetMethod("ClassFilteredFeatureUnlocks");
 
             var subclassFeatureUnlocksMethod = typeof(CharacterSubclassDefinition).GetMethod("get_FeatureUnlocks");
-            var subclassFilteredFeatureUnlocksMethod =
-                typeof(MulticlassPatchingContext).GetMethod("SubclassFilteredFeatureUnlocks");
+            var subclassFilteredFeatureUnlocksMethod = typeof(MulticlassPatchingContext).GetMethod("SubclassFilteredFeatureUnlocks");
 
             foreach (var instruction in instructions)
             {
@@ -347,7 +352,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         yield return inst;
                     }
-
                     yield return new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod);
                 }
                 else if (instruction.Calls(subclassFeatureUnlocksMethod))
@@ -356,7 +360,6 @@ namespace SolastaCommunityExpansion.Models
                     {
                         yield return inst;
                     }
-
                     yield return new CodeInstruction(OpCodes.Call, subclassFilteredFeatureUnlocksMethod);
                 }
                 else
@@ -367,8 +370,7 @@ namespace SolastaCommunityExpansion.Models
         }
 
         // support class filtered feature unlocks
-        public static List<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(
-            CharacterClassDefinition characterClassDefinition, RulesetCharacterHero rulesetCharacterHero)
+        public static List<FeatureUnlockByLevel> ClassFilteredFeatureUnlocks(CharacterClassDefinition characterClassDefinition, RulesetCharacterHero rulesetCharacterHero)
         {
             var firstClass = rulesetCharacterHero.ClassesHistory[0];
             var selectedClass = LevelUpContext.GetSelectedClass(rulesetCharacterHero) ?? characterClassDefinition;
@@ -382,8 +384,7 @@ namespace SolastaCommunityExpansion.Models
                 && LevelUpContext.IsClassSelectionStage(rulesetCharacterHero)
                 && selectedSubClass != null)
             {
-                filteredFeatureUnlockByLevels.AddRange(SubclassFilteredFeatureUnlocks(selectedSubClass,
-                    rulesetCharacterHero));
+                filteredFeatureUnlockByLevels.AddRange(SubclassFilteredFeatureUnlocks(selectedSubClass, rulesetCharacterHero));
             }
 
             if (!LevelUpContext.IsMulticlass(rulesetCharacterHero) || firstClass == selectedClass)
@@ -403,8 +404,7 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var featureNameToReplace in FeaturesToReplace)
             {
-                var count = filteredFeatureUnlockByLevels.RemoveAll(
-                    x => x.FeatureDefinition == featureNameToReplace.Key);
+                var count = filteredFeatureUnlockByLevels.RemoveAll(x => x.FeatureDefinition == featureNameToReplace.Key);
 
                 if (count > 0)
                 {
@@ -437,8 +437,7 @@ namespace SolastaCommunityExpansion.Models
         }
 
         // support subclass filtered feature unlocks
-        public static List<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(
-            CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
+        public static List<FeatureUnlockByLevel> SubclassFilteredFeatureUnlocks(CharacterSubclassDefinition characterSublassDefinition, RulesetCharacterHero rulesetCharacterHero)
         {
             if (!LevelUpContext.IsMulticlass(rulesetCharacterHero))
             {
@@ -458,18 +457,6 @@ namespace SolastaCommunityExpansion.Models
             }
 
             return filteredFeatureUnlockByLevels;
-        }
-
-        //
-        // FeatureUnlocks patching support
-        //
-
-        private enum HeroContext
-        {
-            BuildingManager,
-            CharacterHero,
-            StagePanel,
-            InformationPanel
         }
     }
 }

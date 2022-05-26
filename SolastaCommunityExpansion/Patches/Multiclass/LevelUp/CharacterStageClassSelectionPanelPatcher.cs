@@ -32,8 +32,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             }
 
             LevelUpContext.SetIsClassSelectionStage(___currentHero, true);
-            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(___currentHero, ___compatibleClasses,
-                ref ___selectedClass);
+            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(___currentHero, ___compatibleClasses, ref ___selectedClass);
 
             var commonData = __instance.CommonData;
 
@@ -78,17 +77,18 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
             if (isLevelingUp)
             {
                 if (hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
-                    && featureUnlockByLevel.Level != levels + 1)
+                    && featureUnlockByLevel.Level != (levels + 1))
                 {
                     return int.MaxValue;
                 }
-
-                if (levels == 0)
+                else if (levels == 0)
                 {
                     return featureUnlockByLevel.Level;
                 }
-
-                return featureUnlockByLevel.Level - 1;
+                else
+                {
+                    return featureUnlockByLevel.Level - 1;
+                }
             }
 
             return featureUnlockByLevel.Level;
@@ -98,9 +98,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
         {
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
             var myLevelMethod = typeof(CharacterStageClassSelectionPanel_FillClassFeatures).GetMethod("Level");
-            var currentHeroField =
-                typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
-                    BindingFlags.Instance | BindingFlags.NonPublic);
+            var currentHeroField = typeof(CharacterStageClassSelectionPanel).GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
             foreach (var instruction in instructions)
             {
@@ -123,19 +121,14 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_Refresh
     {
-        public static bool SetActive(RulesetCharacterHero currentHero)
-        {
-            return !LevelUpContext.IsLevelingUp(currentHero);
-        }
+        public static bool SetActive(RulesetCharacterHero currentHero) => !LevelUpContext.IsLevelingUp(currentHero);
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var setActiveFound = 0;
             var setActiveMethod = typeof(GameObject).GetMethod("SetActive");
             var mySetActiveMethod = typeof(CharacterStageClassSelectionPanel_Refresh).GetMethod("SetActive");
-            var currentHeroField =
-                typeof(CharacterStageClassSelectionPanel).GetField("currentHero",
-                    BindingFlags.Instance | BindingFlags.NonPublic);
+            var currentHeroField = typeof(CharacterStageClassSelectionPanel).GetField("currentHero", BindingFlags.Instance | BindingFlags.NonPublic);
 
             foreach (var instruction in instructions)
             {

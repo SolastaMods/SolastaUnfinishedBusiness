@@ -12,10 +12,9 @@ namespace SolastaCommunityExpansion.Level20.Classes
         internal static void Load()
         {
             // add missing progression
-            Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
+            Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
                 // TODO 18: BEAST SPELLS
-                new(FeatureSetAbilityScoreChoice, 19)
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
                 // TODO 20: ARCHDRUID
             });
 

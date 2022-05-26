@@ -10,6 +10,24 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : FeatDefinition
         where TBuilder : FeatDefinitionBuilder<TDefinition, TBuilder>
     {
+        #region Constructors
+        protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         public TBuilder SetFeatures(params FeatureDefinition[] features)
         {
             return SetFeatures(features.AsEnumerable());
@@ -87,34 +105,11 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetArmorProficiencyCategory(category.Name);
             return This();
         }
-
-        #region Constructors
-
-        protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name,
-            namespaceGuid)
-        {
-        }
-
-        protected FeatDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(original, name,
-            definitionGuid)
-        {
-        }
-
-        #endregion
     }
 
     public class FeatDefinitionBuilder : FeatDefinitionBuilder<FeatDefinition, FeatDefinitionBuilder>
     {
         #region Constructors
-
         protected FeatDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -123,16 +118,13 @@ namespace SolastaCommunityExpansion.Builders
         {
         }
 
-        protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid) : base(original, name,
-            namespaceGuid)
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatDefinitionBuilder(FeatDefinition original, string name, string definitionGuid) : base(original,
-            name, definitionGuid)
+        protected FeatDefinitionBuilder(FeatDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
-
         #endregion
     }
 }

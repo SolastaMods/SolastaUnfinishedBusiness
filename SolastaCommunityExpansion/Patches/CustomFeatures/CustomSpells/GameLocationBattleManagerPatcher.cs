@@ -43,15 +43,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
-            var customBindMethod =
-                new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
+            var customBindMethod = new Func<List<SpellDefinition>, SpellDefinition, bool>(CheckAndModifyCantrips).Method;
 
             var containsIndex = -1;
             //TODO: is there a better way to detect proper placament?
             for (var i = 0; i < codes.Count; i++)
             {
                 if (i < 1) { continue; }
-
                 var code = codes[i];
                 if (code.opcode == OpCodes.Callvirt && code.operand.ToString().Contains("Contains"))
                 {
@@ -62,6 +60,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                         containsIndex = i;
                         break;
                     }
+
                 }
             }
 
@@ -81,7 +80,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 readied.RemoveAll(c => c != preferred);
                 return !readied.Empty();
             }
-
             return readied.Contains(preferred);
         }
     }

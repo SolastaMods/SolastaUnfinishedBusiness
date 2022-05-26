@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
-using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
-using SolastaMonsters.Models;
 using UnityEngine.AddressableAssets;
-
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -15,78 +12,82 @@ namespace SolastaMonsters.Monsters
 {
     internal static class MonstersSRD
     {
-        public static List<MonsterContext.CustomMonster> Definitions = new()
+
+        public static List<Models.MonsterContext.CustomMonster> Definitions = new()
         {
-            new MonsterContext.CustomMonster
+            new Models.MonsterContext.CustomMonster()
             {
-                MonsterName = "Ancient Black Dragon",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "Custom_AncientBlackDragon",
-                NewTitle = "Custom_AncientBlackDragon_Title",
-                NewDescription = "Custom_AncientBlackDragon_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "ChaoticEvil",
-                ArmorClass = 22,
-                HitDice = 21,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 147,
-                StandardHitPoints = 367,
-                AttributeStrength = 27,
-                AttributeDexterity = 14,
-                AttributeConstitution = 25,
-                AttributeIntelligence = 16,
-                AttributeWisdom = 15,
-                AttributeCharisma = 19,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 9,
-                SavingThrowConstitution = 14,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 11,
-                CR = 21,
-                LegendaryCreature = true,
-                Type = "Dragon",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityAcidImmunity,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                        NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Black Dragon"]
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.DragonmonsterSkillProficiency_1,
-                        MonstersAttributes.DragonmonsterSkillProficiency_2
-                    },
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.BlackDragonBiteAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration_2
-                    },
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.DragonlegendaryActionDescription_2,
-                        MonstersAttributes.DragonlegendaryActionDescription
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy.GuiPresentation
-                    .SpriteReference
+               MonsterName = "Ancient Black Dragon",
+               BaseTemplateName = DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy,
+               MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+               NewName = "Custom_AncientBlackDragon",
+               NewTitle = "Custom_AncientBlackDragon_Title",
+               NewDescription = "Custom_AncientBlackDragon_Description",
+               Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
+               Alignment = "ChaoticEvil",
+               ArmorClass = 22,
+               HitDice = 21,
+               HitDiceType = RuleDefinitions.DieType.D20,
+               HitPointsBonus = 147,
+               StandardHitPoints = 367,
+               AttributeStrength = 27,
+               AttributeDexterity = 14,
+               AttributeConstitution = 25,
+               AttributeIntelligence = 16,
+               AttributeWisdom = 15,
+               AttributeCharisma = 19,
+               SavingThrowStrength = 0,
+               SavingThrowDexterity = 9,
+               SavingThrowConstitution = 14,
+               SavingThrowIntelligence = 0,
+               SavingThrowWisdom = 9,
+               SavingThrowCharisma = 11,
+               CR = 21,
+               LegendaryCreature = true,
+               Type = "Dragon",
+               Features = new List<FeatureDefinition>()
+               {
+                DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8 ,
+                 DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12    ,
+                 DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision   ,
+                 DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityAcidImmunity ,
+                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence    ,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity ,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
+
+                 NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Black Dragon"]
+               },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.DragonmonsterSkillProficiency_1,
+                    MonstersAttributes.DragonmonsterSkillProficiency_2
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.BlackDragonBiteAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration_2
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.DragonlegendaryActionDescription_2,
+                    MonstersAttributes.DragonlegendaryActionDescription
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
+
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.BlackDragon_MasterOfNecromancy.GuiPresentation.SpriteReference,
+
+
             },
-            new MonsterContext.CustomMonster
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Ancient Blue Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SpectralDragon_02,
@@ -116,48 +117,51 @@ namespace SolastaMonsters.Monsters
                 CR = 23,
                 LegendaryCreature = true,
                 Type = "Dragon",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeBurrow8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningImmunity,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                        NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Blue Dragon"]
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.DragonmonsterSkillProficiency_1,
-                        MonstersAttributes.DragonmonsterSkillProficiency_2
-                    },
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.BlueDragonBiteAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration_2
-                    },
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.DragonlegendaryActionDescription_2,
-                        MonstersAttributes.DragonlegendaryActionDescription
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SpectralDragon_02.GuiPresentation
-                    .SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeBurrow8   ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8    ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12    ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision   ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningImmunity    ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence    ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
+                    ,
+                 NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Blue Dragon"]
+               },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.DragonmonsterSkillProficiency_1,
+                    MonstersAttributes.DragonmonsterSkillProficiency_2
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.BlueDragonBiteAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration_2
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.DragonlegendaryActionDescription_2,
+                    MonstersAttributes.DragonlegendaryActionDescription
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SpectralDragon_02.GuiPresentation.SpriteReference,
+
+
             },
-            new MonsterContext.CustomMonster
+
+            new Models.MonsterContext.CustomMonster()
             {
+
                 MonsterName = "Ancient Green Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
@@ -186,50 +190,53 @@ namespace SolastaMonsters.Monsters
                 CR = 22,
                 LegendaryCreature = true,
                 Type = "Dragon",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Green Dragon"]
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.DragonmonsterSkillProficiency_1,
-                        MonstersAttributes.DragonmonsterSkillProficiency_2,
-                        MonstersAttributes.GreenDragonmonsterSkillProficiency_3,
-                        MonstersAttributes.GreenDragonmonsterSkillProficiency_4,
-                        MonstersAttributes.GreenDragonmonsterSkillProficiency_5
-                    },
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.GreenDragonBiteAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration_2
-                    },
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.DragonlegendaryActionDescription_2,
-                        MonstersAttributes.DragonlegendaryActionDescription
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration.GuiPresentation
-                    .SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity
+                    ,
+                 NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Green Dragon"]
+               },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.DragonmonsterSkillProficiency_1,
+                    MonstersAttributes.DragonmonsterSkillProficiency_2,
+                    MonstersAttributes.GreenDragonmonsterSkillProficiency_3,
+                    MonstersAttributes.GreenDragonmonsterSkillProficiency_4,
+                    MonstersAttributes.GreenDragonmonsterSkillProficiency_5,
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.GreenDragonBiteAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration_2
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.DragonlegendaryActionDescription_2,
+                    MonstersAttributes.DragonlegendaryActionDescription
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.GreenDragon_MasterOfConjuration.GuiPresentation.SpriteReference,
+
+
             },
-            new MonsterContext.CustomMonster
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Ancient Red Dragon",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai,
@@ -259,118 +266,126 @@ namespace SolastaMonsters.Monsters
                 CR = 24,
                 LegendaryCreature = true,
                 Type = "Dragon",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeClimb6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                        NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Red Dragon"]
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.DragonmonsterSkillProficiency_1,
-                        MonstersAttributes.DragonmonsterSkillProficiency_2
-                    },
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.RedDragonBiteAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration_2
-                    },
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.DragonlegendaryActionDescription_2,
-                        MonstersAttributes.DragonlegendaryActionDescription
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai.GuiPresentation
-                    .SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeClimb6    ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6    ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12    ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision   ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence    ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
+                ,
+                 NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient Red Dragon"]
+               },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.DragonmonsterSkillProficiency_1,
+                    MonstersAttributes.DragonmonsterSkillProficiency_2
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.RedDragonBiteAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration_2
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.DragonlegendaryActionDescription_2,
+                    MonstersAttributes.DragonlegendaryActionDescription
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.GoldDragon_AerElai.GuiPresentation.SpriteReference,
+
+
+
             },
-            new MonsterContext.CustomMonster
+
+            new Models.MonsterContext.CustomMonster()
             {
-                MonsterName = "Ancient White Dragon",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "Custom_AncientWhiteDragon",
-                NewTitle = "Custom_AncientWhiteDragon_Title",
-                NewDescription = "Custom_AncientWhiteDragon_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "ChaoticEvil",
-                ArmorClass = 20,
-                HitDice = 18,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 144,
-                StandardHitPoints = 333,
-                AttributeStrength = 26,
-                AttributeDexterity = 10,
-                AttributeConstitution = 26,
-                AttributeIntelligence = 10,
-                AttributeWisdom = 13,
-                AttributeCharisma = 14,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 6,
-                SavingThrowConstitution = 14,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 7,
-                SavingThrowCharisma = 8,
-                CR = 20,
-                LegendaryCreature = true,
-                Type = "Dragon",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeBurrow8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                        NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient White Dragon"]
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.DragonmonsterSkillProficiency_1,
-                        MonstersAttributes.DragonmonsterSkillProficiency_2
-                    },
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.WhiteDragonBiteAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration,
-                        MonstersAttributes.DragonClawAttackIteration_2
-                    },
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.DragonlegendaryActionDescription_2,
-                        MonstersAttributes.DragonlegendaryActionDescription
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.AncientDragon_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess.GuiPresentation
-                    .SpriteReference
+
+                MonsterName = "Ancient White Dragon" ,
+                BaseTemplateName = DatabaseHelper.MonsterDefinitions.SilverDragon_Princess    ,
+                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug ,
+                NewName = "Custom_AncientWhiteDragon"    ,
+                NewTitle = "Custom_AncientWhiteDragon_Title"  ,
+                NewDescription = "Custom_AncientWhiteDragon_Description"    ,
+                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize ,
+                Alignment = "ChaoticEvil"  ,
+                ArmorClass = 20  ,
+                HitDice = 18  ,
+                HitDiceType = RuleDefinitions.DieType.D20    ,
+                HitPointsBonus = 144 ,
+                StandardHitPoints = 333 ,
+                AttributeStrength = 26  ,
+                AttributeDexterity = 10  ,
+                AttributeConstitution = 26  ,
+                AttributeIntelligence = 10  ,
+                AttributeWisdom = 13  ,
+                AttributeCharisma = 14  ,
+                SavingThrowStrength = 0   ,
+                SavingThrowDexterity = 6   ,
+                SavingThrowConstitution = 14  ,
+                SavingThrowIntelligence = 0   ,
+                SavingThrowWisdom = 7   ,
+                SavingThrowCharisma = 8   ,
+                CR = 20  ,
+                LegendaryCreature = true   ,
+                Type = "Dragon"   ,
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeBurrow8   ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6    ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8 ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision   ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence    ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity
+                ,
+                 NewMonsterPowers.DictionaryOfAncientDragonBreaths["Ancient White Dragon"]
+               },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.DragonmonsterSkillProficiency_1,
+                    MonstersAttributes.DragonmonsterSkillProficiency_2
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.WhiteDragonBiteAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration,
+                    MonstersAttributes.DragonClawAttackIteration_2
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.DragonlegendaryActionDescription_2,
+                    MonstersAttributes.DragonlegendaryActionDescription
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.AncientDragon_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SilverDragon_Princess.GuiPresentation.SpriteReference,
+
+
+
             },
-            new MonsterContext.CustomMonster
+
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Archmage",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SRD_Mage,
@@ -400,41 +415,45 @@ namespace SolastaMonsters.Monsters
                 CR = 12,
                 LegendaryCreature = false,
                 Type = "Humanoid",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCalmEmotionCharmedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCharmImmunityHypnoticPattern,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCalmEmotionFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        NewMonsterAttributes.CastSpell_ArchMage
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.ArchmagemonsterSkillProficiency_1,
-                        MonstersAttributes.ArchmagemonsterSkillProficiency_2
-                    },
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0]
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage = NewMonsterAttributes.HighLevelCaster_CombatDecisions,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SRD_Mage.GuiPresentation.SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionFrightenedImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
+
+                    ,
+                     NewMonsterAttributes.CastSpell_ArchMage
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.ArchmagemonsterSkillProficiency_1,
+                    MonstersAttributes.ArchmagemonsterSkillProficiency_2
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0]
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.HighLevelCaster_CombatDecisions,
+                GroupAttacks=false,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SRD_Mage.GuiPresentation.SpriteReference,
             },
-            new MonsterContext.CustomMonster
+
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Balor",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Minotaur,
@@ -464,104 +483,122 @@ namespace SolastaMonsters.Monsters
                 CR = 19,
                 LegendaryCreature = false,
                 Type = "Fiend",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinBludgeoning,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinPiercing,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinSlashing,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerPhaseSpiderTeleport,
-                        DatabaseHelper.FeatureDefinitionAttackModifiers
-                            .AttackModifierMartialSpellBladeMagicWeapon,
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinBludgeoning,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinPiercing,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinSlashing,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerPhaseSpiderTeleport,
+                     DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMartialSpellBladeMagicWeapon
+                    ,
                         NewMonsterPowers.Balor_FireAura_Power,
                         NewMonsterAttributes.Balor_Retaliate_DamageAffinity,
                         NewMonsterPowers.SummonCreature_Nalfeshnee_Power
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.BalorWhipAttackIteration,
-                        MonstersAttributes.BalorLongswordAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Balor_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.BalorassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.MinotaurElite.GuiPresentation.SpriteReference
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.BalorWhipAttackIteration,
+                    MonstersAttributes.BalorLongswordAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Balor_CombatDecisions,
+                GroupAttacks=true,
+
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.BalorassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.MinotaurElite.GuiPresentation.SpriteReference,
+
             },
-            new MonsterContext.CustomMonster
-            {
-                MonsterName = "Deva",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
-                NewName = "Custom_Deva",
-                NewTitle = "Custom_Deva_Title",
-                NewDescription = "Custom_Deva_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
-                Alignment = "LawfulGood",
-                ArmorClass = 17,
-                HitDice = 16,
-                HitDiceType = RuleDefinitions.DieType.D8,
-                HitPointsBonus = 64,
-                StandardHitPoints = 136,
-                AttributeStrength = 18,
-                AttributeDexterity = 18,
-                AttributeConstitution = 18,
-                AttributeIntelligence = 17,
-                AttributeWisdom = 20,
-                AttributeCharisma = 20,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 0,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 9,
-                CR = 10,
-                LegendaryCreature = false,
-                Type = "Celestial",
-                Features =
-                    new List<FeatureDefinition>
+
+
+             new Models.MonsterContext.CustomMonster()
+             {
+                    MonsterName = "Deva",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar,
+                    NewName = "Custom_Deva",
+                    NewTitle = "Custom_Deva_Title",
+                    NewDescription = "Custom_Deva_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
+                    Alignment = "LawfulGood",
+                    ArmorClass = 17,
+                    HitDice = 16,
+                    HitDiceType = RuleDefinitions.DieType.D8,
+                    HitPointsBonus = 64,
+                    StandardHitPoints = 136,
+                    AttributeStrength = 18,
+                    AttributeDexterity = 18,
+                    AttributeConstitution = 18,
+                    AttributeIntelligence = 17,
+                    AttributeWisdom = 20,
+                    AttributeCharisma = 20,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 0,
+                    SavingThrowConstitution = 0,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 9,
+                    SavingThrowCharisma = 9,
+                    CR = 10,
+                    LegendaryCreature = false,
+                    Type = "Celestial",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
-                        DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Paladin
+                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
+                         DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Paladin
+
                     },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.DevamonsterSkillProficiency_1,
-                        MonstersAttributes.DevamonsterSkillProficiency_2
-                    },
-                AttackIterations = DatabaseHelper.MonsterDefinitions.Divine_Avatar.AttackIterations,
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.MonsterDefinitions.Divine_Avatar.DefaultBattleDecisionPackage,
-                GroupAttacks = DatabaseHelper.MonsterDefinitions.Divine_Avatar.GroupAttacks,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar.GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
-            {
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.DevamonsterSkillProficiency_1,
+                    MonstersAttributes.DevamonsterSkillProficiency_2
+                },
+                AttackIterations=DatabaseHelper.MonsterDefinitions.Divine_Avatar.AttackIterations
+                ,
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Divine_Avatar.DefaultBattleDecisionPackage,
+                GroupAttacks=DatabaseHelper.MonsterDefinitions.Divine_Avatar.GroupAttacks,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar.GuiPresentation.SpriteReference,
+             },
+
+
+             new Models.MonsterContext.CustomMonster()
+             {
                 MonsterName = "Djinni",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Jester,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Air_Elemental,
@@ -590,34 +627,45 @@ namespace SolastaMonsters.Monsters
                 CR = 11,
                 LegendaryCreature = false,
                 Type = "Elemental",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityThunderImmunity,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.DjinniAttackIteration, MonstersAttributes.DjinniAttackIteration_2
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.MonsterDefinitions.Air_Elemental.DefaultBattleDecisionPackage,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.DjinniassetReference,
-                SpriteReference = DatabaseHelper.HumanoidMonsterPresentationDefinitions.NPC_Presentation_Emtan_Ghost
-                    .GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
-            {
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityThunderImmunity,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonWingAttack
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.DjinniAttackIteration,
+                    MonstersAttributes.DjinniAttackIteration_2
+
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Air_Elemental.DefaultBattleDecisionPackage,
+                GroupAttacks=false,
+
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.DjinniassetReference,
+                SpriteReference=DatabaseHelper.HumanoidMonsterPresentationDefinitions.NPC_Presentation_Emtan_Ghost.GuiPresentation.SpriteReference,
+
+             },
+
+
+           new Models.MonsterContext.CustomMonster()
+           {
                 MonsterName = "Efreeti",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Fire_Jester,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Fire_Spider,
@@ -646,31 +694,42 @@ namespace SolastaMonsters.Monsters
                 CR = 11,
                 LegendaryCreature = false,
                 Type = "Elemental",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.EfreetiAttackIteration, MonstersAttributes.EfreetiAttackIteration_2
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.MonsterDefinitions.Fire_Elemental.DefaultBattleDecisionPackage,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EfreetiassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Fire_Jester.GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.EfreetiAttackIteration,
+                    MonstersAttributes.EfreetiAttackIteration_2
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Fire_Elemental.DefaultBattleDecisionPackage,
+                GroupAttacks=false,
+
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EfreetiassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Fire_Jester.GuiPresentation.SpriteReference,
+
+           },
+
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Erinyes",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Estalla,
@@ -700,44 +759,46 @@ namespace SolastaMonsters.Monsters
                 CR = 12,
                 LegendaryCreature = false,
                 Type = "Fiend",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinitySlashingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityPiercingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityBludgeoningResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionAttackModifiers
-                            .AttackModifierMartialSpellBladeMagicWeapon,
-                        DatabaseHelper.FeatureDefinitionAdditionalDamages
-                            .AdditionalDamagePoison_QueenSpidersBlood,
-                        NewMonsterPowers.ErinyesParry_Power
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.ErinyesAttackIteration, MonstersAttributes.ErinyesAttackIteration_2
-                    },
-                LegendaryActionOptions = DatabaseHelper.MonsterDefinitions.Estalla.LegendaryActionOptions,
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Estalla.GuiPresentation.SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6 ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12    ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16    ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceExceptSilver   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceExceptSilver   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceExceptSilver    ,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance    ,
+                     DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMartialSpellBladeMagicWeapon ,
+                     DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_QueenSpidersBlood
+                    ,
+                     NewMonsterPowers.ErinyesParry_Power
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.ErinyesAttackIteration,
+                    MonstersAttributes.ErinyesAttackIteration_2
+                },
+                LegendaryActionOptions=DatabaseHelper.MonsterDefinitions.Estalla.LegendaryActionOptions,
+
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
+                GroupAttacks=false,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Estalla.GuiPresentation.SpriteReference,
             },
-            new MonsterContext.CustomMonster
-            {
+
+           new Models.MonsterContext.CustomMonster()
+           {
+
                 MonsterName = "Guardian Naga",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Tiger_Drake,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
@@ -766,31 +827,42 @@ namespace SolastaMonsters.Monsters
                 CR = 10,
                 LegendaryCreature = false,
                 Type = "Monstrosity",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        NewMonsterAttributes.CastSpell_GuardianNaga
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.NagaAttackIteration_2, MonstersAttributes.NagaAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Naga_CombatDecisions,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Tiger_Drake.GuiPresentation.SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8 ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision   ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity   ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity  ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity
+                    ,
+                     NewMonsterAttributes.CastSpell_GuardianNaga
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.NagaAttackIteration_2,
+                    MonstersAttributes.NagaAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Naga_CombatDecisions,
+                GroupAttacks=false,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Tiger_Drake.GuiPresentation.SpriteReference,
             },
-            new MonsterContext.CustomMonster
+
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Horned Devil",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin,
@@ -820,47 +892,52 @@ namespace SolastaMonsters.Monsters
                 CR = 11,
                 LegendaryCreature = false,
                 Type = "Fiend",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinitySlashingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityPiercingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityBludgeoningResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.HornedDevilForkAttackIteration,
-                        MonstersAttributes.HornedDevilForkAttackIteration,
-                        MonstersAttributes.HornedDevilTailAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin.GuiPresentation
-                    .SpriteReference
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision    ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4    ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12    ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceExceptSilver   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceExceptSilver   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceExceptSilver    ,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance    ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast    ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16
+                    ,
+                      DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.HornedDevilForkAttackIteration,
+                    MonstersAttributes.HornedDevilForkAttackIteration,
+                    MonstersAttributes.HornedDevilTailAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Assassin.GuiPresentation.SpriteReference,
             },
-            new MonsterContext.CustomMonster
-            {
+
+
+             new Models.MonsterContext.CustomMonster()
+             {
                 MonsterName = "Ice Devil",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.SkarnGhoul,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SkarnGhoul,
@@ -889,43 +966,49 @@ namespace SolastaMonsters.Monsters
                 CR = 14,
                 LegendaryCreature = false,
                 Type = "Fiend",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinitySlashingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityPiercingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityBludgeoningResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerWinterWolfBreath
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.IceDevilBiteAttackIteration,
-                        MonstersAttributes.IceDevilClawAttackIteration,
-                        MonstersAttributes.IceDevilTailAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.SkarnGhoul.GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceExceptSilver,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceExceptSilver,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceExceptSilver,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance
+                    ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerWinterWolfBreath
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.IceDevilBiteAttackIteration,
+                    MonstersAttributes.IceDevilClawAttackIteration,
+                    MonstersAttributes.IceDevilTailAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.SorakShikkathAndBossCombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.SkarnGhoul.GuiPresentation.SpriteReference,
+             },
+
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Lich",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.MummyLord,
@@ -955,47 +1038,44 @@ namespace SolastaMonsters.Monsters
                 CR = 21,
                 LegendaryCreature = true,
                 Type = "Undead",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCalmEmotionCharmedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCharmImmunityHypnoticPattern,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCalmEmotionFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityParalyzedmmunity,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityMummyLord_BludgeoningImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityMummyLord_PiercingImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityMummyLord_SlashingImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        NewMonsterAttributes.CastSpell_Lich
-                    },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.LichmonsterSkillProficiency_1,
-                        MonstersAttributes.LichmonsterSkillProficiency_2,
-                        MonstersAttributes.LichmonsterSkillProficiency_3,
-                        MonstersAttributes.LichmonsterSkillProficiency_4
-                    },
-                AttackIterations = new List<MonsterAttackIteration> {MonstersAttributes.LichAttackIteration},
-                LegendaryActionOptions = new List<LegendaryActionDescription>
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionFrightenedImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityParalyzedmmunity,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_BludgeoningImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_PiercingImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_SlashingImmunity,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity
+                    ,
+                     NewMonsterAttributes.CastSpell_Lich
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.LichmonsterSkillProficiency_1,
+                    MonstersAttributes.LichmonsterSkillProficiency_2,
+                    MonstersAttributes.LichmonsterSkillProficiency_3,
+                    MonstersAttributes.LichmonsterSkillProficiency_4
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.LichAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
                 {
                     MonstersAttributes.LichlegendaryActionDescription_0,
                     MonstersAttributes.LichlegendaryActionDescription,
@@ -1003,14 +1083,20 @@ namespace SolastaMonsters.Monsters
                     MonstersAttributes.LichlegendaryActionDescription_3,
                     MonstersAttributes.LichlegendaryActionDescription_4
                 },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.HighLevelCaster_CombatDecisions,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.LichassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Adam_The_Twelth.GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.HighLevelCaster_CombatDecisions,
+                GroupAttacks=false,
+
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.LichassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Adam_The_Twelth.GuiPresentation.SpriteReference,
+
+            }       ,
+
+            new Models.MonsterContext.CustomMonster()
             {
+
                 MonsterName = "Nalfeshnee",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Ogre_Zombie,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
@@ -1039,42 +1125,51 @@ namespace SolastaMonsters.Monsters
                 CR = 13,
                 LegendaryCreature = false,
                 Type = "Fiend",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinBludgeoning,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinPiercing,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinSlashing,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerPhaseSpiderTeleport
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.NalfeshneeBiteAttackIteration,
-                        MonstersAttributes.NalfeshneeClawAttackIteration,
-                        MonstersAttributes.NalfeshneeClawAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Nalfeshnee_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Ogre_Zombie.GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityLightningResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinBludgeoning,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinPiercing,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityStoneskinSlashing,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerPhaseSpiderTeleport
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.NalfeshneeBiteAttackIteration,
+                    MonstersAttributes.NalfeshneeClawAttackIteration,
+                    MonstersAttributes.NalfeshneeClawAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Nalfeshnee_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Ogre_Zombie.GuiPresentation.SpriteReference,
+            }       ,
+
+            new Models.MonsterContext.CustomMonster()
             {
+
                 MonsterName = "Pit Fiend",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
                 MonsterShaderReference = DatabaseHelper.MonsterDefinitions.PhaseSpider,
@@ -1103,163 +1198,189 @@ namespace SolastaMonsters.Monsters
                 CR = 20,
                 LegendaryCreature = false,
                 Type = "Fiend",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove10,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinitySlashingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityPiercingResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys
-                            .DamageAffinityBludgeoningResistanceExceptSilver,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        DatabaseHelper.FeatureDefinitionAttackModifiers
-                            .AttackModifierMartialSpellBladeMagicWeapon,
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6  ,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove10   ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision   ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision ,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseTruesight16    ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityColdResistance   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistanceExceptSilver   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistanceExceptSilver   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistanceExceptSilver    ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity   ,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity ,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity ,
+                     DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance    ,
+                     DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence    ,
+                     DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMartialSpellBladeMagicWeapon
+                    ,
                         NewMonsterPowers.AtWillAOE_Fireball_Power,
                         NewMonsterPowers.LimitedPerDayTargetDebuff_HoldMonster_Power,
                         NewMonsterPowers.LimitedPerDayAOE_WallOfFire_Power,
                         NewMonsterPowers.SummonCreature_Erinyes_Power
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.PitFiendBiteAttackIteration,
-                        MonstersAttributes.PitFiendClawAttackIteration,
-                        MonstersAttributes.PitFiendTailAttackIteration,
-                        MonstersAttributes.PitFiendWeaponAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage = NewMonsterAttributes.PitFiend_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation
-                    .SpriteReference
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.PitFiendBiteAttackIteration,
+                    MonstersAttributes.PitFiendClawAttackIteration,
+                    MonstersAttributes.PitFiendTailAttackIteration,
+                    MonstersAttributes.PitFiendWeaponAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.PitFiend_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation.SpriteReference,
             },
-            new MonsterContext.CustomMonster
-            {
-                MonsterName = "Planetar",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf,
-                NewName = "Custom_Planetar",
-                NewTitle = "Custom_Planetar_Title",
-                NewDescription = "Custom_Planetar_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Large,
-                Alignment = "LawfulGood",
-                ArmorClass = 19,
-                HitDice = 16,
-                HitDiceType = RuleDefinitions.DieType.D10,
-                HitPointsBonus = 112,
-                StandardHitPoints = 200,
-                AttributeStrength = 24,
-                AttributeDexterity = 20,
-                AttributeConstitution = 24,
-                AttributeIntelligence = 19,
-                AttributeWisdom = 22,
-                AttributeCharisma = 25,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 12,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 11,
-                SavingThrowCharisma = 12,
-                CR = 16,
-                LegendaryCreature = false,
-                Type = "Celestial",
-                Features =
-                    new List<FeatureDefinition>
+
+              new Models.MonsterContext.CustomMonster()
+              {
+
+                    MonsterName = "Planetar",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf,
+                    NewName = "Custom_Planetar",
+                    NewTitle = "Custom_Planetar_Title",
+                    NewDescription = "Custom_Planetar_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Large,
+                    Alignment = "LawfulGood",
+                    ArmorClass = 19,
+                    HitDice = 16,
+                    HitDiceType = RuleDefinitions.DieType.D10,
+                    HitPointsBonus = 112,
+                    StandardHitPoints = 200,
+                    AttributeStrength = 24,
+                    AttributeDexterity = 20,
+                    AttributeConstitution = 24,
+                    AttributeIntelligence = 19,
+                    AttributeWisdom = 22,
+                    AttributeCharisma = 25,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 0,
+                    SavingThrowConstitution = 12,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 11,
+                    SavingThrowCharisma = 12,
+                    CR = 16,
+                    LegendaryCreature = false,
+                    Type = "Celestial",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
-                        DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard
+                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
+                         DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard
+
                     },
-                SkillScores =
-                    new List<MonsterSkillProficiency> {MonstersAttributes.PlanetarmonsterSkillProficiency_1},
-                AttackIterations =
-                    new List<MonsterAttackIteration> {MonstersAttributes.PlanetarLongswordAttackIteration},
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage =
-                    DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.DefaultBattleDecisionPackage,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard.GuiPresentation
-                    .SpriteReference
-            },
-            new MonsterContext.CustomMonster
-            {
-                MonsterName = "Roc",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Eagle,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "Custom_Roc",
-                NewTitle = "Custom_Roc_Title",
-                NewDescription = "Custom_Roc_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "Unaligned",
-                ArmorClass = 15,
-                HitDice = 16,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 80,
-                StandardHitPoints = 248,
-                AttributeStrength = 28,
-                AttributeDexterity = 10,
-                AttributeConstitution = 20,
-                AttributeIntelligence = 3,
-                AttributeWisdom = 10,
-                AttributeCharisma = 9,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 4,
-                SavingThrowConstitution = 9,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 4,
-                SavingThrowCharisma = 3,
-                CR = 11,
-                LegendaryCreature = false,
-                Type = "Monstrosity",
-                Features =
-                    new List<FeatureDefinition>
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.PlanetarmonsterSkillProficiency_1
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.PlanetarLongswordAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.DefaultBattleDecisionPackage,
+                GroupAttacks=false,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Wizard.GuiPresentation.SpriteReference,
+              } ,
+
+             new Models.MonsterContext.CustomMonster()
+             {
+
+                    MonsterName = "Roc",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Giant_Eagle,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+                    NewName = "Custom_Roc",
+                    NewTitle = "Custom_Roc_Title",
+                    NewDescription = "Custom_Roc_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
+                    Alignment = "Unaligned",
+                    ArmorClass = 15,
+                    HitDice = 16,
+                    HitDiceType = RuleDefinitions.DieType.D20,
+                    HitPointsBonus = 80,
+                    StandardHitPoints = 248,
+                    AttributeStrength = 28,
+                    AttributeDexterity = 10,
+                    AttributeConstitution = 20,
+                    AttributeIntelligence = 3,
+                    AttributeWisdom = 10,
+                    AttributeCharisma = 9,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 4,
+                    SavingThrowConstitution = 9,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 4,
+                    SavingThrowCharisma = 3,
+                    CR = 11,
+                    LegendaryCreature = false,
+                    Type = "Monstrosity",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow
+                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove4,
+                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                         DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                         DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow
+                            ,
                     },
-                SkillScores = new List<MonsterSkillProficiency> {MonstersAttributes.RocmonsterSkillProficiency_1},
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.RocBiteAttackIteration, MonstersAttributes.RocClawAttackIteration
-                    },
-                LegendaryActionOptions = new List<LegendaryActionDescription>(),
-                DefaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Giant_Eagle.GuiPresentation.SpriteReference
-            },
-            new MonsterContext.CustomMonster
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.RocmonsterSkillProficiency_1
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.RocBiteAttackIteration,
+                    MonstersAttributes.RocClawAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+
+                },
+
+                DefaultBattleDecisionPackage=DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Giant_Eagle.GuiPresentation.SpriteReference,
+            }       ,
+
+
+            new Models.MonsterContext.CustomMonster()
             {
                 MonsterName = "Solar",
                 BaseTemplateName = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric,
@@ -1289,45 +1410,48 @@ namespace SolastaMonsters.Monsters
                 CR = 21,
                 LegendaryCreature = true,
                 Type = "Celestial",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
-                        DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Cleric,
-                        NewMonsterPowers.AtWillSelfBuff_Invisibility_Power
-                    },
-                SkillScores = new List<MonsterSkillProficiency> {MonstersAttributes.SolarmonsterSkillProficiency_1},
-                AttackIterations =
-                    new List<MonsterAttackIteration>
-                    {
-                        MonstersAttributes.SolarLongswordAttackIteration,
-                        MonstersAttributes.SolarLongbowAttackIteration
-                    },
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.SolarlegendaryActionDescription,
-                        MonstersAttributes.SolarlegendaryActionDescription_2,
-                        MonstersAttributes.SolarlegendaryActionDescription_3
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Solar_CombatDecisions,
-                GroupAttacks = false,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.GuiPresentation
-                    .SpriteReference
-            },
+                Features = new List<FeatureDefinition>()
+                {
+                    DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
+                     DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly12,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12,
+                     DatabaseHelper.FeatureDefinitionSenses.SenseSeeInvisible12,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
+                     DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityRadiantResistance,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
+                     DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Cleric
+                        ,
+                     NewMonsterPowers.AtWillSelfBuff_Invisibility_Power
+                },
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.SolarmonsterSkillProficiency_1
+                },
+                AttackIterations=new List<MonsterAttackIteration> ()
+                {
+                    MonstersAttributes.SolarLongswordAttackIteration,
+                    MonstersAttributes.SolarLongbowAttackIteration
+                },
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.SolarlegendaryActionDescription,
+                    MonstersAttributes.SolarlegendaryActionDescription_2,
+                    MonstersAttributes.SolarlegendaryActionDescription_3
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Solar_CombatDecisions,
+                GroupAttacks=false,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.GuiPresentation.SpriteReference,
+            }       ,
 
 /*
              new Models.MonsterContext.CustomMonster()
@@ -1393,164 +1517,173 @@ namespace SolastaMonsters.Monsters
                 SpriteReference=DatabaseHelper.MonsterDefinitions.Giant_Frost.GuiPresentation.SpriteReference,
              }      ,
 */
-            new MonsterContext.CustomMonster
+            new Models.MonsterContext.CustomMonster()
             {
-                MonsterName = "Tarrasque",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
-                NewName = "Custom_Tarrasque",
-                NewTitle = "Custom_Tarrasque_Title",
-                NewDescription = "Custom_Tarrasque_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
-                Alignment = "Unaligned",
-                ArmorClass = 25,
-                HitDice = 33,
-                HitDiceType = RuleDefinitions.DieType.D20,
-                HitPointsBonus = 330,
-                StandardHitPoints = 676,
-                AttributeStrength = 30,
-                AttributeDexterity = 11,
-                AttributeConstitution = 30,
-                AttributeIntelligence = 3,
-                AttributeWisdom = 11,
-                AttributeCharisma = 11,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 0,
-                SavingThrowConstitution = 0,
-                SavingThrowIntelligence = 5,
-                SavingThrowWisdom = 9,
-                SavingThrowCharisma = 9,
-                CR = 30,
-                LegendaryCreature = true,
-                Type = "Monstrosity",
-                Features =
-                    new List<FeatureDefinition>
-                    {
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTremorsense16,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight12,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_BludgeoningImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_PiercingImmunity,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_SlashingImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCalmEmotionFrightenedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityParalyzedmmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCalmEmotionCharmedImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys
-                            .ConditionAffinityCharmImmunityHypnoticPattern,
-                        DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
-                        NewMonsterPowers.TarrasqueSwallowPower,
-                        NewMonsterAttributes.TarrasqueReflectiveCarapace
-                    },
-                SkillScores = new List<MonsterSkillProficiency>(),
-                AttackIterations = new List<MonsterAttackIteration>
+               MonsterName = "Tarrasque",
+               BaseTemplateName = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
+               MonsterShaderReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination,
+               NewName = "Custom_Tarrasque",
+               NewTitle = "Custom_Tarrasque_Title",
+               NewDescription = "Custom_Tarrasque_Description",
+               Size = DatabaseHelper.CharacterSizeDefinitions.DragonSize,
+               Alignment = "Unaligned",
+               ArmorClass = 25,
+               HitDice = 33,
+               HitDiceType = RuleDefinitions.DieType.D20,
+               HitPointsBonus = 330,
+               StandardHitPoints = 676,
+               AttributeStrength = 30,
+               AttributeDexterity = 11,
+               AttributeConstitution = 30,
+               AttributeIntelligence = 3,
+               AttributeWisdom = 11,
+               AttributeCharisma = 11,
+               SavingThrowStrength = 0,
+               SavingThrowDexterity = 0,
+               SavingThrowConstitution = 0,
+               SavingThrowIntelligence = 5,
+               SavingThrowWisdom = 9,
+               SavingThrowCharisma = 9,
+               CR = 30,
+               LegendaryCreature = true,
+               Type = "Monstrosity",
+               Features = new List<FeatureDefinition>()
+               {
+                DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8 ,
+                 DatabaseHelper.FeatureDefinitionSenses.SenseTremorsense16    ,
+                 DatabaseHelper.FeatureDefinitionSenses.SenseBlindSight12   ,
+                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunity ,
+                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity ,
+                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_BludgeoningImmunity,
+                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_PiercingImmunity,
+                 DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityMummyLord_SlashingImmunity,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityFrightenedImmunity ,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionFrightenedImmunity,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityParalyzedmmunity,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity ,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                 DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunityHypnoticPattern,
+                 DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinitySpellResistance,
+                 DatabaseHelper.FeatureDefinitionPowers.PowerDragonFrightfulPresence,
+                 NewMonsterPowers.TarrasqueSwallowPower,
+                 NewMonsterAttributes.TarrasqueReflectiveCarapace
+               },
+
+                SkillScores = new List<MonsterSkillProficiency>()
+                {
+                },
+                AttackIterations = new List<MonsterAttackIteration>()
                 {
                     MonstersAttributes.TarrasqueBiteAttackIteration,
                     MonstersAttributes.TarrasqueClawAttackIteration,
                     MonstersAttributes.TarrasqueClawAttackIteration,
                     MonstersAttributes.TarrasqueHornAttackIteration,
-                    MonstersAttributes.TarrasqueTailAttackIteration
+                    MonstersAttributes.TarrasqueTailAttackIteration,
                 },
-                LegendaryActionOptions = new List<LegendaryActionDescription>
+                LegendaryActionOptions = new List<LegendaryActionDescription>()
                 {
-                    MonstersAttributes.TarrasquelegendaryActionDescription,
-                    MonstersAttributes.TarrasquelegendaryActionDescription_2,
-                    MonstersAttributes.TarrasquelegendaryActionDescription_3
-                    //  MonstersAttributes.TarrasquelegendaryActionDescription_4,
+                   MonstersAttributes.TarrasquelegendaryActionDescription,
+                   MonstersAttributes.TarrasquelegendaryActionDescription_2,
+                   MonstersAttributes.TarrasquelegendaryActionDescription_3,
+                 //  MonstersAttributes.TarrasquelegendaryActionDescription_4,
                 },
+
                 DefaultBattleDecisionPackage = NewMonsterAttributes.Tarrasque_CombatDecisions,
                 GroupAttacks = true,
+
+
                 PhantomDistortion = true,
                 AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation
-                    .SpriteReference
+                SpriteReference = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Abomination.GuiPresentation.SpriteReference,
+
+
             },
-            new MonsterContext.CustomMonster
-            {
-                MonsterName = "Vampire",
-                BaseTemplateName = DatabaseHelper.MonsterDefinitions.Razan,
-                MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
-                NewName = "Custom_Vampire",
-                NewTitle = "Custom_Vampire_Title",
-                NewDescription = "Custom_Vampire_Description",
-                Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
-                Alignment = "LawfulEvil",
-                ArmorClass = 16,
-                HitDice = 17,
-                HitDiceType = RuleDefinitions.DieType.D8,
-                HitPointsBonus = 68,
-                StandardHitPoints = 144,
-                AttributeStrength = 18,
-                AttributeDexterity = 18,
-                AttributeConstitution = 18,
-                AttributeIntelligence = 17,
-                AttributeWisdom = 15,
-                AttributeCharisma = 18,
-                SavingThrowStrength = 0,
-                SavingThrowDexterity = 9,
-                SavingThrowConstitution = 0,
-                SavingThrowIntelligence = 0,
-                SavingThrowWisdom = 7,
-                SavingThrowCharisma = 9,
-                CR = 13,
-                LegendaryCreature = true,
-                Type = "Undead",
-                Features =
-                    new List<FeatureDefinition>
+
+             new Models.MonsterContext.CustomMonster()
+             {
+
+                    MonsterName = "Vampire",
+                    BaseTemplateName = DatabaseHelper.MonsterDefinitions.Razan,
+                    MonsterShaderReference = DatabaseHelper.MonsterDefinitions.SRD_Thug,
+                    NewName = "Custom_Vampire",
+                    NewTitle = "Custom_Vampire_Title",
+                    NewDescription = "Custom_Vampire_Description",
+                    Size = DatabaseHelper.CharacterSizeDefinitions.Medium,
+                    Alignment = "LawfulEvil",
+                    ArmorClass = 16,
+                    HitDice = 17,
+                    HitDiceType = RuleDefinitions.DieType.D8,
+                    HitPointsBonus = 68,
+                    StandardHitPoints = 144,
+                    AttributeStrength = 18,
+                    AttributeDexterity = 18,
+                    AttributeConstitution = 18,
+                    AttributeIntelligence = 17,
+                    AttributeWisdom = 15,
+                    AttributeCharisma = 18,
+                    SavingThrowStrength = 0,
+                    SavingThrowDexterity = 9,
+                    SavingThrowConstitution = 0,
+                    SavingThrowIntelligence = 0,
+                    SavingThrowWisdom = 7,
+                    SavingThrowCharisma = 9,
+                    CR = 13,
+                    LegendaryCreature = true,
+                    Type = "Undead",
+                    Features = new List<FeatureDefinition>()
                     {
                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6,
-                        DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
-                        DatabaseHelper.FeatureDefinitionLightAffinitys.LightAffinityHypersensitivity,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                        DatabaseHelper.FeatureDefinitionSenses.SenseTremorsense16,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
-                        DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDefilerDarkness,
-                        DatabaseHelper.FeatureDefinitionPowers.PowerDefilerMistyFormEscape,
-                        DatabaseHelper.FeatureDefinitionLightAffinitys.LightAffinity_Defiler_Darkness,
-                        DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
-                        DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityVeilImmunity,
-                        DatabaseHelper.FeatureDefinitionRegenerations.RegenerationVampire,
-                        DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySpiderClimb,
-                        NewMonsterPowers.SummonCreature_Wolves_Power
+                         DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly8,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseNormalVision,
+                         DatabaseHelper.FeatureDefinitionLightAffinitys.LightAffinityHypersensitivity,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                         DatabaseHelper.FeatureDefinitionSenses.SenseTremorsense16,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                         DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance,
+                         DatabaseHelper.FeatureDefinitionPowers.PowerDefilerDarkness,
+                         DatabaseHelper.FeatureDefinitionPowers.PowerDefilerMistyFormEscape,
+                         DatabaseHelper.FeatureDefinitionLightAffinitys.LightAffinity_Defiler_Darkness,
+                         DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
+                         DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityVeilImmunity,
+                         DatabaseHelper.FeatureDefinitionRegenerations.RegenerationVampire,
+                         DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySpiderClimb
+                        ,
+                          NewMonsterPowers.SummonCreature_Wolves_Power
                     },
-                SkillScores =
-                    new List<MonsterSkillProficiency>
-                    {
-                        MonstersAttributes.VampiremonsterSkillProficiency_1,
-                        MonstersAttributes.VampiremonsterSkillProficiency_2
-                    },
-                AttackIterations = DatabaseHelper.MonsterDefinitions.Razan.AttackIterations,
-                LegendaryActionOptions =
-                    new List<LegendaryActionDescription>
-                    {
-                        MonstersAttributes.VampirelegendaryActionDescription,
-                        MonstersAttributes.VampirelegendaryActionDescription_2,
-                        MonstersAttributes.VampirelegendaryActionDescription_3
-                    },
-                DefaultBattleDecisionPackage = NewMonsterAttributes.Vampire_CombatDecisions,
-                GroupAttacks = true,
-                PhantomDistortion = true,
-                AttachedParticlesReference = MonstersAttributes.EmptyassetReference,
-                SpriteReference = DatabaseHelper.MonsterDefinitions.Brood_of_blood.GuiPresentation.SpriteReference
-            }
+
+                SkillScores=new List<MonsterSkillProficiency> ()
+                {
+                    MonstersAttributes.VampiremonsterSkillProficiency_1,
+                    MonstersAttributes.VampiremonsterSkillProficiency_2
+                },
+                AttackIterations=DatabaseHelper.MonsterDefinitions.Razan.AttackIterations ,
+
+                LegendaryActionOptions=new List<LegendaryActionDescription> ()
+                {
+                    MonstersAttributes.VampirelegendaryActionDescription,
+                    MonstersAttributes.VampirelegendaryActionDescription_2,
+                    MonstersAttributes.VampirelegendaryActionDescription_3
+                },
+
+                DefaultBattleDecisionPackage=NewMonsterAttributes.Vampire_CombatDecisions,
+                GroupAttacks=true,
+
+                PhantomDistortion=true,
+                AttachedParticlesReference=MonstersAttributes.EmptyassetReference,
+                SpriteReference=DatabaseHelper.MonsterDefinitions.Brood_of_blood.GuiPresentation.SpriteReference,
+             }
         };
+
 
 
         public static void EnableInDungeonMaker()
         {
             for (var i = 0; i < Definitions.Count; i++)
             {
+
                 /* original version that worked just fine
                  * 
                  * MonsterDefinitionBuilder NewMonster = new MonsterDefinitionBuilder(
@@ -1562,22 +1695,20 @@ namespace SolastaMonsters.Monsters
                 */
 
                 var NewMonster = MonsterDefinitionBuilder
-                    .Create(
-                        Definitions[i].BaseTemplateName, Definitions[i].NewName,
-                        DefinitionBuilder.CENamespaceGuid)
-                    .SetGuiPresentation(
-                        "Monster/&" + "DH_" + Definitions[i].NewTitle,
-                        "Monster/&" + "DH_" + Definitions[i].NewDescription,
-                        Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
+                        .Create(
+                            Definitions[i].BaseTemplateName, Definitions[i].NewName,
+                            DefinitionBuilder.CENamespaceGuid)
+                        .SetGuiPresentation(
+                            "Monster/&" + "DH_" + Definitions[i].NewTitle,
+                            "Monster/&" + "DH_" + Definitions[i].NewDescription,
+                            Definitions[i].BaseTemplateName.GuiPresentation.SpriteReference);
 
 
                 NewMonster.SetInDungeonEditor(false);
-                if (Main.Settings.EnableExtraHighLevelMonsters)
+                if (SolastaCommunityExpansion.Main.Settings.EnableExtraHighLevelMonsters)
                 {
                     NewMonster.SetInDungeonEditor(true);
-                }
-
-                ;
+                };
 
                 NewMonster.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
                 NewMonster.SetSizeDefinition(Definitions[i].Size);
@@ -1631,7 +1762,7 @@ namespace SolastaMonsters.Monsters
                 Cha_save.SetField("bonus", Definitions[i].SavingThrowCharisma);
 
                 NewMonster.ClearSavingThrowScores();
-                NewMonster.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>
+                NewMonster.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>()
                 {
                     Str_save,
                     Dex_save,
@@ -1663,8 +1794,7 @@ namespace SolastaMonsters.Monsters
                 NewMonster.SetNoExperienceGain(false);
                 NewMonster.SetHasMonsterPortraitBackground(true);
                 NewMonster.SetCanGeneratePortrait(true);
-                NewMonster.SetCustomShaderReference(Definitions[i].MonsterShaderReference.MonsterPresentation
-                    .CustomShaderReference);
+                NewMonster.SetCustomShaderReference(Definitions[i].MonsterShaderReference.MonsterPresentation.CustomShaderReference);
 
 
                 if (Definitions[i].Size == DatabaseHelper.CharacterSizeDefinitions.Large)
@@ -1681,25 +1811,25 @@ namespace SolastaMonsters.Monsters
                 {
                     NewMonster.SetModelScale(2f);
                 }
-
                 if (Definitions[i].MonsterName == "Roc")
                 {
                     NewMonster.SetModelScale(4);
 
                     NewMonster.SetHasPrefabVariants(false);
-                }
 
+                }
                 if (Definitions[i].MonsterName == "Ancient Green Dragon")
                 {
                     DatabaseHelper.MonsterPresentationDefinitions.Green_Dragon_Presentation.SetModelScale(0.75f);
-                }
 
+
+                }
                 if (Definitions[i].MonsterName == "Ancient Blue Dragon")
                 {
-                    NewMonster.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Young_BlackDragon.GuiPresentation
-                        .SpriteReference);
-                }
+                    NewMonster.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Young_BlackDragon.GuiPresentation.SpriteReference);
 
+
+                }
                 if (Definitions[i].MonsterName == "Planetar" || Definitions[i].MonsterName == "Solar")
                 {
                     // only way to give planetar and solar correct visual sizes as you can't scale up humanoid presentation, need to switch to monster prefab
@@ -1712,19 +1842,16 @@ namespace SolastaMonsters.Monsters
 
                     NewMonster.SetModelScale(0.66f);
                 }
-
                 if (Definitions[i].MonsterName == "Djinni")
                 {
-                    NewMonster.SetBestiarySpriteReference(DatabaseHelper.MonsterDefinitions.Ghost.GuiPresentation
-                        .SpriteReference);
+                    NewMonster.SetBestiarySpriteReference(DatabaseHelper.MonsterDefinitions.Ghost.GuiPresentation.SpriteReference);
                     NewMonster.SetModelScale(1.5f);
                 }
-
                 if (Definitions[i].MonsterName == "Efreeti")
                 {
+
                     NewMonster.SetModelScale(1.5f);
                 }
-
                 if (Definitions[i].MonsterName == "Lich")
                 {
                     AssetReference assetReference = new();
@@ -1733,15 +1860,14 @@ namespace SolastaMonsters.Monsters
 
                     NewMonster.SetPrefabReference(assetReference);
                 }
-
                 if (Definitions[i].MonsterName == "Tarrasque")
                 {
+
                     NewMonster.SetModelScale(4.5f);
 
                     // monster powres, AI and combat needs work, too repetitive at the moment as some powers/attacks are not triggering
                     NewMonster.SetInDungeonEditor(false);
                 }
-
                 var monster = NewMonster.AddToDB();
 
                 // temporary fix until builder is changed

@@ -12,7 +12,6 @@ using static ConditionOperationDescription;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
-using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Spells
 {
@@ -35,8 +34,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetHasSavingThrow(false)
                 .SetOperation(ConditionOperation.Add)
                 .SetConditionDefinition(ConditionDefinitionBuilder
-                    .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "EWSunlightBladeHighlighted",
-                        DefinitionBuilder.CENamespaceGuid)
+                    .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "EWSunlightBladeHighlighted", DefinitionBuilder.CENamespaceGuid)
                     .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                     .SetDuration(RuleDefinitions.DurationType.Round, 1)
                     .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
@@ -55,7 +53,7 @@ namespace SolastaCommunityExpansion.Spells
             return SpellDefinitionBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
-                    CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Resources.SunlightBlade, 128, 128))
+                    CustomIcons.CreateAssetReferenceSprite("SunlightBlade", Properties.Resources.SunlightBlade, 128, 128))
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
@@ -112,7 +110,7 @@ namespace SolastaCommunityExpansion.Spells
                                         RuleDefinitions.AdditionalDamageType.Specific,
                                         RuleDefinitions.DamageTypeRadiant,
                                         RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
-                                        DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                                        DiceByRankMaker.MakeBySteps(start: 0, step: 5, increment: 1)
                                     )
                                     .SetConditionOperations(highlight)
                                     .SetAddLightSource(true)
@@ -149,8 +147,8 @@ namespace SolastaCommunityExpansion.Spells
                     .Build()
                 )
                 .SetEffectAdvancement(
-                    RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    5, additionalDicePerIncrement: 1)
+                    effectIncrementMethod: RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
+                    incrementMultiplier: 5, additionalDicePerIncrement: 1)
                 .Build();
 
             var resonanceLeap = SpellDefinitionBuilder
@@ -168,8 +166,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.AcidSplash)
                     .SetTargetFiltering(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
-                    .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Touch, 1,
-                        RuleDefinitions.TargetType.Individuals)
+                    .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Touch, 1, RuleDefinitions.TargetType.Individuals)
                     .SetEffectForms(new EffectFormBuilder()
                         .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
                         .SetDamageForm(
@@ -188,8 +185,7 @@ namespace SolastaCommunityExpansion.Spells
             return SpellDefinitionBuilder
                 .Create("EWResonatingStrike", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Spell,
-                    CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Resources.ResonatingStrike, 128,
-                        128)) //TODO: replace sprite with actual image
+                    CustomIcons.CreateAssetReferenceSprite("ResonatingStrike", Properties.Resources.ResonatingStrike, 128, 128))//TODO: replace sprite with actual image
                 .SetSpellLevel(0)
                 .SetSchoolOfMagic(DatabaseHelper.SchoolOfMagicDefinitions.SchoolEvocation)
                 .SetSomaticComponent(true)
@@ -249,7 +245,7 @@ namespace SolastaCommunityExpansion.Spells
                                         RuleDefinitions.AdditionalDamageType.Specific,
                                         RuleDefinitions.DamageTypeThunder,
                                         RuleDefinitions.AdditionalDamageAdvancement.SlotLevel,
-                                        DiceByRankMaker.MakeBySteps(0, step: 5, increment: 1)
+                                        DiceByRankMaker.MakeBySteps(start: 0, step: 5, increment: 1)
                                     )
                                     .AddToDB()
                                 )
@@ -268,14 +264,14 @@ namespace SolastaCommunityExpansion.Spells
 
     internal class ChainSpellEffectOnAttackHit : IChainMagicEffect
     {
-        private readonly string _notificationTag;
         private readonly SpellDefinition _spell;
+        private readonly string _notificationTag;
 
 
         public ChainSpellEffectOnAttackHit(SpellDefinition spell, string notificationTag = null)
         {
-            _spell = spell;
-            _notificationTag = notificationTag;
+            this._spell = spell;
+            this._notificationTag = notificationTag;
         }
 
         public CharacterActionMagicEffect GetNextMagicEffect(CharacterActionMagicEffect baseEffect,
@@ -334,12 +330,12 @@ namespace SolastaCommunityExpansion.Spells
         }
     }
 
-    internal interface IBonusSlotLevels
+    interface IBonusSlotLevels
     {
         public int GetBonusSlotLevels(RulesetCharacter caster);
     }
 
-    internal class BonusSlotLevelsByClassLevel : IBonusSlotLevels
+    class BonusSlotLevelsByClassLevel : IBonusSlotLevels
     {
         public int GetBonusSlotLevels(RulesetCharacter caster)
         {

@@ -9,11 +9,11 @@ namespace SolastaCommunityExpansion.Models
 
         private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new();
 
-        internal static readonly string[] Controllers = {"Human", "AI"};
-
         private static int[] playerCharactersChoices { get; set; }
 
-        internal static List<GameLocationCharacter> PlayerCharacters { get; } = new();
+        internal static readonly string[] Controllers = new string[] { "Human", "AI" };
+
+        internal static List<GameLocationCharacter> PlayerCharacters { get; } = new List<GameLocationCharacter>();
 
         internal static int[] PlayerCharactersChoices
         {
@@ -48,8 +48,7 @@ namespace SolastaCommunityExpansion.Models
                 PlayerCharacters.AddRange(gameLocationCharacterService.GuestCharacters);
             }
 
-            PlayerCharacters.ForEach(x =>
-                controllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
+            PlayerCharacters.ForEach(x => controllersChoices.Add(x, controllersChoicesCopy.TryGetValue(x, out var choice) ? choice : 0));
             playerCharactersChoices = controllersChoices.Values.ToArray();
         }
 
@@ -60,9 +59,7 @@ namespace SolastaCommunityExpansion.Models
             for (var i = 0; i < PlayerCharacters.Count; i++)
             {
                 var playerCharacter = PlayerCharacters[i];
-                var controllerId = reset || controllersChoices[playerCharacter] == 0
-                    ? PLAYER_CONTROLLER_ID
-                    : PlayerControllerManager.DmControllerId;
+                var controllerId = reset || controllersChoices[playerCharacter] == 0 ? PLAYER_CONTROLLER_ID : PlayerControllerManager.DmControllerId;
 
                 playerCharacter.ControllerId = controllerId;
             }

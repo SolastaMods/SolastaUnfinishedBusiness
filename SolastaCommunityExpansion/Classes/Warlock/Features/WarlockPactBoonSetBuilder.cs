@@ -1,8 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Properties;
-using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
@@ -12,66 +10,52 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     {
         private const string WarlockClassPactBoonSetName = "WarlockClassPactBoonSet";
 
-        internal static readonly FeatureDefinitionFeatureSet WarlockClassPactBoonSet =
-            CreateAndAddToDB(WarlockClassPactBoonSetName);
-
-        protected WarlockClassPactBoonSetBuilder(string name) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, CENamespaceGuid)
+        protected WarlockClassPactBoonSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, DefinitionBuilder.CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Feature/&AHWarlockClassPactBoonSetTitle";
             Definition.GuiPresentation.Description = "Feature/&AHWarlockClassPactBoonSetDescription";
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(AHWarlockClassPactOfTheBladeSetBuilder.AHWarlockClassPactOfTheBladeSet);
-            Definition.FeatureSet.Add(DHWarlockClassPactOfTheChainFeatureSetBuilder
-                .DHWarlockClassPactOfTheChainFeatureSet);
+            Definition.FeatureSet.Add(DHWarlockClassPactOfTheChainFeatureSetBuilder.DHWarlockClassPactOfTheChainFeatureSet);
             Definition.FeatureSet.Add(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet);
             Definition.SetUniqueChoices(true);
             Definition.SetEnumerateInDescription(true);
         }
 
         internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
-        {
-            return new WarlockClassPactBoonSetBuilder(name).AddToDB();
-        }
+            => new WarlockClassPactBoonSetBuilder(name).AddToDB();
+
+        internal static readonly FeatureDefinitionFeatureSet WarlockClassPactBoonSet = CreateAndAddToDB(WarlockClassPactBoonSetName);
     }
 
     internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string AHWarlockClassPactOfTheBladeSetName = "AHWarlockClassPactOfTheBladeSet";
 
-        internal static readonly FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet =
-            CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName);
-
-        protected AHWarlockClassPactOfTheBladeSetBuilder(string name) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, CENamespaceGuid)
+        protected AHWarlockClassPactOfTheBladeSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHunterHuntersPrey, name, DefinitionBuilder.CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Feature/&AHWarlockClassPactOfTheBladeSetTitle";
             Definition.GuiPresentation.Description = "Feature/&AHWarlockClassPactOfTheBladeSetDescription";
 
             Definition.FeatureSet.Clear();
             Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFighterWeapon);
-            Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionAttackModifiers
-                .AttackModifierMartialSpellBladeMagicWeapon);
+            Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierMartialSpellBladeMagicWeapon);
             Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
             Definition.SetUniqueChoices(false);
         }
 
         internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
-        {
-            return new AHWarlockClassPactOfTheBladeSetBuilder(name).AddToDB();
-        }
+            => new AHWarlockClassPactOfTheBladeSetBuilder(name).AddToDB();
+
+        internal static readonly FeatureDefinitionFeatureSet AHWarlockClassPactOfTheBladeSet = CreateAndAddToDB(AHWarlockClassPactOfTheBladeSetName);
     }
 
     internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
     {
         private const string DHWarlockClassPactOfTheChainFeatureSetName = "DHWarlockClassPactOfTheChainFeatureSet";
 
-        internal static readonly FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet =
-            CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName);
-
-        protected DHWarlockClassPactOfTheChainFeatureSetBuilder(string name) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, CENamespaceGuid)
+        protected DHWarlockClassPactOfTheChainFeatureSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, DefinitionBuilder.CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle";
             Definition.GuiPresentation.Description = "Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription";
@@ -92,17 +76,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             var effectDescriptionPseudodragon = new EffectDescriptionBuilder()
-                .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
-                    RuleDefinitions.TargetType.Position)
-                .AddEffectForm(new EffectFormBuilder()
-                    .SetSummonCreatureForm(1, pseudodragon.name, false,
-                        DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged)
-                    .Build()
-                )
-                .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription
-                    .EffectParticleParameters);
+            .SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1)
+            .AddEffectForm(new EffectFormBuilder()
+                .SetSummonCreatureForm(1, pseudodragon.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged)
+                .Build()
+            )
+            .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             var FindFamiliarPsuedodragonGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarPsuedodragonTitle",
@@ -111,14 +91,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             var effectDescriptionSprite = new EffectDescriptionBuilder();
-            effectDescriptionSprite.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
-                RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, sprite.name, false,
-                DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build());
-            effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir
-                .EffectDescription.EffectParticleParameters);
+            effectDescriptionSprite.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            effectDescriptionSprite.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescriptionSprite.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, sprite.name, false, DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged).Build());
+            effectDescriptionSprite.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
             var FindFamiliarSpriteGui = new GuiPresentationBuilder(
                 "Spell/&FindFamiliarSpriteTitle",
@@ -143,14 +119,10 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             FindFamiliarImpGui.SetSpriteReference(imp.GuiPresentation.SpriteReference);
 
             var effectDescriptionQuasit = new EffectDescriptionBuilder();
-            effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2,
-                RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, quasit.name)
-                .Build());
-            effectDescriptionQuasit.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir
-                .EffectDescription.EffectParticleParameters);
+            effectDescriptionQuasit.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            effectDescriptionQuasit.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 2, RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+            effectDescriptionQuasit.AddEffectForm(new EffectFormBuilder().SetSummonCreatureForm(1, quasit.name).Build());
+            effectDescriptionQuasit.SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ConjureElementalAir.EffectDescription.EffectParticleParameters);
 
 
             var FindFamiliarQuasitGui = new GuiPresentationBuilder(
@@ -160,87 +132,86 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
 
 
             var FindFamiliarImpPowerBuilder = FeatureDefinitionPowerBuilder
-                .Create("FindFamiliarImpPower", CENamespaceGuid)
+                .Create("FindFamiliarImpPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(FindFamiliarImpGui.Build())
                 .Configure(
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Hours1,
-                    1,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    effectDescriptionImp.Build(),
-                    true);
+                 1,
+                 RuleDefinitions.UsesDetermination.Fixed,
+                 AttributeDefinitions.Charisma,
+                 RuleDefinitions.ActivationTime.Hours1,
+                 1,
+                 RuleDefinitions.RechargeRate.AtWill,
+                 false,
+                 false,
+                 AttributeDefinitions.Charisma,
+                 effectDescriptionImp.Build(),
+                 true);
             var FindFamiliarImpPower = FindFamiliarImpPowerBuilder.AddToDB();
 
             var FindFamiliarPseudodragonPowerBuilder = FeatureDefinitionPowerBuilder
-                .Create("FindFamiliarPseudodragonPower", CENamespaceGuid)
+                .Create("FindFamiliarPseudodragonPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(FindFamiliarPsuedodragonGui.Build())
                 .Configure(
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Hours1,
-                    1,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    effectDescriptionPseudodragon.Build(),
-                    true);
+                 1,
+                 RuleDefinitions.UsesDetermination.Fixed,
+                 AttributeDefinitions.Charisma,
+                 RuleDefinitions.ActivationTime.Hours1,
+                 1,
+                 RuleDefinitions.RechargeRate.AtWill,
+                 false,
+                 false,
+                 AttributeDefinitions.Charisma,
+                 effectDescriptionPseudodragon.Build(),
+                 true);
             var FindFamiliarPseudodragonPower = FindFamiliarPseudodragonPowerBuilder.AddToDB();
 
             var FindFamiliarSpritePowerBuilder = FeatureDefinitionPowerBuilder
-                .Create("FindFamiliarSpritePower", CENamespaceGuid)
+                .Create("FindFamiliarSpritePower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(FindFamiliarSpriteGui.Build())
                 .Configure(
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Hours1,
-                    1,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    effectDescriptionSprite.Build(),
-                    true);
+                1,
+                 RuleDefinitions.UsesDetermination.Fixed,
+                 AttributeDefinitions.Charisma,
+                 RuleDefinitions.ActivationTime.Hours1,
+                 1,
+                 RuleDefinitions.RechargeRate.AtWill,
+                 false,
+                 false,
+                 AttributeDefinitions.Charisma,
+                 effectDescriptionSprite.Build(),
+                 true);
             var FindFamiliarSpritePower = FindFamiliarSpritePowerBuilder.AddToDB();
 
             var FindFamiliarQuasitPowerBuilder = FeatureDefinitionPowerBuilder
-                .Create("FindFamiliarQuasitPower", CENamespaceGuid)
+                .Create("FindFamiliarQuasitPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(FindFamiliarQuasitGui.Build())
                 .Configure(
-                    1,
-                    RuleDefinitions.UsesDetermination.Fixed,
-                    AttributeDefinitions.Charisma,
-                    RuleDefinitions.ActivationTime.Hours1,
-                    1,
-                    RuleDefinitions.RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    effectDescriptionQuasit.Build(),
-                    true);
+                 1,
+                 RuleDefinitions.UsesDetermination.Fixed,
+                 AttributeDefinitions.Charisma,
+                 RuleDefinitions.ActivationTime.Hours1,
+                 1,
+                 RuleDefinitions.RechargeRate.AtWill,
+                 false,
+                 false,
+                 AttributeDefinitions.Charisma,
+                 effectDescriptionQuasit.Build(),
+                 true);
             var FindFamiliarQuasitPower = FindFamiliarQuasitPowerBuilder.AddToDB();
 
             var findFamiliarPowerBundle = FeatureDefinitionPowerPoolBuilder
-                .Create("FindFamiliarBundlePower", CENamespaceGuid)
-                .SetGuiPresentation(Category.Power,
-                    CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon", Resources.WarlockChainSummon, 128, 64))
+                .Create("FindFamiliarBundlePower", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Power, Utils.CustomIcons.CreateAssetReferenceSprite("WarlockChainSummon", Properties.Resources.WarlockChainSummon, 128, 64))
                 .SetActivation(RuleDefinitions.ActivationTime.Hours1, 1)
                 .AddToDB();
 
 
             PowerBundleContext.RegisterPowerBundle(findFamiliarPowerBundle, false,
-                FindFamiliarPseudodragonPower,
-                FindFamiliarSpritePower,
-                FindFamiliarImpPower,
-                FindFamiliarQuasitPower
-            );
+                    FindFamiliarPseudodragonPower,
+                    FindFamiliarSpritePower,
+                    FindFamiliarImpPower,
+                    FindFamiliarQuasitPower
+                    );
             Definition.FeatureSet.Add(findFamiliarPowerBundle);
 
             GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar,
@@ -257,6 +228,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHWarlockClassPactOfTheChainFeatureSetBuilder(name).AddToDB();
         }
+
+        internal static readonly FeatureDefinitionFeatureSet DHWarlockClassPactOfTheChainFeatureSet = CreateAndAddToDB(DHWarlockClassPactOfTheChainFeatureSetName);
     }
 
 
@@ -264,19 +237,14 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     {
         private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
 
-        private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips =
-            FeatureDefinitionPointPoolWithBonusBuilder
-                .Create("DHPactOfTheTomeBonusCantrips", CENamespaceGuid)
-                .SetGuiPresentationNoContent()
-                .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)
-                .OnlyUniqueChoices()
-                .AddToDB();
+        private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips = FeatureDefinitionPointPoolWithBonusBuilder
+            .Create("DHPactOfTheTomeBonusCantrips", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent()
+            .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)
+            .OnlyUniqueChoices()
+            .AddToDB();
 
-        internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet =
-            CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
-
-        protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, CENamespaceGuid)
+        protected DHPactOfTheTomeFeatureSetBuilder(string name) : base(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, DefinitionBuilder.CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Feature/&DHPactOfTheTomeFeatureSetTitle";
             Definition.GuiPresentation.Description = "Feature/&DHPactOfTheTomeFeatureSetDescription";
@@ -290,6 +258,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHPactOfTheTomeFeatureSetBuilder(name).AddToDB();
         }
+
+        internal static readonly FeatureDefinitionFeatureSet DHPactOfTheTomeFeatureSet = CreateAndAddToDB(DHPactOfTheTomeFeatureSetName);
     }
 
 
@@ -297,31 +267,26 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     {
         private const string PactOfTheTomeSpellListName = "DHPactOfTheTomeSpellList";
 
-        internal static readonly SpellListDefinition DHPactOfTheTomeSpellList =
-            CreateAndAddToDB(PactOfTheTomeSpellListName);
-
-        protected DHPactOfTheTomeSpellListBuilder(string name) : base(
-            DatabaseHelper.SpellListDefinitions.SpellListKythaela_Cantrips, name, CENamespaceGuid)
+        protected DHPactOfTheTomeSpellListBuilder(string name) : base(DatabaseHelper.SpellListDefinitions.SpellListKythaela_Cantrips, name, DefinitionBuilder.CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
             Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
 
             Definition.SpellsByLevel[0].Spells.Clear();
 
-            Definition.SpellsByLevel[0].Spells
-                .AddRange(DatabaseHelper.SpellListDefinitions.SpellListCleric.SpellsByLevel[0].Spells);
-            Definition.SpellsByLevel[0].Spells
-                .AddRange(DatabaseHelper.SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells);
-            Definition.SpellsByLevel[0].Spells
-                .AddRange(DatabaseHelper.SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells);
-            Definition.SpellsByLevel[0].Spells
-                .AddRange(DatabaseHelper.SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells);
+            Definition.SpellsByLevel[0].Spells.AddRange(DatabaseHelper.SpellListDefinitions.SpellListCleric.SpellsByLevel[0].Spells);
+            Definition.SpellsByLevel[0].Spells.AddRange(DatabaseHelper.SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells);
+            Definition.SpellsByLevel[0].Spells.AddRange(DatabaseHelper.SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells);
+            Definition.SpellsByLevel[0].Spells.AddRange(DatabaseHelper.SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells);
+
         }
 
         internal static SpellListDefinition CreateAndAddToDB(string name)
         {
             return new DHPactOfTheTomeSpellListBuilder(name).AddToDB();
         }
+
+        internal static readonly SpellListDefinition DHPactOfTheTomeSpellList = CreateAndAddToDB(PactOfTheTomeSpellListName);
     }
 
 
@@ -329,11 +294,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
     {
         private const string PactOfTheTomeMagicAffinityName = "DHPactOfTheTomeMagicAffinity";
 
-        internal static readonly FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity =
-            CreateAndAddToDB(PactOfTheTomeMagicAffinityName);
-
-        protected DHPactOfTheTomeMagicAffinityBuilder(string name) : base(
-            DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList, name, CENamespaceGuid)
+        protected DHPactOfTheTomeMagicAffinityBuilder(string name) : base(DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityGreenmageGreenMagicList, name, DefinitionBuilder.CENamespaceGuid)
         {
             Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
             Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
@@ -345,5 +306,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
         {
             return new DHPactOfTheTomeMagicAffinityBuilder(name).AddToDB();
         }
+
+        internal static readonly FeatureDefinitionMagicAffinity DHPactOfTheTomeMagicAffinity = CreateAndAddToDB(PactOfTheTomeMagicAffinityName);
     }
 }

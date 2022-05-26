@@ -8,8 +8,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameSerializationManager_CanLoad
     {
-        public static bool Prefix(ref bool __result, bool ___saving, bool ___loading,
-            HashSet<EPermissionToken> ___loadDisabledTokens)
+        public static bool Prefix(ref bool __result, bool ___saving, bool ___loading, HashSet<EPermissionToken> ___loadDisabledTokens)
         {
             if (!Main.Settings.EnableSaveByLocation)
             {

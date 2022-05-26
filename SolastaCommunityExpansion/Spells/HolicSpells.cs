@@ -1,9 +1,8 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Properties;
-using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using static ActionDefinitions;
 using static EffectForm;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Models.SpellsContext;
@@ -48,18 +47,18 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string name = "AcidClaws";
 
-            var spriteReference = CustomIcons.CreateAssetReferenceSprite(name, Resources.AcidClaws, 128, 128);
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.AcidClaws, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
                 .SetEffectAdvancement(
-                    EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
+                    EffectIncrementMethod.CasterLevelTable, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
                 .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals, 1, 2)
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 6, TargetType.Individuals, 1, 2, ItemSelectionType.None)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(false, DieType.D1, DamageTypeNecrotic, 0, DieType.D10, 1)
+                        .SetDamageForm(false, DieType.D1, DamageTypeNecrotic, 0, DieType.D10, 1, HealFromInflictedDamage.Never)
                         .HasSavingThrow(EffectSavingThrowType.None).Build()
                 ).Build();
 
@@ -82,15 +81,14 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string name = "AirBlast";
 
-            var spriteReference = CustomIcons.CreateAssetReferenceSprite(name, Resources.AirBlast, 128, 128);
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.AirBlast, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-                .SetSavingThrowData(true, false, AttributeDefinitions.Strength, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, false, AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15, false)
                 .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals, 1, 2)
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals, 1, 2, ItemSelectionType.None)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
@@ -99,7 +97,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D6, 1)
+                        .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D6, 1, HealFromInflictedDamage.Never)
                         .HasSavingThrow(EffectSavingThrowType.Negates).Build()
                 ).Build();
 
@@ -123,20 +121,19 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string name = "BurstOfRadiance";
 
-            var spriteReference = CustomIcons.CreateAssetReferenceSprite(name, Resources.BurstOfRadiance, 128, 128);
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.BurstOfRadiance, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
-                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-                .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 13)
+                .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 13, false)
                 .SetDurationData(DurationType.Instantaneous)
                 .SetParticleEffectParameters(BurningHands.EffectDescription.EffectParticleParameters)
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 1, 2)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 1, 2, ItemSelectionType.None)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(false, DieType.D1, DamageTypeRadiant, 0, DieType.D6, 1)
+                        .SetDamageForm(false, DieType.D1, DamageTypeRadiant, 0, DieType.D6, 1, HealFromInflictedDamage.Never)
                         .HasSavingThrow(EffectSavingThrowType.Negates).Build()
                 ).Build();
 
@@ -165,15 +162,14 @@ namespace SolastaCommunityExpansion.Spells
             var effectDescription = EffectDescriptionBuilder
                 .Create()
                 .SetEffectAdvancement(
-                    EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
-                .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15)
+                    EffectIncrementMethod.CasterLevelTable, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Wisdom, 15, false)
                 .SetDurationData(DurationType.Instantaneous)
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 1, 1, ItemSelectionType.None)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(false, DieType.D1, DamageTypeThunder, 0, DieType.D6, 1)
+                        .SetDamageForm(false, DieType.D1, DamageTypeThunder, 0, DieType.D6, 1, HealFromInflictedDamage.Never)
                         .HasSavingThrow(EffectSavingThrowType.Negates).Build()
                 ).Build();
 
@@ -198,7 +194,7 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string name = "EarthTremor";
 
-            var spriteReference = CustomIcons.CreateAssetReferenceSprite(name, Resources.EarthTremor, 128, 128);
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.EarthTremor, 128, 128);
 
             //var rubbleProxy = EffectProxyDefinitionBuilder
             //    .Create(EffectProxyDefinitions.ProxyGrease, "RubbleProxy", "")
@@ -208,12 +204,11 @@ namespace SolastaCommunityExpansion.Spells
             var effectDescription = EffectDescriptionBuilder
                 .Create()
                 .SetEffectAdvancement(
-                    EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-                .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12)
+                    EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1, 0, 0, 0, 0, 0, 0, AdvancementDuration.None)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12, false)
                 .SetDurationData(DurationType.Minute, 10)
                 .SetParticleEffectParameters(Grease.EffectDescription.EffectParticleParameters)
-                .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder)
+                .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 1, 1, ItemSelectionType.None)
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
@@ -223,13 +218,12 @@ namespace SolastaCommunityExpansion.Spells
                 .AddEffectForm(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D12, 3)
+                        .SetDamageForm(false, DieType.D1, DamageTypeBludgeoning, 0, DieType.D12, 3, HealFromInflictedDamage.Never)
                         .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build()
                 ).Build();
 
             effectDescription.EffectForms.AddRange(
-                Grease.EffectDescription.EffectForms.Find(e =>
-                    e.GetField<EffectForm, EffectFormType>("formType") == EffectFormType.Topology));
+                Grease.EffectDescription.EffectForms.Find(e => e.GetField<EffectForm, EffectFormType>("formType") == EffectForm.EffectFormType.Topology));
 
             var spell = SpellDefinitionBuilder
                 .Create(name, HOLIC_SPELLS_BASE_GUID)
@@ -250,13 +244,12 @@ namespace SolastaCommunityExpansion.Spells
         {
             const string name = "WinterBreath";
 
-            var spriteReference = CustomIcons.CreateAssetReferenceSprite(name, Resources.WinterBreath, 128, 128);
+            var spriteReference = Utils.CustomIcons.CreateAssetReferenceSprite(name, Properties.Resources.WinterBreath, 128, 128);
 
             var effectDescription = EffectDescriptionBuilder
                 .Create()
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-                .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12)
+                .SetSavingThrowData(true, true, AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Wisdom, 12, false)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetParticleEffectParameters(ConeOfCold.EffectDescription.EffectParticleParameters)
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3, 2)

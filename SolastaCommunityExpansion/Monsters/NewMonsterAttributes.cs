@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using SolastaMonsters.Models;
-using TA.AI;
 using UnityEngine;
-
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -18,111 +15,43 @@ namespace SolastaMonsters.Monsters
     public class NewMonsterAttributes
     {
         public static SpellListDefinition Archmage_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
-
-        public static FeatureDefinitionCastSpell CastSpell_ArchMage =
-            ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
-
-        public static SpellListDefinition GuardianNaga_spelllist =
-            ScriptableObject.CreateInstance<SpellListDefinition>();
-
-        public static FeatureDefinitionCastSpell CastSpell_GuardianNaga =
-            ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
-
+        public static FeatureDefinitionCastSpell CastSpell_ArchMage = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
+        public static SpellListDefinition GuardianNaga_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
+        public static FeatureDefinitionCastSpell CastSpell_GuardianNaga = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
         public static SpellListDefinition Lich_spelllist = ScriptableObject.CreateInstance<SpellListDefinition>();
+        public static FeatureDefinitionCastSpell CastSpell_Lich = ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
 
-        public static FeatureDefinitionCastSpell CastSpell_Lich =
-            ScriptableObject.CreateInstance<FeatureDefinitionCastSpell>();
+        public static FeatureDefinitionDamageAffinity FireTitan_Retaliate_DamageAffinity = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static FeatureDefinitionDamageAffinity Balor_Retaliate_DamageAffinity = ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static FeatureDefinitionMagicAffinity AirTitan_SleetStorm_Immunity = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
+        public static FeatureDefinitionMagicAffinity TarrasqueReflectiveCarapace = ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
 
-        public static FeatureDefinitionDamageAffinity FireTitan_Retaliate_DamageAffinity =
-            ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
+        public static TA.AI.DecisionPackageDefinition AncientDragon_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition PitFiend_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Balor_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Nalfeshnee_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Solar_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition HighLevelCaster_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Naga_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Vampire_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Titan_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition ConstructTitan_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionPackageDefinition Tarrasque_CombatDecisions = ScriptableObject.CreateInstance<TA.AI.DecisionPackageDefinition>();
+        public static TA.AI.DecisionDefinition TarrasqueSwallow_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
-        public static FeatureDefinitionDamageAffinity Balor_Retaliate_DamageAffinity =
-            ScriptableObject.CreateInstance<FeatureDefinitionDamageAffinity>();
-
-        public static FeatureDefinitionMagicAffinity AirTitan_SleetStorm_Immunity =
-            ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
-
-        public static FeatureDefinitionMagicAffinity TarrasqueReflectiveCarapace =
-            ScriptableObject.CreateInstance<FeatureDefinitionMagicAffinity>();
-
-        public static DecisionPackageDefinition AncientDragon_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition PitFiend_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Balor_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Nalfeshnee_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Solar_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition HighLevelCaster_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Naga_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Vampire_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Titan_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition ConstructTitan_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionPackageDefinition Tarrasque_CombatDecisions =
-            ScriptableObject.CreateInstance<DecisionPackageDefinition>();
-
-        public static DecisionDefinition TarrasqueSwallow_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
-
-        public static DecisionDefinition AtWillAOE_Magic_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
-
-        public static DecisionDefinition AtWillSelfBuff_Magic_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
-
-        public static DecisionDefinition LimitedPerDayTargetDebuff_Magic_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
-
-        public static DecisionDefinition LimitedPerDayAOE_Magic_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
-
-        public static DecisionDefinition SummonCreature_Magic_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
-
-        public static DecisionDefinition CastMagic_Stoneskin_Decision =
-            ScriptableObject.CreateInstance<DecisionDefinition>();
+        public static TA.AI.DecisionDefinition AtWillAOE_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition AtWillSelfBuff_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition LimitedPerDayTargetDebuff_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition LimitedPerDayAOE_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition SummonCreature_Magic_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
+        public static TA.AI.DecisionDefinition CastMagic_Stoneskin_Decision = ScriptableObject.CreateInstance<TA.AI.DecisionDefinition>();
 
         public static Dictionary<string, string> Dictionaryof_Dragon_DamageAffinity = new();
 
 
-        public static List<string> ListofDamageTypes_Dragon =
-            new()
-            {
-                "DamageAcid",
-                "DamagePoison",
-                "DamageFire",
-                "DamageCold",
-                "DamageLightning"
-            };
-
-        public static List<string> ListofDamageTypes_Physical =
-            new() {"DamageSlashing", "DamageBludgeoning", "DamagePiercing"};
-
-        public static List<string> ListofDamageTypes_Other = new()
-        {
-            "DamageThunder",
-            "DamagePsychic",
-            "DamageForce",
-            "DamageNecrotic",
-            "DamageRadiant"
-        };
+        public static List<string> ListofDamageTypes_Dragon = new() { "DamageAcid", "DamagePoison", "DamageFire", "DamageCold", "DamageLightning" };
+        public static List<string> ListofDamageTypes_Physical = new() { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
+        public static List<string> ListofDamageTypes_Other = new() { "DamageThunder", "DamagePsychic", "DamageForce", "DamageNecrotic", "DamageRadiant" };
 
 
         internal static void Create()
@@ -160,8 +89,10 @@ namespace SolastaMonsters.Monsters
         }
 
 
+
         public static void setdamageaffinity()
         {
+
             // correct damage type and dice numbers/type for ancient dragon Breath
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient Black Dragon", "DamageAcid");
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient Blue Dragon", "DamageLightning");
@@ -169,19 +100,18 @@ namespace SolastaMonsters.Monsters
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient Red Dragon", "DamageFire");
             Dictionaryof_Dragon_DamageAffinity.Add("Ancient White Dragon", "DamageCold");
         }
-
         public static void BuildNewTarrasqueReflectiveCarapace()
         {
             var text = "TarrasqueReflectiveCarapace_Immunity";
 
 
             TarrasqueReflectiveCarapace = BuildNewMagicAffinity(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
 
             TarrasqueReflectiveCarapace.SpellImmunities.Clear();
@@ -193,28 +123,25 @@ namespace SolastaMonsters.Monsters
 
             foreach (var spell in listofAllSpells)
             {
-                if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line ||
-                    spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
+                if (spell.EffectDescription.TargetType == RuleDefinitions.TargetType.Line || spell.EffectDescription.RangeType == RuleDefinitions.RangeType.RangeHit)
                 {
                     TarrasqueReflectiveCarapace.SpellImmunities.Add(spell.Name);
                 }
-            }
+            };
 
-            ;
         }
-
         public static void BuildNew_TarrasqueSwallow_Decision()
         {
             var text = "TarrasqueSwallow_Decision";
 
 
             TarrasqueSwallow_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
 
             TarrasqueSwallow_Decision.Decision.SetStringParameter("TarrasqueSwallow");
@@ -226,102 +153,103 @@ namespace SolastaMonsters.Monsters
 
 
             Tarrasque_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.RemorhazCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Tarrasque_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
             weightedDecisionDescription_2.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(TarrasqueSwallow_Decision);
             weightedDecisionDescription_4.SetWeight(4.5f);
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
-            weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions
-                .CastMagic_FrightfulPresence_Dragon);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_3.SetWeight(3f);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Aggressive_Remorhaz);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(0.1f);
+
 
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
 
             Tarrasque_CombatDecisions.Package.WeightedDecisions.AddRange(
-                weightedDecisionDescription_1,
-                weightedDecisionDescription_2,
-                weightedDecisionDescription_4,
-                weightedDecisionDescription_3,
-                weightedDecisionDescription_5,
-                //       weightedDecisionDescription_6,
-                weightedDecisionDescription_7
-            );
+                                                                    weightedDecisionDescription_1,
+                                                                    weightedDecisionDescription_2,
+                                                                    weightedDecisionDescription_4,
+                                                                    weightedDecisionDescription_3,
+                                                                    weightedDecisionDescription_5,
+                                                                    //       weightedDecisionDescription_6,
+                                                                    weightedDecisionDescription_7
+                                                                    );
         }
 
         public static void BuildNewBalor_Retaliate_DamageAffinity()
         {
+
             var Power_text = "Balor_Retaliate_Power";
 
 
             var Balor_Retaliate_Power = NewMonsterPowers.BuildNewPower(
-                "DH_Custom_" + Power_text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + Power_text).ToString(),
-                "MonsterPower/&DH_" + Power_text + "_Title",
-                "MonsterPower/&DH_" + Power_text + "_Description"
-            );
+                    "DH_Custom_" + Power_text,
+                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
+                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + Power_text).ToString(),
+                   "MonsterPower/&DH_" + Power_text + "_Title",
+                    "MonsterPower/&DH_" + Power_text + "_Description"
+                     );
 
             Balor_Retaliate_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             Balor_Retaliate_Power.EffectDescription.SetTargetParameter(6);
 
             Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
             Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-            Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDamageType(RuleDefinitions.DamageTypeFire);
+            Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
 
             var text = "Balor_Retaliate_DamageAffinity";
 
 
             Balor_Retaliate_DamageAffinity = BuildNewDamageAffinity(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Balor_Retaliate_DamageAffinity.SetRetaliatePower(Balor_Retaliate_Power);
+
         }
 
         public static void BuildNew_Lich_Spelllist()
@@ -392,15 +320,18 @@ namespace SolastaMonsters.Monsters
             var text = "Lich_Spelllist";
 
             Lich_spelllist = BuildNewSpelllist(
-                text,
-                DatabaseHelper.SpellListDefinitions.SpellListMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "SpellList/&SpellListWizardTitle",
-                "Feature/&NoContentTitle"
-            );
+                      text,
+                     DatabaseHelper.SpellListDefinitions.SpellListMage,
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    "SpellList/&SpellListWizardTitle",
+                     "Feature/&NoContentTitle"
+                      );
 
 
-            SpellListDefinition.SpellsByLevelDuplet LichSpell_Cantrips = new() {Spells = new List<SpellDefinition>()};
+            SpellListDefinition.SpellsByLevelDuplet LichSpell_Cantrips = new()
+            {
+                Spells = new List<SpellDefinition>()
+            };
             LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.FireBolt);
             LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.RayOfFrost);
             // LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.ChillTouch);
@@ -408,7 +339,8 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_1 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 1
+                Spells = new List<SpellDefinition>(),
+                Level = 1
             };
             LichSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.DetectMagic);
             LichSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.MagicMissile);
@@ -417,7 +349,8 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_2 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 2
+                Spells = new List<SpellDefinition>(),
+                Level = 2
             };
             LichSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.Invisibility);
             LichSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.AcidArrow);
@@ -426,7 +359,8 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_3 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 3
+                Spells = new List<SpellDefinition>(),
+                Level = 3
             };
             //LichSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.AnimateDead);
             LichSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.Counterspell);
@@ -436,28 +370,32 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_4 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 4
+                Spells = new List<SpellDefinition>(),
+                Level = 4
             };
             LichSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.Blight);
             LichSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.DimensionDoor);
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_5 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 5
+                Spells = new List<SpellDefinition>(),
+                Level = 5
             };
             LichSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.CloudKill);
             LichSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.ConeOfCold);
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_6 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 6
+                Spells = new List<SpellDefinition>(),
+                Level = 6
             };
             LichSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.Disintegrate);
             LichSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_7 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 7
+                Spells = new List<SpellDefinition>(),
+                Level = 7
             };
             LichSpell_level_7.Spells.Add(NewMonsterSpells.ReverseGravity_Spell);
             LichSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
@@ -465,13 +403,15 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_8 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 8
+                Spells = new List<SpellDefinition>(),
+                Level = 8
             };
             LichSpell_level_8.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
 
             SpellListDefinition.SpellsByLevelDuplet LichSpell_level_9 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 9
+                Spells = new List<SpellDefinition>(),
+                Level = 9
             };
             LichSpell_level_9.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
@@ -488,30 +428,34 @@ namespace SolastaMonsters.Monsters
                 LichSpell_level_4,
                 LichSpell_level_5,
                 LichSpell_level_6,
-                LichSpell_level_7
-                //   LichSpell_level_8,
-                //   LichSpell_level_9
+                LichSpell_level_7,
+             //   LichSpell_level_8,
+             //   LichSpell_level_9
             });
-        }
 
+
+        }
         public static void BuildNewCastSpell_Lich()
         {
+
             var text = "CastSpell_Lich";
 
 
+
+
             CastSpell_Lich = BuildNewCaster(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Spell/&DH_" + text + "_Title",
-                "Spell/&DH_" + text + "_Description"
-            );
+                     "DH_Custom_" + text,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    "Spell/&DH_" + text + "_Title",
+                     "Spell/&DH_" + text + "_Description"
+                      );
+
 
 
             CastSpell_Lich.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
             CastSpell_Lich.SetSpellcastingAbility("Intelligence");
-            CastSpell_Lich.SetSpellcastingParametersComputation(
-                RuleDefinitions.SpellcastingParametersComputation.Static);
+            CastSpell_Lich.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
             CastSpell_Lich.SetStaticDCValue(20);
             CastSpell_Lich.SetStaticToHitValue(12);
             CastSpell_Lich.SetSpellListDefinition(Lich_spelllist);
@@ -521,353 +465,36 @@ namespace SolastaMonsters.Monsters
             CastSpell_Lich.SetSpellCastingLevel(18);
             CastSpell_Lich.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-            int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+            int[] cantrip_arr = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
             CastSpell_Lich.KnownCantrips.AddRange(cantrip_arr);
 
             CastSpell_Lich.SlotsPerLevels.Clear();
-            CastSpell_Lich.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>
+            CastSpell_Lich.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>()
             {
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 01
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 02
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 03
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 04
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 05
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 06
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 07
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 08
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 09
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 10
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 11
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 12
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 13
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 14
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0,
-                        0
-                    },
-                    Level = 15
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0,
-                        0
-                    },
-                    Level = 16
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 17
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        1,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 18
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 19
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        2,
-                        2,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 20
-                }
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,2,1,1,0}, Level = 20 },
             });
+
+
+
         }
 
 
@@ -931,12 +558,12 @@ namespace SolastaMonsters.Monsters
             var text = "ArchMage_Spelllist";
 
             Archmage_spelllist = BuildNewSpelllist(
-                text,
-                DatabaseHelper.SpellListDefinitions.SpellListMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "SpellList/&SpellListWizardTitle",
-                "Feature/&NoContentTitle"
-            );
+                      text,
+                     DatabaseHelper.SpellListDefinitions.SpellListMage,
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    "SpellList/&SpellListWizardTitle",
+                     "Feature/&NoContentTitle"
+                      );
 
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_Cantrips = new()
@@ -949,14 +576,16 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_1 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 1
+                Spells = new List<SpellDefinition>(),
+                Level = 1
             };
             ArchmageSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.MagicMissile);
             ArchmageSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.Thunderwave);
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_2 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 2
+                Spells = new List<SpellDefinition>(),
+                Level = 2
             };
             ArchmageSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.Blur);
             ArchmageSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.MistyStep);
@@ -964,7 +593,8 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_3 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 3
+                Spells = new List<SpellDefinition>(),
+                Level = 3
             };
             ArchmageSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.Counterspell);
             ArchmageSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.Fly);
@@ -973,14 +603,16 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_4 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 4
+                Spells = new List<SpellDefinition>(),
+                Level = 4
             };
             ArchmageSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.Banishment);
             ArchmageSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.FireShield);
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_5 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 5
+                Spells = new List<SpellDefinition>(),
+                Level = 5
             };
             ArchmageSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.CloudKill);
             ArchmageSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.ConeOfCold);
@@ -988,13 +620,15 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_6 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 6
+                Spells = new List<SpellDefinition>(),
+                Level = 6
             };
             ArchmageSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_7 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 7
+                Spells = new List<SpellDefinition>(),
+                Level = 7
             };
             ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.ReverseGravity_Spell);
             ArchmageSpell_level_7.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
@@ -1002,13 +636,15 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_8 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 8
+                Spells = new List<SpellDefinition>(),
+                Level = 8
             };
             ArchmageSpell_level_8.Spells.Add(NewMonsterSpells.PowerWordStun_Spell);
 
             SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_level_9 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 9
+                Spells = new List<SpellDefinition>(),
+                Level = 9
             };
             ArchmageSpell_level_9.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
@@ -1025,30 +661,34 @@ namespace SolastaMonsters.Monsters
                 ArchmageSpell_level_4,
                 ArchmageSpell_level_5,
                 ArchmageSpell_level_6,
-                ArchmageSpell_level_7
+                ArchmageSpell_level_7,
                 //ArchmageSpell_level_8,
-                // ArchmageSpell_level_9
+               // ArchmageSpell_level_9
             });
+
         }
 
         public static void BuildNewCastSpell_ArchMage()
         {
+
             var text = "CastSpell_ArchMage";
 
 
+
+
             CastSpell_ArchMage = BuildNewCaster(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Spell/&DH_" + text + "_Title",
-                "Spell/&DH_" + text + "_Description"
-            );
+                     "DH_Custom_" + text,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellMage,
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    "Spell/&DH_" + text + "_Title",
+                     "Spell/&DH_" + text + "_Description"
+                      );
+
 
 
             CastSpell_ArchMage.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
             CastSpell_ArchMage.SetSpellcastingAbility("Intelligence");
-            CastSpell_ArchMage.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation
-                .Static);
+            CastSpell_ArchMage.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
             CastSpell_ArchMage.SetStaticDCValue(17);
             CastSpell_ArchMage.SetStaticToHitValue(9);
             CastSpell_ArchMage.SetSpellListDefinition(Archmage_spelllist);
@@ -1058,353 +698,36 @@ namespace SolastaMonsters.Monsters
             CastSpell_ArchMage.SetSpellCastingLevel(18);
             CastSpell_ArchMage.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-            int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+            int[] cantrip_arr = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
             CastSpell_ArchMage.KnownCantrips.AddRange(cantrip_arr);
 
             CastSpell_ArchMage.SlotsPerLevels.Clear();
-            CastSpell_ArchMage.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>
-            {
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 01
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 02
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 03
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 04
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 05
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 06
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 07
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 08
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 09
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 10
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 11
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 12
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 13
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 14
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0,
-                        0
-                    },
-                    Level = 15
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0,
-                        0
-                    },
-                    Level = 16
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 17
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        1,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 18
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 19
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        2,
-                        2,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 20
-                }
-            });
+            CastSpell_ArchMage.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>()
+           {
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,2,1,1,0}, Level = 20 },
+           });
+
+
+
         }
 
         public static void BuildNew_GuardianNaga_Spelllist()
@@ -1460,12 +783,12 @@ namespace SolastaMonsters.Monsters
             var text = "GuardianNaga_Spelllist";
 
             GuardianNaga_spelllist = BuildNewSpelllist(
-                text,
-                DatabaseHelper.SpellListDefinitions.SpellListHighPriest,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Feature/&GuardianNagaSpellListTitle",
-                "Feature/&GuardianNagaSpellListDescription"
-            );
+                      text,
+                     DatabaseHelper.SpellListDefinitions.SpellListHighPriest,
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    "Feature/&GuardianNagaSpellListTitle",
+                     "Feature/&GuardianNagaSpellListDescription"
+                      );
 
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_Cantrips = new()
@@ -1477,7 +800,8 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_1 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 1
+                Spells = new List<SpellDefinition>(),
+                Level = 1
             };
             GuardianNagaSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.CureWounds);
             //GuardianNagaSpell_level_1.Spells.Add(DatabaseHelper.SpellDefinitions.Command);
@@ -1485,7 +809,8 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_2 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 2
+                Spells = new List<SpellDefinition>(),
+                Level = 2
             };
             GuardianNagaSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.CalmEmotions);
             GuardianNagaSpell_level_2.Spells.Add(DatabaseHelper.SpellDefinitions.HoldPerson);
@@ -1493,28 +818,32 @@ namespace SolastaMonsters.Monsters
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_3 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 3
+                Spells = new List<SpellDefinition>(),
+                Level = 3
             };
             GuardianNagaSpell_level_3.Spells.Add(DatabaseHelper.SpellDefinitions.BestowCurse);
 
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_4 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 4
+                Spells = new List<SpellDefinition>(),
+                Level = 4
             };
             GuardianNagaSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.Banishment);
             GuardianNagaSpell_level_4.Spells.Add(DatabaseHelper.SpellDefinitions.FreedomOfMovement);
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_5 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 5
+                Spells = new List<SpellDefinition>(),
+                Level = 5
             };
             GuardianNagaSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.FlameStrike);
             GuardianNagaSpell_level_5.Spells.Add(DatabaseHelper.SpellDefinitions.Contagion);
 
             SpellListDefinition.SpellsByLevelDuplet GuardianNagaSpell_level_6 = new()
             {
-                Spells = new List<SpellDefinition>(), Level = 6
+                Spells = new List<SpellDefinition>(),
+                Level = 6
             };
             GuardianNagaSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
@@ -1533,25 +862,27 @@ namespace SolastaMonsters.Monsters
                 GuardianNagaSpell_level_6
             });
         }
-
         public static void BuildNewCastSpell_GuardianNaga()
         {
+
             var text = "CastSpell_GuardianNaga";
 
 
+
+
             CastSpell_GuardianNaga = BuildNewCaster(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "Spell/&DH_" + text + "_Title",
-                "Spell/&DH_" + text + "_Description"
-            );
+                     "DH_Custom_" + text,
+                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard,
+                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                    "Spell/&DH_" + text + "_Title",
+                     "Spell/&DH_" + text + "_Description"
+                      );
+
 
 
             CastSpell_GuardianNaga.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
             CastSpell_GuardianNaga.SetSpellcastingAbility("Wisdom");
-            CastSpell_GuardianNaga.SetSpellcastingParametersComputation(RuleDefinitions
-                .SpellcastingParametersComputation.Static);
+            CastSpell_GuardianNaga.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
             CastSpell_GuardianNaga.SetStaticDCValue(16);
             CastSpell_GuardianNaga.SetStaticToHitValue(8);
             CastSpell_GuardianNaga.SetSpellListDefinition(GuardianNaga_spelllist);
@@ -1562,353 +893,35 @@ namespace SolastaMonsters.Monsters
             //    CastSpell_GuardianNaga.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
             //    CastSpell_GuardianNaga.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
 
-            int[] cantrip_arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+            int[] cantrip_arr = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
             CastSpell_GuardianNaga.KnownCantrips.AddRange(cantrip_arr);
 
             CastSpell_GuardianNaga.SlotsPerLevels.Clear();
-            CastSpell_GuardianNaga.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>
-            {
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 01
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 02
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 03
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 04
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 05
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 06
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 07
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 08
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 09
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 10
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 11
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        0,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 12
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 13
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        0,
-                        0,
-                        0
-                    },
-                    Level = 14
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0,
-                        0
-                    },
-                    Level = 15
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0,
-                        0
-                    },
-                    Level = 16
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 17
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        1,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 18
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        2,
-                        1,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 19
-                },
-                new()
-                {
-                    Slots = new List<int>
-                    {
-                        4,
-                        3,
-                        3,
-                        3,
-                        3,
-                        2,
-                        2,
-                        1,
-                        1,
-                        0
-                    },
-                    Level = 20
-                }
-            });
+            CastSpell_GuardianNaga.SlotsPerLevels.AddRange(new List<FeatureDefinitionCastSpell.SlotsByLevelDuplet>()
+           {
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
+            new FeatureDefinitionCastSpell.SlotsByLevelDuplet() { Slots = new List<int> {4,3,3,3,3,2,2,1,1,0}, Level = 20 },
+           });
+
+
         }
 
         public static void BuildNew_AirTitan_SleetStorm_Immunity_MagicAffinity()
@@ -1917,53 +930,54 @@ namespace SolastaMonsters.Monsters
 
 
             AirTitan_SleetStorm_Immunity = BuildNewMagicAffinity(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionMagicAffinitys.MagicAffinityConditionImmuneToShine,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
 
             AirTitan_SleetStorm_Immunity.SpellImmunities.Clear();
             AirTitan_SleetStorm_Immunity.SpellImmunities.Add(DatabaseHelper.SpellDefinitions.SleetStorm.Name);
         }
-
         public static void BuildNewFireTitan_Retaliate_DamageAffinity()
         {
+
             var Power_text = "FireTitan_Retaliate_Power";
 
 
             var FireTitan_Retaliate_Power = NewMonsterPowers.BuildNewPower(
-                "DH_Custom_" + Power_text,
-                DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + Power_text).ToString(),
-                "MonsterPower/&DH_" + Power_text + "_Title",
-                "MonsterPower/&DH_" + Power_text + "_Description"
-            );
+                    "DH_Custom_" + Power_text,
+                    DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazRetaliate,
+                    GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + Power_text).ToString(),
+                   "MonsterPower/&DH_" + Power_text + "_Title",
+                    "MonsterPower/&DH_" + Power_text + "_Description"
+                     );
 
 
             FireTitan_Retaliate_Power.EffectDescription.SetTargetParameter(10);
 
             FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
-            FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDieType(RuleDefinitions.DieType.D6);
-            FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDamageType(RuleDefinitions.DamageTypeFire);
+            FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+            FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
+
 
 
             var text = "FireTitan_Retaliate_DamageAffinity";
 
 
             FireTitan_Retaliate_DamageAffinity = BuildNewDamageAffinity(
-                "DH_Custom_" + text,
-                DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityFireImmunityRemorhaz,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             FireTitan_Retaliate_DamageAffinity.SetRetaliatePower(FireTitan_Retaliate_Power);
+
+
         }
 
 
@@ -1973,28 +987,28 @@ namespace SolastaMonsters.Monsters
 
 
             AncientDragon_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             AncientDragon_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
-            WeightedDecisionDescription weightedDecisionDescription = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription.SetWeight(3);
 
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Burrow_Aggressive_Small);
             weightedDecisionDescription_2.SetWeight(3);
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
             AncientDragon_CombatDecisions.Package.WeightedDecisions.AddRange
-            (
+                (
                 DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions.Package.WeightedDecisions[0],
                 DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions.Package.WeightedDecisions[1],
                 DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions.Package.WeightedDecisions[2],
@@ -2004,106 +1018,101 @@ namespace SolastaMonsters.Monsters
                 weightedDecisionDescription_2,
                 DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions.Package.WeightedDecisions[5],
                 DatabaseHelper.DecisionPackageDefinitions.DragonCombatDecisions.Package.WeightedDecisions[6]
-            );
-        }
+                );
 
+        }
         public static void BuildNew_SummonCreature_Magic_Decision()
         {
             var text = "SummonCreature_Magic_Decision";
 
 
             SummonCreature_Magic_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             SummonCreature_Magic_Decision.Decision.SetEnumParameter((int)RuleDefinitions.MagicType.SummonsCreature);
 
             SummonCreature_Magic_Decision.Decision.SetStringParameter("SummonCreature");
         }
-
         public static void BuildNew_AtWillAOE_Magic_Decision()
         {
             var text = "AtWillAOE_Magic_Decision";
 
 
             AtWillAOE_Magic_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
 
             AtWillAOE_Magic_Decision.Decision.SetStringParameter("AtWillAOE");
         }
-
         public static void BuildNew_CastMagic_StoneSkin_Decision()
         {
             var text = "CastMagic_StoneSkin_Decision";
 
 
             CastMagic_Stoneskin_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
 
             CastMagic_Stoneskin_Decision.Decision.SetStringParameter("Stoneskin");
         }
-
         public static void BuildNew_LimitedPerDayAOE_Magic_Decision()
         {
             var text = "LimitedPerDayAOE_Magic_Decision";
 
 
             LimitedPerDayAOE_Magic_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             LimitedPerDayAOE_Magic_Decision.Decision.SetStringParameter("LimitedPerDayAOE");
         }
-
         public static void BuildNew_AtWillSelfBuff_Magic_Decision()
         {
             var text = "AtWillSelfBuff_Magic_Decision";
 
 
             AtWillSelfBuff_Magic_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
 
             AtWillSelfBuff_Magic_Decision.Decision.SetStringParameter("AtWillSelfBuff");
         }
-
         public static void BuildNew_LimitedPerDayTargetDebuffMagic_Decision()
         {
             var text = "LimitedPerDayTargetDebuff_Magic_Decision";
 
 
             LimitedPerDayTargetDebuff_Magic_Decision = BuildNewDecisionDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             LimitedPerDayTargetDebuff_Magic_Decision.Decision.SetStringParameter("LimitedPerDayTargetDebuff");
         }
@@ -2114,55 +1123,54 @@ namespace SolastaMonsters.Monsters
 
 
             Solar_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Solar_CombatDecisions.Package.WeightedDecisions.Clear();
 
             //
-            WeightedDecisionDescription weightedDecisionDescription = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription.SetWeight(4.5f);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_0.SetWeight(1.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(AtWillSelfBuff_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
             weightedDecisionDescription_2.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE);
             weightedDecisionDescription_3.SetWeight(2.5f);
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
             Solar_CombatDecisions.Package.WeightedDecisions.AddRange
-            (
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package
-                    .WeightedDecisions[2], // "weight": 5.0 : Move_RangedKite
+                (
+                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package.WeightedDecisions[2], // "weight": 5.0 : Move_RangedKite
                 weightedDecisionDescription,
                 weightedDecisionDescription_1,
                 weightedDecisionDescription_2,
                 weightedDecisionDescription_3,
                 weightedDecisionDescription_0,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package
-                    .WeightedDecisions[2] // "weight": 2.0 : LongRangePathToEnemyOnlyIfNoAction_Dash
-            );
+               DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package.WeightedDecisions[2] // "weight": 2.0 : LongRangePathToEnemyOnlyIfNoAction_Dash
+                 );
+
         }
 
         public static void BuildNew_HighLevelCaster_CombatDecisions()
@@ -2171,37 +1179,37 @@ namespace SolastaMonsters.Monsters
 
 
             HighLevelCaster_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Clear();
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(CastMagic_Stoneskin_Decision);
             weightedDecisionDescription_0.SetWeight(4);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self);
             weightedDecisionDescription_1.SetWeight(4);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
             weightedDecisionDescription_2.SetWeight(4);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
             weightedDecisionDescription_5.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_8 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new();
             weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription_8.SetWeight(1.5f);
 
@@ -2211,86 +1219,82 @@ namespace SolastaMonsters.Monsters
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Add(weightedDecisionDescription_1);
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Add(weightedDecisionDescription_2);
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Add(weightedDecisionDescription_5);
-            HighLevelCaster_CombatDecisions.Package.WeightedDecisions.AddRange(DatabaseHelper.DecisionPackageDefinitions
-                .CubeOfLightCombatDecisions.Package.WeightedDecisions);
+            HighLevelCaster_CombatDecisions.Package.WeightedDecisions.AddRange(DatabaseHelper.DecisionPackageDefinitions.CubeOfLightCombatDecisions.Package.WeightedDecisions);
 
             HighLevelCaster_CombatDecisions.Package.WeightedDecisions.Add(weightedDecisionDescription_8);
         }
-
         public static void BuildNew_Vampire_CombatDecisions()
         {
             var text = "Vampire_CombatDecisions";
 
 
             Vampire_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.DefilerCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefilerCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Vampire_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
-            weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions
-                .LongRangePathToEnemy_DashAvoidLight);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_DashAvoidLight);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Darkness);
             weightedDecisionDescription_2.SetWeight(4f);
             weightedDecisionDescription_2.SetCooldown(3);
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new();
-            weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions
-                .Move_AggressiveLightSensitive_Defiler);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
+            weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveLightSensitive_Defiler);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(1.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new();
-            weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions
-                .CastMagic_Defiler_Teleport_Fallback);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
+            weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport_Fallback);
             weightedDecisionDescription_7.SetWeight(0.1f);
+
 
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
 
             Vampire_CombatDecisions.Package.WeightedDecisions.AddRange(
-                weightedDecisionDescription_1,
-                weightedDecisionDescription_2,
-                weightedDecisionDescription_3,
-                weightedDecisionDescription_4,
-                weightedDecisionDescription_5,
-                weightedDecisionDescription_6,
-                weightedDecisionDescription_7
-            );
+                                                                    weightedDecisionDescription_1,
+                                                                    weightedDecisionDescription_2,
+                                                                    weightedDecisionDescription_3,
+                                                                    weightedDecisionDescription_4,
+                                                                    weightedDecisionDescription_5,
+                                                                    weightedDecisionDescription_6,
+                                                                    weightedDecisionDescription_7
+                                                                    );
         }
 
         public static void BuildNew_Titan_CombatDecisions()
@@ -2299,12 +1303,12 @@ namespace SolastaMonsters.Monsters
 
 
             Titan_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Titan_CombatDecisions.Package.WeightedDecisions.Clear();
 
@@ -2315,77 +1319,78 @@ namespace SolastaMonsters.Monsters
             //   SummonCreature_Magic_Decision
 
 
+
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(LimitedPerDayAOE_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_2.SetWeight(3.5f);
 
 
+
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.5f);
             weightedDecisionDescription_3.SetDynamicCooldown(true);
             weightedDecisionDescription_3.SetCooldown(3);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new();
-            weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions
-                .Move_AggressiveSingleTargetAndSpread);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
+            weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveSingleTargetAndSpread);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(1.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(1.0f);
+
 
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
 
             Titan_CombatDecisions.Package.WeightedDecisions.AddRange(
-                weightedDecisionDescription_1,
-                weightedDecisionDescription_2,
-                weightedDecisionDescription_3,
-                weightedDecisionDescription_4,
-                weightedDecisionDescription_5,
-                weightedDecisionDescription_6,
-                weightedDecisionDescription_7
-            );
+                                                                    weightedDecisionDescription_1,
+                                                                    weightedDecisionDescription_2,
+                                                                    weightedDecisionDescription_3,
+                                                                    weightedDecisionDescription_4,
+                                                                    weightedDecisionDescription_5,
+                                                                    weightedDecisionDescription_6,
+                                                                    weightedDecisionDescription_7
+                                                                    );
         }
-
         public static void BuildNew_ConstructTitan_CombatDecisions()
         {
             var text = "ConstructTitan_CombatDecisions";
 
 
             ConstructTitan_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             ConstructTitan_CombatDecisions.Package.WeightedDecisions.Clear();
 
@@ -2396,65 +1401,65 @@ namespace SolastaMonsters.Monsters
             //   SummonCreature_Magic_Decision
 
 
+
             //
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
             weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
             weightedDecisionDescription_0.SetWeight(5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
-            weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions
-                .CastMagic_DPS_AoE_DragonBreath);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_AoE_DragonBreath);
             weightedDecisionDescription_1.SetWeight(4f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
-            weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions
-                .CastMagic_FrightfulPresence_Dragon);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_2.SetWeight(3.5f);
 
 
+
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.5f);
             weightedDecisionDescription_3.SetDynamicCooldown(true);
             weightedDecisionDescription_3.SetCooldown(3);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_4.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new();
-            weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions
-                .Move_AggressiveSingleTargetAndSpread);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
+            weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_AggressiveSingleTargetAndSpread);
             weightedDecisionDescription_5.SetWeight(2.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_6.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
             weightedDecisionDescription_7.SetWeight(1.0f);
+
 
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
 
             ConstructTitan_CombatDecisions.Package.WeightedDecisions.AddRange(
-                weightedDecisionDescription_1,
-                weightedDecisionDescription_2,
-                weightedDecisionDescription_3,
-                weightedDecisionDescription_4,
-                weightedDecisionDescription_5,
-                weightedDecisionDescription_6,
-                weightedDecisionDescription_7
-            );
+                                                                    weightedDecisionDescription_1,
+                                                                    weightedDecisionDescription_2,
+                                                                    weightedDecisionDescription_3,
+                                                                    weightedDecisionDescription_4,
+                                                                    weightedDecisionDescription_5,
+                                                                    weightedDecisionDescription_6,
+                                                                    weightedDecisionDescription_7
+                                                                    );
         }
 
         public static void BuildNew_Naga_CombatDecisions()
@@ -2463,53 +1468,53 @@ namespace SolastaMonsters.Monsters
 
 
             Naga_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.FlyingSnakeCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.FlyingSnakeCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Naga_CombatDecisions.Package.WeightedDecisions.Clear();
 
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
             weightedDecisionDescription_1.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
             weightedDecisionDescription_2.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_4 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_4 = new();
             weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfHeal);
             weightedDecisionDescription_4.SetWeight(4.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff);
             weightedDecisionDescription_3.SetWeight(3.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_5 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_5 = new();
             weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
             weightedDecisionDescription_5.SetWeight(3.0f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_6 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_6 = new();
             weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
             weightedDecisionDescription_6.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_7 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_7 = new();
             weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget);
             weightedDecisionDescription_7.SetWeight(2.5f);
 
             //
-            WeightedDecisionDescription weightedDecisionDescription_8 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_8 = new();
             weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
             weightedDecisionDescription_8.SetWeight(1.5f);
 
@@ -2517,15 +1522,15 @@ namespace SolastaMonsters.Monsters
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
 
             Naga_CombatDecisions.Package.WeightedDecisions.AddRange(
-                weightedDecisionDescription_1,
-                weightedDecisionDescription_2,
-                weightedDecisionDescription_3,
-                weightedDecisionDescription_4,
-                weightedDecisionDescription_5,
-                weightedDecisionDescription_6,
-                weightedDecisionDescription_7,
-                weightedDecisionDescription_8
-            );
+                                                                    weightedDecisionDescription_1,
+                                                                    weightedDecisionDescription_2,
+                                                                    weightedDecisionDescription_3,
+                                                                    weightedDecisionDescription_4,
+                                                                    weightedDecisionDescription_5,
+                                                                    weightedDecisionDescription_6,
+                                                                    weightedDecisionDescription_7,
+                                                                    weightedDecisionDescription_8
+                                                                    );
         }
 
         public static void BuildNew_PitFiend_CombatDecisions()
@@ -2534,58 +1539,56 @@ namespace SolastaMonsters.Monsters
 
 
             PitFiend_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             PitFiend_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // summon creature 1/day
-            WeightedDecisionDescription weightedDecisionDescription = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription.SetWeight(4.5f);
 
 
             // frightful presence roll 5 or 6
-            WeightedDecisionDescription weightedDecisionDescription_0 = new();
-            weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions
-                .CastMagic_FrightfulPresence_Dragon);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_0 = new();
+            weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription_0.SetWeight(4.5f);
 
             // wall of fire 3/day
-            WeightedDecisionDescription weightedDecisionDescription_1 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_1 = new();
             weightedDecisionDescription_1.SetDecision(LimitedPerDayTargetDebuff_Magic_Decision);
             weightedDecisionDescription_1.SetWeight(3.0f);
 
             // hold person 3/day
-            WeightedDecisionDescription weightedDecisionDescription_2 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_2 = new();
             weightedDecisionDescription_2.SetDecision(LimitedPerDayAOE_Magic_Decision);
             weightedDecisionDescription_2.SetWeight(3.0f);
 
             // at will fireballs
-            WeightedDecisionDescription weightedDecisionDescription_3 = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription_3 = new();
             weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
             weightedDecisionDescription_3.SetWeight(3.0f);
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
             PitFiend_CombatDecisions.Package.WeightedDecisions.AddRange
-            (
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package
-                    .WeightedDecisions[0], // "weight": 5.0
+                (
+
+                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package.WeightedDecisions[0], // "weight": 5.0
                 weightedDecisionDescription,
                 weightedDecisionDescription_0,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package
-                    .WeightedDecisions[1], // "weight": 3.0
+                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package.WeightedDecisions[1], // "weight": 3.0
                 weightedDecisionDescription_1,
                 weightedDecisionDescription_2,
                 weightedDecisionDescription_3,
-                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package
-                    .WeightedDecisions[2] // "weight": 2.0
-            );
+                DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeBeastCombatDecisions.Package.WeightedDecisions[2] // "weight": 2.0
+                );
+
         }
 
         public static void BuildNew_Balor_CombatDecisions()
@@ -2594,33 +1597,35 @@ namespace SolastaMonsters.Monsters
 
 
             Balor_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Balor_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // summon creature 1/day
-            WeightedDecisionDescription weightedDecisionDescription = new();
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
             weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
             weightedDecisionDescription.SetWeight(4.5f);
+
+
 
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
             Balor_CombatDecisions.Package.WeightedDecisions.AddRange
-            (
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package
-                    .WeightedDecisions[0], // "weight": 5.0
+                (
+
+                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package.WeightedDecisions[0], // "weight": 5.0
                 weightedDecisionDescription,
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package
-                    .WeightedDecisions[1], // "weight": 3.0
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package
-                    .WeightedDecisions[2] // "weight": 2.0
-            );
+                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package.WeightedDecisions[1], // "weight": 3.0
+
+                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package.WeightedDecisions[2] // "weight": 2.0
+                );
+
         }
 
         public static void BuildNew_Nalfeshnee_CombatDecisions()
@@ -2629,42 +1634,42 @@ namespace SolastaMonsters.Monsters
 
 
             Nalfeshnee_CombatDecisions = BuildNewDecisionPackageDefinition(
-                "DH_Custom_" + text,
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
-                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                "MonsterPower/&DH_" + text + "_Title",
-                "MonsterPower/&DH_" + text + "_Description"
-            );
+                   "DH_Custom_" + text,
+                   DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions,
+                   GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                  "MonsterPower/&DH_" + text + "_Title",
+                   "MonsterPower/&DH_" + text + "_Description"
+                    );
 
             Nalfeshnee_CombatDecisions.Package.WeightedDecisions.Clear();
 
             // frightful presence roll 5 or 6
-            WeightedDecisionDescription weightedDecisionDescription = new();
-            weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions
-                .CastMagic_FrightfulPresence_Dragon);
+            TA.AI.WeightedDecisionDescription weightedDecisionDescription = new();
+            weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_FrightfulPresence_Dragon);
             weightedDecisionDescription.SetWeight(4.5f);
+
+
 
 
             // don't know if keeping descending weight order is important or not but it matches the preexisting format in
             // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
             Nalfeshnee_CombatDecisions.Package.WeightedDecisions.AddRange
-            (
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package
-                    .WeightedDecisions[0], // "weight": 5.0
+                (
+
+                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package.WeightedDecisions[0], // "weight": 5.0
                 weightedDecisionDescription,
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package
-                    .WeightedDecisions[1], // "weight": 3.0
-                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package
-                    .WeightedDecisions[2] // "weight": 2.0
-            );
+                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package.WeightedDecisions[1], // "weight": 3.0
+
+                DatabaseHelper.DecisionPackageDefinitions.PhaseSpiderCombatDecisions.Package.WeightedDecisions[2] // "weight": 2.0
+                );
+
         }
 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------------------------------
         //-------------------------------------------------------------------------------------------------------------------------------------------
-        public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster,
-            string guid, string title, string description)
+        public static FeatureDefinitionCastSpell BuildNewCaster(string name, FeatureDefinitionCastSpell baseCaster, string guid, string title, string description)
         {
             return FeatureDefinitionCastSpellBuilder
                 .Create(baseCaster, name, guid)
@@ -2672,8 +1677,7 @@ namespace SolastaMonsters.Monsters
                 .AddToDB();
         }
 
-        public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name,
-            FeatureDefinitionDamageAffinity baseDamageAffinity, string guid, string title, string description)
+        public static FeatureDefinitionDamageAffinity BuildNewDamageAffinity(string name, FeatureDefinitionDamageAffinity baseDamageAffinity, string guid, string title, string description)
         {
             return FeatureDefinitionDamageAffinityBuilder
                 .Create(baseDamageAffinity, name, guid)
@@ -2682,8 +1686,7 @@ namespace SolastaMonsters.Monsters
         }
 
 
-        public static DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name,
-            DecisionPackageDefinition baseDecisionPackageDefinition, string guid, string title, string description)
+        public static TA.AI.DecisionPackageDefinition BuildNewDecisionPackageDefinition(string name, TA.AI.DecisionPackageDefinition baseDecisionPackageDefinition, string guid, string title, string description)
         {
             return DecisionPackageDefinitionBuilder
                 .Create(baseDecisionPackageDefinition, name, guid)
@@ -2691,8 +1694,7 @@ namespace SolastaMonsters.Monsters
                 .AddToDB();
         }
 
-        public static DecisionDefinition BuildNewDecisionDefinition(string name,
-            DecisionDefinition baseDecisionDefinition, string guid, string title, string description)
+        public static TA.AI.DecisionDefinition BuildNewDecisionDefinition(string name, TA.AI.DecisionDefinition baseDecisionDefinition, string guid, string title, string description)
         {
             return DecisionDefinitionBuilder
                 .Create(baseDecisionDefinition, name, guid)
@@ -2700,8 +1702,7 @@ namespace SolastaMonsters.Monsters
                 .AddToDB();
         }
 
-        public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name,
-            MonsterPresentationDefinition baseMonsterPresentation, string guid, string title, string description)
+        public static MonsterPresentationDefinition BuildNewMonsterPresentation(string name, MonsterPresentationDefinition baseMonsterPresentation, string guid, string title, string description)
         {
             return MonsterPresentationDefinitionBuilder
                 .Create(baseMonsterPresentation, name, guid)
@@ -2709,8 +1710,7 @@ namespace SolastaMonsters.Monsters
                 .AddToDB();
         }
 
-        public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name,
-            FeatureDefinitionMagicAffinity baseMagicAffinity, string guid, string title, string description)
+        public static FeatureDefinitionMagicAffinity BuildNewMagicAffinity(string name, FeatureDefinitionMagicAffinity baseMagicAffinity, string guid, string title, string description)
         {
             return FeatureDefinitionMagicAffinityBuilder
                 .Create(baseMagicAffinity, name, guid)
@@ -2719,13 +1719,14 @@ namespace SolastaMonsters.Monsters
         }
 
 
-        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid,
-            string title, string description)
+        public static SpellListDefinition BuildNewSpelllist(string name, SpellListDefinition baseSpellList, string guid, string title, string description)
         {
             return SpellListDefinitionBuilder
                 .Create(baseSpellList, name, guid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
+
+
     }
 }

@@ -12,8 +12,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
         {
             if (___hitDiceBox.Activated && ___guiCharacter.RulesetCharacterHero.ClassesAndLevels.Count > 1)
             {
-                ___hitDiceBox.ValueLabel.Text =
-                    MulticlassGameUiContext.GetAllClassesHitDiceLabel(___guiCharacter, out var dieTypeCount);
+                ___hitDiceBox.ValueLabel.Text = MulticlassGameUiContext.GetAllClassesHitDiceLabel(___guiCharacter, out var dieTypeCount);
                 ___hitDiceBox.ValueLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(dieTypeCount);
             }
         }

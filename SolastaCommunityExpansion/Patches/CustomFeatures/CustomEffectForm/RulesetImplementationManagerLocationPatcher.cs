@@ -29,32 +29,27 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
             switch (addedCondition.AmountOrigin)
             {
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
-                    sourceAmount =
-                        formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
-                    sourceAmount =
-                        formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+                    sourceAmount = formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                     var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
-                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>()
-                            .TryGetElement(classType, out var characterClassDefinition)
+                    if (DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement(classType, out var characterClassDefinition)
                         && sourceCharacter.ClassesAndLevels != null
                         && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out var classLevel))
                     {
                         sourceAmount = classLevel;
                     }
-
                     break;
             }
 
-            return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence,
-                tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus);
+            return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence, tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -62,8 +57,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm
             var addedConditionPos = Main.IsDebugBuild ? 36 : 26;
             var found = 0;
             var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
-            var extendInflictConditionMethod =
-                typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
+            var extendInflictConditionMethod = typeof(RulesetImplementationManagerLocation_ApplySummonForm).GetMethod("ExtendInflictCondition");
 
             foreach (var instruction in instructions)
             {

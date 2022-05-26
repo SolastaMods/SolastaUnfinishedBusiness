@@ -1,4 +1,5 @@
-﻿namespace SolastaCommunityExpansion.Subclasses
+﻿
+namespace SolastaCommunityExpansion.Subclasses
 {
     internal abstract class AbstractSubclass
     {

@@ -27,7 +27,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 BuildSpellGroup(3, AcidArrow, ScorchingRay),
                 BuildSpellGroup(5, Fireball, ProtectionFromEnergy),
                 BuildSpellGroup(7, IceStorm, WallOfFire),
-                BuildSpellGroup(9, ConeOfCold, MindTwist) // This should be Telekinesis
+                BuildSpellGroup(9, ConeOfCold, MindTwist)// This should be Telekinesis
             );
         }
     }

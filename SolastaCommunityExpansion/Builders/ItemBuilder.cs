@@ -7,8 +7,7 @@ namespace SolastaCommunityExpansion.Builders
 {
     internal static class ItemBuilder
     {
-        public static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name,
-            Guid collectionGuid,
+        public static ItemDefinition BuilderCopyFromItemSetRecipe(ItemDefinition original, string name, Guid collectionGuid,
             RecipeDefinition recipeDefinition, int gold, GuiPresentation guiPresentation)
         {
             return ItemDefinitionBuilder
@@ -19,8 +18,7 @@ namespace SolastaCommunityExpansion.Builders
                 .AddToDB();
         }
 
-        public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name, Guid collectionGuid,
-            ItemDefinition magicalExample)
+        public static ItemDefinition BuildNewMagicWeapon(ItemDefinition original, string name, Guid collectionGuid, ItemDefinition magicalExample)
         {
             var itemName = "Enchanted_" + original.Name + "_" + name;
 
@@ -52,8 +50,7 @@ namespace SolastaCommunityExpansion.Builders
             return builder.AddToDB();
         }
 
-        public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, Guid collectionGuid, string name,
-            ItemDefinition magicalExample)
+        public static ItemDefinition BuildNewMagicArmor(ItemDefinition original, Guid collectionGuid, string name, ItemDefinition magicalExample)
         {
             var itemName = "Enchanted_" + original.Name + "_" + name;
 
@@ -66,8 +63,7 @@ namespace SolastaCommunityExpansion.Builders
                 // Copy over price from example enchanted
                 .SetCosts(magicalExample.Costs)
                 // Copy over static properties from example enchanted, but remove stealth disadvantage since that is determined by the armor and not the enchantment.
-                .MergeStaticProperties(FilterItemProperty(magicalExample.StaticProperties,
-                    FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityStealthDisadvantage));
+                .MergeStaticProperties(FilterItemProperty(magicalExample.StaticProperties, FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityStealthDisadvantage));
 
             if (magicalExample.IsUsableDevice)
             {
@@ -77,8 +73,7 @@ namespace SolastaCommunityExpansion.Builders
             return builder.AddToDB();
         }
 
-        private static List<ItemPropertyDescription> FilterItemProperty(
-            IEnumerable<ItemPropertyDescription> listToFilter, FeatureDefinition toFilter)
+        private static List<ItemPropertyDescription> FilterItemProperty(IEnumerable<ItemPropertyDescription> listToFilter, FeatureDefinition toFilter)
         {
             return listToFilter.Where(ip => !ip.FeatureDefinition.GUID.Equals(toFilter.GUID)).ToList();
         }

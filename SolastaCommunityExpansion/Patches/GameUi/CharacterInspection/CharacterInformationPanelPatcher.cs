@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -33,8 +32,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                     return true;
                 }
-
-                if (featureDefinition is FeatureDefinitionFeatureSet definitionFeatureSet
+                else if (featureDefinition is FeatureDefinitionFeatureSet definitionFeatureSet
                     && definitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion
                     && definitionFeatureSet.FeatureSet.Contains(subFeature))
                 {
@@ -250,7 +248,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
                     childToggle.gameObject.SetActive(true);
 
-                    labelChoiceToggle.Bind(i, classesTitles[i], x =>
+                    labelChoiceToggle.Bind(i, classesTitles[i], (x) =>
                     {
                         var screen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
 
@@ -297,10 +295,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             var containsMethod = typeof(string).GetMethod("Contains");
-            var getSelectedClassSearchTermMethod =
-                typeof(InspectionPanelContext).GetMethod("GetSelectedClassSearchTerm");
-            var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges",
-                BindingFlags.Instance | BindingFlags.NonPublic);
+            var getSelectedClassSearchTermMethod = typeof(InspectionPanelContext).GetMethod("GetSelectedClassSearchTerm");
+            var enumerateClassBadgesMethod = typeof(CharacterInformationPanel).GetMethod("EnumerateClassBadges", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             var myEnumerateClassBadgesMethod = typeof(InspectionPanelContext).GetMethod("EnumerateClassBadges");
             var found = 0;
 

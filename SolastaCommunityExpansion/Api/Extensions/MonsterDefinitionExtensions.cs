@@ -1,23 +1,17 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
-using AK.Wwise;
 using SolastaModApi.Infrastructure;
-using TA.AI;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(MonsterDefinition))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class MonsterDefinitionExtensions
+    [TargetType(typeof(MonsterDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class MonsterDefinitionExtensions
     {
         public static T AddAttackIterations<T>(this T entity, params MonsterAttackIteration[] value)
             where T : MonsterDefinition
@@ -33,28 +27,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddAudioSwitches<T>(this T entity, params Switch[] value)
+        public static T AddAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             AddAudioSwitches(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAudioSwitches<T>(this T entity, IEnumerable<Switch> value)
+        public static T AddAudioSwitches<T>(this T entity, IEnumerable<AK.Wwise.Switch> value)
             where T : MonsterDefinition
         {
             entity.AudioSwitches.AddRange(value);
             return entity;
         }
 
-        public static T AddAudioSwitchesOnHands<T>(this T entity, params Switch[] value)
+        public static T AddAudioSwitchesOnHands<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             AddAudioSwitchesOnHands(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAudioSwitchesOnHands<T>(this T entity, IEnumerable<Switch> value)
+        public static T AddAudioSwitchesOnHands<T>(this T entity, IEnumerable<AK.Wwise.Switch> value)
             where T : MonsterDefinition
         {
             entity.AudioSwitchesOnHands.AddRange(value);
@@ -75,14 +69,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddCreatureTags<T>(this T entity, params String[] value)
+        public static T AddCreatureTags<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             AddCreatureTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddCreatureTags<T>(this T entity, IEnumerable<String> value)
+        public static T AddCreatureTags<T>(this T entity, IEnumerable<System.String> value)
             where T : MonsterDefinition
         {
             entity.CreatureTags.AddRange(value);
@@ -103,14 +97,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLanguages<T>(this T entity, params String[] value)
+        public static T AddLanguages<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             AddLanguages(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddLanguages<T>(this T entity, IEnumerable<String> value)
+        public static T AddLanguages<T>(this T entity, IEnumerable<System.String> value)
             where T : MonsterDefinition
         {
             entity.Languages.AddRange(value);
@@ -236,35 +230,35 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetAbilityScores<T>(this T entity, Int32[] value)
+        public static T SetAbilityScores<T>(this T entity, System.Int32[] value)
             where T : MonsterDefinition
         {
             entity.SetField("abilityScores", value);
             return entity;
         }
 
-        public static T SetAlignment<T>(this T entity, String value)
+        public static T SetAlignment<T>(this T entity, System.String value)
             where T : MonsterDefinition
         {
             entity.SetField("alignment", value);
             return entity;
         }
 
-        public static T SetAlwaysHideStats<T>(this T entity, Boolean value)
+        public static T SetAlwaysHideStats<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("alwaysHideStats", value);
             return entity;
         }
 
-        public static T SetArmor<T>(this T entity, String value)
+        public static T SetArmor<T>(this T entity, System.String value)
             where T : MonsterDefinition
         {
             entity.SetField("armor", value);
             return entity;
         }
 
-        public static T SetArmorClass<T>(this T entity, Int32 value)
+        public static T SetArmorClass<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.ArmorClass = value;
@@ -285,42 +279,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAudioRaceRTPCValue<T>(this T entity, Single value)
+        public static T SetAudioRaceRTPCValue<T>(this T entity, System.Single value)
             where T : MonsterDefinition
         {
             entity.SetField("audioRaceRTPCValue", value);
             return entity;
         }
 
-        public static T SetAudioSwitches<T>(this T entity, params Switch[] value)
+        public static T SetAudioSwitches<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             SetAudioSwitches(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAudioSwitches<T>(this T entity, IEnumerable<Switch> value)
+        public static T SetAudioSwitches<T>(this T entity, IEnumerable<AK.Wwise.Switch> value)
             where T : MonsterDefinition
         {
             entity.AudioSwitches.SetRange(value);
             return entity;
         }
 
-        public static T SetAudioSwitchesOnHands<T>(this T entity, params Switch[] value)
+        public static T SetAudioSwitchesOnHands<T>(this T entity, params AK.Wwise.Switch[] value)
             where T : MonsterDefinition
         {
             SetAudioSwitchesOnHands(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAudioSwitchesOnHands<T>(this T entity, IEnumerable<Switch> value)
+        public static T SetAudioSwitchesOnHands<T>(this T entity, IEnumerable<AK.Wwise.Switch> value)
             where T : MonsterDefinition
         {
             entity.AudioSwitchesOnHands.SetRange(value);
             return entity;
         }
 
-        public static T SetBestiaryCameraOffset<T>(this T entity, Vector3 value)
+        public static T SetBestiaryCameraOffset<T>(this T entity, UnityEngine.Vector3 value)
             where T : MonsterDefinition
         {
             entity.SetField("bestiaryCameraOffset", value);
@@ -355,56 +349,56 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBestiarySpriteReference<T>(this T entity, AssetReferenceSprite value)
+        public static T SetBestiarySpriteReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReferenceSprite value)
             where T : MonsterDefinition
         {
             entity.SetField("bestiarySpriteReference", value);
             return entity;
         }
 
-        public static T SetChallengeRating<T>(this T entity, Single value)
+        public static T SetChallengeRating<T>(this T entity, System.Single value)
             where T : MonsterDefinition
         {
             entity.ChallengeRating = value;
             return entity;
         }
 
-        public static T SetCharacterFamily<T>(this T entity, String value)
+        public static T SetCharacterFamily<T>(this T entity, System.String value)
             where T : MonsterDefinition
         {
             entity.SetField("characterFamily", value);
             return entity;
         }
 
-        public static T SetCreatureTags<T>(this T entity, params String[] value)
+        public static T SetCreatureTags<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             SetCreatureTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetCreatureTags<T>(this T entity, IEnumerable<String> value)
+        public static T SetCreatureTags<T>(this T entity, IEnumerable<System.String> value)
             where T : MonsterDefinition
         {
             entity.CreatureTags.SetRange(value);
             return entity;
         }
 
-        public static T SetDefaultBattleDecisionPackage<T>(this T entity, DecisionPackageDefinition value)
+        public static T SetDefaultBattleDecisionPackage<T>(this T entity, TA.AI.DecisionPackageDefinition value)
             where T : MonsterDefinition
         {
             entity.SetField("defaultBattleDecisionPackage", value);
             return entity;
         }
 
-        public static T SetDefaultFaction<T>(this T entity, String value)
+        public static T SetDefaultFaction<T>(this T entity, System.String value)
             where T : MonsterDefinition
         {
             entity.SetField("defaultFaction", value);
             return entity;
         }
 
-        public static T SetDifferentActionEachTurn<T>(this T entity, Boolean value)
+        public static T SetDifferentActionEachTurn<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("differentActionEachTurn", value);
@@ -418,7 +412,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDualSex<T>(this T entity, Boolean value)
+        public static T SetDualSex<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("dualSex", value);
@@ -446,91 +440,91 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFollowFloorAngle<T>(this T entity, Boolean value)
+        public static T SetFollowFloorAngle<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("followFloorAngle", value);
             return entity;
         }
 
-        public static T SetForbidFastTravel<T>(this T entity, Boolean value)
+        public static T SetForbidFastTravel<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("forbidFastTravel", value);
             return entity;
         }
 
-        public static T SetForceCombatStartsAnimation<T>(this T entity, Boolean value)
+        public static T SetForceCombatStartsAnimation<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("forceCombatStartsAnimation", value);
             return entity;
         }
 
-        public static T SetForceHasComplexActions<T>(this T entity, Boolean value)
+        public static T SetForceHasComplexActions<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("forceHasComplexActions", value);
             return entity;
         }
 
-        public static T SetForceNoFlyAnimation<T>(this T entity, Boolean value)
+        public static T SetForceNoFlyAnimation<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("forceNoFlyAnimation", value);
             return entity;
         }
 
-        public static T SetForcePersistentBody<T>(this T entity, Boolean value)
+        public static T SetForcePersistentBody<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("forcePersistentBody", value);
             return entity;
         }
 
-        public static T SetFullyControlledWhenAllied<T>(this T entity, Boolean value)
+        public static T SetFullyControlledWhenAllied<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("fullyControlledWhenAllied", value);
             return entity;
         }
 
-        public static T SetGroupAttacks<T>(this T entity, Boolean value)
+        public static T SetGroupAttacks<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("groupAttacks", value);
             return entity;
         }
 
-        public static T SetHasLookAt<T>(this T entity, Boolean value)
+        public static T SetHasLookAt<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("hasLookAt", value);
             return entity;
         }
 
-        public static T SetHeight<T>(this T entity, Int32 value)
+        public static T SetHeight<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("height", value);
             return entity;
         }
 
-        public static T SetHitDice<T>(this T entity, Int32 value)
+        public static T SetHitDice<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("hitDice", value);
             return entity;
         }
 
-        public static T SetHitDiceType<T>(this T entity, DieType value)
+        public static T SetHitDiceType<T>(this T entity, RuleDefinitions.DieType value)
             where T : MonsterDefinition
         {
             entity.SetField("hitDiceType", value);
             return entity;
         }
 
-        public static T SetHitPointsBonus<T>(this T entity, Int32 value)
+        public static T SetHitPointsBonus<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("hitPointsBonus", value);
@@ -544,35 +538,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetIsHusk<T>(this T entity, Boolean value)
+        public static T SetIsHusk<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("isHusk", value);
             return entity;
         }
 
-        public static T SetIsPet<T>(this T entity, Boolean value)
+        public static T SetIsPet<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("isPet", value);
             return entity;
         }
 
-        public static T SetIsUnique<T>(this T entity, Boolean value)
+        public static T SetIsUnique<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.IsUnique = value;
             return entity;
         }
 
-        public static T SetLanguages<T>(this T entity, params String[] value)
+        public static T SetLanguages<T>(this T entity, params System.String[] value)
             where T : MonsterDefinition
         {
             SetLanguages(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetLanguages<T>(this T entity, IEnumerable<String> value)
+        public static T SetLanguages<T>(this T entity, IEnumerable<System.String> value)
             where T : MonsterDefinition
         {
             entity.Languages.SetRange(value);
@@ -593,35 +587,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLegendaryCreature<T>(this T entity, Boolean value)
+        public static T SetLegendaryCreature<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("legendaryCreature", value);
             return entity;
         }
 
-        public static T SetMaximalAge<T>(this T entity, Int32 value)
+        public static T SetMaximalAge<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("maximalAge", value);
             return entity;
         }
 
-        public static T SetMaxLegendaryActionPoints<T>(this T entity, Int32 value)
+        public static T SetMaxLegendaryActionPoints<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("maxLegendaryActionPoints", value);
             return entity;
         }
 
-        public static T SetMaxLegendaryResistances<T>(this T entity, Int32 value)
+        public static T SetMaxLegendaryResistances<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("maxLegendaryResistances", value);
             return entity;
         }
 
-        public static T SetMinimalAge<T>(this T entity, Int32 value)
+        public static T SetMinimalAge<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("minimalAge", value);
@@ -635,14 +629,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetNoExperienceGain<T>(this T entity, Boolean value)
+        public static T SetNoExperienceGain<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("noExperienceGain", value);
             return entity;
         }
 
-        public static T SetOverrideSpawnDecision<T>(this T entity, DecisionPackageDefinition value)
+        public static T SetOverrideSpawnDecision<T>(this T entity, TA.AI.DecisionPackageDefinition value)
             where T : MonsterDefinition
         {
             entity.SetField("overrideSpawnDecision", value);
@@ -698,7 +692,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStandardHitPoints<T>(this T entity, Int32 value)
+        public static T SetStandardHitPoints<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.StandardHitPoints = value;
@@ -712,28 +706,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetThreatEvaluatorDefinition<T>(this T entity, ThreatEvaluatorDefinition value)
+        public static T SetThreatEvaluatorDefinition<T>(this T entity, TA.AI.ThreatEvaluatorDefinition value)
             where T : MonsterDefinition
         {
             entity.SetField("threatEvaluatorDefinition", value);
             return entity;
         }
 
-        public static T SetUniqueNameId<T>(this T entity, String value)
+        public static T SetUniqueNameId<T>(this T entity, System.String value)
             where T : MonsterDefinition
         {
             entity.SetField("uniqueNameId", value);
             return entity;
         }
 
-        public static T SetUserMonster<T>(this T entity, Boolean value)
+        public static T SetUserMonster<T>(this T entity, System.Boolean value)
             where T : MonsterDefinition
         {
             entity.SetField("<UserMonster>k__BackingField", value);
             return entity;
         }
 
-        public static T SetWeight<T>(this T entity, Int32 value)
+        public static T SetWeight<T>(this T entity, System.Int32 value)
             where T : MonsterDefinition
         {
             entity.SetField("weight", value);

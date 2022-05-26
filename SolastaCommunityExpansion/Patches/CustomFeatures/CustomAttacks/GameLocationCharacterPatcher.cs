@@ -137,16 +137,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
                 {
                     if (!attackMode.AfterChargeOnly &&
                         ((attackMode.ActionType == ActionDefinitions.ActionType.Main &&
-                          (actionId == ActionDefinitions.Id.AttackMain ||
-                           actionId == ActionDefinitions.Id.AttackReadied ||
-                           actionId == ActionDefinitions.Id.Volley ||
-                           actionId == ActionDefinitions.Id.WhirlwindAttack)) ||
+                         (actionId == ActionDefinitions.Id.AttackMain ||
+                          actionId == ActionDefinitions.Id.AttackReadied ||
+                          actionId == ActionDefinitions.Id.Volley ||
+                          actionId == ActionDefinitions.Id.WhirlwindAttack)) ||
                          (attackMode.ActionType == ActionDefinitions.ActionType.Bonus &&
-                          actionId == ActionDefinitions.Id.AttackOff) ||
+                         actionId == ActionDefinitions.Id.AttackOff) ||
                          (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-                          actionId == ActionDefinitions.Id.AttackOpportunity) ||
+                         actionId == ActionDefinitions.Id.AttackOpportunity) ||
                          (attackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
-                          actionId == ActionDefinitions.Id.ReactionShot)))
+                         actionId == ActionDefinitions.Id.ReactionShot)))
                     {
                         // The only difference is this condition
                         if (skipped == skip)

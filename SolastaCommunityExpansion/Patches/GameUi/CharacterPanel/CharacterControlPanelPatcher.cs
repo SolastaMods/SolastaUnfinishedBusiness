@@ -31,13 +31,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     ActionDefinitions.ActionType.Bonus => ActionDefinitions.Id.CastBonus,
                     ActionDefinitions.ActionType.Reaction => ActionDefinitions.Id.CastReaction,
                     ActionDefinitions.ActionType.NoCost => ActionDefinitions.Id.CastNoCost,
-                    _ => ActionDefinitions.Id.CastMain
+                    _ => ActionDefinitions.Id.CastMain,
                 };
                 __instance.SpellSelectionPanel.Hide(true);
             }
 
-            if (__instance.Visible && __instance.RitualSelectionPanel != null &&
-                __instance.RitualSelectionPanel.Visible)
+            if (__instance.Visible && __instance.RitualSelectionPanel != null && __instance.RitualSelectionPanel.Visible)
             {
                 foundActivePanel = true;
                 actionId = ActionDefinitions.Id.CastRitual;
@@ -54,7 +53,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     ActionDefinitions.ActionType.Bonus => ActionDefinitions.Id.PowerBonus,
                     ActionDefinitions.ActionType.Reaction => ActionDefinitions.Id.PowerReaction,
                     ActionDefinitions.ActionType.NoCost => ActionDefinitions.Id.PowerNoCost,
-                    _ => ActionDefinitions.Id.PowerMain
+                    _ => ActionDefinitions.Id.PowerMain,
                 };
                 __instance.PowerSelectionPanel.Hide(true);
             }

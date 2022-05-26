@@ -31,7 +31,6 @@ namespace ModKit.Utility
                 _propertieCache[typeof(T), name] = new WeakReference(cache);
                 EnqueueCache(cache);
             }
-
             return cache as CachedProperty<TProperty>;
         }
 
@@ -46,20 +45,14 @@ namespace ModKit.Utility
             if (cache == null)
             {
                 cache =
-                    IsStatic(type)
-                        ? new CachedPropertyOfStatic<TProperty>(type, name)
-                        :
-                        type.IsValueType
-                            ?
-                            Activator.CreateInstance(
-                                typeof(CachedPropertyOfStruct<,>).MakeGenericType(type, typeof(TProperty)), name)
-                            :
-                            Activator.CreateInstance(
-                                typeof(CachedPropertyOfClass<,>).MakeGenericType(type, typeof(TProperty)), name);
+                    IsStatic(type) ?
+                    new CachedPropertyOfStatic<TProperty>(type, name) :
+                    type.IsValueType ?
+                    Activator.CreateInstance(typeof(CachedPropertyOfStruct<,>).MakeGenericType(type, typeof(TProperty)), name) :
+                    Activator.CreateInstance(typeof(CachedPropertyOfClass<,>).MakeGenericType(type, typeof(TProperty)), name);
                 _propertieCache[type, name] = new WeakReference(cache);
                 EnqueueCache(cache);
             }
-
             return cache as CachedProperty<TProperty>;
         }
 
@@ -67,15 +60,9 @@ namespace ModKit.Utility
 
         //public static PropertyInfo GetPropertyInfo<TProperty>(this Type type, string name) => GetPropertyCache<TProperty>(type, name).Info;
 
-        public static TProperty GetPropertyValue<T, TProperty>(this ref T instance, string name) where T : struct
-        {
-            return (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Get(ref instance);
-        }
+        public static TProperty GetPropertyValue<T, TProperty>(this ref T instance, string name) where T : struct => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfStruct<T, TProperty>).Get(ref instance);
 
-        public static TProperty GetPropertyValue<T, TProperty>(this T instance, string name) where T : class
-        {
-            return (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Get(instance);
-        }
+        public static TProperty GetPropertyValue<T, TProperty>(this T instance, string name) where T : class => (GetPropertyCache<T, TProperty>(name) as CachedPropertyOfClass<T, TProperty>).Get(instance);
 
         //public static TProperty GetPropertyValue<T, TProperty>(string name) => GetPropertyCache<T, TProperty>(name).Get();
 
@@ -101,8 +88,7 @@ namespace ModKit.Utility
                 {
                     throw new InvalidOperationException();
                 }
-
-                if (Info.DeclaringType != type)
+                else if (Info.DeclaringType != type)
                 {
                     Info = Info.DeclaringType.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
                 }
@@ -119,19 +105,21 @@ namespace ModKit.Utility
                 if (getter.IsStatic)
                 {
                     DynamicMethod method = new(
-                        "get_" + Info.Name,
-                        Info.PropertyType,
-                        new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType},
-                        typeof(CachedProperty<TProperty>),
-                        true);
+                    name: "get_" + Info.Name,
+                    returnType: Info.PropertyType,
+                    parameterTypes: new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType },
+                    owner: typeof(CachedProperty<TProperty>),
+                    skipVisibility: true);
                     method.DefineParameter(1, ParameterAttributes.In, "instance");
                     var il = method.GetILGenerator();
                     il.Emit(OpCodes.Call, getter);
                     il.Emit(OpCodes.Ret);
                     return method.CreateDelegate(delType);
                 }
-
-                return Delegate.CreateDelegate(delType, getter);
+                else
+                {
+                    return Delegate.CreateDelegate(delType, getter);
+                }
             }
 
             protected Delegate CreateSetter(Type delType, MethodInfo setter, bool isInstByRef)
@@ -139,14 +127,11 @@ namespace ModKit.Utility
                 if (setter.IsStatic)
                 {
                     DynamicMethod method = new(
-                        "set_" + Info.Name,
-                        null,
-                        new[]
-                        {
-                            isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.PropertyType
-                        },
-                        typeof(CachedProperty<TProperty>),
-                        true);
+                    name: "set_" + Info.Name,
+                    returnType: null,
+                    parameterTypes: new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.PropertyType },
+                    owner: typeof(CachedProperty<TProperty>),
+                    skipVisibility: true);
                     method.DefineParameter(1, ParameterAttributes.In, "instance");
                     method.DefineParameter(2, ParameterAttributes.In, "value");
                     var il = method.GetILGenerator();
@@ -155,73 +140,58 @@ namespace ModKit.Utility
                     il.Emit(OpCodes.Ret);
                     return method.CreateDelegate(delType);
                 }
-
-                return Delegate.CreateDelegate(delType, setter);
+                else
+                {
+                    return Delegate.CreateDelegate(delType, setter);
+                }
             }
         }
 
         private class CachedPropertyOfStruct<T, TProperty> : CachedProperty<TProperty>
         {
-            private T _dummy;
+            private delegate TProperty Getter(ref T instance);
+            private delegate void Setter(ref T instance, TProperty value);
+
+            private T _dummy = default;
             private Getter _getter;
             private Setter _setter;
 
             public CachedPropertyOfStruct(string name) : base(typeof(T), name) { }
 
-            public override TProperty Get()
-            {
-                return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, true) as Getter)(ref _dummy);
-            }
+            public override TProperty Get() => (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, true) as Getter)(ref _dummy);
 
-            public TProperty Get(ref T instance)
-            {
-                return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, true) as Getter)(ref instance);
-            }
+            public TProperty Get(ref T instance) => (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, true) as Getter)(ref instance);
 
-            public override void Set(TProperty value)
-            {
-                (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref _dummy, value);
-            }
-
-            private delegate TProperty Getter(ref T instance);
-
-            private delegate void Setter(ref T instance, TProperty value);
+            public override void Set(TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref _dummy, value);
 
             //public void Set(ref T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, true) as Setter)(ref instance, value);
         }
 
         private class CachedPropertyOfClass<T, TProperty> : CachedProperty<TProperty>
         {
+            private delegate TProperty Getter(T instance);
+            private delegate void Setter(T instance, TProperty value);
+
             private readonly T _dummy = default;
             private Getter _getter;
             private Setter _setter;
 
             public CachedPropertyOfClass(string name) : base(typeof(T), name) { }
 
-            public override TProperty Get()
-            {
-                return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, false) as Getter)(_dummy);
-            }
+            public override TProperty Get() => (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, false) as Getter)(_dummy);
 
-            public TProperty Get(T instance)
-            {
-                return (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, false) as Getter)(instance);
-            }
+            public TProperty Get(T instance) => (_getter ??= CreateGetter(typeof(Getter), Info.GetMethod, false) as Getter)(instance);
 
-            public override void Set(TProperty value)
-            {
-                (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(_dummy, value);
-            }
-
-            private delegate TProperty Getter(T instance);
-
-            private delegate void Setter(T instance, TProperty value);
+            public override void Set(TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(_dummy, value);
 
             //public void Set(T instance, TProperty value) => (_setter ??= CreateSetter(typeof(Setter), Info.SetMethod, false) as Setter)(instance, value);
         }
 
         private class CachedPropertyOfStatic<TProperty> : CachedProperty<TProperty>
         {
+            private delegate TProperty Getter();
+            private delegate void Setter(TProperty value);
+
             private Getter _getter;
             private Setter _setter;
 
@@ -231,29 +201,13 @@ namespace ModKit.Utility
                 //    throw new InvalidOperationException();
             }
 
-            public override TProperty Get()
-            {
-                return (_getter ??= CreateGetter())();
-            }
+            public override TProperty Get() => (_getter ??= CreateGetter())();
 
-            public override void Set(TProperty value)
-            {
-                (_setter ??= CreateSetter())(value);
-            }
+            public override void Set(TProperty value) => (_setter ??= CreateSetter())(value);
 
-            private Getter CreateGetter()
-            {
-                return Delegate.CreateDelegate(typeof(Getter), Info.GetMethod) as Getter;
-            }
+            private Getter CreateGetter() => Delegate.CreateDelegate(typeof(Getter), Info.GetMethod) as Getter;
 
-            private Setter CreateSetter()
-            {
-                return Delegate.CreateDelegate(typeof(Setter), Info.SetMethod) as Setter;
-            }
-
-            private delegate TProperty Getter();
-
-            private delegate void Setter(TProperty value);
+            private Setter CreateSetter() => Delegate.CreateDelegate(typeof(Setter), Info.SetMethod) as Setter;
         }
     }
 }

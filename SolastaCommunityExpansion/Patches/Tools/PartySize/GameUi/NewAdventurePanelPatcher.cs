@@ -1,12 +1,9 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
 {
@@ -20,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
     {
         internal static void Prefix(RectTransform ___characterSessionPlatesTable)
         {
-            NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
+            Tools.DefaultParty.NewAdventurePanel_Refresh.ShouldAssignDefaultParty = true;
             Global.IsNewAdventurePanelInContext = true;
 
             // overrides campaign party size
@@ -37,8 +34,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
             // scales down the plates table if required
             if (Main.Settings.OverridePartySize > DungeonMakerContext.GAME_PARTY_SIZE)
             {
-                var scale = (float)Math.Pow(DungeonMakerContext.ADVENTURE_PANEL_DEFAULT_SCALE,
-                    Main.Settings.OverridePartySize - DungeonMakerContext.GAME_PARTY_SIZE);
+                var scale = (float)System.Math.Pow(DungeonMakerContext.ADVENTURE_PANEL_DEFAULT_SCALE, Main.Settings.OverridePartySize - DungeonMakerContext.GAME_PARTY_SIZE);
 
                 ___characterSessionPlatesTable.localScale = new Vector3(scale, scale, scale);
             }

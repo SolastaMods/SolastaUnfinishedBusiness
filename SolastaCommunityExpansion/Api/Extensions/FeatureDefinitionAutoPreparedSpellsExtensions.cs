@@ -1,29 +1,26 @@
-using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    ///     This helper extensions class was automatically generated.
-    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    /// This helper extensions class was automatically generated.
+    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAutoPreparedSpells))]
-    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static class FeatureDefinitionAutoPreparedSpellsExtensions
+    [TargetType(typeof(FeatureDefinitionAutoPreparedSpells)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static partial class FeatureDefinitionAutoPreparedSpellsExtensions
     {
-        public static T AddAutoPreparedSpellsGroups<T>(this T entity,
-            params FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] value)
+        public static T AddAutoPreparedSpellsGroups<T>(this T entity, params FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] value)
             where T : FeatureDefinitionAutoPreparedSpells
         {
             AddAutoPreparedSpellsGroups(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddAutoPreparedSpellsGroups<T>(this T entity,
-            IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> value)
+        public static T AddAutoPreparedSpellsGroups<T>(this T entity, IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> value)
             where T : FeatureDefinitionAutoPreparedSpells
         {
             entity.AutoPreparedSpellsGroups.AddRange(value);
@@ -44,23 +41,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAutoPreparedSpellsGroups<T>(this T entity,
-            params FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] value)
+        public static T SetAutoPreparedSpellsGroups<T>(this T entity, params FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup[] value)
             where T : FeatureDefinitionAutoPreparedSpells
         {
             SetAutoPreparedSpellsGroups(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetAutoPreparedSpellsGroups<T>(this T entity,
-            IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> value)
+        public static T SetAutoPreparedSpellsGroups<T>(this T entity, IEnumerable<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> value)
             where T : FeatureDefinitionAutoPreparedSpells
         {
             entity.AutoPreparedSpellsGroups.SetRange(value);
             return entity;
         }
 
-        public static T SetAutopreparedTag<T>(this T entity, String value)
+        public static T SetAutopreparedTag<T>(this T entity, System.String value)
             where T : FeatureDefinitionAutoPreparedSpells
         {
             entity.SetField("autopreparedTag", value);

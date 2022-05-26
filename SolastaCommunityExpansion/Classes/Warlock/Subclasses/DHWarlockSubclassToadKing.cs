@@ -20,6 +20,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     {
         public static CharacterSubclassDefinition Build()
         {
+
             var ToadKingExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "ToadKingExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation("ToadKingExpandedSpelllist", Category.Feature)
@@ -40,11 +41,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddToDB();
 
             var ToadKingConditionAffinityPoisonImmunity = FeatureDefinitionConditionAffinityBuilder
-                .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity",
-                    DefinitionBuilder.CENamespaceGuid)
-                .AddToDB();
-            ToadKingConditionAffinityPoisonImmunity.GuiPresentation.SetTitle(
-                "Feature/&ToadKingPoisonConditionAffinityTitle");
+                 .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity", DefinitionBuilder.CENamespaceGuid)
+                 .AddToDB();
+            ToadKingConditionAffinityPoisonImmunity.GuiPresentation.SetTitle("Feature/&ToadKingPoisonConditionAffinityTitle");
 
             var ToadKingMovementAffinityJump = FeatureDefinitionMovementAffinityBuilder
                 .Create(MovementAffinityJump, "ToadKingMovementAffinityJump", DefinitionBuilder.CENamespaceGuid)
@@ -52,15 +51,13 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             ToadKingMovementAffinityJump.GuiPresentation.SetTitle("Feature/&ToadKingJumpTitle");
 
             var ToadKingMovementAffinitySpiderClimb = FeatureDefinitionMovementAffinityBuilder
-                .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb",
-                    DefinitionBuilder.CENamespaceGuid)
-                .AddToDB();
+                 .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb", DefinitionBuilder.CENamespaceGuid)
+                 .AddToDB();
             ToadKingMovementAffinitySpiderClimb.GuiPresentation.SetTitle("Feature/&ToadKingStickyFeetTitle");
 
             var ToadKingDamageAffinityPoisonImmunity = FeatureDefinitionDamageAffinityBuilder
-                .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity",
-                    DefinitionBuilder.CENamespaceGuid)
-                .AddToDB();
+                 .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity", DefinitionBuilder.CENamespaceGuid)
+                 .AddToDB();
             ToadKingDamageAffinityPoisonImmunity.GuiPresentation.SetTitle("Feature/&ToadKingPoisonDamageAffinityTitle");
 
 
@@ -68,18 +65,18 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("ToadKingCroak", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
-                    1,
-                    UsesDetermination.ProficiencyBonus,
-                    AttributeDefinitions.Charisma,
-                    ActivationTime.Action,
-                    1,
-                    RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    new EffectDescriptionBuilder()
-                        .AddEffectForm(
-                            new EffectFormBuilder().SetDamageForm(
+                       1,
+                       UsesDetermination.ProficiencyBonus,
+                       AttributeDefinitions.Charisma,
+                       ActivationTime.Action,
+                       1,
+                       RechargeRate.AtWill,
+                       false,
+                       false,
+                       AttributeDefinitions.Charisma,
+                       new EffectDescriptionBuilder()
+                            .AddEffectForm(
+                                new EffectFormBuilder().SetDamageForm(
                                     false,
                                     DieType.D6,
                                     DamageTypeThunder,
@@ -89,23 +86,31 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                                     HealFromInflictedDamage.Never,
                                     new List<TrendInfo>())
                                 .Build())
-                        .SetTargetingData(
-                            Side.All,
-                            RangeType.Self,
-                            1,
-                            TargetType.CubeWithOffset,
-                            3,
-                            2)
-                        .SetEffectAdvancement(
-                            EffectIncrementMethod.CasterLevelTable,
-                            5,
-                            0,
-                            1
-                        )
-                        .SetParticleEffectParameters(Thunderwave.EffectDescription.EffectParticleParameters)
-                        .Build()
-                    ,
-                    true)
+                            .SetTargetingData(
+                                    Side.All,
+                                    RangeType.Self,
+                                    1,
+                                    TargetType.CubeWithOffset,
+                                    3,
+                                    2,
+                                    ActionDefinitions.ItemSelectionType.None)
+                            .SetEffectAdvancement(
+                                EffectIncrementMethod.CasterLevelTable,
+                                5,
+                                0,
+                                1,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                AdvancementDuration.None
+                                )
+                            .SetParticleEffectParameters(Thunderwave.EffectDescription.EffectParticleParameters)
+                            .Build()
+                       ,
+                       true)
                 .AddToDB();
             Croak.GuiPresentation.SetSpriteReference(PowerWindShelteringBreeze.GuiPresentation.SpriteReference);
 
@@ -113,51 +118,53 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("ToadKingHallucinogenicToxinPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
-                    1,
-                    UsesDetermination.ProficiencyBonus,
-                    AttributeDefinitions.Charisma,
-                    ActivationTime.Action,
-                    1,
-                    RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    new EffectDescriptionBuilder()
-                        .AddEffectForm(
-                            new EffectFormBuilder().SetConditionForm(
+                       1,
+                       UsesDetermination.ProficiencyBonus,
+                       AttributeDefinitions.Charisma,
+                       ActivationTime.Action,
+                       1,
+                       RechargeRate.AtWill,
+                       false,
+                       false,
+                       AttributeDefinitions.Charisma,
+                       new EffectDescriptionBuilder()
+                            .AddEffectForm(
+                                new EffectFormBuilder().SetConditionForm(
                                     ConditionCharmedByHypnoticPattern,
                                     ConditionForm.ConditionOperation.Add,
                                     false,
                                     false,
                                     new List<ConditionDefinition>()
-                                )
+                                    )
                                 .Build()
                                 .SetHasSavingThrow(true)
                                 .SetSavingThrowAffinity(EffectSavingThrowType.Negates)
-                        )
-                        .SetSavingThrowData(
-                            true,
-                            false,
-                            DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                            true,
-                            EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                            DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
-                            20,
-                            false,
-                            new List<SaveAffinityBySenseDescription>())
-                        .SetTargetingData(
-                            Side.Enemy,
-                            RangeType.Touch,
-                            1,
-                            TargetType.Individuals)
-                        .Build()
-                    ,
-                    true)
+                                )
+                            .SetSavingThrowData(
+                                true,
+                                false,
+                                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                                true,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                DatabaseHelper.SmartAttributeDefinitions.Constitution.name,
+                                20,
+                                false,
+                                new List<SaveAffinityBySenseDescription>())
+                            .SetTargetingData(
+                                    Side.Enemy,
+                                    RangeType.Touch,
+                                    1,
+                                    TargetType.Individuals,
+                                    1,
+                                    1,
+                                    ActionDefinitions.ItemSelectionType.None)
+                            .Build()
+                       ,
+                       true)
                 .AddToDB();
 
             var hallucinogenicToxinAffinity = FeatureDefinitionDamageAffinityBuilder
-                .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty",
-                    DefinitionBuilder.CENamespaceGuid)
+                .Create(DamageAffinityPoisonResistance, "ToadKingHallucinogenicToxinAffinty", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetDamageType(DamageTypePoison)
                 .SetDamageAffinityType(DamageAffinityType.Resistance)
@@ -169,48 +176,49 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("ToadKingGraspingTongue", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
-                    1,
-                    UsesDetermination.ProficiencyBonus,
-                    AttributeDefinitions.Charisma,
-                    ActivationTime.Action,
-                    1,
-                    RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    new EffectDescriptionBuilder()
-                        .AddEffectForm(
-                            new EffectFormBuilder().SetMotionForm(
+                       1,
+                       UsesDetermination.ProficiencyBonus,
+                       AttributeDefinitions.Charisma,
+                       ActivationTime.Action,
+                       1,
+                       RechargeRate.AtWill,
+                       false,
+                       false,
+                       AttributeDefinitions.Charisma,
+                       new EffectDescriptionBuilder()
+                            .AddEffectForm(
+                                new EffectFormBuilder().SetMotionForm(
                                     MotionForm.MotionType.DragToOrigin,
                                     5)
                                 .Build()
                                 .SetHasSavingThrow(true)
                                 .SetSavingThrowAffinity(EffectSavingThrowType.Negates)
-                        )
-                        .SetTargetingData(
-                            Side.All,
-                            RangeType.Distance,
-                            6,
-                            TargetType.Individuals)
-                        .SetSavingThrowData(
-                            true,
-                            false,
-                            DatabaseHelper.SmartAttributeDefinitions.Strength.name,
-                            true,
-                            EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                            DatabaseHelper.SmartAttributeDefinitions.Strength.name,
-                            20,
-                            false,
-                            new List<SaveAffinityBySenseDescription>())
-                        .SetParticleEffectParameters(PowerShadowTamerRopeGrapple.EffectDescription
-                            .EffectParticleParameters)
-                        .Build()
-                    ,
-                    true)
+                                )
+                            .SetTargetingData(
+                                    Side.All,
+                                    RangeType.Distance,
+                                    6,
+                                    TargetType.Individuals,
+                                    1,
+                                    1,
+                                    ActionDefinitions.ItemSelectionType.None)
+                            .SetSavingThrowData(
+                                true,
+                                false,
+                                DatabaseHelper.SmartAttributeDefinitions.Strength.name,
+                                true,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                DatabaseHelper.SmartAttributeDefinitions.Strength.name,
+                                20,
+                                false,
+                                new List<SaveAffinityBySenseDescription>())
+                            .SetParticleEffectParameters(PowerShadowTamerRopeGrapple.EffectDescription.EffectParticleParameters)
+                            .Build()
+                       ,
+                       true)
                 .AddToDB();
 
-            GraspingTongue.GuiPresentation.SetSpriteReference(PowerShadowTamerRopeGrapple.GuiPresentation
-                .SpriteReference);
+            GraspingTongue.GuiPresentation.SetSpriteReference(PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference);
 
             var SwallowingToadCondition = ConditionDefinitionBuilder
                 .Create(ConditionSwallowingRemorhaz, "SwallowingToadCondition", DefinitionBuilder.CENamespaceGuid)
@@ -223,19 +231,20 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create(ConditionSwallowedRemorhaz, "SwallowedByToadCondition", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .ClearRecurrentEffectForms()
+
                 .AddRecurrentEffectForm(
-                    new EffectFormBuilder()
-                        .SetDamageForm(
-                            false,
-                            DieType.D6,
-                            DamageTypeAcid,
-                            3,
-                            DieType.D6,
-                            1,
-                            HealFromInflictedDamage.Never,
-                            new List<TrendInfo>())
-                        .Build()
-                )
+                        new EffectFormBuilder()
+                            .SetDamageForm(
+                                false,
+                                DieType.D6,
+                                DamageTypeAcid,
+                                3,
+                                DieType.D6,
+                                1,
+                                HealFromInflictedDamage.Never,
+                                new List<RuleDefinitions.TrendInfo>())
+                            .Build()
+                            )
                 .AddToDB();
 
             var ApplyPoison = FeatureDefinitionPowerBuilder
@@ -247,70 +256,72 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("ToadKingSwallow", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
-                    1,
-                    UsesDetermination.ProficiencyBonus,
-                    AttributeDefinitions.Charisma,
-                    ActivationTime.Action,
-                    1,
-                    RechargeRate.AtWill,
-                    false,
-                    false,
-                    AttributeDefinitions.Charisma,
-                    new EffectDescriptionBuilder()
-                        .SetTargetingData(
-                            Side.All,
-                            RangeType.MeleeHit,
-                            1,
-                            TargetType.Individuals)
-                        .AddEffectForm(
-                            new EffectFormBuilder().SetConditionForm(
+                       1,
+                       UsesDetermination.ProficiencyBonus,
+                       AttributeDefinitions.Charisma,
+                       ActivationTime.Action,
+                       1,
+                       RechargeRate.AtWill,
+                       false,
+                       false,
+                       AttributeDefinitions.Charisma,
+                       new EffectDescriptionBuilder()
+                            .SetTargetingData(
+                                    Side.All,
+                                    RangeType.MeleeHit,
+                                    1,
+                                    TargetType.Individuals,
+                                    1,
+                                    1,
+                                    ActionDefinitions.ItemSelectionType.None)
+                            .AddEffectForm(
+                                new EffectFormBuilder().SetConditionForm(
                                     SwallowedByToadCondition,
                                     ConditionForm.ConditionOperation.Add,
                                     false,
                                     false,
                                     new List<ConditionDefinition>()
-                                )
+                                    )
                                 .Build()
                                 .SetHasSavingThrow(true)
                                 .SetSavingThrowAffinity(EffectSavingThrowType.Negates)
-                        )
-                        .AddEffectForm(
-                            new EffectFormBuilder().SetConditionForm(
+                                )
+                            .AddEffectForm(
+                                new EffectFormBuilder().SetConditionForm(
                                     SwallowingToadCondition,
                                     ConditionForm.ConditionOperation.Add,
                                     true,
                                     true,
                                     new List<ConditionDefinition>()
-                                )
+                                    )
                                 .Build()
                                 .SetHasSavingThrow(true)
                                 .SetSavingThrowAffinity(EffectSavingThrowType.Negates)
-                        )
-                        .SetSavingThrowData(
-                            true,
-                            false,
-                            DatabaseHelper.SmartAttributeDefinitions.Strength.name,
-                            true,
-                            EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                            DatabaseHelper.SmartAttributeDefinitions.Strength.name,
-                            20,
-                            false,
-                            new List<SaveAffinityBySenseDescription>())
-                        .SetParticleEffectParameters(PowerRemorhazSwallow.EffectDescription.EffectParticleParameters)
-                        .Build()
-                    ,
-                    true)
+                                )
+                            .SetSavingThrowData(
+                                true,
+                                false,
+                                DatabaseHelper.SmartAttributeDefinitions.Strength.name,
+                                true,
+                                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                                DatabaseHelper.SmartAttributeDefinitions.Strength.name,
+                                20,
+                                false,
+                                new List<SaveAffinityBySenseDescription>())
+                            .SetParticleEffectParameters(PowerRemorhazSwallow.EffectDescription.EffectParticleParameters)
+
+                            .Build()
+                       ,
+                       true)
                 .AddToDB();
             Swallow.EffectDescription.AddRestrictedCharacterSizes(CreatureSize.Tiny);
             Swallow.EffectDescription.AddRestrictedCharacterSizes(CreatureSize.Small);
             Swallow.EffectDescription.AddRestrictedCharacterSizes(CreatureSize.Medium);
-            Swallow.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite
-                .GuiPresentation.SpriteReference);
+            Swallow.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite.GuiPresentation.SpriteReference);
 
             return CharacterSubclassDefinitionBuilder
                 .Create("ToadKing", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("WarlockToadKing", Category.Subclass,
-                    SorcerousDraconicBloodline.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("WarlockToadKing", Category.Subclass, SorcerousDraconicBloodline.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(ToadKingExpandedSpelllistAfinity, 1)
                 .AddFeatureAtLevel(ProficiencyRoguishDarkweaver, 1)
                 .AddFeatureAtLevel(ApplyPoison, 1)
@@ -323,6 +334,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .AddFeatureAtLevel(GraspingTongue, 14)
                 .AddFeatureAtLevel(Swallow, 14)
                 .AddToDB();
+
         }
     }
 }

@@ -34,7 +34,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 codes.InsertRange(power_canceled_handler + 1,
                     new List<CodeInstruction>
                     {
-                        new(OpCodes.Ldarg_0), new(OpCodes.Ldarg_1), new(OpCodes.Call, removePowersMethod)
+                        new(OpCodes.Ldarg_0),
+                        new(OpCodes.Ldarg_1),
+                        new(OpCodes.Call, removePowersMethod)
                     }
                 );
                 return codes.AsEnumerable();
@@ -61,7 +63,6 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 {
                     return;
                 }
-
                 var powerBoxes = __instance.GetField<List<UsablePowerBox>>("usablePowerBoxes");
                 var powersTable = __instance.GetField<RectTransform>("powersTable");
                 if (powerBoxes.Count > 14)
@@ -70,43 +71,36 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     {
                         thirdRow = Object.Instantiate(powersTable);
                     }
-
                     var toStayCount = powersTable.childCount * 2 / 3;
                     MovePowersToRow(powersTable, thirdRow, toStayCount, 200);
                 }
-
                 if (powerBoxes.Count > 7)
                 {
                     if (secondRow == null)
                     {
                         secondRow = Object.Instantiate(powersTable);
                     }
-
                     var toStayCount = powersTable.childCount / 2;
                     MovePowersToRow(powersTable, secondRow, toStayCount, 80);
                 }
 
                 LayoutRebuilder.ForceRebuildLayoutImmediate(powersTable);
-                __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
-                    powersTable.rect.width);
+                __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, powersTable.rect.width);
             }
 
-            private static void MovePowersToRow(RectTransform powersTable, RectTransform newRow, int toStayCount,
-                int yOffset)
+            private static void MovePowersToRow(RectTransform powersTable, RectTransform newRow, int toStayCount, int yOffset)
             {
                 newRow.gameObject.SetActive(true);
                 newRow.DetachChildren();
                 newRow.SetParent(powersTable.parent.transform, true);
                 newRow.localScale = powersTable.localScale;
-                newRow.transform.position = new Vector3(powersTable.transform.position.x,
-                    powersTable.transform.position.y + yOffset, powersTable.transform.position.z);
+                newRow.transform.position = new Vector3(powersTable.transform.position.x, powersTable.transform.position.y + yOffset, powersTable.transform.position.z);
                 for (var i = powersTable.childCount - 1; i > toStayCount; i--)
                 {
                     var child = powersTable.GetChild(i);
                     child.SetParent(newRow, false);
                     child.localScale = powersTable.GetChild(0).localScale;
                 }
-
                 LayoutRebuilder.ForceRebuildLayoutImmediate(newRow);
             }
         }

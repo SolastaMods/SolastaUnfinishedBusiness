@@ -19,8 +19,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             RulesetCharacterHero hero,
             ref string prerequisiteOutput)
         {
-            if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites ||
-                featDefinitionWithPrerequisites.Validators.Count == 0)
+            if (feat is not FeatDefinitionWithPrerequisites featDefinitionWithPrerequisites || featDefinitionWithPrerequisites.Validators.Count == 0)
             {
                 return;
             }
@@ -34,19 +33,16 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var codes = instructions.ToList();
-            var callSpellRepertoiresIndex =
-                codes.FindIndex(c => c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")));
+            var callSpellRepertoiresIndex = codes.FindIndex(c => c.Calls(typeof(RulesetCharacter).GetMethod("get_SpellRepertoires")));
 
             if (callSpellRepertoiresIndex != -1)
             {
-                codes[callSpellRepertoiresIndex] = new CodeInstruction(OpCodes.Call,
-                    new Func<RulesetCharacterHero, int>(CanCastSpells).Method);
+                codes[callSpellRepertoiresIndex] = new CodeInstruction(OpCodes.Call, new Func<RulesetCharacterHero, int>(CanCastSpells).Method);
                 codes.RemoveAt(callSpellRepertoiresIndex + 1);
             }
             else
             {
-                Main.Log(
-                    "GuiFeatDefinition_IsFeatMatchingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
+                Main.Log("GuiFeatDefinition_IsFeatMatchingPrerequisites transpiler: Unable to find 'get_SpellRepertoires'");
             }
 
             // fix in DEBUG build to avoid the annoying assert statement about Feats acquired at level 1

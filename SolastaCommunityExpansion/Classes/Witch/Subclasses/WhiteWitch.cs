@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 BuildSpellGroup(5, BeaconOfHope, Revivify),
                 BuildSpellGroup(7, DeathWard, GuardianOfFaith),
                 BuildSpellGroup(9, MassCureWounds, RaiseDead)
-            );
+           );
         }
     }
 }

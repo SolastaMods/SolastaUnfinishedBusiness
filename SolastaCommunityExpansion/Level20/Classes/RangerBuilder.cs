@@ -6,7 +6,6 @@ using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilde
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
-
 //using static SolastaCommunityExpansion.Models.Features.FeatureSetRangerFoeSlayerBuilder;
 
 namespace SolastaCommunityExpansion.Level20.Classes
@@ -15,13 +14,12 @@ namespace SolastaCommunityExpansion.Level20.Classes
     {
         internal static void Load()
         {
-            Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(AdditionalDamageRangerFavoredEnemyChoice, 14),
-                new(RangerVanishAction, 14),
-                new(FeatureSetAbilityScoreChoice, 16),
-                new(RangerFeralSenses, 18),
-                new(FeatureSetAbilityScoreChoice, 19)
+            Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> {
+                new FeatureUnlockByLevel(AdditionalDamageRangerFavoredEnemyChoice, 14),
+                new FeatureUnlockByLevel(RangerVanishAction, 14),
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
+                new FeatureUnlockByLevel(RangerFeralSenses, 18),
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19),
                 //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
             });
 

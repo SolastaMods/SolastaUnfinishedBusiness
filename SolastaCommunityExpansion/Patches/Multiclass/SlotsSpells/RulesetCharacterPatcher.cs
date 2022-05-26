@@ -35,8 +35,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             }
         }
 
-        public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter,
-            RuleDefinitions.RestType restType)
+        public static void RestoreAllSpellSlots(RulesetSpellRepertoire __instance, RulesetCharacter rulesetCharacter, RuleDefinitions.RestType restType)
         {
             if (restType == RuleDefinitions.RestType.LongRest
                 || rulesetCharacter is not RulesetCharacterHero heroWithSpellRepertoire)
@@ -50,10 +49,9 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             var slotsToRestore = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
 
             foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                         .Where(x => x.SpellCastingRace == null))
+                .Where(x => x.SpellCastingRace == null))
             {
-                var usedSpellsSlots =
-                    spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
                 for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
@@ -78,10 +76,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var computeSpellSlotsMethod = typeof(RulesetSpellRepertoire).GetMethod("ComputeSpellSlots");
-            var myComputeSpellSlotsMethod =
-                typeof(RulesetCharacter_RefreshSpellRepertoires).GetMethod("ComputeSpellSlots");
-            var finishRepertoiresRefreshMethod =
-                typeof(RulesetCharacter_RefreshSpellRepertoires).GetMethod("FinishRepertoiresRefresh");
+            var myComputeSpellSlotsMethod = typeof(RulesetCharacter_RefreshSpellRepertoires).GetMethod("ComputeSpellSlots");
+            var finishRepertoiresRefreshMethod = typeof(RulesetCharacter_RefreshSpellRepertoires).GetMethod("FinishRepertoiresRefresh");
 
             foreach (var instruction in instructions)
             {
@@ -119,8 +115,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             // calculates additional slots from features
             affinityProviderAdditionalSlots.Clear();
 
-            foreach (var spellCastingAffinityProvider in rulesetCharacter.FeaturesToBrowse
-                         .OfType<ISpellCastingAffinityProvider>())
+            foreach (var spellCastingAffinityProvider in rulesetCharacter.FeaturesToBrowse.OfType<ISpellCastingAffinityProvider>())
             {
                 foreach (var additionalSlot in spellCastingAffinityProvider.AdditionalSlots)
                 {
@@ -135,11 +130,9 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             var isSharedCaster = SharedSpellsContext.IsSharedcaster(heroWithSpellRepertoire);
 
             foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                         .Where(x => x.SpellCastingRace == null &&
-                                     x.SpellCastingClass != IntegrationContext.WarlockClass))
+                .Where(x => x.SpellCastingRace == null && x.SpellCastingClass != IntegrationContext.WarlockClass))
             {
-                var spellsSlotCapacities =
-                    spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                var spellsSlotCapacities = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
 
                 // replaces standard caster slots with shared slots system
                 if (isSharedCaster)
@@ -168,19 +161,15 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
 
             // collects warlock and non warlock repertoires for consolidation
             var warlockRepertoire = SharedSpellsContext.GetWarlockSpellRepertoire(heroWithSpellRepertoire);
-            var anySharedRepertoire = heroWithSpellRepertoire.SpellRepertoires.Find(sr =>
-                !SharedSpellsContext.IsWarlock(sr.SpellCastingClass) &&
-                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class ||
-                 sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass));
+            var anySharedRepertoire = heroWithSpellRepertoire.SpellRepertoires.Find(sr => !SharedSpellsContext.IsWarlock(sr.SpellCastingClass) &&
+                (sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class || sr.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass));
 
             // combines the Shared Slot System and Warlock Pact Magic
             if (warlockRepertoire != null && anySharedRepertoire != null)
             {
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-                var warlockSlotsCapacities =
-                    warlockRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
-                var anySharedSlotsCapacities =
-                    anySharedRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                var warlockSlotsCapacities = warlockRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                var anySharedSlotsCapacities = anySharedRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
 
                 // first consolidates under Warlock repertoire
                 for (var i = 1; i <= Math.Max(warlockSlotsCapacities.Count, anySharedSlotsCapacities.Count); i++)
@@ -195,11 +184,9 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
 
                 // then copy over Warlock repertoire to all others
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                             .Where(x => x.SpellCastingRace == null &&
-                                         x.SpellCastingClass != IntegrationContext.WarlockClass))
+                    .Where(x => x.SpellCastingRace == null && x.SpellCastingClass != IntegrationContext.WarlockClass))
                 {
-                    var spellsSlotCapacities =
-                        spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                    var spellsSlotCapacities = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
 
                     spellsSlotCapacities.Clear();
 

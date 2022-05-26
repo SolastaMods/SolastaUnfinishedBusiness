@@ -12,9 +12,28 @@ namespace SolastaCommunityExpansion.Models
     public static class CustomReactionsContext
     {
         private static IDamagedReactionSpell _alwayseact;
+        public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
 
         public static bool ForcePreferredCantrip = false;
-        public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
+
+        public interface IDamagedReactionSpell
+        {
+            bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier,
+                RulesetAttackMode attackMode, bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
+                List<EffectForm> actualEffectForms, RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget);
+        }
+
+        private class AlwaysReactToDamagedImpl : IDamagedReactionSpell
+        {
+            public bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender,
+                ActionModifier attackModifier,
+                RulesetAttackMode attackMode, bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
+                List<EffectForm> actualEffectForms,
+                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
+            {
+                return true;
+            }
+        }
 
         public static IEnumerator TryReactingToDamageWithSpell(GameLocationCharacter attacker,
             GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,
@@ -99,25 +118,6 @@ namespace SolastaCommunityExpansion.Models
                    previousReactionCount < actionService.PendingReactionRequestGroups.Count)
             {
                 yield return null;
-            }
-        }
-
-        public interface IDamagedReactionSpell
-        {
-            bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier,
-                RulesetAttackMode attackMode, bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
-                List<EffectForm> actualEffectForms, RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget);
-        }
-
-        private class AlwaysReactToDamagedImpl : IDamagedReactionSpell
-        {
-            public bool CanReact(GameLocationCharacter attacker, GameLocationCharacter defender,
-                ActionModifier attackModifier,
-                RulesetAttackMode attackMode, bool rangedAttack, RuleDefinitions.AdvantageType advantageType,
-                List<EffectForm> actualEffectForms,
-                RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget)
-            {
-                return true;
             }
         }
     }

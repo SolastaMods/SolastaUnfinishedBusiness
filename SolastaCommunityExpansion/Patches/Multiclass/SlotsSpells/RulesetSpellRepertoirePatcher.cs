@@ -56,8 +56,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
 
             foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
             {
-                var usedSpellsSlots =
-                    spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
                 foreach (var recoveredSlot in recoveredSlots)
                 {

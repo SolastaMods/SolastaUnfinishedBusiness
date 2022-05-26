@@ -10,8 +10,14 @@ namespace ModKit.Utility
 
         public TValue this[TKey1 key1, TKey2 key2]
         {
-            get => _dictionary[key1][key2];
-            set => _dictionary[key1][key2] = value;
+            get
+            {
+                return _dictionary[key1][key2];
+            }
+            set
+            {
+                _dictionary[key1][key2] = value;
+            }
         }
 
         public void Add(TKey1 key1, TKey2 key2, TValue value)
@@ -20,14 +26,10 @@ namespace ModKit.Utility
             {
                 _dictionary.Add(key1, innerDictionary = new Dictionary<TKey2, TValue>());
             }
-
             innerDictionary.Add(key2, value);
         }
 
-        public void Clear()
-        {
-            _dictionary.Clear();
-        }
+        public void Clear() => _dictionary.Clear();
 
         public bool TryGetValue(TKey1 key1, TKey2 key2, out TValue value)
         {
@@ -35,7 +37,6 @@ namespace ModKit.Utility
             {
                 _dictionary.Add(key1, innerDictionary = new Dictionary<TKey2, TValue>());
             }
-
             return innerDictionary.TryGetValue(key2, out value);
         }
 
@@ -45,12 +46,10 @@ namespace ModKit.Utility
             {
                 _dictionary.Add(key1, innerDictionary = new Dictionary<TKey2, TValue>());
             }
-
             if (!innerDictionary.TryGetValue(key2, out var value))
             {
                 innerDictionary.Add(key2, value = getDefault());
             }
-
             return value;
         }
     }

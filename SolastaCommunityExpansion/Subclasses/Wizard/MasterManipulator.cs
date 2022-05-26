@@ -13,6 +13,22 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
         private static readonly Guid SubclassNamespace = new("af7255d2-8ce2-4398-8999-f1ef536001f6");
         private readonly CharacterSubclassDefinition Subclass;
 
+        #region DcIncreaseAffinity
+        private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
+        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity =>
+            _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, RuleDefinitions.SpellParamsModifierType.None, Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc, RuleDefinitions.SpellParamsModifierType.FlatValue, "MagicAffinityMasterManipulatorDC", GetSpellDCPresentation().Build());
+        #endregion
+
+        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
+        {
+            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+        }
+
+        internal override CharacterSubclassDefinition GetSubclass()
+        {
+            return Subclass;
+        }
+
         internal MasterManipulator()
         {
             // Make Control Master subclass
@@ -37,8 +53,7 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
             var proficiency = FeatureDefinitionProficiencyBuilder
                 .Create("ManipulatorMentalSavingThrows", SubclassNamespace)
                 .SetGuiPresentation(Category.Subclass)
-                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
-                    AttributeDefinitions.Constitution)
+                .SetProficiencies(RuleDefinitions.ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Constitution)
                 .AddToDB();
 
             var powerDominate = FeatureDefinitionPowerBuilder
@@ -55,63 +70,34 @@ namespace SolastaCommunityExpansion.Subclasses.Wizard
 
             Subclass = CharacterSubclassDefinitionBuilder
                 .Create("MasterManipulator", SubclassNamespace)
-                .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass,
-                    RoguishShadowCaster.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("TraditionMasterManipulator", Category.Subclass, RoguishShadowCaster.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(arcaneControlAffinity, 2)
                 .AddFeatureAtLevel(DcIncreaseAffinity, 6)
                 .AddFeatureAtLevel(proficiency, 10)
                 .AddFeatureAtLevel(powerDominate, 14).AddToDB();
         }
 
-        internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
-        {
-            return FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
-        }
-
-        internal override CharacterSubclassDefinition GetSubclass()
-        {
-            return Subclass;
-        }
-
         private static GuiPresentationBuilder GetSpellDCPresentation()
         {
-            return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDCTitle",
-                "Subclass/&MagicAffinityMasterManipulatorDC" +
-                Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
+            return new GuiPresentationBuilder("Subclass/&MagicAffinityMasterManipulatorDCTitle", "Subclass/&MagicAffinityMasterManipulatorDC" + Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
         }
 
         public static void UpdateSpellDCBoost()
         {
             if (DcIncreaseAffinity)
             {
-                DcIncreaseAffinity.SetSaveDCModifier(Main.Settings
-                    .OverrideWizardMasterManipulatorArcaneManipulationSpellDc);
+                DcIncreaseAffinity.SetSaveDCModifier(Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc);
                 DcIncreaseAffinity.SetGuiPresentation(GetSpellDCPresentation().Build());
             }
         }
 
-        private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier,
-            RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier,
-            RuleDefinitions.SpellParamsModifierType dcModifierType, string name, GuiPresentation guiPresentation)
+        private static FeatureDefinitionMagicAffinity BuildMagicAffinityModifiers(int attackModifier, RuleDefinitions.SpellParamsModifierType attackModifierType, int dcModifier, RuleDefinitions.SpellParamsModifierType dcModifierType, string name, GuiPresentation guiPresentation)
         {
             return FeatureDefinitionMagicAffinityBuilder
                 .Create(name, SubclassNamespace)
                 .SetGuiPresentation(guiPresentation)
-                .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, dcModifierType, false, false,
-                    false)
+                .SetCastingModifiers(attackModifier, attackModifierType, dcModifier, dcModifierType, false, false, false)
                 .AddToDB();
         }
-
-        #region DcIncreaseAffinity
-
-        private static FeatureDefinitionMagicAffinity _dcIncreaseAffinity;
-
-        private static FeatureDefinitionMagicAffinity DcIncreaseAffinity =>
-            _dcIncreaseAffinity ??= BuildMagicAffinityModifiers(0, RuleDefinitions.SpellParamsModifierType.None,
-                Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc,
-                RuleDefinitions.SpellParamsModifierType.FlatValue, "MagicAffinityMasterManipulatorDC",
-                GetSpellDCPresentation().Build());
-
-        #endregion
     }
 }

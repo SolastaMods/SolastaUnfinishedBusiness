@@ -7,13 +7,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class SpellDefinitionWithDependentEffects : SpellDefinition, ICustomMagicEffectBasedOnCaster
     {
-        public List<(List<FeatureDefinition>, EffectDescription)> FeaturesEffectList { get; } = new();
+        private readonly List<(List<FeatureDefinition>, EffectDescription)> _featuresEffectList = new();
+
+        public List<(List<FeatureDefinition>, EffectDescription)> FeaturesEffectList => _featuresEffectList;
 
         public EffectDescription GetCustomEffect(RulesetCharacter caster)
         {
             var casterFeatures = caster.GetFeaturesByType<FeatureDefinition>().ToHashSet();
 
-            foreach (var (featureDefinitions, customEffect) in FeaturesEffectList)
+            foreach (var (featureDefinitions, customEffect) in _featuresEffectList)
             {
                 if (featureDefinitions.All(f => casterFeatures.Contains(f)))
                 {
@@ -27,21 +29,21 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class SpellModifyingFeatureDefinition : FeatureDefinition, IModifySpellEffect
     {
-        public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect,
-            RulesetCharacter caster);
+        public delegate EffectDescription ModifySpellEffectDelegate(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster);
 
-        public ModifySpellEffectDelegate SpellModifier { get; set; }
+        private ModifySpellEffectDelegate _spellModifier;
+
+        public ModifySpellEffectDelegate SpellModifier { get => _spellModifier; set => _spellModifier = value; }
 
         public EffectDescription ModifyEffect(SpellDefinition spell, EffectDescription effect, RulesetCharacter caster)
         {
-            return SpellModifier != null ? SpellModifier(spell, effect, caster) : effect;
+            return _spellModifier != null ? _spellModifier(spell, effect, caster) : effect;
         }
     }
-
     internal class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
     {
-        private readonly int _level;
         private readonly EffectDescription _upgraded;
+        private readonly int _level;
 
         public UpgradeEffectFromLevel(EffectDescription upgraded, int level)
         {
@@ -57,4 +59,5 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return _upgraded;
         }
     }
+
 }

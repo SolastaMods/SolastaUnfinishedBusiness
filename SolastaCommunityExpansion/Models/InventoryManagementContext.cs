@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using static GuiDropdown;
 using static SolastaModApi.DatabaseHelper;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -18,7 +15,7 @@ namespace SolastaCommunityExpansion.Models
             "Category",
             "Cost",
             "Weight",
-            "Cost per Weight"
+            "Cost per Weight",
         };
 
         private static readonly List<RulesetItem> FilteredItems = new();
@@ -31,7 +28,7 @@ namespace SolastaCommunityExpansion.Models
 
         private static GuiDropdown SortGuiDropdown { get; set; }
 
-        internal static Action SelectionChanged { get; set; }
+        internal static System.Action SelectionChanged { get; set; }
 
         internal static void Load()
         {
@@ -40,8 +37,7 @@ namespace SolastaCommunityExpansion.Models
             var containerPanel = rightGroup.GetComponentInChildren<ContainerPanel>();
 
             var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
-            var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform
-                .FindChildRecursive("SortGroupAlphabetical");
+            var sortGroupPrefab = Gui.GuiService.GetScreen<MainMenuScreen>().transform.FindChildRecursive("SortGroupAlphabetical");
 
             var filter = Object.Instantiate(dropdownPrefab, rightGroup);
             var filterRect = filter.GetComponent<RectTransform>();
@@ -79,7 +75,7 @@ namespace SolastaCommunityExpansion.Models
             // changes the reorder button label and refactor the listener
 
             var reorder = rightGroup.transform.Find("ReorderPersonalContainerButton");
-            var reorderButton = reorder.GetComponent<Button>();
+            var reorderButton = reorder.GetComponent<UnityEngine.UI.Button>();
             var reorderTextMesh = reorder.GetComponentInChildren<TextMeshProUGUI>();
 
             reorder.localPosition = new Vector3(-32f, 358f, 0f);
@@ -101,8 +97,7 @@ namespace SolastaCommunityExpansion.Models
             // creates the categories in alphabetical sort order
 
             var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
-            var filteredCategoryDefinitions = merchantCategoryDefinitions
-                .Where(x => x != MerchantCategoryDefinitions.All).OrderBy(x => x.FormatTitle());
+            var filteredCategoryDefinitions = merchantCategoryDefinitions.Where(x => x != MerchantCategoryDefinitions.All).OrderBy(x => x.FormatTitle());
 
             ItemCategories.Add(MerchantCategoryDefinitions.All);
             ItemCategories.AddRange(filteredCategoryDefinitions);
@@ -119,7 +114,7 @@ namespace SolastaCommunityExpansion.Models
             FilterGuiDropdown.ClearOptions();
             FilterGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-            ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced {text = x.FormatTitle()}));
+            ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced { text = x.FormatTitle() }));
 
             FilterGuiDropdown.AddOptions(filterOptions);
             FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
@@ -152,7 +147,7 @@ namespace SolastaCommunityExpansion.Models
             SortGuiDropdown.ClearOptions();
             SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-            SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced {text = x}));
+            SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = x }));
 
             SortGuiDropdown.AddOptions(sortOptions);
             SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
@@ -207,10 +202,8 @@ namespace SolastaCommunityExpansion.Models
                     {
                         var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
-                        var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory)
-                            .GuiPresentation.Title);
-                        var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory)
-                            .GuiPresentation.Title);
+                        var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory).GuiPresentation.Title);
+                        var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory).GuiPresentation.Title);
 
                         if (amct == bmct)
                         {
@@ -257,10 +250,8 @@ namespace SolastaCommunityExpansion.Models
                 case 4: // Cost per Weight
                     items.Sort((a, b) =>
                     {
-                        var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) /
-                                   a.ComputeWeight();
-                        var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) /
-                                   b.ComputeWeight();
+                        var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) / a.ComputeWeight();
+                        var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) / b.ComputeWeight();
 
                         if (Mathf.Abs(acpw - bcpw) < .0E-5f)
                         {
@@ -294,7 +285,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (value == 0 || item.ItemDefinition.MerchantCategory == ItemCategories[value].Name)
                 {
-                    container.AddSubItem(item, true);
+                    container.AddSubItem(item, silent: true);
                 }
                 else
                 {
@@ -307,7 +298,7 @@ namespace SolastaCommunityExpansion.Models
         {
             if (container != null)
             {
-                FilteredItems.ForEach(item => container.AddSubItem(item, true));
+                FilteredItems.ForEach(item => container.AddSubItem(item, silent: true));
                 FilteredItems.Clear();
             }
         }

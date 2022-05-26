@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
         private static bool CustomCheck(List<FeatureDefinition> overridenPowers, FeatureDefinitionPower power)
         {
             return overridenPowers.Contains(power)
-                   || !ActionDefinitions.CastingTimeToActionDefinition.ContainsKey(power.ActivationTime);
+                    || !ActionDefinitions.CastingTimeToActionDefinition.ContainsKey(power.ActivationTime);
         }
     }
 }

@@ -17,4 +17,5 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
             __result = left.FormatTitle().CompareTo(right.FormatTitle());
         }
     }
+
 }

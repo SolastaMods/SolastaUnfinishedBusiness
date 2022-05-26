@@ -7,11 +7,28 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public abstract class
-        FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
+    public abstract class FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder> : FeatureDefinitionBuilder<TDefinition, TBuilder>
         where TDefinition : FeatureDefinitionFeatureSet
         where TBuilder : FeatureDefinitionFeatureSetBuilder<TDefinition, TBuilder>
     {
+        #region Constructors
+        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
         public TBuilder ClearFeatureSet()
         {
             Definition.ClearFeatureSet();
@@ -59,32 +76,9 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUniqueChoices(uniqueChoice);
             return (TBuilder)this;
         }
-
-        #region Constructors
-
-        protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetBuilder(TDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 
-    public class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSet,
-        FeatureDefinitionFeatureSetBuilder>
+    public class FeatureDefinitionFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSet, FeatureDefinitionFeatureSetBuilder>
     {
         #region Constructors
 
@@ -96,54 +90,42 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
         }
 
-        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionFeatureSetBuilder(FeatureDefinitionFeatureSet original, string name, string definitionGuid) : base(original, name, definitionGuid)
         {
         }
-
         #endregion
     }
 
-    public class FeatureDefinitionFeatureSetWithPreRequisitesBuilder : FeatureDefinitionFeatureSetBuilder<
-        FeatureDefinitionFeatureSetWithPreRequisites, FeatureDefinitionFeatureSetWithPreRequisitesBuilder>
+    public class FeatureDefinitionFeatureSetWithPreRequisitesBuilder : FeatureDefinitionFeatureSetBuilder<FeatureDefinitionFeatureSetWithPreRequisites, FeatureDefinitionFeatureSetWithPreRequisitesBuilder>
     {
-        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(
-            params IFeatureDefinitionWithPrerequisites.Validate[] validators)
+        #region Constructors
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(FeatureDefinitionFeatureSetWithPreRequisites original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(FeatureDefinitionFeatureSetWithPreRequisites original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+        #endregion
+
+        public FeatureDefinitionFeatureSetWithPreRequisitesBuilder SetValidators(params IFeatureDefinitionWithPrerequisites.Validate[] validators)
         {
             Definition.Validators.AddRange(validators);
 
             return this;
         }
-
-        #region Constructors
-
-        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, Guid namespaceGuid) : base(name,
-            namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(
-            FeatureDefinitionFeatureSetWithPreRequisites original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionFeatureSetWithPreRequisitesBuilder(
-            FeatureDefinitionFeatureSetWithPreRequisites original, string name, string definitionGuid) : base(original,
-            name, definitionGuid)
-        {
-        }
-
-        #endregion
     }
 }
