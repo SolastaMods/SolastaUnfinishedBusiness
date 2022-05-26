@@ -6,21 +6,6 @@ using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "OnBeginHide")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterInspectionScreen_OnBeginHide
-    {
-        internal static void Prefix()
-        {
-            if (Global.IsMultiplayer)
-            {
-                return;
-            }
-
-            InventoryManagementContext.ResetControls();
-        }
-    }
-
     // set the inspection context for MC heroes
     [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -33,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
         {
             Global.InspectedHero = heroCharacter;
 
-            // get more real state for the toggles on top
+            // get more real state for the toggles on top (required for MC)
             ___toggleGroup.transform.position =
                 new Vector3(___characterPlate.transform.position.x / 2f,
                     ___toggleGroup.transform.position.y, 0);
@@ -47,6 +32,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Prefix()
         {
+            InventoryManagementContext.ResetControls();
+
             Global.InspectedHero = null;
         }
     }
