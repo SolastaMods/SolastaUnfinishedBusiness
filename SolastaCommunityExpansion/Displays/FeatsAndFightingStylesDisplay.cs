@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayFeatFightingStyleToggle;
-            if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle(Gui.Format("ModUi/&General"), ref toggle, 200))
             {
                 Main.Settings.DisplayFeatFightingStyleToggle = toggle;
             }
@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayFeatsToggle;
             sliderPos = Main.Settings.FeatSliderPosition;
             DisplayDefinitions(
-                "Feats".yellow(),
+                Gui.Format("ModUi/&Feats"),
                 FeatsContext.Switch,
                 FeatsContext.Feats,
                 Main.Settings.FeatEnabled,
@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayFightingStylesToggle;
             sliderPos = Main.Settings.FightingStyleSliderPosition;
             DisplayDefinitions(
-                "Fighting Styles".yellow(),
+                Gui.Format("ModUi/&FightingStyles"),
                 FightingStyleContext.Switch,
                 FightingStyleContext.FightingStyles,
                 Main.Settings.FightingStyleEnabled,

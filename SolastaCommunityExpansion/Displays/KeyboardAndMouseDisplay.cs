@@ -47,11 +47,11 @@ namespace SolastaCommunityExpansion.Displays
             #region Hotkeys
 
             UI.Label("");
-            UI.Label("General:".yellow());
+            UI.Label(Gui.Format("ModUi/&General"));
             UI.Label("");
 
             toggle = SelectAll;
-            if (UI.Toggle("Select all", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref toggle, UI.AutoWidth()))
             {
                 SelectAll = toggle;
                 UpdateSettings(SelectAll);

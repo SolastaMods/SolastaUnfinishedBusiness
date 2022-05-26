@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Displays
             bool toggle;
 
             UI.Label("");
-            UI.Label("Initial choices:".yellow());
+            UI.Label(Gui.Format("ModUi/&InitialChoices"));
             UI.Label("");
 
             toggle = Main.Settings.AddHelpActionToAllRaces;
@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-            UI.Label("Multiclass:".yellow());
+            UI.Label(Gui.Format("ModUi/&Multiclass"));
             UI.Label("");
 
             toggle = Main.Settings.EnableMinInOutAttributes;
@@ -108,7 +108,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-            UI.Label("Progression:".yellow());
+            UI.Label(Gui.Format("ModUi/&Progression"));
             UI.Label("");
 
             toggle = Main.Settings.EnablesAsiAndFeat;
@@ -136,7 +136,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-            UI.Label("Visuals:".yellow());
+            UI.Label(Gui.Format("ModUi/&Visuals"));
             UI.Label("");
 
             toggle = Main.Settings.AllowUnmarkedSorcerers;

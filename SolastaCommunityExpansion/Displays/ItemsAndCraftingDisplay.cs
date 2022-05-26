@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("General:".yellow());
+            UI.Label(Gui.Format("ModUi/&General"));
             UI.Label("");
 
             toggle = Main.Settings.RemoveAttunementRequirements;
