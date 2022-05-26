@@ -1911,7 +1911,7 @@ Tooltip/&FeatPrerequisiteIsNotBarbarian	非野蛮人
 Tooltip/&FeatPrerequisiteIsNotFighter	非战士
 Tooltip/&FeatPrerequisiteIsNotRogue	非游荡者
 Tooltip/&FeatPrerequisiteLevelFormat	最低角色等级{0}
-Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未知{0}
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未学习{0}
 Tooltip/&Tag9000Title	自定义效果
 Tooltip/&TagCommunityExpansionTitle	社区拓展
 Tooltip/&TagMaledictionTitle	巫咒
