@@ -357,7 +357,7 @@ namespace SolastaCommunityExpansion.Properties {
         /// </summary>
         public static string Monsters_de {
             get {
-                return ResourceManager.GetString("Monsters-de", resourceCulture);
+                return ResourceManager.GetString("Monsters-en", resourceCulture);
             }
         }
    
@@ -514,7 +514,7 @@ namespace SolastaCommunityExpansion.Properties {
         /// </summary>
         public static string Translations_de {
             get {
-                return ResourceManager.GetString("Translations-de", resourceCulture);
+                return ResourceManager.GetString("Translations-en", resourceCulture);
             }
         }
         
