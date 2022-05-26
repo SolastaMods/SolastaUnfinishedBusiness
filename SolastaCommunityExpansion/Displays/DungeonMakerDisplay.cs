@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Displays
             #region DungeonMaker
 
             UI.Label("");
-            UI.Label("Basic:".yellow());
+            UI.Label(Gui.Format("ModUi/&Basic"));
             UI.Label("");
 
             UI.Label(". These settings won't require the player to have this mod installed");
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Displays
                 return;
             }
 
-            UI.Label("Advanced:".yellow());
+            UI.Label(Gui.Format("ModUi/&Advanced"));
 
             UI.Label("");
             UI.Label(". ATTENTION:".bold().red() + " This setting will require the player to have this mod installed");

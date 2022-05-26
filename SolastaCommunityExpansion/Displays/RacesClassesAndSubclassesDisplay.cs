@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayGeneralRaceClassSubClassToggle;
-            if (UI.DisclosureToggle("General:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle(Gui.Format("ModUi/&General"), ref toggle, 200))
             {
                 Main.Settings.DisplayGeneralRaceClassSubClassToggle = toggle;
             }
@@ -79,7 +79,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayRacesToggle;
             sliderPos = Main.Settings.RaceSliderPosition;
             DisplayDefinitions(
-                "Races".yellow(),
+                Gui.Format("ModUi/&Races"),
                 RacesContext.Switch,
                 RacesContext.Races,
                 Main.Settings.RaceEnabled,
@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplayClassesToggle;
             sliderPos = Main.Settings.ClassSliderPosition;
             DisplayDefinitions(
-                "Classes".yellow(),
+                Gui.Format("ModUi/&Classes"),
                 ClassesContext.Switch,
                 ClassesContext.Classes,
                 Main.Settings.ClassEnabled,
@@ -103,7 +103,7 @@ namespace SolastaCommunityExpansion.Displays
             displayToggle = Main.Settings.DisplaySubclassesToggle;
             sliderPos = Main.Settings.SubclassSliderPosition;
             DisplayDefinitions(
-                "Subclasses".yellow(),
+                Gui.Format("ModUi/&Subclasses"),
                 SubclassesContext.Switch,
                 SubclassesContext.Subclasses,
                 Main.Settings.SubclassEnabled,

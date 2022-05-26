@@ -70,7 +70,7 @@ namespace SolastaCommunityExpansion.Displays
             if (IsUnityExplorerInstalled)
             {
                 UI.Label("");
-                UI.ActionButton("Enable the Unity Explorer UI", () =>
+                UI.ActionButton(Gui.Format("ModUi/&EnableUnityExplorer"), () =>
                 {
                     if (!IsUnityExplorerEnabled)
                     {
@@ -90,16 +90,13 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             var toggle = Main.Settings.EnableBetaContent;
-            if (UI.Toggle(
-                    "Enable beta content " +
-                    "[keep in mind your heroes or saves might break on future updates] ".yellow().italic() +
-                    RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUI/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableBetaContent = toggle;
             }
 
             UI.Label("");
-            UI.DisclosureToggle("Patches:".yellow(), ref displayPatches, 200);
+            UI.DisclosureToggle(Gui.Format("ModUi/&Patches"), ref displayPatches, 200);
 
             UI.Label("");
 

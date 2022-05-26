@@ -60,7 +60,7 @@ namespace SolastaCommunityExpansion.Displays
                     {
                         additionalRendering.Invoke();
                     }
-                    else if (UI.Toggle("Select all", ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
+                    else if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
                     {
                         foreach (var registeredDefinition in registeredDefinitions)
                         {
@@ -69,7 +69,7 @@ namespace SolastaCommunityExpansion.Displays
                     }
 
                     toggle = sliderPosition == 1;
-                    if (UI.Toggle("Show Descriptions", ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                    if (UI.Toggle(Gui.Format("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                     {
                         sliderPosition = toggle ? 1 : 4;
                     }

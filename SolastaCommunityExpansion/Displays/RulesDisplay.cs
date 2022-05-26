@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Displays
             bool toggle;
 
             UI.Label("");
-            UI.Label("SRD:".yellow());
+            UI.Label(Gui.Format("ModUi/&SRD"));
             UI.Label("");
 
             toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             UI.Label("");
-            UI.Label("House:".yellow());
+            UI.Label(Gui.Format("ModUi/&House"));
             UI.Label("");
 
             toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
