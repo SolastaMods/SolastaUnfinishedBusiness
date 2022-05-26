@@ -111,16 +111,25 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 {
                     // use the correct spell repertoire for calculating spell bonus
 
-                    //int num = 0;
-                    var num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                        .GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
+                    int num = 0;
 
-                    //foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
-                    //{
-                    //    num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
-                    //    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
-                    //        break;
-                    //}
+                    //
+                    // it looks like this global isn't correctly set under MP. reverting back to default logic
+                    //
+                    if (Global.CastedSpellRepertoire != null)
+                    {
+                        num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                            .GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
+                    }
+                    else
+                    {
+                        foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                        {
+                            num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                                break;
+                        }
+                    }
 
                     damageForm.BonusDamage += num;
                 }
