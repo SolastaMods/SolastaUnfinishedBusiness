@@ -401,9 +401,9 @@ namespace SolastaCommunityExpansion.Properties {
         ///Monster/&amp;DH_Custom_AncientBlackDragon_Title	&lt;color=#ff0000ff&gt;远古黑龙&lt;/color&gt;
         ///Monster/&amp;DH_Custom_AncientBlueDragon_Description	自负且极具领土意识的蓝龙翱翔于沙漠的天空之上，时常捕食商队并在沙漠边际的旷野狩猎畜群和定居者。这种龙也会出现在干燥的草原，灼热的荒漠以及多岩的海岸，他们会守卫自己的领地而对抗所有潜在的对手，特别是 [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Monsters_zh_cn {
+        public static string Monsters_zh_CN {
             get {
-                return ResourceManager.GetString("Monsters-zh-cn", resourceCulture);
+                return ResourceManager.GetString("Monsters-zh-CN", resourceCulture);
             }
         }
         
@@ -564,9 +564,9 @@ namespace SolastaCommunityExpansion.Properties {
         ///BlueprintCategory/&amp;FlatRoomsTitle	平房
         ///Caption/&amp;Gadg [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Translations_zh_cn {
+        public static string Translations_zh_CN {
             get {
-                return ResourceManager.GetString("Translations-zh-cn", resourceCulture);
+                return ResourceManager.GetString("Translations-zh-CN", resourceCulture);
             }
         }
         

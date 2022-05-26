@@ -309,6 +309,11 @@
       PublicKeyToken=b03f5f7f11d50a3a
     </value>
   </data>
+  <data name="Monsters-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8
+    </value>
+  </data>
   <data name="Monsters-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8
@@ -329,8 +334,13 @@
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
-  <data name="Monsters-zh-cn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-zh-cn.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Monsters-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8
+    </value>
+  </data>
+  <data name="Translations-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
@@ -354,8 +364,8 @@
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
-  <data name="Translations-zh-cn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-zh-cn.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Translations-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
