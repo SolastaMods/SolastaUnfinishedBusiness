@@ -88,7 +88,7 @@ Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest.
 Condition/&ConditionBarkWardTitle	Bark Ward
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
-Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!.
+Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
 Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 2d8 piercing damage to melee attackers.
 Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
@@ -209,7 +209,7 @@ Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	This enchanted weapon was 
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Heavy Crossbow
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Heavy Crossbow of Sharpshooting
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!.
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Heavy Stormcrossbow
 Equipment/&Enchanted_HideArmor_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Equipment/&Enchanted_HideArmor_Deflection_Title	Hide Armor of Deflection
@@ -251,7 +251,7 @@ Equipment/&Enchanted_LightCrossbow_Medusa_Description	This enchanted weapon was 
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Light Crossbow
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Light Crossbow of Sharpshooting
-Equipment/&Enchanted_LightCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!.
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
 Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Light Stormcrossbow
 Equipment/&Enchanted_Maul_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Maul_Acuteness_Title	Maul of Acuteness
@@ -273,7 +273,7 @@ Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	This enchanted weapon
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Lightbringer Quarterstaff
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Souldrinker Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!.
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Stormblade Quarterstaff
 Equipment/&Enchanted_Quarterstaff_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
@@ -289,7 +289,7 @@ Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged u
 Equipment/&Enchanted_Rapier_Power_Title	Rapier of Power
 Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 Equipment/&Enchanted_Rapier_Souldrinker_Title	Souldrinker Rapier
-Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!.
+Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
 Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade Rapier
 Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
 Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
@@ -303,7 +303,7 @@ Equipment/&Enchanted_Scimitar_Lightbringer_Description	This enchanted weapon was
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	Lightbringer Scimitar
 Equipment/&Enchanted_Scimitar_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	Souldrinker Scimitar
-Equipment/&Enchanted_Scimitar_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!.
+Equipment/&Enchanted_Scimitar_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
 Equipment/&Enchanted_Scimitar_Stormblade_Title	Stormblade Scimitar
 Equipment/&Enchanted_Scimitar_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
 Equipment/&Enchanted_Scimitar_Warden_Title	Warden Scimitar
@@ -779,7 +779,7 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets 
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
-Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!.
+Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
 Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round.
@@ -1057,7 +1057,7 @@ Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to al
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
 Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
-Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!.
+Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
 Feature/&PowerTorchbearerTitle	Torchbearer
 Feature/&PrimalChampionDescription	At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
 Feature/&PrimalChampionTitle	Primal Champion
@@ -1261,12 +1261,12 @@ Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA her
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
 Message/&CharacterExportModalContentDescription	Enter the hero name to export:.
 Message/&CharacterExportModalTitleDescription	Character Export.
-Message/&LevelDownConfirmationDescription	Level down this Hero?.
+Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session.
 Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
 Message/&MessageModWelcomeTitle	Community Expansion Mod
 Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map.
-Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?.
+Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
 Message/&SpawnCustomEncounterTitle	Encounter
 Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place.
@@ -1399,7 +1399,7 @@ Race/&PointPoolSelect8FeatsDescription	Select 8 additional feats for your charac
 Race/&PointPoolSelect8FeatsTitle	8 Bonus Feats
 Race/&PointPoolSelect9FeatsDescription	Select 9 additional feats for your character.
 Race/&PointPoolSelect9FeatsTitle	9 Bonus Feats
-Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!.
+Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {2} in responce!
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
