@@ -3,16 +3,16 @@ using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon);
+    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character);
 
     public static class WeaponValidators
     {
         public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
 
-        public static readonly IsWeaponValidHandler IsLight = (mode, weapon) =>
+        public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
             HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
 
-        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
         {
             var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
             if (item != null)
@@ -26,12 +26,12 @@ namespace SolastaCommunityExpansion.Models
 
         public static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
         {
-            return IsUnarmedWeapon(attackMode, null);
+            return IsUnarmedWeapon(attackMode, null, null);
         }
 
         public static bool IsUnarmedWeapon(RulesetItem weapon)
         {
-            return IsUnarmedWeapon(null, weapon);
+            return IsUnarmedWeapon(null, weapon, null);
         }
 
         private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)

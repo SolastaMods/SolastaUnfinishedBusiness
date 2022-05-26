@@ -917,7 +917,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
         {
             return IsMonkWeapon(attackMode) || IsMonkWeapon(weapon);
         }
