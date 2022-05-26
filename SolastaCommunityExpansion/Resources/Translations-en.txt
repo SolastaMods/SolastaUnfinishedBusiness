@@ -1723,7 +1723,7 @@ Subclass/&ClassWarlockPatronDescription	A warlock is defined by a pact with an o
 Subclass/&ClassWarlockPatronTitle	Otherwordly Patron
 Subclass/&ConditionResistantArmorTitle	Resistant Armor
 Subclass/&ConditionResistnatArmorDescription	Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +{0} to your AC until your next turn
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arcane Deflection
 Subclass/&ConditionTransmuteConstitutionSaveDescription	Temporary Constitution save proficiency granted by the Transmute Force power
 Subclass/&ConditionTransmuteConstitutionSaveTitle	Constitution Saves

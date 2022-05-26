@@ -1723,7 +1723,7 @@ Subclass/&ClassWarlockPatronDescription	Um bruxo é definido por um pacto com um
 Subclass/&ClassWarlockPatronTitle	Patrono de outro mundo
 Subclass/&ConditionResistantArmorTitle	Armadura Resistente
 Subclass/&ConditionResistnatArmorDescription	Sua armadura é resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovão
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +{0} na sua CA até o seu próximo turno
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Você pode usar seus poderes arcanos para se proteger como uma reação. Isso lhe dá +3 na sua CA até o seu próximo turno
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Deflexão Arcana
 Subclass/&ConditionTransmuteConstitutionSaveDescription	Constituição Temporária salva proficiência concedida pelo poder Força de Transmutação
 Subclass/&ConditionTransmuteConstitutionSaveTitle	Salvamentos de Constituição

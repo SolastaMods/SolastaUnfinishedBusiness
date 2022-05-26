@@ -1723,7 +1723,7 @@ Subclass/&ClassWarlockPatronDescription	Un sorcier est défini par un pacte avec
 Subclass/&ClassWarlockPatronTitle	Patron d'un autre mot
 Subclass/&ConditionResistantArmorTitle	Armure résistante
 Subclass/&ConditionResistnatArmorDescription	Votre armure est résistante aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre
-Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction. Cela vous donne +{0} à votre CA jusqu'à votre prochain tour
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction. Cela vous donne +3 à votre CA jusqu'à votre prochain tour
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Déviation arcanique
 Subclass/&ConditionTransmuteConstitutionSaveDescription	Constitution temporaire sauf compétence accordée par le pouvoir Force de transmutation
 Subclass/&ConditionTransmuteConstitutionSaveTitle	La Constitution sauve
