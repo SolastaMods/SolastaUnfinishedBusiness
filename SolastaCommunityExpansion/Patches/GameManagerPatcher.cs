@@ -23,6 +23,7 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
+            Translations.LoadTranslations("Modui");
             Translations.LoadTranslations("Translations");
 
             ResourceLocatorContext.Load();
