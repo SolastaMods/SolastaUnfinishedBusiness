@@ -919,20 +919,20 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
         private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
         {
-            return IsMonkWeapon(attackMode) || IsMonkWeapon(weapon);
+            return IsMonkWeapon(character, attackMode) || IsMonkWeapon(character, weapon);
         }
 
-        public static bool IsMonkWeapon(RulesetAttackMode attackMode)
+        public static bool IsMonkWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (attackMode is not {SourceDefinition: ItemDefinition item})
             {
                 return false;
             }
 
-            return MonkWeapons.Contains(item.WeaponDescription?.WeaponTypeDefinition);
+            return IsMonkWeapon(character, item);
         }
-
-        public static bool IsMonkWeapon(RulesetItem weapon)
+        
+        public static bool IsMonkWeapon(RulesetCharacter character, RulesetItem weapon)
         {
             //fists
             if (weapon == null)
@@ -940,7 +940,24 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 return true;
             }
 
-            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition);
+            return IsMonkWeapon(character, weapon.ItemDefinition);
+        }
+        
+        public static bool IsMonkWeapon(RulesetCharacter character, ItemDefinition weapon)
+        {
+            if (weapon == null)
+            {
+                return false;
+            }
+            var typeDefinition = weapon.WeaponDescription?.WeaponTypeDefinition;
+
+            if (typeDefinition == null)
+            {
+                return false;
+            }
+
+            return MonkWeapons.Contains(typeDefinition)
+                || ZenArcher.IsMonkWeapon(character, weapon);
         }
 
         private static bool UsingOnlyMonkWeapons(RulesetCharacter character)
@@ -949,7 +966,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             var mainHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
             var offHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-            return IsMonkWeapon(mainHand) && IsMonkWeapon(offHand);
+            return IsMonkWeapon(character, mainHand) && IsMonkWeapon(character, offHand);
         }
 
         private static (DieType, int) GetMartialDice(RulesetCharacter character, RulesetItem weapon)
@@ -1142,7 +1159,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     return;
                 }
 
-                if (!IsMonkWeapon(attackerAttackMode))
+                if (!IsMonkWeapon(character, attackerAttackMode))
                 {
                     return;
                 }

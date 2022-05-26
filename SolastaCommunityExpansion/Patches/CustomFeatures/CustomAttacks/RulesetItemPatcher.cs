@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
             object context,
             bool active = false)
         {
-            if (Monk.IsMonkWeapon(__instance))
+            if (Monk.IsMonkWeapon(null, __instance))
             {
                 tagsMap.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
             }
