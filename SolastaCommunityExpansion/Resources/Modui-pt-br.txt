@@ -1,0 +1,22 @@
+﻿ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
+ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&EnableAlternateHuman	Enable the alternate human <i><color=yellow>[+1 feat / +2 attribute choices / +1 skill]</color></i>
+ModUi/&EnableFlexibleBackgrounds	Enable flexible backgrounds <i><color=yellow>[select skill and tool proficiencies from backgrounds]</color></i>
+ModUi/&EnableFlexibleRaces	Enable flexible races <i><color=yellow>[assign ability score points instead of the racial defaults]</color></i>
+ModUi/&EnableEpicPointsAndArray	Enable an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
+ModUi/&EnableMinInOutAttributes	Enforce ability scores minimum in & out pre-requisites
+ModUi/&EnableRelearnSpells	Can select cantrips or spells already learned from other classes
+ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
+ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&EnablesAsiAndFeat	Enable both attribute scores increase and feat selection <i><color=yellow>[instead of an exclusive choice]</color></i>
+ModUi/&EnableFeatsAtEvenLevels	Enable feats selection at class levels 2, 6, 10 and 14
+ModUi/&MaxAllowedLevels	<color=white>Max allowed levels</color> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
+ModUi/&OfferAdditionalLoreFriendlyNames	Offer additional lore friendly names on character creation
+ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
+ModUi/&UnlockEyeStyles	Unlock eye styles
+ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
+ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos

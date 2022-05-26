@@ -501,6 +501,22 @@ namespace SolastaCommunityExpansion.Properties {
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1
         ///Attribu [rest of string was truncated]&quot;;.
         /// </summary>
+        public static string Translations_de {
+            get {
+                return ResourceManager.GetString("Translations-de", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1
+        ///Attribu [rest of string was truncated]&quot;;.
+        /// </summary>
         public static string Translations_en {
             get {
                 return ResourceManager.GetString("Translations-en", resourceCulture);
@@ -570,6 +586,42 @@ namespace SolastaCommunityExpansion.Properties {
             }
         }
         
+        public static string Modui_de {
+            get {
+                return ResourceManager.GetString("Modui-de", resourceCulture);
+            }
+        }
+
+        public static string Modui_en {
+            get {
+                return ResourceManager.GetString("Modui-en", resourceCulture);
+            }
+        }
+
+        public static string Modui_fr {
+            get {
+                return ResourceManager.GetString("Modui-fr", resourceCulture);
+            }
+        }
+
+        public static string Modui_pt_br {
+            get {
+                return ResourceManager.GetString("Modui-pt-br", resourceCulture);
+            }
+        }
+        
+        public static string Modui_ru {
+            get {
+                return ResourceManager.GetString("Modui-ru", resourceCulture);
+            }
+        }
+        
+        public static string Modui_zh_CN {
+            get {
+                return ResourceManager.GetString("Modui-zh-CN", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
