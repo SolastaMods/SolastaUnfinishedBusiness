@@ -88,7 +88,7 @@ Condition/&ConditionBarkWardDescription	Protegido pelos espíritos da floresta.
 Condition/&ConditionBarkWardTitle	Ala de Latidos
 Condition/&ConditionDualFlurryApplyDescription	Você está ganhando impulso...
 Condition/&ConditionDualFlurryApplyTitle	Turbilhão duplo!
-Condition/&ConditionDualFlurryGrantDescription	Seus inimigos estão cambaleando!.
+Condition/&ConditionDualFlurryGrantDescription	Seus inimigos estão cambaleando!
 Condition/&ConditionDualFlurryGrantTitle	Turbilhão duplo!
 Condition/&ConditionImprovedBarkWardDescription	Os espíritos da floresta causam 2d8 de dano perfurante aos atacantes corpo a corpo.
 Condition/&ConditionImprovedBarkWardTitle	Sentido de Latido Aprimorado
@@ -209,7 +209,7 @@ Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Esta arma encantada foi fo
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Besta Pesada Medusa
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. O Coedymwarth preferiu lidar com os arcanistas de Manacalon fisicamente ao invés de magicamente. Seus melhores arqueiros receberam bestas, a criação de Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Besta Pesada de Atirador
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!.
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Besta de Tempestade Pesada
 Equipment/&Enchanted_HideArmor_Deflection_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
 Equipment/&Enchanted_HideArmor_Deflection_Title	Esconder Armadura de Deflexão
@@ -251,7 +251,7 @@ Equipment/&Enchanted_LightCrossbow_Medusa_Description	Esta arma encantada foi fo
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Besta Leve Medusa
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. O Coedymwarth preferiu lidar com os arcanistas de Manacalon fisicamente ao invés de magicamente. Seus melhores arqueiros receberam bestas, a criação de Defineth Sharpsight.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Besta Leve de Atirador
-Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!.
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres arqueiros de Colthannin. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!
 Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Besta de Tempestade Leve
 Equipment/&Enchanted_Maul_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Maul_Acuteness_Title	Malho da Agudeza
@@ -273,7 +273,7 @@ Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Esta arma encantada f
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Cajado do Portador da Luz
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Um favorito dos agentes Silent Whisper, esta arma foi projetada por Cylordir Redblade.
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Cajado do Bebedor de Almas
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!.
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Cajado da Lâmina da Tempestade
 Equipment/&Enchanted_Quarterstaff_Warden_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Ildurial Strongarm, um famoso cuteleiro de Manacalon. A primeira dessas lâminas, a Manacalon Warden, foi oferecida ao comandante da Euraidd.
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Cajado do Diretor
@@ -289,7 +289,7 @@ Equipment/&Enchanted_Rapier_Power_Description	Esta arma encantada foi forjada us
 Equipment/&Enchanted_Rapier_Power_Title	Rapieira do Poder
 Equipment/&Enchanted_Rapier_Souldrinker_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Um favorito dos agentes Silent Whisper, esta arma foi projetada por Cylordir Redblade.
 Equipment/&Enchanted_Rapier_Souldrinker_Title	Rapieira Bebedora de Almas
-Equipment/&Enchanted_Rapier_Stormblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!.
+Equipment/&Enchanted_Rapier_Stormblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!
 Equipment/&Enchanted_Rapier_Stormblade_Title	Rapieira da Lâmina da Tempestade
 Equipment/&Enchanted_Rapier_Warden_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Ildurial Strongarm, um famoso cuteleiro de Manacalon. A primeira dessas lâminas, a Manacalon Warden, foi oferecida ao comandante da Euraidd.
 Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
@@ -303,7 +303,7 @@ Equipment/&Enchanted_Scimitar_Lightbringer_Description	Esta arma encantada foi f
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	Cimitarra Portadora da Luz
 Equipment/&Enchanted_Scimitar_Souldrinker_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Um favorito dos agentes Silent Whisper, esta arma foi projetada por Cylordir Redblade.
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	Cimitarra Bebedora de Almas
-Equipment/&Enchanted_Scimitar_Stormblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!.
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Galar Stromforge, o primeiro ferreiro anão a aproveitar o poder da tempestade em uma arma � para um efeito devastador!
 Equipment/&Enchanted_Scimitar_Stormblade_Title	Cimitarra da Lâmina da Tempestade
 Equipment/&Enchanted_Scimitar_Warden_Description	Esta arma encantada foi forjada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Ildurial Strongarm, um famoso cuteleiro de Manacalon. A primeira dessas lâminas, a Manacalon Warden, foi oferecida ao comandante da Euraidd.
 Equipment/&Enchanted_Scimitar_Warden_Title	Diretor Cimitarra
@@ -779,7 +779,7 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma pe
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Feitiços de lâmina da alma
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por descanso curto você usa o poder das almas para se defender. Usando uma ação bônus você ganha HP temporário igual ao seu nível + modificador de carisma.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo da Alma
-Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!.
+Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}.
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Feitiços da Floresta Antiga
 Feature/&AncientForestLightAffinityDescription	Você pode absorver energia da luz solar. Enquanto você estiver sob luz direta, você ganha 2 HP por rodada.
@@ -1057,7 +1057,7 @@ Feature/&PowerPaladinAuraOfCourage18Description	Concede um bônus de teste de re
 Feature/&PowerPaladinAuraOfCourage18Title	Aura de Coragem Aprimorada
 Feature/&PowerPaladinAuraOfProtection18Description	Você e seus aliados dentro de 30 pés não podem ser amedrontados.
 Feature/&PowerPaladinAuraOfProtection18Title	Aura de Proteção Aprimorada
-Feature/&PowerTorchbearerDescription	Tente incendiar um alvo corpo a corpo!.
+Feature/&PowerTorchbearerDescription	Tente incendiar um alvo corpo a corpo!
 Feature/&PowerTorchbearerTitle	Portador da tocha
 Feature/&PrimalChampionDescription	No 20º nível, você incorpora o poder da selva. Seus valores de Força e Constituição aumentam em 4.
 Feature/&PrimalChampionTitle	Campeão Primal
@@ -1261,12 +1261,12 @@ Message/&CharacterExportDuplicateNameErrorDescription	Exportação cancelada:\n\
 Message/&CharacterExportEmptyNameErrorDescription	Exportação cancelada:\n\nPor favor, tente um nome não vazio.
 Message/&CharacterExportModalContentDescription	Digite o nome do herói para exportar:.
 Message/&CharacterExportModalTitleDescription	Exportação de caracteres.
-Message/&LevelDownConfirmationDescription	Reduzir o nível deste Herói?.
+Message/&LevelDownConfirmationDescription	Reduzir o nível deste Herói?
 Message/&LevelDownMultiplayerAbortDescription	Não é possível descer de nível durante uma sessão multijogador.
 Message/&MessageModWelcomeDescription	O Community Expansion Mod está repleto de recursos interessantes, mas, por padrão, nenhum está ativado. Pressione <color=yellow>Ctrl-F10</color> para abrir a interface do usuário do Unity Mod Manager [UMM] e clique no ícone de configurações ao lado de 'Expansão da comunidade' para abrir as páginas de configurações.\n\n Explore as opções e selecione as que você gosta. A interface do usuário do UMM agora será aberta.
 Message/&MessageModWelcomeTitle	Módulo de expansão da comunidade
 Message/&RespecMultiplayerAbortDescription	Não é possível respeitar durante uma sessão multijogador ou no mapa de exploração.
-Message/&SpawnCustomEncounterDescription	Gerar encontro nas coordenadas ({0}, {1})?.
+Message/&SpawnCustomEncounterDescription	Gerar encontro nas coordenadas ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Não é possível gerar encontros em um jogo multiplayer. Ainda...
 Message/&SpawnCustomEncounterTitle	Encontro
 Message/&TeleportPartyDescription	Teletransportar o grupo para as coordenadas ({0}, {1})?\nVocê pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido.
@@ -1399,7 +1399,7 @@ Race/&PointPoolSelect8FeatsDescription	Selecione 8 talentos adicionais para seu 
 Race/&PointPoolSelect8FeatsTitle	8 Talentos Bônus
 Race/&PointPoolSelect9FeatsDescription	Selecione 9 talentos adicionais para seu personagem.
 Race/&PointPoolSelect9FeatsTitle	9 Talentos Bônus
-Reaction/&CastSpellInRetributionDescription	{0} está atacando {1}! Você pode lançar {2} em resposta!.
+Reaction/&CastSpellInRetributionDescription	{0} está atacando {1}! Você pode lançar {2} em resposta!
 Reaction/&CastSpellInRetributionReactDescription	Clique para transmitir {0}.
 Reaction/&CastSpellInRetributionReactTitle	Feitiço lançado
 Reaction/&CastSpellInRetributionTitle	Feitiço de Reação de Conjuração

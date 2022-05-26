@@ -88,7 +88,7 @@ Condition/&ConditionBarkWardDescription	Protégé par les esprits de la forêt.
 Condition/&ConditionBarkWardTitle	Bark Ward
 Condition/&ConditionDualFlurryApplyDescription	Vous créez une dynamique...
 Condition/&ConditionDualFlurryApplyTitle	Double rafale !
-Condition/&ConditionDualFlurryGrantDescription	Vos ennemis sont sous le choc !.
+Condition/&ConditionDualFlurryGrantDescription	Vos ennemis sont sous le choc !
 Condition/&ConditionDualFlurryGrantTitle	Double rafale !
 Condition/&ConditionImprovedBarkWardDescription	Les esprits de la forêt infligent 2d8 dégâts perforants aux attaquants au corps à corps.
 Condition/&ConditionImprovedBarkWardTitle	Bark Ward amélioré
@@ -209,7 +209,7 @@ Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Cette arme enchantée a é
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Arbalète lourde Medusa
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Les Coedymwarth préféraient s'occuper physiquement des arcanistes de Manacalon plutôt que magiquement. Ses meilleurs archers ont reçu des arbalètes, la création de Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Arbalète lourde de tir d'élite
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !.
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Arbalète tempête lourde
 Equipment/&Enchanted_HideArmor_Deflection_Description	Cette armure enchantée a été créée en utilisant les anciennes connaissances des maîtres armuriers de Manacalon. Ildurial Stronghand a forgé la première de ces armures pour la garde personnelle de l'Empereur.
 Equipment/&Enchanted_HideArmor_Deflection_Title	Cacher l'armure de déviation
@@ -251,7 +251,7 @@ Equipment/&Enchanted_LightCrossbow_Medusa_Description	Cette arme enchantée a é
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Arbalète légère Medusa
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Les Coedymwarth préféraient s'occuper physiquement des arcanistes de Manacalon plutôt que magiquement. Ses meilleurs archers ont reçu des arbalètes, la création de Defineth Sharpsight.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Arbalète légère de tir d'élite
-Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !.
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres archers de Colthannin. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !
 Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Arbalète tempête légère
 Equipment/&Enchanted_Maul_Acuteness_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Maul_Acuteness_Title	Maillet d'acuité
@@ -273,7 +273,7 @@ Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Cette arme enchantée
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Bâton du porteur de lumière
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Un favori des agents Silent Whisper, cette arme a été conçue par Cylordir Redblade.
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Bâton buveur d'âmes
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !.
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Bâton Stormblade
 Equipment/&Enchanted_Quarterstaff_Warden_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Ildurial Strongarm, un célèbre forgeron de Manacalon. La première de ces lames, le Manacalon Warden, a été offerte au commandant de l'Euraidd.
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Bâton du gardien
@@ -289,7 +289,7 @@ Equipment/&Enchanted_Rapier_Power_Description	Cette arme enchantée a été forg
 Equipment/&Enchanted_Rapier_Power_Title	Rapière de puissance
 Equipment/&Enchanted_Rapier_Souldrinker_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Un favori des agents Silent Whisper, cette arme a été conçue par Cylordir Redblade.
 Equipment/&Enchanted_Rapier_Souldrinker_Title	Rapière buveur d'âmes
-Equipment/&Enchanted_Rapier_Stormblade_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !.
+Equipment/&Enchanted_Rapier_Stormblade_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !
 Equipment/&Enchanted_Rapier_Stormblade_Title	Rapière Stormblade
 Equipment/&Enchanted_Rapier_Warden_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Ildurial Strongarm, un célèbre forgeron de Manacalon. La première de ces lames, le Manacalon Warden, a été offerte au commandant de l'Euraidd.
 Equipment/&Enchanted_Rapier_Warden_Title	Rapière du gardien
@@ -303,7 +303,7 @@ Equipment/&Enchanted_Scimitar_Lightbringer_Description	Cette arme enchantée a �
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	Cimeterre porteur de lumière
 Equipment/&Enchanted_Scimitar_Souldrinker_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Un favori des agents Silent Whisper, cette arme a été conçue par Cylordir Redblade.
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	Cimeterre buveur d'âmes
-Equipment/&Enchanted_Scimitar_Stormblade_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !.
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Galar Stromforge, le premier forgeron nain à exploiter le pouvoir de la tempête dans une arme - avec un effet dévastateur !
 Equipment/&Enchanted_Scimitar_Stormblade_Title	Cimeterre Stormblade
 Equipment/&Enchanted_Scimitar_Warden_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Ildurial Strongarm, un célèbre forgeron de Manacalon. La première de ces lames, le Manacalon Warden, a été offerte au commandant de l'Euraidd.
 Equipment/&Enchanted_Scimitar_Warden_Title	Cimeterre de gardien
@@ -779,7 +779,7 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous pe
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Sorts d'âmelame
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Une fois par repos court, vous utilisez le pouvoir des âmes pour vous défendre. En utilisant une action bonus, vous gagnez des PV temporaires égaux à votre niveau + modificateur de charisme.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Bouclier d'âme
-Feature/&AlwaysBeardDescription	{0} % de chances de faire pousser une magnifique barbe !.
+Feature/&AlwaysBeardDescription	{0} % de chances de faire pousser une magnifique barbe !
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}.
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Sorts de la forêt ancienne
 Feature/&AncientForestLightAffinityDescription	Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous gagnez 2 HP par tour.
@@ -1057,7 +1057,7 @@ Feature/&PowerPaladinAuraOfCourage18Description	Accorde un bonus de jet de sauve
 Feature/&PowerPaladinAuraOfCourage18Title	Aura de courage améliorée
 Feature/&PowerPaladinAuraOfProtection18Description	Vous et vos alliés à moins de 30 pieds ne pouvez pas être effrayés.
 Feature/&PowerPaladinAuraOfProtection18Title	Aura de protection améliorée
-Feature/&PowerTorchbearerDescription	Essayez de mettre le feu à une cible de mêlée !.
+Feature/&PowerTorchbearerDescription	Essayez de mettre le feu à une cible de mêlée !
 Feature/&PowerTorchbearerTitle	Porte-flambeau
 Feature/&PrimalChampionDescription	Au niveau 20, vous incarnez le pouvoir de la nature. Vos scores de Force et de Constitution augmentent de 4.
 Feature/&PrimalChampionTitle	Champion primordial
@@ -1261,12 +1261,12 @@ Message/&CharacterExportDuplicateNameErrorDescription	Exportation annulée :\n\
 Message/&CharacterExportEmptyNameErrorDescription	Exportation annulée :\n\nVeuillez essayer un nom non vide.
 Message/&CharacterExportModalContentDescription	Saisissez le nom du héros à exporter :.
 Message/&CharacterExportModalTitleDescription	Exportation de caractères.
-Message/&LevelDownConfirmationDescription	Nivelez ce héros ?.
+Message/&LevelDownConfirmationDescription	Nivelez ce héros ?
 Message/&LevelDownMultiplayerAbortDescription	Impossible de descendre de niveau pendant une session multijoueur.
 Message/&MessageModWelcomeDescription	Le Community Expansion Mod regorge de fonctionnalités intéressantes, mais par défaut, aucune n'est activée. Appuyez sur <color=yellow>Ctrl-F10</color> pour ouvrir l'interface utilisateur de Unity Mod Manager [UMM], puis cliquez sur l'icône des paramètres à côté de "Community Expansion" pour ouvrir les pages de paramètres.\n\n Explorez les options et sélectionnez celles que vous aimez. L'interface utilisateur UMM va maintenant s'ouvrir.
 Message/&MessageModWelcomeTitle	Mod d'expansion de la communauté
 Message/&RespecMultiplayerAbortDescription	Impossible de respécialiser pendant une session multijoueur ou sur une carte d'exploration.
-Message/&SpawnCustomEncounterDescription	Générer une rencontre aux coordonnées ({0}, {1}) ?.
+Message/&SpawnCustomEncounterDescription	Générer une rencontre aux coordonnées ({0}, {1}) ?
 Message/&SpawnCustomEncounterErrorDescription	Impossible de générer des rencontres sur une partie multijoueur. Encore...
 Message/&SpawnCustomEncounterTitle	Rencontrer
 Message/&TeleportPartyDescription	Téléporter le groupe aux coordonnées ({0}, {1}) ?\nVous pourriez casser des quêtes ou des cartes si vous vous téléportez dans un endroit inconnu.
@@ -1399,7 +1399,7 @@ Race/&PointPoolSelect8FeatsDescription	Sélectionnez 8 exploits supplémentaires
 Race/&PointPoolSelect8FeatsTitle	8 exploits bonus
 Race/&PointPoolSelect9FeatsDescription	Sélectionnez 9 exploits supplémentaires pour votre personnage.
 Race/&PointPoolSelect9FeatsTitle	9 exploits bonus
-Reaction/&CastSpellInRetributionDescription	{0} attaque {1} ! Vous pouvez lancer {2} en réponse !.
+Reaction/&CastSpellInRetributionDescription	{0} attaque {1} ! Vous pouvez lancer {2} en réponse !
 Reaction/&CastSpellInRetributionReactDescription	Cliquez pour caster {0}.
 Reaction/&CastSpellInRetributionReactTitle	Lancer un sort
 Reaction/&CastSpellInRetributionTitle	Lancer un sort de réaction
