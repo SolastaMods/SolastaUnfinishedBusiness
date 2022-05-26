@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static ConditionalMovementModifier _movementBonusApplier;
 
         private static ConditionDefinition attackedWithMonkWeaponCondition;
-        private static CharacterValidator attackedWithMonkWeapon;
+        public static CharacterValidator attackedWithMonkWeapon;
         private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind, stunningStrike;
         private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
 
@@ -960,7 +960,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 || ZenArcher.IsMonkWeapon(character, weapon);
         }
 
-        private static bool UsingOnlyMonkWeapons(RulesetCharacter character)
+        public static bool UsingOnlyMonkWeapons(RulesetCharacter character)
         {
             var inventorySlotsByName = character.CharacterInventory.InventorySlotsByName;
             var mainHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;

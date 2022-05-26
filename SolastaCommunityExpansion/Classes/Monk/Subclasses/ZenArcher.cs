@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
     {
         private const string ZenArrowTag = "ZenArrow";
 
-        // Zen Archer's Monk weapons are all ranged weapons.
+        // Zen Archer's Monk weapons are bows and darts ranged weapons.
         private static readonly List<WeaponTypeDefinition> MonkWeapons = new()
         {
             WeaponTypeDefinitions.ShortbowType,
@@ -66,9 +66,10 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
                         WeaponTypeDefinitions.ShortbowType.Name)
                     .SetCustomSubFeatures(
                         new ZenArcherMarker(),
-                        new ExtendWeaponRange(),
-                        //TODO: add bonus 1-handed thrown/ranged attack
-                        RangedAttackInMeleeDisadvantageRemover.Marker, //TODO: move to level 06 features
+                        new ExtendWeaponRange(), //TODO: add usual monk validation
+                        new AddExtraThrownAttack(ActionDefinitions.ActionType.Bonus, Monk.UsingOnlyMonkWeapons,
+                            Monk.attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor),
+                        // RangedAttackInMeleeDisadvantageRemover.Marker, //TODO: move to level 06 features and add validation
                         new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack)
                     )
                     .AddToDB(),
@@ -207,6 +208,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private class ZenArcherMarker
         {
+            //Used for easier detecton of Zen Archer characters to extend their Monk weapon list
         }
 
         private class ExtendWeaponRange : IModifyAttackModeForWeapon

@@ -91,6 +91,98 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return this;
         }
     }
+    
+    public class AddExtraThrownAttack : IAddExtraAttack
+    {
+        private readonly ActionDefinitions.ActionType actionType;
+        private readonly List<string> additionalTags = new();
+        private readonly int attacksNumber;
+        private readonly bool clearSameType;
+        private readonly CharacterValidator[] validators;
+
+        public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType,
+            params CharacterValidator[] validators)
+        {
+            this.actionType = actionType;
+            this.attacksNumber = attacksNumber;
+            this.clearSameType = clearSameType;
+            this.validators = validators;
+        }
+
+        public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+            this(actionType, 1, false, validators)
+        {
+        }
+
+        public void TryAddExtraAttack(RulesetCharacterHero hero)
+        {
+            if (!hero.IsValid(validators))
+            {
+                return;
+            }
+
+            var attackModes = hero.AttackModes;
+            if (clearSameType)
+            {
+                for (var i = attackModes.Count - 1; i > 0; i--)
+                {
+                    var mode = attackModes[i];
+                    if (mode.ActionType == actionType)
+                    {
+                        RulesetAttackMode.AttackModesPool.Return(mode);
+                        attackModes.RemoveAt(i);
+                    }
+                }
+            }
+            
+            AddItemAttack(attackModes, EquipmentDefinitions.SlotTypeMainHand, hero);
+            AddItemAttack(attackModes, EquipmentDefinitions.SlotTypeOffHand, hero);
+        }
+
+        private void AddItemAttack(List<RulesetAttackMode> attackModes, string slot, RulesetCharacterHero hero)
+        {
+            var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+            if (item == null || !WeaponValidators.IsThrownWeapon(item))
+            {
+                return;
+            }
+
+            var strikeDefinition = item.ItemDefinition;
+
+            var attackMode = hero.RefreshAttackModePublic(
+                actionType,
+                strikeDefinition,
+                strikeDefinition.WeaponDescription,
+                false,
+                true,
+                slot,
+                hero.GetField<List<IAttackModificationProvider>>("attackModifiers"),
+                hero.FeaturesOrigin,
+                item
+            );
+            attackMode.Reach = false;
+            attackMode.Ranged = true;
+            attackMode.Thrown = true;
+            attackMode.AttacksNumber = attacksNumber;
+            attackMode.AttackTags.AddRange(additionalTags);
+            attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
+
+            if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
+            {
+                RulesetAttackMode.AttackModesPool.Return(attackMode);
+            }
+            else
+            {
+                attackModes.Add(attackMode);
+            }
+        }
+
+        public AddExtraThrownAttack SetTags(params string[] tags)
+        {
+            additionalTags.AddRange(tags);
+            return this;
+        }
+    }
 
     public class AddBonusShieldAttack : IAddExtraAttack
     {

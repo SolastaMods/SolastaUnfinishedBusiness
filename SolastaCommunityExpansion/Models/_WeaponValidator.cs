@@ -34,6 +34,20 @@ namespace SolastaCommunityExpansion.Models
             return IsUnarmedWeapon(null, weapon, null);
         }
 
+        public static bool IsThrownWeapon(RulesetItem weapon)
+        {
+            if (weapon == null) return false;
+
+            var weaponDescription = weapon.ItemDefinition.WeaponDescription;
+
+            if (weaponDescription == null)
+            {
+                return false;
+            }
+
+            return weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
+        }
+
         private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
         {
             var hasTag = false;
