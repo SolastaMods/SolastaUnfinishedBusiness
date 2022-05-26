@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 child.gameObject.SetActive(true);
 
                 var component = child.GetComponent<CharacterActionItem>();
-                var guiCharacterAction = new CustomGuiCharacterAction(actionId, i + 1);
+                var guiCharacterAction = new CustomGuiCharacterAction(actionId, newItems - i);
                 guiCharacterAction.Bind(guiCharacter.GameLocationCharacter, __instance.ActionScope);
 
                 component.name = guiCharacterAction.Name;
