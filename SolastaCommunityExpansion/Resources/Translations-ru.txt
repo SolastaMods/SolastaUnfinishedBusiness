@@ -1911,6 +1911,7 @@ Tooltip/&FeatPrerequisiteIsNotBarbarian	не варвар
 Tooltip/&FeatPrerequisiteIsNotFighter	не боец
 Tooltip/&FeatPrerequisiteIsNotRogue	не разбойник
 Tooltip/&FeatPrerequisiteLevelFormat	Минимальный уровень персонажа {0}
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	не {0}
 Tooltip/&Tag9000Title	Пользовательский эффект
 Tooltip/&TagCommunityExpansionTitle	Расширение сообщества
 Tooltip/&TagMaledictionTitle	Черт

@@ -1911,6 +1911,7 @@ Tooltip/&FeatPrerequisiteIsNotBarbarian	Não é um bárbaro
 Tooltip/&FeatPrerequisiteIsNotFighter	Não é um lutador
 Tooltip/&FeatPrerequisiteIsNotRogue	Não é um vagabundo
 Tooltip/&FeatPrerequisiteLevelFormat	Nível mínimo de caractere {0}
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não conhece {0}
 Tooltip/&Tag9000Title	Efeito personalizado
 Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Caramba

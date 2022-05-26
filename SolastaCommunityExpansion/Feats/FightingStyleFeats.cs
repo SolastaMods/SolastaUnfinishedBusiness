@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
@@ -30,7 +31,11 @@ namespace SolastaCommunityExpansion.Feats
 
         private static FeatDefinition BuildFightingStyleFeat(string style)
         {
-            return FeatDefinitionBuilder
+            var fightingStyle = DatabaseRepository
+                .GetDatabase<FightingStyleDefinition>()
+                .GetElement(style);
+
+            return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create($"FeatFightingStyle{style}", FightingStyleFeatsNamespace)
                 .SetFeatures(
                     FeatureDefinitionProficiencyBuilder
@@ -39,13 +44,27 @@ namespace SolastaCommunityExpansion.Feats
                         .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
                         .AddToDB()
                 )
+                .SetValidators((feat, hero) =>
+                {
+                    var hasFightingStyle = hero.TrainedFightingStyles
+                        .Any(x => x.Name == style);
+
+                    if (!hasFightingStyle)
+                    {
+                        return (true, Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()));
+                    }
+
+                    return (false,
+                        Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()),
+                            "EA7171"));
+                })
                 .SetGuiPresentation($"FightingStyle{style}", Category.Feat)
                 .AddToDB();
         }
 
         private static FeatDefinition BuildFightingStyleFeat(FightingStyleDefinition fightingStyle)
         {
-            return FeatDefinitionBuilder
+            return FeatDefinitionBuilder<FeatDefinitionWithPrerequisites, FeatDefinitionWithPrerequisitesBuilder>
                 .Create($"Feat{fightingStyle.Name}", FightingStyleFeatsNamespace)
                 .SetFeatures(
                     FeatureDefinitionProficiencyBuilder
@@ -54,6 +73,20 @@ namespace SolastaCommunityExpansion.Feats
                         .SetGuiPresentation(fightingStyle.GuiPresentation)
                         .AddToDB()
                 )
+                .SetValidators((feat, hero) =>
+                {
+                    var hasFightingStyle = hero.TrainedFightingStyles
+                        .Any(x => x.Name == fightingStyle.Name);
+
+                    if (!hasFightingStyle)
+                    {
+                        return (true, Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()));
+                    }
+
+                    return (false,
+                        Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle", fightingStyle.FormatTitle()),
+                            "EA7171"));
+                })
                 .SetGuiPresentation(Category.Feat)
                 .AddToDB();
         }

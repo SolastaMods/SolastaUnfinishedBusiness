@@ -1907,10 +1907,11 @@ Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
-Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
+Tooltip/&FeatPrerequisiteIsNotBarbarian	N'est pas un barbare
 Tooltip/&FeatPrerequisiteIsNotFighter	N'est pas un combattant
 Tooltip/&FeatPrerequisiteIsNotRogue	N'est-ce pas un voleur
 Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	N'est pas {0}
 Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang

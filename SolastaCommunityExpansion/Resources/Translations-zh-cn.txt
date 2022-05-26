@@ -1912,6 +1912,7 @@ Tooltip/&FeatPrerequisiteIsNotFighter	非战士
 Tooltip/&FeatPrerequisiteIsNotRogue	非游荡者
 Tooltip/&FeatPrerequisiteLevelFormat	最低角色等级{0}
 Tooltip/&Tag9000Title	自定义效果
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 不知道{0}
 Tooltip/&TagCommunityExpansionTitle	社区拓展
 Tooltip/&TagMaledictionTitle	巫咒
 Tooltip/&TagMonkWeaponTitle	武僧
