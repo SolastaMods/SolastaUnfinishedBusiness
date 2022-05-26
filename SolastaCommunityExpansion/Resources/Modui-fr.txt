@@ -1,22 +1,63 @@
-﻿ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
-ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&EnableAlternateHuman	Enable the alternate human <i><color=yellow>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUi/&EnableFlexibleBackgrounds	Enable flexible backgrounds <i><color=yellow>[select skill and tool proficiencies from backgrounds]</color></i>
-ModUi/&EnableFlexibleRaces	Enable flexible races <i><color=yellow>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableEpicPointsAndArray	Enable an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
-ModUi/&EnableMinInOutAttributes	Enforce ability scores minimum in & out pre-requisites
-ModUi/&EnableRelearnSpells	Can select cantrips or spells already learned from other classes
-ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
-ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&EnablesAsiAndFeat	Enable both attribute scores increase and feat selection <i><color=yellow>[instead of an exclusive choice]</color></i>
-ModUi/&EnableFeatsAtEvenLevels	Enable feats selection at class levels 2, 6, 10 and 14
-ModUi/&MaxAllowedLevels	<color=white>Max allowed levels</color> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
-ModUi/&OfferAdditionalLoreFriendlyNames	Offer additional lore friendly names on character creation
-ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
-ModUi/&UnlockEyeStyles	Unlock eye styles
-ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
+﻿ModUi/&AddHelpActionToAllRaces	Ajouter l'action <color=orange>Aide</color> à toutes les courses
+ModUi/&DisableSenseDarkVisionFromAllRaces	Désactiver <color=orange>Sense Dark Vision</color> de toutes les races <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Désactiver <color=orange>Superior Sense Dark Vision</color> de toutes les races <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableAlternateHuman	Activer l'humain alternatif <i><color=yellow>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
+ModUi/&EnableFlexibleBackgrounds	Activer les arrière-plans flexibles <i><color=yellow>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
+ModUi/&EnableFlexibleRaces	Activer les races flexibles <i><color=yellow>[attribuer des points de capacité au lieu des valeurs raciales par défaut]</color></i>
+ModUi/&EnableEpicPointsAndArray	Activez un système d'achat épique de 35 points et un tableau <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[ Nécessite un redémarrage]</color></i></b>
+ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total des dons accordés au premier niveau</color>
+ModUi/&EnableMinInOutAttributes	Appliquer les scores de capacité minimum in & out pré-requis
+ModUi/&EnableRelearnSpells	Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes
+ModUi/&DisplayAllKnownSpellsDuringLevelUp	Afficher tous les sorts connus des autres classes pendant la montée de niveau
+ModUi/&MaxAllowedClasses	<color=white>Classes maximales autorisées</color> <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnablesAsiAndFeat	Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=yellow>[au lieu d'un choix exclusif]</color></i>
+ModUi/&EnableFeatsAtEvenLevels	Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
+ModUi/&MaxAllowedLevels	<color=white>Niveaux maximum autorisés</color> <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&AllowUnmarkedSorcerers	Autoriser les <color=orange>sorciers</color> non marqués
+ModUi/&OfferAdditionalLoreFriendlyNames	Offrir des noms conviviaux supplémentaires lors de la création de personnage
+ModUi/&UnlockAllNpcFaces	Déverrouiller tous les visages de PNJ
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Débloquez des marquages ​​et des tatouages ​​pour tous les personnages
+ModUi/&UnlockEyeStyles	Déverrouiller les styles d'yeux
+ModUi/&UnlockGlowingEyeColors	Débloquez des couleurs d'yeux éclatantes
+ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
+ModUi/&AddBleedingToLesserRestoration	Ajoutez la condition <color=orange>Saignement</color> aux conditions supprimées par <color=orange>Grande et Petite Restauration</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity	La condition <color=orange>Aveuglé</color> ne permet pas l'attaque d'opportunité
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Autoriser la sélection de cible lors du lancement du sort <color=orange>Chaîne d'éclairs</color>
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+
+ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
+ModUi/&FixSorcererTwinnedLogic	Correction de l'utilisation métamagique jumelle <color=orange>Sorcier</color> <i><color=yellow>[un sort doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
+ModUi/&FullyControlConjurations	Contrôlez entièrement les conjurations <i><color=yellow>[animaux, élémentaux, etc]</color></i>
+ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre
+ModUi/&AllowDruidToWearMetalArmor	Autoriser le <color=orange>druide</color> à porter une armure en métal
+ModUi/&DisableAutoEquip	Désactiver l'équipement automatique des objets dans l'inventaire
+ModUi/&MakeAllMagicStaveArcaneFoci	Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color= rouge>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	Augmentez la portée <color=orange>Sense Normal Vision</color> pour activer les attaques à longue portée <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&QuickCastLightCantripOnWornItemsFirst	Le cantrip léger à lancer rapide utilise d'abord les objets portés sur la tête ou le torse
+ModUi/&AddPickpocketableLoot	Ajouter un butin pickpocketable <i><color=yellow>[suggéré si la fonctionnalité <color=orange>Pickpocket</color> est activée]</color></i>
+ModUi/&AllowStackedMaterialComponent	Autoriser le composant de matériau empilé <i><color=yellow>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly	Mettre à l'échelle les prix marchands correctement/exactement
+ModUi/&InitialChoices	<color=yellow>Choix initiaux :</color>
+ModUi/&Multiclass	<color=yellow>Multiclasse :</color>
+ModUi/&Progression	<color=yellow>Progression :</color>
+ModUi/&Visuals	<color=yellow>Visuels :</color>
+ModUi/&House	<color=yellow>Maison :</color>
+ModUi/&SRD	<color=yellow>SRD :</color>
+ModUi/&General	<color=yellow>Général :</color>
+ModUi/&SelectAll	Tout sélectionner
+ModUi/&SelectSuggested	Sélectionnez Suggéré
+ModUi/&ExpandAll	Développer tout
+ModUi/&ShowDescriptions	Afficher les descriptions
+ModUi/&Races	<color=yellow>Courses</color>
+ModUi/&Classes	<color=yellow>Cours</color>
+ModUi/&Subclasses	<color=yellow>Sous-classes</color>
+ModUi/&Feats	<color=yellow>Exploits</color>
+ModUi/&FightingStyles	<color=yellow>Styles de combat</color>
+ModUi/&SpellInstructions	. Vous pouvez attribuer individuellement chaque sort à n'importe quelle liste de sorts ou simplement sélectionner l'ensemble suggéré
+ModUi/&SpellLevelFilter	<b><i><color=white>filtre de niveau de sorts</color> <color=yellow>[-1 pour afficher tous les sorts]</color></i></b>
+ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
+ModUi/&Patches	<color=yellow>Écussons :</color>
+ModUi/&Basic	<color=yellow>Basique :</color>
+ModUi/&Advanced	<color=yellow>Avancé :</color>
+ModUI/&EnableBetaContent	Activer le contenu bêta <i><color=yellow>[gardez à l'esprit que vos héros ou vos sauvegardes pourraient échouer lors des futures mises à jour]</color></i> <b><i><color=red>[Nécessite un redémarrage]</ couleur></i></b>

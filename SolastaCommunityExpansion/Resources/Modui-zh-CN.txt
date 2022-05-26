@@ -20,3 +20,44 @@ ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all c
 ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
+ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
+ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>Blinded</color> condition doesn't allow attack of opportunity
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target selection when casting the <color=orange>Chain Lightning</color> spell
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> does not require concentration when cast with L5+ spell slot
+ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Only show the most powerful creatures in the conjuration list</i>
+ModUi/&FixSorcererTwinnedLogic	Fix <color=orange>Sorcerer</color> twinned metamagic use <i><color=yellow>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
+ModUi/&FullyControlConjurations	Fully control conjurations <i><color=yellow>[animals, elementals, etc]</color></i>
+ModUi/&AllowAnyClassToWearSylvanArmor	Allow any class to wear sylvan armor
+ModUi/&AllowDruidToWearMetalArmor	Allow <color=orange>Druid</color> to wear metal armor
+ModUi/&DisableAutoEquip	Disable auto-equip of items in inventory
+ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick cast light cantrip uses head or torso worn items first
+ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
+ModUi/&AllowStackedMaterialComponent	Allow stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly	Scale merchant prices correctly / exactly
+ModUi/&InitialChoices	<color=yellow>Initial choices:</color>
+ModUi/&Multiclass	<color=yellow>Multiclass:</color>
+ModUi/&Progression	<color=yellow>Progression:</color>
+ModUi/&Visuals	<color=yellow>Visuals:</color>
+ModUi/&House	<color=yellow>House:</color>
+ModUi/&SRD	<color=yellow>SRD:</color>
+ModUi/&General	<color=yellow>General:</color>
+ModUi/&SelectAll	Select All
+ModUi/&SelectSuggested	Select Suggested
+ModUi/&ExpandAll	Expand All
+ModUi/&ShowDescriptions	Show Descriptions
+ModUi/&Races	<color=yellow>Races</color>
+ModUi/&Classes	<color=yellow>Classes</color>
+ModUi/&Subclasses	<color=yellow>Subclasses</color>
+ModUi/&Feats	<color=yellow>Feats</color>
+ModUi/&FightingStyles	<color=yellow>Fighting Styles</color>
+ModUi/&SpellInstructions	. You can individually assign each spell to any spell list or simply select the suggested set
+ModUi/&SpellLevelFilter	<b><i><color=white>spell level filter</color> <color=yellow>[-1 to display all spells]</color></i></b>
+ModUi/&EnableUnityExplorer	Enable the Unity Explorer UI
+ModUi/&Patches	<color=yellow>Patches:</color>
+ModUi/&Basic	<color=yellow>Basic:</color>
+ModUi/&Advanced	<color=yellow>Advanced:</color>
+ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your heroes or saves might break on future updates]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>

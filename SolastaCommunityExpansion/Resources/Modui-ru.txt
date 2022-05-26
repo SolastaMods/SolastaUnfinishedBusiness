@@ -1,22 +1,63 @@
-﻿ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
-ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&EnableAlternateHuman	Enable the alternate human <i><color=yellow>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUi/&EnableFlexibleBackgrounds	Enable flexible backgrounds <i><color=yellow>[select skill and tool proficiencies from backgrounds]</color></i>
-ModUi/&EnableFlexibleRaces	Enable flexible races <i><color=yellow>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableEpicPointsAndArray	Enable an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
-ModUi/&EnableMinInOutAttributes	Enforce ability scores minimum in & out pre-requisites
-ModUi/&EnableRelearnSpells	Can select cantrips or spells already learned from other classes
-ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
-ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&EnablesAsiAndFeat	Enable both attribute scores increase and feat selection <i><color=yellow>[instead of an exclusive choice]</color></i>
-ModUi/&EnableFeatsAtEvenLevels	Enable feats selection at class levels 2, 6, 10 and 14
-ModUi/&MaxAllowedLevels	<color=white>Max allowed levels</color> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
-ModUi/&OfferAdditionalLoreFriendlyNames	Offer additional lore friendly names on character creation
-ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
-ModUi/&UnlockEyeStyles	Unlock eye styles
-ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
+﻿ModUi/&AddHelpActionToAllRaces	Добавьте действие <color=orange>Помощь</color> ко всем гонкам.
+ModUi/&DisableSenseDarkVisionFromAllRaces	Отключите <color=orange>Sense Dark Vision</color> для всех рас <b><i><color=red>[Требуется перезагрузка]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Отключить <color=orange>Superior Sense Dark Vision</color> для всех рас <b><i><color=red>[Требуется перезагрузка]</color></i></b>
+ModUi/&EnableAlternateHuman	Включить альтернативного человека <i><color=yellow>[+1 навык / +2 выбора атрибута / +1 навык]</color></i>
+ModUi/&EnableFlexibleBackgrounds	Включить гибкие фоны <i><color=yellow>[выбрать навык и владение инструментами из фона]</color></i>
+ModUi/&EnableFlexibleRaces	Включить гибкие расы <i><color=yellow>[назначить очки способностей вместо расовых значений по умолчанию]</color></i>
+ModUi/&EnableEpicPointsAndArray	Включите эпическую систему покупки 35 баллов и массив <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[ Требуется перезагрузка]</color></i></b>
+ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего достижений на первом уровне</color>
+ModUi/&EnableMinInOutAttributes	Обеспечить минимальные предварительные требования для оценки способностей
+ModUi/&EnableRelearnSpells	Может выбирать колдовство или заклинания, уже изученные другими классами.
+ModUi/&DisplayAllKnownSpellsDuringLevelUp	Отображение всех известных заклинаний других классов при повышении уровня
+ModUi/&MaxAllowedClasses	<color=white>Максимум разрешенных классов</color> <b><i><color=red>[Требуется перезагрузка]</color></i></b>
+ModUi/&EnablesAsiAndFeat	Включить увеличение значений атрибутов и выбор умений <i><color=yellow>[вместо эксклюзивного выбора]</color></i>
+ModUi/&EnableFeatsAtEvenLevels	Включить выбор умений на уровнях класса 2, 6, 10 и 14
+ModUi/&MaxAllowedLevels	<color=white>Максимально допустимые уровни</color> <b><i><color=red>[Требуется перезагрузка]</color></i></b>
+ModUi/&AllowUnmarkedSorcerers	Разрешить неотмеченных <color=orange>колдунов</color>
+ModUi/&OfferAdditionalLoreFriendlyNames	Предлагайте дополнительные дружественные имена при создании персонажа
+ModUi/&UnlockAllNpcFaces	Разблокировать все лица NPC
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать маркировку и татуировки для всех персонажей
+ModUi/&UnlockEyeStyles	Разблокировать стили глаз
+ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся цвета глаз
+ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Разблокируйте светящиеся цвета для всех отметин и татуировок
+ModUi/&UseOfficialAdvantageDisadvantageRules	Используйте официальные правила преимуществ/недостатков
+ModUi/&AddBleedingToLesserRestoration	Добавьте состояние <color=orange>Кровотечение</color> к состояниям, удаленным с помощью <color=orange>Большого и малого восстановления</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Состояние <color=orange>Ослепление</color> не позволяет атаковать по возможности
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Разрешить выбор цели при использовании заклинания <color=orange>Цепная молния</color>
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> не требует концентрации при использовании ячейки заклинания L5+
+ModUi/&EnableUpcastConjureElementalAndFey	Включить восходящее использование <color=orange>Сотворение элементаля</color>, <color=orange>Сотворение фей</color>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Показывать только самых сильных существ в списке заклинаний</i>
+ModUi/&FixSorcererTwinnedLogic	Исправьте <color=orange>Sorcerer</color> двойную метамагию, использующую <i><color=yellow>[заклинание не должно быть нацелено более чем на одно существо на текущем уровне заклинания]</color></i>
+ModUi/&FullyControlConjurations	Полностью контролировать заклинания <i><color=yellow>[животные, элементали и т. д.]</color></i>
+ModUi/&AllowAnyClassToWearSylvanArmor	Разрешить любому классу носить лесную броню
+ModUi/&AllowDruidToWearMetalArmor	Разрешить <color=orange>Друиду</color> носить металлическую броню
+ModUi/&DisableAutoEquip	Отключить автоэкипировку предметов в инвентаре
+ModUi/&MakeAllMagicStaveArcaneFoci	Сделайте все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= red>[Требуется перезагрузка]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	Увеличьте дальность <color=orange>Sense Normal Vision</color>, чтобы активировать дальние атаки <b><i><color=red>[Требуется перезапуск]</color></i></b>
+ModUi/&QuickCastLightCantripOnWornItemsFirst	Колдовство Quick Cast Light сначала использует предметы, изношенные на голове или туловище.
+ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[предлагается, если умение <color=orange>Карманные кражи</color> включено]</color></i>
+ModUi/&AllowStackedMaterialComponent	Разрешить составной компонент материала <i><color=yellow>[e.g. 2 алмаза по 500 зм эквивалентны бриллианту по 1000 зм]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly	Правильно/точно масштабировать торговые цены
+ModUi/&InitialChoices	<color=yellow>Исходный выбор:</color>
+ModUi/&Multiclass	<color=yellow>Мультикласс:</color>
+ModUi/&Progression	<color=yellow>Прогресс:</color>
+ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
+ModUi/&House	<color=yellow>Дом:</color>
+ModUi/&SRD	<color=yellow>SRD:</color>
+ModUi/&General	<color=yellow>Общие:</color>
+ModUi/&SelectAll	Выбрать все
+ModUi/&SelectSuggested	Выберите предложенный
+ModUi/&ExpandAll	Расширить все
+ModUi/&ShowDescriptions	Показать описания
+ModUi/&Races	<color=yellow>Гонки</color>
+ModUi/&Classes	<color=yellow>Классы</color>
+ModUi/&Subclasses	<color=yellow>Подклассы</color>
+ModUi/&Feats	<color=yellow>Умения</color>
+ModUi/&FightingStyles	<color=yellow>Боевые стили</color>
+ModUi/&SpellInstructions	. Вы можете отдельно назначить каждое заклинание любому списку заклинаний или просто выбрать предложенный набор
+ModUi/&SpellLevelFilter	<b><i><color=white>фильтр уровня заклинаний</color> <color=yellow>[-1 для отображения всех заклинаний]</color></i></b>
+ModUi/&EnableUnityExplorer	Включить пользовательский интерфейс Unity Explorer
+ModUi/&Patches	<color=yellow>Заплатки:</color>
+ModUi/&Basic	<color=yellow>Основной:</color>
+ModUi/&Advanced	<color=yellow>Дополнительно:</color>
+ModUI/&EnableBetaContent	Включить бета-контент <i><color=yellow>[имейте в виду, что ваши герои или сохранения могут сломаться при будущих обновлениях]</color></i> <b><i><color=red>[Требуется перезагрузка]</ цвет></i></b>
