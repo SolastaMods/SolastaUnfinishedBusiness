@@ -5,31 +5,41 @@ using System.Text;
 namespace SolastaModApi
 {
     /// <summary>
-    /// Helper methods for working with <see cref="Guid"/>.
+    ///     Helper methods for working with <see cref="Guid" />.
     /// </summary>
     public static class GuidHelper
     {
         /// <summary>
-        /// Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
+        ///     Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
         /// </summary>
         /// <param name="namespaceId">The ID of the namespace.</param>
         /// <param name="name">The name (within that namespace).</param>
         /// <returns>A UUID derived from the namespace and name.</returns>
-        /// <remarks>See <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>.</remarks>
+        /// <remarks>
+        ///     See
+        ///     <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>
+        ///     .
+        /// </remarks>
         public static Guid Create(Guid namespaceId, string name)
         {
             return Create(namespaceId, name, 5);
         }
 
         /// <summary>
-        /// Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
+        ///     Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
         /// </summary>
         /// <param name="namespaceId">The ID of the namespace.</param>
         /// <param name="name">The name (within that namespace).</param>
-        /// <param name="version">The version number of the UUID to create; this value must be either
-        /// 3 (for MD5 hashing) or 5 (for SHA-1 hashing).</param>
+        /// <param name="version">
+        ///     The version number of the UUID to create; this value must be either
+        ///     3 (for MD5 hashing) or 5 (for SHA-1 hashing).
+        /// </param>
         /// <returns>A UUID derived from the namespace and name.</returns>
-        /// <remarks>See <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>.</remarks>
+        /// <remarks>
+        ///     See
+        ///     <a href="http://code.logos.com/blog/2011/04/generating_a_deterministic_guid.html">Generating a deterministic GUID</a>
+        ///     .
+        /// </remarks>
         public static Guid Create(Guid namespaceId, string name, int version)
         {
             if (name == null)

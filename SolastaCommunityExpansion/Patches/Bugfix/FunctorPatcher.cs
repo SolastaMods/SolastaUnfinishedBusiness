@@ -12,7 +12,8 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class Functor_SelectCharacters
     {
-        internal static void Postfix(FunctorParametersDescription functorParameters, List<GameLocationCharacter> selectedCharacters)
+        internal static void Postfix(FunctorParametersDescription functorParameters,
+            List<GameLocationCharacter> selectedCharacters)
         {
             if (!Main.Settings.BugFixConjuredUnitsTeleportWithParty)
             {
@@ -30,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
 
             // only conjured units should teleport with the party
             foreach (var guestCharacter in gameLocationCharacterService.GuestCharacters
-                .Where(x => x.RulesetCharacter.Tags.Contains(AttributeDefinitions.TagConjure)))
+                         .Where(x => x.RulesetCharacter.Tags.Contains(AttributeDefinitions.TagConjure)))
             {
                 var rulesetCharacter = guestCharacter.RulesetCharacter;
 
@@ -42,13 +43,16 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                 foreach (var rulesetConditions in rulesetCharacter.ConditionsByCategory.Values)
                 {
                     var found = rulesetConditions
-                        .Where(x => x.ConditionDefinition == DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
-                        .Any(x => gameLocationCharacterService.PartyCharacters.Any(y => y.RulesetCharacter.Guid == x.SourceGuid));
+                        .Where(x => x.ConditionDefinition ==
+                                    DatabaseHelper.ConditionDefinitions.ConditionConjuredCreature)
+                        .Any(x => gameLocationCharacterService.PartyCharacters.Any(y =>
+                            y.RulesetCharacter.Guid == x.SourceGuid));
 
                     if (found)
                     {
                         var playerPlacementMarkers = functorParameters.PlayerPlacementMarkers;
-                        var newPlayerPlacementMarkers = playerPlacementMarkers.AddToArray(playerPlacementMarkers[idx++ % len]);
+                        var newPlayerPlacementMarkers =
+                            playerPlacementMarkers.AddToArray(playerPlacementMarkers[idx++ % len]);
 
                         functorParameters.SetField("playerPlacementMarkers", newPlayerPlacementMarkers);
                         selectedCharacters.Add(guestCharacter);

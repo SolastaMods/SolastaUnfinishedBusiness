@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort
 {
@@ -15,7 +16,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort
                 return true;
             }
 
-            __result = Models.DmProEditorContext.Compare(left, right);
+            __result = DmProEditorContext.Compare(left, right);
 
             return false;
         }

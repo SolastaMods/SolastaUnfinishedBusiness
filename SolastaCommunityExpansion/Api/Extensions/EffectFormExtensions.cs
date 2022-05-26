@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -5,11 +6,12 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(EffectForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class EffectFormExtensions
+    [TargetType(typeof(EffectForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class EffectFormExtensions
     {
         public static EffectForm Copy(this EffectForm entity)
         {
@@ -18,7 +20,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetAddBonusMode<T>(this T entity, RuleDefinitions.AddBonusMode value)
+        public static T SetAddBonusMode<T>(this T entity, AddBonusMode value)
             where T : EffectForm
         {
             entity.AddBonusMode = value;
@@ -39,7 +41,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanSaveToCancel<T>(this T entity, System.Boolean value)
+        public static T SetCanSaveToCancel<T>(this T entity, Boolean value)
             where T : EffectForm
         {
             entity.CanSaveToCancel = value;
@@ -60,14 +62,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCreatedByCharacter<T>(this T entity, System.Boolean value)
+        public static T SetCreatedByCharacter<T>(this T entity, Boolean value)
             where T : EffectForm
         {
             entity.SetField("createdByCharacter", value);
             return entity;
         }
 
-        public static T SetCreatedByCondition<T>(this T entity, System.Boolean value)
+        public static T SetCreatedByCondition<T>(this T entity, Boolean value)
             where T : EffectForm
         {
             entity.SetField("createdByCondition", value);
@@ -81,7 +83,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDcModifier<T>(this T entity, System.Int32 value)
+        public static T SetDcModifier<T>(this T entity, Int32 value)
             where T : EffectForm
         {
             entity.DcModifier = value;
@@ -95,7 +97,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFilterId<T>(this T entity, System.Int32 value)
+        public static T SetFilterId<T>(this T entity, Int32 value)
             where T : EffectForm
         {
             entity.SetField("filterId", value);
@@ -109,14 +111,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHasFilterId<T>(this T entity, System.Boolean value)
+        public static T SetHasFilterId<T>(this T entity, Boolean value)
             where T : EffectForm
         {
             entity.SetField("hasFilterId", value);
             return entity;
         }
 
-        public static T SetHasSavingThrow<T>(this T entity, System.Boolean value)
+        public static T SetHasSavingThrow<T>(this T entity, Boolean value)
             where T : EffectForm
         {
             entity.HasSavingThrow = value;
@@ -144,14 +146,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLevelMultiplier<T>(this T entity, System.Int32 value)
+        public static T SetLevelMultiplier<T>(this T entity, Int32 value)
             where T : EffectForm
         {
             entity.SetField("levelMultiplier", value);
             return entity;
         }
 
-        public static T SetLevelType<T>(this T entity, RuleDefinitions.LevelSourceType value)
+        public static T SetLevelType<T>(this T entity, LevelSourceType value)
             where T : EffectForm
         {
             entity.SetField("levelType", value);
@@ -186,14 +188,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSaveOccurence<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetSaveOccurence<T>(this T entity, TurnOccurenceType value)
             where T : EffectForm
         {
             entity.SaveOccurence = value;
             return entity;
         }
 
-        public static T SetSavingThrowAffinity<T>(this T entity, RuleDefinitions.EffectSavingThrowType value)
+        public static T SetSavingThrowAffinity<T>(this T entity, EffectSavingThrowType value)
             where T : EffectForm
         {
             entity.SavingThrowAffinity = value;

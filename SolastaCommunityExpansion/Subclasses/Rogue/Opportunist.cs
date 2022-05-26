@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -23,7 +22,8 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             return CreateOpportunist();
         }
 
-        private static void QuickStrikeOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
+        private static void QuickStrikeOnAttackDelegate(GameLocationCharacter attacker, GameLocationCharacter defender,
+            ActionModifier attackModifier, RulesetAttackMode attackerAttackMode)
         {
             // melee attack only
             if (attacker == null || defender == null)
@@ -32,29 +32,14 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
             }
 
             // grant advatage if attacker is performing an opportunity attack or has higher inititative.
-            if (attacker.LastInitiative > defender.LastInitiative || (attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction && attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity, ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available))
+            if (attacker.LastInitiative > defender.LastInitiative ||
+                (attackerAttackMode.ActionType == ActionDefinitions.ActionType.Reaction &&
+                 attacker.GetActionStatus(ActionDefinitions.Id.AttackOpportunity,
+                     ActionDefinitions.ActionScope.Battle) == ActionDefinitions.ActionStatus.Available))
             {
-                attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1, RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
+                attackModifier.AttackAdvantageTrends.Add(new RuleDefinitions.TrendInfo(1,
+                    RuleDefinitions.FeatureSourceType.CharacterFeature, "QuickStrike", attacker));
             }
-        }
-
-        internal class DebilitatedConditionBuilder : ConditionDefinitionBuilder
-        {
-            private const string Name = "Debilitated";
-            private const string TitleString = "Condition/&DebilitatedConditionTitle";
-            private const string DescriptionString = "Condition/&DebilitatedConditionDescription";
-
-            protected DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
-            {
-                Definition.GuiPresentation.Title = TitleString;
-                Definition.GuiPresentation.Description = DescriptionString;
-            }
-            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
-            {
-                return new DebilitatedConditionBuilder(name, guid).AddToDB();
-            }
-
-            internal static readonly ConditionDefinition DebilitatedCondition = CreateAndAddToDB(Name, SubclassNamespace.ToString());
         }
 
         private static CharacterSubclassDefinition CreateOpportunist()
@@ -70,38 +55,41 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .AddToDB();
 
             var debilitatingStrikeEffectBuilder = new EffectDescriptionBuilder()
-                    .SetDurationData(
-                        durationType: RuleDefinitions.DurationType.Round,
-                        durationParameter: 1,
-                        endOfEffect: RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                    .SetTargetingData(
-                        targetSide: RuleDefinitions.Side.Enemy,
-                        rangeType: RuleDefinitions.RangeType.MeleeHit,
-                        rangeParameter: 0, // I think this parameter is irrelevant if range type is meleehit.
-                        targetType: RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
-                        targetParameter: 0,
-                        targetParameter2: 0,
-                        itemSelectionType: ActionDefinitions.ItemSelectionType.None)
-                    .SetSavingThrowData(
-                        hasSavingThrow: true,
-                        disableSavingThrowOnAllies: false,
-                        savingThrowAbility: SmartAttributeDefinitions.Constitution.name,
-                        ignoreCover: true,
-                        difficultyClassComputation: RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        savingThrowDifficultyAbility: SmartAttributeDefinitions.Dexterity.name,
-                        fixedSavingThrowDifficultyClass: 20,
-                        advantageForEnemies: false,
-                        savingThrowAffinitiesBySense: new List<SaveAffinityBySenseDescription>())
-                    .AddEffectForm(new EffectFormBuilder()
-                        .SetConditionForm(
-                            condition: DebilitatedConditionBuilder.DebilitatedCondition,
-                            operation: ConditionForm.ConditionOperation.AddRandom,
-                            applyToSelf: false,
-                            forceOnSelf: false,
-                            detrimentalConditions: new List<ConditionDefinition> { ConditionBlinded, ConditionBaned, ConditionBleeding, ConditionStunned })
-                        .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                        .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
-                        .Build());
+                .SetDurationData(
+                    RuleDefinitions.DurationType.Round,
+                    1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                .SetTargetingData(
+                    RuleDefinitions.Side.Enemy,
+                    RuleDefinitions.RangeType.MeleeHit,
+                    0, // I think this parameter is irrelevant if range type is meleehit.
+                    RuleDefinitions.TargetType.Individuals, // allow multiple effect stack ?
+                    0,
+                    0,
+                    ActionDefinitions.ItemSelectionType.None)
+                .SetSavingThrowData(
+                    true,
+                    false,
+                    SmartAttributeDefinitions.Constitution.name,
+                    true,
+                    RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    SmartAttributeDefinitions.Dexterity.name,
+                    20,
+                    false,
+                    new List<SaveAffinityBySenseDescription>())
+                .AddEffectForm(new EffectFormBuilder()
+                    .SetConditionForm(
+                        DebilitatedConditionBuilder.DebilitatedCondition,
+                        ConditionForm.ConditionOperation.AddRandom,
+                        false,
+                        false,
+                        new List<ConditionDefinition>
+                        {
+                            ConditionBlinded, ConditionBaned, ConditionBleeding, ConditionStunned
+                        })
+                    .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
+                    .CanSaveToCancel(RuleDefinitions.TurnOccurenceType.EndOfTurn)
+                    .Build());
 
             // Enemies struck by your sneak attack suffered from one of the following condtion (Baned, Blinded, Bleed, Stunned)
             // if they fail a CON save agaisnt the DC of 8 + your DEX mod + your prof.
@@ -129,6 +117,27 @@ namespace SolastaCommunityExpansion.Subclasses.Rogue
                 .AddFeatureAtLevel(debilitatingStrikePower, 9)
                 //.AddFeatureAtLevel(thugOvercomeCompetition, 13)
                 .AddToDB();
+        }
+
+        internal class DebilitatedConditionBuilder : ConditionDefinitionBuilder
+        {
+            private const string Name = "Debilitated";
+            private const string TitleString = "Condition/&DebilitatedConditionTitle";
+            private const string DescriptionString = "Condition/&DebilitatedConditionDescription";
+
+            internal static readonly ConditionDefinition DebilitatedCondition =
+                CreateAndAddToDB(Name, SubclassNamespace.ToString());
+
+            protected DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
+            {
+                Definition.GuiPresentation.Title = TitleString;
+                Definition.GuiPresentation.Description = DescriptionString;
+            }
+
+            private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+            {
+                return new DebilitatedConditionBuilder(name, guid).AddToDB();
+            }
         }
     }
 }

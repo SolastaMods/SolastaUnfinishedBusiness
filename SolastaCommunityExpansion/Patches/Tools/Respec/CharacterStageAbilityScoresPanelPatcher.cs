@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Tools.Respec
 {
@@ -10,7 +11,8 @@ namespace SolastaCommunityExpansion.Patches.Tools.Respec
     {
         internal static void Postfix(RulesetCharacterHero ___currentHero, ref bool __result)
         {
-            if (Main.Settings.EnableRespec && Models.RespecContext.FunctorRespec.IsRespecing && !string.IsNullOrEmpty(___currentHero.Name))
+            if (Main.Settings.EnableRespec && RespecContext.FunctorRespec.IsRespecing &&
+                !string.IsNullOrEmpty(___currentHero.Name))
             {
                 __result = true;
             }

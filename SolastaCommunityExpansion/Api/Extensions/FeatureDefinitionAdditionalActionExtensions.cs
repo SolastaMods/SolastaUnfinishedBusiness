@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionAdditionalAction)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionAdditionalActionExtensions
+    [TargetType(typeof(FeatureDefinitionAdditionalAction))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionAdditionalActionExtensions
     {
         public static T AddAuthorizedActions<T>(this T entity, params ActionDefinitions.Id[] value)
             where T : FeatureDefinitionAdditionalAction
@@ -111,7 +113,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMaxAttacksNumber<T>(this T entity, System.Int32 value)
+        public static T SetMaxAttacksNumber<T>(this T entity, Int32 value)
             where T : FeatureDefinitionAdditionalAction
         {
             entity.SetField("maxAttacksNumber", value);
@@ -132,7 +134,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetTriggerCondition<T>(this T entity, RuleDefinitions.AdditionalActionTriggerCondition value)
+        public static T SetTriggerCondition<T>(this T entity, AdditionalActionTriggerCondition value)
             where T : FeatureDefinitionAdditionalAction
         {
             entity.SetField("triggerCondition", value);

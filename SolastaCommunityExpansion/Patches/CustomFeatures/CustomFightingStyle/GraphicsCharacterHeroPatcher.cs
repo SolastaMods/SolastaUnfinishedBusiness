@@ -2,27 +2,29 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle;
-
-internal static class GraphicsCharacterHeroPatcher
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle
 {
-    [HarmonyPatch(typeof(GraphicsCharacterHero), "GetAttackAnimationData")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GraphicsCharacterHero_GetAttackAnimationData
+    internal static class GraphicsCharacterHeroPatcher
     {
-        internal static void Postfix(GraphicsCharacterHero __instance, ref string __result, RulesetAttackMode attackMode,
-            ActionModifier attackModifier,
-            ref bool isThrown,
-            ref bool leftHand)
+        [HarmonyPatch(typeof(GraphicsCharacterHero), "GetAttackAnimationData")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class GraphicsCharacterHero_GetAttackAnimationData
         {
-            if (ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
+            internal static void Postfix(GraphicsCharacterHero __instance, ref string __result,
+                RulesetAttackMode attackMode,
+                ActionModifier attackModifier,
+                ref bool isThrown,
+                ref bool leftHand)
             {
-                var weaponTypeDefinition = ShieldStrikeContext.ShieldWeaponType;
-                if (weaponTypeDefinition != null)
+                if (ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
                 {
-                    leftHand = true;
-                    isThrown = false;
-                    __result = weaponTypeDefinition.AnimationTag;
+                    var weaponTypeDefinition = ShieldStrikeContext.ShieldWeaponType;
+                    if (weaponTypeDefinition != null)
+                    {
+                        leftHand = true;
+                        isThrown = false;
+                        __result = weaponTypeDefinition.AnimationTag;
+                    }
                 }
             }
         }

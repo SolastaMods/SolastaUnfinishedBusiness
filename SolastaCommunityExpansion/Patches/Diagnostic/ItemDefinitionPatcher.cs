@@ -55,7 +55,8 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
                 return;
             }
 
-            var msg = $"ItemDefinition {definition.Name}[{definition.GUID}] property {typeof(T)} does not have the matching flag set.";
+            var msg =
+ $"ItemDefinition {definition.Name}[{definition.GUID}] property {typeof(T)} does not have the matching flag set.";
 
             if (Mode.HasFlag(Verification.Log))
             {
@@ -223,4 +224,3 @@ namespace SolastaCommunityExpansion.Patches.Diagnostic
     }
 }
 #endif
-

@@ -5,13 +5,18 @@ namespace SolastaCommunityExpansion.Utils
     public static class GameConsoleHelper
     {
         private const string DefaultUseText = "Feedback/&ActivatePowerLine";
-        public static void LogCharacterUsedPower(RulesetCharacter character, FeatureDefinitionPower power, string text = DefaultUseText, bool indent = false)
+
+        public static void LogCharacterUsedPower(RulesetCharacter character, FeatureDefinitionPower power,
+            string text = DefaultUseText, bool indent = false)
         {
-            var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride) ? power.GuiPresentation.Title : power.ShortTitleOverride;
+            var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride)
+                ? power.GuiPresentation.Title
+                : power.ShortTitleOverride;
             LogCharacterActivatesAbility(character, abilityName, text, indent);
         }
 
-        public static void LogCharacterActivatesAbility(RulesetCharacter character, string abilityName, string text = DefaultUseText, bool indent = false)
+        public static void LogCharacterActivatesAbility(RulesetCharacter character, string abilityName,
+            string text = DefaultUseText, bool indent = false)
         {
             var console = Gui.Game.GameConsole;
             var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
@@ -25,7 +30,8 @@ namespace SolastaCommunityExpansion.Utils
             console.AddEntry(entry);
         }
 
-        public static void LogCharacterAffectsTarget(RulesetCharacter character, RulesetCharacter target, string notificationTag, bool indent = false)
+        public static void LogCharacterAffectsTarget(RulesetCharacter character, RulesetCharacter target,
+            string notificationTag, bool indent = false)
         {
             var console = Gui.Game.GameConsole;
             var text = $"Feedback/&NotifyEffect{notificationTag}Line";

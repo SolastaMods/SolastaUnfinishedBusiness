@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, spellLevel, ___table, hasTooltip: true);
+                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, spellLevel, ___table, true);
         }
     }
 
@@ -46,4 +46,3 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         }
     }
 }
-

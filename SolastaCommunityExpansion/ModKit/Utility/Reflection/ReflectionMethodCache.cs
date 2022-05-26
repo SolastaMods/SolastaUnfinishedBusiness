@@ -8,7 +8,8 @@ namespace ModKit.Utility
 {
     public static partial class ReflectionCache
     {
-        private static readonly HashSet<Type> ACTION_AND_FUNC_TYPES = new() {
+        private static readonly HashSet<Type> ACTION_AND_FUNC_TYPES = new()
+        {
             typeof(Action),
             typeof(Action<>),
             typeof(Action<,>),
@@ -141,9 +142,9 @@ namespace ModKit.Utility
                 }
                 else
                 {
-                    var delParamTypes = hasThis ?
-                        delParams.Select(p => p.ParameterType).Skip(1) :
-                        delParams.Select(p => p.ParameterType);
+                    var delParamTypes = hasThis
+                        ? delParams.Select(p => p.ParameterType).Skip(1)
+                        : delParams.Select(p => p.ParameterType);
                     methods = methods.Where(m =>
                         !m.IsGenericMethod &&
                         m.Name == name &&
@@ -156,6 +157,7 @@ namespace ModKit.Utility
 
                     Info = methods.FirstOrDefault();
                 }
+
                 if (Info == null)
                 {
                     throw new InvalidOperationException();
@@ -165,12 +167,14 @@ namespace ModKit.Utility
             //public TMethod Del
             //    => _delegate ??= CreateDelegate();
 
-            private static bool CheckParamsOfGenericMethod(ParameterInfo[] @params, ParameterInfo[] delParams, Type[] delGenericArgs)
+            private static bool CheckParamsOfGenericMethod(ParameterInfo[] @params, ParameterInfo[] delParams,
+                Type[] delGenericArgs)
             {
                 if (@params.Length != delParams.Length)
                 {
                     return false;
                 }
+
                 for (var i = 0; i < @params.Length; i++)
                 {
                     if (!@params[i].ParameterType.IsGenericParameter)
@@ -182,12 +186,14 @@ namespace ModKit.Utility
                     }
                     else
                     {
-                        if (delGenericArgs[@params[i].ParameterType.GenericParameterPosition] != delParams[i].ParameterType)
+                        if (delGenericArgs[@params[i].ParameterType.GenericParameterPosition] !=
+                            delParams[i].ParameterType)
                         {
                             return false;
                         }
                     }
                 }
+
                 return true;
             }
 
@@ -206,11 +212,11 @@ namespace ModKit.Utility
             {
                 var parameters = Info.GetParameters();
                 DynamicMethod method = new(
-                    name: Info.Name,
-                    returnType: Info.ReturnType,
-                    parameterTypes: parameters.Select(item => item.ParameterType).ToArray(),
-                    owner: typeof(CachedMethodOfStatic<TMethod>),
-                    skipVisibility: true);
+                    Info.Name,
+                    Info.ReturnType,
+                    parameters.Select(item => item.ParameterType).ToArray(),
+                    typeof(CachedMethodOfStatic<TMethod>),
+                    true);
 
                 var il = method.GetILGenerator();
                 for (var i = 0; i < parameters.Length; i++)
@@ -236,12 +242,12 @@ namespace ModKit.Utility
                 var type = typeof(T);
                 var parameters = Info.GetParameters();
                 DynamicMethod method = new(
-                    name: Info.Name,
-                    returnType: Info.ReturnType,
-                    parameterTypes: new[] { type.IsValueType ? type.MakeByRefType() : type }
-                                    .Concat(parameters.Select(item => item.ParameterType)).ToArray(),
-                    owner: typeof(CachedMethodOfNonStatic<T, TMethod>),
-                    skipVisibility: true);
+                    Info.Name,
+                    Info.ReturnType,
+                    new[] {type.IsValueType ? type.MakeByRefType() : type}
+                        .Concat(parameters.Select(item => item.ParameterType)).ToArray(),
+                    typeof(CachedMethodOfNonStatic<T, TMethod>),
+                    true);
                 method.DefineParameter(1, ParameterAttributes.In, "instance");
 
                 var il = method.GetILGenerator();
@@ -271,6 +277,7 @@ namespace ModKit.Utility
                         il.Emit(OpCodes.Call, Info);
                     }
                 }
+
                 il.Emit(OpCodes.Ret);
 
                 return method.CreateDelegate(typeof(TMethod)) as TMethod;

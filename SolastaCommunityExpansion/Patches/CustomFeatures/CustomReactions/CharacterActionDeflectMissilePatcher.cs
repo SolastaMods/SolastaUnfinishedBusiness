@@ -76,4 +76,3 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
         }
     }
 }
-

@@ -1,8 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using System;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaMonsters.Models;
 using UnityEngine;
+
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
 // "REFACTORING WITHOUT TESTS IS JUST CHANGING STUFF"
@@ -20,9 +22,8 @@ namespace SolastaMonsters.Monsters
 
         internal static void Create()
         {
-
             BuildNewReverseGravity_Spell();
-            BuildNewDominateMonster_Spell();  //  soolasta cant handle monsters that cause the party to change sides
+            BuildNewDominateMonster_Spell(); //  soolasta cant handle monsters that cause the party to change sides
             BuildNewFingerOfDeath_Spell();
             BuildNew_PowerWordKill_Spell();
             BuildNew_PowerWordStun_Spell();
@@ -34,12 +35,12 @@ namespace SolastaMonsters.Monsters
             var text = "ReverseGravity_Spell";
 
             var ReverseGravity_Condition = BuildNewCondition(
-                     "DH_Custom_" + text + "condition",
-                     DatabaseHelper.ConditionDefinitions.ConditionLevitate,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
-                    "Condition/&DH_" + text + "_Title",
-                     "Condition/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text + "condition",
+                DatabaseHelper.ConditionDefinitions.ConditionLevitate,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
+                "Condition/&DH_" + text + "_Title",
+                "Condition/&DH_" + text + "_Description"
+            );
 
 
             ReverseGravity_Condition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
@@ -63,15 +64,14 @@ namespace SolastaMonsters.Monsters
 
 
             ReverseGravity_Spell = BuildNewSpell(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.SpellDefinitions.Levitate,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                    "Spell/&DH_" + text + "_Title",
-                     "Spell/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text,
+                DatabaseHelper.SpellDefinitions.Levitate,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                "Spell/&DH_" + text + "_Title",
+                "Spell/&DH_" + text + "_Description"
+            );
 
             ReverseGravity_Spell.SetSpellLevel(7);
-
 
 
             DamageForm damageForm = new();
@@ -104,13 +104,14 @@ namespace SolastaMonsters.Monsters
 
             ReverseGravity_Spell.EffectDescription.RestrictedCharacterSizes.Clear();
             ReverseGravity_Spell.EffectDescription.SetTargetExcludeCaster(true);
-            ReverseGravity_Spell.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Dexterity.Name);
-            ReverseGravity_Spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
+            ReverseGravity_Spell.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
+                .Dexterity.Name);
+            ReverseGravity_Spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
+                .EffectDifficultyClassComputation.FixedValue);
             ReverseGravity_Spell.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
 
             ReverseGravity_Spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
             ReverseGravity_Spell.EffectDescription.SetDurationParameter(1);
-
         }
 
         public static void BuildNewDominateMonster_Spell()
@@ -120,62 +121,60 @@ namespace SolastaMonsters.Monsters
 
 
             DominateMonster_Spell = BuildNewSpell(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.SpellDefinitions.DominatePerson,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                    "Spell/&DH_" + text + "_Title",
-                     "Spell/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text,
+                DatabaseHelper.SpellDefinitions.DominatePerson,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                "Spell/&DH_" + text + "_Title",
+                "Spell/&DH_" + text + "_Description"
+            );
 
 
             DominateMonster_Spell.SetSpellLevel(8);
 
             DominateMonster_Spell.EffectDescription.RestrictedCreatureFamilies.Clear();
             DominateMonster_Spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
-
-
         }
 
         public static void BuildNewFingerOfDeath_Spell()
         {
-
             var text = "FingerOfDeath_Spell";
 
 
             FingerOfDeath_Spell = BuildNewSpell(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.SpellDefinitions.Disintegrate,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                    "Spell/&DH_" + text + "_Title",
-                     "Spell/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text,
+                DatabaseHelper.SpellDefinitions.Disintegrate,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                "Spell/&DH_" + text + "_Title",
+                "Spell/&DH_" + text + "_Description"
+            );
 
             FingerOfDeath_Spell.SetSpellLevel(7);
 
             FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(7);
             FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
             FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(30);
-            FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(DatabaseHelper.DamageDefinitions.DamageNecrotic.Name);
+            FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm
+                .SetDamageType(DatabaseHelper.DamageDefinitions.DamageNecrotic.Name);
 
-            FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetSpecialDeathCondition(DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster);
+            FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm
+                .SetSpecialDeathCondition(DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster);
 
-            FingerOfDeath_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement.GuiPresentation.SpriteReference);
-
+            FingerOfDeath_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement
+                .GuiPresentation.SpriteReference);
         }
 
         public static void BuildNew_PowerWordKill_Spell()
         {
-
             var text = "PowerWordKill_Spell";
 
 
             PowerWordKill_Spell = BuildNewSpell(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.SpellDefinitions.Harm,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                    "Spell/&DH_" + text + "_Title",
-                     "Spell/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text,
+                DatabaseHelper.SpellDefinitions.Harm,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                "Spell/&DH_" + text + "_Title",
+                "Spell/&DH_" + text + "_Description"
+            );
 
             PowerWordKill_Spell.SetSpellLevel(9);
 
@@ -199,23 +198,22 @@ namespace SolastaMonsters.Monsters
 
             PowerWordKill_Spell.EffectDescription.EffectForms.Add(effectForm);
 
-            PowerWordKill_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Banishment.GuiPresentation.SpriteReference);
-
-
+            PowerWordKill_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Banishment
+                .GuiPresentation.SpriteReference);
         }
+
         public static void BuildNew_PowerWordStun_Spell()
         {
-
             var text = "PowerWordStun_Spell";
 
 
             PowerWordStun_Spell = BuildNewSpell(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.SpellDefinitions.Harm,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                    "Spell/&DH_" + text + "_Title",
-                     "Spell/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text,
+                DatabaseHelper.SpellDefinitions.Harm,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                "Spell/&DH_" + text + "_Title",
+                "Spell/&DH_" + text + "_Description"
+            );
 
             PowerWordStun_Spell.SetSpellLevel(8);
 
@@ -231,7 +229,6 @@ namespace SolastaMonsters.Monsters
             conditionForm.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionStunned;
 
 
-
             EffectForm effectForm = new();
             effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
             effectForm.SetLevelMultiplier(1);
@@ -243,33 +240,35 @@ namespace SolastaMonsters.Monsters
             effectForm.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
 
             PowerWordStun_Spell.EffectDescription.EffectForms.Add(effectForm);
-            PowerWordStun_Spell.EffectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod.CharacterIncreasingHitPointsFromPool);
+            PowerWordStun_Spell.EffectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod
+                .CharacterIncreasingHitPointsFromPool);
             PowerWordStun_Spell.EffectDescription.SetPoolFilterDiceNumber(150);
             PowerWordStun_Spell.EffectDescription.SetPoolFilterDieType(RuleDefinitions.DieType.D1);
 
-            PowerWordStun_Spell.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Constitution.name);
-            PowerWordStun_Spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation.FixedValue);
+            PowerWordStun_Spell.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
+                .Constitution.name);
+            PowerWordStun_Spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
+                .EffectDifficultyClassComputation.FixedValue);
             PowerWordStun_Spell.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
             PowerWordStun_Spell.EffectDescription.SetHasSavingThrow(true);
 
 
-            PowerWordStun_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Contagion.GuiPresentation.SpriteReference);
-
+            PowerWordStun_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Contagion
+                .GuiPresentation.SpriteReference);
         }
 
 
         public static void BuildNewTimeStop_Spell()
         {
-
             var text = "TimeStop_Spell";
 
             var TimeStopped_Condition = BuildNewCondition(
-                 "DH_Custom_" + text + "condition",
-                 DatabaseHelper.ConditionDefinitions.ConditionIncapacitated,
-                 GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
+                "DH_Custom_" + text + "condition",
+                DatabaseHelper.ConditionDefinitions.ConditionIncapacitated,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text + "condition").ToString(),
                 "Condition/&DH_" + text + "_Title",
-                 "Condition/&DH_" + text + "_Description"
-                  );
+                "Condition/&DH_" + text + "_Description"
+            );
 
             TimeStopped_Condition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Attacked);
             TimeStopped_Condition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
@@ -280,12 +279,12 @@ namespace SolastaMonsters.Monsters
 
 
             TimeStop_Spell = BuildNewSpell(
-                     "DH_Custom_" + text,
-                     DatabaseHelper.SpellDefinitions.Disintegrate,
-                     GuidHelper.Create(new System.Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
-                    "Spell/&DH_" + text + "_Title",
-                     "Spell/&DH_" + text + "_Description"
-                      );
+                "DH_Custom_" + text,
+                DatabaseHelper.SpellDefinitions.Disintegrate,
+                GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString(),
+                "Spell/&DH_" + text + "_Title",
+                "Spell/&DH_" + text + "_Description"
+            );
 
             TimeStop_Spell.SetSpellLevel(9);
 
@@ -295,7 +294,6 @@ namespace SolastaMonsters.Monsters
             conditionForm.Operation = ConditionForm.ConditionOperation.Add;
             conditionForm.SetConditionDefinitionName(TimeStopped_Condition.Name);
             conditionForm.ConditionDefinition = TimeStopped_Condition;
-
 
 
             EffectForm effectForm = new();
@@ -310,7 +308,8 @@ namespace SolastaMonsters.Monsters
             TimeStop_Spell.EffectDescription.SetHasSavingThrow(false);
             TimeStop_Spell.EffectDescription.EffectForms.Clear();
             TimeStop_Spell.EffectDescription.EffectForms.Add(effectForm);
-            TimeStop_Spell.EffectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod.CharacterOnly);
+            TimeStop_Spell.EffectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod
+                .CharacterOnly);
             TimeStop_Spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
             TimeStop_Spell.EffectDescription.SetDurationParameter(3);
             TimeStop_Spell.EffectDescription.EffectForms.Add(effectForm);
@@ -324,10 +323,12 @@ namespace SolastaMonsters.Monsters
             TimeStop_Spell.EffectDescription.SetRangeParameter(0);
             TimeStop_Spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
 
-            TimeStop_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference);
-
+            TimeStop_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers
+                .PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference);
         }
-        public static SpellDefinition BuildNewSpell(string name, SpellDefinition baseSpell, string guid, string title, string description)
+
+        public static SpellDefinition BuildNewSpell(string name, SpellDefinition baseSpell, string guid, string title,
+            string description)
         {
             return SpellDefinitionBuilder
                 .Create(baseSpell, name, guid)
@@ -335,14 +336,13 @@ namespace SolastaMonsters.Monsters
                 .AddToDB();
         }
 
-        public static ConditionDefinition BuildNewCondition(string name, ConditionDefinition baseCondition, string guid, string title, string description)
+        public static ConditionDefinition BuildNewCondition(string name, ConditionDefinition baseCondition, string guid,
+            string title, string description)
         {
             return ConditionDefinitionBuilder
                 .Create(baseCondition, name, guid)
                 .SetOrUpdateGuiPresentation(title, description)
                 .AddToDB();
         }
-
     }
-
 }

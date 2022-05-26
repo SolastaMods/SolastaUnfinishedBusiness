@@ -12,11 +12,11 @@ namespace SolastaCommunityExpansion.Models
             if (Main.Settings.OfferAdditionalLoreFriendlyNames)
             {
                 var payload = Resources.Names_en;
-                var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
+                var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 
                 foreach (var line in lines)
                 {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                    var splitted = line.Split(new[] {'\t', ' '}, 2);
                     var term = splitted[0];
                     var name = splitted[1];
 

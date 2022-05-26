@@ -27,7 +27,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
         public static int MySpellLevel(SpellDefinition spellDefinition, SpellsByLevelBox spellsByLevelBox)
         {
-            var rulesetSpellRepertoire = spellsByLevelBox.GetField<SpellsByLevelBox, RulesetSpellRepertoire>("spellRepertoire");
+            var rulesetSpellRepertoire =
+                spellsByLevelBox.GetField<SpellsByLevelBox, RulesetSpellRepertoire>("spellRepertoire");
             var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
 
             if (isWarlockSpell && spellDefinition.SpellLevel > 0)

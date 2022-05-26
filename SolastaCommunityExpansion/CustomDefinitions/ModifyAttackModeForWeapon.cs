@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
-
     public class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
     {
         private readonly CharacterValidator[] _validators;
@@ -46,13 +45,15 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class UpgradeWeaponDice : IModifyAttackModeForWeapon
     {
+        public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
+            RulesetItem weapon);
+
         private readonly CharacterValidator[] _validators;
-        private readonly IsWeaponValidHandler isWeaponValid;
         private readonly GetWeaponDiceHandler getWeaponDice;
+        private readonly IsWeaponValidHandler isWeaponValid;
 
-        public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character, RulesetItem weapon);
-
-        public UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
+        public UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
+            params CharacterValidator[] validators)
         {
             this.isWeaponValid = isWeaponValid;
             this.getWeaponDice = getWeaponDice;
@@ -110,7 +111,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         private readonly IsWeaponValidHandler isWeaponValid;
         private readonly string tag;
 
-        public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
+        public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
+            params CharacterValidator[] validators)
         {
             this.isWeaponValid = isWeaponValid;
             this.tag = tag;
@@ -138,5 +140,3 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         }
     }
 }
-
-

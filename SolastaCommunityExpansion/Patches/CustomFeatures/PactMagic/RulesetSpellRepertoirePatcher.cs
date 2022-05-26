@@ -17,8 +17,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
 
             return heroWithSpellRepertoire == null
-                || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
-                || !SharedSpellsContext.IsWarlock(__instance.SpellCastingClass);
+                   || SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire)
+                   || !SharedSpellsContext.IsWarlock(__instance.SpellCastingClass);
         }
 
         // ensures MC Warlocks are treated before SC ones
@@ -48,7 +48,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class RulesetSpellRepertoire_CanUpcastSpell
         {
-            public static int MySpellLevel(SpellDefinition spellDefinition, RulesetSpellRepertoire rulesetSpellRepertoire)
+            public static int MySpellLevel(SpellDefinition spellDefinition,
+                RulesetSpellRepertoire rulesetSpellRepertoire)
             {
                 var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
 
@@ -180,9 +181,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 if (warlockSpellRepertoire == null)
                 {
                     foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                        .Where(x => x.SpellCastingRace == null))
+                                 .Where(x => x.SpellCastingRace == null))
                     {
-                        var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                        var usedSpellsSlots =
+                            spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
                         usedSpellsSlots.TryAdd(slotLevel, 0);
                         usedSpellsSlots[slotLevel]++;
@@ -193,16 +195,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 // handles MC Warlock
                 else
                 {
-                    SpendMulticasterWarlockSlots(__instance, warlockSpellRepertoire, heroWithSpellRepertoire, slotLevel);
+                    SpendMulticasterWarlockSlots(__instance, warlockSpellRepertoire, heroWithSpellRepertoire,
+                        slotLevel);
                 }
 
                 return false;
             }
 
-            private static void SpendWarlockSlots(RulesetSpellRepertoire rulesetSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire)
+            private static void SpendWarlockSlots(RulesetSpellRepertoire rulesetSpellRepertoire,
+                RulesetCharacterHero heroWithSpellRepertoire)
             {
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
-                var usedSpellsSlots = rulesetSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                var usedSpellsSlots =
+                    rulesetSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
                 for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
@@ -219,7 +224,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 rulesetSpellRepertoire.RepertoireRefreshed?.Invoke(rulesetSpellRepertoire);
             }
 
-            private static void SpendMulticasterWarlockSlots(RulesetSpellRepertoire __instance, RulesetSpellRepertoire warlockSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire, int slotLevel)
+            private static void SpendMulticasterWarlockSlots(RulesetSpellRepertoire __instance,
+                RulesetSpellRepertoire warlockSpellRepertoire, RulesetCharacterHero heroWithSpellRepertoire,
+                int slotLevel)
             {
                 var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(heroWithSpellRepertoire);
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
@@ -239,14 +246,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 var canConsumeSpellSlot = sharedRemainingSlots > 0 && slotLevel <= sharedSpellLevel;
 
                 var forcePactSlot = __instance.SpellCastingClass == IntegrationContext.WarlockClass;
-                var forceSpellSlot = canConsumeSpellSlot && (isShiftPressed || (!forcePactSlot && sharedSpellLevel <= warlockSpellLevel));
+                var forceSpellSlot = canConsumeSpellSlot &&
+                                     (isShiftPressed || (!forcePactSlot && sharedSpellLevel <= warlockSpellLevel));
 
                 // uses short rest slots across all repertoires
                 if (canConsumePactSlot && !forceSpellSlot)
                 {
                     foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
                     {
-                        if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Race)
+                        if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
+                            FeatureDefinitionCastSpell.CastingOrigin.Race)
                         {
                             continue;
                         }
@@ -259,9 +268,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 else
                 {
                     foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
-                        .Where(x => x.SpellCastingFeature.SpellCastingOrigin != FeatureDefinitionCastSpell.CastingOrigin.Race))
+                                 .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
+                                             FeatureDefinitionCastSpell.CastingOrigin.Race))
                     {
-                        var usedSpellsSlots = spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                        var usedSpellsSlots =
+                            spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
 
                         usedSpellsSlots.TryAdd(slotLevel, 0);
                         usedSpellsSlots[slotLevel]++;

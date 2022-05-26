@@ -19,11 +19,17 @@ namespace ModKit
         void OnGUI(UnityModManager.ModEntry modEntry);
     }
 
-    public interface IMenuTopPage : IMenuPage { }
+    public interface IMenuTopPage : IMenuPage
+    {
+    }
 
-    public interface IMenuSelectablePage : IMenuPage { }
+    public interface IMenuSelectablePage : IMenuPage
+    {
+    }
 
-    public interface IMenuBottomPage : IMenuPage { }
+    public interface IMenuBottomPage : IMenuPage
+    {
+    }
 
     public class MenuManager : INotifyPropertyChanged
     {
@@ -32,28 +38,18 @@ namespace ModKit
         // This method is called by the Set accessor of each property.  
         // The CallerMemberName attribute that is applied to the optional propertyName  
         // parameter causes the property name of the caller to be substituted as an argument.  
-        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        #region Fields
-        private int _tabIndex;
-        public int tabIndex
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            get { return _tabIndex; }
-            set { _tabIndex = value; NotifyPropertyChanged(); }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private readonly List<IMenuTopPage> _topPages = new();
-        private readonly List<IMenuSelectablePage> _selectablePages = new();
-        private readonly List<IMenuBottomPage> _bottomPages = new();
-        private static Exception caughtException = null;
-
-        #endregion
 
         #region Toggle
 
         public void Enable(UnityModManager.ModEntry modEntry, Assembly _assembly)
         {
             foreach (var type in _assembly.GetTypes()
-                .Where(type => !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
+                         .Where(type =>
+                             !type.IsInterface && !type.IsAbstract && typeof(IMenuPage).IsAssignableFrom(type)))
             {
                 if (typeof(IMenuTopPage).IsAssignableFrom(type))
                 {
@@ -71,7 +67,11 @@ namespace ModKit
                 }
             }
 
-            static int comparison(IMenuPage x, IMenuPage y) => x.Priority - y.Priority;
+            static int comparison(IMenuPage x, IMenuPage y)
+            {
+                return x.Priority - y.Priority;
+            }
+
             _topPages.Sort(comparison);
             _selectablePages.Sort(comparison);
             _bottomPages.Sort(comparison);
@@ -101,8 +101,10 @@ namespace ModKit
                     {
                         caughtException = null;
                     }
+
                     return;
                 }
+
                 var e = Event.current;
                 UI.userHasHitReturn = e.keyCode == KeyCode.Return;
                 UI.focusedControlName = GUI.GetNameOfFocusedControl();
@@ -160,5 +162,26 @@ namespace ModKit
                 caughtException = e;
             }
         }
+
+        #region Fields
+
+        private int _tabIndex;
+
+        public int tabIndex
+        {
+            get => _tabIndex;
+            set
+            {
+                _tabIndex = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private readonly List<IMenuTopPage> _topPages = new();
+        private readonly List<IMenuSelectablePage> _selectablePages = new();
+        private readonly List<IMenuBottomPage> _bottomPages = new();
+        private static Exception caughtException;
+
+        #endregion
     }
 }

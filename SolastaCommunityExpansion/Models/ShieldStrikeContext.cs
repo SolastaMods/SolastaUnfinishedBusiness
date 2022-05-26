@@ -3,64 +3,66 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
 
-namespace SolastaCommunityExpansion.Models;
-
-public static class ShieldStrikeContext
+namespace SolastaCommunityExpansion.Models
 {
-    private static WeaponDescription _shieldWeaponDescription;
-    private static WeaponTypeDefinition _shieldWeaponType;
-
-    public static WeaponDescription ShieldWeaponDescription =>
-        _shieldWeaponDescription ??= BuildShieldWeaponDescription();
-
-    public static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
-
-    public static void Load()
+    public static class ShieldStrikeContext
     {
-        if (_shieldWeaponType == null)
+        private static WeaponDescription _shieldWeaponDescription;
+        private static WeaponTypeDefinition _shieldWeaponType;
+
+        public static WeaponDescription ShieldWeaponDescription =>
+            _shieldWeaponDescription ??= BuildShieldWeaponDescription();
+
+        public static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
+
+        public static void Load()
         {
-            _shieldWeaponType = BuildShieldWeaponType();
-        }
-    }
-
-    public static bool IsShield(RulesetItem item)
-    {
-        return item != null && IsShield(item.ItemDefinition);
-    }
-
-    public static bool IsShield(ItemDefinition item)
-    {
-        if (item == null || !item.IsArmor)
-        {
-            return false;
+            if (_shieldWeaponType == null)
+            {
+                _shieldWeaponType = BuildShieldWeaponType();
+            }
         }
 
-        var armorDescription = item.ArmorDescription;
+        public static bool IsShield(RulesetItem item)
+        {
+            return item != null && IsShield(item.ItemDefinition);
+        }
 
-        return armorDescription.ArmorType == ArmorTypeDefinitions.ShieldType.Name;
-    }
+        public static bool IsShield(ItemDefinition item)
+        {
+            if (item == null || !item.IsArmor)
+            {
+                return false;
+            }
 
-    private static WeaponTypeDefinition BuildShieldWeaponType()
-    {
-        var shieldType = new WeaponTypeDefinitionBuilder(
-                WeaponTypeDefinitions.UnarmedStrikeType,
-                "ShieldStrikeType",
-                DefinitionBuilder.CENamespaceGuid)
-            .AddToDB();
+            var armorDescription = item.ArmorDescription;
 
-        shieldType.SetField("soundEffectOnHitDescription", WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription);
+            return armorDescription.ArmorType == ArmorTypeDefinitions.ShieldType.Name;
+        }
 
-        return shieldType;
-    }
+        private static WeaponTypeDefinition BuildShieldWeaponType()
+        {
+            var shieldType = new WeaponTypeDefinitionBuilder(
+                    WeaponTypeDefinitions.UnarmedStrikeType,
+                    "ShieldStrikeType",
+                    DefinitionBuilder.CENamespaceGuid)
+                .AddToDB();
 
-    private static WeaponDescription BuildShieldWeaponDescription()
-    {
-        var description = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.WeaponDescription);
-        description.SetWeaponType(ShieldWeaponType.Name);
+            shieldType.SetField("soundEffectOnHitDescription",
+                WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription);
 
-        var damage = description.EffectDescription.FindFirstDamageForm();
-        damage.DieType = RuleDefinitions.DieType.D4;
+            return shieldType;
+        }
 
-        return description;
+        private static WeaponDescription BuildShieldWeaponDescription()
+        {
+            var description = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.WeaponDescription);
+            description.SetWeaponType(ShieldWeaponType.Name);
+
+            var damage = description.EffectDescription.FindFirstDamageForm();
+            damage.DieType = RuleDefinitions.DieType.D4;
+
+            return description;
+        }
     }
 }

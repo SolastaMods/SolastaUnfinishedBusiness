@@ -33,7 +33,6 @@ namespace SolastaCommunityExpansion.Spells
             //level 1
             RegisterSpell(RadiantMotes, 0, SpellListWizard);
             RegisterSpell(Mule, 0, SpellListWizard);
-
         }
 
         private static SpellDefinition BuildIlluminatingSphere()
@@ -49,7 +48,8 @@ namespace SolastaCommunityExpansion.Spells
             spell.EffectDescription.SetRangeParameter(18);
             spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
             spell.EffectDescription.SetTargetParameter(5);
-            spell.EffectDescription.SetEffectParticleParameters(SacredFlame_B.EffectDescription.EffectParticleParameters);
+            spell.EffectDescription.SetEffectParticleParameters(
+                SacredFlame_B.EffectDescription.EffectParticleParameters);
 
             return spell;
         }
@@ -71,8 +71,7 @@ namespace SolastaCommunityExpansion.Spells
                 .AddEffectForm(Shine.EffectDescription.EffectForms[0])
                 .SetEffectAdvancement(
                     RuleDefinitions.EffectIncrementMethod.PerAdditionalSlotLevel,
-                    1, 2, 0, 0, 0, 0, 0, 0, 0,
-                    RuleDefinitions.AdvancementDuration.None)
+                    1, 2)
                 .Build();
 
             var spell = SpellDefinitionBuilder
@@ -118,19 +117,19 @@ namespace SolastaCommunityExpansion.Spells
                 .SetParticleEffectParameters(ExpeditiousRetreat.EffectDescription.EffectParticleParameters)
                 .AddEffectForm(
                     EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(
-                        ConditionDefinitionBuilder
-                            .Create("ConditionMule", MORWENNA_BASE_GUID)
-                            .SetGuiPresentation(Category.Condition, Longstrider.GuiPresentation.SpriteReference)
-                            .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
-                            .SetFeatures(movementAffinity, equipmentAffinity)
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false,
-                        ConditionJump.AdditionalCondition)
-                    .Build())
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionMule", MORWENNA_BASE_GUID)
+                                .SetGuiPresentation(Category.Condition, Longstrider.GuiPresentation.SpriteReference)
+                                .SetConditionType(RuleDefinitions.ConditionType.Beneficial)
+                                .SetFeatures(movementAffinity, equipmentAffinity)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add,
+                            false,
+                            false,
+                            ConditionJump.AdditionalCondition)
+                        .Build())
                 .Build();
 
             var spell = SpellDefinitionBuilder

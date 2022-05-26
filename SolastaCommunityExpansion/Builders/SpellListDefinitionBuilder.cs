@@ -9,24 +9,6 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition, SpellListDefinitionBuilder>
     {
-        #region Constructors
-        protected SpellListDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected SpellListDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
         public SpellListDefinitionBuilder ClearSpells()
         {
             // Clear everything
@@ -46,7 +28,10 @@ namespace SolastaCommunityExpansion.Builders
                 if (Definition.SpellsByLevel.Count < level + 1)
                 {
                     // Add new duplet
-                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet { Level = level, Spells = new() });
+                    Definition.SpellsByLevel.Add(new SpellsByLevelDuplet
+                    {
+                        Level = level, Spells = new List<SpellDefinition>()
+                    });
                 }
 
                 // Check this level matches
@@ -58,7 +43,7 @@ namespace SolastaCommunityExpansion.Builders
                 }
 
                 // Ensure spells list is set
-                spells.Spells ??= new();
+                spells.Spells ??= new List<SpellDefinition>();
             }
         }
 
@@ -91,14 +76,15 @@ namespace SolastaCommunityExpansion.Builders
 #endif
 
             // Set the spells - remove duplicates - sort to add to list in determistic order
-            Definition.SpellsByLevel[level].Spells.SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
+            Definition.SpellsByLevel[level].Spells
+                .SetRange(spells.Where(s => s.Implemented).OrderBy(s => s.Name).Distinct());
 
             return this;
         }
 
         /// <summary>
-        /// Sets the max spell level and whether this list has cantrips
-        /// calculated from the spells currently in the list.
+        ///     Sets the max spell level and whether this list has cantrips
+        ///     calculated from the spells currently in the list.
         /// </summary>
         /// <returns></returns>
         public SpellListDefinitionBuilder FinalizeSpells()
@@ -118,7 +104,7 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         /// <summary>
-        /// Explicitly set the max spell level and whether this list has cantrips
+        ///     Explicitly set the max spell level and whether this list has cantrips
         /// </summary>
         /// <param name="maxLevel"></param>
         /// <param name="hasCantrips"></param>
@@ -129,5 +115,27 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetHasCantrips(hasCantrips);
             return this;
         }
+
+        #region Constructors
+
+        protected SpellListDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
+        {
+        }
+
+        protected SpellListDefinitionBuilder(SpellListDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

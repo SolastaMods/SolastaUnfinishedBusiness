@@ -8,8 +8,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
      */
     public class FeatureDefinitionPointPoolWithBonus : FeatureDefinitionPointPool, IPointPoolMaxBonus
     {
-        public int MaxPointsBonus { get => PoolAmount; }
+        public int MaxPointsBonus => PoolAmount;
     }
-
-
 }

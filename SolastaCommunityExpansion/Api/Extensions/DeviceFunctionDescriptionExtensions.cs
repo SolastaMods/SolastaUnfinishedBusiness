@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
@@ -5,25 +6,26 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(DeviceFunctionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class DeviceFunctionDescriptionExtensions
+    [TargetType(typeof(DeviceFunctionDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class DeviceFunctionDescriptionExtensions
     {
         public static DeviceFunctionDescription Copy(this DeviceFunctionDescription entity)
         {
             return new DeviceFunctionDescription(entity);
         }
 
-        public static T SetCanOverchargeSpell<T>(this T entity, System.Boolean value)
+        public static T SetCanOverchargeSpell<T>(this T entity, Boolean value)
             where T : DeviceFunctionDescription
         {
             entity.SetField("canOverchargeSpell", value);
             return entity;
         }
 
-        public static T SetDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetDurationType<T>(this T entity, DurationType value)
             where T : DeviceFunctionDescription
         {
             entity.SetField("durationType", value);
@@ -44,7 +46,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRechargeRate<T>(this T entity, RuleDefinitions.RechargeRate value)
+        public static T SetRechargeRate<T>(this T entity, RechargeRate value)
             where T : DeviceFunctionDescription
         {
             entity.SetField("rechargeRate", value);
@@ -72,7 +74,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUseAmount<T>(this T entity, System.Int32 value)
+        public static T SetUseAmount<T>(this T entity, Int32 value)
             where T : DeviceFunctionDescription
         {
             entity.SetField("useAmount", value);

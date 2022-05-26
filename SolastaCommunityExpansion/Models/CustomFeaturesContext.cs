@@ -9,7 +9,8 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class CustomFeaturesContext
     {
-        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features, bool handleCustomCode = true)
+        internal static void RecursiveGrantCustomFeatures(RulesetCharacterHero hero, string tag,
+            List<FeatureDefinition> features, bool handleCustomCode = true)
         {
             foreach (var grantedFeature in features)
             {
@@ -18,7 +19,8 @@ namespace SolastaCommunityExpansion.Models
                     customFeature.ApplyFeature(hero, tag);
                 }
 
-                if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                if (grantedFeature is FeatureDefinitionFeatureSet set &&
+                    set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RecursiveGrantCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
                 }
@@ -35,13 +37,14 @@ namespace SolastaCommunityExpansion.Models
 
                 featureDefinitionProficiency.Proficiencies
                     .ForEach(prof =>
-                    hero.TrainedFightingStyles
-                        .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
-                            .GetElement(prof, false)));
+                        hero.TrainedFightingStyles
+                            .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
+                                .GetElement(prof)));
             }
         }
 
-        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag, List<FeatureDefinition> features, bool handleCustomCode = true)
+        internal static void RecursiveRemoveCustomFeatures(RulesetCharacterHero hero, string tag,
+            List<FeatureDefinition> features, bool handleCustomCode = true)
         {
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
@@ -58,7 +61,8 @@ namespace SolastaCommunityExpansion.Models
                     customFeature.RemoveFeature(hero, tag);
                 }
 
-                if (grantedFeature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                if (grantedFeature is FeatureDefinitionFeatureSet set &&
+                    set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RecursiveRemoveCustomFeatures(hero, tag, set.FeatureSet, handleCustomCode);
                 }
@@ -77,13 +81,14 @@ namespace SolastaCommunityExpansion.Models
                     .ForEach(prof =>
                         hero.TrainedFightingStyles
                             .Remove(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
-                                .GetElement(prof, false)));
+                                .GetElement(prof)));
             }
 
             hero.UpdateFeatureModifiers(tag);
         }
 
-        private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero, RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
+        private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero,
+            RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
         {
             var poolAmount = featureDefinitionPointPool.PoolAmount;
 
@@ -94,7 +99,8 @@ namespace SolastaCommunityExpansion.Models
                     break;
 
                 case HeroDefinitions.PointsPoolType.Cantrip:
-                    heroRepertoire?.KnownCantrips.RemoveRange(heroRepertoire.KnownCantrips.Count - poolAmount, poolAmount);
+                    heroRepertoire?.KnownCantrips.RemoveRange(heroRepertoire.KnownCantrips.Count - poolAmount,
+                        poolAmount);
                     break;
 
                 case HeroDefinitions.PointsPoolType.Spell:
@@ -114,7 +120,8 @@ namespace SolastaCommunityExpansion.Models
                     break;
 
                 case HeroDefinitions.PointsPoolType.Metamagic:
-                    hero.TrainedMetamagicOptions.RemoveRange(hero.TrainedMetamagicOptions.Count - poolAmount, poolAmount);
+                    hero.TrainedMetamagicOptions.RemoveRange(hero.TrainedMetamagicOptions.Count - poolAmount,
+                        poolAmount);
                     break;
 
                 case HeroDefinitions.PointsPoolType.Skill:
@@ -127,10 +134,13 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void RemoveFeatures(RulesetCharacterHero hero, CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
+        internal static void RemoveFeatures(RulesetCharacterHero hero,
+            CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
         {
             var classLevel = hero.ClassesAndLevels[characterClassDefinition];
-            var heroRepertoire = hero.SpellRepertoires.FirstOrDefault(x => LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
+            var heroRepertoire =
+                hero.SpellRepertoires.FirstOrDefault(x =>
+                    LevelUpContext.IsRepertoireFromSelectedClassSubclass(hero, x));
             var buildinData = hero.GetHeroBuildingData();
             var spellTag = GetSpellLearningTag(hero, tag);
 
@@ -140,16 +150,20 @@ namespace SolastaCommunityExpansion.Models
                 {
                     hero.SpellRepertoires.Remove(heroRepertoire);
                 }
-                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells && heroRepertoire != null)
+
+                if (featureDefinition is FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells &&
+                    heroRepertoire != null)
                 {
-                    var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups.FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
+                    var spellsToRemove = featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
+                        .FirstOrDefault(x => x.ClassLevel == classLevel)?.SpellsList.Count ?? 0;
 
                     while (spellsToRemove-- > 0)
                     {
                         heroRepertoire.AutoPreparedSpells.RemoveAt(heroRepertoire.AutoPreparedSpells.Count - 1);
                     }
                 }
-                else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips && heroRepertoire != null)
+                else if (featureDefinition is FeatureDefinitionBonusCantrips featureDefinitionBonusCantrips &&
+                         heroRepertoire != null)
                 {
                     //TODO: fix potential problem if several features grant same cantrip, but we only remove one of them
                     heroRepertoire.KnownCantrips.RemoveAll(featureDefinitionBonusCantrips.BonusCantrips.Contains);
@@ -174,7 +188,8 @@ namespace SolastaCommunityExpansion.Models
                 {
                     RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool);
                 }
-                else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet && featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet &&
+                         featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 {
                     RemoveFeatures(hero, characterClassDefinition, tag, featureDefinitionFeatureSet.FeatureSet);
                 }
@@ -183,7 +198,8 @@ namespace SolastaCommunityExpansion.Models
 
         public static void ActuallyRemoveCharacterFeature(RulesetCharacterHero hero, FeatureDefinition feature)
         {
-            if (feature is FeatureDefinitionFeatureSet set && set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            if (feature is FeatureDefinitionFeatureSet set &&
+                set.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             {
                 foreach (var f in set.FeatureSet)
                 {
@@ -199,12 +215,13 @@ namespace SolastaCommunityExpansion.Models
 
                 if (features.Contains(feature))
                 {
-                    var featuresToRemove = new List<FeatureDefinition> { feature };
-                    RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, handleCustomCode: false);
+                    var featuresToRemove = new List<FeatureDefinition> {feature};
+                    RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, false);
                     if (selectedClass != null)
                     {
                         RemoveFeatures(hero, selectedClass, tag, featuresToRemove);
                     }
+
                     features.Remove(feature);
                     break;
                 }
@@ -225,8 +242,10 @@ namespace SolastaCommunityExpansion.Models
                     // it recharges on a long rest and this is a long rest.
                     if (!pointPoolPowerDefinitions.Contains(pointPoolPower)
                         && ((pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.ShortRest &&
-                            (restType == RuleDefinitions.RestType.ShortRest || restType == RuleDefinitions.RestType.LongRest)) ||
-                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest && restType == RuleDefinitions.RestType.LongRest)))
+                             (restType == RuleDefinitions.RestType.ShortRest ||
+                              restType == RuleDefinitions.RestType.LongRest)) ||
+                            (pointPoolPower.RechargeRate == RuleDefinitions.RechargeRate.LongRest &&
+                             restType == RuleDefinitions.RestType.LongRest)))
                     {
                         pointPoolPowerDefinitions.Add(pointPoolPower);
                     }
@@ -247,7 +266,8 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower, int remainingUses, int totalUses)
+        internal static void AssignUsesToSharedPowersForPool(RulesetCharacter character, RulesetUsablePower poolPower,
+            int remainingUses, int totalUses)
         {
             // Find powers that rely on this pool
             foreach (var usablePower in character.UsablePowers)
@@ -271,7 +291,8 @@ namespace SolastaCommunityExpansion.Models
 
             foreach (var modifierPower in character.UsablePowers)
             {
-                if (modifierPower.PowerDefinition is IPowerPoolModifier modifier && modifier.GetUsagePoolPower() == poolPower.PowerDefinition)
+                if (modifierPower.PowerDefinition is IPowerPoolModifier modifier &&
+                    modifier.GetUsagePoolPower() == poolPower.PowerDefinition)
                 {
                     totalPoolSize += modifierPower.MaxUses;
                 }
@@ -280,7 +301,8 @@ namespace SolastaCommunityExpansion.Models
             return totalPoolSize;
         }
 
-        internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power, int poolUsage)
+        internal static void UpdateUsageForPower(this RulesetCharacter character, FeatureDefinitionPower power,
+            int poolUsage)
         {
             foreach (var poolPower in character.UsablePowers)
             {
@@ -297,7 +319,8 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
-        internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower, int poolUsage)
+        internal static void UpdateUsageForPowerPool(this RulesetCharacter character, RulesetUsablePower modifiedPower,
+            int poolUsage)
         {
             if (modifiedPower.PowerDefinition is not IPowerSharedPool sharedPoolPower)
             {
@@ -379,7 +402,8 @@ namespace SolastaCommunityExpansion.Models
             return ModifySpellEffect(spell.EffectDescription, spell, caster);
         }
 
-        public static EffectDescription ModifySpellEffect(EffectDescription original, SpellDefinition spell, RulesetCharacter caster)
+        public static EffectDescription ModifySpellEffect(EffectDescription original, SpellDefinition spell,
+            RulesetCharacter caster)
         {
             //TODO: find a way to cache result, so it works faster - this method is called sveral times per spell cast
             var result = original;
@@ -474,7 +498,7 @@ namespace SolastaCommunityExpansion.Models
                 return tag;
             }
 
-            return (isSubclassTag && hero.ClassesAndSubclasses.ContainsKey(lastClass))
+            return isSubclassTag && hero.ClassesAndSubclasses.ContainsKey(lastClass)
                 ? AttributeDefinitions.GetSubclassTag(lastClass, classLevel, hero.ClassesAndSubclasses[lastClass])
                 : AttributeDefinitions.GetClassTag(lastClass, classLevel);
         }

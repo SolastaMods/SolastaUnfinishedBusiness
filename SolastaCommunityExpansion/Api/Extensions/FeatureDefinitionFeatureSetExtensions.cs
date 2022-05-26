@@ -1,17 +1,18 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionFeatureSet)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionFeatureSetExtensions
+    [TargetType(typeof(FeatureDefinitionFeatureSet))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionFeatureSetExtensions
     {
         public static T AddFeatureSet<T>(this T entity, params FeatureDefinition[] value)
             where T : FeatureDefinitionFeatureSet
@@ -34,14 +35,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDefaultSelection<T>(this T entity, System.Int32 value)
+        public static T SetDefaultSelection<T>(this T entity, Int32 value)
             where T : FeatureDefinitionFeatureSet
         {
             entity.SetField("defaultSelection", value);
             return entity;
         }
 
-        public static T SetEnumerateInDescription<T>(this T entity, System.Boolean value)
+        public static T SetEnumerateInDescription<T>(this T entity, Boolean value)
             where T : FeatureDefinitionFeatureSet
         {
             entity.SetField("enumerateInDescription", value);
@@ -62,7 +63,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetHasRacialAffinity<T>(this T entity, System.Boolean value)
+        public static T SetHasRacialAffinity<T>(this T entity, Boolean value)
             where T : FeatureDefinitionFeatureSet
         {
             entity.SetField("hasRacialAffinity", value);
@@ -76,7 +77,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUniqueChoices<T>(this T entity, System.Boolean value)
+        public static T SetUniqueChoices<T>(this T entity, Boolean value)
             where T : FeatureDefinitionFeatureSet
         {
             entity.SetField("uniqueChoices", value);

@@ -62,6 +62,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                     {
                         yield return enums.Current;
                     }
+
                     attackParams.ActingCharacter.AttackImpactStart -= AttackImpactStartHandler;
                 }
             }

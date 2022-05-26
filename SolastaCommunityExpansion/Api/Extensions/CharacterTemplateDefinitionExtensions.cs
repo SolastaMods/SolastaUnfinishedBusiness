@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CharacterTemplateDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CharacterTemplateDefinitionExtensions
+    [TargetType(typeof(CharacterTemplateDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CharacterTemplateDefinitionExtensions
     {
         public static T AddEquipment<T>(this T entity, params ItemDefinition[] value)
             where T : CharacterTemplateDefinition
@@ -27,28 +29,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddExpertisesOverride<T>(this T entity, params System.String[] value)
+        public static T AddExpertisesOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             AddExpertisesOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddExpertisesOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddExpertisesOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.ExpertisesOverride.AddRange(value);
             return entity;
         }
 
-        public static T AddFeatsOverride<T>(this T entity, params System.String[] value)
+        public static T AddFeatsOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             AddFeatsOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddFeatsOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddFeatsOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.FeatsOverride.AddRange(value);
@@ -139,28 +141,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddLanguagesOverride<T>(this T entity, params System.String[] value)
+        public static T AddLanguagesOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             AddLanguagesOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddLanguagesOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddLanguagesOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.LanguagesOverride.AddRange(value);
             return entity;
         }
 
-        public static T AddMetamagicOverride<T>(this T entity, params System.String[] value)
+        public static T AddMetamagicOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             AddMetamagicOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddMetamagicOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddMetamagicOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.MetamagicOverride.AddRange(value);
@@ -195,28 +197,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkillsOverride<T>(this T entity, params System.String[] value)
+        public static T AddSkillsOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             AddSkillsOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSkillsOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddSkillsOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.SkillsOverride.AddRange(value);
             return entity;
         }
 
-        public static T AddToolsOverride<T>(this T entity, params System.String[] value)
+        public static T AddToolsOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             AddToolsOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddToolsOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddToolsOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.ToolsOverride.AddRange(value);
@@ -349,49 +351,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAbilityScores<T>(this T entity, System.Int32[] value)
+        public static T SetAbilityScores<T>(this T entity, Int32[] value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("abilityScores", value);
             return entity;
         }
 
-        public static T SetAge<T>(this T entity, System.Int32 value)
+        public static T SetAge<T>(this T entity, Int32 value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("age", value);
             return entity;
         }
 
-        public static T SetAgeMorphotypeValue<T>(this T entity, System.Single value)
+        public static T SetAgeMorphotypeValue<T>(this T entity, Single value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("ageMorphotypeValue", value);
             return entity;
         }
 
-        public static T SetAlignment<T>(this T entity, System.String value)
+        public static T SetAlignment<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("alignment", value);
             return entity;
         }
 
-        public static T SetAlignmentPersonalityFlag1<T>(this T entity, System.String value)
+        public static T SetAlignmentPersonalityFlag1<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("alignmentPersonalityFlag1", value);
             return entity;
         }
 
-        public static T SetAlignmentPersonalityFlag2<T>(this T entity, System.String value)
+        public static T SetAlignmentPersonalityFlag2<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("alignmentPersonalityFlag2", value);
             return entity;
         }
 
-        public static T SetAutomateAbilityScoreIncreases<T>(this T entity, System.Boolean value)
+        public static T SetAutomateAbilityScoreIncreases<T>(this T entity, Boolean value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("automateAbilityScoreIncreases", value);
@@ -405,42 +407,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBackgroundPersonalityFlag1<T>(this T entity, System.String value)
+        public static T SetBackgroundPersonalityFlag1<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("backgroundPersonalityFlag1", value);
             return entity;
         }
 
-        public static T SetBackgroundPersonalityFlag2<T>(this T entity, System.String value)
+        public static T SetBackgroundPersonalityFlag2<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("backgroundPersonalityFlag2", value);
             return entity;
         }
 
-        public static T SetBeardShapeMorphotype<T>(this T entity, System.String value)
+        public static T SetBeardShapeMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("beardShapeMorphotype", value);
             return entity;
         }
 
-        public static T SetBodyDecorationColorMorphotype<T>(this T entity, System.String value)
+        public static T SetBodyDecorationColorMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("bodyDecorationColorMorphotype", value);
             return entity;
         }
 
-        public static T SetBodyDecorationMorphotype<T>(this T entity, System.String value)
+        public static T SetBodyDecorationMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("bodyDecorationMorphotype", value);
             return entity;
         }
 
-        public static T SetCharacterLevel<T>(this T entity, System.Int32 value)
+        public static T SetCharacterLevel<T>(this T entity, Int32 value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("characterLevel", value);
@@ -454,7 +456,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEditorOnly<T>(this T entity, System.Boolean value)
+        public static T SetEditorOnly<T>(this T entity, Boolean value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("editorOnly", value);
@@ -475,56 +477,56 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetExpertisesOverride<T>(this T entity, params System.String[] value)
+        public static T SetExpertisesOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             SetExpertisesOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetExpertisesOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetExpertisesOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.ExpertisesOverride.SetRange(value);
             return entity;
         }
 
-        public static T SetEyeColorMorphotype<T>(this T entity, System.String value)
+        public static T SetEyeColorMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("eyeColorMorphotype", value);
             return entity;
         }
 
-        public static T SetEyeMorphotype<T>(this T entity, System.String value)
+        public static T SetEyeMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("eyeMorphotype", value);
             return entity;
         }
 
-        public static T SetFacePath<T>(this T entity, System.String value)
+        public static T SetFacePath<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("facePath", value);
             return entity;
         }
 
-        public static T SetFaceShapeMorphotype<T>(this T entity, System.String value)
+        public static T SetFaceShapeMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("faceShapeMorphotype", value);
             return entity;
         }
 
-        public static T SetFeatsOverride<T>(this T entity, params System.String[] value)
+        public static T SetFeatsOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             SetFeatsOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetFeatsOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetFeatsOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.FeatsOverride.SetRange(value);
@@ -538,21 +540,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFirstName<T>(this T entity, System.String value)
+        public static T SetFirstName<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("firstName", value);
             return entity;
         }
 
-        public static T SetHairColorMorphotype<T>(this T entity, System.String value)
+        public static T SetHairColorMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("hairColorMorphotype", value);
             return entity;
         }
 
-        public static T SetHairShapeMorphotype<T>(this T entity, System.String value)
+        public static T SetHairShapeMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("hairShapeMorphotype", value);
@@ -643,14 +645,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLanguagesOverride<T>(this T entity, params System.String[] value)
+        public static T SetLanguagesOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             SetLanguagesOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetLanguagesOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetLanguagesOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.LanguagesOverride.SetRange(value);
@@ -671,28 +673,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMetamagicOverride<T>(this T entity, params System.String[] value)
+        public static T SetMetamagicOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             SetMetamagicOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetMetamagicOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetMetamagicOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.MetamagicOverride.SetRange(value);
             return entity;
         }
 
-        public static T SetMusculatureMorphotypeValue<T>(this T entity, System.Single value)
+        public static T SetMusculatureMorphotypeValue<T>(this T entity, Single value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("musculatureMorphotypeValue", value);
             return entity;
         }
 
-        public static T SetOriginMorphotype<T>(this T entity, System.String value)
+        public static T SetOriginMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("originMorphotype", value);
@@ -734,42 +736,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetScarsMorphotype<T>(this T entity, System.String value)
+        public static T SetScarsMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("scarsMorphotype", value);
             return entity;
         }
 
-        public static T SetSex<T>(this T entity, RuleDefinitions.CreatureSex value)
+        public static T SetSex<T>(this T entity, CreatureSex value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("sex", value);
             return entity;
         }
 
-        public static T SetSkillsOverride<T>(this T entity, params System.String[] value)
+        public static T SetSkillsOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             SetSkillsOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSkillsOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetSkillsOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.SkillsOverride.SetRange(value);
             return entity;
         }
 
-        public static T SetSkinMorphotype<T>(this T entity, System.String value)
+        public static T SetSkinMorphotype<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("skinMorphotype", value);
             return entity;
         }
 
-        public static T SetStartingMoney<T>(this T entity, System.Int32[] value)
+        public static T SetStartingMoney<T>(this T entity, Int32[] value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("startingMoney", value);
@@ -790,28 +792,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSurName<T>(this T entity, System.String value)
+        public static T SetSurName<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("surName", value);
             return entity;
         }
 
-        public static T SetToolsOverride<T>(this T entity, params System.String[] value)
+        public static T SetToolsOverride<T>(this T entity, params String[] value)
             where T : CharacterTemplateDefinition
         {
             SetToolsOverride(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetToolsOverride<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetToolsOverride<T>(this T entity, IEnumerable<String> value)
             where T : CharacterTemplateDefinition
         {
             entity.ToolsOverride.SetRange(value);
             return entity;
         }
 
-        public static T SetVoiceId<T>(this T entity, System.String value)
+        public static T SetVoiceId<T>(this T entity, String value)
             where T : CharacterTemplateDefinition
         {
             entity.SetField("voiceId", value);

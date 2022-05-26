@@ -16,8 +16,8 @@
     }
 
     public delegate void OnAttackDelegate(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode);
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier attackModifier,
+        RulesetAttackMode attackerAttackMode);
 }

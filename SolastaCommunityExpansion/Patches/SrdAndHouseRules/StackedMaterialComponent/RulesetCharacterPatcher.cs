@@ -7,17 +7,19 @@ using HarmonyLib;
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComponent
 {
     /// <summary>
-    /// Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
-    /// of lesser value components (e.g. 4 x 300gp diamonds).
-    /// Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider combining
-    /// different types of items with the tag 'gem'.
-    /// TODO: if anyone requests it we can improve with GroupBy etc...
+    ///     Allow spells that require consumption of a material component (e.g. a gem of value >= 1000gp) use a stack
+    ///     of lesser value components (e.g. 4 x 300gp diamonds).
+    ///     Note that this implementation will only work with identical components - e.g. 'all diamonds', it won't consider
+    ///     combining
+    ///     different types of items with the tag 'gem'.
+    ///     TODO: if anyone requests it we can improve with GroupBy etc...
     /// </summary>
     [HarmonyPatch(typeof(RulesetCharacter), "IsComponentMaterialValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_IsComponentMaterialValid
     {
-        public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition, ref string failure, ref bool __result)
+        public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition, ref string failure,
+            ref bool __result)
         {
             if (!Main.Settings.AllowStackedMaterialComponent)
             {
@@ -89,7 +91,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
                 {
                     item.RulesetItem,
                     item.Cost,
-                    StackCountRequired = (int)Math.Ceiling(spellDefinition.SpecificMaterialComponentCostGp / (double)item.Cost),
+                    StackCountRequired =
+                        (int)Math.Ceiling(spellDefinition.SpecificMaterialComponentCostGp / (double)item.Cost)
                 })
                 .Where(item => item.StackCountRequired <= item.RulesetItem.StackCount)
                 .Select(item => new
@@ -125,7 +128,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.StackedMaterialComp
 
             var rulesetItem = itemToUse.RulesetItem;
 
-            if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 && itemToUse.StackCountRequired < rulesetItem.StackCount)
+            if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 &&
+                itemToUse.StackCountRequired < rulesetItem.StackCount)
             {
                 Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 

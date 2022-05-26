@@ -15,7 +15,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
         {
             if (__instance is MainMenuScreen mainMenuScreen && Global.LastLevelUpHeroName != null)
             {
-                var charactersPanel = AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as CharactersPanel;
+                var charactersPanel =
+                    AccessTools.Field(mainMenuScreen.GetType(), "charactersPanel").GetValue(mainMenuScreen) as
+                        CharactersPanel;
 
                 charactersPanel.Show();
             }

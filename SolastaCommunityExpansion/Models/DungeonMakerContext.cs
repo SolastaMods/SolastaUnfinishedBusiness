@@ -34,7 +34,8 @@ namespace SolastaCommunityExpansion.Models
 
             var title = userContent.Title;
             var compliantTitle = IOHelper.GetOsCompliantFilename(title);
-            var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+            var destinationPath = Path.Combine(backupDirectory, compliantTitle) + "." +
+                                  DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
             var backupFiles = Directory.EnumerateFiles(backupDirectory, compliantTitle + "*").OrderBy(f => f).ToList();
 
             for (var i = 0; i <= backupFiles.Count - Main.Settings.MaxBackupFilesPerLocationCampaign; i++)

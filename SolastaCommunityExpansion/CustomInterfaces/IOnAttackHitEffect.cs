@@ -20,10 +20,10 @@
     }
 
     public delegate void OnAttackHitDelegate(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged);
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier attackModifier,
+        int attackRoll,
+        int successDelta,
+        bool ranged);
 }

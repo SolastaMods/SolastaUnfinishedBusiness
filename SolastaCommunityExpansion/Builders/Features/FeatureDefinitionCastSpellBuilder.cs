@@ -7,34 +7,218 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features
 {
-    public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell, FeatureDefinitionCastSpellBuilder>
+    public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<FeatureDefinitionCastSpell,
+        FeatureDefinitionCastSpellBuilder>
     {
-        #region Constructors
-        protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-            InitializeFields();
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-            InitializeFields();
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
         public enum CasterProgression
         {
             FULL_CASTER,
             HALF_CASTER,
             THIRD_CASTER
         }
+
+        private readonly int[] BonusSpellsKnownByCasterLevel =
+        {
+            0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13
+        };
+
+        private readonly int[] BonusSpellsKnownThirdCaster =
+        {
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4
+        };
+
+        private readonly List<int>[] SlotsByCasterLevel =
+        {
+            new()
+            {
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                0,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                2,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                0,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                1,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                2,
+                0,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                1,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                3,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                3,
+                0
+            },
+            new()
+            {
+                4,
+                3,
+                3,
+                3,
+                3,
+                0
+            }
+        };
 
         private void InitializeFields()
         {
@@ -81,7 +265,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount prepCount)
+        public FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(
+            RuleDefinitions.SpellPreparationCount prepCount)
         {
             Definition.SetSpellPreparationCount(prepCount);
             return this;
@@ -148,7 +333,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionCastSpellBuilder SetKnownCantrips(int startingAmount, int startingLevel, CasterProgression progression)
+        public FeatureDefinitionCastSpellBuilder SetKnownCantrips(int startingAmount, int startingLevel,
+            CasterProgression progression)
         {
             Definition.KnownCantrips.Clear();
             var level = 1;
@@ -157,6 +343,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             {
                 Definition.KnownCantrips.Add(numCantrips);
             }
+
             numCantrips = startingAmount;
             switch (progression)
             {
@@ -165,47 +352,56 @@ namespace SolastaCommunityExpansion.Builders.Features
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     numCantrips++;
                     for (; level < 10; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     numCantrips++;
                     for (; level < 21; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     break;
                 case CasterProgression.HALF_CASTER:
                     for (; level < 10; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     numCantrips++;
                     for (; level < 14; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     numCantrips++;
                     for (; level < 21; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     break;
                 case CasterProgression.THIRD_CASTER:
                     for (; level < 10; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     numCantrips++;
                     for (; level < 21; level++)
                     {
                         Definition.KnownCantrips.Add(numCantrips);
                     }
+
                     break;
                 default:
                     throw new SolastaModApiException($"Unknown CasterProgression: {progression}");
             }
+
             return this;
         }
 
@@ -218,7 +414,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             }
         }
 
-        public FeatureDefinitionCastSpellBuilder SetScribedSpells(int startingLevel, int initialAmount, int perLevelAfterFirst)
+        public FeatureDefinitionCastSpellBuilder SetScribedSpells(int startingLevel, int initialAmount,
+            int perLevelAfterFirst)
         {
             Definition.ScribedSpells.Clear();
             var level = 1;
@@ -226,12 +423,14 @@ namespace SolastaCommunityExpansion.Builders.Features
             {
                 Definition.ScribedSpells.Add(0);
             }
+
             Definition.ScribedSpells.Add(initialAmount);
             level++;
             for (; level < 21; level++)
             {
                 Definition.ScribedSpells.Add(perLevelAfterFirst);
             }
+
             return this;
         }
 
@@ -244,9 +443,6 @@ namespace SolastaCommunityExpansion.Builders.Features
             }
         }
 
-        private readonly int[] BonusSpellsKnownByCasterLevel = { 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 13, 13 };
-        private readonly int[] BonusSpellsKnownThirdCaster = { 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4 };
-
         public FeatureDefinitionCastSpellBuilder SetKnownSpells(params int[] spellsCount)
         {
             return SetKnownSpells(spellsCount.AsEnumerable());
@@ -258,7 +454,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel, CasterProgression progression)
+        public FeatureDefinitionCastSpellBuilder SetKnownSpells(int startingAmount, int startingLevel,
+            CasterProgression progression)
         {
             Definition.KnownSpells.Clear();
             var level = 1;
@@ -266,6 +463,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             {
                 Definition.KnownSpells.Add(0);
             }
+
             switch (progression)
             {
                 case CasterProgression.FULL_CASTER:
@@ -273,6 +471,7 @@ namespace SolastaCommunityExpansion.Builders.Features
                     {
                         Definition.KnownSpells.Add(startingAmount + BonusSpellsKnownByCasterLevel[level]);
                     }
+
                     break;
                 case CasterProgression.HALF_CASTER:
                     for (; level < 21; level++)
@@ -280,20 +479,23 @@ namespace SolastaCommunityExpansion.Builders.Features
                         // +1 here because half casters effectively round up the spells known
                         Definition.KnownSpells.Add(startingAmount + BonusSpellsKnownByCasterLevel[(level + 1) / 2]);
                     }
+
                     break;
                 case CasterProgression.THIRD_CASTER:
                     for (; level < 21; level++)
                     {
                         Definition.KnownSpells.Add(startingAmount +
-                            // +2 here because third casters effectively "round up" for spells known
-                            BonusSpellsKnownByCasterLevel[(level + 2) / 3] +
-                            // Third casters also just learn spells faster
-                            BonusSpellsKnownThirdCaster[level]);
+                                                   // +2 here because third casters effectively "round up" for spells known
+                                                   BonusSpellsKnownByCasterLevel[(level + 2) / 3] +
+                                                   // Third casters also just learn spells faster
+                                                   BonusSpellsKnownThirdCaster[level]);
                     }
+
                     break;
                 default:
                     throw new SolastaModApiException($"Unknown CasterProgression: {progression}");
             }
+
             return this;
         }
 
@@ -304,6 +506,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             {
                 Definition.ReplacedSpells.Add(0);
             }
+
             return this;
         }
 
@@ -315,6 +518,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             {
                 Definition.ReplacedSpells.Add(1);
             }
+
             return this;
         }
 
@@ -329,37 +533,14 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
-        private readonly List<int>[] SlotsByCasterLevel =
-        {
-            new List<int> {0,0,0,0,0,0 },
-            new List<int> {2,0,0,0,0,0 },
-            new List<int> {3,0,0,0,0,0 },
-            new List<int> {4,2,0,0,0,0 },
-            new List<int> {4,3,0,0,0,0 },
-            new List<int> {4,3,2,0,0,0 },
-            new List<int> {4,3,3,0,0,0 },
-            new List<int> {4,3,3,1,0,0 },
-            new List<int> {4,3,3,2,0,0 },
-            new List<int> {4,3,3,3,1,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,2,0 },
-            new List<int> {4,3,3,3,3,0 },
-            new List<int> {4,3,3,3,3,0 },
-            new List<int> {4,3,3,3,3,0 },
-        };
-
-        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
+        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
+            params FeatureDefinitionCastSpell.SlotsByLevelDuplet[] slotsPerLevels)
         {
             return SetSlotsPerLevel(slotsPerLevels.AsEnumerable());
         }
 
-        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
+        public FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
+            IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsPerLevels)
         {
             Definition.SlotsPerLevels.SetRange(slotsPerLevels);
             return this;
@@ -372,11 +553,11 @@ namespace SolastaCommunityExpansion.Builders.Features
             {
                 var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                 {
-                    Level = level,
-                    Slots = SlotsByCasterLevel[0]
+                    Level = level, Slots = SlotsByCasterLevel[0]
                 };
                 Definition.SlotsPerLevels.Add(slotsForLevel);
             }
+
             switch (progression)
             {
                 case CasterProgression.FULL_CASTER:
@@ -384,36 +565,61 @@ namespace SolastaCommunityExpansion.Builders.Features
                     {
                         var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
-                            Level = level,
-                            Slots = SlotsByCasterLevel[level - startingLevel + 1]
+                            Level = level, Slots = SlotsByCasterLevel[level - startingLevel + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }
+
                     break;
                 case CasterProgression.HALF_CASTER:
                     for (; level < 21; level++)
                     {
                         var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
-                            Level = level,
-                            Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
+                            Level = level, Slots = SlotsByCasterLevel[((level - startingLevel) / 2) + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }
+
                     break;
                 case CasterProgression.THIRD_CASTER:
                     for (; level < 21; level++)
                     {
                         var slotsForLevel = new FeatureDefinitionCastSpell.SlotsByLevelDuplet
                         {
-                            Level = level,
-                            Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
+                            Level = level, Slots = SlotsByCasterLevel[((level - startingLevel + 2) / 3) + 1]
                         };
                         Definition.SlotsPerLevels.Add(slotsForLevel);
                     }
+
                     break;
             }
+
             return this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionCastSpellBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+            InitializeFields();
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionCastSpellBuilder(FeatureDefinitionCastSpell original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

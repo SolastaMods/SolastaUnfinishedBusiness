@@ -7,7 +7,8 @@ namespace SolastaCommunityExpansion.Level20.SubClasses
     {
         internal static void Load()
         {
-            DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>().TryGetElement("CastSpellSpellShield", out var featureDefinitionCastSpell);
+            DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
+                .TryGetElement("CastSpellSpellShield", out var featureDefinitionCastSpell);
 
             if (featureDefinitionCastSpell != null)
             {

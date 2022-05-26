@@ -12,7 +12,10 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class SubclassesContext
     {
-        private static Dictionary<CharacterSubclassDefinition, FeatureDefinitionSubclassChoice> SubclassesChoiceList { get; set; } = new();
+        private static Dictionary<CharacterSubclassDefinition, FeatureDefinitionSubclassChoice> SubclassesChoiceList
+        {
+            get;
+        } = new();
 
         internal static HashSet<CharacterSubclassDefinition> Subclasses { get; private set; } = new();
 

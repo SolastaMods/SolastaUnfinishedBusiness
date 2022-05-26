@@ -1,36 +1,38 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
+using TA.AI;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(LegendaryActionDescription)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class LegendaryActionDescriptionExtensions
+    [TargetType(typeof(LegendaryActionDescription))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class LegendaryActionDescriptionExtensions
     {
         public static LegendaryActionDescription Copy(this LegendaryActionDescription entity)
         {
             return new LegendaryActionDescription(entity);
         }
 
-        public static T SetCanMove<T>(this T entity, System.Boolean value)
+        public static T SetCanMove<T>(this T entity, Boolean value)
             where T : LegendaryActionDescription
         {
             entity.SetField("canMove", value);
             return entity;
         }
 
-        public static T SetCost<T>(this T entity, System.Int32 value)
+        public static T SetCost<T>(this T entity, Int32 value)
             where T : LegendaryActionDescription
         {
             entity.SetField("cost", value);
             return entity;
         }
 
-        public static T SetDecisionPackage<T>(this T entity, TA.AI.DecisionPackageDefinition value)
+        public static T SetDecisionPackage<T>(this T entity, DecisionPackageDefinition value)
             where T : LegendaryActionDescription
         {
             entity.SetField("decisionPackage", value);
@@ -44,14 +46,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMagicAbilityBonus<T>(this T entity, System.Int32 value)
+        public static T SetMagicAbilityBonus<T>(this T entity, Int32 value)
             where T : LegendaryActionDescription
         {
             entity.SetField("magicAbilityBonus", value);
             return entity;
         }
 
-        public static T SetMagicAttackBonus<T>(this T entity, System.Int32 value)
+        public static T SetMagicAttackBonus<T>(this T entity, Int32 value)
             where T : LegendaryActionDescription
         {
             entity.SetField("magicAttackBonus", value);
@@ -72,14 +74,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetNoOpportunityAttack<T>(this T entity, System.Boolean value)
+        public static T SetNoOpportunityAttack<T>(this T entity, Boolean value)
             where T : LegendaryActionDescription
         {
             entity.SetField("noOpportunityAttack", value);
             return entity;
         }
 
-        public static T SetSaveDC<T>(this T entity, System.Int32 value)
+        public static T SetSaveDC<T>(this T entity, Int32 value)
             where T : LegendaryActionDescription
         {
             entity.SetField("saveDC", value);

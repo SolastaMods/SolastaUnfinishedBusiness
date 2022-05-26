@@ -12,7 +12,14 @@ namespace SolastaCommunityExpansion.Level20.Features
         private const string PowerClericTurnUndead17Name = "ZSPowerClericTurnUndead17";
         private const string PowerClericTurnUndead17Guid = "b0ef65ba1e784628b1c5b4af75d4f395";
 
-        private PowerClericTurnUndeadBuilder(string name, string guid, int challengeRating) : base(PowerClericTurnUndead8, name, guid)
+        internal static readonly FeatureDefinitionPower PowerClericTurnUndead14 =
+            CreateAndAddToDB(PowerClericTurnUndead14Name, PowerClericTurnUndead14Guid, 3);
+
+        internal static readonly FeatureDefinitionPower PowerClericTurnUndead17 =
+            CreateAndAddToDB(PowerClericTurnUndead17Name, PowerClericTurnUndead17Guid, 4);
+
+        private PowerClericTurnUndeadBuilder(string name, string guid, int challengeRating) : base(
+            PowerClericTurnUndead8, name, guid)
         {
             Definition.EffectDescription.EffectForms[0].KillForm.SetChallengeRating(challengeRating);
         }
@@ -21,11 +28,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new PowerClericTurnUndeadBuilder(name, guid, challengeRating).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionPower PowerClericTurnUndead14 =
-            CreateAndAddToDB(PowerClericTurnUndead14Name, PowerClericTurnUndead14Guid, 3);
-
-        internal static readonly FeatureDefinitionPower PowerClericTurnUndead17 =
-            CreateAndAddToDB(PowerClericTurnUndead17Name, PowerClericTurnUndead17Guid, 4);
     }
 }

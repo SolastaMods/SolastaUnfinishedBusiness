@@ -6,10 +6,14 @@ using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefinitionBuilder<FeatureDefinitionIndomitableMight, FeatureDefinitionIndomitableMightBuilder>
+    internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefinitionBuilder<
+        FeatureDefinitionIndomitableMight, FeatureDefinitionIndomitableMightBuilder>
     {
         private const string IndomitableMightName = "ZSBarbarianIndomitableMight";
         private const string IndomitableMightGuid = "2a0e9082-c81d-4d02-800a-92f04fbe85dc";
+
+        internal static readonly FeatureDefinition FeatureDefinitionIndomitableMight =
+            CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
 
         private FeatureDefinitionIndomitableMightBuilder(string name, string guid) : base(name, guid)
         {
@@ -24,9 +28,6 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new FeatureDefinitionIndomitableMightBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinition FeatureDefinitionIndomitableMight =
-            CreateAndAddToDB(IndomitableMightName, IndomitableMightGuid);
     }
 
     internal sealed class FeatureDefinitionIndomitableMight : FeatureDefinition, IChangeAbilityCheck

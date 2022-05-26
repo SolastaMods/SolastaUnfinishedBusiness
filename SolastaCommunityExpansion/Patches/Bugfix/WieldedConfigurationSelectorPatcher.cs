@@ -6,8 +6,8 @@ using HarmonyLib;
 namespace SolastaCommunityExpansion.Patches.BugFix
 {
     /// <summary>
-    /// Issue: WieldedConfigurationSelector.Bind passes character=null to mainHandSlotBox.Bind and offHandSlotBox.Bind
-    /// Not fixed as of 1.3.40.
+    ///     Issue: WieldedConfigurationSelector.Bind passes character=null to mainHandSlotBox.Bind and offHandSlotBox.Bind
+    ///     Not fixed as of 1.3.40.
     /// </summary>
     [HarmonyPatch(typeof(WieldedConfigurationSelector), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -21,7 +21,8 @@ namespace SolastaCommunityExpansion.Patches.BugFix
             bool forceRefresh,
             GuiCharacter wieldedConfigurationSelectorGuiCharacter) // OpCodes.Ldarg_1 below...
         {
-            inventorySlotBox.Bind(rulesetInventorySlot, guiCharacter ?? wieldedConfigurationSelectorGuiCharacter, inMainHud, forceRefresh);
+            inventorySlotBox.Bind(rulesetInventorySlot, guiCharacter ?? wieldedConfigurationSelectorGuiCharacter,
+                inMainHud, forceRefresh);
         }
 
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)

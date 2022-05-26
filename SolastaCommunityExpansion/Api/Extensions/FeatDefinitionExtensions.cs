@@ -1,40 +1,41 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatDefinitionExtensions
+    [TargetType(typeof(FeatDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatDefinitionExtensions
     {
-        public static T AddCompatibleClassesPrerequisite<T>(this T entity, params System.String[] value)
+        public static T AddCompatibleClassesPrerequisite<T>(this T entity, params String[] value)
             where T : FeatDefinition
         {
             AddCompatibleClassesPrerequisite(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddCompatibleClassesPrerequisite<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddCompatibleClassesPrerequisite<T>(this T entity, IEnumerable<String> value)
             where T : FeatDefinition
         {
             entity.CompatibleClassesPrerequisite.AddRange(value);
             return entity;
         }
 
-        public static T AddCompatibleRacesPrerequisite<T>(this T entity, params System.String[] value)
+        public static T AddCompatibleRacesPrerequisite<T>(this T entity, params String[] value)
             where T : FeatDefinition
         {
             AddCompatibleRacesPrerequisite(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddCompatibleRacesPrerequisite<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddCompatibleRacesPrerequisite<T>(this T entity, IEnumerable<String> value)
             where T : FeatDefinition
         {
             entity.CompatibleRacesPrerequisite.AddRange(value);
@@ -55,14 +56,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddKnownFeatsPrerequisite<T>(this T entity, params System.String[] value)
+        public static T AddKnownFeatsPrerequisite<T>(this T entity, params String[] value)
             where T : FeatDefinition
         {
             AddKnownFeatsPrerequisite(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddKnownFeatsPrerequisite<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddKnownFeatsPrerequisite<T>(this T entity, IEnumerable<String> value)
             where T : FeatDefinition
         {
             entity.KnownFeatsPrerequisite.AddRange(value);
@@ -97,42 +98,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetArmorProficiencyCategory<T>(this T entity, System.String value)
+        public static T SetArmorProficiencyCategory<T>(this T entity, String value)
             where T : FeatDefinition
         {
             entity.SetField("armorProficiencyCategory", value);
             return entity;
         }
 
-        public static T SetArmorProficiencyPrerequisite<T>(this T entity, System.Boolean value)
+        public static T SetArmorProficiencyPrerequisite<T>(this T entity, Boolean value)
             where T : FeatDefinition
         {
             entity.SetField("armorProficiencyPrerequisite", value);
             return entity;
         }
 
-        public static T SetCompatibleClassesPrerequisite<T>(this T entity, params System.String[] value)
+        public static T SetCompatibleClassesPrerequisite<T>(this T entity, params String[] value)
             where T : FeatDefinition
         {
             SetCompatibleClassesPrerequisite(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetCompatibleClassesPrerequisite<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetCompatibleClassesPrerequisite<T>(this T entity, IEnumerable<String> value)
             where T : FeatDefinition
         {
             entity.CompatibleClassesPrerequisite.SetRange(value);
             return entity;
         }
 
-        public static T SetCompatibleRacesPrerequisite<T>(this T entity, params System.String[] value)
+        public static T SetCompatibleRacesPrerequisite<T>(this T entity, params String[] value)
             where T : FeatDefinition
         {
             SetCompatibleRacesPrerequisite(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetCompatibleRacesPrerequisite<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetCompatibleRacesPrerequisite<T>(this T entity, IEnumerable<String> value)
             where T : FeatDefinition
         {
             entity.CompatibleRacesPrerequisite.SetRange(value);
@@ -153,42 +154,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetKnownFeatsPrerequisite<T>(this T entity, params System.String[] value)
+        public static T SetKnownFeatsPrerequisite<T>(this T entity, params String[] value)
             where T : FeatDefinition
         {
             SetKnownFeatsPrerequisite(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetKnownFeatsPrerequisite<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetKnownFeatsPrerequisite<T>(this T entity, IEnumerable<String> value)
             where T : FeatDefinition
         {
             entity.KnownFeatsPrerequisite.SetRange(value);
             return entity;
         }
 
-        public static T SetMinimalAbilityScoreName<T>(this T entity, System.String value)
+        public static T SetMinimalAbilityScoreName<T>(this T entity, String value)
             where T : FeatDefinition
         {
             entity.SetField("minimalAbilityScoreName", value);
             return entity;
         }
 
-        public static T SetMinimalAbilityScorePrerequisite<T>(this T entity, System.Boolean value)
+        public static T SetMinimalAbilityScorePrerequisite<T>(this T entity, Boolean value)
             where T : FeatDefinition
         {
             entity.SetField("minimalAbilityScorePrerequisite", value);
             return entity;
         }
 
-        public static T SetMinimalAbilityScoreValue<T>(this T entity, System.Int32 value)
+        public static T SetMinimalAbilityScoreValue<T>(this T entity, Int32 value)
             where T : FeatDefinition
         {
             entity.SetField("minimalAbilityScoreValue", value);
             return entity;
         }
 
-        public static T SetMustCastSpellsPrerequisite<T>(this T entity, System.Boolean value)
+        public static T SetMustCastSpellsPrerequisite<T>(this T entity, Boolean value)
             where T : FeatDefinition
         {
             entity.SetField("mustCastSpellsPrerequisite", value);

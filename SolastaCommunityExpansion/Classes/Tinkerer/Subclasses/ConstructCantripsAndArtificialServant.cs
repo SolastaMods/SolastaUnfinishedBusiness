@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
+using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 {
@@ -16,7 +17,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string TinkererConstructFamilyName = "TinkererConstruct";
         private const string TinkererConstructFamilyGuid = "ab9d8ea6-3cc2-4c36-939a-b9a43bad023e";
 
-        private TinkererConstructFamilyBuilder(string name, string guid) : base(DatabaseHelper.CharacterFamilyDefinitions.Construct, name, guid)
+        public static readonly CharacterFamilyDefinition TinkererConstructFamily =
+            CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
+
+        private TinkererConstructFamilyBuilder(string name, string guid) : base(
+            DatabaseHelper.CharacterFamilyDefinitions.Construct, name, guid)
         {
             Definition.SetExtraplanar(true);
         }
@@ -25,8 +30,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new TinkererConstructFamilyBuilder(name, guid).AddToDB();
         }
-
-        public static readonly CharacterFamilyDefinition TinkererConstructFamily = CreateAndAddToDB(TinkererConstructFamilyName, TinkererConstructFamilyGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -38,7 +41,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "AddConstructCantrips";
         private const string Guid = "942183c0-e581-464a-afe4-cc00a9cd9c26";
 
-        private AddConstructCantripsBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, name, guid)
+        public static readonly FeatureDefinitionBonusCantrips AddConstructCantrips = CreateAndAddToDB(Name, Guid);
+
+        private AddConstructCantripsBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatureDefinitionBonusCantripss.BonusCantripsDomainOblivion, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&AddConstructCantripsTitle";
             Definition.GuiPresentation.Description = "Feat/&AddConstructCantripsDescription";
@@ -52,8 +58,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new AddConstructCantripsBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionBonusCantrips AddConstructCantrips = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -65,7 +69,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "MendingConstruct";
         private const string Guid = "92de3dbf-4b57-46d3-aebf-0f7819b0ac2d";
 
-        private MendingConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.PrayerOfHealing, name, guid)
+        public static readonly SpellDefinition MendingConstruct = CreateAndAddToDB(Name, Guid);
+
+        private MendingConstructBuilder(string name, string guid) : base(
+            DatabaseHelper.SpellDefinitions.PrayerOfHealing, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&MendingConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&MendingConstructDescription";
@@ -76,15 +83,10 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
 
             var mendingconstruct = new HealingForm
             {
-                BonusHealing = 0,
-                DieType = RuleDefinitions.DieType.D6,
-                DiceNumber = 2
+                BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2
             };
 
-            var effect = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Healing
-            };
+            var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
             effect.SetHealingForm(mendingconstruct);
             effect.SetCreatedByCharacter(true);
 
@@ -94,7 +96,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.EffectDescription.EffectAdvancement.Clear();
             Definition.EffectDescription.EffectForms.Clear();
             Definition.EffectDescription.EffectForms.Add(effect);
-            Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+            Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder
+                .TinkererConstructFamily.Name);
             Definition.EffectDescription.ImmuneCreatureFamilies.Clear();
         }
 
@@ -102,8 +105,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new MendingConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition MendingConstruct = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -115,11 +116,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "DismissConstruct";
         private const string Guid = "8003917a-9c90-4748-bb2f-f32b7edf8844";
 
-        private DismissConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Banishment, name, guid)
+        public static readonly SpellDefinition DismissConstruct = CreateAndAddToDB(Name, Guid);
+
+        private DismissConstructBuilder(string name, string guid) : base(DatabaseHelper.SpellDefinitions.Banishment,
+            name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&DismissConstructTitle";
             Definition.GuiPresentation.Description = "Feat/&DismissConstructDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship.GuiPresentation.SpriteReference);
+            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship
+                .GuiPresentation.SpriteReference);
 
             Definition.SetSpellLevel(0);
             Definition.SetRequiresConcentration(false);
@@ -131,10 +136,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             var dismissConstruct = new CounterForm();
             dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
 
-            var effect = new EffectForm
-            {
-                FormType = EffectForm.EffectFormType.Counter
-            };
+            var effect = new EffectForm {FormType = EffectForm.EffectFormType.Counter};
             effect.SetCounterForm(dismissConstruct);
             effect.HasSavingThrow = false;
             effect.SetCreatedByCharacter(true);
@@ -149,7 +151,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             effectDescription.EffectForms.Add(effect);
             effectDescription.EffectAdvancement.Clear();
 
-            effectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+            effectDescription.RestrictedCreatureFamilies.Add(
+                TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
 
             effectDescription.ImmuneCreatureFamilies.AddRange(
                 DatabaseHelper.CharacterFamilyDefinitions.Aberration.Name,
@@ -174,8 +177,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new DismissConstructBuilder(name, guid).AddToDB();
         }
-
-        public static readonly SpellDefinition DismissConstruct = CreateAndAddToDB(Name, Guid);
     }
 
     //*****************************************************************************************************************************************
@@ -187,7 +188,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string ArtificialServantName = "ArtificialServant";
         private const string ArtificialServantGuid = "fce9181c-f62c-4b33-b0df-fff4fe3ceab2";
 
-        private ArtificialServantBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Fire_Jester, name, guid)
+        public static readonly MonsterDefinition ArtificialServant =
+            CreateAndAddToDB(ArtificialServantName, ArtificialServantGuid);
+
+        private ArtificialServantBuilder(string name, string guid) : base(DatabaseHelper.MonsterDefinitions.Fire_Jester,
+            name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ArtificialServantTitle";
             Definition.GuiPresentation.Description = "Feat/&ArtificialServantDescription";
@@ -202,12 +207,12 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             Definition.SetHitDiceType(RuleDefinitions.DieType.D4);
 
             Definition.AbilityScores.Empty();
-            Definition.AbilityScores.AddToArray(4);    // STR
-            Definition.AbilityScores.AddToArray(15);    // DEX
-            Definition.AbilityScores.AddToArray(12);    // CON
-            Definition.AbilityScores.AddToArray(10);     // INT
-            Definition.AbilityScores.AddToArray(10);    // WIS
-            Definition.AbilityScores.AddToArray(7);     // CHA
+            Definition.AbilityScores.AddToArray(4); // STR
+            Definition.AbilityScores.AddToArray(15); // DEX
+            Definition.AbilityScores.AddToArray(12); // CON
+            Definition.AbilityScores.AddToArray(10); // INT
+            Definition.AbilityScores.AddToArray(10); // WIS
+            Definition.AbilityScores.AddToArray(7); // CHA
 
             //assume PB=4
 
@@ -227,22 +232,28 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             // a tag should be added if scaling is applied to the servant
             //Definition.CreatureTags.Add();
 
-            Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.DefaultRangeWithBackupMeleeDecisions);
+            Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
+                .DefaultRangeWithBackupMeleeDecisions);
             Definition.Features.Clear();
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12);
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionBootsWinged);
             Definition.Features.Add(CancelFlyingConditionBuilder.CancelFlyingCondition);
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove6);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityExhaustionImmunity);
+            Definition.Features.Add(
+                DatabaseHelper.FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityRogueEvasion);
+            Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys
+                .ConditionAffinityExhaustionImmunity);
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity);
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity);
             // Definition.Features.Add(DatabaseHelper.);
 
-            Definition.AttackIterations.SetRange(new MonsterAttackIteration(ArtificialServantAttackBuilder.ArtificialServantAttack, 1));
+            Definition.AttackIterations.SetRange(
+                new MonsterAttackIteration(ArtificialServantAttackBuilder.ArtificialServantAttack, 1));
 
-            Definition.MonsterPresentation.SetMalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));
-            Definition.MonsterPresentation.SetFemalePrefabReference(new UnityEngine.AddressableAssets.AssetReference("ab0501343e8629149ae0aa4dace755f5"));
+            Definition.MonsterPresentation.SetMalePrefabReference(
+                new AssetReference("ab0501343e8629149ae0aa4dace755f5"));
+            Definition.MonsterPresentation.SetFemalePrefabReference(
+                new AssetReference("ab0501343e8629149ae0aa4dace755f5"));
             Definition.MonsterPresentation.SetMaleModelScale(0.2f);
             Definition.MonsterPresentation.SetFemaleModelScale(0.2f);
         }
@@ -251,8 +262,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ArtificialServantBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterDefinition ArtificialServant = CreateAndAddToDB(ArtificialServantName, ArtificialServantGuid);
     }
 
     //*****************************************************************************************************************************************
@@ -264,7 +273,11 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string ArtificialServantAttacksListName = "ArtificialServantAttacksList";
         private const string ArtificialServantAttacksListGuid = "86840282-4d84-44b7-a4fd-6bf6b598f776";
 
-        private ArtificialServantAttackBuilder(string name, string guid) : base(DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow, name, guid)
+        public static readonly MonsterAttackDefinition ArtificialServantAttack =
+            CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
+
+        private ArtificialServantAttackBuilder(string name, string guid) : base(
+            DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&ArtificialServantAttackTitle";
             Definition.GuiPresentation.Description = "Feat/&ArtificialServantAttackDescription";
@@ -272,11 +285,7 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             var damageEffect = new EffectForm
             {
                 AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
-                DamageForm = new DamageForm
-                {
-                    DiceNumber = 1,
-                    DieType = RuleDefinitions.DieType.D4
-                }
+                DamageForm = new DamageForm {DiceNumber = 1, DieType = RuleDefinitions.DieType.D4}
             };
 
             const int assumedIntModifier = 3;
@@ -298,7 +307,8 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
             newEffectDescription.SetRangeParameter(6);
 
             // newEffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.ShadowDagger.EffectDescription.EffectParticleParameters);
-            newEffectDescription.SetEffectParticleParameters(DatabaseHelper.MonsterAttackDefinitions.Attack_Goblin_PebbleThrow.EffectDescription.EffectParticleParameters);
+            newEffectDescription.SetEffectParticleParameters(DatabaseHelper.MonsterAttackDefinitions
+                .Attack_Goblin_PebbleThrow.EffectDescription.EffectParticleParameters);
 
             Definition.SetEffectDescription(newEffectDescription);
 
@@ -309,8 +319,6 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new ArtificialServantAttackBuilder(name, guid).AddToDB();
         }
-
-        public static readonly MonsterAttackDefinition ArtificialServantAttack = CreateAndAddToDB(ArtificialServantAttacksListName, ArtificialServantAttacksListGuid);
     }
 
     internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuilder
@@ -318,11 +326,15 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         private const string Name = "CancelFlyingConditionArtificialServant";
         private const string Guid = "15bff3c5-632e-451f-8c46-1511ed4cf805";
 
-        private CancelFlyingConditionBuilder(string name, string guid) : base(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionBootsWinged, name, guid)
+        public static readonly FeatureDefinitionPower CancelFlyingCondition = CreateAndAddToDB(Name, Guid);
+
+        private CancelFlyingConditionBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatureDefinitionPowers.PowerFunctionBootsWinged, name, guid)
         {
             Definition.GuiPresentation.Title = "Feat/&CancelFlyingConditionTitle";
             Definition.GuiPresentation.Description = "Feat/&CancelFlyingConditionDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ExpeditiousRetreat.GuiPresentation.SpriteReference);
+            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ExpeditiousRetreat
+                .GuiPresentation.SpriteReference);
 
             var Condition = new ConditionForm();
             Condition.SetApplyToSelf(false);
@@ -358,7 +370,5 @@ namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
         {
             return new CancelFlyingConditionBuilder(name, guid).AddToDB();
         }
-
-        public static readonly FeatureDefinitionPower CancelFlyingCondition = CreateAndAddToDB(Name, Guid);
     }
 }

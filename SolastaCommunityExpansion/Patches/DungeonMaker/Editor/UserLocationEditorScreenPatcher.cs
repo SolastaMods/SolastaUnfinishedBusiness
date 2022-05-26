@@ -69,7 +69,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
                     Main.Log($"room orientation before ({ur.Orientation}, {ur.OrientedWidth}, {ur.OrientedHeight})");
                     Main.Log($"current room position ({ur.Position.x}, {ur.Position.y})");
 
-                    var currentRoomCenter = new Vector3(ur.Position.x + (ur.OrientedWidth / 2f), ur.Position.y + (ur.OrientedHeight / 2f));
+                    var currentRoomCenter =
+ new Vector3(ur.Position.x + (ur.OrientedWidth / 2f), ur.Position.y + (ur.OrientedHeight / 2f));
                     Main.Log($"current room center ({currentRoomCenter.x}, {currentRoomCenter.y})");
 
                     var newRoomCenter = (rotation * (currentRoomCenter - dungeonCenter)) + dungeonCenter;
@@ -78,7 +79,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
                     ur.Rotate(rotationAngle);
                     Main.Log($"room orientation after {ur.Orientation}, {ur.OrientedWidth}, {ur.OrientedHeight}");
 
-                    ur.Position = new Vector2Int(Mathf.RoundToInt(newRoomCenter.x - (ur.OrientedWidth / 2f)), Mathf.RoundToInt(newRoomCenter.y - (ur.OrientedHeight / 2f)));
+                    ur.Position =
+ new Vector2Int(Mathf.RoundToInt(newRoomCenter.x - (ur.OrientedWidth / 2f)), Mathf.RoundToInt(newRoomCenter.y - (ur.OrientedHeight / 2f)));
                     Main.Log($"new room position ({ur.Position.x}, {ur.Position.y})");
                 }
 
@@ -91,7 +93,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
                 // sets anythingModified = true, calls RefreshButtons() and stores current dungeon in undo manager
 
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-                var rb = typeof(UserLocationEditorScreen).GetMethod("NotifyBeforeModification", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                var rb =
+ typeof(UserLocationEditorScreen).GetMethod("NotifyBeforeModification", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
                 rb?.Invoke(__instance, null);

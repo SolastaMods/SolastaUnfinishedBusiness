@@ -1,16 +1,21 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
+using TA.AI;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ConditionDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    [TargetType(typeof(ConditionDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class ConditionDefinitionExtensions
     {
         public static T AddCancellingConditions<T>(this T entity, params ConditionDefinition[] value)
@@ -27,14 +32,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddConditionTags<T>(this T entity, params System.String[] value)
+        public static T AddConditionTags<T>(this T entity, params String[] value)
             where T : ConditionDefinition
         {
             AddConditionTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddConditionTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddConditionTags<T>(this T entity, IEnumerable<String> value)
             where T : ConditionDefinition
         {
             entity.ConditionTags.AddRange(value);
@@ -69,14 +74,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSpecialInterruptions<T>(this T entity, params RuleDefinitions.ConditionInterruption[] value)
+        public static T AddSpecialInterruptions<T>(this T entity, params ConditionInterruption[] value)
             where T : ConditionDefinition
         {
             AddSpecialInterruptions(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSpecialInterruptions<T>(this T entity, IEnumerable<RuleDefinitions.ConditionInterruption> value)
+        public static T AddSpecialInterruptions<T>(this T entity, IEnumerable<ConditionInterruption> value)
             where T : ConditionDefinition
         {
             entity.SpecialInterruptions.AddRange(value);
@@ -118,10 +123,10 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static System.Collections.Generic.List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
+        public static List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
             where T : ConditionDefinition
         {
-            return entity.GetField<System.Collections.Generic.List<FeatureDefinition>>("featuresToBrowse");
+            return entity.GetField<List<FeatureDefinition>>("featuresToBrowse");
         }
 
         public static T SetAcidParticleParameters<T>(this T entity, ConditionParticleParameters value)
@@ -138,42 +143,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalConditionDurationParameter<T>(this T entity, System.Int32 value)
+        public static T SetAdditionalConditionDurationParameter<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalConditionDurationParameter", value);
             return entity;
         }
 
-        public static T SetAdditionalConditionDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetAdditionalConditionDurationType<T>(this T entity, DurationType value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalConditionDurationType", value);
             return entity;
         }
 
-        public static T SetAdditionalConditionTurnOccurenceType<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetAdditionalConditionTurnOccurenceType<T>(this T entity, TurnOccurenceType value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalConditionTurnOccurenceType", value);
             return entity;
         }
 
-        public static T SetAdditionalConditionWhenHit<T>(this T entity, System.Boolean value)
+        public static T SetAdditionalConditionWhenHit<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalConditionWhenHit", value);
             return entity;
         }
 
-        public static T SetAdditionalDamageDieNumber<T>(this T entity, System.Int32 value)
+        public static T SetAdditionalDamageDieNumber<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalDamageDieNumber", value);
             return entity;
         }
 
-        public static T SetAdditionalDamageDieType<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetAdditionalDamageDieType<T>(this T entity, DieType value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalDamageDieType", value);
@@ -187,28 +192,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAdditionalDamageType<T>(this T entity, System.String value)
+        public static T SetAdditionalDamageType<T>(this T entity, String value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalDamageType", value);
             return entity;
         }
 
-        public static T SetAdditionalDamageWhenHit<T>(this T entity, System.Boolean value)
+        public static T SetAdditionalDamageWhenHit<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("additionalDamageWhenHit", value);
             return entity;
         }
 
-        public static T SetAdditiveAmount<T>(this T entity, System.Boolean value)
+        public static T SetAdditiveAmount<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("additiveAmount", value);
             return entity;
         }
 
-        public static T SetAllowMultipleInstances<T>(this T entity, System.Boolean value)
+        public static T SetAllowMultipleInstances<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("allowMultipleInstances", value);
@@ -222,14 +227,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetBaseAmount<T>(this T entity, System.Int32 value)
+        public static T SetBaseAmount<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("baseAmount", value);
             return entity;
         }
 
-        public static T SetBattlePackage<T>(this T entity, TA.AI.DecisionPackageDefinition value)
+        public static T SetBattlePackage<T>(this T entity, DecisionPackageDefinition value)
             where T : ConditionDefinition
         {
             entity.SetField("battlePackage", value);
@@ -250,7 +255,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCharacterShaderReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetCharacterShaderReference<T>(this T entity, AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("characterShaderReference", value);
@@ -264,49 +269,49 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionEndParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetConditionEndParticleReference<T>(this T entity, AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionEndParticleReference", value);
             return entity;
         }
 
-        public static T SetConditionParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetConditionParticleReference<T>(this T entity, AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionParticleReference", value);
             return entity;
         }
 
-        public static T SetConditionStartParticleReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetConditionStartParticleReference<T>(this T entity, AssetReference value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionStartParticleReference", value);
             return entity;
         }
 
-        public static T SetConditionTags<T>(this T entity, params System.String[] value)
+        public static T SetConditionTags<T>(this T entity, params String[] value)
             where T : ConditionDefinition
         {
             SetConditionTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetConditionTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetConditionTags<T>(this T entity, IEnumerable<String> value)
             where T : ConditionDefinition
         {
             entity.ConditionTags.SetRange(value);
             return entity;
         }
 
-        public static T SetConditionType<T>(this T entity, RuleDefinitions.ConditionType value)
+        public static T SetConditionType<T>(this T entity, ConditionType value)
             where T : ConditionDefinition
         {
             entity.SetField("conditionType", value);
             return entity;
         }
 
-        public static T SetDisolveCharacterOnDeath<T>(this T entity, System.Boolean value)
+        public static T SetDisolveCharacterOnDeath<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("disolveCharacterOnDeath", value);
@@ -320,35 +325,35 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetDurationParameter<T>(this T entity, System.Int32 value)
+        public static T SetDurationParameter<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("durationParameter", value);
             return entity;
         }
 
-        public static T SetDurationParameterDie<T>(this T entity, RuleDefinitions.DieType value)
+        public static T SetDurationParameterDie<T>(this T entity, DieType value)
             where T : ConditionDefinition
         {
             entity.SetField("durationParameterDie", value);
             return entity;
         }
 
-        public static T SetDurationType<T>(this T entity, RuleDefinitions.DurationType value)
+        public static T SetDurationType<T>(this T entity, DurationType value)
             where T : ConditionDefinition
         {
             entity.SetField("durationType", value);
             return entity;
         }
 
-        public static T SetExplorationPackage<T>(this T entity, TA.AI.DecisionPackageDefinition value)
+        public static T SetExplorationPackage<T>(this T entity, DecisionPackageDefinition value)
             where T : ConditionDefinition
         {
             entity.SetField("explorationPackage", value);
             return entity;
         }
 
-        public static T SetFearSource<T>(this T entity, System.Boolean value)
+        public static T SetFearSource<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("fearSource", value);
@@ -376,42 +381,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetFirstCharacterShaderColor<T>(this T entity, UnityEngine.Color value)
+        public static T SetFirstCharacterShaderColor<T>(this T entity, Color value)
             where T : ConditionDefinition
         {
             entity.SetField("firstCharacterShaderColor", value);
             return entity;
         }
 
-        public static T SetFollowSourcePosition<T>(this T entity, System.Boolean value)
+        public static T SetFollowSourcePosition<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("followSourcePosition", value);
             return entity;
         }
 
-        public static T SetForceBehavior<T>(this T entity, System.Boolean value)
+        public static T SetForceBehavior<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("forceBehavior", value);
             return entity;
         }
 
-        public static T SetInDungeonEditor<T>(this T entity, System.Boolean value)
+        public static T SetInDungeonEditor<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("inDungeonEditor", value);
             return entity;
         }
 
-        public static T SetInterruptionDamageThreshold<T>(this T entity, System.Int32 value)
+        public static T SetInterruptionDamageThreshold<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("interruptionDamageThreshold", value);
             return entity;
         }
 
-        public static T SetInterruptionRequiresSavingThrow<T>(this T entity, System.Boolean value)
+        public static T SetInterruptionRequiresSavingThrow<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("interruptionRequiresSavingThrow", value);
@@ -425,7 +430,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetOverrideCharacterShaderColors<T>(this T entity, System.Boolean value)
+        public static T SetOverrideCharacterShaderColors<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("overrideCharacterShaderColors", value);
@@ -439,14 +444,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetParticlesBasedOnAncestryDamageType<T>(this T entity, System.Boolean value)
+        public static T SetParticlesBasedOnAncestryDamageType<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("particlesBasedOnAncestryDamageType", value);
             return entity;
         }
 
-        public static T SetPermanentlyRemovedIfExtraPlanar<T>(this T entity, System.Boolean value)
+        public static T SetPermanentlyRemovedIfExtraPlanar<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("permanentlyRemovedIfExtraPlanar", value);
@@ -460,7 +465,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetPossessive<T>(this T entity, System.Boolean value)
+        public static T SetPossessive<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("possessive", value);
@@ -481,70 +486,70 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRemovedFromTheGame<T>(this T entity, System.Boolean value)
+        public static T SetRemovedFromTheGame<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("removedFromTheGame", value);
             return entity;
         }
 
-        public static T SetSecondCharacterShaderColor<T>(this T entity, UnityEngine.Color value)
+        public static T SetSecondCharacterShaderColor<T>(this T entity, Color value)
             where T : ConditionDefinition
         {
             entity.SetField("secondCharacterShaderColor", value);
             return entity;
         }
 
-        public static T SetSilentWhenAdded<T>(this T entity, System.Boolean value)
+        public static T SetSilentWhenAdded<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("silentWhenAdded", value);
             return entity;
         }
 
-        public static T SetSilentWhenRemoved<T>(this T entity, System.Boolean value)
+        public static T SetSilentWhenRemoved<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("silentWhenRemoved", value);
             return entity;
         }
 
-        public static T SetSourceAbilityBonusMinValue<T>(this T entity, System.Int32 value)
+        public static T SetSourceAbilityBonusMinValue<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("sourceAbilityBonusMinValue", value);
             return entity;
         }
 
-        public static T SetSpecialDuration<T>(this T entity, System.Boolean value)
+        public static T SetSpecialDuration<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("specialDuration", value);
             return entity;
         }
 
-        public static T SetSpecialInterruptions<T>(this T entity, params RuleDefinitions.ConditionInterruption[] value)
+        public static T SetSpecialInterruptions<T>(this T entity, params ConditionInterruption[] value)
             where T : ConditionDefinition
         {
             SetSpecialInterruptions(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSpecialInterruptions<T>(this T entity, IEnumerable<RuleDefinitions.ConditionInterruption> value)
+        public static T SetSpecialInterruptions<T>(this T entity, IEnumerable<ConditionInterruption> value)
             where T : ConditionDefinition
         {
             entity.SpecialInterruptions.SetRange(value);
             return entity;
         }
 
-        public static T SetSubsequentDCIncrease<T>(this T entity, System.Int32 value)
+        public static T SetSubsequentDCIncrease<T>(this T entity, Int32 value)
             where T : ConditionDefinition
         {
             entity.SetField("subsequentDCIncrease", value);
             return entity;
         }
 
-        public static T SetSubsequentHasSavingThrow<T>(this T entity, System.Boolean value)
+        public static T SetSubsequentHasSavingThrow<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("subsequentHasSavingThrow", value);
@@ -558,42 +563,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSubsequentSavingThrowAbilityScore<T>(this T entity, System.String value)
+        public static T SetSubsequentSavingThrowAbilityScore<T>(this T entity, String value)
             where T : ConditionDefinition
         {
             entity.SetField("subsequentSavingThrowAbilityScore", value);
             return entity;
         }
 
-        public static T SetSubsequentVariableForDC<T>(this T entity, System.String value)
+        public static T SetSubsequentVariableForDC<T>(this T entity, String value)
             where T : ConditionDefinition
         {
             entity.SetField("subsequentVariableForDC", value);
             return entity;
         }
 
-        public static T SetTerminateWhenRemoved<T>(this T entity, System.Boolean value)
+        public static T SetTerminateWhenRemoved<T>(this T entity, Boolean value)
             where T : ConditionDefinition
         {
             entity.SetField("terminateWhenRemoved", value);
             return entity;
         }
 
-        public static T SetTimeToWaitBeforeApplyingShader<T>(this T entity, System.Single value)
+        public static T SetTimeToWaitBeforeApplyingShader<T>(this T entity, Single value)
             where T : ConditionDefinition
         {
             entity.SetField("timeToWaitBeforeApplyingShader", value);
             return entity;
         }
 
-        public static T SetTimeToWaitBeforeRemovingShader<T>(this T entity, System.Single value)
+        public static T SetTimeToWaitBeforeRemovingShader<T>(this T entity, Single value)
             where T : ConditionDefinition
         {
             entity.SetField("timeToWaitBeforeRemovingShader", value);
             return entity;
         }
 
-        public static T SetTurnOccurence<T>(this T entity, RuleDefinitions.TurnOccurenceType value)
+        public static T SetTurnOccurence<T>(this T entity, TurnOccurenceType value)
             where T : ConditionDefinition
         {
             entity.SetField("turnOccurence", value);

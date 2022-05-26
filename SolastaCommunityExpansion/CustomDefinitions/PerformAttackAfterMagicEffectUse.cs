@@ -7,10 +7,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public interface IPerformAttackAfterMagicEffectUse
     {
-        delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
-
-        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure);
         delegate bool CanAttackHandler(GameLocationCharacter caster, GameLocationCharacter target);
+
+        delegate bool CanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
+            GameLocationCharacter target, out string failure);
+
+        delegate CharacterActionParams GetAttackAfterUseHandler(CharacterActionMagicEffect actionMagicEffect);
 
         CanUseHandler CanBeUsedToAttack { get; set; }
         GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
@@ -19,13 +21,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
     public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUse
     {
+        public static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
         public RuleDefinitions.RollOutcome minOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
         public RuleDefinitions.RollOutcome minSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-
-        public CanUseHandler CanBeUsedToAttack { get; set; }
-
-        public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
-        public CanAttackHandler CanAttack { get; set; }
 
         public PerformAttackAfterMagicEffectUse()
         {
@@ -33,6 +31,11 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             CanBeUsedToAttack = DefaultCanUseHandler;
             PerformAttackAfterUse = DefautlAttackHandler;
         }
+
+        public CanUseHandler CanBeUsedToAttack { get; set; }
+
+        public GetAttackAfterUseHandler PerformAttackAfterUse { get; set; }
+        public CanAttackHandler CanAttack { get; set; }
 
         private bool CanMeleeAttack(GameLocationCharacter caster, GameLocationCharacter target)
         {
@@ -51,7 +54,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             var attackModifier = new ActionModifier();
             var evalParams = new BattleDefinitions.AttackEvaluationParams();
 
-            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target, target.LocationPosition, attackModifier);
+            evalParams.FillForPhysicalReachAttack(caster, caster.LocationPosition, attackMode, target,
+                target.LocationPosition, attackModifier);
 
             return battleService.CanAttack(evalParams);
         }
@@ -103,7 +107,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             return null;
         }
 
-        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster, GameLocationCharacter target, out string failure)
+        private bool DefaultCanUseHandler(CursorLocationSelectTarget targeting, GameLocationCharacter caster,
+            GameLocationCharacter target, out string failure)
         {
             failure = String.Empty;
             //TODO: implement setting to tell how many targets must meet weapon attack requirements
@@ -124,8 +129,5 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
             return canAttack;
         }
-
-
-        public static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
     }
 }

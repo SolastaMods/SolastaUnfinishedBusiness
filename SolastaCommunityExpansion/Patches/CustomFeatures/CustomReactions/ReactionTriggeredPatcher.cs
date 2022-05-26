@@ -29,8 +29,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 
             if (rulesetCharacter.IsSubstitute
                 && (request is ReactionRequestCastSpell
-                || request is ReactionRequestCastFallPreventionSpell
-                || request is ReactionRequestCastImmunityToSpell))
+                    || request is ReactionRequestCastFallPreventionSpell
+                    || request is ReactionRequestCastImmunityToSpell))
             {
                 ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
                 return false;

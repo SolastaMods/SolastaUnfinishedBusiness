@@ -24,7 +24,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
         {
             if (Global.LastLevelUpHeroName != null)
             {
-                __instance.OnSelectPlate(___characterPlates.Find(x => x.GuiCharacter.Name == Global.LastLevelUpHeroName));
+                __instance.OnSelectPlate(
+                    ___characterPlates.Find(x => x.GuiCharacter.Name == Global.LastLevelUpHeroName));
 
                 Global.LastLevelUpHeroName = null;
 

@@ -19,11 +19,12 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
     public static class DHWarlockSubclassMoonLitPatron
     {
         private static FeatureDefinition _invisFeature;
-        public static FeatureDefinition InvisibilityFeature => _invisFeature ??= FeatureDefinitionMoonlitInvisibility.Build();
+
+        public static FeatureDefinition InvisibilityFeature =>
+            _invisFeature ??= FeatureDefinitionMoonlitInvisibility.Build();
 
         public static CharacterSubclassDefinition Build()
         {
-
             var MoonLitExpandedSpelllist = SpellListDefinitionBuilder
                 .Create(SpellListPaladin, "MoonLitExpandedSpelllist", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentationNoContent()
@@ -56,18 +57,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             var unlit = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = moonlitInvisibleCondition
+                lightingState = LocationDefinitions.LightingState.Unlit, condition = moonlitInvisibleCondition
             };
             var dim = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Dim,
-                condition = moonlitInvisibleCondition
+                lightingState = LocationDefinitions.LightingState.Dim, condition = moonlitInvisibleCondition
             };
             var darkness = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Darkness,
-                condition = moonlitInvisibleCondition
+                lightingState = LocationDefinitions.LightingState.Darkness, condition = moonlitInvisibleCondition
             };
 
             var MoonLitLightAffinityWeak = FeatureDefinitionLightAffinityBuilder
@@ -95,34 +93,34 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("MoonlitDarkMoon", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power, Darkness.GuiPresentation.SpriteReference)
                 .Configure(
-                       1,
-                       UsesDetermination.ProficiencyBonus,
-                       AttributeDefinitions.Charisma,
-                       ActivationTime.Action,
-                       1,
-                       RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       Darkness.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
-                       true)
+                    1,
+                    UsesDetermination.ProficiencyBonus,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.LongRest,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    Darkness.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
+                    true)
                 .AddToDB();
 
             var FullMoon = FeatureDefinitionPowerBuilder
                 .Create("MoonlitFullMoon", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power, Daylight.GuiPresentation.SpriteReference)
                 .Configure(
-                       1,
-                       UsesDetermination.ProficiencyBonus,
-                       AttributeDefinitions.Charisma,
-                       ActivationTime.Action,
-                       1,
-                       RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       Daylight.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
-                       true)
+                    1,
+                    UsesDetermination.ProficiencyBonus,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.LongRest,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    Daylight.EffectDescription.Copy().SetDuration(DurationType.Minute, 1),
+                    true)
                 .AddToDB();
 
 
@@ -130,22 +128,23 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("MoonlitDanceoftheNightSky", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
-                       1,
-                       UsesDetermination.Fixed,
-                       AttributeDefinitions.Charisma,
-                       ActivationTime.Action,
-                       1,
-                       RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                       Fly.EffectDescription.Copy(),
-                       true)
+                    1,
+                    UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.LongRest,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    Fly.EffectDescription.Copy(),
+                    true)
                 .AddToDB();
             DanceoftheNightSky.EffectDescription.SetTargetParameter(4);
 
             var MoonTouchedCondition = ConditionDefinitionBuilder
-                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition", DefinitionBuilder.CENamespaceGuid)
+                .Create(DatabaseHelper.ConditionDefinitions.ConditionLevitate, "MoonTouchedCondition",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Condition)
                 .SetConditionType(ConditionType.Neutral)
                 .SetFeatures(MoveModeFly2)
@@ -156,59 +155,57 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 .Create("MoonlitMoonTouched", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power)
                 .Configure(
-                       1,
-                       UsesDetermination.Fixed,
-                       AttributeDefinitions.Charisma,
-                       ActivationTime.Action,
-                       1,
-                       RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                        new EffectDescriptionBuilder()
-                                .SetDurationData(
-                                     DurationType.Minute,
-                                     1,
-                                     TurnOccurenceType.EndOfTurn)
-                                .SetTargetingData(
-                                    Side.All,
-                                    RangeType.Distance,
-                                    12,
-                                    TargetType.Cylinder,
-                                    10,
-                                    10,
-                                    ActionDefinitions.ItemSelectionType.None)
-                                .SetSavingThrowData(
-                                    true,
-                                    false,
-                                    AttributeDefinitions.Dexterity,
-                                    true,
-                                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                                    AttributeDefinitions.Dexterity,
-                                    20,
-                                    false,
-                                    new List<SaveAffinityBySenseDescription>())
-                                .AddEffectForm(new EffectFormBuilder()
-                                    .SetConditionForm(
-                                        MoonTouchedCondition,
-                                        ConditionForm.ConditionOperation.Add,
-                                        false,
-                                        false,
-                                        new List<ConditionDefinition>())
-                                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                                    .Build())
-                                .AddEffectForm(new EffectFormBuilder()
-                                    .SetMotionForm(
-                                        MotionForm.MotionType.Levitate,
-                                        10)
-                                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                                    .Build())
-                                .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
-                                .Build()
-                       ,
-                       true)
+                    1,
+                    UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.LongRest,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    new EffectDescriptionBuilder()
+                        .SetDurationData(
+                            DurationType.Minute,
+                            1,
+                            TurnOccurenceType.EndOfTurn)
+                        .SetTargetingData(
+                            Side.All,
+                            RangeType.Distance,
+                            12,
+                            TargetType.Cylinder,
+                            10,
+                            10)
+                        .SetSavingThrowData(
+                            true,
+                            false,
+                            AttributeDefinitions.Dexterity,
+                            true,
+                            EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                            AttributeDefinitions.Dexterity,
+                            20,
+                            false,
+                            new List<SaveAffinityBySenseDescription>())
+                        .AddEffectForm(new EffectFormBuilder()
+                            .SetConditionForm(
+                                MoonTouchedCondition,
+                                ConditionForm.ConditionOperation.Add,
+                                false,
+                                false,
+                                new List<ConditionDefinition>())
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                        .AddEffectForm(new EffectFormBuilder()
+                            .SetMotionForm(
+                                MotionForm.MotionType.Levitate,
+                                10)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                        .SetRecurrentEffect(Entangle.EffectDescription.RecurrentEffect)
+                        .Build()
+                    ,
+                    true)
                 .AddToDB();
-
 
 
             var AtWillMoonbeam = SpellDefinitionBuilder
@@ -247,7 +244,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
 
             return CharacterSubclassDefinitionBuilder
                 .Create("MoonLit", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("WarlockMoonLit", Category.Subclass, RangerShadowTamer.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("WarlockMoonLit", Category.Subclass,
+                    RangerShadowTamer.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(MoonLitExpandedSpelllistAfinity, 1)
                 .AddFeatureAtLevel(SenseSuperiorDarkvision, 1)
                 //  .AddFeatureAtLevel(ConditionAffinityBlindnessImmunity, 1)
@@ -263,16 +261,53 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 // .AddFeatureAtLevel(, 14)
                 .AddToDB();
         }
-
     }
 
-    internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature, ICustomConditionFeature
+    internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustomOnActionFeature,
+        ICustomConditionFeature
     {
+        private static readonly string CATEGORY_REVEALED = "MoonlitRevealed";
+        private static readonly string CATEGORY_HIDDEN = "MoonlitHidden";
         private static ConditionDefinition RevealedCondition { get; set; }
         private static ConditionDefinition InvisibilityCondition { get; set; }
 
-        private static readonly string CATEGORY_REVEALED = "MoonlitRevealed";
-        private static readonly string CATEGORY_HIDDEN = "MoonlitHidden";
+        public void ApplyFeature(RulesetCharacter hero)
+        {
+            if (!hero.HasConditionOfType(RevealedCondition))
+            {
+                BecomeInvisible(hero);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter hero)
+        {
+            hero.RemoveAllConditionsOfCategory(CATEGORY_HIDDEN, false);
+        }
+
+        public void OnBeforeAction(CharacterAction characterAction)
+        {
+            // Let's try this invis without movement breaking it
+            // var hero = characterAction.ActingCharacter.RulesetCharacter;
+            // var action = characterAction.ActionDefinition;
+            //
+            // if (action == ExplorationMove || action == TacticalMove)
+            //     BecomeRevealed(hero);
+        }
+
+        public void OnAfterAction(CharacterAction characterAction)
+        {
+            var hero = characterAction.ActingCharacter.RulesetCharacter;
+            var action = characterAction.ActionDefinition;
+
+            if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith("Power"))
+            {
+                var ruleEffect = characterAction.ActionParams.RulesetEffect;
+                if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
+                {
+                    BecomeRevealed(hero);
+                }
+            }
+        }
 
         public static FeatureDefinition Build()
         {
@@ -321,6 +356,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 foreach (var form in effect.EffectForms)
                 {
                     if (form.FormType != EffectForm.EffectFormType.Motion) { return false; }
+
                     if (form.MotionForm.Type != MotionForm.MotionType.TeleportToDestination) { return false; }
                 }
             }
@@ -329,10 +365,15 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 foreach (var form in effect.EffectForms)
                 {
                     if (form.FormType == EffectForm.EffectFormType.Damage) { return false; }
+
                     if (form.FormType == EffectForm.EffectFormType.Healing) { return false; }
+
                     if (form.FormType == EffectForm.EffectFormType.ShapeChange) { return false; }
+
                     if (form.FormType == EffectForm.EffectFormType.Summon) { return false; }
+
                     if (form.FormType == EffectForm.EffectFormType.Counter) { return false; }
+
                     if (form.FormType == EffectForm.EffectFormType.Motion) { return false; }
                 }
             }
@@ -340,6 +381,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             {
                 return false;
             }
+
             return true;
         }
 
@@ -351,7 +393,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                 TurnOccurenceType.StartOfTurn,
                 hero.Guid,
                 hero.CurrentFaction.Name
-            ), true);
+            ));
         }
 
         private static void BecomeInvisible(RulesetCharacter hero)
@@ -366,68 +408,36 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             ), false);
         }
 
-        public void OnBeforeAction(CharacterAction characterAction)
-        {
-            // Let's try this invis without movement breaking it
-            // var hero = characterAction.ActingCharacter.RulesetCharacter;
-            // var action = characterAction.ActionDefinition;
-            //
-            // if (action == ExplorationMove || action == TacticalMove)
-            //     BecomeRevealed(hero);
-        }
-
-        public void OnAfterAction(CharacterAction characterAction)
-        {
-            var hero = characterAction.ActingCharacter.RulesetCharacter;
-            var action = characterAction.ActionDefinition;
-
-            if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith("Power"))
-            {
-                var ruleEffect = characterAction.ActionParams.RulesetEffect;
-                if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
-                {
-                    BecomeRevealed(hero);
-                }
-            }
-        }
-
-        public void ApplyFeature(RulesetCharacter hero)
-        {
-            if (!hero.HasConditionOfType(RevealedCondition))
-            {
-                BecomeInvisible(hero);
-            }
-        }
-
-        public void RemoveFeature(RulesetCharacter hero)
-        {
-            hero.RemoveAllConditionsOfCategory(CATEGORY_HIDDEN, false);
-        }
-
-        private class FeatureDefinitionMoonlitInvisibilityBuilder : FeatureDefinitionBuilder<FeatureDefinitionMoonlitInvisibility,
+        private class FeatureDefinitionMoonlitInvisibilityBuilder : FeatureDefinitionBuilder<
+            FeatureDefinitionMoonlitInvisibility,
             FeatureDefinitionMoonlitInvisibilityBuilder>
         {
             #region Constructors
-            public FeatureDefinitionMoonlitInvisibilityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+
+            public FeatureDefinitionMoonlitInvisibilityBuilder(string name, Guid namespaceGuid) : base(name,
+                namespaceGuid)
             {
             }
 
-            public FeatureDefinitionMoonlitInvisibilityBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+            public FeatureDefinitionMoonlitInvisibilityBuilder(string name, string definitionGuid) : base(name,
+                definitionGuid)
             {
             }
 
-            public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original, string name,
+            public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original,
+                string name,
                 Guid namespaceGuid)
                 : base(original, name, namespaceGuid)
             {
             }
 
-            public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original, string name,
+            public FeatureDefinitionMoonlitInvisibilityBuilder(FeatureDefinitionMoonlitInvisibility original,
+                string name,
                 string definitionGuid) : base(original, name, definitionGuid)
             {
             }
+
             #endregion
         }
     }
 }
-

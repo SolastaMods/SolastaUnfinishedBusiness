@@ -30,15 +30,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
             var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
 
             foreach (var contentFragmentDescription in item.DocumentDescription.ContentFragments
-                .Where(x => x.Type == ContentFragmentDescription.FragmentType.Body))
+                         .Where(x => x.Type == ContentFragmentDescription.FragmentType.Body))
             {
-                var guiRecipeDefinition = guiWrapperService.GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);
+                var guiRecipeDefinition =
+                    guiWrapperService.GetGuiRecipeDefinition(item.DocumentDescription.RecipeDefinition.Name);
 
-                __instance.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text, new string[]
-                {
-                    guiRecipeDefinition.Title,
-                    guiRecipeDefinition.IngredientsText
-                });
+                __instance.DescriptionLabel.Text = Gui.Format(contentFragmentDescription.Text,
+                    guiRecipeDefinition.Title, guiRecipeDefinition.IngredientsText);
             }
         }
     }

@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
-
     //Removes low-level sub-option for spell reactions if caster is not-multiclassed warlock
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "BuildSlotSubOptions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

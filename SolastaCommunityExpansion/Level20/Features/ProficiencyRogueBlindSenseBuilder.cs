@@ -4,10 +4,15 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class ProficiencyRogueBlindSenseBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, ProficiencyRogueBlindSenseBuilder>
+    internal sealed class
+        ProficiencyRogueBlindSenseBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense,
+            ProficiencyRogueBlindSenseBuilder>
     {
         private const string ProficiencyRogueBlindSenseName = "ZSProficiencyRogueBlindSense";
         private const string ProficiencyRogueBlindSensedGuid = "30c27691f42f4705985c638d38fadc21";
+
+        internal static readonly FeatureDefinitionSense ProficiencyRogueBlindSense
+            = CreateAndAddToDB(ProficiencyRogueBlindSenseName, ProficiencyRogueBlindSensedGuid);
 
         private ProficiencyRogueBlindSenseBuilder(string name, string guid) : base(SenseBlindSight2, name, guid)
         {
@@ -20,8 +25,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new ProficiencyRogueBlindSenseBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionSense ProficiencyRogueBlindSense
-            = CreateAndAddToDB(ProficiencyRogueBlindSenseName, ProficiencyRogueBlindSensedGuid);
     }
 }

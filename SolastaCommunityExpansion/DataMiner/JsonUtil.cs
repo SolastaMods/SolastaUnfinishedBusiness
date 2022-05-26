@@ -53,15 +53,19 @@ namespace SolastaCommunityExpansion.DataMiner
                 return new List<MemberInfo>();
             }
 
-            IEnumerable<MemberInfo> publicFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
+            IEnumerable<MemberInfo> publicFields =
+ objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
                 .Where(f => !f.IsInitOnly);
 
-            IEnumerable<MemberInfo> privateFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+            IEnumerable<MemberInfo> privateFields =
+ objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
-            IEnumerable<MemberInfo> newtonsoftFields = objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
+            IEnumerable<MemberInfo> newtonsoftFields =
+ objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
                 .Where(f => ((f.IsPublic && f.IsInitOnly) || f.IsPrivate) && Attribute.IsDefined(f, typeof(JsonPropertyAttribute)));
 
-            IEnumerable<MemberInfo> newtonsoftProperties = objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
+            IEnumerable<MemberInfo> newtonsoftProperties =
+ objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
                 .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
 
             IEnumerable<MemberInfo> nameProperty = objectType == typeof(UnityEngine.Object) ?

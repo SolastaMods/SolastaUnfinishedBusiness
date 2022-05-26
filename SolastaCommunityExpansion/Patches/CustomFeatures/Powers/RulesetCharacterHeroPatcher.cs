@@ -33,7 +33,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             // to max available uses.
             var curPowers = new List<RulesetUsablePower>();
             var newPower = false;
-            hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse, null);
+            hero.EnumerateFeaturesToBrowse<FeatureDefinitionPower>(hero.FeaturesToBrowse);
 
             foreach (var featureDefinitionPower in hero.FeaturesToBrowse.Cast<FeatureDefinitionPower>())
             {
@@ -64,11 +64,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                     newPower = true;
                 }
             }
+
             if (hero.UsablePowers.Count == curPowers.Count && !newPower)
             {
                 // No change to powers, don't do the potentially expensive calls below.
                 return;
             }
+
             // We only want to modify the UsablePowers list if needed. Because it is modified so rarely in the base game
             // there are some TA.coroutines that iterate over the list with yields in between. This iteration breaks if
             // UsablePowers is modified. We intentionally use SetField here rather than modify the UsablePowers list so
@@ -78,7 +80,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             hero.RefreshPowers();
         }
 
-        private static RulesetUsablePower BuildUsablePower(RulesetCharacterHero hero, FeatureDefinitionPower featureDefinitionPower)
+        private static RulesetUsablePower BuildUsablePower(RulesetCharacterHero hero,
+            FeatureDefinitionPower featureDefinitionPower)
         {
             CharacterRaceDefinition originRace;
             CharacterClassDefinition originClass;
@@ -87,30 +90,32 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.ChannelDivinity)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ChannelDivinityNumber, false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ChannelDivinityNumber);
             }
             else if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.HealingPool)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.HealingPool, false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.HealingPool);
             }
             else if (featureDefinitionPower.RechargeRate == RuleDefinitions.RechargeRate.SorceryPoints)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.SorceryPoints, false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.SorceryPoints);
             }
-            else if (featureDefinitionPower.UsesDetermination == RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed)
+            else if (featureDefinitionPower.UsesDetermination ==
+                     RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(featureDefinitionPower.UsesAbilityScoreName, false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(featureDefinitionPower.UsesAbilityScoreName);
             }
             else if (featureDefinitionPower.UsesDetermination == RuleDefinitions.UsesDetermination.ProficiencyBonus)
             {
-                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus, false);
+                rulesetUsablePower.UsesAttribute = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus);
             }
 
             rulesetUsablePower.Recharge();
             return rulesetUsablePower;
         }
 
-        private static (CharacterRaceDefinition raceDefinition, CharacterClassDefinition classDefinition, FeatDefinition featDefinition) LookForFeatureOrigin(RulesetCharacterHero hero, FeatureDefinition featureDefinition)
+        private static (CharacterRaceDefinition raceDefinition, CharacterClassDefinition classDefinition, FeatDefinition
+            featDefinition) LookForFeatureOrigin(RulesetCharacterHero hero, FeatureDefinition featureDefinition)
         {
             if (hero.RaceDefinition.FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
             {
@@ -131,7 +136,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                 }
 
                 if (hero.ClassesAndSubclasses.ContainsKey(key) && hero.ClassesAndSubclasses[key] != null
-                    && hero.ClassesAndSubclasses[key].FeatureUnlocks.Any(unlock => unlock.FeatureDefinition == featureDefinition))
+                                                               && hero.ClassesAndSubclasses[key].FeatureUnlocks
+                                                                   .Any(unlock =>
+                                                                       unlock.FeatureDefinition == featureDefinition))
                 {
                     return (null, key, null);
                 }

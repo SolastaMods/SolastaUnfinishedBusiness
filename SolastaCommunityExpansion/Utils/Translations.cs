@@ -22,15 +22,13 @@ namespace SolastaCommunityExpansion.Utils
             {
                 try
                 {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                    var splitted = line.Split(new[] {'\t', ' '}, 2);
 
                     words.Add(splitted[0], splitted[1]);
                 }
                 catch
                 {
                     Main.Error($"invalid dictionary line \"{line}\".");
-
-                    continue;
                 }
             }
 
@@ -43,7 +41,7 @@ namespace SolastaCommunityExpansion.Utils
             var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
             var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
             var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
-            var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
+            var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 
             foreach (var line in lines)
             {
@@ -52,7 +50,7 @@ namespace SolastaCommunityExpansion.Utils
 
                 try
                 {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                    var splitted = line.Split(new[] {'\t', ' '}, 2);
 
                     term = splitted[0];
                     text = splitted[1];

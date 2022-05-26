@@ -4,12 +4,12 @@ using SolastaModApi.Diagnostics;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// TODO: remove this extension and replace usage with EffectDescriptionBuilder
+    ///     TODO: remove this extension and replace usage with EffectDescriptionBuilder
     /// </summary>
     public static partial class EffectDescriptionExtensions
     {
         public static T SetDuration<T>(this T entity, RuleDefinitions.DurationType type, int? duration = null)
-                where T : EffectDescription
+            where T : EffectDescription
         {
             switch (type)
             {
@@ -19,8 +19,10 @@ namespace SolastaModApi.Extensions
                 case RuleDefinitions.DurationType.Day:
                     if (duration == null)
                     {
-                        throw new ArgumentNullException(nameof(duration), $"A duration value is required for duration type {type}.");
+                        throw new ArgumentNullException(nameof(duration),
+                            $"A duration value is required for duration type {type}.");
                     }
+
                     entity.SetDurationParameter(duration.Value);
                     break;
                 default:
@@ -28,6 +30,7 @@ namespace SolastaModApi.Extensions
                     {
                         throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
                     }
+
                     entity.SetDurationParameter(0);
                     break;
             }
@@ -38,7 +41,7 @@ namespace SolastaModApi.Extensions
         }
 
         public static T SetRange<T>(this T entity, RuleDefinitions.RangeType type, int? range = null)
-                where T : EffectDescription
+            where T : EffectDescription
         {
             switch (type)
             {
@@ -46,8 +49,10 @@ namespace SolastaModApi.Extensions
                 case RuleDefinitions.RangeType.Distance:
                     if (range == null)
                     {
-                        throw new ArgumentNullException(nameof(range), $"A range value is required for range type {type}.");
+                        throw new ArgumentNullException(nameof(range),
+                            $"A range value is required for range type {type}.");
                     }
+
                     entity.SetRangeParameter(range.Value);
                     break;
                 case RuleDefinitions.RangeType.Touch:
@@ -58,6 +63,7 @@ namespace SolastaModApi.Extensions
                     {
                         throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
                     }
+
                     entity.SetRangeParameter(0);
                     break;
             }

@@ -50,5 +50,3 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
         }
     }
 }
-
-

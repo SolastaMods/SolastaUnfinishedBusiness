@@ -1,17 +1,20 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
+using UnityEngine.AddressableAssets;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(CampaignDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class CampaignDefinitionExtensions
+    [TargetType(typeof(CampaignDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class CampaignDefinitionExtensions
     {
         public static T AddAutoGameplayRoles<T>(this T entity, params CampaignDefinition.GameplayRoleFilter[] value)
             where T : CampaignDefinition
@@ -41,14 +44,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddIntroductionCaptions<T>(this T entity, params System.String[] value)
+        public static T AddIntroductionCaptions<T>(this T entity, params String[] value)
             where T : CampaignDefinition
         {
             AddIntroductionCaptions(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddIntroductionCaptions<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddIntroductionCaptions<T>(this T entity, IEnumerable<String> value)
             where T : CampaignDefinition
         {
             entity.IntroductionCaptions.AddRange(value);
@@ -69,14 +72,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddPredefinedParty<T>(this T entity, params System.String[] value)
+        public static T AddPredefinedParty<T>(this T entity, params String[] value)
             where T : CampaignDefinition
         {
             AddPredefinedParty(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddPredefinedParty<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddPredefinedParty<T>(this T entity, IEnumerable<String> value)
             where T : CampaignDefinition
         {
             entity.PredefinedParty.AddRange(value);
@@ -90,7 +93,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+        public static T AddRegisteredFactions<T>(this T entity,
+            IEnumerable<CampaignDefinition.FactionRegistration> value)
             where T : CampaignDefinition
         {
             entity.RegisteredFactions.AddRange(value);
@@ -111,14 +115,16 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSkipIntroRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity,
+            params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             AddSkipIntroRegisteredVariables(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSkipIntroRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+        public static T AddSkipIntroRegisteredVariables<T>(this T entity,
+            IEnumerable<VariableRegistrationDescription> value)
             where T : CampaignDefinition
         {
             entity.SkipIntroRegisteredVariables.AddRange(value);
@@ -223,7 +229,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanSkipIntro<T>(this T entity, System.Boolean value)
+        public static T SetCanSkipIntro<T>(this T entity, Boolean value)
             where T : CampaignDefinition
         {
             entity.SetField("canSkipIntro", value);
@@ -237,21 +243,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEditorOnly<T>(this T entity, System.Boolean value)
+        public static T SetEditorOnly<T>(this T entity, Boolean value)
             where T : CampaignDefinition
         {
             entity.SetField("editorOnly", value);
             return entity;
         }
 
-        public static T SetFastTimeScaleDuringTravel<T>(this T entity, System.Single value)
+        public static T SetFastTimeScaleDuringTravel<T>(this T entity, Single value)
             where T : CampaignDefinition
         {
             entity.SetField("fastTimeScaleDuringTravel", value);
             return entity;
         }
 
-        public static T SetGraphicsCampaignMapReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetGraphicsCampaignMapReference<T>(this T entity, AssetReference value)
             where T : CampaignDefinition
         {
             entity.SetField("graphicsCampaignMapReference", value);
@@ -272,28 +278,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetInitialPartyPosition<T>(this T entity, System.String value)
+        public static T SetInitialPartyPosition<T>(this T entity, String value)
             where T : CampaignDefinition
         {
             entity.SetField("initialPartyPosition", value);
             return entity;
         }
 
-        public static T SetInsideLocation<T>(this T entity, System.String value)
+        public static T SetInsideLocation<T>(this T entity, String value)
             where T : CampaignDefinition
         {
             entity.SetField("insideLocation", value);
             return entity;
         }
 
-        public static T SetIntroductionCaptions<T>(this T entity, params System.String[] value)
+        public static T SetIntroductionCaptions<T>(this T entity, params String[] value)
             where T : CampaignDefinition
         {
             SetIntroductionCaptions(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetIntroductionCaptions<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetIntroductionCaptions<T>(this T entity, IEnumerable<String> value)
             where T : CampaignDefinition
         {
             entity.IntroductionCaptions.SetRange(value);
@@ -307,14 +313,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetIsUserCampaign<T>(this T entity, System.Boolean value)
+        public static T SetIsUserCampaign<T>(this T entity, Boolean value)
             where T : CampaignDefinition
         {
             entity.SetField("isUserCampaign", value);
             return entity;
         }
 
-        public static T SetJournalStart<T>(this T entity, System.String value)
+        public static T SetJournalStart<T>(this T entity, String value)
             where T : CampaignDefinition
         {
             entity.SetField("journalStart", value);
@@ -335,63 +341,63 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetLevelCap<T>(this T entity, System.Int32 value)
+        public static T SetLevelCap<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("levelCap", value);
             return entity;
         }
 
-        public static T SetLocationProfile<T>(this T entity, UnityEngine.Rendering.PostProcessing.PostProcessProfile value)
+        public static T SetLocationProfile<T>(this T entity, PostProcessProfile value)
             where T : CampaignDefinition
         {
             entity.SetField("locationProfile", value);
             return entity;
         }
 
-        public static T SetMaxStartLevel<T>(this T entity, System.Int32 value)
+        public static T SetMaxStartLevel<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("maxStartLevel", value);
             return entity;
         }
 
-        public static T SetMinStartLevel<T>(this T entity, System.Int32 value)
+        public static T SetMinStartLevel<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("minStartLevel", value);
             return entity;
         }
 
-        public static T SetMultiplayer<T>(this T entity, System.Boolean value)
+        public static T SetMultiplayer<T>(this T entity, Boolean value)
             where T : CampaignDefinition
         {
             entity.SetField("multiplayer", value);
             return entity;
         }
 
-        public static T SetNormalTimeScaleDuringTravel<T>(this T entity, System.Single value)
+        public static T SetNormalTimeScaleDuringTravel<T>(this T entity, Single value)
             where T : CampaignDefinition
         {
             entity.SetField("normalTimeScaleDuringTravel", value);
             return entity;
         }
 
-        public static T SetPartySize<T>(this T entity, System.Int32 value)
+        public static T SetPartySize<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("partySize", value);
             return entity;
         }
 
-        public static T SetPredefinedParty<T>(this T entity, params System.String[] value)
+        public static T SetPredefinedParty<T>(this T entity, params String[] value)
             where T : CampaignDefinition
         {
             SetPredefinedParty(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetPredefinedParty<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetPredefinedParty<T>(this T entity, IEnumerable<String> value)
             where T : CampaignDefinition
         {
             entity.PredefinedParty.SetRange(value);
@@ -405,7 +411,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRegisteredFactions<T>(this T entity, IEnumerable<CampaignDefinition.FactionRegistration> value)
+        public static T SetRegisteredFactions<T>(this T entity,
+            IEnumerable<CampaignDefinition.FactionRegistration> value)
             where T : CampaignDefinition
         {
             entity.RegisteredFactions.SetRange(value);
@@ -433,56 +440,58 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSceneFilePath<T>(this T entity, System.String value)
+        public static T SetSceneFilePath<T>(this T entity, String value)
             where T : CampaignDefinition
         {
             entity.SetField("sceneFilePath", value);
             return entity;
         }
 
-        public static T SetSceneReference<T>(this T entity, UnityEngine.AddressableAssets.AssetReference value)
+        public static T SetSceneReference<T>(this T entity, AssetReference value)
             where T : CampaignDefinition
         {
             entity.SetField("sceneReference", value);
             return entity;
         }
 
-        public static T SetSkipIntroEntrance<T>(this T entity, System.Int32 value)
+        public static T SetSkipIntroEntrance<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("skipIntroEntrance", value);
             return entity;
         }
 
-        public static T SetSkipIntroLocation<T>(this T entity, System.String value)
+        public static T SetSkipIntroLocation<T>(this T entity, String value)
             where T : CampaignDefinition
         {
             entity.SetField("skipIntroLocation", value);
             return entity;
         }
 
-        public static T SetSkipIntroRegisteredVariables<T>(this T entity, params VariableRegistrationDescription[] value)
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity,
+            params VariableRegistrationDescription[] value)
             where T : CampaignDefinition
         {
             SetSkipIntroRegisteredVariables(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSkipIntroRegisteredVariables<T>(this T entity, IEnumerable<VariableRegistrationDescription> value)
+        public static T SetSkipIntroRegisteredVariables<T>(this T entity,
+            IEnumerable<VariableRegistrationDescription> value)
             where T : CampaignDefinition
         {
             entity.SkipIntroRegisteredVariables.SetRange(value);
             return entity;
         }
 
-        public static T SetStartDay<T>(this T entity, System.Int32 value)
+        public static T SetStartDay<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("startDay", value);
             return entity;
         }
 
-        public static T SetStartHour<T>(this T entity, System.Int32 value)
+        public static T SetStartHour<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("startHour", value);
@@ -503,14 +512,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStartMonth<T>(this T entity, System.Int32 value)
+        public static T SetStartMonth<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("startMonth", value);
             return entity;
         }
 
-        public static T SetStartYear<T>(this T entity, System.Int32 value)
+        public static T SetStartYear<T>(this T entity, Int32 value)
             where T : CampaignDefinition
         {
             entity.SetField("startYear", value);

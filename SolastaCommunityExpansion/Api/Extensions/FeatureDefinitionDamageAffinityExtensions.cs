@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +8,21 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionDamageAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionDamageAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionDamageAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionDamageAffinityExtensions
     {
-        public static T AddTagsIgnoringAffinity<T>(this T entity, params System.String[] value)
+        public static T AddTagsIgnoringAffinity<T>(this T entity, params String[] value)
             where T : FeatureDefinitionDamageAffinity
         {
             AddTagsIgnoringAffinity(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddTagsIgnoringAffinity<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddTagsIgnoringAffinity<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.TagsIgnoringAffinity.AddRange(value);
@@ -34,70 +36,70 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetAncestryDefinesDamageType<T>(this T entity, System.Boolean value)
+        public static T SetAncestryDefinesDamageType<T>(this T entity, Boolean value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("ancestryDefinesDamageType", value);
             return entity;
         }
 
-        public static T SetDamageAffinityType<T>(this T entity, RuleDefinitions.DamageAffinityType value)
+        public static T SetDamageAffinityType<T>(this T entity, DamageAffinityType value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.DamageAffinityType = value;
             return entity;
         }
 
-        public static T SetDamageType<T>(this T entity, System.String value)
+        public static T SetDamageType<T>(this T entity, String value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.DamageType = value;
             return entity;
         }
 
-        public static T SetHealBackCap<T>(this T entity, System.Int32 value)
+        public static T SetHealBackCap<T>(this T entity, Int32 value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("healBackCap", value);
             return entity;
         }
 
-        public static T SetHealsBack<T>(this T entity, System.Boolean value)
+        public static T SetHealsBack<T>(this T entity, Boolean value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("healsBack", value);
             return entity;
         }
 
-        public static T SetInstantDeathImmunity<T>(this T entity, System.Boolean value)
+        public static T SetInstantDeathImmunity<T>(this T entity, Boolean value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("instantDeathImmunity", value);
             return entity;
         }
 
-        public static T SetKnockOutAddDC<T>(this T entity, System.Int32 value)
+        public static T SetKnockOutAddDC<T>(this T entity, Int32 value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("knockOutAddDC", value);
             return entity;
         }
 
-        public static T SetKnockOutAffinity<T>(this T entity, RuleDefinitions.KnockoutAffinity value)
+        public static T SetKnockOutAffinity<T>(this T entity, KnockoutAffinity value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("knockOutAffinity", value);
             return entity;
         }
 
-        public static T SetKnockOutDCAttribute<T>(this T entity, System.String value)
+        public static T SetKnockOutDCAttribute<T>(this T entity, String value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("knockOutDCAttribute", value);
             return entity;
         }
 
-        public static T SetKnockOutOccurencesNumber<T>(this T entity, System.Int32 value)
+        public static T SetKnockOutOccurencesNumber<T>(this T entity, Int32 value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("knockOutOccurencesNumber", value);
@@ -118,56 +120,56 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRetaliateProximity<T>(this T entity, RuleDefinitions.AttackProximity value)
+        public static T SetRetaliateProximity<T>(this T entity, AttackProximity value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("retaliateProximity", value);
             return entity;
         }
 
-        public static T SetRetaliateRangeCells<T>(this T entity, System.Int32 value)
+        public static T SetRetaliateRangeCells<T>(this T entity, Int32 value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("retaliateRangeCells", value);
             return entity;
         }
 
-        public static T SetRetaliateWhenHit<T>(this T entity, System.Boolean value)
+        public static T SetRetaliateWhenHit<T>(this T entity, Boolean value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("retaliateWhenHit", value);
             return entity;
         }
 
-        public static T SetSavingThrowAdvantageType<T>(this T entity, RuleDefinitions.AdvantageType value)
+        public static T SetSavingThrowAdvantageType<T>(this T entity, AdvantageType value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SavingThrowAdvantageType = value;
             return entity;
         }
 
-        public static T SetSavingThrowModifier<T>(this T entity, System.Int32 value)
+        public static T SetSavingThrowModifier<T>(this T entity, Int32 value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("savingThrowModifier", value);
             return entity;
         }
 
-        public static T SetSituationalContext<T>(this T entity, RuleDefinitions.SituationalContext value)
+        public static T SetSituationalContext<T>(this T entity, SituationalContext value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.SetField("situationalContext", value);
             return entity;
         }
 
-        public static T SetTagsIgnoringAffinity<T>(this T entity, params System.String[] value)
+        public static T SetTagsIgnoringAffinity<T>(this T entity, params String[] value)
             where T : FeatureDefinitionDamageAffinity
         {
             SetTagsIgnoringAffinity(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetTagsIgnoringAffinity<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetTagsIgnoringAffinity<T>(this T entity, IEnumerable<String> value)
             where T : FeatureDefinitionDamageAffinity
         {
             entity.TagsIgnoringAffinity.SetRange(value);

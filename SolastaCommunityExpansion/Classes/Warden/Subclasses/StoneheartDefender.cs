@@ -1,6 +1,7 @@
 ﻿//
 // TODO: looking for contributors to finish this class
 //
+
 #if false
 using System;
 using System.Collections.Generic;
@@ -100,7 +101,8 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             {
                 // Prepare params for inflicting conditions
                 ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string sourceFaction =
+ formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
                 string effectDefinitionName = string.Empty;
 
                 if (formsParams.attackMode != null)
@@ -112,7 +114,8 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+                int sourceAbilityBonus =
+ (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
 
                 formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.StartOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
@@ -203,7 +206,8 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
             {
                 // Prepare params for inflicting conditions
                 ulong sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                string sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
+                string sourceFaction =
+ formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
                 string effectDefinitionName = string.Empty;
 
                 if (formsParams.attackMode != null)
@@ -215,7 +219,8 @@ namespace SolastaCommunityExpansion.Classes.Warden.Subclasses
                     effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
                 }
 
-                int sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
+                int sourceAbilityBonus =
+ (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
 
                 formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, RuleDefinitions.TurnOccurenceType.StartOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
             }
