@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatFightingStyleGreatWeaponProficiency:ef95f4d0-913f-540e-b566-7e65e0b632a8"
+    "Definition:FeatFightingStyleDuelingProficiency:c5c7f62e-68df-57d4-b415-a90d90bf2472"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FightingStyleGreatWeaponTitle",
-    "description": "Feat/&FightingStyleGreatWeaponDescription",
+    "title": "Feat/&FightingStyleDuelingTitle",
+    "description": "Feat/&FightingStyleDuelingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9678de01-8f42-5b66-b014-84deec4d177a",
+  "guid": "67cf4e9a-b2eb-5a87-b263-e6a73f6b9cb8",
   "contentPack": 9999,
-  "name": "FeatFightingStyleGreatWeapon"
+  "name": "FeatFightingStyleDueling"
 }

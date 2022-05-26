@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatFightingStyleTwoWeaponProficiency:880a6b75-8657-5b28-9cb3-3556eb9f73df"
+    "Definition:FeatFightingStyleProtectionProficiency:f42e2dae-badc-50b0-b043-28a07de0b52f"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FightingStyleTwoWeaponTitle",
-    "description": "Feat/&FightingStyleTwoWeaponDescription",
+    "title": "Feat/&FightingStyleProtectionTitle",
+    "description": "Feat/&FightingStyleProtectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bfe25d15-aeb0-55b8-9768-d1f2d0d6c91d",
+  "guid": "e71cd0dd-0ad1-56a0-bb8d-d32d59f5700a",
   "contentPack": 9999,
-  "name": "FeatFightingStyleTwoWeapon"
+  "name": "FeatFightingStyleProtection"
 }

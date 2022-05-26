@@ -11,7 +11,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:AttributeModifierFeatCraftyInt:b23c3b73-7690-42ba-aa49-7ca3451daa05",
-    "Definition:CraftyHerbalismKit:9345e1fd-ec4c-4509-acb5-3f3257b25ec4",
+    "Definition:CraftyArcana:44a54666-80ba-475c-90b1-774e86f1a69a",
     "Definition:CraftyHerbalismKit:9345e1fd-ec4c-4509-acb5-3f3257b25ec4"
   ],
   "guiPresentation": {

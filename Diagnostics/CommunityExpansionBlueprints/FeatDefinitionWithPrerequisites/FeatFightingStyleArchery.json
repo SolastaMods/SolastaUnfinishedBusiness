@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatBlindFightingStlyeProficiency:734d3996-7003-500d-95bd-4cae42c76422"
+    "Definition:FeatFightingStyleArcheryProficiency:39021473-370d-5c9d-b891-247eb4e42a46"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatBlindFightingStlyeTitle",
-    "description": "Feat/&FeatBlindFightingStlyeDescription",
+    "title": "Feat/&FightingStyleArcheryTitle",
+    "description": "Feat/&FightingStyleArcheryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "87491eaf-8074-57ca-96c8-c64f4dd5f0c5",
+  "guid": "66b04bb8-2ce7-5d73-aaf9-184bac8dacd7",
   "contentPack": 9999,
-  "name": "FeatBlindFightingStlye"
+  "name": "FeatFightingStyleArchery"
 }

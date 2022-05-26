@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatCripplingProficiency:3eced00c-f36e-5833-8902-95d526404b64"
+    "Definition:FeatFightingStyleGreatWeaponProficiency:ef95f4d0-913f-540e-b566-7e65e0b632a8"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatCripplingTitle",
-    "description": "Feat/&FeatCripplingDescription",
+    "title": "Feat/&FightingStyleGreatWeaponTitle",
+    "description": "Feat/&FightingStyleGreatWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "34491e3d-f213-57a3-93ee-8ab5a23c9ce0",
+  "guid": "9678de01-8f42-5b66-b014-84deec4d177a",
   "contentPack": 9999,
-  "name": "FeatCrippling"
+  "name": "FeatFightingStyleGreatWeapon"
 }

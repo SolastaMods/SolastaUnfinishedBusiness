@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatFightingStyleDuelingProficiency:c5c7f62e-68df-57d4-b415-a90d90bf2472"
+    "Definition:FeatFightingStyleDefenseProficiency:0088d5eb-8820-53ac-899c-350b1caf8b10"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FightingStyleDuelingTitle",
-    "description": "Feat/&FightingStyleDuelingDescription",
+    "title": "Feat/&FightingStyleDefenseTitle",
+    "description": "Feat/&FightingStyleDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "67cf4e9a-b2eb-5a87-b263-e6a73f6b9cb8",
+  "guid": "0cb852d7-d686-511f-94aa-ac2ae3dbcd05",
   "contentPack": 9999,
-  "name": "FeatFightingStyleDueling"
+  "name": "FeatFightingStyleDefense"
 }

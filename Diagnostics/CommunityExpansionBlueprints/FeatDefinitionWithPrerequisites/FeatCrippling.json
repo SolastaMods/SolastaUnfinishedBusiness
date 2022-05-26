@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,13 +10,13 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:FeatTitanFightingProficiency:8fa7edfb-bbe5-5d4b-8df9-d82a0e74c497"
+    "Definition:FeatCripplingProficiency:3eced00c-f36e-5833-8902-95d526404b64"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatTitanFightingTitle",
-    "description": "Feat/&FeatTitanFightingDescription",
+    "title": "Feat/&FeatCripplingTitle",
+    "description": "Feat/&FeatCripplingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "868aedb3-508a-5263-8e07-8586c9473df2",
+  "guid": "34491e3d-f213-57a3-93ee-8ab5a23c9ce0",
   "contentPack": 9999,
-  "name": "FeatTitanFighting"
+  "name": "FeatCrippling"
 }
