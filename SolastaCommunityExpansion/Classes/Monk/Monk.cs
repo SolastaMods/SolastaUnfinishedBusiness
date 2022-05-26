@@ -280,7 +280,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetSubclassSuffix("ClassMonkTradition")
                     .SetFilterByDeity(false)
                     .SetSubclasses(
-                        WayOfTheOpenHand.Build()
+                        WayOfTheOpenHand.Build(),
+                        ZenArcher.Build()
                     )
                     .AddToDB())
 
