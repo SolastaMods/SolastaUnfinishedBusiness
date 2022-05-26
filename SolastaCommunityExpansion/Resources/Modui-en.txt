@@ -20,3 +20,21 @@ ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all c
 ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
+ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
+ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>Blinded</color> condition doesn't allow attack of opportunity
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target selection when casting the <color=orange>Chain Lightning</color> spell
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> does not require concentration when cast with L5+ spell slot
+ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Only show the most powerful creatures in the conjuration list</i>
+ModUi/&FixSorcererTwinnedLogic	Fix <color=orange>Sorcerer</color> twinned metamagic use <i><color=yellow>[a spell must be incapable of targeting more than one creature at the spell's current level]</color></i>
+ModUi/&FullyControlConjurations	Fully control conjurations <i><color=yellow>[animals, elementals, etc]</color></i>
+ModUi/&AllowAnyClassToWearSylvanArmor	Allow any class to wear sylvan armor
+ModUi/&AllowDruidToWearMetalArmor	Allow <color=orange>Druid</color> to wear metal armor
+ModUi/&DisableAutoEquip	Disable auto-equip of items in inventory
+ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick cast light cantrip uses head or torso worn items first
+ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
+ModUi/&AllowStackedMaterialComponent	Allow stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly	Scale merchant prices correctly / exactly

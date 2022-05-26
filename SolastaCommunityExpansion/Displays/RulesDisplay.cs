@@ -16,7 +16,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
-            if (UI.Toggle("Use official advantage / disadvantage rules", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
             }
@@ -24,17 +24,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AddBleedingToLesserRestoration;
-            if (UI.Toggle(
-                    "Add the " + "Bleeding".orange() + " condition to the conditions removed by " +
-                    "Greater and Lesser Restoration".orange(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AddBleedingToLesserRestoration = toggle;
                 HouseSpellTweaks.AddBleedingToRestoration();
             }
 
             toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
-            if (UI.Toggle("Blinded".orange() + " condition doesn't allow attack of opportunity", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
@@ -43,22 +40,20 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
-            if (UI.Toggle("Allow target selection when casting the " + "Chain Lightning".orange() + " spell",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
                 SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
             }
 
             toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
-            if (UI.Toggle("Bestow Curse".orange() + " does not require concentration when cast with L5+ spell slot",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
             }
 
             toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
-            if (UI.Toggle("Enable upcast of " + "Conjure Elemental, Conjure Fey".orange(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
                 Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
@@ -68,25 +63,20 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableUpcastConjureElementalAndFey)
             {
                 toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
-                if (UI.Toggle("+ Only show the most powerful creatures in the conjuration list".italic(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                 }
             }
 
             toggle = Main.Settings.FixSorcererTwinnedLogic;
-            if (UI.Toggle(
-                    "Fix " + "Sorcerer".orange() + " twinned metamagic use " +
-                    "[a spell must be incapable of targeting more than one creature at the spell's current level]"
-                        .italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FixSorcererTwinnedLogic = toggle;
             }
 
             toggle = Main.Settings.FullyControlConjurations;
-            if (UI.Toggle("Fully control conjurations " + "[animals, elementals, etc]".italic().yellow(), ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FullyControlConjurations = toggle;
                 ConjurationsContext.Load();
@@ -97,30 +87,27 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
-            if (UI.Toggle("Allow any class to wear sylvan armor", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
                 ItemOptionsContext.SwitchUniversalSylvanArmor();
             }
 
             toggle = Main.Settings.AllowDruidToWearMetalArmor;
-            if (UI.Toggle("Allow " + "Druid".orange() + " to wear metal armor", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AllowDruidToWearMetalArmor = toggle;
                 ItemOptionsContext.SwitchDruidAllowMetalArmor();
             }
 
             toggle = Main.Settings.DisableAutoEquip;
-            if (UI.Toggle("Disable auto-equip of items in inventory", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DisableAutoEquip = toggle;
             }
 
             toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-            if (UI.Toggle(
-                    "Make all magic staves arcane foci " + "[except for ".italic().yellow() +
-                    "Staff of Healing".italic().orange() + " which is Universal] ".italic().yellow() + RequiresRestart,
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
                 ItemOptionsContext.SwitchMagicStaffFoci();
@@ -129,9 +116,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.IncreaseSenseNormalVision;
-            if (UI.Toggle(
-                    "Increase " + "Sense Normal Vision".orange() + " range to enable long range attacks " +
-                    RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&IncreaseSenseNormalVision"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.IncreaseSenseNormalVision = toggle;
             }
@@ -139,7 +124,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
-            if (UI.Toggle("Quick cast light cantrip uses head or torso worn items first", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
             }
@@ -147,9 +132,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AddPickpocketableLoot;
-            if (UI.Toggle(
-                    "Add pickpocketable loot " + "[suggested if ".italic().yellow() + "Pickpocket".italic().orange() +
-                    " feat is enabled]".italic().yellow(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AddPickpocketableLoot"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AddPickpocketableLoot = toggle;
                 if (toggle)
@@ -159,16 +142,14 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.AllowStackedMaterialComponent;
-            if (UI.Toggle(
-                    "Allow stacked material component " +
-                    "[e.g. 2x500gp diamond is equivalent to 1000gp diamond]".italic().yellow(), ref toggle,
+            if (UI.Toggle(Gui.Format("ModUi/&AllowStackedMaterialComponent"), ref toggle,
                     UI.AutoWidth()))
             {
                 Main.Settings.AllowStackedMaterialComponent = toggle;
             }
 
             toggle = Main.Settings.ScaleMerchantPricesCorrectly;
-            if (UI.Toggle("Scale merchant prices correctly / exactly", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ScaleMerchantPricesCorrectly = toggle;
             }
