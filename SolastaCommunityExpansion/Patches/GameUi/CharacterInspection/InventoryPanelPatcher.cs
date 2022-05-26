@@ -16,7 +16,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             InventoryManagementContext.RefreshControlsVisibility();
-            InventoryManagementContext.SelectionChanged();
+
+            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            {
+                InventoryManagementContext.SelectionChanged();
+            }
         }
     }
 
