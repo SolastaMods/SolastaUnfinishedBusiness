@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
@@ -64,7 +66,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
                         WeaponTypeDefinitions.ShortbowType.Name)
                     .SetCustomSubFeatures(
                         new ZenArcherMarker(),
-                        //TODO: add feature that doubles range of ranged monk attacks, but not more than to 16/32 cells
+                        new ExtendWeaponRange(),
                         //TODO: add bonus 1-handed thrown/ranged attack
                         RangedAttackInMeleeDisadvantageRemover.Marker, //TODO: move to level 06 features
                         new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack)
@@ -205,6 +207,25 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private class ZenArcherMarker
         {
+        }
+
+        private class ExtendWeaponRange : IModifyAttackModeForWeapon
+        {
+            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+            {
+                if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
+                {
+                    return;
+                }
+
+                if (!Monk.IsMonkWeapon(character, attackMode))
+                {
+                    return;
+                }
+
+                attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
+                attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
+            }
         }
     }
 }
