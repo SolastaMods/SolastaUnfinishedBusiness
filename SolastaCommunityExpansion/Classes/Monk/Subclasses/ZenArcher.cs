@@ -56,10 +56,12 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
         {
             return new[]
             {
-                FeatureDefinitionBuilder
+                FeatureDefinitionProficiencyBuilder
                     .Create("ClassMonkZenArcherCombat", Monk.GUID)
-                    //TODO: add proficiency with bows
                     .SetGuiPresentation(Category.Feature)
+                    .SetProficiencies(ProficiencyType.Weapon,
+                        WeaponTypeDefinitions.LongbowType.Name,
+                        WeaponTypeDefinitions.ShortbowType.Name)
                     .SetCustomSubFeatures(
                         new ZenArcherMarker(),
                         //TODO: add feature that doubles range of ranged monk attacks, but not more than to 16/32 cells
