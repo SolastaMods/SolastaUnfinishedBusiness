@@ -87,7 +87,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 guiCharacterAction.Bind(guiCharacter.GameLocationCharacter, __instance.ActionScope);
 
                 component.name = guiCharacterAction.Name;
-                CustomBindItem(component, __instance, guiCharacterAction);
+                CustomBindItem(component, __instance, guiCharacterAction, newItems > 1);
                 component.Refresh();
                 actionItems.Add(component);
                 child.SetSiblingIndex(index);
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
         }
 
         private static void CustomBindItem(CharacterActionItem item, CharacterActionPanel panel,
-            GuiCharacterAction guiAction)
+            GuiCharacterAction guiAction, bool small)
         {
             var actionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
                 .AllActionDefinitions[guiAction.ActionId];
@@ -112,15 +112,15 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
             var smallItemForm = item.GetField<CharacterActionItemForm>("smallItemForm");
             var largeItemForm = item.GetField<CharacterActionItemForm>("largeItemForm");
-            var currentItemForm = item.GetField<CharacterActionItemForm>("currentItemForm");
+            CharacterActionItemForm currentItemForm;
 
-            if (actionDefinition.FormType == ActionDefinitions.ActionFormType.Small)
+            if (small)
             {
                 smallItemForm.gameObject.SetActive(true);
                 largeItemForm.gameObject.SetActive(false);
                 currentItemForm = smallItemForm;
             }
-            else if (actionDefinition.FormType == ActionDefinitions.ActionFormType.Large)
+            else
             {
                 smallItemForm.gameObject.SetActive(false);
                 largeItemForm.gameObject.SetActive(true);
