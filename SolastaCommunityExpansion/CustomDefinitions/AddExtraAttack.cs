@@ -8,26 +8,30 @@ using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
-public class AddExtraUnarmedAttack : IAddExtraAttack
+public abstract class AddExtraAttackBase : IAddExtraAttack
 {
-    private readonly ActionDefinitions.ActionType actionType;
+    protected readonly ActionDefinitions.ActionType actionType;
     private readonly List<string> additionalTags = new();
-    private readonly int attacksNumber;
     private readonly bool clearSameType;
     private readonly CharacterValidator[] validators;
 
-    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType,
+    public AddExtraAttackBase(ActionDefinitions.ActionType actionType, bool clearSameType,
         params CharacterValidator[] validators)
     {
         this.actionType = actionType;
-        this.attacksNumber = attacksNumber;
         this.clearSameType = clearSameType;
         this.validators = validators;
     }
 
-    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
-        this(actionType, 1, false, validators)
+    public AddExtraAttackBase(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+        this(actionType, false, validators)
     {
+    }
+
+    public AddExtraAttackBase SetTags(params string[] tags)
+    {
+        additionalTags.AddRange(tags);
+        return this;
     }
 
     public void TryAddExtraAttack(RulesetCharacterHero hero)
@@ -36,16 +40,6 @@ public class AddExtraUnarmedAttack : IAddExtraAttack
         {
             return;
         }
-
-        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
-
-        var isUnarmedWeapon = mainHandItem != null && WeaponValidators.IsUnarmedWeapon(mainHandItem);
-        var strikeDefinition = isUnarmedWeapon
-            ? mainHandItem.ItemDefinition
-            : hero.UnarmedStrikeDefinition;
-
-        var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
 
         var attackModes = hero.AttackModes;
         if (clearSameType)
@@ -60,6 +54,63 @@ public class AddExtraUnarmedAttack : IAddExtraAttack
                 }
             }
         }
+
+        var newAttacks = GetAttackModes(hero);
+        if (newAttacks == null || newAttacks.Empty())
+        {
+            return;
+        }
+
+        foreach (var attackMode in newAttacks)
+        {
+            foreach (var tag in additionalTags)
+            {
+                attackMode.AddAttackTagAsNeeded(tag);
+            }
+
+            if (attackModes.Any(m => ModesEqual(attackMode, m)))
+            {
+                RulesetAttackMode.AttackModesPool.Return(attackMode);
+            }
+            else
+            {
+                attackModes.Add(attackMode);
+            }
+        }
+    }
+
+    protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
+
+    protected virtual bool ModesEqual(RulesetAttackMode a, RulesetAttackMode b)
+    {
+        return a.IsComparableForNetwork(b);
+    }
+}
+
+public class AddExtraUnarmedAttack : AddExtraAttackBase
+{
+    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
+        params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
+    {
+    }
+
+    public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+        base(actionType, validators)
+    {
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+    {
+        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+            .EquipedItem;
+
+        var isUnarmedWeapon = mainHandItem != null && WeaponValidators.IsUnarmedWeapon(mainHandItem);
+        var strikeDefinition = isUnarmedWeapon
+            ? mainHandItem.ItemDefinition
+            : hero.UnarmedStrikeDefinition;
+
+        var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+
 
         var attackMode = hero.RefreshAttackModePublic(
             actionType,
@@ -72,71 +123,29 @@ public class AddExtraUnarmedAttack : IAddExtraAttack
             hero.FeaturesOrigin,
             isUnarmedWeapon ? mainHandItem : null
         );
-        attackMode.AttacksNumber = attacksNumber;
-        attackMode.AttackTags.AddRange(additionalTags);
 
-        if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
-        {
-            RulesetAttackMode.AttackModesPool.Return(attackMode);
-        }
-        else
-        {
-            attackModes.Add(attackMode);
-        }
-    }
-
-    public AddExtraUnarmedAttack SetTags(params string[] tags)
-    {
-        additionalTags.AddRange(tags);
-        return this;
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
 
-public class AddExtraThrownAttack : IAddExtraAttack
+public class AddExtraThrownAttack : AddExtraAttackBase
 {
-    private readonly ActionDefinitions.ActionType actionType;
-    private readonly List<string> additionalTags = new();
-    private readonly int attacksNumber;
-    private readonly bool clearSameType;
-    private readonly CharacterValidator[] validators;
-
-    public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType,
-        params CharacterValidator[] validators)
-    {
-        this.actionType = actionType;
-        this.attacksNumber = attacksNumber;
-        this.clearSameType = clearSameType;
-        this.validators = validators;
-    }
-
-    public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
-        this(actionType, 1, false, validators)
+    public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
+        params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
     {
     }
 
-    public void TryAddExtraAttack(RulesetCharacterHero hero)
+    public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) : base(
+        actionType, validators)
     {
-        if (!hero.IsValid(validators))
-        {
-            return;
-        }
+    }
 
-        var attackModes = hero.AttackModes;
-        if (clearSameType)
-        {
-            for (var i = attackModes.Count - 1; i > 0; i--)
-            {
-                var mode = attackModes[i];
-                if (mode.ActionType == actionType)
-                {
-                    RulesetAttackMode.AttackModesPool.Return(mode);
-                    attackModes.RemoveAt(i);
-                }
-            }
-        }
-
-        AddItemAttack(attackModes, EquipmentDefinitions.SlotTypeMainHand, hero);
-        AddItemAttack(attackModes, EquipmentDefinitions.SlotTypeOffHand, hero);
+    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+    {
+        var result = new List<RulesetAttackMode>();
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+        return result;
     }
 
     private void AddItemAttack(List<RulesetAttackMode> attackModes, string slot, RulesetCharacterHero hero)
@@ -163,30 +172,19 @@ public class AddExtraThrownAttack : IAddExtraAttack
         attackMode.Reach = false;
         attackMode.Ranged = true;
         attackMode.Thrown = true;
-        attackMode.AttacksNumber = attacksNumber;
-        attackMode.AttackTags.AddRange(additionalTags);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
-        if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
-        {
-            RulesetAttackMode.AttackModesPool.Return(attackMode);
-        }
-        else
-        {
-            attackModes.Add(attackMode);
-        }
-    }
-
-    public AddExtraThrownAttack SetTags(params string[] tags)
-    {
-        additionalTags.AddRange(tags);
-        return this;
+        attackModes.Add(attackMode);
     }
 }
 
-public class AddBonusShieldAttack : IAddExtraAttack
+public class AddBonusShieldAttack : AddExtraAttackBase
 {
-    public void TryAddExtraAttack(RulesetCharacterHero hero)
+    public AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus, false)
+    {
+    }
+    
+    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
     {
         var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
         var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
@@ -194,10 +192,9 @@ public class AddBonusShieldAttack : IAddExtraAttack
 
         if (!ShieldStrikeContext.IsShield(offHandItem))
         {
-            return;
+            return null;
         }
 
-        var attackModes = hero.AttackModes;
         var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
 
         var attackMode = hero.RefreshAttackModePublic(
@@ -246,13 +243,6 @@ public class AddBonusShieldAttack : IAddExtraAttack
             }
         }
 
-        if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
-        {
-            RulesetAttackMode.AttackModesPool.Return(attackMode);
-        }
-        else
-        {
-            attackModes.Add(attackMode);
-        }
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
