@@ -90,7 +90,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
             var features = character.GetSubFeaturesByType<RangedAttackInMeleeDisadvantageRemover>();
 
-            return features.Any(f => f.CanApply(character, attackParams.attackMode));
+            return !features.Any(f => f.CanApply(character, attackParams.attackMode));
         }
     }
 }
