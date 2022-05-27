@@ -9,8 +9,6 @@ namespace SolastaCommunityExpansion.Displays
     {
         internal const float PIXELS_PER_COLUMN = 220;
 
-        internal static readonly string RequiresRestart = "[requires restart]".italic().red().bold();
-
         internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
         {
             UI.Label(Gui.Format("Bem-vindo / Bienvenue / Welcome / Wilkommen / пожалуйста / 欢迎".bold().yellow()));

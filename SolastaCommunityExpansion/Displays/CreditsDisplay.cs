@@ -83,7 +83,7 @@ namespace SolastaCommunityExpansion.Displays
                         {
                         }
                     }
-                }, UI.Width(200));
+                }, UI.AutoWidth());
             }
 
             UI.Label("");
