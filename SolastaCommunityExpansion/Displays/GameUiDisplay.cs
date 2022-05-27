@@ -1,7 +1,6 @@
 ﻿using System;
 using ModKit;
 using SolastaCommunityExpansion.Models;
-using static SolastaCommunityExpansion.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Displays
 {
@@ -16,14 +15,11 @@ namespace SolastaCommunityExpansion.Displays
             #region Battle
 
             UI.Label("");
-
-            UI.Label("Battle:".yellow());
-
+            UI.Label(Gui.Format("ModUi/&Battle"));
             UI.Label("");
 
             toggle = Main.Settings.DontFollowCharacterInBattle;
-            if (UI.Toggle("Battle camera doesn't follow when character is already on screen", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.DontFollowCharacterInBattle = toggle;
             }
@@ -31,7 +27,7 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.DontFollowCharacterInBattle)
             {
                 intValue = Main.Settings.DontFollowMargin;
-                if (UI.Slider("+ Unless hero is off or within % of screen edge".white().italic(), ref intValue, 0, 20,
+                if (UI.Slider(Gui.Format("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
                         1, "%", UI.AutoWidth()))
                 {
                     Main.Settings.DontFollowMargin = intValue;
@@ -41,7 +37,7 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.AutoPauseOnVictory;
-            if (UI.Toggle("Pause the UI when victorious in battle", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AutoPauseOnVictory"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AutoPauseOnVictory = toggle;
             }
@@ -49,8 +45,8 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             floatValue = Main.Settings.FasterTimeModifier;
-            if (UI.Slider("Game time modifier when pressing space bar".white(), ref floatValue, 1.5f, 10f, 1.5f, 1, "X",
-                    UI.AutoWidth()))
+            if (UI.Slider(Gui.Format("ModUi/&CampaignsAndLocations"), ref floatValue, 1.5f, 10f, 1.5f,
+                    1, "X", UI.AutoWidth()))
             {
                 Main.Settings.FasterTimeModifier = floatValue;
             }
@@ -60,13 +56,11 @@ namespace SolastaCommunityExpansion.Displays
             #region Campaign
 
             UI.Label("");
-
-            UI.Label("Campaigns and locations:".yellow());
-
+            UI.Label(Gui.Format("ModUi/&CampaignsAndLocations"));
             UI.Label("");
 
             toggle = Main.Settings.FollowCharactersOnTeleport;
-            if (UI.Toggle("Camera follows teleported character(s)", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&FollowCharactersOnTeleport"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.FollowCharactersOnTeleport = toggle;
             }
@@ -74,8 +68,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableLogDialoguesToConsole;
-            if (UI.Toggle("Enable log dialogues to game console during narrative sequences", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableLogDialoguesToConsole = toggle;
             }
@@ -83,8 +76,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
-            if (UI.Toggle("Enable additional icons for camps, exits and teleporters on level map", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
 
@@ -97,16 +89,14 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableAdditionalIconsOnLevelMap)
             {
                 toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
-                if (UI.Toggle("+ Also mark the location of invisible teleporters on level map after discovery".italic(),
-                        ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&MarkInvisibleTeleportersOnLevelMap"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
                 }
             }
 
             toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
-            if (UI.Toggle("Hide exits and teleporters visual effects if not discovered yet", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
             }
@@ -116,13 +106,11 @@ namespace SolastaCommunityExpansion.Displays
             #region Item
 
             UI.Label("");
-
-            UI.Label("Inventory and items:".yellow());
-
+            UI.Label(Gui.Format("ModUi/&InventoryAndItems"));
             UI.Label("");
 
             toggle = Main.Settings.EnableInventoryFilteringAndSorting;
-            if (UI.Toggle("Enable inventory filtering and sorting", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryFilteringAndSorting"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableInventoryFilteringAndSorting = toggle;
                 Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
@@ -132,15 +120,14 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
-                if (UI.Toggle("+ Taint in red any item the hero isn't proficient with".italic(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
                 }
             }
 
             toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
-            if (UI.Toggle("Hide the " + "Crown of the Magister".orange() + " on game UI", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
                 ItemOptionsContext.SwitchCrownOfTheMagister();
@@ -150,7 +137,7 @@ namespace SolastaCommunityExpansion.Displays
 
             using (UI.HorizontalScope())
             {
-                UI.Label("Empress Garb".orange() + " appearance ".white(), UI.Width(325));
+                UI.Label(Gui.Format("ModUi/&EmpressGarbAppearance"), UI.Width(325));
 
                 intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbAppearances,
                     Main.Settings.EmpressGarbAppearance);
@@ -167,21 +154,17 @@ namespace SolastaCommunityExpansion.Displays
             #region Monster
 
             UI.Label("");
-
-            UI.Label("Monsters:".yellow());
-
+            UI.Label(Gui.Format("ModUi/&Monsters"));
             UI.Label("");
 
             toggle = Main.Settings.HideMonsterHitPoints;
-            if (UI.Toggle("Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&HideMonsterHitPoints"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.HideMonsterHitPoints = toggle;
             }
 
             toggle = Main.Settings.RemoveBugVisualModels;
-            if (UI.Toggle("Replace bug-like models with alternative visuals in the game " + RequiresRestart, ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveBugVisualModels = toggle;
             }
@@ -191,13 +174,11 @@ namespace SolastaCommunityExpansion.Displays
             #region Spell
 
             UI.Label("");
-
-            UI.Label("Spells:".yellow());
-
+            UI.Label(Gui.Format("ModUi/&Spells"));
             UI.Label("");
 
             intValue = Main.Settings.MaxSpellLevelsPerLine;
-            if (UI.Slider("Max levels per line on Spell Panel".white(), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
+            if (UI.Slider(Gui.Format("ModUi/&MaxSpellLevelsPerLine"), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
             {
                 Main.Settings.MaxSpellLevelsPerLine = intValue;
             }

@@ -324,8 +324,8 @@
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
-  <data name="Monsters-pt-br" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-pt-br.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Monsters-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
@@ -354,8 +354,8 @@
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
-  <data name="Translations-pt-br" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-pt-br.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Translations-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
@@ -384,8 +384,8 @@
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>
-  <data name="Modui-pt-br" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-pt-br.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Modui-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Modui-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8
     </value>
   </data>

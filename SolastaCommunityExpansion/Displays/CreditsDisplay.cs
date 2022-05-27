@@ -3,7 +3,6 @@ using System.IO;
 using ModKit;
 using UnityExplorer;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
-using static SolastaCommunityExpansion.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Displays
 {

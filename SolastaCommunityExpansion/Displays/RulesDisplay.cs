@@ -1,7 +1,6 @@
 ﻿using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Spells;
-using static SolastaCommunityExpansion.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Displays
 {

@@ -39,11 +39,6 @@ namespace SolastaCommunityExpansion.Displays
         {
             bool toggle;
 
-            static string hk(char key)
-            {
-                return "ctrl-shift-(".cyan() + key + ")".cyan();
-            }
-
             #region Hotkeys
 
             UI.Label("");
@@ -60,7 +55,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
-            if (UI.Toggle("Enable cancel action with right-mouse click", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
                 SelectAll = false;
@@ -69,16 +64,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableHotkeyToggleIndividualHud;
-            if (UI.Toggle(
-                    $"Enable {hk('C')}ontrol Panel, {hk('L')}og, {hk('M')}ap and {hk('P')}arty to toggle each UI panels visibility",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableHotkeyToggleIndividualHud"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeyToggleIndividualHud = toggle;
                 SelectAll = false;
             }
 
             toggle = Main.Settings.EnableHotkeyToggleHud;
-            if (UI.Toggle($"Enable {hk('H')}ud to toggle all UI panels visibility", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeyToggleHud = toggle;
                 SelectAll = false;
@@ -87,9 +80,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCharacterExport;
-            if (UI.Toggle(
-                    $"Enable {hk('E')}xport character " + "[on character inspection screen only]".yellow().italic(),
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCharacterExport"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterExport = toggle;
                 SelectAll = false;
@@ -98,27 +89,21 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableHotkeyDebugOverlay;
-            if (UI.Toggle($"Enable {hk('D')}ebug overlay", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeyDebugOverlay = toggle;
                 SelectAll = false;
             }
 
             toggle = Main.Settings.EnableHotkeyZoomCamera;
-            if (UI.Toggle(
-                    $"Enable {hk('Z')}oom camera " +
-                    "[useful when taking dungeon screenshots for publishing]".yellow().italic(), ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableHotkeyZoomCamera"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableHotkeyZoomCamera = toggle;
                 SelectAll = false;
             }
 
             toggle = Main.Settings.EnableTeleportParty;
-            if (UI.Toggle(
-                    $"Enable {hk('T')}eleport party " +
-                    "[you might break quests or maps if you teleport to an undiscovered place]".yellow().italic(),
-                    ref toggle))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableTeleportParty"), ref toggle))
             {
                 Main.Settings.EnableTeleportParty = toggle;
                 SelectAll = false;
@@ -127,16 +112,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView;
-            if (UI.Toggle(
-                    "ALT".cyan() + " key only highlight gadgets in party field of view " +
-                    "[only in custom dungeons]".yellow().italic(), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AltOnlyHighlightItemsInPartyFieldOfView"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AltOnlyHighlightItemsInPartyFieldOfView = toggle;
                 SelectAll = false;
             }
 
             toggle = Main.Settings.InvertAltBehaviorOnTooltips;
-            if (UI.Toggle("Invert " + "ALT".cyan() + " key behavior on tooltips", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&InvertAltBehaviorOnTooltips"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.InvertAltBehaviorOnTooltips = toggle;
                 SelectAll = false;
@@ -145,17 +128,14 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.EnableCtrlClickBypassMetamagicPanel;
-            if (UI.Toggle(
-                    "Enable " + "CTRL".cyan() + " click on spells to ignore the " + "Sorcerer".orange() +
-                    " metamagic panel", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCtrlClickBypassMetamagicPanel"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCtrlClickBypassMetamagicPanel = toggle;
                 SelectAll = false;
             }
 
             toggle = Main.Settings.EnableCtrlClickBypassAttackReactionPanel;
-            if (UI.Toggle("Enable " + "CTRL".cyan() + " click on attacks to ignore any reaction panel", ref toggle,
-                    UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCtrlClickBypassAttackReactionPanel"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCtrlClickBypassAttackReactionPanel = toggle;
                 Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
@@ -165,16 +145,14 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel)
             {
                 toggle = Main.Settings.EnableIgnoreCtrlClickOnCriticalHit;
-                if (UI.Toggle("+ only bypass if not a critical hit".italic(), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&EnableIgnoreCtrlClickOnCriticalHit"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableIgnoreCtrlClickOnCriticalHit = toggle;
                 }
             }
 
             toggle = Main.Settings.EnableCtrlClickOnlySwapsMainHand;
-            if (UI.Toggle(
-                    "Enable " + "CTRL".cyan() + " click to keep off hand items when swapping wielded configurations",
-                    ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCtrlClickOnlySwapsMainHand"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCtrlClickOnlySwapsMainHand = toggle;
                 SelectAll = false;
@@ -183,8 +161,7 @@ namespace SolastaCommunityExpansion.Displays
             #endregion
 
             UI.Label("");
-            UI.Label(". " + "SHIFT".cyan() +
-                     " click on a spell consumes a spell slot instead of the default pact magic one");
+            UI.Label(Gui.Format("ModUi/&MulticlassKeyHelp"));
             UI.Label("");
         }
     }

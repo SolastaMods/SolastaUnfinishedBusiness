@@ -6,7 +6,7 @@ ModUi/&EnableFlexibleBackgrounds	Ative planos de fundo flexíveis <i><color=yell
 ModUi/&EnableFlexibleRaces	Habilite raças flexíveis <i><color=yellow>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
 ModUi/&EnableEpicPointsAndArray	Ative um sistema épico de compra de 35 pontos e uma matriz <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[ Requer reinicialização]</color></i></b>
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total de talentos concedidos no primeiro nível</color>
-ModUi/&EnableMinInOutAttributes	Aplicar pontuações de habilidade mínimas de pré-requisitos de entrada e saída
+ModUi/&EnableMinInOutAttributes	Aplicar os pré-requisitos mínimos de entrada e saída de pontuações de habilidade
 ModUi/&EnableRelearnSpells	Pode selecionar truques ou feitiços já aprendidos de outras classes
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Exiba todos os feitiços conhecidos de outras classes durante o aumento de nível
 ModUi/&MaxAllowedClasses	<color=white>Máximo de aulas permitidas</color> <b><i><color=red>[Requer reinicialização]</color></i></b>
@@ -60,4 +60,67 @@ ModUi/&EnableUnityExplorer	Ativar a interface do usuário do Unity Explorer
 ModUi/&Patches	<color=yellow>Remendos:</color>
 ModUi/&Basic	<color=yellow>Básico:</color>
 ModUi/&Advanced	<color=yellow>Avançado:</color>
-ModUI/&EnableBetaContent	Ative o conteúdo beta <i><color=yellow>[lembre-se de que seus heróis ou salvamentos podem ser interrompidos em atualizações futuras]</color></i> <b><i><color=red>[Requer reinicialização]</ cor></i></b>
+ModUI/&EnableBetaContent	Ative o conteúdo beta <i><color=yellow>[lembre-se de que seus salvamentos ou heróis podem quebrar no futuro]</color></i> <b><i><color=red>[Requer reinicialização]</color></i></b>
+ModUi/&Battle	<color=yellow>Batalha:</color>
+ModUi/&DontFollowCharacterInBattle	A câmera de batalha não segue quando o personagem já está na tela
+ModUi/&DontFollowMargin	<i>+ A menos que o herói esteja desativado ou dentro de % da borda da tela</i>
+ModUi/&AutoPauseOnVictory	Pause a interface do usuário quando for vitorioso na batalha
+ModUi/&FasterTimeModifier	<color=white>Modificador de tempo de jogo ao pressionar a barra de espaço</color>
+ModUi/&CampaignsAndLocations	<color=yellow>Campanhas e locais:</color>
+ModUi/&FollowCharactersOnTeleport	A câmera segue os personagens teletransportados
+ModUi/&EnableLogDialoguesToConsole	Ative os diálogos de log para o console de jogos durante as sequências narrativas
+ModUi/&EnableAdditionalIconsOnLevelMap	Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de nível
+ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marque também a localização de teletransportadores invisíveis no mapa de nível após a descoberta</i>
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Ocultar efeitos visuais de saídas e teletransportadores se ainda não foram descobertos
+ModUi/&InventoryAndItems	<color=yellow>Inventário e itens:</color>
+ModUi/&EnableInventoryFilteringAndSorting	Ativar filtragem e classificação de inventário
+ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Contaminar em vermelho qualquer item com o qual o herói não seja proficiente</i>
+ModUi/&EnableInvisibleCrownOfTheMagister	Esconda a <color=orange>Crown of the Magister</color> na interface do jogo
+ModUi/&Monsters	<color=yellow>Monstros:</color>
+ModUi/&HideMonsterHitPoints	Exiba a saúde dos Monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos
+ModUi/&RemoveBugVisualModels	Substitua modelos semelhantes a bugs por visuais alternativos no jogo <b><i><color=red>[Requer reinicialização]</color></i></b>
+ModUi/&Spells	<color=yellow>Feitiços:</color>
+ModUi/&MaxSpellLevelsPerLine	<color=white>Níveis máximos por linha no painel de feitiços</color>
+ModUi/&EmpressGarbAppearance	<color=orange>Traje da Imperatriz</color> aparência
+ModUi/&EnableSaveByLocation	Ativar salvar por campanhas/locais
+ModUi/&EnableCharacterChecker	Ative a tela do verificador de caracteres
+ModUi/&EnableCheatMenu	Habilite o menu de cheats
+ModUi/&EnableRespec	Ative as ações RESPEC e Level Down após descanso
+ModUi/&Adventure	<color=yellow>Aventura:</color>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty	Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
+ModUi/&NoExperienceOnLevelUp	Nenhuma experiência é necessária para subir de nível
+ModUi/&OverrideMinMaxLevel	Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
+ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multiplicar a experiência adquirida por</color> <color=red>[%]</color>
+ModUi/&OverridePartySize	<color=white>Substituir o tamanho do grupo em aventuras personalizadas</color>
+ModUi/&DungeonMaker	<color=yellow>Criador de Masmorras:</color>
+ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Máx. arquivos de backup por local ou campanha</color>
+ModUi/&MaxBackupHelp	. Os arquivos de backup são salvos em <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
+ModUi/&FactionRelations	<color=yellow>Relações de facções:</color>
+ModUi/&FactionHelp	<color=red>Carregue um jogo de campanha oficial para modificar as relações de facção...</color>
+ModUi/&NotAvailable	Nenhum {0} disponível neste mod ainda...
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Ativar recarga de descanso curto de <color=orange>Arma Arcane</color> no <color=orange>Wizard</color> Arcane Fighter
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Ative a <color=orange>Recuperação Arcana</color> ilimitada no <color=orange>Assistente</color> Mestre de Feitiços\n<i><color=yellow>Deve ser ativado quando a habilidade tiver usos disponíveis ou antes da criação do personagem</color></i>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Substituir <color=orange>Ladino</color> Vigarista <color=orange>Manipulação Aprimorada</color> DC de Feitiços</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Substituir <color=orange>Assistente</color> Manipulador Mestre <color=orange>Manipulação Arcana</color> CD de Feitiços</color>
+ModUi/&DungeonMakerBasicHelp	. Essas configurações não exigirão que o jogador tenha este mod instalado
+ModUi/&AllowDungeonsMaxLevel20	Permitir masmorras com nível máximo 20 <b><i><color=red>[Requer reinicialização]</color></i></b>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Permitir que gadgets e adereços sejam colocados em qualquer lugar no mapa <i><color=yellow>[pressione <color=cyan>CTRL</color> durante o posicionamento para ignorar qualquer verificação]</color></i>
+ModUi/&UnleashNpcAsEnemy	Permitir que NPCs sejam selecionados em gadgets de monstros <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
+ModUi/&UnleashEnemyAsNpc	Permitir que Monstros sejam selecionados em gadgets NPC<i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
+ModUi/&AdvancedHelp	. <b><color=red>ATENÇÃO:</color></b> Esta configuração exigirá que o jogador tenha este mod instalado
+ModUi/&EnableDungeonMakerModdedContent	Ative o Dungeon Maker Pro <b><i><color=red>[Requer reinicialização]</color></i></b>\n\nincluem salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e sem frescuras misturando ativos de todos os ambientes\nvocê deve ter pelo menos uma sala ao ar livre se escolher um ambiente ao ar livre
+ModUi/&EnableExtraHighLevelMonsters	Ative monstros adicionais de alto nível (+20 CR) para campanhas de nível 3 e 4 <b><i><color=red>[Requer reinicialização]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick	Habilite a ação de cancelamento com o botão direito do mouse
+ModUi/&EnableHotkeyToggleIndividualHud	Ative <color=cyan>CTRL-SHIFT-(C</color>)painel de controle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M< /color>)ap e <color=cyan>CTRL-SHIFT-(P</color>)arty para alternar a visibilidade de cada painel da interface do usuário
+ModUi/&EnableHotkeyToggleHud	Ative <color=cyan>CTRL-SHIFT-(H</color>)ud para alternar a visibilidade de todos os painéis da interface do usuário
+ModUi/&EnableCharacterExport	Ative <color=cyan>CTRL-SHIFT-(E</color>)xport caractere <i><color=yellow>[somente na tela de inspeção de caractere]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Ativar sobreposição de ebug <color=cyan>CTRL-SHIFT-(D</color>)
+ModUi/&EnableHotkeyZoomCamera	Ative a câmera <color=cyan>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[útil ao tirar capturas de tela de masmorras para publicação]</color></i>
+ModUi/&EnableTeleportParty	Ative <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[você pode quebrar missões ou mapas se se teletransportar para um lugar desconhecido]</color></i>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	A tecla <color=cyan>ALT</color> apenas destaca os gadgets no campo de visão do grupo [somente em masmorras personalizadas]
+ModUi/&InvertAltBehaviorOnTooltips	Inverter o comportamento da tecla <color=cyan>ALT</color> nas dicas de ferramentas
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Ative <color=cyan>CTRL</color> clique nos feitiços para ignorar o painel metamágico <color=orange>Feiticeiro</color>
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Ative <color=cyan>CTRL</color> clique nos ataques para ignorar qualquer painel de reação
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ apenas ignorar se não for um acerto crítico</i>
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Ative <color=cyan>CTRL</color> clique para evitar itens de mão ao trocar configurações de empunhadura
+ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color> clicar em um feitiço consome um espaço de feitiço em vez do mágico do pacto padrão
