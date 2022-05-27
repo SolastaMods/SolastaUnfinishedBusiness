@@ -4,7 +4,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&AscendantStepTitle",
-    "description": "Cast Levitate at will",
+    "description": "Cast Levitate at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "518af71d722898140ade6f799cf584fc",

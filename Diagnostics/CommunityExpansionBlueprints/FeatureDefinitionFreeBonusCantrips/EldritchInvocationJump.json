@@ -7,7 +7,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&OtherworldlyLeapTitle",
-    "description": "Cast Jump at will",
+    "description": "Cast Jump at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
