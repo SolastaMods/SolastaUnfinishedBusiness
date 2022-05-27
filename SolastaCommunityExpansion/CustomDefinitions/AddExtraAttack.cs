@@ -128,6 +128,43 @@ public class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
+public class AddExtraMainHandAttack : AddExtraAttackBase
+{
+    public AddExtraMainHandAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
+        params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
+    {
+    }
+
+    public AddExtraMainHandAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+        base(actionType, validators)
+    {
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+    {
+        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+            .EquipedItem;
+
+        var strikeDefinition = mainHandItem.ItemDefinition;
+
+        var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+
+        var attackMode = hero.RefreshAttackModePublic(
+            actionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            false,
+            true,
+            EquipmentDefinitions.SlotTypeMainHand,
+            attackModifiers,
+            hero.FeaturesOrigin,
+            mainHandItem
+        );
+
+        return new List<RulesetAttackMode> {attackMode};
+    }
+}
+
 public class AddExtraThrownAttack : AddExtraAttackBase
 {
     public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
