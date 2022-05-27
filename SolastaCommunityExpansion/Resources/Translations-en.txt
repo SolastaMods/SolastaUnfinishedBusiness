@@ -1950,3 +1950,7 @@ Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} hit a creatu
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Distant Hand Technique
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Flurry of Arrows
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	After spending action to attack with monk weapon you can spend 2 ki points as a bonus action to do 2 ranged attacks with a bow. Only availabe if you are not wearing armor or shield.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.

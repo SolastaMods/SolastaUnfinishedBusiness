@@ -5,7 +5,10 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
+using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper;
 
@@ -14,6 +17,14 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
     public static class ZenArcher
     {
         private const string ZenArrowTag = "ZenArrow";
+
+        private static AssetReferenceSprite _flurryOfArrows, _zenArrows;
+
+        private static AssetReferenceSprite FlurryOfArrows => _flurryOfArrows ??=
+            CustomIcons.CreateAssetReferenceSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
+
+        private static AssetReferenceSprite ZenArrows => _zenArrows ??=
+            CustomIcons.CreateAssetReferenceSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 
         // Zen Archer's Monk weapons are bows and darts ranged weapons.
         private static readonly List<WeaponTypeDefinition> MonkWeapons = new()
@@ -78,7 +89,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
         {
             var technique = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkZenArrowTechnique", Monk.GUID)
-                .SetGuiPresentation(Category.Power)
+                .SetGuiPresentation(Category.Power, ZenArrows)
                 .SetShortTitle("Power/&ClassMonkZenArrowTechniqueSortTitle")
                 .SetSharedPool(Monk.KiPool)
                 .SetActivationTime(ActivationTime.OnAttackHit)
@@ -191,7 +202,63 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private static FeatureDefinition[] BuildLevel06Features()
         {
-            return System.Array.Empty<FeatureDefinition>();
+            var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
+                .Create("ClassMonkZenArcherFlurryOfArrowsExtraAttacks1", Monk.GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, true,
+                        CharacterValidators.NoArmor, CharacterValidators.NoShield, WieldsZenArcherWeapon)
+                    .SetTags(Monk.FlurryTag)) //Do we need flurry tag here?
+                .SetActionType(ActionDefinitions.ActionType.Bonus)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                .AddToDB();
+
+            var extraFlurryAttack2 = FeatureDefinitionAdditionalActionBuilder
+                .Create("ClassMonkZenArcherFlurryOfArrowsExtraAttacks2", Monk.GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionDefinitions.ActionType.Bonus)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
+                .AddToDB();
+
+            var flurryOfArrows = FeatureDefinitionPowerSharedPoolBuilder
+                .Create("ClassMonkZenArcherFlurryOfArrows", Monk.GUID)
+                .SetGuiPresentation(Category.Power , FlurryOfArrows)
+                .SetSharedPool(Monk.KiPool)
+                .SetActivationTime(ActivationTime.BonusAction)
+                .SetCostPerUse(2)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetShowCasting(false)
+                .SetCustomSubFeatures(new PowerUseValidity(Monk.attackedWithMonkWeapon,
+                    CharacterValidators.NoShield, CharacterValidators.NoArmor))
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .AddEffectForm(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ClassMonkZenArcherFlurryOfArrowsCondition", Monk.GUID)
+                                .SetGuiPresentationNoContent(true)
+                                .SetSilent(Silent.WhenAddedOrRemoved)
+                                .SetDuration(DurationType.Round, 0, false)
+                                .SetSpecialDuration(true)
+                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.BattleEnd,
+                                    ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(extraFlurryAttack1, extraFlurryAttack2)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add, true, true)
+                        .Build())
+                    .Build())
+                .AddToDB();
+
+            var kiPoweredArrows = FeatureDefinitionBuilder
+                .Create("ClassMonkZenArcherKiPoweredArows", Monk.GUID)
+                .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(new AddTagToWeaponAttack(TagsDefinitions.Magical,
+                    (mode, _, character) => IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition)))
+                .AddToDB();
+
+            return new[]
+            {
+                kiPoweredArrows,
+                flurryOfArrows
+            };
         }
 
         private static FeatureDefinition[] BuildLevel11Features()
@@ -209,6 +276,14 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
             return mode is {Reach: false, Magical: false}
                    && (mode.Ranged || mode.Thrown)
                    && IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition);
+        }
+
+        private static bool WieldsZenArcherWeapon(RulesetCharacter character)
+        {
+            var mainHandItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+                .EquipedItem;
+            
+            return IsMonkWeapon(character, mainHandItem?.ItemDefinition);
         }
 
         private class ZenArcherMarker
