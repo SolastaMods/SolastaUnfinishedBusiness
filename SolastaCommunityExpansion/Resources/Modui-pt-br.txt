@@ -90,7 +90,7 @@ ModUi/&FixSorcererTwinnedLogic	Corrigimos o uso de metamágica dupla de <color=o
 ModUi/&FollowCharactersOnTeleport	A câmera segue os personagens teletransportados
 ModUi/&FullyControlConjurations	Controle totalmente as conjurações <i><color=yellow>[animais, elementais, etc]</color></i>
 ModUi/&Gameplay	Jogabilidade
-ModUi/&GameUi	IU do jogo
+ModUi/&GameUi	UI do jogo
 ModUi/&General	<color=yellow>Geral:</color>
 ModUi/&GeneralMenu	Em geral
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Ocultar efeitos visuais de saídas e teletransportadores se ainda não foram descobertos
