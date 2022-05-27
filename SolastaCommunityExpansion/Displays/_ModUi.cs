@@ -26,82 +26,82 @@ namespace SolastaCommunityExpansion.Displays
     public class ModUi : IMenuSelectablePage
     {
         private int characterSelectedPane;
-        public string Name => "Character";
+        public string Name => Main.Enabled ? Gui.Format("ModUi/&Character") : "Character";
 
         public int Priority => 100;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref characterSelectedPane,
-                new NamedAction("General", DisplayCharacter),
-                new NamedAction("Races, Classes & Subclasses", DisplayClassesAndSubclasses),
-                new NamedAction("Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
-                new NamedAction("Spells", DisplaySpells));
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GeneralMenu") : "General", DisplayCharacter),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&RacesClassesSubclasses") : "Races, Classes & Subclasses", DisplayClassesAndSubclasses),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&FeatsFightingStyles") : "Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&SpellsMenu") : "Spells", DisplaySpells));
         }
     }
 
     public class GameplayViewer : IMenuSelectablePage
     {
         private int gamePlaySelectedPane;
-        public string Name => "Gameplay";
+        public string Name => Main.Enabled ? Gui.Format("ModUi/&Gameplay") : "Gameplay";
 
         public int Priority => 200;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref gamePlaySelectedPane,
-                new NamedAction("Rules", DisplayRules),
-                new NamedAction("Items, Crafting & Merchants", DisplayItemsAndCrafting),
-                new NamedAction("Tools", DisplayTools));
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Rules") : "Rules", DisplayRules),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&ItemsCraftingMerchants") : "Items, Crafting & Merchants", DisplayItemsAndCrafting),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Tools") : "Tools", DisplayTools));
         }
     }
 
     public class InterfaceViewer : IMenuSelectablePage
     {
         private int interfaceSelectedPane;
-        public string Name => "Interface";
+        public string Name => Main.Enabled ? Gui.Format("ModUi/&Interface") : "Interface";
 
         public int Priority => 300;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref interfaceSelectedPane,
-                new NamedAction("Dungeon Maker", DisplayDungeonMaker),
-                new NamedAction("Game UI", DisplayGameUi),
-                new NamedAction("Keyboard & Mouse", DisplayKeyboardAndMouse));
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&DungeonMaker") : "Dungeon Maker", DisplayDungeonMaker),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GameUi") : "Game UI", DisplayGameUi),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&KeyboardMouse") : "Keyboard & Mouse", DisplayKeyboardAndMouse));
         }
     }
 
     public class EncountersViewer : IMenuSelectablePage
     {
         private int encountersSelectedPane;
-        public string Name => "Encounters";
+        public string Name => Main.Enabled ? Gui.Format("ModUi/&Encounters") : "Encounters";
 
         public int Priority => 400;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref encountersSelectedPane,
-                new NamedAction("General", DisplayEncountersGeneral),
-                new NamedAction("Bestiary", DisplayBestiary),
-                new NamedAction("Characters Pool", DisplayNPCs));
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GeneralMenu") : "General", DisplayEncountersGeneral),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Bestiary") : "Bestiary", DisplayBestiary),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&CharactersPool") : "Characters Pool", DisplayNPCs));
         }
     }
 
     public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {
         private int creditsSelectedPane;
-        public string Name => "Credits & Diagnostics";
+        public string Name => Main.Enabled ? Gui.Format("ModUi/&CreditsAndDiagnostics") : "Credits & Diagnostics";
 
         public int Priority => 999;
 
         public void OnGUI(UnityModManager.ModEntry modEntry) => DisplaySubMenu(ref creditsSelectedPane,
-            new NamedAction("Credits", DisplayCredits),
+            new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Credits") : "Credits", DisplayCredits),
 #if DEBUG
             new NamedAction("Diagnostics", DisplayDiagnostics),
 #endif
-            new NamedAction("Blueprints", DisplayBlueprints),
-            new NamedAction("Services", DisplayGameServices)
+            new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Blueprints") : "Blueprints", DisplayBlueprints),
+            new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Services") : "Services", DisplayGameServices)
         );
     }
 }
