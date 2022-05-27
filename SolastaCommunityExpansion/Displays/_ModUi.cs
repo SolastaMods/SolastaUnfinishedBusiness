@@ -66,7 +66,7 @@ namespace SolastaCommunityExpansion.Displays
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref interfaceSelectedPane,
-                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&DungeonMaker") : "Dungeon Maker", DisplayDungeonMaker),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&DungeonMakerMenu") : "Dungeon Maker", DisplayDungeonMaker),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GameUi") : "Game UI", DisplayGameUi),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&KeyboardMouse") : "Keyboard & Mouse", DisplayKeyboardAndMouse));
         }
