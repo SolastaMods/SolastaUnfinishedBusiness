@@ -349,7 +349,18 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of huma [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_de {
+            get {
+                return ResourceManager.GetString("Monsters-de", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
         ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
@@ -547,9 +558,9 @@ namespace SolastaCommunityExpansion.Properties {
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de inte [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Translations_pt_br {
+        public static string Translations_pt_BR {
             get {
-                return ResourceManager.GetString("Translations-pt-br", resourceCulture);
+                return ResourceManager.GetString("Translations-pt-BR", resourceCulture);
             }
         }
         
@@ -604,9 +615,9 @@ namespace SolastaCommunityExpansion.Properties {
             }
         }
 
-        public static string Modui_pt_br {
+        public static string Modui_pt_BR {
             get {
-                return ResourceManager.GetString("Modui-pt-br", resourceCulture);
+                return ResourceManager.GetString("Modui-pt-BR", resourceCulture);
             }
         }
         

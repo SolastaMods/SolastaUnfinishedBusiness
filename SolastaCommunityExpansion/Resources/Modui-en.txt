@@ -60,4 +60,67 @@ ModUi/&EnableUnityExplorer	Enable the Unity Explorer UI
 ModUi/&Patches	<color=yellow>Patches:</color>
 ModUi/&Basic	<color=yellow>Basic:</color>
 ModUi/&Advanced	<color=yellow>Advanced:</color>
-ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your heroes or saves might break on future updates]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&Battle	<color=yellow>Battle:</color>
+ModUi/&DontFollowCharacterInBattle	Battle camera doesn't follow when character is already on screen
+ModUi/&DontFollowMargin	<i>+ Unless hero is off or within % of screen edge</i>
+ModUi/&AutoPauseOnVictory	Pause the UI when victorious in battle
+ModUi/&FasterTimeModifier	<color=white>Game time modifier when pressing space bar</color>
+ModUi/&CampaignsAndLocations	<color=yellow>Campaigns and locations:</color>
+ModUi/&FollowCharactersOnTeleport	Camera follows teleported character(s)
+ModUi/&EnableLogDialoguesToConsole	Enable log dialogues to game console during narrative sequences
+ModUi/&EnableAdditionalIconsOnLevelMap	Enable additional icons for camps, exits and teleporters on level map
+ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Hide exits and teleporters visual effects if not discovered yet
+ModUi/&InventoryAndItems	<color=yellow>Inventory and items:</color>
+ModUi/&EnableInventoryFilteringAndSorting	Enable inventory filtering and sorting
+ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Taint in red any item the hero isn't proficient with</i>
+ModUi/&EnableInvisibleCrownOfTheMagister	Hide the <color=orange>Crown of the Magister</color> on game UI
+ModUi/&Monsters	<color=yellow>Monsters:</color>
+ModUi/&HideMonsterHitPoints	Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points
+ModUi/&RemoveBugVisualModels	Replace bug-like models with alternative visuals in the game <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&Spells	<color=yellow>Spells:</color>
+ModUi/&MaxSpellLevelsPerLine	<color=white>Max levels per line on Spell Panel</color>
+ModUi/&EmpressGarbAppearance	<color=orange>Empress Garb</color> appearance
+ModUi/&EnableSaveByLocation	Enable save by campaigns / locations
+ModUi/&EnableCharacterChecker	Enable the character checker screen
+ModUi/&EnableCheatMenu	Enable the cheats menu
+ModUi/&EnableRespec	Enable the RESPEC and Level Down after rest actions
+ModUi/&Adventure	<color=yellow>Adventure:</color>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty	Enable toggles on character pool to set your default play and test party
+ModUi/&NoExperienceOnLevelUp	No experience is required to Level Up
+ModUi/&OverrideMinMaxLevel	Override the required min and max levels when starting new adventures
+ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multiply the experience gained by</color> <color=red>[%]</color>
+ModUi/&OverridePartySize	<color=white>Override the party size in custom adventures</color>
+ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
+ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Max. backup files per location or campaign</color>
+ModUi/&MaxBackupHelp	. Backup files are saved under <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
+ModUi/&FactionRelations	<color=yellow>Faction Relations:</color>
+ModUi/&FactionHelp	<color=red>Load an official campaign game to modify faction relations...</color>
+ModUi/&NotAvailable	No {0} available on this mod yet...
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Enable short rest recharge of <color=orange>Arcane Weapon</color> on <color=orange>Wizard</color> Arcane Fighter
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Override <color=orange>Rogue</color> Con Artist <color=orange>Improved Manipulation</color> Spell DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Override <color=orange>Wizard</color> Master Manipulator <color=orange>Arcane Manipulation</color> Spell DC</color>
+ModUi/&DungeonMakerBasicHelp	. These settings won't require the player to have this mod installed
+ModUi/&AllowDungeonsMaxLevel20	Allow dungeons with max level 20 <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Allow gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=cyan>CTRL</color> during placement to bypass any check]</color></i>
+ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
+ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets<i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
+ModUi/&AdvancedHelp	. <b><color=red>ATTENTION:</color></b> This setting will require the player to have this mod installed
+ModUi/&EnableDungeonMakerModdedContent	Enable Dungeon Maker Pro <b><i><color=red>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
+ModUi/&EnableExtraHighLevelMonsters	Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick	Enable cancel action with right-mouse click
+ModUi/&EnableHotkeyToggleIndividualHud	Enable <color=cyan>CTRL-SHIFT-(C</color>)ontrol Panel, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap and <color=cyan>CTRL-SHIFT-(P</color>)arty to toggle each UI panels visibility
+ModUi/&EnableHotkeyToggleHud	Enable <color=cyan>CTRL-SHIFT-(H</color>)ud to toggle all UI panels visibility
+ModUi/&EnableCharacterExport	Enable <color=cyan>CTRL-SHIFT-(E</color>)xport character <i><color=yellow>[on character inspection screen only]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Enable <color=cyan>CTRL-SHIFT-(D</color>)ebug overlay
+ModUi/&EnableHotkeyZoomCamera	Enable <color=cyan>CTRL-SHIFT-(Z</color>)oom camera <i><color=yellow>[useful when taking dungeon screenshots for publishing]</color></i>
+ModUi/&EnableTeleportParty	Enable <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
+ModUi/&InvertAltBehaviorOnTooltips	Invert <color=cyan>ALT</color> key behavior on tooltips
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Enable <color=cyan>CTRL</color> click on spells to ignore the <color=orange>Sorcerer</color> metamagic panel
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Enable <color=cyan>CTRL</color> click on attacks to ignore any reaction panel
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ only bypass if not a critical hit</i>
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Enable <color=cyan>CTRL</color> click to keep off hand items when swapping wielded configurations
+ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color> click on a spell consumes a spell slot instead of the default pact magic one

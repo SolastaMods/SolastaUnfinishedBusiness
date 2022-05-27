@@ -60,4 +60,67 @@ ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
 ModUi/&Patches	<color=yellow>Écussons :</color>
 ModUi/&Basic	<color=yellow>Basique :</color>
 ModUi/&Advanced	<color=yellow>Avancé :</color>
-ModUI/&EnableBetaContent	Activer le contenu bêta <i><color=yellow>[gardez à l'esprit que vos héros ou vos sauvegardes pourraient échouer lors des futures mises à jour]</color></i> <b><i><color=red>[Nécessite un redémarrage]</ couleur></i></b>
+ModUI/&EnableBetaContent	Activer le contenu bêta <i><color=yellow>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient tomber en panne à l'avenir]</color></i> <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&Battle	<color=yellow>Bataille :</color>
+ModUi/&DontFollowCharacterInBattle	La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
+ModUi/&DontFollowMargin	<i>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</i>
+ModUi/&AutoPauseOnVictory	Pause de l'interface utilisateur en cas de victoire au combat
+ModUi/&FasterTimeModifier	<color=white>Modificateur de temps de jeu en appuyant sur la barre d'espace</color>
+ModUi/&CampaignsAndLocations	<color=yellow>Campagnes et emplacements :</color>
+ModUi/&FollowCharactersOnTeleport	La caméra suit le(s) personnage(s) téléporté(s)
+ModUi/&EnableLogDialoguesToConsole	Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
+ModUi/&EnableAdditionalIconsOnLevelMap	Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
+ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
+ModUi/&InventoryAndItems	<color=yellow>Inventaire et articles :</color>
+ModUi/&EnableInventoryFilteringAndSorting	Activer le filtrage et le tri de l'inventaire
+ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Tache en rouge tout objet que le héros ne maîtrise pas</i>
+ModUi/&EnableInvisibleCrownOfTheMagister	Masquez la <color=orange>couronne du magister</color> sur l'interface utilisateur du jeu
+ModUi/&Monsters	<color=yellow>Monstres :</color>
+ModUi/&HideMonsterHitPoints	Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
+ModUi/&RemoveBugVisualModels	Remplacez les modèles ressemblant à des bugs par des visuels alternatifs dans le jeu <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&Spells	<color=yellow>Sorts :</color>
+ModUi/&MaxSpellLevelsPerLine	<color=white>Niveaux max par ligne sur Spell Panel</color>
+ModUi/&EmpressGarbAppearance	Apparence de <color=orange>habit d'impératrice</color>
+ModUi/&EnableSaveByLocation	Activer l'enregistrement par campagnes/emplacements
+ModUi/&EnableCharacterChecker	Activer l'écran de vérification des personnages
+ModUi/&EnableCheatMenu	Activer le menu de triche
+ModUi/&EnableRespec	Activer les actions RESPEC et Level Down après repos
+ModUi/&Adventure	<color=yellow>Aventure :</color>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty	Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
+ModUi/&NoExperienceOnLevelUp	Aucune expérience n'est requise pour monter de niveau
+ModUi/&OverrideMinMaxLevel	Remplacer les niveaux minimum et maximum requis lors du démarrage de nouvelles aventures
+ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multipliez l'expérience acquise par</color> <color=red>[%]</color>
+ModUi/&OverridePartySize	<color=white>Remplacer la taille du groupe dans les aventures personnalisées</color>
+ModUi/&DungeonMaker	<color=yellow>Créateur de donjon :</color>
+ModUi/&MaxBackupFilesPerLocationCampaign	<couleur=blanc>Max. fichiers de sauvegarde par lieu ou campagne</color>
+ModUi/&MaxBackupHelp	. Les fichiers de sauvegarde sont enregistrés sous <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
+ModUi/&FactionRelations	<color=yellow>Relations entre factions :</color>
+ModUi/&FactionHelp	<color=red>Charger un jeu de campagne officiel pour modifier les relations entre les factions...</color>
+ModUi/&NotAvailable	Aucun {0} disponible sur ce mod pour le moment...
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Activer la recharge de repos court de <color=orange>Arcane Weapon</color> sur <color=orange>Wizard</color> Arcane Fighter
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Remplacer <color=orange>Rogue</color> Con Artist <color=orange>Manipulation améliorée</color> Spell DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Remplacer <color=orange>Magicien</color> Maître Manipulateur <color=orange>Manipulation des Arcanes</color> Spell DC</color>
+ModUi/&DungeonMakerBasicHelp	. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
+ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons avec un niveau maximum de 20 <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Autoriser les gadgets et les accessoires à être placés n'importe où sur la carte <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> pendant le placement pour ignorer toute vérification]</color></i>
+ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
+ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets des PNJ<i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau des gadgets]</color></i>
+ModUi/&AdvancedHelp	. <b><color=red>ATTENTION :</color></b> Ce paramètre nécessitera que le joueur ait installé ce mod
+ModUi/&EnableDungeonMakerModdedContent	Activer Dungeon Maker Pro <b><i><color=red>[Nécessite un redémarrage]</color></i></b>\n\ncomprennent des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et un mélange sans fioritures d'actifs de tous les environnements\nvous devez avoir au moins une pièce extérieure si vous choisissez un environnement extérieur
+ModUi/&EnableExtraHighLevelMonsters	Activer des monstres supplémentaires de haut niveau (+20 CR) pour les campagnes de niveau 3 et 4 <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick	Activer l'action d'annulation avec un clic droit de la souris
+ModUi/&EnableHotkeyToggleIndividualHud	Activer <color=cyan>CTRL-SHIFT-(C</color>)panneau de contrôle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M< /color>)ap et <color=cyan>CTRL-SHIFT-(P</color>)arty pour basculer la visibilité de chaque panneau de l'interface utilisateur
+ModUi/&EnableHotkeyToggleHud	Activez <color=cyan>CTRL-SHIFT-(H</color>)ud pour basculer la visibilité de tous les panneaux de l'interface utilisateur
+ModUi/&EnableCharacterExport	Activer <color=cyan>CTRL-SHIFT-(E</color>)xporter le caractère <i><color=yellow>[sur l'écran d'inspection des caractères uniquement]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Activer la superposition d'ebug <color=cyan>CTRL-SHIFT-(D</color>)
+ModUi/&EnableHotkeyZoomCamera	Activer la caméra <color=cyan>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[utile lors de la prise de captures d'écran de donjon pour la publication]</color></i>
+ModUi/&EnableTeleportParty	Activer <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[vous pourriez casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu]</color></i>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=cyan>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]
+ModUi/&InvertAltBehaviorOnTooltips	Inverser le comportement de la touche <color=cyan>ALT</color> dans les infobulles
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Activez le <color=cyan>CTRL</color> clic sur les sorts pour ignorer le panneau métamagique <color=orange>Sorcier</color>
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Activez <color=cyan>CTRL</color> cliquez sur les attaques pour ignorer tout panneau de réaction
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ contournement uniquement si pas un coup critique</i>
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Activez le clic <color=cyan>CTRL</color> pour ne pas toucher aux objets lorsque vous changez de configuration.
+ModUi/&MulticlassKeyHelp	Un clic <color=cyan>SHIFT</color> sur un sort consomme un emplacement de sort au lieu de celui par défaut de la magie du pacte

@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Displays
 
         internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
         {
-            UI.Label("Welcome to Solasta Community Expansion".yellow().bold());
+            UI.Label(Gui.Format("Bem-vindo / Bienvenue / Welcome / Wilkommen / пожалуйста / 欢迎".bold().yellow()));
             UI.Div();
 
             if (Main.Enabled)
@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Displays
                 if (registeredDefinitions.Count == 0)
                 {
                     UI.Label("");
-                    UI.Label($"No {label} available on this mod yet...".bold().red());
+                    UI.Label(Gui.Format("ModUi/&NotAvailable", label));
 
                     return;
                 }
