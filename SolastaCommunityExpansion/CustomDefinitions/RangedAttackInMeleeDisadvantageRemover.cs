@@ -1,16 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class RangedAttackInMeleeDisadvantageRemover
     {
-        public static readonly RangedAttackInMeleeDisadvantageRemover Marker = new();
+        private readonly CharacterValidator[] validators;
+        private readonly IsWeaponValidHandler isWeaponValid;
 
-        private RangedAttackInMeleeDisadvantageRemover() { }
+        public RangedAttackInMeleeDisadvantageRemover(IsWeaponValidHandler isWeaponValid,
+            params CharacterValidator[] validators)
+        {
+            this.isWeaponValid = isWeaponValid;
+            this.validators = validators;
+        }
+
+        public RangedAttackInMeleeDisadvantageRemover(params CharacterValidator[] validators)
+            : this(WeaponValidators.AlwaysValid, validators)
+        {
+        }
+
+        public bool CanApply(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (isWeaponValid != null && !isWeaponValid.Invoke(attackMode, null, character))
+            {
+                return false;
+            }
+
+            return character.IsValid(validators);
+        }
 
         /**
          * Patches `GameLocationBattleManager.CanAttack`
@@ -64,7 +88,9 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return true;
             }
 
-            return !character.HasSubFeatureOfType<RangedAttackInMeleeDisadvantageRemover>();
+            var features = character.GetSubFeaturesByType<RangedAttackInMeleeDisadvantageRemover>();
+
+            return features.Any(f => f.CanApply(character, attackParams.attackMode));
         }
     }
 }

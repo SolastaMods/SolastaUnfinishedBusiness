@@ -7,6 +7,8 @@ namespace SolastaCommunityExpansion.Models
 
     public static class WeaponValidators
     {
+        public static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
+        
         public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
 
         public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>

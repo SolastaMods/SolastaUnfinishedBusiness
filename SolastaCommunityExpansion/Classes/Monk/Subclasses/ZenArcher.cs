@@ -20,7 +20,6 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
         {
             WeaponTypeDefinitions.ShortbowType,
             WeaponTypeDefinitions.LongbowType,
-            WeaponTypeDefinitions.DartType,
         };
 
         public static CharacterSubclassDefinition Build()
@@ -66,10 +65,8 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
                         WeaponTypeDefinitions.ShortbowType.Name)
                     .SetCustomSubFeatures(
                         new ZenArcherMarker(),
-                        new ExtendWeaponRange(), //TODO: add usual monk validation
-                        new AddExtraThrownAttack(ActionDefinitions.ActionType.Bonus, Monk.UsingOnlyMonkWeapons,
-                            Monk.attackedWithMonkWeapon, CharacterValidators.NoShield, CharacterValidators.NoArmor),
-                        // RangedAttackInMeleeDisadvantageRemover.Marker, //TODO: move to level 06 features and add validation
+                        new RangedAttackInMeleeDisadvantageRemover(Monk.IsMonkWeapon,
+                            CharacterValidators.NoArmor, CharacterValidators.NoShield),
                         new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack)
                     )
                     .AddToDB(),
@@ -203,7 +200,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
         {
             return mode is {Reach: false, Magical: false}
                    && (mode.Ranged || mode.Thrown)
-                   && Monk.IsMonkWeapon(character, mode);
+                   && IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition);
         }
 
         private class ZenArcherMarker
