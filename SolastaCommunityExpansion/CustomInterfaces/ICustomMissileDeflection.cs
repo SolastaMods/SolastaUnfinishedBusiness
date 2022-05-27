@@ -6,4 +6,3 @@
         public string FormatDescription(RulesetCharacter target, RulesetCharacter attacker, string def);
     }
 }
-

@@ -8,14 +8,18 @@ namespace SolastaModApi.Extensions
     public static partial class RulesetActorExtensions
     {
         /// <summary>
-        /// Makes using RulesetActor.EnumerateFeaturesToBrowse simpler
+        ///     Makes using RulesetActor.EnumerateFeaturesToBrowse simpler
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="actor"></param>
-        /// <param name="populateActorFeaturesToBrowse">Set to true to populate actor.FeaturesToBrowse as well as returning features.  false to just return features.</param>
+        /// <param name="populateActorFeaturesToBrowse">
+        ///     Set to true to populate actor.FeaturesToBrowse as well as returning
+        ///     features.  false to just return features.
+        /// </param>
         /// <param name="featuresOrigin"></param>
         public static ICollection<T> EnumerateFeaturesToBrowse<T>(
-            this RulesetActor actor, bool populateActorFeaturesToBrowse = false, Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+            this RulesetActor actor, bool populateActorFeaturesToBrowse = false,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
         {
             var features = populateActorFeaturesToBrowse ? actor.FeaturesToBrowse : new List<FeatureDefinition>();
             actor.EnumerateFeaturesToBrowse<T>(features, featuresOrigin);
@@ -51,9 +55,9 @@ namespace SolastaModApi.Extensions
 
         private static IEnumerable<FeatureDefinition> Unfold(FeatureDefinition feature)
         {
-            return (feature is FeatureDefinitionFeatureSet { Mode: FeatureSetMode.Union } set)
+            return feature is FeatureDefinitionFeatureSet {Mode: FeatureSetMode.Union} set
                 ? set.FeatureSet.SelectMany(Unfold)
-                : new[] { feature };
+                : new[] {feature};
         }
 
         public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
@@ -82,7 +86,7 @@ namespace SolastaModApi.Extensions
             //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
             return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
-                : new List<FeatureDefinition>() { f });
+                : new List<FeatureDefinition> {f});
         }
 
         public static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
@@ -90,6 +94,13 @@ namespace SolastaModApi.Extensions
             return FeaturesByType<FeatureDefinition>(actor)
                 .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
                 .ToList();
+        }
+
+        public static bool HasSubFeatureOfType<T>(this RulesetActor actor) where T : class
+        {
+            return FeaturesByType<FeatureDefinition>(actor)
+                .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
+                .FirstOrDefault() != null;
         }
     }
 }

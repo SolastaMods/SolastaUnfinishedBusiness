@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogic
 {
@@ -9,23 +10,18 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetImplementationManagerLocation_IsMetamagicOptionAvailable
     {
-        private static readonly string[] AllowedSpellsIfHeroBelowLevel5 = new string[]
+        private static readonly string[] AllowedSpellsIfHeroBelowLevel5 =
         {
-            "EldritchBlast",
-            "EldritchBlastGraspingHand",
-            "EldritchBlastRepellingBlast"
+            "EldritchBlast", "EldritchBlastGraspingHand", "EldritchBlastRepellingBlast"
         };
 
-        private static readonly string[] AllowedSpellsIfNotUpcast = new string[]
+        private static readonly string[] AllowedSpellsIfNotUpcast =
         {
             // level 1
-            "CharmPerson",
-            "Longstrider",
+            "CharmPerson", "Longstrider",
 
             // level 2
-            "Blindness",
-            "HoldPerson",
-            "Invisibility",
+            "Blindness", "HoldPerson", "Invisibility",
 
             // level 3
             "Fly",
@@ -45,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
             ref string failure)
         {
             if (!Main.Settings.FixSorcererTwinnedLogic
-                || metamagicOption != SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
+                || metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
                 || caster is not RulesetCharacterHero hero)
             {
                 return;
@@ -60,7 +56,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
             }
 
             var isAllowedIfNotUpCastSpell = Array.Exists(AllowedSpellsIfNotUpcast, x => x == spellDefinition.Name);
-            var isAllowedIfHeroBelowLevel5Spell = Array.Exists(AllowedSpellsIfHeroBelowLevel5, x => x == spellDefinition.Name);
+            var isAllowedIfHeroBelowLevel5Spell =
+                Array.Exists(AllowedSpellsIfHeroBelowLevel5, x => x == spellDefinition.Name);
 
             var spellLevel = spellDefinition.SpellLevel;
             var slotLevel = rulesetEffectSpell.SlotLevel;
@@ -70,7 +67,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogi
                 ? hero.ClassesHistory.Count
                 : rulesetEffectSpell.GetClassLevel(caster);
 
-            if ((isAllowedIfNotUpCastSpell && spellLevel == slotLevel) || (isAllowedIfHeroBelowLevel5Spell && classLevel < 5))
+            if ((isAllowedIfNotUpCastSpell && spellLevel == slotLevel) ||
+                (isAllowedIfHeroBelowLevel5Spell && classLevel < 5))
             {
                 return;
             }

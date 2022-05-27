@@ -10,14 +10,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
     [HarmonyPatch(
         new[]
         {
-                typeof(GameLocationCharacter), typeof(ActionModifier), typeof(int), typeof(int),
-                typeof(RuleDefinitions.RollOutcome), typeof(bool), typeof(RuleDefinitions.RollOutcome), typeof(int),
-                typeof(int)
+            typeof(GameLocationCharacter), typeof(ActionModifier), typeof(int), typeof(int),
+            typeof(RuleDefinitions.RollOutcome), typeof(bool), typeof(RuleDefinitions.RollOutcome), typeof(int),
+            typeof(int)
         },
         new[]
         {
-                ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal,
-                ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref
+            ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal,
+            ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref
         })]
     internal static class CharacterActionCastSpell_ApplyMagicEffect
     {

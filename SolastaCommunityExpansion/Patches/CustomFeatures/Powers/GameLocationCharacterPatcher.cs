@@ -15,7 +15,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
     {
         // This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.
         // But only not during a battle.
-        internal static void Postfix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType, ref bool __result, bool accountDelegatedPowers)
+        internal static void Postfix(GameLocationCharacter __instance, ActionDefinitions.ActionType actionType,
+            ref bool __result, bool accountDelegatedPowers)
         {
             var rulesetCharacter = __instance.RulesetCharacter;
             if (__result)
@@ -46,9 +47,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
                         !ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                         actionType == ActionDefinitions.ActionType.Main &&
                         (rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute1 ||
-                            rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute10 ||
-                            rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours1 ||
-                            rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours24))
+                         rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Minute10 ||
+                         rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours1 ||
+                         rulesetUsablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.Hours24))
                     {
                         __result = true;
 

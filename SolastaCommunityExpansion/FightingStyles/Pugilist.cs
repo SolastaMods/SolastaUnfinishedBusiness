@@ -2,9 +2,8 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using static ActionDefinitions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
@@ -17,44 +16,12 @@ namespace SolastaCommunityExpansion.FightingStyles
 
         internal override List<FeatureDefinitionFightingStyleChoice> GetChoiceLists()
         {
-            return new List<FeatureDefinitionFightingStyleChoice>() {
+            return new List<FeatureDefinitionFightingStyleChoice>
+            {
                 FeatureDefinitionFightingStyleChoices.FightingStyleChampionAdditional,
                 FeatureDefinitionFightingStyleChoices.FightingStyleFighter,
-                FeatureDefinitionFightingStyleChoices.FightingStyleRanger,};
-        }
-
-        private sealed class FeatureDefinitionAdditionalDamageBuilder : Builders.Features.FeatureDefinitionAdditionalDamageBuilder
-        {
-            internal FeatureDefinitionAdditionalDamageBuilder(string name, string guid, string notificationTag, RuleDefinitions.FeatureLimitedUsage limitedUsage,
-            RuleDefinitions.AdditionalDamageValueDetermination damageValueDetermination,
-            RuleDefinitions.AdditionalDamageTriggerCondition triggerCondition, RuleDefinitions.AdditionalDamageRequiredProperty requiredProperty,
-            bool attackModeOnly, RuleDefinitions.DieType damageDieType, int damageDiceNumber, RuleDefinitions.AdditionalDamageType additionalDamageType,
-            string specificDamageType, RuleDefinitions.AdditionalDamageAdvancement damageAdvancement, List<DiceByRank> diceByRankTable,
-            bool hasSavingThrow, string savingThrowAbility, int savingThrowDC, RuleDefinitions.EffectSavingThrowType damageSaveAffinity,
-            List<ConditionOperationDescription> conditionOperations,
-            GuiPresentation guiPresentation) : base(name, guid)
-            {
-                Definition.SetNotificationTag(notificationTag);
-                Definition.SetLimitedUsage(limitedUsage);
-                Definition.SetDamageValueDetermination(damageValueDetermination);
-                Definition.SetTriggerCondition(triggerCondition);
-                Definition.SetRequiredProperty(requiredProperty);
-                Definition.SetAttackModeOnly(attackModeOnly);
-                Definition.SetDamageDieType(damageDieType);
-                Definition.SetDamageDiceNumber(damageDiceNumber);
-                Definition.SetAdditionalDamageType(additionalDamageType);
-                Definition.SetSpecificDamageType(specificDamageType);
-                Definition.SetDamageAdvancement(damageAdvancement);
-                Definition.DiceByRankTable.SetRange(diceByRankTable);
-                Definition.SetDamageDieType(damageDieType);
-
-                Definition.SetHasSavingThrow(hasSavingThrow);
-                Definition.SetSavingThrowAbility(savingThrowAbility);
-                Definition.SetSavingThrowDC(savingThrowDC);
-                Definition.SetDamageSaveAffinity(damageSaveAffinity);
-                Definition.ConditionOperations.SetRange(conditionOperations);
-                Definition.SetGuiPresentation(guiPresentation);
-            }
+                FeatureDefinitionFightingStyleChoices.FightingStyleRanger
+            };
         }
 
         internal override FightingStyleDefinition GetStyle()
@@ -62,47 +29,77 @@ namespace SolastaCommunityExpansion.FightingStyles
             if (instance == null)
             {
                 var offhandEffect = new EffectDescriptionBuilder();
-                offhandEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.MeleeHit, 1, RuleDefinitions.TargetType.Individuals,
-                    1, 1, ActionDefinitions.ItemSelectionType.None);
-                offhandEffect.AddEffectForm(new EffectFormBuilder().CreatedByCharacter().SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
-                    .SetDamageForm(false, RuleDefinitions.DieType.D10, "DamageBludgeoning", 1, RuleDefinitions.DieType.D8, 1,
-                    RuleDefinitions.HealFromInflictedDamage.Never, new List<RuleDefinitions.TrendInfo>()).Build());
+                offhandEffect.SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.MeleeHit, 1,
+                    RuleDefinitions.TargetType.Individuals);
+                offhandEffect.AddEffectForm(new EffectFormBuilder().CreatedByCharacter()
+                    .SetBonusMode(RuleDefinitions.AddBonusMode.AbilityBonus)
+                    .SetDamageForm(false, RuleDefinitions.DieType.D10, "DamageBludgeoning", 1,
+                        RuleDefinitions.DieType.D8, 1,
+                        RuleDefinitions.HealFromInflictedDamage.Never, new List<RuleDefinitions.TrendInfo>()).Build());
 
-                var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle, PathBerserker.GuiPresentation.SpriteReference);
+                var gui = GuiPresentationBuilder.Build("PugilistFighting", Category.FightingStyle,
+                    PathBerserker.GuiPresentation.SpriteReference);
 
                 //Leaving this so characters that might already have it won't become corrupted
                 var offhandAttack = FeatureDefinitionPowerBuilder
                     .Create("PowerPugilistOffhandAttack", "a97a1c9c-232b-42ae-8003-30d244e958b3")
                     .SetGuiPresentation(gui)
                     .Configure(
-                        1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength, RuleDefinitions.ActivationTime.BonusAction,
-                        0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength, offhandEffect.Build(), false /* unique */)
+                        1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Strength,
+                        RuleDefinitions.ActivationTime.BonusAction,
+                        0, RuleDefinitions.RechargeRate.AtWill, true, true, AttributeDefinitions.Strength,
+                        offhandEffect.Build(), false /* unique */)
                     .SetShowCasting(false)
                     .AddToDB();
 
-                var pugilistAdditionalDamage =
-                    new FeatureDefinitionAdditionalDamageBuilder("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2", "Pugilist", RuleDefinitions.FeatureLimitedUsage.None,
-                        RuleDefinitions.AdditionalDamageValueDetermination.Die, RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive, RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon,
-                        true, RuleDefinitions.DieType.D8, 1, RuleDefinitions.AdditionalDamageType.SameAsBaseDamage, "", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(),
-                        false, AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None, new List<ConditionOperationDescription>(), gui)
-                        .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionType.Bonus))
-                        .AddToDB();
+                var pugilistAdditionalDamage = FeatureDefinitionActionAffinityBuilder
+                    .Create("AdditionalDamagePugilist", "36d24b2e-8ef4-4037-a82f-05e63d56f3d2")
+                    .SetGuiPresentation(gui)
+                    .SetDefaultAllowedActonTypes()
+                    .SetAuthorizedActions(Id.ShoveBonus)
+                    .SetCustomSubFeatures(
+                        new AddExtraUnarmedAttack(ActionType.Bonus),
+                        new AdditionalUnarmedDice(),
+                        new FeatureApplicationValidator(CharacterValidators.HasUnarmedHand)
+                    )
+                    .AddToDB();
 
 
                 instance = CustomizableFightingStyleBuilder
                     .Create("PugilistFightingStlye", "b14f91dc-8706-498b-a9a0-d583b7b00d09")
                     .SetFeatures(pugilistAdditionalDamage)
                     .SetGuiPresentation(gui)
-                    .SetIsActive(IsValid)
+                    .SetIsActive(_ => true)
                     .AddToDB();
             }
 
             return instance;
         }
 
-        private static bool IsValid(RulesetCharacterHero character)
+        private class AdditionalUnarmedDice : IModifyAttackModeForWeapon
         {
-            return CharacterValidators.FullyUnarmed(character);
+            public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+            {
+                if (!WeaponValidators.IsUnarmedWeapon(attackMode))
+                {
+                    return;
+                }
+
+                var effectDescription = attackMode.EffectDescription;
+                var k = effectDescription.EffectForms
+                    .FindIndex(form => form.FormType == EffectForm.EffectFormType.Damage);
+
+                if (k < 0)
+                {
+                    return;
+                }
+
+                var additionalDice = new EffectFormBuilder()
+                    .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4)
+                    .Build();
+
+                effectDescription.EffectForms.Insert(k + 1, additionalDice);
+            }
         }
     }
 }

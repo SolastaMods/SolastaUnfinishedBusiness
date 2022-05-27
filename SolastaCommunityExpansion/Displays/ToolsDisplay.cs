@@ -10,7 +10,9 @@ namespace SolastaCommunityExpansion.Displays
             var service = ServiceRepository.GetService<IGameFactionService>();
             if (service != null)
             {
-                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase, value - service.FactionRelations[name], "", null /* this string and monster doesn't matter if we're using "SetValue" */);
+                service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
+                    value - service.FactionRelations[name], "",
+                    null /* this string and monster doesn't matter if we're using "SetValue" */);
             }
         }
 
@@ -20,30 +22,30 @@ namespace SolastaCommunityExpansion.Displays
             int intValue;
 
             UI.Label("");
-            UI.Label("General:".yellow());
+            UI.Label(Gui.Format("ModUi/&General"));
             UI.Label("");
 
             toggle = Main.Settings.EnableSaveByLocation;
-            if (UI.Toggle("Enable save by campaigns / locations", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableSaveByLocation = toggle;
             }
 
             toggle = Main.Settings.EnableCharacterChecker;
-            if (UI.Toggle("Enable the character checker screen", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCharacterChecker = toggle;
             }
 
 
             toggle = Main.Settings.EnableCheatMenu;
-            if (UI.Toggle("Enable the cheats menu", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableCheatMenu = toggle;
             }
 
             toggle = Main.Settings.EnableRespec;
-            if (UI.Toggle("Enable the RESPEC and Level Down after rest actions", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableRespec = toggle;
                 RespecContext.Switch();
@@ -51,24 +53,24 @@ namespace SolastaCommunityExpansion.Displays
 
 
             UI.Label("");
-            UI.Label("Adventure:".yellow());
+            UI.Label(Gui.Format("ModUi/&Adventure"));
             UI.Label("");
 
 
             toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
-            if (UI.Toggle("Enable toggles on character pool to set your default play and test party", ref toggle))
+            if (UI.Toggle(Gui.Format("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
             {
                 Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
             }
 
             toggle = Main.Settings.NoExperienceOnLevelUp;
-            if (UI.Toggle("No experience is required to Level Up", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.NoExperienceOnLevelUp = toggle;
             }
 
             toggle = Main.Settings.OverrideMinMaxLevel;
-            if (UI.Toggle("Override the required min and max levels when starting new adventures", ref toggle))
+            if (UI.Toggle(Gui.Format("ModUi/&OverrideMinMaxLevel"), ref toggle))
             {
                 Main.Settings.OverrideMinMaxLevel = toggle;
             }
@@ -76,32 +78,34 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-            if (UI.Slider("Multiply the experience gained by ".white() + "[%]".red(), ref intValue, 0, 200, 100, "", UI.Width(100)))
+            if (UI.Slider(Gui.Format("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, "", UI.Width(100)))
             {
                 Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             }
 
             intValue = Main.Settings.OverridePartySize;
-            if (UI.Slider("Override the party size in custom adventures".white(), ref intValue, DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE, DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
+            if (UI.Slider(Gui.Format("ModUi/&OverridePartySize"), ref intValue,
+                    DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE,
+                    DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
             {
                 Main.Settings.OverridePartySize = intValue;
             }
 
             UI.Label("");
-            UI.Label("Dungeon Maker:".yellow());
+            UI.Label(Gui.Format("ModUi/&DungeonMaker"));
             UI.Label("");
 
             intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
-            if (UI.Slider("Max. backup files per location or campaign".white(), ref intValue, 0, 20, 10))
+            if (UI.Slider(Gui.Format("ModUi/&MaxBackupFilesPerLocationCampaign"), ref intValue, 0, 20, 10))
             {
                 Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
             }
 
             UI.Label("");
-            UI.Label(". Backup files are saved under " + "GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups".italic().yellow());
+            UI.Label(Gui.Format("ModUi/&MaxBackupHelp"));
 
             UI.Label("");
-            UI.Label("Faction Relations:".yellow());
+            UI.Label(Gui.Format("ModUi/&FactionRelations"));
             UI.Label("");
 
             var flip = true;
@@ -109,7 +113,8 @@ namespace SolastaCommunityExpansion.Displays
             var gameFactionService = ServiceRepository.GetService<IGameFactionService>();
 
             // NOTE: don't use gameCampaign?. which bypasses Unity object lifetime check
-            if (gameFactionService != null && gameCampaign != null && gameCampaign.CampaignDefinitionName != "UserCampaign")
+            if (gameFactionService != null && gameCampaign != null &&
+                gameCampaign.CampaignDefinitionName != "UserCampaign")
             {
                 foreach (var faction in gameFactionService.RegisteredFactions)
                 {
@@ -138,7 +143,8 @@ namespace SolastaCommunityExpansion.Displays
 
                     intValue = gameFactionService.FactionRelations[faction.Name];
 
-                    if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap, faction.MaxRelationCap, 0, "", UI.AutoWidth()))
+                    if (UI.Slider("                              " + title, ref intValue, faction.MinRelationCap,
+                            faction.MaxRelationCap, 0, "", UI.AutoWidth()))
                     {
                         SetFactionRelation(faction.Name, intValue);
                     }
@@ -148,7 +154,7 @@ namespace SolastaCommunityExpansion.Displays
             }
             else
             {
-                UI.Label("Load an official campaign game to modify faction relations...".red());
+                UI.Label(Gui.Format("ModUi/&FactionHelp"));
             }
 
             UI.Label("");

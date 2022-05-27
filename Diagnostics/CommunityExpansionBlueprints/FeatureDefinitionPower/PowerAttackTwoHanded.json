@@ -293,15 +293,15 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&PowerAttackTwoHandedPowerTitle",
+  "shortTitleOverride": "Feature/&PowerAttackTitle",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&PowerAttackTwoHandedPowerTitle",
-    "description": "Feature/&PowerAttackTwoHandedPowerDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",

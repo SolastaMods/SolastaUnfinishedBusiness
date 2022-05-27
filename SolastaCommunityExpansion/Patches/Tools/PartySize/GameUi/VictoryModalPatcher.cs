@@ -20,7 +20,8 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
 
             if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
             {
-                var scale = (float)Math.Pow(DungeonMakerContext.VICTORY_MODAL_DEFAULT_SCALE, partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
+                var scale = (float)Math.Pow(DungeonMakerContext.VICTORY_MODAL_DEFAULT_SCALE,
+                    partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
 
                 ___heroStatsGroup.localScale = new Vector3(scale, 1, scale);
             }

@@ -17,11 +17,13 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             string filename,
             bool notify)
         {
-            if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty && slotIndex < Main.Settings.DefaultPartyHeroes.Count)
+            if (Main.Settings.EnableTogglesToOverwriteDefaultTestParty &&
+                slotIndex < Main.Settings.DefaultPartyHeroes.Count)
             {
                 var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 
-                filename = characterPoolService.BuildCharacterFilename(Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex));
+                filename = characterPoolService.BuildCharacterFilename(
+                    Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex));
             }
 
             session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);

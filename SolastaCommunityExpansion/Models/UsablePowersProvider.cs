@@ -7,6 +7,7 @@ namespace SolastaCommunityExpansion.Models
     public static class UsablePowersProvider
     {
         private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
+
         public static RulesetUsablePower Get(FeatureDefinitionPower power, RulesetCharacter actor = null)
         {
             RulesetUsablePower result = null;
@@ -47,30 +48,30 @@ namespace SolastaCommunityExpansion.Models
             switch (effectDescription.DifficultyClassComputation)
             {
                 case EffectDifficultyClassComputation.SpellCastingFeature:
+                {
+                    var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
+                    foreach (var spellRepertoire in actor.SpellRepertoires)
                     {
-                        var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
-                        foreach (var spellRepertoire in actor.SpellRepertoires)
+                        if (spellRepertoire.SpellCastingClass != null)
                         {
-                            if (spellRepertoire.SpellCastingClass != null)
-                            {
-                                rulesetSpellRepertoire = spellRepertoire;
-                                break;
-                            }
-
-                            if (spellRepertoire.SpellCastingSubclass != null)
-                            {
-                                rulesetSpellRepertoire = spellRepertoire;
-                                break;
-                            }
+                            rulesetSpellRepertoire = spellRepertoire;
+                            break;
                         }
 
-                        if (rulesetSpellRepertoire != null)
+                        if (spellRepertoire.SpellCastingSubclass != null)
                         {
-                            usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
+                            rulesetSpellRepertoire = spellRepertoire;
+                            break;
                         }
-
-                        break;
                     }
+
+                    if (rulesetSpellRepertoire != null)
+                    {
+                        usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
+                    }
+
+                    break;
+                }
                 case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
                     var attributeValue = actor.TryGetAttributeValue(effectDescription.SavingThrowDifficultyAbility);
                     var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);

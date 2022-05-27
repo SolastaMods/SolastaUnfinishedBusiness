@@ -8,8 +8,8 @@ using UnityEngine.UI;
 namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 {
     /// <summary>
-    /// This mods the vertical gauge in the monster portrait.
-    /// The gauge now shows health in steps instead of a continuous value.
+    ///     This mods the vertical gauge in the monster portrait.
+    ///     The gauge now shows health in steps instead of a continuous value.
     /// </summary>
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthGauge")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
             if (!__state)
             {
-                return;  // health wasn't dirty so healthGauge hasn't been updated
+                return; // health wasn't dirty so healthGauge hasn't been updated
             }
 
             if (__instance.RulesetCharacterMonster != null &&
@@ -49,19 +49,21 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
                 ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
 
-                healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x, (float)(-parentHeight * (1.0 - ratio)));
+                healthGauge.rectTransform.offsetMax = new Vector2(healthGauge.rectTransform.offsetMax.x,
+                    (float)(-parentHeight * (1.0 - ratio)));
             }
         }
     }
 
     /// <summary>
-    /// Mods the monster health label (current/max) hit points to hide current hit points.
+    ///     Mods the monster health label (current/max) hit points to hide current hit points.
     /// </summary>
     [HarmonyPatch(typeof(GuiCharacter), "FormatHealthLabel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiCharacter_FormatHealthLabel
     {
-        private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})", RegexOptions.Compiled | RegexOptions.Singleline);
+        private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})",
+            RegexOptions.Compiled | RegexOptions.Singleline);
 
         internal static void Prefix(GuiCharacter __instance, bool ___healthLabelDirty, out bool __state)
         {
@@ -86,7 +88,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
             if (!__state)
             {
-                return;  // health wasn't dirty so healthLabel hasn't been updated
+                return; // health wasn't dirty so healthLabel hasn't been updated
             }
 
             // A monster has __instance.RulesetCharacterMonster != null and __instance.RulesetCharacter != null
@@ -111,7 +113,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
                 // extract current and max hp
                 var match = HitPointRegex.Match(text);
 
-                if (match.Success && (match.Groups["current_hp"].Value != match.Groups["max_hp"].Value))
+                if (match.Success && match.Groups["current_hp"].Value != match.Groups["max_hp"].Value)
                 {
                     var hp = match.Groups["current_hp"].Value;
                     var hpLen = hp.Length;

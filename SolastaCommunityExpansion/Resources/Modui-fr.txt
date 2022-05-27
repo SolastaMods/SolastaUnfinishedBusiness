@@ -1,0 +1,168 @@
+﻿ModUi/&AddAllToStore	Ajouter tout au magasin
+ModUi/&AddBleedingToLesserRestoration	Ajoutez la condition <color=orange>Saignement</color> aux conditions supprimées par <color=orange>Grande et Petite Restauration</color>
+ModUi/&AddHelpActionToAllRaces	Ajouter l'action <color=orange>Aide</color> à toutes les courses
+ModUi/&AddPickpocketableLoot	Ajouter un butin pickpocketable <i><color=yellow>[suggéré si la fonctionnalité <color=orange>Pickpocket</color> est activée]</color></i>
+ModUi/&AddToStore	Ajouter au magasin
+ModUi/&Advanced	<color=yellow>Avancé:</color>
+ModUi/&AdvancedHelp	. <b><color=red>ATTENTION:</color></b> Ce paramètre nécessitera que le joueur ait installé ce mod
+ModUi/&Adventure	<color=yellow>Aventure:</color>
+ModUi/&AllItemInDm	Tous les articles en DM
+ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre
+ModUi/&AllowDruidToWearMetalArmor	Autoriser le <color=orange>druide</color> à porter une armure en métal
+ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons avec un niveau maximum de 20 <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Autoriser les gadgets et les accessoires à être placés n'importe où sur la carte <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> pendant le placement pour ignorer toute vérification]</color></i>
+ModUi/&AllowStackedMaterialComponent	Autoriser le composant de matériau empilé <i><color=yellow>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Autoriser la sélection de cible lors du lancement du sort <color=orange>Chaîne d'éclairs</color>
+ModUi/&AllowUnmarkedSorcerers	Autoriser les <color=orange>sorciers</color> non marqués
+ModUi/&AllRecipesInDm	Toutes les recettes en DM
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=cyan>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]
+ModUi/&AutoPauseOnVictory	Pause de l'interface utilisateur en cas de victoire au combat
+ModUi/&Basic	<color=yellow>Basique:</color>
+ModUi/&Battle	<color=yellow>Bataille:</color>
+ModUi/&Bestiary	Bestiaire
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity	La condition <color=orange>Aveuglé</color> ne permet pas l'attaque d'opportunité
+ModUi/&Blueprints	Plans
+ModUi/&CampaignsAndLocations	<color=yellow>Campagnes et emplacements:</color>
+ModUi/&Character	Personnage
+ModUi/&CharactersPool	Piscine de personnages
+ModUi/&Classes	<color=yellow>Cours</color>
+ModUi/&Crafting	<color=yellow>Artisanat:</color>
+ModUi/&CraftingHelp	. Appuyez sur le bouton pour apprendre des recettes instantanément sur la partie active\n. Les articles ajoutés aux magasins peuvent nécessiter que la fête s'éloigne de l'emplacement et revienne
+ModUi/&Credits	Crédits
+ModUi/&CreditsAndDiagnostics	Crédits & Diagnostics
+ModUi/&DisableAutoEquip	Désactiver l'équipement automatique des objets dans l'inventaire
+ModUi/&DisableSenseDarkVisionFromAllRaces	Désactiver <color=orange>Sense Dark Vision</color> de toutes les races <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Désactiver <color=orange>Superior Sense Dark Vision</color> de toutes les races <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisplayAllKnownSpellsDuringLevelUp	Afficher tous les sorts connus des autres classes pendant la montée de niveau
+ModUi/&DontFollowCharacterInBattle	La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
+ModUi/&DontFollowMargin	<i>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</i>
+ModUi/&DungeonMaker	<color=yellow>Créateur de donjon:</color>
+ModUi/&DungeonMakerBasicHelp	. Ces paramètres n'exigeront pas que le joueur ait installé ce mod
+ModUi/&DungeonMakerMenu	Créateur de donjon
+ModUi/&EmpressGarbAppearance	Apparence de <color=orange>habit d'impératrice</color>
+ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Ajouter de nouveaux objets foci à Dungeon Maker</i>
+ModUi/&EnableAdditionalIconsOnLevelMap	Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
+ModUi/&EnableAlternateHuman	Activer l'humain alternatif <i><color=yellow>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
+ModUI/&EnableBetaContent	Activer le contenu bêta <i><color=yellow>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient tomber en panne à l'avenir]</color></i> <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick	Activer l'action d'annulation avec un clic droit de la souris
+ModUi/&EnableCharacterChecker	Activer l'écran de vérification des personnages
+ModUi/&EnableCharacterExport	Activer <color=cyan>CTRL-SHIFT-(E</color>)xporter le caractère <i><color=yellow>[sur l'écran d'inspection des caractères uniquement]</color></i>
+ModUi/&EnableCheatMenu	Activer le menu de triche
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Activez <color=cyan>CTRL</color> cliquez sur les attaques pour ignorer tout panneau de réaction
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Activez le <color=cyan>CTRL</color> clic sur les sorts pour ignorer le panneau métamagique <color=orange>Sorcier</color>
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Activez le clic <color=cyan>CTRL</color> pour ne pas toucher aux objets lorsque vous changez de configuration.
+ModUi/&EnableDungeonMakerModdedContent	Activer Dungeon Maker Pro <b><i><color=red>[Nécessite un redémarrage]</color></i></b>\n\ncomprennent des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et un mélange sans fioritures d'actifs de tous les environnements\nvous devez avoir au moins une pièce extérieure si vous choisissez un environnement extérieur
+ModUi/&EnableEpicPointsAndArray	Activez un système d'achat épique de 35 points et un tableau <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[ Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableExtraHighLevelMonsters	Activer des monstres supplémentaires de haut niveau (+20 CR) pour les campagnes de niveau 3 et 4 <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels	Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
+ModUi/&EnableFlexibleBackgrounds	Activer les arrière-plans flexibles <i><color=yellow>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
+ModUi/&EnableFlexibleRaces	Activer les races flexibles <i><color=yellow>[attribuer des points de capacité au lieu des valeurs raciales par défaut]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	Activer la superposition d'ebug <color=cyan>CTRL-SHIFT-(D</color>)
+ModUi/&EnableHotkeyToggleHud	Activez <color=cyan>CTRL-SHIFT-(H</color>)ud pour basculer la visibilité de tous les panneaux de l'interface utilisateur
+ModUi/&EnableHotkeyToggleIndividualHud	Activer <color=cyan>CTRL-SHIFT-(C</color>)panneau de contrôle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap et <color=cyan>CTRL-SHIFT-(P</color>)arty pour basculer la visibilité de chaque panneau de l'interface utilisateur
+ModUi/&EnableHotkeyZoomCamera	Activer la caméra <color=cyan>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[utile lors de la prise de captures d'écran de donjon pour la publication]</color></i>
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ contournement uniquement si pas un coup critique</i>
+ModUi/&EnableInventoryFilteringAndSorting	Activer le filtrage et le tri de l'inventaire
+ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Tache en rouge tout objet que le héros ne maîtrise pas</i>
+ModUi/&EnableInvisibleCrownOfTheMagister	Masquez la <color=orange>couronne du magister</color> sur l'interface utilisateur du jeu
+ModUi/&EnableLogDialoguesToConsole	Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
+ModUi/&EnableMinInOutAttributes	Appliquer les scores de capacité minimum in & out pré-requis
+ModUi/&EnableRelearnSpells	Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes
+ModUi/&EnableRespec	Activer les actions RESPEC et Level Down après repos
+ModUi/&EnablesAsiAndFeat	Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=yellow>[au lieu d'un choix exclusif]</color></i>
+ModUi/&EnableSaveByLocation	Activer l'enregistrement par campagnes/emplacements
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Activer la recharge de repos court de <color=orange>Arcane Weapon</color> sur <color=orange>Wizard</color> Arcane Fighter
+ModUi/&EnableTeleportParty	Activer <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[vous pourriez casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu]</color></i>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty	Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
+ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
+ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
+ModUi/&Encounters	Rencontres
+ModUi/&ExpandAll	Développer tout
+ModUi/&FactionHelp	<color=red>Charger un jeu de campagne officiel pour modifier les relations entre les factions...</color>
+ModUi/&FactionRelations	<color=yellow>Relations entre factions:</color>
+ModUi/&FasterTimeModifier	<color=white>Modificateur de temps de jeu en appuyant sur la barre d'espace</color>
+ModUi/&Feats	<color=yellow>Exploits</color>
+ModUi/&FeatsFightingStyles	Exploits et styles de combat
+ModUi/&FightingStyles	<color=yellow>Styles de combat</color>
+ModUi/&FixSorcererTwinnedLogic	Correction de l'utilisation métamagique jumelle <color=orange>Sorcier</color> <i><color=yellow>[un sort doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
+ModUi/&FollowCharactersOnTeleport	La caméra suit le(s) personnage(s) téléporté(s)
+ModUi/&FullyControlConjurations	Contrôlez entièrement les conjurations <i><color=yellow>[animaux, élémentaux, etc]</color></i>
+ModUi/&Gameplay	Jouabilité
+ModUi/&GameUi	Interface utilisateur du jeu
+ModUi/&General	<color=yellow>Général:</color>
+ModUi/&GeneralMenu	Général
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
+ModUi/&HideMonsterHitPoints	Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
+ModUi/&House	<color=yellow>Maison:</color>
+ModUi/&IncreaseSenseNormalVision	Augmentez la portée <color=orange>Sense Normal Vision</color> pour activer les attaques à longue portée <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&InitialChoices	<color=yellow>Choix initiaux:</color>
+ModUi/&Interface	Interface
+ModUi/&InventoryAndItems	<color=yellow>Inventaire et articles:</color>
+ModUi/&InvertAltBehaviorOnTooltips	Inverser le comportement de la touche <color=cyan>ALT</color> dans les infobulles
+ModUi/&ItemInDm	Articles en DM
+ModUi/&ItemsCraftingMerchants	Objets, artisanat et marchands
+ModUi/&KeyboardMouse	Clavier souris
+ModUi/&MakeAllMagicStaveArcaneFoci	Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color=rouge>[Nécessite un redémarrage]</color></i></b>
+ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
+ModUi/&MaxAllowedClasses	<color=white>Classes maximales autorisées</color> <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&MaxAllowedLevels	<color=white>Niveaux maximum autorisés</color> <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&MaxBackupFilesPerLocationCampaign	<couleur=blanc>Max. fichiers de sauvegarde par lieu ou campagne</color>
+ModUi/&MaxBackupHelp	. Les fichiers de sauvegarde sont enregistrés sous <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
+ModUi/&MaxSpellLevelsPerLine	<color=white>Niveaux max par ligne sur Spell Panel</color>
+ModUi/&Merchants	<color=yellow>Commerçants:</color>
+ModUi/&Monsters	<color=yellow>Monstres:</color>
+ModUi/&Multiclass	<color=yellow>Multiclasse:</color>
+ModUi/&MulticlassKeyHelp	Un clic <color=cyan>SHIFT</color> sur un sort consomme un emplacement de sort au lieu de celui par défaut de la magie du pacte
+ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multipliez l'expérience acquise par</color> <color=red>[%]</color>
+ModUi/&NoExperienceOnLevelUp	Aucune expérience n'est requise pour monter de niveau
+ModUi/&NotAvailable	Aucun {0} disponible sur ce mod pour le moment...
+ModUi/&OfferAdditionalLoreFriendlyNames	Offrir des noms conviviaux supplémentaires lors de la création de personnage
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Afficher uniquement les créatures les plus puissantes dans la liste de conjuration</i>
+ModUi/&OverrideMinMaxLevel	Remplacer les niveaux minimum et maximum requis lors du démarrage de nouvelles aventures
+ModUi/&OverridePartySize	<color=white>Remplacer la taille du groupe dans les aventures personnalisées</color>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Remplacer <color=orange>Rogue</color> Con Artist <color=orange>Manipulation améliorée</color> Spell DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Remplacer <color=orange>Magicien</color> Maître Manipulateur <color=orange>Manipulation des Arcanes</color> Spell DC</color>
+ModUi/&Patches	<color=yellow>Écussons:</color>
+ModUi/&Progression	<color=yellow>Progression:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst	Le cantrip léger à lancer rapide utilise d'abord les objets portés sur la tête ou le torse
+ModUi/&Races	<color=yellow>Courses</color>
+ModUi/&RacesClassesSubclasses	Races, classes et sous-classes
+ModUi/&RecipeCost	<color=white>Coût de la recette</color>
+ModUi/&RecipesInDm	Recettes en DM
+ModUi/&RemoveAttunementRequirements	Supprimer les exigences d'harmonisation <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveBugVisualModels	Remplacez les modèles ressemblant à des bugs par des visuels alternatifs dans le jeu <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveIdentifcationRequirements	Supprimer les exigences d'identification <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RestockAntiquarians	Réapprovisionner les antiquaires <i><color=yellow>[Halman Summer]</color></i>
+ModUi/&RestockArcaneum	Réapprovisionner Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
+ModUi/&RestockCircleOfDanantar	Réapprovisionner le Cercle de Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
+ModUi/&RestockHelp	. Remplacer les valeurs par défaut pour forcer tout le stock d'un marchand à se réapprovisionner au fil du temps (à l'exception des manuels et des tomes)\n. Notez que certains articles peuvent prendre jusqu'à 7 jours de jeu pour se réapprovisionner
+ModUi/&RestockTowerOfKnowledge	Réapprovisionner la tour du savoir <i><color=yellow>[Maddy Greenisle]</color></i>
+ModUi/&Rules	Règles
+ModUi/&ScaleMerchantPricesCorrectly	Mettre à l'échelle les prix marchands correctement/exactement
+ModUi/&SelectAll	Tout sélectionner
+ModUi/&SelectSuggested	Sélectionnez Suggéré
+ModUi/&Services	Prestations de service
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Définir les chances qu'une barbe apparaisse en utilisant la</color> <color=orange>Ceinture de Nain</color>
+ModUi/&ShowCraftingRecipeInDetailedTooltips	Afficher la recette d'artisanat dans des infobulles détaillées
+ModUi/&ShowDescriptions	Afficher les descriptions
+ModUi/&SpellInstructions	. Vous pouvez attribuer individuellement chaque sort à n'importe quelle liste de sorts ou simplement sélectionner l'ensemble suggéré
+ModUi/&SpellLevelFilter	<b><i><color=white>filtre de niveau de sorts</color> <color=yellow>[-1 pour afficher tous les sorts]</color></i></b>
+ModUi/&Spells	<color=yellow>Sorts:</color>
+ModUi/&SpellsMenu	Sorts
+ModUi/&SRD	<color=yellow>SRD:</color>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing	Stocke le magasin de Gorim avec tous les vêtements non magiques <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci	Stocke le magasin d'Hugo avec <color=orange>Baguette d'identification</color>, <color=orange>Bâton arcanique</color>, <color=orange>Cou de druide</color>, <color=orange>Bâton</color > et <color=orange>Club</color> définis comme éléments foci
+ModUi/&Subclasses	<color=yellow>Sous-classes</color>
+ModUi/&Tools	Outils
+ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total des dons accordés au premier niveau</color>
+ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets PNJ <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
+ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
+ModUi/&UnlockAllNpcFaces	Déverrouiller tous les visages de PNJ
+ModUi/&UnlockEyeStyles	Déverrouiller les styles d'yeux
+ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
+ModUi/&UnlockGlowingEyeColors	Débloquez des couleurs d'yeux éclatantes
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Débloquez des marquages ​​et des tatouages ​​pour tous les personnages
+ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
+ModUi/&Visuals	<color=yellow>Visuels:</color>

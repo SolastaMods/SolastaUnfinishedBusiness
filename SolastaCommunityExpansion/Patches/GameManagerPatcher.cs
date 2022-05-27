@@ -2,8 +2,8 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
+using SolastaMonsters.Models;
 using UnityModManagerNet;
-
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -23,7 +23,8 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
-            Translations.LoadTranslations("translations");
+            Translations.LoadTranslations("Modui");
+            Translations.LoadTranslations("Translations");
 
             ResourceLocatorContext.Load();
 
@@ -56,6 +57,7 @@ namespace SolastaCommunityExpansion.Patches
                 HandwrapWeaponContext.Load();
             }
 #endif
+            ShieldStrikeContext.Load();
             ItemCraftingContext.Load();
             ItemOptionsContext.Load();
             Level20Context.Load();
@@ -85,12 +87,12 @@ namespace SolastaCommunityExpansion.Patches
             MulticlassContext.Load();
 
             // Custom High Level Monsters
-            SolastaMonsters.Models.MonsterContext.Load();
+            MonsterContext.Load();
 
             // Only a functor registration
             PowerBundleContext.Load();
 
-            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += (_) =>
+            ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
             {
                 // Late initialized to allow feats and races from other mods
                 FlexibleRacesContext.LateLoad();

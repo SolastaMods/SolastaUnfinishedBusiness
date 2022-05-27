@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
-
     // creates different slots colors and pop up messages depending on slot types
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

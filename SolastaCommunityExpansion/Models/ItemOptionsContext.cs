@@ -15,158 +15,10 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class ItemOptionsContext
     {
-        private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
-        {
-            internal static readonly HashSet<StockUnitDescription> StockFocus = new();
-
-            private WandIdentifyBuilder(string name, string guid, string title, string description, ItemDefinition original) : base(original, name, guid)
-            {
-                Definition.GuiPresentation.Title = title;
-                Definition.GuiPresentation.Description = description;
-                Definition.UsableDeviceDescription.DeviceFunctions[0].SetSpellDefinition(Identify);
-
-                var stockFocus = new StockUnitDescription();
-
-                stockFocus.SetItemDefinition(Definition);
-                stockFocus.SetInitialAmount(1);
-                stockFocus.SetInitialized(true);
-                stockFocus.SetFactionStatus("Indifference");
-                stockFocus.SetMaxAmount(2);
-                stockFocus.SetMinAmount(1);
-                stockFocus.SetStackCount(1);
-                stockFocus.SetReassortAmount(1);
-                stockFocus.SetReassortRateValue(1);
-                stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
-
-                StockFocus.Add(stockFocus);
-            }
-
-            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description, ItemDefinition original)
-            {
-                return new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
-            }
-
-            internal static readonly ItemDefinition WandIdentify = CreateAndAddToDB(
-                "WandIdentify",
-                "46ae7624-4d24-455a-98f9-d41403b0ae19",
-                "Equipment/&WandIdentifyTitle",
-                "Equipment/&WandIdentifyDescription",
-                WandMagicMissile);
-        }
-
-        private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
-        {
-            internal static readonly HashSet<StockUnitDescription> StockFocus = new();
-
-            private FocusDefinitionBuilder(
-                string name,
-                string guid,
-                string title,
-                string description,
-                ItemDefinition original,
-                EquipmentDefinitions.FocusType type,
-                AssetReferenceSprite assetReferenceSprite,
-                params string[] slotTypes) : base(original, name, guid)
-            {
-                // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
-                Definition.IsFocusItem = true;
-                Definition.FocusItemDescription.SetFocusType(type);
-                Definition.GuiPresentation.Title = title;
-                Definition.GuiPresentation.Description = description;
-
-                if (assetReferenceSprite != null)
-                {
-                    Definition.GuiPresentation.SetSpriteReference(assetReferenceSprite);
-                }
-
-                Definition.SetCosts(ComponentPouch.Costs);
-
-                if (slotTypes.Length > 0)
-                {
-                    Definition.SlotTypes.SetRange(slotTypes);
-                    Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
-                    Definition.SlotsWhereActive.SetRange(slotTypes);
-                }
-
-                var stockFocus = new StockUnitDescription();
-
-                stockFocus.SetItemDefinition(Definition);
-                stockFocus.SetInitialAmount(1);
-                stockFocus.SetInitialized(true);
-                stockFocus.SetFactionStatus("Indifference");
-                stockFocus.SetMaxAmount(2);
-                stockFocus.SetMinAmount(1);
-                stockFocus.SetStackCount(1);
-                stockFocus.SetReassortAmount(1);
-                stockFocus.SetReassortRateValue(1);
-                stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
-
-                StockFocus.Add(stockFocus);
-            }
-
-            private static ItemDefinition CreateAndAddToDB(
-                string name,
-                string guid,
-                string title,
-                string description,
-                ItemDefinition original,
-                EquipmentDefinitions.FocusType type,
-                AssetReferenceSprite assetReferenceSprite,
-                params string[] slotTypes)
-            {
-                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite, slotTypes).AddToDB();
-            }
-
-            internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
-                "ArcaneStaff",
-                "991e1fec-9777-4635-948f-5bedcb96147d",
-                "Equipment/&ArcaneStaffTitle",
-                "Equipment/&ArcaneStaffDescription",
-                Quarterstaff,
-                EquipmentDefinitions.FocusType.Arcane,
-                QuarterstaffPlus1.GuiPresentation.SpriteReference);
-
-            internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
-                "DruidicAmulet",
-                "3487d3b2-1058-4c0f-8009-9e4f525cb0e0",
-                "Equipment/&DruidicAmuletTitle",
-                "Equipment/&DruidicAmuletDescription",
-                ComponentPouch_ArcaneAmulet,
-                EquipmentDefinitions.FocusType.Druidic,
-                BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
-
-            internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
-                "LivewoodClub",
-                "dd27119b-01e0-4a47-a043-98b89dc930a1",
-                "Equipment/&LivewoodClubTitle",
-                "Equipment/&LivewoodClubDescription",
-                Club,
-                EquipmentDefinitions.FocusType.Druidic,
-                null);
-
-            internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
-                "LivewoodStaff",
-                "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
-                "Equipment/&LivewoodStaffTitle",
-                "Equipment/&LivewoodStaffDescription",
-                Quarterstaff,
-                EquipmentDefinitions.FocusType.Druidic,
-                StaffOfHealing.GuiPresentation.SpriteReference);
-        }
-
-        private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
-
         internal static readonly string[] EmpressGarbAppearances =
         {
-            "Normal",
-            "Barbarian Clothes",
-            "Druid Leather",
-            "Elven Chain",
-            "Plain Shirt",
-            "Sorcerer's Armor",
-            "Studded Leather",
-            "Sylvan Armor",
-            "Wizard Clothes"
+            "Normal", "Barbarian Clothes", "Druid Leather", "Elven Chain", "Plain Shirt", "Sorcerer's Armor",
+            "Studded Leather", "Sylvan Armor", "Wizard Clothes"
         };
 
         private static readonly List<ItemDefinition> Crowns = new()
@@ -186,6 +38,8 @@ namespace SolastaCommunityExpansion.Models
             CrownOfTheMagister12
         };
 
+        private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
+
         internal static void LoadClothingGorimStock()
         {
             if (!Main.Settings.StockGorimStoreWithAllNonMagicalClothing)
@@ -194,7 +48,9 @@ namespace SolastaCommunityExpansion.Models
             }
 
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
-                x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical && !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo && x != ClothesWizard_B))
+                         x => x.ArmorDescription?.ArmorType == "ClothesType" && !x.Magical &&
+                              !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo &&
+                              x != ClothesWizard_B))
             {
                 var stockClothing = new StockUnitDescription();
 
@@ -215,8 +71,11 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void SwitchSetBeltOfDwarvenKindBeardChances()
         {
-            CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(Main.Settings.SetBeltOfDwarvenKindBeardChances);
-            CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(Gui.Format("Feature/&AlwaysBeardDescription", Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));
+            CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(
+                Main.Settings.SetBeltOfDwarvenKindBeardChances);
+            CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(
+                Gui.Format("Feature/&AlwaysBeardDescription",
+                    Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));
         }
 
         internal static void SwitchCrownOfTheMagister()
@@ -225,7 +84,9 @@ namespace SolastaCommunityExpansion.Models
             {
                 var maleBodyPartBehaviours = itemPresentation.GetBodyPartBehaviours(RuleDefinitions.CreatureSex.Male);
 
-                maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
+                maleBodyPartBehaviours[0] = Main.Settings.EnableInvisibleCrownOfTheMagister
+                    ? GraphicsCharacterDefinitions.BodyPartBehaviour.Shape
+                    : GraphicsCharacterDefinitions.BodyPartBehaviour.Armor;
             }
         }
 
@@ -239,9 +100,11 @@ namespace SolastaCommunityExpansion.Models
             }
             else
             {
-                if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(TagsDefinitions.ItemTagMetal))
+                if (!DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Contains(
+                        TagsDefinitions.ItemTagMetal))
                 {
-                    DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(TagsDefinitions.ItemTagMetal);
+                    DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyDruidArmor.ForbiddenItemTags.Add(
+                        TagsDefinitions.ItemTagMetal);
                 }
             }
         }
@@ -298,8 +161,10 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.StockHugoStoreWithAdditionalFoci)
             {
-                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(WandIdentifyBuilder.StockFocus);
-                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(FocusDefinitionBuilder.StockFocus);
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions
+                    .AddRange(WandIdentifyBuilder.StockFocus);
+                Store_Merchant_Hugo_Requer_Cyflen_Potions.StockUnitDescriptions.AddRange(FocusDefinitionBuilder
+                    .StockFocus);
             }
             else
             {
@@ -316,10 +181,14 @@ namespace SolastaCommunityExpansion.Models
 
             WandIdentifyBuilder.WandIdentify.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
 
-            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
-            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
-            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(
+                !Main.Settings.StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings
+                .StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings
+                .StockHugoStoreWithAdditionalFoci);
+            FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings
+                .StockHugoStoreWithAdditionalFoci);
         }
 
         internal static void SwitchFociItemsDungeonMaker()
@@ -333,9 +202,9 @@ namespace SolastaCommunityExpansion.Models
         internal static void SwitchMagicStaffFoci()
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>()
-                .Where(x => x.IsWeapon) // WeaponDescription could be null
-                .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
-                .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
+                         .Where(x => x.IsWeapon) // WeaponDescription could be null
+                         .Where(x => x.WeaponDescription.WeaponType == EquipmentDefinitions.WeaponTypeQuarterstaff)
+                         .Where(x => x.Magical && !x.Name.Contains("OfHealing")))
             {
                 if (Main.Settings.MakeAllMagicStaveArcaneFoci)
                 {
@@ -353,7 +222,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             foreach (var stock in Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
-                x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
+                         x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
             {
                 stock.SetReassortAmount(1);
                 stock.SetReassortRateValue(7);
@@ -444,6 +313,148 @@ namespace SolastaCommunityExpansion.Models
             SwitchRestockCircleOfDanantar();
             SwitchRestockTowerOfKnowledge();
             SwitchUniversalSylvanArmor();
+        }
+
+        private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
+        {
+            internal static readonly HashSet<StockUnitDescription> StockFocus = new();
+
+            internal static readonly ItemDefinition WandIdentify = CreateAndAddToDB(
+                "WandIdentify",
+                "46ae7624-4d24-455a-98f9-d41403b0ae19",
+                "Equipment/&WandIdentifyTitle",
+                "Equipment/&WandIdentifyDescription",
+                WandMagicMissile);
+
+            private WandIdentifyBuilder(string name, string guid, string title, string description,
+                ItemDefinition original) : base(original, name, guid)
+            {
+                Definition.GuiPresentation.Title = title;
+                Definition.GuiPresentation.Description = description;
+                Definition.UsableDeviceDescription.DeviceFunctions[0].SetSpellDefinition(Identify);
+
+                var stockFocus = new StockUnitDescription();
+
+                stockFocus.SetItemDefinition(Definition);
+                stockFocus.SetInitialAmount(1);
+                stockFocus.SetInitialized(true);
+                stockFocus.SetFactionStatus("Indifference");
+                stockFocus.SetMaxAmount(2);
+                stockFocus.SetMinAmount(1);
+                stockFocus.SetStackCount(1);
+                stockFocus.SetReassortAmount(1);
+                stockFocus.SetReassortRateValue(1);
+                stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
+
+                StockFocus.Add(stockFocus);
+            }
+
+            private static ItemDefinition CreateAndAddToDB(string name, string guid, string title, string description,
+                ItemDefinition original)
+            {
+                return new WandIdentifyBuilder(name, guid, title, description, original).AddToDB();
+            }
+        }
+
+        private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder
+        {
+            internal static readonly HashSet<StockUnitDescription> StockFocus = new();
+
+            internal static readonly ItemDefinition ArcaneStaff = CreateAndAddToDB(
+                "ArcaneStaff",
+                "991e1fec-9777-4635-948f-5bedcb96147d",
+                "Equipment/&ArcaneStaffTitle",
+                "Equipment/&ArcaneStaffDescription",
+                Quarterstaff,
+                EquipmentDefinitions.FocusType.Arcane,
+                QuarterstaffPlus1.GuiPresentation.SpriteReference);
+
+            internal static readonly ItemDefinition DruidicAmulet = CreateAndAddToDB(
+                "DruidicAmulet",
+                "3487d3b2-1058-4c0f-8009-9e4f525cb0e0",
+                "Equipment/&DruidicAmuletTitle",
+                "Equipment/&DruidicAmuletDescription",
+                ComponentPouch_ArcaneAmulet,
+                EquipmentDefinitions.FocusType.Druidic,
+                BeltOfGiantHillStrength.GuiPresentation.SpriteReference);
+
+            internal static readonly ItemDefinition LivewoodClub = CreateAndAddToDB(
+                "LivewoodClub",
+                "dd27119b-01e0-4a47-a043-98b89dc930a1",
+                "Equipment/&LivewoodClubTitle",
+                "Equipment/&LivewoodClubDescription",
+                Club,
+                EquipmentDefinitions.FocusType.Druidic,
+                null);
+
+            internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
+                "LivewoodStaff",
+                "ff3ec29c-734f-4ef6-8d6e-ceb961d9a8a0",
+                "Equipment/&LivewoodStaffTitle",
+                "Equipment/&LivewoodStaffDescription",
+                Quarterstaff,
+                EquipmentDefinitions.FocusType.Druidic,
+                StaffOfHealing.GuiPresentation.SpriteReference);
+
+            private FocusDefinitionBuilder(
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes) : base(original, name, guid)
+            {
+                // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
+                Definition.IsFocusItem = true;
+                Definition.FocusItemDescription.SetFocusType(type);
+                Definition.GuiPresentation.Title = title;
+                Definition.GuiPresentation.Description = description;
+
+                if (assetReferenceSprite != null)
+                {
+                    Definition.GuiPresentation.SetSpriteReference(assetReferenceSprite);
+                }
+
+                Definition.SetCosts(ComponentPouch.Costs);
+
+                if (slotTypes.Length > 0)
+                {
+                    Definition.SlotTypes.SetRange(slotTypes);
+                    Definition.SlotTypes.Add(EquipmentDefinitions.SlotTypeContainer);
+                    Definition.SlotsWhereActive.SetRange(slotTypes);
+                }
+
+                var stockFocus = new StockUnitDescription();
+
+                stockFocus.SetItemDefinition(Definition);
+                stockFocus.SetInitialAmount(1);
+                stockFocus.SetInitialized(true);
+                stockFocus.SetFactionStatus("Indifference");
+                stockFocus.SetMaxAmount(2);
+                stockFocus.SetMinAmount(1);
+                stockFocus.SetStackCount(1);
+                stockFocus.SetReassortAmount(1);
+                stockFocus.SetReassortRateValue(1);
+                stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
+
+                StockFocus.Add(stockFocus);
+            }
+
+            private static ItemDefinition CreateAndAddToDB(
+                string name,
+                string guid,
+                string title,
+                string description,
+                ItemDefinition original,
+                EquipmentDefinitions.FocusType type,
+                AssetReferenceSprite assetReferenceSprite,
+                params string[] slotTypes)
+            {
+                return new FocusDefinitionBuilder(name, guid, title, description, original, type, assetReferenceSprite,
+                    slotTypes).AddToDB();
+            }
         }
     }
 }

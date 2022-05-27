@@ -19,6 +19,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             var result = x.abilityScoreName.CompareTo(y.abilityScoreName);
             if (result == 0) { return x.affinity.CompareTo(y.affinity); }
+
             return result;
         }
 
@@ -26,6 +27,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             var result = x.abilityScoreName.CompareTo(y.abilityScoreName);
             if (result == 0) { return x.proficiencyName.CompareTo(y.proficiencyName); }
+
             return result;
         }
 
@@ -33,6 +35,7 @@ namespace SolastaCommunityExpansion.Builders
         {
             var result = x.Level.CompareTo(y.Level);
             if (result == 0) { return x.FeatureDefinition.Name.CompareTo(y.FeatureDefinition.Name); }
+
             return result;
         }
 

@@ -49,12 +49,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 var index = ___levelButtonsTable.childCount - 1;
                 var child = ___levelButtonsTable.GetChild(index);
 
-                child.GetComponent<SpellLevelButton>().Bind(index, new SpellLevelButton.LevelSelectedHandler(levelSelected));
+                child.GetComponent<SpellLevelButton>().Bind(index, levelSelected);
             }
 
             while (___levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
             {
-                Gui.ReleaseInstanceToPool(___levelButtonsTable.GetChild(___levelButtonsTable.childCount - 1).gameObject);
+                Gui.ReleaseInstanceToPool(___levelButtonsTable.GetChild(___levelButtonsTable.childCount - 1)
+                    .gameObject);
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(___levelButtonsTable);

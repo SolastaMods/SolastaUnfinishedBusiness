@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaCommunityExpansion.Classes.Monk;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -10,6 +9,7 @@ namespace SolastaCommunityExpansion.Models
         public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
 
         public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
+        public static readonly CharacterValidator HasShield = character => character.IsWearingShield();
 
         public static readonly CharacterValidator EmptyOffhand = character =>
             character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
@@ -17,8 +17,15 @@ namespace SolastaCommunityExpansion.Models
         public static readonly CharacterValidator FullyUnarmed = character =>
         {
             var slotsByName = character.CharacterInventory.InventorySlotsByName;
-            return Monk.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
-                   && Monk.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+            return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+                   && WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+        };
+
+        public static readonly CharacterValidator HasUnarmedHand = character =>
+        {
+            var slotsByName = character.CharacterInventory.InventorySlotsByName;
+            return WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+                   || WeaponValidators.IsUnarmedWeapon(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
         };
 
         public static readonly CharacterValidator UsedAllMainAttacks = character =>
@@ -38,5 +45,3 @@ namespace SolastaCommunityExpansion.Models
         }
     }
 }
-
-

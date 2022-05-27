@@ -1,17 +1,18 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ShapeChangeForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ShapeChangeFormExtensions
+    [TargetType(typeof(ShapeChangeForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ShapeChangeFormExtensions
     {
         public static T AddShapeOptions<T>(this T entity, params ShapeOptionDescription[] value)
             where T : ShapeChangeForm
@@ -41,7 +42,7 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetKeepMentalAbilityScores<T>(this T entity, System.Boolean value)
+        public static T SetKeepMentalAbilityScores<T>(this T entity, Boolean value)
             where T : ShapeChangeForm
         {
             entity.SetField("keepMentalAbilityScores", value);

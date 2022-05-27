@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.Location
 {
@@ -17,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Location
                 return false;
             }
 
-            Models.GameUiContext.HandleInput(__instance, command);
+            GameUiContext.HandleInput(__instance, command);
 
             return true;
         }

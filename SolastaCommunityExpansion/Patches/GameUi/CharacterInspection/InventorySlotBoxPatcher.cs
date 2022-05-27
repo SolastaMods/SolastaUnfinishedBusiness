@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
@@ -33,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
             {
-                ___equipedItemImage.color = new UnityEngine.Color(1, 0, 0);
+                ___equipedItemImage.color = new Color(1, 0, 0);
             }
         }
     }
@@ -50,7 +51,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 return;
             }
 
-            ___equipedItemImage.color = new UnityEngine.Color(1, 1, 1);
+            ___equipedItemImage.color = new Color(1, 1, 1);
         }
     }
 }

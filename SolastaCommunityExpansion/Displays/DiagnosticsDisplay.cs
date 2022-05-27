@@ -113,13 +113,15 @@ namespace SolastaCommunityExpansion.Displays
 
             var logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
 
-            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition " + Shared.RequiresRestart, ref logVariantMisuse))
+            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition [requires restart]", ref logVariantMisuse))
             {
                 Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
             }
 
-            ItemDefinitionVerification.Mode = Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
-            EffectFormVerification.Mode = Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
+            ItemDefinitionVerification.Mode =
+ Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
+            EffectFormVerification.Mode =
+ Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
 
             UI.Label("");
         }

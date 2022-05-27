@@ -91,7 +91,7 @@ Different Archfey, e.g. Winter-themed
                     var caster = attacker.RulesetCharacter;
                     if (caster.MissingHitPoints > 0
                         && effect.EffectDescription.HasFormOfType(EffectForm.EffectFormType.Damage)
-                    )
+                       )
                     {
                         var belowHalfHealth = caster.MissingHitPoints > caster.CurrentHitPoints;
                         var used = attacker.UsedSpecialFeatures.GetValueOrDefault(lifeSapId);
@@ -101,7 +101,7 @@ Different Archfey, e.g. Winter-themed
                             attacker.UsedSpecialFeatures[lifeSapId] = used + 1;
 
                             var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-                            var healing = (used == 0 && belowHalfHealth) ? level : Mathf.CeilToInt(level / 2f);
+                            var healing = used == 0 && belowHalfHealth ? level : Mathf.CeilToInt(level / 2f);
                             var cap = used == 0 ? HealingCap.MaximumHitPoints : HealingCap.HalfMaximumHitPoints;
 
                             var ability = GuiPresentationBuilder.CreateTitleKey(lifeSapId, Category.Power);
@@ -160,7 +160,7 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
 
             var herbalBrewFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
-                "HerbalBrewFeatureSet", DefinitionBuilder.CENamespaceGuid)
+                    "HerbalBrewFeatureSet", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
@@ -179,27 +179,26 @@ Different Archfey, e.g. Winter-themed
                 .SetGuiPresentation("AncientForestLightAffinity", Category.Feature)
                 .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
                 {
-                    lightingState = LocationDefinitions.LightingState.Bright,
-                    condition = Photosynthesis
+                    lightingState = LocationDefinitions.LightingState.Bright, condition = Photosynthesis
                 })
                 .AddToDB();
 
             var AtWillEntanglePower = FeatureDefinitionPowerBuilder
-            .Create("AncientForestAtWillEntangle", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Entangle.GuiPresentation)
-            .Configure(
-                   1,
-                   UsesDetermination.Fixed,
-                   AttributeDefinitions.Charisma,
-                   ActivationTime.Action,
-                   1,
-                   RechargeRate.AtWill,
-                   false,
-                   false,
-                   AttributeDefinitions.Charisma,
-                   Entangle.EffectDescription,
-                   true)
-            .AddToDB();
+                .Create("AncientForestAtWillEntangle", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Entangle.GuiPresentation)
+                .Configure(
+                    1,
+                    UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.AtWill,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    Entangle.EffectDescription,
+                    true)
+                .AddToDB();
 
             var RootedCondition = ConditionDefinitionBuilder
                 .Create("AncientForestRootedCondition", DefinitionBuilder.CENamespaceGuid)
@@ -215,32 +214,32 @@ Different Archfey, e.g. Winter-themed
                 .Create("AncientForestRootedPower", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Power, PowerRangerHideInPlainSight.GuiPresentation.SpriteReference)
                 .Configure(
-                       1,
-                       UsesDetermination.Fixed,
-                       AttributeDefinitions.Charisma,
-                       ActivationTime.Action,
-                       1,
-                       RechargeRate.LongRest,
-                       false,
-                       false,
-                       AttributeDefinitions.Charisma,
-                           new EffectDescriptionBuilder()
-                                .AddEffectForm(
-                                    new EffectFormBuilder().SetConditionForm(
-                                        RootedCondition,
-                                        ConditionForm.ConditionOperation.Add,
-                                        true,
-                                        true,
-                                        new List<ConditionDefinition>()).Build())
-                                .SetDurationData(DurationType.Minute, 1)
-                                .SetTargetingData(
-                                        Side.Ally,
-                                        RangeType.Self,
-                                        1,
-                                        TargetType.Self)
-                                .Build()
-                       ,
-                       true)
+                    1,
+                    UsesDetermination.Fixed,
+                    AttributeDefinitions.Charisma,
+                    ActivationTime.Action,
+                    1,
+                    RechargeRate.LongRest,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    new EffectDescriptionBuilder()
+                        .AddEffectForm(
+                            new EffectFormBuilder().SetConditionForm(
+                                RootedCondition,
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true,
+                                new List<ConditionDefinition>()).Build())
+                        .SetDurationData(DurationType.Minute, 1)
+                        .SetTargetingData(
+                            Side.Ally,
+                            RangeType.Self,
+                            1,
+                            TargetType.Self)
+                        .Build()
+                    ,
+                    true)
                 .AddToDB();
 
             var AncientForestWallofThornsPool = FeatureDefinitionPowerPoolBuilder
@@ -252,17 +251,13 @@ Different Archfey, e.g. Winter-themed
                 .AddToDB();
 
             var WallofThornsFeatureSet = FeatureDefinitionFeatureSetBuilder.Create(
-                "WallofThornsFeatureSet", DefinitionBuilder.CENamespaceGuid)
+                    "WallofThornsFeatureSet", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature)
                 .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
                 .SetUniqueChoices(false)
                 .AddToDB();
 
-            var thornSpells = new List<SpellDefinition>
-            {
-                WallOfThornsWallLine,
-                WallOfThornsWallRing
-            };
+            var thornSpells = new List<SpellDefinition> {WallOfThornsWallLine, WallOfThornsWallRing};
 
             foreach (var spell in thornSpells)
             {
@@ -284,18 +279,18 @@ Different Archfey, e.g. Winter-themed
                 //       .AddToDB();
 
                 FeatureDefinitionPower WallofThornsPower = new FeatureDefinitionPowerSharedPoolBuilder(
-                     "AncientForest" + spell.name,
-                     AncientForestWallofThornsPool,
-                     RechargeRate.LongRest,
-                     ActivationTime.Rest,
-                     1,
-                     false,
-                     false,
-                     AttributeDefinitions.Charisma,
-                     spell.EffectDescription,
-                     spell.GuiPresentation,
-                     false
-                     ).AddToDB();
+                    "AncientForest" + spell.name,
+                    AncientForestWallofThornsPool,
+                    RechargeRate.LongRest,
+                    ActivationTime.Rest,
+                    1,
+                    false,
+                    false,
+                    AttributeDefinitions.Charisma,
+                    spell.EffectDescription,
+                    spell.GuiPresentation,
+                    false
+                ).AddToDB();
 
 
                 WallofThornsFeatureSet.AddFeatureSet(WallofThornsPower);
@@ -303,22 +298,26 @@ Different Archfey, e.g. Winter-themed
             // should Use features sets so character saves don't break
 
             var AncientForestAttributeModifierRegrowth = FeatureDefinitionAttributeModifierBuilder
-                  .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth", DefinitionBuilder.CENamespaceGuid)
-                  .SetGuiPresentationNoContent(true)
-                  .AddToDB();
+                .Create(AttributeModifierPaladinHealingPoolBase, "AncientForestAttributeModifierRegrowth",
+                    DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentationNoContent(true)
+                .AddToDB();
 
             var AncientForestAttributeModifierRegrowthMultiplier = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierPaladinHealingPoolMultiplier, "AncientForestAttributeModifierRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
+                .Create(AttributeModifierPaladinHealingPoolMultiplier,
+                    "AncientForestAttributeModifierRegrowthMultiplier", DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
 
             var AncientForestAttributeModifierBarkskin = FeatureDefinitionAttributeModifierBuilder
-                .Create(AttributeModifierBarkskin, "AncientForestAttributeModifierBarkskin", DefinitionBuilder.CENamespaceGuid)
+                .Create(AttributeModifierBarkskin, "AncientForestAttributeModifierBarkskin",
+                    DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.AttributeModifier)
                 .AddToDB();
 
             return CharacterSubclassDefinitionBuilder
                 .Create("AncientForest", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation("WarlockAncientForest", Category.Subclass, TraditionGreenmage.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("WarlockAncientForest", Category.Subclass,
+                    TraditionGreenmage.GuiPresentation.SpriteReference)
                 .AddFeatureAtLevel(ancientForestExpandedSpellListAffinity, 1)
                 .AddFeatureAtLevel(AncientForestAttributeModifierRegrowth, 1)
                 .AddFeatureAtLevel(AncientForestAttributeModifierRegrowthMultiplier, 1)
@@ -332,6 +331,7 @@ Different Archfey, e.g. Winter-themed
                 .AddFeatureAtLevel(WallofThornsFeatureSet, 14)
                 .AddToDB();
         }
+
         private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
             string type,
             ItemDefinition baseItem)
@@ -387,6 +387,7 @@ Different Archfey, e.g. Winter-themed
                 false
             ).AddToDB();
         }
+
         private static FeatureDefinitionPower BuildHerbalBrew(FeatureDefinitionPower pool,
             FeatureDefinitionDamageAffinity resType,
             ItemDefinition baseItem)
@@ -412,7 +413,8 @@ Different Archfey, e.g. Winter-themed
 
             var potionFunction = FeatureDefinitionPowerBuilder
                 .Create($"AncientForestPotion{resTypeName}Function", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation).SetTitle("Equipment/&FunctionPotionDrinkTitle").Build())
+                .SetGuiPresentation(new GuiPresentationBuilder(guiPresentation)
+                    .SetTitle("Equipment/&FunctionPotionDrinkTitle").Build())
                 .Configure(
                     1,
                     UsesDetermination.Fixed,

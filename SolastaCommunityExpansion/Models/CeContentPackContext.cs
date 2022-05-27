@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Models
 {
     internal static class CeContentPackContext
     {
-        internal const GamingPlatformDefinitions.ContentPack CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
+        internal const GamingPlatformDefinitions.ContentPack
+            CeContentPack = (GamingPlatformDefinitions.ContentPack)9999;
 
         internal static readonly ContentPackDefinition ContentPackDefinition = CreateContentPackDefinition();
 
         private static ContentPackDefinition CreateContentPackDefinition()
         {
-            var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Properties.Resources.ContentPack, 128);
+            var sprite = CustomIcons.CreateAssetReferenceSprite("ContentPack", Resources.ContentPack, 128);
 
             return ContentPackDefinitionBuilder
                 .Create("CommunityExpansionPack", DefinitionBuilder.CENamespaceGuid)
@@ -32,13 +34,16 @@ namespace SolastaCommunityExpansion.Models
             autoUnlockedPacks.Add(CeContentPack);
         }
 
-        private sealed class ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
+        private sealed class
+            ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
         {
             #region Constructors
+
             internal ContentPackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
             {
             }
-            #endregion 
+
+            #endregion
         }
     }
 }

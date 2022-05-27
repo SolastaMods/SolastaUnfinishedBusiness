@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,11 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(RulesetActor)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    [TargetType(typeof(RulesetActor))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
     public static partial class RulesetActorExtensions
     {
         public static T AddAllConditions<T>(this T entity, params RulesetCondition[] value)
@@ -55,64 +57,64 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static System.Collections.Generic.List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
+        public static List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<ISavingThrowAffinityProvider>>("accountedProviders");
+            return entity.GetField<List<ISavingThrowAffinityProvider>>("accountedProviders");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetAllConditionsForEnumeration<T>(this T entity)
+        public static List<RulesetCondition> GetAllConditionsForEnumeration<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("allConditionsForEnumeration");
+            return entity.GetField<List<RulesetCondition>>("allConditionsForEnumeration");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetConditionsToExecute<T>(this T entity)
+        public static List<RulesetCondition> GetConditionsToExecute<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("conditionsToExecute");
+            return entity.GetField<List<RulesetCondition>>("conditionsToExecute");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetConditionsToTerminate<T>(this T entity)
+        public static List<RulesetCondition> GetConditionsToTerminate<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("conditionsToTerminate");
+            return entity.GetField<List<RulesetCondition>>("conditionsToTerminate");
         }
 
-        public static System.Collections.Generic.List<EffectForm> GetDummyEffectForms<T>(this T entity)
+        public static List<EffectForm> GetDummyEffectForms<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<EffectForm>>("dummyEffectForms");
+            return entity.GetField<List<EffectForm>>("dummyEffectForms");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetMatchingCancellingConditions<T>(this T entity)
+        public static List<RulesetCondition> GetMatchingCancellingConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingCancellingConditions");
+            return entity.GetField<List<RulesetCondition>>("matchingCancellingConditions");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetMatchingInterruptionConditions<T>(this T entity)
+        public static List<RulesetCondition> GetMatchingInterruptionConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingInterruptionConditions");
+            return entity.GetField<List<RulesetCondition>>("matchingInterruptionConditions");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetMatchingOccurenceConditions<T>(this T entity)
+        public static List<RulesetCondition> GetMatchingOccurenceConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingOccurenceConditions");
+            return entity.GetField<List<RulesetCondition>>("matchingOccurenceConditions");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetMatchingRealTimeLaspeConditions<T>(this T entity)
+        public static List<RulesetCondition> GetMatchingRealTimeLaspeConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingRealTimeLaspeConditions");
+            return entity.GetField<List<RulesetCondition>>("matchingRealTimeLaspeConditions");
         }
 
-        public static System.Collections.Generic.List<RulesetCondition> GetMatchingRestConditions<T>(this T entity)
+        public static List<RulesetCondition> GetMatchingRestConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<System.Collections.Generic.List<RulesetCondition>>("matchingRestConditions");
+            return entity.GetField<List<RulesetCondition>>("matchingRestConditions");
         }
 
         public static T SetAbilityScoreIncreased<T>(this T entity, RulesetActor.AbilityScoreIncreasedHandler value)
@@ -199,7 +201,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionOccurenceReached<T>(this T entity, RulesetActor.ConditionOccurenceReachedHandler value)
+        public static T SetConditionOccurenceReached<T>(this T entity,
+            RulesetActor.ConditionOccurenceReachedHandler value)
             where T : RulesetActor
         {
             entity.SetField("<ConditionOccurenceReached>k__BackingField", value);
@@ -213,21 +216,23 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetConditionRemovedForVisual<T>(this T entity, RulesetActor.ConditionRemovedForVisualHandler value)
+        public static T SetConditionRemovedForVisual<T>(this T entity,
+            RulesetActor.ConditionRemovedForVisualHandler value)
             where T : RulesetActor
         {
             entity.SetField("<ConditionRemovedForVisual>k__BackingField", value);
             return entity;
         }
 
-        public static T SetConditionSaveRerollRequested<T>(this T entity, RulesetActor.ConditionSaveRerollRequestedHandler value)
+        public static T SetConditionSaveRerollRequested<T>(this T entity,
+            RulesetActor.ConditionSaveRerollRequestedHandler value)
             where T : RulesetActor
         {
             entity.SetField("<ConditionSaveRerollRequested>k__BackingField", value);
             return entity;
         }
 
-        public static T SetCurrentHitPoints<T>(this T entity, System.Int32 value)
+        public static T SetCurrentHitPoints<T>(this T entity, Int32 value)
             where T : RulesetActor
         {
             entity.SetProperty("CurrentHitPoints", value);
@@ -290,7 +295,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForcedName<T>(this T entity, System.String value)
+        public static T SetForcedName<T>(this T entity, String value)
             where T : RulesetActor
         {
             entity.SetField("<ForcedName>k__BackingField", value);
@@ -318,7 +323,8 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetImmuneToIncomingDamageNotified<T>(this T entity, RulesetActor.IncomingDamageNotifiedHandler value)
+        public static T SetImmuneToIncomingDamageNotified<T>(this T entity,
+            RulesetActor.IncomingDamageNotifiedHandler value)
             where T : RulesetActor
         {
             entity.SetField("<ImmuneToIncomingDamageNotified>k__BackingField", value);
@@ -353,42 +359,43 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMatchingCancellingCondition<T>(this T entity, System.Boolean value)
+        public static T SetMatchingCancellingCondition<T>(this T entity, Boolean value)
             where T : RulesetActor
         {
             entity.SetField("matchingCancellingCondition", value);
             return entity;
         }
 
-        public static T SetMatchingInterruption<T>(this T entity, System.Boolean value)
+        public static T SetMatchingInterruption<T>(this T entity, Boolean value)
             where T : RulesetActor
         {
             entity.SetField("matchingInterruption", value);
             return entity;
         }
 
-        public static T SetMaxExtentY<T>(this T entity, System.Int32 value)
+        public static T SetMaxExtentY<T>(this T entity, Int32 value)
             where T : RulesetActor
         {
             entity.SetProperty("MaxExtentY", value);
             return entity;
         }
 
-        public static T SetName<T>(this T entity, System.String value)
+        public static T SetName<T>(this T entity, String value)
             where T : RulesetActor
         {
             entity.Name = value;
             return entity;
         }
 
-        public static T SetPostLoaded<T>(this T entity, System.Boolean value)
+        public static T SetPostLoaded<T>(this T entity, Boolean value)
             where T : RulesetActor
         {
             entity.SetField("<PostLoaded>k__BackingField", value);
             return entity;
         }
 
-        public static T SetReplacedAbilityScoreForSave<T>(this T entity, RulesetActor.ReplacedAbilityScoreForSaveHandler value)
+        public static T SetReplacedAbilityScoreForSave<T>(this T entity,
+            RulesetActor.ReplacedAbilityScoreForSaveHandler value)
             where T : RulesetActor
         {
             entity.SetField("<ReplacedAbilityScoreForSave>k__BackingField", value);
@@ -402,7 +409,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSide<T>(this T entity, RuleDefinitions.Side value)
+        public static T SetSide<T>(this T entity, Side value)
             where T : RulesetActor
         {
             entity.SetField("side", value);
@@ -416,7 +423,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetSortIndex<T>(this T entity, System.Int32 value)
+        public static T SetSortIndex<T>(this T entity, Int32 value)
             where T : RulesetActor
         {
             entity.SortIndex = value;

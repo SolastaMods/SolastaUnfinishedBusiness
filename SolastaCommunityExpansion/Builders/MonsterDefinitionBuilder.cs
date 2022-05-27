@@ -13,148 +13,156 @@ namespace SolastaCommunityExpansion.Builders
 {
     public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, MonsterDefinitionBuilder>
     {
-        #region Constructors
-        protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected MonsterDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
         public MonsterDefinitionBuilder SetSpriteReference(AssetReferenceSprite sprite)
         {
             Definition.GuiPresentation.SetSpriteReference(sprite);
             return this;
         }
+
         public MonsterDefinitionBuilder SetAlignment(string alignment)
         {
             Definition.SetAlignment(alignment);
             return this;
         }
+
         public MonsterDefinitionBuilder SetAlwaysHideStats(bool value)
         {
             Definition.SetAlwaysHideStats(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetArmor(string armor)
         {
             Definition.SetArmor(armor);
             return this;
         }
+
         public MonsterDefinitionBuilder SetArmorClass(int armorClass)
         {
             Definition.SetArmorClass(armorClass);
             return this;
         }
+
         public MonsterDefinitionBuilder SetAudioRaceRTPCValue(float audioRaceRTPCValue)
         {
             Definition.SetAudioRaceRTPCValue(audioRaceRTPCValue);
             return this;
         }
+
         public MonsterDefinitionBuilder SetBestiaryEntry(BestiaryEntry entry)
         {
             Definition.SetBestiaryEntry(entry);
             return this;
         }
+
         public MonsterDefinitionBuilder SetBestiaryReference(MonsterDefinition monster)
         {
             Definition.SetBestiaryReference(monster);
             return this;
         }
+
         public MonsterDefinitionBuilder SetBestiarySpriteReference(AssetReferenceSprite sprite)
         {
             Definition.SetBestiarySpriteReference(sprite);
             return this;
         }
+
         public MonsterDefinitionBuilder SetChallengeRating(float challengeRating)
         {
             Definition.SetChallengeRating(challengeRating);
             return this;
         }
+
         public MonsterDefinitionBuilder SetCharacterFamily(string family)
         {
             Definition.SetCharacterFamily(family);
             return this;
         }
+
         public MonsterDefinitionBuilder SetDefaultBattleDecisionPackage(DecisionPackageDefinition decisionPackage)
         {
             Definition.SetDefaultBattleDecisionPackage(decisionPackage);
             return this;
         }
+
         public MonsterDefinitionBuilder SetDefaultFaction(string faction)
         {
             Definition.SetDefaultFaction(faction);
             return this;
         }
+
         public MonsterDefinitionBuilder SetDifferentActionEachTurn(bool value)
         {
             Definition.SetDifferentActionEachTurn(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetDroppedLootDefinition(LootPackDefinition lootPack)
         {
             Definition.SetDroppedLootDefinition(lootPack);
             return this;
         }
+
         public MonsterDefinitionBuilder SetDualSex(bool value)
         {
             Definition.SetDualSex(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetFollowFloorAngle(bool value)
         {
             Definition.SetFollowFloorAngle(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetForceCombatStartsAnimation(bool value)
         {
             Definition.SetForceCombatStartsAnimation(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetForceNoFlyAnimation(bool value)
         {
             Definition.SetForceNoFlyAnimation(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetForcePersistentBody(bool value)
         {
             Definition.SetForcePersistentBody(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetFullyControlledWhenAllied(bool value)
         {
             Definition.SetFullyControlledWhenAllied(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetGroupAttacks(bool value)
         {
             Definition.SetGroupAttacks(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetHasLookAt(bool value)
         {
             Definition.SetHasLookAt(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetHeight(int Height)
         {
             Definition.SetHeight(Height);
             return this;
         }
+
         public MonsterDefinitionBuilder SetHitDiceNumber(int hitDice)
         {
             Definition.SetHitDice(hitDice);
             return this;
         }
+
         public MonsterDefinitionBuilder SetHitDiceType(DieType dieType)
         {
             Definition.SetHitDiceType(dieType);
@@ -173,6 +181,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetHitPointsBonus(bonus);
             return this;
         }
+
         public MonsterDefinitionBuilder SetInDungeonEditor(bool value)
         {
             if (value)
@@ -186,91 +195,109 @@ namespace SolastaCommunityExpansion.Builders
 
             return this;
         }
+
         public MonsterDefinitionBuilder SetInterceptStance(MoveStance interceptStance)
         {
             Definition.SetInterceptStance(interceptStance);
             return this;
         }
+
         public MonsterDefinitionBuilder SetIsHusk(bool value)
         {
             Definition.SetIsHusk(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetIsUnique(bool value)
         {
             Definition.SetIsUnique(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetLegendaryCreature(bool value)
         {
             Definition.SetLegendaryCreature(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetMaximalAge(int Age)
         {
             Definition.SetMaximalAge(Age);
             return this;
         }
+
         public MonsterDefinitionBuilder SetMaxLegendaryActionPoints(int maxLegendaryActionPoints)
         {
             Definition.SetMaxLegendaryActionPoints(maxLegendaryActionPoints);
             return this;
         }
+
         public MonsterDefinitionBuilder SetMaxLegendaryResistances(int maxLegendaryResistances)
         {
             Definition.SetMaxLegendaryResistances(maxLegendaryResistances);
             return this;
         }
+
         public MonsterDefinitionBuilder SetMinimalAge(int minimalAge)
         {
             Definition.SetMinimalAge(minimalAge);
             return this;
         }
+
         public MonsterDefinitionBuilder SetMonsterPresentation(MonsterPresentation monsterPresentation)
         {
             Definition.SetMonsterPresentation(monsterPresentation);
             return this;
         }
+
         public MonsterDefinitionBuilder SetNoExperienceGain(bool value)
         {
             Definition.SetNoExperienceGain(value);
             return this;
         }
+
         public MonsterDefinitionBuilder SetPatrolStance(MoveStance patrolStance)
         {
             Definition.SetPatrolStance(patrolStance);
             return this;
         }
+
         public MonsterDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition sizeDefinition)
         {
             Definition.SetSizeDefinition(sizeDefinition);
             return this;
         }
+
         public MonsterDefinitionBuilder SetSneakStance(MoveStance SneakStance)
         {
             Definition.SetSneakStance(SneakStance);
             return this;
         }
+
         public MonsterDefinitionBuilder SetStandardHitPoints(int Hp)
         {
             Definition.SetStandardHitPoints(Hp);
             return this;
         }
+
         public MonsterDefinitionBuilder SetStealableLootDefinition(LootPackDefinition stealableLoot)
         {
             Definition.SetStealableLootDefinition(stealableLoot);
             return this;
         }
+
         public MonsterDefinitionBuilder SetThreatEvaluatorDefinition(ThreatEvaluatorDefinition threatEvaluator)
         {
             Definition.SetThreatEvaluatorDefinition(threatEvaluator);
             return this;
         }
+
         public MonsterDefinitionBuilder SetUniqueNameId(string uniqueName)
         {
             Definition.SetUniqueNameId(uniqueName);
             return this;
         }
+
         public MonsterDefinitionBuilder SetWeight(int weight)
         {
             Definition.SetWeight(weight);
@@ -287,12 +314,12 @@ namespace SolastaCommunityExpansion.Builders
         {
             ClearAbilityScores();
 
-            Definition.AbilityScores.SetValue(STR, 0);      // STR
-            Definition.AbilityScores.SetValue(DEX, 1);      // DEX
-            Definition.AbilityScores.SetValue(CON, 2);      // CON
-            Definition.AbilityScores.SetValue(INT, 3);      // INT
-            Definition.AbilityScores.SetValue(WIS, 4);      // WIS
-            Definition.AbilityScores.SetValue(CHA, 5);      // CHA
+            Definition.AbilityScores.SetValue(STR, 0); // STR
+            Definition.AbilityScores.SetValue(DEX, 1); // DEX
+            Definition.AbilityScores.SetValue(CON, 2); // CON
+            Definition.AbilityScores.SetValue(INT, 3); // INT
+            Definition.AbilityScores.SetValue(WIS, 4); // WIS
+            Definition.AbilityScores.SetValue(CHA, 5); // CHA
             return this;
         }
 
@@ -390,7 +417,8 @@ namespace SolastaCommunityExpansion.Builders
             );
         }
 
-        public MonsterDefinitionBuilder SetAttackIterations(params (MonsterAttackDefinition, int)[] monsterAttackIterations)
+        public MonsterDefinitionBuilder SetAttackIterations(
+            params (MonsterAttackDefinition, int)[] monsterAttackIterations)
         {
             return SetAttackIterations(monsterAttackIterations.Select(
                 d => new MonsterAttackIteration(d.Item1, d.Item2)
@@ -414,24 +442,28 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public MonsterDefinitionBuilder AddLegendaryActionOptions(params LegendaryActionDescription[] legendaryActionDescriptions)
+        public MonsterDefinitionBuilder AddLegendaryActionOptions(
+            params LegendaryActionDescription[] legendaryActionDescriptions)
         {
             return AddLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
         }
 
-        public MonsterDefinitionBuilder AddLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
+        public MonsterDefinitionBuilder AddLegendaryActionOptions(
+            IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
         {
             Definition.AddLegendaryActionOptions(legendaryActionDescriptions);
             Definition.LegendaryActionOptions.Sort(Sorting.Compare);
             return this;
         }
 
-        public MonsterDefinitionBuilder SetLegendaryActionOptions(params LegendaryActionDescription[] legendaryActionDescriptions)
+        public MonsterDefinitionBuilder SetLegendaryActionOptions(
+            params LegendaryActionDescription[] legendaryActionDescriptions)
         {
             return SetLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
         }
 
-        public MonsterDefinitionBuilder SetLegendaryActionOptions(IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
+        public MonsterDefinitionBuilder SetLegendaryActionOptions(
+            IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
         {
             Definition.SetLegendaryActionOptions(legendaryActionDescriptions);
             return this;
@@ -461,15 +493,19 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public MonsterDefinitionBuilder SetSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
+        public MonsterDefinitionBuilder SetSavingThrowScores(
+            params (string attributeName, int bonus)[] savingThrowScores)
         {
             Definition.SavingThrowScores.Clear();
-            return AddSavingThrowScores(savingThrowScores.Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
+            return AddSavingThrowScores(savingThrowScores
+                .Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
         }
 
-        public MonsterDefinitionBuilder AddSavingThrowScores(params (string attributeName, int bonus)[] savingThrowScores)
+        public MonsterDefinitionBuilder AddSavingThrowScores(
+            params (string attributeName, int bonus)[] savingThrowScores)
         {
-            return AddSavingThrowScores(savingThrowScores.Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
+            return AddSavingThrowScores(savingThrowScores
+                .Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
         }
 
         public MonsterDefinitionBuilder AddSavingThrowScores(params MonsterSavingThrowProficiency[] savingThrowScores)
@@ -477,7 +513,8 @@ namespace SolastaCommunityExpansion.Builders
             return AddSavingThrowScores(savingThrowScores.AsEnumerable());
         }
 
-        public MonsterDefinitionBuilder AddSavingThrowScores(IEnumerable<MonsterSavingThrowProficiency> savingThrowScores)
+        public MonsterDefinitionBuilder AddSavingThrowScores(
+            IEnumerable<MonsterSavingThrowProficiency> savingThrowScores)
         {
             Definition.SavingThrowScores.AddRange(savingThrowScores);
             Definition.SavingThrowScores.Sort(Sorting.Compare);
@@ -545,5 +582,27 @@ namespace SolastaCommunityExpansion.Builders
             Definition.MonsterPresentation.SetCustomMaterials(assetReference);
             return this;
         }
+
+        #region Constructors
+
+        protected MonsterDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
+        {
+        }
+
+        protected MonsterDefinitionBuilder(MonsterDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

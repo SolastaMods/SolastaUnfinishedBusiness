@@ -16,7 +16,8 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
                 return;
             }
 
-            Main.Log($"LoadLocationAsync-Params: ld={locationDefinitionName}, ul={userLocationName}, uc={userCampaignName}");
+            Main.Log(
+                $"LoadLocationAsync-Params: ld={locationDefinitionName}, ul={userLocationName}, uc={userCampaignName}");
 
             var sessionService = ServiceRepository.GetService<ISessionService>();
 
@@ -27,7 +28,8 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
                 var session = sessionService.Session;
                 var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
-                Main.Log($"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
+                Main.Log(
+                    $"Campaign-ss: Campaign={session.CampaignDefinitionName}, Location: {session.UserLocationName}");
 
                 selectedCampaignService.SetCampaignLocation(userCampaignName, userLocationName);
             }

@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaModApi.Extensions;
+using static FightingStyleDefinition;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle
 {
@@ -12,15 +15,30 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle
         {
             foreach (var fightingStyleDefinition in __instance.TrainedFightingStyles)
             {
-                if (fightingStyleDefinition is not ICustomFightingStyle customFightingStyle)
+                bool? isActive = null;
+                if (fightingStyleDefinition is ICustomFightingStyle customFightingStyle)
+                {
+                    isActive = customFightingStyle.IsActive(__instance);
+                }
+
+                // Count shield as weapons if character has `AddBonusShieldAttack` feature
+                if (fightingStyleDefinition.Condition == TriggerCondition.TwoMeleeWeaponsWielded)
+                {
+                    if (__instance.IsWearingShield() &&
+                        __instance.HasSubFeatureOfType<AddBonusShieldAttack>())
+                    {
+                        isActive = true;
+                    }
+                }
+
+                if (isActive == null)
                 {
                     continue;
                 }
 
-                var isActive = customFightingStyle.IsActive(__instance);
                 // We don't know what normal fighting style condition was used or if it was met.
                 // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
-                if (isActive)
+                if (isActive.Value)
                 {
                     if (!__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
                     {

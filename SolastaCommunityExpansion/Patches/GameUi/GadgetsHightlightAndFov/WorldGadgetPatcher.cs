@@ -1,5 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
+using SolastaModApi;
+using TA;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
 {
@@ -15,7 +18,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                 return;
             }
 
-            if (Models.GameUiContext.IsGadgetExit(__instance.UserGadget.GadgetBlueprint, onlyWithGizmos: true))
+            if (GameUiContext.IsGadgetExit(__instance.UserGadget.GadgetBlueprint, true))
             {
                 return;
             }
@@ -25,9 +28,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
             var feedbackPosition = __instance.GameGadget.FeedbackPosition;
 
             // activators aren't detected in their original position so we handle them in a different way
-            if (!__instance.GadgetDefinition == SolastaModApi.DatabaseHelper.GadgetDefinitions.Activator)
+            if (!__instance.GadgetDefinition == DatabaseHelper.GadgetDefinitions.Activator)
             {
-                var position = new TA.int3((int)feedbackPosition.x, (int)feedbackPosition.y, (int)feedbackPosition.z);
+                var position = new int3((int)feedbackPosition.x, (int)feedbackPosition.y, (int)feedbackPosition.z);
 
                 foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
                 {
@@ -53,11 +56,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                         continue;
                     }
 
-                    var position = new TA.int3((int)feedbackPosition.x + x, (int)feedbackPosition.y, (int)feedbackPosition.z + z);
+                    var position = new int3((int)feedbackPosition.x + x, (int)feedbackPosition.y,
+                        (int)feedbackPosition.z + z);
 
                     foreach (var gameLocationCharacter in gameLocationCharacterService.PartyCharacters)
                     {
-                        visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position, gameLocationCharacter);
+                        visible = gameLocationVisibilityService.IsCellPerceivedByCharacter(position,
+                            gameLocationCharacter);
 
                         if (visible)
                         {

@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellBox_Refresh
     {
-        public static void Postfix(SpellBox __instance, SpellBox.BindMode ___bindMode, RectTransform ___autoPreparedGroup, GuiLabel ___autoPreparedTitle, GuiTooltip ___autoPreparedTooltip)
+        public static void Postfix(SpellBox __instance, SpellBox.BindMode ___bindMode,
+            RectTransform ___autoPreparedGroup, GuiLabel ___autoPreparedTitle, GuiTooltip ___autoPreparedTooltip)
         {
             if (__instance.GuiSpellDefinition == null
                 || ___bindMode == SpellBox.BindMode.Preparation
@@ -28,7 +29,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
                 return;
             }
 
-            var currentStagePanel = characterLevelUpScreen.GetField<CharacterLevelUpScreen, CharacterStagePanel>("currentStagePanel");
+            var currentStagePanel =
+                characterLevelUpScreen.GetField<CharacterLevelUpScreen, CharacterStagePanel>("currentStagePanel");
 
             if (currentStagePanel is not CharacterStageSpellSelectionPanel)
             {

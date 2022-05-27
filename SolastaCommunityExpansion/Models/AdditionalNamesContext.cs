@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using SolastaCommunityExpansion.Properties;
 using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaCommunityExpansion.Models
@@ -9,9 +11,12 @@ namespace SolastaCommunityExpansion.Models
         {
             if (Main.Settings.OfferAdditionalLoreFriendlyNames)
             {
-                foreach (var line in File.ReadLines($"{Main.MOD_FOLDER}/Names-en.txt"))
+                var payload = Resources.Names_en;
+                var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
+
+                foreach (var line in lines)
                 {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                    var splitted = line.Split(new[] {'\t', ' '}, 2);
                     var term = splitted[0];
                     var name = splitted[1];
 

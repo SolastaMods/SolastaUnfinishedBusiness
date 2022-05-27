@@ -1,17 +1,18 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSummoningAffinity)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionSummoningAffinityExtensions
+    [TargetType(typeof(FeatureDefinitionSummoningAffinity))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionSummoningAffinityExtensions
     {
         public static T AddAddedConditions<T>(this T entity, params ConditionDefinition[] value)
             where T : FeatureDefinitionSummoningAffinity
@@ -83,14 +84,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetEffectOnConjuredDeath<T>(this T entity, System.Boolean value)
+        public static T SetEffectOnConjuredDeath<T>(this T entity, Boolean value)
             where T : FeatureDefinitionSummoningAffinity
         {
             entity.SetField("effectOnConjuredDeath", value);
             return entity;
         }
 
-        public static T SetRequiredMonsterTag<T>(this T entity, System.String value)
+        public static T SetRequiredMonsterTag<T>(this T entity, String value)
             where T : FeatureDefinitionSummoningAffinity
         {
             entity.SetField("requiredMonsterTag", value);

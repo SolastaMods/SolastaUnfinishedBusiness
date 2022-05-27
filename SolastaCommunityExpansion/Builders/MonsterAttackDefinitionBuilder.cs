@@ -10,28 +10,6 @@ namespace SolastaCommunityExpansion.Builders
         where TBuilder : MonsterAttackDefinitionBuilder<TDefinition, TBuilder>
 
     {
-        #region Constructors
-
-        protected MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected MonsterAttackDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
-            name, namespaceGuid)
-        {
-        }
-
-        protected MonsterAttackDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
         public TBuilder SetDamageBonusOfFirstDamageForm(int value)
         {
             var form = Definition.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage);
@@ -62,6 +40,28 @@ namespace SolastaCommunityExpansion.Builders
             Definition.EffectDescription = effect;
             return This();
         }
+
+        #region Constructors
+
+        protected MonsterAttackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected MonsterAttackDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected MonsterAttackDefinitionBuilder(TDefinition original, string name, Guid namespaceGuid) : base(original,
+            name, namespaceGuid)
+        {
+        }
+
+        protected MonsterAttackDefinitionBuilder(TDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class MonsterAttackDefinitionBuilder : MonsterAttackDefinitionBuilder<MonsterAttackDefinition,

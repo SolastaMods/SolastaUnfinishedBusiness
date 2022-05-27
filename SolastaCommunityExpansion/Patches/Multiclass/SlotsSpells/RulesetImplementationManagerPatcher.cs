@@ -11,10 +11,12 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetImplementationManager_ApplySpellSlotsForm
     {
-        internal static bool Prefix(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        internal static bool Prefix(EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             var originalHero = formsParams.sourceCharacter as RulesetCharacterHero;
-            var substituteHero = originalHero ?? formsParams.sourceCharacter.OriginalFormCharacter as RulesetCharacterHero;
+            var substituteHero =
+                originalHero ?? formsParams.sourceCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
             // this shouldn't happen so passing the problem back to original game code
             if (substituteHero == null)
@@ -58,7 +60,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
                         var slotsCapital = (currentValue % 2) + (currentValue / 2);
 
                         Gui.GuiService.GetScreen<SlotRecoveryModal>()
-                            .ShowSlotRecovery(substituteHero, formsParams.activeEffect.SourceDefinition.Name, spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
+                            .ShowSlotRecovery(substituteHero, formsParams.activeEffect.SourceDefinition.Name,
+                                spellRepertoire, slotsCapital, spellSlotsForm.MaxSlotLevel);
 
                         break;
                     }
@@ -69,11 +72,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
             // handles Sorcerer and Wildshape scenarios slots / points scenarios
             //
 
-            else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot || spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
+            else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot ||
+                     spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSorceryPoints)
             {
                 var spellRepertoire = substituteHero.SpellRepertoires.Find(sr => sr.SpellCastingClass == Sorcerer);
 
-                Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero, spellRepertoire, spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
+                Gui.GuiService.GetScreen<FlexibleCastingModal>().ShowFlexibleCasting(substituteHero, spellRepertoire,
+                    spellSlotsForm.Type == SpellSlotsForm.EffectType.CreateSpellSlot);
             }
             else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.GainSorceryPoints)
             {
@@ -89,7 +94,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
 
                 formsParams.sourceCharacter.GainSorceryPoints(sorceryPointsGain);
             }
-            else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RechargePower && formsParams.targetCharacter is RulesetCharacter)
+            else if (spellSlotsForm.Type == SpellSlotsForm.EffectType.RechargePower &&
+                     formsParams.targetCharacter is RulesetCharacter)
             {
                 foreach (var usablePower in substituteHero.UsablePowers)
                 {

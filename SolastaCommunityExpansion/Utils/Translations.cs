@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using I2.Loc;
+using SolastaCommunityExpansion.Properties;
 
 namespace SolastaCommunityExpansion.Utils
 {
@@ -20,15 +22,13 @@ namespace SolastaCommunityExpansion.Utils
             {
                 try
                 {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                    var splitted = line.Split(new[] {'\t', ' '}, 2);
 
                     words.Add(splitted[0], splitted[1]);
                 }
                 catch
                 {
                     Main.Error($"invalid dictionary line \"{line}\".");
-
-                    continue;
                 }
             }
 
@@ -37,25 +37,20 @@ namespace SolastaCommunityExpansion.Utils
 
         public static void LoadTranslations(string category)
         {
-            var modLanguages = "frpt-BRruzh-CN";
-            var path = Path.Combine(Main.MOD_FOLDER, $"{category}-{LocalizationManager.CurrentLanguageCode}.txt");
-
-            if (!File.Exists(path) || !modLanguages.Contains(LocalizationManager.CurrentLanguageCode))
-            {
-                path = Path.Combine(Main.MOD_FOLDER, $"{category}-en.txt");
-            }
-
             var languageSourceData = LocalizationManager.Sources[0];
             var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
+            var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
+            var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
+            var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 
-            foreach (var line in File.ReadLines(path))
+            foreach (var line in lines)
             {
                 string term;
                 string text;
 
                 try
                 {
-                    var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                    var splitted = line.Split(new[] {'\t', ' '}, 2);
 
                     term = splitted[0];
                     text = splitted[1];

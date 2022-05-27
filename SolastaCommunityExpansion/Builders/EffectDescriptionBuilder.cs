@@ -63,7 +63,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetEffectAIParameters(float aoeScoreMultiplier, int cooldownForCaster, int cooldownForBattle, bool dynamicCooldown)
+        public EffectDescriptionBuilder SetEffectAIParameters(float aoeScoreMultiplier, int cooldownForCaster,
+            int cooldownForBattle, bool dynamicCooldown)
         {
             var aiParams = new EffectAIParameters();
             aiParams.SetAoeScoreMultiplier(aoeScoreMultiplier);
@@ -74,9 +75,14 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier = 1, int additionalTargetsPerIncrement = 0,
-            int additionalDicePerIncrement = 0, int additionalSpellLevelPerIncrement = 0, int additionalSummonsPerIncrement = 0, int additionalHPPerIncrement = 0, int additionalTempHPPerIncrement = 0,
-            int additionalTargetCellsPerIncrement = 0, int additionalItemBonus = 0, RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
+        public EffectDescriptionBuilder SetEffectAdvancement(
+            RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier = 1,
+            int additionalTargetsPerIncrement = 0,
+            int additionalDicePerIncrement = 0, int additionalSpellLevelPerIncrement = 0,
+            int additionalSummonsPerIncrement = 0, int additionalHPPerIncrement = 0,
+            int additionalTempHPPerIncrement = 0,
+            int additionalTargetCellsPerIncrement = 0, int additionalItemBonus = 0,
+            RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
         {
             var effectAdvancement = new EffectAdvancement();
             effectAdvancement.SetEffectIncrementMethod(effectIncrementMethod);
@@ -94,7 +100,10 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetTargetingData(RuleDefinitions.Side targetSide, RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType, int targetParameter = 1, int targetParameter2 = 1, ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
+        public EffectDescriptionBuilder SetTargetingData(RuleDefinitions.Side targetSide,
+            RuleDefinitions.RangeType rangeType, int rangeParameter, RuleDefinitions.TargetType targetType,
+            int targetParameter = 1, int targetParameter2 = 1,
+            ActionDefinitions.ItemSelectionType itemSelectionType = ActionDefinitions.ItemSelectionType.None)
         {
             effect.TargetSide = targetSide;
             effect.RangeType = rangeType;
@@ -146,7 +155,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetTargetProximityData(bool requiresTargetProximity, int targetProximityDistance)
+        public EffectDescriptionBuilder SetTargetProximityData(bool requiresTargetProximity,
+            int targetProximityDistance)
         {
             effect.SetRequiresTargetProximity(requiresTargetProximity);
             effect.SetTargetProximityDistance(targetProximityDistance);
@@ -167,7 +177,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetBorderData(RuleDefinitions.EmissiveBorder emissiveBorder, int emissiveParameter)
+        public EffectDescriptionBuilder SetBorderData(RuleDefinitions.EmissiveBorder emissiveBorder,
+            int emissiveParameter)
         {
             effect.SetEmissiveBorder(emissiveBorder);
             effect.SetEmissiveParameter(emissiveParameter);
@@ -180,7 +191,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetRetargetData(bool retargetAfterDeath, ActionDefinitions.ActionType retargetActionType)
+        public EffectDescriptionBuilder SetRetargetData(bool retargetAfterDeath,
+            ActionDefinitions.ActionType retargetActionType)
         {
             effect.SetRetargetAfterDeath(retargetAfterDeath);
             effect.SetRetargetActionType(retargetActionType);
@@ -200,7 +212,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType, int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType durationType,
+            int durationParameter, RuleDefinitions.TurnOccurenceType endOfEffect)
         {
             effect.SetDurationType(durationType);
             effect.SetDurationParameter(durationParameter);
@@ -208,7 +221,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0, bool validate = true)
+        public EffectDescriptionBuilder SetDurationData(RuleDefinitions.DurationType type, int duration = 0,
+            bool validate = true)
         {
             if (validate)
             {
@@ -221,9 +235,12 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies, string savingThrowAbility, bool ignoreCover,
-            RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation, string savingThrowDifficultyAbility,
-            int fixedSavingThrowDifficultyClass = 10, bool advantageForEnemies = false, params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
+        public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies,
+            string savingThrowAbility, bool ignoreCover,
+            RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
+            string savingThrowDifficultyAbility,
+            int fixedSavingThrowDifficultyClass = 10, bool advantageForEnemies = false,
+            params SaveAffinityBySenseDescription[] savingThrowAffinitiesBySense)
         {
             return SetSavingThrowData(
                 hasSavingThrow, disableSavingThrowOnAllies, savingThrowAbility,
@@ -231,9 +248,12 @@ namespace SolastaCommunityExpansion.Builders
                 fixedSavingThrowDifficultyClass, advantageForEnemies, savingThrowAffinitiesBySense.AsEnumerable());
         }
 
-        public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies, string savingThrowAbility, bool ignoreCover,
-            RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation, string savingThrowDifficultyAbility,
-            int fixedSavingThrowDifficultyClass, bool advantageForEnemies, IEnumerable<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense)
+        public EffectDescriptionBuilder SetSavingThrowData(bool hasSavingThrow, bool disableSavingThrowOnAllies,
+            string savingThrowAbility, bool ignoreCover,
+            RuleDefinitions.EffectDifficultyClassComputation difficultyClassComputation,
+            string savingThrowDifficultyAbility,
+            int fixedSavingThrowDifficultyClass, bool advantageForEnemies,
+            IEnumerable<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense)
         {
             effect.HasSavingThrow = hasSavingThrow;
             effect.SetDisableSavingThrowOnAllies(disableSavingThrowOnAllies);
@@ -259,7 +279,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetVelocity(int velocityCellsPerRound, RuleDefinitions.VelocityType velocityType)
+        public EffectDescriptionBuilder SetVelocity(int velocityCellsPerRound,
+            RuleDefinitions.VelocityType velocityType)
         {
             effect.SetHasVelocity(true);
             effect.SetVelocityCellsPerRound(velocityCellsPerRound);
@@ -299,7 +320,8 @@ namespace SolastaCommunityExpansion.Builders
             return this;
         }
 
-        public EffectDescriptionBuilder SetOffsetImpactTime(float offsetImpactTimeBasedOnDistanceFactor, float offsetImpactTimePerTarget)
+        public EffectDescriptionBuilder SetOffsetImpactTime(float offsetImpactTimeBasedOnDistanceFactor,
+            float offsetImpactTimePerTarget)
         {
             effect.SetOffsetImpactTimeBasedOnDistance(true);
             effect.SetOffsetImpactTimeBasedOnDistanceFactor(offsetImpactTimeBasedOnDistanceFactor);

@@ -10,26 +10,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionPointPool
         where TBuilder : FeatureDefinitionPointPoolBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-        protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, string definitionGuid) : base(
-            original, name, definitionGuid)
-        {
-        }
-        #endregion
-
         public TBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
             bool uniqueChoices, params string[] choices)
         {
@@ -66,12 +46,35 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetUniqueChoices(true);
             return This();
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPointPoolBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionPointPoolBuilder(TDefinition original, string name, string definitionGuid) : base(
+            original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class FeatureDefinitionPointPoolBuilder : FeatureDefinitionPointPoolBuilder<FeatureDefinitionPointPool,
         FeatureDefinitionPointPoolBuilder>
     {
         #region Constructors
+
         public FeatureDefinitionPointPoolBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
@@ -89,6 +92,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Color = System.Drawing.Color;
 using Graphics = System.Drawing.Graphics;
 using UnityGraphics = UnityEngine.Graphics;
 
@@ -17,7 +18,87 @@ namespace SolastaCommunityExpansion.Utils
     {
         internal static readonly Dictionary<string, Sprite> SpritesByGuid = new();
 
+        /// <summary>
+        ///     Convert a bitmap stored as an embedded resource to a Sprite.
+        /// </summary>
+        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int size,
+            bool throwIfAlreadyExists = false)
+        {
+            return GetOrCreateSprite(name, bitmap, size, size, throwIfAlreadyExists);
+        }
+
+        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey,
+            bool throwIfAlreadyExists = false)
+        {
+            var (id, guid) = GetSpriteIds(name, sizex, sizey);
+
+            if (SpritesByGuid.TryGetValue(guid, out var sprite))
+            {
+                if (throwIfAlreadyExists)
+                {
+                    throw new SolastaModApiException(
+                        $"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
+                }
+#if DEBUG
+                    if (id != sprite.name)
+                    {
+                        throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
+                    }
+#endif
+                Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");
+                return sprite;
+            }
+
+            var texture = new Texture2D(sizex, sizey, TextureFormat.DXT5, false);
+            texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
+            sprite = Sprite.Create(texture, new Rect(0, 0, sizex, sizey), new Vector2(0, 0));
+
+            SpritesByGuid[guid] = sprite;
+            sprite.name = id;
+
+            Main.Log($"Created sprite, id={id}, guid={guid}.");
+
+            return sprite;
+        }
+
+        internal static Sprite GetSpriteByGuid(string guid)
+        {
+            return SpritesByGuid.TryGetValue(guid, out var sprite) ? sprite : null;
+        }
+
+        /// <summary>
+        ///     Create a unique Id to serve as id of a sprite in our internal cache and as the guid for AssetReference
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private static (string id, string guid) GetSpriteIds(string name, int x, int y)
+        {
+            var id = $"_CE_{name}[{x},{y}]";
+
+            return (id, GetSpriteGuid(id));
+        }
+
+        private static string GetSpriteGuid(string id)
+        {
+            return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n");
+        }
+
+        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
+        {
+            return CreateAssetReferenceSprite(name, bitmap, size, size);
+        }
+
+        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int sizex,
+            int sizey)
+        {
+            var sprite = GetOrCreateSprite(name, bitmap, sizex, sizey);
+            return new AssetReferenceSprite(GetSpriteGuid(sprite.name));
+        }
+
         #region Helpers
+
         internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
         {
             var bytes = File.ReadAllBytes(filePath);
@@ -44,10 +125,8 @@ namespace SolastaCommunityExpansion.Utils
 
                 return newText;
             }
-            else
-            {
-                return sprite.texture;
-            }
+
+            return sprite.texture;
         }
 
         internal static Texture2D DuplicateTexture(Texture2D source)
@@ -122,7 +201,7 @@ namespace SolastaCommunityExpansion.Utils
                 using (var g = Graphics.FromImage(finalImage))
                 {
                     //set background color
-                    g.Clear(System.Drawing.Color.Black);
+                    g.Clear(Color.Black);
 
                     //go through each image and draw it on the final image
                     var offset = 0;
@@ -156,7 +235,8 @@ namespace SolastaCommunityExpansion.Utils
             using var innerImage = new Bitmap(originalImage, new Size(innerImageScale.Item1, innerImageScale.Item2));
 
             var sourceRegion = new Rectangle(0, 0, innerImageScale.Item1, innerImageScale.Item2);
-            var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2, innerImageScale.Item1, innerImageScale.Item2);
+            var destinationRegion = new Rectangle(innerImagePosition.Item1, innerImagePosition.Item2,
+                innerImageScale.Item1, innerImageScale.Item2);
 
             using (var g = Graphics.FromImage(baseImage))
             {
@@ -165,84 +245,7 @@ namespace SolastaCommunityExpansion.Utils
 
             baseImage.Save(finalImageFilename);
         }
+
         #endregion
-
-        /// <summary>
-        /// Convert a bitmap stored as an embedded resource to a Sprite.
-        /// </summary>
-        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int size, bool throwIfAlreadyExists = false)
-        {
-            return GetOrCreateSprite(name, bitmap, size, size, throwIfAlreadyExists);
-        }
-
-        internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey, bool throwIfAlreadyExists = false)
-        {
-            var (id, guid) = GetSpriteIds(name, sizex, sizey);
-
-            if (SpritesByGuid.TryGetValue(guid, out var sprite))
-            {
-                if (throwIfAlreadyExists)
-                {
-                    throw new SolastaModApiException($"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
-                }
-                else
-                {
-#if DEBUG
-                    if (id != sprite.name)
-                    {
-                        throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
-                    }
-#endif
-                    Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");
-                    return sprite;
-                }
-            }
-
-            var texture = new Texture2D(sizex, sizey, TextureFormat.DXT5, false);
-            texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
-            sprite = Sprite.Create(texture, new Rect(0, 0, sizex, sizey), new Vector2(0, 0));
-
-            SpritesByGuid[guid] = sprite;
-            sprite.name = id;
-
-            Main.Log($"Created sprite, id={id}, guid={guid}.");
-
-            return sprite;
-        }
-
-        internal static Sprite GetSpriteByGuid(string guid)
-        {
-            return SpritesByGuid.TryGetValue(guid, out var sprite) ? sprite : null;
-        }
-
-        /// <summary>
-        /// Create a unique Id to serve as id of a sprite in our internal cache and as the guid for AssetReference
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        private static (string id, string guid) GetSpriteIds(string name, int x, int y)
-        {
-            var id = $"_CE_{name}[{x},{y}]";
-
-            return (id, GetSpriteGuid(id));
-        }
-
-        private static string GetSpriteGuid(string id)
-        {
-            return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n");
-        }
-
-        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
-        {
-            return CreateAssetReferenceSprite(name, bitmap, size, size);
-        }
-
-        internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int sizex, int sizey)
-        {
-            var sprite = GetOrCreateSprite(name, bitmap, sizex, sizey);
-            return new AssetReferenceSprite(GetSpriteGuid(sprite.name));
-        }
     }
 }

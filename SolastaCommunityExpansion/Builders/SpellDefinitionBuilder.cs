@@ -10,29 +10,6 @@ namespace SolastaCommunityExpansion.Builders
         where TDefinition : SpellDefinition
         where TBuilder : SpellDefinitionBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-        protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
-        {
-            InitializeFields();
-        }
-
-        protected SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
-        {
-            InitializeFields();
-        }
-
-        protected SpellDefinitionBuilder(TDefinition original, string name, string guid) : base(original, name, guid)
-        {
-            InitializeFields();
-        }
-
-        protected SpellDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
-            : base(original, name, guidNamespace)
-        {
-            InitializeFields();
-        }
-        #endregion
-
         private void InitializeFields()
         {
             //
@@ -136,6 +113,31 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SetConcentrationAction(concentrationAction);
             return This();
         }
+
+        #region Constructors
+
+        protected SpellDefinitionBuilder(string name, string guid) : base(name, guid)
+        {
+            InitializeFields();
+        }
+
+        protected SpellDefinitionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        {
+            InitializeFields();
+        }
+
+        protected SpellDefinitionBuilder(TDefinition original, string name, string guid) : base(original, name, guid)
+        {
+            InitializeFields();
+        }
+
+        protected SpellDefinitionBuilder(TDefinition original, string name, Guid guidNamespace)
+            : base(original, name, guidNamespace)
+        {
+            InitializeFields();
+        }
+
+        #endregion
     }
 
     public class SpellDefinitionBuilder : SpellDefinitionBuilder<SpellDefinition, SpellDefinitionBuilder>

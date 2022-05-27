@@ -120,7 +120,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Channeling Earth Plane",
-    "description": "Deal additional Bludgeoning damage equal to your Proficiency Bonus on a first hit each round",
+    "description": "Deal additional Bludgeoning damage equal to your Proficiency Bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3373bdffd68856b39652617c83d5306a",

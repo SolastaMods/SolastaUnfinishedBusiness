@@ -5,9 +5,9 @@ namespace SolastaCommunityExpansion.CustomInterfaces
 {
     public interface IFeatureDefinitionWithPrerequisites
     {
-        public List<Validate> Validators { get; set; }
-
         [CanBeNull]
         public delegate string Validate();
+
+        public List<Validate> Validators { get; set; }
     }
 }

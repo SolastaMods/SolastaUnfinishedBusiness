@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Object = UnityEngine.Object;
 
 namespace SolastaModApi.Infrastructure
 {
     public static class ObjectExtensions
     {
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-        private static readonly MethodInfo CloneMethod = typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly MethodInfo CloneMethod =
+            typeof(object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
         public static bool IsPrimitive(this Type type)
@@ -50,30 +52,35 @@ namespace SolastaModApi.Infrastructure
                 if (IsPrimitive(arrayType))
                 {
                     var clonedArray = (Array)cloneObject;
-                    clonedArray.ForEach((array, indices) => array.SetValue(InternalCopy(clonedArray.GetValue(indices), visited), indices));
+                    clonedArray.ForEach((array, indices) =>
+                        array.SetValue(InternalCopy(clonedArray.GetValue(indices), visited), indices));
                 }
-
             }
+
             visited.Add(originalObject, cloneObject);
             CopyFields(originalObject, visited, cloneObject, typeToReflect);
             RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect);
             return cloneObject;
         }
 
-        private static void RecursiveCopyBaseTypePrivateFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect)
+        private static void RecursiveCopyBaseTypePrivateFields(object originalObject,
+            IDictionary<object, object> visited, object cloneObject, Type typeToReflect)
         {
             if (typeToReflect.BaseType != null)
             {
                 RecursiveCopyBaseTypePrivateFields(originalObject, visited, cloneObject, typeToReflect.BaseType);
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-                CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType, BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
+                CopyFields(originalObject, visited, cloneObject, typeToReflect.BaseType,
+                    BindingFlags.Instance | BindingFlags.NonPublic, info => info.IsPrivate);
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
             }
         }
 
-        private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect,
+        private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject,
+            Type typeToReflect,
 #pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-            BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
+            BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public |
+                                        BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null)
 #pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
         {
             foreach (var fieldInfo in typeToReflect.GetFields(bindingFlags))
@@ -101,9 +108,11 @@ namespace SolastaModApi.Infrastructure
 
         public static T DeepCopy<T>(this T original)
         {
-            if (original is UnityEngine.Object)
+            if (original is Object)
             {
-                throw new ArgumentException("The object being copied is a UnityEngine.Object. Use Object.Instantiate to copy Unity objects.", nameof(original));
+                throw new ArgumentException(
+                    "The object being copied is a UnityEngine.Object. Use Object.Instantiate to copy Unity objects.",
+                    nameof(original));
             }
 
             return (T)DeepCopy((object)original);

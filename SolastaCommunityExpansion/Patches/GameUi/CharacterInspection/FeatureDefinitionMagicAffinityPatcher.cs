@@ -25,19 +25,24 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                     return true;
                 }
 
-                var result = string.Empty;
+                var spells = new Dictionary<int, List<SpellDefinition>>();
 
                 foreach (var group in __instance.AutoPreparedSpellsGroups)
                 {
-                    var spells = string.Join(", ", group.SpellsList.Select(s => s.FormatTitle()));
-
-                    if (!string.IsNullOrEmpty(result))
+                    foreach (var spell in group.SpellsList)
                     {
-                        result += "\n";
-                    }
+                        var spellLevel = spell.SpellLevel;
+                        if (!spells.ContainsKey(spellLevel))
+                        {
+                            spells.Add(spellLevel, new List<SpellDefinition>());
+                        }
 
-                    result += $"{FormatSpellLevel(group.ClassLevel)}\t{spells}";
+                        spells[spellLevel].Add(spell);
+                    }
                 }
+
+                var result = string.Join("\n", spells.Select(e =>
+                    $"{FormatSpellLevel(e.Key)}\t{string.Join(", ", e.Value.Select(s => s.FormatTitle()))}"));
 
                 var description = __instance.GuiPresentation.Description;
 
@@ -64,7 +69,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 {
                     if (!spells.ContainsKey(duplet.Level))
                     {
-                        spells.Add(duplet.Level, new());
+                        spells.Add(duplet.Level, new List<SpellDefinition>());
                         levels.Add(duplet.Level);
                     }
 
@@ -99,7 +104,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 }
 
                 var formatMethod = typeof(Gui).GetMethod("Format", BindingFlags.Static | BindingFlags.Public);
-                var myFormatMethod = typeof(FeatureDefinitionMagicAffinity_FormatDescription).GetMethod("FormatSpellList");
+                var myFormatMethod =
+                    typeof(FeatureDefinitionMagicAffinity_FormatDescription).GetMethod("FormatSpellList");
                 var found = 0;
 
                 foreach (var instruction in instructions)

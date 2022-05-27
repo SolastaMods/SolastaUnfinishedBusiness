@@ -8,28 +8,30 @@ namespace SolastaCommunityExpansion.DataViewer
 {
     public class ReflectionTreeView
     {
-        private ReflectionTree _tree;
         private readonly ReflectionSearchResult _searchResults = new();
+        private GUIStyle _buttonStyle;
         private float _height;
         private bool _mouseOver;
-        private GUIStyle _buttonStyle;
-        private GUIStyle _valueStyle;
-        private int _totalNodeCount;
         private int _nodesCount;
-        private int _startIndex;
         private int _skipLevels;
-        private string searchText = "";
-        private int visitCount;
-        private int searchDepth;
-        private int searchBreadth;
-        private void updateCounts(int visitCount, int depth, int breadth)
-        {
-            this.visitCount = visitCount;
-            searchDepth = depth;
-            searchBreadth = breadth;
-        }
+        private int _startIndex;
+        private int _totalNodeCount;
+        private ReflectionTree _tree;
+        private GUIStyle _valueStyle;
 
         private Rect _viewerRect;
+        private int searchBreadth;
+        private int searchDepth;
+        private string searchText = "";
+        private int visitCount;
+
+        public ReflectionTreeView() { }
+
+        public ReflectionTreeView(object root)
+        {
+            SetRoot(root);
+        }
+
         public float DepthDelta { get; set; } = 30f;
 
         public static int MaxRows => Main.Settings.MaxRows;
@@ -38,11 +40,11 @@ namespace SolastaCommunityExpansion.DataViewer
 
         public float TitleMinWidth { get; set; } = 300f;
 
-        public ReflectionTreeView() { }
-
-        public ReflectionTreeView(object root)
+        private void updateCounts(int visitCount, int depth, int breadth)
         {
-            SetRoot(root);
+            this.visitCount = visitCount;
+            searchDepth = depth;
+            searchBreadth = breadth;
         }
 
         public void Clear()
@@ -78,12 +80,12 @@ namespace SolastaCommunityExpansion.DataViewer
 
             if (_buttonStyle == null)
             {
-                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
+                _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
             }
 
             if (_valueStyle == null)
             {
-                _valueStyle = new GUIStyle(GUI.skin.box) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
+                _valueStyle = new GUIStyle(GUI.skin.box) {alignment = TextAnchor.MiddleLeft, stretchHeight = true};
             }
 
             var startIndexUBound = Math.Max(0, _nodesCount - MaxRows);
@@ -106,6 +108,7 @@ namespace SolastaCommunityExpansion.DataViewer
                             _startIndex++;
                         }
                     }
+
                     if (_startIndex > startIndexUBound)
                     {
                         _startIndex = startIndexUBound;
@@ -116,6 +119,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     _startIndex = 0;
                 }
             }
+
             using (new GUILayout.VerticalScope())
             {
                 // tool-bar
@@ -126,6 +130,7 @@ namespace SolastaCommunityExpansion.DataViewer
                         collapse = true;
                         _skipLevels = 0;
                     }
+
                     if (GUILayout.Button("Refresh", GUILayout.ExpandWidth(false)))
                     {
                         _tree.RootNode.SetDirty();
@@ -136,7 +141,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     GUILayout.Space(10f);
                     GUILayout.Label($"Scroll: {_startIndex} / {_totalNodeCount}", GUILayout.ExpandWidth(false));
                     GUILayout.Space(10f);
-                    UI.ActionTextField(ref searchText, "searhText", (_) => { }, () =>
+                    UI.ActionTextField(ref searchText, "searhText", _ => { }, () =>
                     {
                         searchText = searchText.Trim();
                         ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
@@ -152,7 +157,8 @@ namespace SolastaCommunityExpansion.DataViewer
                         else
                         {
                             searchText = searchText.Trim();
-                            ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
+                            ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts,
+                                _searchResults);
                         }
                     }, UI.AutoWidth());
                     GUILayout.Space(10f);
@@ -160,17 +166,22 @@ namespace SolastaCommunityExpansion.DataViewer
                     {
                         ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, updateCounts, _searchResults);
                     }
+
                     GUILayout.Space(10f);
                     if (visitCount > 0)
                     {
-                        GUILayout.Label($"found {_searchResults.Count}".Cyan() + $" visited: {visitCount} (d: {searchDepth} b: {searchBreadth})".Orange());
+                        GUILayout.Label($"found {_searchResults.Count}".Cyan() +
+                                        $" visited: {visitCount} (d: {searchDepth} b: {searchBreadth})".Orange());
                     }
+
                     GUILayout.FlexibleSpace();
                 }
+
                 // view
                 using (new GUILayout.VerticalScope())
                 {
-                    using (new GUILayout.ScrollViewScope(new Vector2(), GUIStyle.none, GUIStyle.none, GUILayout.Height(_height)))
+                    using (new GUILayout.ScrollViewScope(new Vector2(), GUIStyle.none, GUIStyle.none,
+                               GUILayout.Height(_height)))
                     {
                         using (new GUILayout.HorizontalScope(GUI.skin.box))
                         {
@@ -207,14 +218,17 @@ namespace SolastaCommunityExpansion.DataViewer
                                         }
 
                                         if (node.ToggleState != toggleState) { Main.Log(node.ToString()); }
+
                                         node.ToggleState = toggleState;
                                         if (toggleState.IsOn())
                                         {
                                             DrawChildren(node.Node, depth + 1, collapse);
                                         }
+
                                         return true;
-                                    }, 0);
+                                    });
                                 }
+
                                 if (drawRoot)
                                 {
                                     DrawNode(_tree.RootNode, 0, collapse);
@@ -226,7 +240,8 @@ namespace SolastaCommunityExpansion.DataViewer
                             }
 
                             // scrollbar
-                            _startIndex = (int)GUILayout.VerticalScrollbar(_startIndex, MaxRows, 0f, Math.Max(MaxRows, _totalNodeCount), GUILayout.ExpandHeight(true));
+                            _startIndex = (int)GUILayout.VerticalScrollbar(_startIndex, MaxRows, 0f,
+                                Math.Max(MaxRows, _totalNodeCount), GUILayout.ExpandHeight(true));
                         }
 
                         // cache height
@@ -270,11 +285,13 @@ namespace SolastaCommunityExpansion.DataViewer
                     // instance type
                     if (node.InstType != null && node.InstType != node.Type)
                     {
-                        GUILayout.Label(node.InstType.Name.color(RGBA.yellow), _buttonStyle, GUILayout.ExpandWidth(false));
+                        GUILayout.Label(node.InstType.Name.color(RGBA.yellow), _buttonStyle,
+                            GUILayout.ExpandWidth(false));
                     }
                 }
             }
         }
+
         private void DrawNode(Node node, int depth, bool collapse)
         {
 #pragma warning disable CS0618 // Type or member is obsolete
@@ -293,6 +310,7 @@ namespace SolastaCommunityExpansion.DataViewer
                 DrawNodePrivate(node, depth, ref expanded);
                 node.Expanded = expanded;
             }
+
             if (collapse)
             {
                 node.Expanded = ToggleState.Off;
@@ -316,7 +334,7 @@ namespace SolastaCommunityExpansion.DataViewer
             if (hoist == null)
             {
 #pragma warning disable CS0618 // Type or member is obsolete
-                hoist = (n) => n.Matches;
+                hoist = n => n.Matches;
 #pragma warning restore CS0618 // Type or member is obsolete
             }
 
@@ -341,6 +359,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     others.Add(child);
                 }
             }
+
             foreach (var child in node.GetComponentNodes())
             {
                 if (nodesCount > maxNodeCount)
@@ -358,6 +377,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     others.Add(child);
                 }
             }
+
             foreach (var child in node.GetPropertyNodes())
             {
                 if (nodesCount > maxNodeCount)
@@ -375,6 +395,7 @@ namespace SolastaCommunityExpansion.DataViewer
                     others.Add(child);
                 }
             }
+
             foreach (var child in node.GetFieldNodes())
             {
                 if (nodesCount > maxNodeCount)
@@ -392,8 +413,11 @@ namespace SolastaCommunityExpansion.DataViewer
                     others.Add(child);
                 }
             }
+
             foreach (var child in toHoist) { DrawNode(child, depth, collapse); }
+
             foreach (var child in others) { DrawNode(child, depth, collapse); }
+
             _totalNodeCount = Math.Max(_nodesCount, _totalNodeCount);
         }
     }

@@ -311,7 +311,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&ThiefofFiveFatesTitle",
-    "description": "Cast Bane once until long rest",
+    "description": "Cast Bane once until long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "4055bc032261a0c44853f4f483238bd0",

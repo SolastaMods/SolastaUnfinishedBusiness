@@ -17,7 +17,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
         internal static class SpellSelectionPanel_Bind
         {
-            internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster, SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly)
+            internal static void Postfix(SpellSelectionPanel __instance, GameLocationCharacter caster,
+                SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
+                bool cantripOnly)
             {
                 if (!Main.Settings.EnableMultiLineSpellPanel)
                 {
@@ -25,7 +27,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 }
 
                 var spellRepertoireLines = __instance.GetField<List<SpellRepertoireLine>>("spellRepertoireLines");
-                var spellRepertoireSecondaryLine = __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
+                var spellRepertoireSecondaryLine =
+                    __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
                 var spellRepertoireLinesTable = __instance.GetField<RectTransform>("spellRepertoireLinesTable");
                 var slotAdvancementPanel = __instance.GetField<SlotAdvancementPanel>("slotAdvancementPanel");
 
@@ -65,7 +68,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     var rulesetSpellRepertoire = spellRepertoires[repertoireIndex];
                     var startLevel = 0;
 
-                    for (var level = startLevel; level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel; level++)
+                    for (var level = startLevel;
+                         level <= rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                         level++)
                     {
                         if (IsLevelActive(rulesetSpellRepertoire, level, actionType))
                         {
@@ -73,7 +78,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
                             if (spellLevelsOnLine >= Main.Settings.MaxSpellLevelsPerLine)
                             {
-                                curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
+                                curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType,
+                                    cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires,
+                                    needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, level);
                                 startLevel = level + 1;
                                 lineIndex++;
                                 spellLevelsOnLine = 0;
@@ -85,19 +92,27 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
                     if (spellLevelsOnLine != 0)
                     {
-                        curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly, spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine, lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel, rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
+                        curTable = AddActiveSpellsToLine(__instance, caster, spellCastEngaged, actionType, cantripOnly,
+                            spellRepertoireLines, curTable, slotAdvancementPanel, spellRepertoires, needNewLine,
+                            lineIndex, indexOfLine, rulesetSpellRepertoire, startLevel,
+                            rulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel);
                         needNewLine = false;
                         indexOfLine++;
                     }
                 }
+
                 LayoutRebuilder.ForceRebuildLayoutImmediate(curTable);
-                __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, spellRepertoireLinesTable.rect.width);
+                __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
+                    spellRepertoireLinesTable.rect.width);
             }
 
-            private static RectTransform AddActiveSpellsToLine(SpellSelectionPanel __instance, GameLocationCharacter caster,
-                SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType, bool cantripOnly,
+            private static RectTransform AddActiveSpellsToLine(SpellSelectionPanel __instance,
+                GameLocationCharacter caster,
+                SpellsByLevelBox.SpellCastEngagedHandler spellCastEngaged, ActionDefinitions.ActionType actionType,
+                bool cantripOnly,
                 List<SpellRepertoireLine> spellRepertoireLines, RectTransform spellRepertoireLinesTable,
-                SlotAdvancementPanel slotAdvancementPanel, List<RulesetSpellRepertoire> spellRepertoires, bool needNewLine, int lineIndex,
+                SlotAdvancementPanel slotAdvancementPanel, List<RulesetSpellRepertoire> spellRepertoires,
+                bool needNewLine, int lineIndex,
                 int indexOfLine, RulesetSpellRepertoire rulesetSpellRepertoire, int startLevel, int level)
             {
                 if (needNewLine)
@@ -119,11 +134,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 }
 
                 var curLine = SetUpNewLine(indexOfLine, spellRepertoireLinesTable, spellRepertoireLines, __instance);
-                curLine.Bind(caster.RulesetCharacter, rulesetSpellRepertoire, spellRepertoires.Count > 1, spellCastEngaged, slotAdvancementPanel, actionType, cantripOnly, startLevel, level);
+                curLine.Bind(caster.RulesetCharacter, rulesetSpellRepertoire, spellRepertoires.Count > 1,
+                    spellCastEngaged, slotAdvancementPanel, actionType, cantripOnly, startLevel, level);
                 return spellRepertoireLinesTable;
             }
 
-            private static SpellRepertoireLine SetUpNewLine(int index, RectTransform spellRepertoireLinesTable, List<SpellRepertoireLine> spellRepertoireLines, SpellSelectionPanel __instance)
+            private static SpellRepertoireLine SetUpNewLine(int index, RectTransform spellRepertoireLinesTable,
+                List<SpellRepertoireLine> spellRepertoireLines, SpellSelectionPanel __instance)
             {
                 GameObject newLine;
 
@@ -143,7 +160,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 return component;
             }
 
-            private static bool IsLevelActive(RulesetSpellRepertoire spellRepertoire, int level, ActionDefinitions.ActionType actionType)
+            private static bool IsLevelActive(RulesetSpellRepertoire spellRepertoire, int level,
+                ActionDefinitions.ActionType actionType)
             {
                 var spellActivationTime = RuleDefinitions.ActivationTime.Action;
                 switch (actionType)

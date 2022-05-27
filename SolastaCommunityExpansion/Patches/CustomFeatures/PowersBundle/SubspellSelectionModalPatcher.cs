@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             GuiCharacter ___guiCharacter,
             RulesetItemDevice ___rulesetItemDevice,
             RulesetDeviceFunction ___rulesetDeviceFunction
-            )
+        )
         {
             if (Main.Settings.EnableUpcastConjureElementalAndFey
                 && SubspellSelectionModal_Bind.FilteredSubspells != null
@@ -30,7 +30,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
                 if (subspells.Count > index)
                 {
-                    ___spellCastEngaged?.Invoke(___spellRepertoire, SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
+                    ___spellCastEngaged?.Invoke(___spellRepertoire,
+                        SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
 
                     // If a device had the summon function, implement here
 
@@ -51,7 +52,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
                 if (masterPower != null)
                 {
-
                     if (___spellCastEngaged != null)
                     {
                         ___spellCastEngaged(___spellRepertoire, ___spellRepertoire.KnownSpells[index], ___slotLevel);

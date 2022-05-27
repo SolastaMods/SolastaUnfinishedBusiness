@@ -10,6 +10,28 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 {
+    [HarmonyPatch(typeof(RulesetCharacter), "RechargePowersForTurnStart")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetCharacter_RechargePowersForTurnStart
+    {
+        internal static void Postfix(RulesetCharacter __instance)
+        {
+            foreach (var usablePower in __instance.UsablePowers)
+            {
+                if (usablePower?.PowerDefinition is IStartOfTurnRecharge startOfTurnRecharge &&
+                    usablePower.RemainingUses < usablePower.MaxUses)
+                {
+                    usablePower.Recharge();
+
+                    if (!startOfTurnRecharge.IsRechargeSilent && __instance.PowerRecharged != null)
+                    {
+                        __instance.PowerRecharged(__instance, usablePower);
+                    }
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_UsePower
@@ -79,6 +101,5 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 
             return codes.AsEnumerable();
         }
-
     }
 }

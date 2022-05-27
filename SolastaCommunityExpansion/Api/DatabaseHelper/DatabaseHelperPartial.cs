@@ -17,7 +17,8 @@ namespace SolastaModApi
 
             if (definition == null)
             {
-                throw new SolastaModApiException($"Definition with name={key} or guid={guid} not found in database {typeof(T).Name}");
+                throw new SolastaModApiException(
+                    $"Definition with name={key} or guid={guid} not found in database {typeof(T).Name}");
             }
 
             return definition;

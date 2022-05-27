@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 BuildSpellGroup(1, Entangle, Goodberry),
                 BuildSpellGroup(3,
                     Barkskin,
-                    ProtectionFromPoison),// This should be Beast Sense
+                    ProtectionFromPoison), // This should be Beast Sense
                 BuildSpellGroup(5,
                     ConjureAnimals,
                     CreateFood), // This should be Plant Growth
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                     Stoneskin),
                 BuildSpellGroup(9,
                     DispelEvilAndGood, // This should be Awaken
-                    InsectPlague)   // This should be Tree Stride
+                    InsectPlague) // This should be Tree Stride
             );
         }
     }

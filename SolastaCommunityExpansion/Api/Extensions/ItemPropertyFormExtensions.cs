@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,12 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ItemPropertyForm)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ItemPropertyFormExtensions
+    [TargetType(typeof(ItemPropertyForm))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ItemPropertyFormExtensions
     {
         public static T AddFeatureBySlotLevel<T>(this T entity, params FeatureUnlockByLevel[] value)
             where T : ItemPropertyForm
@@ -55,14 +57,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUsageLimitation<T>(this T entity, RuleDefinitions.ItemPropertyUsage value)
+        public static T SetUsageLimitation<T>(this T entity, ItemPropertyUsage value)
             where T : ItemPropertyForm
         {
             entity.SetField("usageLimitation", value);
             return entity;
         }
 
-        public static T SetUseAmount<T>(this T entity, System.Int32 value)
+        public static T SetUseAmount<T>(this T entity, Int32 value)
             where T : ItemPropertyForm
         {
             entity.SetField("useAmount", value);

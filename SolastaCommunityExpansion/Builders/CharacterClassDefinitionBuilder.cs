@@ -10,33 +10,17 @@ using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders
 {
-    public class CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
+    public class
+        CharacterClassDefinitionBuilder : DefinitionBuilder<CharacterClassDefinition, CharacterClassDefinitionBuilder>
     {
-        #region Constructors
-        protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected CharacterClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
         public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
         {
             Definition.SetHitDice(die);
             return this;
         }
 
-        public CharacterClassDefinitionBuilder SetAbilityScorePriorities(string first, string second, string third, string fourth, string fifth, string sixth)
+        public CharacterClassDefinitionBuilder SetAbilityScorePriorities(string first, string second, string third,
+            string fourth, string fifth, string sixth)
         {
             Definition.AbilityScoresPriority.SetRange(first, second, third, fourth, fifth, sixth);
             return this;
@@ -45,16 +29,124 @@ namespace SolastaCommunityExpansion.Builders
         public CharacterClassDefinitionBuilder AddPersonality(PersonalityFlagDefinition personalityType, int weight)
         {
             Definition.PersonalityFlagOccurences.Add(
-              new PersonalityFlagOccurence(DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
-                .SetWeight(weight)
-                .SetPersonalityFlag(personalityType.Name));
+                new PersonalityFlagOccurence(
+                        DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
+                    .SetWeight(weight)
+                    .SetPersonalityFlag(personalityType.Name));
 
             Definition.PersonalityFlagOccurences.Sort((x, y) => x.PersonalityFlag.CompareTo(y.PersonalityFlag));
 
             return this;
         }
 
+        public CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
+        {
+            Definition.SetIngredientGatheringOdds(odds);
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder SetBattleAI(DecisionPackageDefinition decisionPackage)
+        {
+            Definition.SetDefaultBattleDecisions(decisionPackage);
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder SetPictogram(AssetReferenceSprite sprite)
+        {
+            Definition.SetClassPictogramReference(sprite);
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder SetAnimationId(AnimationDefinitions.ClassAnimationId animId)
+        {
+            Definition.SetClassAnimationId(animId);
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder RequireDeity()
+        {
+            Definition.SetRequiresDeity(true);
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder AddEquipmentRow(params HeroEquipmentOption[] equipmentList)
+        {
+            return AddEquipmentRow(equipmentList.AsEnumerable());
+        }
+
+        public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<HeroEquipmentOption> equipmentList)
+        {
+            var equipmentColumn = new HeroEquipmentColumn();
+            equipmentColumn.EquipmentOptions.AddRange(equipmentList);
+
+            var equipmentRow = new HeroEquipmentRow();
+            equipmentRow.EquipmentColumns.Add(equipmentColumn);
+
+            Definition.EquipmentRows.Add(equipmentRow);
+
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<HeroEquipmentOption> equipmentListA,
+            IEnumerable<HeroEquipmentOption> equipmentListB)
+        {
+            var equipmentColumnA = new HeroEquipmentColumn();
+            equipmentColumnA.EquipmentOptions.AddRange(equipmentListA);
+
+            var equipmentColumnB = new HeroEquipmentColumn();
+            equipmentColumnB.EquipmentOptions.AddRange(equipmentListB);
+
+            var equipmentRow = new HeroEquipmentRow();
+            equipmentRow.EquipmentColumns.Add(equipmentColumnA);
+            equipmentRow.EquipmentColumns.Add(equipmentColumnB);
+
+            Definition.EquipmentRows.Add(equipmentRow);
+
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature, int number = 1)
+        {
+            for (var i = 0; i < number; i++)
+            {
+                Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
+            }
+
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
+            return this;
+        }
+
+        public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
+        {
+            Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+            Definition.FeatureUnlocks.Sort(Sorting.Compare);
+            return this;
+        }
+
+        #region Constructors
+
+        protected CharacterClassDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected CharacterClassDefinitionBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, Guid namespaceGuid) :
+            base(original, name, namespaceGuid)
+        {
+        }
+
+        protected CharacterClassDefinitionBuilder(CharacterClassDefinition original, string name, string definitionGuid)
+            : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
+
         #region Tool preference
+
         public CharacterClassDefinitionBuilder AddToolPreference(ToolTypeDefinition toolType)
         {
             Definition.ToolAutolearnPreference.Add(toolType.Name);
@@ -74,9 +166,11 @@ namespace SolastaCommunityExpansion.Builders
             Definition.ToolAutolearnPreference.Sort();
             return this;
         }
+
         #endregion
 
         #region Skill preference
+
         public CharacterClassDefinitionBuilder AddSkillPreference(SkillDefinition skillType)
         {
             Definition.SkillAutolearnPreference.Add(skillType.Name);
@@ -96,6 +190,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.SkillAutolearnPreference.Sort();
             return this;
         }
+
         #endregion
 
         #region Expertise preference
@@ -113,6 +208,7 @@ namespace SolastaCommunityExpansion.Builders
             Definition.ExpertiseAutolearnPreference.Sort();
             return this;
         }
+
         public CharacterClassDefinitionBuilder AddExpertisePreferences(params SkillDefinition[] skillTypes)
         {
             AddExpertisePreferences(skillTypes.AsEnumerable());
@@ -188,88 +284,5 @@ namespace SolastaCommunityExpansion.Builders
         }
 
         #endregion
-
-        public CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
-        {
-            Definition.SetIngredientGatheringOdds(odds);
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder SetBattleAI(DecisionPackageDefinition decisionPackage)
-        {
-            Definition.SetDefaultBattleDecisions(decisionPackage);
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder SetPictogram(AssetReferenceSprite sprite)
-        {
-            Definition.SetClassPictogramReference(sprite);
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder SetAnimationId(AnimationDefinitions.ClassAnimationId animId)
-        {
-            Definition.SetClassAnimationId(animId);
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder RequireDeity()
-        {
-            Definition.SetRequiresDeity(true);
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder AddEquipmentRow(params HeroEquipmentOption[] equipmentList)
-        {
-            return AddEquipmentRow(equipmentList.AsEnumerable());
-        }
-
-        public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<HeroEquipmentOption> equipmentList)
-        {
-            var equipmentColumn = new HeroEquipmentColumn();
-            equipmentColumn.EquipmentOptions.AddRange(equipmentList);
-
-            var equipmentRow = new HeroEquipmentRow();
-            equipmentRow.EquipmentColumns.Add(equipmentColumn);
-
-            Definition.EquipmentRows.Add(equipmentRow);
-
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder AddEquipmentRow(IEnumerable<HeroEquipmentOption> equipmentListA, IEnumerable<HeroEquipmentOption> equipmentListB)
-        {
-            var equipmentColumnA = new HeroEquipmentColumn();
-            equipmentColumnA.EquipmentOptions.AddRange(equipmentListA);
-
-            var equipmentColumnB = new HeroEquipmentColumn();
-            equipmentColumnB.EquipmentOptions.AddRange(equipmentListB);
-
-            var equipmentRow = new HeroEquipmentRow();
-            equipmentRow.EquipmentColumns.Add(equipmentColumnA);
-            equipmentRow.EquipmentColumns.Add(equipmentColumnB);
-
-            Definition.EquipmentRows.Add(equipmentRow);
-
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder AddFeatureAtLevel(int level, FeatureDefinition feature, int number = 1)
-        {
-            for (var i = 0; i < number; i++)
-            {
-                Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
-            }
-
-            Definition.FeatureUnlocks.Sort(Sorting.Compare);
-            return this;
-        }
-
-        public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
-        {
-            Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
-            Definition.FeatureUnlocks.Sort(Sorting.Compare);
-            return this;
-        }
     }
 }

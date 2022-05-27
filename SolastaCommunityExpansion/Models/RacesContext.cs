@@ -59,7 +59,8 @@ namespace SolastaCommunityExpansion.Models
 
         private static void UpdateRaceVisibility(CharacterRaceDefinition characterRaceDefinition)
         {
-            characterRaceDefinition.GuiPresentation.SetHidden(!Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
+            characterRaceDefinition.GuiPresentation.SetHidden(
+                !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
         }
 
         internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)

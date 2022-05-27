@@ -5,5 +5,3 @@
         bool CanUsePower(RulesetCharacter character);
     }
 }
-
-

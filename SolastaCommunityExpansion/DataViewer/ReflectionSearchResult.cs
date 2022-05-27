@@ -21,11 +21,11 @@ namespace SolastaCommunityExpansion.DataViewer
 
     public class ResultNode<TNode> : ResultNode where TNode : class
     {
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-        protected const BindingFlags ALL_FLAGS = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-
         public delegate bool TraversalCallback(ResultNode<TNode> node, int depth);
+#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
+        protected const BindingFlags ALL_FLAGS =
+            BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
+#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
         public TNode Node { get; set; }
 
@@ -62,10 +62,11 @@ namespace SolastaCommunityExpansion.DataViewer
             var rnode = Children.Find(rn => rn.Node == node);
             if (rnode == null)
             {
-                rnode = Activator.CreateInstance(this.GetType(), ALL_FLAGS, null, null, null) as ResultNode<TNode>;
+                rnode = Activator.CreateInstance(GetType(), ALL_FLAGS, null, null, null) as ResultNode<TNode>;
                 rnode.Node = node;
                 Children.Add(rnode);
             }
+
             return rnode;
         }
 
@@ -94,6 +95,7 @@ namespace SolastaCommunityExpansion.DataViewer
             {
                 builder = child.BuildString(builder, depth + 1);
             }
+
             return builder;
         }
 
@@ -118,10 +120,11 @@ namespace SolastaCommunityExpansion.DataViewer
             }
 
             var path = new List<Node>();
-            for (; node != null && node != this.Node; node = node.GetParent())
+            for (; node != null && node != Node; node = node.GetParent())
             {
                 path.Add(node);
             }
+
             AddSearchResult(path.Reverse<Node>());
         }
     }

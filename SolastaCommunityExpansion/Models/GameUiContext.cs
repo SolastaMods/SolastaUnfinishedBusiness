@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using SolastaModApi.Infrastructure;
 using TA;
@@ -11,21 +12,16 @@ namespace SolastaCommunityExpansion.Models
     {
         private const int EXITS_WITH_GIZMOS = 2;
 
-        private static readonly GadgetBlueprint[] GadgetExits = new GadgetBlueprint[]
+        private static readonly GadgetBlueprint[] GadgetExits =
         {
-            VirtualExit,
-            VirtualExitMultiple,
-            Exit,
-            ExitMultiple,
-            TeleporterIndividual,
-            TeleporterParty,
+            VirtualExit, VirtualExitMultiple, Exit, ExitMultiple, TeleporterIndividual, TeleporterParty
         };
 
         private static bool EnableDebugCamera { get; set; }
 
         internal static bool IsGadgetExit(GadgetBlueprint gadgetBlueprint, bool onlyWithGizmos = false)
         {
-            return System.Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
+            return Array.IndexOf(GadgetExits, gadgetBlueprint) >= (onlyWithGizmos ? EXITS_WITH_GIZMOS : 0);
         }
 
         internal static void Load()
@@ -33,29 +29,39 @@ namespace SolastaCommunityExpansion.Models
             var inputService = ServiceRepository.GetService<IInputService>();
 
             // Dungeon Maker
-            inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift, -1, -1, -1, -1);
+            inputService.RegisterCommand(InputCommands.Id.EditorRotate, (int)KeyCode.R, (int)KeyCode.LeftShift);
 
             // HUD
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_C, (int)KeyCode.C, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_L, (int)KeyCode.L, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_M, (int)KeyCode.M, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_P, (int)KeyCode.P, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_H, (int)KeyCode.H, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
 
             // Debug Overlay
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_D, (int)KeyCode.D, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
 
             // Export Character
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_E, (int)KeyCode.E, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
 
             // Spawn Encounter
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
 
             // Teleport
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
 
             // Zoom Camera
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_Z, (int)KeyCode.Z, (int)KeyCode.LeftShift, (int)KeyCode.LeftControl, -1, -1, -1);
+            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_Z, (int)KeyCode.Z, (int)KeyCode.LeftShift,
+                (int)KeyCode.LeftControl);
         }
 
         internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
@@ -120,9 +126,11 @@ namespace SolastaCommunityExpansion.Models
                 switch (gameLocationBaseScreen)
                 {
                     case GameLocationScreenExploration gameLocationScreenExploration:
-                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>("partyControlPanel");
+                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>(
+                            "partyControlPanel");
                     case GameLocationScreenBattle gameLocationScreenBattle:
-                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>("initiativeTable");
+                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>(
+                            "initiativeTable");
                     default:
                         return null;
                 }
@@ -134,9 +142,11 @@ namespace SolastaCommunityExpansion.Models
                 switch (gameLocationBaseScreen)
                 {
                     case GameLocationScreenExploration gameLocationScreenExploration:
-                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                        return gameLocationScreenExploration
+                            .GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
                     case GameLocationScreenBattle gameLocationScreenBattle:
-                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>(
+                            "timeAndNavigationPanel");
                     default:
                         return null;
                 }
@@ -145,10 +155,12 @@ namespace SolastaCommunityExpansion.Models
 
         internal static class GameHud
         {
-            internal static void ShowAll(GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel, TimeAndNavigationPanel timeAndNavigationPanel)
+            internal static void ShowAll(GameLocationBaseScreen gameLocationBaseScreen, GuiPanel initiativeOrPartyPanel,
+                TimeAndNavigationPanel timeAndNavigationPanel)
             {
                 var guiConsoleScreen = Gui.GuiService.GetScreen<GuiConsoleScreen>();
-                var anyVisible = guiConsoleScreen.Visible || gameLocationBaseScreen.CharacterControlPanel.Visible || initiativeOrPartyPanel.Visible || timeAndNavigationPanel.Visible;
+                var anyVisible = guiConsoleScreen.Visible || gameLocationBaseScreen.CharacterControlPanel.Visible ||
+                                 initiativeOrPartyPanel.Visible || timeAndNavigationPanel.Visible;
 
                 ShowCharacterControlPanel(gameLocationBaseScreen, anyVisible);
                 TogglePanelVisibility(guiConsoleScreen, anyVisible);
@@ -156,7 +168,8 @@ namespace SolastaCommunityExpansion.Models
                 TogglePanelVisibility(timeAndNavigationPanel, anyVisible);
             }
 
-            internal static void ShowCharacterControlPanel(GameLocationBaseScreen gameLocationBaseScreen, bool forceHide = false)
+            internal static void ShowCharacterControlPanel(GameLocationBaseScreen gameLocationBaseScreen,
+                bool forceHide = false)
             {
                 var characterControlPanel = gameLocationBaseScreen.CharacterControlPanel;
 
@@ -171,7 +184,8 @@ namespace SolastaCommunityExpansion.Models
 
                     if (gameLocationSelectionService.SelectedCharacters.Count > 0)
                     {
-                        characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0], gameLocationBaseScreen.ActionTooltipDock);
+                        characterControlPanel.Bind(gameLocationSelectionService.SelectedCharacters[0],
+                            gameLocationBaseScreen.ActionTooltipDock);
                         characterControlPanel.Show();
                     }
                 }
@@ -240,14 +254,18 @@ namespace SolastaCommunityExpansion.Models
                 partyAndGuests.AddRange(gameLocationCharacterService.PartyCharacters);
                 partyAndGuests.AddRange(gameLocationCharacterService.GuestCharacters);
 
-                gameLocationPositioningService.ComputeFormationPlacementPositions(partyAndGuests, position, LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station, positions, new List<RulesetActor.SizeParameters>(), 25);
+                gameLocationPositioningService.ComputeFormationPlacementPositions(partyAndGuests, position,
+                    LocationDefinitions.Orientation.North, formationPositions, CellHelpers.PlacementMode.Station,
+                    positions, new List<RulesetActor.SizeParameters>(), 25);
 
                 for (var index = 0; index < positions.Count; index++)
                 {
                     partyAndGuests[index].LocationPosition = positions[index];
 
                     // rotates the characters in position to force the game to redrawn them
-                    gameLocationActionService.MoveCharacter(partyAndGuests[index], positions[(index + 1) % positions.Count], LocationDefinitions.Orientation.North, 0, ActionDefinitions.MoveStance.Walk);
+                    gameLocationActionService.MoveCharacter(partyAndGuests[index],
+                        positions[(index + 1) % positions.Count], LocationDefinitions.Orientation.North, 0,
+                        ActionDefinitions.MoveStance.Walk);
                 }
             }
         }

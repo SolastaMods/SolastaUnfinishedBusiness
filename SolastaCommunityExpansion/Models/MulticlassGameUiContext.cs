@@ -10,9 +10,9 @@ namespace SolastaCommunityExpansion.Models
 {
     public static class MulticlassGameUiContext
     {
-        private static Color LightGreenSlot = new(0f, 1f, 0f, 1f);
-        private static Color WhiteSlot = new(1f, 1f, 1f, 1f);
-        private static readonly float[] fontSizes = new float[] { 17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f };
+        private static readonly Color LightGreenSlot = new(0f, 1f, 0f, 1f);
+        private static readonly Color WhiteSlot = new(1f, 1f, 1f, 1f);
+        private static readonly float[] fontSizes = {17f, 17f, 16f, 14.75f, 13.5f, 13.5f, 13.5f};
 
         public static float GetFontSize(int classesCount)
         {
@@ -53,8 +53,10 @@ namespace SolastaCommunityExpansion.Models
                 {
                     if (index < spellSlotsCount)
                     {
-                        component.Used.gameObject.SetActive(index >= totalSlotsRemainingCount - pactSlotsRemainingCount);
-                        component.Available.gameObject.SetActive(index < totalSlotsRemainingCount - pactSlotsRemainingCount);
+                        component.Used.gameObject.SetActive(index >=
+                                                            totalSlotsRemainingCount - pactSlotsRemainingCount);
+                        component.Available.gameObject.SetActive(index < totalSlotsRemainingCount -
+                            pactSlotsRemainingCount);
                     }
                     else if (slotLevel == warlockSpellLevel)
                     {
@@ -103,7 +105,8 @@ namespace SolastaCommunityExpansion.Models
             }
             else
             {
-                str = Gui.Format("Screen/&SpellSlotsUsedShortLongDescription", pactSlotsUsedCount.ToString(), spellSlotsUsedCount.ToString());
+                str = Gui.Format("Screen/&SpellSlotsUsedShortLongDescription", pactSlotsUsedCount.ToString(),
+                    spellSlotsUsedCount.ToString());
             }
 
             rectTransform.GetComponent<GuiTooltip>().Content = str;
@@ -150,7 +153,7 @@ namespace SolastaCommunityExpansion.Models
 
                 if (max > 0 && (
                         (level <= maxRepertoireLevel
-                        && (isMulticaster || !hasPactMagic))
+                         && (isMulticaster || !hasPactMagic))
                         || level == warlockSpellLevel
                     ))
                 {
@@ -190,8 +193,8 @@ namespace SolastaCommunityExpansion.Models
                 var classesCount = hero.ClassesAndLevels.Count;
                 var newLine = separator == '\n' || classesCount <= 4 ? 2 : 3;
                 var sortedClasses = from entry in hero.ClassesAndLevels
-                                    orderby entry.Value descending, entry.Key.FormatTitle() ascending
-                                    select entry;
+                    orderby entry.Value descending, entry.Key.FormatTitle()
+                    select entry;
 
                 foreach (var kvp in sortedClasses)
                 {
@@ -276,16 +279,19 @@ namespace SolastaCommunityExpansion.Models
 
             if (characterLevel == characterLevelAttribute.MaxValue)
             {
-                builder.Append(Gui.Format("Format/&LevelAndExperienceMaxedFormat", characterLevel.ToString("N0"), experience.ToString("N0")));
+                builder.Append(Gui.Format("Format/&LevelAndExperienceMaxedFormat", characterLevel.ToString("N0"),
+                    experience.ToString("N0")));
             }
             else
             {
                 var num = Mathf.Max(0.0f, RuleDefinitions.ExperienceThresholds[characterLevel] - experience);
 
-                builder.Append(Gui.Format("Format/&LevelAndExperienceFormat", characterLevel.ToString("N0"), experience.ToString("N0"), num.ToString("N0"), (characterLevel + 1).ToString("N0")));
+                builder.Append(Gui.Format("Format/&LevelAndExperienceFormat", characterLevel.ToString("N0"),
+                    experience.ToString("N0"), num.ToString("N0"), (characterLevel + 1).ToString("N0")));
             }
 
-            if (hero.ClassesAndLevels.Count > 1) // cannot use InspectionPanelContext here as this method happens before that context is set
+            if (hero.ClassesAndLevels.Count >
+                1) // cannot use InspectionPanelContext here as this method happens before that context is set
             {
                 builder.Append('\n');
 
@@ -293,7 +299,8 @@ namespace SolastaCommunityExpansion.Models
                 {
                     var characterClassDefinition = hero.ClassesHistory[i];
 
-                    hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition, out var characterSubclassDefinition);
+                    hero.ClassesAndSubclasses.TryGetValue(characterClassDefinition,
+                        out var characterSubclassDefinition);
 
                     builder
                         .AppendFormat("\n{0:00} - ", i + 1)

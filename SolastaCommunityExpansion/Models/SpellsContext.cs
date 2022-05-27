@@ -10,24 +10,24 @@ namespace SolastaCommunityExpansion.Models
 
         internal sealed class SpellListContext
         {
-            private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
-            public SpellListDefinition SpellList { get; private set; }
-            public HashSet<SpellDefinition> AllSpells { get; private set; }
-            public HashSet<SpellDefinition> MinimumSpells { get; private set; }
-            public HashSet<SpellDefinition> SuggestedSpells { get; private set; }
-
             public SpellListContext(SpellListDefinition spellListDefinition)
             {
                 SpellList = spellListDefinition;
-                AllSpells = new();
-                MinimumSpells = new();
-                SuggestedSpells = new();
+                AllSpells = new HashSet<SpellDefinition>();
+                MinimumSpells = new HashSet<SpellDefinition>();
+                SuggestedSpells = new HashSet<SpellDefinition>();
             }
+
+            private List<string> SelectedSpells => Main.Settings.SpellListSpellEnabled[SpellList.Name];
+            public SpellListDefinition SpellList { get; }
+            public HashSet<SpellDefinition> AllSpells { get; }
+            public HashSet<SpellDefinition> MinimumSpells { get; }
+            public HashSet<SpellDefinition> SuggestedSpells { get; }
 
             public bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
 
             public bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
-                && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
+                                                  && SuggestedSpells.All(x => SelectedSpells.Contains(x.Name));
 
             public void CalculateAllSpells()
             {
@@ -37,7 +37,8 @@ namespace SolastaCommunityExpansion.Models
                 AllSpells.Clear();
 
                 foreach (var spell in Spells
-                    .Where(x => x.SpellLevel >= minSpellLevel && x.SpellLevel <= maxSpellLevel && !MinimumSpells.Contains(x)))
+                             .Where(x => x.SpellLevel >= minSpellLevel && x.SpellLevel <= maxSpellLevel &&
+                                         !MinimumSpells.Contains(x)))
                 {
                     AllSpells.Add(spell);
                 }
@@ -174,8 +175,8 @@ namespace SolastaCommunityExpansion.Models
                         spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
                     }
                     else if (featureDefinition is FeatureDefinitionCastSpell featureDefinitionCastSpell
-                        && featureDefinitionCastSpell.SpellListDefinition != null
-                        && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
+                             && featureDefinitionCastSpell.SpellListDefinition != null
+                             && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                     {
                         spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
                     }
@@ -194,7 +195,7 @@ namespace SolastaCommunityExpansion.Models
 
                 SpellListContextTab.Add(spellList, new SpellListContext(spellList));
 
-                Main.Settings.SpellListSpellEnabled.TryAdd(name, new());
+                Main.Settings.SpellListSpellEnabled.TryAdd(name, new List<string>());
                 Main.Settings.DisplaySpellListsToggle.TryAdd(name, false);
                 Main.Settings.SpellListSliderPosition.TryAdd(name, 4);
             }

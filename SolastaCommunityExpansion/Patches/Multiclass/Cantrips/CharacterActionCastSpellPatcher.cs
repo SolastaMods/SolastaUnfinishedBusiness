@@ -9,7 +9,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterActionCastSpell_GetAdvancementData
     {
-        public static int SpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire, CharacterActionCastSpell characterActionCastSpell)
+        public static int SpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire,
+            CharacterActionCastSpell characterActionCastSpell)
         {
             if (characterActionCastSpell.ActingCharacter.RulesetCharacter is RulesetCharacterHero hero
                 && characterActionCastSpell.ActiveSpell.SpellDefinition.SpellLevel == 0)
@@ -23,7 +24,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
-            var mySpellCastingLevelMethod = typeof(CharacterActionCastSpell_GetAdvancementData).GetMethod("SpellCastingLevel");
+            var mySpellCastingLevelMethod =
+                typeof(CharacterActionCastSpell_GetAdvancementData).GetMethod("SpellCastingLevel");
 
             foreach (var instruction in instructions)
             {

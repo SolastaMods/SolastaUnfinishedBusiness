@@ -12,6 +12,40 @@ namespace SolastaCommunityExpansion.CustomUI
         public const string Name = "WarcasterReaction";
         public static ReactionDefinition ReactWarcasterDefinition;
 
+        public ReactionRequestWarcaster(CharacterActionParams reactionParams)
+            : base(Name, reactionParams)
+        {
+            BuildSuboptions();
+            ReactionParams.StringParameter2 = "Warcaster";
+        }
+
+        public override int SelectedSubOption
+        {
+            get
+            {
+                var spell = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition;
+                if (spell == null)
+                {
+                    return 0;
+                }
+
+                return ReactionParams.SpellRepertoire.KnownSpells.FindIndex(s => s == spell) + 1;
+            }
+        }
+
+
+        public override string SuboptionTag => "Warcaster";
+
+        public override bool IsStillValid
+        {
+            get
+            {
+                var targetCharacter = ReactionParams.TargetCharacters[0];
+                return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
+                    .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+            }
+        }
+
         public static void Initialize()
         {
             ReactWarcasterDefinition = ReactionDefinitionBuilder
@@ -21,14 +55,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 .AddToDB();
         }
 
-        public ReactionRequestWarcaster(CharacterActionParams reactionParams)
-            : base(Name, reactionParams)
-        {
-            BuildSuboptions();
-            ReactionParams.StringParameter2 = "Warcaster";
-        }
-
-        void BuildSuboptions()
+        private void BuildSuboptions()
         {
             SubOptionsAvailability.Clear();
             SubOptionsAvailability.Add(0, true);
@@ -39,6 +66,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 SelectSubOption(0);
                 return;
             }
+
             var reactionParams = ReactionParams;
             var actingCharacter = reactionParams.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
@@ -93,20 +121,6 @@ namespace SolastaCommunityExpansion.CustomUI
             }
 
             SelectSubOption(0);
-        }
-
-        public override int SelectedSubOption
-        {
-            get
-            {
-                var spell = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition;
-                if (spell == null)
-                {
-                    return 0;
-                }
-
-                return ReactionParams.SpellRepertoire.KnownSpells.FindIndex(s => s == spell) + 1;
-            }
         }
 
 
@@ -167,26 +181,16 @@ namespace SolastaCommunityExpansion.CustomUI
             }
         }
 
-
-        public override string SuboptionTag => "Warcaster";
-
-        public override bool IsStillValid
-        {
-            get
-            {
-                var targetCharacter = ReactionParams.TargetCharacters[0];
-                return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
-                    .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
-            }
-        }
-
         public override string FormatDescription()
         {
             var target = new GuiCharacter(ReactionParams.TargetCharacters[0]);
             return Gui.Format(base.FormatDescription(), target.Name);
         }
 
-        public override string FormatReactDescription() => Gui.Format(base.FormatReactDescription(), "");
+        public override string FormatReactDescription()
+        {
+            return Gui.Format(base.FormatReactDescription(), "");
+        }
 
         public override void OnSetInvalid()
         {

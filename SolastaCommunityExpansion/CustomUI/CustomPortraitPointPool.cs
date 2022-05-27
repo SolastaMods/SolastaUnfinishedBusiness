@@ -10,16 +10,13 @@ namespace SolastaCommunityExpansion.CustomUI
     {
         string Name { get; }
         string Tooltip { get; }
-        int GetPoints(RulesetCharacter character);
         AssetReferenceSprite Icon { get; }
+        int GetPoints(RulesetCharacter character);
     }
 
     public class CustomPortraitPoolPower : ICusomPortraitPointPoolProvider
     {
         private readonly FeatureDefinitionPower power;
-        public string Name { get; }
-        public string Tooltip { get; }
-        public AssetReferenceSprite Icon { get; }
 
 
         public CustomPortraitPoolPower(FeatureDefinitionPower power, string name = null, string tooltip = null,
@@ -30,6 +27,10 @@ namespace SolastaCommunityExpansion.CustomUI
             Tooltip = tooltip ?? $"Tooltip/&CustomPortraitPool{Name}";
             Icon = icon ?? power.GuiPresentation.SpriteReference;
         }
+
+        public string Name { get; }
+        public string Tooltip { get; }
+        public AssetReferenceSprite Icon { get; }
 
         public int GetPoints(RulesetCharacter character)
         {

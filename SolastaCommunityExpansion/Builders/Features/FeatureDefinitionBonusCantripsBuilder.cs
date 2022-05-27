@@ -12,26 +12,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         where TDefinition : FeatureDefinitionBonusCantrips
         where TBuilder : FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder>
     {
-        #region Constructors
-        protected FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, string definitionGuid) :
-            base(original, name, definitionGuid)
-        {
-        }
-        #endregion
-
         public TBuilder ClearBonusCantrips()
         {
             Definition.BonusCantrips.Clear();
@@ -57,6 +37,28 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.BonusCantrips.Sort(Sorting.Compare);
             return This();
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
+            original, name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, string definitionGuid) :
+            base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 
     public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
@@ -115,34 +117,39 @@ namespace SolastaCommunityExpansion.Builders.Features
     public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
         FeatureDefinitionFreeBonusCantripsWithPrerequisites, FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder>
     {
-        #region Constructors
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidators(params IFeatureDefinitionWithPrerequisites.Validate[] validators)
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidators(
+            params IFeatureDefinitionWithPrerequisites.Validate[] validators)
         {
             Definition.Validators.AddRange(validators);
 
             return this;
         }
+
+        #region Constructors
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name,
+            namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(
+            name,
+            definitionGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
+            FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
+        {
+        }
+
+        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
+            FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
+        {
+        }
+
+        #endregion
     }
 }

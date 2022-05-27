@@ -8,46 +8,24 @@ using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
 namespace SolastaCommunityExpansion.Builders.Features
 {
     public class FeatureDefinitionSavingThrowAffinityBuilder
-        : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity, FeatureDefinitionSavingThrowAffinityBuilder>
+        : FeatureDefinitionAffinityBuilder<FeatureDefinitionSavingThrowAffinity,
+            FeatureDefinitionSavingThrowAffinityBuilder>
     {
-        #region Constructors
-        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
-            : base(name, guid)
-        {
-        }
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
-            : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, string guid)
-            : base(original, name, guid)
-        {
-        }
-
-        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original, string name, Guid namespaceGuid)
-            : base(original, name, namespaceGuid)
-        {
-        }
-        #endregion
-
-        public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, params string[] abilityScores)
+        public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
+            RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, params string[] abilityScores)
         {
             return SetAffinities(affinityType, againstMagic, abilityScores.AsEnumerable());
         }
 
-        public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic, IEnumerable<string> abilityScores)
+        public FeatureDefinitionSavingThrowAffinityBuilder SetAffinities(
+            RuleDefinitions.CharacterSavingThrowAffinity affinityType, bool againstMagic,
+            IEnumerable<string> abilityScores)
         {
             // TODO: this isn't a set, it's an Add
 
             foreach (var ability in abilityScores)
             {
-                var group = new SavingThrowAffinityGroup
-                {
-                    abilityScoreName = ability,
-                    affinity = affinityType
-                };
+                var group = new SavingThrowAffinityGroup {abilityScoreName = ability, affinity = affinityType};
 
                 if (againstMagic)
                 {
@@ -68,5 +46,31 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.AffinityGroups.Sort(Sorting.Compare);
             return this;
         }
+
+        #region Constructors
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, string guid)
+            : base(name, guid)
+        {
+        }
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(string name, Guid namespaceGuid)
+            : base(name, namespaceGuid)
+        {
+        }
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
+            string name, string guid)
+            : base(original, name, guid)
+        {
+        }
+
+        protected FeatureDefinitionSavingThrowAffinityBuilder(FeatureDefinitionSavingThrowAffinity original,
+            string name, Guid namespaceGuid)
+            : base(original, name, namespaceGuid)
+        {
+        }
+
+        #endregion
     }
 }

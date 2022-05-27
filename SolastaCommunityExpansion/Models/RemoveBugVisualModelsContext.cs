@@ -52,16 +52,20 @@ namespace SolastaCommunityExpansion.Models
                 foreach (var monster in listofAllMonsters)
                 {
                     // get monster asset reference for prefab guid comparison
-                    var value = monster.MonsterPresentation.GetFieldValue<MonsterPresentation, AssetReference>("malePrefabReference");
+                    var value =
+                        monster.MonsterPresentation.GetFieldValue<MonsterPresentation, AssetReference>(
+                            "malePrefabReference");
 
                     // swap bears for spiders
-                    if (value.AssetGUID == assetReference_spider_1 || value.AssetGUID == assetReference_spider_2 || value.AssetGUID == assetReference_spider_3)
+                    if (value.AssetGUID == assetReference_spider_1 || value.AssetGUID == assetReference_spider_2 ||
+                        value.AssetGUID == assetReference_spider_3)
                     {
                         monster.MonsterPresentation.SetMalePrefabReference(bearPrefab);
                         monster.MonsterPresentation.SetFemalePrefabReference(bearPrefab);
                         monster.GuiPresentation.SetSpriteReference(brownBear.GuiPresentation.SpriteReference);
                         monster.SetBestiarySpriteReference(brownBear.BestiarySpriteReference);
-                        monster.MonsterPresentation.SetMonsterPresentationDefinitions(brownBear.MonsterPresentation.MonsterPresentationDefinitions);
+                        monster.MonsterPresentation.SetMonsterPresentationDefinitions(brownBear.MonsterPresentation
+                            .MonsterPresentationDefinitions);
                     }
 
                     // swap apes for remorhaz
@@ -71,7 +75,8 @@ namespace SolastaCommunityExpansion.Models
                         monster.MonsterPresentation.SetFemalePrefabReference(apePrefab);
                         monster.GuiPresentation.SetSpriteReference(ape.GuiPresentation.SpriteReference);
                         monster.SetBestiarySpriteReference(ape.BestiarySpriteReference);
-                        monster.MonsterPresentation.SetMonsterPresentationDefinitions(ape.MonsterPresentation.MonsterPresentationDefinitions);
+                        monster.MonsterPresentation.SetMonsterPresentationDefinitions(ape.MonsterPresentation
+                            .MonsterPresentationDefinitions);
                     }
 
                     // swap wolves for beetles
@@ -81,7 +86,8 @@ namespace SolastaCommunityExpansion.Models
                         monster.MonsterPresentation.SetFemalePrefabReference(wolfPrefab);
                         monster.GuiPresentation.SetSpriteReference(wolf.GuiPresentation.SpriteReference);
                         monster.SetBestiarySpriteReference(wolf.BestiarySpriteReference);
-                        monster.MonsterPresentation.SetMonsterPresentationDefinitions(wolf.MonsterPresentation.MonsterPresentationDefinitions);
+                        monster.MonsterPresentation.SetMonsterPresentationDefinitions(wolf.MonsterPresentation
+                            .MonsterPresentationDefinitions);
 
                         // changing beetle scale to suit replacement model
                         monster.MonsterPresentation.SetMaleModelScale(0.655f);

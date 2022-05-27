@@ -40,7 +40,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
 
-            subspellSelectionModalScreen.Bind(masterSpell, ___activator, repertoire, handler, 0, __instance.RectTransform);
+            subspellSelectionModalScreen.Bind(masterSpell, ___activator, repertoire, handler, 0,
+                __instance.RectTransform);
             subspellSelectionModalScreen.Show();
 
             return false;

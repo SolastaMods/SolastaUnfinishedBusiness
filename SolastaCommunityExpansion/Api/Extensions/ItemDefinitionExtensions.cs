@@ -1,3 +1,4 @@
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,48 +8,49 @@ using static RuleDefinitions;
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(ItemDefinition)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class ItemDefinitionExtensions
+    [TargetType(typeof(ItemDefinition))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class ItemDefinitionExtensions
     {
-        public static T AddActiveTags<T>(this T entity, params System.String[] value)
+        public static T AddActiveTags<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             AddActiveTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddActiveTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddActiveTags<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.ActiveTags.AddRange(value);
             return entity;
         }
 
-        public static T AddInactiveTags<T>(this T entity, params System.String[] value)
+        public static T AddInactiveTags<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             AddInactiveTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddInactiveTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddInactiveTags<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.InactiveTags.AddRange(value);
             return entity;
         }
 
-        public static T AddItemTags<T>(this T entity, params System.String[] value)
+        public static T AddItemTags<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             AddItemTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddItemTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddItemTags<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.ItemTags.AddRange(value);
@@ -83,28 +85,28 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T AddSlotsWhereActive<T>(this T entity, params System.String[] value)
+        public static T AddSlotsWhereActive<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             AddSlotsWhereActive(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSlotsWhereActive<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddSlotsWhereActive<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.SlotsWhereActive.AddRange(value);
             return entity;
         }
 
-        public static T AddSlotTypes<T>(this T entity, params System.String[] value)
+        public static T AddSlotTypes<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             AddSlotTypes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T AddSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+        public static T AddSlotTypes<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.SlotTypes.AddRange(value);
@@ -188,21 +190,21 @@ namespace SolastaModApi.Extensions
             return copy;
         }
 
-        public static T SetActiveOnGround<T>(this T entity, System.Boolean value)
+        public static T SetActiveOnGround<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("activeOnGround", value);
             return entity;
         }
 
-        public static T SetActiveTags<T>(this T entity, params System.String[] value)
+        public static T SetActiveTags<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             SetActiveTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetActiveTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetActiveTags<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.ActiveTags.SetRange(value);
@@ -223,7 +225,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCanBeStacked<T>(this T entity, System.Boolean value)
+        public static T SetCanBeStacked<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("canBeStacked", value);
@@ -237,21 +239,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetCosts<T>(this T entity, System.Int32[] value)
+        public static T SetCosts<T>(this T entity, Int32[] value)
             where T : ItemDefinition
         {
             entity.SetField("costs", value);
             return entity;
         }
 
-        public static T SetDefaultStackCount<T>(this T entity, System.Int32 value)
+        public static T SetDefaultStackCount<T>(this T entity, Int32 value)
             where T : ItemDefinition
         {
             entity.SetField("defaultStackCount", value);
             return entity;
         }
 
-        public static T SetDestroyedWhenUnequiped<T>(this T entity, System.Boolean value)
+        public static T SetDestroyedWhenUnequiped<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("destroyedWhenUnequiped", value);
@@ -286,133 +288,133 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetForceEquip<T>(this T entity, System.Boolean value)
+        public static T SetForceEquip<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("forceEquip", value);
             return entity;
         }
 
-        public static T SetForceEquipSlot<T>(this T entity, System.String value)
+        public static T SetForceEquipSlot<T>(this T entity, String value)
             where T : ItemDefinition
         {
             entity.SetField("forceEquipSlot", value);
             return entity;
         }
 
-        public static T SetInactiveTags<T>(this T entity, params System.String[] value)
+        public static T SetInactiveTags<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             SetInactiveTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetInactiveTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetInactiveTags<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.InactiveTags.SetRange(value);
             return entity;
         }
 
-        public static T SetInDungeonEditor<T>(this T entity, System.Boolean value)
+        public static T SetInDungeonEditor<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("inDungeonEditor", value);
             return entity;
         }
 
-        public static T SetIsAmmunition<T>(this T entity, System.Boolean value)
+        public static T SetIsAmmunition<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsAmmunition = value;
             return entity;
         }
 
-        public static T SetIsArmor<T>(this T entity, System.Boolean value)
+        public static T SetIsArmor<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsArmor = value;
             return entity;
         }
 
-        public static T SetIsContainerItem<T>(this T entity, System.Boolean value)
+        public static T SetIsContainerItem<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsContainerItem = value;
             return entity;
         }
 
-        public static T SetIsDocument<T>(this T entity, System.Boolean value)
+        public static T SetIsDocument<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsDocument = value;
             return entity;
         }
 
-        public static T SetIsFactionRelic<T>(this T entity, System.Boolean value)
+        public static T SetIsFactionRelic<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsFactionRelic = value;
             return entity;
         }
 
-        public static T SetIsFocusItem<T>(this T entity, System.Boolean value)
+        public static T SetIsFocusItem<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsFocusItem = value;
             return entity;
         }
 
-        public static T SetIsFood<T>(this T entity, System.Boolean value)
+        public static T SetIsFood<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsFood = value;
             return entity;
         }
 
-        public static T SetIsLightSourceItem<T>(this T entity, System.Boolean value)
+        public static T SetIsLightSourceItem<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsLightSourceItem = value;
             return entity;
         }
 
-        public static T SetIsSpellbook<T>(this T entity, System.Boolean value)
+        public static T SetIsSpellbook<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsSpellbook = value;
             return entity;
         }
 
-        public static T SetIsStarterPack<T>(this T entity, System.Boolean value)
+        public static T SetIsStarterPack<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsStarterPack = value;
             return entity;
         }
 
-        public static T SetIsTool<T>(this T entity, System.Boolean value)
+        public static T SetIsTool<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsTool = value;
             return entity;
         }
 
-        public static T SetIsUsableDevice<T>(this T entity, System.Boolean value)
+        public static T SetIsUsableDevice<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsUsableDevice = value;
             return entity;
         }
 
-        public static T SetIsWealthPile<T>(this T entity, System.Boolean value)
+        public static T SetIsWealthPile<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsWealthPile = value;
             return entity;
         }
 
-        public static T SetIsWeapon<T>(this T entity, System.Boolean value)
+        public static T SetIsWeapon<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.IsWeapon = value;
@@ -426,21 +428,21 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetItemRarity<T>(this T entity, RuleDefinitions.ItemRarity value)
+        public static T SetItemRarity<T>(this T entity, ItemRarity value)
             where T : ItemDefinition
         {
             entity.SetField("itemRarity", value);
             return entity;
         }
 
-        public static T SetItemTags<T>(this T entity, params System.String[] value)
+        public static T SetItemTags<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             SetItemTags(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetItemTags<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetItemTags<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.ItemTags.SetRange(value);
@@ -454,14 +456,14 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetMagical<T>(this T entity, System.Boolean value)
+        public static T SetMagical<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("magical", value);
             return entity;
         }
 
-        public static T SetMerchantCategory<T>(this T entity, System.String value)
+        public static T SetMerchantCategory<T>(this T entity, String value)
             where T : ItemDefinition
         {
             entity.SetField("merchantCategory", value);
@@ -496,42 +498,42 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetRequiresAttunement<T>(this T entity, System.Boolean value)
+        public static T SetRequiresAttunement<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("requiresAttunement", value);
             return entity;
         }
 
-        public static T SetRequiresIdentification<T>(this T entity, System.Boolean value)
+        public static T SetRequiresIdentification<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("requiresIdentification", value);
             return entity;
         }
 
-        public static T SetSlotsWhereActive<T>(this T entity, params System.String[] value)
+        public static T SetSlotsWhereActive<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             SetSlotsWhereActive(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSlotsWhereActive<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetSlotsWhereActive<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.SlotsWhereActive.SetRange(value);
             return entity;
         }
 
-        public static T SetSlotTypes<T>(this T entity, params System.String[] value)
+        public static T SetSlotTypes<T>(this T entity, params String[] value)
             where T : ItemDefinition
         {
             SetSlotTypes(entity, value.AsEnumerable());
             return entity;
         }
 
-        public static T SetSlotTypes<T>(this T entity, IEnumerable<System.String> value)
+        public static T SetSlotTypes<T>(this T entity, IEnumerable<String> value)
             where T : ItemDefinition
         {
             entity.SlotTypes.SetRange(value);
@@ -559,7 +561,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStackSize<T>(this T entity, System.Int32 value)
+        public static T SetStackSize<T>(this T entity, Int32 value)
             where T : ItemDefinition
         {
             entity.SetField("stackSize", value);
@@ -601,7 +603,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetUserItem<T>(this T entity, System.Boolean value)
+        public static T SetUserItem<T>(this T entity, Boolean value)
             where T : ItemDefinition
         {
             entity.SetField("<UserItem>k__BackingField", value);
@@ -622,7 +624,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetWeight<T>(this T entity, System.Single value)
+        public static T SetWeight<T>(this T entity, Single value)
             where T : ItemDefinition
         {
             entity.SetField("weight", value);

@@ -23,7 +23,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
                 {
                     yield return instruction;
                 }
-                else if (Main.Settings.EnableDungeonMakerModdedContent && instruction.opcode == OpCodes.Brfalse_S && ++found == 1)
+                else if (Main.Settings.EnableDungeonMakerModdedContent && instruction.opcode == OpCodes.Brfalse_S &&
+                         ++found == 1)
                 {
                     yield return new CodeInstruction(OpCodes.Pop);
                 }
@@ -53,7 +54,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
 
                 ___optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
                 {
-                    text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).yellow() + " " + Gui.Format("{0} x {1}", sizeString, sizeString),
+                    text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).yellow() + " " +
+                           Gui.Format("{0} x {1}", sizeString, sizeString),
                     TooltipContent = string.Empty
                 });
             }

@@ -3,7 +3,8 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 {
-    [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", new System.Type[] { typeof(DeityDefinition), typeof(DeityDefinition) })]
+    [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", typeof(DeityDefinition),
+        typeof(DeityDefinition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageDeitySelectionPanel_Compare_DeityDefinition
     {
@@ -18,11 +19,13 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", new System.Type[] { typeof(CharacterSubclassDefinition), typeof(CharacterSubclassDefinition) })]
+    [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "Compare", typeof(CharacterSubclassDefinition),
+        typeof(CharacterSubclassDefinition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageDeitySelectionPanel_Compare_CharacterSubclassDefinition
     {
-        internal static void Postfix(CharacterSubclassDefinition left, CharacterSubclassDefinition right, ref int __result)
+        internal static void Postfix(CharacterSubclassDefinition left, CharacterSubclassDefinition right,
+            ref int __result)
         {
             if (!Main.Settings.EnableSortingDeities)
             {

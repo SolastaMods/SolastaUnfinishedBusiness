@@ -11,7 +11,8 @@ namespace SolastaCommunityExpansion.Builders.Features
      * the hero and only one power for a given name+guid is added. Which means if you want to add a +1 modifier
      * at 4 different character levels you need to create 4 different FeatureDefinitionPowerPoolModifier.
      */
-    public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
+    public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerBuilder<
+        FeatureDefinitionPowerPoolModifier, FeatureDefinitionPowerPoolModifierBuilder>
     {
         protected override void Initialise()
         {
@@ -32,7 +33,8 @@ namespace SolastaCommunityExpansion.Builders.Features
             base.Validate();
 
             Preconditions.IsNotNull(Definition.PoolPower, $"{GetType().Name}[{Definition.Name}].PoolPower is null.");
-            Preconditions.AreEqual(Definition.CostPerUse, 1, $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
+            Preconditions.AreEqual(Definition.CostPerUse, 1,
+                $"{GetType().Name}[{Definition.Name}].CostPerUse must be set to 1.");
         }
 
         public FeatureDefinitionPowerPoolModifierBuilder Configure(
@@ -52,21 +54,26 @@ namespace SolastaCommunityExpansion.Builders.Features
         }
 
         #region Constructors
+
         protected FeatureDefinitionPowerPoolModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionPowerPoolModifierBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+        protected FeatureDefinitionPowerPoolModifierBuilder(string name, string definitionGuid) : base(name,
+            definitionGuid)
         {
         }
 
-        protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name, Guid namespaceGuid) : base(original, name, namespaceGuid)
+        protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name,
+            Guid namespaceGuid) : base(original, name, namespaceGuid)
         {
         }
 
-        protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name, string definitionGuid) : base(original, name, definitionGuid)
+        protected FeatureDefinitionPowerPoolModifierBuilder(FeatureDefinitionPowerPoolModifier original, string name,
+            string definitionGuid) : base(original, name, definitionGuid)
         {
         }
+
         #endregion
     }
 }

@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
-using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class AddExtraUnarmedAttack : IAddExtraAttack
     {
         private readonly ActionDefinitions.ActionType actionType;
+        private readonly List<string> additionalTags = new();
         private readonly int attacksNumber;
         private readonly bool clearSameType;
         private readonly CharacterValidator[] validators;
-        private readonly List<string> additionalTags = new();
 
         public AddExtraUnarmedAttack(ActionDefinitions.ActionType actionType, int attacksNumber, bool clearSameType,
             params CharacterValidator[] validators)
@@ -30,12 +30,6 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
         }
 
-        public AddExtraUnarmedAttack SetTags(params string[] tags)
-        {
-            additionalTags.AddRange(tags);
-            return this;
-        }
-
         public void TryAddExtraAttack(RulesetCharacterHero hero)
         {
             if (!hero.IsValid(validators))
@@ -46,7 +40,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
                 .EquipedItem;
 
-            var isUnarmedWeapon = mainHandItem != null && Monk.IsUnarmedWeapon(mainHandItem);
+            var isUnarmedWeapon = mainHandItem != null && WeaponValidators.IsUnarmedWeapon(mainHandItem);
             var strikeDefinition = isUnarmedWeapon
                 ? mainHandItem.ItemDefinition
                 : hero.UnarmedStrikeDefinition;
@@ -80,6 +74,85 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             );
             attackMode.AttacksNumber = attacksNumber;
             attackMode.AttackTags.AddRange(additionalTags);
+
+            if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
+            {
+                RulesetAttackMode.AttackModesPool.Return(attackMode);
+            }
+            else
+            {
+                attackModes.Add(attackMode);
+            }
+        }
+
+        public AddExtraUnarmedAttack SetTags(params string[] tags)
+        {
+            additionalTags.AddRange(tags);
+            return this;
+        }
+    }
+
+    public class AddBonusShieldAttack : IAddExtraAttack
+    {
+        public void TryAddExtraAttack(RulesetCharacterHero hero)
+        {
+            var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
+            var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
+                .EquipedItem;
+
+            if (!ShieldStrikeContext.IsShield(offHandItem))
+            {
+                return;
+            }
+
+            var attackModes = hero.AttackModes;
+            var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+
+            var attackMode = hero.RefreshAttackModePublic(
+                ActionDefinitions.ActionType.Bonus,
+                offHandItem.ItemDefinition,
+                ShieldStrikeContext.ShieldWeaponDescription,
+                false,
+                hero.CanAddAbilityBonusToOffhand(),
+                EquipmentDefinitions.SlotTypeOffHand,
+                attackModifiers,
+                hero.FeaturesOrigin,
+                offHandItem
+            );
+
+            var features = new List<FeatureDefinition>();
+
+            var bonus = 0;
+            offHandItem.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
+            foreach (var modifier in features.OfType<FeatureDefinitionAttributeModifier>())
+            {
+                if (modifier.ModifiedAttribute != AttributeDefinitions.ArmorClass)
+                {
+                    continue;
+                }
+
+                if (modifier.ModifierType != FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+                {
+                    continue;
+                }
+
+                bonus += modifier.ModifierValue;
+            }
+
+            if (bonus != 0)
+            {
+                var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+                var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment, offHandItem.Name, null);
+
+                attackMode.ToHitBonus += bonus;
+                attackMode.ToHitBonusTrends.Add(trendInfo);
+
+                if (damage != null)
+                {
+                    damage.BonusDamage += bonus;
+                    damage.DamageBonusTrends.Add(trendInfo);
+                }
+            }
 
             if (attackModes.Any(m => attackMode.IsComparableForNetwork(m)))
             {

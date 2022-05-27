@@ -1,24 +1,25 @@
+using System;
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
-using static RuleDefinitions;
 
 namespace SolastaModApi.Extensions
 {
     /// <summary>
-    /// This helper extensions class was automatically generated.
-    /// If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
+    ///     This helper extensions class was automatically generated.
+    ///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
     /// </summary>
-    [TargetType(typeof(FeatureDefinitionSense)), GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-    public static partial class FeatureDefinitionSenseExtensions
+    [TargetType(typeof(FeatureDefinitionSense))]
+    [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
+    public static class FeatureDefinitionSenseExtensions
     {
-        public static T SetRevealsHiddenObjects<T>(this T entity, System.Boolean value)
+        public static T SetRevealsHiddenObjects<T>(this T entity, Boolean value)
             where T : FeatureDefinitionSense
         {
             entity.SetField("revealsHiddenObjects", value);
             return entity;
         }
 
-        public static T SetSenseRange<T>(this T entity, System.Int32 value)
+        public static T SetSenseRange<T>(this T entity, Int32 value)
             where T : FeatureDefinitionSense
         {
             entity.SetField("senseRange", value);
@@ -32,7 +33,7 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
-        public static T SetStealthBreakerRange<T>(this T entity, System.Int32 value)
+        public static T SetStealthBreakerRange<T>(this T entity, Int32 value)
             where T : FeatureDefinitionSense
         {
             entity.SetField("stealthBreakerRange", value);

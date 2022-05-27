@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HarmonyLib;
+using Object = UnityEngine.Object;
 #if DEBUG
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.DataMiner;
+using SolastaCommunityExpansion.Properties;
 #endif
 
 namespace SolastaCommunityExpansion.Models
@@ -15,32 +17,19 @@ namespace SolastaCommunityExpansion.Models
     internal static class DiagnosticsContext
     {
         // very large or not very useful definitions
-        private static readonly string[] ExcludeFromExport = new[]
+        private static readonly string[] ExcludeFromExport =
         {
-            "AdventureLogDefinition",
-            "ConsoleTableDefinition",
-            "CreditsGroupDefinition",
-            "CreditsTableDefinition",
-            "DocumentTableDefinition",
-            "NarrativeEventTableDefinition",
+            "AdventureLogDefinition", "ConsoleTableDefinition", "CreditsGroupDefinition", "CreditsTableDefinition",
+            "DocumentTableDefinition", "NarrativeEventTableDefinition",
             "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
-            "SoundbanksDefinition",
-            "SubtitleTableDefinition",
-            "TravelJournalDefinition",
-            "TutorialSectionDefinition",
-            "TutorialStepDefinition",
-            "TutorialSubsectionDefinition",
-            "TutorialTocDefinition",
-            "TutorialTableDefinition",
-            "QuestTreeDefinition",
+            "SoundbanksDefinition", "SubtitleTableDefinition", "TravelJournalDefinition", "TutorialSectionDefinition",
+            "TutorialStepDefinition", "TutorialSubsectionDefinition", "TutorialTocDefinition",
+            "TutorialTableDefinition", "QuestTreeDefinition"
         };
 
-        private static readonly string[] ExcludeFromCEExport = new[]
+        private static readonly string[] ExcludeFromCEExport =
         {
-            "BlueprintCategory",
-            "GadgetBlueprint",
-            "RoomBlueprint",
-            "PropBlueprint"
+            "BlueprintCategory", "GadgetBlueprint", "RoomBlueprint", "PropBlueprint"
         };
 
         private static Dictionary<BaseDefinition, BaseDefinition> TABaseDefinitionAndCopy;
@@ -56,7 +45,8 @@ namespace SolastaCommunityExpansion.Models
         internal const int TA2 = 2;
         internal const string ProjectEnvironmentVariable = "SolastaCEProjectDir";
 
-        internal static readonly string ProjectFolder = Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
+        internal static readonly string ProjectFolder =
+            Environment.GetEnvironmentVariable(ProjectEnvironmentVariable, EnvironmentVariableTarget.Machine);
 
         internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
 
@@ -86,7 +76,8 @@ namespace SolastaCommunityExpansion.Models
 
             var definitions = new Dictionary<Type, BaseDefinition[]>();
 
-            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
+                         .GetValue(null))
             {
                 var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 
@@ -110,7 +101,7 @@ namespace SolastaCommunityExpansion.Models
             TABaseDefinitionAndCopy = TABaseDefinitions
                 .ToDictionary(x => x, x =>
                 {
-                    var copy = UnityEngine.Object.Instantiate(x);
+                    var copy = Object.Instantiate(x);
                     copy.name = x.Name;
                     return copy;
                 });
@@ -132,7 +123,8 @@ namespace SolastaCommunityExpansion.Models
 
             var definitions = new Dictionary<Type, BaseDefinition[]>();
 
-            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases").GetValue(null))
+            foreach (var db in (Dictionary<Type, object>)AccessTools.Field(typeof(DatabaseRepository), "databases")
+                         .GetValue(null))
             {
                 var arr = ((IEnumerable)db.Value).Cast<BaseDefinition>().ToArray();
 
@@ -158,10 +150,7 @@ namespace SolastaCommunityExpansion.Models
             Main.Log($"Cached {CEBaseDefinitions.Length} CE definitions");
         }
 
-        internal static List<string> KnownDuplicateDefinitionNames { get; } = new()
-        {
-            "SummonProtectorConstruct"
-        };
+        internal static List<string> KnownDuplicateDefinitionNames { get; } = new() {"SummonProtectorConstruct"};
 
         internal static bool IsCeDefinition(BaseDefinition definition)
         {
@@ -213,9 +202,10 @@ namespace SolastaCommunityExpansion.Models
         internal static void CheckOrphanedTerms(string outputFile)
         {
             var terms = new Dictionary<string, string>();
-            var sourceFile = Path.Combine(Main.MOD_FOLDER, "Translations-en.txt");
+            var payload = Resources.Translations_en;
+            var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
 
-            foreach (var line in File.ReadLines(sourceFile))
+            foreach (var line in lines)
             {
                 try
                 {

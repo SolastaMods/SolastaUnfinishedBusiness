@@ -10,13 +10,115 @@ namespace SolastaCommunityExpansion.Models
         internal const string VOTP_CAMPAIGN = "DLC1_ValleyOfThePast_Campaign";
         internal const string USER_CAMPAIGN = "UserCampaign";
 
-        internal static readonly string DefaultSaveGameDirectory = Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
-
         internal const string LocationSaveFolder = @"CE\Location";
         internal const string CampaignSaveFolder = @"CE\Campaign";
 
-        internal static readonly string LocationSaveGameDirectory = Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
-        internal static readonly string CampaignSaveGameDirectory = Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
+        internal static readonly string DefaultSaveGameDirectory =
+            Path.Combine(TacticalAdventuresApplication.GameDirectory, "Saves");
+
+        internal static readonly string LocationSaveGameDirectory =
+            Path.Combine(DefaultSaveGameDirectory, LocationSaveFolder);
+
+        internal static readonly string CampaignSaveGameDirectory =
+            Path.Combine(DefaultSaveGameDirectory, CampaignSaveFolder);
+
+        internal static void LateLoad()
+        {
+            if (!Main.Settings.EnableSaveByLocation)
+            {
+                return;
+            }
+
+            // Ensure folders exist
+            Directory.CreateDirectory(LocationSaveGameDirectory);
+            Directory.CreateDirectory(CampaignSaveGameDirectory);
+
+            // Find the most recently touched save file and select the correct location/campaign for that save
+            var mostRecent = Directory.EnumerateDirectories(LocationSaveGameDirectory)
+                .Select(d => new
+                {
+                    Path = d,
+                    LastWriteTime =
+                        Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                    LocationType = LocationType.UserLocation
+                })
+                .Concat(
+                    Directory.EnumerateDirectories(CampaignSaveGameDirectory)
+                        .Select(d => new
+                        {
+                            Path = d,
+                            LastWriteTime =
+                                Directory.EnumerateFiles(d, "*.sav")
+                                    .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                            LocationType = LocationType.CustomCampaign
+                        })
+                )
+                .Concat(
+                    Enumerable.Repeat(
+                        new
+                        {
+                            Path = DefaultSaveGameDirectory,
+                            LastWriteTime =
+                                Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav")
+                                    .Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
+                            LocationType = LocationType.StandardCampaign
+                        }
+                        , 1)
+                )
+                .Where(d => d.LastWriteTime.HasValue)
+                .OrderByDescending(d => d.LastWriteTime)
+                .FirstOrDefault();
+
+            var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
+
+            if (selectedCampaignService != null && mostRecent != null)
+            {
+                Main.Log($"Most recent folder={mostRecent.Path}");
+
+                switch (mostRecent.LocationType)
+                {
+                    default:
+                        selectedCampaignService.SetStandardCampaignLocation();
+                        break;
+                    case LocationType.UserLocation:
+                        selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, Path.GetFileName(mostRecent.Path));
+                        break;
+                    case LocationType.CustomCampaign:
+                        selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
+                        break;
+                }
+            }
+        }
+
+        internal static int SaveFileCount(LocationType locationType, string folder)
+        {
+            switch (locationType)
+            {
+                case LocationType.UserLocation:
+                {
+                    var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
+
+                    return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                }
+                case LocationType.CustomCampaign:
+                {
+                    var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
+
+                    return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                }
+                case LocationType.StandardCampaign:
+                {
+                    var saveFolder = DefaultSaveGameDirectory;
+
+                    return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
+                }
+                default:
+                    Main.Error($"Unknown LocationType: {locationType}");
+                    break;
+            }
+
+            return 0;
+        }
 
         internal static class ServiceRepositoryEx
         {
@@ -37,9 +139,9 @@ namespace SolastaCommunityExpansion.Models
         internal interface ISelectedCampaignService : IService
         {
             string CampaignOrLocationName { get; }
-            void SetCampaignLocation(string campaign, string location);
             LocationType LocationType { get; }
             string SaveGameDirectory { get; }
+            void SetCampaignLocation(string campaign, string location);
         }
 
         internal enum LocationType
@@ -54,11 +156,6 @@ namespace SolastaCommunityExpansion.Models
             public string CampaignOrLocationName { get; private set; }
             public LocationType LocationType { get; private set; }
             public string SaveGameDirectory { get; private set; }
-
-            public void SetStandardCampaignLocation()
-            {
-                SetCampaignLocation(string.Empty, string.Empty);
-            }
 
             public void SetCampaignLocation(string campaign, string location)
             {
@@ -92,99 +189,11 @@ namespace SolastaCommunityExpansion.Models
 
                 Main.Log($"SelectedCampaignService: Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
             }
-        }
 
-        internal static void LateLoad()
-        {
-            if (!Main.Settings.EnableSaveByLocation)
+            public void SetStandardCampaignLocation()
             {
-                return;
+                SetCampaignLocation(string.Empty, string.Empty);
             }
-
-            // Ensure folders exist
-            Directory.CreateDirectory(LocationSaveGameDirectory);
-            Directory.CreateDirectory(CampaignSaveGameDirectory);
-
-            // Find the most recently touched save file and select the correct location/campaign for that save
-            var mostRecent = Directory.EnumerateDirectories(LocationSaveGameDirectory)
-                .Select(d => new
-                {
-                    Path = d,
-                    LastWriteTime = Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                    LocationType = LocationType.UserLocation
-                })
-                .Concat(
-                    Directory.EnumerateDirectories(CampaignSaveGameDirectory)
-                        .Select(d => new
-                        {
-                            Path = d,
-                            LastWriteTime = Directory.EnumerateFiles(d, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                            LocationType = LocationType.CustomCampaign
-                        })
-                )
-                .Concat(
-                    Enumerable.Repeat(
-                        new
-                        {
-                            Path = DefaultSaveGameDirectory,
-                            LastWriteTime = Directory.EnumerateFiles(DefaultSaveGameDirectory, "*.sav").Max(f => (DateTime?)File.GetLastWriteTimeUtc(f)),
-                            LocationType = LocationType.StandardCampaign
-                        }
-                    , 1)
-                )
-                .Where(d => d.LastWriteTime.HasValue)
-                .OrderByDescending(d => d.LastWriteTime)
-                .FirstOrDefault();
-
-            var selectedCampaignService = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
-
-            if (selectedCampaignService != null && mostRecent != null)
-            {
-                Main.Log($"Most recent folder={mostRecent.Path}");
-
-                switch (mostRecent.LocationType)
-                {
-                    default:
-                        selectedCampaignService.SetStandardCampaignLocation();
-                        break;
-                    case LocationType.UserLocation:
-                        selectedCampaignService.SetCampaignLocation(USER_CAMPAIGN, Path.GetFileName(mostRecent.Path));
-                        break;
-                    case LocationType.CustomCampaign:
-                        selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
-                        break;
-                }
-            }
-        }
-
-        internal static int SaveFileCount(LocationType locationType, string folder)
-        {
-            switch (locationType)
-            {
-                case LocationType.UserLocation:
-                    {
-                        var saveFolder = Path.Combine(LocationSaveGameDirectory, folder);
-
-                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-                    }
-                case LocationType.CustomCampaign:
-                    {
-                        var saveFolder = Path.Combine(CampaignSaveGameDirectory, folder);
-
-                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-                    }
-                case LocationType.StandardCampaign:
-                    {
-                        var saveFolder = DefaultSaveGameDirectory;
-
-                        return Directory.Exists(saveFolder) ? Directory.EnumerateFiles(saveFolder, "*.sav").Count() : 0;
-                    }
-                default:
-                    Main.Error($"Unknown LocationType: {locationType}");
-                    break;
-            }
-
-            return 0;
         }
     }
 }

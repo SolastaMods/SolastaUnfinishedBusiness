@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Utils
         public static List<DiceByRank> Make(params (int, int)[] ranks)
         {
             return ranks
-                .Select((rank) => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
+                .Select(rank => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
                 .ToList();
         }
 

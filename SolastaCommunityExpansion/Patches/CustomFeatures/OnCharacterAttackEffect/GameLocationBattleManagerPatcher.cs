@@ -133,32 +133,42 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             {
                 foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
                 {
-                    feature.BeforeOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                    feature.BeforeOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack,
+                        advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
 
             var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
             var gameLocationBattleManagerType = typeof(GameLocationBattleManager);
-            var digitsToTrim = (char[])gameLocationBattleManagerType.GetField("digitsToTrim", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
-            var computeAndNotifyAdditionalDamageMethod = gameLocationBattleManagerType.GetMethod("ComputeAndNotifyAdditionalDamage", BindingFlags.NonPublic | BindingFlags.Instance);
-            var handleReactionToDamageMethod = gameLocationBattleManagerType.GetMethod("HandleReactionToDamage", BindingFlags.NonPublic | BindingFlags.Instance);
-            var waitForReactionsMethod = gameLocationBattleManagerType.GetMethod("WaitForReactions", BindingFlags.NonPublic | BindingFlags.Instance);
+            var digitsToTrim = (char[])gameLocationBattleManagerType
+                .GetField("digitsToTrim", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
+            var computeAndNotifyAdditionalDamageMethod =
+                gameLocationBattleManagerType.GetMethod("ComputeAndNotifyAdditionalDamage",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+            var handleReactionToDamageMethod = gameLocationBattleManagerType.GetMethod("HandleReactionToDamage",
+                BindingFlags.NonPublic | BindingFlags.Instance);
+            var waitForReactionsMethod =
+                gameLocationBattleManagerType.GetMethod("WaitForReactions",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
 
             //
             // original game code from here
             //
 
             // Process this only when targeting a hero or monster
-            if (defender != null && defender.RulesetActor != null && (defender.RulesetActor is RulesetCharacterMonster || defender.RulesetActor is RulesetCharacterHero))
+            if (defender != null && defender.RulesetActor != null &&
+                (defender.RulesetActor is RulesetCharacterMonster || defender.RulesetActor is RulesetCharacterHero))
             {
                 // Can I add additional damage?
                 ___triggeredAdditionalDamageTags.Clear();
-                attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(___featuresToBrowseReaction);
+                attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
+                    ___featuresToBrowseReaction);
 
                 // Add item properties?
                 if (attacker.RulesetCharacter.CharacterInventory != null)
                 {
-                    if (attackMode != null && attackMode.SourceObject != null && attackMode.SourceObject is RulesetItem weapon)
+                    if (attackMode != null && attackMode.SourceObject != null &&
+                        attackMode.SourceObject is RulesetItem weapon)
                     {
                         weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(___featuresToBrowseItem);
                         ___featuresToBrowseReaction.AddRange(___featuresToBrowseItem);
@@ -182,11 +192,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     var validProperty = true;
                     if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
                     {
-                        if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OnceInMyturn && (attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) || (__instance.Battle != null && __instance.Battle.ActiveContender != attacker)))
+                        if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OnceInMyturn &&
+                            (attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
+                             (__instance.Battle != null && __instance.Battle.ActiveContender != attacker)))
                         {
                             validUses = false;
                         }
-                        else if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OncePerTurn && attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name))
+                        else if (provider.LimitedUsage == RuleDefinitions.FeatureLimitedUsage.OncePerTurn &&
+                                 attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name))
                         {
                             validUses = false;
                         }
@@ -195,7 +208,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228
                             foreach (var kvp in attacker.UsedSpecialFeatures)
                             {
-                                if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>().TryGetElement(kvp.Key, out var previousFeature))
+                                if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
+                                    .TryGetElement(kvp.Key, out var previousFeature))
                                 {
                                     if (previousFeature.NotificationTag == provider.NotificationTag)
                                     {
@@ -216,9 +230,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     if (validUses && validProperty)
                     {
                         // Typical for Sneak Attack
-                        if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly && attackMode != null)
+                        if (provider.TriggerCondition ==
+                            RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly &&
+                            attackMode != null)
                         {
-                            if (advantageType == RuleDefinitions.AdvantageType.Advantage || (advantageType != RuleDefinitions.AdvantageType.Disadvantage && __instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side, attacker)))
+                            if (advantageType == RuleDefinitions.AdvantageType.Advantage ||
+                                (advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                                 __instance.IsConsciousCharacterOfSideNextToCharacter(defender, attacker.Side,
+                                     attacker)))
                             {
                                 validTrigger = true;
                             }
@@ -230,7 +249,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         // melee only is now controlled via properties
                         //
                         //else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot && attackModifier != null && attackModifier.Proximity == RuleDefinitions.AttackProximity.Melee)
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot)
                         {
                             // This is used to allow Divine Smite under Wildshape
                             // Look for the spellcasting feature holding the smite
@@ -239,7 +259,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             //
                             //RulesetCharacterHero rulesetCharacter = attacker.RulesetCharacter as RulesetCharacterHero;
                             var hero = attacker.RulesetCharacter as RulesetCharacterHero
-                                ?? attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+                                       ?? attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
                             var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
                             RulesetSpellRepertoire selectedSpellRepertoire = null;
                             foreach (var spellRepertoire in hero.SpellRepertoires)
@@ -247,14 +267,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                 if (spellRepertoire.SpellCastingClass == classDefinition)
                                 {
                                     var atLeastOneSpellSlotAvailable = false;
-                                    for (var spellLevel = 1; spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel; spellLevel++)
+                                    for (var spellLevel = 1;
+                                         spellLevel <= spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+                                         spellLevel++)
                                     {
                                         spellRepertoire.GetSlotsNumber(spellLevel, out var remaining, out var max);
                                         // handle EldritchSmite case that can only consume pact slots
                                         //
                                         // patch here
                                         //
-                                        if (featureDefinition is FeatureDefinitionAdditionalDamage featureDefinitionAdditionalDamage
+                                        if (featureDefinition is FeatureDefinitionAdditionalDamage
+                                                featureDefinitionAdditionalDamage
                                             && featureDefinitionAdditionalDamage.NotificationTag == "EldritchSmite")
                                         {
                                             var pactMagicMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
@@ -274,7 +297,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
 
                                     if (atLeastOneSpellSlotAvailable)
                                     {
-                                        reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendSpellSlot);
+                                        reactionParams = new CharacterActionParams(attacker,
+                                            ActionDefinitions.Id.SpendSpellSlot);
                                         reactionParams.IntParameter = 1;
                                         reactionParams.StringParameter = provider.NotificationTag;
                                         reactionParams.SpellRepertoire = selectedSpellRepertoire;
@@ -284,64 +308,79 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                         actionService.ReactToSpendSpellSlot(reactionParams);
 
                                         //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                                        yield return waitForReactionsMethod.Invoke(__instance, new object[] { attacker, actionService, previousReactionCount });
+                                        yield return waitForReactionsMethod.Invoke(__instance,
+                                            new object[] {attacker, actionService, previousReactionCount});
 
                                         validTrigger = reactionParams.ReactionValidated;
                                     }
                                 }
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe)
+                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition
+                                     .TargetHasConditionCreatedByMe)
                         {
-                            if (defender.RulesetActor.HasConditionOfTypeAndSource(provider.RequiredTargetCondition, attacker.Guid))
+                            if (defender.RulesetActor.HasConditionOfTypeAndSource(provider.RequiredTargetCondition,
+                                    attacker.Guid))
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition)
                         {
                             if (defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition)
                         {
                             if (!defender.RulesetActor.HasConditionOfType(provider.RequiredTargetCondition.Name))
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.TargetIsWounded)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetIsWounded)
                         {
-                            if (defender.RulesetCharacter != null && defender.RulesetCharacter.CurrentHitPoints < defender.RulesetCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue)
+                            if (defender.RulesetCharacter != null && defender.RulesetCharacter.CurrentHitPoints <
+                                defender.RulesetCharacter.GetAttribute(AttributeDefinitions.HitPoints).CurrentValue)
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasSenseType)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasSenseType)
                         {
-                            if (defender.RulesetCharacter != null && defender.RulesetCharacter.HasSenseType(provider.RequiredTargetSenseType))
+                            if (defender.RulesetCharacter != null &&
+                                defender.RulesetCharacter.HasSenseType(provider.RequiredTargetSenseType))
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCreatureTag)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCreatureTag)
                         {
-                            if (defender.RulesetCharacter != null && defender.RulesetCharacter.HasTag(provider.RequiredTargetCreatureTag))
+                            if (defender.RulesetCharacter != null &&
+                                defender.RulesetCharacter.HasTag(provider.RequiredTargetCreatureTag))
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround && attackMode != null)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround &&
+                                 attackMode != null)
                         {
                             if (attacker.LocationPosition.y > defender.LocationPosition.y)
                             {
-                                var itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>().GetElement(attackMode.SourceDefinition.Name, true);
+                                var itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>()
+                                    .GetElement(attackMode.SourceDefinition.Name, true);
                                 if (itemDefinition != null
                                     && itemDefinition.IsWeapon)
                                 {
-                                    var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>().GetElement(itemDefinition.WeaponDescription.WeaponType);
+                                    var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
+                                        .GetElement(itemDefinition.WeaponDescription.WeaponType);
                                     if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Range)
                                     {
                                         validTrigger = true;
@@ -349,52 +388,64 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                 }
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily)
                         {
-                            if (defender.RulesetCharacter != null && defender.RulesetCharacter.CharacterFamily == provider.RequiredCharacterFamily.Name)
+                            if (defender.RulesetCharacter != null && defender.RulesetCharacter.CharacterFamily ==
+                                provider.RequiredCharacterFamily.Name)
                             {
                                 validTrigger = true;
                             }
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit)
                         {
                             validTrigger = criticalHit;
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
-                            && firstTarget
-                            && rulesetEffect is RulesetEffectSpell
-                            && (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
+                                 && firstTarget
+                                 && rulesetEffect is RulesetEffectSpell
+                                 && (rulesetEffect as RulesetEffectSpell).SpellDefinition.SchoolOfMagic ==
+                                 RuleDefinitions.SchoolEvocation)
                         {
                             validTrigger = true;
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
-                            && firstTarget
-                            && rulesetEffect is RulesetEffectPower
-                            && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null
-                            && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell.SchoolOfMagic == RuleDefinitions.SchoolEvocation)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage
+                                 && firstTarget
+                                 && rulesetEffect is RulesetEffectPower
+                                 && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell != null
+                                 && (rulesetEffect as RulesetEffectPower).PowerDefinition.SurrogateToSpell
+                                 .SchoolOfMagic == RuleDefinitions.SchoolEvocation)
                         {
                             validTrigger = true;
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry
-                            && firstTarget
-                            && rulesetEffect is RulesetEffectSpell
-                            && attacker.RulesetCharacter.HasAncestryMatchingDamageType(actualEffectForms))
+                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition
+                                     .SpellDamageMatchesSourceAncestry
+                                 && firstTarget
+                                 && rulesetEffect is RulesetEffectSpell
+                                 && attacker.RulesetCharacter.HasAncestryMatchingDamageType(actualEffectForms))
                         {
                             validTrigger = true;
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
-                            && firstTarget
-                            && rulesetEffect is RulesetEffectSpell)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget
+                                 && firstTarget
+                                 && rulesetEffect is RulesetEffectSpell)
                         {
                             validTrigger = true;
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
+                        else if (provider.TriggerCondition ==
+                                 RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
                         {
                             validTrigger = true;
                         }
-                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster && defender.RulesetCharacter != null)
+                        else if (provider.TriggerCondition == RuleDefinitions.AdditionalDamageTriggerCondition
+                                     .RagingAndTargetIsSpellcaster && defender.RulesetCharacter != null)
                         {
-                            if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) && defender.RulesetCharacter.SpellRepertoires.Count > 0)
+                            if (attacker.RulesetCharacter.HasConditionOfType(RuleDefinitions.ConditionRaging) &&
+                                defender.RulesetCharacter.SpellRepertoires.Count > 0)
                             {
                                 validTrigger = true;
                             }
@@ -443,6 +494,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             {
                                 melee = true;
                             }
+                            //CUSTOM CODE ---- START
+                            //Count shield bashing as melee
+                            if (!melee && ShieldStrikeContext.IsShield(attackMode.SourceDefinition as ItemDefinition))
+                            {
+                                melee = true;
+                            }
+                            //CUSTOM CODE ---- END
 
                             if (provider.RequiredProperty == RuleDefinitions.AdditionalDamageRequiredProperty.FinesseOrRangeWeapon)
                             {
@@ -485,7 +543,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     if (validTrigger && validProperty)
                     {
                         //__instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
-                        computeAndNotifyAdditionalDamageMethod.Invoke(__instance, new object[] { attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit });
+                        computeAndNotifyAdditionalDamageMethod.Invoke(__instance,
+                            new object[]
+                            {
+                                attacker, defender, provider, actualEffectForms, reactionParams, attackMode,
+                                criticalHit
+                            });
 
                         ___triggeredAdditionalDamageTags.Add(provider.NotificationTag);
                     }
@@ -496,16 +559,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 {
                     foreach (var usablePower in attacker.RulesetCharacter.UsablePowers)
                     {
-                        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
-                        if (validator != null && !validator.ValidReactionMode(attackMode, attacker.RulesetCharacter, defender.RulesetCharacter))
+                        var validator = usablePower.PowerDefinition
+                            .GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
+                        if (validator != null && !validator.ValidReactionMode(attackMode, attacker.RulesetCharacter,
+                                defender.RulesetCharacter))
                         {
                             continue;
                         }
 
                         if (!attacker.RulesetCharacter.IsPowerOverriden(usablePower)
                             && attacker.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0
-                            && ((usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackHit && attackMode != null)
-                                || (usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackHitWithBow && attackMode != null && attacker.RulesetCharacter.IsWieldingBow())))
+                            && ((usablePower.PowerDefinition.ActivationTime ==
+                                    RuleDefinitions.ActivationTime.OnAttackHit && attackMode != null)
+                                || (usablePower.PowerDefinition.ActivationTime ==
+                                    RuleDefinitions.ActivationTime.OnAttackHitWithBow && attackMode != null &&
+                                    attacker.RulesetCharacter.IsWieldingBow())))
                         {
                             var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
                             reactionParams.StringParameter = usablePower.PowerDefinition.Name;
@@ -517,8 +585,11 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                 reactionParams.StringParameter = reactionParams.StringParameter.Trim(digitsToTrim);
                             }
 
-                            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-                            reactionParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false);
+                            var rulesetImplementationService =
+                                ServiceRepository.GetService<IRulesetImplementationService>();
+                            reactionParams.RulesetEffect =
+                                rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter,
+                                    usablePower, false);
                             reactionParams.TargetCharacters.Add(defender);
                             reactionParams.ActionModifiers.Add(new ActionModifier());
                             reactionParams.IsReactionEffect = true;
@@ -528,18 +599,26 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             actionService.ReactToSpendPower(reactionParams);
 
                             //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                            yield return waitForReactionsMethod.Invoke(__instance, new object[] { attacker, actionService, previousReactionCount });
+                            yield return waitForReactionsMethod.Invoke(__instance,
+                                new object[] {attacker, actionService, previousReactionCount});
                         }
                         else if (attacker.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0
-                            && ((usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnAttackSpellHitAutomatic)
-                                || (usablePower.PowerDefinition.ActivationTime == RuleDefinitions.ActivationTime.OnSneakAttackHit && ___triggeredAdditionalDamageTags.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag))))
+                                 && (usablePower.PowerDefinition.ActivationTime ==
+                                     RuleDefinitions.ActivationTime.OnAttackSpellHitAutomatic
+                                     || (usablePower.PowerDefinition.ActivationTime ==
+                                         RuleDefinitions.ActivationTime.OnSneakAttackHit &&
+                                         ___triggeredAdditionalDamageTags.Contains(TagsDefinitions
+                                             .AdditionalDamageSneakAttackTag))))
                         {
                             // This case is for the Rogue Hoodlum
                             var actionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.SpendPower);
                             actionParams.StringParameter = usablePower.PowerDefinition.Name;
 
-                            var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-                            actionParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter, usablePower, false);
+                            var rulesetImplementationService =
+                                ServiceRepository.GetService<IRulesetImplementationService>();
+                            actionParams.RulesetEffect =
+                                rulesetImplementationService.InstantiateEffectPower(attacker.RulesetCharacter,
+                                    usablePower, false);
                             actionParams.TargetCharacters.Add(defender);
 
                             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
@@ -549,7 +628,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 }
 
                 // Can I reduce the damage quantity of this attackMode?
-                if (attackMode != null && attackMode.Ranged && defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile, ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available)
+                if (attackMode != null && attackMode.Ranged &&
+                    defender.GetActionStatus(ActionDefinitions.Id.DeflectMissile, ActionDefinitions.ActionScope.Battle,
+                        ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available)
                 {
                     var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.DeflectMissile);
                     reactionParams.ActionModifiers.Add(attackModifier);
@@ -560,15 +641,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     actionService.ReactToDeflectMissile(reactionParams);
 
                     //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                    yield return waitForReactionsMethod.Invoke(__instance, new object[] { attacker, actionService, previousReactionCount });
+                    yield return waitForReactionsMethod.Invoke(__instance,
+                        new object[] {attacker, actionService, previousReactionCount});
                 }
 
                 // Can I modify the damage?
                 // Basic verifications
-                if (defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) == ActionDefinitions.ActionStatus.Available)
+                if (defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                    ActionDefinitions.ActionStatus.Available)
                 {
                     // Does it have the proper action?
-                    if (defender.GetActionStatus(ActionDefinitions.Id.UncannyDodge, ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available
+                    if (defender.GetActionStatus(ActionDefinitions.Id.UncannyDodge,
+                            ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) ==
+                        ActionDefinitions.ActionStatus.Available
                         && defender.PerceivedFoes.Contains(attacker))
                     {
                         var reactionParams = new CharacterActionParams(defender, ActionDefinitions.Id.UncannyDodge);
@@ -580,10 +665,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         actionService.ReactToUncannyDodge(reactionParams);
 
                         //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                        yield return waitForReactionsMethod.Invoke(__instance, new object[] { attacker, actionService, previousReactionCount });
+                        yield return waitForReactionsMethod.Invoke(__instance,
+                            new object[] {attacker, actionService, previousReactionCount});
                     }
 
-                    if (defender.GetActionStatus(ActionDefinitions.Id.LeafScales, ActionDefinitions.ActionScope.Battle, ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available
+                    if (defender.GetActionStatus(ActionDefinitions.Id.LeafScales, ActionDefinitions.ActionScope.Battle,
+                            ActionDefinitions.ActionStatus.Available) == ActionDefinitions.ActionStatus.Available
                         && defender.PerceivedFoes.Contains(attacker)
                         && rangedAttack)
                     {
@@ -596,20 +683,25 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         actionService.ReactToLeafScales(reactionParams);
 
                         //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                        yield return waitForReactionsMethod.Invoke(__instance, new object[] { attacker, actionService, previousReactionCount });
+                        yield return waitForReactionsMethod.Invoke(__instance,
+                            new object[] {attacker, actionService, previousReactionCount});
                     }
                 }
 
                 // Can the defender retaliate when damaged? This is for Remorhaz & Fireshield
                 if (defender.RulesetCharacter != null)
                 {
-                    defender.RulesetCharacter.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(___featuresToBrowseReaction);
+                    defender.RulesetCharacter.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(
+                        ___featuresToBrowseReaction);
                     foreach (IDamageAffinityProvider provider in ___featuresToBrowseReaction)
                     {
                         if (provider.RetaliateWhenHit && attackMode != null)
                         {
                             // Does the range match
-                            if ((attackMode.Ranged && provider.RetaliateProximity == RuleDefinitions.AttackProximity.Range) || (!attackMode.Ranged && provider.RetaliateProximity == RuleDefinitions.AttackProximity.Melee))
+                            if ((attackMode.Ranged &&
+                                 provider.RetaliateProximity == RuleDefinitions.AttackProximity.Range) ||
+                                (!attackMode.Ranged &&
+                                 provider.RetaliateProximity == RuleDefinitions.AttackProximity.Melee))
                             {
                                 // In the range distance?
                                 if (__instance.IsWithinXCells(attacker, defender, provider.RetaliateRangeCells))
@@ -618,20 +710,27 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                     if (provider.RetaliatePower != null)
                                     {
                                         // Notify the console
-                                        defender.RulesetCharacter.DamageRetaliated?.Invoke(defender.RulesetCharacter, attacker.RulesetCharacter, provider);
+                                        defender.RulesetCharacter.DamageRetaliated?.Invoke(defender.RulesetCharacter,
+                                            attacker.RulesetCharacter, provider);
 
                                         // Build the params
-                                        var retaliateParams = new CharacterActionParams(defender, ActionDefinitions.Id.SpendPower, attacker);
-                                        var dummyUsablePower = new RulesetUsablePower(provider.RetaliatePower, null, null);
+                                        var retaliateParams = new CharacterActionParams(defender,
+                                            ActionDefinitions.Id.SpendPower, attacker);
+                                        var dummyUsablePower =
+                                            new RulesetUsablePower(provider.RetaliatePower, null, null);
 
                                         // Build the active effect
-                                        var rulesetImplementationService = ServiceRepository.GetService<IRulesetImplementationService>();
-                                        retaliateParams.RulesetEffect = rulesetImplementationService.InstantiateEffectPower(defender.RulesetCharacter, dummyUsablePower, false);
+                                        var rulesetImplementationService =
+                                            ServiceRepository.GetService<IRulesetImplementationService>();
+                                        retaliateParams.RulesetEffect =
+                                            rulesetImplementationService.InstantiateEffectPower(
+                                                defender.RulesetCharacter, dummyUsablePower, false);
                                         retaliateParams.StringParameter = provider.RetaliatePower.Name;
                                         retaliateParams.IsReactionEffect = true;
 
                                         // Start the action
-                                        var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
+                                        var gameLocationActionService =
+                                            ServiceRepository.GetService<IGameLocationActionService>();
                                         gameLocationActionService.ExecuteInstantSingleAction(retaliateParams);
                                     }
                                 }
@@ -640,7 +739,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     }
 
                     //yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier, actualEffectForms, attackMode);
-                    yield return handleReactionToDamageMethod.Invoke(__instance, new object[] { attacker, defender, attackModifier, actualEffectForms, attackMode });
+                    yield return handleReactionToDamageMethod.Invoke(__instance,
+                        new object[] {attacker, defender, attackModifier, actualEffectForms, attackMode});
                 }
             }
 
@@ -652,11 +752,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             {
                 foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackDamageEffect>())
                 {
-                    feature.AfterOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+                    feature.AfterOnAttackDamage(attacker, defender, attackModifier, attackMode, rangedAttack,
+                        advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
 
-            yield return CustomReactionsContext.TryReactingToDamageWithSpell(attacker, defender, attackModifier, attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
+            yield return CustomReactionsContext.TryReactingToDamageWithSpell(attacker, defender, attackModifier,
+                attackMode, rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
 
             Global.CriticalHit = false;
         }
@@ -690,7 +792,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             {
                 foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
                 {
-                    feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                    feature.BeforeOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                        actualEffectForms, firstTarget, criticalHit);
                 }
             }
 
@@ -703,7 +806,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             {
                 foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnMagicalAttackDamageEffect>())
                 {
-                    feature.AfterOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect, actualEffectForms, firstTarget, criticalHit);
+                    feature.AfterOnMagicalAttackDamage(attacker, defender, magicModifier, rulesetEffect,
+                        actualEffectForms, firstTarget, criticalHit);
                 }
             }
 

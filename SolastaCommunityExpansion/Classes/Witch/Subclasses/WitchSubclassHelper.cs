@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
     internal static class WitchSubclassHelper
     {
         public static CharacterSubclassDefinition BuildAndAddSubclass(
-            string color, AssetReferenceSprite sprite, CharacterClassDefinition witchClass, Guid namespaceGuid, params AutoPreparedSpellsGroup[] autoSpellLists)
+            string color, AssetReferenceSprite sprite, CharacterClassDefinition witchClass, Guid namespaceGuid,
+            params AutoPreparedSpellsGroup[] autoSpellLists)
         {
             var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                 .Create($"{color}MagicAutoPreparedSpell", namespaceGuid)
@@ -22,7 +23,8 @@ namespace SolastaCommunityExpansion.Classes.Witch.Subclasses
                 .AddToDB();
 
             var featureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, $"FeatureSet{color}WitchMagic", namespaceGuid)
+                .Create(DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetHumanLanguages,
+                    $"FeatureSet{color}WitchMagic", namespaceGuid)
                 // .SetGuiPresentation($"{color}WitchMagic", Category.Subclass)
                 .SetGuiPresentation($"Subclass/&{color}WitchMagic", Gui.NoLocalization)
                 .SetFeatureSet(preparedSpells)

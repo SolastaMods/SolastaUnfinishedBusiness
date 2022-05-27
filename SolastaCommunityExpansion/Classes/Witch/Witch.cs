@@ -29,6 +29,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
         public static readonly Guid WITCH_BASE_GUID = new("ea7715dd-00cb-45a3-a8c4-458d0639d72c");
 
         public static readonly CharacterClassDefinition Instance = BuildAndAddClass();
+
+        private static SpellListDefinition _witchSpellList;
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencyArmor { get; set; }
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencyWeapon { get; set; }
         private static FeatureDefinitionProficiency FeatureDefinitionProficiencySavingThrow { get; set; }
@@ -40,6 +42,36 @@ namespace SolastaCommunityExpansion.Classes.Witch
         private static FeatureDefinitionFeatureSetCustom FeatureDefinitionFeatureSetMaledictions { get; set; }
         private static FeatureDefinitionPower FeatureDefinitionPowerCackle { get; set; }
         private static FeatureDefinitionFeatureSet FeatureDefinitionFeatureSetWitchFamiliar { get; set; }
+
+        internal static SpellListDefinition WitchSpellList => _witchSpellList ??= SpellListDefinitionBuilder
+            .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
+            .SetGuiPresentationNoContent()
+            .ClearSpells()
+            .SetSpellsAtLevel(0,
+                AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
+                MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
+            .SetSpellsAtLevel(1,
+                AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
+                DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
+                ProtectionFromEvilGood, Sleep, Thunderwave)
+            .SetSpellsAtLevel(2,
+                Blindness, CalmEmotions, Darkness, Darkvision,
+                HoldPerson, Invisibility, Knock, Levitate,
+                MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement,
+                SeeInvisibility, Shatter, SpiderClimb)
+            .SetSpellsAtLevel(3,
+                BestowCurse, Counterspell, DispelMagic, Fear,
+                Fly, HypnoticPattern, RemoveCurse, Slow,
+                StinkingCloud, Tongues)
+            .SetSpellsAtLevel(4,
+                Banishment, BlackTentacles, Confusion, DimensionDoor,
+                DominateBeast, GreaterInvisibility, PhantasmalKiller)
+            .SetSpellsAtLevel(5,
+                Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
+            .SetSpellsAtLevel(6,
+                Eyebite, Frenzy, TrueSeeing)
+            .FinalizeSpells()
+            .AddToDB();
 
         private static void BuildClassStats(CharacterClassDefinitionBuilder classBuilder)
         {
@@ -109,7 +141,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             FeatureDefinitionProficiencySavingThrow = FeatureDefinitionProficiencyBuilder
                 .Create("ProficiencyWitchSavingthrow", WITCH_BASE_GUID)
                 .SetGuiPresentation("WitchSavingthrowProficiency", Category.Class)
-                .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+                .SetProficiencies(ProficiencyType.SavingThrow, AttributeDefinitions.Charisma,
+                    AttributeDefinitions.Wisdom)
                 .AddToDB();
 
             FeatureDefinitionPointPoolSkills = FeatureDefinitionPointPoolBuilder
@@ -136,61 +169,352 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
-        private static SpellListDefinition _witchSpellList;
-        internal static SpellListDefinition WitchSpellList => _witchSpellList ??= SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "WitchSpellList", WITCH_BASE_GUID)
-            .SetGuiPresentationNoContent()
-            .ClearSpells()
-            .SetSpellsAtLevel(0,
-                AcidSplash, ChillTouch, DancingLights, EldritchOrb, ProduceFlame,
-                MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
-            .SetSpellsAtLevel(1,
-                AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
-                DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
-                ProtectionFromEvilGood, Sleep, Thunderwave)
-            .SetSpellsAtLevel(2,
-                Blindness, CalmEmotions, Darkness, Darkvision,
-                HoldPerson, Invisibility, Knock, Levitate,
-                MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement,
-                SeeInvisibility, Shatter, SpiderClimb)
-            .SetSpellsAtLevel(3,
-                BestowCurse, Counterspell, DispelMagic, Fear,
-                Fly, HypnoticPattern, RemoveCurse, Slow,
-                StinkingCloud, Tongues)
-            .SetSpellsAtLevel(4,
-                Banishment, BlackTentacles, Confusion, DimensionDoor,
-                DominateBeast, GreaterInvisibility, PhantasmalKiller)
-            .SetSpellsAtLevel(5,
-                Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
-            .SetSpellsAtLevel(6,
-                Eyebite, Frenzy, TrueSeeing)
-            .FinalizeSpells()
-            .AddToDB();
-
         private static void BuildSpells()
         {
             // Build our spellCast object containing previously created spell list
-            var witchCastingSlots = new List<SlotsByLevelDuplet>{
-                new () { Slots = new () {2,0,0,0,0,0,0,0,0,0}, Level = 01 },
-                new () { Slots = new () {3,0,0,0,0,0,0,0,0,0}, Level = 02 },
-                new () { Slots = new () {4,2,0,0,0,0,0,0,0,0}, Level = 03 },
-                new () { Slots = new () {4,3,0,0,0,0,0,0,0,0}, Level = 04 },
-                new () { Slots = new () {4,3,2,0,0,0,0,0,0,0}, Level = 05 },
-                new () { Slots = new () {4,3,3,0,0,0,0,0,0,0}, Level = 06 },
-                new () { Slots = new () {4,3,3,1,0,0,0,0,0,0}, Level = 07 },
-                new () { Slots = new () {4,3,3,2,0,0,0,0,0,0}, Level = 08 },
-                new () { Slots = new () {4,3,3,3,1,0,0,0,0,0}, Level = 09 },
-                new () { Slots = new () {4,3,3,3,2,0,0,0,0,0}, Level = 10 },
-                new () { Slots = new () {4,3,3,3,2,1,0,0,0,0}, Level = 11 },
-                new () { Slots = new () {4,3,3,3,2,1,0,0,0,0}, Level = 12 },
-                new () { Slots = new () {4,3,3,3,2,1,1,0,0,0}, Level = 13 },
-                new () { Slots = new () {4,3,3,3,2,1,1,0,0,0}, Level = 14 },
-                new () { Slots = new () {4,3,3,3,2,1,1,1,0,0}, Level = 15 },
-                new () { Slots = new () {4,3,3,3,2,1,1,1,0,0}, Level = 16 },
-                new () { Slots = new () {4,3,3,3,2,1,1,1,1,0}, Level = 17 },
-                new () { Slots = new () {4,3,3,3,3,1,1,1,1,0}, Level = 18 },
-                new () { Slots = new () {4,3,3,3,3,2,1,1,1,0}, Level = 19 },
-                new () { Slots = new () {4,3,3,3,3,2,2,1,1,0}, Level = 20 }};
+            var witchCastingSlots = new List<SlotsByLevelDuplet>
+            {
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        2,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 01
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        3,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 02
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        2,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 03
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 04
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        2,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 05
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 06
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 07
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        2,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 08
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 09
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 10
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 11
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 12
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 13
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0
+                    },
+                    Level = 14
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0
+                    },
+                    Level = 15
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        1,
+                        1,
+                        0,
+                        0
+                    },
+                    Level = 16
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    },
+                    Level = 17
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        3,
+                        1,
+                        1,
+                        1,
+                        1,
+                        0
+                    },
+                    Level = 18
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        3,
+                        2,
+                        1,
+                        1,
+                        1,
+                        0
+                    },
+                    Level = 19
+                },
+                new()
+                {
+                    Slots = new List<int>
+                    {
+                        4,
+                        3,
+                        3,
+                        3,
+                        3,
+                        2,
+                        2,
+                        1,
+                        1,
+                        0
+                    },
+                    Level = 20
+                }
+            };
 
             FeatureDefinitionCastSpellWitch = FeatureDefinitionCastSpellBuilder
                 .Create("CastSpellWitch", WITCH_BASE_GUID)
@@ -218,9 +542,11 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             FeatureDefinitionFeatureSetRitualCasting = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetRitualCasting",
+                    WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
-                .SetFeatureSet(witchRitualCastingMagicAffinity, FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
+                .SetFeatureSet(witchRitualCastingMagicAffinity,
+                    FeatureDefinitionActionAffinitys.ActionAffinityWizardRitualCasting)
                 .AddToDB();
         }
 
@@ -249,24 +575,28 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
 
             var burnedProduceFlame = FeatureDefinitionBonusCantripsBuilder
-                .Create(FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire, "WitchBurnedProduceFlame", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionBonusCantripss.BonusCantripsDomainElementaFire, "WitchBurnedProduceFlame",
+                    WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
                 .SetBonusCantrips(ProduceFlame)
                 .AddToDB();
 
             var burnedCurse = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetBurnedCurse", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetBurnedCurse",
+                    WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class, ProduceFlame.GuiPresentation.SpriteReference)
                 .SetFeatureSet(burnedFireRes, burnedProduceFlame)
                 .AddToDB();
 
             var lovelessCharmImmunity = FeatureDefinitionConditionAffinityBuilder
-                .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity, "WitchLovelessCharmImmunity", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity,
+                    "WitchLovelessCharmImmunity", WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class)
                 .AddToDB();
 
             var lovelessCurse = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetLovelessCurse", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetLovelessCurse",
+                    WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class, CharmPerson.GuiPresentation.SpriteReference)
                 .SetFeatureSet(lovelessCharmImmunity)
                 .AddToDB();
@@ -281,12 +611,13 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
 
             var visionsCurse = FeatureDefinitionFeatureSetBuilder
-                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetVisionsCurse", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionFeatureSets.FeatureSetWizardRitualCasting, "WitchFeatureSetVisionsCurse",
+                    WITCH_BASE_GUID)
                 .SetGuiPresentation(Category.Class, Blindness.GuiPresentation.SpriteReference)
                 .SetFeatureSet(visionsInitiative)
                 .AddToDB();
 
-            var cursesFeatures = new FeatureDefinition[] { burnedCurse, lovelessCurse, visionsCurse };
+            var cursesFeatures = new FeatureDefinition[] {burnedCurse, lovelessCurse, visionsCurse};
 
             FeatureDefinitionFeatureSetWitchCurses = FeatureDefinitionFeatureSetCustomBuilder
                 .Create("WitchCurseChoice", WITCH_BASE_GUID)
@@ -384,7 +715,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Apathy
             var apathyConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionCalmedByCalmEmotionsEnemy, "ConditionApathy", WITCH_BASE_GUID)
-                .SetGuiPresentation("Apathy", Category.Condition, ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("Apathy", Category.Condition,
+                    ConditionCalmedByCalmEmotionsEnemy.GuiPresentation.SpriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -422,7 +754,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Charm
             var charmConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionCharmed, "ConditionCharm", WITCH_BASE_GUID)
-                .SetGuiPresentation("Charm", Category.Condition, ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("Charm", Category.Condition,
+                    ConditionDefinitions.ConditionCharmed.GuiPresentation.SpriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -459,7 +792,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             // Disorient
             var disorientCombatAffinity = FeatureDefinitionCombatAffinityBuilder
-                .Create(FeatureDefinitionCombatAffinitys.CombatAffinityBaned, "CombatAffinityDisorient", WITCH_BASE_GUID)
+                .Create(FeatureDefinitionCombatAffinitys.CombatAffinityBaned, "CombatAffinityDisorient",
+                    WITCH_BASE_GUID)
                 .SetGuiPresentation("Disorient", Category.Modifier)
                 .SetMyAttackModifierDieType(DieType.D6)
                 .AddToDB();
@@ -505,7 +839,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Evil Eye
             var evileyeConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionFrightenedFear, "ConditionEvilEye", WITCH_BASE_GUID)
-                .SetGuiPresentation("EvilEye", Category.Condition, ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("EvilEye", Category.Condition,
+                    ConditionDefinitions.ConditionFrightenedFear.GuiPresentation.SpriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -560,7 +895,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
             // Pox
             var poxConditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionDefinitions.ConditionPoisoned, "ConditionPox", WITCH_BASE_GUID)
-                .SetGuiPresentation("Pox", Category.Condition, ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
+                .SetGuiPresentation("Pox", Category.Condition,
+                    ConditionDefinitions.ConditionPoisoned.GuiPresentation.SpriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -642,7 +978,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .SetEffectDescription(ruinEffectDescription)
                 .AddToDB();
 
-            var maledictionsFeatures = new FeatureDefinition[] { abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin };
+            var maledictionsFeatures =
+                new FeatureDefinition[] {abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin};
 
             FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetCustomBuilder
                 .Create("WitchMaledictionChoice", WITCH_BASE_GUID)
@@ -675,56 +1012,6 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 .AddToDB();
         }
 
-        private sealed class CackleEffectForm : CustomEffectForm
-        {
-            public override void ApplyForm(
-                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-                bool retargeting,
-                bool proxyOnly,
-                bool forceSelfConditionOnly,
-                EffectApplication effectApplication = EffectApplication.All,
-                List<EffectFormFilter> filters = null)
-            {
-                var conditions = formsParams.targetCharacter.AllConditions;
-
-                var activeMaledictions = conditions.Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
-
-                foreach (var malediction in activeMaledictions)
-                {
-                    // Remove the condition in order to refresh it
-                    formsParams.targetCharacter.RemoveCondition(malediction);
-                    // Refresh the condition
-                    ApplyCondition(formsParams, malediction.ConditionDefinition, DurationType.Round, 1);
-                }
-            }
-
-            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
-            {
-                // Nothing
-            }
-
-            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams, ConditionDefinition condition, RuleDefinitions.DurationType durationType, int durationParam)
-            {
-                // Prepare params for inflicting conditions
-                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
-                var sourceFaction = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.CurrentFaction.Name : string.Empty;
-                var effectDefinitionName = string.Empty;
-
-                if (formsParams.attackMode != null)
-                {
-                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
-                }
-                else if (formsParams.activeEffect != null)
-                {
-                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
-                }
-
-                var sourceAbilityBonus = (formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter)) ?? 0;
-
-                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam, TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
-            }
-        }
-
         private static CharacterClassDefinition BuildAndAddClass()
         {
             var classBuilder = CharacterClassDefinitionBuilder
@@ -750,7 +1037,9 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
             void BuildWitchFamiliar()
             {
-                var witchAttackDefinition = MonsterAttackDefinitionBuilder.Create(MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, "AttackWitchOwlTalons", WITCH_BASE_GUID).AddToDB();
+                var witchAttackDefinition = MonsterAttackDefinitionBuilder
+                    .Create(MonsterAttackDefinitions.Attack_EagleMatriarch_Talons, "AttackWitchOwlTalons",
+                        WITCH_BASE_GUID).AddToDB();
                 var witchFamiliarAttackIteration = new MonsterAttackIteration(witchAttackDefinition, 1);
                 // We remove the inherent bonus as we will be using the Witch's spell attack bonus
                 witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(0);
@@ -761,37 +1050,39 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .SetBonusDamage(0);
 
                 var witchFamiliarMonsterBuilder = MonsterDefinitionBuilder
-                        .Create(Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
-                        .SetGuiPresentation("WitchOwlFamiliar", Category.Monster, Eagle_Matriarch.GuiPresentation.SpriteReference)
-                        .SetFeatures(
-                            FeatureDefinitionSenses.SenseNormalVision,
-                            FeatureDefinitionSenses.SenseDarkvision24,
-                            FeatureDefinitionMoveModes.MoveModeMove2,
-                            FeatureDefinitionMoveModes.MoveModeFly12,
-                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
-                            FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
-                            FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                            FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                            FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                            FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
-                        .SetAttackIterations(witchFamiliarAttackIteration)
-                        .SetSkillScores(
-                            (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
-                            (DatabaseHelper.SkillDefinitions.Stealth.Name, 3))
-                        .SetArmorClass(11)
-                        .SetAbilityScores(3, 13, 8, 2, 12, 7)
-                        .SetHitDice(DieType.D4, 1)
-                        .SetHitPointsBonus(-1)
-                        .SetStandardHitPoints(1)
-                        .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
-                        .SetAlignment(AlignmentDefinitions.Neutral.Name)
-                        .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
-                        .SetChallengeRating(0)
-                        .SetDroppedLootDefinition(null)
-                        .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
-                        .SetFullyControlledWhenAllied(true)
-                        .SetDefaultFaction("Party")
-                        .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
+                    .Create(Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
+                    .SetGuiPresentation("WitchOwlFamiliar", Category.Monster,
+                        Eagle_Matriarch.GuiPresentation.SpriteReference)
+                    .SetFeatures(
+                        FeatureDefinitionSenses.SenseNormalVision,
+                        FeatureDefinitionSenses.SenseDarkvision24,
+                        FeatureDefinitionMoveModes.MoveModeMove2,
+                        FeatureDefinitionMoveModes.MoveModeFly12,
+                        FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
+                        FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
+                        FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
+                        FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
+                        FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
+                        FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity)
+                    .SetAttackIterations(witchFamiliarAttackIteration)
+                    .SetSkillScores(
+                        (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
+                        (DatabaseHelper.SkillDefinitions.Stealth.Name, 3))
+                    .SetArmorClass(11)
+                    .SetAbilityScores(3, 13, 8, 2, 12, 7)
+                    .SetHitDice(DieType.D4, 1)
+                    .SetHitPointsBonus(-1)
+                    .SetStandardHitPoints(1)
+                    .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
+                    .SetAlignment(AlignmentDefinitions.Neutral.Name)
+                    .SetCharacterFamily(CharacterFamilyDefinitions.Fey.name)
+                    .SetChallengeRating(0)
+                    .SetDroppedLootDefinition(null)
+                    .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions
+                        .DefaultSupportCasterWithBackupAttacksDecisions)
+                    .SetFullyControlledWhenAllied(true)
+                    .SetDefaultFaction("Party")
+                    .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
                 if (DatabaseRepository.GetDatabase<FeatureDefinition>().TryGetElement("HelpAction", out var help))
                 {
@@ -835,7 +1126,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
 
                 var preparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
                     .Create("WitchFamiliarAutoPreparedSpell", WITCH_BASE_GUID)
-                    .SetGuiPresentation("WitchFamiliarPower", Category.Class, AnimalFriendship.GuiPresentation.SpriteReference)
+                    .SetGuiPresentation("WitchFamiliarPower", Category.Class,
+                        AnimalFriendship.GuiPresentation.SpriteReference)
                     .SetPreparedSpellGroups(BuildSpellGroup(2, spell))
                     .SetCastingClass(witch)
                     .SetAutoTag("Witch")
@@ -876,7 +1168,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 hpConditionDefinition.SetAdditionalDamageType("ClassWitch");
 
                 var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-                    .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, "SummoningAffinityWitchFamiliar", WITCH_BASE_GUID)
+                    .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,
+                        "SummoningAffinityWitchFamiliar", WITCH_BASE_GUID)
                     .ClearEffectForms()
                     .SetRequiredMonsterTag("WitchFamiliar")
                     .SetAddedConditions(
@@ -885,7 +1178,8 @@ namespace SolastaCommunityExpansion.Classes.Witch
                     .AddToDB();
 
                 FeatureDefinitionFeatureSetWitchFamiliar = FeatureDefinitionFeatureSetBuilder
-                    .Create(FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWitchFamiliar", WITCH_BASE_GUID)
+                    .Create(FeatureDefinitionFeatureSets.FeatureSetHumanLanguages, "FeatureSetWitchFamiliar",
+                        WITCH_BASE_GUID)
                     .SetGuiPresentation("WitchFamiliarPower", Category.Class)
                     .SetFeatureSet(preparedSpells, summoningAffinity)
                     .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -968,6 +1262,63 @@ namespace SolastaCommunityExpansion.Classes.Witch
                 //            witch.AddFeatureAtLevel(GreaterMalediction,18);
                 // TODO: Another drop down list like Circle of the Land Druid
                 //            witch.AddFeatureAtLevel(AbsoluteMalediction,20);
+            }
+        }
+
+        private sealed class CackleEffectForm : CustomEffectForm
+        {
+            public override void ApplyForm(
+                RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                bool retargeting,
+                bool proxyOnly,
+                bool forceSelfConditionOnly,
+                EffectApplication effectApplication = EffectApplication.All,
+                List<EffectFormFilter> filters = null)
+            {
+                var conditions = formsParams.targetCharacter.AllConditions;
+
+                var activeMaledictions = conditions
+                    .Where(i => i.ConditionDefinition.ConditionTags.Contains("Malediction")).ToList();
+
+                foreach (var malediction in activeMaledictions)
+                {
+                    // Remove the condition in order to refresh it
+                    formsParams.targetCharacter.RemoveCondition(malediction);
+                    // Refresh the condition
+                    ApplyCondition(formsParams, malediction.ConditionDefinition, DurationType.Round, 1);
+                }
+            }
+
+            public override void FillTags(Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            {
+                // Nothing
+            }
+
+            private static void ApplyCondition(RulesetImplementationDefinitions.ApplyFormsParams formsParams,
+                ConditionDefinition condition, DurationType durationType, int durationParam)
+            {
+                // Prepare params for inflicting conditions
+                var sourceGuid = formsParams.sourceCharacter != null ? formsParams.sourceCharacter.Guid : 0L;
+                var sourceFaction = formsParams.sourceCharacter != null
+                    ? formsParams.sourceCharacter.CurrentFaction.Name
+                    : string.Empty;
+                var effectDefinitionName = string.Empty;
+
+                if (formsParams.attackMode != null)
+                {
+                    effectDefinitionName = formsParams.attackMode.SourceDefinition.Name;
+                }
+                else if (formsParams.activeEffect != null)
+                {
+                    effectDefinitionName = formsParams.activeEffect.SourceDefinition.Name;
+                }
+
+                var sourceAbilityBonus =
+                    formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
+
+                formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
+                    TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel,
+                    effectDefinitionName, 0, sourceAbilityBonus);
             }
         }
     }

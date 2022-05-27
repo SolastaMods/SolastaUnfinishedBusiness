@@ -4,10 +4,14 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Level20.Features
 {
-    internal sealed class RangerFeralSensesBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, RangerFeralSensesBuilder>
+    internal sealed class
+        RangerFeralSensesBuilder : FeatureDefinitionBuilder<FeatureDefinitionSense, RangerFeralSensesBuilder>
     {
         private const string RangerFeralSensesName = "ZSRangerFeralSenses";
         private const string RangerFeralSensesGuid = "0e3207505ac04a499477ca1185287117";
+
+        internal static readonly FeatureDefinitionSense RangerFeralSenses =
+            CreateAndAddToDB(RangerFeralSensesName, RangerFeralSensesGuid);
 
         private RangerFeralSensesBuilder(string name, string guid) : base(SenseSeeInvisible12, name, guid)
         {
@@ -20,8 +24,5 @@ namespace SolastaCommunityExpansion.Level20.Features
         {
             return new RangerFeralSensesBuilder(name, guid).AddToDB();
         }
-
-        internal static readonly FeatureDefinitionSense RangerFeralSenses =
-            CreateAndAddToDB(RangerFeralSensesName, RangerFeralSensesGuid);
     }
 }
