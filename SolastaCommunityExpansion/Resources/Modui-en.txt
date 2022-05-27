@@ -144,7 +144,7 @@ ModUi/&ScaleMerchantPricesCorrectly	Scale merchant prices correctly / exactly
 ModUi/&SelectAll	Select All
 ModUi/&SelectSuggested	Select Suggested
 ModUi/&Services	Services
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Set the chances of a beard appearing while using the</color> <color=orange>Belt of Dwarvenkin</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Set the chances of a beard appearing while using the</color> <color=orange>Belt of Dwarvenkind</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips	Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions	Show Descriptions
 ModUi/&SpellInstructions	. You can individually assign each spell to any spell list or simply select the suggested set
