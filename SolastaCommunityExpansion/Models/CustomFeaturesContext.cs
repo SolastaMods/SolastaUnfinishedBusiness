@@ -356,6 +356,9 @@ namespace SolastaCommunityExpansion.Models
                     poolPower.SetRemainingUses(remainingUses);
                     AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
 
+                    // refresh character control panel after power pool usage is updated
+                    // needed for custom point pools on portrait to update properly in some cases
+                    GameUiContext.GameHud.RefreshCharactrControlPanel();
                     return;
                 }
             }
