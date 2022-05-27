@@ -111,10 +111,10 @@ ModUi/&AdvancedHelp	. <b><color=red>ATTENTION :</color></b> Ce paramètre néce
 ModUi/&EnableDungeonMakerModdedContent	Activer Dungeon Maker Pro <b><i><color=red>[Nécessite un redémarrage]</color></i></b>\n\ncomprennent des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et un mélange sans fioritures d'actifs de tous les environnements\nvous devez avoir au moins une pièce extérieure si vous choisissez un environnement extérieur
 ModUi/&EnableExtraHighLevelMonsters	Activer des monstres supplémentaires de haut niveau (+20 CR) pour les campagnes de niveau 3 et 4 <b><i><color=red>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Activer l'action d'annulation avec un clic droit de la souris
-ModUi/&EnableHotkeyToggleIndividualHud	Activer <color=cyan>CTRL-SHIFT-(C</color>)panneau de contrôle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M< /color>)ap et <color=cyan>CTRL-SHIFT-(P</color>)arty pour basculer la visibilité de chaque panneau de l'interface utilisateur
+ModUi/&EnableHotkeyToggleIndividualHud	Activer <color=cyan>CTRL-SHIFT-(C</color>)panneau de contrôle, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap et <color=cyan>CTRL-SHIFT-(P</color>)arty pour basculer la visibilité de chaque panneau de l'interface utilisateur
 ModUi/&EnableHotkeyToggleHud	Activez <color=cyan>CTRL-SHIFT-(H</color>)ud pour basculer la visibilité de tous les panneaux de l'interface utilisateur
 ModUi/&EnableCharacterExport	Activer <color=cyan>CTRL-SHIFT-(E</color>)xporter le caractère <i><color=yellow>[sur l'écran d'inspection des caractères uniquement]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Activer la superposition d'ebug <color=cyan>CTRL-SHIFT-(D</color>)
+ModUi/&EnableHotkeyDebugOverlay	Activer la superposition <color=cyan>CTRL-SHIFT-(D</color>)ebug
 ModUi/&EnableHotkeyZoomCamera	Activer la caméra <color=cyan>CTRL-SHIFT-(Z</color>)oom <i><color=yellow>[utile lors de la prise de captures d'écran de donjon pour la publication]</color></i>
 ModUi/&EnableTeleportParty	Activer <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[vous pourriez casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=cyan>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]

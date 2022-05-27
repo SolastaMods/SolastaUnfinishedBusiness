@@ -111,7 +111,7 @@ ModUi/&AdvancedHelp	. <b><color=red>ACHTUNG:</color></b> Diese Einstellung erfor
 ModUi/&EnableDungeonMakerModdedContent	Aktivieren Sie Dungeon Maker Pro <b><i><color=red>[Neustart erforderlich]</color></i></b>\n\nDazu gehören flache Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellose Mischung von Assets aus allen Umgebungen\nSie müssen mindestens einen Raum im Freien haben, wenn Sie sich für eine Umgebung im Freien entscheiden
 ModUi/&EnableExtraHighLevelMonsters	Aktiviere zusätzliche hochstufige Monster (+20 CR) für Kampagnen der Stufen 3 und 4 <b><i><color=red>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Aktivieren Sie die Abbruchaktion mit einem Rechtsklick
-ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M< /color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
+ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
 ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
 ModUi/&EnableCharacterExport	Aktivieren Sie <color=cyan>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
 ModUi/&EnableHotkeyDebugOverlay	Aktivieren Sie <color=cyan>CTRL-SHIFT-(D</color>)ebug-Overlay

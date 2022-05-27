@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Displays
                 UI.Space(20);
 
                 toggle = Main.Settings.CraftingInStore.Contains(key);
-                if (UI.Toggle("Add to store", ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Format("ModUi/&AddToStore"), ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Displays
                 }
 
                 toggle = Main.Settings.CraftingRecipesInDM.Contains(key);
-                if (UI.Toggle("Recipes in DM", ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Format("ModUi/&RecipesInDm"), ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
@@ -51,7 +51,7 @@ namespace SolastaCommunityExpansion.Displays
                 if (!ItemCraftingContext.BASE_GAME_ITEMS_CATEGORIES.Contains(key))
                 {
                     toggle = Main.Settings.CraftingItemsInDM.Contains(key);
-                    if (UI.Toggle("Items in DM", ref toggle, UI.Width(125)))
+                    if (UI.Toggle(Gui.Format("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
                     {
                         if (toggle)
                         {
@@ -82,13 +82,13 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.RemoveAttunementRequirements;
-            if (UI.Toggle("Remove attunement requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveAttunementRequirements = toggle;
             }
 
             toggle = Main.Settings.RemoveIdentifcationRequirements;
-            if (UI.Toggle("Remove identification requirements " + RequiresRestart, ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&RemoveIdentifcationRequirements"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RemoveIdentifcationRequirements = toggle;
             }
@@ -96,7 +96,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
-            if (UI.Toggle("Show crafting recipe in detailed tooltips", ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
             }
@@ -104,7 +104,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.RecipeCost;
-            if (UI.Slider("Recipes' cost".white(), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
+            if (UI.Slider(Gui.Format("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
             {
                 Main.Settings.RecipeCost = intValue;
                 ItemCraftingContext.UpdateRecipeCost();
@@ -113,9 +113,8 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
-            if (UI.Slider(
-                    "Set the chances of a beard appearing while using the ".white() + "Belt of Dwarvenkin".orange(),
-                    ref intValue, 0, 100, 50, "%", UI.Width(500)))
+            if (UI.Slider(Gui.Format("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
+                0, 100, 50, "%", UI.Width(500)))
             {
                 Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
                 ItemOptionsContext.SwitchSetBeltOfDwarvenKindBeardChances();
@@ -124,7 +123,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayCraftingToggle;
-            if (UI.DisclosureToggle("Crafting:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle(Gui.Format("ModUi/&Crafting"), ref toggle, 200))
             {
                 Main.Settings.DisplayCraftingToggle = toggle;
             }
@@ -132,8 +131,7 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.DisplayCraftingToggle)
             {
                 UI.Label("");
-                UI.Label(". Press the button to learn recipes instantly on the active party");
-                UI.Label(". Items added to stores might need the party to travel away from the location and come back");
+                UI.Label(Gui.Format("ModUi/&CraftingHelp"));
                 UI.Label("");
 
                 using (UI.HorizontalScope(UI.AutoWidth()))
@@ -141,7 +139,7 @@ namespace SolastaCommunityExpansion.Displays
                     UI.Space(204);
 
                     toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
-                    if (UI.Toggle("Add all to store", ref toggle, UI.Width(125)))
+                    if (UI.Toggle(Gui.Format("ModUi/&AddAllToStore"), ref toggle, UI.Width(125)))
                     {
                         Main.Settings.CraftingInStore.Clear();
 
@@ -152,7 +150,7 @@ namespace SolastaCommunityExpansion.Displays
                     }
 
                     toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
-                    if (UI.Toggle("All recipes in DM", ref toggle, UI.Width(125)))
+                    if (UI.Toggle(Gui.Format("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125)))
                     {
                         Main.Settings.CraftingRecipesInDM.Clear();
 
@@ -163,7 +161,7 @@ namespace SolastaCommunityExpansion.Displays
                     }
 
                     toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
-                    if (UI.Toggle("All items in DM", ref toggle, UI.Width(125)))
+                    if (UI.Toggle(Gui.Format("ModUi/&AllItemInDm"), ref toggle, UI.Width(125)))
                     {
                         Main.Settings.CraftingItemsInDM.Clear();
 
@@ -201,7 +199,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.DisplayMerchantsToggle;
-            if (UI.DisclosureToggle("Merchants:".yellow(), ref toggle, 200))
+            if (UI.DisclosureToggle(Gui.Format("ModUi/&Merchants"), ref toggle, 200))
             {
                 Main.Settings.DisplayMerchantsToggle = toggle;
             }
@@ -211,17 +209,14 @@ namespace SolastaCommunityExpansion.Displays
                 UI.Label("");
 
                 toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
-                if (UI.Toggle("Stocks Gorim's store with all non-magical clothing " + RequiresRestart, ref toggle,
+                if (UI.Toggle(Gui.Format("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
                         UI.AutoWidth()))
                 {
                     Main.Settings.StockGorimStoreWithAllNonMagicalClothing = toggle;
                 }
 
                 toggle = Main.Settings.StockHugoStoreWithAdditionalFoci;
-                if (UI.Toggle(
-                        "Stocks Hugo's store with " + "Wand of Identify".orange() + ", " + "Arcane Staff".orange() +
-                        ", " + "Druid Neck".orange() + ", " + "Staff".orange() + " and " + "Club".orange() +
-                        " set as foci items", ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&StockHugoStoreWithAdditionalFoci"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.StockHugoStoreWithAdditionalFoci = toggle;
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
@@ -231,7 +226,7 @@ namespace SolastaCommunityExpansion.Displays
                 if (Main.Settings.StockHugoStoreWithAdditionalFoci)
                 {
                     toggle = Main.Settings.EnableAdditionalFociInDungeonMaker;
-                    if (UI.Toggle("+ Add new foci items to Dungeon Maker ".italic(), ref toggle, UI.AutoWidth()))
+                    if (UI.Toggle(Gui.Format("ModUi/&EnableAdditionalFociInDungeonMaker"), ref toggle, UI.AutoWidth()))
                     {
                         Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                         ItemOptionsContext.SwitchFociItemsDungeonMaker();
@@ -239,40 +234,32 @@ namespace SolastaCommunityExpansion.Displays
                 }
 
                 UI.Label("");
-                UI.Label(
-                    ". Override defaults to force all of a merchant's stock to restock over time (excluding Manuals and Tomes).");
-                UI.Label(". Note that some items can take up to 7 game days to restock.");
-                UI.Label(". Note " + RequiresRestart +
-                         " to restore default values when disabled, but not to apply when enabled.");
+                UI.Label(Gui.Format("ModUi/&RestockHelp"));
                 UI.Label("");
 
                 toggle = Main.Settings.RestockAntiquarians;
-                if (UI.Toggle("Restock Antiquarians " + "[Halman Summer] ".italic().yellow(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&RestockAntiquarians"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockAntiquarians = toggle;
                     ItemOptionsContext.SwitchRestockAntiquarian();
                 }
 
                 toggle = Main.Settings.RestockArcaneum;
-                if (UI.Toggle("Restock Arcaneum " + "[Heddlon Surespell] ".italic().yellow(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&RestockArcaneum"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockArcaneum = toggle;
                     ItemOptionsContext.SwitchRestockArcaneum();
                 }
 
                 toggle = Main.Settings.RestockCircleOfDanantar;
-                if (UI.Toggle("Restock Circle of Danantar " + "[Joriel Foxeye] ".italic().yellow(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&RestockCircleOfDanantar"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockCircleOfDanantar = toggle;
                     ItemOptionsContext.SwitchRestockCircleOfDanantar();
                 }
 
                 toggle = Main.Settings.RestockTowerOfKnowledge;
-                if (UI.Toggle("Restock Tower of Knowledge " + "[Maddy Greenisle] ".italic().yellow(), ref toggle,
-                        UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&RestockTowerOfKnowledge"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.RestockTowerOfKnowledge = toggle;
                     ItemOptionsContext.SwitchRestockTowerOfKnowledge();
