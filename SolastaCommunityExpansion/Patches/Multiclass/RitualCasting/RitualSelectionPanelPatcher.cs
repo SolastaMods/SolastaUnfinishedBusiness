@@ -78,7 +78,8 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
                 {
                     var spells = spellRepertoire.PreparedSpells
                         .Where(s => s.Ritual)
-                        .Where(s => maxSpellLevel >= s.SpellLevel);
+                        .Where(s => maxSpellLevel >= s.SpellLevel)
+                        .ToList();
 
                     ritualSpells.AddRange(spells);
                 }
@@ -90,11 +91,13 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
 
                     var spells = rulesetCharacter.Items
                         .OfType<RulesetItemSpellbook>()
-                        .SelectMany(x => x.ScribedSpells);
+                        .SelectMany(x => x.ScribedSpells)
+                        .ToList();
 
                     spells = spells
                         .Where(s => s.Ritual)
-                        .Where(s => maxSpellLevel >= s.SpellLevel);
+                        .Where(s => maxSpellLevel >= s.SpellLevel)
+                        .ToList();
 
                     rulesetCharacter.Items.Clear();
 
