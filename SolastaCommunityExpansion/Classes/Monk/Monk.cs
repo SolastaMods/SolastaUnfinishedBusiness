@@ -11,6 +11,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
+using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -695,8 +696,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetActivationTime(ActivationTime.OnAttackHit)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetCostPerUse(1)
-                .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                    ReactionAttackModeRestriction.MeleeOnly,
+                .SetCustomSubFeatures(new ReactionAttackModeRestriction(CanUseStunningStrike,
                     ReactionAttackModeRestriction.TargenHasNoCondition(ConditionDefinitions.ConditionStunned)
                 ))
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -718,6 +718,13 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         .Build())
                     .Build())
                 .AddToDB();
+        }
+
+        private static bool CanUseStunningStrike(RulesetAttackMode mode, RulesetCharacter character, RulesetCharacter target)
+        {
+            return ReactionAttackModeRestriction.MeleeOnly(mode, character, target)
+                || (character.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
+                && ZenArcher.IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition));
         }
 
         private static FeatureDefinition BuildKiPoolIncrease()

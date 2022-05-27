@@ -1943,7 +1943,7 @@ Power/&ClassMonkZenArrowPushDescription	Target must succeed Strength saving thro
 Power/&ClassMonkZenArrowPushTitle	Push Away
 Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must succeed Strength saving throw or be pushed 10 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on next attack until end of its next turn. 
 Power/&ClassMonkZenArrowTechniqueTitle	Distant Hand Technique
-Power/&ClassMonkZenArrowTechniqueSortTitle	Distant Hand
+Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
 Condition/&ClassMonkZenArrowDistractConditionTitle	Distracted
 Condition/&ClassMonkZenArrowDistractConditionDescription	Has disadvantage on next attack.
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
@@ -1954,3 +1954,20 @@ Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Flurry of Arrows
 Power/&ClassMonkZenArcherFlurryOfArrowsDescription	After spending action to attack with monk weapon you can spend 2 ki points as a bonus action to do 2 ranged attacks with a bow. Only availabe if you are not wearing armor or shield.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Distract
+Power/&ClassMonkZenArrowUpgradedDistractDescription	Target must succeed Wisdom saving throw or have disadvatnage on all attacks until end of its next turn.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Knock Down
+Power/&ClassMonkZenArrowUpgradedProneDescription	Target must succeed Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Push Away
+Power/&ClassMonkZenArrowUpgradedPushDescription	Target must succeed Strength saving throw or be pushed 20 feet away from you.
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Improved Distant Hand Technique
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki - all effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n - It must succeed Strength saving throw or be pushed 20 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on all attacks until end of its next turn. 
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distracted
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Has disadvantage on all attacks.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Pinned
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Movement is set to zero.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Distant Hand Technique
