@@ -48,7 +48,7 @@ namespace SolastaCommunityExpansion.Models
             }
 
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
-                         x => x.ArmorDescription.ArmorType == "ClothesType" && !x.Magical &&
+                         x => x.ArmorDescription?.ArmorType == "ClothesType" && !x.Magical &&
                               !x.SlotsWhereActive.Contains("TabardSlot") && x != ClothesCommon_Tattoo &&
                               x != ClothesWizard_B))
             {
