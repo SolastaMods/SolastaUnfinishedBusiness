@@ -285,6 +285,23 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        public static RulesetUsablePower GetPoolPower(RulesetUsablePower power, RulesetCharacter character)
+        {
+            if (power.PowerDefinition is IPowerSharedPool pool)
+            {
+                var poolPower = pool.GetUsagePoolPower();
+                foreach (var usablePower in character.UsablePowers)
+                {
+                    if (usablePower.PowerDefinition == poolPower)
+                    {
+                        return usablePower;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         internal static int GetMaxUsesForPool(RulesetUsablePower poolPower, RulesetCharacter character)
         {
             var totalPoolSize = poolPower.MaxUses;

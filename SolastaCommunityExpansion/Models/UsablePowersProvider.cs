@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi.Extensions;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Models
 {
     public static class UsablePowersProvider
     {
+        //TODO: think whether we ned to cache these at all, and if we indeed do, maybe switch to caching per character?
         private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
 
         public static RulesetUsablePower Get(FeatureDefinitionPower power, RulesetCharacter actor = null)
@@ -30,9 +32,29 @@ namespace SolastaCommunityExpansion.Models
 
                 //Update properties to match actor 
                 UpdateSaveDC(actor, result);
+                UpdatePoolUses(actor, result);
             }
 
             return result;
+        }
+
+        public static void UpdatePoolUses(RulesetCharacter character, RulesetUsablePower usablePower)
+        {
+            if (character == null)
+            {
+                return;
+            }
+
+            var pool = CustomFeaturesContext.GetPoolPower(usablePower, character);
+            if (pool == null || pool == usablePower)
+            {
+                return;
+            }
+
+            var powerCost = usablePower.PowerDefinition.CostPerUse;
+            var maxUsesForPool = CustomFeaturesContext.GetMaxUsesForPool(pool, character);
+            usablePower.SetMaxUses(maxUsesForPool / powerCost);
+            usablePower.SetRemainingUses(pool.RemainingUses / powerCost);
         }
 
         public static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)
