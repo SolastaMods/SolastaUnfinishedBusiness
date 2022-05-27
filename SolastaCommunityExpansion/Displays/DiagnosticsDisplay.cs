@@ -113,7 +113,7 @@ namespace SolastaCommunityExpansion.Displays
 
             var logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
 
-            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition " + Shared.RequiresRestart, ref logVariantMisuse))
+            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition [requires restart]", ref logVariantMisuse))
             {
                 Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
             }
