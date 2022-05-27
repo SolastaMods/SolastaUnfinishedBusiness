@@ -59,47 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
-              xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -113,201 +112,163 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms"
-            name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="AcidClaws" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AcidClawsSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AirBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AirBlastSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bolgrif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BolgrifRace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BurstOfRadiance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BurstOfRadianceSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ContentPack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContentPack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Destination" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Destination.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EarthTremor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EarthTremorSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Entry" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Entry.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Gnome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GnomeRace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Teleport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Teleport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Warlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WarlockClass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WinterBreath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WinterBreathSpell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HellishRebuke" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HellishRebuke.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ElementalForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ElementalForm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ElementalFormEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ElementalFormEnhanced.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ElementalFormIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ElementalFormIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ElementalFormIconEnhanced" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ElementalFormIconEnhanced.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WarlockChainSummon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WarlockChainSummon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchInvocation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EldritchInvocation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchBlast" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EldritchBlast.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchBlastGrasp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EldritchBlastGrasp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EldritchBlastRepell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EldritchBlastRepell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SunlightBlade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SunlightBlade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ResonatingStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ResonatingStrike.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Monk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkClass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkPictogram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkPictogram.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkKiIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkKiIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkEmptyBody" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkEmptyBody.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkFlurryOfBlows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkFlurryOfBlows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkPatientDefense" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkPatientDefense.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkSlowFall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkSlowFall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkStepOfTheWind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkStepOfTheWind.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkStillnessOfMind" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkStillnessOfMind.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MonkStunningStrike" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MonkStunningStrike.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerAttackConcentrationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PowerAttackConcentrationIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0,
-      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerAttackIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PowerAttackIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b03f5f7f11d50a3a
-    </value>
+      PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monsters-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monsters-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -316,13 +277,11 @@
   </data>
   <data name="Monsters-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -331,8 +290,7 @@
   </data>
   <data name="Monsters-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monsters-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -346,13 +304,11 @@
   </data>
   <data name="Translations-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -361,8 +317,23 @@
   </data>
   <data name="Translations-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Modui-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Modui-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Modui-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Modui-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Modui-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Modui-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -401,7 +372,12 @@
   </data>
   <data name="Names-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Names-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089;utf-8
-    </value>
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="FlurryOfArrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FlurryOfArrows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ZenArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZenArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

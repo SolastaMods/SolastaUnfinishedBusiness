@@ -133,6 +133,31 @@ namespace SolastaCommunityExpansion.Models
 
             return null;
         }
+        
+        // Bundled sub-powers usually are not added to the character, so their UsblePower lacks class or race oringin
+        // This means that CharacterActionSpendPower will not call `UsePower` on them
+        // This method fixes that
+        public static void SpendBundledPowerIfNeeded(CharacterActionSpendPower action)
+        {
+            var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
+            if (activePower is not {OriginItem: null})
+            {
+                return;
+            }
+
+            var usablePower = activePower.UsablePower;
+            if (usablePower.OriginClass != null || usablePower.OriginRace != null)
+            {
+                return;
+            }
+
+            if (GetMasterPowersBySubPower(usablePower.PowerDefinition).Empty())
+            {
+                return;
+            }
+
+            action.ActingCharacter.RulesetCharacter.UsePower(usablePower);
+        }
 
         public static void Load()
         {

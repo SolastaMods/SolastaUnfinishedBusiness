@@ -207,6 +207,14 @@ namespace SolastaCommunityExpansion.Models
                     guiPanel.Show();
                 }
             }
+
+            public static void RefreshCharactrControlPanel()
+            {
+                if (Gui.CurrentLocationScreen != null && Gui.CurrentLocationScreen is GameLocationBaseScreen location)
+                {
+                    location.CharacterControlPanel.RefreshNow();
+                }
+            }
         }
 
         internal static class Teleporter

@@ -233,6 +233,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap FlurryOfArrows {
+            get {
+                object obj = ResourceManager.GetObject("FlurryOfArrows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Gnome {
             get {
                 object obj = ResourceManager.GetObject("Gnome", resourceCulture);
@@ -247,6 +257,86 @@ namespace SolastaCommunityExpansion.Properties {
             get {
                 object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Alle zum Shop hinzufügen
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Fügen Sie den Zustand &lt;color=orange&gt;Bluten&lt;/color&gt; zu den Zuständen hinzu, die durch &lt;color=orange&gt;Größere und Geringere Wiederherstellung&lt;/color&gt; entfernt wurden
+        ///ModUi/&amp;AddHelpActionToAllRaces	Füge allen Rennen die Aktion &lt;color=orange&gt;Hilfe&lt;/color&gt; hinzu
+        ///ModUi/&amp;AddPickpocketableLoot	Taschendiebstahl-Beute hinzufügen &lt;i&gt;&lt;color=yellow&gt;[empfohlen, wenn &lt;color=orange&gt;Taschendiebstahl&lt;/color&gt;-Talent aktiviert ist]&lt;/color&gt;&lt;/i [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modui_de {
+            get {
+                return ResourceManager.GetString("Modui-de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Add all to store
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=orange&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=orange&gt;Greater and Lesser Restoration&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=orange&gt;Help&lt;/color&gt; action to all races
+        ///ModUi/&amp;AddPickpocketableLoot	Add pickpocketable loot &lt;i&gt;&lt;color=yellow&gt;[suggested if &lt;color=orange&gt;Pickpocket&lt;/color&gt; feat is enabled]&lt;/color&gt;&lt;/i&gt;
+        ///ModUi/&amp;AddToStore	Add to store
+        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;Advance [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modui_en {
+            get {
+                return ResourceManager.GetString("Modui-en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Ajouter tout au magasin
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Ajoutez la condition &lt;color=orange&gt;Saignement&lt;/color&gt; aux conditions supprimées par &lt;color=orange&gt;Grande et Petite Restauration&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Ajouter l&apos;action &lt;color=orange&gt;Aide&lt;/color&gt; à toutes les courses
+        ///ModUi/&amp;AddPickpocketableLoot	Ajouter un butin pickpocketable &lt;i&gt;&lt;color=yellow&gt;[suggéré si la fonctionnalité &lt;color=orange&gt;Pickpocket&lt;/color&gt; est activée]&lt;/color&gt;&lt;/i&gt;
+        ///ModUi/&amp;AddToStore	Ajouter a [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modui_fr {
+            get {
+                return ResourceManager.GetString("Modui-fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Adicionar tudo à loja
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Adicione a condição &lt;color=orange&gt;Sangramento&lt;/color&gt; às condições removidas pela &lt;color=orange&gt;Restauração Maior e Menor&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Adicione a ação &lt;color=orange&gt;Ajuda&lt;/color&gt; a todas as raças
+        ///ModUi/&amp;AddPickpocketableLoot	Adicionar espólio de carteirista &lt;i&gt;&lt;color=yellow&gt;[sugerido se o recurso &lt;color=orange&gt;Pocket&lt;/color&gt; estiver ativado]&lt;/color&gt;&lt;/i&gt;
+        ///ModUi/&amp;AddToStore	Adicionar à loja
+        ///ModUi/&amp;Ad [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modui_pt_BR {
+            get {
+                return ResourceManager.GetString("Modui-pt-BR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Добавить все в магазин
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Добавьте состояние &lt;color=orange&gt;Кровотечение&lt;/color&gt; к состояниям, удаленным с помощью &lt;color=orange&gt;Большого и малого восстановления&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Добавьте действие &lt;color=orange&gt;Помощь&lt;/color&gt; ко всем гонкам.
+        ///ModUi/&amp;AddPickpocketableLoot	Добавить добычу для карманных краж &lt;i&gt;&lt;color=yellow&gt;[предлагается, если умение &lt;color=orange&gt;Карманные кражи&lt;/color&gt; включено]&lt;/color&gt;&lt;/i&gt;
+        ///ModUi/&amp;AddToStore	Доб [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modui_ru {
+            get {
+                return ResourceManager.GetString("Modui-ru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Add all to store
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=orange&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=orange&gt;Greater and Lesser Restoration&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=orange&gt;Help&lt;/color&gt; action to all races
+        ///ModUi/&amp;AddPickpocketableLoot	Add pickpocketable loot &lt;i&gt;&lt;color=yellow&gt;[suggested if &lt;color=orange&gt;Pickpocket&lt;/color&gt; feat is enabled]&lt;/color&gt;&lt;/i&gt;
+        ///ModUi/&amp;AddToStore	Add to store
+        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;Advance [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Modui_zh_CN {
+            get {
+                return ResourceManager.GetString("Modui-zh-CN", resourceCulture);
             }
         }
         
@@ -362,6 +452,17 @@ namespace SolastaCommunityExpansion.Properties {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Urzeitlicher Lufttitan&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Monsters_de {
+            get {
+                return ResourceManager.GetString("Monsters-de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
         ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
         ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of huma [rest of string was truncated]&quot;;.
@@ -388,9 +489,9 @@ namespace SolastaCommunityExpansion.Properties {
         ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Titã do Ar Primordial&lt;/color&gt;
         ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	O mais mal-humorado e vil dos dragões cromáticos, os dragões negros coletam os destroços e tesouros dos povos caídos. Esses dragões detestam ver os fracos prosperarem e se deleitam com o cola [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Monsters_pt_br {
+        public static string Monsters_pt_BR {
             get {
-                return ResourceManager.GetString("Monsters-pt-br", resourceCulture);
+                return ResourceManager.GetString("Monsters-pt-BR", resourceCulture);
             }
         }
         
@@ -503,14 +604,29 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Kann keine Zauber wirken.
+        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Schwache Zauberei
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC ist auf 16 eingestellt.
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Rindenleder
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charismawert ist gleich 1.
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Schwaches Charisma
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwer [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Translations_de {
+            get {
+                return ResourceManager.GetString("Translations-de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells.
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1
-        ///Attribu [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1.
+        ///Att [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_de {
             get {
@@ -535,13 +651,13 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts.
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Lancement de sorts faible
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC est réglé sur 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC est réglé sur 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Écorce
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de charisme est égal à 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de charisme est égal à 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Charisme faible
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le score  [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le sco [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_fr {
             get {
@@ -550,13 +666,13 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Incapaz de lançar feitiços
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Incapaz de lançar feitiços.
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feitiço fraco
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está definido para 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está definido para 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de carisma é igual a 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de carisma é igual a 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de inte [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de i [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_pt_BR {
             get {
@@ -659,6 +775,16 @@ namespace SolastaCommunityExpansion.Properties {
         public static System.Drawing.Bitmap WinterBreath {
             get {
                 object obj = ResourceManager.GetObject("WinterBreath", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ZenArrow {
+            get {
+                object obj = ResourceManager.GetObject("ZenArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

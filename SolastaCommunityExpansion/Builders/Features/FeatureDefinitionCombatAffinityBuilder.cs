@@ -16,6 +16,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetMyAttackModifierDieType(dieType);
             return This();
         }
+        
+        public TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
+        {
+            Definition.SetMyAttackAdvantage(advantage);
+            return This();
+        }
 
         #region Constructors
 

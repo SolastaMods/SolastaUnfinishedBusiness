@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return;
             }
 
-            if (!isWeaponValid(attackMode, weapon))
+            if (!isWeaponValid(attackMode, weapon, character))
             {
                 return;
             }
@@ -72,12 +72,12 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return;
             }
 
-            if (!isWeaponValid(attackMode, weapon))
+            if (!isWeaponValid(attackMode, weapon, character))
             {
                 return;
             }
 
-            var effectDescription = attackMode?.EffectDescription;
+            var effectDescription = attackMode.EffectDescription;
             var damage = effectDescription?.FindFirstDamageForm();
 
             if (damage == null)
@@ -131,7 +131,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return;
             }
 
-            if (!isWeaponValid(attackMode, weapon))
+            if (!isWeaponValid(attackMode, weapon, character))
             {
                 return;
             }
