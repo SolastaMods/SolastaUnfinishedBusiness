@@ -109,27 +109,29 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
                         .ProficiencyBonusAndSpellcastingBonus)
                 {
-                    // use the correct spell repertoire for calculating spell bonus
+                    // PATCH HERE
+                    //
+                    // use the correct spell repertoire for calculating spell bonus (MC scenario)
+                    //
 
                     int num = 0;
 
                     //
-                    // it looks like this global isn't correctly set under MP. reverting back to default logic
+                    // Global.CastedSpellRepertoire isn't set under MP sessions so we need to use this less optimal resolution
                     //
-                    if (Global.CastedSpellRepertoire != null)
+                    if (Global.IsMultiplayer)
+                    {
+                        foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                        {
+                            num = System.Math.Max(num, AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue));
+                        }
+                    }
+                    else
                     {
                         num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
                             .GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
                     }
-                    else
-                    {
-                        foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
-                        {
-                            num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
-                            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
-                                break;
-                        }
-                    }
+                    // END PATCH
 
                     damageForm.BonusDamage += num;
                 }
