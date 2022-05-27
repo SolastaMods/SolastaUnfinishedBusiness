@@ -450,17 +450,6 @@ namespace SolastaCommunityExpansion.Properties {
                 return ResourceManager.GetString("Monsters-de", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Urzeitlicher Lufttitan&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_de {
-            get {
-                return ResourceManager.GetString("Monsters-de", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
@@ -612,24 +601,10 @@ namespace SolastaCommunityExpansion.Properties {
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Schwaches Charisma
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwer [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Translations_de {
-            get {
-                return ResourceManager.GetString("Translations-de", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells.
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1.
-        ///Att [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_de {
-            get {
+        public static string Translations_de
+        {
+            get
+            {
                 return ResourceManager.GetString("Translations-de", resourceCulture);
             }
         }
@@ -710,42 +685,6 @@ namespace SolastaCommunityExpansion.Properties {
         public static string Translations_zh_CN {
             get {
                 return ResourceManager.GetString("Translations-zh-CN", resourceCulture);
-            }
-        }
-        
-        public static string Modui_de {
-            get {
-                return ResourceManager.GetString("Modui-de", resourceCulture);
-            }
-        }
-
-        public static string Modui_en {
-            get {
-                return ResourceManager.GetString("Modui-en", resourceCulture);
-            }
-        }
-
-        public static string Modui_fr {
-            get {
-                return ResourceManager.GetString("Modui-fr", resourceCulture);
-            }
-        }
-
-        public static string Modui_pt_BR {
-            get {
-                return ResourceManager.GetString("Modui-pt-BR", resourceCulture);
-            }
-        }
-        
-        public static string Modui_ru {
-            get {
-                return ResourceManager.GetString("Modui-ru", resourceCulture);
-            }
-        }
-        
-        public static string Modui_zh_CN {
-            get {
-                return ResourceManager.GetString("Modui-zh-CN", resourceCulture);
             }
         }
 
