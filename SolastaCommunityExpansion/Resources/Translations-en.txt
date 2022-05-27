@@ -1931,3 +1931,22 @@ UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
 Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
 Feat/&FeatShieldExpertTitle	Shield Expert
 Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while weilding a shield..
+Subclass/&ClassMonkTraditionZenArcherTitle	Way of the Distant Hand
+Subclass/&ClassMonkTraditionZenArcherDescription	Practitioners of the Way of the Distant Hand train to make arows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
+Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
+Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantge when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
+Power/&ClassMonkZenArrowDistractDescription	Target must succeed Wisdom saving throw or have disadvatnage on next attack until end of its next turn.
+Power/&ClassMonkZenArrowDistractTitle	Distract
+Power/&ClassMonkZenArrowProneDescription	Target must succeed Dexterity saving throw or be knocked prone.
+Power/&ClassMonkZenArrowProneTitle	Knock Down
+Power/&ClassMonkZenArrowPushDescription	Target must succeed Strength saving throw or be pushed 10 feet away from you.
+Power/&ClassMonkZenArrowPushTitle	Push Away
+Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must succeed Strength saving throw or be pushed 10 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on next attack until end of its next turn. 
+Power/&ClassMonkZenArrowTechniqueTitle	Distant Hand Technique
+Power/&ClassMonkZenArrowTechniqueSortTitle	Distant Hand
+Condition/&ClassMonkZenArrowDistractConditionTitle	Distracted
+Condition/&ClassMonkZenArrowDistractConditionDescription	Has disadvantage on next attack.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Distant Hand Technique
