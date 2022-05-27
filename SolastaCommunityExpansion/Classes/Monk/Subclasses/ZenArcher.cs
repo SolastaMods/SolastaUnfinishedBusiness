@@ -76,12 +76,14 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private static FeatureDefinition BuildZenArrow()
         {
-            var technique = FeatureDefinitionPowerBuilder
+            var technique = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkZenArrowTechnique", Monk.GUID)
                 .SetGuiPresentation(Category.Power)
+                .SetShortTitle("Power/&ClassMonkZenArrowTechniqueSortTitle")
+                .SetSharedPool(Monk.KiPool)
                 .SetActivationTime(ActivationTime.OnAttackHit)
-                .SetRechargeRate(RechargeRate.AtWill)
-                .SetCostPerUse(0)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetCostPerUse(1)
                 .SetCustomSubFeatures(new ReactionAttackModeRestriction(
                     (mode, _, _) => mode.AttackTags.Contains(ZenArrowTag)
                 ))
@@ -90,8 +92,10 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
             var prone = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkZenArrowProne", Monk.GUID)
                 .SetGuiPresentation(Category.Power)
-                .SetSharedPool(technique)
+                .SetSharedPool(Monk.KiPool)
                 .SetActivationTime(ActivationTime.NoCost)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetCostPerUse(1)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
@@ -115,8 +119,10 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
             var push = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkZenArrowPush", Monk.GUID)
                 .SetGuiPresentation(Category.Power)
-                .SetSharedPool(technique)
+                .SetSharedPool(Monk.KiPool)
                 .SetActivationTime(ActivationTime.NoCost)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetCostPerUse(1)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
@@ -140,8 +146,10 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
             var distract = FeatureDefinitionPowerSharedPoolBuilder
                 .Create("ClassMonkZenArrowDistract", Monk.GUID)
                 .SetGuiPresentation(Category.Power)
-                .SetSharedPool(technique)
+                .SetSharedPool(Monk.KiPool)
                 .SetActivationTime(ActivationTime.NoCost)
+                .SetRechargeRate(RechargeRate.ShortRest)
+                .SetCostPerUse(1)
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
