@@ -343,7 +343,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&TrickstersEscapeTitle",
-    "description": "Cast Freedom of Movement once until long rest",
+    "description": "Cast Freedom of Movement once until long rest.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "1bce2fdb81dad0145a160ca13db55f02",

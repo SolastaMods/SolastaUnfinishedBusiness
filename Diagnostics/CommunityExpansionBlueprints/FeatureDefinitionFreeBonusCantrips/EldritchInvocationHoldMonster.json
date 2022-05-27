@@ -7,7 +7,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&ChainsofCarceriTitle",
-    "description": "Cast Hold Monster at will",
+    "description": "Cast Hold Monster at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "95031a6775232b241b7505e61f5da208",
