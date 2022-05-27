@@ -554,7 +554,7 @@ Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a ma
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
 Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
-Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.
+Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.\nIf you have free hand you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
@@ -769,7 +769,7 @@ Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual Pact Weapon
-Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:.
+Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
@@ -833,7 +833,7 @@ Feature/&ClassMonkDiamondSoulDescription	Your mastery of ki grants you proficien
 Feature/&ClassMonkDiamondSoulTitle	Diamond Soul
 Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ClassMonkExtraAttackTitle	Extra Attack
-Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:.
+Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiTitle	Ki
@@ -1193,7 +1193,7 @@ FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 f
 FightingStyle/&BlindFightingTitle	Blind Fighting
 FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn.
 FightingStyle/&CripplingTitle	Crippling
-FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.
+FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.\nIf you have free hand you can shove as a bonus action.
 FightingStyle/&PugilistFightingTitle	Pugilist
 FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size large or bigger.
 FightingStyle/&TitanFightingTitle	Titan Fighting
@@ -1259,7 +1259,7 @@ MainMenu/&ExportPdfDescription	Level down this Hero.
 MainMenu/&ExportPdfTitle	Level Down
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
-Message/&CharacterExportModalContentDescription	Enter the hero name to export:.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export.
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session.
@@ -1404,7 +1404,7 @@ Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
 Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
@@ -1717,7 +1717,7 @@ Subclass/&CancelCancelElixirSwiftnessDescription	End the Swiftness condition fro
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancel Swiftness
 Subclass/&ClassMonkTraditionDescription	At 3rd level you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.  .
 Subclass/&ClassMonkTraditionTitle	Monastic Traditions
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\nMonks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Monks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
 Subclass/&ClassWarlockPatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
 Subclass/&ClassWarlockPatronTitle	Otherwordly Patron
