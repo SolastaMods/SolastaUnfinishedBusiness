@@ -554,7 +554,7 @@ Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠�
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
 Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalStrengthTitle	原初狂怒（力量）
-Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击
+Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为 {3}
@@ -837,7 +837,7 @@ Feature/&ClassMonkKiDescription	你掌握一股名为气的神秘能量。此后
 Feature/&ClassMonkKiEmpoweredStrikesDescription	攻击对非魔法攻击或伤害具有抗性或免疫的目标时，你的徒手打击视为魔法攻击
 Feature/&ClassMonkKiEmpoweredStrikesTitle	真气驻拳
 Feature/&ClassMonkKiTitle	气
-Feature/&ClassMonkMartialArtsDescription	未着装任何护甲也没持用盾牌时，如果你徒手或只持用武僧武器，则你拥有下列增益：\n - 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n - 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。该骰子将随武僧职业等级的提升而增大\n - 你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
+Feature/&ClassMonkMartialArtsDescription	未装备任何护甲也未持用盾牌时，如果你徒手或只持用武僧武器，则你拥有下列增益：\n - 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n - 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。该骰子将随武僧职业等级的提升而增大\n - 你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
 Feature/&ClassMonkMartialArtsTitle	武艺
 Feature/&ClassMonkMartialDiceProgression00Description	你能骰<color=#57BCF4>D6</color>来代替你徒手打击或武僧武器的伤害
 Feature/&ClassMonkMartialDiceProgression00Title	武艺骰提升 (D6)
@@ -852,7 +852,7 @@ Feature/&ClassMonkPurityOfBodyTitle	百病不侵
 Feature/&ClassMonkSkillProficiencyTitle	武僧技能
 Feature/&ClassMonkTongueOfSunAndMoonDescription	你能与其它生物进行心灵交流，因此你能够听懂所有语言。同时掌握至少一门语言的任何生物都能理解你讲的话语
 Feature/&ClassMonkTongueOfSunAndMoonTitle	天语通
-Feature/&ClassMonkUnarmoredDefenseDescription	未着装任何护甲也没持用盾牌时，你的AC等于10＋敏捷调整值＋感知调整值
+Feature/&ClassMonkUnarmoredDefenseDescription	未装备任何护甲也未持用盾牌时，你的AC等于10＋敏捷调整值＋感知调整值
 Feature/&ClassMonkUnarmoredDefenseTitle	无甲防御
 Feature/&ClassMonkUnarmoredMovementBonusDescription	移动速度增加5尺
 Feature/&ClassMonkUnarmoredMovementBonusTitle	无甲移动
@@ -1193,7 +1193,7 @@ FightingStyle/&BlindFightingDescription	你获得10英尺范围的盲感
 FightingStyle/&BlindFightingTitle	盲斗
 FightingStyle/&CripplingDescription	将你近战范围内的对手的速度降低到10，直到下一回合结束
 FightingStyle/&CripplingTitle	致残
-FightingStyle/&PugilistFightingDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击
+FightingStyle/&PugilistFightingDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 FightingStyle/&PugilistFightingTitle	搏击
 FightingStyle/&TitanFightingDescription	你对大体型或大体型以上的生物伤害+2
 FightingStyle/&TitanFightingTitle	泰坦战技
@@ -1308,7 +1308,7 @@ Power/&ClassMonkDiamondSoulPowerDescription	当豁免失败时，你能消耗1�
 Power/&ClassMonkDiamondSoulPowerTitle	金刚魂
 Power/&ClassMonkEmptyBodyDescription	你能消耗4点气并使用动作隐形1分钟。此时，你对力场伤害之外的所有伤害都具有抗性
 Power/&ClassMonkEmptyBodyTitle	空灵体
-Power/&ClassMonkFlurryOfBlowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内执行攻击动作后，可立即消耗1点气并以一个附赠动作发动两次徒手打击。
+Power/&ClassMonkFlurryOfBlowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，可立即消耗1点气并以一个附赠动作发动两次徒手打击。
 Power/&ClassMonkFlurryOfBlowsTitle	疾风连击
 Power/&ClassMonkKiPoolDescription	你能消耗气以行使各种特性
 Power/&ClassMonkKiPoolTitle	气
@@ -1717,7 +1717,7 @@ Subclass/&CancelCancelElixirSwiftnessDescription	停止炼金师灵药带来的�
 Subclass/&CancelCancelElixirSwiftnessTitle	停止迅捷灵药
 Subclass/&ClassMonkTraditionDescription	在第3级时，你能选择你所遵循的精神方式来实现开悟。它将决定你如何操纵气
 Subclass/&ClassMonkTraditionTitle	修行宗派
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\n无论是用运用拳头还是兵刃，散打宗的武僧都是终极的战技大师。他们精通击退和绊倒敌人，运用气治疗己身，并通过深入冥想来杜绝灾厄
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	无论是用运用拳头还是兵刃，散打宗的武僧都是终极的战技大师。他们精通击退和绊倒敌人，运用气治疗己身，并通过深入冥想来杜绝灾厄
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	散打宗
 Subclass/&ClassWarlockPatronDescription	邪术师即是与异界存在缔结契约之人。邪术师与宗主之间的关系有时就好比牧师与神祇，只是宗主并非真正的神祇
 Subclass/&ClassWarlockPatronTitle	异界宗主
@@ -1735,7 +1735,7 @@ Subclass/&DHWarlockSubclassElementalPatronDescription	你已与元素荒原中�
 Subclass/&DHWarlockSubclassElementalPatronTitle	元素使者契约
 Subclass/&DHWarlockSubclassRiftWalkerDescription	你的宗主是少有的将两个世界的虚空称为家的生命之一。他们轻松地在各个位面之间穿行，而你从与他们互动中获得的知识使你能够在索拉斯塔内利用挥之不去的裂隙能量而获益。你有时可能会对你宗主的遥远领域充满渴望，渴望在余下的日子里在各个维度之间徘徊或者观察另一个裂隙事件的迹象，无论是阻止其发生抑或助纣为虐
 Subclass/&DHWarlockSubclassRiftWalkerTitle	裂隙行者契约
-Subclass/&DruidForestGuardianDruidSubclassDescription	森林守卫的德鲁伊结社发誓要保护森林和所有居住其中之人。这个德鲁伊结社的成员擅长使用防护系法术和武技战斗，是战场上可怕的对手
+Subclass/&DruidForestGuardianDruidSubclassDescription	森林守卫结社的德鲁伊发誓要保护森林和所有居住其中之人。这个德鲁伊结社的成员擅长使用防护系法术和武技战斗，是战场上可怕的对手
 Subclass/&DruidForestGuardianDruidSubclassTitle	森林守卫结社
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	触摸一个背包，注入一个多维空间，以帮助它容纳更多的重量而不影响你。注意你只能激活一次注法。第二次激活将取消第一次注法的效果
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	置物袋
@@ -1931,3 +1931,43 @@ UI/&ForcePreferredCantripTitle	默认首选戏法
 Tooltip/&PowerAttackConcentration	禁用猛力攻击\n持续至你下一回合开始
 Feat/&FeatShieldExpertTitle	盾牌专家
 Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势
+Subclass/&ClassMonkTraditionZenArcherTitle	延臂宗
+Subclass/&ClassMonkTraditionZenArcherDescription	延臂宗的修行者通过训练使箭成为他们手臂的延伸。他们能熟练使用弓箭，并通过弓箭发挥气的功效
+Feature/&ClassMonkZenArcherCombatTitle	延臂战法
+Feature/&ClassMonkZenArcherCombatDescription	获得弓的熟练项，弓视为你的武僧武器\n未装备任何护甲也未持用盾牌时，当你使用武僧武器进行远程攻击时，你不会因为5英尺范围内有敌人而具有劣势
+Power/&ClassMonkZenArrowDistractDescription	目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowDistractTitle	分心
+Power/&ClassMonkZenArrowProneDescription	目标必须成功通过一次敏捷豁免，否则被击倒
+Power/&ClassMonkZenArrowProneTitle	击倒
+Power/&ClassMonkZenArrowPushDescription	目标必须通过一次力量豁免，否则被推离你10尺远
+Power/&ClassMonkZenArrowPushTitle	推离
+Power/&ClassMonkZenArrowTechniqueDescription	你能在用箭击中敌人时操作其体内的气。当你用箭击中敌人时，你能让该目标承受下列效应之一：\n - 目标必须成功通过一次敏捷豁免，否则被击倒\n - 目标必须通过一次力量豁免，否则被推离你10尺远\n - 目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowTechniqueTitle	延臂技巧
+Power/&ClassMonkZenArrowTechniqueShortTitle	延臂
+Condition/&ClassMonkZenArrowDistractConditionTitle	分心
+Condition/&ClassMonkZenArrowDistractConditionDescription	下一次攻击具有劣势
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0}以箭击中一个生物，能施加以下效果之一于该目标：
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	应用选定技巧
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	应用
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	延臂技巧
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	疾风连狙
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，可立即消耗2点气并以一个附赠动作以弓发动两次远程攻击
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
+Power/&ClassMonkZenArrowUpgradedDistractTitle	分心
+Power/&ClassMonkZenArrowUpgradedDistractDescription	目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowUpgradedProneTitle	击倒
+Power/&ClassMonkZenArrowUpgradedProneDescription	目标必须成功通过一次敏捷豁免，否则被击倒并且其速度在一回合内设为0
+Power/&ClassMonkZenArrowUpgradedPushTitle	推离
+Power/&ClassMonkZenArrowUpgradedPushDescription	目标必须通过一次力量豁免，否则被推离你20尺远
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	精通延臂技巧
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	延臂
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	你掌控气的能力提升了，所有延臂技巧都得到了提高。当你用箭击中敌人时，你能让该目标承受下列效应之一：\n - 目标必须成功通过一次敏捷豁免，否则被击倒并且其速度在一回合内设为0\n - 目标必须通过一次力量豁免，否则被推离你20尺远\n - 目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	分心
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	所有攻击具有劣势
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	钉住
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	速度设为0
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0}以箭击中一个生物，能施加以下效果之一于该目标：
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	应用选定技巧
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	应用
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	延臂技巧
