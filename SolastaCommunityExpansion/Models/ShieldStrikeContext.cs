@@ -48,8 +48,8 @@ namespace SolastaCommunityExpansion.Models
                     DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
 
-            shieldType.SetField("soundEffectOnHitDescription",
-                WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription);
+            shieldType.soundEffectOnHitDescription =
+                WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription;
 
             return shieldType;
         }

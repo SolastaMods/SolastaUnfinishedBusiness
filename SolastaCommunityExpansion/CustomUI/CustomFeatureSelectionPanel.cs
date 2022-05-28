@@ -1206,8 +1206,7 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.canLearn = canLearn && !auroPrepard;
             instance.selectedToLearn = selected;
             instance.selectedToLearn = selected;
-            instance.SetField("known",
-                known); //TODO: try to experimant with auto prepared tags to signify known features
+            instance.known = known; //TODO: try to experimant with auto prepared tags to signify known features
             instance.Refresh();
         }
 
