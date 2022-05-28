@@ -75,7 +75,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
             // there are some TA.coroutines that iterate over the list with yields in between. This iteration breaks if
             // UsablePowers is modified. We intentionally use SetField here rather than modify the UsablePowers list so
             // that anything currently iterating over the powers won't hang the game.
-            hero.SetField("usablePowers", curPowers);
+            hero.usablePowers = curPowers;
             Traverse.Create(hero).Method("RebindUsablePowers", hero, hero.UsablePowers);
             hero.RefreshPowers();
         }

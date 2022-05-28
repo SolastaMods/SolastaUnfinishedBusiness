@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetActionType(ActionDefinitions.ActionType value)
         {
-            Definition.SetField("actionType", value);
+            Definition.actionType = value;
             return This();
         }
 

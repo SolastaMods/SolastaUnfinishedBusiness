@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
         private static IEnumerator ExecuteAsync(AfterRestActionItem item, string powerName)
         {
-            item.SetField("executing", true);
+            item.executing = true;
 
             var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
             var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
@@ -99,7 +99,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             }
 
             item.AfterRestActionTaken?.Invoke();
-            item.SetField("executing", false);
+            item.executing = false;
 
             var button = item.button;
 

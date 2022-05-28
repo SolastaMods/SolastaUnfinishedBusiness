@@ -125,7 +125,7 @@ namespace SolastaCommunityExpansion.Models
                 var tags = oldHero.Tags;
                 var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
                 var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
                 var worldLocationEntityFactoryService =
                     ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
                 var gameLocationCharacter =
@@ -149,7 +149,7 @@ namespace SolastaCommunityExpansion.Models
                     worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
 
-                gameLocationCharacterService.SetField("dirtyParty", true);
+                gameLocationCharacterService.dirtyParty = true;
                 gameLocationCharacterService.RefreshAllCharacters();
 
                 IsRespecing = false;

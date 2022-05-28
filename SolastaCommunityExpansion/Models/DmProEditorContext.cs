@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Models
                     environmentEffectDefinition.GuiPresentation.SetDescription(description);
                 }
 
-                environmentEffectDefinition.SetField("inDungeonEditor", true);
+                environmentEffectDefinition.inDungeonEditor = true;
             }
         }
 

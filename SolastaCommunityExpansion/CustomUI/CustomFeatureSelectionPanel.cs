@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.CustomUI
         internal void Setup(CharacterStageSpellSelectionPanel spells)
         {
             spellsPanel = spells;
-            this.SetField("stageDefinition", spells.StageDefinition);
+            this.stageDefinition = spells.StageDefinition;
 
             spellsByLevelTable = spells.GetField<RectTransform>("spellsByLevelTable");
             spellsByLevelPrefab = spells.GetField<GameObject>("spellsByLevelPrefab");
@@ -910,9 +910,9 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.PoolType = pool.IsReplacer
                 ? HeroDefinitions.PointsPoolType.SpellUnlearn
                 : HeroDefinitions.PointsPoolType.Irrelevant;
-            instance.SetField("rank", rank);
-            instance.SetField("ignoreAvailable", pool.IsReplacer);
-            instance.SetField("autoLearnAvailable", false);
+            instance.rank = rank;
+            instance.ignoreAvailable = pool.IsReplacer;
+            instance.autoLearnAvailable = false;
             var header = pool.FeatureSet.FormatTitle();
             instance.GetField<GuiLabel>("headerLabelActive").Text = header;
             instance.GetField<GuiLabel>("headerLabelInactive").Text = header;
@@ -1174,12 +1174,12 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             Features.AddOrReplace(instance, feature);
 
-            instance.SetField("bindMode", bindMode);
+            instance.bindMode = bindMode;
             instance.SpellBoxChanged = spellBoxChanged;
-            instance.SetField("hovered", false);
-            instance.SetField("ritualSpell", false);
-            instance.SetField("autoPrepared", false);
-            instance.SetField("unlearnedSpell", unlearned);
+            instance.hovered = false;
+            instance.ritualSpell = false;
+            instance.autoPrepared = false;
+            instance.unlearnedSpell = unlearned;
             instance.GetField<Image>("spellImage").color = Color.white;
             instance.transform.localScale = new Vector3(1f, 1f, 1f);
 
@@ -1187,12 +1187,12 @@ namespace SolastaCommunityExpansion.CustomUI
 
             component.ForwardStartDelay = Random.Range(0.0f, component.Duration);
 
-            instance.SetField("prepared", false);
-            instance.SetField("canLearn", false);
-            instance.SetField("selectedToLearn", false);
-            instance.SetField("canPrepare", false);
-            instance.SetField("known", false);
-            instance.SetField("canUnlearn", false);
+            instance.prepared = false;
+            instance.canLearn = false;
+            instance.selectedToLearn = false;
+            instance.canPrepare = false;
+            instance.known = false;
+            instance.canUnlearn = false;
 
             instance.name = feature.Name;
         }
@@ -1202,10 +1202,10 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             var auroPrepard = instance.GetField<bool>("autoPrepared");
 
-            instance.SetField("interactive", canLearn && !auroPrepard);
-            instance.SetField("canLearn", canLearn && !auroPrepard);
-            instance.SetField("selectedToLearn", selected);
-            instance.SetField("selectedToLearn", selected);
+            instance.interactive = canLearn && !auroPrepard;
+            instance.canLearn = canLearn && !auroPrepard;
+            instance.selectedToLearn = selected;
+            instance.selectedToLearn = selected;
             instance.SetField("known",
                 known); //TODO: try to experimant with auto prepared tags to signify known features
             instance.Refresh();

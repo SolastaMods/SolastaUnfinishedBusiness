@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
                 return true;
             }
 
-            __instance.SetField("index", index);
+            __instance.index = index;
 
             var guiPowerDefinition =
                 ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             __instance.tooltip.DataProvider = guiPowerDefinition;
             __instance.tooltip.Context = caster;
 
-            __instance.SetField("onActivate", onActivate);
+            __instance.onActivate = onActivate;
 
             return false;
         }

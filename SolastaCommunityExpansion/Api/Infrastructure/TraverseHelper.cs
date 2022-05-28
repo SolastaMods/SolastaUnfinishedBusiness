@@ -12,7 +12,7 @@ namespace SolastaModApi.Infrastructure
         ///     Usage
         ///     <code>
         /// var instanceWithPrivateFields = CreateInstance(...);
-        /// instanceWithPrivateFields.SetField("privatefield", 2);
+        /// instanceWithPrivateFields.privatefield = 2;
         /// </code>
         /// </summary>
         /// <remarks>

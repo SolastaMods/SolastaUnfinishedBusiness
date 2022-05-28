@@ -66,8 +66,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAtttributeModif
                 ? Mathf.Clamp(currentValue, __instance.MinValue, realMaxValue)
                 : minModValue;
 
-            __instance.SetField("currentValue", currentValue);
-            __instance.SetField("upToDate", true);
+            __instance.currentValue = currentValue;
+            __instance.upToDate = true;
 
             __instance.AttributeRefreshed?.Invoke();
 

@@ -153,7 +153,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 currentItemForm = largeItemForm;
             }
 
-            item.SetField("currentItemForm", currentItemForm);
+            item.currentItemForm = currentItemForm;
 
             if (currentItemForm == null)
             {

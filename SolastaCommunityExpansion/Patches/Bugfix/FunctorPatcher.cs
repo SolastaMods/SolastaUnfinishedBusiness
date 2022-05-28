@@ -54,7 +54,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                         var newPlayerPlacementMarkers =
                             playerPlacementMarkers.AddToArray(playerPlacementMarkers[idx++ % len]);
 
-                        functorParameters.SetField("playerPlacementMarkers", newPlayerPlacementMarkers);
+                        functorParameters.playerPlacementMarkers = newPlayerPlacementMarkers;
                         selectedCharacters.Add(guestCharacter);
 
                         break;
