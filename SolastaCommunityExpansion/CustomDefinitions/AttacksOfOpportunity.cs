@@ -46,7 +46,8 @@ public static class AttacksOfOpportunity
                 && defender != unit
                 && attacker.IsOppositeSide(unit.Side)
                 && defender.Side == unit.Side
-                && unit.RulesetCharacter.HasSubFeatureOfType<SentinelFeatMarker>()
+                && (unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
+                && (defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
                 && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier, battleManager)
                )
             {
@@ -121,5 +122,4 @@ internal class CanIgnoreDisengage : ICanIgnoreAoOImmunity
 
 internal class SentinelFeatMarker
 {
-    
 }
