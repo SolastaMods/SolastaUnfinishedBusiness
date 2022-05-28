@@ -127,21 +127,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityArtificerInfusionCasting:43adb72f-5ff5-5504-87a6-406b9ccfb5d0",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetClericRitualCasting:b5f687fa97a0be94a95197f0929ee304",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyTinkererSavingThrow:e835f607-1d21-5e9c-868c-40b9093ee6eb",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyArmorTinkerer:81498ced-4ee9-555b-bbeb-30913945abd4",
       "level": 1
     },
@@ -158,6 +143,21 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyWeaponTinkerer:9869843a-9947-506b-b1cb-2d63424e2481",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityArtificerInfusionCasting:43adb72f-5ff5-5504-87a6-406b9ccfb5d0",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetClericRitualCasting:b5f687fa97a0be94a95197f0929ee304",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyTinkererSavingThrow:e835f607-1d21-5e9c-868c-40b9093ee6eb",
       "level": 1
     },
     {
@@ -197,12 +197,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
+      "featureDefinition": "Definition:SubclassChoiceArtificerSpecialistArchetypes:d9377b60-5def-5aea-8c53-590647d09884",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SubclassChoiceArtificerSpecialistArchetypes:d9377b60-5def-5aea-8c53-590647d09884",
+      "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
       "level": 3
     },
     {
@@ -222,6 +222,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ExpertiseToolsTinkerer:7f14447c-e6fa-5fef-805b-951517b4b74a",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:TinkererInfusionChoice:4dbf955c-2a87-58ac-9e0a-b8646378a768",
       "level": 6
     },
@@ -238,11 +243,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:TinkererInfusionReplace:7a1d2ef1-0f14-5bb4-8cc1-2951c1c7c057",
-      "level": 6
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ExpertiseToolsTinkerer:7f14447c-e6fa-5fef-805b-951517b4b74a",
       "level": 6
     },
     {

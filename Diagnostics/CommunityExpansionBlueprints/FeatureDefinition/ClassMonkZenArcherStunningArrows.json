@@ -1,16 +1,10 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "ClassMonkTraditionWayOfTheOpenHand",
-    "ClassMonkTraditionZenArcher"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "ClassMonkTradition",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassMonkTraditionTitle",
-    "description": "Subclass/&ClassMonkTraditionDescription",
+    "title": "Feature/&ClassMonkZenArcherStunningArrowsTitle",
+    "description": "Feature/&ClassMonkZenArcherStunningArrowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8a44e685-f083-5ce9-ad06-7464f20005c9",
+  "guid": "77aff6b4-c3c5-5da6-a1b4-52081284765d",
   "contentPack": 9999,
-  "name": "ClassMonkSubclassChoice"
+  "name": "ClassMonkZenArcherStunningArrows"
 }

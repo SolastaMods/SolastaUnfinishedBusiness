@@ -1,16 +1,10 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "ClassMonkTraditionWayOfTheOpenHand",
-    "ClassMonkTraditionZenArcher"
-  ],
-  "filterByDeity": false,
-  "subclassSuffix": "ClassMonkTradition",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassMonkTraditionTitle",
-    "description": "Subclass/&ClassMonkTraditionDescription",
+    "title": "Feature/&ClassMonkZenArcherKiPoweredArowsTitle",
+    "description": "Feature/&ClassMonkZenArcherKiPoweredArowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8a44e685-f083-5ce9-ad06-7464f20005c9",
+  "guid": "0de8ca22-385c-51e4-8431-b488b50013e3",
   "contentPack": 9999,
-  "name": "ClassMonkSubclassChoice"
+  "name": "ClassMonkZenArcherKiPoweredArows"
 }

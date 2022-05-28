@@ -1,16 +1,16 @@
 {
-  "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
-  "subclasses": [
-    "ClassMonkTraditionWayOfTheOpenHand",
-    "ClassMonkTraditionZenArcher"
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "LongbowType",
+    "ShortbowType"
   ],
-  "filterByDeity": false,
-  "subclassSuffix": "ClassMonkTradition",
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassMonkTraditionTitle",
-    "description": "Subclass/&ClassMonkTraditionDescription",
+    "title": "Feature/&ClassMonkZenArcherCombatTitle",
+    "description": "Feature/&ClassMonkZenArcherCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8a44e685-f083-5ce9-ad06-7464f20005c9",
+  "guid": "2337b7e9-fd95-5acd-b638-e50827476c1d",
   "contentPack": 9999,
-  "name": "ClassMonkSubclassChoice"
+  "name": "ClassMonkZenArcherCombat"
 }

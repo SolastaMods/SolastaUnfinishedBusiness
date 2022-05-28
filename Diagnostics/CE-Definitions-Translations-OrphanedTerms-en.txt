@@ -140,7 +140,7 @@ Language/&AbyssalDescription	Abyssal language was the form of primordial languag
 Language/&AbyssalTitle	Abyssal
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
-Message/&CharacterExportModalContentDescription	Enter the hero name to export:.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export.
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session.
@@ -167,7 +167,7 @@ Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
 Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
@@ -326,3 +326,13 @@ UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
 Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
+Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Distant Hand Technique
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Distant Hand Technique
