@@ -54,8 +54,6 @@ namespace SolastaCommunityExpansion.CustomUI
         private CharacterClassDefinition gainedClass;
         private int gainedClassLevel;
         private CharacterSubclassDefinition gainedSubclass;
-
-        private bool initialized;
         private bool wasClicked;
 
         public override string Name => "CustomFeatureSelection";
@@ -110,7 +108,7 @@ namespace SolastaCommunityExpansion.CustomUI
             OnEnterStageDone();
         }
 
-        protected override void OnBeginShow(bool instant = false)
+        public override void OnBeginShow(bool instant = false)
         {
             base.OnBeginShow(instant);
 
@@ -128,7 +126,7 @@ namespace SolastaCommunityExpansion.CustomUI
             RefreshNow();
         }
 
-        protected override void OnEndHide()
+        public override void OnEndHide()
         {
             learnedFeatures.Clear();
             allPools.Clear();
@@ -156,7 +154,7 @@ namespace SolastaCommunityExpansion.CustomUI
             }
         }
 
-        protected override void Refresh()
+        public override void Refresh()
         {
             var currentPoolIndex = 0;
 

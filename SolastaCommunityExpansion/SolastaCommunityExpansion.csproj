@@ -26,6 +26,20 @@
     <Error Text="Please set the SolastaInstallDir environment variable." Condition="'$(SolastaInstallDir)' == ''" ContinueOnError="false"/>
   </Target>
 
+  <Target Name="Publicise" AfterTargets="Clean">
+		<ItemGroup>
+			<PubliciseInputAssemblies Include="$(SolastaInstallDir)\Solasta_Data\Managed\Assembly-CSharp.dll" />
+		</ItemGroup>
+		<Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+	</Target>
+
+  <ItemGroup>
+		<PackageReference Include="Aze.Publicise.MSBuild.Task" Version="1.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+  </ItemGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
     <OutputPath>$(SolastaInstallDir)\Mods\SolastaCommunityExpansion\</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -119,10 +133,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
+    <!-- <Reference Include="Assembly-CSharp">
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
-    </Reference>
+    </Reference> -->
+		<Reference Include="Assembly-CSharp">
+			<HintPath>$(SolutionDir)lib\Assembly-CSharp_public.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Newtonsoft.Json.dll</HintPath>
       <Private>false</Private>
