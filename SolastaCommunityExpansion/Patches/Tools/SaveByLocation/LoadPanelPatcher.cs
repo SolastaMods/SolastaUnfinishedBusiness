@@ -36,9 +36,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
             // From OnBeginShow
             __instance.StartAllModifiers(true);
             ___loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
-            AccessTools
-                .Method(typeof(LoadPanel), "Reset")
-                .Invoke(__instance, Array.Empty<object>());
+            __instance.Reset();
 
             // The Load Panel is being shown.
             // 1) create/activate a dropdown next to the load save button
@@ -169,7 +167,8 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 
                 // reload the save file list
                 var method = AccessTools.Method(typeof(LoadPanel), "EnumerateSaveLines");
-                __instance.StartCoroutine((IEnumerator)method.Invoke(__instance, Array.Empty<object>()));
+
+                __instance.EnumerateSaveLines();
             }
 
             GuiDropdown CreateOrActivateDropdown()

@@ -35,18 +35,15 @@ namespace SolastaCommunityExpansion.Models
 
         internal static void RecacheFeats()
         {
-            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
+            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
 
             if (guiWrapperService == null)
             {
                 return;
             }
 
-            var methodRuntimeLoaded = AccessTools.Method(guiWrapperService.GetType(), "LoadFeatDefinitions");
-
-            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap")
-                .Clear();
-            methodRuntimeLoaded.Invoke(guiWrapperService, Array.Empty<object>());
+            guiWrapperService.featDefinitionsMap.Clear();
+            guiWrapperService.LoadFeatDefinitions();
         }
     }
 }
