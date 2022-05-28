@@ -4,6 +4,7 @@ using static SolastaCommunityExpansion.Displays.BlueprintDisplay;
 using static SolastaCommunityExpansion.Displays.CharacterDisplay;
 using static SolastaCommunityExpansion.Displays.CreditsDisplay;
 using static SolastaCommunityExpansion.Displays.DungeonMakerDisplay;
+using static SolastaCommunityExpansion.Displays.EncountersDisplay;
 using static SolastaCommunityExpansion.Displays.FeatsAndFightingStylesDisplay;
 using static SolastaCommunityExpansion.Displays.GameServicesDisplay;
 using static SolastaCommunityExpansion.Displays.GameUiDisplay;
@@ -78,21 +79,21 @@ namespace SolastaCommunityExpansion.Displays
         }
     }
 
-    //public class EncountersViewer : IMenuSelectablePage
-    //{
-    //    private int encountersSelectedPane;
-    //    public string Name => Main.Enabled ? Gui.Format("ModUi/&Encounters") : "Encounters";
+    public class EncountersViewer : IMenuSelectablePage
+    {
+        private int encountersSelectedPane;
+        public string Name => Main.Enabled ? Gui.Format("ModUi/&Encounters") : "Encounters";
 
-    //    public int Priority => 400;
+        public int Priority => 400;
 
-    //    public void OnGUI(UnityModManager.ModEntry modEntry)
-    //    {
-    //        DisplaySubMenu(ref encountersSelectedPane,
-    //            new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GeneralMenu") : "General", DisplayEncountersGeneral),
-    //            new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Bestiary") : "Bestiary", DisplayBestiary),
-    //            new NamedAction(Main.Enabled ? Gui.Format("ModUi/&CharactersPool") : "Characters Pool", DisplayNPCs));
-    //    }
-    //}
+        public void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            DisplaySubMenu(ref encountersSelectedPane,
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GeneralMenu") : "General", DisplayEncountersGeneral),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Bestiary") : "Bestiary", DisplayBestiary),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&CharactersPool") : "Characters Pool", DisplayNPCs));
+        }
+    }
 
     public class CreditsAndDiagnosticsViewer : IMenuSelectablePage
     {

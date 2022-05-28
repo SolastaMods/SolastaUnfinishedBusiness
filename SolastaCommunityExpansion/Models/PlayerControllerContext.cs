@@ -1,8 +1,7 @@
-﻿using SolastaCommunityExpansion;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaEncounters.Models
+namespace SolastaCommunityExpansion.Models
 {
     public static class PlayerControllerContext
     {
