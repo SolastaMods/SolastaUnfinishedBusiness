@@ -110,31 +110,33 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
                         .ProficiencyBonusAndSpellcastingBonus)
                 {
-                    // PATCH HERE
-                    //
+                    int num = 0;
+
                     // use the correct spell repertoire for calculating spell bonus (MC scenario)
                     //
-
-                    var num = 0;
-
-                    //
-                    // Global.CastedSpellRepertoire isn't set under MP sessions so we need to use this less optimal resolution
-                    //
-                    if (Global.IsMultiplayer)
-                    {
-                        foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
-                        {
-                            num = Math.Max(num,
-                                AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
-                                    .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue));
-                        }
-                    }
-                    else
+                    //foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                    //{
+                    //    num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                    //    if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                    //        break;
+                    //}
+                    if (Global.CastedSpellRepertoire != null)
                     {
                         num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
                             .GetAttribute(Global.CastedSpellRepertoire.SpellCastingAbility).CurrentValue);
                     }
-                    // END PATCH
+                    // this scenario should not happen but who knows under MP ;-)
+                    else
+                    {
+                        foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                        {
+                            num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                            {
+                                break;
+                            }
+                        }
+                    }
 
                     damageForm.BonusDamage += num;
                 }

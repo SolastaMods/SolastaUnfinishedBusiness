@@ -22,6 +22,12 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             Main.Logger.Log(action.ActionDefinition.Name);
             Global.CurrentAction = action;
 
+            if (action is CharacterActionCastSpell actionCastSpell)
+            {
+                Global.CastedSpellRepertoire = actionCastSpell.ActiveSpell.SpellRepertoire;
+                Global.CastedSpell = actionCastSpell.ActiveSpell.SpellDefinition;
+            }
+
             var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();
 
             foreach (var feature in features)

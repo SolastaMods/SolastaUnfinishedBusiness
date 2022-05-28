@@ -12,19 +12,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellsByLevelBox_OnActivateStandardBox
     {
-        internal static void Prefix(
-            int index,
-            SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
-            Dictionary<int, SpellDefinition> ___spellsByIndex,
-            RulesetSpellRepertoire ___spellRepertoire)
-        {
-            if (___spellCastEngaged != null)
-            {
-                Global.CastedSpell = ___spellsByIndex[index];
-                Global.CastedSpellRepertoire = ___spellRepertoire;
-            }
-        }
-
         public static int MySpellLevel(SpellDefinition spellDefinition, SpellsByLevelBox spellsByLevelBox)
         {
             var rulesetSpellRepertoire =
@@ -58,25 +45,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 {
                     yield return instruction;
                 }
-            }
-        }
-    }
-
-    // Guarantee Warlock Spell Level will be used whenever possible on SC Warlocks
-    [HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateAdvancedBox")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellsByLevelBox_OnActivateAdvancedBox
-    {
-        public static void Prefix(
-            int index,
-            SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
-            Dictionary<int, SpellDefinition> ___spellsByIndex,
-            RulesetSpellRepertoire ___spellRepertoire)
-        {
-            if (___spellCastEngaged != null)
-            {
-                Global.CastedSpell = ___spellsByIndex[index];
-                Global.CastedSpellRepertoire = ___spellRepertoire;
             }
         }
     }
