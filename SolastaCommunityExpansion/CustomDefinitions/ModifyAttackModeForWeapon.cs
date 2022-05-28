@@ -43,21 +43,15 @@ public class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
     }
 }
 
-public class UpgradeWeaponDice : IModifyAttackModeForWeapon
+public abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeapon
 {
-    public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
-        RulesetItem weapon);
-
-    private readonly CharacterValidator[] _validators;
-    private readonly GetWeaponDiceHandler getWeaponDice;
     private readonly IsWeaponValidHandler isWeaponValid;
+    private readonly CharacterValidator[] validators;
 
-    public UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
-        params CharacterValidator[] validators)
+    protected ModifyAttackModeForWeaponBase(IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
     {
         this.isWeaponValid = isWeaponValid;
-        this.getWeaponDice = getWeaponDice;
-        _validators = validators;
+        this.validators = validators;
     }
 
     public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
@@ -67,7 +61,7 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
             return;
         }
 
-        if (!character.IsValid(_validators))
+        if (!character.IsValid(validators))
         {
             return;
         }
@@ -77,6 +71,29 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
             return;
         }
 
+        TryModifyAttackMode(character, attackMode, weapon);
+    }
+
+    protected abstract void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+        RulesetItem weapon);
+}
+
+public class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
+{
+    public delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
+        RulesetItem weapon);
+
+    private readonly GetWeaponDiceHandler getWeaponDice;
+
+    public UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
+        params CharacterValidator[] validators) : base(isWeaponValid, validators)
+    {
+        this.getWeaponDice = getWeaponDice;
+    }
+
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
 
@@ -105,37 +122,19 @@ public class UpgradeWeaponDice : IModifyAttackModeForWeapon
     }
 }
 
-public class AddTagToWeaponAttack : IModifyAttackModeForWeapon
+public class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 {
-    private readonly CharacterValidator[] _validators;
-    private readonly IsWeaponValidHandler isWeaponValid;
     private readonly string tag;
 
     public AddTagToWeaponAttack(string tag, IsWeaponValidHandler isWeaponValid,
-        params CharacterValidator[] validators)
+        params CharacterValidator[] validators) : base(isWeaponValid, validators)
     {
-        this.isWeaponValid = isWeaponValid;
         this.tag = tag;
-        _validators = validators;
     }
 
-    public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+        RulesetItem weapon)
     {
-        if (attackMode == null)
-        {
-            return;
-        }
-
-        if (!character.IsValid(_validators))
-        {
-            return;
-        }
-
-        if (!isWeaponValid(attackMode, weapon, character))
-        {
-            return;
-        }
-
         attackMode.AddAttackTagAsNeeded(tag);
     }
 }
