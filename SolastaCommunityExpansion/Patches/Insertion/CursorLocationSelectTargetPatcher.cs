@@ -3,21 +3,22 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
-
-internal static class CursorLocationSelectTargetPatcher
+namespace SolastaCommunityExpansion.Patches.Insertion
 {
-    [HarmonyPatch(typeof(CursorLocationSelectTarget), "IsValidAttack")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsValidAttack
+    internal static class CursorLocationSelectTargetPatcher
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [HarmonyPatch(typeof(CursorLocationSelectTarget), "IsValidAttack")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class IsValidAttack
         {
-            var code = new List<CodeInstruction>(instructions);
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var code = new List<CodeInstruction>(instructions);
 
-            ExtraAttacksOnActionPanel.ApplyCursorLocationSelectTargetTranspile(code);
+                ExtraAttacksOnActionPanel.ApplyCursorLocationSelectTargetTranspile(code);
 
-            return code;
+                return code;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
 using SolastaModApi.Extensions;
+
 //using SolastaCommunityExpansion.Classes.Warden;
 
 namespace SolastaCommunityExpansion.Models

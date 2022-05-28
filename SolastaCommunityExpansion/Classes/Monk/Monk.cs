@@ -720,11 +720,12 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        private static bool CanUseStunningStrike(RulesetAttackMode mode, RulesetCharacter character, RulesetCharacter target)
+        private static bool CanUseStunningStrike(RulesetAttackMode mode, RulesetCharacter character,
+            RulesetCharacter target)
         {
             return ReactionAttackModeRestriction.MeleeOnly(mode, character, target)
-                || (character.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
-                && ZenArcher.IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition));
+                   || (character.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
+                       && ZenArcher.IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition));
         }
 
         private static FeatureDefinition BuildKiPoolIncrease()
@@ -938,7 +939,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             return IsMonkWeapon(character, item);
         }
-        
+
         public static bool IsMonkWeapon(RulesetCharacter character, RulesetItem weapon)
         {
             //fists
@@ -949,13 +950,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
 
             return IsMonkWeapon(character, weapon.ItemDefinition);
         }
-        
+
         public static bool IsMonkWeapon(RulesetCharacter character, ItemDefinition weapon)
         {
             if (weapon == null)
             {
                 return false;
             }
+
             var typeDefinition = weapon.WeaponDescription?.WeaponTypeDefinition;
 
             if (typeDefinition == null)
@@ -964,7 +966,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             }
 
             return MonkWeapons.Contains(typeDefinition)
-                || ZenArcher.IsMonkWeapon(character, weapon);
+                   || ZenArcher.IsMonkWeapon(character, weapon);
         }
 
         public static bool UsingOnlyMonkWeapons(RulesetCharacter character)

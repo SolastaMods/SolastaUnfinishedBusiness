@@ -327,12 +327,15 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Add all to store
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=orange&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=orange&gt;Greater and Lesser Restoration&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=orange&gt;Help&lt;/color&gt; action to all races
-        ///ModUi/&amp;AddPickpocketableLoot	Add pickpocketable loot &lt;i&gt;&lt;color=yellow&gt;[suggested if &lt;color=orange&gt;Pickpocket&lt;/color&gt; feat is enabled]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddToStore	Add to store
-        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;Advance [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	全部加入商店
+        ///ModUi/&amp;AddBleedingToLesserRestoration	添加&lt;color=orange&gt;流血&lt;/color&gt;状态至&lt;color=orange&gt;次级/高等复原术&lt;/color&gt;的移除效果范围
+        ///ModUi/&amp;AddHelpActionToAllRaces	添加&lt;color=orange&gt;协助&lt;/color&gt;至全部种族
+        ///ModUi/&amp;AddPickpocketableLoot	添加可扒窃的战利品 &lt;i&gt;&lt;color=yellow&gt;[建议在&lt;color=orange&gt;扒窃&lt;/color&gt;专长被启用时启用]&lt;/color&gt;&lt;/i&gt;
+        ///ModUi/&amp;AddToStore	加入商店
+        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;进阶选项：&lt;/color&gt;
+        ///ModUi/&amp;AdvancedHelp	. &lt;b&gt;&lt;color=red&gt;注意：&lt;/color&gt;&lt;/b&gt; 此项设置将要求玩家安装此Mod
+        ///ModUi/&amp;Adventure	&lt;color=yellow&gt;冒险：&lt;/color&gt;
+        ///ModUi/&amp;AllItemInDm	所有物品加 [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_zh_CN {
             get {
@@ -439,11 +442,11 @@ namespace SolastaCommunityExpansion.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of huma [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
+        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Urzeitlicher Lufttitan&lt;/color&gt;
+        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_de {
             get {
@@ -601,23 +604,21 @@ namespace SolastaCommunityExpansion.Properties {
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Schwaches Charisma
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwer [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Translations_de
-        {
-            get
-            {
+        public static string Translations_de {
+            get {
                 return ResourceManager.GetString("Translations-de", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells.
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1
-        ///Attribu [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1.
+        ///Att [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_en {
             get {
@@ -628,9 +629,9 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts.
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Lancement de sorts faible
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC est réglé sur 16.
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	CA est réglé sur 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Écorce
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de charisme est égal à 1.
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de Charisme est égal à 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Charisme faible
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le sco [rest of string was truncated]&quot;;.
         /// </summary>
@@ -645,7 +646,7 @@ namespace SolastaCommunityExpansion.Properties {
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feitiço fraco
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está definido para 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de carisma é igual a 1.
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de Carisma é igual a 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de i [rest of string was truncated]&quot;;.
         /// </summary>
@@ -656,13 +657,13 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Невозможно использовать заклинания
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Невозможно читать заклинания.
         ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Слабое колдовство
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC установлен на 16
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC настроен на 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Показатель харизмы равен 1
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Показатель харизмы равен 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Слабая харизма
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Интеллект равен [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Показатель интеллект [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_ru {
             get {
@@ -687,7 +688,7 @@ namespace SolastaCommunityExpansion.Properties {
                 return ResourceManager.GetString("Translations-zh-CN", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

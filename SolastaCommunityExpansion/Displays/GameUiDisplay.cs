@@ -120,7 +120,8 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
-                if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle,
+                        UI.AutoWidth()))
                 {
                     Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
                 }

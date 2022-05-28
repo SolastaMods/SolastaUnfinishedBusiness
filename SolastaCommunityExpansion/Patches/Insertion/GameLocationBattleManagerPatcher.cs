@@ -20,6 +20,5 @@ namespace SolastaCommunityExpansion.Patches.Insertion
                 return code;
             }
         }
-        
     }
 }

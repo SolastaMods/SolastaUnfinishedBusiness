@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -114,16 +115,18 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     // use the correct spell repertoire for calculating spell bonus (MC scenario)
                     //
 
-                    int num = 0;
+                    var num = 0;
 
                     //
                     // Global.CastedSpellRepertoire isn't set under MP sessions so we need to use this less optimal resolution
                     //
                     if (Global.IsMultiplayer)
                     {
-                        foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                        foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
                         {
-                            num = System.Math.Max(num, AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue));
+                            num = Math.Max(num,
+                                AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                                    .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue));
                         }
                     }
                     else

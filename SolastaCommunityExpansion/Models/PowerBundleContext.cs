@@ -133,7 +133,7 @@ namespace SolastaCommunityExpansion.Models
 
             return null;
         }
-        
+
         // Bundled sub-powers usually are not added to the character, so their UsblePower lacks class or race oringin
         // This means that CharacterActionSpendPower will not call `UsePower` on them
         // This method fixes that

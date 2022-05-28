@@ -11,7 +11,7 @@ namespace SolastaCommunityExpansion.Builders.Features
             Definition.SetBaseSpeedAdditiveModifier(value);
             return this;
         }
-        
+
         public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
         {
             Definition.SetBaseSpeedMultiplicativeModifier(value);

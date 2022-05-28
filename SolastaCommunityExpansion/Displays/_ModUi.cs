@@ -34,8 +34,11 @@ namespace SolastaCommunityExpansion.Displays
         {
             DisplaySubMenu(ref characterSelectedPane,
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GeneralMenu") : "General", DisplayCharacter),
-                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&RacesClassesSubclasses") : "Races, Classes & Subclasses", DisplayClassesAndSubclasses),
-                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&FeatsFightingStyles") : "Feats & Fighting Styles", DisplayFeatsAndFightingStyles),
+                new NamedAction(
+                    Main.Enabled ? Gui.Format("ModUi/&RacesClassesSubclasses") : "Races, Classes & Subclasses",
+                    DisplayClassesAndSubclasses),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&FeatsFightingStyles") : "Feats & Fighting Styles",
+                    DisplayFeatsAndFightingStyles),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&SpellsMenu") : "Spells", DisplaySpells));
         }
     }
@@ -51,7 +54,9 @@ namespace SolastaCommunityExpansion.Displays
         {
             DisplaySubMenu(ref gamePlaySelectedPane,
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Rules") : "Rules", DisplayRules),
-                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&ItemsCraftingMerchants") : "Items, Crafting & Merchants", DisplayItemsAndCrafting),
+                new NamedAction(
+                    Main.Enabled ? Gui.Format("ModUi/&ItemsCraftingMerchants") : "Items, Crafting & Merchants",
+                    DisplayItemsAndCrafting),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Tools") : "Tools", DisplayTools));
         }
     }
@@ -66,9 +71,11 @@ namespace SolastaCommunityExpansion.Displays
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
             DisplaySubMenu(ref interfaceSelectedPane,
-                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&DungeonMakerMenu") : "Dungeon Maker", DisplayDungeonMaker),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&DungeonMakerMenu") : "Dungeon Maker",
+                    DisplayDungeonMaker),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GameUi") : "Game UI", DisplayGameUi),
-                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&KeyboardMouse") : "Keyboard & Mouse", DisplayKeyboardAndMouse));
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&KeyboardMouse") : "Keyboard & Mouse",
+                    DisplayKeyboardAndMouse));
         }
     }
 

@@ -3,12 +3,13 @@ using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Models
 {
-    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character);
+    public delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon,
+        RulesetCharacter character);
 
     public static class WeaponValidators
     {
         public static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
-        
+
         public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
 
         public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
@@ -38,7 +39,10 @@ namespace SolastaCommunityExpansion.Models
 
         public static bool IsThrownWeapon(RulesetItem weapon)
         {
-            if (weapon == null) return false;
+            if (weapon == null)
+            {
+                return false;
+            }
 
             var weaponDescription = weapon.ItemDefinition.WeaponDescription;
 

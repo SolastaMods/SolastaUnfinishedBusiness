@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Displays
         {
             if (_buttonStyle == null)
             {
-                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+                _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
             }
 
             if (firstTime)

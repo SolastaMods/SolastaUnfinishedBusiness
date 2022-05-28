@@ -20,23 +20,23 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private static AssetReferenceSprite _flurryOfArrows, _zenArrows;
 
+        // Zen Archer's Monk weapons are bows and darts ranged weapons.
+        private static readonly List<WeaponTypeDefinition> MonkWeapons = new()
+        {
+            WeaponTypeDefinitions.ShortbowType, WeaponTypeDefinitions.LongbowType
+        };
+
+        private static FeatureDefinitionPower _distantHandTechnique;
+
+        private static ConditionDefinition _distractedCondition;
+
         private static AssetReferenceSprite FlurryOfArrows => _flurryOfArrows ??=
             CustomIcons.CreateAssetReferenceSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
 
         private static AssetReferenceSprite ZenArrows => _zenArrows ??=
             CustomIcons.CreateAssetReferenceSprite("ZenArrow", Resources.ZenArrow, 128, 64);
 
-        // Zen Archer's Monk weapons are bows and darts ranged weapons.
-        private static readonly List<WeaponTypeDefinition> MonkWeapons = new()
-        {
-            WeaponTypeDefinitions.ShortbowType,
-            WeaponTypeDefinitions.LongbowType,
-        };
-
-        private static FeatureDefinitionPower _distantHandTechnique;
         private static FeatureDefinitionPower DistantHandTechnique => _distantHandTechnique ??= BuildZenArrow();
-
-        private static ConditionDefinition _distractedCondition;
         private static ConditionDefinition DistractedCondition => _distractedCondition ??= BuildDistractedCondition();
 
         public static CharacterSubclassDefinition Build()
@@ -265,11 +265,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
                     (mode, _, character) => IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition)))
                 .AddToDB();
 
-            return new[]
-            {
-                kiPoweredArrows,
-                flurryOfArrows
-            };
+            return new[] {kiPoweredArrows, flurryOfArrows};
         }
 
         private static FeatureDefinition[] BuildLevel11Features()
@@ -280,11 +276,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
                 .SetCustomSubFeatures(new ZenArcherStunningArrows())
                 .AddToDB();
 
-            return new[]
-            {
-                stunningArrows,
-                BuildUpgradedZenArrow(),
-            };
+            return new[] {stunningArrows, BuildUpgradedZenArrow()};
         }
 
         private static FeatureDefinition BuildUpgradedZenArrow()
@@ -421,7 +413,7 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
 
         private static FeatureDefinition[] BuildLevel17Features()
         {
-            return System.Array.Empty<FeatureDefinition>();
+            return Array.Empty<FeatureDefinition>();
         }
 
         private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)

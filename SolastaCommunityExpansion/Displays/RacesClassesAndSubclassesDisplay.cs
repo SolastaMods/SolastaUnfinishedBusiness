@@ -30,7 +30,7 @@ namespace SolastaCommunityExpansion.Displays
 
             toggle = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter;
             if (UI.Toggle(Gui.Format("ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter"),
-                ref toggle, UI.AutoWidth()))
+                    ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter = toggle;
                 ArcaneFighter.UpdateEnchantWeapon();
@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Displays
 
             toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
             if (UI.Toggle(Gui.Format("ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster"),
-                ref toggle, UI.AutoWidth()))
+                    ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
                 SpellMaster.UpdateBonusRecovery();

@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomUI;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {

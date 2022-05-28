@@ -11,8 +11,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 {
     public class RangedAttackInMeleeDisadvantageRemover
     {
-        private readonly CharacterValidator[] validators;
         private readonly IsWeaponValidHandler isWeaponValid;
+        private readonly CharacterValidator[] validators;
 
         public RangedAttackInMeleeDisadvantageRemover(IsWeaponValidHandler isWeaponValid,
             params CharacterValidator[] validators)
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         /**
          * Patches `GameLocationBattleManager.CanAttack`
          * Replaces starting value of a disadvantage on a ranged attack in melee flag from `true`
-         * with a result of a call of custom method 
+         * with a result of a call of custom method
          */
         public static void ApplyTranspile(List<CodeInstruction> instructions)
         {
