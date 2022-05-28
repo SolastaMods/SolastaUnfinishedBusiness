@@ -38,7 +38,6 @@ namespace SolastaCommunityExpansion
         //
 
         public bool DisplayGeneralRaceClassSubClassToggle { get; set; } = true;
-        public bool DisplayFeatFightingStyleToggle { get; set; } = true;
         public bool DisplayRacesToggle { get; set; } = true;
         public bool DisplayClassesToggle { get; set; } = true;
         public bool DisplaySubclassesToggle { get; set; } = true;

@@ -6,29 +6,10 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class FeatsAndFightingStylesDisplay
     {
-        internal static void DisplayGeneral()
-        {
-            bool toggle;
-
-            UI.Label("");
-
-            toggle = Main.Settings.DisplayFeatFightingStyleToggle;
-            if (UI.DisclosureToggle(Gui.Format("ModUi/&General"), ref toggle, 200))
-            {
-                Main.Settings.DisplayFeatFightingStyleToggle = toggle;
-            }
-
-            if (!Main.Settings.DisplayFeatFightingStyleToggle)
-            {
-            }
-        }
-
         internal static void DisplayFeatsAndFightingStyles()
         {
             bool displayToggle;
             int sliderPos;
-
-            DisplayGeneral();
 
             displayToggle = Main.Settings.DisplayFeatsToggle;
             sliderPos = Main.Settings.FeatSliderPosition;
