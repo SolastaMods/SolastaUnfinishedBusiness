@@ -4,7 +4,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // filter features already taken on subclass display
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
@@ -58,7 +58,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
 
             if (hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
             {
-                subclasses = new List<string> {characterSubclassDefinition.Name};
+                subclasses = new List<string> { characterSubclassDefinition.Name };
             }
         }
     }
