@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // replaces the hard coded experience
     [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]
@@ -13,9 +13,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
         {
             var hero = Global.ActiveLevelUpHero;
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
             if (isLevelingUp
+                && isClassSelectionStage
                 && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels))
             {
                 achievementLevel = levels + 1;
