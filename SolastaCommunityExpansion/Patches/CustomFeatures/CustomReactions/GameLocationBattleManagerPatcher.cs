@@ -62,7 +62,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
                 var count = actionService.PendingReactionRequestGroups.Count;
                 actionService.ReactToSpendPower(reactionParams);
 
-                yield return __instance.InvokeMethod("WaitForReactions", defender, actionService, count);
+                yield return __instance.WaitForReactions(defender, actionService, count);
 
                 if (reactionParams.ReactionValidated)
                 {

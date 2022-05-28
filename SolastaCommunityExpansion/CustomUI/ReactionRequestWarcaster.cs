@@ -107,7 +107,7 @@ namespace SolastaCommunityExpansion.CustomUI
                     targetCharacters[0].LocationPosition,
                     actionModifier);
 
-                return !battleManager.InvokeMethodBool("IsValidAttackForReadiedAction", attackParams, false);
+                return !battleManager.IsValidAttackForReadiedAction(attackParams, false);
             });
 
             reactionParams.SpellRepertoire = new RulesetSpellRepertoire();

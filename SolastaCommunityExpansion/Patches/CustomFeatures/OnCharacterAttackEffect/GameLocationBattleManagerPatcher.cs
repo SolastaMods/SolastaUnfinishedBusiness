@@ -307,9 +307,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                         var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                                         actionService.ReactToSpendSpellSlot(reactionParams);
 
-                                        //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                                        yield return waitForReactionsMethod.Invoke(__instance,
-                                            new object[] {attacker, actionService, previousReactionCount});
+                                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
 
                                         validTrigger = reactionParams.ReactionValidated;
                                     }
@@ -542,13 +540,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     //Wrapped in no-formatting to simplify merges/changes from TA ------ END --------
                     if (validTrigger && validProperty)
                     {
-                        //__instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
-                        computeAndNotifyAdditionalDamageMethod.Invoke(__instance,
-                            new object[]
-                            {
-                                attacker, defender, provider, actualEffectForms, reactionParams, attackMode,
-                                criticalHit
-                            });
+                        __instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
 
                         ___triggeredAdditionalDamageTags.Add(provider.NotificationTag);
                     }
@@ -598,9 +590,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                             var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                             actionService.ReactToSpendPower(reactionParams);
 
-                            //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                            yield return waitForReactionsMethod.Invoke(__instance,
-                                new object[] {attacker, actionService, previousReactionCount});
+                            yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
                         }
                         else if (attacker.RulesetCharacter.GetRemainingUsesOfPower(usablePower) > 0
                                  && (usablePower.PowerDefinition.ActivationTime ==
@@ -640,9 +630,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                     actionService.ReactToDeflectMissile(reactionParams);
 
-                    //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                    yield return waitForReactionsMethod.Invoke(__instance,
-                        new object[] {attacker, actionService, previousReactionCount});
+                    yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
                 }
 
                 // Can I modify the damage?
@@ -664,9 +652,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                         actionService.ReactToUncannyDodge(reactionParams);
 
-                        //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                        yield return waitForReactionsMethod.Invoke(__instance,
-                            new object[] {attacker, actionService, previousReactionCount});
+                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
                     }
 
                     if (defender.GetActionStatus(ActionDefinitions.Id.LeafScales, ActionDefinitions.ActionScope.Battle,
@@ -682,9 +668,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                         actionService.ReactToLeafScales(reactionParams);
 
-                        //yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
-                        yield return waitForReactionsMethod.Invoke(__instance,
-                            new object[] {attacker, actionService, previousReactionCount});
+                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
                     }
                 }
 
@@ -738,9 +722,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         }
                     }
 
-                    //yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier, actualEffectForms, attackMode);
-                    yield return handleReactionToDamageMethod.Invoke(__instance,
-                        new object[] {attacker, defender, attackModifier, actualEffectForms, attackMode});
+                    yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier, actualEffectForms, attackMode);
                 }
             }
 

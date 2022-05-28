@@ -50,7 +50,7 @@ namespace SolastaModApi.Extensions
 
         public static bool CheckConditionName(this GameGadget gadget, string name, bool value, bool valueIfMissing)
         {
-            return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] {name, value, valueIfMissing});
+            return gadget.CheckConditionName(name, value, valueIfMissing);
         }
     }
 

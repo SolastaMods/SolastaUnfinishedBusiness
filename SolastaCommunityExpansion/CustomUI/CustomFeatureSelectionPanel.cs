@@ -1207,7 +1207,7 @@ namespace SolastaCommunityExpansion.CustomUI
             instance.SetField("selectedToLearn", selected);
             instance.SetField("known",
                 known); //TODO: try to experimant with auto prepared tags to signify known features
-            instance.InvokeMethod("Refresh");
+            instance.Refresh();
         }
 
         public static void SetupUI(this SpellBox instance, GuiPresentation setPresentation, List<string> errors)

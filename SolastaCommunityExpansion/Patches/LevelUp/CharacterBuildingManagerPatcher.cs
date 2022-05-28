@@ -503,34 +503,13 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 heroBuildingData.TempAcquiredSpellsNumber = 0;
                 heroBuildingData.TempUnlearnedSpellsNumber = 0;
 
-                var characterBuildingManagerType = typeof(CharacterBuildingManager);
-                var applyFeatureCastSpellMethod = characterBuildingManagerType.GetMethod("ApplyFeatureCastSpell",
-                    BindingFlags.NonPublic | BindingFlags.Instance);
-                var setPointPoolMethod =
-                    characterBuildingManagerType.GetMethod("SetPointPool",
-                        BindingFlags.NonPublic | BindingFlags.Instance);
-
-                applyFeatureCastSpellMethod.Invoke(__instance,
-                    new object[] {heroBuildingData, spellRepertoire.SpellCastingFeature});
-
-                setPointPoolMethod.Invoke(__instance,
-                    new object[]
-                    {
-                        heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, poolName,
-                        heroBuildingData.TempAcquiredCantripsNumber + maxPoints
-                    });
-                setPointPoolMethod.Invoke(__instance,
-                    new object[]
-                    {
-                        heroBuildingData, HeroDefinitions.PointsPoolType.Spell, poolName,
-                        heroBuildingData.TempAcquiredSpellsNumber
-                    });
-                setPointPoolMethod.Invoke(__instance,
-                    new object[]
-                    {
-                        heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName,
-                        heroBuildingData.TempUnlearnedSpellsNumber
-                    });
+                __instance.ApplyFeatureCastSpell(heroBuildingData, spellRepertoire.SpellCastingFeature);
+                __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, poolName,
+                        heroBuildingData.TempAcquiredCantripsNumber + maxPoints);
+                __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Spell, poolName,
+                        heroBuildingData.TempAcquiredSpellsNumber);
+                __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName,
+                        heroBuildingData.TempUnlearnedSpellsNumber);
             }
 
             return false;

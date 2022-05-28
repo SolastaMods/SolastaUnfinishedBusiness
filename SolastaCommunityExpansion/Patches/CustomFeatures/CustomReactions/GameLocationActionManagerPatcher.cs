@@ -12,8 +12,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
     {
         internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
-            __instance.InvokeMethod("AddInterruptRequest",
-                new ReactionRequestSpendSpellSlotExtended(reactionParams));
+            __instance.AddInterruptRequest(new ReactionRequestSpendSpellSlotExtended(reactionParams));
+
             return false;
         }
     }
@@ -24,7 +24,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
     {
         internal static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
-            __instance.InvokeMethod("AddInterruptRequest", new ReactionRequestWarcaster(reactionParams));
+            __instance.AddInterruptRequest(new ReactionRequestWarcaster(reactionParams));
 
             return false;
         }
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             if (reactionParams.RulesetEffect is RulesetEffectPower powerEffect
                 && powerEffect.PowerDefinition.IsBundlePower())
             {
-                __instance.InvokeMethod("AddInterruptRequest", new ReactionRequestSpendBundlePower(reactionParams));
+                __instance.AddInterruptRequest(new ReactionRequestSpendBundlePower(reactionParams));
                 return false;
             }
 

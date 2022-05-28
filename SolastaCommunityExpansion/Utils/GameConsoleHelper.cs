@@ -40,8 +40,8 @@ namespace SolastaCommunityExpansion.Utils
                 Indent = indent
             };
 
-            console.InvokeMethod("AddCharacterEntry", character, entry);
-            console.InvokeMethod("AddCharacterEntry", target, entry);
+            console.AddCharacterEntry(character, entry);
+            console.AddCharacterEntry(target, entry);
             console.AddEntry(entry);
         }
     }

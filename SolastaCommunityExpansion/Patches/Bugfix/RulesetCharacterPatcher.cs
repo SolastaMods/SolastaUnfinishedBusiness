@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
     {
         private static void EnumarateReactionSpells(RulesetCharacter caster)
         {
-            caster.InvokeMethod("EnumerateUsableSpells");
+            caster.EnumerateUsableSpells();
             caster.UsableSpells.RemoveAll(s => s.ActivationTime != RuleDefinitions.ActivationTime.Reaction);
         }
 
