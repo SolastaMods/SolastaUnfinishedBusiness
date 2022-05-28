@@ -1,6 +1,7 @@
 ﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
@@ -136,5 +137,22 @@ public class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
         RulesetItem weapon)
     {
         attackMode.AddAttackTagAsNeeded(tag);
+    }
+}
+
+public class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
+{
+    private readonly EffectForm effect;
+
+    public AddEffectToWeaponAttack(EffectForm effect, IsWeaponValidHandler isWeaponValid,
+        params CharacterValidator[] validators) : base(isWeaponValid, validators)
+    {
+        this.effect = effect;
+    }
+
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        attackMode.EffectDescription.AddEffectForms(effect);
     }
 }
