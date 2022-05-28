@@ -84,6 +84,12 @@ Condition/&ClassMonkStepOfTheWindConditionDescription	Du kannst die Aktion „Au
 Condition/&ClassMonkStepOfTheWindConditionTitle	Schritt des Windes
 Condition/&ClassMonkTanquilityConditionDescription	Du hast einen Vorteil bei Rettungswürfen gegen Zauber und Gegner haben einen Nachteil, wenn sie dich angreifen. Wird entfernt, wenn Sie angreifen oder einen Zauber wirken. .
 Condition/&ClassMonkTanquilityConditionTitle	Ruhe
+Condition/&ClassMonkZenArrowDistractConditionDescription	Hat Nachteil beim nächsten Angriff.
+Condition/&ClassMonkZenArrowDistractConditionTitle	Abgelenkt
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Hat bei allen Angriffen einen Nachteil.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Abgelenkt
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Bewegung wird auf Null gesetzt.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Gepinnt
 Condition/&ConditionBarkWardDescription	Beschützt von den Geistern des Waldes.
 Condition/&ConditionBarkWardTitle	Rinde Ward
 Condition/&ConditionDualFlurryApplyDescription	Du baust Schwung auf...
@@ -567,6 +573,8 @@ Feat/&FeatShadowTouchedWisDescription	Erhöhe das Weisheitsattribut um 1. Erhalt
 Feat/&FeatShadowTouchedWisTitle	Schatten berührt (Weisheit)
 Feat/&FeatShadyDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nEinmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 12. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 20. Stufe auf 4W6. Dies kann mit Rogue's Sneak Attack gestapelt werden.
 Feat/&FeatShadyTitle	Schattig
+Feat/&FeatShieldExpertDescription	Du hast den Umgang mit einem Schild als Waffe geübt. Für dich wird es zu einer Nahkampfwaffe, mit der du geübt bist und die 1W4 Knüppelschaden verursacht.\nSie erhalten einen Vorteil bei Schubsversuchen, während Sie einen Schild setzen.
+Feat/&FeatShieldExpertTitle	Schild-Experte
 Feat/&FeatStrengthIncrementDescription	+1 Stärke.
 Feat/&FeatStrengthIncrementTitle	Attributerhöhung
 Feat/&FeatTelekineticChaDescription	Erhöhe das Charisma-Attribut um 1. Erhalte eine Bonus-Aktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
@@ -861,6 +869,12 @@ Feature/&ClassMonkUnarmoredMovementTitle	Ungepanzerte Bewegung
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Wenn Sie keine Rüstung tragen und keinen Schild tragen, können Sie sich wie eine Spinne auf Wänden bewegen. Die Fähigkeit geht vorübergehend verloren, wenn Sie eine Aktion ausführen, die keine Bewegung ist, oder wenn Sie im Kampf nicht an der Reihe sind.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Ungepanzerte Bewegung: Klettern
 Feature/&ClassMonkWeaponProficiencyTitle	Waffenfertigkeiten der Mönche
+Feature/&ClassMonkZenArcherCombatDescription	Erlangen Sie Kenntnisse im Umgang mit Bögen und sie gelten für Sie als Mönchswaffe.\nSie werden nicht benachteiligt, wenn Sie mit einer Mönchswaffe einen Fernkampfangriff ausführen, während Sie sich in 1,50 m Entfernung von einem Feind befinden, vorausgesetzt, Sie tragen keine Rüstung oder Schild.
+Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
 Feature/&ClassWarlockArmorProficiencyDescription	Leichte Rüstung.
 Feature/&ClassWarlockArmorProficiencyTitle	Hexenmeister-Rüstungsfähigkeiten
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Wählen Sie Eldritch Invocation zum Ersetzen aus.
@@ -1051,8 +1065,8 @@ Feature/&OpportunistDebilitatingStrikeTitle	Lähmender Schlag
 Feature/&OpportunistQuickStrikeDescription	Sie haben einen Vorteil, wenn Sie einen Feind angreifen, dessen Initiative geringer ist als Ihre. Darüber hinaus haben Sie auch einen Vorteil, wenn Sie einen Gelegenheitsangriff ausführen.
 Feature/&OpportunistQuickStrikeTitle	Schneller Schlag
 Feature/&OtherworldlyLeapTitle	Jenseitiger Sprung
-Feature/&PowerAttackTitle	Machtangriff
 Feature/&PowerAttackDescription	Nehmen Sie für den Rest des Zuges einen -Fertigkeitsbonus auf Ihre Angriffsstrafe, um +Fertigkeitsbonusschaden zu verursachen, wenn Sie Ihre Schläge landen. Zweihändige und vielseitige Waffen erhalten doppelten Bonusschaden. Funktioniert nur mit Nahkampfwaffen.
+Feature/&PowerAttackTitle	Machtangriff
 Feature/&PowerPaladinAuraOfCourage18Description	Gewährt Verbündeten innerhalb von 30 Fuß einen Rettungswurfbonus.
 Feature/&PowerPaladinAuraOfCourage18Title	Verbesserte Aura des Mutes
 Feature/&PowerPaladinAuraOfProtection18Description	Sie und Ihre Verbündeten innerhalb von 30 Fuß können nicht erschreckt werden.
@@ -1229,14 +1243,14 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Verwenden Sie vier Boosts auf F
 FlexibleRaces/&PointPoolAbilityScore4Title	Erhöhung des Fähigkeitswerts
 Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Stufe {3} zu erreichen
 Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximales Level erreicht
-Item/&CraftingManualRecipeEnchantHandwraps+1Title	Handwickel +1 verzaubern
-Item/&CraftingManualRecipeEnchantHandwraps+2Title	Handwickel +2 verzaubern
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Verzaubere kraftvolle Handwickel
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Verzaubern Sie Handbandagen des Ziehens
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Handwickel +1 verzaubern.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Handwickel +1 verzaubern
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Handwickel +2 verzaubern.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Handwickel +2 verzaubern
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Verzaubere kraftvolle Handwickel.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Verzaubere kraftvolle Handwickel
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Verzaubern Sie Handbandagen des Ziehens.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Verzaubern Sie Handbandagen des Ziehens
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwickel +1
@@ -1336,6 +1350,26 @@ Power/&ClassMonkTanquilityDescription	Einmal pro kurzer Pause kannst du als frei
 Power/&ClassMonkTanquilityTitle	Ruhe
 Power/&ClassMonkWholenessOfBodyDescription	Als Aktion können Sie Trefferpunkte in Höhe des Dreifachen Ihrer Mönchsstufe zurückgewinnen. Sie müssen eine lange Pause beenden, bevor Sie diese Funktion wieder verwenden können.
 Power/&ClassMonkWholenessOfBodyTitle	Ganzheit des Körpers
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Nachdem du eine Aktion ausgegeben hast, um mit einer Mönchswaffe anzugreifen, kannst du 2 Ki-Punkte als Bonusaktion ausgeben, um 2 Fernkampfangriffe mit einem Bogen auszuführen. Nur verfügbar, wenn Sie keine Rüstung oder Schild tragen.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Pfeilhagel
+Power/&ClassMonkZenArrowDistractDescription	Das Ziel muss bis zum Ende seines nächsten Zuges einen Weisheitsrettungswurf bestehen oder beim nächsten Angriff einen Nachteil haben.
+Power/&ClassMonkZenArrowDistractTitle	Ablenken
+Power/&ClassMonkZenArrowProneDescription	Das Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder zu Boden geworfen werden.
+Power/&ClassMonkZenArrowProneTitle	Niederschlagen
+Power/&ClassMonkZenArrowPushDescription	Das Ziel muss einen Kraftrettungswurf bestehen oder 10 Fuß von dir weg gestoßen werden.
+Power/&ClassMonkZenArrowPushTitle	Wegstoßen
+Power/&ClassMonkZenArrowTechniqueDescription	Du kannst das Ki deines Feindes manipulieren, wenn du ihn mit deinen Pfeilen triffst. Immer wenn du eine Kreatur mit einem deiner Pfeile triffst, kannst du 1 Ki ausgeben, um diesem Ziel einen der folgenden Effekte aufzuerlegen:\n - Es muss ein Geschicklichkeitsrettungswurf gelingen oder zu Boden geworfen werden.\n - Es muss ein Kraftrettungswurf gelingen oder 10 Fuß von dir weg gestoßen werden.\n - Es muss bis zum Ende seines nächsten Zuges einen Weisheitswurf bestehen oder beim nächsten Angriff Nachteile haben.
+Power/&ClassMonkZenArrowTechniqueShortTitle	Ferne Hand
+Power/&ClassMonkZenArrowTechniqueTitle	Fernhand-Technik
+Power/&ClassMonkZenArrowUpgradedDistractDescription	Das Ziel muss bis zum Ende seines nächsten Zuges einen Weisheitsrettungswurf bestehen oder bei allen Angriffen einen Nachteil haben.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Ablenken
+Power/&ClassMonkZenArrowUpgradedProneDescription	Das Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder zu Boden geworfen werden und seine Bewegung wird für eine Runde auf Null gesetzt.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Niederschlagen
+Power/&ClassMonkZenArrowUpgradedPushDescription	Das Ziel muss einen Kraftrettungswurf bestehen oder 20 Fuß von dir weg gestoßen werden.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Wegstoßen
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Du verbesserst deine Fähigkeit, Ki zu manipulieren – alle Effekte der Distant-Hand-Technik werden verbessert. Immer wenn du eine Kreatur mit einem deiner Pfeile triffst, kannst du 1 Ki ausgeben, um diesem Ziel einen der folgenden Effekte aufzuerlegen:\n - Ihr muss ein Geschicklichkeitsrettungswurf gelingen oder sie wird zu Boden geworfen und ihre Bewegung wird für eine Runde auf Null gesetzt.\n - Es muss ein Kraftrettungswurf gelingen oder 20 Fuß von dir weg gestoßen werden.\n - Bis zum Ende seines nächsten Zuges muss ihm ein Weisheitswurf gelingen oder er hat bei allen Angriffen einen Nachteil.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Ferne Hand
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Verbesserte Fernhandtechnik
 Power/&DH_ElementalFormPoolDescription	Du kannst mehrmals täglich (in Höhe deines Fähigkeitsbonus) zwischen elementaren Formen wechseln, indem du elementare Energie kanalisierst. Du erhältst Resistenz gegen den entsprechenden Schaden und wendest einmal pro Runde einen Fertigkeitsbonus als Schaden derselben Art auf den ersten Zauberschaden jeder Runde an. Die Formulare dauern 1 Minute.
 Power/&DH_ElementalFormPoolEnhancedDescription	Du kannst mehrmals am Tag (in Höhe deines Fähigkeitsbonus) zwischen verbesserten Elementarformen wechseln, indem du Elementarenergie kanalisierst. Du erhältst Immunität gegen den entsprechenden Schaden und wendest den Fähigkeitsbonus als Schaden derselben Art auf den ersten Zauberschaden in jeder Runde an. Die Formulare dauern 1 Minute.
 Power/&DH_ElementalFormPoolEnhancedTitle	Verbesserte elementare Formen
@@ -1408,6 +1442,14 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} trifft eine 
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Ausgewählte Technik anwenden.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Anwenden
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Offene-Hand-Technik
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Ausgewählte Technik anwenden.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Sich bewerben
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Fernhand-Technik
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Ausgewählte Technik anwenden.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Sich bewerben
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Fernhand-Technik
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} hat einen Gegner mit einem unbewaffneten Angriff getroffen und kann 3 Ki-Punkte ausgeben, um zu versuchen, ihn zu töten.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Geben Sie Ki aus, um zu versuchen, den Gegner zu töten.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Ki ausgeben
@@ -1719,6 +1761,8 @@ Subclass/&ClassMonkTraditionDescription	Auf der 3. Stufe wählst du den spiritue
 Subclass/&ClassMonkTraditionTitle	Klostertraditionen
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Mönche des Weges der Offenen Hand sind die ultimativen Meister der Kampfkünste, ob bewaffnet oder unbewaffnet. Sie lernen Techniken, um ihre Gegner zu stoßen und zu Fall zu bringen, Ki zu manipulieren, um Schäden an ihrem Körper zu heilen, und praktizieren fortgeschrittene Meditation, die sie vor Schaden schützen kann.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Weg der offenen Hand
+Subclass/&ClassMonkTraditionZenArcherDescription	Praktizierende des Weges der fernen Hand trainieren, Pfeile als Verlängerung ihrer Hände zu machen. Sie sind geübt im Umgang mit Bögen und liefern Ki-ermächtigte Effekte durch Pfeile.
+Subclass/&ClassMonkTraditionZenArcherTitle	Weg der fernen Hand
 Subclass/&ClassWarlockPatronDescription	Ein Hexenmeister wird durch einen Pakt mit einem jenseitigen Wesen definiert. Manchmal ist die Beziehung zwischen Hexenmeister und Gönner wie die eines Klerikers und einer Gottheit, obwohl die Wesen, die als Gönner dienen, keine Götter sind.
 Subclass/&ClassWarlockPatronTitle	Sonst Patron
 Subclass/&ConditionResistantArmorTitle	Widerstandsfähige Rüstung
@@ -1906,12 +1950,13 @@ Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhep
 Subclass/&WitchSubclassPathTitle	Hexenzirkel
 ToolTip/&CheckBoxDefaultPartyTitle	Aktivieren Sie dieses Kontrollkästchen, um Ihre Standardgruppe festzulegen, wenn Sie neue Abenteuer starten oder benutzerdefinierte Orte testen. Du kannst bis zu {0} Helden nach dem First-in/First-out-Prinzip auswählen
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Die maximale Menge entspricht deiner Mönchsstufe. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Hat Stealth-Angriff
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Ist kein Barbar
 Tooltip/&FeatPrerequisiteIsNotFighter	Ist kein Kämpfer
 Tooltip/&FeatPrerequisiteIsNotRogue	Ist kein Schurke
 Tooltip/&FeatPrerequisiteLevelFormat	Mindestcharakterstufe {0}
-Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
+Tooltip/&PowerAttackConcentration	Machtangriff deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
 Tooltip/&Tag9000Title	Benutzerdefinierter Effekt
 Tooltip/&TagCommunityExpansionTitle	Community-Erweiterung
 Tooltip/&TagMaledictionTitle	Verdammt
@@ -1928,48 +1973,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn diese Umschaltung aktiviert ist, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
-Tooltip/&PowerAttackConcentration	Machtangriff deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
-Feat/&FeatShieldExpertTitle	Schild-Experte
-Feat/&FeatShieldExpertDescription	Du hast den Umgang mit einem Schild als Waffe geübt. Für dich wird es zu einer Nahkampfwaffe, mit der du geübt bist und die 1W4 Knüppelschaden verursacht.\nSie erhalten einen Vorteil bei Schubsversuchen, während Sie einen Schild setzen.
-Subclass/&ClassMonkTraditionZenArcherTitle	Weg der fernen Hand
-Subclass/&ClassMonkTraditionZenArcherDescription	Praktizierende des Weges der fernen Hand trainieren, Pfeile als Verlängerung ihrer Hände zu machen. Sie sind geübt im Umgang mit Bögen und liefern Ki-ermächtigte Effekte durch Pfeile.
-Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
-Feature/&ClassMonkZenArcherCombatDescription	Erlangen Sie Kenntnisse im Umgang mit Bögen und sie gelten für Sie als Mönchswaffe.\nSie werden nicht benachteiligt, wenn Sie mit einer Mönchswaffe einen Fernkampfangriff ausführen, während Sie sich in 1,50 m Entfernung von einem Feind befinden, vorausgesetzt, Sie tragen keine Rüstung oder Schild.
-Power/&ClassMonkZenArrowDistractDescription	Das Ziel muss bis zum Ende seines nächsten Zuges einen Weisheitsrettungswurf bestehen oder beim nächsten Angriff einen Nachteil haben.
-Power/&ClassMonkZenArrowDistractTitle	Ablenken
-Power/&ClassMonkZenArrowProneDescription	Das Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder zu Boden geworfen werden.
-Power/&ClassMonkZenArrowProneTitle	Niederschlagen
-Power/&ClassMonkZenArrowPushDescription	Das Ziel muss einen Kraftrettungswurf bestehen oder 10 Fuß von dir weg gestoßen werden.
-Power/&ClassMonkZenArrowPushTitle	Wegstoßen
-Power/&ClassMonkZenArrowTechniqueDescription	Du kannst das Ki deines Feindes manipulieren, wenn du ihn mit deinen Pfeilen triffst. Immer wenn du eine Kreatur mit einem deiner Pfeile triffst, kannst du 1 Ki ausgeben, um diesem Ziel einen der folgenden Effekte aufzuerlegen:\n - Es muss ein Geschicklichkeitsrettungswurf gelingen oder zu Boden geworfen werden.\n - Es muss ein Kraftrettungswurf gelingen oder 10 Fuß von dir weg gestoßen werden.\n - Es muss bis zum Ende seines nächsten Zuges einen Weisheitswurf bestehen oder beim nächsten Angriff Nachteile haben.
-Power/&ClassMonkZenArrowTechniqueTitle	Fernhand-Technik
-Power/&ClassMonkZenArrowTechniqueShortTitle	Ferne Hand
-Condition/&ClassMonkZenArrowDistractConditionTitle	Abgelenkt
-Condition/&ClassMonkZenArrowDistractConditionDescription	Hat Nachteil beim nächsten Angriff.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Ausgewählte Technik anwenden.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Sich bewerben
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Fernhand-Technik
-Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Pfeilhagel
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Nachdem du eine Aktion ausgegeben hast, um mit einer Mönchswaffe anzugreifen, kannst du 2 Ki-Punkte als Bonusaktion ausgeben, um 2 Fernkampfangriffe mit einem Bogen auszuführen. Nur verfügbar, wenn Sie keine Rüstung oder Schild tragen.
-Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
-Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
-Power/&ClassMonkZenArrowUpgradedDistractTitle	Ablenken
-Power/&ClassMonkZenArrowUpgradedDistractDescription	Das Ziel muss bis zum Ende seines nächsten Zuges einen Weisheitsrettungswurf bestehen oder bei allen Angriffen einen Nachteil haben.
-Power/&ClassMonkZenArrowUpgradedProneTitle	Niederschlagen
-Power/&ClassMonkZenArrowUpgradedProneDescription	Das Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder zu Boden geworfen werden und seine Bewegung wird für eine Runde auf Null gesetzt.
-Power/&ClassMonkZenArrowUpgradedPushTitle	Wegstoßen
-Power/&ClassMonkZenArrowUpgradedPushDescription	Das Ziel muss einen Kraftrettungswurf bestehen oder 20 Fuß von dir weg gestoßen werden.
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Verbesserte Fernhandtechnik
-Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Ferne Hand
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Du verbesserst deine Fähigkeit, Ki zu manipulieren – alle Effekte der Distant-Hand-Technik werden verbessert. Immer wenn du eine Kreatur mit einem deiner Pfeile triffst, kannst du 1 Ki ausgeben, um diesem Ziel einen der folgenden Effekte aufzuerlegen:\n - Ihr muss ein Geschicklichkeitsrettungswurf gelingen oder sie wird zu Boden geworfen und ihre Bewegung wird für eine Runde auf Null gesetzt.\n - Es muss ein Kraftrettungswurf gelingen oder 20 Fuß von dir weg gestoßen werden.\n - Bis zum Ende seines nächsten Zuges muss ihm ein Weisheitswurf gelingen oder er hat bei allen Angriffen einen Nachteil.
-Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Abgelenkt
-Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Hat bei allen Angriffen einen Nachteil.
-Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Gepinnt
-Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Bewegung wird auf Null gesetzt.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Ausgewählte Technik anwenden.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Sich bewerben
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Fernhand-Technik
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]

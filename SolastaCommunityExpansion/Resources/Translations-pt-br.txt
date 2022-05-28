@@ -84,6 +84,12 @@ Condition/&ClassMonkStepOfTheWindConditionDescription	Você pode realizar a aç�
 Condition/&ClassMonkStepOfTheWindConditionTitle	Passo do vento
 Condition/&ClassMonkTanquilityConditionDescription	Você tem vantagem nos testes de resistência contra feitiços e os inimigos têm desvantagem em atacá-lo. Removido quando você ataca ou lança feitiço. .
 Condition/&ClassMonkTanquilityConditionTitle	Tranqüilidade
+Condition/&ClassMonkZenArrowDistractConditionDescription	Tem desvantagem no próximo ataque.
+Condition/&ClassMonkZenArrowDistractConditionTitle	Distraído
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Tem desvantagem em todos os ataques.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distraído
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	O movimento é definido como zero.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Fixado
 Condition/&ConditionBarkWardDescription	Protegido pelos espíritos da floresta.
 Condition/&ConditionBarkWardTitle	Ala de Latidos
 Condition/&ConditionDualFlurryApplyDescription	Você está ganhando impulso...
@@ -567,6 +573,8 @@ Feat/&FeatShadowTouchedWisDescription	Aumente o atributo Sabedoria em 1. Ganhe a
 Feat/&FeatShadowTouchedWisTitle	Sombra Tocada (Sabedoria)
 Feat/&FeatShadyDescription	Aumente sua Destreza em 1, até um máximo de 20.\nUma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 12º nível este dano aumenta para 2d6 e no 20º nível para 4d6. Isso pode acumular com o ataque furtivo de Rogue.
 Feat/&FeatShadyTitle	Sombrio
+Feat/&FeatShieldExpertDescription	Você treinou no uso de um escudo como arma. Para você, torna-se uma arma corpo a corpo com a qual você é proficiente, causando 1d4 de dano de concussão.\nVocê ganha vantagem em tentativas de empurrão enquanto empunha um escudo.
+Feat/&FeatShieldExpertTitle	Especialista em escudos
 Feat/&FeatStrengthIncrementDescription	+1 Força.
 Feat/&FeatStrengthIncrementTitle	Aumento de atributo
 Feat/&FeatTelekineticChaDescription	Aumente o atributo Carisma em 1. Ganhe uma habilidade de ação bônus para empurrar ou puxar criaturas.
@@ -861,6 +869,12 @@ Feature/&ClassMonkUnarmoredMovementTitle	Movimento não blindado
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Enquanto você está sem armadura e não empunhando um escudo, você pode se mover nas paredes como uma aranha. A habilidade é temporariamente perdida se você realizar qualquer ação que não seja movimento, ou quando não for seu turno em combate.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Movimento sem armadura: Escalada
 Feature/&ClassMonkWeaponProficiencyTitle	Proficiência com Armas de Monge
+Feature/&ClassMonkZenArcherCombatDescription	Ganhe proficiência com arcos e eles são considerados armas de monge para você.\nVocê não tem desvantagem ao fazer um ataque à distância com uma arma de monge enquanto estiver a 1,5 metro de um inimigo, desde que não use armadura ou escudo.
+Feature/&ClassMonkZenArcherCombatTitle	Combate à distância
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressioantes
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura leve.
 Feature/&ClassWarlockArmorProficiencyTitle	Proficiência em Armadura de Bruxo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecione Invocação Eldritch para substituir.
@@ -1051,8 +1065,8 @@ Feature/&OpportunistDebilitatingStrikeTitle	Ataque Debilitante
 Feature/&OpportunistQuickStrikeDescription	Você tem vantagem quando ataca um inimigo cuja iniciativa é menor que a sua. Além disso, você também tem vantagem ao realizar um ataque de oportunidade.
 Feature/&OpportunistQuickStrikeTitle	Ataque Rápido
 Feature/&OtherworldlyLeapTitle	Salto sobrenatural
-Feature/&PowerAttackTitle	Ataque de poder
 Feature/&PowerAttackDescription	Receba um -Bônus de Proficiência para acertar a penalidade de seu ataque pelo resto do turno para causar +Bônus de Proficiência de dano ao acertar seus golpes. Armas de duas mãos e versáteis recebem o bônus de dano dobrado. Funciona apenas com armas brancas.
+Feature/&PowerAttackTitle	Ataque de poder
 Feature/&PowerPaladinAuraOfCourage18Description	Concede um bônus de teste de resistência para aliados dentro de 30 pés.
 Feature/&PowerPaladinAuraOfCourage18Title	Aura de Coragem Aprimorada
 Feature/&PowerPaladinAuraOfProtection18Description	Você e seus aliados dentro de 9 metros não podem ser amedrontados.
@@ -1229,14 +1243,14 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Use quatro reforços nos valore
 FlexibleRaces/&PointPoolAbilityScore4Title	Aumento de pontuação de habilidade
 Format/&LevelAndExperienceFormat	Nível: {0}\nExperiência: {1}\n{2} pontos necessários para atingir o nível {3}
 Format/&LevelAndExperienceMaxedFormat	Nível: {0}\nExperiência: {1}\nnível máximo atingido
-Item/&CraftingManualRecipeEnchantHandwraps+1Title	Encantar Algemas +1
-Item/&CraftingManualRecipeEnchantHandwraps+2Title	Encantar Algemas +2
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Encantar Alças Fortes
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Encantar Alças De Puxar
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Encantar Algemas +1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Encantar Algemas +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Encantar Algemas +2.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Encantar Algemas +2
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Encantar Mãos Fortes.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Encantar Alças Fortes
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Encantar Handwraps De Puxar.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Encantar Alças De Puxar
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Bandagens +1
@@ -1336,6 +1350,26 @@ Power/&ClassMonkTanquilityDescription	Uma vez por descanso curto como uma ação
 Power/&ClassMonkTanquilityTitle	Tranqüilidade
 Power/&ClassMonkWholenessOfBodyDescription	Com uma ação, você pode recuperar pontos de vida iguais a três vezes seu nível de monge. Você deve terminar um descanso longo antes de poder usar esta característica novamente.
 Power/&ClassMonkWholenessOfBodyTitle	Totalidade do Corpo
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Depois de gastar ação para atacar com arma de monge, você pode gastar 2 pontos de ki como uma ação bônus para fazer 2 ataques à distância com um arco. Disponível apenas se você não estiver usando armadura ou escudo.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Rajada de Flechas
+Power/&ClassMonkZenArrowDistractDescription	O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
+Power/&ClassMonkZenArrowDistractTitle	Distrair
+Power/&ClassMonkZenArrowProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado.
+Power/&ClassMonkZenArrowProneTitle	Derrubar
+Power/&ClassMonkZenArrowPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 3 metros para longe de você.
+Power/&ClassMonkZenArrowPushTitle	Afastar
+Power/&ClassMonkZenArrowTechniqueDescription	Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n - Ele deve ser bem sucedido no teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n - Ele deve ter sucesso em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
+Power/&ClassMonkZenArrowTechniqueShortTitle	Mão Distante
+Power/&ClassMonkZenArrowTechniqueTitle	Técnica da mão distante
+Power/&ClassMonkZenArrowUpgradedDistractDescription	O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Distrair
+Power/&ClassMonkZenArrowUpgradedProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Derrubar
+Power/&ClassMonkZenArrowUpgradedPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 6 metros para longe de você.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Afastar
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Você melhora sua habilidade de manipular o ki - todos os efeitos da Técnica da Mão Distante são melhorados. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ter sucesso em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.\n - Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado a 6 metros de distância de você.\n - Ele deve ter sucesso em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Mão Distante
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Técnica de Mão Distante Aprimorada
 Power/&DH_ElementalFormPoolDescription	Você pode alternar entre formas elementais várias vezes (igual ao seu Bônus de Proficiência) por dia canalizando energia elemental. Você ganha resistência ao dano relevante e uma vez por turno, aplica o Bônus de Proficiência como dano do mesmo tipo ao primeiro dano mágico a cada rodada. Os formulários duram 1 minuto.
 Power/&DH_ElementalFormPoolEnhancedDescription	Você pode alternar entre formas elementais aprimoradas várias vezes (igual ao seu Bônus de Proficiência) por dia canalizando energia elemental. Você ganha imunidade ao dano relevante e aplica o Bônus de Proficiência como dano do mesmo tipo ao primeiro dano mágico a cada rodada. Os formulários duram 1 minuto.
 Power/&DH_ElementalFormPoolEnhancedTitle	Formas Elementais Aprimoradas
@@ -1408,6 +1442,14 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} atinge uma c
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Aplicar a técnica selecionada.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Aplicar
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Técnica de Mão Aberta
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Aplicar a técnica selecionada.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Aplicar
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Técnica da mão distante
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Aplicar a técnica selecionada.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Aplicar
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Técnica da mão distante
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} atingiu o oponente com um ataque desarmado e pode gastar 3 pontos de ki para tentar matá-lo.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Gaste ki para tentar matar o oponente.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Gastar ki
@@ -1719,6 +1761,8 @@ Subclass/&ClassMonkTraditionDescription	No 3º nível, você escolhe o caminho e
 Subclass/&ClassMonkTraditionTitle	Tradições Monásticas
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Monges do Caminho da Mão Aberta são os maiores mestres do combate de artes marciais, armados ou desarmados. Eles aprendem técnicas para empurrar e derrubar seus oponentes, manipular o ki para curar danos em seus corpos e praticar meditação avançada que pode protegê-los de danos.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Caminho da mão aberta
+Subclass/&ClassMonkTraditionZenArcherDescription	Os praticantes do Caminho da Mão Distante treinam para fazer das flechas uma extensão de suas mãos. Eles são proficientes em usar arcos e entregar efeitos de ki através de flechas.
+Subclass/&ClassMonkTraditionZenArcherTitle	Caminho da mão distante
 Subclass/&ClassWarlockPatronDescription	Um bruxo é definido por um pacto com um ser de outro mundo. Às vezes, a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses.
 Subclass/&ClassWarlockPatronTitle	Patrono de outro mundo
 Subclass/&ConditionResistantArmorTitle	Armadura Resistente
@@ -1906,12 +1950,13 @@ Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se 
 Subclass/&WitchSubclassPathTitle	Covens de bruxas
 ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não sabe {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Tem ataque furtivo
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Não é um bárbaro
 Tooltip/&FeatPrerequisiteIsNotFighter	Não é um lutador
 Tooltip/&FeatPrerequisiteIsNotRogue	Não é um vagabundo
 Tooltip/&FeatPrerequisiteLevelFormat	Nível mínimo de caractere {0}
-Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não sabe {0}
+Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.\nO efeito durará até o início do seu próximo turno
 Tooltip/&Tag9000Title	Efeito personalizado
 Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Caramba
@@ -1928,48 +1973,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se esta opção estiver LIGADA, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
-Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.\nO efeito durará até o início do seu próximo turno
-Feat/&FeatShieldExpertTitle	Especialista em escudos
-Feat/&FeatShieldExpertDescription	Você treinou no uso de um escudo como arma. Para você, torna-se uma arma corpo a corpo com a qual você é proficiente, causando 1d4 de dano de concussão.\nVocê ganha vantagem em tentativas de empurrão enquanto empunha um escudo.
-Subclass/&ClassMonkTraditionZenArcherTitle	Caminho da mão distante
-Subclass/&ClassMonkTraditionZenArcherDescription	Os praticantes do Caminho da Mão Distante treinam para fazer das flechas uma extensão de suas mãos. Eles são proficientes em usar arcos e entregar efeitos de ki através de flechas.
-Feature/&ClassMonkZenArcherCombatTitle	Combate à distância
-Feature/&ClassMonkZenArcherCombatDescription	Ganhe proficiência com arcos e eles são considerados armas de monge para você.\nVocê não tem desvantagem ao fazer um ataque à distância com uma arma de monge enquanto estiver a 1,5 metro de um inimigo, desde que não use armadura ou escudo.
-Power/&ClassMonkZenArrowDistractDescription	O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
-Power/&ClassMonkZenArrowDistractTitle	Distrair
-Power/&ClassMonkZenArrowProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado.
-Power/&ClassMonkZenArrowProneTitle	Derrubar
-Power/&ClassMonkZenArrowPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 3 metros para longe de você.
-Power/&ClassMonkZenArrowPushTitle	Afastar
-Power/&ClassMonkZenArrowTechniqueDescription	Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n - Ele deve ser bem sucedido no teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n - Ele deve ter sucesso em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
-Power/&ClassMonkZenArrowTechniqueTitle	Técnica da mão distante
-Power/&ClassMonkZenArrowTechniqueShortTitle	Mão Distante
-Condition/&ClassMonkZenArrowDistractConditionTitle	Distraído
-Condition/&ClassMonkZenArrowDistractConditionDescription	Tem desvantagem no próximo ataque.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Aplicar a técnica selecionada.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Aplicar
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Técnica da mão distante
-Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Rajada de Flechas
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Depois de gastar ação para atacar com arma de monge, você pode gastar 2 pontos de ki como uma ação bônus para fazer 2 ataques à distância com um arco. Disponível apenas se você não estiver usando armadura ou escudo.
-Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
-Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
-Power/&ClassMonkZenArrowUpgradedDistractTitle	Distrair
-Power/&ClassMonkZenArrowUpgradedDistractDescription	O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
-Power/&ClassMonkZenArrowUpgradedProneTitle	Derrubar
-Power/&ClassMonkZenArrowUpgradedProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.
-Power/&ClassMonkZenArrowUpgradedPushTitle	Afastar
-Power/&ClassMonkZenArrowUpgradedPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 6 metros para longe de você.
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Técnica de Mão Distante Aprimorada
-Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Mão Distante
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Você melhora sua habilidade de manipular o ki - todos os efeitos da Técnica da Mão Distante são melhorados. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ter sucesso em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.\n - Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado a 6 metros de distância de você.\n - Ele deve ter sucesso em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
-Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distraído
-Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Tem desvantagem em todos os ataques.
-Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Fixado
-Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	O movimento é definido como zero.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} atinge uma criatura com uma flecha e pode impor um dos seguintes efeitos nesse alvo:
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Aplicar a técnica selecionada.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Aplicar
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Técnica da mão distante
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressioantes
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.

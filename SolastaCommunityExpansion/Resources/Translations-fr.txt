@@ -84,6 +84,12 @@ Condition/&ClassMonkStepOfTheWindConditionDescription	Vous pouvez effectuer l'ac
 Condition/&ClassMonkStepOfTheWindConditionTitle	Pas du vent
 Condition/&ClassMonkTanquilityConditionDescription	Vous avez un avantage aux jets de sauvegarde contre les sorts et les ennemis ont un désavantage en vous attaquant. Supprimé lorsque vous attaquez ou lancez un sort. .
 Condition/&ClassMonkTanquilityConditionTitle	Tranquillité
+Condition/&ClassMonkZenArrowDistractConditionDescription	A un désavantage à la prochaine attaque.
+Condition/&ClassMonkZenArrowDistractConditionTitle	Distraits
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	A un désavantage sur toutes les attaques.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distraits
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Le mouvement est mis à zéro.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Épinglé
 Condition/&ConditionBarkWardDescription	Protégé par les esprits de la forêt.
 Condition/&ConditionBarkWardTitle	Bark Ward
 Condition/&ConditionDualFlurryApplyDescription	Vous créez une dynamique...
@@ -567,6 +573,8 @@ Feat/&FeatShadowTouchedWisDescription	Augmentez l'attribut Sagesse de 1. Obtenez
 Feat/&FeatShadowTouchedWisTitle	Ombre touchée (sagesse)
 Feat/&FeatShadyDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nUne fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 12, ces dégâts passent à 2d6 et au niveau 20 à 4d6. Cela peut se cumuler avec l'attaque sournoise de Rogue.
 Feat/&FeatShadyTitle	Ombragé
+Feat/&FeatShieldExpertDescription	Vous vous êtes entraîné à utiliser un bouclier comme arme. Pour vous, il devient une arme de mêlée que vous maîtrisez, infligeant 1d4 dégâts contondants.\nVous gagnez un avantage sur les tentatives de bousculade tout en brandissant un bouclier.
+Feat/&FeatShieldExpertTitle	Spécialiste du bouclier
 Feat/&FeatStrengthIncrementDescription	+1 Force.
 Feat/&FeatStrengthIncrementTitle	Augmentation d'attribut
 Feat/&FeatTelekineticChaDescription	Augmentez l'attribut Charisme de 1. Gagnez une capacité d'action bonus pour pousser ou tirer des créatures.
@@ -861,6 +869,12 @@ Feature/&ClassMonkUnarmoredMovementTitle	Mouvement non blindé
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Tant que vous n'êtes pas armé et que vous ne brandissez pas de bouclier, vous pouvez vous déplacer sur les murs comme une araignée. La capacité est temporairement perdue si vous effectuez une action qui n'est pas un mouvement, ou lorsque ce n'est pas votre tour de combat.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Mouvement sans armure : Escalade
 Feature/&ClassMonkWeaponProficiencyTitle	Maîtrise des armes du moine
+Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont considérés comme une arme de moine pour vous.\nVous n'êtes pas désavantagé lorsque vous effectuez une attaque à distance avec une arme de moine à 5 pieds d'un ennemi, à condition que vous ne portiez ni armure ni bouclier.
+Feature/&ClassMonkZenArcherCombatTitle	Combat à distance
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
 Feature/&ClassWarlockArmorProficiencyDescription	Armure légère.
 Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation à remplacer.
@@ -1051,8 +1065,8 @@ Feature/&OpportunistDebilitatingStrikeTitle	Frappe débilitante
 Feature/&OpportunistQuickStrikeDescription	Vous avez un avantage lorsque vous attaquez un ennemi dont l'initiative est inférieure à la vôtre. De plus, vous avez également un avantage lorsque vous effectuez une attaque d'opportunité.
 Feature/&OpportunistQuickStrikeTitle	Frappe rapide
 Feature/&OtherworldlyLeapTitle	Saut d'un autre monde
-Feature/&PowerAttackTitle	Attaque puissante
 Feature/&PowerAttackDescription	Prenez un bonus de maîtrise pour infliger une pénalité à votre attaque pour le reste du tour afin d'infliger des dégâts de bonus de maîtrise lorsque vous frappez. Les armes à deux mains et polyvalentes obtiennent des dégâts supplémentaires doublés. Fonctionne uniquement avec les armes de mêlée.
+Feature/&PowerAttackTitle	Attaque puissante
 Feature/&PowerPaladinAuraOfCourage18Description	Accorde un bonus de jet de sauvegarde aux alliés à moins de 9 mètres.
 Feature/&PowerPaladinAuraOfCourage18Title	Aura de courage améliorée
 Feature/&PowerPaladinAuraOfProtection18Description	Vous et vos alliés à moins de 9 mètres ne pouvez pas être effrayés.
@@ -1229,14 +1243,14 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Utilisez quatre boosts sur les 
 FlexibleRaces/&PointPoolAbilityScore4Title	Augmentation du score de capacité
 Format/&LevelAndExperienceFormat	Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat	Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
-Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchantement de bandages +1
-Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchantement de bandages +2
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchantement de bandages puissants
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchantement de bandages de traction
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchantement de bandages +1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchantement de bandages +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchantement de bandages +2.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchantement de bandages +2
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchantez des Protège-mains puissants.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchantement de bandages puissants
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchantez des bandes de tirage.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchantement de bandages de traction
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtillerieProjectile
 Item/&Handwraps+1Title	Protège-mains +1
@@ -1336,6 +1350,26 @@ Power/&ClassMonkTanquilityDescription	Une fois par repos court, en tant qu'actio
 Power/&ClassMonkTanquilityTitle	Tranquillité
 Power/&ClassMonkWholenessOfBodyDescription	Par une action, vous pouvez regagner des points de vie égaux à trois fois votre niveau de moine. Vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette capacité.
 Power/&ClassMonkWholenessOfBodyTitle	Intégralité du corps
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Après avoir dépensé une action pour attaquer avec une arme de moine, vous pouvez dépenser 2 points de ki en tant qu'action bonus pour effectuer 2 attaques à distance avec un arc. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Rafale de flèches
+Power/&ClassMonkZenArrowDistractDescription	La cible doit réussir le jet de sauvegarde de Sagesse ou être désavantagée lors de la prochaine attaque jusqu'à la fin de son prochain tour.
+Power/&ClassMonkZenArrowDistractTitle	Distraire
+Power/&ClassMonkZenArrowProneDescription	La cible doit réussir un jet de sauvegarde de Dextérité ou être jetée à terre.
+Power/&ClassMonkZenArrowProneTitle	Abattre
+Power/&ClassMonkZenArrowPushDescription	La cible doit réussir un jet de sauvegarde de Force ou être repoussée à 3 mètres de vous.
+Power/&ClassMonkZenArrowPushTitle	Repousser
+Power/&ClassMonkZenArrowTechniqueDescription	Vous pouvez manipuler le ki de votre ennemi lorsque vous le frappez avec vos flèches. Chaque fois que vous touchez une créature avec l'une de vos flèches, vous pouvez dépenser 1 ki pour imposer l'un des effets suivants à cette cible :\n - Il doit réussir un jet de sauvegarde de Dextérité ou être mis à terre.\n - Il doit réussir un jet de sauvegarde de Force ou être poussé à 3 mètres de vous.\n - Il doit réussir un jet de sauvegarde de Sagesse ou être désavantagé à la prochaine attaque jusqu'à la fin de son prochain tour.
+Power/&ClassMonkZenArrowTechniqueShortTitle	Main lointaine
+Power/&ClassMonkZenArrowTechniqueTitle	Technique de la main à distance
+Power/&ClassMonkZenArrowUpgradedDistractDescription	La cible doit réussir un jet de sauvegarde de Sagesse ou être désavantagée sur toutes ses attaques jusqu'à la fin de son prochain tour.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Distraire
+Power/&ClassMonkZenArrowUpgradedProneDescription	La cible doit réussir un jet de sauvegarde de Dextérité ou être projetée à terre et avoir son mouvement mis à zéro pendant un tour.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Abattre
+Power/&ClassMonkZenArrowUpgradedPushDescription	La cible doit réussir un jet de sauvegarde de Force ou être repoussée à 6 mètres de vous.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Repousser
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Vous améliorez votre capacité à manipuler le ki - tous les effets de la technique de la main à distance sont améliorés. Chaque fois que vous touchez une créature avec l'une de vos flèches, vous pouvez dépenser 1 ki pour imposer l'un des effets suivants à cette cible :\n - Il doit réussir un jet de sauvegarde de Dextérité ou être mis à terre et avoir son mouvement mis à zéro pendant un tour.\n - Il doit réussir un jet de sauvegarde de Force ou être poussé à 6 mètres de vous.\n - Il doit réussir un jet de sauvegarde de Sagesse ou être désavantagé sur toutes ses attaques jusqu'à la fin de son prochain tour.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Main lointaine
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Technique de la main à distance améliorée
 Power/&DH_ElementalFormPoolDescription	Vous pouvez basculer entre les formes élémentaires un certain nombre de fois (égal à votre bonus de compétence) par jour en canalisant l'énergie élémentaire. Vous gagnez une résistance aux dégâts concernés et une fois par tour, appliquez le bonus de maîtrise sous forme de dégâts du même type aux premiers dégâts de sort à chaque tour. Les formulaires durent 1 minute.
 Power/&DH_ElementalFormPoolEnhancedDescription	Vous pouvez basculer entre les formes élémentaires améliorées un certain nombre de fois (égal à votre bonus de compétence) par jour en canalisant l'énergie élémentaire. Vous gagnez l'immunité contre les dégâts concernés et appliquez le bonus de compétence en tant que dégâts du même type aux premiers dégâts de sort à chaque tour. Les formulaires durent 1 minute.
 Power/&DH_ElementalFormPoolEnhancedTitle	Formes élémentaires améliorées
@@ -1408,6 +1442,14 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} touche une c
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Appliquer la technique sélectionnée.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Appliquer
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Technique à main ouverte
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} touche une créature avec une flèche et peut imposer l'un des effets suivants à cette cible :
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Appliquer la technique sélectionnée.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Appliquer
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Technique de la main à distance
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} touche une créature avec une flèche et peut imposer l'un des effets suivants à cette cible :
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Appliquer la technique sélectionnée.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Appliquer
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Technique de la main à distance
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} a touché l'adversaire avec une attaque à mains nues et peut dépenser 3 points de ki pour tenter de le tuer.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Dépensez du ki pour tenter de tuer l'adversaire.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Dépenser du ki
@@ -1719,6 +1761,8 @@ Subclass/&ClassMonkTraditionDescription	Au niveau 3, vous choisissez la voie spi
 Subclass/&ClassMonkTraditionTitle	Traditions monastiques
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Les Moines de la Voie de la Main Ouverte sont les maîtres ultimes du combat des arts martiaux, qu'ils soient armés ou non. Ils apprennent des techniques pour pousser et faire trébucher leurs adversaires, manipuler le ki pour soigner les dommages causés à leur corps et pratiquer une méditation avancée qui peut les protéger du mal.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Voie de la main ouverte
+Subclass/&ClassMonkTraditionZenArcherDescription	Les pratiquants de la Voie de la main lointaine s'entraînent à faire des flèches une extension de leurs mains. Ils sont habiles à utiliser des arcs et à produire des effets de ki grâce à des flèches.
+Subclass/&ClassMonkTraditionZenArcherTitle	Voie de la main lointaine
 Subclass/&ClassWarlockPatronDescription	Un sorcier est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre le sorcier et le mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
 Subclass/&ClassWarlockPatronTitle	Patron d'un autre mot
 Subclass/&ConditionResistantArmorTitle	Armure résistante
@@ -1906,12 +1950,13 @@ Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
 Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
 Tooltip/&FeatPrerequisiteIsNotFighter	N'est pas un combattant
 Tooltip/&FeatPrerequisiteIsNotRogue	N'est-ce pas un voleur
 Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
-Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
+Tooltip/&PowerAttackConcentration	Désactivez l'attaque puissante.\nL'effet durera jusqu'au début de votre prochain tour
 Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
@@ -1928,48 +1973,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Tooltip/&PowerAttackConcentration	Désactivez l'attaque puissante.\nL'effet durera jusqu'au début de votre prochain tour
-Feat/&FeatShieldExpertTitle	Spécialiste du bouclier
-Feat/&FeatShieldExpertDescription	Vous vous êtes entraîné à utiliser un bouclier comme arme. Pour vous, il devient une arme de mêlée que vous maîtrisez, infligeant 1d4 dégâts contondants.\nVous gagnez un avantage sur les tentatives de bousculade tout en brandissant un bouclier.
-Subclass/&ClassMonkTraditionZenArcherTitle	Voie de la main lointaine
-Subclass/&ClassMonkTraditionZenArcherDescription	Les pratiquants de la Voie de la main lointaine s'entraînent à faire des flèches une extension de leurs mains. Ils sont habiles à utiliser des arcs et à produire des effets de ki grâce à des flèches.
-Feature/&ClassMonkZenArcherCombatTitle	Combat à distance
-Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont considérés comme une arme de moine pour vous.\nVous n'êtes pas désavantagé lorsque vous effectuez une attaque à distance avec une arme de moine à 5 pieds d'un ennemi, à condition que vous ne portiez ni armure ni bouclier.
-Power/&ClassMonkZenArrowDistractDescription	La cible doit réussir le jet de sauvegarde de Sagesse ou être désavantagée lors de la prochaine attaque jusqu'à la fin de son prochain tour.
-Power/&ClassMonkZenArrowDistractTitle	Distraire
-Power/&ClassMonkZenArrowProneDescription	La cible doit réussir un jet de sauvegarde de Dextérité ou être jetée à terre.
-Power/&ClassMonkZenArrowProneTitle	Abattre
-Power/&ClassMonkZenArrowPushDescription	La cible doit réussir un jet de sauvegarde de Force ou être repoussée à 3 mètres de vous.
-Power/&ClassMonkZenArrowPushTitle	Repousser
-Power/&ClassMonkZenArrowTechniqueDescription	Vous pouvez manipuler le ki de votre ennemi lorsque vous le frappez avec vos flèches. Chaque fois que vous touchez une créature avec l'une de vos flèches, vous pouvez dépenser 1 ki pour imposer l'un des effets suivants à cette cible :\n - Il doit réussir un jet de sauvegarde de Dextérité ou être mis à terre.\n - Il doit réussir un jet de sauvegarde de Force ou être poussé à 3 mètres de vous.\n - Il doit réussir un jet de sauvegarde de Sagesse ou être désavantagé à la prochaine attaque jusqu'à la fin de son prochain tour.
-Power/&ClassMonkZenArrowTechniqueTitle	Technique de la main à distance
-Power/&ClassMonkZenArrowTechniqueShortTitle	Main lointaine
-Condition/&ClassMonkZenArrowDistractConditionTitle	Distraits
-Condition/&ClassMonkZenArrowDistractConditionDescription	A un désavantage à la prochaine attaque.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} touche une créature avec une flèche et peut imposer l'un des effets suivants à cette cible :
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Appliquer la technique sélectionnée.
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Appliquer
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Technique de la main à distance
-Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Rafale de flèches
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Après avoir dépensé une action pour attaquer avec une arme de moine, vous pouvez dépenser 2 points de ki en tant qu'action bonus pour effectuer 2 attaques à distance avec un arc. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
-Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
-Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
-Power/&ClassMonkZenArrowUpgradedDistractTitle	Distraire
-Power/&ClassMonkZenArrowUpgradedDistractDescription	La cible doit réussir un jet de sauvegarde de Sagesse ou être désavantagée sur toutes ses attaques jusqu'à la fin de son prochain tour.
-Power/&ClassMonkZenArrowUpgradedProneTitle	Abattre
-Power/&ClassMonkZenArrowUpgradedProneDescription	La cible doit réussir un jet de sauvegarde de Dextérité ou être projetée à terre et avoir son mouvement mis à zéro pendant un tour.
-Power/&ClassMonkZenArrowUpgradedPushTitle	Repousser
-Power/&ClassMonkZenArrowUpgradedPushDescription	La cible doit réussir un jet de sauvegarde de Force ou être repoussée à 6 mètres de vous.
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Technique de la main à distance améliorée
-Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Main lointaine
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Vous améliorez votre capacité à manipuler le ki - tous les effets de la technique de la main à distance sont améliorés. Chaque fois que vous touchez une créature avec l'une de vos flèches, vous pouvez dépenser 1 ki pour imposer l'un des effets suivants à cette cible :\n - Il doit réussir un jet de sauvegarde de Dextérité ou être mis à terre et avoir son mouvement mis à zéro pendant un tour.\n - Il doit réussir un jet de sauvegarde de Force ou être poussé à 6 mètres de vous.\n - Il doit réussir un jet de sauvegarde de Sagesse ou être désavantagé sur toutes ses attaques jusqu'à la fin de son prochain tour.
-Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distraits
-Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	A un désavantage sur toutes les attaques.
-Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Épinglé
-Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Le mouvement est mis à zéro.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} touche une créature avec une flèche et peut imposer l'un des effets suivants à cette cible :
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Appliquer la technique sélectionnée.
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Appliquer
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Technique de la main à distance
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
