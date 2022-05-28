@@ -121,12 +121,17 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 //
                 if (Main.Settings.BugFixCorrectlyAssignBonusCantrips)
                 {
-                    var bonusCantripsFromSubclasses = heroBuildingData.AllActiveFeatures
+                    var freeBonusCantripsFromSubclasses = heroBuildingData.AllActiveFeatures
                         .OfType<FeatureDefinitionPointPool>()
                         .Where(x => x.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
                         .Sum(x => x.PoolAmount);
 
-                    heroBuildingData.TempAcquiredCantripsNumber += bonusCantripsFromSubclasses;
+                    var fixedBonusCantripsFromSubclasses = heroBuildingData.AllActiveFeatures
+                        .OfType<FeatureDefinitionBonusCantrips>()
+                        .Sum(x => x.BonusCantrips.Count);
+
+                    heroBuildingData.TempAcquiredCantripsNumber += 
+                        freeBonusCantripsFromSubclasses + fixedBonusCantripsFromSubclasses;
                 }
             }
         }
