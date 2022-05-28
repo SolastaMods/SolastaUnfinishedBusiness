@@ -1971,5 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0}以�
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	应用选定技巧
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	应用
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	延臂技巧
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
+Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑拳
+Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内的气的流动。你的近战武器攻击命中一个未震慑的目标时，能消耗1点气尝试发动震慑拳。被命中目标必须进行一次体质豁免，豁免失败则受到震慑至你的下回合结束
