@@ -1971,3 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0}以�
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	应用选定技巧
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	应用
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	延臂技巧
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]

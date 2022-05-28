@@ -1971,3 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} atin
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Aplicar a técnica selecionada.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Aplicar
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Técnica da mão distante
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]

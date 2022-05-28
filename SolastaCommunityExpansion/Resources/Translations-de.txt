@@ -1971,3 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} trif
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Ausgewählte Technik anwenden.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Sich bewerben
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Fernhand-Technik
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]

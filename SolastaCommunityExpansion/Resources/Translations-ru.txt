@@ -1971,3 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} по
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Применить выбранную технику.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Подать заявление
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Техника дистанционной руки
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]

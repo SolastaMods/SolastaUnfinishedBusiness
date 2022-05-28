@@ -1971,3 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} hit 
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Distant Hand Technique
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
