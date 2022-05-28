@@ -9,41 +9,44 @@ namespace SolastaCommunityExpansion.Models
     {
         internal static void Recache()
         {
-            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
+            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
             var runtimeService = ServiceRepository.GetService<IRuntimeService>();
 
-            if (guiWrapperService == null || runtimeService?.Runtime == null)
+            if (guiWrapperService is not GuiWrapperManager guiWrapperManager 
+                || runtimeService == null
+                || runtimeService.Runtime == null)
             {
                 return;
             }
 
-            guiWrapperService.classDefinitionsMap.Clear();
-            guiWrapperService.raceDefinitionsMap.Clear();
-            guiWrapperService.monsterDefinitionsMap.Clear();
-            guiWrapperService.merchantDefinitionsMap.Clear();
-            guiWrapperService.itemDefinitionsMap.Clear();
-            guiWrapperService.spellDefinitionsMap.Clear();
-            guiWrapperService.effectProxyDefinitionsMap.Clear();
-            guiWrapperService.powerDefinitionsMap.Clear();
-            guiWrapperService.toolTypeDefinitionsMap.Clear();
-            guiWrapperService.recipeDefinitionsMap.Clear();
-            guiWrapperService.factionDefinitionsMap.Clear();
-            guiWrapperService.environmentEffectDefinitionsMap.Clear();
+            guiWrapperManager.classDefinitionsMap.Clear();
+            guiWrapperManager.featDefinitionsMap.Clear();
+            guiWrapperManager.raceDefinitionsMap.Clear();
+            guiWrapperManager.monsterDefinitionsMap.Clear();
+            guiWrapperManager.merchantDefinitionsMap.Clear();
+            guiWrapperManager.itemDefinitionsMap.Clear();
+            guiWrapperManager.spellDefinitionsMap.Clear();
+            guiWrapperManager.effectProxyDefinitionsMap.Clear();
+            guiWrapperManager.powerDefinitionsMap.Clear();
+            guiWrapperManager.toolTypeDefinitionsMap.Clear();
+            guiWrapperManager.recipeDefinitionsMap.Clear();
+            guiWrapperManager.factionDefinitionsMap.Clear();
+            guiWrapperManager.environmentEffectDefinitionsMap.Clear();
 
-            guiWrapperService.RuntimeLoaded(runtimeService.Runtime);
+            guiWrapperManager.RuntimeLoaded(runtimeService.Runtime);
         }
 
         internal static void RecacheFeats()
         {
             var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
 
-            if (guiWrapperService == null)
+            if (guiWrapperService is not GuiWrapperManager guiWrapperManager)
             {
                 return;
             }
 
-            guiWrapperService.featDefinitionsMap.Clear();
-            guiWrapperService.LoadFeatDefinitions();
+            guiWrapperManager.featDefinitionsMap.Clear();
+            guiWrapperManager.LoadFeatDefinitions();
         }
     }
 }
