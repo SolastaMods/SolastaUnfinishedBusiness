@@ -641,17 +641,21 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             //
             if (Main.Settings.BugFixCorrectlyAssignBonusCantrips)
             {
-                var freeBonusCantripsFromSubclasses = heroBuildingData.AllActiveFeatures
-                    .OfType<FeatureDefinitionPointPool>()
-                    .Where(x => x.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
-                    .Sum(x => x.PoolAmount);
+                for (var i = 0; i < hero.ActiveFeatures.Count - 1; i++)
+                {
+                    var freeBonusCantripsFromSubclasses = hero.ActiveFeatures.ElementAt(i).Value
+                        .OfType<FeatureDefinitionPointPool>()
+                        .Where(x => x.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
+                        .Sum(x => x.PoolAmount);
 
-                var fixedBonusCantripsFromSubclasses = heroBuildingData.AllActiveFeatures
-                    .OfType<FeatureDefinitionBonusCantrips>()
-                    .Sum(x => x.BonusCantrips.Count);
+                    var fixedBonusCantripsFromSubclasses = hero.ActiveFeatures.ElementAt(i).Value
+                        .OfType<FeatureDefinitionBonusCantrips>()
+                        .Sum(x => x.BonusCantrips.Count);
 
-                heroBuildingData.TempAcquiredCantripsNumber +=
-                    freeBonusCantripsFromSubclasses + fixedBonusCantripsFromSubclasses;
+                    heroBuildingData.TempAcquiredCantripsNumber +=
+                        freeBonusCantripsFromSubclasses + fixedBonusCantripsFromSubclasses;
+                }
+
             }
         }
     }
