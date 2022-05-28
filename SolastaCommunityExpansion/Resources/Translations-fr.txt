@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligence faible
 BlueprintCategory/&FlatRoomsTitle	Chambres à plat
 Caption/&GadgetParametersCustomRemoveDescription	Retirer:\n{0}.
 Class/&ClassMonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
-Class/&ClassMonkTitle	Moine [bêta]
+Class/&ClassMonkTitle	Moine
 Class/&ClassWarlockDescription	Les sorciers sont des chercheurs de la connaissance cachée dans le tissu du multivers. Grâce à des pactes conclus avec des êtres mystérieux au pouvoir surnaturel, les sorciers débloquent des effets magiques à la fois subtils et spectaculaires.
 Class/&ClassWarlockTitle	démoniste
 Class/&TinkererDescription	Les bricoleurs sont des inventeurs, des alchimistes, etc. Ils comblent l'espace entre la magie et la technologie.

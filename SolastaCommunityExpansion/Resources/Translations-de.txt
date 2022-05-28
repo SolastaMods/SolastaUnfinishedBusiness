@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
 BlueprintCategory/&FlatRoomsTitle	Flache Zimmer
 Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}.
 Class/&ClassMonkDescription	Mönche sind sich einig in ihrer Fähigkeit, die Energie, die in ihren Körpern fließt, auf magische Weise zu nutzen. Ob als auffällige Demonstration von Kampfstärke oder als subtilerer Fokus von Verteidigungsfähigkeit und Schnelligkeit kanalisiert, diese Energie durchdringt alles, was ein Mönch tut.
-Class/&ClassMonkTitle	Mönch [Beta]
+Class/&ClassMonkTitle	Mönch
 Class/&ClassWarlockDescription	Hexenmeister sind Sucher des Wissens, das im Gefüge des Multiversums verborgen liegt. Durch Pakte, die mit mysteriösen Wesen mit übernatürlichen Kräften geschlossen werden, entfesseln Warlocks sowohl subtile als auch spektakuläre magische Effekte.
 Class/&ClassWarlockTitle	Hexenmeister
 Class/&TinkererDescription	Tüftler sind Erfinder, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.

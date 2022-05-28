@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	智力衰减
 BlueprintCategory/&FlatRoomsTitle	平房
 Caption/&GadgetParametersCustomRemoveDescription	移除:\n{0}
 Class/&ClassMonkDescription	经过各种训练后，武僧能奇妙的运用流淌在身体中的能量。无论是引导其加强武斗技艺，还是精妙地将其用于防御和移动，这股能量都使武僧获得了全面的强化
-Class/&ClassMonkTitle	武僧[Beta]
+Class/&ClassMonkTitle	武僧
 Class/&ClassWarlockDescription	邪术师们致力于发掘潜藏在多元宇宙根源中的神秘学识。他们与神话般的大能存在缔结契约，并以此得以使用精妙而惊人的魔法效应
 Class/&ClassWarlockTitle	邪术师
 Class/&TinkererDescription	奇械师是不仅仅是发明家和炼金术士。他们在魔法和技术之间架起桥梁

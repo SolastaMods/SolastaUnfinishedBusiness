@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
 Class/&ClassMonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
-Class/&ClassMonkTitle	Monk [beta]
+Class/&ClassMonkTitle	Monk
 Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
 Class/&ClassWarlockTitle	Warlock
 Class/&TinkererDescription	Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
