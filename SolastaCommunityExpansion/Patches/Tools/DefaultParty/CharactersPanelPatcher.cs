@@ -43,6 +43,11 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 
         internal static void Postfix(RectTransform ___charactersTable)
         {
+            if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+            {
+                return;
+            }
+
             var max = Main.Settings.OverridePartySize;
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 
