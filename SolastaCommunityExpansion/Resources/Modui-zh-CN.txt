@@ -19,7 +19,7 @@ ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>键只高�
 ModUi/&AutoPauseOnVictory	战斗胜利后暂停游戏
 ModUi/&Basic	<color=yellow>基础：</color>
 ModUi/&Battle	<color=yellow>战斗：</color>
-ModUi/&Bestiary	Bestiary
+ModUi/&Bestiary	生物手册
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>降咒</color>在以5环或以上法术位施放时无需专注
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>目盲</color>状态禁止借机攻击 
 ModUi/&Blueprints	蓝图
