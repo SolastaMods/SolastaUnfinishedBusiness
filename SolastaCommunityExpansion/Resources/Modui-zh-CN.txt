@@ -4,12 +4,12 @@ ModUi/&AddHelpActionToAllRaces	添加<color=orange>协助</color>至全部种族
 ModUi/&AddPickpocketableLoot	添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
 ModUi/&AddToStore	加入商店
 ModUi/&Advanced	<color=yellow>进阶选项：</color>
-ModUi/&AdvancedHelp	. <b><color=red>注意：</color></b> 此项设置将要求玩家安装此Mod
+ModUi/&AdvancedHelp	. <b><color=#C04040E0>注意：</color></b> 此项设置将要求玩家安装此Mod
 ModUi/&Adventure	<color=yellow>冒险：</color>
 ModUi/&AllItemInDm	所有物品加入DM
 ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业装备木族护甲
 ModUi/&AllowDruidToWearMetalArmor	允许<color=orange>德鲁伊</color>装备金属护甲
-ModUi/&AllowDungeonsMaxLevel20	允许自定义地下城最大等级达到20级<b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&AllowDungeonsMaxLevel20	允许自定义地下城最大等级达到20级<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	允许在地图上任何地方放置工具和道具<i><color=yellow>[在放置时按<color=cyan>CTRL</color>以跳过任何检定]</color></i>
 ModUi/&AllowStackedMaterialComponent	允许材料成分叠加计算<i><color=yellow>[e.g. 2个500gp的钻石等同于1000gp的钻石]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	允许在施放<color=orange>连锁闪电</color>法术时选择目标
@@ -32,8 +32,8 @@ ModUi/&CraftingHelp	. 点击按钮以立即学习可活动队伍的配方\n. 添
 ModUi/&Credits	致敬
 ModUi/&CreditsAndDiagnostics	致敬与诊断
 ModUi/&DisableAutoEquip	禁止自动装备物品栏的物品
-ModUi/&DisableSenseDarkVisionFromAllRaces	将<color=orange>黑暗视觉</color>从所有种族中移除<b><i><color=red>[需要重启游戏]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	将<color=orange>增强黑暗视觉</color>从所有种族中移除<b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces	将<color=orange>黑暗视觉</color>从所有种族中移除<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	将<color=orange>增强黑暗视觉</color>从所有种族中移除<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	在升级时显示所有从其它职业上习得的法术
 ModUi/&DontFollowCharacterInBattle	摄像机不再跟随已出现在屏幕上的角色
 ModUi/&DontFollowMargin	<i>+ 除非角色靠近于 % 的屏幕边缘</i>
@@ -44,7 +44,7 @@ ModUi/&EmpressGarbAppearance	<color=orange>女皇服饰链甲衫</color>外形
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ 添加新的法器至地下城制作</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAlternateHuman	启用变种人类<i><color=yellow>[+1专长 / +2属性值选择 / +1 技能]</color></i>
-ModUI/&EnableBetaContent	启用Beta内容<i><color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color></i> <b><i><color=red>[需要重启游戏]</color></i></b>
+ModUI/&EnableBetaContent	启用Beta内容<i><color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	启用以右键取消动作
 ModUi/&EnableCharacterChecker	启用角色验证界面
 ModUi/&EnableCharacterExport	启用<color=cyan>CTRL-SHIFT-E</color>导出角色<i><color=yellow>[仅限角色检查界面]</color></i>
@@ -52,9 +52,9 @@ ModUi/&EnableCheatMenu	启用作弊菜单
 ModUi/&EnableCtrlClickBypassAttackReactionPanel	启用点击<color=cyan>CTRL</color>以在攻击时忽略任何反应面板
 ModUi/&EnableCtrlClickBypassMetamagicPanel	启用点击<color=cyan>CTRL</color>以在施法时忽略<color=orange>术士</color>超魔面板
 ModUi/&EnableCtrlClickOnlySwapsMainHand	启用点击<color=cyan>CTRL</color>以在替换所持武器配置时保留副手武器
-ModUi/&EnableDungeonMakerModdedContent	启用地下城制作Pro<b><i><color=red>[需要重启游戏]</color></i></b>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
-ModUi/&EnableEpicPointsAndArray	启用35点的传奇构点和默认排列<i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[需要重启游戏]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters	为11-20级的战役启用额外的高等级怪物（+20CR）<b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&EnableDungeonMakerModdedContent	启用地下城制作Pro<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
+ModUi/&EnableEpicPointsAndArray	启用35点的传奇构点和默认排列<i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&EnableExtraHighLevelMonsters	为11-20级的战役启用额外的高等级怪物（+20CR）<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	启用在第2、6、10、14级时获得专长
 ModUi/&EnableFlexibleBackgrounds	启用灵活背景<i><color=yellow>[从背景中自由选择技能和工具熟练项]</color></i>
 ModUi/&EnableFlexibleRaces	启用灵活种族<i><color=yellow>[自由配置属性值而非使用种族的默认加值]</color></i>
@@ -80,7 +80,7 @@ ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法�
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
 ModUi/&Encounters	遭遇战
 ModUi/&ExpandAll	全部展开
-ModUi/&FactionHelp	<color=red>加载官方战役以修改派系关系...</color>
+ModUi/&FactionHelp	<color=#C04040E0>加载官方战役以修改派系关系...</color>
 ModUi/&FactionRelations	<color=yellow>派系关系：</color>
 ModUi/&FasterTimeModifier	<color=white>按空格键时可调整游戏速度</color>
 ModUi/&Feats	<color=yellow>专长</color>
@@ -96,7 +96,7 @@ ModUi/&GeneralMenu	通常
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	在未发现前隐藏出口和传送点的视觉效果
 ModUi/&HideMonsterHitPoints	以25%/50%/75%/100%为单位显示怪物的生命值状态，而非精确的生命值
 ModUi/&House	<color=yellow>房屋：</color>
-ModUi/&IncreaseSenseNormalVision	提高<color=orange>正常视觉</color>距离以允许长距离攻击<b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	提高<color=orange>正常视觉</color>距离以允许长距离攻击<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>初始选择：</color>
 ModUi/&Interface	界面
 ModUi/&InventoryAndItems	<color=yellow>物品栏和物品：</color>
@@ -104,10 +104,10 @@ ModUi/&InvertAltBehaviorOnTooltips	颠倒<color=cyan>ALT</color>键在工具提�
 ModUi/&ItemInDm	DM物品
 ModUi/&ItemsCraftingMerchants	物品，制作和商人
 ModUi/&KeyboardMouse	键盘与鼠标
-ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
-ModUi/&MaxAllowedClasses	<color=white>最高职业数量</color> <b><i><color=red>[需要重启游戏]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>最高允许等级</color> <b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&MaxAllowedClasses	<color=white>最高职业数量</color> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&MaxAllowedLevels	<color=white>最高允许等级</color> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>最高依地点/战役分类的备份存档数量</color>
 ModUi/&MaxBackupHelp	. 备份存档被保存在<i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>法术面版上每行最高环阶数</color>
@@ -115,7 +115,7 @@ ModUi/&Merchants	<color=yellow>商人：</color>
 ModUi/&Monsters	<color=yellow>怪物：</color>
 ModUi/&Multiclass	<color=yellow>兼职：</color>
 ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color>点击一个法术会消耗一个法术位，而非默认的契约法术位
-ModUi/&MultiplyTheExperienceGainedBy	<color=white>获得的经验乘以</color> <color=red>[%]</color>
+ModUi/&MultiplyTheExperienceGainedBy	<color=white>获得的经验乘以</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	无需经验即可升级
 ModUi/&NotAvailable	在Mod上还没有可用的{0}...
 ModUi/&OfferAdditionalLoreFriendlyNames	在创建角色时提供更多有利于传闻的名字
@@ -131,9 +131,9 @@ ModUi/&Races	<color=yellow>种族</color>
 ModUi/&RacesClassesSubclasses	种族，职业与子职
 ModUi/&RecipeCost	<color=white>配方消耗</color>
 ModUi/&RecipesInDm	DM配方
-ModUi/&RemoveAttunementRequirements	移除同调的先决条件<b><i><color=red>[需要重启游戏]</color></i></b>
-ModUi/&RemoveBugVisualModels	将虫类模型以类似模型替代<b><i><color=red>[需要重启游戏]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements	移除检定的先决条件<b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&RemoveAttunementRequirements	移除同调的先决条件<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&RemoveBugVisualModels	将虫类模型以类似模型替代<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&RemoveIdentifcationRequirements	移除检定的先决条件<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&RestockAntiquarians	古文物研究者 补货<i><color=yellow>[哈尔曼·萨默]</color></i>
 ModUi/&RestockArcaneum	奥术协会 补货<i><color=yellow>[赫德伦·苏尔斯佩尔]</color></i>
 ModUi/&RestockCircleOfDanantar	丹南塔尔之环 补货<i><color=yellow>[乔瑞尔·佛克斯爱]</color></i>
@@ -152,7 +152,7 @@ ModUi/&SpellLevelFilter	<b><i><color=white>以法术等级筛选</color> <color=
 ModUi/&Spells	<color=yellow>法术：</color>
 ModUi/&SpellsMenu	法术
 ModUi/&SRD	<color=yellow>SRD：</color>
-ModUi/&StockGorimStoreWithAllNonMagicalClothing	在格里姆的商店里销售所有非魔法服装<b><i><color=red>[需要重启游戏]</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing	在格里姆的商店里销售所有非魔法服装<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	在雨果的商店里销售<color=orange>鉴定魔杖</color>，<color=orange>奥术法杖</color>，<color=orange>德鲁伊项链</color>，<color=orange>法杖</color>和<color=orange>短棒</color>，并且设置为法器
 ModUi/&Subclasses	<color=yellow>子职</color>
 ModUi/&Tools	工具
