@@ -122,9 +122,8 @@ ModUi/&OfferAdditionalLoreFriendlyNames	在创建角色时提供更多有利于�
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ 只显示召唤列表中最强大的生物</i>
 ModUi/&OverrideMinMaxLevel	在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize	<color=white>覆盖自定义冒险的队伍大小</color>
-ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
-<color=orange>法师</color>控心大师子职的<color=orange>奥术之力</color>能力的法术DC</color>
+odUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>覆盖<color=orange>法师</color>控心大师子职的<color=orange>奥术之力</color>能力的法术DC</color>
 ModUi/&Patches	<color=yellow>补丁：</color>
 ModUi/&Progression	<color=yellow>进展：</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	快速施放光亮术戏法时优先使用头部或躯干上佩戴的物品
