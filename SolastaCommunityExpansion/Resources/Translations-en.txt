@@ -1971,5 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} hit 
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Distant Hand Technique
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
+Feature/&ClassMonkZenArcherStunningArrowsTitle	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with an arrow attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows

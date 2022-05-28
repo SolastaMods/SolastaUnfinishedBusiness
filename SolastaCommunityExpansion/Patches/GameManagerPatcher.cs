@@ -49,14 +49,7 @@ namespace SolastaCommunityExpansion.Patches
             GameUiContext.Load();
             InventoryManagementContext.Load();
 
-#if DEBUG // simplify diagnostics creation while in beta
             HandwrapWeaponContext.Load();
-#else
-            if (Main.Settings.EnableBetaContent)
-            {
-                HandwrapWeaponContext.Load();
-            }
-#endif
             ShieldStrikeContext.Load();
             ItemCraftingContext.Load();
             ItemOptionsContext.Load();

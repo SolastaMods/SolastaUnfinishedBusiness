@@ -1971,5 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} по
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Применить выбранную технику.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Подать заявление
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Техника дистанционной руки
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Потрясающие стрелы
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Вы можете препятствовать потоку ки в теле противника. Когда вы попадаете в другое существо, не оглушенное атакой стрелы, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.

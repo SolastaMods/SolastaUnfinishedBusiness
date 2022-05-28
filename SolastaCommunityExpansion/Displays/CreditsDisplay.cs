@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Displays
             {"Lyraele", "Warlock class design, quality assurance"},
             {"Narria", "modKit creator, developer"},
             {"Nd", "Opportunist subclass"},
-            {"Nyowwww", "Chinese tranlations"},
+            {"Nyowwww", "Chinese translations"},
             {"PraiseThyBus", "quality assurance"},
             {"RedOrca", "Path of the Light subclass, Indomitable Might"},
             {
@@ -49,12 +49,12 @@ namespace SolastaCommunityExpansion.Displays
             {"Spacehamster", "dataminer"},
             {
                 "TPABOBAP",
-                "Monk class, Warlock improvements, Tinkerer improvements, Level Up improvements, Holic75's code integration"
+                "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Holic75's code integration"
             },
             {"View619", "Darkvision, Superior Dark Vision"},
             {
                 "Zappastuff",
-                "multiclass, level 20, respec, level down, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Holic75's code integration"
+                "repository maintenance, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Holic75's code integration"
             }
         };
 
@@ -86,6 +86,7 @@ namespace SolastaCommunityExpansion.Displays
                 }, UI.AutoWidth());
             }
 
+#if false
             UI.Label("");
 
             var toggle = Main.Settings.EnableBetaContent;
@@ -93,6 +94,7 @@ namespace SolastaCommunityExpansion.Displays
             {
                 Main.Settings.EnableBetaContent = toggle;
             }
+#endif
 
             UI.Label("");
             UI.DisclosureToggle(Gui.Format("ModUi/&Patches"), ref displayPatches, 200);

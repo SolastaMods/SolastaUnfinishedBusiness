@@ -1971,5 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} touc
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Appliquer la technique sélectionnée.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Appliquer
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Technique de la main à distance
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.

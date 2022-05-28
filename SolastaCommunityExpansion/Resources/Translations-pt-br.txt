@@ -1971,5 +1971,5 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} atin
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Aplicar a técnica selecionada.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Aplicar
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Técnica da mão distante
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressioantes
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
