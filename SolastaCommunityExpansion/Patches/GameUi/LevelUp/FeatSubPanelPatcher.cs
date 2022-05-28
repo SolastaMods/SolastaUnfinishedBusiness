@@ -16,26 +16,25 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatSubPanel_Bind
     {
-        internal static void Prefix(List<FeatDefinition> ___relevantFeats, RectTransform ___table,
-            GameObject ___itemPrefab)
+        internal static void Prefix(FeatSubPanel __instance)
         {
             var dbFeatDefinition = DatabaseRepository.GetDatabase<FeatDefinition>();
 
-            ___relevantFeats.SetRange(dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden));
+            __instance.relevantFeats.SetRange(dbFeatDefinition.Where(x => !x.GuiPresentation.Hidden));
 
             if (Main.Settings.EnableSortingFeats)
             {
-                ___relevantFeats.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
+                __instance.relevantFeats.Sort((a, b) => a.FormatTitle().CompareTo(b.FormatTitle()));
             }
 
-            while (___table.childCount < ___relevantFeats.Count)
+            while (__instance.table.childCount < __instance.relevantFeats.Count)
             {
-                Gui.GetPrefabFromPool(___itemPrefab, ___table);
+                Gui.GetPrefabFromPool(__instance.itemPrefab, __instance.table);
             }
 
-            while (___table.childCount > ___relevantFeats.Count)
+            while (__instance.table.childCount > __instance.relevantFeats.Count)
             {
-                Gui.ReleaseInstanceToPool(___table.GetChild(___table.childCount - 1).gameObject);
+                Gui.ReleaseInstanceToPool(__instance.table.GetChild(__instance.table.childCount - 1).gameObject);
             }
         }
     }

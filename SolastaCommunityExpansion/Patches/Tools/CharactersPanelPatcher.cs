@@ -16,37 +16,33 @@ namespace SolastaCommunityExpansion.Patches.Tools
         private static bool HasInit { get; set; }
         private static int SelectedPlate { get; set; }
 
-        internal static void Postfix(
-            List<CharacterPlateToggle> ___characterPlates,
-            int ___selectedPlate,
-            Button ___exportPdfButton,
-            Button ___characterCheckerButton)
+        internal static void Postfix(CharactersPanel __instance)
         {
             if (Main.Settings.EnableCharacterChecker)
             {
-                ___characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content = string.Empty;
-                ___characterCheckerButton.gameObject.SetActive(true);
+                __instance.characterCheckerButton.GetComponentInChildren<GuiTooltip>().Content = string.Empty;
+                __instance.characterCheckerButton.gameObject.SetActive(true);
                 ;
             }
 
             if (Main.Settings.EnableRespec)
             {
-                var characterLevel = ___selectedPlate >= 0
-                    ? ___characterPlates[___selectedPlate].GuiCharacter.CharacterLevel
+                var characterLevel = __instance.selectedPlate >= 0
+                    ? __instance.characterPlates[__instance.selectedPlate].GuiCharacter.CharacterLevel
                     : 1;
 
-                SelectedPlate = ___selectedPlate;
-                ___exportPdfButton.gameObject.SetActive(characterLevel > 1);
+                SelectedPlate = __instance.selectedPlate;
+                __instance.exportPdfButton.gameObject.SetActive(characterLevel > 1);
 
                 if (HasInit)
                 {
                     return;
                 }
 
-                ___exportPdfButton.onClick.RemoveAllListeners();
-                ___exportPdfButton.onClick.AddListener(() =>
+                __instance.exportPdfButton.onClick.RemoveAllListeners();
+                __instance.exportPdfButton.onClick.AddListener(() =>
                 {
-                    LevelDownContext.ConfirmAndExecute(___characterPlates[SelectedPlate].Filename);
+                    LevelDownContext.ConfirmAndExecute(__instance.characterPlates[SelectedPlate].Filename);
                 });
 
                 HasInit = true;

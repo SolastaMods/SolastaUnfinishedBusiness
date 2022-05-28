@@ -15,25 +15,21 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_OnBeginShow
     {
-        internal static void Prefix(
-            CharacterStageClassSelectionPanel __instance,
-            RulesetCharacterHero ___currentHero,
-            List<CharacterClassDefinition> ___compatibleClasses,
-            ref int ___selectedClass)
+        internal static void Prefix(CharacterStageClassSelectionPanel __instance)
         {
             // avoids a restart when enabling / disabling classes on the Mod UI panel
-            if (!LevelUpContext.IsLevelingUp(___currentHero))
+            if (!LevelUpContext.IsLevelingUp(__instance.currentHero))
             {
                 var visibleClasses = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
                     .Where(x => !x.GuiPresentation.Hidden);
 
-                ___compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
+                __instance.compatibleClasses.SetRange(visibleClasses.OrderBy(x => x.FormatTitle()));
                 return;
             }
 
-            LevelUpContext.SetIsClassSelectionStage(___currentHero, true);
-            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(___currentHero, ___compatibleClasses,
-                ref ___selectedClass);
+            LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
+            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero, __instance.compatibleClasses,
+                ref __instance.selectedClass);
 
             var commonData = __instance.CommonData;
 
@@ -56,11 +52,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageClassSelectionPanel_OnEndHide
     {
-        internal static void Prefix(RulesetCharacterHero ___currentHero)
+        internal static void Prefix(CharacterStageClassSelectionPanel __instance)
         {
-            if (___currentHero != null && LevelUpContext.IsLevelingUp(___currentHero))
+            if (__instance.currentHero != null && LevelUpContext.IsLevelingUp(__instance.currentHero))
             {
-                LevelUpContext.SetIsClassSelectionStage(___currentHero, false);
+                LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, false);
             }
         }
     }

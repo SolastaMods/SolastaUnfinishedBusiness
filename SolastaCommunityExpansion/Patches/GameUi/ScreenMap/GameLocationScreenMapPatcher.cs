@@ -13,11 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationScreenMap_BindGadgets
     {
-        internal static bool Prefix(List<MapGadgetItem> ___mapGadgetItems,
-            ref int ___activeMapGadgetItems,
-            GameObject ___mapGadgetItemPrefab,
-            Transform ___mapItemsTransform,
-            List<MapBaseItem> ___sortedItems)
+        internal static bool Prefix(GameLocationScreenMap __instance)
         {
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
@@ -67,27 +63,27 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
 
                         if ((int)itemType > int.MinValue)
                         {
-                            ++___activeMapGadgetItems;
-                            for (var index = ___mapGadgetItems.Count - 1; index < ___activeMapGadgetItems; ++index)
+                            ++__instance.activeMapGadgetItems;
+                            for (var index = __instance.mapGadgetItems.Count - 1; index < __instance.activeMapGadgetItems; ++index)
                             {
-                                var gameObject = Object.Instantiate(___mapGadgetItemPrefab, ___mapItemsTransform);
+                                var gameObject = Object.Instantiate(__instance.mapGadgetItemPrefab, __instance.mapItemsTransform);
 
                                 if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
                                 {
                                     mapGadgetItem.Unbind();
-                                    ___mapGadgetItems.Add(mapGadgetItem);
+                                    __instance.mapGadgetItems.Add(mapGadgetItem);
                                 }
                             }
 
-                            ___mapGadgetItems[___activeMapGadgetItems - 1].Bind(gameGadget, itemType);
+                            __instance.mapGadgetItems[__instance.activeMapGadgetItems - 1].Bind(gameGadget, itemType);
                         }
                     }
                 }
             }
 
-            for (var index = 0; index < ___activeMapGadgetItems; ++index)
+            for (var index = 0; index < __instance.activeMapGadgetItems; ++index)
             {
-                ___sortedItems.Add(___mapGadgetItems[index]);
+                __instance.sortedItems.Add(__instance.mapGadgetItems[index]);
             }
 
             return false;

@@ -20,8 +20,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
     {
         internal static GameObject Dropdown { get; private set; }
 
-        public static bool Prefix(LoadPanel __instance, ScrollRect ___loadSaveLinesScrollview,
-            [HarmonyArgument("instant")] bool _ = false)
+        public static bool Prefix(LoadPanel __instance, [HarmonyArgument("instant")] bool _ = false)
         {
             if (!Main.Settings.EnableSaveByLocation)
             {
@@ -35,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 
             // From OnBeginShow
             __instance.StartAllModifiers(true);
-            ___loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
+            __instance.loadSaveLinesScrollview.normalizedPosition = new Vector2(0.0f, 1f);
             __instance.Reset();
 
             // The Load Panel is being shown.

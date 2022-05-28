@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterPlateDetailed_OnPortraitShowed
     {
-        internal static void Postfix(CharacterPlateDetailed __instance, GuiLabel ___classLabel)
+        internal static void Postfix(CharacterPlateDetailed __instance)
         {
             int classesCount;
             char separator;
@@ -25,9 +25,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 classesCount = guiCharacter.Snapshot.Classes.Length;
             }
 
-            ___classLabel.Text = MulticlassGameUiContext.GetAllClassesLabel(guiCharacter, separator) ??
-                                 ___classLabel.Text;
-            ___classLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(classesCount);
+            __instance.classLabel.Text = MulticlassGameUiContext.GetAllClassesLabel(guiCharacter, separator) ??
+                                 __instance.classLabel.Text;
+            __instance.classLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(classesCount);
         }
     }
 }

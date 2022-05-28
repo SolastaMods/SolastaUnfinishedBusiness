@@ -8,11 +8,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterStageSubclassSelectionPanel_UpdateRelevance
     {
-        internal static void Postfix(RulesetCharacterHero ___currentHero, ref bool ___isRelevant)
+        internal static void Postfix(CharacterStageSubclassSelectionPanel __instance)
         {
-            if (LevelUpContext.IsLevelingUp(___currentHero) && LevelUpContext.RequiresDeity(___currentHero))
+            if (LevelUpContext.IsLevelingUp(__instance.currentHero) && LevelUpContext.RequiresDeity(__instance.currentHero))
             {
-                ___isRelevant = false;
+                __instance.isRelevant = false;
             }
         }
     }

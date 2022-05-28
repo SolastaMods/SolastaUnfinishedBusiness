@@ -10,12 +10,12 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.OfficialAdvantageDi
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class ActionModifier_AttackAdvantageTrend
     {
-        public static bool Prefix(ref int __result, List<TrendInfo> ___attackAdvantageTrends)
+        public static bool Prefix(ActionModifier __instance, ref int __result)
         {
             if (Main.Settings.UseOfficialAdvantageDisadvantageRules)
             {
-                var advantage = ___attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
-                var disadvantage = ___attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
+                var advantage = __instance.attackAdvantageTrends.Any(t => t.value > 0) ? 1 : 0;
+                var disadvantage = __instance.attackAdvantageTrends.Any(t => t.value < 0) ? -1 : 0;
 
                 __result = advantage + disadvantage;
 

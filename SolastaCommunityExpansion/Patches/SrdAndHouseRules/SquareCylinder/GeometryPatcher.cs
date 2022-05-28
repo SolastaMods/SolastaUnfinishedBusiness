@@ -97,9 +97,9 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GeometricShape_UpdateCylinderPosition
     {
-        public static void Postfix(MeshRenderer ___cylinderRenderer, Vector3 origin)
+        public static void Postfix(MeshRenderer __instance.cylinderRenderer, Vector3 origin)
         {
-            var transform = ___cylinderRenderer.transform;
+            var transform = __instance.cylinderRenderer.transform;
             var p = transform.position;
             var s = transform.localScale;
             Main.Log($"Cylinder: origin=({origin.x}, {origin.y}, {origin.z}) position=({p.x},{p.y},{p.z}), scale=({s.x},{s.y},{s.z})");
@@ -112,35 +112,35 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
     internal static class GameLocationTargetingManager_BuildAABB
     {
         public static void Postfix(
-            MetricsDefinitions.GeometricShapeType ___shapeType, Vector3 ___origin, ref Bounds ___bounds,
-            float ___geometricParameter, float ___geometricParameter2, bool ___hasMagneticTargeting, RuleDefinitions.RangeType ___rangeType)
+            MetricsDefinitions.GeometricShapeType __instance.shapeType, Vector3 __instance.origin, ref Bounds __instance.bounds,
+            float __instance.geometricParameter, float __instance.geometricParameter2, bool __instance.hasMagneticTargeting, RuleDefinitions.RangeType __instance.rangeType)
         {
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {
 #if DEBUG
-                var min1 = ___bounds.min;
-                var max1 = ___bounds.max;
-                Main.Log($"BuildAAAB {___shapeType} min({min1.x}, {min1.y}, {min1.z}), max({max1.x}, {max1.y}, {max1.z})");
+                var min1 = __instance.bounds.min;
+                var max1 = __instance.bounds.max;
+                Main.Log($"BuildAAAB {__instance.shapeType} min({min1.x}, {min1.y}, {min1.z}), max({max1.x}, {max1.y}, {max1.z})");
 #endif
                 return;
             }
 
-            if (___shapeType != MetricsDefinitions.GeometricShapeType.Cube)
+            if (__instance.shapeType != MetricsDefinitions.GeometricShapeType.Cube)
             {
                 return;
             }
 
-            if (___geometricParameter2 <= 0)
+            if (__instance.geometricParameter2 <= 0)
             {
                 return;
             }
 
-            var edgeSize = ___geometricParameter;
-            var height = ___geometricParameter2;
+            var edgeSize = __instance.geometricParameter;
+            var height = __instance.geometricParameter2;
 
             Vector3 vector = new();
 
-            if (___hasMagneticTargeting || ___rangeType == RuleDefinitions.RangeType.Self)
+            if (__instance.hasMagneticTargeting || __instance.rangeType == RuleDefinitions.RangeType.Self)
             {
                 if (edgeSize % 2.0 == 0.0)
                     vector = new Vector3(0.5f, 0f, 0.5f);
@@ -156,10 +156,10 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
                     vector += new Vector3(0.5f, 0.0f, 0.5f);
             }
 
-            ___bounds = new Bounds(___origin + vector, new Vector3(edgeSize, height, edgeSize));
+            __instance.bounds = new Bounds(__instance.origin + vector, new Vector3(edgeSize, height, edgeSize));
 #if DEBUG
-            var min = ___bounds.min;
-            var max = ___bounds.max;
+            var min = __instance.bounds.min;
+            var max = __instance.bounds.max;
             Main.Log($"BuildAAAB min({min.x}, {min.y}, {min.z}), max({max.x}, {max.y}, {max.z})");
 #endif
         }

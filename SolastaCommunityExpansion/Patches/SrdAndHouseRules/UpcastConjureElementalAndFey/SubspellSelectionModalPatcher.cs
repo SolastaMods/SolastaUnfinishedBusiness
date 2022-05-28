@@ -104,8 +104,8 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SubspellSelectionModal_OnActivate
     {
-        public static bool Prefix(SubspellSelectionModal __instance, int index, int ___slotLevel,
-            RulesetSpellRepertoire ___spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged)
+        public static bool Prefix(SubspellSelectionModal __instance, int index, int __instance.slotLevel,
+            RulesetSpellRepertoire __instance.spellRepertoire, SpellsByLevelBox.SpellCastEngagedHandler __instance.spellCastEngaged)
         {
             if (Main.Settings.EnableUpcastConjureElementalAndFey 
                 && SubspellSelectionModal_Bind.FilteredSubspells != null
@@ -115,7 +115,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
 
                 if (subspells.Count > index)
                 {
-                    ___spellCastEngaged?.Invoke(___spellRepertoire, SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
+                    __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire, SubspellSelectionModal_Bind.FilteredSubspells[index], __instance.slotLevel);
 
                     // If a device had the summon function, implement here
 

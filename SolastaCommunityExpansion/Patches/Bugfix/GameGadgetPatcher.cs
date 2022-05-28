@@ -18,17 +18,17 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
         /// <param name="__instance"></param>
         /// <param name="conditionIndex"></param>
         /// <param name="state"></param>
-        /// <param name="___conditionNames"></param>
-        public static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> ___conditionNames)
+        /// <param name="__instance.conditionNames"></param>
+        public static void Postfix(GameGadget __instance, int conditionIndex, bool state, List<string> __instance.conditionNames)
         {
             if (!Main.Settings.BugFixButtonActivatorTriggerIssue)
             {
                 return;
             }
 
-            if (conditionIndex >= 0 && conditionIndex < ___conditionNames.Count)
+            if (conditionIndex >= 0 && conditionIndex < __instance.conditionNames.Count)
             {
-                var param = ___conditionNames[conditionIndex];
+                var param = __instance.conditionNames[conditionIndex];
 
                 // NOTE: only handling 'button activator'
                 // TODO: check other activators for same issue

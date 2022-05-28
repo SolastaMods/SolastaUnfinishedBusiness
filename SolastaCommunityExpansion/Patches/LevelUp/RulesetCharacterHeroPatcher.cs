@@ -10,8 +10,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacterHero_AddClassLevel
     {
-        internal static bool Prefix(RulesetCharacterHero __instance, CharacterClassDefinition classDefinition,
-            List<int> ___hitPointsGainHistory)
+        internal static bool Prefix(RulesetCharacterHero __instance, CharacterClassDefinition classDefinition)
         {
             if (!LevelUpContext.IsLevelingUp(__instance))
             {
@@ -23,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             __instance.ClassesAndLevels.TryAdd(classDefinition, 0);
             __instance.ClassesAndLevels[classDefinition]++;
 
-            ___hitPointsGainHistory.Add(HeroDefinitions.RollHitPoints(classDefinition.HitDice));
+            __instance.hitPointsGainHistory.Add(HeroDefinitions.RollHitPoints(classDefinition.HitDice));
 
             __instance.ComputeCharacterLevel();
             __instance.ComputeProficiencyBonus();

@@ -10,17 +10,17 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DatabaseSelectionModal_BuildMonsters
     {
-        internal static void Prefix(List<MonsterDefinition> ___allMonsters)
+        internal static void Prefix(DatabaseSelectionModal __instance)
         {
             if (Main.Settings.UnleashNpcAsEnemy)
             {
                 var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
-                ___allMonsters.Clear();
+                __instance.allMonsters.Clear();
 
                 if (isCtrlPressed)
                 {
-                    ___allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                    __instance.allMonsters.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                         .Where(x => !x.GuiPresentation.Hidden)
                         .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
                 }
@@ -33,17 +33,17 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class DatabaseSelectionModal_BuildNpcs
     {
-        internal static void Prefix(List<MonsterDefinition> ___allNpcs)
+        internal static void Prefix(DatabaseSelectionModal __instance)
         {
             if (Main.Settings.UnleashEnemyAsNpc)
             {
                 var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
 
-                ___allNpcs.Clear();
+                __instance.allNpcs.Clear();
 
                 if (isCtrlPressed)
                 {
-                    ___allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
+                    __instance.allNpcs.AddRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
                         .Where(x => !x.GuiPresentation.Hidden)
                         .OrderBy(d => Gui.Localize(d.GuiPresentation.Title)));
                 }

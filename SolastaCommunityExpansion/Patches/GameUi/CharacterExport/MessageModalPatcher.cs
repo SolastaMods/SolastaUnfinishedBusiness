@@ -11,9 +11,9 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterExport
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class MessageModal_OnEndShow
     {
-        internal static void Postfix(GuiLabel ___contentLabel)
+        internal static void Postfix(MessageModal __instance)
         {
-            if (!Main.Settings.EnableCharacterExport || ___contentLabel.Text != INPUT_MODAL_MARK)
+            if (!Main.Settings.EnableCharacterExport || __instance.contentLabel.Text != INPUT_MODAL_MARK)
             {
                 if (InputField != null)
                 {
@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterExport
                 Load();
             }
 
-            ___contentLabel.TMP_Text.alignment = TextAlignmentOptions.BottomLeft;
+            __instance.contentLabel.TMP_Text.alignment = TextAlignmentOptions.BottomLeft;
 
             InputField.gameObject.SetActive(true);
             InputField.ActivateInputField();

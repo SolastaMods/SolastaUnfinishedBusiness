@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class VictoryModal_OnBeginShow
     {
-        internal static void Prefix(RectTransform ___heroStatsGroup)
+        internal static void Prefix(VictoryModal __instance)
         {
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
@@ -23,11 +23,11 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
                 var scale = (float)Math.Pow(DungeonMakerContext.VICTORY_MODAL_DEFAULT_SCALE,
                     partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
 
-                ___heroStatsGroup.localScale = new Vector3(scale, 1, scale);
+                __instance.heroStatsGroup.localScale = new Vector3(scale, 1, scale);
             }
             else
             {
-                ___heroStatsGroup.localScale = new Vector3(1, 1, 1);
+                __instance.heroStatsGroup.localScale = new Vector3(1, 1, 1);
             }
         }
     }

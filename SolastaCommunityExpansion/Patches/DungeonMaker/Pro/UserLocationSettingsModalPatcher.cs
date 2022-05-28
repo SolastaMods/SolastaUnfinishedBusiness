@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UserLocationSettingsModal_RuntimeLoaded
     {
-        internal static void Postfix(List<TMP_Dropdown.OptionData> ___optionsListSize)
+        internal static void Postfix(UserLocationSettingsModal __instance)
         {
             if (!Main.Settings.EnableDungeonMakerPro || !Main.Settings.EnableDungeonMakerModdedContent)
             {
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Pro
             {
                 var sizeString = UserLocationDefinitions.CellsBySize[(UserLocationDefinitions.Size)size].ToString();
 
-                ___optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
+                __instance.optionsListSize.Add(new GuiDropdown.OptionDataAdvanced
                 {
                     text = Gui.FormatLocationSize((UserLocationDefinitions.Size)size).yellow() + " " +
                            Gui.Format("{0} x {1}", sizeString, sizeString),

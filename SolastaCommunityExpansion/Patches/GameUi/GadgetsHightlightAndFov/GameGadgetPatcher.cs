@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_ComputeIsRevealed
     {
-        internal static void Postfix(GameGadget __instance, ref bool ___revealed, ref bool __result)
+        internal static void Postfix(GameGadget __instance, ref bool __result)
         {
             if (!__instance.Revealed || Gui.GameLocation.UserLocation == null ||
                 !Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
             }
 
             // reverts the revealed state and recalculates it
-            ___revealed = false;
+            __instance.revealed = false;
             __result = false;
 
             var x = (int)__instance.FeedbackPosition.x;
@@ -59,7 +59,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
                             isEnabled && !isInvisible);
                     }
 
-                    ___revealed = true;
+                    __instance.revealed = true;
                     __result = true;
 
                     break;
@@ -72,22 +72,21 @@ namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameGadget_SetCondition
     {
-        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state,
-            List<string> ___conditionNames)
+        internal static void Postfix(GameGadget __instance, int conditionIndex, bool state)
         {
             if (!Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered)
             {
                 return;
             }
 
-            if (conditionIndex >= 0 && conditionIndex < ___conditionNames.Count)
+            if (conditionIndex >= 0 && conditionIndex < __instance.conditionNames.Count)
             {
-                var param = ___conditionNames[conditionIndex];
+                var param = __instance.conditionNames[conditionIndex];
 
                 Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
 
 #if DEBUG
-                //Main.Log("GameGadget_SetCondition: " + string.Join(",", ___conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
+                //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
 #endif
 
                 if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)

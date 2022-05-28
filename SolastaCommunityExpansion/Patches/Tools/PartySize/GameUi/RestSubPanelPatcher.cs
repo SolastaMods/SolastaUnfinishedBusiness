@@ -14,7 +14,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RestSubPanel_OnBeginShow
     {
-        internal static void Prefix(RectTransform ___characterPlatesTable, RectTransform ___restModulesTable)
+        internal static void Prefix(RestSubPanel __instance)
         {
             var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
@@ -23,13 +23,13 @@ namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi
                 var scale = (float)Math.Pow(DungeonMakerContext.REST_PANEL_DEFAULT_SCALE,
                     partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
 
-                ___restModulesTable.localScale = new Vector3(scale, scale, scale);
-                ___characterPlatesTable.localScale = new Vector3(scale, scale, scale);
+                __instance.restModulesTable.localScale = new Vector3(scale, scale, scale);
+                __instance.characterPlatesTable.localScale = new Vector3(scale, scale, scale);
             }
             else
             {
-                ___restModulesTable.localScale = new Vector3(1, 1, 1);
-                ___characterPlatesTable.localScale = new Vector3(1, 1, 1);
+                __instance.restModulesTable.localScale = new Vector3(1, 1, 1);
+                __instance.characterPlatesTable.localScale = new Vector3(1, 1, 1);
             }
         }
     }

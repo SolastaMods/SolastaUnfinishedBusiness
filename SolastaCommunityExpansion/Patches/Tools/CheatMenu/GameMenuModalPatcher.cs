@@ -9,13 +9,13 @@ namespace SolastaCommunityExpansion.Patches.Tools.CheatMenu
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameMenuModal_SetButtonAvailability
     {
-        internal static void Postfix(GameMenuModal.MenuButtonIndex index, CanvasGroup[] ___buttonCanvases)
+        internal static void Postfix(GameMenuModal __instance, GameMenuModal.MenuButtonIndex index)
         {
             if (Main.Settings.EnableCheatMenu && index == GameMenuModal.MenuButtonIndex.Cheats)
             {
-                ___buttonCanvases[(int)index].gameObject.SetActive(true);
-                ___buttonCanvases[(int)index].interactable = true;
-                ___buttonCanvases[(int)index].alpha = 1f;
+                __instance.buttonCanvases[(int)index].gameObject.SetActive(true);
+                __instance.buttonCanvases[(int)index].interactable = true;
+                __instance.buttonCanvases[(int)index].alpha = 1f;
             }
         }
     }

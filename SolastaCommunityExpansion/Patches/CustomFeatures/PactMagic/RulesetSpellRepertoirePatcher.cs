@@ -28,8 +28,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         {
             internal static bool Prefix(
                 RulesetSpellRepertoire __instance,
-                ref int __result,
-                Dictionary<int, int> ___spellsSlotCapacities)
+                ref int __result)
             {
                 if (ShouldNotRun(__instance))
                 {
@@ -37,7 +36,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 }
 
                 // handles SC Warlock
-                ___spellsSlotCapacities.TryGetValue(1, out __result);
+                __instance.spellsSlotCapacities.TryGetValue(1, out __result);
 
                 return false;
             }
@@ -91,9 +90,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         {
             internal static bool Prefix(
                 RulesetSpellRepertoire __instance,
-                ref int __result,
-                Dictionary<int, int> ___usedSpellsSlots,
-                Dictionary<int, int> ___spellsSlotCapacities)
+                ref int __result)
             {
                 if (ShouldNotRun(__instance))
                 {
@@ -101,8 +98,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                 }
 
                 // handles SC Warlock
-                ___spellsSlotCapacities.TryGetValue(1, out var max);
-                ___usedSpellsSlots.TryGetValue(1, out var used);
+                __instance.spellsSlotCapacities.TryGetValue(1, out var max);
+                __instance.usedSpellsSlots.TryGetValue(1, out var used);
                 __result = max - used;
 
                 return false;
@@ -116,8 +113,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
         {
             internal static bool Prefix(
                 RulesetSpellRepertoire __instance,
-                Dictionary<int, int> ___usedSpellsSlots,
-                Dictionary<int, int> ___spellsSlotCapacities,
                 int spellLevel,
                 ref int remaining,
                 ref int max)
@@ -133,8 +128,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 
                 if (spellLevel <= __instance.MaxSpellLevelOfSpellCastingLevel)
                 {
-                    ___spellsSlotCapacities.TryGetValue(1, out max);
-                    ___usedSpellsSlots.TryGetValue(1, out var used);
+                    __instance.spellsSlotCapacities.TryGetValue(1, out max);
+                    __instance.usedSpellsSlots.TryGetValue(1, out var used);
                     remaining = max - used;
                 }
 

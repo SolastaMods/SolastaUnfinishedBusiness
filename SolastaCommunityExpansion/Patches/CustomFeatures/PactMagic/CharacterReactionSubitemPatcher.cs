@@ -11,9 +11,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     internal static class CharacterReactionSubitem_Bind
     {
         public static void Postfix(
+            CharacterReactionSubitem __instance,
             RulesetSpellRepertoire spellRepertoire,
-            int slotLevel,
-            RectTransform ___slotStatusTable)
+            int slotLevel)
         {
             var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
 
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel, ___slotStatusTable);
+                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel, __instance.slotStatusTable);
         }
     }
 
@@ -34,9 +34,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterReactionSubitem_Unbind
     {
-        public static void Prefix(RectTransform ___slotStatusTable)
+        public static void Prefix(CharacterReactionSubitem __instance)
         {
-            MulticlassGameUiContext.PaintSlotsWhite(___slotStatusTable);
+            MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
         }
     }
 }

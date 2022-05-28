@@ -8,7 +8,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class FeatureDescriptionItem_Bind
     {
-        public static void Postfix(GuiDropdown ___choiceDropdown)
+        public static void Postfix(FeatureDescriptionItem __instance)
         {
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
             var currentLocalHeroCharacter = characterBuildingService.CurrentLocalHeroCharacter;
@@ -19,8 +19,8 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 return;
             }
 
-            //___choiceDropdown.enabled = false;
-            ___choiceDropdown.gameObject.SetActive(false);
+            //__instance.choiceDropdown.enabled = false;
+            __instance.choiceDropdown.gameObject.SetActive(false);
         }
     }
 }

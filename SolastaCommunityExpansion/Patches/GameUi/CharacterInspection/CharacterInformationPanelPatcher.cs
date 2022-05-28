@@ -52,8 +52,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             RectTransform table,
             List<FeatureUnlockByLevel> features,
             string insufficientLevelFormat,
-            TooltipDefinitions.AnchorMode tooltipAnchorMode,
-            GameObject ___featurePrefab)
+            TooltipDefinitions.AnchorMode tooltipAnchorMode)
         {
             if (!Main.Settings.EnableEnhancedCharacterInspection)
             {
@@ -62,7 +61,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             while (table.childCount < features.Count)
             {
-                Gui.GetPrefabFromPool(___featurePrefab, table);
+                Gui.GetPrefabFromPool(__instance.featurePrefab, table);
             }
 
             var index = 0;

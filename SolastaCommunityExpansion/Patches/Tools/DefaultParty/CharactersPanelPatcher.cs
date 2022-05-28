@@ -41,7 +41,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
             return checkBox;
         }
 
-        internal static void Postfix(RectTransform ___charactersTable)
+        internal static void Postfix(CharactersPanel __instance)
         {
             if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
             {
@@ -53,9 +53,9 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 
             Main.Settings.DefaultPartyHeroes.RemoveAll(x => !characterPoolService.ContainsCharacter(x));
 
-            for (var i = 0; i < ___charactersTable.childCount; i++)
+            for (var i = 0; i < __instance.charactersTable.childCount; i++)
             {
-                var character = ___charactersTable.GetChild(i);
+                var character = __instance.charactersTable.GetChild(i);
                 var checkBox = character.Find("DefaultHeroToggle") ?? CreateHeroCheckbox(character);
                 var tooltip = checkBox.Find("Background").GetComponentInChildren<GuiTooltip>();
                 var checkBoxToggle = checkBox.GetComponentInChildren<Toggle>();
@@ -80,7 +80,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
                 });
             }
 
-            Rebase(___charactersTable, max);
+            Rebase(__instance.charactersTable, max);
         }
     }
 }

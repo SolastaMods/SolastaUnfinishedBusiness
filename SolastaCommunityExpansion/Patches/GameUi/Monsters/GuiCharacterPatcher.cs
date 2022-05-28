@@ -15,7 +15,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GuiCharacter_FormatHealthGauge
     {
-        internal static void Prefix(GuiCharacter __instance, bool ___healthGaugeDirty, out bool __state)
+        internal static void Prefix(GuiCharacter __instance, out bool __state)
         {
             if (!Main.Settings.HideMonsterHitPoints)
             {
@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
             var dirty = __instance.UpdateHealthStatus();
 
             // capture current state of dirty flag for use in Postfix
-            __state = ___healthGaugeDirty || dirty;
+            __state = __instance.healthGaugeDirty || dirty;
         }
 
         internal static void Postfix(GuiCharacter __instance, Image healthGauge, float parentHeight, bool __state)
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
         private static readonly Regex HitPointRegex = new(@"^<#.{6}>(?<current_hp>\d{1,4})</color>/(?<max_hp>\d{1,4})",
             RegexOptions.Compiled | RegexOptions.Singleline);
 
-        internal static void Prefix(GuiCharacter __instance, bool ___healthLabelDirty, out bool __state)
+        internal static void Prefix(GuiCharacter __instance, out bool __state)
         {
             if (!Main.Settings.HideMonsterHitPoints)
             {
@@ -76,7 +76,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
             var dirty = __instance.UpdateHealthStatus();
 
             // capture current state of dirty flag for use in Postfix
-            __state = ___healthLabelDirty || dirty;
+            __state = __instance.healthLabelDirty || dirty;
         }
 
         internal static void Postfix(GuiCharacter __instance, GuiLabel healthLabel, bool __state)

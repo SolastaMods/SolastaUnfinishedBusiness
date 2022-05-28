@@ -9,11 +9,11 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterSelectionModal_EnumeratePlates
     {
-        internal static void Postfix(RectTransform ___charactersTable)
+        internal static void Postfix(CharacterSelectionModal __instance)
         {
-            for (var i = 0; i < ___charactersTable.childCount; i++)
+            for (var i = 0; i < __instance.charactersTable.childCount; i++)
             {
-                var character = ___charactersTable.GetChild(i);
+                var character = __instance.charactersTable.GetChild(i);
                 var checkBoxToggle = character.GetComponentInChildren<Toggle>();
 
                 if (checkBoxToggle)

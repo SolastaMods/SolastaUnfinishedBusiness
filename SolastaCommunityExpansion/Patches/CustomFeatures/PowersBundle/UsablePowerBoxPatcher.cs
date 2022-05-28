@@ -9,25 +9,21 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UsablePowerBox_OnActivateCb
     {
-        internal static bool Prefix(
-            UsablePowerBox __instance,
-            RulesetUsablePower ___usablePower,
-            UsablePowerBox.PowerEngagedHandler ___powerEngaged,
-            RulesetCharacter ___activator)
+        internal static bool Prefix(UsablePowerBox __instance)
         {
             if (!Main.Settings.EnablePowersBundlePatch)
             {
                 return true;
             }
 
-            var masterPower = ___usablePower.PowerDefinition;
+            var masterPower = __instance.usablePower.PowerDefinition;
 
             if (PowerBundleContext.GetBundle(masterPower) == null)
             {
                 return true;
             }
 
-            if (___powerEngaged == null)
+            if (__instance.powerEngaged == null)
             {
                 return true;
             }
@@ -40,7 +36,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             repertoire.KnownSpells.AddRange(masterSpell.SubspellsList);
 
-            subspellSelectionModalScreen.Bind(masterSpell, ___activator, repertoire, handler, 0,
+            subspellSelectionModalScreen.Bind(masterSpell, __instance.activator, repertoire, handler, 0,
                 __instance.RectTransform);
             subspellSelectionModalScreen.Show();
 

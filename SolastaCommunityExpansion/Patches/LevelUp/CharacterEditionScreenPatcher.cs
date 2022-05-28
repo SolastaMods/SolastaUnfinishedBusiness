@@ -29,24 +29,22 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             return customFeatureSelection;
         }
 
-        internal static void Postfix(
-            CharacterEditionScreen __instance,
-            ref Dictionary<string, CharacterStagePanel> ___stagePanelsByName)
+        internal static void Postfix(CharacterEditionScreen __instance)
         {
             if (__instance is CharacterCreationScreen)
             {
                 var customFeatureSelection = GetPanel(__instance);
-                var last = ___stagePanelsByName.ElementAt(___stagePanelsByName.Count - 1);
+                var last = __instance.stagePanelsByName.ElementAt(__instance.stagePanelsByName.Count - 1);
 
-                ___stagePanelsByName.Remove(last.Key);
-                ___stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
-                ___stagePanelsByName.Add(last.Key, last.Value);
+                __instance.stagePanelsByName.Remove(last.Key);
+                __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+                __instance.stagePanelsByName.Add(last.Key, last.Value);
             }
             else if (__instance is CharacterLevelUpScreen)
             {
                 var customFeatureSelection = GetPanel(__instance);
 
-                ___stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
+                __instance.stagePanelsByName.Add(customFeatureSelection.Name, customFeatureSelection);
             }
 
             //
@@ -70,7 +68,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 {"ClassSelection", classSelectionPanel}
             };
 
-            foreach (var stagePanel in ___stagePanelsByName)
+            foreach (var stagePanel in __instance.stagePanelsByName)
             {
                 newLevelUpSequence.Add(stagePanel.Key, stagePanel.Value);
 
@@ -80,7 +78,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 }
             }
 
-            ___stagePanelsByName = newLevelUpSequence;
+            __instance.stagePanelsByName = newLevelUpSequence;
         }
     }
 
@@ -88,9 +86,9 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class CharacterEditionScreen_DoAbort
     {
-        internal static void Prefix(RulesetCharacterHero ___currentHero)
+        internal static void Prefix(CharacterEditionScreen __instance)
         {
-            LevelUpContext.UnregisterHero(___currentHero);
+            LevelUpContext.UnregisterHero(__instance.currentHero);
         }
     }
 }

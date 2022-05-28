@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
     {
         internal static bool ShouldAssignDefaultParty { get; set; }
 
-        internal static void Postfix(NewAdventurePanel __instance, RectTransform ___characterSessionPlatesTable)
+        internal static void Postfix(NewAdventurePanel __instance)
         {
             if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty
                 || !ShouldAssignDefaultParty
@@ -23,12 +23,12 @@ namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 
             var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
             var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
-                ___characterSessionPlatesTable.childCount);
+                __instance.characterSessionPlatesTable.childCount);
 
             for (var i = 0; i < max; i++)
             {
                 var characterPlateSession =
-                    ___characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
+                    __instance.characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
 
                 if (characterPlateSession.gameObject.activeSelf)
                 {

@@ -9,8 +9,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualCasting
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class RulesetCharacter_CanCastAnyRitualSpell
     {
-        internal static bool Prefix(RulesetCharacter __instance, ref bool __result,
-            List<SpellDefinition> ___usableSpells)
+        internal static bool Prefix(RulesetCharacter __instance, ref bool __result)
         {
             if (__instance is not RulesetCharacterHero)
             {
@@ -18,8 +17,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualCasting
             }
 
             RitualSelectionPanel_Bind.EnumerateUsableRitualSpells(__instance, RuleDefinitions.RitualCasting.None,
-                ___usableSpells);
-            __result = ___usableSpells.Count > 0;
+                __instance.usableSpells);
+            __result = __instance.usableSpells.Count > 0;
 
             return false;
         }

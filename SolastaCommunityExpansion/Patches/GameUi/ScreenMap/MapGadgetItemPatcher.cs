@@ -13,12 +13,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
     {
         internal static bool Prefix(
             MapGadgetItem __instance,
-            GameGadget gameGadget, MapGadgetItem.ItemType itemType,
-            ref GameGadget ___gameGadget,
-            GuiTooltip ___guiTooltip,
-            Image ___backgroundImage,
-            Image ___iconImage,
-            Sprite[] ___backgroundSprites)
+            GameGadget gameGadget,
+            MapGadgetItem.ItemType itemType)
         {
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)
             {
@@ -34,27 +30,27 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
             switch ((int)itemType)
             {
                 case -1:
-                    ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite = CustomIcons.GetOrCreateSprite("Fire", Resources.Fire, 24);
-                    ___guiTooltip.Content = "Camp";
+                    __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
+                    __instance.iconImage.sprite = CustomIcons.GetOrCreateSprite("Fire", Resources.Fire, 24);
+                    __instance.guiTooltip.Content = "Camp";
                     break;
                 case -2:
-                    ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite =
+                    __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
+                    __instance.iconImage.sprite =
                         CustomIcons.GetOrCreateSprite("Entrance", Resources.Entry, 24);
-                    ___guiTooltip.Content = "Exit";
+                    __instance.guiTooltip.Content = "Exit";
                     break;
                 case -3:
-                    ___backgroundImage.sprite = ___backgroundSprites[2];
-                    ___iconImage.sprite =
+                    __instance.backgroundImage.sprite = __instance.backgroundSprites[2];
+                    __instance.iconImage.sprite =
                         CustomIcons.GetOrCreateSprite("Teleport", Resources.Teleport, 24);
-                    ___guiTooltip.Content = "Teleporter";
+                    __instance.guiTooltip.Content = "Teleporter";
                     break;
                 default:
                     return true;
             }
 
-            ___gameGadget = gameGadget;
+            __instance.gameGadget = gameGadget;
             __instance.gameObject.SetActive(true);
             return false;
         }

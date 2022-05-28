@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class InventorySlotBox_RefreshState
     {
-        internal static void Postfix(InventorySlotBox __instance, Image ___equipedItemImage)
+        internal static void Postfix(InventorySlotBox __instance)
         {
             if (Global.IsMultiplayer || Global.InspectedHero == null)
             {
@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             if (__instance.InventorySlot == null
                 || __instance.InventorySlot.EquipedItem == null
-                || ___equipedItemImage == null)
+                || __instance.equipedItemImage == null)
             {
                 return;
             }
@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
             {
-                ___equipedItemImage.color = new Color(1, 0, 0);
+                __instance.equipedItemImage.color = new Color(1, 0, 0);
             }
         }
     }
@@ -44,14 +44,14 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     internal static class InventorySlotBox_Unbind
     {
         // this should not have any protection to keep the house clean
-        internal static void Prefix(Image ___equipedItemImage)
+        internal static void Prefix(InventorySlotBox __instance)
         {
-            if (___equipedItemImage == null)
+            if (__instance.equipedItemImage == null)
             {
                 return;
             }
 
-            ___equipedItemImage.color = new Color(1, 1, 1);
+            __instance.equipedItemImage.color = new Color(1, 1, 1);
         }
     }
 }

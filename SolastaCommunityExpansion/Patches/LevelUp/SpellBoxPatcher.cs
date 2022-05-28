@@ -11,12 +11,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellBox_Refresh
     {
-        public static void Postfix(SpellBox __instance, SpellBox.BindMode ___bindMode,
-            RectTransform ___autoPreparedGroup, GuiLabel ___autoPreparedTitle, GuiTooltip ___autoPreparedTooltip)
+        public static void Postfix(SpellBox __instance)
         {
             if (__instance.GuiSpellDefinition == null
-                || ___bindMode == SpellBox.BindMode.Preparation
-                || ___bindMode == SpellBox.BindMode.Inspection)
+                || __instance.bindMode == SpellBox.BindMode.Preparation
+                || __instance.bindMode == SpellBox.BindMode.Inspection)
             {
                 return;
             }
@@ -62,9 +61,9 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 
             if (otherClassesKnownSpells.Contains(__instance.SpellDefinition))
             {
-                ___autoPreparedTitle.Text = "Screen/&MulticlassSpellTitle";
-                ___autoPreparedTooltip.Content = "Screen/&MulticlassSpellDescription";
-                ___autoPreparedGroup.gameObject.SetActive(true);
+                __instance.autoPreparedTitle.Text = "Screen/&MulticlassSpellTitle";
+                __instance.autoPreparedTooltip.Content = "Screen/&MulticlassSpellDescription";
+                __instance.autoPreparedGroup.gameObject.SetActive(true);
             }
         }
     }

@@ -12,11 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
     internal static class ShapeOptionItem_Bind
     {
         internal static void Postfix(
-            GuiLabel ___levelLabel,
-            Color ___validLevelColor,
-            Color ___invalidLevelColor,
-            Toggle ___toggle,
-            CanvasGroup ___canvasGroup,
+            ShapeOptionItem __instance,
             RulesetCharacter shifter,
             int requiredLevel)
         {
@@ -25,9 +21,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
             {
                 var isShapeOptionAvailable = requiredLevel <= levels;
 
-                ___levelLabel.TMP_Text.color = isShapeOptionAvailable ? ___validLevelColor : ___invalidLevelColor;
-                ___toggle.interactable = isShapeOptionAvailable;
-                ___canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
+                __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
+                __instance.toggle.interactable = isShapeOptionAvailable;
+                __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
             }
         }
     }

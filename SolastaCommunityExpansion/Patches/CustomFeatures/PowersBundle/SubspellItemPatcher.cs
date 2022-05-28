@@ -14,10 +14,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             RulesetCharacter caster,
             SpellDefinition spellDefinition,
             int index,
-            SubspellItem.OnActivateHandler onActivate,
-            GuiLabel ___spellTitle,
-            GuiTooltip ___tooltip
-        )
+            SubspellItem.OnActivateHandler onActivate)
         {
             if (!Main.Settings.EnablePowersBundlePatch)
             {
@@ -35,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             var guiPowerDefinition =
                 ServiceRepository.GetService<IGuiWrapperService>().GetGuiPowerDefinition(power.Name);
-            ___spellTitle.Text = guiPowerDefinition.Title;
+            __instance.spellTitle.Text = guiPowerDefinition.Title;
 
             //add info about remaining spell slots if powers consume them
             // var usablePower = caster.GetPowerFromDefinition(power);
@@ -45,10 +42,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             //     instance.spellTitle.Text += $"   [{power_info.remains}/{power_info.total}]";
             // }
 
-            ___tooltip.TooltipClass = guiPowerDefinition.TooltipClass;
-            ___tooltip.Content = power.GuiPresentation.Description;
-            ___tooltip.DataProvider = guiPowerDefinition;
-            ___tooltip.Context = caster;
+            __instance.tooltip.TooltipClass = guiPowerDefinition.TooltipClass;
+            __instance.tooltip.Content = power.GuiPresentation.Description;
+            __instance.tooltip.DataProvider = guiPowerDefinition;
+            __instance.tooltip.Context = caster;
 
             __instance.SetField("onActivate", onActivate);
 

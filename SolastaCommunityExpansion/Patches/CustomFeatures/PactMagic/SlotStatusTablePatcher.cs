@@ -11,9 +11,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     internal static class SlotStatusTable_Bind
     {
         public static void Postfix(
+            SlotStatusTable __instance,
             RulesetSpellRepertoire spellRepertoire,
-            int spellLevel,
-            RectTransform ___table)
+            int spellLevel)
         {
             // spellRepertoire is null during level up...
             if (spellRepertoire == null || spellLevel == 0)
@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             spellRepertoire.GetSlotsNumber(spellLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, spellLevel, ___table, true);
+                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, spellLevel, __instance.table, true);
         }
     }
 
@@ -40,9 +40,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SlotStatusTable_Unbind
     {
-        public static void Prefix(RectTransform ___table)
+        public static void Prefix(SlotStatusTable __instance)
         {
-            MulticlassGameUiContext.PaintSlotsWhite(___table);
+            MulticlassGameUiContext.PaintSlotsWhite(__instance.table);
         }
     }
 }

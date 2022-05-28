@@ -11,16 +11,14 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class AfterRestActionItem_OnExecuteCb
     {
-        internal static bool Prefix(
-            AfterRestActionItem __instance,
-            bool ___executing)
+        internal static bool Prefix(AfterRestActionItem __instance)
         {
             if (!Main.Settings.EnablePowersBundlePatch)
             {
                 return true;
             }
 
-            if (___executing)
+            if (__instance.executing)
             {
                 return true;
             }

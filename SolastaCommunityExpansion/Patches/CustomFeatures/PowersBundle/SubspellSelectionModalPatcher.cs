@@ -9,18 +9,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SubspellSelectionModal_OnActivate
     {
-        internal static bool Prefix(
-            SubspellSelectionModal __instance,
-            int index,
-            RulesetSpellRepertoire ___spellRepertoire,
-            SpellDefinition ___masterSpell,
-            SpellsByLevelBox.SpellCastEngagedHandler ___spellCastEngaged,
-            int ___slotLevel,
-            UsableDeviceFunctionBox.DeviceFunctionEngagedHandler ___deviceFunctionEngaged,
-            GuiCharacter ___guiCharacter,
-            RulesetItemDevice ___rulesetItemDevice,
-            RulesetDeviceFunction ___rulesetDeviceFunction
-        )
+        internal static bool Prefix(SubspellSelectionModal __instance, int index)
         {
             if (Main.Settings.EnableUpcastConjureElementalAndFey
                 && SubspellSelectionModal_Bind.FilteredSubspells != null
@@ -30,8 +19,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
                 if (subspells.Count > index)
                 {
-                    ___spellCastEngaged?.Invoke(___spellRepertoire,
-                        SubspellSelectionModal_Bind.FilteredSubspells[index], ___slotLevel);
+                    __instance.spellCastEngaged?.Invoke(__instance.spellRepertoire,
+                        SubspellSelectionModal_Bind.FilteredSubspells[index], __instance.slotLevel);
 
                     // If a device had the summon function, implement here
 
@@ -48,20 +37,20 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
             if (Main.Settings.EnablePowersBundlePatch)
             {
-                var masterPower = PowerBundleContext.GetPower(___masterSpell);
+                var masterPower = PowerBundleContext.GetPower(__instance.masterSpell);
 
                 if (masterPower != null)
                 {
-                    if (___spellCastEngaged != null)
+                    if (__instance.spellCastEngaged != null)
                     {
-                        ___spellCastEngaged(___spellRepertoire, ___spellRepertoire.KnownSpells[index], ___slotLevel);
+                        __instance.spellCastEngaged(__instance.spellRepertoire, __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
                     }
                     else
                     {
-                        ___deviceFunctionEngaged?.Invoke(
-                            ___guiCharacter,
-                            ___rulesetItemDevice,
-                            ___rulesetDeviceFunction,
+                        __instance.deviceFunctionEngaged?.Invoke(
+                            __instance.guiCharacter,
+                            __instance.rulesetItemDevice,
+                            __instance.rulesetDeviceFunction,
                             0, index
                         );
                     }

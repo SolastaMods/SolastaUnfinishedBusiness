@@ -8,11 +8,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Battle
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameTime_SetTimeScale
     {
-        internal static bool Prefix(float ___networkTimeScale, float ___timeScale, bool ___fasterTimeMode)
+        internal static bool Prefix(GameTime __instance)
         {
-            Time.timeScale = ___networkTimeScale != 1.0
-                ? ___networkTimeScale
-                : ___timeScale * (___fasterTimeMode ? Main.Settings.FasterTimeModifier : 1f);
+            Time.timeScale = __instance.networkTimeScale != 1.0
+                ? __instance.networkTimeScale
+                : __instance.timeScale * (__instance.fasterTimeMode ? Main.Settings.FasterTimeModifier : 1f);
 
             return false;
         }

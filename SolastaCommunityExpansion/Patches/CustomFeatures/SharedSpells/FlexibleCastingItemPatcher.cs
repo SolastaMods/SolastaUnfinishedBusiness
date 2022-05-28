@@ -15,8 +15,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
             FlexibleCastingItem __instance,
             int slotLevel,
             int remainingSlots,
-            int maxSlots,
-            RectTransform ___slotStatusTable)
+            int maxSlots)
         {
             var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
             var caster =
@@ -33,7 +32,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
             }
 
             MulticlassGameUiContext.PaintPactSlots(
-                caster, maxSlots, remainingSlots, slotLevel, ___slotStatusTable);
+                caster, maxSlots, remainingSlots, slotLevel, __instance.slotStatusTable);
         }
     }
 
@@ -41,9 +40,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
     [HarmonyPatch(typeof(FlexibleCastingItem), "Unbind")]
     internal static class FlexibleCastingItem_Unbind
     {
-        internal static void Prefix(RectTransform ___slotStatusTable)
+        internal static void Prefix(FlexibleCastingItem __instance)
         {
-            MulticlassGameUiContext.PaintSlotsWhite(___slotStatusTable);
+            MulticlassGameUiContext.PaintSlotsWhite(__instance.slotStatusTable);
         }
     }
 }

@@ -12,17 +12,17 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class SpellRepertoirePanel_OnBeginShow
     {
-        internal static void Postfix(SpellRepertoirePanel __instance, RectTransform ___sorceryPointsBox)
+        internal static void Postfix(SpellRepertoirePanel __instance)
         {
             if (!Main.Settings.EnableMoveSorceryPointsBox)
             {
                 return;
             }
 
-            var rectTransform = ___sorceryPointsBox.GetComponent<RectTransform>();
+            var rectTransform = __instance.sorceryPointsBox.GetComponent<RectTransform>();
 
             rectTransform.sizeDelta = new Vector2(275, 32);
-            ___sorceryPointsBox.localPosition = new Vector3(-920, 38, 0);
+            __instance.sorceryPointsBox.localPosition = new Vector3(-920, 38, 0);
 
             __instance.RefreshNow();
         }
@@ -34,36 +34,33 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     internal static class SpellRepertoirePanel_Bind
     {
         private static void RebuildSlotsTable(
-            GameObject ___levelButtonPrefab,
-            RectTransform ___levelButtonsTable,
-            RectTransform ___spellsByLevelTable,
-            SpellLevelButton.LevelSelectedHandler levelSelected,
+            SpellRepertoirePanel __instance,
             int accountForCantrips,
             int classSpellLevel,
             int slotLevel)
         {
-            while (___levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
+            while (__instance.levelButtonsTable.childCount < classSpellLevel + accountForCantrips)
             {
-                Gui.GetPrefabFromPool(___levelButtonPrefab, ___levelButtonsTable);
+                Gui.GetPrefabFromPool(__instance.levelButtonPrefab, __instance.levelButtonsTable);
 
-                var index = ___levelButtonsTable.childCount - 1;
-                var child = ___levelButtonsTable.GetChild(index);
+                var index = __instance.levelButtonsTable.childCount - 1;
+                var child = __instance.levelButtonsTable.GetChild(index);
 
-                child.GetComponent<SpellLevelButton>().Bind(index, levelSelected);
+                child.GetComponent<SpellLevelButton>().Bind(index, __instance.LevelSelected);
             }
 
-            while (___levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
+            while (__instance.levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
             {
-                Gui.ReleaseInstanceToPool(___levelButtonsTable.GetChild(___levelButtonsTable.childCount - 1)
+                Gui.ReleaseInstanceToPool(__instance.levelButtonsTable.GetChild(__instance.levelButtonsTable.childCount - 1)
                     .gameObject);
             }
 
-            LayoutRebuilder.ForceRebuildLayoutImmediate(___levelButtonsTable);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.levelButtonsTable);
 
             // patches the panel to display higher level spell slots from shared slots table but hide the spell panels if class level not there yet
-            for (var i = 0; i < ___spellsByLevelTable.childCount; i++)
+            for (var i = 0; i < __instance.spellsByLevelTable.childCount; i++)
             {
-                var spellsByLevel = ___spellsByLevelTable.GetChild(i);
+                var spellsByLevel = __instance.spellsByLevelTable.GetChild(i);
 
                 for (var j = 0; j < spellsByLevel.childCount; j++)
                 {
@@ -80,14 +77,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
                 }
             }
 
-            LayoutRebuilder.ForceRebuildLayoutImmediate(___spellsByLevelTable);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.spellsByLevelTable);
         }
 
-        internal static void Postfix(
-            SpellRepertoirePanel __instance,
-            GameObject ___levelButtonPrefab,
-            RectTransform ___levelButtonsTable,
-            RectTransform ___spellsByLevelTable)
+        internal static void Postfix(SpellRepertoirePanel __instance)
         {
             var spellRepertoire = __instance.SpellRepertoire;
 
@@ -113,10 +106,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             RebuildSlotsTable(
-                ___levelButtonPrefab,
-                ___levelButtonsTable,
-                ___spellsByLevelTable,
-                __instance.LevelSelected,
+                __instance,
                 spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0,
                 classSpellLevel,
                 slotLevel);

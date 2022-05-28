@@ -115,10 +115,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
             List<EffectForm> actualEffectForms,
             RulesetEffect rulesetEffect,
             bool criticalHit,
-            bool firstTarget,
-            List<string> ___triggeredAdditionalDamageTags,
-            List<FeatureDefinition> ___featuresToBrowseReaction,
-            List<FeatureDefinition> ___featuresToBrowseItem)
+            bool firstTarget)
         {
             Main.Logger.Log("HandleCharacterAttackDamage");
 
@@ -160,9 +157,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 (defender.RulesetActor is RulesetCharacterMonster || defender.RulesetActor is RulesetCharacterHero))
             {
                 // Can I add additional damage?
-                ___triggeredAdditionalDamageTags.Clear();
+                __instance.triggeredAdditionalDamageTags.Clear();
                 attacker.RulesetCharacter.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(
-                    ___featuresToBrowseReaction);
+                    __instance.featuresToBrowseReaction);
 
                 // Add item properties?
                 if (attacker.RulesetCharacter.CharacterInventory != null)
@@ -170,13 +167,13 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     if (attackMode != null && attackMode.SourceObject != null &&
                         attackMode.SourceObject is RulesetItem weapon)
                     {
-                        weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(___featuresToBrowseItem);
-                        ___featuresToBrowseReaction.AddRange(___featuresToBrowseItem);
-                        ___featuresToBrowseItem.Clear();
+                        weapon.EnumerateFeaturesToBrowse<IAdditionalDamageProvider>(__instance.featuresToBrowseItem);
+                        __instance.featuresToBrowseReaction.AddRange(__instance.featuresToBrowseItem);
+                        __instance.featuresToBrowseItem.Clear();
                     }
                 }
 
-                foreach (var featureDefinition in ___featuresToBrowseReaction)
+                foreach (var featureDefinition in __instance.featuresToBrowseReaction)
                 {
                     var provider = featureDefinition as IAdditionalDamageProvider;
 
@@ -542,7 +539,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     {
                         __instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
 
-                        ___triggeredAdditionalDamageTags.Add(provider.NotificationTag);
+                        __instance.triggeredAdditionalDamageTags.Add(provider.NotificationTag);
                     }
                 }
 
@@ -597,7 +594,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                      RuleDefinitions.ActivationTime.OnAttackSpellHitAutomatic
                                      || (usablePower.PowerDefinition.ActivationTime ==
                                          RuleDefinitions.ActivationTime.OnSneakAttackHit &&
-                                         ___triggeredAdditionalDamageTags.Contains(TagsDefinitions
+                                         __instance.triggeredAdditionalDamageTags.Contains(TagsDefinitions
                                              .AdditionalDamageSneakAttackTag))))
                         {
                             // This case is for the Rogue Hoodlum
@@ -676,8 +673,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 if (defender.RulesetCharacter != null)
                 {
                     defender.RulesetCharacter.EnumerateFeaturesToBrowse<IDamageAffinityProvider>(
-                        ___featuresToBrowseReaction);
-                    foreach (IDamageAffinityProvider provider in ___featuresToBrowseReaction)
+                        __instance.featuresToBrowseReaction);
+                    foreach (IDamageAffinityProvider provider in __instance.featuresToBrowseReaction)
                     {
                         if (provider.RetaliateWhenHit && attackMode != null)
                         {
