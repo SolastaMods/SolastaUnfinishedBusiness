@@ -375,67 +375,67 @@ namespace SolastaModApi.Extensions
         public static List<RulesetItem> GetConsumedItems<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetItem>>("consumedItems");
+            return entity.consumedItems;
         }
 
         public static List<FeatureDefinition> GetDeathTemperingFeatures<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<FeatureDefinition>>("deathTemperingFeatures");
+            return entity.deathTemperingFeatures;
         }
 
         public static List<FeatureDefinition> GetHealingFeatures<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<FeatureDefinition>>("healingFeatures");
+            return entity.healingFeatures;
         }
 
         public static List<TrendInfo> GetMagicAttackTrends<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<TrendInfo>>("magicAttackTrends");
+            return entity.magicAttackTrends;
         }
 
         public static List<FeatureDefinition> GetMagicFeatures<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<FeatureDefinition>>("magicFeatures");
+            return entity.magicFeatures;
         }
 
         public static List<RulesetEffectPower> GetPowersToTerminate<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetEffectPower>>("powersToTerminate");
+            return entity.powersToTerminate;
         }
 
         public static List<SpellDefinition> GetSortedSpellsToBrowseCache<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<SpellDefinition>>("sortedSpellsToBrowseCache");
+            return entity.sortedSpellsToBrowseCache;
         }
 
         public static List<TrendInfo> GetSortedTrends<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<TrendInfo>>("sortedTrends");
+            return entity.sortedTrends;
         }
 
         public static List<SpellDefinition> GetSpellsToBrowse<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<SpellDefinition>>("spellsToBrowse");
+            return entity.spellsToBrowse;
         }
 
         public static List<RulesetEffectSpell> GetSpellsToTerminate<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetEffectSpell>>("spellsToTerminate");
+            return entity.spellsToTerminate;
         }
 
         public static List<RulesetCondition> GetToRemove<T>(this T entity)
             where T : RulesetCharacter
         {
-            return entity.GetField<List<RulesetCondition>>("toRemove");
+            return entity.toRemove;
         }
 
         public static T SetAbilityCheckRolled<T>(this T entity, RulesetCharacter.AbilityCheckRolledHandler value)

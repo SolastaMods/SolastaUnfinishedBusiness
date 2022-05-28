@@ -109,7 +109,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 ? mainHandItem.ItemDefinition
                 : hero.UnarmedStrikeDefinition;
 
-            var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+            var attackModifiers = hero.attackModifiers;
 
 
             var attackMode = hero.RefreshAttackModePublic(
@@ -147,7 +147,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
 
             var strikeDefinition = mainHandItem.ItemDefinition;
 
-            var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+            var attackModifiers = hero.attackModifiers;
 
             var attackMode = hero.RefreshAttackModePublic(
                 actionType,
@@ -203,7 +203,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 false,
                 true,
                 slot,
-                hero.GetField<List<IAttackModificationProvider>>("attackModifiers"),
+                hero.attackModifiers,
                 hero.FeaturesOrigin,
                 item
             );
@@ -233,7 +233,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
                 return null;
             }
 
-            var attackModifiers = hero.GetField<List<IAttackModificationProvider>>("attackModifiers");
+            var attackModifiers = hero.attackModifiers;
 
             var attackMode = hero.RefreshAttackModePublic(
                 ActionDefinitions.ActionType.Bonus,

@@ -16,8 +16,8 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
         {
             var spellRepertoire = reactionRequest.ReactionParams.SpellRepertoire;
 
-            var label = instance.GetField<GuiLabel>("label");
-            var toggle = instance.GetField<Toggle>("toggle");
+            var label = instance.label;
+            var toggle = instance.toggle;
             var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
 
             string title;
@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 
             label.Text = title;
             toggle.interactable = interactable;
-            instance.GetField<CanvasGroup>("canvasGroup").interactable = interactable;
+            instance.canvasGroup.interactable = interactable;
 
             instance.SubitemSelected = subitemSelected;
 
@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
             // Hide all slots
-            var slotStatusTable = instance.GetField<RectTransform>("slotStatusTable");
+            var slotStatusTable = instance.slotStatusTable;
             for (var index = 0; index < slotStatusTable.childCount; ++index)
             {
                 slotStatusTable.GetChild(index).gameObject.SetActive(false);
@@ -68,8 +68,8 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
         {
             var spellRepertoire = reactionRequest.ReactionParams.SpellRepertoire;
 
-            var label = instance.GetField<GuiLabel>("label");
-            var toggle = instance.GetField<Toggle>("toggle");
+            var label = instance.label;
+            var toggle = instance.toggle;
             var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
 
             var spell = spellRepertoire.KnownSpells[slotLevel];
@@ -85,7 +85,7 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 
             label.Text = power.GuiPresentation.Title;
             toggle.interactable = interactable;
-            instance.GetField<CanvasGroup>("canvasGroup").interactable = interactable;
+            instance.canvasGroup.interactable = interactable;
 
             instance.SubitemSelected = subitemSelected;
 
@@ -93,7 +93,7 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
             // Hide all slots
-            var slotStatusTable = instance.GetField<RectTransform>("slotStatusTable");
+            var slotStatusTable = instance.slotStatusTable;
             for (var index = 0; index < slotStatusTable.childCount; ++index)
             {
                 slotStatusTable.GetChild(index).gameObject.SetActive(false);

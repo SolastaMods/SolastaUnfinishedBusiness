@@ -46,8 +46,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
         private static void PowerEngagedHandler(UsablePowerBox box, SpellDefinition spell)
         {
             var power = PowerBundleContext.GetPower(spell);
-            var engagedHandler = box.GetField<UsablePowerBox.PowerEngagedHandler>("powerEngaged");
-            var activator = box.GetField<RulesetCharacter>("activator");
+            var engagedHandler = box.powerEngaged;
+            var activator = box.activator;
 
             engagedHandler(UsablePowersProvider.Get(power, activator));
         }

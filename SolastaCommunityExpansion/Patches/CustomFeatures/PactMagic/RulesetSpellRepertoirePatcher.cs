@@ -179,7 +179,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                                  .Where(x => x.SpellCastingRace == null))
                     {
                         var usedSpellsSlots =
-                            spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                            spellRepertoire.usedSpellsSlots;
 
                         usedSpellsSlots.TryAdd(slotLevel, 0);
                         usedSpellsSlots[slotLevel]++;
@@ -202,7 +202,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             {
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var usedSpellsSlots =
-                    rulesetSpellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                    rulesetSpellRepertoire.usedSpellsSlots;
 
                 for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
@@ -267,7 +267,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
                                              FeatureDefinitionCastSpell.CastingOrigin.Race))
                     {
                         var usedSpellsSlots =
-                            spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                            spellRepertoire.usedSpellsSlots;
 
                         usedSpellsSlots.TryAdd(slotLevel, 0);
                         usedSpellsSlots[slotLevel]++;

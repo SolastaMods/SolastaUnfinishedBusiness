@@ -42,7 +42,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
             private static void RemoveInvalidPowers(PowerSelectionPanel panel, RulesetCharacter character)
             {
-                var relevantPowers = panel.GetField<List<RulesetUsablePower>>("relevantPowers");
+                var relevantPowers = panel.relevantPowers;
 
                 for (var i = relevantPowers.Count - 1; i >= 0; i--)
                 {
@@ -62,8 +62,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     return;
                 }
 
-                var powerBoxes = __instance.GetField<List<UsablePowerBox>>("usablePowerBoxes");
-                var powersTable = __instance.GetField<RectTransform>("powersTable");
+                var powerBoxes = __instance.usablePowerBoxes;
+                var powersTable = __instance.powersTable;
                 if (powerBoxes.Count > 14)
                 {
                     if (thirdRow == null)

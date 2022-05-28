@@ -108,10 +108,10 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     case ActionDefinitions.Id.ProxySpiritualWeapon:
                     case ActionDefinitions.Id.ProxyFlamingSphere:
                     case ActionDefinitions.Id.ProxyDancingLights:
-                        panelToActivate = battlePanel.GetField<CharacterActionPanel>("bonusActionPanel");
+                        panelToActivate = battlePanel.bonusActionPanel;
                         break;
                     default:
-                        panelToActivate = battlePanel.GetField<CharacterActionPanel>("otherActionPanel");
+                        panelToActivate = battlePanel.otherActionPanel;
                         break;
                 }
             }

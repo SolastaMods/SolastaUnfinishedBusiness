@@ -170,7 +170,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (repertoire != null)
             {
-                repertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
+                repertoire.usedSpellsSlots
                     .TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
 
                 return warlockUsedSlots;

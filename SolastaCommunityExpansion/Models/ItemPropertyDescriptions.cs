@@ -47,7 +47,7 @@ namespace SolastaCommunityExpansion.Models
                 .Create(name, DefinitionBuilder.CENamespaceGuid)
                 .Configure()
                 .SetImpactParticleReference(effect.EffectParticleParameters
-                    .GetField<AssetReference>("impactParticleReference"))
+                    .impactParticleReference)
                 .AddToDB();
         }
     }

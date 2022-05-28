@@ -34,7 +34,7 @@ namespace SolastaCommunityExpansion.Models
         public static void GetTemplateVegetationMaskArea(WorldLocation worldLocation)
         {
             var prefabByReference =
-                worldLocation.GetField<WorldLocation, Dictionary<AssetReference, GameObject>>("prefabByReference");
+                worldLocation.prefabByReference;
 
             foreach (var prefab in prefabByReference.Values)
             {
@@ -105,7 +105,7 @@ namespace SolastaCommunityExpansion.Models
             masterTerrain.transform.position = new Vector3(masterTerrain.transform.position.x, -5.01f,
                 masterTerrain.transform.position.z);
 
-            worldLocation.GetField<WorldLocation, List<TerrainData>>("duplicatedTerrainData")
+            worldLocation.duplicatedTerrainData
                 .Add(masterTerrain.terrainData);
 
             // updates the biome to cover the entire location

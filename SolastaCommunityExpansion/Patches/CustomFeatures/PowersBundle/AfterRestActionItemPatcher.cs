@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 
         private static void PowerEngagedHandler(AfterRestActionItem item, SpellDefinition spell)
         {
-            item.GetField<Button>("button").interactable = false;
+            item.button.interactable = false;
 
             var power = PowerBundleContext.GetPower(spell).Name;
 
@@ -101,7 +101,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
             item.AfterRestActionTaken?.Invoke();
             item.SetField("executing", false);
 
-            var button = item.GetField<Button>("button");
+            var button = item.button;
 
             if (button != null)
             {

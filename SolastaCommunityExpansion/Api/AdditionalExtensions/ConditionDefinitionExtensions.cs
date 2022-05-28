@@ -23,22 +23,22 @@ namespace SolastaModApi.Extensions
         {
             var assetReference = new AssetReference();
 
-            if (definition.GetField<AssetReference>("conditionStartParticleReference") == null)
+            if (definition.conditionStartParticleReference == null)
             {
                 definition.SetConditionStartParticleReference(assetReference);
             }
 
-            if (definition.GetField<AssetReference>("conditionParticleReference") == null)
+            if (definition.conditionParticleReference == null)
             {
                 definition.SetConditionParticleReference(assetReference);
             }
 
-            if (definition.GetField<AssetReference>("conditionEndParticleReference") == null)
+            if (definition.conditionEndParticleReference == null)
             {
                 definition.SetConditionEndParticleReference(assetReference);
             }
 
-            if (definition.GetField<AssetReference>("characterShaderReference") == null)
+            if (definition.characterShaderReference == null)
             {
                 definition.SetCharacterShaderReference(assetReference);
             }

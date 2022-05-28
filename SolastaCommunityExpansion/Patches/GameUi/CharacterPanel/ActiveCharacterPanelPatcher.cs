@@ -19,8 +19,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                 return;
             }
 
-            var poolPrefab = __instance.GetField<RectTransform>("sorceryPointsBox").gameObject;
-            var concentrationPrefab = __instance.GetField<RectTransform>("concentrationGroup").gameObject;
+            var poolPrefab = __instance.sorceryPointsBox.gameObject;
+            var concentrationPrefab = __instance.concentrationGroup.gameObject;
             var layout = __instance.transform.Find("RightLayout");
 
             // Hide all custom controls

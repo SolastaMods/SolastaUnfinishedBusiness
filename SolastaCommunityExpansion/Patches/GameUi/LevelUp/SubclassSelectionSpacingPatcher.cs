@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.LevelUp
     {
         public static void Postfix(CharacterStageSubclassSelectionPanel __instance)
         {
-            var subclassesTable = __instance.GetField<Transform>("subclassesTable");
+            var subclassesTable = __instance.subclassesTable;
             var subclassGrid = subclassesTable.GetComponent<GridLayoutGroup>();
 
             subclassGrid.spacing = new Vector2(subclassGrid.spacing.x, 60f);

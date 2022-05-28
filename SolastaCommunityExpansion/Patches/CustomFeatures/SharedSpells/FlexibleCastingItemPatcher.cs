@@ -19,7 +19,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
         {
             var flexibleCastingModal = __instance.GetComponentInParent<FlexibleCastingModal>();
             var caster =
-                flexibleCastingModal.GetField<FlexibleCastingModal, RulesetCharacter>("caster") as RulesetCharacterHero;
+                flexibleCastingModal.caster as RulesetCharacterHero;
 
             if (caster is null)
             {

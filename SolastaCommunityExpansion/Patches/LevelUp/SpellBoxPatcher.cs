@@ -29,7 +29,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             }
 
             var currentStagePanel =
-                characterLevelUpScreen.GetField<CharacterLevelUpScreen, CharacterStagePanel>("currentStagePanel");
+                characterLevelUpScreen.currentStagePanel;
 
             if (currentStagePanel is not CharacterStageSpellSelectionPanel)
             {

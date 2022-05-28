@@ -26,11 +26,11 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
                     return;
                 }
 
-                var spellRepertoireLines = __instance.GetField<List<SpellRepertoireLine>>("spellRepertoireLines");
+                var spellRepertoireLines = __instance.spellRepertoireLines;
                 var spellRepertoireSecondaryLine =
-                    __instance.GetField<SpellRepertoireLine>("spellRepertoireSecondaryLine");
-                var spellRepertoireLinesTable = __instance.GetField<RectTransform>("spellRepertoireLinesTable");
-                var slotAdvancementPanel = __instance.GetField<SlotAdvancementPanel>("slotAdvancementPanel");
+                    __instance.spellRepertoireSecondaryLine;
+                var spellRepertoireLinesTable = __instance.spellRepertoireLinesTable;
+                var slotAdvancementPanel = __instance.slotAdvancementPanel;
 
                 foreach (var spellRepertoireLine in spellRepertoireLines)
                 {
@@ -146,7 +146,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 
                 if (spellRepertoireLinesTable.childCount <= index)
                 {
-                    newLine = Gui.GetPrefabFromPool(__instance.GetField<GameObject>("spellRepertoireLinePrefab"),
+                    newLine = Gui.GetPrefabFromPool(__instance.spellRepertoireLinePrefab,
                         spellRepertoireLinesTable);
                 }
                 else

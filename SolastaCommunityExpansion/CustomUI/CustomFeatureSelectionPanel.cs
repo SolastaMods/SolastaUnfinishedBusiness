@@ -401,7 +401,8 @@ namespace SolastaCommunityExpansion.CustomUI
         {
             var parent = gameObject.transform.parent;
             var result = new List<FeatureDefinition>();
-            CharacterStagePanel classGains = null, levelGains = null;
+            CharacterStageClassSelectionPanel classGains = null;
+            CharacterStageLevelGainsPanel levelGains = null;
 
             for (var i = 0; i < parent.childCount; i++)
             {
@@ -418,11 +419,11 @@ namespace SolastaCommunityExpansion.CustomUI
 
             if (levelGains != null)
             {
-                result.AddRange(levelGains.GetField<List<FeatureDefinition>>("activeFeatures"));
+                result.AddRange(levelGains.activeFeatures);
             }
             else if (classGains != null)
             {
-                result.AddRange(classGains.GetField<List<FeatureDefinition>>("activeFeatures"));
+                result.AddRange(classGains.activeFeatures);
             }
 
             return result;

@@ -30,7 +30,7 @@ namespace SolastaModApi.Extensions
         public static bool IsEnabled(this GameGadget gadget, bool valueIfParamsNotPresent = false)
         {
             // We need to know if both Enabled and ParamEnabled are missing
-            var names = gadget.GetField<GameGadget, List<string>>("conditionNames");
+            var names = gadget.conditionNames;
 
             if (!names.Any(n => n == Enabled || n == ParamEnabled))
             {

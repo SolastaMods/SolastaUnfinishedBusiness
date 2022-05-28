@@ -178,9 +178,9 @@ namespace SolastaCommunityExpansion.Models
             internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
             {
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
-                var restAfterPanel = restModalScreen.GetField<RestModal, RestAfterPanel>("restAfterPanel");
+                var restAfterPanel = restModalScreen.restAfterPanel;
                 var characterPlatesTable =
-                    restAfterPanel.GetField<RestAfterPanel, RectTransform>("characterPlatesTable");
+                    restAfterPanel.characterPlatesTable;
 
                 for (var index = 0; index < characterPlatesTable.childCount; ++index)
                 {

@@ -25,7 +25,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
             if (!Main.Settings.UseHeightOneCylinderEffect)
             {
 #if DEBUG
-                var t = __instance.GetField<GeometricShape, MeshRenderer>("cubeRenderer").transform;
+                var t = __instance.cubeRenderer.transform;
                 var p1 = t.position;
                 var s1 = t.localScale;
                 Main.Log($"Cube: origin=({origin.x}, {origin.y}, {origin.z}) position=({p1.x},{p1.y},{p1.z}), scale=({s1.x},{s1.y},{s1.z})");
@@ -56,7 +56,7 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SquareCylinder
                     vector3 += new Vector3(0.5f, 0.0f, 0.5f);
             }
 
-            var transform = __instance.GetField<GeometricShape, MeshRenderer>("cubeRenderer").transform;
+            var transform = __instance.cubeRenderer.transform;
             transform.SetPositionAndRotation(origin + vector3, Quaternion.identity);
             transform.localScale = new Vector3(edgeSize, height, edgeSize);
 

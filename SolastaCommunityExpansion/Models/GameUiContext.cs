@@ -126,11 +126,9 @@ namespace SolastaCommunityExpansion.Models
                 switch (gameLocationBaseScreen)
                 {
                     case GameLocationScreenExploration gameLocationScreenExploration:
-                        return gameLocationScreenExploration.GetField<GameLocationScreenExploration, PartyControlPanel>(
-                            "partyControlPanel");
+                        return gameLocationScreenExploration.partyControlPanel;
                     case GameLocationScreenBattle gameLocationScreenBattle:
-                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, BattleInitiativeTable>(
-                            "initiativeTable");
+                        return gameLocationScreenBattle.initiativeTable;
                     default:
                         return null;
                 }
@@ -143,10 +141,9 @@ namespace SolastaCommunityExpansion.Models
                 {
                     case GameLocationScreenExploration gameLocationScreenExploration:
                         return gameLocationScreenExploration
-                            .GetField<GameLocationScreenExploration, TimeAndNavigationPanel>("timeAndNavigationPanel");
+                            .timeAndNavigationPanel;
                     case GameLocationScreenBattle gameLocationScreenBattle:
-                        return gameLocationScreenBattle.GetField<GameLocationScreenBattle, TimeAndNavigationPanel>(
-                            "timeAndNavigationPanel");
+                        return gameLocationScreenBattle.timeAndNavigationPanel;
                     default:
                         return null;
                 }

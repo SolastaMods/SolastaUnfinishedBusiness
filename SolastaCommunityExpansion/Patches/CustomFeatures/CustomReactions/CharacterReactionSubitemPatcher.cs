@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
     {
         internal static void Prefix(CharacterReactionSubitem __instance)
         {
-            var toggle = __instance.GetField<Toggle>("toggle").GetComponent<RectTransform>();
+            var toggle = __instance.toggle.GetComponent<RectTransform>();
             toggle.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 34);
 
             var background = toggle.FindChildRecursive("Background");

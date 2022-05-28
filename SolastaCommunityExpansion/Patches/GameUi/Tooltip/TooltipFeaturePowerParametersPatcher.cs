@@ -22,7 +22,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
             }
 
             var power = guiPowerDefinition.PowerDefinition;
-            var usesLabel = __instance.GetField<GuiLabel>("usesLabel");
+            var usesLabel = __instance.usesLabel;
             usesLabel.Text = FormatUses(power, character, usesLabel.Text);
         }
 

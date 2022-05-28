@@ -18,16 +18,16 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 return;
             }
 
-            var actionParams = __instance.GetField<CharacterActionParams>("actionParams");
+            var actionParams = __instance.actionParams;
 
             var canBeUsedToAttack = actionParams?.RulesetEffect
                 ?.SourceDefinition.GetFirstSubFeatureOfType<IPerformAttackAfterMagicEffectUse>()?.CanBeUsedToAttack;
             if (canBeUsedToAttack != null &&
-                !canBeUsedToAttack(__instance, actionParams.GetField<GameLocationCharacter>("actingCharacter"), target,
+                !canBeUsedToAttack(__instance, actionParams.actingCharacter, target,
                     out var failure))
             {
                 __result = false;
-                __instance.GetField<ActionModifier>("actionModifier").FailureFlags.Add(failure);
+                __instance.actionModifier.FailureFlags.Add(failure);
             }
         }
     }

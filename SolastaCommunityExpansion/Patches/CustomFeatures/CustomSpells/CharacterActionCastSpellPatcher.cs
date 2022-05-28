@@ -67,7 +67,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                 formsParams.attackOutcome = outcome;
             }
 
-            var actualEffectForms = __instance.GetField<Dictionary<int, List<EffectForm>>>("actualEffectForms");
+            var actualEffectForms = __instance.actualEffectForms;
 
             damageReceived = ServiceRepository.GetService<IRulesetImplementationService>()
                 .ApplyEffectForms(actualEffectForms[targetIndex], formsParams);

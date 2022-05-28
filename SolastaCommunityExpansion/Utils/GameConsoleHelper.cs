@@ -21,7 +21,7 @@ namespace SolastaCommunityExpansion.Utils
             var console = Gui.Game.GameConsole;
             var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
 
-            var entry = new GameConsoleEntry(text, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"))
+            var entry = new GameConsoleEntry(text, console.consoleTableDefinition)
             {
                 Indent = indent
             };
@@ -35,7 +35,7 @@ namespace SolastaCommunityExpansion.Utils
         {
             var console = Gui.Game.GameConsole;
             var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-            var entry = new GameConsoleEntry(text, console.GetField<ConsoleTableDefinition>("consoleTableDefinition"))
+            var entry = new GameConsoleEntry(text, console.consoleTableDefinition)
             {
                 Indent = indent
             };

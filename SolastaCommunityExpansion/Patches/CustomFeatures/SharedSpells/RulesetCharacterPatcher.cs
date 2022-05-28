@@ -53,7 +53,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
                          .Where(x => x.SpellCastingRace == null))
             {
                 var usedSpellsSlots =
-                    spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                    spellRepertoire.usedSpellsSlots;
 
                 for (var i = WarlockSpells.PACT_MAGIC_SLOT_TAB_INDEX; i <= warlockSpellLevel; i++)
                 {
@@ -139,7 +139,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
                                      x.SpellCastingClass != IntegrationContext.WarlockClass))
             {
                 var spellsSlotCapacities =
-                    spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                    spellRepertoire.spellsSlotCapacities;
 
                 // replaces standard caster slots with shared slots system
                 if (isSharedCaster)
@@ -178,9 +178,9 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
             {
                 var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
                 var warlockSlotsCapacities =
-                    warlockRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                    warlockRepertoire.spellsSlotCapacities;
                 var anySharedSlotsCapacities =
-                    anySharedRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                    anySharedRepertoire.spellsSlotCapacities;
 
                 // first consolidates under Warlock repertoire
                 for (var i = 1; i <= Math.Max(warlockSlotsCapacities.Count, anySharedSlotsCapacities.Count); i++)
@@ -199,7 +199,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
                                          x.SpellCastingClass != IntegrationContext.WarlockClass))
                 {
                     var spellsSlotCapacities =
-                        spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("spellsSlotCapacities");
+                        spellRepertoire.spellsSlotCapacities;
 
                     spellsSlotCapacities.Clear();
 

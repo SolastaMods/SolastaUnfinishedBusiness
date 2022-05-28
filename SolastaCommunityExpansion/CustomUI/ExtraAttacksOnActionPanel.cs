@@ -45,13 +45,13 @@ namespace SolastaCommunityExpansion.CustomUI
         // Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
         public static void AddExtraAttakItems(CharacterActionPanel panel)
         {
-            var actionsTable = panel.GetField<GuiTable>("characterActionsTable");
-            var itemPrefab = panel.GetField<GameObject>("actionItemPrefab");
-            var filteredActions = panel.GetField<List<ActionDefinitions.Id>>("filteredActions");
+            var actionsTable = panel.characterActionsTable;
+            var itemPrefab = panel.actionItemPrefab;
+            var filteredActions = panel.filteredActions;
             var startIndex = filteredActions.Count;
             var guiCharacter = panel.GetProperty<GuiCharacter>("GuiCharacter");
             var character = guiCharacter.RulesetCharacter;
-            var actionItems = panel.GetField<List<CharacterActionItem>>("actionItems");
+            var actionItems = panel.actionItems;
 
             if (character == null)
             {
@@ -130,14 +130,14 @@ namespace SolastaCommunityExpansion.CustomUI
         private static void CustomBindItem(CharacterActionItem item, CharacterActionPanel panel,
             GuiCharacterAction guiAction, bool small)
         {
-            var textColor = panel.GetField<Color>("textColor");
-            var brightColor = panel.GetField<Color>("brightColor");
-            var darkColor = panel.GetField<Color>("darkColor");
-            var darkDisabledColor = panel.GetField<Color>("darkDisabledColor");
-            var tooltipAnchor = panel.GetField<RectTransform>("tooltipAnchor");
+            var textColor = panel.textColor;
+            var brightColor = panel.brightColor;
+            var darkColor = panel.darkColor;
+            var darkDisabledColor = panel.darkDisabledColor;
+            var tooltipAnchor = panel.tooltipAnchor;
 
-            var smallItemForm = item.GetField<CharacterActionItemForm>("smallItemForm");
-            var largeItemForm = item.GetField<CharacterActionItemForm>("largeItemForm");
+            var smallItemForm = item.smallItemForm;
+            var largeItemForm = item.largeItemForm;
             CharacterActionItemForm currentItemForm;
 
             if (small)
@@ -178,7 +178,7 @@ namespace SolastaCommunityExpansion.CustomUI
                 ActionActivated, panel.OnPointerEnter, panel.OnPointerExit);
 
             var enumerator =
-                currentItemForm.GetField<DynamicItemPropertiesEnumerator>("dynamicItemPropertiesEnumerator");
+                currentItemForm.dynamicItemPropertiesEnumerator;
             enumerator.Unbind();
 
 

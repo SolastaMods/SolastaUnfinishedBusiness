@@ -188,7 +188,7 @@ namespace SolastaCommunityExpansion.Builders
 
         public TBuilder SetConditionParticleReferenceFrom(ConditionDefinition reference)
         {
-            Definition.SetConditionParticleReference(reference.GetField<AssetReference>("conditionParticleReference"));
+            Definition.SetConditionParticleReference(reference.conditionParticleReference);
             return This();
         }
 

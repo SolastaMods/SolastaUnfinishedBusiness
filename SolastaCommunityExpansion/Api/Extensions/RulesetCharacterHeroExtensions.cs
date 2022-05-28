@@ -480,87 +480,86 @@ namespace SolastaModApi.Extensions
         public static Dictionary<ItemDefinition, List<FeatureDefinition>> GetActiveItemFeatures<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<ItemDefinition, List<FeatureDefinition>>>("activeItemFeatures");
+            return entity.activeItemFeatures;
         }
 
         public static List<String> GetAlignmentOptionalPersonalityFlags<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<String>>("alignmentOptionalPersonalityFlags");
+            return entity.alignmentOptionalPersonalityFlags;
         }
 
         public static List<IAttackModificationProvider> GetAttackModifiers<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<IAttackModificationProvider>>("attackModifiers");
+            return entity.attackModifiers;
         }
 
         public static Dictionary<ItemDefinition, Int32> GetBonusByItem<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<ItemDefinition, Int32>>("bonusByItem");
+            return entity.bonusByItem;
         }
 
         public static List<RulesetItem> GetCarriedItems<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<RulesetItem>>("carriedItems");
+            return entity.carriedItems;
         }
 
         public static Dictionary<CharacterClassDefinition, CharacterSubclassDefinition> GetClassesAndSublasses<T>(
             this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<CharacterClassDefinition, CharacterSubclassDefinition>>(
-                "classesAndSublasses");
+            return entity.classesAndSublasses;
         }
 
         public static List<RulesetItem> GetDestroyedItems<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<RulesetItem>>("destroyedItems");
+            return entity.destroyedItems;
         }
 
         public static List<FeatureDefinition> GetEquipmentBrowseList<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<FeatureDefinition>>("equipmentBrowseList");
+            return entity.equipmentBrowseList;
         }
 
         public static List<String> GetForbiddenArmorTags<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<String>>("forbiddenArmorTags");
+            return entity.forbiddenArmorTags;
         }
 
         public static List<Int32> GetHitPointsGainHistory<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<Int32>>("hitPointsGainHistory");
+            return entity.hitPointsGainHistory;
         }
 
         public static List<RulesetAttributeModifier> GetModifiers<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<RulesetAttributeModifier>>("modifiers");
+            return entity.modifiers;
         }
 
         public static Dictionary<DieType, Int32> GetSpentHitDice<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<DieType, Int32>>("spentHitDice");
+            return entity.spentHitDice;
         }
 
         public static Dictionary<String, TagsDefinitions.Criticity> GetTagsMap<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<Dictionary<String, TagsDefinitions.Criticity>>("tagsMap");
+            return entity.tagsMap;
         }
 
         public static List<FeatureDefinition> GetWeaponModifiers<T>(this T entity)
             where T : RulesetCharacterHero
         {
-            return entity.GetField<List<FeatureDefinition>>("weaponModifiers");
+            return entity.weaponModifiers;
         }
 
         public static T SetActiveFightingStyles<T>(this T entity, params FightingStyleDefinition[] value)

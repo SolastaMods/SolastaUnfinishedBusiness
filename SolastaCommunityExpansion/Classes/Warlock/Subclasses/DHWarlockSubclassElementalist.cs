@@ -28,7 +28,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             //         DamageType = DamageNecrotic,
             //         Resistance = DamageAffinityNecroticResistance,
             //         Immunity = DamageAffinityNecroticImmunity,
-            //         Particles = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Shikkath.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),
+            //         Particles = DatabaseHelper.MonsterDefinitions.Sorr_Akkath_Shikkath.MonsterPresentation.attachedParticlesReference,
             //         Shaders = DatabaseHelper.MonsterDefinitions.Wraith.MonsterPresentation.CustomShaderReference ,
             //         // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainSunHeraldOfTheSun.GuiPresentation.SpriteReference,
             //     }
@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             //         DamageType = DamagePsychic,
             //         Resistance = DamageAffinityPsychicResistance,
             //         Immunity = DamageAffinityPsychicImmunity,
-            //         Particles = DatabaseHelper.MonsterDefinitions.WightLord.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference"),// backup kindredspirits bear - spectral spider
+            //         Particles = DatabaseHelper.MonsterDefinitions.WightLord.MonsterPresentation.attachedParticlesReference,// backup kindredspirits bear - spectral spider
             //         Shaders = DatabaseHelper.MonsterDefinitions.SpectralSpider.MonsterPresentation.CustomShaderReference,// backup kindredspirits bear - spectral spider,
             //         // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainInsightForeknowledge.GuiPresentation.SpriteReference,
             //     }
@@ -52,7 +52,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
             //         DamageType = DamageForce,
             //         Resistance = DamageAffinityForceDamageResistance,
             //         Immunity = DamageAffinityForceImmunity,
-            //         Particles = DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference") ,  // backup fey bear - sorr boss,
+            //         Particles = DatabaseHelper.MonsterDefinitions.Ghost.MonsterPresentation.attachedParticlesReference ,  // backup fey bear - sorr boss,
             //         Shaders = DatabaseHelper.MonsterDefinitions.PhaseSpider.MonsterPresentation.CustomShaderReference,      // backup fey bear - sorr boss,
             //         // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerOathOfDevotionAuraDevotion.GuiPresentation.SpriteReference,
             //     }
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Resistance = DamageAffinityFireResistance,
                     Immunity = DamageAffinityFireImmunity,
                     Particles = DatabaseHelper.MonsterDefinitions.Fire_Jester.MonsterPresentation
-                        .GetField<AssetReference>("attachedParticlesReference"), // fire jester,
+                        .attachedParticlesReference, // fire jester,
                     Shaders = DatabaseHelper.MonsterDefinitions.Fire_Elemental.MonsterPresentation
                         .CustomShaderReference // fire jester,
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsFire.GuiPresentation.SpriteReference,
@@ -79,8 +79,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Resistance = DamageAffinityBludgeoningResistance,
                     Immunity = DamageAffinityBludgeoningImmunity,
                     Particles =
-                        DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.GetField<AssetReference>(
-                            "attachedParticlesReference"), // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
+                        DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.attachedParticlesReference, // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                     Shaders = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation
                         .CustomShaderReference // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
@@ -94,8 +93,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Resistance = DamageAffinityColdResistance,
                     Immunity = DamageAffinityColdImmunity,
                     Particles =
-                        DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.GetField<AssetReference>(
-                            "attachedParticlesReference"), // skarn ghoul,
+                        DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.attachedParticlesReference, // skarn ghoul,
                     Shaders = DatabaseHelper.MonsterDefinitions.SkarnGhoul.MonsterPresentation
                         .CustomShaderReference // skarn ghoul
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold.GuiPresentation.SpriteReference,
@@ -109,8 +107,7 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Resistance = DamageAffinityThunderResistance,
                     Immunity = DamageAffinityThunderImmunity,
                     Particles =
-                        DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.GetField<AssetReference>(
-                            "attachedParticlesReference"),
+                        DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.attachedParticlesReference,
                     Shaders = DatabaseHelper.MonsterDefinitions.Air_Elemental.MonsterPresentation.CustomShaderReference
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsThunder.GuiPresentation.SpriteReference,
                 }

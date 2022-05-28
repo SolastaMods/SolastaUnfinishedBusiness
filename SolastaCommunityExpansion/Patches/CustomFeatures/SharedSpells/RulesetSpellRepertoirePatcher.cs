@@ -57,7 +57,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
             foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires)
             {
                 var usedSpellsSlots =
-                    spellRepertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots");
+                    spellRepertoire.usedSpellsSlots;
 
                 foreach (var recoveredSlot in recoveredSlots)
                 {

@@ -13,7 +13,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
     {
         internal static void Prefix(ReadyActionSelectionPanel __instance)
         {
-            SetupForcePreferredToggle(__instance.GetField<RectTransform>("preferredCantripSelectionGroup"));
+            SetupForcePreferredToggle(__instance.preferredCantripSelectionGroup);
         }
 
         private static void SetupForcePreferredToggle(RectTransform parent)
@@ -42,10 +42,10 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 
                 toggle = asset.GetComponent<PersonalityFlagToggle>();
 
-                var guiLabel = toggle.GetField<GuiLabel>("titleLabel");
+                var guiLabel = toggle.titleLabel;
                 guiLabel.Text = "UI/&ForcePreferredCantripTitle";
 
-                var tooltip = toggle.GetField<GuiTooltip>("tooltip");
+                var tooltip = toggle.tooltip;
                 tooltip.Content = "UI/&ForcePreferredCantripDescription";
 
                 toggle.PersonalityFlagDefinition = DatabaseHelper.PersonalityFlagDefinitions.Authority;
@@ -61,7 +61,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
             }
 
             toggle.Refresh(CustomReactionsContext.ForcePreferredCantrip, true);
-            toggle.GetField<GuiTooltip>("tooltip").Content = "UI/&ForcePreferredCantripDescription";
+            toggle.tooltip.Content = "UI/&ForcePreferredCantripDescription";
         }
     }
 }

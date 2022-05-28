@@ -25,9 +25,9 @@ namespace SolastaCommunityExpansion.Models
         public static void EnumerateClassBadges(CharacterInformationPanel __instance)
         {
             var badgeDefinitions =
-                __instance.GetField<CharacterInformationPanel, List<BaseDefinition>>("badgeDefinitions");
-            var classBadgesTable = __instance.GetField<CharacterInformationPanel, RectTransform>("classBadgesTable");
-            var classBadgePrefab = __instance.GetField<CharacterInformationPanel, GameObject>("classBadgePrefab");
+                __instance.badgeDefinitions;
+            var classBadgesTable = __instance.classBadgesTable;
+            var classBadgePrefab = __instance.classBadgePrefab;
 
             badgeDefinitions.Clear();
 
