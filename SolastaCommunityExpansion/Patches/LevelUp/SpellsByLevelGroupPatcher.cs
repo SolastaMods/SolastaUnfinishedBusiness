@@ -5,7 +5,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // filters how spells are displayed during level up
     [HarmonyPatch(typeof(SpellsByLevelGroup), "CommonBind")]

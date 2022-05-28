@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // flag displaying the class panel / apply in/out logic
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]

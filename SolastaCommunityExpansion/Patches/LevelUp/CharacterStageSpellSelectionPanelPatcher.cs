@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // caches allowed spells offered on this stage
     [HarmonyPatch(typeof(CharacterStageSpellSelectionPanel), "EnterStage")]

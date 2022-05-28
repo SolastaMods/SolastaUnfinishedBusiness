@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // patches the method to get my own class and level for level up
     [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "EnterStage")]

@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp
 {
     // tag spells learned from other caster classes as Multiclass
     [HarmonyPatch(typeof(SpellBox), "Refresh")]
