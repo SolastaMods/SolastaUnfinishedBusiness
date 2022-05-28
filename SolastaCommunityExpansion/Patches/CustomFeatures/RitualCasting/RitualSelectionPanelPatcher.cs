@@ -6,7 +6,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualCasting
 {
     // ensures ritual spells from all spell repertoires are made available
     [HarmonyPatch(typeof(RitualSelectionPanel), "Bind")]

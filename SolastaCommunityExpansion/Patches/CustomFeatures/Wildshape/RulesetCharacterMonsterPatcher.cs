@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.Wildshape
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
 {
     // ensures that wildshape get all original character pools and current powers states
     [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]

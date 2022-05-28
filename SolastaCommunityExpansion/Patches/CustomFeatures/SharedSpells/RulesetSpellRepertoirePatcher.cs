@@ -6,7 +6,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
 {
     // handles all different scenarios to determine max spell level
     [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]

@@ -3,17 +3,18 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Cantrips
 {
-    [HarmonyPatch(typeof(CharacterActionCastSpell), "GetAdvancementData")]
+    // enforces cantrips to be cast at character level
+    [HarmonyPatch(typeof(RulesetEffectSpell), "ComputeTargetParameter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterActionCastSpell_GetAdvancementData
+    internal static class RulesetEffectSpell_ComputeTargetParameter
     {
         public static int SpellCastingLevel(RulesetSpellRepertoire rulesetSpellRepertoire,
-            CharacterActionCastSpell characterActionCastSpell)
+            RulesetEffectSpell rulesetEffectSpell)
         {
-            if (characterActionCastSpell.ActingCharacter.RulesetCharacter is RulesetCharacterHero hero
-                && characterActionCastSpell.ActiveSpell.SpellDefinition.SpellLevel == 0)
+            if (rulesetEffectSpell.Caster is RulesetCharacterHero hero
+                && rulesetEffectSpell.SpellDefinition.SpellLevel == 0)
             {
                 return hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
             }
@@ -25,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
         {
             var spellCastingLevelMethod = typeof(RulesetSpellRepertoire).GetMethod("get_SpellCastingLevel");
             var mySpellCastingLevelMethod =
-                typeof(CharacterActionCastSpell_GetAdvancementData).GetMethod("SpellCastingLevel");
+                typeof(RulesetEffectSpell_ComputeTargetParameter).GetMethod("SpellCastingLevel");
 
             foreach (var instruction in instructions)
             {
@@ -38,6 +39,21 @@ namespace SolastaCommunityExpansion.Patches.Multiclass.Cantrips
                 {
                     yield return instruction;
                 }
+            }
+        }
+    }
+
+    // enforces cantrips to be cast at character level
+    [HarmonyPatch(typeof(RulesetEffectSpell), "GetClassLevel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class RulesetEffectSpell_GetClassLevel
+    {
+        internal static void Postfix(RulesetEffectSpell __instance, ref int __result, RulesetCharacter character)
+        {
+            if (character is RulesetCharacterHero hero
+                && __instance.SpellDefinition.SpellLevel == 0)
+            {
+                __result = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
             }
         }
     }

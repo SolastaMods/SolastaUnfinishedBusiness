@@ -9,7 +9,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
 {
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

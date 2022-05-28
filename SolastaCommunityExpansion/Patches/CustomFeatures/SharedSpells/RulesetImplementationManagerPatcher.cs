@@ -4,7 +4,7 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
 {
     // handles Sorcerer wildshape scenarios / enforces sorcerer class level / correctly handle slots recovery scenarios
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySpellSlotsForm")]

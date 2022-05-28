@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.Wildshape
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
 {
     // ensures that the wildshape hero cannot cast any spells
     [HarmonyPatch(typeof(RulesetCharacter), "CanCastSpells")]

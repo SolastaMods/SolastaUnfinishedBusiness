@@ -4,7 +4,7 @@ using SolastaCommunityExpansion.Models;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.SlotsSpells
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells
 {
     // creates different slots colors and pop up messages depending on slot types
     [HarmonyPatch(typeof(FlexibleCastingItem), "Bind")]

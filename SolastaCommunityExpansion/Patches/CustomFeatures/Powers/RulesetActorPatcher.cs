@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.PowersAndPools
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 {
     // enforce sorcery points and healing pool to correctly calculate class level
     [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]

@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.RitualCasting
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.RitualCasting
 {
     // ensures ritual spells work correctly when MC
     [HarmonyPatch(typeof(RulesetCharacter), "CanCastAnyRitualSpell")]

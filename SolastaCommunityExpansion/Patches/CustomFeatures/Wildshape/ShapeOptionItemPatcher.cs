@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.Multiclass.Wildshape
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
 {
     // uses class level when offering wildshape
     [HarmonyPatch(typeof(ShapeOptionItem), "Bind")]
