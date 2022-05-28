@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaEncounters.Models;
 
 namespace SolastaCommunityExpansion.Displays
 {

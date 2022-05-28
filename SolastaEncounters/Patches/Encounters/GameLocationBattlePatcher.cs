@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion;
 
-namespace SolastaCommunityExpansion.Patches.Encounters
+namespace SolastaEncounters.Patches.Encounters
 {
     [HarmonyPatch(typeof(GameLocationBattle), "GetMyContenders")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

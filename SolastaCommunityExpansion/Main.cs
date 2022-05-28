@@ -73,8 +73,8 @@ namespace SolastaCommunityExpansion
                 Logger = modEntry.Logger;
                 Mod = new ModManager<Core, Settings>();
                 Mod.Enable(modEntry, assembly);
-                modEntry.OnShowGUI = OnShowGui;
-
+                //modEntry.OnShowGUI = OnShowGui;
+                
                 Menu = new MenuManager();
                 Menu.Enable(modEntry, assembly);
 
@@ -89,13 +89,16 @@ namespace SolastaCommunityExpansion
             return true;
         }
 
-        internal static void OnShowGui(UnityModManager.ModEntry modEntry)
-        {
-            if (Settings.EnableHeroesControlledByComputer)
-            {
-                PlayerControllerContext.RefreshGuiState();
-            }
-        }
+        //
+        // TODO: refactor this in Encounters sidecar
+        //
+        //internal static void OnShowGui(UnityModManager.ModEntry modEntry)
+        //{
+        //    if (Settings.EnableHeroesControlledByComputer)
+        //    {
+        //        PlayerControllerContext.RefreshGuiState();
+        //    }
+        //}
 
         internal static void LoadSidecars(string currentAssemblyName)
         {

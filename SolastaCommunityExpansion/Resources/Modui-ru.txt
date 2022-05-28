@@ -78,7 +78,6 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty	Включите переклю�
 ModUi/&EnableUnityExplorer	Включить пользовательский интерфейс Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Включить неограниченное <color=orange>Arcane Recovery</color> в <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Должен быть включен, когда способность доступна для использования или перед созданием персонажа</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Включить восходящее использование <color=orange>Сотворение элементаля</color>, <color=orange>Сотворение фей</color>
-ModUi/&Encounters	Встречи
 ModUi/&ExpandAll	Расширить все
 ModUi/&FactionHelp	<color=#C04040E0>Загрузите официальную кампанию, чтобы изменить отношения фракций...</color>
 ModUi/&FactionRelations	<color=yellow>Отношения фракций:</color>

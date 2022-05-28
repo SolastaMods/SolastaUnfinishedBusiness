@@ -18,7 +18,7 @@ namespace SolastaCommunityExpansion
         internal const InputCommands.Id CTRL_SHIFT_E = (InputCommands.Id)44440006;
 
         // Spawn Encounter
-        internal const InputCommands.Id CTRL_SHIFT_S = (InputCommands.Id)44440007;
+        //internal const InputCommands.Id CTRL_SHIFT_S = (InputCommands.Id)44440007;
 
         // Teleport Party
         internal const InputCommands.Id CTRL_SHIFT_T = (InputCommands.Id)44440008;

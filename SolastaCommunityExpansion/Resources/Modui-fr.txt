@@ -78,7 +78,6 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty	Activez les bascules sur le grou
 ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
-ModUi/&Encounters	Rencontres
 ModUi/&ExpandAll	Développer tout
 ModUi/&FactionHelp	<color=#C04040E0>Charger un jeu de campagne officiel pour modifier les relations entre les factions...</color>
 ModUi/&FactionRelations	<color=yellow>Relations entre factions:</color>

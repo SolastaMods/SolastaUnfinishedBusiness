@@ -78,7 +78,6 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty	启用角色库切换键，以�
 ModUi/&EnableUnityExplorer	启用Unity Explorer界面
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
-ModUi/&Encounters	遭遇战
 ModUi/&ExpandAll	全部展开
 ModUi/&FactionHelp	<color=#C04040E0>加载官方战役以修改派系关系...</color>
 ModUi/&FactionRelations	<color=yellow>派系关系：</color>

@@ -78,7 +78,6 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty	Enable toggles on character pool
 ModUi/&EnableUnityExplorer	Enable the Unity Explorer UI
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
-ModUi/&Encounters	Encounters
 ModUi/&ExpandAll	Expand All
 ModUi/&FactionHelp	<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations	<color=yellow>Faction Relations:</color>

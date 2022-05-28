@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using SolastaCommunityExpansion.Models;
+using System.Collections.Generic;
 using System.Linq;
 using TA;
 using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaModApi.DatabaseHelper.FactionDefinitions;
 using static SolastaModApi.DatabaseHelper.FormationDefinitions;
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaEncounters.Models
 {
     internal static class EncountersSpawnContext
     {

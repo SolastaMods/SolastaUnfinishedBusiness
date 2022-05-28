@@ -78,7 +78,6 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty	Ative a alternância no pool de 
 ModUi/&EnableUnityExplorer	Ativar a interface do usuário do Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Ative a <color=orange>Recuperação Arcana</color> ilimitada no <color=orange>Assistente</color> Mestre de Feitiços\n<i><color=yellow>Deve ser ativado quando a habilidade tiver usos disponíveis ou antes da criação do personagem</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Ativar upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
-ModUi/&Encounters	Encontros
 ModUi/&ExpandAll	Expandir todos
 ModUi/&FactionHelp	<color=#C04040E0>Carregue um jogo de campanha oficial para modificar as relações de facção...</color>
 ModUi/&FactionRelations	<color=yellow>Relações de facções:</color>

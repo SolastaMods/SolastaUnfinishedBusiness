@@ -52,8 +52,8 @@ namespace SolastaCommunityExpansion.Models
                 (int)KeyCode.LeftControl);
 
             // Spawn Encounter
-            inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift,
-                (int)KeyCode.LeftControl);
+            //inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_S, (int)KeyCode.S, (int)KeyCode.LeftShift,
+            //    (int)KeyCode.LeftControl);
 
             // Teleport
             inputService.RegisterCommand(Hotkeys.CTRL_SHIFT_T, (int)KeyCode.T, (int)KeyCode.LeftShift,
@@ -104,10 +104,10 @@ namespace SolastaCommunityExpansion.Models
             {
                 ToggleZoomCamera();
             }
-            else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
-            {
-                EncountersSpawnContext.ConfirmStageEncounter();
-            }
+            //else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == Hotkeys.CTRL_SHIFT_S)
+            //{
+            //    EncountersSpawnContext.ConfirmStageEncounter();
+            //}
 
             void ToggleZoomCamera()
             {
