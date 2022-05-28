@@ -6,9 +6,13 @@ namespace SolastaCommunityExpansion.Models
 {
     internal static class Level20Context
     {
+        public const int MAX_SPELL_LEVEL = 9;
+
         public const int MOD_MAX_LEVEL = 20;
         public const int GAME_MAX_LEVEL = 12;
-        public const int MAX_SPELL_LEVEL = 9;
+
+        public const int MOD_MAX_EXPERIENCE = 355000;
+        public const int GAME_MAX_EXPERIENCE = 100000;
 
         internal static void Load()
         {

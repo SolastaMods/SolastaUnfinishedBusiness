@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	Keyboard & Mouse
 ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>Max allowed levels</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Max. backup files per location or campaign</color>
 ModUi/&MaxBackupHelp	. Backup files are saved under <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>Max levels per line on Spell Panel</color>

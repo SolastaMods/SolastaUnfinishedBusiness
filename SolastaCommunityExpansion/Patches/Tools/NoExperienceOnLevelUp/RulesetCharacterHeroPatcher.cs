@@ -12,20 +12,23 @@ namespace SolastaCommunityExpansion.Patches.Tools.NoExperienceOnLevelUp
         {
             if (Main.Settings.NoExperienceOnLevelUp)
             {
-                __result = __instance.ClassesHistory.Count < Main.Settings.MaxAllowedLevels;
+                var levelCap = Main.Settings.EnableLevel20 ? Models.Level20Context.MOD_MAX_LEVEL : Models.Level20Context.GAME_MAX_LEVEL;
+
+                __result = __instance.ClassesHistory.Count < levelCap;
 
                 return false;
             }
-
-            // If the game doesn't know how much XP to reach the next level it uses -1 to determine if the character can level up
-            // When a character is level 20, this ends up meaning the character can now level up forever unless we stop it here
-            if (__instance.ClassesHistory.Count >= Main.Settings.MaxAllowedLevels)
+            if (Main.Settings.EnableLevel20)
             {
-                __result = false;
-
-                return false;
+                var levelCap = Main.Settings.EnableLevel20 ? Models.Level20Context.MOD_MAX_LEVEL : Models.Level20Context.GAME_MAX_LEVEL;
+                // If the game doesn't know how much XP to reach the next level it uses -1 to determine if the character can level up.
+                // When a character is level 20, this ends up meaning the character can now level up forever unless we stop it here.
+                if (__instance.ClassesHistory.Count >= levelCap)
+                {
+                    __result = false;
+                    return false;
+                }
             }
-
             return true;
         }
     }

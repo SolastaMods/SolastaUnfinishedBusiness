@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	Clavier souris
 ModUi/&MakeAllMagicStaveArcaneFoci	Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color=rouge>[Nécessite un redémarrage]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses	<color=white>Classes maximales autorisées</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>Niveaux maximum autorisés</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableLevel20	Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<couleur=blanc>Max. fichiers de sauvegarde par lieu ou campagne</color>
 ModUi/&MaxBackupHelp	. Les fichiers de sauvegarde sont enregistrés sous <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>Niveaux max par ligne sur Spell Panel</color>

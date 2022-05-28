@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	Клавиатура и мышь
 ModUi/&MakeAllMagicStaveArcaneFoci	Сделайте все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Также отмечайте местоположение невидимых телепортов на карте уровня после обнаружения</i>
 ModUi/&MaxAllowedClasses	<color=white>Максимум разрешенных классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>Максимально допустимые уровни</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&EnableLevel20	Включить уровень 20 <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Макс. резервные копии файлов для каждого местоположения или кампании</color>
 ModUi/&MaxBackupHelp	. Файлы резервных копий сохраняются в папке <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>.
 ModUi/&MaxSpellLevelsPerLine	<color=white>Максимальное количество уровней в строке на панели заклинаний</color>

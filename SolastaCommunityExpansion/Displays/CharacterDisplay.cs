@@ -124,14 +124,11 @@ namespace SolastaCommunityExpansion.Displays
                 InitialChoicesContext.SwitchEvenLevelFeats();
             }
 
-            UI.Label("");
-
-            intValue = Main.Settings.MaxAllowedLevels;
-            if (UI.Slider(Gui.Format("ModUi/&MaxAllowedLevels"), ref intValue, Level20Context.GAME_MAX_LEVEL,
-                    Level20Context.MOD_MAX_LEVEL, Level20Context.GAME_MAX_LEVEL, "",
-                    UI.AutoWidth()))
+            toggle = Main.Settings.EnableLevel20;
+            if (UI.Toggle(Gui.Format("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
             {
-                Main.Settings.MaxAllowedLevels = intValue;
+                Main.Settings.EnableLevel20 = toggle;
+                InitialChoicesContext.SwitchEvenLevelFeats();
             }
 
             UI.Label("");

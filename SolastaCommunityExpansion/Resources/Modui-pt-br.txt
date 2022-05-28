@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	Teclado mouse
 ModUi/&MakeAllMagicStaveArcaneFoci	Faça todas as pautas mágicas focos arcanos <i><color=yellow>[exceto <color=orange>Cajado da Cura</color> que é Universal]</color></i> <b><i><color=#C04040E0>[Requer reiniciar]</color></i></b> <b><i><color=#C04040E0>[Requer reiniciar]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marque também a localização de teletransportadores invisíveis no mapa de nível após a descoberta</i>
 ModUi/&MaxAllowedClasses	<color=white>Máximo de aulas permitidas</color> <b><i><color=#C04040E0>[Requer reiniciar]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>Níveis máximos permitidos</color> <b><i><color=#C04040E0>[Requer reiniciar]</color></i></b>
+ModUi/&EnableLevel20	Ativar nível 20 <b><i><color=#C04040E0>[Requer reiniciar]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Máx. arquivos de backup por local ou campanha</color>
 ModUi/&MaxBackupHelp	. Os arquivos de backup são salvos em <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>Níveis máximos por linha no painel de feitiços</color>

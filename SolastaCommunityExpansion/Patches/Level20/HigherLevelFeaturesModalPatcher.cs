@@ -6,7 +6,7 @@ using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
 {
-    // replaces the hard coded level
+    // replaces the hard coded experience
     [HarmonyPatch(typeof(HigherLevelFeaturesModal), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HigherLevelFeaturesModal_Bind
@@ -15,9 +15,10 @@ namespace SolastaCommunityExpansion.Patches.Level20
         {
             var code = new List<CodeInstruction>(instructions);
 
-            code.Find(x => x.opcode.Name == "ldc.i4.s"
-                           && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
-                .operand = Main.Settings.MaxAllowedLevels;
+            if (Main.Settings.EnableLevel20)
+            {
+                code.Find(x => x.opcode.Name == "ldc.i4.s" && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL).operand = MOD_MAX_LEVEL;
+            }
 
             return code;
         }

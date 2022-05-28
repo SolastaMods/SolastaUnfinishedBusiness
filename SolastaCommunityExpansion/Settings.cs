@@ -111,7 +111,7 @@ namespace SolastaCommunityExpansion
         // Progression
         public bool EnablesAsiAndFeat { get; set; }
         public bool EnableFeatsAtEvenLevels { get; set; }
-        public int MaxAllowedLevels { get; set; } = Level20Context.GAME_MAX_LEVEL;
+        public bool EnableLevel20 { get; set; }
 
         // Multiclass
         public bool EnableMinInOutAttributes { get; set; } = true;

@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	Tastatur maus
 ModUi/&MakeAllMagicStaveArcaneFoci	Mache alle magischen Stäbe zu arkanen Brennpunkten <i><color=yellow>[außer <color=orange>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
 ModUi/&MaxAllowedClasses	<color=white>Max. zulässige Klassen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>Max. zulässige Stufen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&EnableLevel20	Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>max. Sicherungsdateien pro Standort oder Kampagne</color>
 ModUi/&MaxBackupHelp	. Sicherungsdateien werden unter <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i> gespeichert
 ModUi/&MaxSpellLevelsPerLine	<color=white>Maximale Stufen pro Zeile im Zauberfeld</color>
