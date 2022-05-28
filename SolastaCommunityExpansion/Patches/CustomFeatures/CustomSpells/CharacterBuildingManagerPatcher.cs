@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -113,6 +114,19 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells
                     {
                         heroBuildingData.TempAcquiredSpellsNumber += mod.MaxPointsBonus;
                     }
+                }
+
+                //
+                // FIX an original TA bug not considering bonus cantrips from subclasses on this calculation
+                //
+                if (Main.Settings.BugFixCorrectlyAssignBonusCantrips)
+                {
+                    var bonusCantripsFromSubclasses = heroBuildingData.AllActiveFeatures
+                        .OfType<FeatureDefinitionPointPool>()
+                        .Where(x => x.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
+                        .Sum(x => x.PoolAmount);
+
+                    heroBuildingData.TempAcquiredCantripsNumber += bonusCantripsFromSubclasses;
                 }
             }
         }

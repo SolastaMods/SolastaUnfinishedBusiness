@@ -58,6 +58,7 @@ namespace SolastaCommunityExpansion
 
         //public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
         public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
+        public bool BugFixCorrectlyAssignBonusCantrips { get; set; } = true;
         public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
         public bool BugFixCorrectlyTerminateEffectsOnWorldTravel { get; set; } = true;
         public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
