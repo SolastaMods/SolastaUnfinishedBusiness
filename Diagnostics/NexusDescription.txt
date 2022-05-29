@@ -240,6 +240,10 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Reckless Fury[/b]: You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 [*][b]Scribe[/b]: +1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells.
+[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
+ - When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
+ - Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
+ - When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
 [*][b]Shadow Touched (Charisma)[/b]: Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 [*][b]Shadow Touched (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 [*][b]Shadow Touched (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
@@ -307,7 +311,7 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 30 hit points or fewer: blinded, deafened, and stunned for 1 hour
 20 hit points or fewer: killed instantly
 Regardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.
-.
+
 [*][b]Finger of Death (No Zombie)[/b]: The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one.
 [*][b]Reverse Gravity[/b]: This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 [*][b]Dominate Monster[/b]: You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
