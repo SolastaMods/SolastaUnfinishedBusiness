@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterExport
 {

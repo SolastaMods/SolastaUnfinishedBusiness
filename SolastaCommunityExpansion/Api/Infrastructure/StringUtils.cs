@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaCommunityExpansion.Utils
+namespace SolastaCommunityExpansion.Api.Infrastructure
 {
     public static class StringUtils
     {

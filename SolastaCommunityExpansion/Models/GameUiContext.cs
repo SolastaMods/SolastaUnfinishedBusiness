@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using SolastaCommunityExpansion.Utils;
 using TA;
 using UnityEngine;
 using static SolastaModApi.DatabaseHelper.GadgetBlueprints;

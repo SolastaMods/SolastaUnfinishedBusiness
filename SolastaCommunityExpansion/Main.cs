@@ -5,6 +5,7 @@ using System.Reflection;
 using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
 using Debug = UnityEngine.Debug;
 

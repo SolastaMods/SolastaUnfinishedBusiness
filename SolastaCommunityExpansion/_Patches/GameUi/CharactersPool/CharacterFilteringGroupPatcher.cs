@@ -17,7 +17,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
         internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var bypass = 0;
-            var myLevelMethod = typeof(CharacterSelectionModalEnumeratePlates).GetMethod("MyLevels");
+            var myLevelMethod = typeof(CharacterFilteringGroup_Compare).GetMethod("MyLevels");
             var levelsField = typeof(RulesetCharacterHero.Snapshot).GetField("Levels");
 
             foreach (var instruction in instructions)
