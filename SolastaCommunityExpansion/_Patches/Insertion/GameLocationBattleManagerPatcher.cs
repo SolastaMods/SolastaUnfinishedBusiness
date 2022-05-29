@@ -40,7 +40,7 @@ namespace SolastaCommunityExpansion.Patches.Insertion
                 }
 
                 var extraEvents =
-                    AttacksOfOpportunity.ProcessAoOOnCharacterAttackFinished(__instance, attacker, defender,
+                    AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender,
                         attackerAttackMode);
 
                 while (extraEvents.MoveNext())

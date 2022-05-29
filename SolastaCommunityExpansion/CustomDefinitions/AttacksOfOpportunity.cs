@@ -19,7 +19,7 @@ public static class AttacksOfOpportunity
     public static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
     public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
 
-    public static IEnumerator ProcessAoOOnCharacterAttackFinished(
+    public static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -36,37 +36,48 @@ public static class AttacksOfOpportunity
             yield break;
         }
 
+        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var count = actionService.PendingReactionRequestGroups.Count;
+
+        //Process fetures on attacker or defender
+        
         var units = battle.AllContenders
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
             .ToArray();
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
+        //Process other participants of the battle
         foreach (var unit in units)
         {
-            if (attacker != unit
-                && defender != unit
-                && attacker.IsOppositeSide(unit.Side)
-                && defender.Side == unit.Side
-                && (unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-                && !(defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-                && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier,
-                    battleManager))
+            if (attacker != unit && defender != unit)
             {
-                //TODO: check that 2+ Sentinels correctly trigger reaction atatck at same time 
-                RequestReactionAttack(new CharacterActionParams(
-                    unit,
-                    ActionDefinitions.Id.AttackOpportunity,
-                    opportunityAttackMode,
-                    attacker,
-                    actionModifier)
-                {
-                    StringParameter = "Sentinel"
-                });
+                ProcessSentinel(unit, attacker, defender, battleManager);
             }
         }
 
         yield return battleManager.InvokeMethod("WaitForReactions", attacker, actionService, count);
+    }
+
+    private static void ProcessSentinel(GameLocationCharacter unit, GameLocationCharacter attacker,
+        GameLocationCharacter defender, GameLocationBattleManager battleManager)
+    {
+        if (attacker.IsOppositeSide(unit.Side)
+            && defender.Side == unit.Side
+            && (unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
+            && !(defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
+            && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier,
+                battleManager))
+        {
+            //TODO: check that 2+ Sentinels correctly trigger reaction atatck at same time 
+            RequestReactionAttack(new CharacterActionParams(
+                unit,
+                ActionDefinitions.Id.AttackOpportunity,
+                opportunityAttackMode,
+                attacker,
+                actionModifier)
+            {
+                StringParameter = "Sentinel"
+            });
+        }
     }
 
     public static void RequestReactionAttack(CharacterActionParams actionParams)
