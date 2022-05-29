@@ -800,7 +800,7 @@ Feature/&ArcaneDetonationUpgradeDescription	A partir do 11º nível, o dano da s
 Feature/&ArcaneDetonationUpgradeTitle	Detonação Arcana Maior
 Feature/&ArcanePulseDescription	A partir do 7º nível, você pode causar uma erupção de energia arcana a uma distância de 9 metros. Criaturas hostis a até 4,5 metros do ponto de impacto recebem 4d8 de dano e ganham uma Marca do Arcanista. Você pode usar esta habilidade um número de vezes igual ao seu modificador de sabedoria por descanso longo. No 15º nível, o dano do seu Pulso Arcano aumenta para 8d8.
 Feature/&ArcanePulseTitle	Pulso Arcano
-Feature/&ArcanistAutoPreparedSpellsDescription	Você ganha magias bônus que são consideradas magias de ranger para você, elas são sempre preparadas e não contam para o número de magias de ranger que você conhece:\n{0}\n\n.
+Feature/&ArcanistAutoPreparedSpellsDescription	Você ganha magias bônus que são consideradas magias de ranger para você, elas são sempre preparadas e não contam para o número de magias de ranger que você conhece:\n{0}\n\n
 Feature/&ArcanistAutoPreparedSpellsTitle	Feitiços Bônus de Arcanista Patrulheiro
 Feature/&ArcanistMarkDescription	A partir do 3º nível, você imbui suas armas com poder arcano. Criaturas que são atingidas por seus ataques são afligidas pela Marca do Arcanista.
 Feature/&ArcanistMarkTitle	Marca do Arcanista
@@ -952,7 +952,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	A partir do 6º nível, você
 Feature/&DruidForestGuardianExtraAttackTitle	Ataque Extra
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Seu Bark Ward agora cresce espinhos, que danificam os atacantes corpo a corpo. Inimigos que acertarem você com sucesso com um ataque corpo a corpo sofrem 2d8 de dano perfurante.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Sentido de Latido Aprimorado
-Feature/&DruidForestGuardianMagicDescription	A partir do 2º nível ao escolher este círculo, você ganha acesso a uma lista de feitiços expandida que está sempre preparada:\n{0}\n\n.
+Feature/&DruidForestGuardianMagicDescription	A partir do 2º nível ao escolher este círculo, você ganha acesso a uma lista de feitiços expandida que está sempre preparada:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Feitiços de Círculo
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Sua habilidade Bark Ward agora reflete 3d8 de dano perfurante em atacantes corpo a corpo. Além disso, Bark Ward agora concede imunidade a veneno enquanto estiver ativo.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Ala do Latido Superior
@@ -1559,7 +1559,7 @@ Spell/&AirBlastDescription	Dispare uma rajada de ar focado em seu alvo.
 Spell/&AirBlastTitle	Jato de ar
 Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, danificando todos os inimigos ao seu redor.
 Spell/&BurstOfRadianceTitle	Explosão de Radiância
-Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.\n.
+Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.\n
 Spell/&CJDivineWordTitle	Palavra Divina
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
 Spell/&DHAnimalShapesSpellTitle	Formas de animais

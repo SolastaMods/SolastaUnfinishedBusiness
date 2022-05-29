@@ -800,7 +800,7 @@ Feature/&ArcaneDetonationUpgradeDescription	Ab der 11. Stufe erhöht sich der Sc
 Feature/&ArcaneDetonationUpgradeTitle	Größere Arkane Detonation
 Feature/&ArcanePulseDescription	Ab der 7. Stufe kannst du eine Eruption arkaner Energie in einer Entfernung von 30 Fuß verursachen. Feindliche Kreaturen innerhalb von 4,5 m um den Einschlagspunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft einsetzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Pulses auf 8W8.
 Feature/&ArcanePulseTitle	Arkaner Puls
-Feature/&ArcanistAutoPreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer präpariert und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}\n\n.
+Feature/&ArcanistAutoPreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer präpariert und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}\n\n
 Feature/&ArcanistAutoPreparedSpellsTitle	Waldläufer-Arkanist-Bonuszauber
 Feature/&ArcanistMarkDescription	Ab der 3. Stufe verleihen Sie Ihren Waffen arkane Macht. Kreaturen, die von deinen Angriffen getroffen werden, werden vom Zeichen des Arkanisten heimgesucht.
 Feature/&ArcanistMarkTitle	Zeichen des Arkanisten
@@ -952,7 +952,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	Ab der 6. Stufe kannst du zwe
 Feature/&DruidForestGuardianExtraAttackTitle	Extra-Angriff
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Deinem Rindenschutz wachsen jetzt Dornen, die Nahkampfangreifern Schaden zufügen. Feinde, die dich erfolgreich mit einem Nahkampfangriff treffen, erleiden 2W8 Stichschaden.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Verbesserter Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}\n\n.
+Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Zirkelzauber
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Eure Fähigkeit „Bark Ward“ reflektiert jetzt 3W8 Stichschaden auf Nahkampfangreifer. Zusätzlich gewährt dir Bark Ward jetzt Immunität gegen Gift, solange es aktiv ist.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
@@ -1559,7 +1559,7 @@ Spell/&AirBlastDescription	Feuern Sie einen Strahl fokussierter Luft auf Ihr Zie
 Spell/&AirBlastTitle	Luftstoß
 Spell/&BurstOfRadianceDescription	Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Feinden um dich herum Schaden zufügt.
 Spell/&BurstOfRadianceTitle	Strahlkraft
-Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, erfüllt von der Kraft, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl an Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Rettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur einen Effekt basierend auf ihren aktuellen Trefferpunkten:\n50 Trefferpunkte oder weniger: 1 Minute lang taub\n40 Trefferpunkte oder weniger: 10 Minuten lang taub und geblendet\n30 Trefferpunkte oder weniger: 1 Stunde lang geblendet, taub und betäubt\n20 Trefferpunkte oder weniger: sofort getötet\nUnabhängig von seinen aktuellen Trefferpunkten wird ein Himmlischer, ein Elementar, ein Feenwesen oder ein Unterweltler, dem sein Rettungswurf misslingt, auf seine Ursprungsebene zurückgedrängt (falls er nicht bereits dort ist) und kann nicht auf deine aktuelle Ebene zurückkehren 24 Stunden auf jeden Fall kurz vor einem Wunschzauber.\n.
+Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, erfüllt von der Kraft, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl an Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Rettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur einen Effekt basierend auf ihren aktuellen Trefferpunkten:\n50 Trefferpunkte oder weniger: 1 Minute lang taub\n40 Trefferpunkte oder weniger: 10 Minuten lang taub und geblendet\n30 Trefferpunkte oder weniger: 1 Stunde lang geblendet, taub und betäubt\n20 Trefferpunkte oder weniger: sofort getötet\nUnabhängig von seinen aktuellen Trefferpunkten wird ein Himmlischer, ein Elementar, ein Feenwesen oder ein Unterweltler, dem sein Rettungswurf misslingt, auf seine Ursprungsebene zurückgedrängt (falls er nicht bereits dort ist) und kann nicht auf deine aktuelle Ebene zurückkehren 24 Stunden auf jeden Fall kurz vor einem Wunschzauber.\n
 Spell/&CJDivineWordTitle	Göttliches Wort
 Spell/&DHAnimalShapesSpellDescription	Wähle eine beliebige Anzahl williger Kreaturen, die du in Reichweite sehen kannst. Du verwandelst jedes Ziel in die Form einer großen oder kleineren Bestie mit einem Herausforderungswert von 4 oder niedriger.
 Spell/&DHAnimalShapesSpellTitle	Tierische Formen

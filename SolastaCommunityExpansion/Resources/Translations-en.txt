@@ -800,7 +800,7 @@ Feature/&ArcaneDetonationUpgradeDescription	Starting at 11th level, the damage f
 Feature/&ArcaneDetonationUpgradeTitle	Greater Arcane Detonation
 Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 Feature/&ArcanePulseTitle	Arcane Pulse
-Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always pepared and don't count against the number of ranger spells you know: \n{0}\n\n.
+Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always pepared and don't count against the number of ranger spells you know: \n{0}\n\n
 Feature/&ArcanistAutoPreparedSpellsTitle	Ranger Arcanist Bonus Spells
 Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
 Feature/&ArcanistMarkTitle	Arcanist's Mark
@@ -952,7 +952,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you ca
 Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Improved Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\n{0}\n\n.
+Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Circle Spells
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
@@ -1559,7 +1559,7 @@ Spell/&AirBlastDescription	Fire a blast of focused air at your target.
 Spell/&AirBlastTitle	Air Blast
 Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
 Spell/&BurstOfRadianceTitle	Burst of Radiance
-Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n.
+Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n
 Spell/&CJDivineWordTitle	Divine Word
 Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
