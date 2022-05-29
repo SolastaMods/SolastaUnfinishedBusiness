@@ -55,6 +55,7 @@ namespace SolastaCommunityExpansion.Patches
             ItemOptionsContext.Load();
             Level20Context.Load();
             PickPocketContext.Load();
+            CustomReactionsContext.Load();
 
             // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
             PowersContext.Load();

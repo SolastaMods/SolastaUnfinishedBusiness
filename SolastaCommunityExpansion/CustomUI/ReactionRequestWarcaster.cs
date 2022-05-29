@@ -9,7 +9,6 @@ namespace SolastaCommunityExpansion.CustomUI
     public class ReactionRequestWarcaster : ReactionRequest
     {
         public const string Name = "WarcasterReaction";
-        public static ReactionDefinition ReactWarcasterDefinition;
 
         public ReactionRequestWarcaster(CharacterActionParams reactionParams)
             : base(Name, reactionParams)
@@ -43,15 +42,6 @@ namespace SolastaCommunityExpansion.CustomUI
                 return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
                     .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
             }
-        }
-
-        public static void Initialize()
-        {
-            ReactWarcasterDefinition = ReactionDefinitionBuilder
-                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, Name,
-                    DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Reaction)
-                .AddToDB();
         }
 
         private void BuildSuboptions()
