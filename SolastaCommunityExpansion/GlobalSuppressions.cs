@@ -18,6 +18,9 @@ using System.Diagnostics.CodeAnalysis;
         Target = "~N:ModKit")]
 [assembly:
     SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants",
+        Target = "~N:SolastaCommunityExpansion.Patches")]
+[assembly:
+    SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants",
         Target = "~N:SolastaModApi")]
 [assembly:
     SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants",
