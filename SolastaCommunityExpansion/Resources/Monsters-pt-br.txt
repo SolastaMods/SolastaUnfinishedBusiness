@@ -1,3 +1,13 @@
+Condition/&DH_ReverseGravity_Spell_Description	Gravidade reversa
+Condition/&DH_ReverseGravity_Spell_Title	Gravidade reversa
+Condition/&DH_TimeStop_Spell_Description	Congelado por Parada de Tempo
+Condition/&DH_TimeStop_Spell_Title	Congelado por Parada de Tempo
+Feature/&DH_AtWill_Fireball_Power_Description	Bola de fogo à vontade
+Feature/&DH_AtWill_Fireball_Power_Title	Bola fogo
+Feature/&DH_AtWill_HoldMonster_Power_Description	3 usos por dia
+Feature/&DH_AtWill_HoldMonster_Power_Title	Segure Monstro
+Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilidade à vontade
+Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilidade
 Monster/&DH_Custom_AirTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titã do Ar Primordial</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	O mais mal-humorado e vil dos dragões cromáticos, os dragões negros coletam os destroços e tesouros dos povos caídos. Esses dragões detestam ver os fracos prosperarem e se deleitam com o colapso dos reinos humanóides. Eles fazem suas casas em pântanos fétidos e ruínas em ruínas onde reinos antes existiam.
@@ -156,6 +166,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Os dragões podem bater su
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Ataque de asa
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Fogo
 MonsterPower/&DH_Balor_FireAura_Power_Title	Aura de Fogo
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
 MonsterPower/&DH_BlindingGaze_Power_Description	CD15 Constituição Salvar ou ficar cego até que uma restauração menor seja usada
 MonsterPower/&DH_BlindingGaze_Power_Title	Olhar Cegante
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	Ácido 15D8
@@ -188,6 +202,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Necrótico
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Interromper a vida
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fogo e 4D6 Radiante
 MonsterPower/&DH_SearingBurst_Power_Title	Explosão Calcinante
+MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Invoca 1 Elemental do Ar
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Invocar Elemental Maior
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Invoca 1 Elemental da Terra
@@ -212,21 +228,11 @@ MonsterPower/&DH_TarrasqueSwallowPower_Description	O tarrasque faz um ataque de 
 MonsterPower/&DH_TarrasqueSwallowPower_Title	Engolir
 MonsterPower/&DH_VampireCharmPower_Description	O vampiro tem como alvo um humanóide que ele possa ver a até 9 metros dele. O alvo deve ser bem sucedido em um teste de resistência de Sabedoria CD 17 contra esta magia ou será enfeitiçado pelo vampiro.
 MonsterPower/&DH_VampireCharmPower_Title	Charme
-Spell/&DHTimeStop_SpellDescription	Você interrompe brevemente o fluxo do tempo para todos, menos para você. Nenhum tempo passa para outras criaturas, enquanto você realiza 1d4 + 1 turnos seguidos, durante os quais você pode usar ações e se mover normalmente.
-Spell/&DHTimeStop_SpellTitle	Parar o tempo
-Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
-Spell/&DHAnimalShapesSpellTitle	Formas de animais
 MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Raio em área ampla
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Tempestade Relâmpago
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Relâmpago
-Feature/&DH_AtWill_Fireball_Power_Description	Bola de fogo à vontade
-Feature/&DH_AtWill_Fireball_Power_Title	Bola fogo
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 usos por dia
-Feature/&DH_AtWill_HoldMonster_Power_Title	Segure Monstro
-Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilidade à vontade
-Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilidade
-Condition/&DH_ReverseGravity_Spell_Description	Gravidade reversa
-Condition/&DH_ReverseGravity_Spell_Title	Gravidade reversa
-Condition/&DH_TimeStop_Spell_Description	Congelado por Parada de Tempo
-Condition/&DH_TimeStop_Spell_Title	Congelado por Parada de Tempo
+Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
+Spell/&DHAnimalShapesSpellTitle	Formas de animais
+Spell/&DHTimeStop_SpellDescription	Você interrompe brevemente o fluxo do tempo para todos, menos para você. Nenhum tempo passa para outras criaturas, enquanto você realiza 1d4 + 1 turnos seguidos, durante os quais você pode usar ações e se mover normalmente.
+Spell/&DHTimeStop_SpellTitle	Parar o tempo

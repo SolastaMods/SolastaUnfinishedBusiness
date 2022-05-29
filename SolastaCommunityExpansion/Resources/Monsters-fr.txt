@@ -1,3 +1,13 @@
+Condition/&DH_ReverseGravity_Spell_Description	Gravité inversée
+Condition/&DH_ReverseGravity_Spell_Title	Gravité inversée
+Condition/&DH_TimeStop_Spell_Description	Gelé par l'arrêt du temps
+Condition/&DH_TimeStop_Spell_Title	Gelé par l'arrêt du temps
+Feature/&DH_AtWill_Fireball_Power_Description	Boule de feu à volonté
+Feature/&DH_AtWill_Fireball_Power_Title	Boule de feu
+Feature/&DH_AtWill_HoldMonster_Power_Description	3 utilisations par jour
+Feature/&DH_AtWill_HoldMonster_Power_Title	Tenez le monstre
+Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilité à volonté
+Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilité
 Monster/&DH_Custom_AirTitan_Description	Lorsqu'ils sont invoqués, ces élémentaux anciens se manifestent comme des êtres aux capacités apocalyptiques, des entités dont la simple existence promet la destruction.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titan Primordial de l'Air</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	Le plus méchant et le plus vil des dragons chromatiques, les dragons noirs collectent les débris et les trésors des peuples déchus. Ces dragons détestent voir les faibles prospérer et se délectent de l'effondrement des royaumes humanoïdes. Ils s'installent dans des marécages fétides et des ruines en ruine où se trouvaient autrefois des royaumes.
@@ -156,6 +166,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Les dragons peuvent battre
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Attaque de l'aile
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Feu
 MonsterPower/&DH_Balor_FireAura_Power_Title	Aura de feu
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
 MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Constitution Sauvegarder ou être aveuglé jusqu'à ce qu'une restauration moindre soit utilisée
 MonsterPower/&DH_BlindingGaze_Power_Title	Regard aveuglant
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Acide
@@ -188,6 +202,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Nécrotique
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Perturber la vie
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Feu & 4D6 Radiant
 MonsterPower/&DH_SearingBurst_Power_Title	Explosion brûlante
+MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Invoque 1 élémentaire d'air
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Invocation d'élémentaire supérieur
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Invoque 1 élémentaire de terre
@@ -212,21 +228,11 @@ MonsterPower/&DH_TarrasqueSwallowPower_Description	La tarasque effectue une atta
 MonsterPower/&DH_TarrasqueSwallowPower_Title	Avaler
 MonsterPower/&DH_VampireCharmPower_Description	Le vampire cible un humanoïde qu'il peut voir dans un rayon de 9 mètres autour de lui. La cible doit réussir un jet de sauvegarde de Sagesse DD 17 contre cette magie ou être charmée par le vampire.
 MonsterPower/&DH_VampireCharmPower_Title	Charme
-Spell/&DHTimeStop_SpellDescription	Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous-même. Aucun temps ne passe pour les autres créatures, pendant que vous effectuez 1d4 + 1 tours d'affilée, durant lesquels vous pouvez utiliser des actions et vous déplacer normalement.
-Spell/&DHTimeStop_SpellTitle	Arrêt du temps
-Spell/&DHAnimalShapesSpellDescription	Choisissez n'importe quel nombre de créatures consentantes que vous pouvez voir à portée. Vous transformez chaque cible en une bête de grande taille ou plus petite avec un niveau de défi de 4 ou moins.
-Spell/&DHAnimalShapesSpellTitle	Formes d'animaux
 MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Foudre dans une zone étendue
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Orage
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Coup de foudre
-Feature/&DH_AtWill_Fireball_Power_Description	Boule de feu à volonté
-Feature/&DH_AtWill_Fireball_Power_Title	Boule de feu
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 utilisations par jour
-Feature/&DH_AtWill_HoldMonster_Power_Title	Tenez le monstre
-Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilité à volonté
-Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilité
-Condition/&DH_ReverseGravity_Spell_Description	Gravité inversée
-Condition/&DH_ReverseGravity_Spell_Title	Gravité inversée
-Condition/&DH_TimeStop_Spell_Description	Gelé par l'arrêt du temps
-Condition/&DH_TimeStop_Spell_Title	Gelé par l'arrêt du temps
+Spell/&DHAnimalShapesSpellDescription	Choisissez n'importe quel nombre de créatures consentantes que vous pouvez voir à portée. Vous transformez chaque cible en une bête de grande taille ou plus petite avec un niveau de défi de 4 ou moins.
+Spell/&DHAnimalShapesSpellTitle	Formes d'animaux
+Spell/&DHTimeStop_SpellDescription	Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous-même. Aucun temps ne passe pour les autres créatures, pendant que vous effectuez 1d4 + 1 tours d'affilée, durant lesquels vous pouvez utiliser des actions et vous déplacer normalement.
+Spell/&DHTimeStop_SpellTitle	Arrêt du temps
