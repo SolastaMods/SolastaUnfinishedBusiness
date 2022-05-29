@@ -1,6 +1,5 @@
 ﻿using System;
 using HarmonyLib;
-using static System.Reflection.BindingFlags;
 
 namespace SolastaModApi.Infrastructure
 {
@@ -12,7 +11,7 @@ namespace SolastaModApi.Infrastructure
         ///     Usage
         ///     <code>
         /// var instanceWithPrivateFields = CreateInstance(...);
-        /// instanceWithPrivateFields.SetField("privatefield", 2);
+        /// instanceWithPrivateFields.privatefield = 2;
         /// </code>
         /// </summary>
         /// <remarks>
@@ -91,21 +90,6 @@ namespace SolastaModApi.Infrastructure
             }
 
             t.Property<V>(propertyName).Value = value;
-        }
-
-        public static object InvokeMethod<T>(this T obj, string methodName, params object[] args)
-        {
-            var type = typeof(T);
-            var method = type.GetMethod(methodName, NonPublic | Instance);
-            return method?.Invoke(obj, args);
-        }
-
-        public static bool InvokeMethodBool<T>(this T obj, string methodName, params object[] args)
-        {
-            var type = typeof(T);
-            var method = type.GetMethod(methodName, NonPublic | Instance);
-            var result = method?.Invoke(obj, args);
-            return result != null && (bool)result;
         }
     }
 }

@@ -1,7 +1,8 @@
 {
   "$type": "FeatureDefinitionSubclassChoice, Assembly-CSharp",
   "subclasses": [
-    "ClassMonkTraditionWayOfTheOpenHand"
+    "ClassMonkTraditionWayOfTheOpenHand",
+    "ClassMonkTraditionZenArcher"
   ],
   "filterByDeity": false,
   "subclassSuffix": "ClassMonkTradition",

@@ -126,7 +126,7 @@ namespace SolastaModApi.Extensions
         public static List<FeatureDefinition> GetFeaturesToBrowse<T>(this T entity)
             where T : ConditionDefinition
         {
-            return entity.GetField<List<FeatureDefinition>>("featuresToBrowse");
+            return entity.featuresToBrowse;
         }
 
         public static T SetAcidParticleParameters<T>(this T entity, ConditionParticleParameters value)

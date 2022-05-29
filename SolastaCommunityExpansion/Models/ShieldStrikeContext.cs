@@ -1,6 +1,5 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models
@@ -48,8 +47,8 @@ namespace SolastaCommunityExpansion.Models
                     DefinitionBuilder.CENamespaceGuid)
                 .AddToDB();
 
-            shieldType.SetField("soundEffectOnHitDescription",
-                WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription);
+            shieldType.soundEffectOnHitDescription =
+                WeaponTypeDefinitions.ClubType.SoundEffectOnHitDescription;
 
             return shieldType;
         }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 {
@@ -17,10 +16,10 @@ namespace SolastaCommunityExpansion.Api.AdditionalExtensions
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
             RulesetItem weapon = null)
         {
-            var attackMode = instance.InvokeMethod("RefreshAttackMode", actionType, itemDefinition, weaponDescription,
+            var attackMode = instance.RefreshAttackMode(actionType, itemDefinition, weaponDescription,
                 freeOffHand, canAddAbilityDamageBonus, slotName, attackModifiers, featuresOrigin, weapon);
 
-            return (RulesetAttackMode)attackMode;
+            return attackMode;
         }
     }
 }

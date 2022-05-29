@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Monk.Subclasses;
@@ -9,8 +10,8 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
-using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
+using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
@@ -57,7 +58,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
         private static ConditionalMovementModifier _movementBonusApplier;
 
         private static ConditionDefinition attackedWithMonkWeaponCondition;
-        private static CharacterValidator attackedWithMonkWeapon;
+        public static CharacterValidator attackedWithMonkWeapon;
         private static FeatureDefinition ki, martialArts, flurryOfBlows, patientDefense, stepOfTheWind, stunningStrike;
         private static int kiPoolIncreases, martailArtsDiceProgression, unarmoredMovementProgression;
 
@@ -280,7 +281,8 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     .SetSubclassSuffix("ClassMonkTradition")
                     .SetFilterByDeity(false)
                     .SetSubclasses(
-                        WayOfTheOpenHand.Build()
+                        WayOfTheOpenHand.Build(),
+                        ZenArcher.Build()
                     )
                     .AddToDB())
 
@@ -570,7 +572,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
             var extraFlurryAttack1 = FeatureDefinitionAdditionalActionBuilder
                 .Create("ClassMonkFlurryOfBlowsExtraAttacks1", GUID)
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, 1, true,
+                .SetCustomSubFeatures(new AddExtraUnarmedAttack(ActionDefinitions.ActionType.Bonus, true,
                         CharacterValidators.NoArmor, CharacterValidators.NoShield)
                     .SetTags(FlurryTag))
                 .SetActionType(ActionDefinitions.ActionType.Bonus)
@@ -694,8 +696,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .SetActivationTime(ActivationTime.OnAttackHit)
                 .SetRechargeRate(RechargeRate.ShortRest)
                 .SetCostPerUse(1)
-                .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                    ReactionAttackModeRestriction.MeleeOnly,
+                .SetCustomSubFeatures(new ReactionAttackModeRestriction(CanUseStunningStrike,
                     ReactionAttackModeRestriction.TargenHasNoCondition(ConditionDefinitions.ConditionStunned)
                 ))
                 .SetEffectDescription(new EffectDescriptionBuilder()
@@ -717,6 +718,14 @@ namespace SolastaCommunityExpansion.Classes.Monk
                         .Build())
                     .Build())
                 .AddToDB();
+        }
+
+        private static bool CanUseStunningStrike(RulesetAttackMode mode, RulesetCharacter character,
+            RulesetCharacter target)
+        {
+            return ReactionAttackModeRestriction.MeleeOnly(mode, character, target)
+                   || (character.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
+                       && ZenArcher.IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition));
         }
 
         private static FeatureDefinition BuildKiPoolIncrease()
@@ -916,22 +925,22 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 .AddToDB();
         }
 
-        private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon)
+        public static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
         {
-            return IsMonkWeapon(attackMode) || IsMonkWeapon(weapon);
+            return IsMonkWeapon(character, attackMode) || IsMonkWeapon(character, weapon);
         }
 
-        public static bool IsMonkWeapon(RulesetAttackMode attackMode)
+        public static bool IsMonkWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (attackMode is not {SourceDefinition: ItemDefinition item})
             {
                 return false;
             }
 
-            return MonkWeapons.Contains(item.WeaponDescription?.WeaponTypeDefinition);
+            return IsMonkWeapon(character, item);
         }
 
-        public static bool IsMonkWeapon(RulesetItem weapon)
+        public static bool IsMonkWeapon(RulesetCharacter character, RulesetItem weapon)
         {
             //fists
             if (weapon == null)
@@ -939,16 +948,34 @@ namespace SolastaCommunityExpansion.Classes.Monk
                 return true;
             }
 
-            return MonkWeapons.Contains(weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition);
+            return IsMonkWeapon(character, weapon.ItemDefinition);
         }
 
-        private static bool UsingOnlyMonkWeapons(RulesetCharacter character)
+        public static bool IsMonkWeapon(RulesetCharacter character, ItemDefinition weapon)
+        {
+            if (weapon == null)
+            {
+                return false;
+            }
+
+            var typeDefinition = weapon.WeaponDescription?.WeaponTypeDefinition;
+
+            if (typeDefinition == null)
+            {
+                return false;
+            }
+
+            return MonkWeapons.Contains(typeDefinition)
+                   || ZenArcher.IsMonkWeapon(character, weapon);
+        }
+
+        public static bool UsingOnlyMonkWeapons(RulesetCharacter character)
         {
             var inventorySlotsByName = character.CharacterInventory.InventorySlotsByName;
             var mainHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
             var offHand = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
-            return IsMonkWeapon(mainHand) && IsMonkWeapon(offHand);
+            return IsMonkWeapon(character, mainHand) && IsMonkWeapon(character, offHand);
         }
 
         private static (DieType, int) GetMartialDice(RulesetCharacter character, RulesetItem weapon)
@@ -1141,7 +1168,7 @@ namespace SolastaCommunityExpansion.Classes.Monk
                     return;
                 }
 
-                if (!IsMonkWeapon(attackerAttackMode))
+                if (!IsMonkWeapon(character, attackerAttackMode))
                 {
                     return;
                 }

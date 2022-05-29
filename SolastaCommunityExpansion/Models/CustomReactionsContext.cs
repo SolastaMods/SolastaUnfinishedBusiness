@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomUI;
-using SolastaModApi.Infrastructure;
 using static ActionDefinitions;
 using static ActionDefinitions.ActionStatus;
 
@@ -42,7 +41,7 @@ namespace SolastaCommunityExpansion.Models
                 yield break;
             }
 
-            ruleDefender.InvokeMethod("EnumerateUsableSpells");
+            ruleDefender.EnumerateUsableSpells();
 
             var spells = ruleDefender.UsableSpells
                 .Select(s => (s, s.GetAllSubFeaturesOfType<IDamagedReactionSpell>()))
@@ -86,7 +85,7 @@ namespace SolastaCommunityExpansion.Models
                     var reactions = actionManager.PendingReactionRequestGroups.Count;
                     var reaction = new ReactionRequestCastDamageSpell(reactionParams, target, spellSlot == 0);
 
-                    actionManager.InvokeMethod("AddInterruptRequest", reaction);
+                    actionManager.AddInterruptRequest(reaction);
 
                     yield return WaitForReactions(actionManager, reactions);
                 }

@@ -4,12 +4,12 @@ ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all 
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore	Add to store
 ModUi/&Advanced	<color=yellow>Advanced:</color>
-ModUi/&AdvancedHelp	. <b><color=red>ATTENTION:</color></b> This setting will require the player to have this mod installed
+ModUi/&AdvancedHelp	. <b><color=#C04040E0>ATTENTION:</color></b> This setting will require the player to have this mod installed
 ModUi/&Adventure	<color=yellow>Adventure:</color>
 ModUi/&AllItemInDm	All items in DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Allow any class to wear sylvan armor
 ModUi/&AllowDruidToWearMetalArmor	Allow <color=orange>Druid</color> to wear metal armor
-ModUi/&AllowDungeonsMaxLevel20	Allow dungeons with max level 20 <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&AllowDungeonsMaxLevel20	Allow dungeons with max level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Allow gadgets and props to be placed anywhere on the map <i><color=yellow>[press <color=cyan>CTRL</color> during placement to bypass any check]</color></i>
 ModUi/&AllowStackedMaterialComponent	Allow stacked material component <i><color=yellow>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target selection when casting the <color=orange>Chain Lightning</color> spell
@@ -32,8 +32,8 @@ ModUi/&CraftingHelp	. Press the button to learn recipes instantly on the active 
 ModUi/&Credits	Credits
 ModUi/&CreditsAndDiagnostics	Credits & Diagnostics
 ModUi/&DisableAutoEquip	Disable auto-equip of items in inventory
-ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
 ModUi/&DontFollowCharacterInBattle	Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin	<i>+ Unless hero is off or within % of screen edge</i>
@@ -44,7 +44,7 @@ ModUi/&EmpressGarbAppearance	<color=orange>Empress Garb</color> appearance
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Add new foci items to Dungeon Maker</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Enable additional icons for camps, exits and teleporters on level map
 ModUi/&EnableAlternateHuman	Enable the alternate human <i><color=yellow>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Enable cancel action with right-mouse click
 ModUi/&EnableCharacterChecker	Enable the character checker screen
 ModUi/&EnableCharacterExport	Enable <color=cyan>CTRL-SHIFT-(E</color>)xport character <i><color=yellow>[on character inspection screen only]</color></i>
@@ -52,9 +52,9 @@ ModUi/&EnableCheatMenu	Enable the cheats menu
 ModUi/&EnableCtrlClickBypassAttackReactionPanel	Enable <color=cyan>CTRL</color> click on attacks to ignore any reaction panel
 ModUi/&EnableCtrlClickBypassMetamagicPanel	Enable <color=cyan>CTRL</color> click on spells to ignore the <color=orange>Sorcerer</color> metamagic panel
 ModUi/&EnableCtrlClickOnlySwapsMainHand	Enable <color=cyan>CTRL</color> click to keep off hand items when swapping wielded configurations
-ModUi/&EnableDungeonMakerModdedContent	Enable Dungeon Maker Pro <b><i><color=red>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
-ModUi/&EnableEpicPointsAndArray	Enable an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters	Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&EnableDungeonMakerModdedContent	Enable Dungeon Maker Pro <b><i><color=#C04040E0>[Requires Restart]</color></i></b>\n\ninclude flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments\nyou must have at least one outdoor room if you pick an outdoor environment
+ModUi/&EnableEpicPointsAndArray	Enable an epic 35 points buy system and array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableExtraHighLevelMonsters	Enable additional high level monsters (+20 CR) for tier 3 and 4 campaigns <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Enable feats selection at class levels 2, 6, 10 and 14
 ModUi/&EnableFlexibleBackgrounds	Enable flexible backgrounds <i><color=yellow>[select skill and tool proficiencies from backgrounds]</color></i>
 ModUi/&EnableFlexibleRaces	Enable flexible races <i><color=yellow>[assign ability score points instead of the racial defaults]</color></i>
@@ -80,7 +80,7 @@ ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=
 ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Encounters
 ModUi/&ExpandAll	Expand All
-ModUi/&FactionHelp	<color=red>Load an official campaign game to modify faction relations...</color>
+ModUi/&FactionHelp	<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations	<color=yellow>Faction Relations:</color>
 ModUi/&FasterTimeModifier	<color=white>Game time modifier when pressing space bar</color>
 ModUi/&Feats	<color=yellow>Feats</color>
@@ -96,7 +96,7 @@ ModUi/&GeneralMenu	General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints	Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&House	<color=yellow>House:</color>
-ModUi/&IncreaseSenseNormalVision	Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Initial choices:</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventory and items:</color>
@@ -104,10 +104,10 @@ ModUi/&InvertAltBehaviorOnTooltips	Invert <color=cyan>ALT</color> key behavior o
 ModUi/&ItemInDm	Items in DM
 ModUi/&ItemsCraftingMerchants	Items, Crafting & Merchants
 ModUi/&KeyboardMouse	Keyboard & Mouse
-ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
-ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>Max allowed levels</color> <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Max. backup files per location or campaign</color>
 ModUi/&MaxBackupHelp	. Backup files are saved under <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>Max levels per line on Spell Panel</color>
@@ -115,7 +115,7 @@ ModUi/&Merchants	<color=yellow>Merchants:</color>
 ModUi/&Monsters	<color=yellow>Monsters:</color>
 ModUi/&Multiclass	<color=yellow>Multiclass:</color>
 ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color> click on a spell consumes a spell slot instead of the default pact magic one
-ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multiply the experience gained by</color> <color=red>[%]</color>
+ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	No experience is required to Level Up
 ModUi/&NotAvailable	No {0} available on this mod yet...
 ModUi/&OfferAdditionalLoreFriendlyNames	Offer additional lore friendly names on character creation
@@ -131,9 +131,9 @@ ModUi/&Races	<color=yellow>Races</color>
 ModUi/&RacesClassesSubclasses	Races, Classes & Subclasses
 ModUi/&RecipeCost	<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm	Recipes in DM
-ModUi/&RemoveAttunementRequirements	Remove attunement requirements <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&RemoveBugVisualModels	Replace bug-like models with alternative visuals in the game <b><i><color=red>[Requires Restart]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements	Remove identification requirements <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&RemoveAttunementRequirements	Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveBugVisualModels	Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveIdentifcationRequirements	Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RestockAntiquarians	Restock Antiquarians <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum	Restock Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Restock Circle of Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -144,7 +144,7 @@ ModUi/&ScaleMerchantPricesCorrectly	Scale merchant prices correctly / exactly
 ModUi/&SelectAll	Select All
 ModUi/&SelectSuggested	Select Suggested
 ModUi/&Services	Services
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Set the chances of a beard appearing while using the</color> <color=orange>Belt of Dwarvenkin</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Set the chances of a beard appearing while using the</color> <color=orange>Belt of Dwarvenkind</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips	Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions	Show Descriptions
 ModUi/&SpellInstructions	. You can individually assign each spell to any spell list or simply select the suggested set
@@ -152,7 +152,7 @@ ModUi/&SpellLevelFilter	<b><i><color=white>spell level filter</color> <color=yel
 ModUi/&Spells	<color=yellow>Spells:</color>
 ModUi/&SpellsMenu	Spells
 ModUi/&SRD	<color=yellow>SRD:</color>
-ModUi/&StockGorimStoreWithAllNonMagicalClothing	Stocks Gorim's store with all non-magical clothing <b><i><color=red>[Requires Restart]</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing	Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	Stocks Hugo's store with <color=orange>Wand of Identify</color>, <color=orange>Arcane Staff</color>, <color=orange>Druid Neck</color>, <color=orange>Staff</color> and <color=orange>Club</color> set as foci items
 ModUi/&Subclasses	<color=yellow>Subclasses</color>
 ModUi/&Tools	Tools

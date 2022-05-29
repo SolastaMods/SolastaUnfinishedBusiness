@@ -78,7 +78,8 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-            if (UI.Slider(Gui.Format("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, "", UI.Width(100)))
+            if (UI.Slider(Gui.Format("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, "",
+                    UI.Width(100)))
             {
                 Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             }

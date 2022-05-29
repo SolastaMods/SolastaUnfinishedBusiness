@@ -774,7 +774,7 @@ namespace SolastaCommunityExpansion.Spells
             const bool PhantomDistortion = true;
             // AttachedParticlesReference = "0286006526f6f9c4fa61ed8ead4f72cc"
             var attachedParticlesReference =
-                FeyBear.MonsterPresentation.GetField<AssetReference>("attachedParticlesReference");
+                FeyBear.MonsterPresentation.attachedParticlesReference;
             var spriteReference = KindredSpiritViper.GuiPresentation.SpriteReference;
 
             MonsterDefinitionBuilder

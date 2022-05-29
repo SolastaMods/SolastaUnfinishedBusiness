@@ -1,4 +1,5 @@
 ﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -7,7 +8,6 @@ using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using static ConditionOperationDescription;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
@@ -50,7 +50,7 @@ namespace SolastaCommunityExpansion.Spells
                 .SetColor(new Color(0.9f, 0.8f, 0.4f));
 
             dimLight.SetGraphicsPrefabReference(DatabaseHelper.FeatureDefinitionAdditionalDamages
-                .AdditionalDamageBrandingSmite.LightSourceForm.GetField<AssetReference>("graphicsPrefabReference"));
+                .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference);
 
             return SpellDefinitionBuilder
                 .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
@@ -288,7 +288,7 @@ namespace SolastaCommunityExpansion.Spells
 
             var repertoire = spellEffect?.ActiveSpell.SpellRepertoire;
 
-            var actionParams = baseEffect.GetField<CharacterActionParams>("actionParams");
+            var actionParams = baseEffect.actionParams;
             if (actionParams == null) { return null; }
 
             if (baseEffect.Countered || baseEffect.GetProperty<bool>("ExecutionFailed"))

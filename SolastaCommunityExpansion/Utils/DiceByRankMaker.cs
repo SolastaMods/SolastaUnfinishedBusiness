@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Utils
 {
@@ -26,13 +25,13 @@ namespace SolastaCommunityExpansion.Utils
 
         public static DiceByRank SetRank(this DiceByRank instance, int rank)
         {
-            instance.SetField("rank", rank);
+            instance.rank = rank;
             return instance;
         }
 
         public static DiceByRank SetDices(this DiceByRank instance, int dices)
         {
-            instance.SetField("diceNumber", dices);
+            instance.diceNumber = dices;
             return instance;
         }
     }

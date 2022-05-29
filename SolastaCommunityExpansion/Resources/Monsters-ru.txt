@@ -1,3 +1,13 @@
+Condition/&DH_ReverseGravity_Spell_Description	Обратная гравитация
+Condition/&DH_ReverseGravity_Spell_Title	Обратная гравитация
+Condition/&DH_TimeStop_Spell_Description	Застыло на остановке времени
+Condition/&DH_TimeStop_Spell_Title	Застыло на остановке времени
+Feature/&DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
+Feature/&DH_AtWill_Fireball_Power_Title	Огненный шар
+Feature/&DH_AtWill_HoldMonster_Power_Description	3 использования в день
+Feature/&DH_AtWill_HoldMonster_Power_Title	Держи монстра
+Feature/&DH_AtWill_Invisibility_Power_Description	Неограниченная невидимость
+Feature/&DH_AtWill_Invisibility_Power_Title	Невидимость
 Monster/&DH_Custom_AirTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Изначальный воздушный титан</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	Самые злобные и мерзкие из цветных драконов, черные драконы собирают обломки и сокровища павших народов. Эти драконы ненавидят процветание слабых и наслаждаются крахом гуманоидных королевств. Они строят свои дома в зловонных болотах и ​​полуразрушенных руинах, где когда-то стояли королевства.
@@ -156,6 +166,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Драконы могут 
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Внезапная атака
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Огонь
 MonsterPower/&DH_Balor_FireAura_Power_Title	Огненная аура
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
 MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Телосложение: спасение или ослепление, пока не будет использовано меньшее восстановление
 MonsterPower/&DH_BlindingGaze_Power_Title	Ослепляющий взгляд
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Кислота
@@ -188,6 +202,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Некротически
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Нарушить жизнь
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Огонь и 4D6 Сияние
 MonsterPower/&DH_SearingBurst_Power_Title	Жгучий взрыв
+MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Призывает 1 элементаля воздуха
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Призвать великого элементаля
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Призывает 1 элементаля земли
@@ -212,21 +228,11 @@ MonsterPower/&DH_TarrasqueSwallowPower_Description	Тарраск соверша
 MonsterPower/&DH_TarrasqueSwallowPower_Title	Глотать
 MonsterPower/&DH_VampireCharmPower_Description	Вампир нацеливается на одного гуманоида, которого он может видеть в пределах 30 футов от себя. Цель должна преуспеть в спасброске Мудрости со Сл 17 против этой магии, иначе будет очарована вампиром.
 MonsterPower/&DH_VampireCharmPower_Title	Очарование
-Spell/&DHTimeStop_SpellDescription	Вы ненадолго останавливаете течение времени для всех, кроме себя. Для других существ время не проходит, в то время как вы совершаете 1d4 + 1 ход подряд, в течение которых вы можете использовать действия и двигаться как обычно.
-Spell/&DHTimeStop_SpellTitle	Остановка времени
-Spell/&DHAnimalShapesSpellDescription	Выберите любое количество желающих существ, которых вы можете видеть в пределах досягаемости. Вы превращаете каждую цель в форму Большого или меньшего зверя с рейтингом опасности 4 или ниже.
-Spell/&DHAnimalShapesSpellTitle	Фигуры животных
 MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Молния на большой площади
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Грозовой шторм
 MonsterPower/&DHGenericLightningAttackPowerDescription	12Д8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Удар молнии
-Feature/&DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
-Feature/&DH_AtWill_Fireball_Power_Title	Огненный шар
-Feature/&DH_AtWill_HoldMonster_Power_Description	3 использования в день
-Feature/&DH_AtWill_HoldMonster_Power_Title	Держи монстра
-Feature/&DH_AtWill_Invisibility_Power_Description	Неограниченная невидимость
-Feature/&DH_AtWill_Invisibility_Power_Title	Невидимость
-Condition/&DH_ReverseGravity_Spell_Description	Обратная гравитация
-Condition/&DH_ReverseGravity_Spell_Title	Обратная гравитация
-Condition/&DH_TimeStop_Spell_Description	Застыло на остановке времени
-Condition/&DH_TimeStop_Spell_Title	Застыло на остановке времени
+Spell/&DHAnimalShapesSpellDescription	Выберите любое количество желающих существ, которых вы можете видеть в пределах досягаемости. Вы превращаете каждую цель в форму Большого или меньшего зверя с рейтингом опасности 4 или ниже.
+Spell/&DHAnimalShapesSpellTitle	Фигуры животных
+Spell/&DHTimeStop_SpellDescription	Вы ненадолго останавливаете течение времени для всех, кроме себя. Для других существ время не проходит, в то время как вы совершаете 1d4 + 1 ход подряд, в течение которых вы можете использовать действия и двигаться как обычно.
+Spell/&DHTimeStop_SpellTitle	Остановка времени

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
@@ -170,7 +169,7 @@ namespace SolastaCommunityExpansion.Models
 
             if (repertoire != null)
             {
-                repertoire.GetField<RulesetSpellRepertoire, Dictionary<int, int>>("usedSpellsSlots")
+                repertoire.usedSpellsSlots
                     .TryGetValue(PACT_MAGIC_SLOT_TAB_INDEX, out var warlockUsedSlots);
 
                 return warlockUsedSlots;

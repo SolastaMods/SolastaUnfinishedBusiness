@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
 using SolastaCommunityExpansion;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaModApi.Extensions
 {
@@ -30,7 +28,7 @@ namespace SolastaModApi.Extensions
         public static bool IsEnabled(this GameGadget gadget, bool valueIfParamsNotPresent = false)
         {
             // We need to know if both Enabled and ParamEnabled are missing
-            var names = gadget.GetField<GameGadget, List<string>>("conditionNames");
+            var names = gadget.conditionNames;
 
             if (!names.Any(n => n == Enabled || n == ParamEnabled))
             {
@@ -50,7 +48,7 @@ namespace SolastaModApi.Extensions
 
         public static bool CheckConditionName(this GameGadget gadget, string name, bool value, bool valueIfMissing)
         {
-            return (bool)CheckConditionNameMethod.Invoke(gadget, new object[] {name, value, valueIfMissing});
+            return gadget.CheckConditionName(name, value, valueIfMissing);
         }
     }
 

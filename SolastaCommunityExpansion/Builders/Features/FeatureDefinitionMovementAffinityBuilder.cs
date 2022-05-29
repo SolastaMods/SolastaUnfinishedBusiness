@@ -12,6 +12,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return this;
         }
 
+        public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
+        {
+            Definition.SetBaseSpeedMultiplicativeModifier(value);
+            return this;
+        }
+
         #region Constructors
 
         protected FeatureDefinitionMovementAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

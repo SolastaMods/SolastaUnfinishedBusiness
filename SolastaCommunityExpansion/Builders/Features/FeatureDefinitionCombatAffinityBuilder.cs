@@ -17,6 +17,12 @@ namespace SolastaCommunityExpansion.Builders.Features
             return This();
         }
 
+        public TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
+        {
+            Definition.SetMyAttackAdvantage(advantage);
+            return This();
+        }
+
         #region Constructors
 
         protected FeatureDefinitionCombatAffinityBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

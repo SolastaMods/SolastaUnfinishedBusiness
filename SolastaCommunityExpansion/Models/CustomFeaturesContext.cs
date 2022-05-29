@@ -134,6 +134,12 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        internal static bool IsSpellBonus(IPointPoolMaxBonus mod)
+        {
+            return mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip
+                   || mod.PoolType == HeroDefinitions.PointsPoolType.Spell;
+        }
+
         internal static void RemoveFeatures(RulesetCharacterHero hero,
             CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
         {
@@ -285,6 +291,23 @@ namespace SolastaCommunityExpansion.Models
             }
         }
 
+        public static RulesetUsablePower GetPoolPower(RulesetUsablePower power, RulesetCharacter character)
+        {
+            if (power.PowerDefinition is IPowerSharedPool pool)
+            {
+                var poolPower = pool.GetUsagePoolPower();
+                foreach (var usablePower in character.UsablePowers)
+                {
+                    if (usablePower.PowerDefinition == poolPower)
+                    {
+                        return usablePower;
+                    }
+                }
+            }
+
+            return null;
+        }
+
         internal static int GetMaxUsesForPool(RulesetUsablePower poolPower, RulesetCharacter character)
         {
             var totalPoolSize = poolPower.MaxUses;
@@ -339,6 +362,9 @@ namespace SolastaCommunityExpansion.Models
                     poolPower.SetRemainingUses(remainingUses);
                     AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
 
+                    // refresh character control panel after power pool usage is updated
+                    // needed for custom point pools on portrait to update properly in some cases
+                    GameUiContext.GameHud.RefreshCharactrControlPanel();
                     return;
                 }
             }

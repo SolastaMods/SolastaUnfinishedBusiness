@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using AwesomeTechnologies;
 using AwesomeTechnologies.VegetationSystem;
 using AwesomeTechnologies.VegetationSystem.Biomes;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 
@@ -34,7 +31,7 @@ namespace SolastaCommunityExpansion.Models
         public static void GetTemplateVegetationMaskArea(WorldLocation worldLocation)
         {
             var prefabByReference =
-                worldLocation.GetField<WorldLocation, Dictionary<AssetReference, GameObject>>("prefabByReference");
+                worldLocation.prefabByReference;
 
             foreach (var prefab in prefabByReference.Values)
             {
@@ -105,7 +102,7 @@ namespace SolastaCommunityExpansion.Models
             masterTerrain.transform.position = new Vector3(masterTerrain.transform.position.x, -5.01f,
                 masterTerrain.transform.position.z);
 
-            worldLocation.GetField<WorldLocation, List<TerrainData>>("duplicatedTerrainData")
+            worldLocation.duplicatedTerrainData
                 .Add(masterTerrain.terrainData);
 
             // updates the biome to cover the entire location

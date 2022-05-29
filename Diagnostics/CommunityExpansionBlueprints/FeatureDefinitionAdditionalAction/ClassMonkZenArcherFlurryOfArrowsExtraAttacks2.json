@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Bonus",
+  "forbiddenActions": [],
+  "authorizedActions": [],
+  "restrictedActions": [
+    "AttackOff"
+  ],
+  "maxAttacksNumber": -1,
+  "triggerCondition": "None",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "ddc4240f-8ad8-5c43-b8b7-faeaa75808d1",
+  "contentPack": 9999,
+  "name": "ClassMonkZenArcherFlurryOfArrowsExtraAttacks2"
+}

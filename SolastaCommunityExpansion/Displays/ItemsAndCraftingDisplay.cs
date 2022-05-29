@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Models;
-using static SolastaCommunityExpansion.Displays.Shared;
 
 namespace SolastaCommunityExpansion.Displays
 {
@@ -114,7 +113,7 @@ namespace SolastaCommunityExpansion.Displays
 
             intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
             if (UI.Slider(Gui.Format("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
-                0, 100, 50, "%", UI.Width(500)))
+                    0, 100, 50, "%", UI.Width(500)))
             {
                 Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
                 ItemOptionsContext.SwitchSetBeltOfDwarvenKindBeardChances();

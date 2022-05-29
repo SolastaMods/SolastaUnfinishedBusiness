@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	智力衰减
 BlueprintCategory/&FlatRoomsTitle	平房
 Caption/&GadgetParametersCustomRemoveDescription	移除:\n{0}
 Class/&ClassMonkDescription	经过各种训练后，武僧能奇妙的运用流淌在身体中的能量。无论是引导其加强武斗技艺，还是精妙地将其用于防御和移动，这股能量都使武僧获得了全面的强化
-Class/&ClassMonkTitle	武僧[Beta]
+Class/&ClassMonkTitle	武僧
 Class/&ClassWarlockDescription	邪术师们致力于发掘潜藏在多元宇宙根源中的神秘学识。他们与神话般的大能存在缔结契约，并以此得以使用精妙而惊人的魔法效应
 Class/&ClassWarlockTitle	邪术师
 Class/&TinkererDescription	奇械师是不仅仅是发明家和炼金术士。他们在魔法和技术之间架起桥梁
@@ -41,14 +41,6 @@ Class/&WitchMaledictionApathyDescription	以一个动作，在你60英尺范围�
 Class/&WitchMaledictionApathyTitle	漠视巫咒
 Class/&WitchMaledictionCharmDescription	以一个动作，在你60英尺范围内选择一个你能看到的生物进行一次"感知"豁免。若其豁免失败，直到你的下一个回合结束，该生物被魅惑
 Class/&WitchMaledictionCharmTitle	魅惑巫咒
-Condition/&ClassMonkEmptyBodyConditionDescription	你对力场伤害之外的所有伤害都具有抗性
-Condition/&ClassMonkEmptyBodyConditionTitle	空灵体
-Condition/&ClassMonkOpenHandDistractConditionDescription	无法反应
-Condition/&ClassMonkOpenHandDistractConditionTitle	分心
-Condition/&ClassMonkStepOfTheWindConditionDescription	你在自己回合内，能以一个附赠动作来执行撤离或疾走，同时使你该回合内的跳跃距离翻倍
-Condition/&ClassMonkStepOfTheWindConditionTitle	飞檐走壁
-Condition/&ClassMonkTanquilityConditionDescription	你在对抗法术的豁免上有优势，敌人对你的攻击有劣势，直至你攻击或施放法术
-Condition/&ClassMonkTanquilityConditionTitle	宁神境
 Class/&WitchMaledictionDisorientDescription	以一个动作，在你60英尺范围内选择一个你能看到的生物进行一次"体质"豁免。若其豁免失败，直到你的下一个回合结束，该生物每次进行攻击骰时将从其中减去一个d6
 Class/&WitchMaledictionDisorientTitle	迷失巫咒
 Class/&WitchMaledictionEvilEyeDescription	以一个动作，在你60英尺范围内选择一个你能看到的生物进行一次"感知"豁免。若其豁免失败，直到你的下一个回合结束，该生物被你恐惧
@@ -84,6 +76,20 @@ Condition/&ApathyDescription	处于漠视状态
 Condition/&ApathyTitle	漠视
 Condition/&CharmDescription	处于魅惑状态
 Condition/&CharmTitle	魅惑
+Condition/&ClassMonkEmptyBodyConditionDescription	你对力场伤害之外的所有伤害都具有抗性
+Condition/&ClassMonkEmptyBodyConditionTitle	空灵体
+Condition/&ClassMonkOpenHandDistractConditionDescription	无法反应
+Condition/&ClassMonkOpenHandDistractConditionTitle	分心
+Condition/&ClassMonkStepOfTheWindConditionDescription	你在自己回合内，能以一个附赠动作来执行撤离或疾走，同时使你该回合内的跳跃距离翻倍
+Condition/&ClassMonkStepOfTheWindConditionTitle	飞檐走壁
+Condition/&ClassMonkTanquilityConditionDescription	你在对抗法术的豁免上有优势，敌人对你的攻击有劣势，直至你攻击或施放法术
+Condition/&ClassMonkTanquilityConditionTitle	宁神境
+Condition/&ClassMonkZenArrowDistractConditionDescription	下一次攻击具有劣势
+Condition/&ClassMonkZenArrowDistractConditionTitle	分心
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	所有攻击具有劣势
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	分心
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	速度设为0
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	钉住
 Condition/&ConditionBarkWardDescription	受到森林之灵的保护
 Condition/&ConditionBarkWardTitle	树灵守卫
 Condition/&ConditionDualFlurryApplyDescription	你气势如虹
@@ -554,7 +560,7 @@ Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠�
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
 Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalStrengthTitle	原初狂怒（力量）
-Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击
+Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为 {3}
@@ -567,6 +573,8 @@ Feat/&FeatShadowTouchedWisDescription	感知+1。获得施放隐形术，致伤�
 Feat/&FeatShadowTouchedWisTitle	暗影亲和（感知）
 Feat/&FeatShadyDescription	敏捷+1，最高20点\n每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6。其能与游荡者的偷袭叠加
 Feat/&FeatShadyTitle	背刺
+Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势
+Feat/&FeatShieldExpertTitle	盾牌专家
 Feat/&FeatStrengthIncrementDescription	+1 力量
 Feat/&FeatStrengthIncrementTitle	属性提升
 Feat/&FeatTelekineticChaDescription	魅力+1。获得使用附赠动作来推离或拉近生物的能力
@@ -837,7 +845,7 @@ Feature/&ClassMonkKiDescription	你掌握一股名为气的神秘能量。此后
 Feature/&ClassMonkKiEmpoweredStrikesDescription	攻击对非魔法攻击或伤害具有抗性或免疫的目标时，你的徒手打击视为魔法攻击
 Feature/&ClassMonkKiEmpoweredStrikesTitle	真气驻拳
 Feature/&ClassMonkKiTitle	气
-Feature/&ClassMonkMartialArtsDescription	未着装任何护甲也没持用盾牌时，如果你徒手或只持用武僧武器，则你拥有下列增益：\n - 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n - 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。该骰子将随武僧职业等级的提升而增大\n - 你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
+Feature/&ClassMonkMartialArtsDescription	未装备任何护甲也未持用盾牌时，如果你徒手或只持用武僧武器，则你拥有下列增益：\n - 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n - 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。该骰子将随武僧职业等级的提升而增大\n - 你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
 Feature/&ClassMonkMartialArtsTitle	武艺
 Feature/&ClassMonkMartialDiceProgression00Description	你能骰<color=#57BCF4>D6</color>来代替你徒手打击或武僧武器的伤害
 Feature/&ClassMonkMartialDiceProgression00Title	武艺骰提升 (D6)
@@ -852,7 +860,7 @@ Feature/&ClassMonkPurityOfBodyTitle	百病不侵
 Feature/&ClassMonkSkillProficiencyTitle	武僧技能
 Feature/&ClassMonkTongueOfSunAndMoonDescription	你能与其它生物进行心灵交流，因此你能够听懂所有语言。同时掌握至少一门语言的任何生物都能理解你讲的话语
 Feature/&ClassMonkTongueOfSunAndMoonTitle	天语通
-Feature/&ClassMonkUnarmoredDefenseDescription	未着装任何护甲也没持用盾牌时，你的AC等于10＋敏捷调整值＋感知调整值
+Feature/&ClassMonkUnarmoredDefenseDescription	未装备任何护甲也未持用盾牌时，你的AC等于10＋敏捷调整值＋感知调整值
 Feature/&ClassMonkUnarmoredDefenseTitle	无甲防御
 Feature/&ClassMonkUnarmoredMovementBonusDescription	移动速度增加5尺
 Feature/&ClassMonkUnarmoredMovementBonusTitle	无甲移动
@@ -861,6 +869,12 @@ Feature/&ClassMonkUnarmoredMovementTitle	无甲移动
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	当未穿着任何护甲也没持用盾牌时，你能像蜘蛛一样在墙上移动。你进行任何非移动的动作或在非你的战斗回合内，能力会暂时失效
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	无甲移动：攀爬
 Feature/&ClassMonkWeaponProficiencyTitle	武僧武器擅长
+Feature/&ClassMonkZenArcherCombatDescription	获得弓的熟练项，弓视为你的武僧武器\n未装备任何护甲也未持用盾牌时，当你使用武僧武器进行远程攻击时，你不会因为5英尺范围内有敌人而具有劣势
+Feature/&ClassMonkZenArcherCombatTitle	延臂战法
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
+Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
+Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑箭
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤来替换
@@ -1051,8 +1065,8 @@ Feature/&OpportunistDebilitatingStrikeTitle 衰弱打击
 Feature/&OpportunistQuickStrikeDescription 在攻击先攻权低于你的敌人时，你有优势。此外，你在进行机会攻击时也有优势
 Feature/&OpportunistQuickStrikeTitle 迅捷打击
 Feature/&OtherworldlyLeapTitle	超凡跳跃
-Feature/&PowerAttackTitle	猛力攻击
 Feature/&PowerAttackDescription	选择降低等同于你的熟练加值的攻击骰，以造成更大的伤害（单手武器为熟练加值，双手武器为双倍熟练加值）。仅适用于近战武器
+Feature/&PowerAttackTitle	猛力攻击
 Feature/&PowerPaladinAuraOfCourage18Description	对30英尺范围内的盟友给予豁免加值
 Feature/&PowerPaladinAuraOfCourage18Title	精通勇气灵光
 Feature/&PowerPaladinAuraOfProtection18Description	你和你30英尺内的盟友不会被恐惧
@@ -1193,7 +1207,7 @@ FightingStyle/&BlindFightingDescription	你获得10英尺范围的盲感
 FightingStyle/&BlindFightingTitle	盲斗
 FightingStyle/&CripplingDescription	将你近战范围内的对手的速度降低到10，直到下一回合结束
 FightingStyle/&CripplingTitle	致残
-FightingStyle/&PugilistFightingDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击
+FightingStyle/&PugilistFightingDescription	你的徒手攻击造成额外的1d4点伤害，你能用附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 FightingStyle/&PugilistFightingTitle	搏击
 FightingStyle/&TitanFightingDescription	你对大体型或大体型以上的生物伤害+2
 FightingStyle/&TitanFightingTitle	泰坦战技
@@ -1207,10 +1221,10 @@ FlexibleBackgrounds/&BackgroundSkillSelect2Description	选择2个技能熟练项
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	技能
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	选择3个技能熟练项
 FlexibleBackgrounds/&BackgroundSkillSelect3Title	技能
-FlexibleBackgrounds/&BackgroundToolSelectDescription	选择1个工具熟练项
-FlexibleBackgrounds/&BackgroundToolSelectTitle	工具
 FlexibleBackgrounds/&BackgroundToolSelect2Description	选择2个工具熟练项
 FlexibleBackgrounds/&BackgroundToolSelect2Title	工具
+FlexibleBackgrounds/&BackgroundToolSelectDescription	选择1个工具熟练项
+FlexibleBackgrounds/&BackgroundToolSelectTitle	工具
 FlexibleBackgrounds/&LawkeeperBackgroundSuggestedSkillsDescription	察觉和恐吓
 FlexibleBackgrounds/&LawkeeperBackgroundSuggestedSkillsTitle	推荐技能
 FlexibleBackgrounds/&LowlifeBackgroundSuggestedSkillsDescription	巧手，隐匿和欺瞒
@@ -1229,14 +1243,14 @@ FlexibleRaces/&PointPoolAbilityScore4Description	在你选择的任何4个属性
 FlexibleRaces/&PointPoolAbilityScore4Title	属性值提升
 Format/&LevelAndExperienceFormat	等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
 Format/&LevelAndExperienceMaxedFormat	等级：{0}\n经验值：{1}\n达到最大等级
-Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔手包 +1
-Item/&CraftingManualRecipeEnchantHandwraps+2Title	附魔手包 +2
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	力场之附魔手包
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	牵引之附魔手包
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	附魔手包 +1
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔手包 +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	附魔手包 +2
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	附魔手包 +2
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	力场之附魔手包
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	力场之附魔手包
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	牵引之附魔手包
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	牵引之附魔手包
 Item/&ForceArtilleryProjectileDescription	力场魔炮弹药
 Item/&ForceArtilleryProjectileTitle	力场魔炮弹药
 Item/&Handwraps+1Title	手包 +1
@@ -1308,7 +1322,7 @@ Power/&ClassMonkDiamondSoulPowerDescription	当豁免失败时，你能消耗1�
 Power/&ClassMonkDiamondSoulPowerTitle	金刚魂
 Power/&ClassMonkEmptyBodyDescription	你能消耗4点气并使用动作隐形1分钟。此时，你对力场伤害之外的所有伤害都具有抗性
 Power/&ClassMonkEmptyBodyTitle	空灵体
-Power/&ClassMonkFlurryOfBlowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内执行攻击动作后，可立即消耗1点气并以一个附赠动作发动两次徒手打击。
+Power/&ClassMonkFlurryOfBlowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，可立即消耗1点气并以一个附赠动作发动两次徒手打击。
 Power/&ClassMonkFlurryOfBlowsTitle	疾风连击
 Power/&ClassMonkKiPoolDescription	你能消耗气以行使各种特性
 Power/&ClassMonkKiPoolTitle	气
@@ -1330,12 +1344,32 @@ Power/&ClassMonkSlowFallDescription	当你要承受坠地伤害时，你能使�
 Power/&ClassMonkSlowFallTitle	轻身坠
 Power/&ClassMonkStepOfTheWindDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内，你能消耗1点气以一个附赠动作来执行撤离或疾走，同时使你该回合内的跳跃距离翻倍
 Power/&ClassMonkStepOfTheWindTitle	飞檐走壁
-Power/&ClassMonkStunningStrikeDescription	你能够阻碍敌人体内的气的流动。你的近战武器攻击命中一个未震慑的目标时，能消耗1点气尝试发动震慑拳。被命中目标必须进行一次体质豁免，豁免失败则受到震慑至你的下回合结束
+Power/&ClassMonkStunningStrikeDescription	你能够阻碍敌人体内气的流动。当你的近战武器攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑拳。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
 Power/&ClassMonkStunningStrikeTitle	震慑拳
 Power/&ClassMonkTanquilityDescription	每短休1次，你能以一个自由动作进入宁神境，平心静气并专注于你周遭事物。在这种状态下，你在对抗法术的豁免上有优势，敌人对你的攻击有劣势。宁神境持续到下一次休息，或直到你攻击或施放法术
 Power/&ClassMonkTanquilityTitle	宁神境
 Power/&ClassMonkWholenessOfBodyDescription	你能使用一个动作获得等同于三倍武僧职业等级的生命值。你必须完成一次长休才能再次使用该特性
 Power/&ClassMonkWholenessOfBodyTitle	混元体
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，可立即消耗2点气并以一个附赠动作以弓发动两次远程攻击
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	疾风连狙
+Power/&ClassMonkZenArrowDistractDescription	目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowDistractTitle	分心
+Power/&ClassMonkZenArrowProneDescription	目标必须成功通过一次敏捷豁免，否则被击倒
+Power/&ClassMonkZenArrowProneTitle	击倒
+Power/&ClassMonkZenArrowPushDescription	目标必须通过一次力量豁免，否则被推离你10尺远
+Power/&ClassMonkZenArrowPushTitle	推离
+Power/&ClassMonkZenArrowTechniqueDescription	你能在用箭击中敌人时操作其体内的气。当你用箭击中敌人时，你能让该目标承受下列效应之一：\n - 目标必须成功通过一次敏捷豁免，否则被击倒\n - 目标必须通过一次力量豁免，否则被推离你10尺远\n - 目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowTechniqueShortTitle	延臂
+Power/&ClassMonkZenArrowTechniqueTitle	延臂技巧
+Power/&ClassMonkZenArrowUpgradedDistractDescription	目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowUpgradedDistractTitle	分心
+Power/&ClassMonkZenArrowUpgradedProneDescription	目标必须成功通过一次敏捷豁免，否则被击倒并且其速度在一回合内设为0
+Power/&ClassMonkZenArrowUpgradedProneTitle	击倒
+Power/&ClassMonkZenArrowUpgradedPushDescription	目标必须通过一次力量豁免，否则被推离你20尺远
+Power/&ClassMonkZenArrowUpgradedPushTitle	推离
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	你掌控气的能力提升了，所有延臂技巧都得到了提高。当你用箭击中敌人时，你能让该目标承受下列效应之一：\n - 目标必须成功通过一次敏捷豁免，否则被击倒并且其速度在一回合内设为0\n - 目标必须通过一次力量豁免，否则被推离你20尺远\n - 目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	延臂
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	精通延臂技巧
 Power/&DH_ElementalFormPoolDescription	通过引导元素能量，你每天能在元素形态之间切换等同于熟练度加值次数。你获得对相关伤害的抗力，并且你能将熟练度加值作为同类型的伤害应用于每回合的第一次法术伤害。这些形态持续1分钟
 Power/&DH_ElementalFormPoolEnhancedDescription	通过引导元素能量，你每天能在强化元素形态之间切换等同于熟练度加值次数。你获得对相关伤害的免疫，并且你能将熟练度加值作为同类型的伤害应用于每回合的第一次法术伤害。这些形态持续1分钟
 Power/&DH_ElementalFormPoolEnhancedTitle	强化元素形态
@@ -1408,6 +1442,14 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0}用疾风连�
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	应用选定技巧
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	应用
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	散打技巧
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0}以箭击中一个生物，能施加以下效果之一于该目标：
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	应用选定技巧
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	应用
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	延臂技巧
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0}以箭击中一个生物，能施加以下效果之一于该目标：
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	应用选定技巧
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	应用
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	延臂技巧
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0}用徒手打击命中目标，能消耗3点气尝试击杀对方
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	消耗气尝试击杀对方
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	消耗气
@@ -1717,8 +1759,10 @@ Subclass/&CancelCancelElixirSwiftnessDescription	停止炼金师灵药带来的�
 Subclass/&CancelCancelElixirSwiftnessTitle	停止迅捷灵药
 Subclass/&ClassMonkTraditionDescription	在第3级时，你能选择你所遵循的精神方式来实现开悟。它将决定你如何操纵气
 Subclass/&ClassMonkTraditionTitle	修行宗派
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\n无论是用运用拳头还是兵刃，散打宗的武僧都是终极的战技大师。他们精通击退和绊倒敌人，运用气治疗己身，并通过深入冥想来杜绝灾厄
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	无论是用运用拳头还是兵刃，散打宗的武僧都是终极的战技大师。他们精通击退和绊倒敌人，运用气治疗己身，并通过深入冥想来杜绝灾厄
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	散打宗
+Subclass/&ClassMonkTraditionZenArcherDescription	延臂宗的修行者通过训练使箭成为他们手臂的延伸。他们能熟练使用弓箭，并通过弓箭发挥气的功效
+Subclass/&ClassMonkTraditionZenArcherTitle	延臂宗
 Subclass/&ClassWarlockPatronDescription	邪术师即是与异界存在缔结契约之人。邪术师与宗主之间的关系有时就好比牧师与神祇，只是宗主并非真正的神祇
 Subclass/&ClassWarlockPatronTitle	异界宗主
 Subclass/&ConditionResistantArmorTitle	抗性护甲
@@ -1735,7 +1779,7 @@ Subclass/&DHWarlockSubclassElementalPatronDescription	你已与元素荒原中�
 Subclass/&DHWarlockSubclassElementalPatronTitle	元素使者契约
 Subclass/&DHWarlockSubclassRiftWalkerDescription	你的宗主是少有的将两个世界的虚空称为家的生命之一。他们轻松地在各个位面之间穿行，而你从与他们互动中获得的知识使你能够在索拉斯塔内利用挥之不去的裂隙能量而获益。你有时可能会对你宗主的遥远领域充满渴望，渴望在余下的日子里在各个维度之间徘徊或者观察另一个裂隙事件的迹象，无论是阻止其发生抑或助纣为虐
 Subclass/&DHWarlockSubclassRiftWalkerTitle	裂隙行者契约
-Subclass/&DruidForestGuardianDruidSubclassDescription	森林守卫的德鲁伊结社发誓要保护森林和所有居住其中之人。这个德鲁伊结社的成员擅长使用防护系法术和武技战斗，是战场上可怕的对手
+Subclass/&DruidForestGuardianDruidSubclassDescription	森林守卫结社的德鲁伊发誓要保护森林和所有居住其中之人。这个德鲁伊结社的成员擅长使用防护系法术和武技战斗，是战场上可怕的对手
 Subclass/&DruidForestGuardianDruidSubclassTitle	森林守卫结社
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	触摸一个背包，注入一个多维空间，以帮助它容纳更多的重量而不影响你。注意你只能激活一次注法。第二次激活将取消第一次注法的效果
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	置物袋
@@ -1906,12 +1950,13 @@ Subclass/&WitchSubclassPathDescription	你的魔法知识在加入巫会时达�
 Subclass/&WitchSubclassPathTitle	巫师巫会
 ToolTip/&CheckBoxDefaultPartyTitle	勾选此框，设置你在开始新的冒险或测试自定义地点时的默认阵容。你以勾选顺序最多能选择{0}个英雄
 Tooltip/&CustomPortraitPoolClassMonkKiPool	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气以行使各种特性
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未学习{0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	具有偷袭
 Tooltip/&FeatPrerequisiteIsNotBarbarian	非野蛮人
 Tooltip/&FeatPrerequisiteIsNotFighter	非战士
 Tooltip/&FeatPrerequisiteIsNotRogue	非游荡者
 Tooltip/&FeatPrerequisiteLevelFormat	最低角色等级{0}
-Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未学习{0}
+Tooltip/&PowerAttackConcentration	禁用猛力攻击\n持续至你下一回合开始
 Tooltip/&Tag9000Title	自定义效果
 Tooltip/&TagCommunityExpansionTitle	社区拓展
 Tooltip/&TagMaledictionTitle	巫咒
@@ -1928,6 +1973,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	如果该选项开启，只有首选的戏法能触发。如果未选择首选戏法，那么第一个有效的戏法将被触发，此时将无视该选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
-Tooltip/&PowerAttackConcentration	禁用猛力攻击\n持续至你下一回合开始
-Feat/&FeatShieldExpertTitle	盾牌专家
-Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势

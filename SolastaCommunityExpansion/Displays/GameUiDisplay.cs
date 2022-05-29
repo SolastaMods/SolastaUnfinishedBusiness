@@ -45,7 +45,7 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             floatValue = Main.Settings.FasterTimeModifier;
-            if (UI.Slider(Gui.Format("ModUi/&CampaignsAndLocations"), ref floatValue, 1.5f, 10f, 1.5f,
+            if (UI.Slider(Gui.Format("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
                     1, "X", UI.AutoWidth()))
             {
                 Main.Settings.FasterTimeModifier = floatValue;
@@ -120,7 +120,8 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableInventoryFilteringAndSorting)
             {
                 toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
-                if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle,
+                        UI.AutoWidth()))
                 {
                     Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
                 }

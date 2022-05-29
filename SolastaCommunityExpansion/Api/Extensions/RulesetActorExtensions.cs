@@ -60,61 +60,61 @@ namespace SolastaModApi.Extensions
         public static List<ISavingThrowAffinityProvider> GetAccountedProviders<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<ISavingThrowAffinityProvider>>("accountedProviders");
+            return entity.accountedProviders;
         }
 
         public static List<RulesetCondition> GetAllConditionsForEnumeration<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("allConditionsForEnumeration");
+            return entity.allConditionsForEnumeration;
         }
 
         public static List<RulesetCondition> GetConditionsToExecute<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("conditionsToExecute");
+            return entity.conditionsToExecute;
         }
 
         public static List<RulesetCondition> GetConditionsToTerminate<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("conditionsToTerminate");
+            return entity.conditionsToTerminate;
         }
 
         public static List<EffectForm> GetDummyEffectForms<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<EffectForm>>("dummyEffectForms");
+            return entity.dummyEffectForms;
         }
 
         public static List<RulesetCondition> GetMatchingCancellingConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("matchingCancellingConditions");
+            return entity.matchingCancellingConditions;
         }
 
         public static List<RulesetCondition> GetMatchingInterruptionConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("matchingInterruptionConditions");
+            return entity.matchingInterruptionConditions;
         }
 
         public static List<RulesetCondition> GetMatchingOccurenceConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("matchingOccurenceConditions");
+            return entity.matchingOccurenceConditions;
         }
 
         public static List<RulesetCondition> GetMatchingRealTimeLaspeConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("matchingRealTimeLaspeConditions");
+            return entity.matchingRealTimeLaspeConditions;
         }
 
         public static List<RulesetCondition> GetMatchingRestConditions<T>(this T entity)
             where T : RulesetActor
         {
-            return entity.GetField<List<RulesetCondition>>("matchingRestConditions");
+            return entity.matchingRestConditions;
         }
 
         public static T SetAbilityScoreIncreased<T>(this T entity, RulesetActor.AbilityScoreIncreasedHandler value)

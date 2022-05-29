@@ -30,7 +30,8 @@ namespace SolastaCommunityExpansion.Displays
             }
 
             toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
-            if (UI.Toggle(Gui.Format("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
                 SrdAndHouseRulesContext.ApplyConditionBlindedShouldNotAllowOpportunityAttack();
@@ -39,14 +40,16 @@ namespace SolastaCommunityExpansion.Displays
             UI.Label("");
 
             toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
-            if (UI.Toggle(Gui.Format("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
                 SrdAndHouseRulesContext.AllowTargetingSelectionWhenCastingChainLightningSpell();
             }
 
             toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
-            if (UI.Toggle(Gui.Format("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
             }
@@ -62,7 +65,8 @@ namespace SolastaCommunityExpansion.Displays
             if (Main.Settings.EnableUpcastConjureElementalAndFey)
             {
                 toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
-                if (UI.Toggle(Gui.Format("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle,
+                        UI.AutoWidth()))
                 {
                     Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
                 }

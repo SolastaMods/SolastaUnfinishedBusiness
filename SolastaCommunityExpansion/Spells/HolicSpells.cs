@@ -233,7 +233,7 @@ namespace SolastaCommunityExpansion.Spells
 
             effectDescription.EffectForms.AddRange(
                 Grease.EffectDescription.EffectForms.Find(e =>
-                    e.GetField<EffectForm, EffectFormType>("formType") == EffectFormType.Topology));
+                    e.formType == EffectFormType.Topology));
 
             var spell = SpellDefinitionBuilder
                 .Create(name, HOLIC_SPELLS_BASE_GUID)

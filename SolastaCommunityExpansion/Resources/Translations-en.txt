@@ -9,7 +9,7 @@ AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
 Class/&ClassMonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
-Class/&ClassMonkTitle	Monk [beta]
+Class/&ClassMonkTitle	Monk
 Class/&ClassWarlockDescription	Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
 Class/&ClassWarlockTitle	Warlock
 Class/&TinkererDescription	Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
@@ -84,6 +84,12 @@ Condition/&ClassMonkStepOfTheWindConditionDescription	You can take the Disengage
 Condition/&ClassMonkStepOfTheWindConditionTitle	Step Of The Wind
 Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attackning you. Removed when you attack or cast spell. .
 Condition/&ClassMonkTanquilityConditionTitle	Tranquility
+Condition/&ClassMonkZenArrowDistractConditionDescription	Has disadvantage on next attack.
+Condition/&ClassMonkZenArrowDistractConditionTitle	Distracted
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Has disadvantage on all attacks.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distracted
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Movement is set to zero.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Pinned
 Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest.
 Condition/&ConditionBarkWardTitle	Bark Ward
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
@@ -554,7 +560,7 @@ Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a ma
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
 Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
-Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.
+Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.\nIf you have free hand you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
@@ -567,6 +573,8 @@ Feat/&FeatShadowTouchedWisDescription	Increase Wisdom attribute by 1. Gain the a
 Feat/&FeatShadowTouchedWisTitle	Shadow Touched (Wisdom)
 Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6. This can stack with Rogue's Sneak Attack.
 Feat/&FeatShadyTitle	Shady
+Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while weilding a shield..
+Feat/&FeatShieldExpertTitle	Shield Expert
 Feat/&FeatStrengthIncrementDescription	+1 Strength.
 Feat/&FeatStrengthIncrementTitle	Attribute Increase
 Feat/&FeatTelekineticChaDescription	Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
@@ -769,7 +777,7 @@ Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual Pact Weapon
-Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:.
+Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with all weapons and your weapon attacks are considered magical.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
@@ -833,7 +841,7 @@ Feature/&ClassMonkDiamondSoulDescription	Your mastery of ki grants you proficien
 Feature/&ClassMonkDiamondSoulTitle	Diamond Soul
 Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ClassMonkExtraAttackTitle	Extra Attack
-Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:.
+Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiTitle	Ki
@@ -861,6 +869,12 @@ Feature/&ClassMonkUnarmoredMovementTitle	Unarmored Movement
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
 Feature/&ClassMonkWeaponProficiencyTitle	Monk Weapon Proficiencies
+Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantge when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
+Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsTitle	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a arrow attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor.
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace.
@@ -1051,8 +1065,8 @@ Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
 Feature/&OpportunistQuickStrikeDescription	You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity.
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&PowerAttackTitle	Power attack
 Feature/&PowerAttackDescription	Take a -Proficiency Bonus to hit penalty to your attack for the rest of the turn to do +Proficiency Bonus damage when you land your strikes. Two-Handed and Versatile weapons get bonus damage doubled. Works only with melee weapons.
+Feature/&PowerAttackTitle	Power attack
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
@@ -1193,7 +1207,7 @@ FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 f
 FightingStyle/&BlindFightingTitle	Blind Fighting
 FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn.
 FightingStyle/&CripplingTitle	Crippling
-FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.
+FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.\nIf you have free hand you can shove as a bonus action.
 FightingStyle/&PugilistFightingTitle	Pugilist
 FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size large or bigger.
 FightingStyle/&TitanFightingTitle	Titan Fighting
@@ -1229,14 +1243,14 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scor
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
-Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
-Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchant Handwraps +2
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchant Handwraps +1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchant Handwraps +2.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Enchant Handwraps +2
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchant Forceful Handwraps.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchant Handwraps Of Pulling.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1
@@ -1259,7 +1273,7 @@ MainMenu/&ExportPdfDescription	Level down this Hero.
 MainMenu/&ExportPdfTitle	Level Down
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
 Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
-Message/&CharacterExportModalContentDescription	Enter the hero name to export:.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
 Message/&CharacterExportModalTitleDescription	Character Export.
 Message/&LevelDownConfirmationDescription	Level down this Hero?
 Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session.
@@ -1336,6 +1350,26 @@ Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you c
 Power/&ClassMonkTanquilityTitle	Tranquility
 Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
 Power/&ClassMonkWholenessOfBodyTitle	Wholeness of Body
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	After spending action to attack with monk weapon you can spend 2 ki points as a bonus action to do 2 ranged attacks with a bow. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Flurry of Arrows
+Power/&ClassMonkZenArrowDistractDescription	Target must succeed Wisdom saving throw or have disadvatnage on next attack until end of its next turn.
+Power/&ClassMonkZenArrowDistractTitle	Distract
+Power/&ClassMonkZenArrowProneDescription	Target must succeed Dexterity saving throw or be knocked prone.
+Power/&ClassMonkZenArrowProneTitle	Knock Down
+Power/&ClassMonkZenArrowPushDescription	Target must succeed Strength saving throw or be pushed 10 feet away from you.
+Power/&ClassMonkZenArrowPushTitle	Push Away
+Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must succeed Strength saving throw or be pushed 10 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on next attack until end of its next turn. 
+Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
+Power/&ClassMonkZenArrowTechniqueTitle	Distant Hand Technique
+Power/&ClassMonkZenArrowUpgradedDistractDescription	Target must succeed Wisdom saving throw or have disadvatnage on all attacks until end of its next turn.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Distract
+Power/&ClassMonkZenArrowUpgradedProneDescription	Target must succeed Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Knock Down
+Power/&ClassMonkZenArrowUpgradedPushDescription	Target must succeed Strength saving throw or be pushed 20 feet away from you.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Push Away
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki - all effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n - It must succeed Strength saving throw or be pushed 20 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on all attacks until end of its next turn. 
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Improved Distant Hand Technique
 Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
 Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
 Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
@@ -1404,10 +1438,18 @@ Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
 Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Open Hand Technique
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Distant Hand Technique
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} hit a creature with an arrow, and can impose one of the following effects on that target:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Apply selected technique.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Apply
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Distant Hand Technique
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki
@@ -1717,8 +1759,10 @@ Subclass/&CancelCancelElixirSwiftnessDescription	End the Swiftness condition fro
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancel Swiftness
 Subclass/&ClassMonkTraditionDescription	At 3rd level you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.  .
 Subclass/&ClassMonkTraditionTitle	Monastic Traditions
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	[update after features implemented]\nMonks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Monks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
+Subclass/&ClassMonkTraditionZenArcherDescription	Practitioners of the Way of the Distant Hand train to make arows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
+Subclass/&ClassMonkTraditionZenArcherTitle	Way of the Distant Hand
 Subclass/&ClassWarlockPatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
 Subclass/&ClassWarlockPatronTitle	Otherwordly Patron
 Subclass/&ConditionResistantArmorTitle	Resistant Armor
@@ -1906,12 +1950,13 @@ Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in
 Subclass/&WitchSubclassPathTitle	Witch Covens
 ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
 Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
 Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
 Tooltip/&FeatPrerequisiteIsNotRogue	Isn't a Rogue
 Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
-Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
+Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
@@ -1928,6 +1973,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
-Feat/&FeatShieldExpertTitle	Shield Expert
-Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while weilding a shield..

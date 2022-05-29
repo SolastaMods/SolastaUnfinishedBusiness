@@ -2,8 +2,6 @@
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features
@@ -360,8 +358,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             if (Help) { monster.Features.Add(Help); }
 
             // monster.MonsterPresentation.SetOverrideCharacterShaderColors(true);
-            // monster.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("firstCharacterShaderColor"));
-            // monster.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.GetField<Color>("secondCharacterShaderColor"));
+            // monster.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.firstCharacterShaderColor);
+            // monster.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation.secondCharacterShaderColor);
             //
             // // monster.CreatureTags.Clear();
             // monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
@@ -371,8 +369,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             // //
             // monster.MonsterPresentation.SetMaleModelScale(0.4f);
             // monster.MonsterPresentation.SetFemaleModelScale(0.4f);
-            // monster.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
-            // monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.GetField<AssetReference>("malePrefabReference"));
+            // monster.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
+            // monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
 
             return monster;
         }
@@ -473,11 +471,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetMaleModelScale(0.4f);
             monster.MonsterPresentation.SetFemaleModelScale(0.4f);
             monster.MonsterPresentation.SetMalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "malePrefabReference"));
+                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
             monster.MonsterPresentation.SetFemalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "femalePrefabReference"));
+                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.femalePrefabReference);
 
             monster.MonsterPresentation.SetHasPrefabVariants(false);
 
@@ -586,11 +582,9 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Features
             monster.MonsterPresentation.SetMaleModelScale(0.55f);
             monster.MonsterPresentation.SetFemaleModelScale(0.55f);
             monster.MonsterPresentation.SetMalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "malePrefabReference"));
+                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
             monster.MonsterPresentation.SetFemalePrefabReference(
-                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.GetField<AssetReference>(
-                    "malePrefabReference"));
+                DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
 
             if (Help) { monster.Features.Add(Help); }
 

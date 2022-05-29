@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
@@ -32,14 +31,20 @@ namespace SolastaCommunityExpansion.Models
                     SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp
                 });
 
-            //
-            // allows heroes created with other level limits to be rebased during level up
-            //
-            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue =
-                HeroDefinitions.MaxHeroExperience();
-            rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue = Math.Max(
-                Main.Settings.MaxAllowedLevels,
-                rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel).MaxValue);
+            // fixes max level and exp in case level 20 gets enabled after a campaign starts
+            var characterLevelAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel);
+
+            characterLevelAttribute.MaxValue = Main.Settings.EnableLevel20
+                ? Level20Context.MOD_MAX_LEVEL
+                : Level20Context.GAME_MAX_LEVEL;
+            characterLevelAttribute.Refresh();
+
+            var experienceAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.Experience);
+            experienceAttribute.MaxValue = Main.Settings.EnableLevel20
+                ? Level20Context.MOD_MAX_EXPERIENCE
+                : Level20Context.GAME_MAX_EXPERIENCE;
+
+            experienceAttribute.Refresh();
         }
 
 

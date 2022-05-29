@@ -38,7 +38,7 @@ namespace SolastaCommunityExpansion.Displays
         // search selection
         private static ToggleState _searchExpanded;
 
-        private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+        private static readonly GUIStyle _buttonStyle = new(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
 
         private static IEnumerable<BaseDefinition> GetBlueprints()
         {
@@ -78,7 +78,7 @@ namespace SolastaCommunityExpansion.Displays
 
         public static void RefreshTypeNames()
         {
-            _bpTypes = new Type[] { null }
+            _bpTypes = new Type[] {null}
                 .Concat(GetBlueprints().Select(bp => bp.GetType()).Distinct().OrderBy(type => type.Name)).ToArray();
 
             if (!string.IsNullOrEmpty(_selectionSearchText))

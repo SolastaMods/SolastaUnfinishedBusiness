@@ -4,7 +4,6 @@ using System.Linq;
 using ModKit;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;
@@ -67,7 +66,7 @@ namespace SolastaCommunityExpansion.Models
                     environmentEffectDefinition.GuiPresentation.SetDescription(description);
                 }
 
-                environmentEffectDefinition.SetField("inDungeonEditor", true);
+                environmentEffectDefinition.inDungeonEditor = true;
             }
         }
 

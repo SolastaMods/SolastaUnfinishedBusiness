@@ -1,7 +1,5 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
 using static EquipmentDefinitions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttackModifiers;
@@ -47,7 +45,7 @@ namespace SolastaCommunityExpansion.Models
                 .Create(name, DefinitionBuilder.CENamespaceGuid)
                 .Configure()
                 .SetImpactParticleReference(effect.EffectParticleParameters
-                    .GetField<AssetReference>("impactParticleReference"))
+                    .impactParticleReference)
                 .AddToDB();
         }
     }

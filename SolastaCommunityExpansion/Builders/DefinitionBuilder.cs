@@ -372,12 +372,12 @@ namespace SolastaCommunityExpansion.Builders
 
             if (copyright.HasValue)
             {
-                Definition.SetField("contentCopyright", copyright.Value);
+                Definition.contentCopyright = copyright.Value;
             }
 
             if (contentPack.HasValue)
             {
-                Definition.SetField("contentPack", contentPack.Value);
+                Definition.contentPack = contentPack.Value;
             }
 
             Validate();

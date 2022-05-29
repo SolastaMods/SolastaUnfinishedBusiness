@@ -38,13 +38,13 @@ namespace SolastaModApi.Extensions
         public static List<FeatureDefinition> GetAttackModifiers<T>(this T entity)
             where T : RulesetItem
         {
-            return entity.GetField<List<FeatureDefinition>>("attackModifiers");
+            return entity.attackModifiers;
         }
 
         public static List<RulesetItemProperty> GetToRemove<T>(this T entity)
             where T : RulesetItem
         {
-            return entity.GetField<List<RulesetItemProperty>>("toRemove");
+            return entity.toRemove;
         }
 
         public static T SetAttunedToCharacter<T>(this T entity, String value)

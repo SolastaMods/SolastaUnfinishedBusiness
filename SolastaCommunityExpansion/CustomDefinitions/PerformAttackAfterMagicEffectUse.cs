@@ -112,8 +112,8 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         {
             failure = String.Empty;
             //TODO: implement setting to tell how many targets must meet weapon attack requirements
-            var maxTargets = targeting.GetField<int>("maxTargets");
-            var remainingTargets = targeting.GetField<int>("remainingTargets");
+            var maxTargets = targeting.maxTargets;
+            var remainingTargets = targeting.remainingTargets;
             var selectedTargets = maxTargets - remainingTargets;
             if (selectedTargets > 0)
             {

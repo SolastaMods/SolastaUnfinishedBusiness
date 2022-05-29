@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using TA;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -125,7 +123,8 @@ namespace SolastaCommunityExpansion.Models
                 var tags = oldHero.Tags;
                 var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
                 var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+                var gameLocationCharacterService =
+                    ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
                 var worldLocationEntityFactoryService =
                     ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
                 var gameLocationCharacter =
@@ -149,7 +148,7 @@ namespace SolastaCommunityExpansion.Models
                     worldLocationCharacter.GraphicsCharacter.RulesetCharacter = newHero;
                 }
 
-                gameLocationCharacterService.SetField("dirtyParty", true);
+                gameLocationCharacterService.dirtyParty = true;
                 gameLocationCharacterService.RefreshAllCharacters();
 
                 IsRespecing = false;
@@ -178,9 +177,9 @@ namespace SolastaCommunityExpansion.Models
             internal static void UpdateRestPanelUi(List<GameCampaignCharacter> gameCampaignCharacters)
             {
                 var restModalScreen = Gui.GuiService.GetScreen<RestModal>();
-                var restAfterPanel = restModalScreen.GetField<RestModal, RestAfterPanel>("restAfterPanel");
+                var restAfterPanel = restModalScreen.restAfterPanel;
                 var characterPlatesTable =
-                    restAfterPanel.GetField<RestAfterPanel, RectTransform>("characterPlatesTable");
+                    restAfterPanel.characterPlatesTable;
 
                 for (var index = 0; index < characterPlatesTable.childCount; ++index)
                 {
