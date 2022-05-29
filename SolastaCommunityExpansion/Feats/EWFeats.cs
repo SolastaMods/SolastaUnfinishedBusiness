@@ -19,7 +19,7 @@ public static class EWFeats
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
                 .Create("FeatSentinelFeature", GUID)
                 .SetGuiPresentationNoContent(true)
-                .SetOnAttackHitDelegates(null, (attacker, defender, modifier, roll, delta, ranged) =>
+                .SetOnAttackHitDelegates(null, (attacker, defender, outcome, actionParams, mode, modifier) =>
                 {
                     var character = defender.RulesetCharacter;
                     character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
