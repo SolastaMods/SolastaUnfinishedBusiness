@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -14,6 +15,7 @@ public interface ICanIgnoreAoOImmunity
 
 public static class AttacksOfOpportunity
 {
+    public const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     public static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
     public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
 
@@ -47,17 +49,35 @@ public static class AttacksOfOpportunity
                 && attacker.IsOppositeSide(unit.Side)
                 && defender.Side == unit.Side
                 && (unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-                && (defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-                && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier, battleManager)
-               )
+                && !(defender.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
+                && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier,
+                    battleManager))
             {
-                var reactionParams = new CharacterActionParams(unit, ActionDefinitions.Id.AttackOpportunity,
-                    opportunityAttackMode, attacker, actionModifier);
-                actionService.ReactForOpportunityAttack(reactionParams);
+                //TODO: check that 2+ Sentinels correctly trigger reaction atatck at same time 
+                RequestReactionAttack(new CharacterActionParams(
+                    unit,
+                    ActionDefinitions.Id.AttackOpportunity,
+                    opportunityAttackMode,
+                    attacker,
+                    actionModifier)
+                {
+                    StringParameter = "Sentinel"
+                });
             }
         }
 
         yield return battleManager.InvokeMethod("WaitForReactions", attacker, actionService, count);
+    }
+
+    public static void RequestReactionAttack(CharacterActionParams actionParams)
+    {
+        var actionMnager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        if (actionMnager != null)
+        {
+            //TODO: figure out why calling private methods crashes game
+            actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
+            actionMnager.InvokeMethod("AddInterruptRequest", new ReactionRequestReactionAttack(actionParams));
+        }
     }
 
     private static bool CanMakeAoO(GameLocationCharacter attacker, GameLocationCharacter defender,

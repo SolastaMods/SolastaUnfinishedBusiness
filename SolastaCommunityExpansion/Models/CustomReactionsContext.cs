@@ -16,8 +16,10 @@ namespace SolastaCommunityExpansion.Models
 
         public static bool ForcePreferredCantrip = false;
         public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
-        
-        public static ReactionDefinition ReactWarcasterDefinition, ReactPowerBundleDefinition;
+
+        public static ReactionDefinition ReactWarcasterDefinition,
+            ReactPowerBundleDefinition,
+            ReactReactionAttackDefinition;
 
         public static void Load()
         {
@@ -26,9 +28,15 @@ namespace SolastaCommunityExpansion.Models
                     DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Reaction)
                 .AddToDB();
-            
+
             ReactPowerBundleDefinition = ReactionDefinitionBuilder
                 .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, ReactionRequestSpendBundlePower.Name,
+                    DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Reaction)
+                .AddToDB();
+
+            ReactReactionAttackDefinition = ReactionDefinitionBuilder
+                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, ReactionRequestReactionAttack.Name,
                     DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Reaction)
                 .AddToDB();
