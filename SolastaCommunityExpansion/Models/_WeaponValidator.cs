@@ -54,8 +54,9 @@ namespace SolastaCommunityExpansion.Models
 
             return weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
         }
-        
-        public static bool IsReactionAttackMode(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
+
+        public static bool IsReactionAttackMode(RulesetAttackMode attackMode, RulesetItem weapon,
+            RulesetCharacter character)
         {
             return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
         }

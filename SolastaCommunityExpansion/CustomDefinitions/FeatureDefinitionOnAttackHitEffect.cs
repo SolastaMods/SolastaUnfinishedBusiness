@@ -20,7 +20,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            beforeOnAttackHit?.Invoke(attacker, defender,outcome,actionParams, attackMode, attackModifier);
+            beforeOnAttackHit?.Invoke(attacker, defender, outcome, actionParams, attackMode, attackModifier);
         }
 
         public void AfterOnAttackHit(
@@ -31,7 +31,7 @@ namespace SolastaCommunityExpansion.CustomDefinitions
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            afterOnAttackHit?.Invoke(attacker, defender,outcome,actionParams, attackMode, attackModifier);
+            afterOnAttackHit?.Invoke(attacker, defender, outcome, actionParams, attackMode, attackModifier);
         }
 
         internal void SetOnAttackHitDelegates(OnAttackHitDelegate before = null, OnAttackHitDelegate after = null)

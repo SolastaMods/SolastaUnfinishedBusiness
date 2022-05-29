@@ -266,8 +266,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                 {
                     var effectForm = new EffectForm
                     {
-                        FormType = EffectForm.EffectFormType.Condition,
-                        ConditionForm = new ConditionForm()
+                        FormType = EffectForm.EffectFormType.Condition, ConditionForm = new ConditionForm()
                     };
 
                     effectForm.ConditionForm.ConditionDefinition = conditionOperation.ConditionDefinition;

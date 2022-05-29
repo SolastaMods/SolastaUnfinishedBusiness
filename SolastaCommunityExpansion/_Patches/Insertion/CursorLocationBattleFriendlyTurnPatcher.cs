@@ -3,21 +3,22 @@ using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
 
-namespace SolastaCommunityExpansion.Patches.Insertion;
-
-internal static class CursorLocationBattleFriendlyTurnPatcher
+namespace SolastaCommunityExpansion.Patches.Insertion
 {
-    [HarmonyPatch(typeof(CursorLocationBattleFriendlyTurn), "IsValidAttack")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class IsValidAttack
+    internal static class CursorLocationBattleFriendlyTurnPatcher
     {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        [HarmonyPatch(typeof(CursorLocationBattleFriendlyTurn), "IsValidAttack")]
+        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+        internal static class IsValidAttack
         {
-            var code = new List<CodeInstruction>(instructions);
+            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                var code = new List<CodeInstruction>(instructions);
 
-            ReachMeleeTargeting.ApplyCursorLocationIsValidAttackTranspile(code);
+                ReachMeleeTargeting.ApplyCursorLocationIsValidAttackTranspile(code);
 
-            return code;
+                return code;
+            }
         }
     }
 }

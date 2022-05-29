@@ -1,7 +1,7 @@
 ﻿namespace SolastaCommunityExpansion.CustomInterfaces
 {
     /**
-     * Provides ways to react to attack (not spell) hits/misses 
+     * Provides ways to react to attack (not spell) hits/misses
      */
     public interface IOnAttackHitEffect
     {
