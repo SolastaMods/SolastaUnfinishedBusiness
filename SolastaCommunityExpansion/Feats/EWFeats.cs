@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Feats;
 public static class EWFeats
 {
     private static readonly Guid GUID = new("B4ED480F-2D06-4EB1-8732-9A721D80DD1A");
+    public const string SentinelFeat = "FeatSentinel";
 
     public static void CreateFeats(List<FeatDefinition> feats)
     {
@@ -27,7 +28,7 @@ public static class EWFeats
             .AddToDB();
 
         feats.Add(FeatDefinitionBuilder
-            .Create("FeatSentinel", GUID)
+            .Create(SentinelFeat, GUID)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
                 .Create("FeatSentinelFeature", GUID)

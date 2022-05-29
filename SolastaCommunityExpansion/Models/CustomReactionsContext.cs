@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Feats;
 using SolastaModApi;
 using static ActionDefinitions;
 using static ActionDefinitions.ActionStatus;
@@ -17,26 +18,17 @@ namespace SolastaCommunityExpansion.Models
         public static bool ForcePreferredCantrip = false;
         public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
 
-        public static ReactionDefinition ReactWarcasterDefinition,
-            ReactPowerBundleDefinition,
-            ReactReactionAttackDefinition;
-
         public static void Load()
         {
-            ReactWarcasterDefinition = ReactionDefinitionBuilder
-                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, ReactionRequestWarcaster.Name,
-                    DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Reaction)
-                .AddToDB();
+            MakeReactDefinition(ReactionRequestWarcaster.Name);
+            MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
+            MakeReactDefinition(ReactionRequestReactionAttack.Name(EWFeats.SentinelFeat));
+        }
 
-            ReactPowerBundleDefinition = ReactionDefinitionBuilder
-                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, ReactionRequestSpendBundlePower.Name,
-                    DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Reaction)
-                .AddToDB();
-
-            ReactReactionAttackDefinition = ReactionDefinitionBuilder
-                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, ReactionRequestReactionAttack.Name,
+        private static void MakeReactDefinition(string name)
+        {
+            ReactionDefinitionBuilder
+                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, name,
                     DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Reaction)
                 .AddToDB();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Feats;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
@@ -40,7 +41,7 @@ public static class AttacksOfOpportunity
         var count = actionService.PendingReactionRequestGroups.Count;
 
         //Process fetures on attacker or defender
-        
+
         var units = battle.AllContenders
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
             .ToArray();
@@ -67,27 +68,23 @@ public static class AttacksOfOpportunity
             && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier,
                 battleManager))
         {
-            //TODO: check that 2+ Sentinels correctly trigger reaction atatck at same time 
-            RequestReactionAttack(new CharacterActionParams(
+            RequestReactionAttack(EWFeats.SentinelFeat, new CharacterActionParams(
                 unit,
                 ActionDefinitions.Id.AttackOpportunity,
                 opportunityAttackMode,
                 attacker,
                 actionModifier)
-            {
-                StringParameter = "Sentinel"
-            });
+            );
         }
     }
 
-    public static void RequestReactionAttack(CharacterActionParams actionParams)
+    public static void RequestReactionAttack(string type, CharacterActionParams actionParams)
     {
         var actionMnager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
         if (actionMnager != null)
         {
-            //TODO: figure out why calling private methods crashes game
             actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
-            actionMnager.InvokeMethod("AddInterruptRequest", new ReactionRequestReactionAttack(actionParams));
+            actionMnager.InvokeMethod("AddInterruptRequest", new ReactionRequestReactionAttack(type, actionParams));
         }
     }
 

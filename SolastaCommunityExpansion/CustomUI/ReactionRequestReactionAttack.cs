@@ -2,45 +2,51 @@
 
 public class ReactionRequestReactionAttack : ReactionRequest
 {
-    public const string Name = "ReactionAttack";
     private readonly GuiCharacter target;
-    public ReactionRequestReactionAttack(CharacterActionParams reactionParams)
-        : base(Name, reactionParams)
+    private readonly string type;
+
+    public ReactionRequestReactionAttack(string type, CharacterActionParams reactionParams)
+        : base(Name(type), reactionParams)
     {
+        this.type = type;
         target = new GuiCharacter(reactionParams.TargetCharacters[0]);
     }
-    
+
+    public static string Name(string type)
+    {
+        return $"ReactionAttack{type}";
+    }
+
     public override bool IsStillValid
     {
         get
         {
             var targetCharacter = ReactionParams.TargetCharacters[0];
-            return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters.Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
+            return ServiceRepository.GetService<IGameLocationCharacterService>().ValidCharacters
+                .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
         }
     }
 
     public override string FormatTitle()
     {
-        return Gui.Localize($"Reaction/&ReactionAttack{ReactionParams.StringParameter}Title");
+        return Gui.Localize($"Reaction/&ReactionAttack{type}Title");
     }
 
     public override string FormatDescription()
     {
-        var format = $"Reaction/&ReactionAttack{ReactionParams.StringParameter}Description";
+        var format = $"Reaction/&ReactionAttack{type}Description";
         return Gui.Format(format, target.Name);
     }
 
     public override string FormatReactTitle()
     {
-        var format = $"Reaction/&ReactionAttack{ReactionParams.StringParameter}ReactTitle";
+        var format = $"Reaction/&ReactionAttack{type}ReactTitle";
         return Gui.Format(format, target.Name);
     }
 
     public override string FormatReactDescription()
     {
-        var format = $"Reaction/&ReactionAttack{ReactionParams.StringParameter}ReactDescription";
+        var format = $"Reaction/&ReactionAttack{type}ReactDescription";
         return Gui.Format(format, target.Name);
     }
-    
-    
 }
