@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Feats;
@@ -13,6 +14,18 @@ public static class EWFeats
 
     public static void CreateFeats(List<FeatDefinition> feats)
     {
+        var restrained = ConditionDefinitions.ConditionRestrained;
+
+        var stopMovementCondition = ConditionDefinitionBuilder
+            .Create("SentinelStopMovementCondition", GUID)
+            .SetGuiPresentation(Category.Condition, Gui.NoLocalization, restrained.GuiPresentation.SpriteReference)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionRestrained,
+                FeatureDefinitionActionAffinitys.ActionAffinityConditionRestrained
+            )
+            .AddToDB();
+
         feats.Add(FeatDefinitionBuilder
             .Create("FeatSentinel", GUID)
             .SetGuiPresentation(Category.Feat)
@@ -21,26 +34,36 @@ public static class EWFeats
                 .SetGuiPresentationNoContent(true)
                 .SetOnAttackHitDelegates(null, (attacker, defender, outcome, actionParams, mode, modifier) =>
                 {
+                    if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+                    {
+                        return;
+                    }
+
+                    if (mode is not {ActionType: ActionDefinitions.ActionType.Reaction})
+                    {
+                        return;
+                    }
+
+                    if (mode.AttackTags.Contains(AttacksOfOpportunity.NotAoOTag))
+                    {
+                        return;
+                    }
+
                     var character = defender.RulesetCharacter;
+
                     character.AddConditionOfCategory(AttributeDefinitions.TagCombat,
                         RulesetCondition.CreateActiveCondition(character.Guid,
-                            ConditionDefinitions.ConditionRestrained, RuleDefinitions.DurationType.Round,
+                            stopMovementCondition,
+                            DurationType.Round,
                             1,
-                            RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                            character.Guid,
-                            character.CurrentFaction.Name
+                            TurnOccurenceType.StartOfTurn,
+                            attacker.Guid,
+                            string.Empty
                         ));
                 })
                 .SetCustomSubFeatures(
                     AttacksOfOpportunity.CanIgnoreDisengage,
-                    AttacksOfOpportunity.SentinelFeatMarker//,
-                    // new AddEffectToWeaponAttack(new EffectFormBuilder()
-                    //     .SetConditionForm(ConditionDefinitions.ConditionRestrained, ConditionForm.ConditionOperation.Add)
-                    //     .Build(), WeaponValidators.IsReactionAttack)
-                    // new AddEffectToWeaponAttack(new EffectFormBuilder()
-                    //     .SetDamageForm(dieType: RuleDefinitions.DieType.D4, diceNumber: 10,
-                    //         damageType: RuleDefinitions.DamageTypeRadiant, bonusDamage:5)
-                    //     .Build(), WeaponValidators.IsReactionAttack)
+                    AttacksOfOpportunity.SentinelFeatMarker
                 )
                 .AddToDB())
             .AddToDB());
