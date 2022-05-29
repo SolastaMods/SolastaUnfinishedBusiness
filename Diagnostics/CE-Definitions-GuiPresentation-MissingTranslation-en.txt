@@ -1,12 +1,4 @@
-ClassMonkZenArcherStunningArrows	Title='Feature/&ClassMonkZenArcherStunningArrowsTitle'.
-ClassMonkZenArcherStunningArrows	Description='Feature/&ClassMonkZenArcherStunningArrowsDescription'.
 DH_Custom_AirTitan_Slam_Attack	Description='MonsterAttack/&DH_AirTitan_Slam_Attack_Description'.
-DH_Custom_Balor_Retaliate_DamageAffinity	Title='MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title'.
-DH_Custom_Balor_Retaliate_DamageAffinity	Description='MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description'.
-DH_Custom_Balor_Retaliate_Power	Title='MonsterPower/&DH_Balor_Retaliate_Power_Title'.
-DH_Custom_Balor_Retaliate_Power	Description='MonsterPower/&DH_Balor_Retaliate_Power_Description'.
-DH_Custom_SleetStorm_Immunity	Title='MonsterPower/&DH_SleetStorm_Immunity_Title'.
-DH_Custom_SleetStorm_Immunity	Description='MonsterPower/&DH_SleetStorm_Immunity_Description'.
 FeatureSetGreenWitchMagic	Title='Subclass/&GreenWitchMagic'.
 FeatureSetRedWitchMagic	Title='Subclass/&RedWitchMagic'.
 FeatureSetWhiteWitchMagic	Title='Subclass/&WhiteWitchMagic'.
