@@ -2,12 +2,16 @@ Condition/&DH_ReverseGravity_Spell_Description	Обратная гравитац
 Condition/&DH_ReverseGravity_Spell_Title	Обратная гравитация
 Condition/&DH_TimeStop_Spell_Description	Застыло на остановке времени
 Condition/&DH_TimeStop_Spell_Title	Застыло на остановке времени
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Грозовой шторм
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Грозовой шторм
 Feature/&DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
 Feature/&DH_AtWill_Fireball_Power_Title	Огненный шар
 Feature/&DH_AtWill_HoldMonster_Power_Description	3 использования в день
 Feature/&DH_AtWill_HoldMonster_Power_Title	Держи монстра
 Feature/&DH_AtWill_Invisibility_Power_Description	Неограниченная невидимость
 Feature/&DH_AtWill_Invisibility_Power_Title	Невидимость
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Молниеносная атака
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Молниеносная атака
 Monster/&DH_Custom_AirTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Изначальный воздушный титан</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	Самые злобные и мерзкие из цветных драконов, черные драконы собирают обломки и сокровища павших народов. Эти драконы ненавидят процветание слабых и наслаждаются крахом гуманоидных королевств. Они строят свои дома в зловонных болотах и ​​полуразрушенных руинах, где когда-то стояли королевства.
@@ -46,7 +50,7 @@ Monster/&DH_Custom_IceDevil_Description	Стремясь к силе своих 
 Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>Ледяной дьявол</color>
 Monster/&DH_Custom_Lich_Description	Личи — это останки великих волшебников, которые используют нежить как средство сохранения себя. Они укрепляют свою власть любой ценой, не интересуясь делами живых, за исключением тех случаев, когда эти дела мешают их собственным. Коварные и безумные, они жаждут давно забытых знаний и самых страшных тайн.
 Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>Лич</color>
-Monster/&DH_Custom_Nalfeshnee_Description	Налфешни — один из самых гротескных демонов — дородная пародия на обезьяну и кабана, вдвое выше человеческого роста, с пернатыми крыльями, которые кажутся слишком маленькими для его раздувшегося тела. За этими звериными чертами скрывается недюжинный ум и хитрость.
+Monster/&DH_Custom_Nalfeshnee_Description	Налфешни — один из самых гротескных демонов — дородная пародия на обезьяну и кабана, вдвое выше человеческого роста, с пернатыми крыльями, которые кажутся слишком маленькими для его раздутого тела. За этими звериными чертами скрывается недюжинный ум и хитрость.
 Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>Налфешнее</color>
 Monster/&DH_Custom_PitFiend_Description	Бесспорные повелители большинства других демонов, демоны преисподней сопровождают эрцгерцогов и эрцгерцогинь Девяти кругов ада и выполняют их желания. Эти могучие демоны — генералы Девяти кругов ада, ведущие в бой свои адские легионы.
 Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>Дьявол ямы</color>
@@ -70,7 +74,7 @@ Monster/&WitchOwlFamiliarDescription	Сова фамильяр
 Monster/&WitchOwlFamiliarTitle	Сова
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6 гром и отталкивает 2 клетки
 MonsterAttack/&DH_AirBlast_Attack_Title	Поток воздуха
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Дробление и 4d6 Гром
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 Дробление и 4d6 Гром
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Громовой удар
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Дробление
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Атака хвостом
@@ -80,7 +84,7 @@ MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Разрубание и 3D
 MonsterAttack/&DH_Balor_Whip_Attack_Title	Хлыстовая атака
 MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 Силовой урон и цель сбита с ног
 MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Силовая пушка
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 дробящий урон и цель отталкивается на 20 футов
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 дробящий урон и цель отталкивается на 20 фт.
 MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Слэм
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Не может действовать и получает урон кислотой 16d6 каждый ход. 60 единиц урона за одну атаку могут заставить глотателя срыгнуть.
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	проглотил
@@ -166,10 +170,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Драконы могут 
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Внезапная атака
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Огонь
 MonsterPower/&DH_Balor_FireAura_Power_Title	Огненная аура
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Балор Ответный удар
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Балор Ответный удар
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Балор Ответный удар
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Балор Ответный удар
 MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Телосложение: спасение или ослепление, пока не будет использовано меньшее восстановление
 MonsterPower/&DH_BlindingGaze_Power_Title	Ослепляющий взгляд
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Кислота
@@ -202,8 +206,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Некротически
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Нарушить жизнь
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Огонь и 4D6 Сияние
 MonsterPower/&DH_SearingBurst_Power_Title	Жгучий взрыв
-MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
-MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_Description	Иммунитет к мокрому снегу
+MonsterPower/&DH_SleetStorm_Immunity_Title	Иммунитет к мокрому снегу
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Призывает 1 элементаля воздуха
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Призвать великого элементаля
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Призывает 1 элементаля земли
@@ -214,6 +218,8 @@ MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Призыва�
 MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Призвать великого элементаля
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Призывает 2 огненных шутов
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Призыв меньших элементалей
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Призвать меньшее создание
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Призвать меньшее создание
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Налфешни призван сражаться
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Призывает миньона: Налфешни
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Призывает 1 скарнского гуля
@@ -222,7 +228,7 @@ MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	Призывает 4
 MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	Призыв меньших элементалей
 MonsterPower/&DH_SummonCreature_Wolves_Power_Description	Вампир волшебным образом призывает 3d6 волков
 MonsterPower/&DH_SummonCreature_Wolves_Power_Title	Дети Ночи
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Каждый раз, когда тарраск становится целью заклинания волшебная стрела, линейного заклинания или заклинания, требующего броска дальнобойной атаки, тарраск не подвергается воздействию
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	Каждый раз, когда тарраск становится целью заклинания волшебная стрела, линейного заклинания или заклинания, требующего броска дальней атаки, тарраск не подвергается воздействию.
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	Светоотражающий панцирь
 MonsterPower/&DH_TarrasqueSwallowPower_Description	Тарраск совершает одну атаку укусом против существа Большого или меньшего размера, которое он схватил. Если атака попадает, цель проглатывается, и схватка прекращается.
 MonsterPower/&DH_TarrasqueSwallowPower_Title	Глотать

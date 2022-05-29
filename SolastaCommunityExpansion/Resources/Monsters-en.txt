@@ -2,12 +2,16 @@ Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
 Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
 Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop
 Condition/&DH_TimeStop_Spell_Title	Frozen by Time Stop
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Lightning Storm
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Lightning Storm
 Feature/&DH_AtWill_Fireball_Power_Description	At-will Fireball
 Feature/&DH_AtWill_Fireball_Power_Title	Fireball
 Feature/&DH_AtWill_HoldMonster_Power_Description	3 Uses per Day
 Feature/&DH_AtWill_HoldMonster_Power_Title	Hold Monster
 Feature/&DH_AtWill_Invisibility_Power_Description	At-will Invisibility
 Feature/&DH_AtWill_Invisibility_Power_Title	Invisibility
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Lightning Attack
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Lightning Attack
 Monster/&DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Primordial Air Titan</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of humanoid kingdoms. They make their homes in fetid swamps and crumbling ruins where kingdoms once stood.
@@ -70,7 +74,7 @@ Monster/&WitchOwlFamiliarDescription	Owl familiar
 Monster/&WitchOwlFamiliarTitle	Owl
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6 thunder and pushes 2 cells
 MonsterAttack/&DH_AirBlast_Attack_Title	Air Blast
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Bludgeoning & 4d6 Thunder
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 Bludgeoning & 4d6 Thunder
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Thunderous Slam
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Bludgeoning
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Tail Attack
@@ -203,7 +207,7 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Title	Disrupt Life
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fire & 4D6 Radiant
 MonsterPower/&DH_SearingBurst_Power_Title	Searing Burst
 MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
-MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_Title	Sleet Storm Immunity
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Summons 1 Air Elemental
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Summon Greater Elemental
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Summons 1 Earth Elemental
@@ -214,6 +218,8 @@ MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Summons 1 Fire 
 MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Summon Greater Elemental
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Summons 2 Fire Jesters
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Summon Lesser Elementals
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Summon Lesser Construct
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Summon Lesser Construct
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	A Nalfeshnee is called forth to fight
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Summons Minion: Nalfeshnee
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Summons 1 Skarn Ghoul

@@ -142,6 +142,7 @@ Condition/&RuinDescription	Estado de ruína.
 Condition/&RuinedDescription	A defesa desta criatura é reduzida.
 Condition/&RuinedTitle	Arruinado
 Condition/&RuinTitle	Ruína
+Condition/&SentinelStopMovementConditionTitle	Parou
 Condition/&SwallowedByToadConditionDescription	Recebe 3D6 de dano de ácido por rodada. Termina se o feiticeiro sapo for atingido com 15 ou mais de dano em um único ataque.
 Condition/&SwallowedByToadConditionTitle	Engolido Por Sapo
 Condition/&SwallowingToadConditionDescription	Termina se o feiticeiro sapo for atingido com 15 ou mais de dano em um único ataque.
@@ -565,6 +566,8 @@ Feat/&FeatPugilistFightingStlyeTitle	Estilo de luta: Pugilista
 Feat/&FeatSavageAttackerDescription	Rerrole os dados de dano de arma e feitiço quando rolam 1 (não rola novamente todas as fontes de dano, por exemplo, exclui Ataque Furtivo e Golpear).
 Feat/&FeatSavageAttackerReroll	Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
 Feat/&FeatSavageAttackerTitle	Atacante Selvagem
+Feat/&FeatSentinelDescription	Você dominou técnicas para aproveitar cada queda na guarda de qualquer inimigo, ganhando os seguintes benefícios:\n - Quando você atinge uma criatura com um ataque de oportunidade, o deslocamento da criatura se torna 0 pelo resto do turno.\n - Criaturas provocam ataques de oportunidade de você mesmo que realizem a ação Desengajar antes de sair do seu alcance.\n - Quando uma criatura faz um ataque contra um alvo que não seja você (e esse alvo não tem este talento), você pode usar sua reação para fazer um ataque corpo a corpo com arma contra a criatura atacante.
+Feat/&FeatSentinelTitle	Sentinela
 Feat/&FeatShadowTouchedChaDescription	Aumente o atributo Carisma em 1. Ganhe a habilidade de lançar Invisibilidade, Infligir Ferimentos e Vida Falsa uma vez por descanso longo e aprenda os feitiços.
 Feat/&FeatShadowTouchedChaTitle	Tocado pela Sombra (Carisma)
 Feat/&FeatShadowTouchedIntDescription	Aumente o atributo Inteligência em 1. Ganhe a habilidade de lançar Invisibilidade, Infligir Ferimentos e Vida Falsa uma vez por descanso longo e aprenda os feitiços.
@@ -800,7 +803,7 @@ Feature/&ArcaneDetonationUpgradeDescription	A partir do 11º nível, o dano da s
 Feature/&ArcaneDetonationUpgradeTitle	Detonação Arcana Maior
 Feature/&ArcanePulseDescription	A partir do 7º nível, você pode causar uma erupção de energia arcana a uma distância de 9 metros. Criaturas hostis a até 4,5 metros do ponto de impacto recebem 4d8 de dano e ganham uma Marca do Arcanista. Você pode usar esta habilidade um número de vezes igual ao seu modificador de sabedoria por descanso longo. No 15º nível, o dano do seu Pulso Arcano aumenta para 8d8.
 Feature/&ArcanePulseTitle	Pulso Arcano
-Feature/&ArcanistAutoPreparedSpellsDescription	Você ganha magias bônus que são consideradas magias de ranger para você, elas são sempre preparadas e não contam para o número de magias de ranger que você conhece:\n{0}\n\n
+Feature/&ArcanistAutoPreparedSpellsDescription	Você ganha magias bônus que são consideradas magias de ranger para você, elas são sempre preparadas e não contam para o número de magias de ranger que você conhece:\n{0}
 Feature/&ArcanistAutoPreparedSpellsTitle	Feitiços Bônus de Arcanista Patrulheiro
 Feature/&ArcanistMarkDescription	A partir do 3º nível, você imbui suas armas com poder arcano. Criaturas que são atingidas por seus ataques são afligidas pela Marca do Arcanista.
 Feature/&ArcanistMarkTitle	Marca do Arcanista
@@ -873,8 +876,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Ganhe proficiência com arcos e ele
 Feature/&ClassMonkZenArcherCombatTitle	Combate à distância
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressioantes
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Flechas Impressionantes
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura leve.
 Feature/&ClassWarlockArmorProficiencyTitle	Proficiência em Armadura de Bruxo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecione Invocação Eldritch para substituir.
@@ -952,7 +955,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	A partir do 6º nível, você
 Feature/&DruidForestGuardianExtraAttackTitle	Ataque Extra
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Seu Bark Ward agora cresce espinhos, que danificam os atacantes corpo a corpo. Inimigos que acertarem você com sucesso com um ataque corpo a corpo sofrem 2d8 de dano perfurante.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Sentido de Latido Aprimorado
-Feature/&DruidForestGuardianMagicDescription	A partir do 2º nível ao escolher este círculo, você ganha acesso a uma lista de feitiços expandida que está sempre preparada:\n{0}\n\n
+Feature/&DruidForestGuardianMagicDescription	A partir do 2º nível ao escolher este círculo, você ganha acesso a uma lista de feitiços expandida que está sempre preparada:\n{0}
 Feature/&DruidForestGuardianMagicTitle	Feitiços de Círculo
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Sua habilidade Bark Ward agora reflete 3d8 de dano perfurante em atacantes corpo a corpo. Além disso, Bark Ward agora concede imunidade a veneno enquanto estiver ativo.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Ala do Latido Superior
@@ -1313,7 +1316,7 @@ MonsterAttack/&AttackWarlockImpStingDescription	Picada Venenosa de um Imp.
 MonsterAttack/&AttackWarlockImpStingTitle	Picada Venenosa
 MonsterAttack/&AttackWarlockQuasitStingTitle	Picada Venenosa
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Dano perfurante e o alvo deve ser bem sucedido em um teste de resistência de Constituição CD 13 ou ficará envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
-MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Mordida
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morder
 Power/&AncientForestLifeSapDescription	Quando você danifica o inimigo com feitiço, você cura HP igual à metade do seu nível uma vez por turno. Se você estiver com menos da metade do HP, o primeiro alvo danificado neste turno curará o HP do nível e os próximos alvos curarão metade do nível do HP, mas apenas até a metade do HP máximo.
 Power/&AncientForestLifeSapTitle	Seiva da Vida
 Power/&AncientForestRootedPowerDescription	Gavinhas arbóreas crescem de seus pés e cavam no chão. Seu deslocamento se torna 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo. Você pode conjurar enredar à vontade.
@@ -1411,7 +1414,7 @@ Power/&UrPriestSpellSiphonDescription	você aprende a explorar uma fonte maior d
 Power/&UrPriestSpellSiphonTitle	Sifão de Feitiços
 Race/&BolgrifRaceDescription	Bolgrifs são meio-gigantes que vivem nas terras altas congeladas de Solasta. Eles são astutos, cautelosos, reclusos, desconfiam da maioria dos humanóides, exceto elfos, e preferem viver longe da civilização em clãs unidos. Se pressionados para a batalha, os bolgrifs demonstram habilidades formidáveis ​​com armas e magia da natureza.
 Race/&BolgrifRaceTitle	Bolgrif
-Race/&GnomeRaceDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens aqui, uma pequena explosão ali, um ganido de surpresa ou triunfo, e especialmente gargalhadas. Os gnomos se deleitam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo.
+Race/&GnomeRaceDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens rangendo aqui, uma pequena explosão ali, um grito de surpresa ou triunfo e, especialmente, gargalhadas. Os gnomos se deleitam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo.
 Race/&GnomeRaceTitle	Gnomo
 Race/&PointPoolSelect10FeatsDescription	Selecione 10 talentos adicionais para o seu personagem.
 Race/&PointPoolSelect10FeatsTitle	10 Talentos Bônus
@@ -1438,6 +1441,10 @@ Reaction/&CastSpellInRetributionReactDescription	Clique para transmitir {0}.
 Reaction/&CastSpellInRetributionReactTitle	Feitiço lançado
 Reaction/&CastSpellInRetributionTitle	Feitiço de Reação de Conjuração
 Reaction/&CustomDeflectMissileClassMonkTitle	{0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1D10 + modificador de DES + nível de monge
+Reaction/&ReactionAttackFeatSentinelDescription	{0} atacou um de seus aliados, em resposta você pode usar sua reação para atacar.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Use a reação para atacar.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Ataque
+Reaction/&ReactionAttackFeatSentinelTitle	Reação Sentinela
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} atinge uma criatura com um dos ataques concedidos por Rajada de Golpes e pode impor um dos seguintes efeitos nesse alvo:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Aplicar a técnica selecionada.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Aplicar
@@ -1514,7 +1521,7 @@ Rules/&ExtraDamageOnAttackConditionDescription	Dano extra de Lighting Spear.
 Rules/&ExtraDamageOnAttackConditionTitle	Chocado estático
 Rules/&HalfCoverShieldAttributeDescription	Aliados ganham +2AC dentro de 10 pés.
 Rules/&HalfCoverShieldAttributeTitle	Cúpula Meia Cobertura
-Rules/&HalfCoverShieldConditionDescription	+ 2AC.
+Rules/&HalfCoverShieldConditionDescription	+2AC.
 Rules/&HalfCoverShieldConditionTitle	Protegido por Domo
 Rules/&LightningSpearPowerDescription	Dano de Raio 1D6 + 1D6.
 Rules/&LightningSpearPowerTitle	Lança Relâmpago
@@ -1559,7 +1566,7 @@ Spell/&AirBlastDescription	Dispare uma rajada de ar focado em seu alvo.
 Spell/&AirBlastTitle	Jato de ar
 Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, danificando todos os inimigos ao seu redor.
 Spell/&BurstOfRadianceTitle	Explosão de Radiância
-Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.\n
+Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
 Spell/&CJDivineWordTitle	Palavra Divina
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
 Spell/&DHAnimalShapesSpellTitle	Formas de animais
@@ -1732,7 +1739,7 @@ Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distraído por 
 Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Iluminado
 Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Desvantagem em qualquer jogada de ataque que não seja contra o bárbaro da Trilha da Luz.
 Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Não pode ficar invisível.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	No turno em que você entrar em sua fúria, você pode escolher iluminar até três inimigos a até 9 metros de você. Eles devem ser bem sucedidos em um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrerão 4d6 de dano radiante e serão iluminados por seu Golpe Iluminador por 1 minuto. Uma criatura iluminada desta forma faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um teste bem sucedido, o efeito termina para ele.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	No turno em que você entrar em sua fúria, você pode escolher iluminar até três inimigos a até 9 metros de você. Eles devem ter sucesso em um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + seu modificador de Constituição) ou sofrerão 4d6 de dano radiante e serão iluminados por seu Golpe Iluminador por 1 minuto. Uma criatura iluminada desta forma faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um teste bem sucedido, o efeito termina para ele.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Até três inimigos recebem 4d6 de dano radiante e ficam iluminados pelo seu Golpe Iluminador. (O teste de resistência de Constituição nega.).
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Explosão Iluminadora
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Explosão Iluminadora
@@ -1844,7 +1851,7 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Escrever feitiços leva 1/
 Subclass/&MagicAffinitySpellMasterScribingTitle	Escriba Mestre
 Subclass/&ManipulatorMentalSavingThrowsDescription	Ganhe proficiência em testes de resistência com Constituição e Carisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Resistência Mental
-Subclass/&OpportunistDescription	Oportunistas são aqueles que nunca perdem a chance de terminar suas lâminas inimigas. Eles apunhalam rápido e apunhalam onde importa. Muitos não os enfrentaram podem escapar ilesos.
+Subclass/&OpportunistDescription	Oportunistas são aqueles que nunca perdem a chance de terminar as lâminas de seus inimigos. Eles apunhalam rápido e apunhalam onde importa. Muitos não os enfrentaram podem escapar ilesos.
 Subclass/&OpportunistTitle	Oportunista
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como Mágicos e você adiciona +7 às suas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Arma de Infusão Aprimorada
@@ -1964,7 +1971,7 @@ Tooltip/&TagMonkWeaponTitle	Monge
 Tooltip/&TagOtherModContentTitle	Do modo
 Tooltip/&TagScoutSentinelWeaponTitle	Sentinela Escoteira
 UI/&CustomFeatureSelectionStageDescription	Selecione recursos extras de sua classe/subclasse.
-UI/&CustomFeatureSelectionStageFeatures	Recursos
+UI/&CustomFeatureSelectionStageFeatures	Características
 UI/&CustomFeatureSelectionStageNotDone	Você deve selecionar todos os recursos disponíveis antes de continuar
 UI/&CustomFeatureSelectionStageTitle	Seleção de recursos
 UI/&CustomFeatureSelectionTooltipTypeCantrip	Truque

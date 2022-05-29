@@ -60,7 +60,7 @@ Monster/&WitchOwlFamiliarDescription	猫头鹰魔宠
 Monster/&WitchOwlFamiliarTitle	猫头鹰
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6音波伤害并击退目标2格
 MonsterAttack/&DH_AirBlast_Attack_Title	空气震爆
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6钝击伤害 & 4d6音波伤害
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6钝击伤害 & 4d6音波伤害
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	雷鸣挥击
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8钝击伤害
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	尾击

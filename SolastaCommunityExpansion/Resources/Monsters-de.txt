@@ -2,12 +2,16 @@ Condition/&DH_ReverseGravity_Spell_Description	Umgekehrte Schwerkraft
 Condition/&DH_ReverseGravity_Spell_Title	Umgekehrte Schwerkraft
 Condition/&DH_TimeStop_Spell_Description	Eingefroren durch Zeitstopp
 Condition/&DH_TimeStop_Spell_Title	Eingefroren durch Zeitstopp
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Gewitter
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Gewitter
 Feature/&DH_AtWill_Fireball_Power_Description	Beliebiger Feuerball
 Feature/&DH_AtWill_Fireball_Power_Title	Feuerball
 Feature/&DH_AtWill_HoldMonster_Power_Description	3 Anwendungen pro Tag
 Feature/&DH_AtWill_HoldMonster_Power_Title	Monster halten
 Feature/&DH_AtWill_Invisibility_Power_Description	Beliebige Unsichtbarkeit
 Feature/&DH_AtWill_Invisibility_Power_Title	Unsichtbarkeit
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Blitzangriff
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Blitzangriff
 Monster/&DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Urzeitlicher Lufttitan</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen es, die Schwachen gedeihen zu sehen und schwelgen im Untergang humanoider Königreiche. Sie leben in stinkenden Sümpfen und zerfallenden Ruinen, wo einst Königreiche standen.
@@ -28,7 +32,7 @@ Monster/&DH_Custom_ConstructTitan_Description	Massive Konstrukte, die für den K
 Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>Titan des mechanischen Konstrukts</color>
 Monster/&DH_Custom_Deva_Description	Devas sind Engel, die als göttliche Boten oder Agenten für die Materielle Ebene agieren,
 Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>Deva</color>
-Monster/&DH_Custom_Djinni_Description	Stolze Dschinns aus der Elementarebene der Luft, Meister der Lüfte, die Dschinn reiten auf mächtigen Wirbelstürmen, die sie aus einer Laune heraus erschaffen und dirigieren und die sogar Passagiere befördern können.
+Monster/&DH_Custom_Djinni_Description	Stolze Dschinns aus der Elementarebene der Luft, Meister der Luft, die Dschinn reiten auf mächtigen Wirbelstürmen, die sie aus einer Laune heraus erschaffen und lenken und die sogar Passagiere befördern können.
 Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>Dschinn</color>
 Monster/&DH_Custom_EarthTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
 Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>Titan der Urerde</color>
@@ -70,7 +74,7 @@ Monster/&WitchOwlFamiliarDescription	Eule vertraut
 Monster/&WitchOwlFamiliarTitle	Eule
 MonsterAttack/&DH_AirBlast_Attack_Description	5W6 Donner und schiebt 2 Zellen
 MonsterAttack/&DH_AirBlast_Attack_Title	Luftstoß
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4W6+6 Knüppeln & 4W6 Donner
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4W6+6 Knüppeln & 4W6 Donner
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Donnernder Slam
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2W8+8 Knüppeln
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Schwanzangriff
@@ -166,10 +170,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Drachen können mit ihren 
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Flügelangriff
 MonsterPower/&DH_Balor_FireAura_Power_Description	3W6 Feuer
 MonsterPower/&DH_Balor_FireAura_Power_Title	Feuer-Aura
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor-Vergeltung
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor-Vergeltung
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor-Vergeltung
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor-Vergeltung
 MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Konstitution Speichern oder geblendet werden, bis geringere Wiederherstellung verwendet wird
 MonsterPower/&DH_BlindingGaze_Power_Title	Blendender Blick
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Säure
@@ -202,8 +206,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Nekrotisch
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Das Leben stören
 MonsterPower/&DH_SearingBurst_Power_Description	4W6 Feuer & 4W6 Strahlend
 MonsterPower/&DH_SearingBurst_Power_Title	Sengender Ausbruch
-MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
-MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_Description	Immunität gegen Eisregen
+MonsterPower/&DH_SleetStorm_Immunity_Title	Immunität gegen Eisregen
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Beschwört 1 Luftelementar
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Beschwöre einen großen Elementar
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Beschwört 1 Erdelementar
@@ -214,6 +218,8 @@ MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Beschwört 1 Fe
 MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Beschwöre einen großen Elementar
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Beschwört 2 Feuernarren
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Beschwöre niedere Elementare
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Beschwöre ein kleineres Konstrukt
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Beschwöre ein kleineres Konstrukt
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Ein Nalfeshnee wird zum Kampf gerufen
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Beschwört Diener: Nalfeshnee
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Beschwört 1 Skarn-Ghul

@@ -9,7 +9,7 @@ ModUi/&Adventure	<color=yellow>Aventure:</color>
 ModUi/&AllItemInDm	Tous les articles en DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre
 ModUi/&AllowDruidToWearMetalArmor	Autoriser le <color=orange>druide</color> à porter une armure en métal
-ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons avec un niveau maximum de 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons de niveau 20 maximum <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Autoriser les gadgets et les accessoires à être placés n'importe où sur la carte <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> pendant le placement pour ignorer toute vérification]</color></i>
 ModUi/&AllowStackedMaterialComponent	Autoriser le composant de matériau empilé <i><color=yellow>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Autoriser la sélection de cible lors du lancement du sort <color=orange>Chaîne d'éclairs</color>
@@ -53,7 +53,7 @@ ModUi/&EnableCtrlClickBypassAttackReactionPanel	Activez <color=cyan>CTRL</color>
 ModUi/&EnableCtrlClickBypassMetamagicPanel	Activez le <color=cyan>CTRL</color> clic sur les sorts pour ignorer le panneau métamagique <color=orange>Sorcier</color>
 ModUi/&EnableCtrlClickOnlySwapsMainHand	Activez le clic <color=cyan>CTRL</color> pour ne pas toucher aux objets lorsque vous changez de configuration.
 ModUi/&EnableDungeonMakerModdedContent	Activer Dungeon Maker Pro <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n\ncomprennent des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et un mélange sans fioritures d'actifs de tous les environnements\nvous devez avoir au moins une pièce extérieure si vous choisissez un environnement extérieur
-ModUi/&EnableEpicPointsAndArray	Activez un système d'achat épique de 35 points et un tableau <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[ Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableEpicPointsAndArray	Activez un système d'achat épique de 35 points et un tableau <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters	Activer des monstres supplémentaires de haut niveau (+20 CR) pour les campagnes de niveau 3 et 4 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
 ModUi/&EnableFlexibleBackgrounds	Activer les arrière-plans flexibles <i><color=yellow>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
@@ -80,7 +80,7 @@ ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange
 ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Rencontres
 ModUi/&ExpandAll	Développer tout
-ModUi/&FactionHelp	<color=#C04040E0>Charger un jeu de campagne officiel pour modifier les relations entre les factions...</color>
+ModUi/&FactionHelp	<color=#C04040E0>Chargez un jeu de campagne officiel pour modifier les relations entre les factions...</color>
 ModUi/&FactionRelations	<color=yellow>Relations entre factions:</color>
 ModUi/&FasterTimeModifier	<color=white>Modificateur de temps de jeu en appuyant sur la barre d'espace</color>
 ModUi/&Feats	<color=yellow>Exploits</color>
@@ -104,7 +104,7 @@ ModUi/&InvertAltBehaviorOnTooltips	Inverser le comportement de la touche <color=
 ModUi/&ItemInDm	Articles en DM
 ModUi/&ItemsCraftingMerchants	Objets, artisanat et marchands
 ModUi/&KeyboardMouse	Clavier souris
-ModUi/&MakeAllMagicStaveArcaneFoci	Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color=rouge>[Nécessite un redémarrage]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci	Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses	<color=white>Classes maximales autorisées</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLevel20	Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
@@ -144,7 +144,7 @@ ModUi/&ScaleMerchantPricesCorrectly	Mettre à l'échelle les prix marchands corr
 ModUi/&SelectAll	Tout sélectionner
 ModUi/&SelectSuggested	Sélectionnez Suggéré
 ModUi/&Services	Prestations de service
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Définir les chances qu'une barbe apparaisse en utilisant la</color> <color=orange>Ceinture de Nain</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Définir les chances qu'une barbe apparaisse en utilisant la</color> <color=orange>Ceinture des Nains</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips	Afficher la recette d'artisanat dans des infobulles détaillées
 ModUi/&ShowDescriptions	Afficher les descriptions
 ModUi/&SpellInstructions	. Vous pouvez attribuer individuellement chaque sort à n'importe quelle liste de sorts ou simplement sélectionner l'ensemble suggéré
