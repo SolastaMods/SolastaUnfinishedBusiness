@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
     {
         internal static void Postfix(CharacterStatsPanel __instance)
         {
-            if (__instance.hitDiceBox.Activated && __instance.guiCharacter.RulesetCharacterHero.ClassesAndLevels.Count > 1)
+            if (__instance.hitDiceBox.Activated &&
+                __instance.guiCharacter.RulesetCharacterHero.ClassesAndLevels.Count > 1)
             {
                 __instance.hitDiceBox.ValueLabel.Text =
                     MulticlassGameUiContext.GetAllClassesHitDiceLabel(__instance.guiCharacter, out var dieTypeCount);

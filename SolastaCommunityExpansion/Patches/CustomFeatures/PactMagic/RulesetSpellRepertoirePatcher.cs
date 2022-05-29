@@ -5,7 +5,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic

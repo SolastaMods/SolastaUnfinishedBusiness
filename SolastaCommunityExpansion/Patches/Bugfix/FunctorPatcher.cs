@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaModApi;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix
 {

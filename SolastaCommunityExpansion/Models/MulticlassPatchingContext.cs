@@ -84,7 +84,8 @@ namespace SolastaCommunityExpansion.Models
             //    dbFeatureDefinitionProficiency.GetElement("ProficiencyWardenArmor"), 
             //    ArmorProficiencyMulticlassBuilder.WardenArmorProficiencyMulticlass);
 
-            FeaturesToExclude.Add(MonkClass, new()
+            FeaturesToExclude.Add(MonkClass,
+                new List<FeatureDefinition>
                 {
                     dbFeatureDefinitionPointPool.GetElement("ClassMonkSkillProficiency"),
                     dbFeatureDefinitionProficiency.GetElement("ClassMonkWeaponProficiency"),

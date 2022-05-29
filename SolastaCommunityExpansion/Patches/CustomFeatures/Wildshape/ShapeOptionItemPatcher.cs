@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using UnityEngine;
-using UnityEngine.UI;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
@@ -21,7 +19,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
             {
                 var isShapeOptionAvailable = requiredLevel <= levels;
 
-                __instance.levelLabel.TMP_Text.color = isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
+                __instance.levelLabel.TMP_Text.color =
+                    isShapeOptionAvailable ? __instance.validLevelColor : __instance.invalidLevelColor;
                 __instance.toggle.interactable = isShapeOptionAvailable;
                 __instance.canvasGroup.alpha = isShapeOptionAvailable ? 1f : 0.3f;
             }

@@ -3,7 +3,6 @@ using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions

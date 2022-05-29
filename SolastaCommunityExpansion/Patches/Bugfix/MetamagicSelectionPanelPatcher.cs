@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.BugFix
 {

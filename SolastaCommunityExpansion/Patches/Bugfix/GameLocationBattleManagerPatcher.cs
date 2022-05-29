@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
@@ -110,7 +109,7 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
                         .ProficiencyBonusAndSpellcastingBonus)
                 {
-                    int num = 0;
+                    var num = 0;
 
                     // use the correct spell repertoire for calculating spell bonus (MC scenario)
                     //
@@ -128,10 +127,12 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
                     // this scenario should not happen but who knows under MP ;-)
                     else
                     {
-                        foreach (RulesetSpellRepertoire spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
+                        foreach (var spellRepertoire in attacker.RulesetCharacter.SpellRepertoires)
                         {
-                            num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter.GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
-                            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class)
+                            num = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                                .GetAttribute(spellRepertoire.SpellCastingAbility).CurrentValue);
+                            if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
+                                FeatureDefinitionCastSpell.CastingOrigin.Class)
                             {
                                 break;
                             }

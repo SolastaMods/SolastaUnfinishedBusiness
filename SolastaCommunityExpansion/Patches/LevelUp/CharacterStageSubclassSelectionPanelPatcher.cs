@@ -10,7 +10,8 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
     {
         internal static void Postfix(CharacterStageSubclassSelectionPanel __instance)
         {
-            if (LevelUpContext.IsLevelingUp(__instance.currentHero) && LevelUpContext.RequiresDeity(__instance.currentHero))
+            if (LevelUpContext.IsLevelingUp(__instance.currentHero) &&
+                LevelUpContext.RequiresDeity(__instance.currentHero))
             {
                 __instance.isRelevant = false;
             }

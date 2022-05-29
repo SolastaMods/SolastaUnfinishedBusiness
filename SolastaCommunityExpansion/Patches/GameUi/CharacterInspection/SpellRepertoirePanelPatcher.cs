@@ -51,7 +51,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 
             while (__instance.levelButtonsTable.childCount > classSpellLevel + accountForCantrips)
             {
-                Gui.ReleaseInstanceToPool(__instance.levelButtonsTable.GetChild(__instance.levelButtonsTable.childCount - 1)
+                Gui.ReleaseInstanceToPool(__instance.levelButtonsTable
+                    .GetChild(__instance.levelButtonsTable.childCount - 1)
                     .gameObject);
             }
 

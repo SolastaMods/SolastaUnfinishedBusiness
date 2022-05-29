@@ -4,8 +4,6 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp
 {

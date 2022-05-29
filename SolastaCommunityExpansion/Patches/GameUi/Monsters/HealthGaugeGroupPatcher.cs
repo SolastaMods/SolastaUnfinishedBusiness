@@ -29,7 +29,8 @@ namespace SolastaCommunityExpansion.Patches.GameUi.Monsters
 
                 ratio = HideMonsterHitPointsContext.GetSteppedHealthRatio(ratio);
 
-                __instance.gaugeRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, __instance.gaugeMaxWidth * ratio);
+                __instance.gaugeRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
+                    __instance.gaugeMaxWidth * ratio);
             }
         }
     }

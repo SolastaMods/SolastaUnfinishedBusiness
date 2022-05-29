@@ -2,8 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
 {

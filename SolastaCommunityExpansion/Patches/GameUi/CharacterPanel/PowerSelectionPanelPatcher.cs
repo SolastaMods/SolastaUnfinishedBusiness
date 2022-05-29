@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;

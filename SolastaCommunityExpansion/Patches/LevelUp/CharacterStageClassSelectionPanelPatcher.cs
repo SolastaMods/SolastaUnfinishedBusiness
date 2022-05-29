@@ -28,7 +28,8 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
             }
 
             LevelUpContext.SetIsClassSelectionStage(__instance.currentHero, true);
-            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero, __instance.compatibleClasses,
+            MulticlassInOutRulesContext.EnumerateHeroAllowedClassDefinitions(__instance.currentHero,
+                __instance.compatibleClasses,
                 ref __instance.selectedClass);
 
             var commonData = __instance.CommonData;

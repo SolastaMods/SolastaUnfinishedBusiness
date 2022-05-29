@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Models.Level20Context;
 
 namespace SolastaCommunityExpansion.Patches.Level20
@@ -12,7 +11,7 @@ namespace SolastaCommunityExpansion.Patches.Level20
     {
         internal static bool Prefix(ref int __result)
         {
-            __result = Main.Settings.EnableLevel20 ? Level20Context.MOD_MAX_EXPERIENCE : Level20Context.GAME_MAX_EXPERIENCE;
+            __result = Main.Settings.EnableLevel20 ? MOD_MAX_EXPERIENCE : GAME_MAX_EXPERIENCE;
 
             return false;
         }

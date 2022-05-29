@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells

@@ -2,7 +2,6 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
 {

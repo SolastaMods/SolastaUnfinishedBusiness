@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 

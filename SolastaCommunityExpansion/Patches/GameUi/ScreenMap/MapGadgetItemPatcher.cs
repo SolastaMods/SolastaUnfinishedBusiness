@@ -1,9 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using UnityEngine;
-using UnityEngine.UI;
-using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
 {

@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp
 {

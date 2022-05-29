@@ -4,7 +4,6 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers
 {

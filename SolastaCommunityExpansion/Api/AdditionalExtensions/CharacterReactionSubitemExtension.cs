@@ -1,8 +1,6 @@
 ﻿using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Api.AdditionalExtensions
 {

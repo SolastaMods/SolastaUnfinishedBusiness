@@ -1,6 +1,4 @@
-﻿using SolastaModApi.Infrastructure;
-
-namespace SolastaCommunityExpansion.Utils
+﻿namespace SolastaCommunityExpansion.Utils
 {
     public static class GameConsoleHelper
     {
@@ -21,10 +19,7 @@ namespace SolastaCommunityExpansion.Utils
             var console = Gui.Game.GameConsole;
             var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
 
-            var entry = new GameConsoleEntry(text, console.consoleTableDefinition)
-            {
-                Indent = indent
-            };
+            var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName);
             console.AddEntry(entry);
@@ -35,10 +30,7 @@ namespace SolastaCommunityExpansion.Utils
         {
             var console = Gui.Game.GameConsole;
             var text = $"Feedback/&NotifyEffect{notificationTag}Line";
-            var entry = new GameConsoleEntry(text, console.consoleTableDefinition)
-            {
-                Indent = indent
-            };
+            var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = indent};
 
             console.AddCharacterEntry(character, entry);
             console.AddCharacterEntry(target, entry);

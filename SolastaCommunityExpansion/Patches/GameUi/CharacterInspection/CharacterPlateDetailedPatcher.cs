@@ -26,7 +26,7 @@ namespace SolastaCommunityExpansion.Patches.GameUi.CharacterInspection
             }
 
             __instance.classLabel.Text = MulticlassGameUiContext.GetAllClassesLabel(guiCharacter, separator) ??
-                                 __instance.classLabel.Text;
+                                         __instance.classLabel.Text;
             __instance.classLabel.TMP_Text.fontSize = MulticlassGameUiContext.GetFontSize(classesCount);
         }
     }

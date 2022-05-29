@@ -1,6 +1,5 @@
 ﻿using System;
 using HarmonyLib;
-using static System.Reflection.BindingFlags;
 
 namespace SolastaModApi.Infrastructure
 {

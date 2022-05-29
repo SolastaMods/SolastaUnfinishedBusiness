@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty
 {

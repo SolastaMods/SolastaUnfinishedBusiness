@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using TA;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Models
 {
@@ -125,7 +123,8 @@ namespace SolastaCommunityExpansion.Models
                 var tags = oldHero.Tags;
                 var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
                 var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
-                var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
+                var gameLocationCharacterService =
+                    ServiceRepository.GetService<IGameLocationCharacterService>() as GameLocationCharacterManager;
                 var worldLocationEntityFactoryService =
                     ServiceRepository.GetService<IWorldLocationEntityFactoryService>();
                 var gameLocationCharacter =

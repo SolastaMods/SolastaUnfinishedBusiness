@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Tools.NoExperienceOnLevelUp
 {
@@ -12,15 +13,20 @@ namespace SolastaCommunityExpansion.Patches.Tools.NoExperienceOnLevelUp
         {
             if (Main.Settings.NoExperienceOnLevelUp)
             {
-                var levelCap = Main.Settings.EnableLevel20 ? Models.Level20Context.MOD_MAX_LEVEL : Models.Level20Context.GAME_MAX_LEVEL;
+                var levelCap = Main.Settings.EnableLevel20
+                    ? Level20Context.MOD_MAX_LEVEL
+                    : Level20Context.GAME_MAX_LEVEL;
 
                 __result = __instance.ClassesHistory.Count < levelCap;
 
                 return false;
             }
+
             if (Main.Settings.EnableLevel20)
             {
-                var levelCap = Main.Settings.EnableLevel20 ? Models.Level20Context.MOD_MAX_LEVEL : Models.Level20Context.GAME_MAX_LEVEL;
+                var levelCap = Main.Settings.EnableLevel20
+                    ? Level20Context.MOD_MAX_LEVEL
+                    : Level20Context.GAME_MAX_LEVEL;
                 // If the game doesn't know how much XP to reach the next level it uses -1 to determine if the character can level up.
                 // When a character is level 20, this ends up meaning the character can now level up forever unless we stop it here.
                 if (__instance.ClassesHistory.Count >= levelCap)
@@ -29,6 +35,7 @@ namespace SolastaCommunityExpansion.Patches.Tools.NoExperienceOnLevelUp
                     return false;
                 }
             }
+
             return true;
         }
     }

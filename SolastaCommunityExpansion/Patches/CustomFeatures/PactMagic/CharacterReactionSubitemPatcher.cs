@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
 {
@@ -25,7 +24,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
             spellRepertoire.GetSlotsNumber(slotLevel, out var totalSlotsRemainingCount, out var totalSlotsCount);
 
             MulticlassGameUiContext.PaintPactSlots(
-                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel, __instance.slotStatusTable);
+                heroWithSpellRepertoire, totalSlotsCount, totalSlotsRemainingCount, slotLevel,
+                __instance.slotStatusTable);
         }
     }
 

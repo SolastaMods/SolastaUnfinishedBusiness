@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharactersPool
 {

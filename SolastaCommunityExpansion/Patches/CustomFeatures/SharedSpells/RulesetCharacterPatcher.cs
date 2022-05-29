@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Level20.SpellsHelper;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells

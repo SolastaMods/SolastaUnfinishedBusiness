@@ -2,7 +2,6 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions

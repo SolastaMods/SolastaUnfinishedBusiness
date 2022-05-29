@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAtttributeModifiers

@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace SolastaCommunityExpansion.Patches.Tools.DefaultParty

@@ -64,7 +64,7 @@ namespace SolastaCommunityExpansion.CustomUI
         internal void Setup(CharacterStageSpellSelectionPanel spells)
         {
             spellsPanel = spells;
-            this.stageDefinition = spells.StageDefinition;
+            stageDefinition = spells.StageDefinition;
 
             spellsByLevelTable = spells.GetField<RectTransform>("spellsByLevelTable");
             spellsByLevelPrefab = spells.GetField<GameObject>("spellsByLevelPrefab");

@@ -304,7 +304,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                                         var previousReactionCount = actionService.PendingReactionRequestGroups.Count;
                                         actionService.ReactToSpendSpellSlot(reactionParams);
 
-                                        yield return __instance.WaitForReactions(attacker, actionService, previousReactionCount);
+                                        yield return __instance.WaitForReactions(attacker, actionService,
+                                            previousReactionCount);
 
                                         validTrigger = reactionParams.ReactionValidated;
                                     }
@@ -537,7 +538,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                     //Wrapped in no-formatting to simplify merges/changes from TA ------ END --------
                     if (validTrigger && validProperty)
                     {
-                        __instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms, reactionParams, attackMode, criticalHit);
+                        __instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms,
+                            reactionParams, attackMode, criticalHit);
 
                         __instance.triggeredAdditionalDamageTags.Add(provider.NotificationTag);
                     }
@@ -719,7 +721,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
                         }
                     }
 
-                    yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier, actualEffectForms, attackMode);
+                    yield return __instance.HandleReactionToDamage(attacker, defender, attackModifier,
+                        actualEffectForms, attackMode);
                 }
             }
 

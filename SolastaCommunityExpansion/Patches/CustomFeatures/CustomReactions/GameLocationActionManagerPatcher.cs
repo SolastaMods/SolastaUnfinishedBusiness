@@ -2,7 +2,6 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {

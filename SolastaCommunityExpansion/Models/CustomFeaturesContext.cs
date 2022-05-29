@@ -133,6 +133,7 @@ namespace SolastaCommunityExpansion.Models
                     break;
             }
         }
+
         internal static bool IsSpellBonus(IPointPoolMaxBonus mod)
         {
             return mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip

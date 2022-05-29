@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection;
 using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -464,7 +463,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                 var maxPoints = 0;
 
                 if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                    FeatureDefinitionCastSpell.CastingOrigin.Class)
+                    CastingOrigin.Class)
                 {
                     // PATCH: short circuit if the feature is for another class (change from native code)
                     if (spellRepertoire.SpellCastingClass != selectedClass)
@@ -475,7 +474,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                     poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
                 }
                 else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                         FeatureDefinitionCastSpell.CastingOrigin.Subclass)
+                         CastingOrigin.Subclass)
                 {
                     // PATCH: short circuit if the feature is for another subclass (change from native code)
                     if (spellRepertoire.SpellCastingSubclass != selectedSubclass)
@@ -486,7 +485,7 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                     poolName = AttributeDefinitions.GetSubclassTag(selectedClass, selectedClassLevel, selectedSubclass);
                 }
                 else if (spellRepertoire.SpellCastingFeature.SpellCastingOrigin ==
-                         FeatureDefinitionCastSpell.CastingOrigin.Race)
+                         CastingOrigin.Race)
                 {
                     poolName = AttributeDefinitions.TagRace;
                 }
@@ -505,11 +504,11 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
 
                 __instance.ApplyFeatureCastSpell(heroBuildingData, spellRepertoire.SpellCastingFeature);
                 __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, poolName,
-                        heroBuildingData.TempAcquiredCantripsNumber + maxPoints);
+                    heroBuildingData.TempAcquiredCantripsNumber + maxPoints);
                 __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Spell, poolName,
-                        heroBuildingData.TempAcquiredSpellsNumber);
+                    heroBuildingData.TempAcquiredSpellsNumber);
                 __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName,
-                        heroBuildingData.TempUnlearnedSpellsNumber);
+                    heroBuildingData.TempUnlearnedSpellsNumber);
             }
 
             return false;
@@ -634,7 +633,6 @@ namespace SolastaCommunityExpansion.Patches.LevelUp
                     heroBuildingData.TempAcquiredCantripsNumber +=
                         freeBonusCantripsFromSubclasses + fixedBonusCantripsFromSubclasses;
                 }
-
             }
         }
     }

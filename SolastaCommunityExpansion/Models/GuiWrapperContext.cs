@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using HarmonyLib;
-using SolastaModApi.Infrastructure;
-
-namespace SolastaCommunityExpansion.Models
+﻿namespace SolastaCommunityExpansion.Models
 {
     internal static class GuiWrapperContext
     {
@@ -12,7 +7,7 @@ namespace SolastaCommunityExpansion.Models
             var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
             var runtimeService = ServiceRepository.GetService<IRuntimeService>();
 
-            if (guiWrapperService is not GuiWrapperManager guiWrapperManager 
+            if (guiWrapperService is not GuiWrapperManager guiWrapperManager
                 || runtimeService == null
                 || runtimeService.Runtime == null)
             {

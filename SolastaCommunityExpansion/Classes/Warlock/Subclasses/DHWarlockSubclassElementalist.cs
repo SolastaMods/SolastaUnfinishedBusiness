@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.DamageDefinitions;
@@ -79,7 +78,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Resistance = DamageAffinityBludgeoningResistance,
                     Immunity = DamageAffinityBludgeoningImmunity,
                     Particles =
-                        DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation.attachedParticlesReference, // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
+                        DatabaseHelper.MonsterDefinitions.Earth_Elemental.MonsterPresentation
+                            .attachedParticlesReference, // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                     Shaders = DatabaseHelper.MonsterDefinitions.FeyBear.MonsterPresentation
                         .CustomShaderReference // or stone barbarian's ConditionStoneResilience.conditionParticleReference,
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainBattleDivineWrath.GuiPresentation.SpriteReference,
@@ -93,7 +93,8 @@ namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses
                     Resistance = DamageAffinityColdResistance,
                     Immunity = DamageAffinityColdImmunity,
                     Particles =
-                        DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation.attachedParticlesReference, // skarn ghoul,
+                        DatabaseHelper.MonsterDefinitions.WindSnake.MonsterPresentation
+                            .attachedParticlesReference, // skarn ghoul,
                     Shaders = DatabaseHelper.MonsterDefinitions.SkarnGhoul.MonsterPresentation
                         .CustomShaderReference // skarn ghoul
                     // Sprite = DatabaseHelper.FeatureDefinitionPowers.PowerDomainElementalHeraldOfTheElementsCold.GuiPresentation.SpriteReference,

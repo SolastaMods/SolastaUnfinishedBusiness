@@ -2,8 +2,6 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel
 {

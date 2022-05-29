@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -64,9 +63,12 @@ namespace SolastaCommunityExpansion.Patches.GameUi.ScreenMap
                         if ((int)itemType > int.MinValue)
                         {
                             ++__instance.activeMapGadgetItems;
-                            for (var index = __instance.mapGadgetItems.Count - 1; index < __instance.activeMapGadgetItems; ++index)
+                            for (var index = __instance.mapGadgetItems.Count - 1;
+                                 index < __instance.activeMapGadgetItems;
+                                 ++index)
                             {
-                                var gameObject = Object.Instantiate(__instance.mapGadgetItemPrefab, __instance.mapItemsTransform);
+                                var gameObject = Object.Instantiate(__instance.mapGadgetItemPrefab,
+                                    __instance.mapItemsTransform);
 
                                 if (gameObject.TryGetComponent<MapGadgetItem>(out var mapGadgetItem))
                                 {

@@ -6,7 +6,6 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
 {

@@ -2,8 +2,6 @@
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features

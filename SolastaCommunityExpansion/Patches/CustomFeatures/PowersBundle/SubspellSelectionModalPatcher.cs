@@ -43,7 +43,8 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
                 {
                     if (__instance.spellCastEngaged != null)
                     {
-                        __instance.spellCastEngaged(__instance.spellRepertoire, __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
+                        __instance.spellCastEngaged(__instance.spellRepertoire,
+                            __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
                     }
                     else
                     {

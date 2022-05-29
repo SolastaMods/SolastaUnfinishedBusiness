@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
@@ -10,7 +8,6 @@ using UnityEngine.UI;
 using static GuiDropdown;
 using static SolastaCommunityExpansion.Models.SaveByLocationContext;
 using static TMPro.TMP_Dropdown;
-using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Patches.Tools.SaveByLocation
 {
