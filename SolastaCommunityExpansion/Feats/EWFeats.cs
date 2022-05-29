@@ -33,7 +33,7 @@ public static class EWFeats
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
                 .Create("FeatSentinelFeature", GUID)
                 .SetGuiPresentationNoContent(true)
-                .SetOnAttackHitDelegates(null, (attacker, defender, outcome, actionParams, mode, modifier) =>
+                .SetOnAttackHitDelegates(null, (attacker, defender, outcome, _, mode, _) =>
                 {
                     if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
                     {

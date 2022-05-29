@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Feats;
 using SolastaModApi;
 using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
@@ -40,7 +39,7 @@ public static class AttacksOfOpportunity
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
 
-        //Process fetures on attacker or defender
+        //Process features on attacker or defender
 
         var units = battle.AllContenders
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
@@ -55,7 +54,7 @@ public static class AttacksOfOpportunity
             }
         }
 
-        yield return battleManager.InvokeMethod("WaitForReactions", attacker, actionService, count);
+        yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
     private static void ProcessSentinel(GameLocationCharacter unit, GameLocationCharacter attacker,
@@ -80,11 +79,11 @@ public static class AttacksOfOpportunity
 
     public static void RequestReactionAttack(string type, CharacterActionParams actionParams)
     {
-        var actionMnager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-        if (actionMnager != null)
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+        if (actionManager != null)
         {
             actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
-            actionMnager.InvokeMethod("AddInterruptRequest", new ReactionRequestReactionAttack(type, actionParams));
+            actionManager.AddInterruptRequest(new ReactionRequestReactionAttack(type, actionParams));
         }
     }
 
