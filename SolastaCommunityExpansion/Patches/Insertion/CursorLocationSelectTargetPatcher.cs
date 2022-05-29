@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.Insertion
     {
         [HarmonyPatch(typeof(CursorLocationSelectTarget), "IsValidAttack")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class IsValidAttack
+        internal static class CursorLocationSelectTarget_IsValidAttack
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {

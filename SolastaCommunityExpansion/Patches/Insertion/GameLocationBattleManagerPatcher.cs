@@ -9,7 +9,7 @@ namespace SolastaCommunityExpansion.Patches.Insertion
     {
         [HarmonyPatch(typeof(GameLocationBattleManager), "CanAttack")]
         [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class CanAttack
+        internal static class GameLocationBattleManager_CanAttack
         {
             internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
