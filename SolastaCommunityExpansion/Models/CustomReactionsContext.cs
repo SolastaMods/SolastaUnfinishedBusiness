@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomUI;
+using SolastaCommunityExpansion.Feats;
+using SolastaModApi;
 using static ActionDefinitions;
 using static ActionDefinitions.ActionStatus;
 
@@ -14,6 +17,22 @@ namespace SolastaCommunityExpansion.Models
 
         public static bool ForcePreferredCantrip = false;
         public static IDamagedReactionSpell AlwaysReactToDamaged => _alwayseact ??= new AlwaysReactToDamagedImpl();
+
+        public static void Load()
+        {
+            MakeReactDefinition(ReactionRequestWarcaster.Name);
+            MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
+            MakeReactDefinition(ReactionRequestReactionAttack.Name(EWFeats.SentinelFeat));
+        }
+
+        private static void MakeReactDefinition(string name)
+        {
+            ReactionDefinitionBuilder
+                .Create(DatabaseHelper.ReactionDefinitions.OpportunityAttack, name,
+                    DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Reaction)
+                .AddToDB();
+        }
 
         public static IEnumerator TryReactingToDamageWithSpell(GameLocationCharacter attacker,
             GameLocationCharacter defender, ActionModifier attackModifier, RulesetAttackMode attackMode,

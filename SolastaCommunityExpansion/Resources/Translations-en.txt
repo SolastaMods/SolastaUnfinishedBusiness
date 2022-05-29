@@ -1973,3 +1973,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Feat/&FeatSentinelTitle	Sentinel
+Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n - When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n - Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n - When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Condition/&SentinelStopMovementConditionTitle	Stopped
+Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
+Reaction/&ReactionAttackFeatSentinelTitle	Sentinel Reaction

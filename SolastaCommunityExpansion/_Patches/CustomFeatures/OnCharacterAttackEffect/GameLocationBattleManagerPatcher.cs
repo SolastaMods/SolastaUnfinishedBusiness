@@ -389,50 +389,6 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffe
     //
     // this patch shouldn't be protected
     //
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHit")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationBattleManager_HandleCharacterAttackHit
-    {
-        internal static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationBattleManager __instance,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged)
-        {
-            Main.Logger.Log("HandleCharacterAttackHit");
-
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (rulesetCharacter != null)
-            {
-                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
-                {
-                    feature.BeforeOnAttackHit(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
-                }
-            }
-
-            while (values.MoveNext())
-            {
-                yield return values.Current;
-            }
-
-            if (rulesetCharacter != null)
-            {
-                foreach (var feature in rulesetCharacter.EnumerateFeaturesToBrowse<IOnAttackHitEffect>())
-                {
-                    feature.AfterOnAttackHit(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
-                }
-            }
-        }
-    }
-
-    //
-    // this patch shouldn't be protected
-    //
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackDamage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GameLocationBattleManager_HandleCharacterAttackDamage

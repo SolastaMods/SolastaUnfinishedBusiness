@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.CustomUI
 {
     public class ReactionRequestSpendBundlePower : ReactionRequest
     {
-        private const string Name = "SpendPowerBundle";
+        public const string Name = "SpendPowerBundle";
         private readonly GuiCharacter guiCharacter;
         private readonly FeatureDefinitionPower masterPower;
         private readonly ActionModifier modifier;

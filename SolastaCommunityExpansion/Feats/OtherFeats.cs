@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaCommunityExpansion.CustomUI;
 using SolastaModApi;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
@@ -102,7 +101,6 @@ namespace SolastaCommunityExpansion.Feats
                 .AddToDB();
 
             feats.AddRange(savageAttacker, tough, warCaster, improvedCritical, shieldExpert);
-            ReactionRequestWarcaster.Initialize();
         }
 
         private static FeatureDefinitionDieRollModifier BuildDieRollModifier(string name,

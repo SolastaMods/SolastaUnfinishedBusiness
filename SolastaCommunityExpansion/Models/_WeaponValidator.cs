@@ -11,6 +11,7 @@ namespace SolastaCommunityExpansion.Models
         public static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
         public static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
+        public static readonly IsWeaponValidHandler IsReactionAttack = IsReactionAttackMode;
 
         public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
             HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
@@ -52,6 +53,11 @@ namespace SolastaCommunityExpansion.Models
             }
 
             return weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
+        }
+        
+        public static bool IsReactionAttackMode(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
+        {
+            return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
         }
 
         private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)

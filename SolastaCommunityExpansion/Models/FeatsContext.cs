@@ -24,8 +24,9 @@ namespace SolastaCommunityExpansion.Models
             CraftyFeats.CreateFeats(feats);
             ElAntoniousFeats.CreateFeats(feats);
             ZappaFeats.CreateFeats(feats);
+            EWFeats.CreateFeats(feats);
 
-            feats.ForEach(f => LoadFeat(f));
+            feats.ForEach(LoadFeat);
 
             Feats = Feats.OrderBy(x => x.FormatTitle()).ToHashSet();
         }

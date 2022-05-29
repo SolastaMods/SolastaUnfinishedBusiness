@@ -15,23 +15,23 @@ namespace SolastaCommunityExpansion.CustomDefinitions
         public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged)
+            RuleDefinitions.RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
         {
-            beforeOnAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+            beforeOnAttackHit?.Invoke(attacker, defender,outcome,actionParams, attackMode, attackModifier);
         }
 
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged)
+            RuleDefinitions.RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
         {
-            afterOnAttackHit?.Invoke(attacker, defender, attackModifier, attackRoll, successDelta, ranged);
+            afterOnAttackHit?.Invoke(attacker, defender,outcome,actionParams, attackMode, attackModifier);
         }
 
         internal void SetOnAttackHitDelegates(OnAttackHitDelegate before = null, OnAttackHitDelegate after = null)
