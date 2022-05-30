@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Monk;
@@ -163,31 +164,19 @@ public static class HandwrapWeaponContext
 
     public static void AddToShops()
     {
-        //Generic +1/+2 weapons
-        var merchants = new[]
+        foreach (var merchant in MerchantTypeContext.MerchantTypes
+            .Where(x => x.Value.IsMagicalMeleeWeapon))
         {
-            MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye //Caer Cyflen
-            //TODO: find magic weapon merchants in Lost Valley
-        };
-
-        foreach (var merchant in merchants)
-        {
-            StockItem(merchant, HandwrapsPlus1, FactionStatusDefinitions.Alliance);
-            StockItem(merchant, HandwrapsPlus2, FactionStatusDefinitions.Brotherhood);
+            StockItem(merchant.Key, HandwrapsPlus1, FactionStatusDefinitions.Alliance);
+            StockItem(merchant.Key, HandwrapsPlus2, FactionStatusDefinitions.Brotherhood);
         }
 
-        //Crafting manuals
-        merchants = new[]
-        {
-            MerchantDefinitions.Store_Merchant_Circe //Manaclon Ruins
-            //TODO: find crafting manuals merchants in Lost Valley
-        };
-
-        foreach (var merchant in merchants)
+        foreach (var merchant in MerchantTypeContext.MerchantTypes
+            .Where(x => x.Value.IsDocument))
         {
             foreach (var manual in CraftingManuals)
             {
-                StockItem(merchant, manual, FactionStatusDefinitions.Alliance);
+                StockItem(merchant.Key, manual, FactionStatusDefinitions.Alliance);
             }
         }
     }
