@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 
-namespace SolastaCommunityExpansion.CustomInterfaces
-{
-    public interface IFeatureDefinitionWithPrerequisites
-    {
-        [CanBeNull]
-        public delegate string Validate();
+namespace SolastaCommunityExpansion.CustomInterfaces;
 
-        public List<Validate> Validators { get; set; }
-    }
+public interface IFeatureDefinitionWithPrerequisites
+{
+    [CanBeNull]
+    public delegate string Validate();
+
+    public List<Validate> Validators { get; set; }
 }

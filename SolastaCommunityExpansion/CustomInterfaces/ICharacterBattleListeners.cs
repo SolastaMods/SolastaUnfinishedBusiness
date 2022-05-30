@@ -1,22 +1,21 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface ICharacterTurnStartListener
 {
-    public interface ICharacterTurnStartListener
-    {
-        void OnChracterTurnStarted(GameLocationCharacter locationCharacter);
-    }
+    void OnChracterTurnStarted(GameLocationCharacter locationCharacter);
+}
 
-    public interface ICharacterTurnEndListener
-    {
-        void OnChracterTurnEnded(GameLocationCharacter locationCharacter);
-    }
+public interface ICharacterTurnEndListener
+{
+    void OnChracterTurnEnded(GameLocationCharacter locationCharacter);
+}
 
-    public interface ICharacterBattlStartedListener
-    {
-        void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
-    }
+public interface ICharacterBattlStartedListener
+{
+    void OnChracterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
+}
 
-    public interface ICharacterBattlEndedListener
-    {
-        void OnChracterBattleEnded(GameLocationCharacter locationCharacter);
-    }
+public interface ICharacterBattlEndedListener
+{
+    void OnChracterBattleEnded(GameLocationCharacter locationCharacter);
 }

@@ -1,7 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IPowerUseValidity
 {
-    public interface IPowerUseValidity
-    {
-        bool CanUsePower(RulesetCharacter character);
-    }
+    bool CanUsePower(RulesetCharacter character);
 }

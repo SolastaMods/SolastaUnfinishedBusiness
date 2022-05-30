@@ -1,8 +1,7 @@
-namespace SolastaCommunityExpansion.CustomInterfaces
+namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IPointPoolMaxBonus
 {
-    public interface IPointPoolMaxBonus
-    {
-        public int MaxPointsBonus { get; }
-        public HeroDefinitions.PointsPoolType PoolType { get; }
-    }
+    public int MaxPointsBonus { get; }
+    public HeroDefinitions.PointsPoolType PoolType { get; }
 }

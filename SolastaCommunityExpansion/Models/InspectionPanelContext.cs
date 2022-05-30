@@ -1,101 +1,98 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
-using UnityEngine;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaCommunityExpansion.Models;
+
+public static class InspectionPanelContext
 {
-    public static class InspectionPanelContext
+    internal static int SelectedClassIndex { get; set; }
+
+    public static CharacterClassDefinition SelectedClass =>
+        Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
+
+    public static string GetSelectedClassSearchTerm(string original)
     {
-        internal static int SelectedClassIndex { get; set; }
+        var selectedClass = SelectedClass;
+        return original
+               + (selectedClass == null
+                   ? string.Empty
+                   : selectedClass.Name);
+    }
 
-        public static CharacterClassDefinition SelectedClass =>
-            Global.InspectedHero?.ClassesAndLevels.Keys.ElementAtOrDefault(SelectedClassIndex);
+    public static void EnumerateClassBadges(CharacterInformationPanel __instance)
+    {
+        var badgeDefinitions =
+            __instance.badgeDefinitions;
+        var classBadgesTable = __instance.classBadgesTable;
+        var classBadgePrefab = __instance.classBadgePrefab;
 
-        public static string GetSelectedClassSearchTerm(string original)
+        badgeDefinitions.Clear();
+
+        foreach (var classesAndSubclass in Global.InspectedHero.ClassesAndSubclasses.Where(x =>
+                     x.Key == SelectedClass))
         {
-            var selectedClass = SelectedClass;
-            return original
-                   + (selectedClass == null
-                       ? string.Empty
-                       : selectedClass.Name);
+            badgeDefinitions.Add(classesAndSubclass.Value);
         }
 
-        public static void EnumerateClassBadges(CharacterInformationPanel __instance)
+        if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
         {
-            var badgeDefinitions =
-                __instance.GetField<CharacterInformationPanel, List<BaseDefinition>>("badgeDefinitions");
-            var classBadgesTable = __instance.GetField<CharacterInformationPanel, RectTransform>("classBadgesTable");
-            var classBadgePrefab = __instance.GetField<CharacterInformationPanel, GameObject>("classBadgePrefab");
+            badgeDefinitions.Add(Global.InspectedHero.DeityDefinition);
+        }
 
-            badgeDefinitions.Clear();
+        foreach (var trainedFightingStyle in GetTrainedFightingStyles())
+        {
+            badgeDefinitions.Add(trainedFightingStyle);
+        }
 
-            foreach (var classesAndSubclass in Global.InspectedHero.ClassesAndSubclasses.Where(x =>
-                         x.Key == SelectedClass))
+        while (classBadgesTable.childCount < badgeDefinitions.Count)
+        {
+            Gui.GetPrefabFromPool(classBadgePrefab, classBadgesTable);
+        }
+
+        var index = 0;
+
+        foreach (var badgeDefinition in badgeDefinitions)
+        {
+            var child = classBadgesTable.GetChild(index);
+
+            child.gameObject.SetActive(true);
+            child.GetComponent<CharacterInformationBadge>().Bind(badgeDefinition, classBadgesTable);
+            ++index;
+        }
+
+        for (; index < classBadgesTable.childCount; ++index)
+        {
+            var child = classBadgesTable.GetChild(index);
+
+            child.GetComponent<CharacterInformationBadge>().Unbind();
+            child.gameObject.SetActive(false);
+        }
+    }
+
+    private static HashSet<FightingStyleDefinition> GetTrainedFightingStyles()
+    {
+        var fightingStyleIdx = 0;
+        var classLevelFightingStyle = new Dictionary<string, FightingStyleDefinition>();
+        var classBadges = new HashSet<FightingStyleDefinition>();
+
+        foreach (var activeFeature in Global.InspectedHero.ActiveFeatures
+                     .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
+        {
+            foreach (var featureDefinition in activeFeature.Value
+                         .OfType<FeatureDefinitionFightingStyleChoice>())
             {
-                badgeDefinitions.Add(classesAndSubclass.Value);
-            }
-
-            if (Global.InspectedHero.DeityDefinition != null && (SelectedClass == Paladin || SelectedClass == Cleric))
-            {
-                badgeDefinitions.Add(Global.InspectedHero.DeityDefinition);
-            }
-
-            foreach (var trainedFightingStyle in GetTrainedFightingStyles())
-            {
-                badgeDefinitions.Add(trainedFightingStyle);
-            }
-
-            while (classBadgesTable.childCount < badgeDefinitions.Count)
-            {
-                Gui.GetPrefabFromPool(classBadgePrefab, classBadgesTable);
-            }
-
-            var index = 0;
-
-            foreach (var badgeDefinition in badgeDefinitions)
-            {
-                var child = classBadgesTable.GetChild(index);
-
-                child.gameObject.SetActive(true);
-                child.GetComponent<CharacterInformationBadge>().Bind(badgeDefinition, classBadgesTable);
-                ++index;
-            }
-
-            for (; index < classBadgesTable.childCount; ++index)
-            {
-                var child = classBadgesTable.GetChild(index);
-
-                child.GetComponent<CharacterInformationBadge>().Unbind();
-                child.gameObject.SetActive(false);
+                classLevelFightingStyle.Add(activeFeature.Key,
+                    Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
             }
         }
 
-        private static HashSet<FightingStyleDefinition> GetTrainedFightingStyles()
+        foreach (var kvp in classLevelFightingStyle
+                     .Where(x => x.Key.Contains(SelectedClass.Name)))
         {
-            var fightingStyleIdx = 0;
-            var classLevelFightingStyle = new Dictionary<string, FightingStyleDefinition>();
-            var classBadges = new HashSet<FightingStyleDefinition>();
-
-            foreach (var activeFeature in Global.InspectedHero.ActiveFeatures
-                         .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
-            {
-                foreach (var featureDefinition in activeFeature.Value
-                             .OfType<FeatureDefinitionFightingStyleChoice>())
-                {
-                    classLevelFightingStyle.Add(activeFeature.Key,
-                        Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
-                }
-            }
-
-            foreach (var kvp in classLevelFightingStyle
-                         .Where(x => x.Key.Contains(SelectedClass.Name)))
-            {
-                classBadges.Add(kvp.Value);
-            }
-
-            return classBadges;
+            classBadges.Add(kvp.Value);
         }
+
+        return classBadges;
     }
 }

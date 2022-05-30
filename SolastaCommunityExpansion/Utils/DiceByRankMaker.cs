@@ -1,39 +1,37 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Utils
+namespace SolastaCommunityExpansion.Utils;
+
+public static class DiceByRankMaker
 {
-    public static class DiceByRankMaker
+    public static List<DiceByRank> Make(params (int, int)[] ranks)
     {
-        public static List<DiceByRank> Make(params (int, int)[] ranks)
+        return ranks
+            .Select(rank => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
+            .ToList();
+    }
+
+    public static List<DiceByRank> MakeBySteps(int start = 0, int increment = 1, int step = 0)
+    {
+        var result = new List<DiceByRank>();
+        for (var i = 0; i < 20; i++)
         {
-            return ranks
-                .Select(rank => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
-                .ToList();
+            result.Add(new DiceByRank().SetRank(i).SetDices(start + ((i + 1) / (step + 1) * increment)));
         }
 
-        public static List<DiceByRank> MakeBySteps(int start = 0, int increment = 1, int step = 0)
-        {
-            var result = new List<DiceByRank>();
-            for (var i = 0; i < 20; i++)
-            {
-                result.Add(new DiceByRank().SetRank(i).SetDices(start + ((i + 1) / (step + 1) * increment)));
-            }
+        return result;
+    }
 
-            return result;
-        }
+    public static DiceByRank SetRank(this DiceByRank instance, int rank)
+    {
+        instance.rank = rank;
+        return instance;
+    }
 
-        public static DiceByRank SetRank(this DiceByRank instance, int rank)
-        {
-            instance.SetField("rank", rank);
-            return instance;
-        }
-
-        public static DiceByRank SetDices(this DiceByRank instance, int dices)
-        {
-            instance.SetField("diceNumber", dices);
-            return instance;
-        }
+    public static DiceByRank SetDices(this DiceByRank instance, int dices)
+    {
+        instance.diceNumber = dices;
+        return instance;
     }
 }

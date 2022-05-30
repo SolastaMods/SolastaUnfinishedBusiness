@@ -1,36 +1,35 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomInterfaces;
 
-namespace SolastaCommunityExpansion.CustomDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions;
+
+public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
+
+public class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICustomFightingStyle
 {
-    public delegate bool IsActiveFightingStyleDelegate(RulesetCharacterHero character);
+    private IsActiveFightingStyleDelegate isActive;
 
-    public class FightingStyleDefinitionCustomizable : FightingStyleDefinition, ICustomFightingStyle
+    public bool IsActive(RulesetCharacterHero character)
     {
-        private IsActiveFightingStyleDelegate isActive;
-
-        public bool IsActive(RulesetCharacterHero character)
-        {
-            return isActive == null || isActive(character);
-        }
-
-        internal void SetIsActiveDelegate(IsActiveFightingStyleDelegate del)
-        {
-            isActive = del;
-        }
+        return isActive == null || isActive(character);
     }
 
-    public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable,
-        CustomizableFightingStyleBuilder>
+    internal void SetIsActiveDelegate(IsActiveFightingStyleDelegate del)
     {
-        protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
-        {
-        }
+        isActive = del;
+    }
+}
 
-        public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
-        {
-            Definition.SetIsActiveDelegate(del);
-            return this;
-        }
+public class CustomizableFightingStyleBuilder : FightingStyleDefinitionBuilder<FightingStyleDefinitionCustomizable,
+    CustomizableFightingStyleBuilder>
+{
+    protected CustomizableFightingStyleBuilder(string name, string guid) : base(name, guid)
+    {
+    }
+
+    public CustomizableFightingStyleBuilder SetIsActive(IsActiveFightingStyleDelegate del)
+    {
+        Definition.SetIsActiveDelegate(del);
+        return this;
     }
 }

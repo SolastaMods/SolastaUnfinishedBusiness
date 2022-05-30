@@ -23,12 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassMonkZenArcherStunningArrows:77aff6b4-c3c5-5da6-a1b4-52081284765d",
+      "featureDefinition": "Definition:ClassMonkZenArrowUpgradedTechnique:784ed7b1-6ba6-5ce0-bb85-7af6f4f0f1cd",
       "level": 11
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassMonkZenArrowUpgradedTechnique:784ed7b1-6ba6-5ce0-bb85-7af6f4f0f1cd",
+      "featureDefinition": "Definition:ClassMonkZenArcherStunningArrows:77aff6b4-c3c5-5da6-a1b4-52081284765d",
       "level": 11
     }
   ],

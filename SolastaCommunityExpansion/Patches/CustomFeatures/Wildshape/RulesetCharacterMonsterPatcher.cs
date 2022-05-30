@@ -3,44 +3,43 @@ using System.Linq;
 using HarmonyLib;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape
-{
-    // ensures that wildshape get all original character pools and current powers states
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterMonster_FinalizeMonster
-    {
-        // remaining pools must be added beforehand to avoid a null pointer exception
-        internal static void Prefix(RulesetCharacterMonster __instance)
-        {
-            if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
-            {
-                return;
-            }
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.Wildshape;
 
-            foreach (var attribute in hero.Attributes.Where(x => !__instance.Attributes.ContainsKey(x.Key)))
-            {
-                __instance.Attributes.Add(attribute.Key, attribute.Value);
-            }
+// ensures that wildshape get all original character pools and current powers states
+[HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacterMonster_FinalizeMonster
+{
+    // remaining pools must be added beforehand to avoid a null pointer exception
+    internal static void Prefix(RulesetCharacterMonster __instance)
+    {
+        if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+        {
+            return;
         }
 
-        // usable powers must be added afterhand to overwrite default values from game
-        internal static void Postfix(RulesetCharacterMonster __instance)
+        foreach (var attribute in hero.Attributes.Where(x => !__instance.Attributes.ContainsKey(x.Key)))
         {
-            if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
-            {
-                return;
-            }
+            __instance.Attributes.Add(attribute.Key, attribute.Value);
+        }
+    }
 
-            __instance.UsablePowers.SetRange(hero.UsablePowers);
+    // usable powers must be added afterhand to overwrite default values from game
+    internal static void Postfix(RulesetCharacterMonster __instance)
+    {
+        if (__instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+        {
+            return;
+        }
 
-            // sync rage points
-            var count = hero.UsedRagePoints;
+        __instance.UsablePowers.SetRange(hero.UsablePowers);
 
-            while (count-- > 0)
-            {
-                __instance.SpendRagePoint();
-            }
+        // sync rage points
+        var count = hero.UsedRagePoints;
+
+        while (count-- > 0)
+        {
+            __instance.SpendRagePoint();
         }
     }
 }

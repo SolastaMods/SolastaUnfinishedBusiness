@@ -124,7 +124,7 @@ Condition/&DisorientDescription	Die Genauigkeit dieser Kreatur ist verringert.
 Condition/&DisorientTitle	Desorientiert
 Condition/&EvilEyeDescription	Zustand des bösen Blicks.
 Condition/&EvilEyeTitle	Böser Blick
-Condition/&EWResonatingStrikeDamageDescription	Ab Stufe 5 verursacht ein Angriff, der von diesem Cantrip ausgelöst wird, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWResonatingStrikeDamageDescription	Ab Level 5 verursacht ein Angriff, der von diesem Cantrip ausgelöst wird, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich um 1W8 auf der 11. und 17. Stufe.
 Condition/&EWResonatingStrikeDamageTitle	Resonanz
 Condition/&EWSunlightBladeDamageDescription	Ab Level 5 verursacht ein Angriff, der von diesem Cantrip ausgelöst wird, zusätzlich 1W8 strahlenden Schaden. Der Schaden erhöht sich um 1W8 auf der 11. und 17. Stufe.
 Condition/&EWSunlightBladeDamageTitle	Brennen der sonnenbeschienenen Klinge
@@ -142,6 +142,7 @@ Condition/&RuinDescription	Ruinierter Zustand.
 Condition/&RuinedDescription	Die Verteidigung dieser Kreatur ist reduziert.
 Condition/&RuinedTitle	Ruiniert
 Condition/&RuinTitle	Zugrunde richten
+Condition/&SentinelStopMovementConditionTitle	Gestoppt
 Condition/&SwallowedByToadConditionDescription	Erleidet 3W6 Säureschaden pro Runde. Endet, wenn der Krötenhexenmeister bei einem einzigen Angriff mit 15 oder mehr Schaden getroffen wird.
 Condition/&SwallowedByToadConditionTitle	Von Kröte verschluckt
 Condition/&SwallowingToadConditionDescription	Endet, wenn der Krötenhexenmeister bei einem einzigen Angriff mit 15 oder mehr Schaden getroffen wird.
@@ -565,6 +566,8 @@ Feat/&FeatPugilistFightingStlyeTitle	Kampfstil: Faustkämpfer
 Feat/&FeatSavageAttackerDescription	Waffen- und Zauberschadenswürfel neu würfeln, wenn sie eine 1 würfeln (es werden nicht alle Schadensquellen neu gewürfelt, z. B. ausgenommen Sneak Attack und Smite).
 Feat/&FeatSavageAttackerReroll	Da er ein Wilder Angreifer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.
 Feat/&FeatSavageAttackerTitle	Wilder Angreifer
+Feat/&FeatSentinelDescription	Du hast Techniken gemeistert, um jeden Rückgang der feindlichen Deckung auszunutzen und die folgenden Vorteile zu erzielen:\n - Wenn du eine Kreatur mit einem Gelegenheitsangriff triffst, wird die Geschwindigkeit der Kreatur für den Rest des Zuges 0.\n - Kreaturen provozieren Gelegenheitsangriffe von dir, selbst wenn sie die Aktion Lösen ausführen, bevor sie deine Reichweite verlassen.\n - Wenn eine Kreatur ein anderes Ziel als dich angreift (und dieses Ziel nicht über dieses Talent verfügt), kannst du deine Reaktion nutzen, um einen Nahkampfwaffenangriff gegen die angreifende Kreatur durchzuführen.
+Feat/&FeatSentinelTitle	Wächter
 Feat/&FeatShadowTouchedChaDescription	Erhöhe das Charisma-Attribut um 1. Erhalte die Fähigkeit, Unsichtbarkeit, Wunden zufügen und Falsches Leben einmal pro langer Pause zu wirken und lerne die Zauber.
 Feat/&FeatShadowTouchedChaTitle	Schatten berührt (Charisma)
 Feat/&FeatShadowTouchedIntDescription	Erhöhe das Intelligenzattribut um 1. Erhalte die Fähigkeit, Unsichtbarkeit, Wunden zufügen und Falsches Leben einmal pro langer Pause zu wirken und lerne die Zauber.
@@ -715,7 +718,7 @@ Feat/&ResummonArtilleryConstruct_15Title	Artilleriekonstrukt 3 wiederbeschwören
 Feat/&ResummonArtilleryConstructDescription	Dieser Zauber erlaubt es dem Bastler, ein Artilleriekonstrukt in einem von mehreren Modi erneut zu beschwören, nachdem die anfängliche Beschwörung abgelaufen ist. Das wiederbeschworene Konstrukt hält ebenfalls 1 Stunde an.
 Feat/&RetributionDescription	Konstrukt beschädigt 1W4 + Int, wenn es angegriffen wird.
 Feat/&RetributionTitle	Vergeltung
-Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Runde einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen.
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Zug einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen.
 Feat/&ScoutSentinelFeatureSet_level03Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra-Angriff</color></size>\nDu kannst ein weiteres Mal pro Kampfzug angreifen, wenn du die Angriffs- oder Schubs-Aktionen verwendest.
 Feat/&ScoutSentinelFeatureSet_level05Title	Scout-Wächter
@@ -723,7 +726,7 @@ Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Zusä
 Feat/&ScoutSentinelFeatureSet_level09Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Verbesserter Sentinel-Modus</color></size>\nKann jetzt Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und über die Kraft Gauntlet Grapple 1W8 Donnerschaden zufügen\n\n<size=17><color=#add8e6ff>Verbesserter Scout-Modus</color></size>\nKann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
 Feat/&ScoutSentinelFeatureSet_level15Title	Scout-Wächter
-Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen GE-Rettungswurf für 3W8 Gewaltschaden innerhalb von 10 Fuß.
+Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen GE-Rettungswurf für 3W8 Kraftschaden innerhalb von 10 Fuß.
 Feat/&SelfDestructTitle	Selbstzerstörung
 Feat/&SelfRepairDescription	Heile dreimal täglich 2W8 HP.
 Feat/&SelfRepairTitle	Selbstreparatur
@@ -776,13 +779,13 @@ Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Seele ermächtigt
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.
-Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Paktes
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Pakts
 Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe verleiht Ihnen Ihr jenseitiger Gönner ein Geschenk für Ihre treuen Dienste. Sie können wählen zwischen:
 Feature/&AHWarlockClassPactBoonSetTitle	Pakt Segen
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	Sie beherrschen alle Waffen und Ihre Waffenangriffe gelten als magisch.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pakt der Klinge
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro langer Rast kannst du eine Waffe mit Seelenkraft stärken. Diese Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zu einer langen Pause als magisch.
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenstärke
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenkraft
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}\n\n .
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingenzauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deiner Stufe + Charisma-Modifikator.
@@ -800,7 +803,7 @@ Feature/&ArcaneDetonationUpgradeDescription	Ab der 11. Stufe erhöht sich der Sc
 Feature/&ArcaneDetonationUpgradeTitle	Größere Arkane Detonation
 Feature/&ArcanePulseDescription	Ab der 7. Stufe kannst du eine Eruption arkaner Energie in einer Entfernung von 30 Fuß verursachen. Feindliche Kreaturen innerhalb von 4,5 m um den Einschlagspunkt erleiden 4W8 Schaden und erhalten ein Zeichen des Arkanisten. Du kannst diese Fähigkeit pro langer Pause so oft einsetzen, wie es deinem Weisheitsmodifikator entspricht. Auf der 15. Stufe erhöht sich der Schaden deines Arkanen Pulses auf 8W8.
 Feature/&ArcanePulseTitle	Arkaner Puls
-Feature/&ArcanistAutoPreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer präpariert und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}\n\n.
+Feature/&ArcanistAutoPreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Waldläuferzauber gelten, sie sind immer präpariert und zählen nicht zu der Anzahl der Waldläuferzauber, die du kennst:\n{0}
 Feature/&ArcanistAutoPreparedSpellsTitle	Waldläufer-Arkanist-Bonuszauber
 Feature/&ArcanistMarkDescription	Ab der 3. Stufe verleihen Sie Ihren Waffen arkane Macht. Kreaturen, die von deinen Angriffen getroffen werden, werden vom Zeichen des Arkanisten heimgesucht.
 Feature/&ArcanistMarkTitle	Zeichen des Arkanisten
@@ -873,8 +876,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Erlangen Sie Kenntnisse im Umgang m
 Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows [need to update description]
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Atemberaubende Pfeile
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Pfeilangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
 Feature/&ClassWarlockArmorProficiencyDescription	Leichte Rüstung.
 Feature/&ClassWarlockArmorProficiencyTitle	Hexenmeister-Rüstungsfähigkeiten
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Wählen Sie Eldritch Invocation zum Ersetzen aus.
@@ -936,7 +939,7 @@ Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elementare (Beleuchtun
 Feature/&DomainInsightDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
 Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight-Domäne
 Feature/&DomainLawDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
-Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsbereich
+Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsgebiet
 Feature/&DomainLifeDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
 Feature/&DomainLifeDomainlevel1FeaturesTitle	Lebensbereich
 Feature/&DomainMischiefDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
@@ -952,7 +955,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	Ab der 6. Stufe kannst du zwe
 Feature/&DruidForestGuardianExtraAttackTitle	Extra-Angriff
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Deinem Rindenschutz wachsen jetzt Dornen, die Nahkampfangreifern Schaden zufügen. Feinde, die dich erfolgreich mit einem Nahkampfangriff treffen, erleiden 2W8 Stichschaden.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Verbesserter Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}\n\n.
+Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}
 Feature/&DruidForestGuardianMagicTitle	Zirkelzauber
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Eure Fähigkeit „Bark Ward“ reflektiert jetzt 3W8 Stichschaden auf Nahkampfangreifer. Zusätzlich gewährt dir Bark Ward jetzt Immunität gegen Gift, solange es aktiv ist.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
@@ -1043,7 +1046,7 @@ Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige 
 Feature/&KnockDownPowerTitle	Niederschlagen
 Feature/&MagicAffinityRangerArcanistDescription	Du bist geübt im Wirken von Zaubern im Kampf und kannst Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
 Feature/&MagicAffinityRangerArcanistTitle	Arkanes Kampftraining
-Feature/&MiretheMindTitle	Beschmutze den Geist
+Feature/&MiretheMindTitle	Beschmutze den Verstand
 Feature/&MoonLitDarknessImmunityDescription	Du bist immun gegen den Dunkelheitszustand.
 Feature/&MoonLitDarknessImmunityTitle	Mondhelle Dunkelheit
 Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}\n\n .
@@ -1060,7 +1063,7 @@ Feature/&OneWithShadowsLightAffinityTitle	Eins mit Schatten
 Feature/&OneWithShadowsStrongerDescription	One With Shadows funktioniert jetzt bei schwachem Licht und magischer Dunkelheit.
 Feature/&OneWithShadowsStrongerTitle	Dunklere Schatten
 Feature/&OneWithShadowsTitle	Eins mit Schatten
-Feature/&OpportunistDebilitatingStrikeDescription	Dein hinterhältiger Angriff verursacht bei Feinden einen der folgenden Zustände (Geblendet/Fluch/Bluten/Betäubt), wenn ihnen ein KO-Speicher gegen 8 + deine Geschicklichkeit + deine Fertigkeit misslingt.
+Feature/&OpportunistDebilitatingStrikeDescription	Dein hinterhältiger Angriff verursacht bei Gegnern einen der folgenden Zustände (Geblendet/Fluch/Bluten/Betäubt), wenn ihnen ein KON-Speicher gegen 8 + deine Geschicklichkeit + deine Fertigkeit misslingt.
 Feature/&OpportunistDebilitatingStrikeTitle	Lähmender Schlag
 Feature/&OpportunistQuickStrikeDescription	Sie haben einen Vorteil, wenn Sie einen Feind angreifen, dessen Initiative geringer ist als Ihre. Darüber hinaus haben Sie auch einen Vorteil, wenn Sie einen Gelegenheitsangriff ausführen.
 Feature/&OpportunistQuickStrikeTitle	Schneller Schlag
@@ -1280,7 +1283,7 @@ Message/&LevelDownMultiplayerAbortDescription	Kann während einer Multiplayer-Si
 Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
 Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
 Message/&RespecMultiplayerAbortDescription	Respec während einer Multiplayer-Sitzung oder auf der Erkundungskarte nicht möglich.
-Message/&SpawnCustomEncounterDescription	Spawn-Begegnung bei den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Begegnungen können in einem Multiplayer-Spiel nicht gespawnt werden. Noch...
 Message/&SpawnCustomEncounterTitle	Begegnen
 Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren.
@@ -1438,9 +1441,13 @@ Reaction/&CastSpellInRetributionReactDescription	Klicken Sie, um {0} zu wirken.
 Reaction/&CastSpellInRetributionReactTitle	Zauber wirken
 Reaction/&CastSpellInRetributionTitle	Wirke Reaktionszauber
 Reaction/&CustomDeflectMissileClassMonkTitle	{0} greift {1} an, der reagieren kann, um den eingehenden Schaden um 1W10 + DEX-Modifikator + Mönchsstufe zu reduzieren
+Reaction/&ReactionAttackFeatSentinelDescription	{0} hat einen deiner Verbündeten angegriffen, als Reaktion darauf kannst du deine Angriffsreaktion nutzen.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Verwenden Sie die Reaktion auf den Angriff.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Attacke
+Reaction/&ReactionAttackFeatSentinelTitle	Sentinel-Reaktion
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} trifft eine Kreatur mit einem der Angriffe, die durch Schlaghagel gewährt werden, und kann diesem Ziel einen der folgenden Effekte auferlegen:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Ausgewählte Technik anwenden.
-Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Anwenden
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Sich bewerben
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Offene-Hand-Technik
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Ausgewählte Technik anwenden.
@@ -1559,7 +1566,7 @@ Spell/&AirBlastDescription	Feuern Sie einen Strahl fokussierter Luft auf Ihr Zie
 Spell/&AirBlastTitle	Luftstoß
 Spell/&BurstOfRadianceDescription	Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Feinden um dich herum Schaden zufügt.
 Spell/&BurstOfRadianceTitle	Strahlkraft
-Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, erfüllt von der Kraft, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl an Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Rettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur einen Effekt basierend auf ihren aktuellen Trefferpunkten:\n50 Trefferpunkte oder weniger: 1 Minute lang taub\n40 Trefferpunkte oder weniger: 10 Minuten lang taub und geblendet\n30 Trefferpunkte oder weniger: 1 Stunde lang geblendet, taub und betäubt\n20 Trefferpunkte oder weniger: sofort getötet\nUnabhängig von seinen aktuellen Trefferpunkten wird ein Himmlischer, ein Elementar, ein Feenwesen oder ein Unterweltler, dem sein Rettungswurf misslingt, auf seine Ursprungsebene zurückgedrängt (falls er nicht bereits dort ist) und kann nicht auf deine aktuelle Ebene zurückkehren 24 Stunden auf jeden Fall kurz vor einem Wunschzauber.\n.
+Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, erfüllt von der Kraft, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl an Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Rettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur einen Effekt basierend auf ihren aktuellen Trefferpunkten:\n50 Trefferpunkte oder weniger: 1 Minute lang taub\n40 Trefferpunkte oder weniger: 10 Minuten lang taub und geblendet\n30 Trefferpunkte oder weniger: 1 Stunde lang geblendet, taub und betäubt\n20 Trefferpunkte oder weniger: sofort getötet\nUnabhängig von seinen aktuellen Trefferpunkten wird ein Himmlischer, ein Elementar, ein Feenwesen oder ein Unterweltler, dem sein Rettungswurf misslingt, auf seine Ursprungsebene zurückgedrängt (falls er nicht bereits dort ist) und kann nicht auf deine aktuelle Ebene zurückkehren 24 Stunden auf jeden Fall kurz vor einem Wunschzauber.
 Spell/&CJDivineWordTitle	Göttliches Wort
 Spell/&DHAnimalShapesSpellDescription	Wähle eine beliebige Anzahl williger Kreaturen, die du in Reichweite sehen kannst. Du verwandelst jedes Ziel in die Form einer großen oder kleineren Bestie mit einem Herausforderungswert von 4 oder niedriger.
 Spell/&DHAnimalShapesSpellTitle	Tierische Formen
@@ -1570,7 +1577,7 @@ Spell/&DHCastSpellGuardianNagaTitle	Zauberfähigkeit des Erzmagiers
 Spell/&DHCastSpellLichDescription	Lich-Casting-Fähigkeit.
 Spell/&DHCastSpellLichTitle	Lich-Casting-Fähigkeit
 Spell/&DHConjureCelestialSpellDescription	Du beschwörst einen Himmlischen der Herausforderungsstufe 4 oder niedriger, der in einem unbesetzten Feld erscheint, das du in Reichweite sehen kannst. Der Himmel verschwindet, wenn er auf 0 Trefferpunkte fällt oder wenn der Zauber endet. Der Himmlische ist für die Dauer freundlich zu dir und deinen Gefährten.
-Spell/&DHConjureCelestialSpellTitle	Himmlische beschwören (Couatl)
+Spell/&DHConjureCelestialSpellTitle	Celestial beschwören (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Du versuchst, eine Kreatur zu betören, die du in Reichweite sehen kannst. Ihr muss ein Weisheitsrettungswurf gelingen oder für die Dauer von dir bezaubert sein.
 Spell/&DHDominateMonsterSpellTitle	Beherrsche Monster
 Spell/&DHFeeblemindSpellDescription	Sie sprengen den Geist einer Kreatur, die Sie in Reichweite sehen können, und versuchen, ihren Intellekt und ihre Persönlichkeit zu zerstören. Das Ziel erleidet 4W6 psychischen Schaden und muss einen Intelligenzrettungswurf ablegen. Bei einem misslungenen Rettungswurf werden die Intelligenz- und Charismawerte der Kreatur zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf verständliche Weise kommunizieren.
@@ -1599,9 +1606,9 @@ Spell/&DHPowerWordStunSpellDescription	Du sprichst ein Wort der Macht, das den V
 Spell/&DHPowerWordStunSpellTitle	Machtwort betäuben
 Spell/&DHReverseGravitySpellDescription	Dieser Zauber kehrt die Schwerkraft in einem 100 Fuß hohen Zylinder mit einem Radius von 50 Fuß um, der auf einen Punkt in Reichweite zentriert ist.
 Spell/&DHReverseGravitySpellTitle	Umgekehrte Schwerkraft
-Spell/&DHShapechangeSpellDescription	Du nimmst für die Dauer die Form einer anderen Kreatur an. Die neue Form kann jede Kreatur sein, deren Herausforderungswert deiner Stufe entspricht oder darunter liegt.
+Spell/&DHShapechangeSpellDescription	Du nimmst für die Dauer die Form einer anderen Kreatur an. Die neue Form kann jede Kreatur sein, deren Herausforderungswert deiner Stufe entspricht oder niedriger ist.
 Spell/&DHShapechangeSpellTitle	Formänderung
-Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß-Radius um einen von Ihnen gewählten Punkt in Reichweite auf. Jede Kreatur in diesem Licht muss einen Konstitutionsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 12W6 Strahlungsschaden und wird 1 Minute lang geblendet. Bei einem erfolgreichen Rettungswurf erleidet es halb so viel Schaden und wird von diesem Zauber nicht geblendet. Untote und Schlicke sind bei diesem Rettungswurf benachteiligt. Eine von diesem Zauber geblendete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Rettungswurf ist es nicht mehr geblendet. Dieser Zauber vertreibt jegliche Dunkelheit in seinem Bereich, die durch einen Zauber erzeugt wurde.
+Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß-Radius um einen von Ihnen gewählten Punkt in Reichweite auf. Jede Kreatur in diesem Licht muss einen Konstitutionsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 12W6 Strahlungsschaden und wird 1 Minute lang geblendet. Bei einem erfolgreichen Rettungswurf erleidet es halb so viel Schaden und wird von diesem Zauber nicht geblendet. Untote und Schlicke sind bei diesem Rettungswurf im Nachteil. Eine von diesem Zauber geblendete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Rettungswurf ist es nicht mehr geblendet. Dieser Zauber vertreibt jegliche Dunkelheit in seinem Bereich, die durch einen Zauber erzeugt wurde.
 Spell/&DHSunBurstSpellTitle	Sonnendurchbruch
 Spell/&DHTimeStopSpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
 Spell/&DHTimeStopSpellTitle	Zeitstopp
@@ -1646,7 +1653,7 @@ Spell/&PetalStormDescription	Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, 
 Spell/&PetalStormTitle	Blütensturm
 Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf machen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
 Spell/&ProtectThresholdTitle	Schwellenwert schützen
-Spell/&RadiantMotesDescription	Entfesselt einen Schwarm strahlender Projektile, die geringen Schaden verursachen, aber niemals verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.
+Spell/&RadiantMotesDescription	Entfesselt einen Schwarm strahlender Projektile, die geringen Schaden verursachen, aber nie verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.
 Spell/&RadiantMotesTitle	Strahlende Partikel
 Spell/&ThunderStrikeDescription	Erzeuge einen Donnerstoß, der allen um dich herum Schaden zufügt.
 Spell/&ThunderStrikeTitle	Schallausbruch
@@ -1746,7 +1753,7 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst über
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelheit
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
-Subclass/&BarbarianPathOfTheLightTitle	Pfad des Lichts
+Subclass/&BarbarianPathOfTheLightTitle	Weg des Lichts
 Subclass/&BloodWitchDescription	Blutmagie, die von den meisten Hexenzirkeln verboten ist, konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Flüchen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
 Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}\n\n .
 Subclass/&BloodWitchMagicTitle	Die Blutmagie
@@ -1868,7 +1875,7 @@ Subclass/&PowerSpellShieldRangedDeflectionDescription	Wenn ein Angreifer, den du
 Subclass/&PowerSpellShieldRangedDeflectionTitle	Fernablenkung
 Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Ihre Rüstung ist von magischen Verbesserungen Ihrer Fähigkeit durchdrungen, schlechte Auswirkungen zu vermeiden. Du erhältst 3W4 für jeden Rettungswurf, den du machst.
 Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Seele des Tüftlers
-Subclass/&PowerTinkererSpellStoringItemDescription	Als Bonusaktion kannst du Zauberslots zurückgewinnen. Sie können dies so oft pro Tag tun, wie es Ihrem Intellifence-Modifikator entspricht.
+Subclass/&PowerTinkererSpellStoringItemDescription	Als Bonusaktion kannst du Zauberslots zurückgewinnen. Sie können dies mehrmals am Tag in Höhe Ihres Intellifence-Modifikators tun.
 Subclass/&PowerTinkererSpellStoringItemTitle	Zauberspeichergegenstand
 Subclass/&PowerTransmuteConstitutionDescription	Benutze deine Transmutationskraft, um Konstitutionswürfe bis zur nächsten langen Pause zu beherrschen.
 Subclass/&PowerTransmuteConstitutionTitle	Verfassung speichert

@@ -3,68 +3,67 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.CustomUI
+namespace SolastaCommunityExpansion.CustomUI;
+
+public interface ICusomConcentrationProvider
 {
-    public interface ICusomConcentrationProvider
+    string Name { get; }
+    string Tooltip { get; }
+    AssetReferenceSprite Icon { get; }
+    void Stop(RulesetCharacter character);
+}
+
+public class CustomConcentrationControl : MonoBehaviour
+{
+    public static CustomConcentrationControl Setup(ICusomConcentrationProvider provider, RulesetCharacter character,
+        GameObject prefab, Transform parent)
     {
-        string Name { get; }
-        string Tooltip { get; }
-        AssetReferenceSprite Icon { get; }
-        void Stop(RulesetCharacter character);
+        CustomConcentrationControl control;
+
+        var name = $"CustomConcentration({provider.Name})";
+        var child = parent.Find(name);
+
+        if (child != null)
+        {
+            control = child.GetComponent<CustomConcentrationControl>();
+        }
+        else
+        {
+            var obj = Instantiate(prefab, parent, false);
+            obj.name = name;
+            control = obj.AddComponent<CustomConcentrationControl>();
+
+            control.Setup(provider, character);
+        }
+
+        control.UpdateState(provider, character);
+
+        return control;
     }
 
-    public class CustomConcentrationControl : MonoBehaviour
+
+    private void Setup(ICusomConcentrationProvider provider, RulesetCharacter character)
     {
-        public static CustomConcentrationControl Setup(ICusomConcentrationProvider provider, RulesetCharacter character,
-            GameObject prefab, Transform parent)
+        var image = transform.Find("ConcentrationImage").GetComponent<Image>();
+        if (image != null)
         {
-            CustomConcentrationControl control;
+            image.sprite = null;
+            image.SetupSprite(provider.Icon);
+        }
+    }
 
-            var name = $"CustomConcentration({provider.Name})";
-            var child = parent.Find(name);
+    private void UpdateState(ICusomConcentrationProvider provider, RulesetCharacter character)
+    {
+        gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
-            if (child != null)
-            {
-                control = child.GetComponent<CustomConcentrationControl>();
-            }
-            else
-            {
-                var obj = Instantiate(prefab, parent, false);
-                obj.name = name;
-                control = obj.AddComponent<CustomConcentrationControl>();
-
-                control.Setup(provider, character);
-            }
-
-            control.UpdateState(provider, character);
-
-            return control;
+        var tooltip = GetComponent<GuiTooltip>();
+        if (tooltip != null)
+        {
+            tooltip.Content = provider.Tooltip;
         }
 
-
-        private void Setup(ICusomConcentrationProvider provider, RulesetCharacter character)
-        {
-            var image = transform.Find("ConcentrationImage").GetComponent<Image>();
-            if (image != null)
-            {
-                image.sprite = null;
-                image.SetupSprite(provider.Icon);
-            }
-        }
-
-        private void UpdateState(ICusomConcentrationProvider provider, RulesetCharacter character)
-        {
-            gameObject.SetActive(true); //Do we need ability to set to inactive on update?
-
-            var tooltip = GetComponent<GuiTooltip>();
-            if (tooltip != null)
-            {
-                tooltip.Content = provider.Tooltip;
-            }
-
-            var button = GetComponent<Button>();
-            button.onClick.RemoveAllListeners();
-            button.onClick.AddListener(() => provider.Stop(character));
-        }
+        var button = GetComponent<Button>();
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => provider.Stop(character));
     }
 }

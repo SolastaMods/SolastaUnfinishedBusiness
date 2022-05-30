@@ -1,25 +1,24 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 
-namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip
+namespace SolastaCommunityExpansion.Patches.GameUi.Tooltip;
+
+[HarmonyPatch(typeof(UsablePowerBox), "Bind")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class UsablePowerBox_Bind
 {
-    [HarmonyPatch(typeof(UsablePowerBox), "Bind")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UsablePowerBox_Bind
+    internal static void Postfix(UsablePowerBox __instance)
     {
-        internal static void Postfix(UsablePowerBox __instance)
+        CharacterControlPanel panel = __instance.GetComponentInParent<CharacterControlPanelExploration>();
+        if (panel == null)
         {
-            CharacterControlPanel panel = __instance.GetComponentInParent<CharacterControlPanelExploration>();
+            panel = __instance.GetComponentInParent<CharacterControlPanelBattle>();
             if (panel == null)
             {
-                panel = __instance.GetComponentInParent<CharacterControlPanelBattle>();
-                if (panel == null)
-                {
-                    return;
-                }
+                return;
             }
-
-            __instance.GuiTooltip.Context = panel.GuiCharacter?.RulesetCharacter;
         }
+
+        __instance.GuiTooltip.Context = panel.GuiCharacter?.RulesetCharacter;
     }
 }

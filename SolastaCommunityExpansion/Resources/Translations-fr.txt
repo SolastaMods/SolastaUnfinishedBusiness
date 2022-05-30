@@ -28,7 +28,7 @@ Class/&WitchFamiliarPowerTitle	Familier
 Class/&WitchFeatureSetBurnedCurseDescription	La quasi-totalité de votre corps a été brûlée par des flammes arcaniques, vous laissant avec des cicatrices noires saisissantes et des braises de magie qui brûlent sous la peau. En conséquence, vous avez une résistance aux dégâts de feu et vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
 Class/&WitchFeatureSetBurnedCurseTitle	Brûlé
 Class/&WitchFeatureSetLovelessCurseDescription	Tu es maudit de ne jamais trouver le véritable amour. Blasé et désaffecté, même la magie ne peut transformer votre cœur ; par conséquent, vous êtes immunisé contre le charme.
-Class/&WitchFeatureSetLovelessCurseTitle	Sans amour
+Class/&WitchFeatureSetLovelessCurseTitle	sans amour
 Class/&WitchFeatureSetRitualCastingDescription	Vous pouvez lancer n'importe quel sort de sorcière que vous connaissez en tant que rituel si ce sort a l'étiquette de rituel.
 Class/&WitchFeatureSetRitualCastingTitle	Casting rituel de sorcière
 Class/&WitchFeatureSetVisionsCurseDescription	Vous êtes maudit d'avoir de terribles visions de l'avenir, présageant la mort de vos amis, de votre famille et de vous-même. Cependant, bon nombre de ces visions sont de cruelles tromperies, elles sont parfois d'une précision sinistre. Vous pouvez ajouter votre modificateur de Charisme, en plus de votre modificateur de Dextérité, à vos jets d'initiative.
@@ -130,7 +130,7 @@ Condition/&EWSunlightBladeDamageDescription	À partir du niveau 5, l'attaque dé
 Condition/&EWSunlightBladeDamageTitle	Brûlure de la Lame ensoleillée
 Condition/&FrenziedDescription	Cette créature est frénétique et attaquera la créature la plus proche.
 Condition/&FrenziedTitle	Frénétique
-Condition/&HalfLifeConditionDescription	Vous prenez de l'énergie nécrotique en vous et vous êtes suspendu entre la vie et la mort et êtes temporairement possédé par votre propre fantôme, gagnant le vol et les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
+Condition/&HalfLifeConditionDescription	Vous prenez de l'énergie nécrotique en vous et vous vous suspendez entre la vie et la mort et êtes temporairement possédé par votre propre fantôme, gagnant le vol, et les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
 Condition/&HalfLifeConditionTitle	Demi vie
 Condition/&HelpActionDescription	Cette créature a été distraite.
 Condition/&HelpActionTitle	Distraits
@@ -142,6 +142,7 @@ Condition/&RuinDescription	État de ruine.
 Condition/&RuinedDescription	La défense de cette créature est réduite.
 Condition/&RuinedTitle	Ruiné
 Condition/&RuinTitle	Ruine
+Condition/&SentinelStopMovementConditionTitle	Arrêté
 Condition/&SwallowedByToadConditionDescription	Subit 3D6 dégâts d'acide par tour. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque.
 Condition/&SwallowedByToadConditionTitle	Avalé par le crapaud
 Condition/&SwallowingToadConditionDescription	Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque.
@@ -565,6 +566,8 @@ Feat/&FeatPugilistFightingStlyeTitle	Style de combat : Pugiliste
 Feat/&FeatSavageAttackerDescription	Relancez les dés de dégâts des armes et des sorts lorsqu'ils obtiennent un 1 (ne relance pas toutes les sources de dégâts, par exemple exclut l'attaque sournoise et le châtiment).
 Feat/&FeatSavageAttackerReroll	En raison d'être un attaquant sauvage, {0} relance le {1} dé d'un {2} à un {3}
 Feat/&FeatSavageAttackerTitle	Attaquant sauvage
+Feat/&FeatSentinelDescription	Vous avez maîtrisé des techniques pour profiter de chaque baisse de la garde de n'importe quel ennemi, obtenant les avantages suivants :\n - Lorsque vous touchez une créature avec une attaque d'opportunité, la vitesse de la créature passe à 0 pour le reste du tour.\n - Les créatures provoquent des attaques d'opportunité de votre part même si elles effectuent l'action Désengager avant de quitter votre portée.\n - Lorsqu'une créature effectue une attaque contre une cible autre que vous (et que cette cible n'a pas ce don), vous pouvez utiliser votre réaction pour effectuer une attaque au corps à corps avec une arme contre la créature attaquante.
+Feat/&FeatSentinelTitle	Sentinelle
 Feat/&FeatShadowTouchedChaDescription	Augmentez l'attribut Charisme de 1. Obtenez la capacité de lancer Invisibilité, Infliger des blessures et Fausse vie une fois par repos long et apprenez les sorts.
 Feat/&FeatShadowTouchedChaTitle	Touché par l'ombre (charisme)
 Feat/&FeatShadowTouchedIntDescription	Augmentez l'attribut Intelligence de 1. Obtenez la capacité de lancer Invisibilité, Infliger des blessures et Fausse vie une fois par repos long et apprenez les sorts.
@@ -647,7 +650,7 @@ Feat/&GauntletsGrappleDescription	Peut désormais attirer les ennemis au corps �
 Feat/&GauntletsGrappleTitle	Gantelet grappin
 Feat/&HalfCoverShieldDescription	Donne 2 AC à moins de 10 pieds.
 Feat/&HalfCoverShieldTitle	Dôme demi-couverture
-Feat/&HealerDescription	Vous acquérez une compétence ou une expertise dans les contrôles de médecine. Vous gagnez la capacité de stabiliser une créature mourante ainsi que de faire revivre une créature morte au cours des 12 dernières secondes une fois par repos long. Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie du niveau du personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
+Feat/&HealerDescription	Vous acquérez une compétence ou une expertise dans les contrôles de médecine. Vous gagnez la capacité de stabiliser une créature mourante ainsi que de faire revivre une créature morte au cours des 12 dernières secondes une fois par repos long. Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie de niveau de personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
 Feat/&HealerResuscitateDescription	Utilisez une action pour faire revivre une créature qui est morte dans les 15 dernières secondes.
 Feat/&HealerResuscitateTitle	Réanimer
 Feat/&HealerStabilizeDescription	Utilisez une action pour stabiliser une créature mourante.
@@ -749,7 +752,7 @@ Feat/&TempHPShieldConstructDescription	Confère 1D8 + 4 PV temporaires aux alli�
 Feat/&TempHPShieldConstructTitle	Construction de dôme de protection
 Feat/&TempHPShieldConstructTitle_3	Construction de dôme de protection
 Feat/&TempHPShieldConstructTitle_5	Construction de dôme de protection
-Feat/&TempHPShieldDescription	Fournit 1D8 + 4 TempHP aux alliés à moins de 10 pieds.
+Feat/&TempHPShieldDescription	Fournissez 1D8 + 4 TempHP aux alliés à moins de 10 pieds.
 Feat/&ThunderShieldDescription	Le bouclier défensif fournit un niveau TempHP x. 5 fois par jour.
 Feat/&ThunderShieldTitle	Bouclier de tonnerre
 Feat/&TinkererConstructFamilyDescription	Créé par Tinkerer.
@@ -800,7 +803,7 @@ Feature/&ArcaneDetonationUpgradeDescription	À partir du niveau 11, les dégâts
 Feature/&ArcaneDetonationUpgradeTitle	Détonation des arcanes supérieure
 Feature/&ArcanePulseDescription	À partir du niveau 7, vous pouvez provoquer une éruption d'énergie arcanique à une distance de 9 mètres. Les créatures hostiles situées dans un rayon de 4,50 mètres autour du point d'impact subissent 4d8 dégâts et gagnent une marque d'arcaniste. Vous pouvez utiliser cette capacité un nombre de fois égal à votre modificateur de sagesse par repos long. Au niveau 15, les dégâts de votre Arcane Pulse passent à 8d8.
 Feature/&ArcanePulseTitle	Impulsion arcanique
-Feature/&ArcanistAutoPreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de rôdeur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de rôdeur que vous connaissez :\n{0}\n\n.
+Feature/&ArcanistAutoPreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de rôdeur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de rôdeur que vous connaissez :\n{0}
 Feature/&ArcanistAutoPreparedSpellsTitle	Sorts bonus d'arcaniste de rôdeur
 Feature/&ArcanistMarkDescription	À partir du niveau 3, vous imprégnez vos armes d'un pouvoir arcanique. Les créatures touchées par vos attaques sont affectées par la marque de l'arcaniste.
 Feature/&ArcanistMarkTitle	Marque d'arcaniste
@@ -847,11 +850,11 @@ Feature/&ClassMonkKiEmpoweredStrikesTitle	Frappes renforcées par le Ki
 Feature/&ClassMonkKiTitle	Ki
 Feature/&ClassMonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n - Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de moine.\n - Vous pouvez lancer un d4 à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine. Ce dé change à mesure que vous gagnez des niveaux de moine.\n - Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus.
 Feature/&ClassMonkMartialArtsTitle	Arts martiaux
-Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine.
+Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
 Feature/&ClassMonkMartialDiceProgression00Title	Augmentation du dé d'arts martiaux (D6)
 Feature/&ClassMonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>D8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
 Feature/&ClassMonkMartialDiceProgression01Title	Augmentation du dé d'arts martiaux (D8)
-Feature/&ClassMonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>D10</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
+Feature/&ClassMonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>D10</color> à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine.
 Feature/&ClassMonkMartialDiceProgression02Title	Augmentation du dé d'arts martiaux (D10)
 Feature/&ClassMonkPerfectSelfDescription	Lorsque vous commencez la bataille et qu'il ne vous reste plus de points de ki, vous regagnez 4 points de ki.
 Feature/&ClassMonkPerfectSelfTitle	Soi parfait
@@ -873,8 +876,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont con
 Feature/&ClassMonkZenArcherCombatTitle	Combat à distance
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Flèches époustouflantes
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
 Feature/&ClassWarlockArmorProficiencyDescription	Armure légère.
 Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation à remplacer.
@@ -902,7 +905,7 @@ Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Endurance imp
 Feature/&DevilsSightDescription	Vous pouvez voir normalement dans les ténèbres, à la fois magiques et non magiques, à une distance de 120 pieds.
 Feature/&DevilsSightTitle	La vue du diable
 Feature/&DH_BlinkDescription	Par une action bonus, vous disparaissez de votre plan d'existence actuel, évitant tous les dégâts. Au début de votre prochain tour, vous retournez dans la case d'où vous avez disparu.
-Feature/&DH_BlinkTitle	Clignoter
+Feature/&DH_BlinkTitle	Cligner
 Feature/&DH_FadeIntoTheVoidDescription	Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, vous tombez à 1 point de vie à la place alors que vous vous fondez brièvement dans le vide pour réduire les dégâts. Vous ne pouvez plus utiliser cette fonctionnalité tant que vous n'avez pas terminé un repos long.
 Feature/&DH_FadeIntoTheVoidTitle	Fondu dans le vide
 Feature/&DH_RiftCloakDescription	Votre contrôle des portails de faille a augmenté au point que vous pouvez désormais accorder la protection de la faille à d'autres. Vous pouvez lancer Lien protecteur à volonté (sans partager les dégâts).
@@ -952,7 +955,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	À partir du niveau 6, vous p
 Feature/&DruidForestGuardianExtraAttackTitle	Attaque supplémentaire
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Votre Bark Ward pousse maintenant des épines, ce qui endommage les attaquants de mêlée. Les ennemis qui réussissent à vous toucher avec une attaque au corps à corps subissent 2d8 dégâts perforants.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Bark Ward amélioré
-Feature/&DruidForestGuardianMagicDescription	À partir du niveau 2, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\n{0}\n\n.
+Feature/&DruidForestGuardianMagicDescription	À partir du niveau 2, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\n{0}
 Feature/&DruidForestGuardianMagicTitle	Sorts de cercle
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Votre compétence Bark Ward renvoie désormais 3d8 dégâts perforants sur les attaquants au corps à corps. De plus, Bark Ward vous confère désormais une immunité contre le poison tant qu'il est actif.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Quartier supérieur de l'écorce
@@ -974,16 +977,16 @@ Feature/&EldritchSmiteTitle	Châtiment occulte
 Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}\n\n  .
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&ElementalPactAirPlane	Avion
-Feature/&ElementalPactAstralPlane	Plan astral
+Feature/&ElementalPactAstralPlane	Plan Astral
 Feature/&ElementalPactEarthPlane	Plan de la Terre
 Feature/&ElementalPactEtherealPlane	Plan éthéré
 Feature/&ElementalPactFirePlane	Avion de pompiers
 Feature/&ElementalPactIcePlane	Avion de glace
 Feature/&ElementalPactShadowPlane	Plan d'ombre
 Feature/&ElementalPatronDummyFeatureSetTitle	Elémentaliste
-Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour.
+Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round.
 Feature/&ElementalPatronElementalConditionFormatTitle	Canaliser {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round.
+Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour.
 Feature/&ElementalPatronElementalDamageFormatTitle	Dégâts élémentaires : {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Lorsque vous canalisez le {0}, vous gagnez l'immunité contre {1} et appliquez le bonus de compétence en tant que dégâts du même type au premier coup à chaque round.
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canaliser {0}
@@ -1022,7 +1025,7 @@ Feature/&GnomeCunningFeatureTitle	Ruse
 Feature/&GnomeNaturalIllusionistDescription	Vous connaissez le sort mineur Annoying Bee. L'intelligence est votre modificateur d'incantation pour cela.
 Feature/&GnomeNaturalIllusionistTitle	Magie Naturelle
 Feature/&HerbalBrewDescription	Lorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
-Feature/&HerbalBrewFeatureSetDescription	Vous gagnez en compétence avec le kit d'empoisonnement ou les kits d'herboristerie si vous ne l'avez pas déjà.\nLorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
+Feature/&HerbalBrewFeatureSetDescription	Vous gagnez en compétence avec le kit d'empoisonnement ou les kits d'herboristerie si vous ne l'avez pas déjà.\nLorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
 Feature/&HerbalBrewFeatureSetTitle	Brassage aux herbes
 Feature/&HinderingBlastDescription	Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.
 Feature/&HinderingBlastMagicAffinityDescription	lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.
@@ -1159,7 +1162,7 @@ Feature/&WitchMaledictionChoiceDescription	Vous pouvez apprendre un certain nomb
 Feature/&WitchMaledictionChoiceTitle	Malédictions
 Feature/&WitchSightDescription	Vous pouvez sentir ou voir l'invisibilité jusqu'à 60 pieds.
 Feature/&WitchSightTitle	Vue de sorcière
-Feature/&ZSPowerPaladinCleansingTouchDescription	Retirer les effets de sorts en touchant un allié. Vous pouvez le faire plusieurs fois par jour égal à votre modificateur de Charisme.
+Feature/&ZSPowerPaladinCleansingTouchDescription	Supprimez les effets des sorts en touchant un allié. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur de Charisme.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Toucher nettoyant
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosion agonisante
 Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez un sort en utilisant des dégâts de force (eldritch blast), ajoutez votre modificateur de Charisme aux dégâts qu'il inflige sur un coup
@@ -1438,6 +1441,10 @@ Reaction/&CastSpellInRetributionReactDescription	Cliquez pour diffuser {0}.
 Reaction/&CastSpellInRetributionReactTitle	Lancer un sort
 Reaction/&CastSpellInRetributionTitle	Lancer un sort de réaction
 Reaction/&CustomDeflectMissileClassMonkTitle	{0} attaque {1}, qui peut réagir pour réduire les dégâts subis de 1D10 + modificateur DEX + niveau de Moine
+Reaction/&ReactionAttackFeatSentinelDescription	{0} a attaqué un de vos alliés, en réponse vous pouvez utiliser votre réaction pour attaquer.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Utilisez la réaction pour attaquer.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Attaque
+Reaction/&ReactionAttackFeatSentinelTitle	Réaction sentinelle
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} touche une créature avec l'une des attaques conférées par Déluge de coups et peut imposer l'un des effets suivants à cette cible :
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Appliquer la technique sélectionnée.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Appliquer
@@ -1470,7 +1477,7 @@ Reaction/&SpendPowerDiamondSoulReactTitle	Relancer
 Reaction/&SpendPowerDiamondSoulTitle	Âme de diamant
 Reaction/&SpendPowerInspirePowerDescription	Dépensez un dé de gambit et inspirez ou votre allié pour donner 1d6+2 PV temporaires.
 Reaction/&SpendPowerInspirePowerTitle	Inspirer
-Reaction/&SpendPowerKnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et les renverser jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence.
+Reaction/&SpendPowerKnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et les assommer jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence.
 Reaction/&SpendPowerKnockDownPowerReactDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et les renverser jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence.
 Reaction/&SpendPowerKnockDownPowerReactTitle	Abattre
 Reaction/&SpendPowerKnockDownPowerTitle	Abattre
@@ -1559,7 +1566,7 @@ Spell/&AirBlastDescription	Tire une rafale d'air concentré sur votre cible.
 Spell/&AirBlastTitle	Jet d'air
 Spell/&BurstOfRadianceDescription	Créez un flash brillant de lumière scintillante, endommageant tous les ennemis autour de vous.
 Spell/&BurstOfRadianceTitle	Explosion d'éclat
-Spell/&CJDivineWordDescription	Vous prononcez une parole divine, imprégnée du pouvoir qui a façonné le monde à l'aube de la création. Choisissez n'importe quel nombre de créatures que vous pouvez voir à portée. Chaque créature qui peut vous entendre doit effectuer un jet de sauvegarde de Charisme. En cas d'échec, une créature subit un effet basé sur ses points de vie actuels :\n50 points de vie ou moins : assourdi pendant 1 minute\n40 points de vie ou moins : assourdi et aveuglé pendant 10 minutes\n30 points de vie ou moins : aveuglé, assourdi et étourdi pendant 1 heure\n20 points de vie ou moins : tué instantanément\nIndépendamment de ses points de vie actuels, un céleste, un élémentaire, une fée ou un démon qui échoue à sa sauvegarde est forcé de retourner à son plan d'origine (s'il n'y est pas déjà) et ne peut pas retourner dans votre plan actuel pendant 24 heures par tous les moyens à moins d'un sort de souhait.\n.
+Spell/&CJDivineWordDescription	Vous prononcez une parole divine, imprégnée du pouvoir qui a façonné le monde à l'aube de la création. Choisissez n'importe quel nombre de créatures que vous pouvez voir à portée. Chaque créature qui peut vous entendre doit effectuer un jet de sauvegarde de Charisme. En cas d'échec, une créature subit un effet basé sur ses points de vie actuels :\n50 points de vie ou moins : assourdi pendant 1 minute\n40 points de vie ou moins : assourdi et aveuglé pendant 10 minutes\n30 points de vie ou moins : aveuglé, assourdi et étourdi pendant 1 heure\n20 points de vie ou moins : tué instantanément\nIndépendamment de ses points de vie actuels, un céleste, un élémentaire, une fée ou un démon qui échoue à sa sauvegarde est forcé de retourner à son plan d'origine (s'il n'y est pas déjà) et ne peut pas retourner dans votre plan actuel pendant 24 heures par tous les moyens à moins d'un sort de souhait.
 Spell/&CJDivineWordTitle	Parole divine
 Spell/&DHAnimalShapesSpellDescription	Choisissez n'importe quel nombre de créatures consentantes que vous pouvez voir à portée. Vous transformez chaque cible en une bête de grande taille ou plus petite avec un niveau de défi de 4 ou moins.
 Spell/&DHAnimalShapesSpellTitle	Formes d'animaux
@@ -1569,7 +1576,7 @@ Spell/&DHCastSpellGuardianNagaDescription	Capacité d'incantation d'archimage.
 Spell/&DHCastSpellGuardianNagaTitle	Capacité d'incantation d'archimage
 Spell/&DHCastSpellLichDescription	Capacité de lancer de liche.
 Spell/&DHCastSpellLichTitle	Capacité de lancer de liche
-Spell/&DHConjureCelestialSpellDescription	Vous invoquez un céleste de niveau de défi 4 ou inférieur, qui apparaît dans un espace inoccupé que vous pouvez voir à portée. Le céleste disparaît lorsqu'il tombe à 0 point de vie ou lorsque le sort se termine. Le céleste est amical avec vous et vos compagnons pour la durée.
+Spell/&DHConjureCelestialSpellDescription	Vous invoquez un céleste de niveau de défi 4 ou inférieur, qui apparaît dans un espace inoccupé que vous pouvez voir à portée. Le céleste disparaît lorsqu'il tombe à 0 points de vie ou lorsque le sort se termine. Le céleste est amical avec vous et vos compagnons pour la durée.
 Spell/&DHConjureCelestialSpellTitle	Conjuration céleste (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Vous tentez de séduire une créature que vous pouvez voir à portée. Il doit réussir un jet de sauvegarde de Sagesse ou être charmé par vous pour la durée.
 Spell/&DHDominateMonsterSpellTitle	Dominer le monstre
@@ -1581,7 +1588,7 @@ Spell/&DHForesightSpellDescription	Vous touchez une créature consentante et lui
 Spell/&DHForesightSpellTitle	Prévoyance
 Spell/&DHHolyAuraSpellDescription	La lumière divine s'éloigne de vous et fusionne en un doux éclat dans un rayon de 9 mètres autour de vous. Les créatures de votre choix dans ce rayon lorsque vous lancez ce sort émettent une faible lumière dans un rayon de 1,50 mètre et ont un avantage à tous les jets de sauvegarde, et les autres créatures ont un désavantage aux jets d'attaque contre elles jusqu'à la fin du sort.
 Spell/&DHHolyAuraSpellTitle	Aura sacrée
-Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises chauffées à blanc apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant toute la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse. Lorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour. Le nuage s'éloigne directement de 3 mètres de vous dans une direction que vous choisissez au début de chacun de vos tours. .
+Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises incandescentes apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 16 km/h) le disperse. Lorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour. Le nuage s'éloigne directement de 3 mètres de vous dans une direction que vous choisissez au début de chacun de vos tours. .
 Spell/&DHIncendiaryCloudSpellTitle	Nuage incendiaire
 Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez jusqu'à 700 points de vie, répartis comme vous le souhaitez parmi n'importe quel nombre de créatures que vous pouvez voir à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
 Spell/&DHMassHealSpellTitle	Guérison de masse
@@ -1945,7 +1952,7 @@ Subclass/&WeaponProfArtificerBattleSmithTitle	Entraînement aux armes
 Subclass/&WhiteWitchDescription	La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
 Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}\n\n .
 Subclass/&WhiteWitchMagicTitle	Magie blanche
-Subclass/&WhiteWitchTitle	Sorcière blanche
+Subclass/&WhiteWitchTitle	Sorcière Blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
@@ -1967,7 +1974,7 @@ UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités su
 UI/&CustomFeatureSelectionStageFeatures	Fonctionnalités
 UI/&CustomFeatureSelectionStageNotDone	Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer
 UI/&CustomFeatureSelectionStageTitle	Sélection de fonctionnalité
-UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeCantrip	cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Caractéristique
 UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence

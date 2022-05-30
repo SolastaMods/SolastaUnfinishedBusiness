@@ -3,56 +3,55 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomReactions;
+
+[HarmonyPatch(typeof(ReactionModal), "ReactionTriggered")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class ReactionModal_ReactionTriggered
 {
-    [HarmonyPatch(typeof(ReactionModal), "ReactionTriggered")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ReactionModal_ReactionTriggered
+    public static bool Prefix(ReactionRequest request)
     {
-        public static bool Prefix(ReactionRequest request)
+        var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
+
+        if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel
+            && isCtrlPressed
+            && (!Main.Settings.EnableIgnoreCtrlClickOnCriticalHit || !Global.CriticalHit))
         {
-            var isCtrlPressed = Input.GetKey(KeyCode.RightControl) || Input.GetKey(KeyCode.LeftControl);
+            ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
 
-            if (Main.Settings.EnableCtrlClickBypassAttackReactionPanel
-                && isCtrlPressed
-                && (!Main.Settings.EnableIgnoreCtrlClickOnCriticalHit || !Global.CriticalHit))
-            {
-                ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
-
-                return false;
-            }
-
-            //
-            // wildshape heroes should not be able to cast spells
-            //
-            var rulesetCharacter = request.Character.RulesetCharacter;
-
-            if (rulesetCharacter.IsSubstitute
-                && (request is ReactionRequestCastSpell
-                    || request is ReactionRequestCastFallPreventionSpell
-                    || request is ReactionRequestCastImmunityToSpell))
-            {
-                ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
-                return false;
-            }
-
-            //
-            // TODO: Create a FeatureBuilder with Validators to create a generic check here
-            //
-
-            //
-            // Tacticians heroes should only CounterStrike with melee weapons
-            //
-            if (request is ReactionRequestCounterAttackWithPower
-                && request.SuboptionTag == "CounterStrike"
-                && request.Character.RulesetCharacter is RulesetCharacterHero hero
-                && hero.IsWieldingRangedWeapon())
-            {
-                ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
-                return false;
-            }
-
-            return true;
+            return false;
         }
+
+        //
+        // wildshape heroes should not be able to cast spells
+        //
+        var rulesetCharacter = request.Character.RulesetCharacter;
+
+        if (rulesetCharacter.IsSubstitute
+            && (request is ReactionRequestCastSpell
+                || request is ReactionRequestCastFallPreventionSpell
+                || request is ReactionRequestCastImmunityToSpell))
+        {
+            ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
+            return false;
+        }
+
+        //
+        // TODO: Create a FeatureBuilder with Validators to create a generic check here
+        //
+
+        //
+        // Tacticians heroes should only CounterStrike with melee weapons
+        //
+        if (request is ReactionRequestCounterAttackWithPower
+            && request.SuboptionTag == "CounterStrike"
+            && request.Character.RulesetCharacter is RulesetCharacterHero hero
+            && hero.IsWieldingRangedWeapon())
+        {
+            ServiceRepository.GetService<ICommandService>().ProcessReactionRequest(request, false);
+            return false;
+        }
+
+        return true;
     }
 }

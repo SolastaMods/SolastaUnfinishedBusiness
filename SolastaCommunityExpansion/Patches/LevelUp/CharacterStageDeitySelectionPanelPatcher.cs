@@ -2,18 +2,17 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp;
+
+[HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "UpdateRelevance")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class CharacterStageDeitySelectionPanel_UpdateRelevance
 {
-    [HarmonyPatch(typeof(CharacterStageDeitySelectionPanel), "UpdateRelevance")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class CharacterStageDeitySelectionPanel_UpdateRelevance
+    internal static void Postfix(CharacterStageDeitySelectionPanel __instance)
     {
-        internal static void Postfix(RulesetCharacterHero ___currentHero, ref bool ___isRelevant)
+        if (LevelUpContext.IsLevelingUp(__instance.currentHero))
         {
-            if (LevelUpContext.IsLevelingUp(___currentHero))
-            {
-                ___isRelevant = LevelUpContext.RequiresDeity(___currentHero);
-            }
+            __instance.isRelevant = LevelUpContext.RequiresDeity(__instance.currentHero);
         }
     }
 }

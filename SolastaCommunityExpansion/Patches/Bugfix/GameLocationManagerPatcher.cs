@@ -6,12 +6,12 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.Bugfix
+namespace SolastaCommunityExpansion.Patches.Bugfix;
+
+//prevent some effects from being removed when entering new location
+[HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
+internal static class GameLocationManager_StopCharacterEffectsIfRelevant
 {
-    //prevent some effects from being removed when entering new location
-    [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
-    internal static class GameLocationManager_StopCharacterEffectsIfRelevant
-    {
 #if false //Disabling force unsummon part since it looks like it is needed
         internal static void Prefix(GameLocationManager __instance, bool willEnterChainedLocation)
         {
@@ -40,47 +40,46 @@ namespace SolastaCommunityExpansion.Patches.Bugfix
         }
 #endif
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var code = instructions.ToList();
+
+        if (!Main.Settings.BugFixHeroKeepConditionsAcrossLocations)
         {
-            var code = instructions.ToList();
-
-            if (!Main.Settings.BugFixHeroKeepConditionsAcrossLocations)
-            {
-                return code;
-            }
-
-            var removeEffects = code.FindIndex(x =>
-                x.opcode == OpCodes.Callvirt && x.operand.ToString().Contains("Terminate"));
-            var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
-
-            code[removeEffects] = new CodeInstruction(OpCodes.Call, maybeTerminate);
-            code.Insert(removeEffects, new CodeInstruction(OpCodes.Ldarg_1));
-
             return code;
         }
 
-        internal static void MaybeTerminate(RulesetEffect effect, bool self, bool willEnterChainedLocation)
+        var removeEffects = code.FindIndex(x =>
+            x.opcode == OpCodes.Callvirt && x.operand.ToString().Contains("Terminate"));
+        var maybeTerminate = new Action<RulesetEffect, bool, bool>(MaybeTerminate).Method;
+
+        code[removeEffects] = new CodeInstruction(OpCodes.Call, maybeTerminate);
+        code.Insert(removeEffects, new CodeInstruction(OpCodes.Ldarg_1));
+
+        return code;
+    }
+
+    internal static void MaybeTerminate(RulesetEffect effect, bool self, bool willEnterChainedLocation)
+    {
+        var baseDefinition = effect.SourceDefinition;
+
+        if (baseDefinition != null)
         {
-            var baseDefinition = effect.SourceDefinition;
+            var skip = baseDefinition.GetFirstSubFeatureOfType<ISKipEffectRemovalOnLocationChange>();
 
-            if (baseDefinition != null)
+            if (skip != null && skip.Skip(willEnterChainedLocation))
             {
-                var skip = baseDefinition.GetFirstSubFeatureOfType<ISKipEffectRemovalOnLocationChange>();
-
-                if (skip != null && skip.Skip(willEnterChainedLocation))
-                {
-                    return;
-                }
-
-                var effectDescription = effect.EffectDescription;
-                if (willEnterChainedLocation
-                    && RuleDefinitions.MatchesMagicType(effectDescription, RuleDefinitions.MagicType.SummonsCreature))
-                {
-                    return;
-                }
+                return;
             }
 
-            effect.Terminate(self);
+            var effectDescription = effect.EffectDescription;
+            if (willEnterChainedLocation
+                && RuleDefinitions.MatchesMagicType(effectDescription, RuleDefinitions.MagicType.SummonsCreature))
+            {
+                return;
+            }
         }
+
+        effect.Terminate(self);
     }
 }

@@ -2,17 +2,16 @@
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
 
-namespace SolastaCommunityExpansion.Level20.SubClasses
+namespace SolastaCommunityExpansion.Level20.SubClasses;
+
+internal static class MartialSpellBladeBuilder
 {
-    internal static class MartialSpellBladeBuilder
+    internal static void Load()
     {
-        internal static void Load()
-        {
-            CastSpellMartialSpellBlade.SetSpellCastingLevel(4);
+        CastSpellMartialSpellBlade.SetSpellCastingLevel(4);
 
-            CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
+        CastSpellMartialSpellBlade.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-            CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
-        }
+        CastSpellMartialSpellBlade.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
     }
 }

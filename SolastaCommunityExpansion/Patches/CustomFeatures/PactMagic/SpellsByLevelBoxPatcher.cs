@@ -3,48 +3,46 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.PactMagic;
+
+// Guarantee Warlock Spell Level will be used whenever possible on SC Warlocks
+[HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateStandardBox")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class SpellsByLevelBox_OnActivateStandardBox
 {
-    // Guarantee Warlock Spell Level will be used whenever possible on SC Warlocks
-    [HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateStandardBox")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class SpellsByLevelBox_OnActivateStandardBox
+    public static int MySpellLevel(SpellDefinition spellDefinition, SpellsByLevelBox spellsByLevelBox)
     {
-        public static int MySpellLevel(SpellDefinition spellDefinition, SpellsByLevelBox spellsByLevelBox)
+        var rulesetSpellRepertoire =
+            spellsByLevelBox.spellRepertoire;
+        var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
+
+        if (isWarlockSpell && spellDefinition.SpellLevel > 0)
         {
-            var rulesetSpellRepertoire =
-                spellsByLevelBox.GetField<SpellsByLevelBox, RulesetSpellRepertoire>("spellRepertoire");
-            var isWarlockSpell = SharedSpellsContext.IsWarlock(rulesetSpellRepertoire.SpellCastingClass);
+            var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
-            if (isWarlockSpell && spellDefinition.SpellLevel > 0)
-            {
-                var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
-                var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-
-                return warlockSpellLevel;
-            }
-
-            return spellDefinition.SpellLevel;
+            return warlockSpellLevel;
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
-            var mySpellLevelMethod = typeof(SpellsByLevelBox_OnActivateStandardBox).GetMethod("MySpellLevel");
+        return spellDefinition.SpellLevel;
+    }
 
-            foreach (var instruction in instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var spellLevelMethod = typeof(SpellDefinition).GetMethod("get_SpellLevel");
+        var mySpellLevelMethod = typeof(SpellsByLevelBox_OnActivateStandardBox).GetMethod("MySpellLevel");
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(spellLevelMethod))
             {
-                if (instruction.Calls(spellLevelMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_0);
-                    yield return new CodeInstruction(OpCodes.Call, mySpellLevelMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                yield return new CodeInstruction(OpCodes.Ldarg_0);
+                yield return new CodeInstruction(OpCodes.Call, mySpellLevelMethod);
+            }
+            else
+            {
+                yield return instruction;
             }
         }
     }

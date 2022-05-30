@@ -1,7 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IAddExtraAttack
 {
-    public interface IAddExtraAttack
-    {
-        void TryAddExtraAttack(RulesetCharacterHero hero);
-    }
+    void TryAddExtraAttack(RulesetCharacterHero hero);
 }

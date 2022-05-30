@@ -1,7 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IConditionalPower
 {
-    public interface IConditionalPower
-    {
-        bool IsActive(RulesetCharacterHero character);
-    }
+    bool IsActive(RulesetCharacterHero character);
 }

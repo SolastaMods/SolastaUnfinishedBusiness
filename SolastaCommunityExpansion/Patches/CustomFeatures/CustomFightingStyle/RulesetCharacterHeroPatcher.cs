@@ -5,52 +5,51 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaModApi.Extensions;
 using static FightingStyleDefinition;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle
+namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomFightingStyle;
+
+[HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacterHero_RefreshActiveFightingStyles
 {
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RulesetCharacterHero_RefreshActiveFightingStyles
+    internal static void Postfix(RulesetCharacterHero __instance)
     {
-        internal static void Postfix(RulesetCharacterHero __instance)
+        foreach (var fightingStyleDefinition in __instance.TrainedFightingStyles)
         {
-            foreach (var fightingStyleDefinition in __instance.TrainedFightingStyles)
+            bool? isActive = null;
+            if (fightingStyleDefinition is ICustomFightingStyle customFightingStyle)
             {
-                bool? isActive = null;
-                if (fightingStyleDefinition is ICustomFightingStyle customFightingStyle)
-                {
-                    isActive = customFightingStyle.IsActive(__instance);
-                }
+                isActive = customFightingStyle.IsActive(__instance);
+            }
 
-                // Count shield as weapons if character has `AddBonusShieldAttack` feature
-                if (fightingStyleDefinition.Condition == TriggerCondition.TwoMeleeWeaponsWielded)
+            // Count shield as weapons if character has `AddBonusShieldAttack` feature
+            if (fightingStyleDefinition.Condition == TriggerCondition.TwoMeleeWeaponsWielded)
+            {
+                if (__instance.IsWearingShield() &&
+                    __instance.HasSubFeatureOfType<AddBonusShieldAttack>())
                 {
-                    if (__instance.IsWearingShield() &&
-                        __instance.HasSubFeatureOfType<AddBonusShieldAttack>())
-                    {
-                        isActive = true;
-                    }
+                    isActive = true;
                 }
+            }
 
-                if (isActive == null)
-                {
-                    continue;
-                }
+            if (isActive == null)
+            {
+                continue;
+            }
 
-                // We don't know what normal fighting style condition was used or if it was met.
-                // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
-                if (isActive.Value)
+            // We don't know what normal fighting style condition was used or if it was met.
+            // The simplest thing to do is just make sure the active state of this fighting style is handled properly.
+            if (isActive.Value)
+            {
+                if (!__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
                 {
-                    if (!__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
-                    {
-                        __instance.ActiveFightingStyles.Add(fightingStyleDefinition);
-                    }
+                    __instance.ActiveFightingStyles.Add(fightingStyleDefinition);
                 }
-                else
+            }
+            else
+            {
+                if (__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
                 {
-                    if (__instance.ActiveFightingStyles.Contains(fightingStyleDefinition))
-                    {
-                        __instance.ActiveFightingStyles.Remove(fightingStyleDefinition);
-                    }
+                    __instance.ActiveFightingStyles.Remove(fightingStyleDefinition);
                 }
             }
         }

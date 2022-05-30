@@ -1,8 +1,7 @@
-﻿namespace SolastaCommunityExpansion.Subclasses
+﻿namespace SolastaCommunityExpansion.Subclasses;
+
+internal abstract class AbstractSubclass
 {
-    internal abstract class AbstractSubclass
-    {
-        internal abstract CharacterSubclassDefinition GetSubclass();
-        internal abstract FeatureDefinitionSubclassChoice GetSubclassChoiceList();
-    }
+    internal abstract CharacterSubclassDefinition GetSubclass();
+    internal abstract FeatureDefinitionSubclassChoice GetSubclassChoiceList();
 }

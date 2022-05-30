@@ -302,10 +302,10 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Adicionar tudo à loja
         ///ModUi/&amp;AddBleedingToLesserRestoration	Adicione a condição &lt;color=orange&gt;Sangramento&lt;/color&gt; às condições removidas pela &lt;color=orange&gt;Restauração Maior e Menor&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Adicione a ação &lt;color=orange&gt;Ajuda&lt;/color&gt; a todas as raças
+        ///ModUi/&amp;AddHelpActionToAllRaces	Adicione a ação &lt;color=orange&gt;Ajuda&lt;/color&gt; a todas as corridas
         ///ModUi/&amp;AddPickpocketableLoot	Adicionar espólio de carteirista &lt;i&gt;&lt;color=yellow&gt;[sugerido se o recurso &lt;color=orange&gt;Pocket&lt;/color&gt; estiver ativado]&lt;/color&gt;&lt;/i&gt;
         ///ModUi/&amp;AddToStore	Adicionar à loja
-        ///ModUi/&amp;Ad [rest of string was truncated]&quot;;.
+        ///ModUi/ [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_pt_BR {
             get {
@@ -333,9 +333,9 @@ namespace SolastaCommunityExpansion.Properties {
         ///ModUi/&amp;AddPickpocketableLoot	添加可扒窃的战利品 &lt;i&gt;&lt;color=yellow&gt;[建议在&lt;color=orange&gt;扒窃&lt;/color&gt;专长被启用时启用]&lt;/color&gt;&lt;/i&gt;
         ///ModUi/&amp;AddToStore	加入商店
         ///ModUi/&amp;Advanced	&lt;color=yellow&gt;进阶选项：&lt;/color&gt;
-        ///ModUi/&amp;AdvancedHelp	. &lt;b&gt;&lt;color=red&gt;注意：&lt;/color&gt;&lt;/b&gt; 此项设置将要求玩家安装此Mod
+        ///ModUi/&amp;AdvancedHelp	. &lt;b&gt;&lt;color=#C04040E0&gt;注意：&lt;/color&gt;&lt;/b&gt; 此项设置将要求玩家安装此Mod
         ///ModUi/&amp;Adventure	&lt;color=yellow&gt;冒险：&lt;/color&gt;
-        ///ModUi/&amp;AllItemInDm	所有物品加 [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AllItemInDm [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_zh_CN {
             get {
@@ -444,9 +444,14 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Wenn sie beschworen werden, manifestieren sich diese älteren Elementare als Wesen mit apokalyptischen Fähigkeiten, Wesenheiten, deren bloße Existenz Zerstörung verspricht.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Urzeitlicher Lufttitan&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Schwarze Drachen sind die bösartigsten und abscheulichsten der chromatischen Drachen und sammeln die Trümmer und Schätze gefallener Völker. Diese Drachen verabscheuen [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Umgekehrte Schwerkraft
+        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Umgekehrte Schwerkraft
+        ///Condition/&amp;DH_TimeStop_Spell_Description	Eingefroren durch Zeitstopp
+        ///Condition/&amp;DH_TimeStop_Spell_Title	Eingefroren durch Zeitstopp
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Gewitter
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Gewitter
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Beliebiger Feuerball
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Titl [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_de {
             get {
@@ -455,9 +460,15 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Primordial Air Titan&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	The most evil-tempered and vile of the chromatic dragons, black dragons collect the wreckage and treasures of fallen peoples. These dragons loathe seeing the weak prosper and revel in the collapse of huma [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Reverse Gravity
+        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Reverse Gravity
+        ///Condition/&amp;DH_TimeStop_Spell_Description	Frozen by Time Stop
+        ///Condition/&amp;DH_TimeStop_Spell_Title	Frozen by Time Stop
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Lightning Storm
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Lightning Storm
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	At-will Fireball
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Title	Fireball
+        ///Feature/ [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_en {
             get {
@@ -466,9 +477,15 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Lorsqu&apos;ils sont invoqués, ces élémentaux anciens se manifestent comme des êtres aux capacités apocalyptiques, des entités dont la simple existence promet la destruction.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Titan Primordial de l&apos;Air&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Le plus méchant et le plus vil des dragons chromatiques, les dragons noirs collectent les débris et les trésors des peuples déchus. Ces dragons détestent voir les fa [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Gravité inversée
+        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Gravité inversée
+        ///Condition/&amp;DH_TimeStop_Spell_Description	Gelé par l&apos;arrêt du temps
+        ///Condition/&amp;DH_TimeStop_Spell_Title	Gelé par l&apos;arrêt du temps
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Orage
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Orage
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Boule de feu à volonté
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Title	Boule de feu
+        ///Feat [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_fr {
             get {
@@ -477,9 +494,14 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Titã do Ar Primordial&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	O mais mal-humorado e vil dos dragões cromáticos, os dragões negros coletam os destroços e tesouros dos povos caídos. Esses dragões detestam ver os fracos prosperarem e se deleitam com o cola [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Gravidade reversa
+        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Gravidade reversa
+        ///Condition/&amp;DH_TimeStop_Spell_Description	Congelado por Parada de Tempo
+        ///Condition/&amp;DH_TimeStop_Spell_Title	Congelado por Parada de Tempo
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Tempestade Relâmpago
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Tempestade Relâmpago
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Bola de fogo à vontade
+        ///Feature/&amp;DH_AtWill [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_pt_BR {
             get {
@@ -488,9 +510,14 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	При вызове эти старшие элементали проявляются как существа с апокалиптическими способностями, существа, само существование которых обещает разрушение.
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;Изначальный воздушный титан&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	Самые злобные и мерзкие из цветных драконов, черные драконы собирают обломки и сокровища павших народов. Эти драконы ненавидят процветание слабых и наслаждаются крахом гуманоидных ко [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Обратная гравитация
+        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Обратная гравитация
+        ///Condition/&amp;DH_TimeStop_Spell_Description	Застыло на остановке времени
+        ///Condition/&amp;DH_TimeStop_Spell_Title	Застыло на остановке времени
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Грозовой шторм
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Грозовой шторм
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
+        ///Feature/&amp;DH_AtWill_Fire [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_ru {
             get {

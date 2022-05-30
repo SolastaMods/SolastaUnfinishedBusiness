@@ -5,32 +5,31 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup
-{
-    // this patch allows the last X campaign files to be backed up in the mod folder
-    //
-    // this patch shouldn't be protected
-    //
-    [HarmonyPatch(typeof(UserCampaignPoolManager), "SaveUserCampaign")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class UserCampaignPoolManager_SaveUserCampaign
-    {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var deleteMethod = typeof(File).GetMethod("Delete");
-            var backupAndDeleteMethod = typeof(DungeonMakerContext).GetMethod("BackupAndDelete");
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.ContentBackup;
 
-            foreach (var instruction in instructions)
+// this patch allows the last X campaign files to be backed up in the mod folder
+//
+// this patch shouldn't be protected
+//
+[HarmonyPatch(typeof(UserCampaignPoolManager), "SaveUserCampaign")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class UserCampaignPoolManager_SaveUserCampaign
+{
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var deleteMethod = typeof(File).GetMethod("Delete");
+        var backupAndDeleteMethod = typeof(DungeonMakerContext).GetMethod("BackupAndDelete");
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(deleteMethod))
             {
-                if (instruction.Calls(deleteMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg_1);
-                    yield return new CodeInstruction(OpCodes.Call, backupAndDeleteMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                yield return new CodeInstruction(OpCodes.Ldarg_1);
+                yield return new CodeInstruction(OpCodes.Call, backupAndDeleteMethod);
+            }
+            else
+            {
+                yield return instruction;
             }
         }
     }

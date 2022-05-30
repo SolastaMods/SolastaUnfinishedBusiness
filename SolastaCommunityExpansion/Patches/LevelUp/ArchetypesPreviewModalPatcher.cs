@@ -4,62 +4,61 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.LevelUp
+namespace SolastaCommunityExpansion.Patches.LevelUp;
+
+// filter features already taken on subclass display
+[HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class ArchetypesPreviewModal_Refresh
 {
-    // filter features already taken on subclass display
-    [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ArchetypesPreviewModal_Refresh
+    public static int Level(FeatureUnlockByLevel featureUnlockByLevel)
     {
-        public static int Level(FeatureUnlockByLevel featureUnlockByLevel)
+        var hero = Global.ActiveLevelUpHero;
+        var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+        var selectedClass = LevelUpContext.GetSelectedClass(hero);
+
+        if (isLevelingUp
+            && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
+            && featureUnlockByLevel.Level <= levels + 1)
         {
-            var hero = Global.ActiveLevelUpHero;
-            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
-
-            if (isLevelingUp
-                && hero.ClassesAndLevels.TryGetValue(selectedClass, out var levels)
-                && featureUnlockByLevel.Level <= levels + 1)
-            {
-                return int.MaxValue;
-            }
-
-            return featureUnlockByLevel.Level;
+            return int.MaxValue;
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
-            var myLevelMethod = typeof(ArchetypesPreviewModal_Refresh).GetMethod("Level");
+        return featureUnlockByLevel.Level;
+    }
 
-            foreach (var instruction in instructions)
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
+        var myLevelMethod = typeof(ArchetypesPreviewModal_Refresh).GetMethod("Level");
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(levelMethod))
             {
-                if (instruction.Calls(levelMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                yield return new CodeInstruction(OpCodes.Call, myLevelMethod);
+            }
+            else
+            {
+                yield return instruction;
             }
         }
     }
+}
 
-    // only presents the subclass already taken
-    [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ArchetypesPreviewModal_Show
+// only presents the subclass already taken
+[HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class ArchetypesPreviewModal_Show
+{
+    internal static void Prefix(ref List<string> subclasses)
     {
-        internal static void Prefix(ref List<string> subclasses)
-        {
-            var hero = Global.ActiveLevelUpHero;
-            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+        var hero = Global.ActiveLevelUpHero;
+        var selectedClass = LevelUpContext.GetSelectedClass(hero);
 
-            if (hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
-            {
-                subclasses = new List<string> { characterSubclassDefinition.Name };
-            }
+        if (hero.ClassesAndSubclasses.TryGetValue(selectedClass, out var characterSubclassDefinition))
+        {
+            subclasses = new List<string> {characterSubclassDefinition.Name};
         }
     }
 }

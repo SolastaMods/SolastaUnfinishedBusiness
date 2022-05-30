@@ -1,76 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using HarmonyLib;
-using SolastaModApi.Infrastructure;
+﻿namespace SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Models
+internal static class GuiWrapperContext
 {
-    internal static class GuiWrapperContext
+    internal static void Recache()
     {
-        internal static void Recache()
+        var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
+        var runtimeService = ServiceRepository.GetService<IRuntimeService>();
+
+        if (guiWrapperService is not GuiWrapperManager guiWrapperManager
+            || runtimeService == null
+            || runtimeService.Runtime == null)
         {
-            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
-            var runtimeService = ServiceRepository.GetService<IRuntimeService>();
-
-            if (guiWrapperService == null || runtimeService?.Runtime == null)
-            {
-                return;
-            }
-
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiCharacterClassDefinition>>("classDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiCharacterRaceDefinition>>("raceDefinitionsMap")
-                .Clear();
-            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiMonsterDefinition>>("monsterDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiMerchantDefinition>>("merchantDefinitionsMap")
-                .Clear();
-            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiItemDefinition>>("itemDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiSpellDefinition>>("spellDefinitionsMap").Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiEffectProxyDefinition>>("effectProxyDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiPowerDefinition>>("powerDefinitionsMap").Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiToolTypeDefinition>>("toolTypeDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiRecipeDefinition>>("recipeDefinitionsMap").Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiFactionDefinition>>("factionDefinitionsMap")
-                .Clear();
-            guiWrapperService
-                .GetField<IGuiWrapperService, Dictionary<string, GuiEnvironmentEffectDefinition>>(
-                    "environmentEffectDefinitionsMap").Clear();
-
-            var methodRuntimeLoaded = AccessTools.Method(guiWrapperService.GetType(), "RuntimeLoaded");
-
-            methodRuntimeLoaded.Invoke(guiWrapperService, new object[] {runtimeService.Runtime});
+            return;
         }
 
-        internal static void RecacheFeats()
+        guiWrapperManager.classDefinitionsMap.Clear();
+        guiWrapperManager.featDefinitionsMap.Clear();
+        guiWrapperManager.raceDefinitionsMap.Clear();
+        guiWrapperManager.monsterDefinitionsMap.Clear();
+        guiWrapperManager.merchantDefinitionsMap.Clear();
+        guiWrapperManager.itemDefinitionsMap.Clear();
+        guiWrapperManager.spellDefinitionsMap.Clear();
+        guiWrapperManager.effectProxyDefinitionsMap.Clear();
+        guiWrapperManager.powerDefinitionsMap.Clear();
+        guiWrapperManager.toolTypeDefinitionsMap.Clear();
+        guiWrapperManager.recipeDefinitionsMap.Clear();
+        guiWrapperManager.factionDefinitionsMap.Clear();
+        guiWrapperManager.environmentEffectDefinitionsMap.Clear();
+
+        guiWrapperManager.RuntimeLoaded(runtimeService.Runtime);
+    }
+
+    internal static void RecacheFeats()
+    {
+        var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>() as GuiWrapperManager;
+
+        if (guiWrapperService is not GuiWrapperManager guiWrapperManager)
         {
-            var guiWrapperService = ServiceRepository.GetService<IGuiWrapperService>();
-
-            if (guiWrapperService == null)
-            {
-                return;
-            }
-
-            var methodRuntimeLoaded = AccessTools.Method(guiWrapperService.GetType(), "LoadFeatDefinitions");
-
-            guiWrapperService.GetField<IGuiWrapperService, Dictionary<string, GuiFeatDefinition>>("featDefinitionsMap")
-                .Clear();
-            methodRuntimeLoaded.Invoke(guiWrapperService, Array.Empty<object>());
+            return;
         }
+
+        guiWrapperManager.featDefinitionsMap.Clear();
+        guiWrapperManager.LoadFeatDefinitions();
     }
 }

@@ -10,7 +10,7 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class UserLocationEditorScreen_HandleInput
     {
-        public static void Postfix(UserLocationEditorScreen __instance, SelectedGadgetPanel ___selectedGadgetPanel, InputCommands.Id command)
+        public static void Postfix(UserLocationEditorScreen __instance, SelectedGadgetPanel __instance.selectedGadgetPanel, InputCommands.Id command)
         {
             if (!Main.Settings.EnableDungeonMakerRotationHotkeys || __instance == null)
             {
@@ -30,8 +30,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
             switch (command)
             {
                 case InputCommands.Id.RotateCCW:
-                    // NOTE: don't use ___selectedGadgetPanel?. which bypasses Unity object lifetime check
-                    if (___selectedGadgetPanel && !___selectedGadgetPanel.IsTextFieldFocused())
+                    // NOTE: don't use __instance.selectedGadgetPanel?. which bypasses Unity object lifetime check
+                    if (__instance.selectedGadgetPanel && !__instance.selectedGadgetPanel.IsTextFieldFocused())
                     {
                         Rotate(-90f);
                     }
@@ -39,8 +39,8 @@ namespace SolastaCommunityExpansion.Patches.DungeonMaker.Editor
                     break;
 
                 case InputCommands.Id.RotateCW:
-                    // NOTE: don't use ___selectedGadgetPanel?. which bypasses Unity object lifetime check
-                    if (___selectedGadgetPanel && !___selectedGadgetPanel.IsTextFieldFocused())
+                    // NOTE: don't use __instance.selectedGadgetPanel?. which bypasses Unity object lifetime check
+                    if (__instance.selectedGadgetPanel && !__instance.selectedGadgetPanel.IsTextFieldFocused())
                     {
                         Rotate(90f);
                     }

@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	键盘与鼠标
 ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses	<color=white>最高职业数量</color> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
-ModUi/&MaxAllowedLevels	<color=white>最高允许等级</color> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>最高依地点/战役分类的备份存档数量</color>
 ModUi/&MaxBackupHelp	. 备份存档被保存在<i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>法术面版上每行最高环阶数</color>
