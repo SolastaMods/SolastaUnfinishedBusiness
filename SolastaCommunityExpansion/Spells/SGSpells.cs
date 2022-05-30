@@ -10,7 +10,7 @@ using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells
 {
-    public static class MorwennasSpellbook
+    public static class SGSpells
     {
         internal static readonly Guid MORWENNA_BASE_GUID = new("56f97707-9af1-4761-987a-63b84ba18d46");
 
