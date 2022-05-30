@@ -9,26 +9,25 @@ using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 //using static SolastaCommunityExpansion.Models.Features.FeatureSetRangerFoeSlayerBuilder;
 
-namespace SolastaCommunityExpansion.Level20.Classes
+namespace SolastaCommunityExpansion.Level20.Classes;
+
+internal static class RangerBuilder
 {
-    internal static class RangerBuilder
+    internal static void Load()
     {
-        internal static void Load()
+        Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
-            {
-                new(AdditionalDamageRangerFavoredEnemyChoice, 14),
-                new(RangerVanishAction, 14),
-                new(FeatureSetAbilityScoreChoice, 16),
-                new(RangerFeralSenses, 18),
-                new(FeatureSetAbilityScoreChoice, 19)
-                //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
-            });
+            new(AdditionalDamageRangerFavoredEnemyChoice, 14),
+            new(RangerVanishAction, 14),
+            new(FeatureSetAbilityScoreChoice, 16),
+            new(RangerFeralSenses, 18),
+            new(FeatureSetAbilityScoreChoice, 19)
+            //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
+        });
 
-            CastSpellRanger.SetSpellCastingLevel(5);
+        CastSpellRanger.SetSpellCastingLevel(5);
 
-            CastSpellRanger.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
-            CastSpellRanger.ReplacedSpells.SetRange(SpellsHelper.HalfCasterReplacedSpells);
-        }
+        CastSpellRanger.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
+        CastSpellRanger.ReplacedSpells.SetRange(SpellsHelper.HalfCasterReplacedSpells);
     }
 }

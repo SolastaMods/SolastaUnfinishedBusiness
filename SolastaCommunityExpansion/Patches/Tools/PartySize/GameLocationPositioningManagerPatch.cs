@@ -6,33 +6,32 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using TA;
 
-namespace SolastaCommunityExpansion.Patches.Tools.PartySize
-{
-    // avoids a trace message when party greater than 4
-    //
-    // this shouldn't be protected
-    //
-    [HarmonyPatch(typeof(GameLocationPositioningManager), "CharacterMoved", typeof(GameLocationCharacter),
-        typeof(int3), typeof(int3), typeof(RulesetActor.SizeParameters), typeof(RulesetActor.SizeParameters))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class GameLocationPositioningManager_CharacterMoved
-    {
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
-                Type.DefaultBinder, new[] {typeof(string)}, null);
-            var found = 0;
+namespace SolastaCommunityExpansion.Patches.Tools.PartySize;
 
-            foreach (var instruction in instructions)
+// avoids a trace message when party greater than 4
+//
+// this shouldn't be protected
+//
+[HarmonyPatch(typeof(GameLocationPositioningManager), "CharacterMoved", typeof(GameLocationCharacter),
+    typeof(int3), typeof(int3), typeof(RulesetActor.SizeParameters), typeof(RulesetActor.SizeParameters))]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class GameLocationPositioningManager_CharacterMoved
+{
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var logErrorMethod = typeof(Trace).GetMethod("LogError", BindingFlags.Public | BindingFlags.Static,
+            Type.DefaultBinder, new[] {typeof(string)}, null);
+        var found = 0;
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(logErrorMethod) && ++found == 1)
             {
-                if (instruction.Calls(logErrorMethod) && ++found == 1)
-                {
-                    yield return new CodeInstruction(OpCodes.Pop);
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                yield return new CodeInstruction(OpCodes.Pop);
+            }
+            else
+            {
+                yield return instruction;
             }
         }
     }

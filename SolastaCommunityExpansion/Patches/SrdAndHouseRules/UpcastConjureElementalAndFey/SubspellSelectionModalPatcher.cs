@@ -6,99 +6,99 @@ using HarmonyLib;
 using SolastaModApi;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElementalAndFey
+namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElementalAndFey;
+
+[HarmonyPatch(typeof(SubspellSelectionModal), "Bind")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+[HarmonyPatch(new[]
 {
-    [HarmonyPatch(typeof(SubspellSelectionModal), "Bind")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [HarmonyPatch(new[]
-    {
-        typeof(SpellDefinition), typeof(RulesetCharacter), typeof(RulesetSpellRepertoire),
-        typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)
-    })]
-    internal static class SubspellSelectionModal_Bind
-    {
-        public static List<SpellDefinition> FilteredSubspells { get; internal set; }
+    typeof(SpellDefinition), typeof(RulesetCharacter), typeof(RulesetSpellRepertoire),
+    typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)
+})]
+internal static class SubspellSelectionModal_Bind
+{
+    public static List<SpellDefinition> FilteredSubspells { get; internal set; }
 
-        public static List<SpellDefinition> MySubspellsList(SpellDefinition masterSpell, int slotLevel)
+    public static List<SpellDefinition> MySubspellsList(SpellDefinition masterSpell, int slotLevel)
+    {
+        var subspellsList = masterSpell.SubspellsList;
+        var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
+                          || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
+            ? slotLevel
+            : -1;
+
+        if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList == null ||
+            subspellsList.Count == 0)
         {
-            var subspellsList = masterSpell.SubspellsList;
-            var mySlotLevel = masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureElemental.Name
-                              || masterSpell.Name == DatabaseHelper.SpellDefinitions.ConjureFey.Name
-                ? slotLevel
-                : -1;
-
-            if (!Main.Settings.EnableUpcastConjureElementalAndFey || mySlotLevel < 0 || subspellsList == null ||
-                subspellsList.Count == 0)
-            {
-                return subspellsList;
-            }
-
-            var subspellsGroupedAndFilteredByCR = subspellsList
-                .Select(s =>
-                    new
-                    {
-                        SpellDefinition = s,
-                        s.EffectDescription
-                            .GetFirstFormOfType(EffectForm.EffectFormType.Summon)
-                            .SummonForm
-                            .MonsterDefinitionName
-                    }
-                )
-                .Select(s => new
-                {
-                    s.SpellDefinition,
-                    s.MonsterDefinitionName,
-                    ChallengeRating =
-                        DatabaseRepository.GetDatabase<MonsterDefinition>()
-                            .TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
-                            ? monsterDefinition.ChallengeRating
-                            : int.MaxValue
-                })
-                .GroupBy(s => s.ChallengeRating)
-                .Select(g => new
-                {
-                    ChallengeRating = g.Key,
-                    SpellDefinitions = g.Select(s => s.SpellDefinition)
-                        .OrderBy(s => Gui.Format(s.GuiPresentation.Title))
-                })
-                .Where(s => s.ChallengeRating <= mySlotLevel)
-                .OrderByDescending(s => s.ChallengeRating)
-                .ToList();
-
-            var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey
-                ? subspellsGroupedAndFilteredByCR.Take(1).ToList()
-                : subspellsGroupedAndFilteredByCR;
-
-            FilteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
-
-            FilteredSubspells.ForEach(s => Main.Log($"{Gui.Format(s.GuiPresentation.Title)}"));
-
-            return FilteredSubspells;
+            return subspellsList;
         }
 
-        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
-            var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
-
-            foreach (var instruction in instructions)
+        var subspellsGroupedAndFilteredByCR = subspellsList
+            .Select(s =>
+                new
+                {
+                    SpellDefinition = s,
+                    s.EffectDescription
+                        .GetFirstFormOfType(EffectForm.EffectFormType.Summon)
+                        .SummonForm
+                        .MonsterDefinitionName
+                }
+            )
+            .Select(s => new
             {
-                if (instruction.Calls(subspellsListMethod))
-                {
-                    yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
-                    yield return new CodeInstruction(OpCodes.Call, mySubspellsListMethod);
-                }
-                else
-                {
-                    yield return instruction;
-                }
+                s.SpellDefinition,
+                s.MonsterDefinitionName,
+                ChallengeRating =
+                    DatabaseRepository.GetDatabase<MonsterDefinition>()
+                        .TryGetElement(s.MonsterDefinitionName, out var monsterDefinition)
+                        ? monsterDefinition.ChallengeRating
+                        : int.MaxValue
+            })
+            .GroupBy(s => s.ChallengeRating)
+            .Select(g => new
+            {
+                ChallengeRating = g.Key,
+                SpellDefinitions = g.Select(s => s.SpellDefinition)
+                    .OrderBy(s => Gui.Format(s.GuiPresentation.Title))
+            })
+            .Where(s => s.ChallengeRating <= mySlotLevel)
+            .OrderByDescending(s => s.ChallengeRating)
+            .ToList();
+
+        var allOrMostPowerful = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey
+            ? subspellsGroupedAndFilteredByCR.Take(1).ToList()
+            : subspellsGroupedAndFilteredByCR;
+
+        FilteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
+
+        FilteredSubspells.ForEach(s => Main.Log($"{Gui.Format(s.GuiPresentation.Title)}"));
+
+        return FilteredSubspells;
+    }
+
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var subspellsListMethod = typeof(SpellDefinition).GetMethod("get_SubspellsList");
+        var mySubspellsListMethod = typeof(SubspellSelectionModal_Bind).GetMethod("MySubspellsList");
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(subspellsListMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg, 5); // slotLevel
+                yield return new CodeInstruction(OpCodes.Call, mySubspellsListMethod);
+            }
+            else
+            {
+                yield return instruction;
             }
         }
     }
+}
 
-    //
-    //  This is now handled at SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
-    //
+//
+//  This is now handled at SolastaCommunityExpansion.Patches.CustomFeatures.PowersBundle
+//
 #if false
     [HarmonyPatch(typeof(SubspellSelectionModal), "OnActivate")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -134,4 +134,3 @@ namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.UpcastConjureElemen
         }
     }
 #endif
-}

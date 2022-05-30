@@ -8,85 +8,84 @@ using SolastaModApi.Extensions;
 
 //using SolastaCommunityExpansion.Classes.Warden;
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaCommunityExpansion.Models;
+
+internal static class ClassesContext
 {
-    internal static class ClassesContext
+    internal static HashSet<CharacterClassDefinition> Classes { get; private set; } = new();
+
+    internal static void SortClassesFeatures()
     {
-        internal static HashSet<CharacterClassDefinition> Classes { get; private set; } = new();
+        var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
-        internal static void SortClassesFeatures()
+        foreach (var characterClassDefinition in dbCharacterClassDefinition)
         {
-            var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-
-            foreach (var characterClassDefinition in dbCharacterClassDefinition)
+            characterClassDefinition.FeatureUnlocks.Sort((a, b) =>
             {
-                characterClassDefinition.FeatureUnlocks.Sort((a, b) =>
+                var result = a.Level - b.Level;
+
+                if (result == 0)
                 {
-                    var result = a.Level - b.Level;
+                    result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
+                }
 
-                    if (result == 0)
-                    {
-                        result = a.FeatureDefinition.FormatTitle().CompareTo(b.FeatureDefinition.FormatTitle());
-                    }
-
-                    return result;
-                });
-            }
+                return result;
+            });
         }
+    }
 
-        internal static void Load()
+    internal static void Load()
+    {
+        LoadClass(Monk.BuildClass());
+        LoadClass(TinkererClass.BuildTinkererClass());
+        LoadClass(Warlock.BuildWarlockClass());
+        LoadClass(Witch.Instance);
+
+        Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
+    }
+
+    internal static void LateLoad()
+    {
+        if (Main.Settings.EnableSortingFutureFeatures)
         {
-            LoadClass(Monk.BuildClass());
-            LoadClass(TinkererClass.BuildTinkererClass());
-            LoadClass(Warlock.BuildWarlockClass());
-            LoadClass(Witch.Instance);
-
-            Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
+            SortClassesFeatures();
         }
+    }
 
-        internal static void LateLoad()
+    private static void LoadClass(CharacterClassDefinition characterClassDefinition)
+    {
+        if (!Classes.Contains(characterClassDefinition))
         {
-            if (Main.Settings.EnableSortingFutureFeatures)
-            {
-                SortClassesFeatures();
-            }
+            Classes.Add(characterClassDefinition);
         }
 
-        private static void LoadClass(CharacterClassDefinition characterClassDefinition)
+        UpdateClassVisibility(characterClassDefinition);
+    }
+
+    private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
+    {
+        characterClassDefinition.GuiPresentation.SetHidden(
+            !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
+    }
+
+    internal static void Switch(CharacterClassDefinition characterClassDefinition, bool active)
+    {
+        if (!Classes.Contains(characterClassDefinition))
         {
-            if (!Classes.Contains(characterClassDefinition))
-            {
-                Classes.Add(characterClassDefinition);
-            }
-
-            UpdateClassVisibility(characterClassDefinition);
+            return;
         }
 
-        private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
+        var name = characterClassDefinition.Name;
+
+        if (active)
         {
-            characterClassDefinition.GuiPresentation.SetHidden(
-                !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
+            Main.Settings.ClassEnabled.TryAdd(name);
         }
-
-        internal static void Switch(CharacterClassDefinition characterClassDefinition, bool active)
+        else
         {
-            if (!Classes.Contains(characterClassDefinition))
-            {
-                return;
-            }
-
-            var name = characterClassDefinition.Name;
-
-            if (active)
-            {
-                Main.Settings.ClassEnabled.TryAdd(name);
-            }
-            else
-            {
-                Main.Settings.ClassEnabled.Remove(name);
-            }
-
-            UpdateClassVisibility(characterClassDefinition);
+            Main.Settings.ClassEnabled.Remove(name);
         }
+
+        UpdateClassVisibility(characterClassDefinition);
     }
 }

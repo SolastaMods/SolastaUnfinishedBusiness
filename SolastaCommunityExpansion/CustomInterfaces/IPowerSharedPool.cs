@@ -1,7 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IPowerSharedPool
 {
-    public interface IPowerSharedPool
-    {
-        FeatureDefinitionPower GetUsagePoolPower();
-    }
+    FeatureDefinitionPower GetUsagePoolPower();
 }

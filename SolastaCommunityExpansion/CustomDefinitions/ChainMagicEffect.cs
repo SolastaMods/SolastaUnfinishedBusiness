@@ -1,8 +1,7 @@
-﻿namespace SolastaCommunityExpansion.CustomDefinitions
+﻿namespace SolastaCommunityExpansion.CustomDefinitions;
+
+public interface IChainMagicEffect
 {
-    public interface IChainMagicEffect
-    {
-        public CharacterActionMagicEffect GetNextMagicEffect(CharacterActionMagicEffect baseEffect,
-            CharacterActionAttack triggeredAttack, RuleDefinitions.RollOutcome attackOutcome);
-    }
+    public CharacterActionMagicEffect GetNextMagicEffect(CharacterActionMagicEffect baseEffect,
+        CharacterActionAttack triggeredAttack, RuleDefinitions.RollOutcome attackOutcome);
 }

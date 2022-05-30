@@ -2,62 +2,61 @@
 using SolastaModApi;
 using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Builders
+namespace SolastaCommunityExpansion.Builders;
+
+public class DeviceFunctionDescriptionBuilder
 {
-    public class DeviceFunctionDescriptionBuilder
+    private readonly DeviceFunctionDescription description;
+
+    public DeviceFunctionDescriptionBuilder()
     {
-        private readonly DeviceFunctionDescription description;
+        description = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.BeltOfRegeneration
+            .UsableDeviceDescription.DeviceFunctions[0]);
 
-        public DeviceFunctionDescriptionBuilder()
+        description.SetParentUsage(EquipmentDefinitions.ItemUsage.ByFunction);
+        description.SetUseAffinity(DeviceFunctionDescription.FunctionUseAffinity.AtWill);
+        description.SetUseAmount(1);
+        description.SetRechargeRate(RuleDefinitions.RechargeRate.Dawn);
+        description.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
+        description.SetCanOverchargeSpell(false);
+        description.SetType(DeviceFunctionDescription.FunctionType.Power);
+        description.SetSpellDefinition(null);
+        description.SetFeatureDefinitionPower(null);
+    }
+
+    public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power)
+    {
+        description.SetType(DeviceFunctionDescription.FunctionType.Power);
+        description.SetFeatureDefinitionPower(power);
+        return this;
+    }
+
+    public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
+    {
+        description.SetType(DeviceFunctionDescription.FunctionType.Spell);
+        description.SetSpellDefinition(spell);
+        description.SetCanOverchargeSpell(canOverchargeSpell);
+        return this;
+    }
+
+    private void Validate()
+    {
+        if (description.Type == DeviceFunctionDescription.FunctionType.Power
+            && description.FeatureDefinitionPower == null)
         {
-            description = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.BeltOfRegeneration
-                .UsableDeviceDescription.DeviceFunctions[0]);
-
-            description.SetParentUsage(EquipmentDefinitions.ItemUsage.ByFunction);
-            description.SetUseAffinity(DeviceFunctionDescription.FunctionUseAffinity.AtWill);
-            description.SetUseAmount(1);
-            description.SetRechargeRate(RuleDefinitions.RechargeRate.Dawn);
-            description.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
-            description.SetCanOverchargeSpell(false);
-            description.SetType(DeviceFunctionDescription.FunctionType.Power);
-            description.SetSpellDefinition(null);
-            description.SetFeatureDefinitionPower(null);
+            throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
         }
 
-        public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power)
+        if (description.Type == DeviceFunctionDescription.FunctionType.Spell
+            && description.SpellDefinition == null)
         {
-            description.SetType(DeviceFunctionDescription.FunctionType.Power);
-            description.SetFeatureDefinitionPower(power);
-            return this;
+            throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
         }
+    }
 
-        public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
-        {
-            description.SetType(DeviceFunctionDescription.FunctionType.Spell);
-            description.SetSpellDefinition(spell);
-            description.SetCanOverchargeSpell(canOverchargeSpell);
-            return this;
-        }
-
-        private void Validate()
-        {
-            if (description.Type == DeviceFunctionDescription.FunctionType.Power
-                && description.FeatureDefinitionPower == null)
-            {
-                throw new ArgumentException("DeviceFunctionDescriptionBuilder empty FeatureDefinitionPower!");
-            }
-
-            if (description.Type == DeviceFunctionDescription.FunctionType.Spell
-                && description.SpellDefinition == null)
-            {
-                throw new ArgumentException("DeviceFunctionDescriptionBuilder empty SpellDefinition!");
-            }
-        }
-
-        public DeviceFunctionDescription Build()
-        {
-            Validate();
-            return description;
-        }
+    public DeviceFunctionDescription Build()
+    {
+        Validate();
+        return description;
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface ICustomFightingStyle
 {
-    public interface ICustomFightingStyle
-    {
-        bool IsActive(RulesetCharacterHero character);
-    }
+    bool IsActive(RulesetCharacterHero character);
 }

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using static ModKit.Utility.StringExtensions;
 
-namespace SolastaCommunityExpansion.DataViewer
-{
-    /**
+namespace SolastaCommunityExpansion.DataViewer;
+
+/**
      * * Strategy For Async Deep Search
      * *
      * * --- update
@@ -60,199 +60,198 @@ namespace SolastaCommunityExpansion.DataViewer
      *         *      foreach Node in Tree, this.matches.Clear()
      *         *
      */
-    public class ReflectionSearch : MonoBehaviour
+public class ReflectionSearch : MonoBehaviour
+{
+    public delegate void SearchProgress(int visitCount, int depth, int breadth);
+
+    private static readonly HashSet<int> VisitedInstanceIDs = new();
+    private static ReflectionSearch _shared;
+    private IEnumerator searchCoroutine;
+
+    public bool IsSearching => searchCoroutine != null;
+    public static int SequenceNumber { get; private set; }
+
+    public static ReflectionSearch Shared
     {
-        public delegate void SearchProgress(int visitCount, int depth, int breadth);
-
-        private static readonly HashSet<int> VisitedInstanceIDs = new();
-        private static ReflectionSearch _shared;
-        private IEnumerator searchCoroutine;
-
-        public bool IsSearching => searchCoroutine != null;
-        public static int SequenceNumber { get; private set; }
-
-        public static ReflectionSearch Shared
+        get
         {
-            get
+            if (_shared == null)
             {
-                if (_shared == null)
-                {
-                    _shared = new GameObject().AddComponent<ReflectionSearch>();
-                    DontDestroyOnLoad(_shared.gameObject);
-                }
-
-                return _shared;
+                _shared = new GameObject().AddComponent<ReflectionSearch>();
+                DontDestroyOnLoad(_shared.gameObject);
             }
+
+            return _shared;
+        }
+    }
+
+    public void StartSearch(Node node, string searchText, SearchProgress updator, ReflectionSearchResult resultRoot)
+    {
+        if (searchCoroutine != null)
+        {
+            StopCoroutine(searchCoroutine);
+            searchCoroutine = null;
         }
 
-        public void StartSearch(Node node, string searchText, SearchProgress updator, ReflectionSearchResult resultRoot)
+        VisitedInstanceIDs.Clear();
+        resultRoot.Clear();
+        resultRoot.Node = node;
+        StopAllCoroutines();
+        updator(0, 0, 1);
+        if (node == null)
         {
-            if (searchCoroutine != null)
-            {
-                StopCoroutine(searchCoroutine);
-                searchCoroutine = null;
-            }
-
-            VisitedInstanceIDs.Clear();
-            resultRoot.Clear();
-            resultRoot.Node = node;
-            StopAllCoroutines();
-            updator(0, 0, 1);
-            if (node == null)
-            {
-                return;
-            }
-
-            SequenceNumber++;
-            Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
-            if (searchText.Length != 0)
-            {
-                var todo = new List<Node> {node};
-
-                searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
-                StartCoroutine(searchCoroutine);
-            }
+            return;
         }
 
-        public void Stop()
+        SequenceNumber++;
+        Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
+        if (searchText.Length != 0)
         {
-            if (searchCoroutine != null)
-            {
-                StopCoroutine(searchCoroutine);
-                searchCoroutine = null;
-            }
+            var todo = new List<Node> {node};
 
-            StopAllCoroutines();
+            searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
+            StartCoroutine(searchCoroutine);
+        }
+    }
+
+    public void Stop()
+    {
+        if (searchCoroutine != null)
+        {
+            StopCoroutine(searchCoroutine);
+            searchCoroutine = null;
         }
 
-        private IEnumerator Search(string searchText, List<Node> todo, int depth, int visitCount, int sequenceNumber,
-            SearchProgress updator, ReflectionSearchResult resultRoot)
+        StopAllCoroutines();
+    }
+
+    private IEnumerator Search(string searchText, List<Node> todo, int depth, int visitCount, int sequenceNumber,
+        SearchProgress updator, ReflectionSearchResult resultRoot)
+    {
+        yield return null;
+        if (sequenceNumber != SequenceNumber)
         {
             yield return null;
-            if (sequenceNumber != SequenceNumber)
+        }
+
+        var newTodo = new List<Node>();
+        var breadth = todo.Count;
+        foreach (var node in todo)
+        {
+            var foundMatch = false;
+            var instanceID = node.InstanceID;
+            var alreadyVisted = false;
+            if (instanceID is int instID)
             {
-                yield return null;
+                if (VisitedInstanceIDs.Contains(instID))
+                {
+                    alreadyVisted = true;
+                }
+                else
+                {
+                    VisitedInstanceIDs.Add(instID);
+                }
             }
 
-            var newTodo = new List<Node>();
-            var breadth = todo.Count;
-            foreach (var node in todo)
+            visitCount++;
+
+            try
             {
-                var foundMatch = false;
-                var instanceID = node.InstanceID;
-                var alreadyVisted = false;
-                if (instanceID is int instID)
+                if (Matches(node.Name, searchText) || Matches(node.ValueText, searchText))
                 {
-                    if (VisitedInstanceIDs.Contains(instID))
-                    {
-                        alreadyVisted = true;
-                    }
-                    else
-                    {
-                        VisitedInstanceIDs.Add(instID);
-                    }
+                    foundMatch = true;
+                    updator(visitCount, depth, breadth);
+                    resultRoot.AddSearchResult(node);
+                    Main.Log($"{depth} matched: {node.GetPath()} - {node.ValueText}");
+                    Main.Log($"{resultRoot}");
+                }
+            }
+            catch (Exception e)
+            {
+                Main.Log($"{depth} caught - {e}");
+            }
+#pragma warning disable CS0618 // Type or member is obsolete
+            node.Matches = foundMatch;
+#pragma warning restore CS0618 // Type or member is obsolete
+            if (!foundMatch && visitCount % 100 == 0)
+            {
+                updator(visitCount, depth, breadth);
+            }
+
+            if (node.hasChildren && !alreadyVisted)
+            {
+                if (node.InstanceID is int instID2 && instID2 == GetInstanceID())
+                {
+                    break;
                 }
 
-                visitCount++;
+                if (node.Name == "searchCoroutine")
+                {
+                    break;
+                }
 
                 try
                 {
-                    if (Matches(node.Name, searchText) || Matches(node.ValueText, searchText))
+                    foreach (var child in node.GetItemNodes())
                     {
-                        foundMatch = true;
-                        updator(visitCount, depth, breadth);
-                        resultRoot.AddSearchResult(node);
-                        Main.Log($"{depth} matched: {node.GetPath()} - {node.ValueText}");
-                        Main.Log($"{resultRoot}");
+                        newTodo.Add(child);
                     }
                 }
                 catch (Exception e)
                 {
                     Main.Log($"{depth} caught - {e}");
                 }
-#pragma warning disable CS0618 // Type or member is obsolete
-                node.Matches = foundMatch;
-#pragma warning restore CS0618 // Type or member is obsolete
-                if (!foundMatch && visitCount % 100 == 0)
+
+                try
                 {
-                    updator(visitCount, depth, breadth);
-                }
-
-                if (node.hasChildren && !alreadyVisted)
-                {
-                    if (node.InstanceID is int instID2 && instID2 == GetInstanceID())
+                    foreach (var child in node.GetComponentNodes())
                     {
-                        break;
-                    }
-
-                    if (node.Name == "searchCoroutine")
-                    {
-                        break;
-                    }
-
-                    try
-                    {
-                        foreach (var child in node.GetItemNodes())
-                        {
-                            newTodo.Add(child);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Main.Log($"{depth} caught - {e}");
-                    }
-
-                    try
-                    {
-                        foreach (var child in node.GetComponentNodes())
-                        {
-                            newTodo.Add(child);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Main.Log($"{depth} caught - {e}");
-                    }
-
-                    try
-                    {
-                        foreach (var child in node.GetPropertyNodes())
-                        {
-                            newTodo.Add(child);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Main.Log($"{depth} caught - {e}");
-                    }
-
-                    try
-                    {
-                        foreach (var child in node.GetFieldNodes())
-                        {
-                            newTodo.Add(child);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Main.Log($"{depth} caught - {e}");
+                        newTodo.Add(child);
                     }
                 }
-
-                if (visitCount % 1000 == 0)
+                catch (Exception e)
                 {
-                    yield return null;
+                    Main.Log($"{depth} caught - {e}");
+                }
+
+                try
+                {
+                    foreach (var child in node.GetPropertyNodes())
+                    {
+                        newTodo.Add(child);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Main.Log($"{depth} caught - {e}");
+                }
+
+                try
+                {
+                    foreach (var child in node.GetFieldNodes())
+                    {
+                        newTodo.Add(child);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Main.Log($"{depth} caught - {e}");
                 }
             }
 
-            if (newTodo.Count > 0 && depth < Main.Settings.MaxSearchDepth)
+            if (visitCount % 1000 == 0)
             {
-                yield return Search(searchText, newTodo, depth + 1, visitCount, sequenceNumber, updator, resultRoot);
+                yield return null;
             }
-            else
-            {
-                Stop();
-            }
+        }
+
+        if (newTodo.Count > 0 && depth < Main.Settings.MaxSearchDepth)
+        {
+            yield return Search(searchText, newTodo, depth + 1, visitCount, sequenceNumber, updator, resultRoot);
+        }
+        else
+        {
+            Stop();
         }
     }
 }

@@ -3,106 +3,105 @@ using System.Linq;
 using SolastaModApi.Extensions;
 using static RuleDefinitions;
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaCommunityExpansion.Models;
+
+public static class UsablePowersProvider
 {
-    public static class UsablePowersProvider
+    //TODO: think whether we ned to cache these at all, and if we indeed do, maybe switch to caching per character?
+    private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
+
+    public static RulesetUsablePower Get(FeatureDefinitionPower power, RulesetCharacter actor = null)
     {
-        //TODO: think whether we ned to cache these at all, and if we indeed do, maybe switch to caching per character?
-        private static readonly Dictionary<FeatureDefinitionPower, RulesetUsablePower> UsablePowers = new();
-
-        public static RulesetUsablePower Get(FeatureDefinitionPower power, RulesetCharacter actor = null)
+        RulesetUsablePower result = null;
+        if (actor != null)
         {
-            RulesetUsablePower result = null;
-            if (actor != null)
-            {
-                result = actor.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
-            }
-
-            if (result == null)
-            {
-                if (UsablePowers.ContainsKey(power))
-                {
-                    result = UsablePowers[power];
-                }
-                else
-                {
-                    result = new RulesetUsablePower(power, null, null);
-                    UsablePowers.Add(power, result);
-                }
-
-                //Update properties to match actor 
-                UpdateSaveDC(actor, result);
-                UpdatePoolUses(actor, result);
-            }
-
-            return result;
+            result = actor.UsablePowers.FirstOrDefault(u => u.PowerDefinition == power);
         }
 
-        public static void UpdatePoolUses(RulesetCharacter character, RulesetUsablePower usablePower)
+        if (result == null)
         {
-            if (character == null)
+            if (UsablePowers.ContainsKey(power))
             {
-                return;
+                result = UsablePowers[power];
+            }
+            else
+            {
+                result = new RulesetUsablePower(power, null, null);
+                UsablePowers.Add(power, result);
             }
 
-            var pool = CustomFeaturesContext.GetPoolPower(usablePower, character);
-            if (pool == null || pool == usablePower)
-            {
-                return;
-            }
-
-            var powerCost = usablePower.PowerDefinition.CostPerUse;
-            var maxUsesForPool = CustomFeaturesContext.GetMaxUsesForPool(pool, character);
-            usablePower.SetMaxUses(maxUsesForPool / powerCost);
-            usablePower.SetRemainingUses(pool.RemainingUses / powerCost);
+            //Update properties to match actor 
+            UpdateSaveDC(actor, result);
+            UpdatePoolUses(actor, result);
         }
 
-        public static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)
+        return result;
+    }
+
+    public static void UpdatePoolUses(RulesetCharacter character, RulesetUsablePower usablePower)
+    {
+        if (character == null)
         {
-            var power = usablePower.PowerDefinition;
-            var effectDescription = power.EffectDescription;
+            return;
+        }
 
-            if (actor == null || !effectDescription.HasSavingThrow)
-            {
-                return;
-            }
+        var pool = CustomFeaturesContext.GetPoolPower(usablePower, character);
+        if (pool == null || pool == usablePower)
+        {
+            return;
+        }
 
-            switch (effectDescription.DifficultyClassComputation)
+        var powerCost = usablePower.PowerDefinition.CostPerUse;
+        var maxUsesForPool = CustomFeaturesContext.GetMaxUsesForPool(pool, character);
+        usablePower.SetMaxUses(maxUsesForPool / powerCost);
+        usablePower.SetRemainingUses(pool.RemainingUses / powerCost);
+    }
+
+    public static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)
+    {
+        var power = usablePower.PowerDefinition;
+        var effectDescription = power.EffectDescription;
+
+        if (actor == null || !effectDescription.HasSavingThrow)
+        {
+            return;
+        }
+
+        switch (effectDescription.DifficultyClassComputation)
+        {
+            case EffectDifficultyClassComputation.SpellCastingFeature:
             {
-                case EffectDifficultyClassComputation.SpellCastingFeature:
+                var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
+                foreach (var spellRepertoire in actor.SpellRepertoires)
                 {
-                    var rulesetSpellRepertoire = (RulesetSpellRepertoire)null;
-                    foreach (var spellRepertoire in actor.SpellRepertoires)
+                    if (spellRepertoire.SpellCastingClass != null)
                     {
-                        if (spellRepertoire.SpellCastingClass != null)
-                        {
-                            rulesetSpellRepertoire = spellRepertoire;
-                            break;
-                        }
-
-                        if (spellRepertoire.SpellCastingSubclass != null)
-                        {
-                            rulesetSpellRepertoire = spellRepertoire;
-                            break;
-                        }
+                        rulesetSpellRepertoire = spellRepertoire;
+                        break;
                     }
 
-                    if (rulesetSpellRepertoire != null)
+                    if (spellRepertoire.SpellCastingSubclass != null)
                     {
-                        usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
+                        rulesetSpellRepertoire = spellRepertoire;
+                        break;
                     }
-
-                    break;
                 }
-                case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
-                    var attributeValue = actor.TryGetAttributeValue(effectDescription.SavingThrowDifficultyAbility);
-                    var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                    usablePower.SaveDC = ComputeAbilityScoreBasedDC(attributeValue, proficiencyBonus);
-                    break;
-                case EffectDifficultyClassComputation.FixedValue:
-                    usablePower.SaveDC = effectDescription.FixedSavingThrowDifficultyClass;
-                    break;
+
+                if (rulesetSpellRepertoire != null)
+                {
+                    usablePower.SaveDC = rulesetSpellRepertoire.SaveDC;
+                }
+
+                break;
             }
+            case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
+                var attributeValue = actor.TryGetAttributeValue(effectDescription.SavingThrowDifficultyAbility);
+                var proficiencyBonus = actor.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                usablePower.SaveDC = ComputeAbilityScoreBasedDC(attributeValue, proficiencyBonus);
+                break;
+            case EffectDifficultyClassComputation.FixedValue:
+                usablePower.SaveDC = effectDescription.FixedSavingThrowDifficultyClass;
+                break;
         }
     }
 }

@@ -1,9 +1,8 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+/// <summary>
+///     Implement on a ConditionDefinition to make it be removed when its source's turn starts.
+/// </summary>
+public interface IConditionRemovedOnSourceTurnStart
 {
-    /// <summary>
-    ///     Implement on a ConditionDefinition to make it be removed when its source's turn starts.
-    /// </summary>
-    public interface IConditionRemovedOnSourceTurnStart
-    {
-    }
 }

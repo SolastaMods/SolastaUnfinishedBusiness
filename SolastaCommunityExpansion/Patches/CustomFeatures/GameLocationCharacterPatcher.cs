@@ -7,95 +7,94 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 
-namespace SolastaCommunityExpansion.Patches.CustomFeatures
+namespace SolastaCommunityExpansion.Patches.CustomFeatures;
+
+internal static class GameLocationCharacterPatcher
 {
-    internal static class GameLocationCharacterPatcher
+    [HarmonyPatch(typeof(GameLocationCharacter), "RefreshActionPerformances")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationCharacter_RefreshActionPerformances
     {
-        [HarmonyPatch(typeof(GameLocationCharacter), "RefreshActionPerformances")]
-        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class GameLocationCharacter_RefreshActionPerformances
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            var codes = instructions.ToList();
+            var customMethod =
+                new Action<RulesetActor, List<FeatureDefinition>,
+                    Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>>(CustomEnumerate).Method;
+
+            var bindIndex = codes.FindIndex(x =>
             {
-                var codes = instructions.ToList();
-                var customMethod =
-                    new Action<RulesetActor, List<FeatureDefinition>,
-                        Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>>(CustomEnumerate).Method;
-
-                var bindIndex = codes.FindIndex(x =>
+                if (x.operand == null)
                 {
-                    if (x.operand == null)
-                    {
-                        return false;
-                    }
-
-                    var operand = x.operand.ToString();
-                    if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IActionPerformanceProvider"))
-                    {
-                        return true;
-                    }
-
                     return false;
-                });
-
-                if (bindIndex > 0)
-                {
-                    codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
                 }
 
-                return codes.AsEnumerable();
-            }
+                var operand = x.operand.ToString();
+                if (operand.Contains("EnumerateFeaturesToBrowse") && operand.Contains("IActionPerformanceProvider"))
+                {
+                    return true;
+                }
 
-            private static void CustomEnumerate(RulesetActor actor, List<FeatureDefinition> features,
-                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
+                return false;
+            });
+
+            if (bindIndex > 0)
             {
-                actor.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(features);
-                if (actor is not RulesetCharacter character)
-                {
-                    return;
-                }
-
-                features.RemoveAll(f =>
-                {
-                    var validator = f.GetFirstSubFeatureOfType<IFeatureApplicationValidator>();
-                    return validator != null && !validator.IsValid(character);
-                });
+                codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
             }
+
+            return codes.AsEnumerable();
         }
 
-        // Removes check that makes `ShoveBonus` unavailable if character has no shield
-        [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
-        [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-        internal static class GameLocationCharacter_GetActionStatus
+        private static void CustomEnumerate(RulesetActor actor, List<FeatureDefinition> features,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin = null)
         {
-            internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            actor.EnumerateFeaturesToBrowse<IActionPerformanceProvider>(features);
+            if (actor is not RulesetCharacter character)
             {
-                var codes = instructions.ToList();
-                var customMethod = new Func<RulesetActor, bool>(CustomMethod).Method;
+                return;
+            }
 
-                var bindIndex = codes.FindIndex(x =>
+            features.RemoveAll(f =>
+            {
+                var validator = f.GetFirstSubFeatureOfType<IFeatureApplicationValidator>();
+                return validator != null && !validator.IsValid(character);
+            });
+        }
+    }
+
+    // Removes check that makes `ShoveBonus` unavailable if character has no shield
+    [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class GameLocationCharacter_GetActionStatus
+    {
+        internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var codes = instructions.ToList();
+            var customMethod = new Func<RulesetActor, bool>(CustomMethod).Method;
+
+            var bindIndex = codes.FindIndex(x =>
+            {
+                if (x.operand == null)
                 {
-                    if (x.operand == null)
-                    {
-                        return false;
-                    }
-
-                    var operand = x.operand.ToString();
-                    return operand.Contains("IsWearingShield");
-                });
-
-                if (bindIndex > 0)
-                {
-                    codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
+                    return false;
                 }
 
-                return codes.AsEnumerable();
+                var operand = x.operand.ToString();
+                return operand.Contains("IsWearingShield");
+            });
+
+            if (bindIndex > 0)
+            {
+                codes[bindIndex] = new CodeInstruction(OpCodes.Call, customMethod);
             }
 
-            private static bool CustomMethod(RulesetActor actor)
-            {
-                return true;
-            }
+            return codes.AsEnumerable();
+        }
+
+        private static bool CustomMethod(RulesetActor actor)
+        {
+            return true;
         }
     }
 }

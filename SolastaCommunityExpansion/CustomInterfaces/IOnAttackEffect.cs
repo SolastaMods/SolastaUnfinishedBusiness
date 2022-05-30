@@ -1,23 +1,22 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IOnAttackEffect
 {
-    public interface IOnAttackEffect
-    {
-        void BeforeOnAttack(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode);
+    void BeforeOnAttack(
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier attackModifier,
+        RulesetAttackMode attackerAttackMode);
 
-        void AfterOnAttack(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackerAttackMode);
-    }
-
-    public delegate void OnAttackDelegate(
+    void AfterOnAttack(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,
         RulesetAttackMode attackerAttackMode);
 }
+
+public delegate void OnAttackDelegate(
+    GameLocationCharacter attacker,
+    GameLocationCharacter defender,
+    ActionModifier attackModifier,
+    RulesetAttackMode attackerAttackMode);

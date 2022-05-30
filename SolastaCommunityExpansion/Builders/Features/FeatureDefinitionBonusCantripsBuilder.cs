@@ -5,151 +5,150 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Builders.Features
+namespace SolastaCommunityExpansion.Builders.Features;
+
+public abstract class
+    FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
+    where TDefinition : FeatureDefinitionBonusCantrips
+    where TBuilder : FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder>
 {
-    public abstract class
-        FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder> : DefinitionBuilder<TDefinition, TBuilder>
-        where TDefinition : FeatureDefinitionBonusCantrips
-        where TBuilder : FeatureDefinitionBonusCantripsBuilder<TDefinition, TBuilder>
+    public TBuilder ClearBonusCantrips()
     {
-        public TBuilder ClearBonusCantrips()
-        {
-            Definition.BonusCantrips.Clear();
-            return This();
-        }
-
-        public TBuilder AddBonusCantrip(SpellDefinition spellDefinition)
-        {
-            Definition.BonusCantrips.Add(spellDefinition);
-            Definition.BonusCantrips.Sort(Sorting.Compare);
-            return This();
-        }
-
-        public TBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
-        {
-            SetBonusCantrips(spellDefinitions.AsEnumerable());
-            return This();
-        }
-
-        public TBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
-        {
-            Definition.BonusCantrips.SetRange(spellDefinitions);
-            Definition.BonusCantrips.Sort(Sorting.Compare);
-            return This();
-        }
-
-        #region Constructors
-
-        protected FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
-            original, name, namespaceGuid)
-        {
-        }
-
-        protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, string definitionGuid) :
-            base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
+        Definition.BonusCantrips.Clear();
+        return This();
     }
 
-    public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
-        FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
+    public TBuilder AddBonusCantrip(SpellDefinition spellDefinition)
     {
-        #region Constructors
-
-        public FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
-        {
-        }
-
-        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
+        Definition.BonusCantrips.Add(spellDefinition);
+        Definition.BonusCantrips.Sort(Sorting.Compare);
+        return This();
     }
 
-    public class FeatureDefinitionFreeBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
-        FeatureDefinitionFreeBonusCantrips, FeatureDefinitionFreeBonusCantripsBuilder>
+    public TBuilder SetBonusCantrips(params SpellDefinition[] spellDefinitions)
     {
-        #region Constructors
-
-        public FeatureDefinitionFreeBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsBuilder(string name, string definitionGuid) : base(name,
-            definitionGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
+        SetBonusCantrips(spellDefinitions.AsEnumerable());
+        return This();
     }
 
-    public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
-        FeatureDefinitionFreeBonusCantripsWithPrerequisites, FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder>
+    public TBuilder SetBonusCantrips(IEnumerable<SpellDefinition> spellDefinitions)
     {
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidators(
-            params IFeatureDefinitionWithPrerequisites.Validate[] validators)
-        {
-            Definition.Validators.AddRange(validators);
-
-            return this;
-        }
-
-        #region Constructors
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name,
-            namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(
-            name,
-            definitionGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
-            FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
-            Guid namespaceGuid) : base(original, name, namespaceGuid)
-        {
-        }
-
-        public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
-            FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
-            string definitionGuid) : base(original, name, definitionGuid)
-        {
-        }
-
-        #endregion
+        Definition.BonusCantrips.SetRange(spellDefinitions);
+        Definition.BonusCantrips.Sort(Sorting.Compare);
+        return This();
     }
+
+    #region Constructors
+
+    protected FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    protected FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    {
+    }
+
+    protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, Guid namespaceGuid) : base(
+        original, name, namespaceGuid)
+    {
+    }
+
+    protected FeatureDefinitionBonusCantripsBuilder(TDefinition original, string name, string definitionGuid) :
+        base(original, name, definitionGuid)
+    {
+    }
+
+    #endregion
+}
+
+public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
+    FeatureDefinitionBonusCantrips, FeatureDefinitionBonusCantripsBuilder>
+{
+    #region Constructors
+
+    public FeatureDefinitionBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    public FeatureDefinitionBonusCantripsBuilder(string name, string definitionGuid) : base(name, definitionGuid)
+    {
+    }
+
+    public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
+        Guid namespaceGuid) : base(original, name, namespaceGuid)
+    {
+    }
+
+    public FeatureDefinitionBonusCantripsBuilder(FeatureDefinitionBonusCantrips original, string name,
+        string definitionGuid) : base(original, name, definitionGuid)
+    {
+    }
+
+    #endregion
+}
+
+public class FeatureDefinitionFreeBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
+    FeatureDefinitionFreeBonusCantrips, FeatureDefinitionFreeBonusCantripsBuilder>
+{
+    #region Constructors
+
+    public FeatureDefinitionFreeBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
+    {
+    }
+
+    public FeatureDefinitionFreeBonusCantripsBuilder(string name, string definitionGuid) : base(name,
+        definitionGuid)
+    {
+    }
+
+    public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
+        Guid namespaceGuid) : base(original, name, namespaceGuid)
+    {
+    }
+
+    public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
+        string definitionGuid) : base(original, name, definitionGuid)
+    {
+    }
+
+    #endregion
+}
+
+public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
+    FeatureDefinitionFreeBonusCantripsWithPrerequisites, FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder>
+{
+    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidators(
+        params IFeatureDefinitionWithPrerequisites.Validate[] validators)
+    {
+        Definition.Validators.AddRange(validators);
+
+        return this;
+    }
+
+    #region Constructors
+
+    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name,
+        namespaceGuid)
+    {
+    }
+
+    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(
+        name,
+        definitionGuid)
+    {
+    }
+
+    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
+        FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+        Guid namespaceGuid) : base(original, name, namespaceGuid)
+    {
+    }
+
+    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
+        FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+        string definitionGuid) : base(original, name, definitionGuid)
+    {
+    }
+
+    #endregion
 }

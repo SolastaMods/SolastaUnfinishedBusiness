@@ -2,23 +2,22 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort
+namespace SolastaCommunityExpansion.Patches.DungeonMaker.EditorSort;
+
+// better rooms sorting
+[HarmonyPatch(typeof(RoomBlueprintSelectionPanel), "Compare")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RoomBlueprintSelectionPanel_Compare
 {
-    // better rooms sorting
-    [HarmonyPatch(typeof(RoomBlueprintSelectionPanel), "Compare")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class RoomBlueprintSelectionPanel_Compare
+    internal static bool Prefix(RoomBlueprint left, RoomBlueprint right, ref int __result)
     {
-        internal static bool Prefix(RoomBlueprint left, RoomBlueprint right, ref int __result)
+        if (!Main.Settings.EnableSortingDungeonMakerAssets)
         {
-            if (!Main.Settings.EnableSortingDungeonMakerAssets)
-            {
-                return true;
-            }
-
-            __result = DmProEditorContext.Compare(left, right);
-
-            return false;
+            return true;
         }
+
+        __result = DmProEditorContext.Compare(left, right);
+
+        return false;
     }
 }

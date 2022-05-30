@@ -6,122 +6,122 @@ using System.Reflection;
 using HarmonyLib;
 using UnityModManagerNet;
 
-namespace ModKit
+namespace ModKit;
+
+public interface IModEventHandler
 {
-    public interface IModEventHandler
+    int Priority { get; }
+
+    void HandleModEnable();
+
+    //void HandleModDisable();
+}
+
+public class ModManager<TCore, TSettings>
+    where TCore : class, new()
+    where TSettings : UnityModManager.ModSettings, new()
+{
+    #region Fields & Properties
+
+    private UnityModManager.ModEntry.ModLogger _logger;
+    private List<IModEventHandler> _eventHandlers;
+
+    public TCore Core { get; private set; }
+
+    public TSettings Settings { get; private set; }
+
+    public Version Version { get; private set; }
+
+    public bool Enabled { get; private set; }
+
+    public bool Patched { get; private set; }
+
+    #endregion
+
+    #region Toggle
+
+    public void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
     {
-        int Priority { get; }
+        _logger = modEntry.Logger;
 
-        void HandleModEnable();
-
-        //void HandleModDisable();
-    }
-
-    public class ModManager<TCore, TSettings>
-        where TCore : class, new()
-        where TSettings : UnityModManager.ModSettings, new()
-    {
-        #region Fields & Properties
-
-        private UnityModManager.ModEntry.ModLogger _logger;
-        private List<IModEventHandler> _eventHandlers;
-
-        public TCore Core { get; private set; }
-
-        public TSettings Settings { get; private set; }
-
-        public Version Version { get; private set; }
-
-        public bool Enabled { get; private set; }
-
-        public bool Patched { get; private set; }
-
-        #endregion
-
-        #region Toggle
-
-        public void Enable(UnityModManager.ModEntry modEntry, Assembly assembly)
+        if (Enabled)
         {
-            _logger = modEntry.Logger;
+            Debug("Already enabled.");
+            return;
+        }
 
-            if (Enabled)
+        using ProcessLogger process = new(_logger);
+        try
+        {
+            process.Log("Enabling.");
+            var dict = Harmony.VersionInfo(out var myVersion);
+            process.Log($"Harmony version: {myVersion}");
+            foreach (var entry in dict)
             {
-                Debug("Already enabled.");
-                return;
+                process.Log($"Mod {entry.Key} loaded with Harmony version {entry.Value}");
             }
 
-            using ProcessLogger process = new(_logger);
-            try
+            process.Log("Loading settings.");
+            modEntry.OnSaveGUI += HandleSaveGUI;
+            Version = modEntry.Version;
+            Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
+            Core = new TCore();
+
+            var types = assembly.GetTypes();
+
+            if (!Patched)
             {
-                process.Log("Enabling.");
-                var dict = Harmony.VersionInfo(out var myVersion);
-                process.Log($"Harmony version: {myVersion}");
-                foreach (var entry in dict)
+                Harmony harmonyInstance = new(modEntry.Info.Id);
+                foreach (var type in types)
                 {
-                    process.Log($"Mod {entry.Key} loaded with Harmony version {entry.Value}");
-                }
-
-                process.Log("Loading settings.");
-                modEntry.OnSaveGUI += HandleSaveGUI;
-                Version = modEntry.Version;
-                Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
-                Core = new TCore();
-
-                var types = assembly.GetTypes();
-
-                if (!Patched)
-                {
-                    Harmony harmonyInstance = new(modEntry.Info.Id);
-                    foreach (var type in types)
+                    var harmonyMethods = HarmonyMethodExtensions.GetFromType(type);
+                    if (harmonyMethods != null && harmonyMethods.Count() > 0)
                     {
-                        var harmonyMethods = HarmonyMethodExtensions.GetFromType(type);
-                        if (harmonyMethods != null && harmonyMethods.Count() > 0)
+                        process.Log($"Patching: {type.FullName}");
+                        try
                         {
-                            process.Log($"Patching: {type.FullName}");
-                            try
-                            {
-                                var patchProcessor = harmonyInstance.CreateClassProcessor(type);
-                                patchProcessor.Patch();
-                            }
-                            catch (Exception e)
-                            {
-                                Error(e);
-                            }
+                            var patchProcessor = harmonyInstance.CreateClassProcessor(type);
+                            patchProcessor.Patch();
+                        }
+                        catch (Exception e)
+                        {
+                            Error(e);
                         }
                     }
-
-                    Patched = true;
                 }
 
-                Enabled = true;
-
-                process.Log("Registering events.");
-                _eventHandlers = types.Where(type => type != typeof(TCore) &&
-                                                     !type.IsInterface && !type.IsAbstract &&
-                                                     typeof(IModEventHandler).IsAssignableFrom(type))
-                    .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
-                if (Core is IModEventHandler core)
-                {
-                    _eventHandlers.Add(core);
-                }
-
-                _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
-
-                process.Log("Raising events: OnEnable()");
-                for (var i = 0; i < _eventHandlers.Count; i++)
-                {
-                    _eventHandlers[i].HandleModEnable();
-                }
+                Patched = true;
             }
-            catch (Exception e)
+
+            Enabled = true;
+
+            process.Log("Registering events.");
+            _eventHandlers = types.Where(type => type != typeof(TCore) &&
+                                                 !type.IsInterface && !type.IsAbstract &&
+                                                 typeof(IModEventHandler).IsAssignableFrom(type))
+                .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
+            if (Core is IModEventHandler core)
             {
-                Error(e);
-                //Disable(modEntry, true);
-                throw;
+                _eventHandlers.Add(core);
             }
 
-            process.Log("Enabled.");
+            _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
+
+            process.Log("Raising events: OnEnable()");
+            for (var i = 0; i < _eventHandlers.Count; i++)
+            {
+                _eventHandlers[i].HandleModEnable();
+            }
         }
+        catch (Exception e)
+        {
+            Error(e);
+            //Disable(modEntry, true);
+            throw;
+        }
+
+        process.Log("Enabled.");
+    }
 
 #if false
         public void Disable(UnityModManager.ModEntry modEntry, bool unpatch = false) {
@@ -170,85 +170,84 @@ namespace ModKit
         }
 #endif
 
-        #endregion
+    #endregion
 
-        #region Settings
+    #region Settings
 
-        //public void ResetSettings() {
-        //    if (Enabled) {
-        //        Settings = new TSettings();
-        //    }
-        //}
+    //public void ResetSettings() {
+    //    if (Enabled) {
+    //        Settings = new TSettings();
+    //    }
+    //}
 
-        private void HandleSaveGUI(UnityModManager.ModEntry modEntry)
+    private void HandleSaveGUI(UnityModManager.ModEntry modEntry)
+    {
+        UnityModManager.ModSettings.Save(Settings, modEntry);
+    }
+
+    #endregion
+
+    #region Loggers
+
+    //public void Critical(string str) => _logger.Critical(str);
+
+    //public void Critical(object obj) => _logger.Critical(obj?.ToString() ?? "null");
+
+    public void Error(Exception e)
+    {
+        _logger.Error($"{e.Message}\n{e.StackTrace}");
+        if (e.InnerException != null)
         {
-            UnityModManager.ModSettings.Save(Settings, modEntry);
+            Error(e.InnerException);
+        }
+    }
+
+    //public void Error(string str) => _logger.Error(str);
+
+    //public void Error(object obj) => _logger.Error(obj?.ToString() ?? "null");
+
+    //public void Log(string str) => _logger.Log(str);
+
+    //public void Log(object obj) => _logger.Log(obj?.ToString() ?? "null");
+
+    //public void Warning(string str) => _logger.Warning(str);
+
+    //public void Warning(object obj) => _logger.Warning(obj?.ToString() ?? "null");
+
+    //[Conditional("DEBUG")]
+    //public void Debug(MethodBase method, params object[] parameters) => _logger.Log($"{method.DeclaringType.Name}.{method.Name}({string.Join(", ", parameters)})");
+
+    [Conditional("DEBUG")]
+    public void Debug(string str)
+    {
+        _logger.Log(str);
+    }
+
+    //[Conditional("DEBUG")]
+    //public void Debug(object obj) => _logger.Log(obj?.ToString() ?? "null");
+
+    #endregion
+
+    private class ProcessLogger : IDisposable
+    {
+        private readonly UnityModManager.ModEntry.ModLogger _logger;
+        private readonly Stopwatch _stopWatch = new();
+
+        public ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
+        {
+            _logger = logger;
+            _stopWatch.Start();
         }
 
-        #endregion
-
-        #region Loggers
-
-        //public void Critical(string str) => _logger.Critical(str);
-
-        //public void Critical(object obj) => _logger.Critical(obj?.ToString() ?? "null");
-
-        public void Error(Exception e)
+        public void Dispose()
         {
-            _logger.Error($"{e.Message}\n{e.StackTrace}");
-            if (e.InnerException != null)
-            {
-                Error(e.InnerException);
-            }
+            _stopWatch.Stop();
         }
-
-        //public void Error(string str) => _logger.Error(str);
-
-        //public void Error(object obj) => _logger.Error(obj?.ToString() ?? "null");
-
-        //public void Log(string str) => _logger.Log(str);
-
-        //public void Log(object obj) => _logger.Log(obj?.ToString() ?? "null");
-
-        //public void Warning(string str) => _logger.Warning(str);
-
-        //public void Warning(object obj) => _logger.Warning(obj?.ToString() ?? "null");
-
-        //[Conditional("DEBUG")]
-        //public void Debug(MethodBase method, params object[] parameters) => _logger.Log($"{method.DeclaringType.Name}.{method.Name}({string.Join(", ", parameters)})");
 
         [Conditional("DEBUG")]
-        public void Debug(string str)
+        public void Log(string status)
         {
-            _logger.Log(str);
-        }
-
-        //[Conditional("DEBUG")]
-        //public void Debug(object obj) => _logger.Log(obj?.ToString() ?? "null");
-
-        #endregion
-
-        private class ProcessLogger : IDisposable
-        {
-            private readonly UnityModManager.ModEntry.ModLogger _logger;
-            private readonly Stopwatch _stopWatch = new();
-
-            public ProcessLogger(UnityModManager.ModEntry.ModLogger logger)
-            {
-                _logger = logger;
-                _stopWatch.Start();
-            }
-
-            public void Dispose()
-            {
-                _stopWatch.Stop();
-            }
-
-            [Conditional("DEBUG")]
-            public void Log(string status)
-            {
-                _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
-            }
+            _logger.Log($"[{_stopWatch.Elapsed:ss\\.ff}] {status}");
         }
     }
 }

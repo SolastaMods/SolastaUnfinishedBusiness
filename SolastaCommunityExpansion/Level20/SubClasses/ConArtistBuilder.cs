@@ -1,23 +1,22 @@
 ﻿using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Level20.SubClasses
+namespace SolastaCommunityExpansion.Level20.SubClasses;
+
+internal static class ConArtistBuilder
 {
-    internal static class ConArtistBuilder
+    internal static void Load()
     {
-        internal static void Load()
+        DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
+            .TryGetElement("CastSpellConArtist", out var featureDefinitionCastSpell);
+
+        if (featureDefinitionCastSpell != null)
         {
-            DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
-                .TryGetElement("CastSpellConArtist", out var featureDefinitionCastSpell);
+            featureDefinitionCastSpell.SetSpellCastingLevel(4);
 
-            if (featureDefinitionCastSpell != null)
-            {
-                featureDefinitionCastSpell.SetSpellCastingLevel(4);
+            featureDefinitionCastSpell.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 
-                featureDefinitionCastSpell.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
-
-                featureDefinitionCastSpell.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
-            }
+            featureDefinitionCastSpell.ReplacedSpells.SetRange(SpellsHelper.OneThirdCasterReplacedSpells);
         }
     }
 }
