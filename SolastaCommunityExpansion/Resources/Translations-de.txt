@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	Erhöhe das Intelligenzattribut um 1. Erha
 Feat/&FeatShadowTouchedIntTitle	Schattenberührt (Intelligenz)
 Feat/&FeatShadowTouchedWisDescription	Erhöhe das Weisheitsattribut um 1. Erhalte die Fähigkeit, Unsichtbarkeit, Wunden zufügen und Falsches Leben einmal pro langer Pause zu wirken und lerne die Zauber.
 Feat/&FeatShadowTouchedWisTitle	Schatten berührt (Weisheit)
-Feat/&FeatShadyDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nEinmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 12. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 20. Stufe auf 4W6. Dies kann mit Rogue's Sneak Attack gestapelt werden.
+Feat/&FeatShadyDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nEinmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 12. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 20. Stufe auf 4W6.
 Feat/&FeatShadyTitle	Schattig
 Feat/&FeatShieldExpertDescription	Du hast den Umgang mit einem Schild als Waffe geübt. Für dich wird es zu einer Nahkampfwaffe, mit der du geübt bist und die 1W4 Knüppelschaden verursacht.\nSie erhalten einen Vorteil bei Schubsversuchen, während Sie einen Schild setzen.
 Feat/&FeatShieldExpertTitle	Schild-Experte

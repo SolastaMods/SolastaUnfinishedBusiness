@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	智力+1。获得施放隐形术，致伤�
 Feat/&FeatShadowTouchedIntTitle	暗影亲和（智力）
 Feat/&FeatShadowTouchedWisDescription	感知+1。获得施放隐形术，致伤术和虚假生命的能力，每长休1次。同时学会这些法术
 Feat/&FeatShadowTouchedWisTitle	暗影亲和（感知）
-Feat/&FeatShadyDescription	敏捷+1，最高20点\n每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6。其能与游荡者的偷袭叠加
+Feat/&FeatShadyDescription	敏捷+1，最高20点\n每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6
 Feat/&FeatShadyTitle	背刺
 Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势
 Feat/&FeatShieldExpertTitle	盾牌专家

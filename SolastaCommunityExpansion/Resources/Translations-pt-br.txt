@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	Aumente o atributo Inteligência em 1. Gan
 Feat/&FeatShadowTouchedIntTitle	Sombra Tocada (Inteligência)
 Feat/&FeatShadowTouchedWisDescription	Aumente o atributo Sabedoria em 1. Ganhe a habilidade de lançar Invisibilidade, Infligir Ferimentos e Vida Falsa uma vez por descanso longo e aprenda os feitiços.
 Feat/&FeatShadowTouchedWisTitle	Sombra Tocada (Sabedoria)
-Feat/&FeatShadyDescription	Aumente sua Destreza em 1, até um máximo de 20.\nUma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 12º nível este dano aumenta para 2d6 e no 20º nível para 4d6. Isso pode acumular com o ataque furtivo de Rogue.
+Feat/&FeatShadyDescription	Aumente sua Destreza em 1, até um máximo de 20.\nUma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 12º nível este dano aumenta para 2d6 e no 20º nível para 4d6.
 Feat/&FeatShadyTitle	Sombrio
 Feat/&FeatShieldExpertDescription	Você treinou no uso de um escudo como arma. Para você, torna-se uma arma corpo a corpo com a qual você é proficiente, causando 1d4 de dano de concussão.\nVocê ganha vantagem em tentativas de empurrão enquanto empunha um escudo.
 Feat/&FeatShieldExpertTitle	Especialista em escudos

@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	Augmentez l'attribut Intelligence de 1. Ob
 Feat/&FeatShadowTouchedIntTitle	Touché par l'Ombre (Intelligence)
 Feat/&FeatShadowTouchedWisDescription	Augmentez l'attribut Sagesse de 1. Obtenez la capacité de lancer Invisibilité, Infliger des blessures et Fausse vie une fois par repos long et apprenez les sorts.
 Feat/&FeatShadowTouchedWisTitle	Ombre touchée (sagesse)
-Feat/&FeatShadyDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nUne fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 12, ces dégâts passent à 2d6 et au niveau 20 à 4d6. Cela peut se cumuler avec l'attaque sournoise de Rogue.
+Feat/&FeatShadyDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nUne fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 12, ces dégâts passent à 2d6 et au niveau 20 à 4d6.
 Feat/&FeatShadyTitle	Ombragé
 Feat/&FeatShieldExpertDescription	Vous vous êtes entraîné à utiliser un bouclier comme arme. Pour vous, il devient une arme de mêlée que vous maîtrisez, infligeant 1d4 dégâts contondants.\nVous gagnez un avantage sur les tentatives de bousculade tout en brandissant un bouclier.
 Feat/&FeatShieldExpertTitle	Spécialiste du bouclier
