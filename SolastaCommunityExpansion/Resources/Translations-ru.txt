@@ -1980,3 +1980,21 @@ UI/&CustomFeatureSelectionTooltipTypePower	Сила
 UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
 UI/&ForcePreferredCantripDescription	Если этот переключатель включен, может сработать только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый допустимый заговор, независимо от этого переключателя.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Subclass/&FighterMarshalDescription	Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными лидерами на поле боя.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Когда вы поражаете врага рукопашной атакой, все члены вашей группы могут использовать свою реакцию, чтобы совершить атаку по возможности против вашей цели.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Скоординированная атака
+Subclass/&FighterMarshalEncouragementPowerDescription	Один раз в день, проводя час, чтобы подбодрить друг друга и подготовиться к следующему дню приключений, моральный дух группы значительно повышается. Каждый воодушевленный персонаж добавляет 1d4 к своей атаке и спасброску. Эффект длится до длительного отдыха.
+Subclass/&FighterMarshalEncouragementPowerTitle	Поощрение
+Subclass/&MarshalEternalComradeDescription	Падший товарищ
+Subclass/&MarshalEternalComradeTitle	Падший товарищ
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Связь между маршалом и его товарищем пересекает границу между жизнью и смертью. В качестве бонусного действия маршал может призвать 2 духа своих павших товарищей, которые помогут ему в бою.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Вечный товарищ
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Вы невосприимчивы к эффекту страха.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Бесстрашный командир
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Вы добавляете уровень знания текущей цели к броску атаки и урону.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Знай своего врага
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	В качестве бонусного действия вы можете попытаться увеличить свои знания о своей цели, бросив проверку выживания. Вы можете сделать это дважды за короткий отдых.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Изучай своего врага
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Призвать 2 духа павшего товарища маршала. У каждого духа 45 + 2 х уровня класса бойца, а его КД равен 16 + ваше ПЗ. Кроме того, духи невосприимчивы к отравлению, холоду, некрозу, повержению, параличу, ограничению и устойчивы к огню, кислоте, молнии, грому. У них также есть сопротивление немагическому рубящему, блудогингу, колющему урону. В свой ход они могут взлететь до 50 футов и совершить одну (2d6 + 5) магическую рубящую атаку с дополнительной атакой, равной 5 + PB.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Призвать Вечного Товарища
+Subclass/&FighterMarshalTitle	Маршал

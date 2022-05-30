@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "MarshalEternalComrade",
+  "addedConditions": [
+    "Definition:ConditionMarshalEternarlComradeAC:1ed663b5-4879-580d-89d9-27fc2f3f090a",
+    "Definition:ConditionMarshalEternarlComradeDamage:b0306148-eee0-59a6-b5dd-91976721638a",
+    "Definition:ConditionMarshalEternarlComradeHit:98a013d4-c421-587b-86a8-70016b8ea77c",
+    "Definition:ConditionMarshalEternarlComradeHP:75577a02-c4bb-57d5-abfc-de724fb0f7e4",
+    "Definition:ConditionMarshalEternarlComradeHP:75577a02-c4bb-57d5-abfc-de724fb0f7e4",
+    "Definition:ConditionMarshalEternarlComradeST:169665de-381c-5e56-bd52-29dbf315c267"
+  ],
+  "effectOnConjuredDeath": true,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "df5b9a5b-1c1b-5fa5-a16e-540efccb4f5a",
+  "contentPack": 9999,
+  "name": "SummoningAffinityMarshalEternalComrade"
+}

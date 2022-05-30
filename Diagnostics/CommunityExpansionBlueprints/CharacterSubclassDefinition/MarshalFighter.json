@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CoordinatedAttack:516513ab-f824-50dd-8210-d9c5f5eeb9df",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:KnowYourEnemy:082181b4-e514-546a-ad29-45e3130d207e",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:StudyYourEnemy:326182cd-114a-5926-89c6-50a3dac8e4cc",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:EternalComradeFeatureSet:050d3c24-b64f-55bb-be95-f4698da5c9c2",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:Encouragement:ad7e9b2d-7070-59f8-a691-7d70337193c7",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FearlessCommander:32d3344a-11f7-58a1-bafe-105fd201dfad",
+      "level": 10
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&FighterMarshalTitle",
+    "description": "Subclass/&FighterMarshalDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",
+      "m_SubObjectName": "Paladin_Oath_Of_Jugement",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "da3393f5-ba41-580a-8ea6-0ee56df3dd91",
+  "contentPack": 9999,
+  "name": "MarshalFighter"
+}

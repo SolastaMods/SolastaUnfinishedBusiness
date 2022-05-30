@@ -1980,3 +1980,21 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se esta opção estiver LIGADA, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
+Subclass/&FighterMarshalDescription	Habilidosos em estudar as fraquezas dos inimigos e coordenar os ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos ochestratores do campo de batalha.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Quando você atinge um inimigo com um ataque corpo a corpo, todos os membros do seu grupo podem usar sua reação para fazer um ataque de oportunidade contra seu alvo.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordenado
+Subclass/&FighterMarshalEncouragementPowerDescription	Uma vez por dia, gastando uma hora para encorajar uns aos outros e se preparar para o próximo dia de aventura, o moral do grupo melhora significativamente. Cada personagem encorajado adiciona 1d4 ao seu ataque e teste de resistência. O efeito dura até descanso longo.
+Subclass/&FighterMarshalEncouragementPowerTitle	Encorajamento
+Subclass/&MarshalEternalComradeDescription	Camarada caído
+Subclass/&MarshalEternalComradeTitle	Camarada caído
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	O vínculo entre o marechal e seu companheiro cruza a fronteira entre a vida e a morte. Como uma ação bônus, o marechal pode convocar 2 espíritos de seus companheiros caídos para ajudá-lo no combate.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eterno Camarada
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Você é imune ao efeito do medo.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Comandante Destemido
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Você adiciona seu nível de conhecimento do alvo atual à sua jogada de ataque e ao seu dano.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conheça seu inimigo
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como uma ação bônus, você pode tentar aumentar seu conhecimento sobre seu alvo rolando um teste de sobrevivência. Você pode fazer isso duas vezes por descanso curto.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + 2 x pontos de vida de nível de classe de lutador e sua CA é 16 + seu PB. Além disso, os espíritos são imunes a Posion, Cold, Necrotic, Prone, Paralyze, Restricted e são resistentes a Fire, Acid, Lighting, Thunder. Eles também têm resistência contra danos não-mágicos de Slashin, Bludeoging, Piercing. Por sua vez, eles podem voar até 50' e fazer um único (2d6 + 5) ataque mágico de ataque com bônus de ataque igual a 5 + PB.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
+Subclass/&FighterMarshalTitle	Marechal

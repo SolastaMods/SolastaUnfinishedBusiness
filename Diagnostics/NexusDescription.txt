@@ -160,6 +160,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Con Artist[/b]: Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
 [*][b]Life Transmuter[/b]: Masters of manipulating both matter and life energy.
+[*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.

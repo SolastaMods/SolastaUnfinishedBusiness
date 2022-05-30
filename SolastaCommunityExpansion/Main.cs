@@ -13,7 +13,6 @@ using Debug = UnityEngine.Debug;
 namespace SolastaCommunityExpansion;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 
-
 public static class Main
 {
     internal static bool IsDebugBuild = Debug.isDebugBuild;
