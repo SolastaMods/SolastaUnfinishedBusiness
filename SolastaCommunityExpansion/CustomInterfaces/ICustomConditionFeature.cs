@@ -1,8 +1,7 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface ICustomConditionFeature
 {
-    public interface ICustomConditionFeature
-    {
-        public void ApplyFeature(RulesetCharacter hero);
-        public void RemoveFeature(RulesetCharacter hero);
-    }
+    public void ApplyFeature(RulesetCharacter hero);
+    public void RemoveFeature(RulesetCharacter hero);
 }

@@ -2,12 +2,16 @@ Condition/&DH_ReverseGravity_Spell_Description	Gravidade reversa
 Condition/&DH_ReverseGravity_Spell_Title	Gravidade reversa
 Condition/&DH_TimeStop_Spell_Description	Congelado por Parada de Tempo
 Condition/&DH_TimeStop_Spell_Title	Congelado por Parada de Tempo
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Tempestade Relâmpago
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Tempestade Relâmpago
 Feature/&DH_AtWill_Fireball_Power_Description	Bola de fogo à vontade
 Feature/&DH_AtWill_Fireball_Power_Title	Bola fogo
 Feature/&DH_AtWill_HoldMonster_Power_Description	3 usos por dia
 Feature/&DH_AtWill_HoldMonster_Power_Title	Segure Monstro
 Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilidade à vontade
 Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilidade
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Ataque Relâmpago
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Ataque Relâmpago
 Monster/&DH_Custom_AirTitan_Description	Quando convocados, esses elementais anciões se manifestam como seres de capacidade apocalíptica, entidades cuja mera existência promete destruição.
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titã do Ar Primordial</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	O mais mal-humorado e vil dos dragões cromáticos, os dragões negros coletam os destroços e tesouros dos povos caídos. Esses dragões detestam ver os fracos prosperarem e se deleitam com o colapso dos reinos humanóides. Eles fazem suas casas em pântanos fétidos e ruínas em ruínas onde reinos antes existiam.
@@ -56,7 +60,7 @@ Monster/&DH_Custom_Roc_Description	Rocs são criaturas solitárias que podem viv
 Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Roca</color>
 Monster/&DH_Custom_Solar_Description	No campo de batalha, a espada do solar voa para a briga por conta própria, e uma única flecha do arco de um solar pode atingir um alvo morto em contato. Tão grande é o poder celestial de um solar que até mesmo os príncipes demoníacos encolhem em seus comandos ressonantes.
 Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Solar</color>
-Monster/&DH_Custom_StormGiant_Description	Gigantes da tempestade são videntes contemplativos que vivem em lugares distantes da civilização mortal. A maioria tem pele e cabelo cinza-púrpura pálido e olhos esmeralda brilhantes.
+Monster/&DH_Custom_StormGiant_Description	Gigantes da tempestade são videntes contemplativos que vivem em lugares distantes da civilização mortal. A maioria tem pele e cabelos púrpura-acinzentados pálidos e olhos esmeralda brilhantes.
 Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Gigante da Tempestade</color>
 Monster/&DH_Custom_Tarrasque_Description	O lendário tarrasque é possivelmente o monstro mais temido do Plano Material. Acredita-se que apenas uma dessas criaturas existe, embora ninguém possa prever onde e quando ela atacará. Um bípede escamoso, o tarrasque tem quinze metros de altura e setenta metros de comprimento, pesando centenas de toneladas
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasco</color>
@@ -70,7 +74,7 @@ Monster/&WitchOwlFamiliarDescription	Coruja familiar
 Monster/&WitchOwlFamiliarTitle	Coruja
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6 trovão e empurra 2 células
 MonsterAttack/&DH_AirBlast_Attack_Title	Jato de ar
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 Concussão e 4d6 Trovão
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 Concussão e 4d6 Trovão
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Batida Trovejante
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Concussão
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Ataque de cauda
@@ -147,7 +151,7 @@ MonsterAttack/&DH_Roc_Beak_Attack_Title	Bico
 MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Cortando e o alvo é agarrado e impedido por Roc
 MonsterAttack/&DH_Roc_Talons_Attack_Title	Garras
 MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 de dano perfurante e o alvo deve ser bem sucedido em um teste de Destreza ou será agarrado (CD 20 para escapar).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Mordida
+MonsterAttack/&DH_Tarrasque_Bite_Title	Morder
 MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Até que este agarrão termine, o alvo está impedido.
 MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Apanhado por Tarrasque
 MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 de dano cortante
@@ -155,9 +159,9 @@ MonsterAttack/&DH_Tarrasque_Claw_Title	Garra
 MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) dano perfurante
 MonsterAttack/&DH_Tarrasque_Horn_Title	Buzina
 MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 de dano de concussão. Se o alvo for uma criatura, ele deve ser bem sucedido em um teste de resistência de Força CD 20 ou será derrubado
-MonsterAttack/&DH_Tarrasque_Tail_Title	Cauda
+MonsterAttack/&DH_Tarrasque_Tail_Title	Rabo
 MonsterAttack/&DHCouatlBiteAttackDescription	Dano perfurante e o alvo deve ser bem sucedido em um teste de resistência de Constituição CD 13 ou ficará envenenado por 24 horas. Até que este veneno termine, o alvo está inconsciente.
-MonsterAttack/&DHCouatlBiteAttackTitle	Mordida
+MonsterAttack/&DHCouatlBiteAttackTitle	Morder
 MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Thunder e empurrado no salvamento com falha
 MonsterPower/&DH_AirTitan_Gale_Power_Title	Galera Gritante
 MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Relâmpagos na área
@@ -166,10 +170,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Os dragões podem bater su
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Ataque de asa
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Fogo
 MonsterPower/&DH_Balor_FireAura_Power_Title	Aura de Fogo
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliar
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliar
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliar
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliar
 MonsterPower/&DH_BlindingGaze_Power_Description	CD15 Constituição Salvar ou ficar cego até que uma restauração menor seja usada
 MonsterPower/&DH_BlindingGaze_Power_Title	Olhar Cegante
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	Ácido 15D8
@@ -202,8 +206,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Necrótico
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Interromper a vida
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Fogo e 4D6 Radiante
 MonsterPower/&DH_SearingBurst_Power_Title	Explosão Calcinante
-MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
-MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_Description	Imunidade a Tempestade de Gelo
+MonsterPower/&DH_SleetStorm_Immunity_Title	Imunidade a Tempestade de Gelo
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Invoca 1 Elemental do Ar
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Invocar Elemental Maior
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Invoca 1 Elemental da Terra
@@ -214,6 +218,8 @@ MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Invoca 1 Elemen
 MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Invocar Elemental Maior
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Invoca 2 Bobos de Fogo
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Invocar Elementais Menores
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Invocar Constructo Inferior
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Invocar Constructo Inferior
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Um Nalfeshnee é chamado para lutar
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Servo de Invocação: Nalfeshnee
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Evoca 1 Skarn Ghoul

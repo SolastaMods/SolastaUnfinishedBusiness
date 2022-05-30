@@ -2,40 +2,39 @@
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions
+namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
+
+public static class UnityImageExtensions
 {
-    public static class UnityImageExtensions
+    public static void SetupSprite(this Image imageComponent, GuiPresentation presentation,
+        bool changeActiveStatus = false)
     {
-        public static void SetupSprite(this Image imageComponent, GuiPresentation presentation,
-            bool changeActiveStatus = false)
+        SetupSprite(imageComponent, presentation.SpriteReference);
+    }
+
+    public static void SetupSprite(this Image imageComponent, AssetReferenceSprite spriteReference,
+        bool changeActiveStatus = false)
+    {
+        if (imageComponent.sprite != null)
         {
-            SetupSprite(imageComponent, presentation.SpriteReference);
+            Gui.ReleaseAddressableAsset(imageComponent.sprite);
+            imageComponent.sprite = null;
         }
 
-        public static void SetupSprite(this Image imageComponent, AssetReferenceSprite spriteReference,
-            bool changeActiveStatus = false)
+        if (spriteReference != null && spriteReference.RuntimeKeyIsValid())
         {
-            if (imageComponent.sprite != null)
+            if (changeActiveStatus)
             {
-                Gui.ReleaseAddressableAsset(imageComponent.sprite);
-                imageComponent.sprite = null;
+                imageComponent.gameObject.SetActive(true);
             }
 
-            if (spriteReference != null && spriteReference.RuntimeKeyIsValid())
+            imageComponent.sprite = Gui.LoadAssetSync<Sprite>(spriteReference);
+        }
+        else
+        {
+            if (changeActiveStatus)
             {
-                if (changeActiveStatus)
-                {
-                    imageComponent.gameObject.SetActive(true);
-                }
-
-                imageComponent.sprite = Gui.LoadAssetSync<Sprite>(spriteReference);
-            }
-            else
-            {
-                if (changeActiveStatus)
-                {
-                    imageComponent.gameObject.SetActive(false);
-                }
+                imageComponent.gameObject.SetActive(false);
             }
         }
     }

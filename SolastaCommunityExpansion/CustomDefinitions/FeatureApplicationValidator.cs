@@ -1,25 +1,24 @@
 ﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.CustomDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions;
+
+public interface IFeatureApplicationValidator
 {
-    public interface IFeatureApplicationValidator
+    bool IsValid(RulesetCharacter character);
+}
+
+public class FeatureApplicationValidator : IFeatureApplicationValidator
+{
+    private readonly CharacterValidator[] validators;
+
+    public FeatureApplicationValidator(params CharacterValidator[] validators)
     {
-        bool IsValid(RulesetCharacter character);
+        this.validators = validators;
     }
 
-    public class FeatureApplicationValidator : IFeatureApplicationValidator
+    public bool IsValid(RulesetCharacter character)
     {
-        private readonly CharacterValidator[] validators;
-
-        public FeatureApplicationValidator(params CharacterValidator[] validators)
-        {
-            this.validators = validators;
-        }
-
-        public bool IsValid(RulesetCharacter character)
-        {
-            return character == null || character.IsValid(validators);
-        }
+        return character == null || character.IsValid(validators);
     }
 }

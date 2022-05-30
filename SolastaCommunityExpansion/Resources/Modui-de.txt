@@ -9,7 +9,7 @@ ModUi/&Adventure	<color=yellow>Abenteuer:</color>
 ModUi/&AllItemInDm	Alle Artikel in DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, Waldrüstungen zu tragen
 ModUi/&AllowDruidToWearMetalArmor	Erlaube dem <color=orange>Druiden</color>, Metallrüstungen zu tragen
-ModUi/&AllowDungeonsMaxLevel20	Erlaube Dungeons mit maximaler Stufe 20 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&AllowDungeonsMaxLevel20	Verliese mit maximaler Stufe 20 zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Ermöglicht das Platzieren von Gadgets und Requisiten überall auf der Karte <i><color=yellow>[drücken Sie während der Platzierung <color=cyan>STRG</color>, um jede Überprüfung zu umgehen]</color></i>
 ModUi/&AllowStackedMaterialComponent	Gestapelte Materialkomponente zulassen <i><color=yellow>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Zielauswahl beim Wirken des Zaubers <color=orange>Kettenblitz</color> zulassen
@@ -44,16 +44,16 @@ ModUi/&EmpressGarbAppearance	Aussehen <color=orange>Kaiserin-Gewand</color>
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Füge neue Fokusgegenstände zu Dungeon Maker hinzu</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAlternateHuman	Aktiviere den alternativen Menschen <i><color=yellow>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
-ModUI/&EnableBetaContent	Beta-Inhalte aktivieren <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Aktivieren Sie die Abbruchaktion mit einem Rechtsklick
 ModUi/&EnableCharacterChecker	Aktivieren Sie den Zeichenprüfbildschirm
 ModUi/&EnableCharacterExport	Aktivieren Sie <color=cyan>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
 ModUi/&EnableCheatMenu	Aktivieren Sie das Cheat-Menü
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfelder zu ignorieren
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfenster zu ignorieren
 ModUi/&EnableCtrlClickBypassMetamagicPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Zaubersprüche, um das metamagische Bedienfeld <color=orange>Zauberer</color> zu ignorieren
 ModUi/&EnableCtrlClickOnlySwapsMainHand	Aktivieren Sie den <color=cyan>CTRL</color>-Klick, um Gegenstände beim Wechseln von getragenen Konfigurationen fernzuhalten
 ModUi/&EnableDungeonMakerModdedContent	Aktivieren Sie Dungeon Maker Pro <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n\nDazu gehören flache Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellose Mischung von Assets aus allen Umgebungen\nSie müssen mindestens einen Raum im Freien haben, wenn Sie sich für eine Umgebung im Freien entscheiden
-ModUi/&EnableEpicPointsAndArray	Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[ Neustart erforderlich]</color></i></b>
+ModUi/&EnableEpicPointsAndArray	Aktivieren Sie ein episches 35-Punkte-Kaufsystem und ordnen Sie <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> an [Neustart erforderlich]</color></i></b>
 ModUi/&EnableExtraHighLevelMonsters	Aktiviere zusätzliche hochstufige Monster (+20 CR) für Kampagnen der Stufen 3 und 4 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels	Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
 ModUi/&EnableFlexibleBackgrounds	Aktivieren Sie flexible Hintergründe <i><color=yellow>[wählen Sie Fertigkeits- und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
@@ -80,7 +80,7 @@ ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Aktiviere unbegrenzte <c
 ModUi/&EnableUpcastConjureElementalAndFey	Upcast von <color=orange>Elementar beschwören</color>, <color=orange>Feen beschwören</color> aktivieren
 ModUi/&Encounters	Begegnungen
 ModUi/&ExpandAll	Alle erweitern
-ModUi/&FactionHelp	<color=#C04040E0>Lade ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
+ModUi/&FactionHelp	<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
 ModUi/&FactionRelations	<color=yellow>Fraktionsbeziehungen:</color>
 ModUi/&FasterTimeModifier	<color=white>Spielzeitmodifikator beim Drücken der Leertaste</color>
 ModUi/&Feats	<color=yellow>Leistungen</color>
@@ -94,7 +94,7 @@ ModUi/&GameUi	Benutzeroberfläche des Spiels
 ModUi/&General	<color=yellow>Allgemein:</color>
 ModUi/&GeneralMenu	Allgemein
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Blenden Sie die visuellen Effekte von Ausgängen und Teleportern aus, wenn sie noch nicht entdeckt wurden
-ModUi/&HideMonsterHitPoints	Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der exakten Trefferpunkte an
+ModUi/&HideMonsterHitPoints	Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House	<color=yellow>Haus:</color>
 ModUi/&IncreaseSenseNormalVision	Erhöhen Sie die Reichweite von <color=orange>Normale Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Anfangsauswahl:</color>
@@ -132,7 +132,7 @@ ModUi/&RacesClassesSubclasses	Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost	<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm	Rezepte in DM
 ModUi/&RemoveAttunementRequirements	Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RemoveBugVisualModels	Ersetzen Sie fehlerähnliche Modelle durch alternative visuelle Elemente im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveBugVisualModels	Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Identifizierungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RestockAntiquarians	Antiquare <i><color=yellow>[Halman Summer]</color></i> auffüllen
 ModUi/&RestockArcaneum	Arkaneum <i><color=yellow>[Heddlon Surespell]</color></i> auffüllen
@@ -144,7 +144,7 @@ ModUi/&ScaleMerchantPricesCorrectly	Händlerpreise richtig / exakt skalieren
 ModUi/&SelectAll	Wählen Sie Alle
 ModUi/&SelectSuggested	Wählen Sie Vorgeschlagen aus
 ModUi/&Services	Dienstleistungen
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Stellen Sie die Wahrscheinlichkeit ein, dass ein Bart erscheint, während Sie den</color> <color=orange>Gürtel der Zwergenkin</color> verwenden
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Stellen Sie die Wahrscheinlichkeit ein, dass ein Bart erscheint, während Sie den</color> <color=orange>Gürtel der Zwergenfamilie</color> verwenden
 ModUi/&ShowCraftingRecipeInDetailedTooltips	Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions	Beschreibungen anzeigen
 ModUi/&SpellInstructions	. Du kannst jeden Zauber einzeln jeder Zauberliste zuordnen oder einfach das vorgeschlagene Set auswählen

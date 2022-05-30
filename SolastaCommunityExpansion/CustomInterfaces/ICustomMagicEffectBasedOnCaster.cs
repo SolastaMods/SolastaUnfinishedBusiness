@@ -1,7 +1,6 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface ICustomMagicEffectBasedOnCaster
 {
-    public interface ICustomMagicEffectBasedOnCaster
-    {
-        EffectDescription GetCustomEffect(RulesetCharacter caster);
-    }
+    EffectDescription GetCustomEffect(RulesetCharacter caster);
 }

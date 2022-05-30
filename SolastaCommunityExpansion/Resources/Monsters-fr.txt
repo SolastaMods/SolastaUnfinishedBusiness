@@ -2,14 +2,18 @@ Condition/&DH_ReverseGravity_Spell_Description	Gravité inversée
 Condition/&DH_ReverseGravity_Spell_Title	Gravité inversée
 Condition/&DH_TimeStop_Spell_Description	Gelé par l'arrêt du temps
 Condition/&DH_TimeStop_Spell_Title	Gelé par l'arrêt du temps
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	Orage
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Orage
 Feature/&DH_AtWill_Fireball_Power_Description	Boule de feu à volonté
 Feature/&DH_AtWill_Fireball_Power_Title	Boule de feu
 Feature/&DH_AtWill_HoldMonster_Power_Description	3 utilisations par jour
 Feature/&DH_AtWill_HoldMonster_Power_Title	Tenez le monstre
 Feature/&DH_AtWill_Invisibility_Power_Description	Invisibilité à volonté
 Feature/&DH_AtWill_Invisibility_Power_Title	Invisibilité
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Attaque éclair
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	Attaque éclair
 Monster/&DH_Custom_AirTitan_Description	Lorsqu'ils sont invoqués, ces élémentaux anciens se manifestent comme des êtres aux capacités apocalyptiques, des entités dont la simple existence promet la destruction.
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titan Primordial de l'Air</color>
+Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>Titan de l'Air Primordial</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	Le plus méchant et le plus vil des dragons chromatiques, les dragons noirs collectent les débris et les trésors des peuples déchus. Ces dragons détestent voir les faibles prospérer et se délectent de l'effondrement des royaumes humanoïdes. Ils s'installent dans des marécages fétides et des ruines en ruine où se trouvaient autrefois des royaumes.
 Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>Ancien dragon noir</color>
 Monster/&DH_Custom_AncientBlueDragon_Description	Vains et territoriaux, les dragons bleus planent dans les cieux au-dessus des déserts, s'attaquant aux caravanes et pillant les troupeaux et les colonies dans les terres verdoyantes au-delà de la portée du désert. Ces dragons peuvent également être trouvés dans les steppes sèches, les badlands brûlants et les côtes rocheuses. Ils gardent leurs territoires contre tous les concurrents potentiels, en particulier les dragons d'airain.
@@ -65,12 +69,12 @@ Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampire</color>
 Monster/&DHCustomCouatlDescription	Les Couatls sont des êtres serpentins bienveillants d'une grande intelligence et perspicacité. Leurs ailes brillamment colorées et leurs manières douces témoignent de leurs origines célestes.
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Hibou familier
-Monster/&OwlFamiliarTitle	Hibou
+Monster/&OwlFamiliarTitle	Chouette
 Monster/&WitchOwlFamiliarDescription	Hibou familier
-Monster/&WitchOwlFamiliarTitle	Hibou
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6 tonnerre et pousser 2 cases
+Monster/&WitchOwlFamiliarTitle	Chouette
+MonsterAttack/&DH_AirBlast_Attack_Description	5d6 tonnerre et pousser 2 cellules
 MonsterAttack/&DH_AirBlast_Attack_Title	Jet d'air
-MonsterAttack/&DH_AirTitan_Slam_Attack_Descriptiond	4d6+6 contondant & 4d6 tonnerre
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 contondant & 4d6 tonnerre
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Claquement tonitruant
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Contondant
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Attaque de queue
@@ -147,7 +151,7 @@ MonsterAttack/&DH_Roc_Beak_Attack_Title	Le bec
 MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Tranchant et la cible est agrippée et retenue par Roc
 MonsterAttack/&DH_Roc_Talons_Attack_Title	Serres
 MonsterAttack/&DH_Tarrasque_Bite_Description	4d12 + 10 dégâts perforants et la cible doit réussir un test de Dextérité ou être agrippée (évasion DD 20).
-MonsterAttack/&DH_Tarrasque_Bite_Title	Mordre
+MonsterAttack/&DH_Tarrasque_Bite_Title	Morsure
 MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Tant que cette lutte n'est pas terminée, la cible est immobilisée.
 MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Pris par Tarrasque
 MonsterAttack/&DH_Tarrasque_Claw_Description	4d8 + 10 dégâts tranchants
@@ -157,7 +161,7 @@ MonsterAttack/&DH_Tarrasque_Horn_Title	Corne
 MonsterAttack/&DH_Tarrasque_Tail_Description	4d6 + 10 dégâts contondants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de Force DD 20 ou être jetée à terre
 MonsterAttack/&DH_Tarrasque_Tail_Title	Queue
 MonsterAttack/&DHCouatlBiteAttackDescription	Dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution DD 13 ou être empoisonnée pendant 24 heures. Jusqu'à la fin de ce poison, la cible est inconsciente.
-MonsterAttack/&DHCouatlBiteAttackTitle	Mordre
+MonsterAttack/&DHCouatlBiteAttackTitle	Morsure
 MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Thunder et poussé sur l'échec de la sauvegarde
 MonsterPower/&DH_AirTitan_Gale_Power_Title	Coup de vent hurlant
 MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Foudre dans la zone
@@ -166,10 +170,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	Les dragons peuvent battre
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Attaque de l'aile
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Feu
 MonsterPower/&DH_Balor_FireAura_Power_Title	Aura de feu
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Retaliate
-MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Retaliate
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Balor Représailles
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Balor Représailles
+MonsterPower/&DH_Balor_Retaliate_Power_Description	Balor Représailles
+MonsterPower/&DH_Balor_Retaliate_Power_Title	Balor Représailles
 MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Constitution Sauvegarder ou être aveuglé jusqu'à ce qu'une restauration moindre soit utilisée
 MonsterPower/&DH_BlindingGaze_Power_Title	Regard aveuglant
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Acide
@@ -202,8 +206,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Nécrotique
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Perturber la vie
 MonsterPower/&DH_SearingBurst_Power_Description	4D6 Feu & 4D6 Radiant
 MonsterPower/&DH_SearingBurst_Power_Title	Explosion brûlante
-MonsterPower/&DH_SleetStorm_Immunity_Description	Sleet Storm Immunity
-MonsterPower/&DH_SleetStorm_Immunity_TItle	Sleet Storm Immunity
+MonsterPower/&DH_SleetStorm_Immunity_Description	Immunité à la tempête de grésil
+MonsterPower/&DH_SleetStorm_Immunity_Title	Immunité à la tempête de grésil
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	Invoque 1 élémentaire d'air
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	Invocation d'élémentaire supérieur
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	Invoque 1 élémentaire de terre
@@ -214,6 +218,8 @@ MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	Invoque 1 élé
 MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	Invocation d'élémentaire supérieur
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	Invoque 2 bouffons du feu
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	Invoquer des élémentaires inférieurs
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	Invoquer une construction inférieure
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	Invoquer une construction inférieure
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	Un Nalfeshnee est appelé à combattre
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	Invocation d'un serviteur : Nalfeshnee
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	Invoque 1 goule Skarn

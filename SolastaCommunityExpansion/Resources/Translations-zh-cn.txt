@@ -142,6 +142,7 @@ Condition/&RuinDescription	处于毁灭状态
 Condition/&RuinedDescription	此生物防御降低
 Condition/&RuinedTitle	毁灭
 Condition/&RuinTitle	毁灭
+Condition/&SentinelStopMovementConditionTitle	Stopped
 Condition/&SwallowedByToadConditionDescription	每回合受到3D6酸性伤害。如果蛙王邪术师在单次攻击被15或更高点的伤害击中，该效果结束
 Condition/&SwallowedByToadConditionTitle	巨蛙吞食
 Condition/&SwallowingToadConditionDescription	如果蛙王邪术师在单次攻击被15或更高点的伤害击中，该效果结束
@@ -565,13 +566,15 @@ Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为 {3}
 Feat/&FeatSavageAttackerTitle	野性袭击者
+Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n - When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n - Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n - When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Feat/&FeatSentinelTitle	Sentinel
 Feat/&FeatShadowTouchedChaDescription	魅力+1。获得施放隐形术，致伤术和虚假生命的能力，每长休1次。同时学会这些法术
 Feat/&FeatShadowTouchedChaTitle	暗影亲和（魅力）
 Feat/&FeatShadowTouchedIntDescription	智力+1。获得施放隐形术，致伤术和虚假生命的能力，每长休1次。同时学会这些法术
 Feat/&FeatShadowTouchedIntTitle	暗影亲和（智力）
 Feat/&FeatShadowTouchedWisDescription	感知+1。获得施放隐形术，致伤术和虚假生命的能力，每长休1次。同时学会这些法术
 Feat/&FeatShadowTouchedWisTitle	暗影亲和（感知）
-Feat/&FeatShadyDescription	敏捷+1，最高20点\n每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6。其能与游荡者的偷袭叠加
+Feat/&FeatShadyDescription	敏捷+1，最高20点\n每回合一次，你能对一名符合游荡者偷袭目标的生物造成额外1d6点伤害。在12级时，这个伤害骰增至2d6，20级时增至4d6
 Feat/&FeatShadyTitle	背刺
 Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势
 Feat/&FeatShieldExpertTitle	盾牌专家
@@ -1438,6 +1441,10 @@ Reaction/&CastSpellInRetributionReactDescription	点击施放{0}
 Reaction/&CastSpellInRetributionReactTitle	施放法术
 Reaction/&CastSpellInRetributionTitle	以反应施放法术
 Reaction/&CustomDeflectMissileClassMonkTitle	{0}在攻击{1}，其能以反应降低即将受到的1D10+敏捷调整值+武僧等级点伤害
+Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
+Reaction/&ReactionAttackFeatSentinelTitle	Sentinel Reaction
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0}用疾风连击特性的攻击击中敌人，能让该目标承受下列效应之一：
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	应用选定技巧
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	应用
@@ -1973,3 +1980,21 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	如果该选项开启，只有首选的戏法能触发。如果未选择首选戏法，那么第一个有效的戏法将被触发，此时将无视该选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
+Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
+Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack all of your party member can use their reaction to make an attack of opportunity against your target.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
+Subclass/&FighterMarshalEncouragementPowerDescription	Once per day spending an hour to encourage each other and prepare for the next adventure day, the morale of the party is improved significantly. Each encouraged character add 1d4 to their attack and saving throw. The effect last until long rest. 
+Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
+Subclass/&MarshalEternalComradeDescription	Fallen Comrade
+Subclass/&MarshalEternalComradeTitle	Fallen Comrade
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eternal Comrade
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	You are immune to fear effect.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Fearless Commander
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	You add your knowledge level of current target to your attack roll and your damage.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Know Your Enemy
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	As a bonus action you can attempt to increase your knowledge about your target by rolling a survival check. You can do this twice per short rest.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	   Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + 2 x Fighter Class Level hitpoints and its AC is 16 + your PB. In additional the spirits are immuned to Posion, Cold, Necrotic, Prone, Paralyze, Restrained and are resistant to Fire, Acid, Lighting, Thunder. They also have resistance against non-magical Slashin, Bludeoging, Piercing damage. On their turn, they can fly up to 50' and make a single (2d6 + 5) magical slasing attack with bonus attack equal to 5 + PB. 
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
+Subclass/&FighterMarshalTitle	Marshal

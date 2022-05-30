@@ -1,8 +1,7 @@
-﻿namespace SolastaCommunityExpansion.CustomInterfaces
+﻿namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface ICustomOnActionFeature
 {
-    public interface ICustomOnActionFeature
-    {
-        public void OnBeforeAction(CharacterAction characterAction);
-        public void OnAfterAction(CharacterAction characterAction);
-    }
+    public void OnBeforeAction(CharacterAction characterAction);
+    public void OnAfterAction(CharacterAction characterAction);
 }

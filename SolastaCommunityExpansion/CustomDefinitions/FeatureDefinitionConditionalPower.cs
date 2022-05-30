@@ -1,21 +1,20 @@
 ﻿using SolastaCommunityExpansion.CustomInterfaces;
 
-namespace SolastaCommunityExpansion.CustomDefinitions
+namespace SolastaCommunityExpansion.CustomDefinitions;
+
+public delegate bool IsActiveConditionalPowerDelegate(RulesetCharacterHero character);
+
+public class FeatureDefinitionConditionalPower : FeatureDefinitionPower, IConditionalPower
 {
-    public delegate bool IsActiveConditionalPowerDelegate(RulesetCharacterHero character);
+    private IsActiveConditionalPowerDelegate isActive;
 
-    public class FeatureDefinitionConditionalPower : FeatureDefinitionPower, IConditionalPower
+    public bool IsActive(RulesetCharacterHero character)
     {
-        private IsActiveConditionalPowerDelegate isActive;
+        return isActive == null || isActive(character);
+    }
 
-        public bool IsActive(RulesetCharacterHero character)
-        {
-            return isActive == null || isActive(character);
-        }
-
-        internal void SetIsActiveDelegate(IsActiveConditionalPowerDelegate del)
-        {
-            isActive = del;
-        }
+    internal void SetIsActiveDelegate(IsActiveConditionalPowerDelegate del)
+    {
+        isActive = del;
     }
 }

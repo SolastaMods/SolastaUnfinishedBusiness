@@ -7,571 +7,569 @@ using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses
+namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
+//*****************************************************************************************************************************************
+//***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************
+//*****************************************************************************************************************************************
+
+internal sealed class ProtectorConstructFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
 {
-    //*****************************************************************************************************************************************
-    //***********************************		ProtectorConstructFeatureSetBuilder		***********************************************************
-    //*****************************************************************************************************************************************
+    private const string Name = "ProtectorConstructFeatureSet";
+    private const string Guid = "9b699719-0d02-4949-ad94-cff6a05f36c7";
 
-    internal sealed class ProtectorConstructFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
+    public static readonly FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
+
+    private ProtectorConstructFeatureSetBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
     {
-        private const string Name = "ProtectorConstructFeatureSet";
-        private const string Guid = "9b699719-0d02-4949-ad94-cff6a05f36c7";
+        Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
+        Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
 
-        public static readonly FeatureDefinitionFeatureSet ProtectorConstructFeatureSet = CreateAndAddToDB(Name, Guid);
-
-        private ProtectorConstructFeatureSetBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-
-            Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
-            Definition.FeatureSet.Add(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
-            Definition.FeatureSet.Add(ProtectorConstructLevel3AutopreparedSpellsBuilder
-                .ProtectorConstructLevel3AutopreparedSpells);
-        }
-
-        private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructFeatureSetBuilder(name, guid).AddToDB();
-        }
+        Definition.FeatureSet.Clear();
+        Definition.FeatureSet.Add(SummoningAffinityTinkererConstructBuilder.SummoningAffinityTinkererConstruct);
+        Definition.FeatureSet.Add(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
+        Definition.FeatureSet.Add(ProtectorConstructLevel3AutopreparedSpellsBuilder
+            .ProtectorConstructLevel3AutopreparedSpells);
     }
 
-    public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
+    private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
     {
-        private const string Name = "ProtectorConstructLevel3AutopreparedSpells";
-        private const string Guid = "25403813-58eb-47f4-b5ee-b7956cc02ccf";
+        return new ProtectorConstructFeatureSetBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel3AutopreparedSpells =
-            CreateAndAddToDB(Name, Guid);
+public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
+{
+    private const string Name = "ProtectorConstructLevel3AutopreparedSpells";
+    private const string Guid = "25403813-58eb-47f4-b5ee-b7956cc02ccf";
 
-        private ProtectorConstructLevel3AutopreparedSpellsBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle";
-            Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
+    public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel3AutopreparedSpells =
+        CreateAndAddToDB(Name, Guid);
+
+    private ProtectorConstructLevel3AutopreparedSpellsBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle";
+        Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription";
 
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
-            {
-                ClassLevel = 1,
-                SpellsList =
-                    new List<SpellDefinition> {SummonProtectorSpellConstructBuilder.SummonProtectorConstruct}
-            };
+        var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+        {
+            ClassLevel = 1,
+            SpellsList =
+                new List<SpellDefinition> {SummonProtectorSpellConstructBuilder.SummonProtectorConstruct}
+        };
 #pragma warning restore S1481, IDE0059 // Unused local variables should be removed
-        }
-
-        private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructLevel3AutopreparedSpellsBuilder(name, guid).AddToDB();
-        }
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		SummoningAffinityTinkererConstructBuilder		***********************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
+    private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
     {
-        private const string Name = "SummoningAffinityTinkererConstruct";
-        private const string Guid = "0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b";
+        return new ProtectorConstructLevel3AutopreparedSpellsBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct =
-            CreateAndAddToDB(Name, Guid);
+//*****************************************************************************************************************************************
+//***********************************		SummoningAffinityTinkererConstructBuilder		***********************************************************
+//*****************************************************************************************************************************************
 
-        private SummoningAffinityTinkererConstructBuilder(string name, string guid)
-            : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
+internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinitionSummoningAffinityBuilder
+{
+    private const string Name = "SummoningAffinityTinkererConstruct";
+    private const string Guid = "0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b";
+
+    public static readonly FeatureDefinitionSummoningAffinity SummoningAffinityTinkererConstruct =
+        CreateAndAddToDB(Name, Guid);
+
+    private SummoningAffinityTinkererConstructBuilder(string name, string guid)
+        : base(DatabaseHelper.FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
+        Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
+        Definition.GuiPresentation.SetSpriteReference(null);
+
+        Definition.SetEffectOnConjuredDeath(false);
+        Definition.AddedConditions.Clear();
+        Definition.AddedConditions.Empty();
+        Definition.EffectForms.Clear();
+        Definition.EffectForms.Empty();
+
+        // changed the tag here and in relevant constructs
+        // so the scaling is only applied to the Protector and Artillry Constructs
+        Definition.SetRequiredMonsterTag("ScalingTinkererConstruct");
+        Definition.AddedConditions.AddRange(new List<ConditionDefinition>
         {
-            Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
-            Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-            Definition.GuiPresentation.SetSpriteReference(null);
-
-            Definition.SetEffectOnConjuredDeath(false);
-            Definition.AddedConditions.Clear();
-            Definition.AddedConditions.Empty();
-            Definition.EffectForms.Clear();
-            Definition.EffectForms.Empty();
-
-            // changed the tag here and in relevant constructs
-            // so the scaling is only applied to the Protector and Artillry Constructs
-            Definition.SetRequiredMonsterTag("ScalingTinkererConstruct");
-            Definition.AddedConditions.AddRange(new List<ConditionDefinition>
-            {
-                // using kindred conditions for following reasons
-                // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
-                //    FeatureDefinitionAttributeModifierBuilder are available as it is likely a rewrite
-                //    would be requested as soon as such builders were added.
-                // 2- The tabletop scaling using the class level and proficiency bonus of the summoner
-                //    is not possible using base game features/database manipulation. A patch would be
-                //    required to add such scaling to the game.
-                // 3- A new scaling set via new summoningAffinity, conditionDefinitions and attributeModifers
-                //    could be added but custom conditions may not be worthwhile as without the above patch,
-                //    meaning the any new scaling would not match the required scaling
-                // 4- The default summons scaling used in the base game is similar in magnitude to the original
-                //    concept for the protector construct, so it seemed acceptable for a first implementation.
-                //
-                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondTotalControl,
-                //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC,
-                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
-                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
-                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
-                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSkillProficiency,
-                DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows
-            });
-        }
-
-        private static FeatureDefinitionSummoningAffinity CreateAndAddToDB(string name, string guid)
-        {
-            return new SummoningAffinityTinkererConstructBuilder(name, guid).AddToDB();
-        }
+            // using kindred conditions for following reasons
+            // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
+            //    FeatureDefinitionAttributeModifierBuilder are available as it is likely a rewrite
+            //    would be requested as soon as such builders were added.
+            // 2- The tabletop scaling using the class level and proficiency bonus of the summoner
+            //    is not possible using base game features/database manipulation. A patch would be
+            //    required to add such scaling to the game.
+            // 3- A new scaling set via new summoningAffinity, conditionDefinitions and attributeModifers
+            //    could be added but custom conditions may not be worthwhile as without the above patch,
+            //    meaning the any new scaling would not match the required scaling
+            // 4- The default summons scaling used in the base game is similar in magnitude to the original
+            //    concept for the protector construct, so it seemed acceptable for a first implementation.
+            //
+            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondTotalControl,
+            //DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondAC,
+            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondHP,
+            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeAttack,
+            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondMeleeDamage,
+            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSkillProficiency,
+            DatabaseHelper.ConditionDefinitions.ConditionKindredSpiritBondSavingThrows
+        });
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		SummonProtectorConstructBuilder		***********************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPowerBuilder
+    private static FeatureDefinitionSummoningAffinity CreateAndAddToDB(string name, string guid)
     {
-        private const string SummonProtectorConstructName = "SummonProtectorConstruct";
-        private const string SummonProtectorConstructNameGuid = "20b5ab3e-5124-4d08-9907-347f2f1284d4";
+        return new SummoningAffinityTinkererConstructBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionPower SummonProtectorConstruct =
-            CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
+//*****************************************************************************************************************************************
+//***********************************		SummonProtectorConstructBuilder		***********************************************************
+//*****************************************************************************************************************************************
 
-        private SummonProtectorPowerConstructBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionCleric, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
-                .GuiPresentation.SpriteReference);
+internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPowerBuilder
+{
+    private const string SummonProtectorConstructName = "SummonProtectorConstruct";
+    private const string SummonProtectorConstructNameGuid = "20b5ab3e-5124-4d08-9907-347f2f1284d4";
 
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
-            Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-            Definition.SetFixedUsesPerRecharge(1);
-            Definition.SetCostPerUse(1);
-            Definition.SetHasCastingFailure(false);
-            Definition.SetUniqueInstance(true);
+    public static readonly FeatureDefinitionPower SummonProtectorConstruct =
+        CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
 
-            var ProtectorConstructEffect = new EffectDescriptionBuilder();
-            ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn);
-            ProtectorConstructEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1,
-                RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
-            ProtectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature,
-                ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name,
-                null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+    private SummonProtectorPowerConstructBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionPowers.PowerClericDivineInterventionCleric, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
+        Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
+        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
+            .GuiPresentation.SpriteReference);
 
-            Definition.SetEffectDescription(ProtectorConstructEffect.Build());
-        }
+        Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
+        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+        Definition.SetFixedUsesPerRecharge(1);
+        Definition.SetCostPerUse(1);
+        Definition.SetHasCastingFailure(false);
+        Definition.SetUniqueInstance(true);
 
-        private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new SummonProtectorPowerConstructBuilder(name, guid).AddToDB();
-        }
+        var ProtectorConstructEffect = new EffectDescriptionBuilder();
+        ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
+            RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        ProtectorConstructEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Distance, 1,
+            RuleDefinitions.TargetType.Position, 1, 1, ActionDefinitions.ItemSelectionType.Equiped);
+        ProtectorConstructEffect.AddEffectForm(new EffectFormBuilder().SetSummonForm(SummonForm.Type.Creature,
+            ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name,
+            null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
+
+        Definition.SetEffectDescription(ProtectorConstructEffect.Build());
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		SummonProtectorPowerConstruct_UpgradeBuilder		***************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefinitionPowerBuilder
+    private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
     {
-        private const string Name = "SummonProtectorPowerConstruct_Upgrade";
-        private const string Guid = "34c307e9-5883-438c-9130-1f286b9cdafc";
+        return new SummonProtectorPowerConstructBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionPower SummonProtectorPowerConstructUpgrade =
-            CreateAndAddToDB(Name, Guid);
+//*****************************************************************************************************************************************
+//***********************************		SummonProtectorPowerConstruct_UpgradeBuilder		***************************************************
+//*****************************************************************************************************************************************
 
-        private SummonProtectorPowerConstructUpgradeBuilder(string name, string guid) : base(
-            SummonProtectorPowerConstructBuilder.SummonProtectorConstruct, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_2";
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_2";
+internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefinitionPowerBuilder
+{
+    private const string Name = "SummonProtectorPowerConstruct_Upgrade";
+    private const string Guid = "34c307e9-5883-438c-9130-1f286b9cdafc";
 
-            Definition.SetOverriddenPower(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
+    public static readonly FeatureDefinitionPower SummonProtectorPowerConstructUpgrade =
+        CreateAndAddToDB(Name, Guid);
 
-            Definition.EffectDescription.EffectForms[0].SummonForm
-                .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
-        }
+    private SummonProtectorPowerConstructUpgradeBuilder(string name, string guid) : base(
+        SummonProtectorPowerConstructBuilder.SummonProtectorConstruct, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_2";
+        Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_2";
 
-        private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new SummonProtectorPowerConstructUpgradeBuilder(name, guid).AddToDB();
-        }
+        Definition.SetOverriddenPower(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
+
+        Definition.EffectDescription.EffectForms[0].SummonForm
+            .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		SummonProtectorSpellConstructBuilder		***************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuilder
+    private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
     {
-        private const string SummonProtectorConstructName = "SummonProtectorConstruct";
-        private const string SummonProtectorConstructNameGuid = "60f2462e-b801-48ee-a543-c69771e3917c";
-
-        public static readonly SpellDefinition SummonProtectorConstruct =
-            CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
-
-        private SummonProtectorSpellConstructBuilder(string name, string guid) : base(
-            DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
-                .GuiPresentation.SpriteReference);
-
-            Definition.SetSpellLevel(1);
-            Definition.SetRequiresConcentration(false);
-            Definition.SetUniqueInstance(true);
-            Definition.SetCastingTime(RuleDefinitions.ActivationTime.NoCost);
-            Definition.SetSomaticComponent(false);
-            Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
-            Definition.SetVerboseComponent(false);
-
-            Definition.SetEffectDescription(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
-                .EffectDescription);
-        }
-
-        private static SpellDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new SummonProtectorSpellConstructBuilder(name, guid).AddToDB();
-        }
+        return new SummonProtectorPowerConstructUpgradeBuilder(name, guid).AddToDB();
     }
-    //*****************************************************************************************************************************************
-    //***********************************		SummonProtectorSpellConstruct_UpgradeBuilder		*******************************************************************
-    //*****************************************************************************************************************************************
+}
 
-    //
-    // need a new featuredefintionAutopreparedSpells list with the summon upgrade spell for the two different subclasses
-    // as features can be added at any lvl and it's 1st lvl spell
-    //
-    internal sealed class SummonProtectorSpellConstructUpgradeBuilder : SpellDefinitionBuilder
+//*****************************************************************************************************************************************
+//***********************************		SummonProtectorSpellConstructBuilder		***************************************************
+//*****************************************************************************************************************************************
+
+internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuilder
+{
+    private const string SummonProtectorConstructName = "SummonProtectorConstruct";
+    private const string SummonProtectorConstructNameGuid = "60f2462e-b801-48ee-a543-c69771e3917c";
+
+    public static readonly SpellDefinition SummonProtectorConstruct =
+        CreateAndAddToDB(SummonProtectorConstructName, SummonProtectorConstructNameGuid);
+
+    private SummonProtectorSpellConstructBuilder(string name, string guid) : base(
+        DatabaseHelper.SpellDefinitions.DancingLights, name, guid)
     {
-        private const string Name = "SummonProtectorConstruct_Upgrade";
-        private const string Guid = "ccd2a793-e566-4c1e-9588-ac36b578ae89";
+        Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
+        Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
+        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
+            .GuiPresentation.SpriteReference);
 
-        public static readonly SpellDefinition SummonProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
+        Definition.SetSpellLevel(1);
+        Definition.SetRequiresConcentration(false);
+        Definition.SetUniqueInstance(true);
+        Definition.SetCastingTime(RuleDefinitions.ActivationTime.NoCost);
+        Definition.SetSomaticComponent(false);
+        Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
+        Definition.SetVerboseComponent(false);
 
-        private SummonProtectorSpellConstructUpgradeBuilder(string name, string guid) : base(
-            SummonProtectorSpellConstructBuilder.SummonProtectorConstruct, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_Upgrade";
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_Upgrade";
-
-            Definition.EffectDescription.EffectForms[0].SummonForm
-                .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
-        }
-
-        private static SpellDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new SummonProtectorSpellConstructUpgradeBuilder(name, guid).AddToDB();
-        }
+        Definition.SetEffectDescription(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
+            .EffectDescription);
     }
 
-    public sealed class ProtectorConstructLevel15AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
+    private static SpellDefinition CreateAndAddToDB(string name, string guid)
     {
-        private const string Name = "ProtectorConstructLevel15AutopreparedSpells";
-        private const string Guid = "4515c27b-f17b-4262-9e8c-a19c251f666e";
+        return new SummonProtectorSpellConstructBuilder(name, guid).AddToDB();
+    }
+}
+//*****************************************************************************************************************************************
+//***********************************		SummonProtectorSpellConstruct_UpgradeBuilder		*******************************************************************
+//*****************************************************************************************************************************************
 
-        public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel15AutopreparedSpells =
-            CreateAndAddToDB(Name, Guid);
+//
+// need a new featuredefintionAutopreparedSpells list with the summon upgrade spell for the two different subclasses
+// as features can be added at any lvl and it's 1st lvl spell
+//
+internal sealed class SummonProtectorSpellConstructUpgradeBuilder : SpellDefinitionBuilder
+{
+    private const string Name = "SummonProtectorConstruct_Upgrade";
+    private const string Guid = "ccd2a793-e566-4c1e-9588-ac36b578ae89";
 
-        private ProtectorConstructLevel15AutopreparedSpellsBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle";
-            Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription";
+    public static readonly SpellDefinition SummonProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
+
+    private SummonProtectorSpellConstructUpgradeBuilder(string name, string guid) : base(
+        SummonProtectorSpellConstructBuilder.SummonProtectorConstruct, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_Upgrade";
+        Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_Upgrade";
+
+        Definition.EffectDescription.EffectForms[0].SummonForm
+            .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
+    }
+
+    private static SpellDefinition CreateAndAddToDB(string name, string guid)
+    {
+        return new SummonProtectorSpellConstructUpgradeBuilder(name, guid).AddToDB();
+    }
+}
+
+public sealed class ProtectorConstructLevel15AutopreparedSpellsBuilder : FeatureDefinitionAutoPreparedSpellsBuilder
+{
+    private const string Name = "ProtectorConstructLevel15AutopreparedSpells";
+    private const string Guid = "4515c27b-f17b-4262-9e8c-a19c251f666e";
+
+    public static readonly FeatureDefinitionAutoPreparedSpells ProtectorConstructLevel15AutopreparedSpells =
+        CreateAndAddToDB(Name, Guid);
+
+    private ProtectorConstructLevel15AutopreparedSpellsBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsDomainBattle, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle";
+        Definition.GuiPresentation.Description = "Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription";
 
 #pragma warning disable S1481, IDE0059 // Unused local variables should be removed
-            var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+        var autoPreparedSpellsGroup = new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
+        {
+            ClassLevel = 1,
+            SpellsList = new List<SpellDefinition>
             {
-                ClassLevel = 1,
-                SpellsList = new List<SpellDefinition>
-                {
-                    SummonProtectorSpellConstructUpgradeBuilder.SummonProtectorConstructUpgrade
-                }
-            };
+                SummonProtectorSpellConstructUpgradeBuilder.SummonProtectorConstructUpgrade
+            }
+        };
 #pragma warning restore S1481, IDE0059 // Unused local variables should be removed
-        }
-
-        private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructLevel15AutopreparedSpellsBuilder(name, guid).AddToDB();
-        }
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		ProtectorConstructUpgradeFeatureSetBuilder		***********************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class ProtectorConstructUpgradeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
+    private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
     {
-        private const string Name = "ProtectorConstructUpgradeFeatureSet";
-        private const string Guid = "59bc566d-5204-4e53-89cb-eebc537ae6ab";
+        return new ProtectorConstructLevel15AutopreparedSpellsBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet =
-            CreateAndAddToDB(Name, Guid);
+//*****************************************************************************************************************************************
+//***********************************		ProtectorConstructUpgradeFeatureSetBuilder		***********************************************************
+//*****************************************************************************************************************************************
 
-        private ProtectorConstructUpgradeFeatureSetBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
-            Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
+internal sealed class ProtectorConstructUpgradeFeatureSetBuilder : FeatureDefinitionFeatureSetBuilder
+{
+    private const string Name = "ProtectorConstructUpgradeFeatureSet";
+    private const string Guid = "59bc566d-5204-4e53-89cb-eebc537ae6ab";
 
-            Definition.FeatureSet.Clear();
-            Definition.FeatureSet.Add(ProtectorConstructLevel15AutopreparedSpellsBuilder
-                .ProtectorConstructLevel15AutopreparedSpells);
-            Definition.FeatureSet.Add(SummonProtectorPowerConstructUpgradeBuilder.SummonProtectorPowerConstructUpgrade);
-        }
+    public static readonly FeatureDefinitionFeatureSet ProtectorConstructUpgradeFeatureSet =
+        CreateAndAddToDB(Name, Guid);
 
-        private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructUpgradeFeatureSetBuilder(name, guid).AddToDB();
-        }
+    private ProtectorConstructUpgradeFeatureSetBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetGreenmageWardenOfTheForest, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
+        Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
+
+        Definition.FeatureSet.Clear();
+        Definition.FeatureSet.Add(ProtectorConstructLevel15AutopreparedSpellsBuilder
+            .ProtectorConstructLevel15AutopreparedSpells);
+        Definition.FeatureSet.Add(SummonProtectorPowerConstructUpgradeBuilder.SummonProtectorPowerConstructUpgrade);
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		ProtectorConstructBuilder		***************************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
+    private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)
     {
-        private const string ProtectorConstructName = "ProtectorConstruct";
-        private const string ProtectorConstructNameGuid = "db1cd36f-7dc7-454f-baeb-143cd9dd374f";
-
-        public static readonly MonsterDefinition ProtectorConstruct =
-            CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
-
-        private ProtectorConstructBuilder(string name, string guid) : base(
-            DatabaseHelper.MonsterDefinitions.ConjuredEightBeast_Wolf, name, guid)
-        {
-            Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.MonsterPresentation);
-
-            Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle";
-            Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription";
-            Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
-                .SpriteReference);
-            Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-            Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-            Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
-
-            Definition.SetArmorClass(15);
-            Definition.SetNoExperienceGain(true);
-            Definition.SetHitDice(3);
-            Definition.SetHitDiceType(RuleDefinitions.DieType.D8);
-
-            Definition.AbilityScores.Empty();
-            Definition.AbilityScores.AddToArray(14); // STR
-            Definition.AbilityScores.AddToArray(12); // DEX
-            Definition.AbilityScores.AddToArray(14); // CON
-            Definition.AbilityScores.AddToArray(4); // INT
-            Definition.AbilityScores.AddToArray(10); // WIS
-            Definition.AbilityScores.AddToArray(6); // CHA
-
-            //replaced by new bond methods?
-            //assume PB=4
-
-            Definition.SavingThrowScores.SetRange(
-                new MonsterSavingThrowProficiency(AttributeDefinitions.Constitution, 2),
-                new MonsterSavingThrowProficiency(AttributeDefinitions.Dexterity, 1));
-
-            Definition.SkillScores.SetRange(
-                new MonsterSkillProficiency(SkillDefinitions.Athletics, 2),
-                new MonsterSkillProficiency(SkillDefinitions.Perception, 4));
-
-            Definition.SetFullyControlledWhenAllied(true);
-            Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
-            Definition.SetStandardHitPoints(20);
-            Definition.SetDefaultFaction("Party");
-            Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
-            // the following tag is used for scaling purposes
-            Definition.CreatureTags.Add("ScalingTinkererConstruct");
-
-            Definition.Features.Clear();
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys
-                .ConditionAffinityExhaustionImmunity);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity);
-            Definition.Features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys
-                .ActionAffinityFightingStyleProtection);
-            Definition.Features.Add(SelfRepairBuilder.SelfRepair);
-
-            Definition.AttackIterations.SetRange(
-                new MonsterAttackIteration(ProtectorConstructAttackBuilder.ProtectorConstructAttack, 1));
-        }
-
-        private static MonsterDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructBuilder(name, guid).AddToDB();
-        }
+        return new ProtectorConstructUpgradeFeatureSetBuilder(name, guid).AddToDB();
     }
-    //*****************************************************************************************************************************************
-    //***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
-    //*****************************************************************************************************************************************
+}
 
-    internal sealed class ProtectorConstructUpgradeBuilder : MonsterDefinitionBuilder
+//*****************************************************************************************************************************************
+//***********************************		ProtectorConstructBuilder		***************************************************************
+//*****************************************************************************************************************************************
+
+internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
+{
+    private const string ProtectorConstructName = "ProtectorConstruct";
+    private const string ProtectorConstructNameGuid = "db1cd36f-7dc7-454f-baeb-143cd9dd374f";
+
+    public static readonly MonsterDefinition ProtectorConstruct =
+        CreateAndAddToDB(ProtectorConstructName, ProtectorConstructNameGuid);
+
+    private ProtectorConstructBuilder(string name, string guid) : base(
+        DatabaseHelper.MonsterDefinitions.ConjuredEightBeast_Wolf, name, guid)
     {
-        private const string Name = "ProtectorConstruct_Upgrade";
-        private const string Guid = "c6f711d8-9b83-497f-8e90-6440776cf644";
+        Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.MonsterPresentation);
 
-        public static readonly MonsterDefinition ProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
+        Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle";
+        Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription";
+        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
+            .SpriteReference);
+        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
+        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
+        Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
 
-        private ProtectorConstructUpgradeBuilder(string name, string guid) : base(
-            ProtectorConstructBuilder.ProtectorConstruct, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle_5";
-            Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription_5";
+        Definition.SetArmorClass(15);
+        Definition.SetNoExperienceGain(true);
+        Definition.SetHitDice(3);
+        Definition.SetHitDiceType(RuleDefinitions.DieType.D8);
 
-            Definition.SetArmorClass(17);
-            Definition.Features.Add(RetributionBuilder.Retribution);
-        }
+        Definition.AbilityScores.Empty();
+        Definition.AbilityScores.AddToArray(14); // STR
+        Definition.AbilityScores.AddToArray(12); // DEX
+        Definition.AbilityScores.AddToArray(14); // CON
+        Definition.AbilityScores.AddToArray(4); // INT
+        Definition.AbilityScores.AddToArray(10); // WIS
+        Definition.AbilityScores.AddToArray(6); // CHA
 
-        private static MonsterDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructUpgradeBuilder(name, guid).AddToDB();
-        }
+        //replaced by new bond methods?
+        //assume PB=4
+
+        Definition.SavingThrowScores.SetRange(
+            new MonsterSavingThrowProficiency(AttributeDefinitions.Constitution, 2),
+            new MonsterSavingThrowProficiency(AttributeDefinitions.Dexterity, 1));
+
+        Definition.SkillScores.SetRange(
+            new MonsterSkillProficiency(SkillDefinitions.Athletics, 2),
+            new MonsterSkillProficiency(SkillDefinitions.Perception, 4));
+
+        Definition.SetFullyControlledWhenAllied(true);
+        Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
+        Definition.SetStandardHitPoints(20);
+        Definition.SetDefaultFaction("Party");
+        Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+        // the following tag is used for scaling purposes
+        Definition.CreatureTags.Add("ScalingTinkererConstruct");
+
+        Definition.Features.Clear();
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12);
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeMove8);
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityCharmImmunity);
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityPoisonImmunity);
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionConditionAffinitys
+            .ConditionAffinityExhaustionImmunity);
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys.DamageAffinityPoisonImmunity);
+        Definition.Features.Add(DatabaseHelper.FeatureDefinitionActionAffinitys
+            .ActionAffinityFightingStyleProtection);
+        Definition.Features.Add(SelfRepairBuilder.SelfRepair);
+
+        Definition.AttackIterations.SetRange(
+            new MonsterAttackIteration(ProtectorConstructAttackBuilder.ProtectorConstructAttack, 1));
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		ProtectorConstructAttacksBuilder		*******************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class ProtectorConstructAttackBuilder : MonsterAttackDefinitionBuilder
+    private static MonsterDefinition CreateAndAddToDB(string name, string guid)
     {
-        private const string ProtectorConstructAttacksName = "ProtectorConstructAttacks";
-        private const string ProtectorConstructAttacksGuid = "dad5a3f6-3b44-4476-85fc-d5235b9ad9cd";
+        return new ProtectorConstructBuilder(name, guid).AddToDB();
+    }
+}
+//*****************************************************************************************************************************************
+//***********************************		ProtectorConstruct_UpgradeBuilder		*******************************************************
+//*****************************************************************************************************************************************
 
-        public static readonly MonsterAttackDefinition ProtectorConstructAttack =
-            CreateAndAddToDB(ProtectorConstructAttacksName, ProtectorConstructAttacksGuid);
+internal sealed class ProtectorConstructUpgradeBuilder : MonsterDefinitionBuilder
+{
+    private const string Name = "ProtectorConstruct_Upgrade";
+    private const string Guid = "c6f711d8-9b83-497f-8e90-6440776cf644";
 
-        private ProtectorConstructAttackBuilder(string name, string guid) : base(
-            DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, name, guid)
+    public static readonly MonsterDefinition ProtectorConstructUpgrade = CreateAndAddToDB(Name, Guid);
+
+    private ProtectorConstructUpgradeBuilder(string name, string guid) : base(
+        ProtectorConstructBuilder.ProtectorConstruct, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle_5";
+        Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription_5";
+
+        Definition.SetArmorClass(17);
+        Definition.Features.Add(RetributionBuilder.Retribution);
+    }
+
+    private static MonsterDefinition CreateAndAddToDB(string name, string guid)
+    {
+        return new ProtectorConstructUpgradeBuilder(name, guid).AddToDB();
+    }
+}
+
+//*****************************************************************************************************************************************
+//***********************************		ProtectorConstructAttacksBuilder		*******************************************************
+//*****************************************************************************************************************************************
+
+internal sealed class ProtectorConstructAttackBuilder : MonsterAttackDefinitionBuilder
+{
+    private const string ProtectorConstructAttacksName = "ProtectorConstructAttacks";
+    private const string ProtectorConstructAttacksGuid = "dad5a3f6-3b44-4476-85fc-d5235b9ad9cd";
+
+    public static readonly MonsterAttackDefinition ProtectorConstructAttack =
+        CreateAndAddToDB(ProtectorConstructAttacksName, ProtectorConstructAttacksGuid);
+
+    private ProtectorConstructAttackBuilder(string name, string guid) : base(
+        DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&ProtectorConstructAttackTitle";
+        Definition.GuiPresentation.Description = "Feat/&ProtectorConstructAttackDescription";
+
+        var damageEffect = new EffectForm
         {
-            Definition.GuiPresentation.Title = "Feat/&ProtectorConstructAttackTitle";
-            Definition.GuiPresentation.Description = "Feat/&ProtectorConstructAttackDescription";
-
-            var damageEffect = new EffectForm
+            AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
+            DamageForm = new DamageForm
             {
-                AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
-                DamageForm = new DamageForm
-                {
-                    DiceNumber = 1,
-                    DieType = RuleDefinitions.DieType.D8,
+                DiceNumber = 1,
+                DieType = RuleDefinitions.DieType.D8,
 
-                    //replaced by new bond methods?
-                    //int assumedIntModifier = 3;
-                    //int assumedProficiencyBonus = 2;
-                    //damageEffect.DamageForm.BonusDamage = assumedProficiencyBonus;
-                    DamageType = "DamageForce"
-                }
-            };
+                //replaced by new bond methods?
+                //int assumedIntModifier = 3;
+                //int assumedProficiencyBonus = 2;
+                //damageEffect.DamageForm.BonusDamage = assumedProficiencyBonus;
+                DamageType = "DamageForce"
+            }
+        };
 
-            var newEffectDescription = new EffectDescription();
-            newEffectDescription.Copy(Definition.EffectDescription);
-            newEffectDescription.EffectForms.Clear();
-            newEffectDescription.EffectForms.Add(damageEffect);
-            newEffectDescription.HasSavingThrow = false;
-            newEffectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
-            newEffectDescription.SetTargetType(RuleDefinitions.TargetType.IndividualsUnique);
-            newEffectDescription.SetTargetProximityDistance(1);
-            newEffectDescription.SetCanBePlacedOnCharacter(true);
-            newEffectDescription.SetRangeType(RuleDefinitions.RangeType.RangeHit);
-            newEffectDescription.SetRangeParameter(1);
+        var newEffectDescription = new EffectDescription();
+        newEffectDescription.Copy(Definition.EffectDescription);
+        newEffectDescription.EffectForms.Clear();
+        newEffectDescription.EffectForms.Add(damageEffect);
+        newEffectDescription.HasSavingThrow = false;
+        newEffectDescription.SetTargetSide(RuleDefinitions.Side.Enemy);
+        newEffectDescription.SetTargetType(RuleDefinitions.TargetType.IndividualsUnique);
+        newEffectDescription.SetTargetProximityDistance(1);
+        newEffectDescription.SetCanBePlacedOnCharacter(true);
+        newEffectDescription.SetRangeType(RuleDefinitions.RangeType.RangeHit);
+        newEffectDescription.SetRangeParameter(1);
 
-            newEffectDescription.SetEffectParticleParameters(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite
-                .EffectDescription.EffectParticleParameters);
+        newEffectDescription.SetEffectParticleParameters(DatabaseHelper.MonsterAttackDefinitions.Attack_Wolf_Bite
+            .EffectDescription.EffectParticleParameters);
 
-            //replaced by new bond methods?
-            Definition.SetEffectDescription(newEffectDescription);
-            Definition.SetToHitBonus(0);
-        }
-
-        private static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
-        {
-            return new ProtectorConstructAttackBuilder(name, guid).AddToDB();
-        }
+        //replaced by new bond methods?
+        Definition.SetEffectDescription(newEffectDescription);
+        Definition.SetToHitBonus(0);
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		SelfRepairBuilder		***********************************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
+    private static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
     {
-        private const string SelfRepairName = "SelfRepair";
-        private const string SelfRepairNameGuid = "68db5cab-6fc9-4795-88a6-f89d81b0e4ef";
+        return new ProtectorConstructAttackBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionPower SelfRepair = CreateAndAddToDB(SelfRepairName, SelfRepairNameGuid);
+//*****************************************************************************************************************************************
+//***********************************		SelfRepairBuilder		***********************************************************************
+//*****************************************************************************************************************************************
 
-        private SelfRepairBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&SelfRepairTitle";
-            Definition.GuiPresentation.Description = "Feat/&SelfRepairDescription";
+internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
+{
+    private const string SelfRepairName = "SelfRepair";
+    private const string SelfRepairNameGuid = "68db5cab-6fc9-4795-88a6-f89d81b0e4ef";
 
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-            Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-            Definition.SetFixedUsesPerRecharge(3);
-            Definition.SetCostPerUse(1);
+    public static readonly FeatureDefinitionPower SelfRepair = CreateAndAddToDB(SelfRepairName, SelfRepairNameGuid);
 
-            var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
+    private SelfRepairBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionPowers.PowerFighterSecondWind, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&SelfRepairTitle";
+        Definition.GuiPresentation.Description = "Feat/&SelfRepairDescription";
 
-            var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
-            effect.SetHealingForm(selfrepair);
-            effect.SetCreatedByCharacter(true);
+        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+        Definition.SetFixedUsesPerRecharge(3);
+        Definition.SetCostPerUse(1);
 
-            Definition.EffectDescription.EffectAdvancement.Clear();
-            Definition.EffectDescription.EffectForms.Clear();
-            Definition.EffectDescription.EffectForms.Add(effect);
-            Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
-            Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder
-                .TinkererConstructFamily.Name);
-        }
+        var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
 
-        private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new SelfRepairBuilder(name, guid).AddToDB();
-        }
+        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
+        effect.SetHealingForm(selfrepair);
+        effect.SetCreatedByCharacter(true);
+
+        Definition.EffectDescription.EffectAdvancement.Clear();
+        Definition.EffectDescription.EffectForms.Clear();
+        Definition.EffectDescription.EffectForms.Add(effect);
+        Definition.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
+        Definition.EffectDescription.RestrictedCreatureFamilies.Add(TinkererConstructFamilyBuilder
+            .TinkererConstructFamily.Name);
     }
 
-    //*****************************************************************************************************************************************
-    //***********************************		RetributionBuilder		***********************************************************************
-    //*****************************************************************************************************************************************
-
-    internal sealed class RetributionBuilder : FeatureDefinitionPowerBuilder
+    private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
     {
-        private const string RetributionName = "Retribution";
-        private const string RetributionNameGuid = "1fc63d9f-263c-4642-b75c-f7684ca6dd3d";
+        return new SelfRepairBuilder(name, guid).AddToDB();
+    }
+}
 
-        public static readonly FeatureDefinitionPower Retribution =
-            CreateAndAddToDB(RetributionName, RetributionNameGuid);
+//*****************************************************************************************************************************************
+//***********************************		RetributionBuilder		***********************************************************************
+//*****************************************************************************************************************************************
 
-        private RetributionBuilder(string name, string guid) : base(
-            DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution, name, guid)
-        {
-            Definition.GuiPresentation.Title = "Feat/&RetributionTitle";
-            Definition.GuiPresentation.Description = "Feat/&RetributionDescription";
-            Definition.SetShortTitleOverride("Feat/&RetributionTitle");
+internal sealed class RetributionBuilder : FeatureDefinitionPowerBuilder
+{
+    private const string RetributionName = "Retribution";
+    private const string RetributionNameGuid = "1fc63d9f-263c-4642-b75c-f7684ca6dd3d";
 
-            Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-            Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 1;
-            Definition.EffectDescription.EffectForms[0].DamageForm.DieType = RuleDefinitions.DieType.D4;
+    public static readonly FeatureDefinitionPower Retribution =
+        CreateAndAddToDB(RetributionName, RetributionNameGuid);
 
-            //replaced by new bond methods?
-            //int assumedIntModifier = 5;
-            //Definition.EffectDescription.EffectForms[0].DamageForm.BonusDamage = assumedIntModifier;
-            Definition.EffectDescription.EffectForms[0].DamageForm.DamageType = RuleDefinitions.DamageTypeForce;
-        }
+    private RetributionBuilder(string name, string guid) : base(
+        DatabaseHelper.FeatureDefinitionPowers.PowerDomainLawHolyRetribution, name, guid)
+    {
+        Definition.GuiPresentation.Title = "Feat/&RetributionTitle";
+        Definition.GuiPresentation.Description = "Feat/&RetributionDescription";
+        Definition.SetShortTitleOverride("Feat/&RetributionTitle");
 
-        private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
-        {
-            return new RetributionBuilder(name, guid).AddToDB();
-        }
+        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 1;
+        Definition.EffectDescription.EffectForms[0].DamageForm.DieType = RuleDefinitions.DieType.D4;
+
+        //replaced by new bond methods?
+        //int assumedIntModifier = 5;
+        //Definition.EffectDescription.EffectForms[0].DamageForm.BonusDamage = assumedIntModifier;
+        Definition.EffectDescription.EffectForms[0].DamageForm.DamageType = RuleDefinitions.DamageTypeForce;
+    }
+
+    private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
+    {
+        return new RetributionBuilder(name, guid).AddToDB();
     }
 }

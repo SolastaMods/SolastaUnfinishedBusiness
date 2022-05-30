@@ -10,112 +10,111 @@ using UnityModManagerNet;
 using Debug = UnityEngine.Debug;
 
 #pragma warning disable IDE0130 // Namespace does not match folder structure
-namespace SolastaCommunityExpansion
+namespace SolastaCommunityExpansion;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
+
+public static class Main
 {
-    public static class Main
+    internal static bool IsDebugBuild = Debug.isDebugBuild;
+
+    internal static string MOD_FOLDER { get; } =
+        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+    internal static bool Enabled { get; set; }
+
+    // need to be public for MC sidecar
+    public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
+
+    internal static ModManager<Core, Settings> Mod { get; private set; }
+    internal static MenuManager Menu { get; private set; }
+
+    // need to be public for MC sidecar
+    public static Settings Settings => Mod.Settings;
+
+    // need to be public for MC sidecar
+    [Conditional("DEBUG")]
+    public static void Log(string msg, bool console = false)
     {
-        internal static bool IsDebugBuild = Debug.isDebugBuild;
+        Logger.Log(msg);
 
-        internal static string MOD_FOLDER { get; } =
-            Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-        internal static bool Enabled { get; set; }
-
-        // need to be public for MC sidecar
-        public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
-
-        internal static ModManager<Core, Settings> Mod { get; private set; }
-        internal static MenuManager Menu { get; private set; }
-
-        // need to be public for MC sidecar
-        public static Settings Settings => Mod.Settings;
-
-        // need to be public for MC sidecar
-        [Conditional("DEBUG")]
-        public static void Log(string msg, bool console = false)
+        if (console)
         {
-            Logger.Log(msg);
-
-            if (console)
+            var game = Gui.Game;
+            if (game != null)
             {
-                var game = Gui.Game;
-                if (game != null)
-                {
-                    game.GameConsole?.LogSimpleLine(msg);
-                }
+                game.GameConsole?.LogSimpleLine(msg);
             }
         }
+    }
 
-        // need to be public for MC sidecar
-        public static void Error(Exception ex)
+    // need to be public for MC sidecar
+    public static void Error(Exception ex)
+    {
+        Logger?.Error(ex.ToString());
+    }
+
+    // need to be public for MC sidecar
+    public static void Error(string msg)
+    {
+        Logger?.Error(msg);
+    }
+
+    // need to be public for MC sidecar
+    public static void Warning(string msg)
+    {
+        Logger?.Warning(msg);
+    }
+
+    internal static bool Load(UnityModManager.ModEntry modEntry)
+    {
+        try
         {
-            Logger?.Error(ex.ToString());
+            var assembly = Assembly.GetExecutingAssembly();
+
+            Logger = modEntry.Logger;
+            Mod = new ModManager<Core, Settings>();
+            Mod.Enable(modEntry, assembly);
+            modEntry.OnShowGUI = OnShowGui;
+
+            Menu = new MenuManager();
+            Menu.Enable(modEntry, assembly);
+
+            LoadSidecars(assembly.GetName().Name);
+        }
+        catch (Exception ex)
+        {
+            Error(ex);
+            throw;
         }
 
-        // need to be public for MC sidecar
-        public static void Error(string msg)
-        {
-            Logger?.Error(msg);
-        }
+        return true;
+    }
 
-        // need to be public for MC sidecar
-        public static void Warning(string msg)
+    internal static void OnShowGui(UnityModManager.ModEntry modEntry)
+    {
+        if (Settings.EnableHeroesControlledByComputer)
         {
-            Logger?.Warning(msg);
+            PlayerControllerContext.RefreshGuiState();
         }
+    }
 
-        internal static bool Load(UnityModManager.ModEntry modEntry)
+    internal static void LoadSidecars(string currentAssemblyName)
+    {
+        foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
         {
-            try
+            var filename = Path.GetFileName(path);
+
+            if (filename.StartsWith(currentAssemblyName))
             {
-                var assembly = Assembly.GetExecutingAssembly();
-
-                Logger = modEntry.Logger;
-                Mod = new ModManager<Core, Settings>();
-                Mod.Enable(modEntry, assembly);
-                modEntry.OnShowGUI = OnShowGui;
-
-                Menu = new MenuManager();
-                Menu.Enable(modEntry, assembly);
-
-                LoadSidecars(assembly.GetName().Name);
+                continue;
             }
-            catch (Exception ex)
-            {
-                Error(ex);
-                throw;
-            }
-
-            return true;
-        }
-
-        internal static void OnShowGui(UnityModManager.ModEntry modEntry)
-        {
-            if (Settings.EnableHeroesControlledByComputer)
-            {
-                PlayerControllerContext.RefreshGuiState();
-            }
-        }
-
-        internal static void LoadSidecars(string currentAssemblyName)
-        {
-            foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
-            {
-                var filename = Path.GetFileName(path);
-
-                if (filename.StartsWith(currentAssemblyName))
-                {
-                    continue;
-                }
 
 #pragma warning disable S3885 // "Assembly.Load" should be used
-                var sidecarAssembly = Assembly.LoadFile(path);
-                var harmony = new Harmony(sidecarAssembly.GetName().Name);
+            var sidecarAssembly = Assembly.LoadFile(path);
+            var harmony = new Harmony(sidecarAssembly.GetName().Name);
 #pragma warning restore S3885 // "Assembly.Load" should be used
 
-                harmony.PatchAll(sidecarAssembly);
-            }
+            harmony.PatchAll(sidecarAssembly);
         }
     }
 }

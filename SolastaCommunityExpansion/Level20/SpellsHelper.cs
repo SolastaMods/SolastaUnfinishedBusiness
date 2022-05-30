@@ -1,1249 +1,1248 @@
 ﻿using System.Collections.Generic;
 using static FeatureDefinitionCastSpell;
 
-namespace SolastaCommunityExpansion.Level20
+namespace SolastaCommunityExpansion.Level20;
+
+// keep public as CE:MC depends on it 
+public static class SpellsHelper
 {
-    // keep public as CE:MC depends on it 
-    public static class SpellsHelper
+    // game uses IndexOf(0) on these sub lists reason why the last 0 there
+    public static List<SlotsByLevelDuplet> FullCastingSlots { get; } = new()
     {
-        // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        public static List<SlotsByLevelDuplet> FullCastingSlots { get; } = new()
+        new SlotsByLevelDuplet
         {
-            new SlotsByLevelDuplet
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 01
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 01
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 02
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 02
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 03
+                4,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 03
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 04
+                4,
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 04
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 05
+                4,
+                3,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 05
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 06
+                4,
+                3,
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 06
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 07
+                4,
+                3,
+                3,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 07
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 08
+                4,
+                3,
+                3,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 08
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 09
+                4,
+                3,
+                3,
+                3,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 09
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 10
+                4,
+                3,
+                3,
+                3,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 10
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 11
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 11
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 12
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 12
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    1,
-                    0,
-                    0,
-                    0
-                },
-                Level = 13
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                1,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 13
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    1,
-                    0,
-                    0,
-                    0
-                },
-                Level = 14
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                1,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 14
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    1,
-                    1,
-                    0,
-                    0
-                },
-                Level = 15
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                1,
+                1,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 15
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    1,
-                    1,
-                    0,
-                    0
-                },
-                Level = 16
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                1,
+                1,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 16
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    1,
-                    1,
-                    1,
-                    0
-                },
-                Level = 17
+                4,
+                3,
+                3,
+                3,
+                2,
+                1,
+                1,
+                1,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 17
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    3,
-                    1,
-                    1,
-                    1,
-                    1,
-                    0
-                },
-                Level = 18
+                4,
+                3,
+                3,
+                3,
+                3,
+                1,
+                1,
+                1,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 18
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    3,
-                    2,
-                    1,
-                    1,
-                    1,
-                    0
-                },
-                Level = 19
+                4,
+                3,
+                3,
+                3,
+                3,
+                2,
+                1,
+                1,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 19
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    3,
-                    2,
-                    2,
-                    1,
-                    1,
-                    0
-                },
-                Level = 20
-            }
-        };
+                4,
+                3,
+                3,
+                3,
+                3,
+                2,
+                2,
+                1,
+                1,
+                0
+            },
+            Level = 20
+        }
+    };
 
-        // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static List<SlotsByLevelDuplet> HalfCastingSlots { get; } = new()
+    // game uses IndexOf(0) on these sub lists reason why the last 0 there
+    internal static List<SlotsByLevelDuplet> HalfCastingSlots { get; } = new()
+    {
+        new SlotsByLevelDuplet
         {
-            new SlotsByLevelDuplet
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 1
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 1
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 2
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 2
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 3
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 3
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 4
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 4
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 5
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 5
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 6
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 6
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 7
+                4,
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 7
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 8
+                4,
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 8
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 9
+                4,
+                3,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 9
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 10
+                4,
+                3,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 10
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 11
+                4,
+                3,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 11
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 12
+                4,
+                3,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 12
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0,
-                    0
-                },
-                Level = 13
+                4,
+                3,
+                3,
+                1,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 13
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0,
-                    0
-                },
-                Level = 14
+                4,
+                3,
+                3,
+                1,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 14
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 15
+                4,
+                3,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 15
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 16
+                4,
+                3,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 16
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    1,
-                    0
-                },
-                Level = 17
+                4,
+                3,
+                3,
+                3,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 17
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    1,
-                    0
-                },
-                Level = 18
+                4,
+                3,
+                3,
+                3,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 18
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    0
-                },
-                Level = 19
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 19
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    0
-                },
-                Level = 20
-            }
-        };
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            Level = 20
+        }
+    };
 
-        // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static List<SlotsByLevelDuplet> ArtificerCastingSlots { get; } = new()
+    // game uses IndexOf(0) on these sub lists reason why the last 0 there
+    internal static List<SlotsByLevelDuplet> ArtificerCastingSlots { get; } = new()
+    {
+        new SlotsByLevelDuplet
         {
-            new SlotsByLevelDuplet
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 1
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 1
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    2,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 2
+                2,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 2
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 3
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 3
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 4
+                3,
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 4
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 5
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 5
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 6
+                4,
+                2,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 6
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 7
+                4,
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 7
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 8
+                4,
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 8
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 9
+                4,
+                3,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 9
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 10
+                4,
+                3,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 10
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 11
+                4,
+                3,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 11
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 12
+                4,
+                3,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 12
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0,
-                    0
-                },
-                Level = 13
+                4,
+                3,
+                3,
+                1,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 13
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0,
-                    0
-                },
-                Level = 14
+                4,
+                3,
+                3,
+                1,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 14
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 15
+                4,
+                3,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 15
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 16
+                4,
+                3,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 16
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    1,
-                    0
-                },
-                Level = 17
+                4,
+                3,
+                3,
+                3,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 17
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    1,
-                    0
-                },
-                Level = 18
+                4,
+                3,
+                3,
+                3,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 18
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    0
-                },
-                Level = 19
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 19
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    3,
-                    2,
-                    0
-                },
-                Level = 20
-            }
-        };
+                4,
+                3,
+                3,
+                3,
+                2,
+                0
+            },
+            Level = 20
+        }
+    };
 
-        // game uses IndexOf(0) on these sub lists reason why the last 0 there
-        internal static List<SlotsByLevelDuplet> OneThirdCastingSlots { get; } = new()
+    // game uses IndexOf(0) on these sub lists reason why the last 0 there
+    internal static List<SlotsByLevelDuplet> OneThirdCastingSlots { get; } = new()
+    {
+        new SlotsByLevelDuplet
         {
-            new SlotsByLevelDuplet
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 1
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 1
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    0,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 2
+                0,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 2
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    2,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 3
+                2,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 3
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 4
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 4
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 5
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 5
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    3,
-                    0,
-                    0,
-                    0,
-                    0
-                },
-                Level = 6
+                3,
+                0,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 6
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 7
+                4,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 7
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 8
+                4,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 8
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    2,
-                    0,
-                    0,
-                    0
-                },
-                Level = 9
+                4,
+                2,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 9
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 10
+                4,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 10
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 11
+                4,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 11
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    0,
-                    0,
-                    0
-                },
-                Level = 12
+                4,
+                3,
+                0,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 12
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 13
+                4,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 13
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 14
+                4,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 14
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    2,
-                    0,
-                    0
-                },
-                Level = 15
+                4,
+                3,
+                2,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 15
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0
-                },
-                Level = 16
+                4,
+                3,
+                3,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 16
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0
-                },
-                Level = 17
+                4,
+                3,
+                3,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 17
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    0,
-                    0
-                },
-                Level = 18
+                4,
+                3,
+                3,
+                0,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 18
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0
-                },
-                Level = 19
+                4,
+                3,
+                3,
+                1,
+                0
             },
-            new SlotsByLevelDuplet
+            Level = 19
+        },
+        new SlotsByLevelDuplet
+        {
+            Slots = new List<int>
             {
-                Slots = new List<int>
-                {
-                    4,
-                    3,
-                    3,
-                    1,
-                    0
-                },
-                Level = 20
-            }
-        };
+                4,
+                3,
+                3,
+                1,
+                0
+            },
+            Level = 20
+        }
+    };
 
-        internal static List<int> EmptyReplacedSpells { get; } = new()
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        };
+    internal static List<int> EmptyReplacedSpells { get; } = new()
+    {
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    };
 
-        internal static List<int> FullCasterReplacedSpells { get; } = new()
-        {
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-        };
+    internal static List<int> FullCasterReplacedSpells { get; } = new()
+    {
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    };
 
-        internal static List<int> HalfCasterReplacedSpells { get; } = new()
-        {
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-        };
+    internal static List<int> HalfCasterReplacedSpells { get; } = new()
+    {
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    };
 
-        internal static List<int> OneThirdCasterReplacedSpells { get; } = new()
-        {
-            0,
-            0,
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1
-        };
+    internal static List<int> OneThirdCasterReplacedSpells { get; } = new()
+    {
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    };
 
-        internal static List<int> SorcererKnownSpells { get; } = new()
-        {
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            12,
-            13,
-            13,
-            14,
-            14,
-            15,
-            15,
-            15,
-            15
-        };
-    }
+    internal static List<int> SorcererKnownSpells { get; } = new()
+    {
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        12,
+        13,
+        13,
+        14,
+        14,
+        15,
+        15,
+        15,
+        15
+    };
 }

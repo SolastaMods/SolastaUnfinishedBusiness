@@ -3,99 +3,98 @@ using ModKit;
 using SolastaCommunityExpansion.Models;
 using static SolastaCommunityExpansion.Displays.Shared;
 
-namespace SolastaCommunityExpansion.Displays
+namespace SolastaCommunityExpansion.Displays;
+
+internal static class SpellsDisplay
 {
-    internal static class SpellsDisplay
+    private const int SHOW_ALL = -1;
+
+    private static int SpellLevelFilter { get; set; } = SHOW_ALL;
+
+    internal static void DisplaySpells()
     {
-        private const int SHOW_ALL = -1;
+        int intValue;
+        bool toggle;
 
-        private static int SpellLevelFilter { get; set; } = SHOW_ALL;
+        UI.Label("");
+        UI.Label(Gui.Format("ModUi/&SpellInstructions"));
+        UI.Label("");
 
-        internal static void DisplaySpells()
+        intValue = SpellLevelFilter;
+        if (UI.Slider(Gui.Format("ModUi/&SpellLevelFilter"), ref intValue, SHOW_ALL, 9, SHOW_ALL))
         {
-            int intValue;
-            bool toggle;
+            SpellLevelFilter = intValue;
+        }
 
-            UI.Label("");
-            UI.Label(Gui.Format("ModUi/&SpellInstructions"));
-            UI.Label("");
+        UI.Label("");
 
-            intValue = SpellLevelFilter;
-            if (UI.Slider(Gui.Format("ModUi/&SpellLevelFilter"), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+        using (UI.HorizontalScope())
+        {
+            toggle = SpellsContext.IsAllSetSelected();
+            if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
             {
-                SpellLevelFilter = intValue;
+                SpellsContext.SelectAllSet(toggle);
             }
 
-            UI.Label("");
-
-            using (UI.HorizontalScope())
+            toggle = SpellsContext.IsSuggestedSetSelected();
+            if (UI.Toggle(Gui.Format("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
             {
-                toggle = SpellsContext.IsAllSetSelected();
+                SpellsContext.SelectSuggestedSet(toggle);
+            }
+
+            toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
+            if (UI.Toggle(Gui.Format("ModUi/&ExpandAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            {
+                var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
+
+                foreach (var key in keys)
+                {
+                    Main.Settings.DisplaySpellListsToggle[key] = toggle;
+                }
+            }
+        }
+
+        UI.Div();
+
+        foreach (var kvp in SpellsContext.SpellLists)
+        {
+            var spellListDefinition = kvp.Value;
+            var spellListContext = SpellsContext.SpellListContextTab[spellListDefinition];
+            var name = spellListDefinition.name;
+            var displayToggle = Main.Settings.DisplaySpellListsToggle[name];
+            var sliderPos = Main.Settings.SpellListSliderPosition[name];
+            var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
+            var allowedSpells = spellListContext.AllSpells
+                .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter).ToHashSet();
+
+            void AdditionalRendering()
+            {
+                toggle = spellListContext.IsAllSetSelected;
                 if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectAllSet(toggle);
+                    spellListContext.SelectAllSetInternal(toggle);
                 }
 
-                toggle = SpellsContext.IsSuggestedSetSelected();
+                toggle = spellListContext.IsSuggestedSetSelected;
                 if (UI.Toggle(Gui.Format("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
-                    SpellsContext.SelectSuggestedSet(toggle);
-                }
-
-                toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
-                if (UI.Toggle(Gui.Format("ModUi/&ExpandAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                {
-                    var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
-
-                    foreach (var key in keys)
-                    {
-                        Main.Settings.DisplaySpellListsToggle[key] = toggle;
-                    }
+                    spellListContext.SelectSuggestedSetInternal(toggle);
                 }
             }
 
-            UI.Div();
+            DisplayDefinitions(
+                kvp.Key.yellow(),
+                spellListContext.Switch,
+                allowedSpells,
+                spellEnabled,
+                ref displayToggle,
+                ref sliderPos,
+                AdditionalRendering);
 
-            foreach (var kvp in SpellsContext.SpellLists)
-            {
-                var spellListDefinition = kvp.Value;
-                var spellListContext = SpellsContext.SpellListContextTab[spellListDefinition];
-                var name = spellListDefinition.name;
-                var displayToggle = Main.Settings.DisplaySpellListsToggle[name];
-                var sliderPos = Main.Settings.SpellListSliderPosition[name];
-                var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
-                var allowedSpells = spellListContext.AllSpells
-                    .Where(x => SpellLevelFilter == SHOW_ALL || x.SpellLevel == SpellLevelFilter).ToHashSet();
-
-                void AdditionalRendering()
-                {
-                    toggle = spellListContext.IsAllSetSelected;
-                    if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                    {
-                        spellListContext.SelectAllSetInternal(toggle);
-                    }
-
-                    toggle = spellListContext.IsSuggestedSetSelected;
-                    if (UI.Toggle(Gui.Format("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
-                    {
-                        spellListContext.SelectSuggestedSetInternal(toggle);
-                    }
-                }
-
-                DisplayDefinitions(
-                    kvp.Key.yellow(),
-                    spellListContext.Switch,
-                    allowedSpells,
-                    spellEnabled,
-                    ref displayToggle,
-                    ref sliderPos,
-                    AdditionalRendering);
-
-                Main.Settings.DisplaySpellListsToggle[name] = displayToggle;
-                Main.Settings.SpellListSliderPosition[name] = sliderPos;
-            }
-
-            UI.Label("");
+            Main.Settings.DisplaySpellListsToggle[name] = displayToggle;
+            Main.Settings.SpellListSliderPosition[name] = sliderPos;
         }
+
+        UI.Label("");
     }
 }

@@ -1,11 +1,6 @@
-DH_Custom_AirTitan_Slam_Attack	Description='MonsterAttack/&DH_AirTitan_Slam_Attack_Description'.
 FeatureSetGreenWitchMagic	Title='Subclass/&GreenWitchMagic'.
 FeatureSetRedWitchMagic	Title='Subclass/&RedWitchMagic'.
 FeatureSetWhiteWitchMagic	Title='Subclass/&WhiteWitchMagic'.
-Generic_Lightning_AttackDH_Custom_Power	Title='Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title'.
-Generic_Lightning_AttackDH_Custom_Power	Description='Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description'.
-LimitedPerDayAOE_AirTitan_LightningStormDH_Custom_Power	Title='Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title'.
-LimitedPerDayAOE_AirTitan_LightningStormDH_Custom_Power	Description='Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description'.
-SummonCreature_LesserConstruct_Power	Title='MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title'.
-SummonCreature_LesserConstruct_Power	Description='MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description'.
+SpendPowerBundle	Title='Reaction/&SpendPowerBundleTitle'.
+SpendPowerBundle	Description='Reaction/&SpendPowerBundleDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.

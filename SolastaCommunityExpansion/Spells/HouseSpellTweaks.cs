@@ -3,45 +3,45 @@ using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
-namespace SolastaCommunityExpansion.Spells
+namespace SolastaCommunityExpansion.Spells;
+
+internal static class HouseSpellTweaks
 {
-    internal static class HouseSpellTweaks
+    public static void Register()
     {
-        public static void Register()
+        AddBleedingToRestoration();
+        //UseHeightOneCylinderEffect();
+        MinorFixes();
+    }
+
+    internal static void MinorFixes()
+    {
+        // Shows Concentration tag in UI
+        BladeBarrier.SetRequiresConcentration(true);
+
+        if (Main.Settings.BugFixSpellDurations)
         {
-            AddBleedingToRestoration();
-            //UseHeightOneCylinderEffect();
-            MinorFixes();
+            // Use our logic to calculate duration for DominatePerson/Beast/Monster
+            DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration(
+                (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast);
+            DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration(
+                (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson);
+
+            // Stops upcasting assigning non-SRD durations
+            ClearAlteredDuration(ProtectionFromEnergy);
+            ClearAlteredDuration(ProtectionFromEnergyAcid);
+            ClearAlteredDuration(ProtectionFromEnergyCold);
+            ClearAlteredDuration(ProtectionFromEnergyFire);
+            ClearAlteredDuration(ProtectionFromEnergyLightning);
+            ClearAlteredDuration(ProtectionFromEnergyThunder);
+            ClearAlteredDuration(ProtectionFromPoison);
         }
 
-        internal static void MinorFixes()
+        static void ClearAlteredDuration(SpellDefinition spell)
         {
-            // Shows Concentration tag in UI
-            BladeBarrier.SetRequiresConcentration(true);
-
-            if (Main.Settings.BugFixSpellDurations)
-            {
-                // Use our logic to calculate duration for DominatePerson/Beast/Monster
-                DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration(
-                    (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast);
-                DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration(
-                    (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson);
-
-                // Stops upcasting assigning non-SRD durations
-                ClearAlteredDuration(ProtectionFromEnergy);
-                ClearAlteredDuration(ProtectionFromEnergyAcid);
-                ClearAlteredDuration(ProtectionFromEnergyCold);
-                ClearAlteredDuration(ProtectionFromEnergyFire);
-                ClearAlteredDuration(ProtectionFromEnergyLightning);
-                ClearAlteredDuration(ProtectionFromEnergyThunder);
-                ClearAlteredDuration(ProtectionFromPoison);
-            }
-
-            static void ClearAlteredDuration(SpellDefinition spell)
-            {
-                spell.EffectDescription.EffectAdvancement.SetAlteredDuration(RuleDefinitions.AdvancementDuration.None);
-            }
+            spell.EffectDescription.EffectAdvancement.SetAlteredDuration(RuleDefinitions.AdvancementDuration.None);
         }
+    }
 
 #if false
         internal static void UseHeightOneCylinderEffect()
@@ -114,44 +114,43 @@ namespace SolastaCommunityExpansion.Spells
         }
 #endif
 
-        public static void AddBleedingToRestoration()
+    public static void AddBleedingToRestoration()
+    {
+        var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+
+        if (cf != null)
         {
-            var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
-
-            if (cf != null)
+            if (Main.Settings.AddBleedingToLesserRestoration)
             {
-                if (Main.Settings.AddBleedingToLesserRestoration)
-                {
-                    cf.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
-                }
-                else
-                {
-                    cf.ConditionForm.ConditionsList.Remove(ConditionBleeding);
-                }
+                cf.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
             }
             else
             {
-                Main.Error("Unable to find form of type Condition in LesserRestoration");
+                cf.ConditionForm.ConditionsList.Remove(ConditionBleeding);
             }
+        }
+        else
+        {
+            Main.Error("Unable to find form of type Condition in LesserRestoration");
+        }
 
-            var cfg = GreaterRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
+        var cfg = GreaterRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 
-            if (cfg != null)
+        if (cfg != null)
+        {
+            // NOTE: using the same setting as for Lesser Restoration for compatibility
+            if (Main.Settings.AddBleedingToLesserRestoration)
             {
-                // NOTE: using the same setting as for Lesser Restoration for compatibility
-                if (Main.Settings.AddBleedingToLesserRestoration)
-                {
-                    cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
-                }
-                else
-                {
-                    cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
-                }
+                cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
             }
             else
             {
-                Main.Error("Unable to find form of type Condition in GreaterRestoration");
+                cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
             }
+        }
+        else
+        {
+            Main.Error("Unable to find form of type Condition in GreaterRestoration");
         }
     }
 }

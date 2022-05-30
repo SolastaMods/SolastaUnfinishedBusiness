@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.CustomInterfaces
+namespace SolastaCommunityExpansion.CustomInterfaces;
+
+public interface IConditionalMovementModifier
 {
-    public interface IConditionalMovementModifier
-    {
-        void AddModifiers(RulesetCharacter character, List<FeatureDefinition> modifiers);
-    }
+    void AddModifiers(RulesetCharacter character, List<FeatureDefinition> modifiers);
 }
