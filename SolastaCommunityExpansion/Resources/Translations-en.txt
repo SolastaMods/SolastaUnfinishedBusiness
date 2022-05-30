@@ -1783,6 +1783,22 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guard
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
+Subclass/&FighterMarshalDescription Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
+Subclass/&FighterMarshalCoordinatedAttackDescription When you hit an enemy with a melee attack all of your party member can use your reaction to make an attack of opportunity against your target.
+Subclass/&FighterMarshalCoordinatedAttackTitle Coordinated Attack
+Subclass/&FighterMarshalEncouragementPowerDescription Once per day spending an hour to encourage each other and prepare for the next adventure day, the morale of the party is improved significantly. Each encouraged character add 1d4 to their attack and saving throw. The effect last until long rest. 
+Subclass/&FighterMarshalEncouragementPowerTitle Encouragement
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle Eternal Comrade
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription You are immune to fear effect.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle Fearless Commander
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription You add your knowledge level of current target to your attack roll and your damage.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle Know Your Enemy
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription As a bonus action you can attempt to increase your knowledge about your target by rolling a survival check. You can do this twice per short rest.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle Study Your Enemy
+Subclass/&FighterMarshalSummonEternalComradePowerDescription    Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + 2 x Fighter Class Level hitpoints and its AC is 16 + your PB. In additional the spirits are immuned to Posion, Cold, Necrotic, Prone, Paralyze, Restrained and are resistant to Fire, Acid, Lighting, Thunder. They also have resistance against non-magical Slashin, Bludeoging, Piercing damage. On their turn, they can fly up to 50' and make a single (2d6 + 5) magical slasing attack with bonus attack equal to 5 + PB. 
+Subclass/&FighterMarshalSummonEternalComradePowerTitle Summon Eternal Comrade
+Subclass/&FighterMarshalTitle	Marshal
 Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 Subclass/&FighterSpellShieldSpellcastingDescription	Cast wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
 Subclass/&FighterSpellShieldSpellcastingTitle	Spellcasting
