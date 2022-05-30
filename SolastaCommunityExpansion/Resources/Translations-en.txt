@@ -1791,7 +1791,7 @@ Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
 Subclass/&FighterMarshalDescription Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
-Subclass/&FighterMarshalCoordinatedAttackDescription When you hit an enemy with a melee attack all of your party member can use your reaction to make an attack of opportunity against your target.
+Subclass/&FighterMarshalCoordinatedAttackDescription When you hit an enemy with a melee attack all of your party member can use their reaction to make an attack of opportunity against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle Coordinated Attack
 Subclass/&FighterMarshalEncouragementPowerDescription Once per day spending an hour to encourage each other and prepare for the next adventure day, the morale of the party is improved significantly. Each encouraged character add 1d4 to their attack and saving throw. The effect last until long rest. 
 Subclass/&FighterMarshalEncouragementPowerTitle Encouragement

@@ -164,7 +164,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             return FeatureDefinitionPowerBuilder
                 .Create("StudyYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-                .SetGuiPresentation("FighterMarshalStudyYourEnemyPower",Category.Subclass)
+                .SetGuiPresentation("FighterMarshalStudyYourEnemyPower",Category.Subclass, IdentifyCreatures.GuiPresentation.SpriteReference)
                 .SetRechargeRate(RechargeRate.AtWill)
                 .SetActivation(ActivationTime.BonusAction, 0)
                 .SetEffectDescription(effectDescription)
@@ -177,13 +177,13 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
         private static void CoordinatedAttackOnAttackHitDelegate(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            int attackRoll,
-            int successDelta,
-            bool ranged)
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
         {
             // melee only
-            if (ranged)
+            if (attackMode.ranged)
             {
                 return;
             }
@@ -191,9 +191,6 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
             GameLocationBattleManager battlelocationSerivce = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-
-            // collect allied that can attack for 
-            Main.Log(string.Format("total party member {0}", characterService.PartyCharacters.Count), true);
 
             var allies = new List<GameLocationCharacter>();
             foreach (GameLocationCharacter guestCharacter in characterService.GuestCharacters)
@@ -215,13 +212,11 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             {
                 if (partyCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) != 0)
                 {
-                    Main.Log(string.Format("party member name {0} doesn't have reaction available", partyCharacter.Name), true);
                     continue;
                 }
 
                 if (partyCharacter == attacker)
                 {
-                    Main.Log(string.Format("party member name {0} is attacker", partyCharacter.Name), true);
                     continue;
                 }
 
@@ -230,17 +225,16 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
 
             foreach (GameLocationCharacter partyCharacter in allies)
             { 
-                var attackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+                var alltAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
                 BattleDefinitions.AttackEvaluationParams attackParams = default(BattleDefinitions.AttackEvaluationParams);
                 var actionModifierBefore = new ActionModifier();
-                if (attackMode.Ranged)
+                if (alltAttackMode.Ranged)
                 {
-                    Main.Log(string.Format("party member {0} can use ranged attack", partyCharacter.Name), true);
-                    attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, attackMode, defender, defender.LocationPosition, actionModifierBefore);
+                    attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, alltAttackMode, defender, defender.LocationPosition, actionModifierBefore);
                 } else
                 {
                     Main.Log(string.Format("party member {0} can use melee attack", partyCharacter.Name), true);
-                    attackParams.FillForPhysicalReachAttack(partyCharacter, partyCharacter.LocationPosition, attackMode, defender, defender.LocationPosition, actionModifierBefore);
+                    attackParams.FillForPhysicalReachAttack(partyCharacter, partyCharacter.LocationPosition, alltAttackMode, defender, defender.LocationPosition, actionModifierBefore);
                 }
 
                 if (!battlelocationSerivce.CanAttack(attackParams))
@@ -249,7 +243,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     continue;
                 }
 
-                CharacterActionParams reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity, attackMode, defender, actionModifierBefore);
+                CharacterActionParams reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity, alltAttackMode, defender, actionModifierBefore);
                 actionService.ReactForOpportunityAttack(reactionParams);
             }
         }
