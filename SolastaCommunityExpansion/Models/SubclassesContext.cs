@@ -46,6 +46,7 @@ internal static class SubclassesContext
         LoadSubclass(new CircleOfTheForestGuardian());
         LoadSubclass(new ConArtist());
         LoadSubclass(new LifeTransmuter());
+        LoadSubclass(new Marshal());
         LoadSubclass(new MasterManipulator());
         LoadSubclass(new Opportunist());
         LoadSubclass(new PathOfTheLight());
