@@ -80,8 +80,13 @@ public static class CustomWeapons
             builder.SetGuiPresentation(Category.Item, icon);
         }
 
-        return builder
-            .AddToDB();
+
+        var weapon = builder.AddToDB();
+        
+        //TODO: add to editor only if option turned on
+        weapon.inDungeonEditor = true;
+        
+        return weapon;
     }
 
     private static void BuildHalberds()
@@ -113,7 +118,6 @@ public static class CustomWeapons
         Halberd = BuildWeapon("CEHalberd", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Halberd.SetCustomSubFeatures(new CustomScale(z: 3.5f));
-        Halberd.inDungeonEditor = true;
         GenericWeapons.Add((Halberd, FactionStatusDefinitions.Indifference));
     }
 
@@ -146,7 +150,6 @@ public static class CustomWeapons
         Pike = BuildWeapon("CEPike", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Pike.SetCustomSubFeatures(new CustomScale(z: 3.5f));
-        Pike.inDungeonEditor = true;
         GenericWeapons.Add((Pike, FactionStatusDefinitions.Indifference));
     }
 
@@ -179,7 +182,6 @@ public static class CustomWeapons
         LongMace = BuildWeapon("CELongMace", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         LongMace.SetCustomSubFeatures(new CustomScale(z: 3.5f));
-        LongMace.inDungeonEditor = true;
         GenericWeapons.Add((LongMace, FactionStatusDefinitions.Indifference));
     }
 
