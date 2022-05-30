@@ -30,14 +30,12 @@ public static class CustomWeapons
         AddToShops();
     }
 
-    private static ItemPresentation BuildPresentation(string unIdentifiedName, ItemPresentation basePresentation,
-        float scale = 1.0f,
-        bool emptyAsset = false)
+    public static ItemPresentation BuildPresentation(string unIdentifiedName, ItemPresentation basePresentation,
+        float scale = 1.0f)
     {
         var presentation = new ItemPresentation(basePresentation);
         presentation.ItemFlags.Clear();
-        var assetReference = emptyAsset ? new AssetReference() : basePresentation.AssetReference;
-        presentation.SetAssetReference(assetReference);
+        presentation.SetAssetReference(basePresentation.AssetReference);
         presentation.SetUnidentifiedTitle(GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item));
         presentation.scaleFactorWhileWielded = scale;
         presentation.SetUnidentifiedDescription(
@@ -45,7 +43,7 @@ public static class CustomWeapons
         return presentation;
     }
 
-    private static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
+    public static ItemDefinition BuildWeapon(string name, ItemDefinition baseItem, int goldCost, bool noDescription,
         RuleDefinitions.ItemRarity rarity,
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,

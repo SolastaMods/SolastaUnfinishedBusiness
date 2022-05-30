@@ -3,7 +3,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaModApi.Extensions;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions.ItemRarity;
 using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;
 using static SolastaModApi.DatabaseHelper;
@@ -14,11 +13,12 @@ public static class HandwrapWeaponContext
 {
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
 
-    public static void Load(List<(ItemDefinition, FactionStatusDefinition)> generic, List<(ItemDefinition, FactionStatusDefinition)> magic, List<(ItemDefinition, FactionStatusDefinition)> manuals)
+    public static void Load(List<(ItemDefinition, FactionStatusDefinition)> generic,
+        List<(ItemDefinition, FactionStatusDefinition)> magic, List<(ItemDefinition, FactionStatusDefinition)> manuals)
     {
         HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, Uncommon, WeaponPlus1);
         HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, Rare, WeaponPlus2);
-        
+
         magic.Add((HandwrapsPlus1, FactionStatusDefinitions.Alliance));
         magic.Add((HandwrapsPlus2, FactionStatusDefinitions.Brotherhood));
 
@@ -64,56 +64,24 @@ public static class HandwrapWeaponContext
                 .Build())
             .Build());
 
-
-        // Works, but you need to click attack. Auto attacking till forc to go near target
-        //TODO: investigate patch to make auto-attack respect reach, at least if already in range
-        // HandwrapsPlus1.WeaponDescription.SetReachRange(5);
-
         // HandwrapsPlus1.SetInDungeonEditor(true);
         MakeRecipes(manuals);
-    }
-
-    private static ItemPresentation BuildHandwrapsPresentation(string unIdentifiedName)
-    {
-        var presentation = new ItemPresentation(ItemDefinitions.UnarmedStrikeBase.ItemPresentation);
-        presentation.ItemFlags.Clear();
-        presentation.SetAssetReference(new AssetReference());
-        presentation.SetUnidentifiedTitle(GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item));
-        presentation.SetUnidentifiedDescription(
-            GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item));
-        return presentation;
     }
 
     private static ItemDefinition BuildHandwraps(string name, int goldCost, bool noDescription,
         RuleDefinitions.ItemRarity rarity,
         params ItemPropertyDescription[] properties)
     {
-        var unarmedStrikeBase = ItemDefinitions.UnarmedStrikeBase;
-        var builder = ItemDefinitionBuilder
-            .Create(name, Monk.GUID)
-            .SetGold(goldCost)
-            .SetMerchantCategory(MerchantCategoryDefinitions.Weapon)
-            .SetStaticProperties(properties)
-            .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
-            .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot)
-            .SetWeaponDescription(new WeaponDescription(unarmedStrikeBase.WeaponDescription))
-            .SetItemPresentation(BuildHandwrapsPresentation($"{name}Unidentified"))
-            .SetRequiresIdentification(true)
-            .SetItemRarity(rarity)
-            .MakeMagical();
-
-        if (noDescription)
-        {
-            builder.SetGuiPresentation(Category.Item, Gui.NoLocalization,
-                unarmedStrikeBase.GuiPresentation.SpriteReference);
-        }
-        else
-        {
-            builder.SetGuiPresentation(Category.Item, unarmedStrikeBase.GuiPresentation.SpriteReference);
-        }
-
-        return builder
-            .AddToDB();
+        return CustomWeapons.BuildWeapon(
+            name,
+            ItemDefinitions.UnarmedStrikeBase,
+            goldCost,
+            noDescription, rarity,
+            null,
+            null,
+            null,
+            properties
+        );
     }
 
     private static void MakeRecipes(List<(ItemDefinition, FactionStatusDefinition)> CraftingManuals)
