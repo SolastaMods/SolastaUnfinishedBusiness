@@ -1980,3 +1980,21 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
+Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont les célèbres orchestres du champ de bataille.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, tous les membres de votre groupe peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
+Subclass/&FighterMarshalEncouragementPowerDescription	Une fois par jour, en passant une heure à s'encourager mutuellement et à se préparer pour la prochaine journée d'aventure, le moral du groupe est considérablement amélioré. Chaque personnage encouragé ajoute 1d4 à ses jets d'attaque et de sauvegarde. L'effet dure jusqu'au repos long.
+Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
+Subclass/&MarshalEternalComradeDescription	Camarade tombé
+Subclass/&MarshalEternalComradeTitle	Camarade tombé
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer 2 esprits de ses camarades tombés pour l'aider au combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarade éternel
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Vous êtes immunisé contre l'effet de peur.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Commandant intrépide
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Vous ajoutez votre niveau de connaissance de la cible actuelle à votre jet d'attaque et à vos dégâts.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Connais ton ennemi
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	En tant qu'action bonus, vous pouvez tenter d'augmenter vos connaissances sur votre cible en lançant un test de survie. Vous pouvez le faire deux fois par repos court.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 2 esprits du camarade déchu du maréchal. Chaque esprit a 45 + 2 x points de vie de niveau de classe de combattant et sa CA est de 16 + votre PB. De plus, les esprits sont immunisés contre Posion, Cold, Necrotic, Prone, Paralyze, Restrained et sont résistants au feu, à l'acide, à l'éclairage et au tonnerre. Ils ont également une résistance contre les dégâts non magiques Slashin, Bludeoging, Piercing. À leur tour, ils peuvent voler jusqu'à 50' et effectuer une seule (2d6 + 5) attaque magique tranchante avec un bonus d'attaque égal à 5 ​​+ PB.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
+Subclass/&FighterMarshalTitle	Maréchal

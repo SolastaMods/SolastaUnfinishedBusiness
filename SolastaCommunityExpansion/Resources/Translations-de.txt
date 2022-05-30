@@ -1980,3 +1980,21 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn diese Umschaltung aktiviert ist, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
+Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochstratoren des Schlachtfelds.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Wenn Sie einen Feind mit einem Nahkampfangriff treffen, können alle Ihre Gruppenmitglieder ihre Reaktion nutzen, um einen Gelegenheitsangriff gegen Ihr Ziel auszuführen.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Koordinierter Angriff
+Subclass/&FighterMarshalEncouragementPowerDescription	Einmal täglich eine Stunde damit verbringen, sich gegenseitig Mut zu machen und sich auf den nächsten Abenteuertag vorzubereiten, wird die Moral der Gruppe deutlich verbessert. Jeder ermutigte Charakter addiert 1W4 zu seinem Angriffs- und Rettungswurf. Die Wirkung hält bis zur langen Ruhe an.
+Subclass/&FighterMarshalEncouragementPowerTitle	Ermutigung
+Subclass/&MarshalEternalComradeDescription	Gefallener Kamerad
+Subclass/&MarshalEternalComradeTitle	Gefallener Kamerad
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Das Band zwischen dem Marschall und seinem Kameraden überschreitet die Grenze zwischen Leben und Tod. Als Bonusaktion kann der Marschall 2 Geister seiner gefallenen Kameraden beschwören, die ihm im Kampf helfen.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Ewiger Kamerad
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Du bist immun gegen Furchteffekte.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Furchtloser Kommandant
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Du addierst deinen Wissensstand über das aktuelle Ziel zu deinem Angriffswurf und deinem Schaden.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Kenne deinen Feind
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Als Bonusaktion kannst du versuchen, dein Wissen über dein Ziel zu erweitern, indem du einen Überlebenswurf machst. Sie können dies zweimal pro kurzer Pause tun.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 2 Geister des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + 2 x Fighter Class Level Hitpoints und seine AC beträgt 16 + Ihr PB. Darüber hinaus sind die Geister immun gegen Posion, Kälte, Nekrotik, Anfällig, Paralysieren, Zurückgehalten und resistent gegen Feuer, Säure, Blitz und Donner. Sie haben auch Resistenz gegen nicht-magischen Slashin-, Bludeoging- und Piercing-Schaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß weit fliegen und einen einzigen (2W6 + 5) magischen Hiebangriff mit einem Bonusangriff von 5 + PB ausführen.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
+Subclass/&FighterMarshalTitle	Marschall
