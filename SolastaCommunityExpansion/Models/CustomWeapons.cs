@@ -5,14 +5,15 @@ using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;
 
 namespace SolastaCommunityExpansion.Models;
 
 public static class CustomWeapons
 {
-    public static ItemDefinition Halberd;
-    public static ItemDefinition Pike;
-    public static ItemDefinition LongMace;
+    public static ItemDefinition Halberd, HalberdPlus1, HalberdPlus2;
+    public static ItemDefinition Pike, PikePlus1, PikePlus2;
+    public static ItemDefinition LongMace, LongMacePlus1, LongMacePlus2;
 
     private static readonly List<(ItemDefinition, FactionStatusDefinition)> GenericWeapons = new();
     private static readonly List<(ItemDefinition, FactionStatusDefinition)> MagicWeapons = new();
@@ -55,7 +56,7 @@ public static class CustomWeapons
         icon ??= baseItem.GuiPresentation.SpriteReference;
 
         var builder = ItemDefinitionBuilder
-            .Create(name, DefinitionBuilder.CENamespaceGuid)
+            .Create(baseItem, name, DefinitionBuilder.CENamespaceGuid)
             .SetGold(goldCost)
             .SetMerchantCategory(MerchantCategoryDefinitions.Weapon)
             .SetStaticProperties(properties)
@@ -82,15 +83,16 @@ public static class CustomWeapons
 
 
         var weapon = builder.AddToDB();
-        
+
         //TODO: add to editor only if option turned on
         weapon.inDungeonEditor = true;
-        
+
         return weapon;
     }
 
     private static void BuildHalberds()
     {
+        var scale = new CustomScale(z: 3.5f);
         var baseWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
@@ -117,12 +119,23 @@ public static class CustomWeapons
 
         Halberd = BuildWeapon("CEHalberd", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
-        Halberd.SetCustomSubFeatures(new CustomScale(z: 3.5f));
+        Halberd.SetCustomSubFeatures(scale);
         GenericWeapons.Add((Halberd, FactionStatusDefinitions.Indifference));
+
+        HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
+            950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
+        HalberdPlus1.SetCustomSubFeatures(scale);
+        MagicWeapons.Add((HalberdPlus1, FactionStatusDefinitions.Alliance));
+        
+        HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
+            2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
+        HalberdPlus2.SetCustomSubFeatures(scale);
+        MagicWeapons.Add((HalberdPlus2, FactionStatusDefinitions.Brotherhood));
     }
 
     private static void BuildPikes()
     {
+        var scale = new CustomScale(z: 3.5f);
         var baseWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.SpearType, "CEPikeType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
@@ -149,12 +162,23 @@ public static class CustomWeapons
 
         Pike = BuildWeapon("CEPike", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
-        Pike.SetCustomSubFeatures(new CustomScale(z: 3.5f));
+        Pike.SetCustomSubFeatures(scale);
         GenericWeapons.Add((Pike, FactionStatusDefinitions.Indifference));
+        
+        PikePlus1 = BuildWeapon("CEPike+1", Pike,
+            950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
+        PikePlus1.SetCustomSubFeatures(scale);
+        MagicWeapons.Add((PikePlus1, FactionStatusDefinitions.Alliance));
+        
+        PikePlus2 = BuildWeapon("CEPike+2", Pike,
+            2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
+        PikePlus2.SetCustomSubFeatures(scale);
+        MagicWeapons.Add((PikePlus2, FactionStatusDefinitions.Brotherhood));
     }
 
     private static void BuildLongMaces()
     {
+        var scale = new CustomScale(z: 3.5f);
         var baseWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
@@ -181,8 +205,18 @@ public static class CustomWeapons
 
         LongMace = BuildWeapon("CELongMace", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
-        LongMace.SetCustomSubFeatures(new CustomScale(z: 3.5f));
+        LongMace.SetCustomSubFeatures(scale);
         GenericWeapons.Add((LongMace, FactionStatusDefinitions.Indifference));
+        
+        LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
+            950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
+        LongMacePlus1.SetCustomSubFeatures(scale);
+        MagicWeapons.Add((LongMacePlus1, FactionStatusDefinitions.Alliance));
+        
+        LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
+            2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
+        LongMacePlus2.SetCustomSubFeatures(scale);
+        MagicWeapons.Add((LongMacePlus2, FactionStatusDefinitions.Brotherhood));
     }
 
     private static void AddToShops()
@@ -232,7 +266,7 @@ public static class CustomWeapons
             .SetStock(initialAmount: 1)
             .SetRestock(1);
     }
-    
+
     public static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int difficulty, Guid guid,
         params ItemDefinition[] ingredients)
     {

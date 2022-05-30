@@ -1981,8 +1981,14 @@ UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
 Item/&CEHalberdTitle	Halberd
+Item/&CEHalberd+1Title	Halberd +1
+Item/&CEHalberd+2Title	Halberd +2
 Item/&CEPikeTitle	Pike
+Item/&CEPike+1Title	Pike +1
+Item/&CEPike+2Title	Pike +2
 Item/&CELongMaceTitle	Long Mace
+Item/&CELongMace+1Title	Long Mace +1
+Item/&CELongMace+2Title	Long Mace +2
 Equipment/&CEHalberdTypeTitle	Halberds
 Equipment/&CEPikeTypeTitle	Pikes
 Equipment/&CELongMaceTypeTitle	Long Maces
