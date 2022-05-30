@@ -71,7 +71,8 @@ internal static class KnowYourEnemyBuilder
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnAttackEffectBuilder
             .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle", "Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription")
+            .SetGuiPresentation("Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle",
+                "Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription")
             .SetOnAttackDelegates(KnowYourEnemyOnAttackDelegate, null)
             .AddToDB();
 
@@ -84,7 +85,7 @@ internal static class KnowYourEnemyBuilder
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();
-        
+
         additionalDamageRangerFavoredEnemyHumanoid.SetRequiredCharacterFamily(CharacterFamilyDefinitions.Humanoid);
 
         return FeatureDefinitionFeatureSetBuilder

@@ -9,7 +9,6 @@ using UnityModManagerNet;
 namespace SolastaCommunityExpansion.Utils;
 #pragma warning restore IDE0130 // Namespace does not match folder structure
 
-
 public class Core
 {
 }
