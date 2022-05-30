@@ -13,15 +13,14 @@ namespace SolastaCommunityExpansion.Models;
 public static class HandwrapWeaponContext
 {
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
-    private static readonly List<ItemDefinition> CraftingManuals = new();
 
-    private static StockUnitDescriptionBuilder _stockBuilder;
-    private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
-
-    public static void Load()
+    public static void Load(List<(ItemDefinition, FactionStatusDefinition)> generic, List<(ItemDefinition, FactionStatusDefinition)> magic, List<(ItemDefinition, FactionStatusDefinition)> manuals)
     {
         HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, Uncommon, WeaponPlus1);
         HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, Rare, WeaponPlus2);
+        
+        magic.Add((HandwrapsPlus1, FactionStatusDefinitions.Alliance));
+        magic.Add((HandwrapsPlus2, FactionStatusDefinitions.Brotherhood));
 
 
         HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, ForceImpactVFX, WeaponPlus1);
@@ -71,9 +70,7 @@ public static class HandwrapWeaponContext
         // HandwrapsPlus1.WeaponDescription.SetReachRange(5);
 
         // HandwrapsPlus1.SetInDungeonEditor(true);
-        MakeRecipes();
-        AddToShops();
-        AddToLootTables();
+        MakeRecipes(manuals);
     }
 
     private static ItemPresentation BuildHandwrapsPresentation(string unIdentifiedName)
@@ -119,101 +116,18 @@ public static class HandwrapWeaponContext
             .AddToDB();
     }
 
-    public static void MakeRecipes()
+    private static void MakeRecipes(List<(ItemDefinition, FactionStatusDefinition)> CraftingManuals)
     {
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10,
-            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)));
+        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus1, 24, 10, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.GUID), FactionStatusDefinitions.Alliance));
 
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Blood_Gem)));
+        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus2, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.GUID), FactionStatusDefinitions.Alliance));
 
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem)));
+        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfForce, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.GUID), FactionStatusDefinitions.Alliance));
 
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Slavestone)));
-    }
-
-    private static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int DC,
-        params ItemDefinition[] ingredients)
-    {
-        return RecipeDefinitionBuilder
-            .Create($"RecipeEnchant{item.Name}", Monk.GUID)
-            .SetGuiPresentation(item.GuiPresentation.Title, Gui.NoLocalization)
-            .SetCraftedItem(item)
-            .SetCraftingCheckData(hours, DC, ToolTypeDefinitions.EnchantingToolType)
-            .AddIngredients(ingredients)
-            .AddToDB();
-    }
-
-    private static ItemDefinition BuildManual(RecipeDefinition recipe)
-    {
-        var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
-        return ItemDefinitionBuilder
-            .Create($"CraftingManual{recipe.Name}", Monk.GUID)
-            .SetGuiPresentation(Category.Item, reference.GuiPresentation.SpriteReference)
-            .SetItemPresentation(reference.ItemPresentation)
-            .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
-            .SetSlotTypes(SlotTypeDefinitions.ContainerSlot)
-            .SetItemTags(TagsDefinitions.ItemTagStandard, TagsDefinitions.ItemTagPaper)
-            .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
-            .SetGold(Main.Settings.RecipeCost)
-            .AddToDB();
-    }
-
-    public static void AddToShops()
-    {
-        //Generic +1/+2 weapons
-        var merchants = new[]
-        {
-            MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye //Caer Cyflen
-            //TODO: find magic weapon merchants in Lost Valley
-        };
-
-        foreach (var merchant in merchants)
-        {
-            StockItem(merchant, HandwrapsPlus1, FactionStatusDefinitions.Alliance);
-            StockItem(merchant, HandwrapsPlus2, FactionStatusDefinitions.Brotherhood);
-        }
-
-        //Crafting manuals
-        merchants = new[]
-        {
-            MerchantDefinitions.Store_Merchant_Circe //Manaclon Ruins
-            //TODO: find crafting manuals merchants in Lost Valley
-        };
-
-        foreach (var merchant in merchants)
-        {
-            foreach (var manual in CraftingManuals)
-            {
-                StockItem(merchant, manual, FactionStatusDefinitions.Alliance);
-            }
-        }
-    }
-
-    private static void StockItem(MerchantDefinition merchant, ItemDefinition item, FactionStatusDefinition status)
-    {
-        merchant.StockUnitDescriptions.Add(StockBuilder
-            .SetItem(item)
-            .SetFaction(merchant.FactionAffinity, status.Name)
-            .Build()
-        );
-    }
-
-    private static StockUnitDescriptionBuilder BuildStockBuilder()
-    {
-        return new StockUnitDescriptionBuilder()
-            .SetStock(initialAmount: 1)
-            .SetRestock(1);
-    }
-
-    public static void AddToLootTables()
-    {
-        //Generic +1, weight 2-3
-        //TreasureTableDefinitions.RandomTreasureTableC_MagicWeapons_01
-
-        //Generic +2, weight 2-3
-        //TreasureTableDefinitions.RandomTreasureTableD1_Weapons_02
+        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.GUID), FactionStatusDefinitions.Alliance));
     }
 }

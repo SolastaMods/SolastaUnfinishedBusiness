@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
@@ -24,7 +25,7 @@ public static class CustomWeapons
         BuildHalberds();
         BuildPikes();
         BuildLongMaces();
-        //TODO: add handwraps here
+        HandwrapWeaponContext.Load(GenericWeapons, MagicWeapons, CraftingManuals);
 
         AddToShops();
     }
@@ -230,6 +231,33 @@ public static class CustomWeapons
         return new StockUnitDescriptionBuilder()
             .SetStock(initialAmount: 1)
             .SetRestock(1);
+    }
+    
+    public static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int difficulty, Guid guid,
+        params ItemDefinition[] ingredients)
+    {
+        return RecipeDefinitionBuilder
+            .Create($"RecipeEnchant{item.Name}", guid)
+            .SetGuiPresentation(item.GuiPresentation.Title, Gui.NoLocalization)
+            .SetCraftedItem(item)
+            .SetCraftingCheckData(hours, difficulty, ToolTypeDefinitions.EnchantingToolType)
+            .AddIngredients(ingredients)
+            .AddToDB();
+    }
+
+    public static ItemDefinition BuildManual(RecipeDefinition recipe, Guid guid)
+    {
+        var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
+        return ItemDefinitionBuilder
+            .Create($"CraftingManual{recipe.Name}", guid)
+            .SetGuiPresentation(Category.Item, reference.GuiPresentation.SpriteReference)
+            .SetItemPresentation(reference.ItemPresentation)
+            .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
+            .SetSlotTypes(SlotTypeDefinitions.ContainerSlot)
+            .SetItemTags(TagsDefinitions.ItemTagStandard, TagsDefinitions.ItemTagPaper)
+            .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
+            .SetGold(Main.Settings.RecipeCost)
+            .AddToDB();
     }
 }
 
