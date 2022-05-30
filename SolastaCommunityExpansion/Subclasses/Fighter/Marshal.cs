@@ -122,6 +122,11 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 var gameLocationCharacter = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
                 var creature = gameLocationCharacter.RulesetCharacter;
 
+                if (creature is not RulesetCharacterMonster)
+                {
+                    return;
+                }
+
                 GameBestiaryEntry entry = null;
                 if (!manager.Bestiary.TryGetBestiaryEntry(creature, out entry) && creature is RulesetCharacterMonster && (creature as RulesetCharacterMonster).MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full)
                 {
@@ -158,6 +163,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                 .SetHasSavingThrow(false)
                 .SetRange(RangeType.Distance, 12)
                 .SetTargetType(TargetType.Individuals)
+                .SetTargetSide(Side.Enemy)
                 .SetTargetParameter(1)
                 .ClearRestrictedCreatureFamilies()
                 .SetEffectForms(new StudyEnemyEffectDescrption());
@@ -165,7 +171,9 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             return FeatureDefinitionPowerBuilder
                 .Create("StudyYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
                 .SetGuiPresentation("FighterMarshalStudyYourEnemyPower",Category.Subclass, IdentifyCreatures.GuiPresentation.SpriteReference)
-                .SetRechargeRate(RechargeRate.AtWill)
+                .SetFixedUsesPerRecharge(2)
+                .SetCostPerUse(1)
+                .SetRechargeRate(RechargeRate.ShortRest)
                 .SetActivation(ActivationTime.BonusAction, 0)
                 .SetEffectDescription(effectDescription)
                 .AddToDB();
@@ -183,7 +191,7 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
             ActionModifier attackModifier)
         {
             // melee only
-            if (attackMode.ranged)
+            if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure)
             {
                 return;
             }
@@ -233,13 +241,11 @@ namespace SolastaCommunityExpansion.Subclasses.Fighter
                     attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, alltAttackMode, defender, defender.LocationPosition, actionModifierBefore);
                 } else
                 {
-                    Main.Log(string.Format("party member {0} can use melee attack", partyCharacter.Name), true);
                     attackParams.FillForPhysicalReachAttack(partyCharacter, partyCharacter.LocationPosition, alltAttackMode, defender, defender.LocationPosition, actionModifierBefore);
                 }
 
                 if (!battlelocationSerivce.CanAttack(attackParams))
                 {
-                    Main.Log(string.Format("party member name {0} cannot attack", partyCharacter.Name), true);
                     continue;
                 }
 
