@@ -50,6 +50,7 @@ namespace SolastaCommunityExpansion.Patches
             InventoryManagementContext.Load();
 
             HandwrapWeaponContext.Load();
+            CustomWeapons.Load();
             ShieldStrikeContext.Load();
             ItemCraftingContext.Load();
             ItemOptionsContext.Load();
