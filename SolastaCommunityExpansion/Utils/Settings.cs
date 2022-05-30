@@ -257,7 +257,12 @@ public class Settings : UnityModManager.ModSettings
     public bool UnleashNpcAsEnemy { get; set; }
     public bool UnleashEnemyAsNpc { get; set; }
     public bool EnableDungeonMakerModdedContent { get; set; }
+#if DEBUG
+    public bool EnableExtraHighLevelMonsters { get; set; } = true; // simplifies diags. creation (one less boot)
+#else
     public bool EnableExtraHighLevelMonsters { get; set; }
+#endif
+
 
     //
     // Interface - Game UI
