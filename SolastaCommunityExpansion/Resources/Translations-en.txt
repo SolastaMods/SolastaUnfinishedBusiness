@@ -1795,6 +1795,8 @@ Subclass/&FighterMarshalCoordinatedAttackDescription When you hit an enemy with 
 Subclass/&FighterMarshalCoordinatedAttackTitle Coordinated Attack
 Subclass/&FighterMarshalEncouragementPowerDescription Once per day spending an hour to encourage each other and prepare for the next adventure day, the morale of the party is improved significantly. Each encouraged character add 1d4 to their attack and saving throw. The effect last until long rest. 
 Subclass/&FighterMarshalEncouragementPowerTitle Encouragement
+Subclass/&MarshalEternalComradeDescription Fallen Comrade
+Subclass/&MarshalEternalComradeTitle Fallen Comrade
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle Eternal Comrade
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription You are immune to fear effect.
