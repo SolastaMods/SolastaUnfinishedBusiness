@@ -146,7 +146,9 @@ namespace SolastaCommunityExpansion.Models
             }
 
             var usablePower = activePower.UsablePower;
-            if (usablePower.OriginClass != null || usablePower.OriginRace != null)
+            if (usablePower.OriginClass != null
+                || usablePower.OriginRace != null
+                || usablePower.PowerDefinition.RechargeRate == RuleDefinitions.RechargeRate.AtWill)
             {
                 return;
             }

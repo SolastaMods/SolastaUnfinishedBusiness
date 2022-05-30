@@ -29,7 +29,6 @@ namespace SolastaCommunityExpansion.Classes.Monk.Subclasses
                 .SetGuiPresentation(Category.Power)
                 .SetActivationTime(ActivationTime.OnAttackHit)
                 .SetRechargeRate(RechargeRate.AtWill)
-                .SetCostPerUse(0)
                 .SetCustomSubFeatures(new ReactionAttackModeRestriction(
                     (mode, _, _) => mode.AttackTags.Contains(Monk.FlurryTag)
                 ))

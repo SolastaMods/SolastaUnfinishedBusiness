@@ -155,6 +155,13 @@ namespace SolastaCommunityExpansion.Builders.Features
         public TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
         {
             Definition.SetRechargeRate(rate);
+
+            if (rate == RuleDefinitions.RechargeRate.AtWill)
+            {
+                Definition.SetCostPerUse(1);
+                Definition.SetFixedUsesPerRecharge(1);
+            }
+
             return This();
         }
 
