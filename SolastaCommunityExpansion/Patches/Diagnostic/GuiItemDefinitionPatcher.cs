@@ -4,9 +4,9 @@ using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 
-[HarmonyPatch(typeof(GuiPowerDefinition), "EnumerateTags")]
+[HarmonyPatch(typeof(GuiItemDefinition), "EnumerateTags")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class GuiPowerDefinition_EnumerateTags
+internal static class GuiItemDefinition_EnumerateTags
 {
     public static void Postfix(GuiPowerDefinition __instance)
     {

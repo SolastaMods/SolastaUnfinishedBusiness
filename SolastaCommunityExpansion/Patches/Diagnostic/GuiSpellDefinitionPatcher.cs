@@ -13,13 +13,13 @@ internal static class GuiSpellDefinition_EnumerateTags
         if (SpellsContext.Spells.TryGetValue(__instance.SpellDefinition, out var record))
         {
             TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                "CommunityExpansion", TagsDefinitions.Criticity.Normal);
+                CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
         }
         else if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
         {
             // Not all CE spells are registered in SpellsContext
             TagsDefinitions.AddTagAsNeeded(__instance.TagsMap,
-                "CommunityExpansion", TagsDefinitions.Criticity.Normal);
+                CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
         }
     }
 }
