@@ -71,7 +71,7 @@ internal static class KnowYourEnemyBuilder
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnAttackEffectBuilder
             .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("FigherMarshalKnowYourEnemyAttakHitModifer", Category.Subclass)
+            .SetGuiPresentation("Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle", "Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription")
             .SetOnAttackDelegates(KnowYourEnemyOnAttackDelegate, null)
             .AddToDB();
 
@@ -321,7 +321,7 @@ public static class EternalComradeBuilder
         return MonsterDefinitionBuilder
             .Create(SuperEgo_Servant_Hostile, "EternalComrade",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentation("MarshalEternalComrade", Category.Monster,
+            .SetGuiPresentation("MarshalEternalComrade", Category.Subclass,
                 SuperEgo_Servant_Hostile.GuiPresentation.SpriteReference)
             .ClearFeatures()
             .SetFeatures(
