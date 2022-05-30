@@ -156,12 +156,6 @@ namespace SolastaCommunityExpansion.Builders.Features
         {
             Definition.SetRechargeRate(rate);
 
-            if (rate == RuleDefinitions.RechargeRate.AtWill)
-            {
-                Definition.SetCostPerUse(1);
-                Definition.SetFixedUsesPerRecharge(1);
-            }
-
             return This();
         }
 
