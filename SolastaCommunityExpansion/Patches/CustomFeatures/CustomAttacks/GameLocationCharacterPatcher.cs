@@ -12,7 +12,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
     {
         internal static void Postfix(GameLocationCharacter __instance)
         {
-            if (!__instance.Valid)
+            if (__instance.destroying || __instance.destroyedBody)
             {
                 return;
             }
@@ -39,7 +39,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
     {
         internal static void Postfix(GameLocationCharacter __instance)
         {
-            if (!__instance.Valid)
+            if (__instance.destroying || __instance.destroyedBody)
             {
                 return;
             }
@@ -65,7 +65,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
     {
         internal static void Postfix(GameLocationCharacter __instance, bool surprise)
         {
-            if (!__instance.Valid)
+            if (__instance.destroying || __instance.destroyedBody)
             {
                 return;
             }
@@ -91,7 +91,7 @@ namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAttacks
     {
         internal static void Postfix(GameLocationCharacter __instance)
         {
-            if (!__instance.Valid)
+            if (__instance.destroying || __instance.destroyedBody)
             {
                 return;
             }
