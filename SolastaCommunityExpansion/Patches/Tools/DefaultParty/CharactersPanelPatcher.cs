@@ -41,10 +41,26 @@ internal static class CharactersPanel_EnumeratePlates
         return checkBox;
     }
 
+    internal static void Disable(RectTransform charactersTable)
+    {
+        for (var i = 0; i < charactersTable.childCount; i++)
+        {
+            var character = charactersTable.GetChild(i);
+            var checkBoxToggle = character.GetComponentInChildren<Toggle>();
+
+            if (checkBoxToggle)
+            {
+                checkBoxToggle.gameObject.SetActive(false);
+            }
+        }
+    }
+
     internal static void Postfix(CharactersPanel __instance)
     {
         if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
         {
+            Disable(__instance.charactersTable);
+
             return;
         }
 
