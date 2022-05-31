@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	Increase Intelligence attribute by 1. Gain
 Feat/&FeatShadowTouchedIntTitle	Shadow Touched (Intelligence)
 Feat/&FeatShadowTouchedWisDescription	Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedWisTitle	Shadow Touched (Wisdom)
-Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6. This can stack with Rogue's Sneak Attack.
+Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6.
 Feat/&FeatShadyTitle	Shady
 Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while weilding a shield..
 Feat/&FeatShieldExpertTitle	Shield Expert
@@ -1998,6 +1998,22 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}
+Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
+Feat/&SharpShooterFeatTitle	Sharpshooter
+Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
+Feature/&SharpShooterTitle	Sharpshooter
+Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
 Item/&CEHalberdTitle	Halberd
 Item/&CEHalberd+1Title	Halberd +1
 Item/&CEHalberd+2Title	Halberd +2

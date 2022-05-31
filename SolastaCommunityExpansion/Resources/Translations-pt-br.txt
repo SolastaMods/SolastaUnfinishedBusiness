@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	Aumente o atributo Inteligência em 1. Gan
 Feat/&FeatShadowTouchedIntTitle	Sombra Tocada (Inteligência)
 Feat/&FeatShadowTouchedWisDescription	Aumente o atributo Sabedoria em 1. Ganhe a habilidade de lançar Invisibilidade, Infligir Ferimentos e Vida Falsa uma vez por descanso longo e aprenda os feitiços.
 Feat/&FeatShadowTouchedWisTitle	Sombra Tocada (Sabedoria)
-Feat/&FeatShadyDescription	Aumente sua Destreza em 1, até um máximo de 20.\nUma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 12º nível este dano aumenta para 2d6 e no 20º nível para 4d6. Isso pode acumular com o ataque furtivo de Rogue.
+Feat/&FeatShadyDescription	Aumente sua Destreza em 1, até um máximo de 20.\nUma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 12º nível este dano aumenta para 2d6 e no 20º nível para 4d6.
 Feat/&FeatShadyTitle	Sombrio
 Feat/&FeatShieldExpertDescription	Você treinou no uso de um escudo como arma. Para você, torna-se uma arma corpo a corpo com a qual você é proficiente, causando 1d4 de dano de concussão.\nVocê ganha vantagem em tentativas de empurrão enquanto empunha um escudo.
 Feat/&FeatShieldExpertTitle	Especialista em escudos
@@ -1998,3 +1998,19 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + 2 x pontos de vida de nível de classe de lutador e sua CA é 16 + seu PB. Além disso, os espíritos são imunes a Posion, Cold, Necrotic, Prone, Paralyze, Restricted e são resistentes a Fire, Acid, Lighting, Thunder. Eles também têm resistência contra danos não-mágicos de Slashin, Bludeoging, Piercing. Por sua vez, eles podem voar até 50' e fazer um único (2d6 + 5) ataque mágico de ataque com bônus de ataque igual a 5 + PB.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
 Subclass/&FighterMarshalTitle	Marechal
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}
+Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
+Feat/&SharpShooterFeatTitle	Sharpshooter
+Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
+Feature/&SharpShooterTitle	Sharpshooter
+Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn

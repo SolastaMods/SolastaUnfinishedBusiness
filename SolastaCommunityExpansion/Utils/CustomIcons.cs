@@ -40,10 +40,10 @@ internal static class CustomIcons
                     $"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
             }
 #if DEBUG
-                    if (id != sprite.name)
-                    {
-                        throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
-                    }
+            if (id != sprite.name)
+            {
+                throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
+            }
 #endif
             Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");
             return sprite;

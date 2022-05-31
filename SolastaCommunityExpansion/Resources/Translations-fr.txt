@@ -574,7 +574,7 @@ Feat/&FeatShadowTouchedIntDescription	Augmentez l'attribut Intelligence de 1. Ob
 Feat/&FeatShadowTouchedIntTitle	Touché par l'Ombre (Intelligence)
 Feat/&FeatShadowTouchedWisDescription	Augmentez l'attribut Sagesse de 1. Obtenez la capacité de lancer Invisibilité, Infliger des blessures et Fausse vie une fois par repos long et apprenez les sorts.
 Feat/&FeatShadowTouchedWisTitle	Ombre touchée (sagesse)
-Feat/&FeatShadyDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nUne fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 12, ces dégâts passent à 2d6 et au niveau 20 à 4d6. Cela peut se cumuler avec l'attaque sournoise de Rogue.
+Feat/&FeatShadyDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nUne fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 12, ces dégâts passent à 2d6 et au niveau 20 à 4d6.
 Feat/&FeatShadyTitle	Ombragé
 Feat/&FeatShieldExpertDescription	Vous vous êtes entraîné à utiliser un bouclier comme arme. Pour vous, il devient une arme de mêlée que vous maîtrisez, infligeant 1d4 dégâts contondants.\nVous gagnez un avantage sur les tentatives de bousculade tout en brandissant un bouclier.
 Feat/&FeatShieldExpertTitle	Spécialiste du bouclier
@@ -1998,3 +1998,19 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 2 esprits du camarade déchu du maréchal. Chaque esprit a 45 + 2 x points de vie de niveau de classe de combattant et sa CA est de 16 + votre PB. De plus, les esprits sont immunisés contre Posion, Cold, Necrotic, Prone, Paralyze, Restrained et sont résistants au feu, à l'acide, à l'éclairage et au tonnerre. Ils ont également une résistance contre les dégâts non magiques Slashin, Bludeoging, Piercing. À leur tour, ils peuvent voler jusqu'à 50' et effectuer une seule (2d6 + 5) attaque magique tranchante avec un bonus d'attaque égal à 5 ​​+ PB.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
 Subclass/&FighterMarshalTitle	Maréchal
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}
+Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
+Feat/&SharpShooterFeatTitle	Sharpshooter
+Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
+Feature/&SharpShooterTitle	Sharpshooter
+Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn

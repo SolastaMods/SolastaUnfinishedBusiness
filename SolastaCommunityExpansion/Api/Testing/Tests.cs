@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using SolastaCommunityExpansion;
 using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
@@ -77,11 +78,7 @@ namespace SolastaModApi.Testing
                     .Where(t => t.Namespace == "SolastaModApi.Extensions")
                     .Where(t => t.Name.EndsWith("Extensions"))
                     .Where(t => t.CustomAttributes.Any(a => a.AttributeType == typeof(TargetTypeAttribute)))
-                    .Select(t => new
-                    {
-                        Type = t,
-                        t.GetCustomAttributes<TargetTypeAttribute>().First().TargetType
-                    })
+                    .Select(t => new {Type = t, t.GetCustomAttributes<TargetTypeAttribute>().First().TargetType})
                     .OrderBy(t => t.Type.Name)
                     .ToList();
 
@@ -131,13 +128,13 @@ namespace SolastaModApi.Testing
                                             {
                                                 setter
                                                     .MakeGenericMethod(extension.TargetType)
-                                                    .Invoke(null, new[] { instance, GetDefaultValue() });
+                                                    .Invoke(null, new[] {instance, GetDefaultValue()});
                                             }
                                             else
                                             {
                                                 // sealed type extensions aren't generic
                                                 setter
-                                                    .Invoke(null, new[] { instance, GetDefaultValue() });
+                                                    .Invoke(null, new[] {instance, GetDefaultValue()});
                                             }
 
                                             methodsSucceeded++;
@@ -153,12 +150,14 @@ namespace SolastaModApi.Testing
                                         }
                                         else
                                         {
-                                            logger.Log($"Skipping method '{extension.TargetType.Name}.{setter.Name}', doesn't have 2 params.");
+                                            logger.Log(
+                                                $"Skipping method '{extension.TargetType.Name}.{setter.Name}', doesn't have 2 params.");
                                         }
                                     }
                                     catch (Exception ex1)
                                     {
-                                        logger.Log($"Error calling method '{extension.TargetType.Name}.{setter.Name}': {ex1.Message}.");
+                                        logger.Log(
+                                            $"Error calling method '{extension.TargetType.Name}.{setter.Name}': {ex1.Message}.");
                                     }
                                 }
 
@@ -181,16 +180,6 @@ namespace SolastaModApi.Testing
             }
         }
 
-        private sealed class TestObj
-        {
-            public TestObj(string testValue)
-            {
-                TestProp = testValue;
-            }
-
-            internal string TestProp { get; set; }
-        }
-
         internal static void CheckHelpers()
         {
             var definition = ScriptableObject.CreateInstance<EffectProxyDefinition>();
@@ -200,28 +189,37 @@ namespace SolastaModApi.Testing
             var failures = 0;
 
             if (!CheckSetFieldSucceeds(definition, "actionId", ActionDefinitions.Id.ActionSurge)) { failures++; }
+
             if (!CheckSetFieldSucceeds(definition, "addLightSource", true)) { failures++; }
 
             if (!CheckSetFieldThrows(definition, "addLightSource2", true)) { failures++; }
+
             if (!CheckSetFieldThrows((EffectProxyDefinition)null, "addLightSource", true)) { failures++; }
+
             if (!CheckSetFieldThrows(definition, "addLightSource", 5)) { failures++; }
 
-            SolastaCommunityExpansion.Main.Log($"{failures} calls to SetField helpers failed");
+            Main.Log($"{failures} calls to SetField helpers failed");
 
             if (!CheckGetFieldSucceeds(definition, "addLightSource", true, false)) { failures++; }
+
             if (!CheckGetFieldSucceeds(definition, "damageType", "d1", "d2")) { failures++; }
+
             if (!CheckGetFieldThrows<EffectProxyDefinition, string>(definition, "damageType2")) { failures++; }
+
             if (!CheckGetFieldThrows<EffectProxyDefinition, string>(null, "damageType2")) { failures++; }
+
             if (!CheckGetFieldThrows<EffectProxyDefinition, bool>(definition, "damageType")) { failures++; }
 
-            SolastaCommunityExpansion.Main.Log($"{failures} calls to GetField helpers failed");
+            Main.Log($"{failures} calls to GetField helpers failed");
 
             var testObj = new TestObj("Test value");
 
             failures = 0;
             if (!CheckSetPropertySucceeds(testObj, "TestProp", "Test 1")) { failures++; }
+
             if (!CheckGetPropertySucceeds(testObj, "TestProp", "Test 1", "Test 2")) { failures++; }
-            SolastaCommunityExpansion.Main.Log($"{failures} calls to Get/SetProperty helpers failed");
+
+            Main.Log($"{failures} calls to Get/SetProperty helpers failed");
 
             bool CheckGetFieldSucceeds<T, V>(T entity, string fieldName, V v1, V v2)
                 where T : class
@@ -235,7 +233,7 @@ namespace SolastaModApi.Testing
 
                     if (!v1.Equals(entity.GetField<V>(fieldName)))
                     {
-                        SolastaCommunityExpansion.Main.Log($"GetField({fieldName}) failed.");
+                        Main.Log($"GetField({fieldName}) failed.");
                         success = false;
                     }
 
@@ -243,13 +241,13 @@ namespace SolastaModApi.Testing
 
                     if (!v2.Equals(entity.GetField<V>(fieldName)))
                     {
-                        SolastaCommunityExpansion.Main.Log($"GetField({fieldName}) failed.");
+                        Main.Log($"GetField({fieldName}) failed.");
                         success = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    SolastaCommunityExpansion.Main.Log($"GetField({fieldName}) failed. {ex.Message}.");
+                    Main.Log($"GetField({fieldName}) failed. {ex.Message}.");
                     success = false;
                 }
 
@@ -265,11 +263,11 @@ namespace SolastaModApi.Testing
                 try
                 {
                     entity.GetField<V>(fieldName);
-                    SolastaCommunityExpansion.Main.Log($"GetField({fieldName}) failed. Did not throw exception.");
+                    Main.Log($"GetField({fieldName}) failed. Did not throw exception.");
                 }
                 catch (Exception ex)
                 {
-                    SolastaCommunityExpansion.Main.Log($"GetField({fieldName}) threw exception as expected. {ex.Message}.");
+                    Main.Log($"GetField({fieldName}) threw exception as expected. {ex.Message}.");
                     success = true;
                 }
 
@@ -288,7 +286,7 @@ namespace SolastaModApi.Testing
                 }
                 catch (Exception ex)
                 {
-                    SolastaCommunityExpansion.Main.Log($"SetField({fieldName}) failed. {ex.Message}");
+                    Main.Log($"SetField({fieldName}) failed. {ex.Message}");
                 }
 
                 return success;
@@ -302,11 +300,11 @@ namespace SolastaModApi.Testing
                 {
                     entity.SetField(fieldName, value);
 
-                    SolastaCommunityExpansion.Main.Log($"SetField({fieldName}) didn't throw.");
+                    Main.Log($"SetField({fieldName}) didn't throw.");
                 }
                 catch (Exception ex)
                 {
-                    SolastaCommunityExpansion.Main.Log($"SetField({fieldName}) threw exception as expected. {ex.Message}.");
+                    Main.Log($"SetField({fieldName}) threw exception as expected. {ex.Message}.");
                     success = true;
                 }
 
@@ -325,7 +323,7 @@ namespace SolastaModApi.Testing
 
                     if (!v1.Equals(entity.GetProperty<V>(propertyName)))
                     {
-                        SolastaCommunityExpansion.Main.Log($"GetProperty({propertyName}) failed.");
+                        Main.Log($"GetProperty({propertyName}) failed.");
                         success = false;
                     }
 
@@ -333,13 +331,13 @@ namespace SolastaModApi.Testing
 
                     if (!v2.Equals(entity.GetProperty<V>(propertyName)))
                     {
-                        SolastaCommunityExpansion.Main.Log($"GetProperty({propertyName}) failed.");
+                        Main.Log($"GetProperty({propertyName}) failed.");
                         success = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    SolastaCommunityExpansion.Main.Log($"GetProperty({propertyName}) failed. {ex.Message}.");
+                    Main.Log($"GetProperty({propertyName}) failed. {ex.Message}.");
                     success = false;
                 }
 
@@ -358,7 +356,7 @@ namespace SolastaModApi.Testing
 
                     if (!entity.GetProperty<V>(PropertyName).Equals(value))
                     {
-                        SolastaCommunityExpansion.Main.Log($"SetProperty({PropertyName}) failed.  Values differ.");
+                        Main.Log($"SetProperty({PropertyName}) failed.  Values differ.");
                     }
                     else
                     {
@@ -367,11 +365,21 @@ namespace SolastaModApi.Testing
                 }
                 catch (Exception ex)
                 {
-                    SolastaCommunityExpansion.Main.Log($"SetProperty({PropertyName}) failed. {ex.Message}");
+                    Main.Log($"SetProperty({PropertyName}) failed. {ex.Message}");
                 }
 
                 return success;
             }
+        }
+
+        private sealed class TestObj
+        {
+            public TestObj(string testValue)
+            {
+                TestProp = testValue;
+            }
+
+            internal string TestProp { get; set; }
         }
     }
 }

@@ -17,8 +17,47 @@ internal static class AcehighFeats
 {
     public static void CreateFeats(List<FeatDefinition> feats)
     {
+        feats.Add(SharpShooterFeatBuilder.SharpShooterFeat);
         feats.Add(PowerAttackFeatBuilder.PowerAttackFeat);
         feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
+    }
+
+    private static FeatureDefinition BuildSharpShooterPower()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("SharpShooter", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+            .SetGuiPresentation("SharpShooterFeat", Category.Feat,
+                CustomIcons.CreateAssetReferenceSprite("SharpShooterIcon",
+                    Resources.SharpShooterIcon, 128, 64))
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create("SharpShooterTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetDuration(RuleDefinitions.DurationType.Permanent)
+                            .SetFeatures(
+                                FeatureDefinitionBuilder
+                                    .Create("SharpShooterTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetCustomSubFeatures(new SharpShooterConcentrationProvider())
+                                    .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(SharpShooterConditionBuilder.SharpShooterCondition,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
     }
 
     private static FeatureDefinition BuildPowerAttackPower()
@@ -57,7 +96,186 @@ internal static class AcehighFeats
             .AddToDB();
     }
 
-    internal sealed class PowerAttackTwoHandedPowerBuilder : FeatureDefinitionPowerBuilder
+    private sealed class SharpShooterIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
+    {
+        private const string SharpShooterIgnoreDefenderName = "SharpShooterIgnoreDefender";
+        private const string SharpShooterIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
+
+        public static readonly FeatureDefinition SharpShooterIgnoreDefender
+            = CreateAndAddToDB(SharpShooterIgnoreDefenderName, SharpShooterIgnoreDefenderGuid);
+
+        private SharpShooterIgnoreDefenderBuilder(string name, string guid) : base(name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
+            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+
+            Definition.SetIgnoreRangeAdvantage(true);
+            Definition.SetIgnoreCover(true);
+            Definition.SetSituationalContext(RuleDefinitions.SituationalContext.AttackingWithBow);
+        }
+
+        private static FeatureDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterIgnoreDefenderBuilder(name, guid).AddToDB();
+        }
+    }
+
+    private sealed class SharpShooterAttackModifierBuilder : FeatureDefinitionBuilder
+    {
+        private const string SharpShooterAttackModifierName = "SharpShooterAttackModifier";
+        private const string SharpShooterAttackModifierGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
+
+        public static readonly FeatureDefinition SharpShooterAttackModifier
+            = CreateAndAddToDB(SharpShooterAttackModifierName, SharpShooterAttackModifierGuid);
+
+        private SharpShooterAttackModifierBuilder(string name, string guid) : base(name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
+            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+
+            Definition.SetCustomSubFeatures(new ModifySharpShooterAttackPower());
+        }
+
+        private static FeatureDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterAttackModifierBuilder(name, guid).AddToDB();
+        }
+    }
+
+    private sealed class SharpShooterConditionBuilder : ConditionDefinitionBuilder
+    {
+        private const string SharpShooterConditionName = "SharpShooterCondition";
+        private const string SharpShooterConditionNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
+
+        public static readonly ConditionDefinition SharpShooterCondition =
+            CreateAndAddToDB(SharpShooterConditionName, SharpShooterConditionNameGuid);
+
+        private SharpShooterConditionBuilder(string name, string guid) : base(
+            DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
+            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+
+            Definition.SetAllowMultipleInstances(false);
+            Definition.Features.Clear();
+            Definition.Features.Add(SharpShooterAttackModifierBuilder.SharpShooterAttackModifier);
+            Definition.Features.Add(SharpShooterIgnoreDefenderBuilder.SharpShooterIgnoreDefender);
+
+            Definition.SetDurationType(RuleDefinitions.DurationType.Round);
+            Definition.SetDurationParameter(0);
+            Definition.SetCancellingConditions(Definition);
+        }
+
+        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterConditionBuilder(name, guid).AddToDB();
+        }
+    }
+
+    private sealed class SharpShooterFeatBuilder : FeatDefinitionBuilder
+    {
+        private const string SharpShooterFeatName = "SharpShooterFeat";
+        private const string SharpShooterFeatNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
+
+        public static readonly FeatDefinition SharpShooterFeat =
+            CreateAndAddToDB(SharpShooterFeatName, SharpShooterFeatNameGuid);
+
+        private SharpShooterFeatBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feat/&SharpShooterFeatTitle";
+            Definition.GuiPresentation.Description = "Feat/&SharpShooterFeatDescription";
+
+            Definition.Features.Clear();
+            Definition.Features.Add(BuildSharpShooterPower());
+            Definition.SetMinimalAbilityScorePrerequisite(false);
+        }
+
+        private static FeatDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterFeatBuilder(name, guid).AddToDB();
+        }
+    }
+
+    private sealed class SharpShooterConcentrationProvider : ICusomConcentrationProvider
+    {
+        private static AssetReferenceSprite _icon;
+        public string Name => "SharpShooter";
+        public string Tooltip => "Tooltip/&SharpShooterConcentration";
+
+        public AssetReferenceSprite Icon => _icon ??=
+            CustomIcons.CreateAssetReferenceSprite("SharpShooterConcentrationIcon",
+                Resources.SharpShooterConcentrationIcon, 64, 64);
+
+        public void Stop(RulesetCharacter character)
+        {
+            var triggerCondition = "SharpShooterTriggerCondition";
+            var attackCondition = SharpShooterConditionBuilder.SharpShooterCondition.Name;
+            var toRemove = new List<RulesetCondition>();
+
+            foreach (var pair in character.ConditionsByCategory)
+            {
+                foreach (var rulesetCondition in pair.Value)
+                {
+                    if (rulesetCondition.Name == triggerCondition || rulesetCondition.Name == attackCondition)
+                    {
+                        toRemove.Add(rulesetCondition);
+                    }
+                }
+            }
+
+            foreach (var rulesetCondition in toRemove)
+            {
+                character.RemoveCondition(rulesetCondition);
+            }
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                SharpShooterConditionBuilder.SharpShooterCondition, RuleDefinitions.DurationType.Round,
+                0,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                character.CurrentFaction.Name
+            ));
+        }
+    }
+
+    private class ModifySharpShooterAttackPower : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (attackMode is not {Reach: false, Ranged: true, Thrown: false})
+            {
+                return;
+            }
+
+            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var toHit = -proficiency;
+            var toDamage = proficiency * 2;
+
+            attackMode.ToHitBonus += toHit;
+            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(toHit,
+                RuleDefinitions.FeatureSourceType.Power, "SharpShooter", null));
+
+            damage.BonusDamage += toDamage;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
+                RuleDefinitions.FeatureSourceType.Power, "SharpShooter", null));
+        }
+    }
+
+    private sealed class PowerAttackTwoHandedPowerBuilder : FeatureDefinitionPowerBuilder
     {
         private const string PowerAttackTwoHandedPowerName = "PowerAttackTwoHanded";
         private const string PowerAttackTwoHandedPowerNameGuid = "b45b8467-7caa-428e-b4b5-ba3c4a153f07";
@@ -106,7 +324,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionBuilder
+    private sealed class PowerAttackOneHandedAttackModifierBuilder : FeatureDefinitionBuilder
     {
         private const string PowerAttackAttackModifierName = "PowerAttackAttackModifier";
         private const string PowerAttackAttackModifierNameGuid = "87286627-3e62-459d-8781-ceac1c3462e6";
@@ -119,7 +337,7 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
             Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
 
-            Definition.SetCustomSubFeatures(new ModifyAttackPower());
+            Definition.SetCustomSubFeatures(new ModifyPowerAttackPower());
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
@@ -128,7 +346,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class PowerAttackTwoHandedAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
+    private sealed class PowerAttackTwoHandedAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
     {
         private const string PowerAttackTwoHandedAttackModifierName = "PowerAttackTwoHandedAttackModifier";
         private const string PowerAttackTwoHandedAttackModifierNameGuid = "b1b05940-7558-4f03-98d1-01f616b5ae25";
@@ -157,7 +375,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class PowerAttackConditionBuilder : ConditionDefinitionBuilder
+    private sealed class PowerAttackConditionBuilder : ConditionDefinitionBuilder
     {
         private const string PowerAttackConditionName = "PowerAttackCondition";
         private const string PowerAttackConditionNameGuid = "c125b7b9-e668-4c6f-a742-63c065ad2292";
@@ -186,7 +404,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class PowerAttackTwoHandedConditionBuilder : ConditionDefinitionBuilder
+    private sealed class PowerAttackTwoHandedConditionBuilder : ConditionDefinitionBuilder
     {
         private const string PowerAttackTwoHandedConditionName = "PowerAttackTwoHandedCondition";
         private const string PowerAttackTwoHandedConditionNameGuid = "7d0eecbd-9ad8-4915-a3f7-cfa131001fe6";
@@ -215,7 +433,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class PowerAttackFeatBuilder : FeatDefinitionBuilder
+    private sealed class PowerAttackFeatBuilder : FeatDefinitionBuilder
     {
         private const string PowerAttackFeatName = "PowerAttackFeat";
         private const string PowerAttackFeatNameGuid = "88f1fb27-66af-49c6-b038-a38142b1083e";
@@ -241,7 +459,7 @@ internal static class AcehighFeats
         }
     }
 
-    public class PowerAttackConcentrationProvider : ICusomConcentrationProvider
+    private sealed class PowerAttackConcentrationProvider : ICusomConcentrationProvider
     {
         private static AssetReferenceSprite _icon;
         public string Name => "PowerAttack";
@@ -283,7 +501,7 @@ internal static class AcehighFeats
         }
     }
 
-    private class ModifyAttackPower : IModifyAttackModeForWeapon
+    private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
@@ -341,7 +559,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class RecklessFuryFeatBuilder : FeatDefinitionBuilder
+    private sealed class RecklessFuryFeatBuilder : FeatDefinitionBuilder
     {
         private const string RecklessFuryFeatName = "RecklessFuryFeat";
         private const string RecklessFuryFeatNameGuid = "78c5fd76-e25b-499d-896f-3eaf84c711d8";
@@ -367,7 +585,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class RagePowerBuilder : FeatureDefinitionPowerBuilder
+    private sealed class RagePowerBuilder : FeatureDefinitionPowerBuilder
     {
         private const string RagePowerName = "AHRagePower";
         private const string RagePowerNameGuid = "a46c1722-7825-4a81-bca1-392b51cd7d97";
@@ -419,7 +637,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class RageFeatConditionBuilder : ConditionDefinitionBuilder
+    private sealed class RageFeatConditionBuilder : ConditionDefinitionBuilder
     {
         private const string RageFeatConditionName = "AHRageFeatCondition";
         private const string RageFeatConditionNameGuid = "2f34fb85-6a5d-4a4e-871b-026872bc24b8";
@@ -455,7 +673,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class RageStrengthSavingThrowAffinityBuilder : FeatureDefinitionSavingThrowAffinityBuilder
+    private sealed class RageStrengthSavingThrowAffinityBuilder : FeatureDefinitionSavingThrowAffinityBuilder
     {
         private const string RageStrengthSavingThrowAffinityName = "AHRageStrengthSavingThrowAffinity";
         private const string RageStrengthSavingThrowAffinityNameGuid = "17d26173-7353-4087-a295-96e1ec2e6cd4";
@@ -484,7 +702,7 @@ internal static class AcehighFeats
         }
     }
 
-    internal sealed class RageDamageBonusAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
+    private sealed class RageDamageBonusAttackModifierBuilder : FeatureDefinitionAttackModifierBuilder
     {
         private const string RageDamageBonusAttackModifierName = "AHRageDamageBonusAttackModifier";
         private const string RageDamageBonusAttackModifierNameGuid = "7bc1a47e-9519-4a37-a89a-10bcfa83e48a";

@@ -13,119 +13,6 @@ namespace SolastaCommunityExpansion.Displays
 {
     internal static class DiagnosticsDisplay
     {
-        internal static void DisplayDiagnostics()
-        {
-            UI.Label("");
-            UI.Label(". You can set the environment variable " + DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() + " to customize the output folder");
-
-            if (DiagnosticsContext.ProjectFolder == null)
-            {
-                UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
-            }
-            else
-            {
-                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.yellow().bold());
-            }
-
-            UI.Label("");
-
-            string exportTaLabel;
-            string exportTaLabel2;
-            string exportCeLabel;
-            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
-            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
-            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
-
-            if (percentageCompleteTa == 0)
-            {
-                exportTaLabel = "Export TA blueprints";
-            }
-            else
-            {
-                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".bold().yellow();
-            }
-
-            if (percentageCompleteTa2 == 0)
-            {
-                exportTaLabel2 = "Export TA blueprints (modded)";
-            }
-            else
-            {
-                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".bold().yellow();
-            }
-
-            if (percentageCompleteCe == 0)
-            {
-                exportCeLabel = "Export CE blueprints";
-            }
-            else
-            {
-                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".bold().yellow();
-            }
-
-            using (UI.HorizontalScope())
-            {
-                UI.ActionButton(exportTaLabel, () =>
-                {
-                    if (percentageCompleteTa == 0)
-                    {
-                        DiagnosticsContext.ExportTADefinitions();
-                    }
-                    else
-                    {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
-                    }
-                }, UI.Width(200));
-
-                UI.ActionButton(exportCeLabel, () =>
-                {
-                    if (percentageCompleteCe == 0)
-                    {
-                        DiagnosticsContext.ExportCEDefinitions();
-                    }
-                    else
-                    {
-                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
-                    }
-                }, UI.Width(200));
-
-                UI.ActionButton(exportTaLabel2, () =>
-                {
-                    if (percentageCompleteTa2 == 0)
-                    {
-                        DiagnosticsContext.ExportTADefinitionsAfterCELoaded();
-                    }
-                    else
-                    {
-                        BlueprintExporter.Cancel(DiagnosticsContext.TA2);
-                    }
-                }, UI.Width(200));
-            }
-
-            using (UI.HorizontalScope())
-            {
-                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(), UI.Width(200));
-                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(), UI.Width(200));
-                UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
-            }
-
-            UI.Label("");
-
-            var logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
-
-            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition [requires restart]", ref logVariantMisuse))
-            {
-                Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
-            }
-
-            ItemDefinitionVerification.Mode =
- Main.Settings.DebugLogVariantMisuse ? ItemDefinitionVerification.Verification.Log : ItemDefinitionVerification.Verification.None;
-            EffectFormVerification.Mode =
- Main.Settings.DebugLogVariantMisuse ? EffectFormVerification.Verification.Log : EffectFormVerification.Verification.None;
-
-            UI.Label("");
-        }
-
         private const string ModDescription = @"
 [size=5][b][i]Solasta Community Expansion[/i][/b][/size]
 
@@ -272,6 +159,127 @@ All settings start disabled by default. On first start the mod will display an w
 {9}
 [/list]
 ";
+
+        internal static void DisplayDiagnostics()
+        {
+            UI.Label("");
+            UI.Label(". You can set the environment variable " +
+                     DiagnosticsContext.ProjectEnvironmentVariable.italic().yellow() +
+                     " to customize the output folder");
+
+            if (DiagnosticsContext.ProjectFolder == null)
+            {
+                UI.Label(". The output folder is set to " + "your game folder".yellow().bold());
+            }
+            else
+            {
+                UI.Label(". The output folder is set to " + DiagnosticsContext.DiagnosticsFolder.yellow().bold());
+            }
+
+            UI.Label("");
+
+            string exportTaLabel;
+            string exportTaLabel2;
+            string exportCeLabel;
+            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.TA].percentageComplete;
+            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.TA2].percentageComplete;
+            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.CE].percentageComplete;
+
+            if (percentageCompleteTa == 0)
+            {
+                exportTaLabel = "Export TA blueprints";
+            }
+            else
+            {
+                exportTaLabel = "Cancel TA export at " + $"{percentageCompleteTa:00.0%}".bold().yellow();
+            }
+
+            if (percentageCompleteTa2 == 0)
+            {
+                exportTaLabel2 = "Export TA blueprints (modded)";
+            }
+            else
+            {
+                exportTaLabel2 = "Cancel TA export at " + $"{percentageCompleteTa2:00.0%}".bold().yellow();
+            }
+
+            if (percentageCompleteCe == 0)
+            {
+                exportCeLabel = "Export CE blueprints";
+            }
+            else
+            {
+                exportCeLabel = "Cancel CE export at " + $"{percentageCompleteCe:00.0%}".bold().yellow();
+            }
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton(exportTaLabel, () =>
+                {
+                    if (percentageCompleteTa == 0)
+                    {
+                        DiagnosticsContext.ExportTADefinitions();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel(DiagnosticsContext.TA);
+                    }
+                }, UI.Width(200));
+
+                UI.ActionButton(exportCeLabel, () =>
+                {
+                    if (percentageCompleteCe == 0)
+                    {
+                        DiagnosticsContext.ExportCEDefinitions();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel(DiagnosticsContext.CE);
+                    }
+                }, UI.Width(200));
+
+                UI.ActionButton(exportTaLabel2, () =>
+                {
+                    if (percentageCompleteTa2 == 0)
+                    {
+                        DiagnosticsContext.ExportTADefinitionsAfterCELoaded();
+                    }
+                    else
+                    {
+                        BlueprintExporter.Cancel(DiagnosticsContext.TA2);
+                    }
+                }, UI.Width(200));
+            }
+
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("Create TA diagnostics", () => DiagnosticsContext.CreateTADefinitionDiagnostics(),
+                    UI.Width(200));
+                UI.ActionButton("Create CE diagnostics", () => DiagnosticsContext.CreateCEDefinitionDiagnostics(),
+                    UI.Width(200));
+                UI.ActionButton("Dump Descriptions", () => DisplayDumpDescription(), UI.Width(200));
+            }
+
+            UI.Label("");
+
+            var logVariantMisuse = Main.Settings.DebugLogVariantMisuse;
+
+            if (UI.Toggle("Log misuse of EffectForm and ItemDefinition [requires restart]", ref logVariantMisuse))
+            {
+                Main.Settings.DebugLogVariantMisuse = logVariantMisuse;
+            }
+
+            ItemDefinitionVerification.Mode =
+                Main.Settings.DebugLogVariantMisuse
+                    ? ItemDefinitionVerification.Verification.Log
+                    : ItemDefinitionVerification.Verification.None;
+            EffectFormVerification.Mode =
+                Main.Settings.DebugLogVariantMisuse
+                    ? EffectFormVerification.Verification.Log
+                    : EffectFormVerification.Verification.None;
+
+            UI.Label("");
+        }
 
         private static string GenerateDescription<T>(IEnumerable<T> definitions) where T : BaseDefinition
         {

@@ -24,14 +24,14 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
 [*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
-[*][b]Nd[/b]: Opportunist subclass
+[*][b]Nd[/b]: Marshal subclass, Opportunist subclass
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
-[*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Holic75's code integration
+[*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Sentinel Feat, Spells, Infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
 [*][b]Zappastuff[/b]: repository maintenance, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Holic75's code integration
 [/list]
@@ -249,7 +249,8 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Shadow Touched (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 [*][b]Shadow Touched (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 [*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
-Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6. This can stack with Rogue's Sneak Attack.
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6.
+[*][b]Sharpshooter[/b]: You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.
 You gain advantage on shove attempts while weilding a shield..
 [*][b]Telekinetic (Charisma)[/b]: Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
