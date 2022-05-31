@@ -516,8 +516,10 @@ public static class CustomWeaponsContext
 
     private static void AddToShops()
     {
-        //TODO: do this only if mod option is toggled
-        GiveAssortment(ShopItems);
+        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
+        {
+            GiveAssortment(ShopItems);
+        }
     }
 
     //TODO: move this to the separate shop context file
