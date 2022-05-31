@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaModApi.Extensions;
-using UnityEngine.AddressableAssets;
 using static RuleDefinitions.ItemRarity;
 using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;
 using static SolastaModApi.DatabaseHelper;
@@ -14,25 +12,24 @@ namespace SolastaCommunityExpansion.Models;
 public static class HandwrapWeaponContext
 {
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
-    private static readonly List<ItemDefinition> CraftingManuals = new();
 
-    private static StockUnitDescriptionBuilder _stockBuilder;
-    private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
-
-    public static void Load()
+    public static void Load(List<(ItemDefinition, ShopItemType)> shopItems)
     {
-        HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, Uncommon, WeaponPlus1);
-        HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, Rare, WeaponPlus2);
+        HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, true, Uncommon, WeaponPlus1);
+        HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, true, Rare, WeaponPlus2);
+
+        shopItems.Add((HandwrapsPlus1, CustomWeapons.ShopMeleePlus1));
+        shopItems.Add((HandwrapsPlus2, CustomWeapons.ShopMeleePlus2));
 
 
-        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, ForceImpactVFX, WeaponPlus1);
+        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX, WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
 
 
-        HandwrapsOfPulling = BuildHandwraps("HandwrapsOfPulling", 2000, true, Rare, WeaponPlus1);
+        HandwrapsOfPulling = BuildHandwraps("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.SetIsUsableDevice(true);
         HandwrapsOfPulling.SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
             .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
@@ -66,143 +63,35 @@ public static class HandwrapWeaponContext
                 .Build())
             .Build());
 
-
-        // Works, but you need to click attack. Auto attacking till forc to go near target
-        //TODO: investigate patch to make auto-attack respect reach, at least if already in range
-        // HandwrapsPlus1.WeaponDescription.SetReachRange(5);
-
         // HandwrapsPlus1.SetInDungeonEditor(true);
-        MakeRecipes();
-        AddToShops();
-        AddToLootTables();
+        MakeRecipes(shopItems);
     }
 
-    private static ItemPresentation BuildHandwrapsPresentation(string unIdentifiedName)
-    {
-        var presentation = new ItemPresentation(ItemDefinitions.UnarmedStrikeBase.ItemPresentation);
-        presentation.ItemFlags.Clear();
-        presentation.SetAssetReference(new AssetReference());
-        presentation.SetUnidentifiedTitle(GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item));
-        presentation.SetUnidentifiedDescription(
-            GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item));
-        return presentation;
-    }
-
-    private static ItemDefinition BuildHandwraps(string name, int goldCost, bool noDescription,
+    private static ItemDefinition BuildHandwraps(string name, int goldCost, bool noDescription, bool needId,
         RuleDefinitions.ItemRarity rarity,
         params ItemPropertyDescription[] properties)
     {
-        var unarmedStrikeBase = ItemDefinitions.UnarmedStrikeBase;
-        var builder = ItemDefinitionBuilder
-            .Create(name, Monk.GUID)
-            .SetGold(goldCost)
-            .SetMerchantCategory(MerchantCategoryDefinitions.Weapon)
-            .SetStaticProperties(properties)
-            .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
-            .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot)
-            .SetWeaponDescription(new WeaponDescription(unarmedStrikeBase.WeaponDescription))
-            .SetItemPresentation(BuildHandwrapsPresentation($"{name}Unidentified"))
-            .SetRequiresIdentification(true)
-            .SetItemRarity(rarity)
-            .MakeMagical();
-
-        if (noDescription)
-        {
-            builder.SetGuiPresentation(Category.Item, Gui.NoLocalization,
-                unarmedStrikeBase.GuiPresentation.SpriteReference);
-        }
-        else
-        {
-            builder.SetGuiPresentation(Category.Item, unarmedStrikeBase.GuiPresentation.SpriteReference);
-        }
-
-        return builder
-            .AddToDB();
-    }
-
-    public static void MakeRecipes()
-    {
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10,
-            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness)));
-
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Blood_Gem)));
-
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem)));
-
-        CraftingManuals.Add(BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16,
-            ItemDefinitions.Ingredient_Enchant_Slavestone)));
-    }
-
-    private static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int DC,
-        params ItemDefinition[] ingredients)
-    {
-        return RecipeDefinitionBuilder
-            .Create($"RecipeEnchant{item.Name}", Monk.GUID)
-            .SetGuiPresentation(item.GuiPresentation.Title, Gui.NoLocalization)
-            .SetCraftedItem(item)
-            .SetCraftingCheckData(hours, DC, ToolTypeDefinitions.EnchantingToolType)
-            .AddIngredients(ingredients)
-            .AddToDB();
-    }
-
-    private static ItemDefinition BuildManual(RecipeDefinition recipe)
-    {
-        var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
-        return ItemDefinitionBuilder
-            .Create($"CraftingManual{recipe.Name}", Monk.GUID)
-            .SetGuiPresentation(Category.Item, reference.GuiPresentation.SpriteReference)
-            .SetItemPresentation(reference.ItemPresentation)
-            .SetMerchantCategory(MerchantCategoryDefinitions.Crafting)
-            .SetSlotTypes(SlotTypeDefinitions.ContainerSlot)
-            .SetItemTags(TagsDefinitions.ItemTagStandard, TagsDefinitions.ItemTagPaper)
-            .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
-            .SetGold(Main.Settings.RecipeCost)
-            .AddToDB();
-    }
-
-    public static void AddToShops()
-    {
-        foreach (var merchant in MerchantTypeContext.MerchantTypes
-                     .Where(x => x.Value.IsMagicalMeleeWeapon))
-        {
-            StockItem(merchant.Key, HandwrapsPlus1, FactionStatusDefinitions.Alliance);
-            StockItem(merchant.Key, HandwrapsPlus2, FactionStatusDefinitions.Brotherhood);
-        }
-
-        foreach (var merchant in MerchantTypeContext.MerchantTypes
-                     .Where(x => x.Value.IsDocument))
-        {
-            foreach (var manual in CraftingManuals)
-            {
-                StockItem(merchant.Key, manual, FactionStatusDefinitions.Alliance);
-            }
-        }
-    }
-
-    private static void StockItem(MerchantDefinition merchant, ItemDefinition item, FactionStatusDefinition status)
-    {
-        merchant.StockUnitDescriptions.Add(StockBuilder
-            .SetItem(item)
-            .SetFaction(merchant.FactionAffinity, status.Name)
-            .Build()
+        return CustomWeapons.BuildWeapon(
+            name,
+            ItemDefinitions.UnarmedStrikeBase,
+            goldCost,
+            noDescription, rarity, needId: needId,
+            properties:properties
         );
     }
 
-    private static StockUnitDescriptionBuilder BuildStockBuilder()
+    private static void MakeRecipes(List<(ItemDefinition, ShopItemType)> shopItems)
     {
-        return new StockUnitDescriptionBuilder()
-            .SetStock(initialAmount: 1)
-            .SetRestock(1);
-    }
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus1, 24, 10, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.GUID), CustomWeapons.ShopCrafting));
 
-    public static void AddToLootTables()
-    {
-        //Generic +1, weight 2-3
-        //TreasureTableDefinitions.RandomTreasureTableC_MagicWeapons_01
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus2, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.GUID), CustomWeapons.ShopCrafting));
 
-        //Generic +2, weight 2-3
-        //TreasureTableDefinitions.RandomTreasureTableD1_Weapons_02
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfForce, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.GUID), CustomWeapons.ShopCrafting));
+
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.GUID), CustomWeapons.ShopCrafting));
     }
 }

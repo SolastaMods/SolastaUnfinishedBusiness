@@ -4,7 +4,7 @@ using static SolastaModApi.DatabaseHelper.ItemFlagDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 
-internal class MerchantTypeContext
+public class MerchantTypeContext
 {
     internal static Dictionary<MerchantDefinition, MerchantType> MerchantTypes = new();
 
@@ -104,7 +104,7 @@ internal class MerchantTypeContext
         }
     }
 
-    internal class MerchantType
+    public class MerchantType
     {
         public bool IsAmmunition;
         public bool IsArmor;

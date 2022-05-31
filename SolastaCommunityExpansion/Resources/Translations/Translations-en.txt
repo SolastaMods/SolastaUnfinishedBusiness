@@ -1257,17 +1257,13 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pu
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1
-Item/&Handwraps+1TitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&Handwraps+1TitleUnidentifiedTitle	Good Quality Handwraps
+Item/&Handwraps+1UnidentifiedTitle	Good Quality Handwraps
 Item/&Handwraps+2Title	Handwraps +2
-Item/&Handwraps+2TitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&Handwraps+2TitleUnidentifiedTitle	Maginificent Handwraps
+Item/&Handwraps+2UnidentifiedTitle	Maginificent Handwraps
 Item/&HandwrapsOfForceTitle	Forceful Handwraps
-Item/&HandwrapsOfForceTitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&HandwrapsOfForceTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfForceUnidentifiedTitle	Maginificent Handwraps
 Item/&HandwrapsOfPullingTitle	Handwraps Of Pulling
-Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfPullingUnidentifiedTitle	Maginificent Handwraps
 Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss.
 Language/&AbyssalTitle	Abyssal
 Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
@@ -2014,3 +2010,55 @@ Feat/&SharpShooterFeatTitle	Sharpshooter
 Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
 Feature/&SharpShooterTitle	Sharpshooter
 Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
+Item/&CEHalberdTitle	Halberd
+Item/&CEHalberdPrimedTitle	Primed Halberd
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Halberd
+Item/&CEHalberd+1Title	Halberd +1
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
+Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
+Item/&CEHalberd+2Title	Halberd +2
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchant Halberd +2
+Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
+Item/&CEHalberdLightningTitle	Lightning Halberd 
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchant Lightning Halberd 
+Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
+Item/&CEPikeTitle	Pike
+Item/&CEPikePrimedTitle	Primed Pike
+Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
+Item/&CEPike+1Title	Pike +1
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
+Item/&CEPike+1UnidentifiedTitle	Quality Pike
+Item/&CEPike+2Title	Pike +2
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
+Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
+Item/&CEPikePsychicTitle	Psychic Pike
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
+Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
+Item/&CELongMaceTitle	Long Mace
+Item/&CELongMacePrimedTitle	Primed Long Mace
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
+Item/&CELongMace+1Title	Long Mace +1
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchant Long Mace +1
+Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
+Item/&CELongMace+2Title	Long Mace +2
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
+Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
+Item/&CELongMaceThunderTitle	Thundering Long Mace
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
+Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
+Item/&CEHandXbowTitle	Hand Crossbow
+Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
+Item/&CEHandXbow+1Title	Hand Crossbow +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchant Hand Crossbow +1
+Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
+Item/&CEHandXbow+2Title	Hand Crossbow +2
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchant Hand Crossbow +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchant Acidic Hand Crossbow
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
+Equipment/&CEHalberdTypeTitle	Halberds
+Equipment/&CEPikeTypeTitle	Pikes
+Equipment/&CELongMaceTypeTitle	Long Maces
+Equipment/&CEHandXbowTypeTitle	Hand Crossbows
