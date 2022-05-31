@@ -311,6 +311,56 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LongMace {
+            get {
+                object obj = ResourceManager.GetObject("LongMace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LongMace_1 {
+            get {
+                object obj = ResourceManager.GetObject("LongMace_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LongMace_2 {
+            get {
+                object obj = ResourceManager.GetObject("LongMace_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LongMacePrimed {
+            get {
+                object obj = ResourceManager.GetObject("LongMacePrimed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap LongMaceThunder {
+            get {
+                object obj = ResourceManager.GetObject("LongMaceThunder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Alle zum Shop hinzufügen
         ///ModUi/&amp;AddBleedingToLesserRestoration	Fügen Sie den Zustand &lt;color=orange&gt;Bluten&lt;/color&gt; zu den Zuständen hinzu, die durch &lt;color=orange&gt;Größere und Geringere Wiederherstellung&lt;/color&gt; entfernt wurden
         ///ModUi/&amp;AddHelpActionToAllRaces	Füge allen Rennen die Aktion &lt;color=orange&gt;Hilfe&lt;/color&gt; hinzu

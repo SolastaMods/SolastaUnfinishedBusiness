@@ -79,6 +79,31 @@ public static class CustomWeapons
 
     #endregion
 
+    #region Long Mace Icons
+
+    private static AssetReferenceSprite _longMaceIcon,
+        _longMacePrimedIcon,
+        _longMaceP1Icon,
+        _longMaceP2Icon,
+        _longMaceLightningIcon;
+
+    private static AssetReferenceSprite LongMaceIcon =>
+        _longMaceIcon ??= CustomIcons.CreateAssetReferenceSprite("LongMace", Resources.LongMace, 128);
+
+    private static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
+
+    private static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMace_1", Resources.LongMace_1, 128);
+
+    private static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMace_2", Resources.LongMace_2, 128);
+
+    private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
+
+    #endregion
+
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
@@ -313,7 +338,6 @@ public static class CustomWeapons
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
         var baseItem = ItemDefinitions.Mace;
-        var icon = ItemDefinitions.Mace.GuiPresentation.SpriteReference;
         var basePresentation = ItemDefinitions.Mace.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
@@ -332,12 +356,12 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         LongMace = BuildWeapon("CELongMace", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
+            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, LongMaceIcon);
         LongMace.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMace, ShopGenericMelee));
 
         LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
+            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, LongMacePrimedIcon);
         LongMacePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         LongMacePrimed.SetCustomSubFeatures(scale);
@@ -345,7 +369,7 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(LongMace, LongMacePrimed), ShopCrafting));
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
+            950, true, RuleDefinitions.ItemRarity.Rare, icon: LongMaceP1Icon, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
         ShopItems.Add((BuildRecipeManual(LongMacePlus1, 24, 10,
@@ -356,7 +380,7 @@ public static class CustomWeapons
         var itemDefinition = ItemDefinitions.MacePlus2;
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
+            basePresentation: itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
             properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
@@ -367,7 +391,7 @@ public static class CustomWeapons
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
+            basePresentation: itemDefinition.ItemPresentation, icon: LongMaceThunderIcon,
             properties: new[] {ThunderImpactVFX, WeaponPlus1});
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
