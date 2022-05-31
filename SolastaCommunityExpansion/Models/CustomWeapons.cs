@@ -139,6 +139,7 @@ public static class CustomWeapons
         ItemPresentation basePresentation = null,
         WeaponDescription baseDescription = null,
         AssetReferenceSprite icon = null,
+        bool needId = true,
         params ItemPropertyDescription[] properties)
     {
         basePresentation ??= baseItem.ItemPresentation;
@@ -154,12 +155,15 @@ public static class CustomWeapons
             .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot)
             .SetWeaponDescription(baseDescription)
             .SetItemPresentation(BuildPresentation($"{name}Unidentified", basePresentation))
-            .SetRequiresIdentification(true)
             .SetItemRarity(rarity);
 
         if (!properties.Empty())
         {
             builder.MakeMagical();
+            if (needId)
+            {
+                builder.SetRequiresIdentification(true);
+            }
         }
 
         if (noDescription)
@@ -242,8 +246,8 @@ public static class CustomWeapons
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: HalberdLightningIcon,
-            properties: new[] {LightningImpactVFX, WeaponPlus1});
+            basePresentation: itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
+            properties: new[] {LightningImpactVFX, WeaponPlus1AttackOnly});
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
@@ -319,8 +323,8 @@ public static class CustomWeapons
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
             basePresentation: itemDefinition.ItemPresentation,
-            icon: PikePsychicIcon,
-            properties: new[] {PsychicImpactVFX, WeaponPlus1});
+            icon: PikePsychicIcon, needId: false,
+            properties: new[] {PsychicImpactVFX, WeaponPlus1AttackOnly});
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
@@ -394,8 +398,8 @@ public static class CustomWeapons
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: LongMaceThunderIcon,
-            properties: new[] {ThunderImpactVFX, WeaponPlus1});
+            basePresentation: itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
+            properties: new[] {ThunderImpactVFX, WeaponPlus1AttackOnly});
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,

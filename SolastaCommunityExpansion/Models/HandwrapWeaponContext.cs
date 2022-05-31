@@ -15,21 +15,21 @@ public static class HandwrapWeaponContext
 
     public static void Load(List<(ItemDefinition, ShopItemType)> shopItems)
     {
-        HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, Uncommon, WeaponPlus1);
-        HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, Rare, WeaponPlus2);
+        HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, true, Uncommon, WeaponPlus1);
+        HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, true, Rare, WeaponPlus2);
 
         shopItems.Add((HandwrapsPlus1, CustomWeapons.ShopMeleePlus1));
         shopItems.Add((HandwrapsPlus2, CustomWeapons.ShopMeleePlus2));
 
 
-        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, ForceImpactVFX, WeaponPlus1);
+        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX, WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
 
 
-        HandwrapsOfPulling = BuildHandwraps("HandwrapsOfPulling", 2000, true, Rare, WeaponPlus1);
+        HandwrapsOfPulling = BuildHandwraps("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.SetIsUsableDevice(true);
         HandwrapsOfPulling.SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
             .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
@@ -67,7 +67,7 @@ public static class HandwrapWeaponContext
         MakeRecipes(shopItems);
     }
 
-    private static ItemDefinition BuildHandwraps(string name, int goldCost, bool noDescription,
+    private static ItemDefinition BuildHandwraps(string name, int goldCost, bool noDescription, bool needId,
         RuleDefinitions.ItemRarity rarity,
         params ItemPropertyDescription[] properties)
     {
@@ -75,11 +75,8 @@ public static class HandwrapWeaponContext
             name,
             ItemDefinitions.UnarmedStrikeBase,
             goldCost,
-            noDescription, rarity,
-            null,
-            null,
-            null,
-            properties
+            noDescription, rarity, needId: needId,
+            properties:properties
         );
     }
 

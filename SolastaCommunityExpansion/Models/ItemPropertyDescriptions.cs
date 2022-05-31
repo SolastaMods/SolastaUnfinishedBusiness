@@ -9,6 +9,7 @@ namespace SolastaCommunityExpansion.Models;
 public static class ItemPropertyDescriptions
 {
     public static readonly ItemPropertyDescription WeaponPlus1 = BuildFrom(AttackModifierWeaponPlus1);
+    public static readonly ItemPropertyDescription WeaponPlus1AttackOnly = BuildFrom(AttackModifierWeaponPlus1AT);
 
     public static readonly ItemPropertyDescription WeaponPlus2 = BuildFrom(AttackModifierWeaponPlus2);
 
