@@ -131,7 +131,7 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Halberd.SetCustomSubFeatures(scale);
         ShopItems.Add((Halberd, ShopGenericMelee));
-        
+
         HalberdPrimed = BuildWeapon("CEHalberdPrimed", baseItem,
             40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
         HalberdPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
@@ -144,6 +144,10 @@ public static class CustomWeapons
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus1, ShopMeleePlus1));
+        ShopItems.Add((BuildRecipeManual(HalberdPlus1, 24, 10, 
+                HalberdPrimed, 
+                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
+            ShopCrafting));
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
@@ -152,6 +156,10 @@ public static class CustomWeapons
             properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus2, ShopMeleePlus2));
+        ShopItems.Add((BuildRecipeManual(HalberdPlus2, 48, 16, 
+                HalberdPrimed, 
+                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
+            ShopCrafting));
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
@@ -162,6 +170,10 @@ public static class CustomWeapons
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeLightning)
             .Build());
+        ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16, 
+                HalberdPrimed, 
+                ItemDefinitions.Ingredient_Enchant_Stardust),
+            ShopCrafting));
     }
 
     private static void BuildPikes()
@@ -208,6 +220,11 @@ public static class CustomWeapons
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus1, ShopMeleePlus1));
+        ShopItems.Add((BuildRecipeManual(PikePlus1, 24, 10, 
+                PikePrimed, 
+                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
+            ShopCrafting));
+        
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
@@ -216,6 +233,10 @@ public static class CustomWeapons
             properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus2, ShopMeleePlus2));
+        ShopItems.Add((BuildRecipeManual(PikePlus2, 48, 16, 
+                PikePrimed, 
+                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
+            ShopCrafting));
 
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
@@ -227,6 +248,10 @@ public static class CustomWeapons
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypePsychic)
             .Build());
+        ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16, 
+                PikePrimed, 
+                ItemDefinitions.Ingredient_Enchant_Stardust),
+            ShopCrafting));
     }
 
     private static void BuildLongMaces()
@@ -260,7 +285,6 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         LongMace.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMace, ShopGenericMelee));
-        ShopItems.Add((BuildPrimingManual(LongMace, LongMacePrimed), ShopCrafting));
 
         LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem,
             40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
@@ -268,11 +292,16 @@ public static class CustomWeapons
         LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         LongMacePrimed.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePrimed, ShopPrimedMelee));
+        ShopItems.Add((BuildPrimingManual(LongMace, LongMacePrimed), ShopCrafting));
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
+        ShopItems.Add((BuildRecipeManual(LongMacePlus1, 24, 10, 
+                LongMacePrimed, 
+                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
+            ShopCrafting));
 
         var itemDefinition = ItemDefinitions.MacePlus2;
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
@@ -281,6 +310,10 @@ public static class CustomWeapons
             properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
+        ShopItems.Add((BuildRecipeManual(LongMacePlus2, 48, 16, 
+                LongMacePrimed, 
+                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
+            ShopCrafting));
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
@@ -291,6 +324,10 @@ public static class CustomWeapons
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeThunder)
             .Build());
+        ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16, 
+                LongMacePrimed, 
+                ItemDefinitions.Ingredient_Enchant_Stardust),
+            ShopCrafting));
     }
 
     private static void AddToShops()
@@ -330,6 +367,12 @@ public static class CustomWeapons
             .SetRestock(1);
     }
 
+    public static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int difficulty,
+        params ItemDefinition[] ingredients)
+    {
+        return BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients);
+    }
+
     public static RecipeDefinition BuildRecipe(ItemDefinition item, int hours, int difficulty, Guid guid,
         params ItemDefinition[] ingredients)
     {
@@ -342,10 +385,22 @@ public static class CustomWeapons
             .AddToDB();
     }
 
+    public static ItemDefinition BuildRecipeManual(ItemDefinition item, int hours, int difficulty,
+        params ItemDefinition[] ingredients)
+    {
+        return BuildManual(BuildRecipe(item, hours, difficulty, DefinitionBuilder.CENamespaceGuid, ingredients),
+            DefinitionBuilder.CENamespaceGuid);
+    }
+
+    public static ItemDefinition BuildManual(RecipeDefinition recipe)
+    {
+        return BuildManual(recipe, DefinitionBuilder.CENamespaceGuid);
+    }
+
     public static ItemDefinition BuildManual(RecipeDefinition recipe, Guid guid)
     {
         var reference = ItemDefinitions.CraftingManualScrollOfVampiricTouch;
-        return ItemDefinitionBuilder
+        var manual = ItemDefinitionBuilder
             .Create($"CraftingManual{recipe.Name}", guid)
             .SetGuiPresentation(Category.Item, reference.GuiPresentation.SpriteReference)
             .SetItemPresentation(reference.ItemPresentation)
@@ -355,13 +410,18 @@ public static class CustomWeapons
             .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
             .SetGold(Main.Settings.RecipeCost)
             .AddToDB();
+
+        //TODO: add only if option enabled in mod settings
+        manual.inDungeonEditor = true;
+        
+        return manual;
     }
 
     public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
     {
         return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(guid, item, primed), guid);
     }
-    
+
     public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
     {
         return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
