@@ -2012,35 +2012,51 @@ Feature/&SharpShooterTitle	Sharpshooter
 Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
 Item/&CEHalberdTitle	Halberd
 Item/&CEHalberdPrimedTitle	Primed Halberd
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Halberd
 Item/&CEHalberd+1Title	Halberd +1
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
 Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
 Item/&CEHalberd+2Title	Halberd +2
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchant Halberd +2
 Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
 Item/&CEHalberdLightningTitle	Lightning Halberd 
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchant Lightning Halberd 
 Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
 Item/&CEPikeTitle	Pike
 Item/&CEPikePrimedTitle	Primed Pike
+Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
 Item/&CEPike+1Title	Pike +1
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
 Item/&CEPike+1UnidentifiedTitle	Quality Pike
 Item/&CEPike+2Title	Pike +2
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
 Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
 Item/&CEPikePsychicTitle	Psychic Pike
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
 Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
 Item/&CELongMaceTitle	Long Mace
 Item/&CELongMacePrimedTitle	Primed Long Mace
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
 Item/&CELongMace+1Title	Long Mace +1
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchant Long Mace +1
 Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
 Item/&CELongMace+2Title	Long Mace +2
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
 Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
 Item/&CELongMaceThunderTitle	Thundering Long Mace
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
 Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
 Item/&CEHandXbowTitle	Hand Crossbow
 Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
 Item/&CEHandXbow+1Title	Hand Crossbow +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchant Hand Crossbow +1
 Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
 Item/&CEHandXbow+2Title	Hand Crossbow +2
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchant Hand Crossbow +2
 Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
 Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchant Acidic Hand Crossbow
 Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
 Equipment/&CEHalberdTypeTitle	Halberds
 Equipment/&CEPikeTypeTitle	Pikes
