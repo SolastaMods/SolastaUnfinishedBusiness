@@ -1998,3 +1998,14 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 2 esprits du camarade déchu du maréchal. Chaque esprit a 45 + 2 x points de vie de niveau de classe de combattant et sa CA est de 16 + votre PB. De plus, les esprits sont immunisés contre Posion, Cold, Necrotic, Prone, Paralyze, Restrained et sont résistants au feu, à l'acide, à l'éclairage et au tonnerre. Ils ont également une résistance contre les dégâts non magiques Slashin, Bludeoging, Piercing. À leur tour, ils peuvent voler jusqu'à 50' et effectuer une seule (2d6 + 5) attaque magique tranchante avec un bonus d'attaque égal à 5 ​​+ PB.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
 Subclass/&FighterMarshalTitle	Maréchal
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}

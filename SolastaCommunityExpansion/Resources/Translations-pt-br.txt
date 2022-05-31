@@ -1998,3 +1998,14 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + 2 x pontos de vida de nível de classe de lutador e sua CA é 16 + seu PB. Além disso, os espíritos são imunes a Posion, Cold, Necrotic, Prone, Paralyze, Restricted e são resistentes a Fire, Acid, Lighting, Thunder. Eles também têm resistência contra danos não-mágicos de Slashin, Bludeoging, Piercing. Por sua vez, eles podem voar até 50' e fazer um único (2d6 + 5) ataque mágico de ataque com bônus de ataque igual a 5 + PB.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
 Subclass/&FighterMarshalTitle	Marechal
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}

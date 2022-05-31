@@ -1998,3 +1998,14 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}

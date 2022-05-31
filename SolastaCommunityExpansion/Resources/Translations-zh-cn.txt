@@ -1998,3 +1998,14 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	   Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + 2 x Fighter Class Level hitpoints and its AC is 16 + your PB. In additional the spirits are immuned to Posion, Cold, Necrotic, Prone, Paralyze, Restrained and are resistant to Fire, Acid, Lighting, Thunder. They also have resistance against non-magical Slashin, Bludeoging, Piercing damage. On their turn, they can fly up to 50' and make a single (2d6 + 5) magical slasing attack with bonus attack equal to 5 + PB. 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
 Subclass/&FighterMarshalTitle	Marshal
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}

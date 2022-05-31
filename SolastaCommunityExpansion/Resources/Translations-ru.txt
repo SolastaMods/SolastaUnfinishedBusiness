@@ -1998,3 +1998,14 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Изучай своего вр�
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Призвать 2 духа павшего товарища маршала. У каждого духа 45 + 2 х уровня класса бойца, а его КД равен 16 + ваше ПЗ. Кроме того, духи невосприимчивы к отравлению, холоду, некрозу, повержению, параличу, ограничению и устойчивы к огню, кислоте, молнии, грому. У них также есть сопротивление немагическому рубящему, блудогингу, колющему урону. В свой ход они могут взлететь до 50 футов и совершить одну (2d6 + 5) магическую рубящую атаку с дополнительной атакой, равной 5 + PB.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Призвать Вечного Товарища
 Subclass/&FighterMarshalTitle	Маршал
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&Use{0}Description	Use {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Spell/&MirrorImageTitle	Mirror Image
+Spell/&MirrorImageDescription	Mirror Image
+Feature/&AttributeModifier{0}Description	{0}
