@@ -1257,17 +1257,13 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pu
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1
-Item/&Handwraps+1TitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&Handwraps+1TitleUnidentifiedTitle	Good Quality Handwraps
+Item/&Handwraps+1UnidentifiedTitle	Good Quality Handwraps
 Item/&Handwraps+2Title	Handwraps +2
-Item/&Handwraps+2TitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&Handwraps+2TitleUnidentifiedTitle	Maginificent Handwraps
+Item/&Handwraps+2UnidentifiedTitle	Maginificent Handwraps
 Item/&HandwrapsOfForceTitle	Forceful Handwraps
-Item/&HandwrapsOfForceTitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&HandwrapsOfForceTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfForceUnidentifiedTitle	Maginificent Handwraps
 Item/&HandwrapsOfPullingTitle	Handwraps Of Pulling
-Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfPullingUnidentifiedTitle	Maginificent Handwraps
 Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss.
 Language/&AbyssalTitle	Abyssal
 Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
@@ -2017,18 +2013,27 @@ Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until
 Item/&CEHalberdTitle	Halberd
 Item/&CEHalberdPrimedTitle	Primed Halberd
 Item/&CEHalberd+1Title	Halberd +1
+Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
 Item/&CEHalberd+2Title	Halberd +2
+Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
 Item/&CEHalberdLightningTitle	Lightning Halberd 
+Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
 Item/&CEPikeTitle	Pike
 Item/&CEPikePrimedTitle	Primed Pike
 Item/&CEPike+1Title	Pike +1
+Item/&CEPike+1UnidentifiedTitle	Quality Pike
 Item/&CEPike+2Title	Pike +2
+Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
 Item/&CEPikePsychicTitle	Psychic Pike
+Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
 Item/&CELongMaceTitle	Long Mace
 Item/&CELongMacePrimedTitle	Primed Long Mace
 Item/&CELongMace+1Title	Long Mace +1
+Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
 Item/&CELongMace+2Title	Long Mace +2
+Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
 Item/&CELongMaceThunderTitle	Thundering Long Mace
+Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
 Equipment/&CEHalberdTypeTitle	Halberds
 Equipment/&CEPikeTypeTitle	Pikes
 Equipment/&CELongMaceTypeTitle	Long Maces

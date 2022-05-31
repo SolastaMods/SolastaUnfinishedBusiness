@@ -119,15 +119,18 @@ public static class CustomWeapons
     }
 
     public static ItemPresentation BuildPresentation(string unIdentifiedName, ItemPresentation basePresentation,
-        float scale = 1.0f)
+        float scale = 1.0f, bool hasUnidDescription = false)
     {
         var presentation = new ItemPresentation(basePresentation);
         presentation.ItemFlags.Clear();
         presentation.SetAssetReference(basePresentation.AssetReference);
         presentation.SetUnidentifiedTitle(GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item));
-        presentation.scaleFactorWhileWielded = scale;
         presentation.SetUnidentifiedDescription(
-            GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item));
+            hasUnidDescription
+                ? GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item)
+                : Gui.NoLocalization);
+
+        presentation.scaleFactorWhileWielded = scale;
         return presentation;
     }
 
