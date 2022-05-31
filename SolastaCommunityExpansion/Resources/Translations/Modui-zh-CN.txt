@@ -25,7 +25,7 @@ ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>目盲</color>
 ModUi/&Blueprints	蓝图
 ModUi/&CampaignsAndLocations	<color=yellow>战役和地点：</color>
 ModUi/&Character	角色
-ModUi/&CharactersPool	角色库
+ModUi/&CharactersPool	角色池
 ModUi/&Classes	<color=yellow>职业</color>
 ModUi/&Crafting	<color=yellow>制作：</color>
 ModUi/&CraftingHelp	. 点击按钮以立即学习可活动队伍的配方\n. 添加到商店的物品可能需要队伍从该地点离开后再回来
@@ -74,7 +74,7 @@ ModUi/&EnablesAsiAndFeat	启用属性和专长的同时选择<i><color=yellow>[�
 ModUi/&EnableSaveByLocation	启用分战役/地点存档
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	启用<color=orange>法师</color>奥法战士子职的<color=orange>奥法武器</color>能力在短休时恢复
 ModUi/&EnableTeleportParty	启用<color=cyan>CTRL-SHIFT-T</color>传送队伍<i><color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color></i>
-ModUi/&EnableTogglesToOverwriteDefaultTestParty	启用角色库切换键，以设置你的默认的游戏/测试队伍
+ModUi/&EnableTogglesToOverwriteDefaultTestParty	启用角色池切换键，以设置你的默认的游戏/测试队伍
 ModUi/&EnableUnityExplorer	启用Unity Explorer界面
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
@@ -107,7 +107,7 @@ ModUi/&KeyboardMouse	键盘与鼠标
 ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses	<color=white>最高职业数量</color> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
-ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&EnableLevel20	启用20级<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>最高依地点/战役分类的备份存档数量</color>
 ModUi/&MaxBackupHelp	. 备份存档被保存在<i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>法术面版上每行最高环阶数</color>
