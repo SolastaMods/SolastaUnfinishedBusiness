@@ -605,6 +605,26 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap SharpShooterConcentrationIcon {
+            get {
+                object obj = ResourceManager.GetObject("SharpShooterConcentrationIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SharpShooterIcon {
+            get {
+                object obj = ResourceManager.GetObject("SharpShooterIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap SunlightBlade {
             get {
                 object obj = ResourceManager.GetObject("SunlightBlade", resourceCulture);
