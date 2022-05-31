@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
@@ -16,9 +15,16 @@ public static class CustomWeapons
     public static ItemDefinition Pike, PikePlus1, PikePlus2;
     public static ItemDefinition LongMace, LongMacePlus1, LongMacePlus2;
 
-    private static readonly List<(ItemDefinition, FactionStatusDefinition)> GenericWeapons = new();
-    private static readonly List<(ItemDefinition, FactionStatusDefinition)> MagicWeapons = new();
-    private static readonly List<(ItemDefinition, FactionStatusDefinition)> CraftingManuals = new();
+    public static readonly MerchantFilter GenericMelee = new() {IsMeleeWeapon = true};
+    public static readonly MerchantFilter MagicMelee = new() {IsMagicalMeleeWeapon = true};
+    public static readonly MerchantFilter CraftingManual = new() {IsDocument = true};
+
+    public static readonly ShopItemType ShopGenericMelee = new(FactionStatusDefinitions.Indifference, GenericMelee);
+    public static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
+    public static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
+    public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
+
+    private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
 
@@ -27,7 +33,7 @@ public static class CustomWeapons
         BuildHalberds();
         BuildPikes();
         BuildLongMaces();
-        HandwrapWeaponContext.Load(GenericWeapons, MagicWeapons, CraftingManuals);
+        HandwrapWeaponContext.Load(ShopItems);
 
         AddToShops();
     }
@@ -121,17 +127,17 @@ public static class CustomWeapons
         Halberd = BuildWeapon("CEHalberd", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Halberd.SetCustomSubFeatures(scale);
-        GenericWeapons.Add((Halberd, FactionStatusDefinitions.Indifference));
+        ShopItems.Add((Halberd, ShopGenericMelee));
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
             950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
-        MagicWeapons.Add((HalberdPlus1, FactionStatusDefinitions.Alliance));
+        ShopItems.Add((HalberdPlus1, ShopMeleePlus1));
 
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
-        MagicWeapons.Add((HalberdPlus2, FactionStatusDefinitions.Brotherhood));
+        ShopItems.Add((HalberdPlus2, ShopMeleePlus2));
     }
 
     private static void BuildPikes()
@@ -164,17 +170,17 @@ public static class CustomWeapons
         Pike = BuildWeapon("CEPike", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Pike.SetCustomSubFeatures(scale);
-        GenericWeapons.Add((Pike, FactionStatusDefinitions.Indifference));
+        ShopItems.Add((Pike, ShopGenericMelee));
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
             950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
-        MagicWeapons.Add((PikePlus1, FactionStatusDefinitions.Alliance));
+        ShopItems.Add((PikePlus1, ShopMeleePlus1));
 
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
-        MagicWeapons.Add((PikePlus2, FactionStatusDefinitions.Brotherhood));
+        ShopItems.Add((PikePlus2, ShopMeleePlus2));
     }
 
     private static void BuildLongMaces()
@@ -207,44 +213,36 @@ public static class CustomWeapons
         LongMace = BuildWeapon("CELongMace", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         LongMace.SetCustomSubFeatures(scale);
-        GenericWeapons.Add((LongMace, FactionStatusDefinitions.Indifference));
+        ShopItems.Add((LongMace, ShopGenericMelee));
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
             950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
-        MagicWeapons.Add((LongMacePlus1, FactionStatusDefinitions.Alliance));
+        ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
 
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
-        MagicWeapons.Add((LongMacePlus2, FactionStatusDefinitions.Brotherhood));
+        ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
     }
 
     private static void AddToShops()
     {
         //TODO: do this only if mod option is toggled
-
-        GiveAssortment(GenericWeapons, MerchantTypeContext.MerchantTypes
-            .Where(e => e.Value.IsMeleeWeapon)
-            .Select(e => e.Key));
-
-        GiveAssortment(MagicWeapons,MerchantTypeContext.MerchantTypes
-            .Where(e => e.Value.IsMagicalMeleeWeapon)
-            .Select(e => e.Key));
-
-        GiveAssortment(CraftingManuals,MerchantTypeContext.MerchantTypes
-            .Where(e => e.Value.IsDocument)
-            .Select(e => e.Key));
+        GiveAssortment(ShopItems);
     }
 
-    private static void GiveAssortment(List<(ItemDefinition, FactionStatusDefinition)> items,
-        IEnumerable<MerchantDefinition> merchants)
+    //TODO: move this to the separate shop context file
+    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items)
     {
-        foreach (var merchant in merchants)
+        foreach (var e in MerchantTypeContext.MerchantTypes)
         {
-            foreach (var (item, status) in items)
+            foreach (var (item, itemType) in items)
             {
-                StockItem(merchant, item, status);
+                if (itemType.filter.Matches(e.Value))
+                {
+                    StockItem(e.Key, item, itemType.status);
+                }
             }
         }
     }
@@ -290,6 +288,53 @@ public static class CustomWeapons
             .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
             .SetGold(Main.Settings.RecipeCost)
             .AddToDB();
+    }
+}
+
+//TODO: move this to the separate shop context file
+public class ShopItemType
+{
+    public readonly FactionStatusDefinition status;
+    public readonly MerchantFilter filter;
+
+    public ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
+    {
+        this.status = status;
+        this.filter = filter;
+    }
+}
+
+public class MerchantFilter
+{
+    public bool? IsAmmunition = null;
+    public bool? IsArmor = null;
+    public bool? IsDocument = null;
+
+    public bool? IsMagicalAmmunition = null;
+    public bool? IsMagicalArmor = null;
+    public bool? IsMagicalMeleeWeapon = null;
+    public bool? IsMagicalRangeWeapon = null;
+    public bool? IsMeleeWeapon = null;
+
+    public bool? IsPrimedArmor = null;
+    public bool? IsPrimedMeleeWeapon = null;
+    public bool? IsPrimedRangeWeapon = null;
+    public bool? IsRangeWeapon = null;
+
+    public bool Matches(MerchantTypeContext.MerchantType merchantType)
+    {
+        return (IsAmmunition == null || IsAmmunition == merchantType.IsAmmunition) &&
+               (IsArmor == null || IsArmor == merchantType.IsArmor) &&
+               (IsDocument == null || IsDocument == merchantType.IsDocument) &&
+               (IsMagicalAmmunition == null || IsMagicalAmmunition == merchantType.IsMagicalAmmunition) &&
+               (IsMagicalArmor == null || IsMagicalArmor == merchantType.IsMagicalArmor) &&
+               (IsMagicalMeleeWeapon == null || IsMagicalMeleeWeapon == merchantType.IsMagicalMeleeWeapon) &&
+               (IsMagicalRangeWeapon == null || IsMagicalRangeWeapon == merchantType.IsMagicalRangeWeapon) &&
+               (IsMeleeWeapon == null || IsMeleeWeapon == merchantType.IsMeleeWeapon) &&
+               (IsPrimedArmor == null || IsPrimedArmor == merchantType.IsPrimedArmor) &&
+               (IsPrimedMeleeWeapon == null || IsPrimedMeleeWeapon == merchantType.IsPrimedMeleeWeapon) &&
+               (IsPrimedRangeWeapon == null || IsPrimedRangeWeapon == merchantType.IsPrimedRangeWeapon) &&
+               (IsRangeWeapon == null || IsRangeWeapon == merchantType.IsRangeWeapon);
     }
 }
 

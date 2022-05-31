@@ -13,14 +13,13 @@ public static class HandwrapWeaponContext
 {
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
 
-    public static void Load(List<(ItemDefinition, FactionStatusDefinition)> generic,
-        List<(ItemDefinition, FactionStatusDefinition)> magic, List<(ItemDefinition, FactionStatusDefinition)> manuals)
+    public static void Load(List<(ItemDefinition, ShopItemType)> shopItems)
     {
         HandwrapsPlus1 = BuildHandwraps("Handwraps+1", 400, true, Uncommon, WeaponPlus1);
         HandwrapsPlus2 = BuildHandwraps("Handwraps+2", 1500, true, Rare, WeaponPlus2);
 
-        magic.Add((HandwrapsPlus1, FactionStatusDefinitions.Alliance));
-        magic.Add((HandwrapsPlus2, FactionStatusDefinitions.Brotherhood));
+        shopItems.Add((HandwrapsPlus1, CustomWeapons.ShopMeleePlus1));
+        shopItems.Add((HandwrapsPlus2, CustomWeapons.ShopMeleePlus2));
 
 
         HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, Rare, ForceImpactVFX, WeaponPlus1);
@@ -65,7 +64,7 @@ public static class HandwrapWeaponContext
             .Build());
 
         // HandwrapsPlus1.SetInDungeonEditor(true);
-        MakeRecipes(manuals);
+        MakeRecipes(shopItems);
     }
 
     private static ItemDefinition BuildHandwraps(string name, int goldCost, bool noDescription,
@@ -84,18 +83,18 @@ public static class HandwrapWeaponContext
         );
     }
 
-    private static void MakeRecipes(List<(ItemDefinition, FactionStatusDefinition)> CraftingManuals)
+    private static void MakeRecipes(List<(ItemDefinition, ShopItemType)> shopItems)
     {
-        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus1, 24, 10, Monk.GUID,
-            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.GUID), FactionStatusDefinitions.Alliance));
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus1, 24, 10, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.GUID), CustomWeapons.ShopCrafting));
 
-        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus2, 48, 16, Monk.GUID,
-            ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.GUID), FactionStatusDefinitions.Alliance));
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsPlus2, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.GUID), CustomWeapons.ShopCrafting));
 
-        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfForce, 48, 16, Monk.GUID,
-            ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.GUID), FactionStatusDefinitions.Alliance));
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfForce, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.GUID), CustomWeapons.ShopCrafting));
 
-        CraftingManuals.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.GUID,
-            ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.GUID), FactionStatusDefinitions.Alliance));
+        shopItems.Add((CustomWeapons.BuildManual(CustomWeapons.BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.GUID), CustomWeapons.ShopCrafting));
     }
 }
