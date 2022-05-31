@@ -2009,3 +2009,8 @@ Reaction/&ReadiedAction{0}Description	Readied {0}
 Spell/&MirrorImageTitle	Mirror Image
 Spell/&MirrorImageDescription	Mirror Image
 Feature/&AttributeModifier{0}Description	{0}
+Feat/&SharpShooterFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+2x Proficiency Bonus damage for range weapons).
+Feat/&SharpShooterFeatTitle	Sharp Shooter
+Feature/&SharpShooterDescription	Take a -Proficiency Bonus to hit penalty to your attack for the rest of the turn to do +2x Proficiency Bonus damage when you land your arrows.
+Feature/&SharpShooterTitle	Sharp Shooter
+Tooltip/&SharpShooterConcentration	Disable Sharp Shooter.\nEffect will last until start of your next turn

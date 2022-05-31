@@ -17,8 +17,199 @@ internal static class AcehighFeats
 {
     public static void CreateFeats(List<FeatDefinition> feats)
     {
+        feats.Add(SharpShooterFeatBuilder.SharpShooterFeat);
         feats.Add(PowerAttackFeatBuilder.PowerAttackFeat);
         feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
+    }
+
+    private static FeatureDefinition BuildSharpShooterPower()
+    {
+        return FeatureDefinitionPowerBuilder
+            .Create("SharpShooter", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+            .SetGuiPresentation("SharpShooterFeat", Category.Feat,
+                CustomIcons.CreateAssetReferenceSprite("SharpShooterIcon",
+                    Resources.PowerAttackIcon, 128, 64))
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetEffectForms(new EffectFormBuilder()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create("SharpShooterTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+                            .SetGuiPresentationNoContent(true)
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .SetDuration(RuleDefinitions.DurationType.Permanent)
+                            .SetFeatures(FeatureDefinitionBuilder
+                                .Create("SharpShooterTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                                .SetGuiPresentationNoContent(true)
+                                .SetCustomSubFeatures(new SharpShooterConcentrationProvider())
+                                .AddToDB())
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(SharpShooterConditionBuilder.SharpShooterCondition,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    internal sealed class SharpShooterAttackModifierBuilder : FeatureDefinitionBuilder
+    {
+        private const string SharpShooterAttackModifierName = "SharpShooterAttackModifier";
+        private const string SharpShooterAttackModifierNameGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
+
+        public static readonly FeatureDefinition SharpShooterAttackModifier
+            = CreateAndAddToDB(SharpShooterAttackModifierName, SharpShooterAttackModifierNameGuid);
+
+        private SharpShooterAttackModifierBuilder(string name, string guid) : base(name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
+            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+
+            Definition.SetCustomSubFeatures(new ModifySharpShooterAttackPower());
+        }
+
+        private static FeatureDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterAttackModifierBuilder(name, guid).AddToDB();
+        }
+    }
+
+    internal sealed class SharpShooterConditionBuilder : ConditionDefinitionBuilder
+    {
+        private const string SharpShooterConditionName = "SharpShooterCondition";
+        private const string SharpShooterConditionNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
+
+        public static readonly ConditionDefinition SharpShooterCondition =
+            CreateAndAddToDB(SharpShooterConditionName, SharpShooterConditionNameGuid);
+
+        private SharpShooterConditionBuilder(string name, string guid) : base(
+            DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
+            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+
+            Definition.SetAllowMultipleInstances(false);
+            Definition.Features.Clear();
+            Definition.Features.Add(SharpShooterAttackModifierBuilder.SharpShooterAttackModifier);
+
+            Definition.SetDurationType(RuleDefinitions.DurationType.Round);
+            Definition.SetDurationParameter(0);
+            Definition.SetCancellingConditions(Definition);
+        }
+
+        private static ConditionDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterConditionBuilder(name, guid).AddToDB();
+        }
+    }
+
+    internal sealed class SharpShooterFeatBuilder : FeatDefinitionBuilder
+    {
+        private const string SharpShooterFeatName = "SharpShooterFeat";
+        private const string SharpShooterFeatNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
+
+        public static readonly FeatDefinition SharpShooterFeat =
+            CreateAndAddToDB(SharpShooterFeatName, SharpShooterFeatNameGuid);
+
+        private SharpShooterFeatBuilder(string name, string guid) : base(
+            DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
+        {
+            Definition.GuiPresentation.Title = "Feat/&SharpShooterFeatTitle";
+            Definition.GuiPresentation.Description = "Feat/&SharpShooterFeatDescription";
+
+            Definition.Features.Clear();
+            Definition.Features.Add(BuildSharpShooterPower());
+            Definition.SetMinimalAbilityScorePrerequisite(false);
+        }
+
+        private static FeatDefinition CreateAndAddToDB(string name, string guid)
+        {
+            return new SharpShooterFeatBuilder(name, guid).AddToDB();
+        }
+    }
+
+    public class SharpShooterConcentrationProvider : ICusomConcentrationProvider
+    {
+        private static AssetReferenceSprite _icon;
+        public string Name => "SharpShooter";
+        public string Tooltip => "Tooltip/&SharpShooterConcentration";
+
+        public AssetReferenceSprite Icon => _icon ??=
+            CustomIcons.CreateAssetReferenceSprite("SharpShooterConcentrationIcon",
+                Resources.PowerAttackConcentrationIcon, 64, 64);
+
+        public void Stop(RulesetCharacter character)
+        {
+            var triggerCondition = "SharpShooterTriggerCondition";
+            var attackCondition = SharpShooterConditionBuilder.SharpShooterCondition.Name;
+            var toRemove = new List<RulesetCondition>();
+
+            foreach (var pair in character.ConditionsByCategory)
+            {
+                foreach (var rulesetCondition in pair.Value)
+                {
+                    if (rulesetCondition.Name == triggerCondition || rulesetCondition.Name == attackCondition)
+                    {
+                        toRemove.Add(rulesetCondition);
+                    }
+                }
+            }
+
+            foreach (var rulesetCondition in toRemove)
+            {
+                character.RemoveCondition(rulesetCondition);
+            }
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                SharpShooterConditionBuilder.SharpShooterCondition, RuleDefinitions.DurationType.Round,
+                0,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                character.CurrentFaction.Name
+            ));
+        }
+    }
+
+    private class ModifySharpShooterAttackPower : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
+        {
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (attackMode is not { Reach: false, Ranged: true, Thrown: false })
+            {
+                return;
+            }
+
+            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var toHit = -proficiency;
+            var toDamage = proficiency * 2;
+
+            attackMode.ToHitBonus += toHit;
+            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(toHit,
+                RuleDefinitions.FeatureSourceType.Power, "SharpShooter", null));
+
+            damage.BonusDamage += toDamage;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
+                RuleDefinitions.FeatureSourceType.Power, "SharpShooter", null));
+        }
     }
 
     private static FeatureDefinition BuildPowerAttackPower()
@@ -119,7 +310,7 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&PowerAttackTitle";
             Definition.GuiPresentation.Description = "Feature/&PowerAttackDescription";
 
-            Definition.SetCustomSubFeatures(new ModifyAttackPower());
+            Definition.SetCustomSubFeatures(new ModifyPowerAttackPower());
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
@@ -283,7 +474,7 @@ internal static class AcehighFeats
         }
     }
 
-    private class ModifyAttackPower : IModifyAttackModeForWeapon
+    private class ModifyPowerAttackPower : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
