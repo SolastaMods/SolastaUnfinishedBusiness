@@ -267,79 +267,79 @@
       PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Monsters-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Monsters-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Monsters-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Monsters-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Monsters-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Monsters-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Monsters-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Monsters-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Translations-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Translations-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Translations-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Translations-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Translations-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Translations-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-de" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Modui-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Modui-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Modui-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Modui-pt-BR.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-ru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Modui-ru.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-zh-CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Modui-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Modui-zh-CN.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Names-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Names-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+    <value>..\Resources\Translations\Names-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="FlurryOfArrows" type="System.Resources.ResXFileRef, System.Windows.Forms">
