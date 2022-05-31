@@ -356,4 +356,19 @@
   <data name="SharpShooterIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SharpShooterIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Halberd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Halberd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HalberdLightning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HalberdLightning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HalberdPrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HalberdPrimed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Halberd_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Halberd+1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Halberd_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Halberd+2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.ItemCrafting;
+using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
@@ -26,6 +28,31 @@ public static class CustomWeapons
     public static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
     public static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
     public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
+
+    #region Halberd Icons
+
+    private static AssetReferenceSprite _halberdIcon,
+        _halberdPrimedIcon,
+        _halberdP1Icon,
+        _halberdP2Icon,
+        _halberdLightningIcon;
+
+    private static AssetReferenceSprite HalberdIcon =>
+        _halberdIcon ??= CustomIcons.CreateAssetReferenceSprite("Halberd", Resources.Halberd, 128);
+
+    private static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
+
+    private static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Halberd_1", Resources.Halberd_1, 128);
+
+    private static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Halberd_2", Resources.Halberd_2, 128);
+
+    private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HalberdLightning", Resources.HalberdLightning, 128);
+
+    #endregion
 
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
@@ -109,7 +136,6 @@ public static class CustomWeapons
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
         var baseItem = ItemDefinitions.Greataxe;
-        var icon = ItemDefinitions.Battleaxe.GuiPresentation.SpriteReference;
         var basePresentation = ItemDefinitions.Battleaxe.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
@@ -128,12 +154,12 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         Halberd = BuildWeapon("CEHalberd", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
+            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HalberdIcon);
         Halberd.SetCustomSubFeatures(scale);
         ShopItems.Add((Halberd, ShopGenericMelee));
 
         HalberdPrimed = BuildWeapon("CEHalberdPrimed", baseItem,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
+            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, HalberdPrimedIcon);
         HalberdPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HalberdPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         HalberdPrimed.SetCustomSubFeatures(scale);
@@ -141,37 +167,37 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(Halberd, HalberdPrimed), ShopCrafting));
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
+            950, true, RuleDefinitions.ItemRarity.Rare, icon: HalberdP1Icon, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus1, ShopMeleePlus1));
-        ShopItems.Add((BuildRecipeManual(HalberdPlus1, 24, 10, 
-                HalberdPrimed, 
+        ShopItems.Add((BuildRecipeManual(HalberdPlus1, 24, 10,
+                HalberdPrimed,
                 ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
             ShopCrafting));
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
+            basePresentation: itemDefinition.ItemPresentation, icon: HalberdP2Icon,
             properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus2, ShopMeleePlus2));
-        ShopItems.Add((BuildRecipeManual(HalberdPlus2, 48, 16, 
-                HalberdPrimed, 
+        ShopItems.Add((BuildRecipeManual(HalberdPlus2, 48, 16,
+                HalberdPrimed,
                 ItemDefinitions.Ingredient_Enchant_Blood_Gem),
             ShopCrafting));
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
+            basePresentation: itemDefinition.ItemPresentation, icon: HalberdLightningIcon,
             properties: new[] {LightningImpactVFX, WeaponPlus1});
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeLightning)
             .Build());
-        ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16, 
-                HalberdPrimed, 
+        ShopItems.Add((BuildRecipeManual(HalberdLightning, 48, 16,
+                HalberdPrimed,
                 ItemDefinitions.Ingredient_Enchant_Stardust),
             ShopCrafting));
     }
@@ -220,11 +246,11 @@ public static class CustomWeapons
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus1, ShopMeleePlus1));
-        ShopItems.Add((BuildRecipeManual(PikePlus1, 24, 10, 
-                PikePrimed, 
+        ShopItems.Add((BuildRecipeManual(PikePlus1, 24, 10,
+                PikePrimed,
                 ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
             ShopCrafting));
-        
+
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
@@ -233,8 +259,8 @@ public static class CustomWeapons
             properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus2, ShopMeleePlus2));
-        ShopItems.Add((BuildRecipeManual(PikePlus2, 48, 16, 
-                PikePrimed, 
+        ShopItems.Add((BuildRecipeManual(PikePlus2, 48, 16,
+                PikePrimed,
                 ItemDefinitions.Ingredient_Enchant_Blood_Gem),
             ShopCrafting));
 
@@ -248,8 +274,8 @@ public static class CustomWeapons
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypePsychic)
             .Build());
-        ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16, 
-                PikePrimed, 
+        ShopItems.Add((BuildRecipeManual(PikePsychic, 48, 16,
+                PikePrimed,
                 ItemDefinitions.Ingredient_Enchant_Stardust),
             ShopCrafting));
     }
@@ -298,8 +324,8 @@ public static class CustomWeapons
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
-        ShopItems.Add((BuildRecipeManual(LongMacePlus1, 24, 10, 
-                LongMacePrimed, 
+        ShopItems.Add((BuildRecipeManual(LongMacePlus1, 24, 10,
+                LongMacePrimed,
                 ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
             ShopCrafting));
 
@@ -310,8 +336,8 @@ public static class CustomWeapons
             properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
-        ShopItems.Add((BuildRecipeManual(LongMacePlus2, 48, 16, 
-                LongMacePrimed, 
+        ShopItems.Add((BuildRecipeManual(LongMacePlus2, 48, 16,
+                LongMacePrimed,
                 ItemDefinitions.Ingredient_Enchant_Blood_Gem),
             ShopCrafting));
 
@@ -324,8 +350,8 @@ public static class CustomWeapons
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeThunder)
             .Build());
-        ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16, 
-                LongMacePrimed, 
+        ShopItems.Add((BuildRecipeManual(LongMaceThunder, 48, 16,
+                LongMacePrimed,
                 ItemDefinitions.Ingredient_Enchant_Stardust),
             ShopCrafting));
     }
@@ -413,7 +439,7 @@ public static class CustomWeapons
 
         //TODO: add only if option enabled in mod settings
         manual.inDungeonEditor = true;
-        
+
         return manual;
     }
 
