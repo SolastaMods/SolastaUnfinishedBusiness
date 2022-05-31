@@ -11,15 +11,17 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class CustomWeapons
 {
-    public static ItemDefinition Halberd, HalberdPlus1, HalberdPlus2, HalberdLightning;
-    public static ItemDefinition Pike, PikePlus1, PikePlus2, PikePsychic;
-    public static ItemDefinition LongMace, LongMacePlus1, LongMacePlus2, LongMaceThunder;
+    public static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
+    public static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
+    public static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
 
     public static readonly MerchantFilter GenericMelee = new() {IsMeleeWeapon = true};
     public static readonly MerchantFilter MagicMelee = new() {IsMagicalMeleeWeapon = true};
+    public static readonly MerchantFilter PrimedMelee = new() {IsPrimedMeleeWeapon = true};
     public static readonly MerchantFilter CraftingManual = new() {IsDocument = true};
 
     public static readonly ShopItemType ShopGenericMelee = new(FactionStatusDefinitions.Indifference, GenericMelee);
+    public static readonly ShopItemType ShopPrimedMelee = new(FactionStatusDefinitions.Sympathy, PrimedMelee);
     public static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
     public static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
     public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
@@ -59,7 +61,7 @@ public static class CustomWeapons
         params ItemPropertyDescription[] properties)
     {
         basePresentation ??= baseItem.ItemPresentation;
-        baseDescription ??= baseItem.WeaponDescription;
+        baseDescription ??= new WeaponDescription(baseItem.WeaponDescription);
         icon ??= baseItem.GuiPresentation.SpriteReference;
 
         var builder = ItemDefinitionBuilder
@@ -128,15 +130,22 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Halberd.SetCustomSubFeatures(scale);
         ShopItems.Add((Halberd, ShopGenericMelee));
+        
+        HalberdPrimed = BuildWeapon("CEHalberdPrimed", baseItem,
+            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
+        HalberdPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
+        HalberdPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
+        HalberdPrimed.SetCustomSubFeatures(scale);
+        ShopItems.Add((HalberdPrimed, ShopPrimedMelee));
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            950, true, RuleDefinitions.ItemRarity.Uncommon, properties: new[] {WeaponPlus1});
+            950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus1, ShopMeleePlus1));
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
-            2500, true, RuleDefinitions.ItemRarity.Rare, 
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
             basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
             properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
@@ -151,7 +160,6 @@ public static class CustomWeapons
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
                 damageType: RuleDefinitions.DamageTypeLightning)
             .Build());
-        
     }
 
     private static void BuildPikes()
@@ -185,22 +193,31 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Pike.SetCustomSubFeatures(scale);
         ShopItems.Add((Pike, ShopGenericMelee));
+        
+        PikePrimed = BuildWeapon("CEPikePrimed", baseItem,
+            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
+        PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
+        PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
+        PikePrimed.SetCustomSubFeatures(scale);
+        ShopItems.Add((PikePrimed, ShopPrimedMelee));
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            950, true, RuleDefinitions.ItemRarity.Uncommon, properties: new[] {WeaponPlus1});
+            950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus1, ShopMeleePlus1));
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
-            2500, true, RuleDefinitions.ItemRarity.Rare, 
-            basePresentation: itemDefinition.ItemPresentation, icon: ItemDefinitions.SpearPlus2.GuiPresentation.SpriteReference,
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            basePresentation: itemDefinition.ItemPresentation,
+            icon: ItemDefinitions.SpearPlus2.GuiPresentation.SpriteReference,
             properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus2, ShopMeleePlus2));
-        
+
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare, 
-            basePresentation: itemDefinition.ItemPresentation, icon: ItemDefinitions.SpearPlus2.GuiPresentation.SpriteReference,
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            basePresentation: itemDefinition.ItemPresentation,
+            icon: ItemDefinitions.SpearPlus2.GuiPresentation.SpriteReference,
             properties: new[] {PsychicImpactVFX, WeaponPlus1});
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
@@ -240,22 +257,29 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         LongMace.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMace, ShopGenericMelee));
+        
+        LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem,
+            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
+        LongMacePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
+        LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
+        LongMacePrimed.SetCustomSubFeatures(scale);
+        ShopItems.Add((LongMacePrimed, ShopPrimedMelee));
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            950, true, RuleDefinitions.ItemRarity.Uncommon, properties: new[] {WeaponPlus1});
+            950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
 
         var itemDefinition = ItemDefinitions.MacePlus2;
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
-            2500, true, RuleDefinitions.ItemRarity.Rare, 
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
             basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
             properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
-        
+
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare, 
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
             basePresentation: itemDefinition.ItemPresentation, icon: itemDefinition.GuiPresentation.SpriteReference,
             properties: new[] {ThunderImpactVFX, WeaponPlus1});
         LongMaceThunder.SetCustomSubFeatures(scale);

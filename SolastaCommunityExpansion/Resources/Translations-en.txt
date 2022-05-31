@@ -2015,14 +2015,17 @@ Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvan
 Feature/&SharpShooterTitle	Sharpshooter
 Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
 Item/&CEHalberdTitle	Halberd
+Item/&CEHalberdPrimedTitle	Primed Halberd
 Item/&CEHalberd+1Title	Halberd +1
 Item/&CEHalberd+2Title	Halberd +2
 Item/&CEHalberdLightningTitle	Lightning Halberd 
 Item/&CEPikeTitle	Pike
+Item/&CEPikePrimedTitle	Primed Pike
 Item/&CEPike+1Title	Pike +1
 Item/&CEPike+2Title	Pike +2
 Item/&CEPikePsychicTitle	Psychic Pike
 Item/&CELongMaceTitle	Long Mace
+Item/&CELongMacePrimedTitle	Primed Long Mace
 Item/&CELongMace+1Title	Long Mace +1
 Item/&CELongMace+2Title	Long Mace +2
 Item/&CELongMaceThunderTitle	Thundering Long Mace
