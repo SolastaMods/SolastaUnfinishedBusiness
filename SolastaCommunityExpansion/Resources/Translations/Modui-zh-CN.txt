@@ -166,3 +166,7 @@ ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
+ModUi/&AddNewWeaponsAndRecipesToShops	Добавьте новое оружие и рецепты в магазины <i><color=yellow>[бинты, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&HiderArmor	Hide Armor
+ModUi/&RelicForgeries	Relic Forgeries
+ModUi/&PrimedItems	Primed Items

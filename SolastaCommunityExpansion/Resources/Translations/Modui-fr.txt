@@ -166,3 +166,7 @@ ModUi/&UnlockGlowingEyeColors	Débloquez des couleurs d'yeux éclatantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Débloquez des marquages ​​et des tatouages ​​pour tous les personnages
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals	<color=yellow>Visuels:</color>
+ModUi/&AddNewWeaponsAndRecipesToShops	Ajoutez de nouvelles armes et recettes aux boutiques <i><color=yellow>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&HiderArmor	Cacher l'armure
+ModUi/&RelicForgeries	Contrefaçons de reliques
+ModUi/&PrimedItems	Articles apprêtés

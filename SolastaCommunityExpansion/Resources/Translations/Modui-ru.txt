@@ -166,3 +166,7 @@ ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся 
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать маркировку и татуировки для всех персонажей
 ModUi/&UseOfficialAdvantageDisadvantageRules	Используйте официальные правила преимуществ/недостатков
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
+ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&HiderArmor	Скрыть броню
+ModUi/&RelicForgeries	Подделки реликвий
+ModUi/&PrimedItems	Праймированные предметы
