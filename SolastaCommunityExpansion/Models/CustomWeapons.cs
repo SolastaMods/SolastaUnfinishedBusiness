@@ -22,12 +22,19 @@ public static class CustomWeapons
     public static readonly MerchantFilter GenericMelee = new() {IsMeleeWeapon = true};
     public static readonly MerchantFilter MagicMelee = new() {IsMagicalMeleeWeapon = true};
     public static readonly MerchantFilter PrimedMelee = new() {IsPrimedMeleeWeapon = true};
+    public static readonly MerchantFilter GenericRanged = new() {IsRangeWeapon = true};
+    public static readonly MerchantFilter MagicRanged = new() {IsMagicalRangeWeapon = true};
+    public static readonly MerchantFilter PrimedRanged = new() {IsPrimedRangeWeapon = true};
     public static readonly MerchantFilter CraftingManual = new() {IsDocument = true};
 
     public static readonly ShopItemType ShopGenericMelee = new(FactionStatusDefinitions.Indifference, GenericMelee);
     public static readonly ShopItemType ShopPrimedMelee = new(FactionStatusDefinitions.Sympathy, PrimedMelee);
     public static readonly ShopItemType ShopMeleePlus1 = new(FactionStatusDefinitions.Alliance, MagicMelee);
     public static readonly ShopItemType ShopMeleePlus2 = new(FactionStatusDefinitions.Brotherhood, MagicMelee);
+    public static readonly ShopItemType ShopGenericRanged = new(FactionStatusDefinitions.Indifference, GenericRanged);
+    public static readonly ShopItemType ShopPrimedRanged = new(FactionStatusDefinitions.Sympathy, PrimedRanged);
+    public static readonly ShopItemType ShopRangedPlus1 = new(FactionStatusDefinitions.Alliance, MagicRanged);
+    public static readonly ShopItemType ShopRangedPlus2 = new(FactionStatusDefinitions.Brotherhood, MagicRanged);
     public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
 
     #region Halberd Icons
@@ -481,21 +488,21 @@ public static class CustomWeapons
         HandXbow = BuildWeapon("CEHandXbow", baseItem,
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HandXbowIcon, twoHanded: false);
         HandXbow.SetCustomSubFeatures(scale);
-        ShopItems.Add((HandXbow, ShopGenericMelee));
+        ShopItems.Add((HandXbow, ShopGenericRanged));
 
         HandXbowPrimed = BuildWeapon("CEHandXbowPrimed", HandXbow,
             40, true, RuleDefinitions.ItemRarity.Uncommon, icon: HandXbowPrimedIcon, twoHanded: false);
         HandXbowPrimed.SetCustomSubFeatures(scale);
         HandXbowPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HandXbowPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
-        ShopItems.Add((HandXbowPrimed, ShopPrimedMelee));
+        ShopItems.Add((HandXbowPrimed, ShopPrimedRanged));
         ShopItems.Add((BuildPrimingManual(HandXbow, HandXbowPrimed), ShopCrafting));
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
             950, true, RuleDefinitions.ItemRarity.Rare, icon: HandXbowP1Icon, twoHanded: false,
             properties: new[] {WeaponPlus1});
         HandXbowPlus1.SetCustomSubFeatures(scale);
-        ShopItems.Add((HandXbowPlus1, ShopMeleePlus1));
+        ShopItems.Add((HandXbowPlus1, ShopRangedPlus1));
         ShopItems.Add((BuildRecipeManual(HandXbowPlus1, 24, 10,
                 HandXbowPrimed,
                 ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
@@ -507,7 +514,7 @@ public static class CustomWeapons
             basePresentation: itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
             properties: new[] {WeaponPlus2});
         HandXbowPlus2.SetCustomSubFeatures(scale);
-        ShopItems.Add((HandXbowPlus2, ShopMeleePlus2));
+        ShopItems.Add((HandXbowPlus2, ShopRangedPlus2));
         ShopItems.Add((BuildRecipeManual(HandXbowPlus2, 48, 16,
                 HandXbowPrimed,
                 ItemDefinitions.Ingredient_Enchant_Blood_Gem),
