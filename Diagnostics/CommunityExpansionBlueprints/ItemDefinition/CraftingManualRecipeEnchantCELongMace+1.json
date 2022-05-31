@@ -64,7 +64,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantHandwrapsOfPulling:e7ce23b4-e918-591f-bd90-edf773d64ef1",
+    "recipeDefinition": "Definition:RecipeEnchantCELongMace+1:ec1b629e-8543-5367-ab18-c1adf9dd70f7",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -102,8 +102,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle",
-    "description": "Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription",
+    "title": "Item/&CraftingManualRecipeEnchantCELongMace+1Title",
+    "description": "Item/&CraftingManualRecipeEnchantCELongMace+1Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9198c200dd2f1c7468b9b31724b2baf2",
@@ -123,7 +123,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78824ac2-fda3-519f-a1a7-52d411d8ca3a",
+  "guid": "3a4f0075-152c-5570-a44c-0398f6c9d3cb",
   "contentPack": 9999,
-  "name": "CraftingManualRecipeEnchantHandwrapsOfPulling"
+  "name": "CraftingManualRecipeEnchantCELongMace+1"
 }

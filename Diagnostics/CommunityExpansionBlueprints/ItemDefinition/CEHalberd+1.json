@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": true,
   "merchantCategory": "Weapon",
-  "weight": 0.0,
+  "weight": 7.0,
   "slotTypes": [
     "MainHandSlot",
     "ContainerSlot"
@@ -19,17 +19,19 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2000,
+    950,
     0,
     0,
     0
   ],
-  "itemTags": [],
+  "itemTags": [
+    "Metal"
+  ],
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
   "requiresAttunement": false,
-  "requiresIdentification": false,
+  "requiresIdentification": true,
   "requiredAttunementClasses": [],
   "itemRarity": "Rare",
   "staticProperties": [
@@ -37,7 +39,7 @@
       "$type": "ItemPropertyDescription, Assembly-CSharp",
       "appliesOnItemOnly": true,
       "type": "Feature",
-      "featureDefinition": "Definition:AttackModifierWeapon+1AT:af316240961a7b345b635c27f16010b6",
+      "featureDefinition": "Definition:AttackModifierWeapon+1:45e5b7165fa58854bb859e5b205dcc71",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
     }
@@ -46,11 +48,15 @@
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "UnarmedStrikeType",
-    "reachRange": 1,
+    "weaponType": "CEHalberdType",
+    "reachRange": 2,
     "closeRange": 5,
     "maxRange": 5,
-    "weaponTags": [],
+    "weaponTags": [
+      "Heavy",
+      "Reach",
+      "TwoHanded"
+    ],
     "effectDescription": {
       "$type": "EffectDescription, Assembly-CSharp",
       "rangeType": "Self",
@@ -127,10 +133,10 @@
             "$type": "DamageForm, Assembly-CSharp",
             "versatile": false,
             "diceNumber": 1,
-            "dieType": "D1",
+            "dieType": "D10",
             "versatileDieType": "D1",
             "bonusDamage": 0,
-            "damageType": "DamageBludgeoning",
+            "damageType": "DamageSlashing",
             "healFromInflictedDamage": "Never",
             "hitPointsFloor": 0,
             "forceKillOnZeroHp": false,
@@ -329,43 +335,7 @@
     "ammunitionType": "ArrowType"
   },
   "isAmmunition": false,
-  "isUsableDevice": true,
-  "usableDeviceDescription": {
-    "$type": "UsableDeviceDescription, Assembly-CSharp",
-    "usage": "ByFunction",
-    "chargesCapital": "Fixed",
-    "chargesCapitalNumber": 1,
-    "chargesCapitalDie": "D1",
-    "chargesCapitalBonus": 0,
-    "rechargeRate": "AtWill",
-    "rechargeNumber": 1,
-    "rechargeDie": "D1",
-    "rechargeBonus": 0,
-    "outOfChargesConsequence": "Persist",
-    "magicAttackBonus": 0,
-    "saveDC": -1,
-    "deviceFunctions": [
-      {
-        "$type": "DeviceFunctionDescription, Assembly-CSharp",
-        "parentUsage": "ByFunction",
-        "useAffinity": "AtWill",
-        "useAmount": 1,
-        "rechargeRate": "Dawn",
-        "durationType": "Instantaneous",
-        "canOverchargeSpell": false,
-        "type": "Power",
-        "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerFunctionHandwrapsOfPulling:f72bdd10-cf25-5302-9eaa-ef1ea0f6fecb"
-      }
-    ],
-    "usableDeviceTags": [],
-    "onUseParticle": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    }
-  },
+  "isUsableDevice": false,
   "isTool": false,
   "isStarterPack": false,
   "isContainerItem": false,
@@ -481,12 +451,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&HandwrapsOfPullingUnidentifiedTitle",
+    "unidentifiedTitle": "Item/&CEHalberd+1UnidentifiedTitle",
     "unidentifiedDescription": "Feature/&NoContentTitle",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "ecebeea347c11d24d8724b75cfac89f8",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -506,13 +476,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&HandwrapsOfPullingTitle",
+    "title": "Item/&CEHalberd+1Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f7a20282a4fded54ea666c159ba6dacf",
-      "m_SubObjectName": "UnarmedStrike",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "d3b337b32bd950559a5c856b8782c7cb",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -527,7 +497,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7a06ecde-1316-58ad-89e6-2b4edbf999cb",
+  "guid": "0d525b3e-3915-5a42-a761-0ec86ca88dc3",
   "contentPack": 9999,
-  "name": "HandwrapsOfPulling"
+  "name": "CEHalberd+1"
 }

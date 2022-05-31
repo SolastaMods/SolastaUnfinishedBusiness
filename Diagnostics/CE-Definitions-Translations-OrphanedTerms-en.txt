@@ -128,14 +128,10 @@ Feedback/&ExtraDamageTitle	Lightning Spear extra damage
 Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
-Item/&Handwraps+1TitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&Handwraps+1TitleUnidentifiedTitle	Good Quality Handwraps
-Item/&Handwraps+2TitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&Handwraps+2TitleUnidentifiedTitle	Maginificent Handwraps
-Item/&HandwrapsOfForceTitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&HandwrapsOfForceTitleUnidentifiedTitle	Maginificent Handwraps
-Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Finely crafted handwraps.
-Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Maginificent Handwraps
+Item/&Handwraps+1UnidentifiedTitle	Good Quality Handwraps
+Item/&Handwraps+2UnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfForceUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfPullingUnidentifiedTitle	Maginificent Handwraps
 Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss.
 Language/&AbyssalTitle	Abyssal
 Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
@@ -350,3 +346,15 @@ Spell/&MirrorImageTitle	Mirror Image
 Spell/&MirrorImageDescription	Mirror Image
 Feature/&AttributeModifier{0}Description	{0}
 Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
+Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
+Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
+Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
+Item/&CEPike+1UnidentifiedTitle	Quality Pike
+Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
+Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
+Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
+Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
+Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
+Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
+Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow

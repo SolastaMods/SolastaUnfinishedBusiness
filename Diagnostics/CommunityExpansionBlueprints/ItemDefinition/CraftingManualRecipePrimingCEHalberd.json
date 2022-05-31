@@ -64,7 +64,7 @@
     "script": "Narrative",
     "language": "Language_Common",
     "loreType": "CraftingRecipe",
-    "recipeDefinition": "Definition:RecipeEnchantHandwrapsOfPulling:e7ce23b4-e918-591f-bd90-edf773d64ef1",
+    "recipeDefinition": "Definition:RecipePrimingCEHalberd:a63690e5-a1fc-520a-b00b-44d5402ca825",
     "locationDefinition": null,
     "locationKnowledgeLevel": "Known",
     "unlockedBestiaryContent": [],
@@ -102,8 +102,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle",
-    "description": "Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription",
+    "title": "Item/&CraftingManualRecipePrimingCEHalberdTitle",
+    "description": "Item/&CraftingManualRecipePrimingCEHalberdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9198c200dd2f1c7468b9b31724b2baf2",
@@ -123,7 +123,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78824ac2-fda3-519f-a1a7-52d411d8ca3a",
+  "guid": "ce536b56-a82c-50fa-908a-bfe5ede6512b",
   "contentPack": 9999,
-  "name": "CraftingManualRecipeEnchantHandwrapsOfPulling"
+  "name": "CraftingManualRecipePrimingCEHalberd"
 }

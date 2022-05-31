@@ -2,7 +2,7 @@
   "$type": "ItemDefinition, Assembly-CSharp",
   "inDungeonEditor": true,
   "merchantCategory": "Weapon",
-  "weight": 0.0,
+  "weight": 4.0,
   "slotTypes": [
     "MainHandSlot",
     "ContainerSlot"
@@ -19,38 +19,36 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2000,
+    20,
     0,
     0,
     0
   ],
-  "itemTags": [],
+  "itemTags": [
+    "Standard",
+    "Metal"
+  ],
   "activeTags": [],
   "inactiveTags": [],
-  "magical": true,
+  "magical": false,
   "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [],
-  "itemRarity": "Rare",
-  "staticProperties": [
-    {
-      "$type": "ItemPropertyDescription, Assembly-CSharp",
-      "appliesOnItemOnly": true,
-      "type": "Feature",
-      "featureDefinition": "Definition:AttackModifierWeapon+1AT:af316240961a7b345b635c27f16010b6",
-      "conditionDefinition": null,
-      "knowledgeAffinity": "InactiveAndHidden"
-    }
-  ],
+  "itemRarity": "Common",
+  "staticProperties": [],
   "isArmor": false,
   "isWeapon": true,
   "weaponDefinition": {
     "$type": "WeaponDescription, Assembly-CSharp",
-    "weaponType": "UnarmedStrikeType",
-    "reachRange": 1,
+    "weaponType": "CELongMaceType",
+    "reachRange": 2,
     "closeRange": 5,
     "maxRange": 5,
-    "weaponTags": [],
+    "weaponTags": [
+      "Heavy",
+      "Reach",
+      "TwoHanded"
+    ],
     "effectDescription": {
       "$type": "EffectDescription, Assembly-CSharp",
       "rangeType": "Self",
@@ -127,7 +125,7 @@
             "$type": "DamageForm, Assembly-CSharp",
             "versatile": false,
             "diceNumber": 1,
-            "dieType": "D1",
+            "dieType": "D10",
             "versatileDieType": "D1",
             "bonusDamage": 0,
             "damageType": "DamageBludgeoning",
@@ -208,14 +206,24 @@
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
-        "beforeImpactParticleReference": null,
+        "beforeImpactParticleReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": null,
+          "m_SubObjectType": null
+        },
         "impactParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
           "m_SubObjectName": "",
           "m_SubObjectType": ""
         },
-        "activeEffectImpactParticleReference": null,
+        "activeEffectImpactParticleReference": {
+          "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+          "m_AssetGUID": "",
+          "m_SubObjectName": null,
+          "m_SubObjectType": null
+        },
         "activeEffectCellStartParticleReference": {
           "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
           "m_AssetGUID": "",
@@ -329,43 +337,7 @@
     "ammunitionType": "ArrowType"
   },
   "isAmmunition": false,
-  "isUsableDevice": true,
-  "usableDeviceDescription": {
-    "$type": "UsableDeviceDescription, Assembly-CSharp",
-    "usage": "ByFunction",
-    "chargesCapital": "Fixed",
-    "chargesCapitalNumber": 1,
-    "chargesCapitalDie": "D1",
-    "chargesCapitalBonus": 0,
-    "rechargeRate": "AtWill",
-    "rechargeNumber": 1,
-    "rechargeDie": "D1",
-    "rechargeBonus": 0,
-    "outOfChargesConsequence": "Persist",
-    "magicAttackBonus": 0,
-    "saveDC": -1,
-    "deviceFunctions": [
-      {
-        "$type": "DeviceFunctionDescription, Assembly-CSharp",
-        "parentUsage": "ByFunction",
-        "useAffinity": "AtWill",
-        "useAmount": 1,
-        "rechargeRate": "Dawn",
-        "durationType": "Instantaneous",
-        "canOverchargeSpell": false,
-        "type": "Power",
-        "spellDefinition": null,
-        "featureDefinitionPower": "Definition:PowerFunctionHandwrapsOfPulling:f72bdd10-cf25-5302-9eaa-ef1ea0f6fecb"
-      }
-    ],
-    "usableDeviceTags": [],
-    "onUseParticle": {
-      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
-    }
-  },
+  "isUsableDevice": false,
   "isTool": false,
   "isStarterPack": false,
   "isContainerItem": false,
@@ -481,12 +453,12 @@
   },
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&HandwrapsOfPullingUnidentifiedTitle",
+    "unidentifiedTitle": "Item/&CELongMaceUnidentifiedTitle",
     "unidentifiedDescription": "Feature/&NoContentTitle",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "217eff7029a88e7408afb85104d61a55",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -501,18 +473,18 @@
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
     "itemFlags": [],
-    "serializedVersion": 0
+    "serializedVersion": 1
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&HandwrapsOfPullingTitle",
+    "title": "Item/&CELongMaceTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f7a20282a4fded54ea666c159ba6dacf",
-      "m_SubObjectName": "UnarmedStrike",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "41126cd41da259909331f51138019311",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -527,7 +499,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7a06ecde-1316-58ad-89e6-2b4edbf999cb",
+  "guid": "fb3f2c7a-365c-5277-ad30-44bd293fd8b9",
   "contentPack": 9999,
-  "name": "HandwrapsOfPulling"
+  "name": "CELongMace"
 }

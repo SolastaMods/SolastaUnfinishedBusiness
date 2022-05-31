@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HandwrapsOfPulling:7a06ecde-1316-58ad-89e6-2b4edbf999cb",
+  "craftedItem": "Definition:CELongMace+2:8eddfaf2-50d7-56f9-a7dc-59540b2b943f",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -9,14 +9,19 @@
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
-      "itemDefinition": "Definition:Ingredient_Enchant_Slavestone:b9c2c46851e33f04184235fed2db6dc3"
+      "itemDefinition": "Definition:CELongMacePrimed:d882a0ee-190e-5a7f-a48d-0696e94f9926"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Blood_Gem:0f27a196381f80b488b8858d26415704"
     }
   ],
   "spellDefinition": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Item/&HandwrapsOfPullingTitle",
+    "title": "Item/&CELongMace+2Title",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -37,7 +42,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e7ce23b4-e918-591f-bd90-edf773d64ef1",
+  "guid": "facb8563-c2c0-5d54-afa4-0838ec02daa1",
   "contentPack": 9999,
-  "name": "RecipeEnchantHandwrapsOfPulling"
+  "name": "RecipeEnchantCELongMace+2"
 }
