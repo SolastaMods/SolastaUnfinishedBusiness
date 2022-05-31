@@ -6,6 +6,30 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
     where TDefinition : WeaponTypeDefinition
     where TBuilder : WeaponTypeDefinitionBuilder<TDefinition, TBuilder>
 {
+    public TBuilder SetWeaponCategory(WeaponCategoryDefinition category)
+    {
+        Definition.weaponCategory = category.Name;
+        return This();
+    }
+
+    public TBuilder SetWeaponCategory(string category)
+    {
+        Definition.weaponCategory = category;
+        return This();
+    }
+
+    public TBuilder SetWeaponProximity(RuleDefinitions.AttackProximity proximity)
+    {
+        Definition.weaponProximity = proximity;
+        return This();
+    }
+
+    public TBuilder SetAnimationTag(string tag)
+    {
+        Definition.animationTag = tag;
+        return This();
+    }
+
     #region Constructors
 
     protected WeaponTypeDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
@@ -27,30 +51,6 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
     }
 
     #endregion
-
-    public TBuilder SetWeaponCategory(WeaponCategoryDefinition category)
-    {
-        Definition.weaponCategory = category.Name;
-        return This();
-    }
-    
-    public TBuilder SetWeaponCategory(string category)
-    {
-        Definition.weaponCategory = category;
-        return This();
-    }
-
-    public TBuilder SetWeaponProximity(RuleDefinitions.AttackProximity proximity)
-    {
-        Definition.weaponProximity = proximity;
-        return This();
-    }
-    
-    public TBuilder SetAnimationTag(string tag)
-    {
-        Definition.animationTag = tag;
-        return This();
-    }
 }
 
 public class

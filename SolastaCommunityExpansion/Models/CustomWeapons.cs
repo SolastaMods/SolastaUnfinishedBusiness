@@ -37,106 +37,6 @@ public static class CustomWeapons
     public static readonly ShopItemType ShopRangedPlus2 = new(FactionStatusDefinitions.Brotherhood, MagicRanged);
     public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
 
-    #region Halberd Icons
-
-    private static AssetReferenceSprite _halberdIcon,
-        _halberdPrimedIcon,
-        _halberdP1Icon,
-        _halberdP2Icon,
-        _halberdLightningIcon;
-
-    private static AssetReferenceSprite HalberdIcon =>
-        _halberdIcon ??= CustomIcons.CreateAssetReferenceSprite("Halberd", Resources.Halberd, 128);
-
-    private static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
-
-    private static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Halberd_1", Resources.Halberd_1, 128);
-
-    private static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Halberd_2", Resources.Halberd_2, 128);
-
-    private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HalberdLightning", Resources.HalberdLightning, 128);
-
-    #endregion
-
-    #region Pike Icons
-
-    private static AssetReferenceSprite _pikeIcon,
-        _pikePrimedIcon,
-        _pikeP1Icon,
-        _pikeP2Icon,
-        _pikeLightningIcon;
-
-    private static AssetReferenceSprite PikeIcon =>
-        _pikeIcon ??= CustomIcons.CreateAssetReferenceSprite("Pike", Resources.Pike, 128);
-
-    private static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("PikePrimed", Resources.PikePrimed, 128);
-
-    private static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Pike_1", Resources.Pike_1, 128);
-
-    private static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("Pike_2", Resources.Pike_2, 128);
-
-    private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("PikePsychic", Resources.PikePsychic, 128);
-
-    #endregion
-
-    #region Long Mace Icons
-
-    private static AssetReferenceSprite _longMaceIcon,
-        _longMacePrimedIcon,
-        _longMaceP1Icon,
-        _longMaceP2Icon,
-        _longMaceLightningIcon;
-
-    private static AssetReferenceSprite LongMaceIcon =>
-        _longMaceIcon ??= CustomIcons.CreateAssetReferenceSprite("LongMace", Resources.LongMace, 128);
-
-    private static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
-
-    private static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMace_1", Resources.LongMace_1, 128);
-
-    private static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMace_2", Resources.LongMace_2, 128);
-
-    private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
-
-    #endregion
-
-    #region Hand Crossbow Icons
-
-    private static AssetReferenceSprite _handXbowIcon,
-        _handXbowPrimedIcon,
-        _handXbowP1Icon,
-        _handXbowP2Icon,
-        _handXbowAcidIcon;
-
-    private static AssetReferenceSprite HandXbowIcon =>
-        _handXbowIcon ??= CustomIcons.CreateAssetReferenceSprite("HandXbow", Resources.HandXbow, 128);
-
-    private static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
-
-    private static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbow_1", Resources.HandXbow_1, 128);
-
-    private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbow_2", Resources.HandXbow_2, 128);
-
-    private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
-        CustomIcons.CreateAssetReferenceSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
-
-    #endregion
-
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
@@ -248,7 +148,7 @@ public static class CustomWeapons
             {
                 TagsDefinitions.WeaponTagHeavy,
                 TagsDefinitions.WeaponTagReach,
-                TagsDefinitions.WeaponTagTwoHanded,
+                TagsDefinitions.WeaponTagTwoHanded
             }
         };
         var damageForm = baseDescription.EffectDescription
@@ -281,7 +181,7 @@ public static class CustomWeapons
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: HalberdP2Icon,
+            itemDefinition.ItemPresentation, icon: HalberdP2Icon,
             properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus2, ShopMeleePlus2));
@@ -292,7 +192,7 @@ public static class CustomWeapons
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
+            itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] {LightningImpactVFX, WeaponPlus1AttackOnly});
         HalberdLightning.SetCustomSubFeatures(scale);
         HalberdLightning.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
@@ -323,7 +223,7 @@ public static class CustomWeapons
             {
                 TagsDefinitions.WeaponTagHeavy,
                 TagsDefinitions.WeaponTagReach,
-                TagsDefinitions.WeaponTagTwoHanded,
+                TagsDefinitions.WeaponTagTwoHanded
             }
         };
         var damageForm = baseDescription.EffectDescription
@@ -356,7 +256,7 @@ public static class CustomWeapons
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation,
+            itemDefinition.ItemPresentation,
             icon: PikeP2Icon,
             properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
@@ -368,7 +268,7 @@ public static class CustomWeapons
 
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation,
+            itemDefinition.ItemPresentation,
             icon: PikePsychicIcon, needId: false,
             properties: new[] {PsychicImpactVFX, WeaponPlus1AttackOnly});
         PikePsychic.SetCustomSubFeatures(scale);
@@ -400,7 +300,7 @@ public static class CustomWeapons
             {
                 TagsDefinitions.WeaponTagHeavy,
                 TagsDefinitions.WeaponTagReach,
-                TagsDefinitions.WeaponTagTwoHanded,
+                TagsDefinitions.WeaponTagTwoHanded
             }
         };
         var damageForm = baseDescription.EffectDescription
@@ -433,7 +333,7 @@ public static class CustomWeapons
         var itemDefinition = ItemDefinitions.MacePlus2;
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
+            itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
             properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus2, ShopMeleePlus2));
@@ -444,7 +344,7 @@ public static class CustomWeapons
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
+            itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] {ThunderImpactVFX, WeaponPlus1AttackOnly});
         LongMaceThunder.SetCustomSubFeatures(scale);
         LongMaceThunder.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
@@ -477,7 +377,7 @@ public static class CustomWeapons
             {
                 TagsDefinitions.WeaponTagRange,
                 TagsDefinitions.WeaponTagLoading,
-                TagsDefinitions.WeaponTagAmmunition,
+                TagsDefinitions.WeaponTagAmmunition
             }
         };
         var damageForm = baseDescription.EffectDescription
@@ -486,7 +386,8 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         HandXbow = BuildWeapon("CEHandXbow", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HandXbowIcon, twoHanded: false);
+            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HandXbowIcon,
+            twoHanded: false);
         HandXbow.SetCustomSubFeatures(scale);
         ShopItems.Add((HandXbow, ShopGenericRanged));
 
@@ -511,7 +412,7 @@ public static class CustomWeapons
         var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
+            itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
             properties: new[] {WeaponPlus2});
         HandXbowPlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((HandXbowPlus2, ShopRangedPlus2));
@@ -522,7 +423,7 @@ public static class CustomWeapons
 
         HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
-            basePresentation: itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
+            itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] {AcidImpactVFX, WeaponPlus1AttackOnly});
         HandXbowAcid.SetCustomSubFeatures(scale);
         HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
@@ -583,7 +484,7 @@ public static class CustomWeapons
     {
         return RecipeDefinitionBuilder
             .Create($"RecipeEnchant{item.Name}", guid)
-            .SetGuiPresentation(item.GuiPresentation.Title, Gui.NoLocalization)
+            .SetGuiPresentation(item.GuiPresentation.Title, GuiPresentationBuilder.EmptyString)
             .SetCraftedItem(item)
             .SetCraftingCheckData(hours, difficulty, ToolTypeDefinitions.EnchantingToolType)
             .AddIngredients(ingredients)
@@ -631,13 +532,113 @@ public static class CustomWeapons
     {
         return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
+
+    #region Halberd Icons
+
+    private static AssetReferenceSprite _halberdIcon,
+        _halberdPrimedIcon,
+        _halberdP1Icon,
+        _halberdP2Icon,
+        _halberdLightningIcon;
+
+    private static AssetReferenceSprite HalberdIcon =>
+        _halberdIcon ??= CustomIcons.CreateAssetReferenceSprite("Halberd", Resources.Halberd, 128);
+
+    private static AssetReferenceSprite HalberdPrimedIcon => _halberdPrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HalberdPrimed", Resources.HalberdPrimed, 128);
+
+    private static AssetReferenceSprite HalberdP1Icon => _halberdP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Halberd_1", Resources.Halberd_1, 128);
+
+    private static AssetReferenceSprite HalberdP2Icon => _halberdP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Halberd_2", Resources.Halberd_2, 128);
+
+    private static AssetReferenceSprite HalberdLightningIcon => _halberdLightningIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HalberdLightning", Resources.HalberdLightning, 128);
+
+    #endregion
+
+    #region Pike Icons
+
+    private static AssetReferenceSprite _pikeIcon,
+        _pikePrimedIcon,
+        _pikeP1Icon,
+        _pikeP2Icon,
+        _pikeLightningIcon;
+
+    private static AssetReferenceSprite PikeIcon =>
+        _pikeIcon ??= CustomIcons.CreateAssetReferenceSprite("Pike", Resources.Pike, 128);
+
+    private static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("PikePrimed", Resources.PikePrimed, 128);
+
+    private static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Pike_1", Resources.Pike_1, 128);
+
+    private static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Pike_2", Resources.Pike_2, 128);
+
+    private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("PikePsychic", Resources.PikePsychic, 128);
+
+    #endregion
+
+    #region Long Mace Icons
+
+    private static AssetReferenceSprite _longMaceIcon,
+        _longMacePrimedIcon,
+        _longMaceP1Icon,
+        _longMaceP2Icon,
+        _longMaceLightningIcon;
+
+    private static AssetReferenceSprite LongMaceIcon =>
+        _longMaceIcon ??= CustomIcons.CreateAssetReferenceSprite("LongMace", Resources.LongMace, 128);
+
+    private static AssetReferenceSprite LongMacePrimedIcon => _longMacePrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMacePrimed", Resources.LongMacePrimed, 128);
+
+    private static AssetReferenceSprite LongMaceP1Icon => _longMaceP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMace_1", Resources.LongMace_1, 128);
+
+    private static AssetReferenceSprite LongMaceP2Icon => _longMaceP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMace_2", Resources.LongMace_2, 128);
+
+    private static AssetReferenceSprite LongMaceThunderIcon => _longMaceLightningIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("LongMaceThunder", Resources.LongMaceThunder, 128);
+
+    #endregion
+
+    #region Hand Crossbow Icons
+
+    private static AssetReferenceSprite _handXbowIcon,
+        _handXbowPrimedIcon,
+        _handXbowP1Icon,
+        _handXbowP2Icon,
+        _handXbowAcidIcon;
+
+    private static AssetReferenceSprite HandXbowIcon =>
+        _handXbowIcon ??= CustomIcons.CreateAssetReferenceSprite("HandXbow", Resources.HandXbow, 128);
+
+    private static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
+
+    private static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbow_1", Resources.HandXbow_1, 128);
+
+    private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbow_2", Resources.HandXbow_2, 128);
+
+    private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
+
+    #endregion
 }
 
 //TODO: move this to the separate shop context file
 public class ShopItemType
 {
-    public readonly FactionStatusDefinition status;
     public readonly MerchantFilter filter;
+    public readonly FactionStatusDefinition status;
 
     public ShopItemType(FactionStatusDefinition status, MerchantFilter filter)
     {
@@ -650,18 +651,18 @@ public class MerchantFilter
 {
     public bool? IsAmmunition = null;
     public bool? IsArmor = null;
-    public bool? IsDocument = null;
+    public bool? IsDocument;
 
     public bool? IsMagicalAmmunition = null;
     public bool? IsMagicalArmor = null;
-    public bool? IsMagicalMeleeWeapon = null;
-    public bool? IsMagicalRangeWeapon = null;
-    public bool? IsMeleeWeapon = null;
+    public bool? IsMagicalMeleeWeapon;
+    public bool? IsMagicalRangeWeapon;
+    public bool? IsMeleeWeapon;
 
     public bool? IsPrimedArmor = null;
-    public bool? IsPrimedMeleeWeapon = null;
-    public bool? IsPrimedRangeWeapon = null;
-    public bool? IsRangeWeapon = null;
+    public bool? IsPrimedMeleeWeapon;
+    public bool? IsPrimedRangeWeapon;
+    public bool? IsRangeWeapon;
 
     public bool Matches(MerchantTypeContext.MerchantType merchantType)
     {

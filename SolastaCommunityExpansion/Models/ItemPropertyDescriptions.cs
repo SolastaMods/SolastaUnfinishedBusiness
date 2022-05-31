@@ -17,16 +17,16 @@ public static class ItemPropertyDescriptions
 
     public static readonly ItemPropertyDescription ForceImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.MagicMissile));
-    
+
     public static readonly ItemPropertyDescription LightningImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.LightningBolt));
-    
+
     public static readonly ItemPropertyDescription PsychicImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Fear));
-    
+
     public static readonly ItemPropertyDescription ThunderImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Thunderwave));
-    
+
     public static readonly ItemPropertyDescription AcidImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.AcidSplash));
 

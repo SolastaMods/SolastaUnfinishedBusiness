@@ -19,7 +19,7 @@ internal static class RulesetItem_FillTags
         {
             tagsMap.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
         }
-        
+
         if (DiagnosticsContext.IsCeDefinition(__instance.ItemDefinition))
         {
             tagsMap.TryAdd(CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);

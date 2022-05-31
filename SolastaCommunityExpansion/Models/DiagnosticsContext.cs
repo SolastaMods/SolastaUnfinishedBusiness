@@ -30,8 +30,8 @@ internal static class DiagnosticsContext
         "DocumentTableDefinition", "NarrativeEventTableDefinition",
         "NarrativeTreeDefinition", // NarrativeTreeDefinition causes crash with PreserveReferencesHandling.None
         "SoundbanksDefinition", "SubtitleTableDefinition", "TravelJournalDefinition", "TutorialSectionDefinition",
-        "TutorialStepDefinition", "TutorialSubsectionDefinition", "TutorialTocDefinition",
-        "TutorialTableDefinition", "QuestTreeDefinition"
+        "TutorialStepDefinition", "TutorialSubsectionDefinition", "TutorialTocDefinition", "TutorialTableDefinition",
+        "QuestTreeDefinition"
     };
 
     private static readonly string[] ExcludeFromCEExport =

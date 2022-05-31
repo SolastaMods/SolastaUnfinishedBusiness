@@ -28,13 +28,19 @@ public class GraphicsCharacterFactoryManagerPatcher
                        rulesetItem.ItemDefinition.ArmorDescription.ArmorType == "ShieldType";
             AnimationDefinitions.BoneType boneType;
             if (rulesetItem.ItemDefinition.IsWeapon)
+            {
                 boneType = slotName != EquipmentDefinitions.SlotTypeOffHand
                     ? rulesetItem.ItemDefinition.WeaponDescription.WeaponTypeDefinition.IsAttachedToBone
                     : AnimationDefinitions.BoneType.Prop2;
+            }
             else if (flag)
+            {
                 boneType = AnimationDefinitions.BoneType.Shield;
+            }
             else if (slotName == EquipmentDefinitions.SlotTypeMainHand)
+            {
                 boneType = AnimationDefinitions.BoneType.Prop1;
+            }
             else if (slotName == EquipmentDefinitions.SlotTypeOffHand)
             {
                 boneType = AnimationDefinitions.BoneType.Prop2;

@@ -22,7 +22,8 @@ public static class HandwrapWeaponContext
         shopItems.Add((HandwrapsPlus2, CustomWeapons.ShopMeleePlus2));
 
 
-        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX, WeaponPlus1AttackOnly);
+        HandwrapsOfForce = BuildHandwraps("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
+            WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
@@ -76,7 +77,7 @@ public static class HandwrapWeaponContext
             ItemDefinitions.UnarmedStrikeBase,
             goldCost,
             noDescription, rarity, needId: needId,
-            properties:properties
+            properties: properties
         );
     }
 
