@@ -16,6 +16,15 @@ public static class ItemPropertyDescriptions
 
     public static readonly ItemPropertyDescription ForceImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.MagicMissile));
+    
+    public static readonly ItemPropertyDescription LightningImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.LightningBolt));
+    
+    public static readonly ItemPropertyDescription PsychicImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Fear));
+    
+    public static readonly ItemPropertyDescription ThunderImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Thunderwave));
 
     public static ItemPropertyDescription BuildFrom(
         FeatureDefinition feature,
@@ -44,8 +53,7 @@ public static class ItemPropertyDescriptions
         return FeatureDefinitionAttackModifierBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)
             .Configure()
-            .SetImpactParticleReference(effect.EffectParticleParameters
-                .impactParticleReference)
+            .SetImpactParticleReference(effect.EffectParticleParameters.impactParticleReference)
             .AddToDB();
     }
 }

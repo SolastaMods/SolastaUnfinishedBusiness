@@ -2017,12 +2017,15 @@ Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until
 Item/&CEHalberdTitle	Halberd
 Item/&CEHalberd+1Title	Halberd +1
 Item/&CEHalberd+2Title	Halberd +2
+Item/&CEHalberdLightningTitle	Lightning Halberd 
 Item/&CEPikeTitle	Pike
 Item/&CEPike+1Title	Pike +1
 Item/&CEPike+2Title	Pike +2
+Item/&CEPikePsychicTitle	Psychic Pike
 Item/&CELongMaceTitle	Long Mace
 Item/&CELongMace+1Title	Long Mace +1
 Item/&CELongMace+2Title	Long Mace +2
+Item/&CELongMaceThunderTitle	Thundering Long Mace
 Equipment/&CEHalberdTypeTitle	Halberds
 Equipment/&CEPikeTypeTitle	Pikes
 Equipment/&CELongMaceTypeTitle	Long Maces
