@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
@@ -137,6 +138,7 @@ public static class CustomWeapons
         HalberdPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         HalberdPrimed.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPrimed, ShopPrimedMelee));
+        ShopItems.Add((BuildPrimingManual(Halberd, HalberdPrimed), ShopCrafting));
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
@@ -193,13 +195,14 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Pike.SetCustomSubFeatures(scale);
         ShopItems.Add((Pike, ShopGenericMelee));
-        
+
         PikePrimed = BuildWeapon("CEPikePrimed", baseItem,
             40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
         PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         PikePrimed.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePrimed, ShopPrimedMelee));
+        ShopItems.Add((BuildPrimingManual(Pike, PikePrimed), ShopCrafting));
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
             950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
@@ -257,7 +260,8 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         LongMace.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMace, ShopGenericMelee));
-        
+        ShopItems.Add((BuildPrimingManual(LongMace, LongMacePrimed), ShopCrafting));
+
         LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem,
             40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
         LongMacePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
@@ -351,6 +355,16 @@ public static class CustomWeapons
             .SetDocumentInformation(recipe, reference.DocumentDescription.ContentFragments)
             .SetGold(Main.Settings.RecipeCost)
             .AddToDB();
+    }
+
+    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed, Guid guid)
+    {
+        return BuildManual(ItemRecipeGenerationHelper.CreatePrimingRecipe(guid, item, primed), guid);
+    }
+    
+    public static ItemDefinition BuildPrimingManual(ItemDefinition item, ItemDefinition primed)
+    {
+        return BuildPrimingManual(item, primed, DefinitionBuilder.CENamespaceGuid);
     }
 }
 
