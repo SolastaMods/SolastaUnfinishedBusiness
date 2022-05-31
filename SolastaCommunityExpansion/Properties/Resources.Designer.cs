@@ -303,6 +303,56 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap HandXbow {
+            get {
+                object obj = ResourceManager.GetObject("HandXbow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HandXbow_1 {
+            get {
+                object obj = ResourceManager.GetObject("HandXbow_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HandXbow_2 {
+            get {
+                object obj = ResourceManager.GetObject("HandXbow_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HandXbowAcid {
+            get {
+                object obj = ResourceManager.GetObject("HandXbowAcid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HandXbowPrimed {
+            get {
+                object obj = ResourceManager.GetObject("HandXbowPrimed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap HellishRebuke {
             get {
                 object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);

@@ -26,6 +26,9 @@ public static class ItemPropertyDescriptions
     
     public static readonly ItemPropertyDescription ThunderImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Thunderwave));
+    
+    public static readonly ItemPropertyDescription AcidImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.AcidSplash));
 
     public static ItemPropertyDescription BuildFrom(
         FeatureDefinition feature,

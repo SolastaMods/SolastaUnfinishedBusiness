@@ -2034,6 +2034,15 @@ Item/&CELongMace+2Title	Long Mace +2
 Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
 Item/&CELongMaceThunderTitle	Thundering Long Mace
 Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
+Item/&CEHandXbowTitle	Hand Crossbow
+Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
+Item/&CEHandXbow+1Title	Hand Crossbow +1
+Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
+Item/&CEHandXbow+2Title	Hand Crossbow +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
 Equipment/&CEHalberdTypeTitle	Halberds
 Equipment/&CEPikeTypeTitle	Pikes
 Equipment/&CELongMaceTypeTitle	Long Maces
+Equipment/&CEHandXbowTypeTitle	Hand Crossbows

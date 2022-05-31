@@ -45,6 +45,12 @@ public abstract class WeaponTypeDefinitionBuilder<TDefinition, TBuilder> : Defin
         Definition.weaponProximity = proximity;
         return This();
     }
+    
+    public TBuilder SetAnimationTag(string tag)
+    {
+        Definition.animationTag = tag;
+        return This();
+    }
 }
 
 public class

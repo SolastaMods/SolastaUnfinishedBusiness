@@ -17,6 +17,7 @@ public static class CustomWeapons
     public static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     public static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     public static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
+    public static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
 
     public static readonly MerchantFilter GenericMelee = new() {IsMeleeWeapon = true};
     public static readonly MerchantFilter MagicMelee = new() {IsMagicalMeleeWeapon = true};
@@ -104,6 +105,31 @@ public static class CustomWeapons
 
     #endregion
 
+    #region Hand Crossbow Icons
+
+    private static AssetReferenceSprite _handXbowIcon,
+        _handXbowPrimedIcon,
+        _handXbowP1Icon,
+        _handXbowP2Icon,
+        _handXbowAcidIcon;
+
+    private static AssetReferenceSprite HandXbowIcon =>
+        _handXbowIcon ??= CustomIcons.CreateAssetReferenceSprite("HandXbow", Resources.HandXbow, 128);
+
+    private static AssetReferenceSprite HandXbowPrimedIcon => _handXbowPrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbowPrimed", Resources.HandXbowPrimed, 128);
+
+    private static AssetReferenceSprite HandXbowP1Icon => _handXbowP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbow_1", Resources.HandXbow_1, 128);
+
+    private static AssetReferenceSprite HandXbowP2Icon => _handXbowP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbow_2", Resources.HandXbow_2, 128);
+
+    private static AssetReferenceSprite HandXbowAcidIcon => _handXbowAcidIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("HandXbowAcid", Resources.HandXbowAcid, 128);
+
+    #endregion
+
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
@@ -113,6 +139,7 @@ public static class CustomWeapons
         BuildHalberds();
         BuildPikes();
         BuildLongMaces();
+        BuildHandXbow();
         HandwrapWeaponContext.Load(ShopItems);
 
         AddToShops();
@@ -140,6 +167,8 @@ public static class CustomWeapons
         WeaponDescription baseDescription = null,
         AssetReferenceSprite icon = null,
         bool needId = true,
+        float scale = 1.0f,
+        bool twoHanded = true,
         params ItemPropertyDescription[] properties)
     {
         basePresentation ??= baseItem.ItemPresentation;
@@ -151,11 +180,21 @@ public static class CustomWeapons
             .SetGold(goldCost)
             .SetMerchantCategory(MerchantCategoryDefinitions.Weapon)
             .SetStaticProperties(properties)
-            .SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
-            .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot)
             .SetWeaponDescription(baseDescription)
-            .SetItemPresentation(BuildPresentation($"{name}Unidentified", basePresentation))
+            .SetItemPresentation(BuildPresentation($"{name}Unidentified", basePresentation, scale))
             .SetItemRarity(rarity);
+
+        if (twoHanded)
+        {
+            builder.SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.ContainerSlot)
+                .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot);
+        }
+        else
+        {
+            builder.SetSlotTypes(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot,
+                    SlotTypeDefinitions.ContainerSlot)
+                .SetSlotsWhereActive(SlotTypeDefinitions.MainHandSlot, SlotTypeDefinitions.OffHandSlot);
+        }
 
         if (!properties.Empty())
         {
@@ -411,6 +450,84 @@ public static class CustomWeapons
             ShopCrafting));
     }
 
+    private static void BuildHandXbow()
+    {
+        var scale = new CustomScale(0.5f);
+        var baseWeaponType = WeaponTypeDefinitionBuilder
+            .Create(WeaponTypeDefinitions.LightCrossbowType, "CEHandXbowType", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
+            .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
+            .SetAnimationTag("Rapier")
+            .AddToDB();
+        var baseItem = ItemDefinitions.LightCrossbow;
+        var basePresentation = new ItemPresentation(baseItem.ItemPresentation);
+        var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
+        {
+            weaponType = baseWeaponType.Name,
+            closeRange = 6,
+            maxRange = 24,
+            weaponTags = new List<string>
+            {
+                TagsDefinitions.WeaponTagRange,
+                TagsDefinitions.WeaponTagLoading,
+                TagsDefinitions.WeaponTagAmmunition,
+            }
+        };
+        var damageForm = baseDescription.EffectDescription
+            .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.diceNumber = 1;
+
+        HandXbow = BuildWeapon("CEHandXbow", baseItem,
+            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HandXbowIcon, twoHanded: false);
+        HandXbow.SetCustomSubFeatures(scale);
+        ShopItems.Add((HandXbow, ShopGenericMelee));
+
+        HandXbowPrimed = BuildWeapon("CEHandXbowPrimed", HandXbow,
+            40, true, RuleDefinitions.ItemRarity.Uncommon, icon: HandXbowPrimedIcon, twoHanded: false);
+        HandXbowPrimed.SetCustomSubFeatures(scale);
+        HandXbowPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
+        HandXbowPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
+        ShopItems.Add((HandXbowPrimed, ShopPrimedMelee));
+        ShopItems.Add((BuildPrimingManual(HandXbow, HandXbowPrimed), ShopCrafting));
+
+        HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
+            950, true, RuleDefinitions.ItemRarity.Rare, icon: HandXbowP1Icon, twoHanded: false,
+            properties: new[] {WeaponPlus1});
+        HandXbowPlus1.SetCustomSubFeatures(scale);
+        ShopItems.Add((HandXbowPlus1, ShopMeleePlus1));
+        ShopItems.Add((BuildRecipeManual(HandXbowPlus1, 24, 10,
+                HandXbowPrimed,
+                ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness),
+            ShopCrafting));
+
+        var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
+        HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            basePresentation: itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
+            properties: new[] {WeaponPlus2});
+        HandXbowPlus2.SetCustomSubFeatures(scale);
+        ShopItems.Add((HandXbowPlus2, ShopMeleePlus2));
+        ShopItems.Add((BuildRecipeManual(HandXbowPlus2, 48, 16,
+                HandXbowPrimed,
+                ItemDefinitions.Ingredient_Enchant_Blood_Gem),
+            ShopCrafting));
+
+        HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
+            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            basePresentation: itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
+            properties: new[] {AcidImpactVFX, WeaponPlus1AttackOnly});
+        HandXbowAcid.SetCustomSubFeatures(scale);
+        HandXbowAcid.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D8,
+                damageType: RuleDefinitions.DamageTypeAcid)
+            .Build());
+        ShopItems.Add((BuildRecipeManual(HandXbowAcid, 48, 16,
+                HandXbowPrimed,
+                ItemDefinitions.Ingredient_Enchant_Stardust),
+            ShopCrafting));
+    }
+
     private static void AddToShops()
     {
         //TODO: do this only if mod option is toggled
@@ -559,6 +676,10 @@ public class MerchantFilter
 public class CustomScale
 {
     public readonly float X, Y, Z;
+
+    public CustomScale(float s) : this(s, s, s)
+    {
+    }
 
     public CustomScale(float x = 1f, float y = 1f, float z = 1f)
     {
