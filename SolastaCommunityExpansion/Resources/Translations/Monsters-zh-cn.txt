@@ -1,3 +1,17 @@
+Condition/&DH_ReverseGravity_Spell_Description	反重力
+Condition/&DH_ReverseGravity_Spell_Title	反重力
+Condition/&DH_TimeStop_Spell_Description	因时间停止而冻结
+Condition/&DH_TimeStop_Spell_Title	因时间停止而冻结
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	闪电风暴
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	闪电风暴
+Feature/&DH_AtWill_Fireball_Power_Description	任意施放火球术
+Feature/&DH_AtWill_Fireball_Power_Title	火球术
+Feature/&DH_AtWill_HoldMonster_Power_Description	每天3次
+Feature/&DH_AtWill_HoldMonster_Power_Title	怪物定身术
+Feature/&DH_AtWill_Invisibility_Power_Description	任意施放隐身术
+Feature/&DH_AtWill_Invisibility_Power_Title	隐身术
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	闪电一击
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	闪电一击
 Monster/&DH_Custom_AirTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
 Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>原初空气泰坦</color>
 Monster/&DH_Custom_AncientBlackDragon_Description	作为色彩龙中最暴躁卑劣的种类，黑龙会将倒毙者的残骸连同其财宝一同收集起来。黑龙们厌恶眼见弱者的兴盛，并乐见类人生物王国崩溃。恶臭的沼泽，以及覆亡王国曾经耸立的废墟瓦砾会是他们理想的家园
@@ -156,6 +170,10 @@ MonsterPower/&DH_AncientDragon_Wing_Power_Description	龙可以扇动翅膀，�
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	振翅攻击
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6火焰伤害
 MonsterPower/&DH_Balor_FireAura_Power_Title	火焰灵光
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	巴洛炎魔反击
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	巴洛炎魔反击
+MonsterPower/&DH_Balor_Retaliate_Power_Description	巴洛炎魔反击
+MonsterPower/&DH_Balor_Retaliate_Power_Title	巴洛炎魔反击
 MonsterPower/&DH_BlindingGaze_Power_Description	必须通过体质豁免(DC15)否则被目盲
 MonsterPower/&DH_BlindingGaze_Power_Title	目盲凝视
 MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8强酸伤害
@@ -188,6 +206,8 @@ MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6黯蚀伤害
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	扰乱生命
 MonsterPower/&DH_SearingBurst_Power_Description	4D6火焰伤害 & 4D6光耀伤害
 MonsterPower/&DH_SearingBurst_Power_Title	灼热爆裂
+MonsterPower/&DH_SleetStorm_Immunity_Description	雪雨暴免疫
+MonsterPower/&DH_SleetStorm_Immunity_Title	雪雨暴免疫
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	召唤1只气元素
 MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	召唤高等元素
 MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	召唤1只土元素
@@ -198,6 +218,8 @@ MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	召唤1只火�
 MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	召唤高等元素
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	召唤2只火焰小丑
 MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	召唤次级元素群
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	召唤次级构装体
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	召唤次级构装体
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	1只判魂魔被召唤作战
 MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	召唤随从：判魂魔
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	召唤1只斯卡恩食尸鬼
@@ -212,21 +234,11 @@ MonsterPower/&DH_TarrasqueSwallowPower_Description	泰拉斯奎对正被它擒�
 MonsterPower/&DH_TarrasqueSwallowPower_Title	吞咽
 MonsterPower/&DH_VampireCharmPower_Description	吸血鬼指定其周边30尺一个它能看见的类人生物，其必须通过一次感知豁免(DC17)否被魅惑
 MonsterPower/&DH_VampireCharmPower_Title	魅惑
-Spell/&DHTimeStop_SpellDescription	你使时间在除你之外所有生物的世界中暂时停止流动。你一次性进行1d4+1个回合，在这段过程内时间对于其他生物来说是静止的，但你可以像正常一样移动和使用动作
-Spell/&DHTimeStop_SpellTitle	时间停止
-Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
-Spell/&DHAnimalShapesSpellTitle	动物形态
 MonsterPower/&DHAirTitanLightningStormPowerDescription	大范围内6d8闪电伤害
 MonsterPower/&DHAirTitanLightningStormPowerTitle	闪电风暴
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8伤害
 MonsterPower/&DHGenericLightningAttackPowerTitle	闪电一击
-Feature/&DH_AtWill_Fireball_Power_Description	任意施放火球术
-Feature/&DH_AtWill_Fireball_Power_Title	火球术
-Feature/&DH_AtWill_HoldMonster_Power_Description	每天3次
-Feature/&DH_AtWill_HoldMonster_Power_Title	怪物定身术
-Feature/&DH_AtWill_Invisibility_Power_Description	任意施放隐身术
-Feature/&DH_AtWill_Invisibility_Power_Title	隐身术
-Condition/&DH_ReverseGravity_Spell_Description	反重力
-Condition/&DH_ReverseGravity_Spell_Title	反重力
-Condition/&DH_TimeStop_Spell_Description	因时间停止而冻结
-Condition/&DH_TimeStop_Spell_Title	因时间停止而冻结
+Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
+Spell/&DHAnimalShapesSpellTitle	动物形态
+Spell/&DHTimeStop_SpellDescription	你使时间在除你之外所有生物的世界中暂时停止流动。你一次性进行1d4+1个回合，在这段过程内时间对于其他生物来说是静止的，但你可以像正常一样移动和使用动作
+Spell/&DHTimeStop_SpellTitle	时间停止

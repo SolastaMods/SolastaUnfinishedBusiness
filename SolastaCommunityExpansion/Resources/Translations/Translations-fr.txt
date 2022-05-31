@@ -130,7 +130,7 @@ Condition/&EWSunlightBladeDamageDescription	À partir du niveau 5, l'attaque dé
 Condition/&EWSunlightBladeDamageTitle	Brûlure de la Lame ensoleillée
 Condition/&FrenziedDescription	Cette créature est frénétique et attaquera la créature la plus proche.
 Condition/&FrenziedTitle	Frénétique
-Condition/&HalfLifeConditionDescription	Vous prenez de l'énergie nécrotique en vous et vous vous suspendez entre la vie et la mort et êtes temporairement possédé par votre propre fantôme, gagnant le vol, et les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
+Condition/&HalfLifeConditionDescription	Vous prenez de l'énergie nécrotique en vous et vous êtes suspendu entre la vie et la mort et êtes temporairement possédé par votre propre fantôme, gagnant le vol et les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
 Condition/&HalfLifeConditionTitle	Demi vie
 Condition/&HelpActionDescription	Cette créature a été distraite.
 Condition/&HelpActionTitle	Distraits
@@ -266,7 +266,7 @@ Equipment/&Enchanted_Maul_Bearclaw_Description	Cette arme enchantée a été for
 Equipment/&Enchanted_Maul_Bearclaw_Title	Masse griffe d'ours
 Equipment/&Enchanted_Maul_Lightbringer_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Colthannin. Il a été conçu par Elgador Keenspirit, Magesmith of the Arcaneum pour soutenir le combat contre les créatures mort-vivantes.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Maul porteur de lumière
-Equipment/&Enchanted_Maul_Power_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Certaines créatures ne respectent que les forces physiques. Les arcanistes de Manacalon ont créé ce Maul pour donner aux champions des Légions de Fer la force que leur corps elfique n'offrait pas.
+Equipment/&Enchanted_Maul_Power_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Certaines créatures ne respectent que les forces physiques. Les arcanistes de Manacalon ont créé ce Maul pour donner aux champions des Légions de Fer la force que leur corps elfique ne leur fournissait pas.
 Equipment/&Enchanted_Maul_Power_Title	Maillet de puissance
 Equipment/&Enchanted_Maul_Punisher_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. La combinaison du meilleur métal et de Slavestone a donné à cette hache un pouvoir de perçage incroyable.
 Equipment/&Enchanted_Maul_Punisher_Title	Maul punisseur
@@ -656,7 +656,7 @@ Feat/&HealerResuscitateTitle	Réanimer
 Feat/&HealerStabilizeDescription	Utilisez une action pour stabiliser une créature mourante.
 Feat/&HealerStabilizeTitle	Stabiliser
 Feat/&HealerTitle	Guérisseur
-Feat/&HealerUseMedicineDescription	Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie du niveau du personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
+Feat/&HealerUseMedicineDescription	Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie de niveau de personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
 Feat/&HealerUseMedicineTitle	Utiliser des médicaments
 Feat/&IncreaseConstructSelectingDescription	Vous pouvez maintenant invoquer deux constructions d'artillerie. Les constructions peuvent être de modes identiques ou différents.
 Feat/&IncreaseConstructSelectingTitle	Renforts
@@ -752,7 +752,7 @@ Feat/&TempHPShieldConstructDescription	Confère 1D8 + 4 PV temporaires aux alli�
 Feat/&TempHPShieldConstructTitle	Construction de dôme de protection
 Feat/&TempHPShieldConstructTitle_3	Construction de dôme de protection
 Feat/&TempHPShieldConstructTitle_5	Construction de dôme de protection
-Feat/&TempHPShieldDescription	Fournissez 1D8 + 4 TempHP aux alliés à moins de 10 pieds.
+Feat/&TempHPShieldDescription	Fournit 1D8 + 4 TempHP aux alliés à moins de 10 pieds.
 Feat/&ThunderShieldDescription	Le bouclier défensif fournit un niveau TempHP x. 5 fois par jour.
 Feat/&ThunderShieldTitle	Bouclier de tonnerre
 Feat/&TinkererConstructFamilyDescription	Créé par Tinkerer.
@@ -838,7 +838,7 @@ Feature/&BondoftheTalismanDescription	Téléportez jusqu'à 5 cellules.
 Feature/&BondoftheTalismanTitle	Talisman de téléportation
 Feature/&ChainsofCarceriDescription	Paralyse un céleste, un fiélon ou un élémentaire à moins qu'il ne réussisse un jet de sauvegarde du SGI.
 Feature/&ChainsofCarceriTitle	Chaînes de Carceri
-Feature/&ClassMonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine.
+Feature/&ClassMonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance avec une arme. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine.
 Feature/&ClassMonkDeflectMissileTitle	Dévier les missiles
 Feature/&ClassMonkDiamondSoulDescription	Votre maîtrise du ki vous confère la maîtrise de tous les jets de sauvegarde.\nDe plus, chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
 Feature/&ClassMonkDiamondSoulTitle	Âme de diamant
@@ -850,7 +850,7 @@ Feature/&ClassMonkKiEmpoweredStrikesTitle	Frappes renforcées par le Ki
 Feature/&ClassMonkKiTitle	Ki
 Feature/&ClassMonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n - Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de moine.\n - Vous pouvez lancer un d4 à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine. Ce dé change à mesure que vous gagnez des niveaux de moine.\n - Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus.
 Feature/&ClassMonkMartialArtsTitle	Arts martiaux
-Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
+Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>D6</color> à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine.
 Feature/&ClassMonkMartialDiceProgression00Title	Augmentation du dé d'arts martiaux (D6)
 Feature/&ClassMonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>D8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
 Feature/&ClassMonkMartialDiceProgression01Title	Augmentation du dé d'arts martiaux (D8)
@@ -891,7 +891,7 @@ Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, Charisme.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
 Feature/&ClassWarlockSkillProficiencyDescription	Choisissez 2 de ces compétences : Arcanes, Tromperie, Histoire, Intimidation, Enquête, Nature et Religion.
-Feature/&ClassWarlockSkillProficiencyTitle	Compétences de démoniste
+Feature/&ClassWarlockSkillProficiencyTitle	Compétences de Démoniste
 Feature/&ClassWarlockSpellcastingDescription	Vos recherches sur les arcanes et la magie que vous a conférée votre mécène d'un autre monde vous ont donné des facilités avec les sorts.
 Feature/&ClassWarlockSpellcastingTitle	Magie du pacte de démoniste
 Feature/&ClassWarlockToolsProficiencyDescription	Vous avez été formé pour préparer des remèdes à base de plantes et utiliser des équipements enchanteurs.
@@ -1475,9 +1475,9 @@ Reaction/&SpendPowerDiamondSoulDescription	{0} a raté une sauvegarde et peut d�
 Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée.
 Reaction/&SpendPowerDiamondSoulReactTitle	Relancer
 Reaction/&SpendPowerDiamondSoulTitle	Âme de diamant
-Reaction/&SpendPowerInspirePowerDescription	Dépensez un dé de gambit et inspirez ou votre allié pour donner 1d6+2 PV temporaires.
+Reaction/&SpendPowerInspirePowerDescription	Passez un dé de gambit et inspirez ou votre allié pour donner 1d6+2 PV temporaires.
 Reaction/&SpendPowerInspirePowerTitle	Inspirer
-Reaction/&SpendPowerKnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et les assommer jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence.
+Reaction/&SpendPowerKnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et les renverser jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence.
 Reaction/&SpendPowerKnockDownPowerReactDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires et les renverser jusqu'au début de leur prochain tour s'ils échouent à une sauvegarde de Force contre 8 + votre Force + compétence.
 Reaction/&SpendPowerKnockDownPowerReactTitle	Abattre
 Reaction/&SpendPowerKnockDownPowerTitle	Abattre
@@ -1588,7 +1588,7 @@ Spell/&DHForesightSpellDescription	Vous touchez une créature consentante et lui
 Spell/&DHForesightSpellTitle	Prévoyance
 Spell/&DHHolyAuraSpellDescription	La lumière divine s'éloigne de vous et fusionne en un doux éclat dans un rayon de 9 mètres autour de vous. Les créatures de votre choix dans ce rayon lorsque vous lancez ce sort émettent une faible lumière dans un rayon de 1,50 mètre et ont un avantage à tous les jets de sauvegarde, et les autres créatures ont un désavantage aux jets d'attaque contre elles jusqu'à la fin du sort.
 Spell/&DHHolyAuraSpellTitle	Aura sacrée
-Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises incandescentes apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 16 km/h) le disperse. Lorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour. Le nuage s'éloigne directement de 3 mètres de vous dans une direction que vous choisissez au début de chacun de vos tours. .
+Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises chauffées à blanc apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant toute la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse. Lorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour. Le nuage s'éloigne directement de 3 mètres de vous dans une direction que vous choisissez au début de chacun de vos tours. .
 Spell/&DHIncendiaryCloudSpellTitle	Nuage incendiaire
 Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez jusqu'à 700 points de vie, répartis comme vous le souhaitez parmi n'importe quel nombre de créatures que vous pouvez voir à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
 Spell/&DHMassHealSpellTitle	Guérison de masse
@@ -1712,13 +1712,13 @@ Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Vos attaques compt
 Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arme infusée
 Subclass/&AttackModifierArtificerBlindingWeaponDescription	Touchez une arme qui acquiert la capacité d'aveugler les cibles lorsqu'elle est touchée (contre une sauvegarde de Constitution). Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arme aveuglante
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 CA. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +1 AC. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armure améliorée
 Subclass/&AttackModifierArtificerEnhancedFocusDescription	Touchez un focus et il devient magique et gagne +1 pour attaquer et épeler dc. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Mise au point améliorée
 Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Touchez une arme et elle devient magique et gagne +1 aux jets d'attaque et de dégâts. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Arme améliorée
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +2 AC. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Touchez Armor et il devient magique et fournit +2 CA. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Armure améliorée améliorée
 Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Touchez un focus et il devient magique et gagne +2 pour attaquer et épeler dc. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Amélioration de la mise au point améliorée
@@ -1751,7 +1751,7 @@ Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Vous regagnez des p
 Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Protection de la lumière
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Vous bénéficiez d'une vision dans le noir supérieure.
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Percer les ténèbres
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Peut percevoir les créatures invisibles.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Peut percevoir des créatures invisibles.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vue d'invisibilité
 Subclass/&BarbarianPathOfTheLightTitle	Chemin de la Lumière
 Subclass/&BloodWitchDescription	Interdite par la plupart des covens de sorcières, la magie du sang se concentre sur l'utilisation de sorts sombres et de maléfices mortels qui puisent dans l'essence même du lanceur de sorts. Il est fondamentalement plus périlleux que les autres métiers de la sorcellerie, mais ses nombreux risques s'accompagnent de nombreuses récompenses.
@@ -1790,6 +1790,24 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Les druides du Cercle des 
 Subclass/&DruidForestGuardianDruidSubclassTitle	Cercle du gardien de la forêt
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touchez un sac et infusez un espace dimensionnel supplémentaire pour l'aider à supporter plus de poids sans vous encombrer. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Sac de tenue
+Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont les célèbres orchestres du champ de bataille.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, tous les membres de votre groupe peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
+Subclass/&FighterMarshalEncouragementPowerDescription	Une fois par jour, en passant une heure à s'encourager mutuellement et à se préparer pour la prochaine journée d'aventure, le moral du groupe est considérablement amélioré. Chaque personnage encouragé ajoute 1d4 à ses jets d'attaque et de sauvegarde. L'effet dure jusqu'au repos long.
+Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
+Subclass/&MarshalEternalComradeDescription	Camarade tombé
+Subclass/&MarshalEternalComradeTitle	Camarade tombé
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer 2 esprits de ses camarades tombés pour l'aider au combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarade éternel
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Vous êtes immunisé contre l'effet de peur.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Commandant intrépide
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Vous ajoutez votre niveau de connaissance de la cible actuelle à votre jet d'attaque et à vos dégâts.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Connais ton ennemi
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	En tant qu'action bonus, vous pouvez tenter d'augmenter vos connaissances sur votre cible en lançant un test de survie. Vous pouvez le faire deux fois par repos court.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 2 esprits du camarade déchu du maréchal. Chaque esprit a 45 + 2 x points de vie de niveau de classe de combattant et sa CA est de 16 + votre PB. De plus, les esprits sont immunisés contre Posion, Cold, Necrotic, Prone, Paralyze, Restrained et sont résistants au feu, à l'acide, à l'éclairage et au tonnerre. Ils ont également une résistance contre les dégâts non magiques Slashin, Bludeoging, Piercing. À leur tour, ils peuvent voler jusqu'à 50' et effectuer une seule (2d6 + 5) attaque magique tranchante avec un bonus d'attaque égal à 5 ​​+ PB.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
+Subclass/&FighterMarshalTitle	Maréchal
 Subclass/&FighterSpellShieldDescription	Les Spell Shields sont des combattants spécialisés dans la défense et la protection. Ils utilisent la magie pour aider leurs capacités naturelles.
 Subclass/&FighterSpellShieldSpellcastingDescription	Lancez des sorts de magicien et des tours mineurs des écoles d'abjuration, d'illusion, de transmutation et de nécromancie.
 Subclass/&FighterSpellShieldSpellcastingTitle	Lancer des sorts
@@ -1952,7 +1970,7 @@ Subclass/&WeaponProfArtificerBattleSmithTitle	Entraînement aux armes
 Subclass/&WhiteWitchDescription	La magie blanche est fondamentalement bonne et bienveillante pour tous les êtres vivants. Les sorcières qui adoptent ce métier, malgré la malédiction haineuse qui les infecte, se consacrent souvent à la guérison et aux soins, dans le but d'améliorer le monde.
 Subclass/&WhiteWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}\n\n .
 Subclass/&WhiteWitchMagicTitle	Magie blanche
-Subclass/&WhiteWitchTitle	Sorcière Blanche
+Subclass/&WhiteWitchTitle	Sorcière blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
@@ -1974,43 +1992,25 @@ UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités su
 UI/&CustomFeatureSelectionStageFeatures	Fonctionnalités
 UI/&CustomFeatureSelectionStageNotDone	Vous devez sélectionner toutes les fonctionnalités disponibles avant de continuer
 UI/&CustomFeatureSelectionStageTitle	Sélection de fonctionnalité
-UI/&CustomFeatureSelectionTooltipTypeCantrip	cantrip
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Caractéristique
 UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont les célèbres orchestres du champ de bataille.
-Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, tous les membres de votre groupe peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
-Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
-Subclass/&FighterMarshalEncouragementPowerDescription	Une fois par jour, en passant une heure à s'encourager mutuellement et à se préparer pour la prochaine journée d'aventure, le moral du groupe est considérablement amélioré. Chaque personnage encouragé ajoute 1d4 à ses jets d'attaque et de sauvegarde. L'effet dure jusqu'au repos long.
-Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&MarshalEternalComradeDescription	Camarade tombé
-Subclass/&MarshalEternalComradeTitle	Camarade tombé
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer 2 esprits de ses camarades tombés pour l'aider au combat.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarade éternel
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Vous êtes immunisé contre l'effet de peur.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Commandant intrépide
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Vous ajoutez votre niveau de connaissance de la cible actuelle à votre jet d'attaque et à vos dégâts.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Connais ton ennemi
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	En tant qu'action bonus, vous pouvez tenter d'augmenter vos connaissances sur votre cible en lançant un test de survie. Vous pouvez le faire deux fois par repos court.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 2 esprits du camarade déchu du maréchal. Chaque esprit a 45 + 2 x points de vie de niveau de classe de combattant et sa CA est de 16 + votre PB. De plus, les esprits sont immunisés contre Posion, Cold, Necrotic, Prone, Paralyze, Restrained et sont résistants au feu, à l'acide, à l'éclairage et au tonnerre. Ils ont également une résistance contre les dégâts non magiques Slashin, Bludeoging, Piercing. À leur tour, ils peuvent voler jusqu'à 50' et effectuer une seule (2d6 + 5) attaque magique tranchante avec un bonus d'attaque égal à 5 ​​+ PB.
-Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
-Subclass/&FighterMarshalTitle	Maréchal
-Reaction/&SpendPower{0}Title	Spend {0}
-Reaction/&SpendPower{0}Description	Spend {0}
-Reaction/&Use{0}Title	Use {0}
-Reaction/&Use{0}Description	Use {0}
-Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
-Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
-Reaction/&ReadiedAction{0}Title	Readied {0}
-Reaction/&ReadiedAction{0}Description	Readied {0}
-Spell/&MirrorImageTitle	Mirror Image
-Spell/&MirrorImageDescription	Mirror Image
+Reaction/&SpendPower{0}Title	Dépensez {0}
+Reaction/&SpendPower{0}Description	Dépensez {0}
+Reaction/&Use{0}Title	Utilisez {0}
+Reaction/&Use{0}Description	Utilisez {0}
+Reaction/&SpendSpellSlot{0}Title	Dépensez le sort {0}
+Reaction/&SpendSpellSlot{0}Description	Dépensez le sort {0}
+Reaction/&ReadiedAction{0}Title	Prêt {0}
+Reaction/&ReadiedAction{0}Description	Prêt {0}
+Spell/&MirrorImageTitle	Image miroir
+Spell/&MirrorImageDescription	Image miroir
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feat/&SharpShooterFeatTitle	Sharpshooter
-Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feature/&SharpShooterTitle	Sharpshooter
-Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
+Feat/&SharpShooterFeatDescription	Vous maîtrisez les armes à distance et pouvez effectuer des tirs que d'autres trouvent impossibles. Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +2x.
+Feat/&SharpShooterFeatTitle	Tireur d'élite
+Feature/&SharpShooterDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +2x.
+Feature/&SharpShooterTitle	Tireur d'élite
+Tooltip/&SharpShooterConcentration	Désactivez le tireur d'élite.\nL'effet durera jusqu'au début de votre prochain tour

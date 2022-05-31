@@ -39,7 +39,7 @@ Class/&WitchMaledictionAbateDescription	Wähle als Aktion eine Kreatur, die du i
 Class/&WitchMaledictionAbateTitle	Fang den Fluch
 Class/&WitchMaledictionApathyDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß von dir sehen kannst, um einen Charisma-Rettungswurf zu machen. Bei einem misslungenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges einer Kreatur deiner Wahl gegenüber, der sie feindlich gesinnt ist, gleichgültig. Diese Gleichgültigkeit endet, wenn das Ziel durch einen Zauber der Kreatur, der es gleichgültig ist, angegriffen oder verletzt wird.
 Class/&WitchMaledictionApathyTitle	Apathie Verwünschung
-Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Weisheitswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
+Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Weisheitsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
 Class/&WitchMaledictionCharmTitle	Zauberspruch
 Class/&WitchMaledictionDisorientDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf muss dieses Ziel jedes Mal, wenn es vor dem Ende deines nächsten Zuges einen Angriffswurf macht, einen W6 würfeln und die gewürfelte Zahl vom Angriffswurf abziehen.
 Class/&WitchMaledictionDisorientTitle	Fluch der Desorientierung
@@ -557,7 +557,7 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Erhöhe dein Charisma um 1 bis maxi
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagie: Beschleunigt
 Feat/&FeatMetamagicAdeptTwinnedDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die Zwillings-Metamagie und erhältst 2 Hexereipunkte.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagisch: Zwillinge
-Feat/&FeatPrimalConstitutionDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
+Feat/&FeatPrimalConstitutionDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren mit einem Wutschaden von +1 definiert, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
 Feat/&FeatPrimalConstitutionTitle	Urwut (Konstitution)
 Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
 Feat/&FeatPrimalStrengthTitle	Urwut (Stärke)
@@ -658,7 +658,7 @@ Feat/&HealerStabilizeTitle	Stabilisieren
 Feat/&HealerTitle	Heiler
 Feat/&HealerUseMedicineDescription	Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
 Feat/&HealerUseMedicineTitle	Verwenden Sie Medizin
-Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
+Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
 Feat/&IncreaseConstructSelectingTitle	Verstärkung
 Feat/&InspiringLeaderDescription	Verbringen Sie 10 Minuten damit, bis zu 6 freundliche Kreaturen (darunter auch Sie selbst) innerhalb von 30 Fuß von Ihnen zu inspirieren. Jede Kreatur erhält temporäre Trefferpunkte in Höhe deiner Stufe + deines Charisma-Modifikators. Einmal pro kurzer Pause verwendbar.
 Feat/&InspiringLeaderTitle	Inspirierende Führungskraft
@@ -718,7 +718,7 @@ Feat/&ResummonArtilleryConstruct_15Title	Artilleriekonstrukt 3 wiederbeschwören
 Feat/&ResummonArtilleryConstructDescription	Dieser Zauber erlaubt es dem Bastler, ein Artilleriekonstrukt in einem von mehreren Modi erneut zu beschwören, nachdem die anfängliche Beschwörung abgelaufen ist. Das wiederbeschworene Konstrukt hält ebenfalls 1 Stunde an.
 Feat/&RetributionDescription	Konstrukt beschädigt 1W4 + Int, wenn es angegriffen wird.
 Feat/&RetributionTitle	Vergeltung
-Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Zug einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen.
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Runde einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen.
 Feat/&ScoutSentinelFeatureSet_level03Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra-Angriff</color></size>\nDu kannst ein weiteres Mal pro Kampfzug angreifen, wenn du die Angriffs- oder Schubs-Aktionen verwendest.
 Feat/&ScoutSentinelFeatureSet_level05Title	Scout-Wächter
@@ -739,7 +739,7 @@ Feat/&SummonArtificialServantTitle	Beschwöre einen künstlichen Diener
 Feat/&SummonArtilleryConstructDescription	Der Blaster erstellt und befehligt ein Artilleriekonstrukt in einem von mehreren Modi. Die HP des Konstrukts steigen mit der Stufe seines Beschwörers und es kann einmal pro Tag für 1 Stunde kostenlos beschworen werden. Das Konstrukt kann mit einem Zauber der 1. Stufe wiederbeschworen werden. Die drei Modi sind:\n<color=#add8e6ff>Schutzkuppel-Konstrukt:</color>\nGewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP\n<color=#add8e6ff>Flammenartillerie-Konstrukt:</color>\nErzeugt einen Feuerkegel, der bei einem misslungenen GE-Rettungswurf 2W8 Schaden verursacht\n<color=#add8e6ff>Force Artillery Construct:</color>\nVerursacht 2W8 Kraftschaden und stößt den Gegner 1,50 m weit weg.
 Feat/&SummonArtilleryConstructlevel09Description	Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt kann sich selbst zerstören und bei einem fehlgeschlagenen Rettungswurf 3W8 Machtschaden verursachen.\nZusätzlich erhöhen sich sowohl die Flammen- als auch die Machtartillerie-Schadenswürfe um 1W8 auf insgesamt 3W8.
 Feat/&SummonArtilleryConstructlevel09Title	Artillerie-Konstrukt-Upgrade: Selbstzerstörung
-Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
+Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
 Feat/&SummonArtilleryConstructlevel15Title	Upgrade des Artilleriekonstrukts: Halbe Deckungskuppel
 Feat/&SummonArtilleryConstructTitle	Artilleriekonstrukt beschwören
 Feat/&SummonProtectorConstructDescription	Dein eigener Battle Buddy steht bereit, um dich zu verteidigen und Feinde anzugreifen. Das Beschützerkonstrukt kann sich dreimal täglich selbst reparieren und Verbündeten bei Angriffen Nachteile zufügen.
@@ -939,7 +939,7 @@ Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elementare (Beleuchtun
 Feature/&DomainInsightDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
 Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight-Domäne
 Feature/&DomainLawDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
-Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsgebiet
+Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsbereich
 Feature/&DomainLifeDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
 Feature/&DomainLifeDomainlevel1FeaturesTitle	Lebensbereich
 Feature/&DomainMischiefDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
@@ -1182,7 +1182,7 @@ Feedback/&AdditionalDamageElementalDamageFormat	Elementarschaden
 Feedback/&AdditionalDamageElementalDamageLine	Elementarform gewährt zusätzlichen Schaden
 Feedback/&AdditionalDamageLightningSpearFormat	Blitzspeer!
 Feedback/&AdditionalDamageLightningSpearLine	{0} schlägt {1} mit Blitzspeer! (+{2})
-Feedback/&AdditionalDamagePactMarkedFormat	Paktzeichen!
+Feedback/&AdditionalDamagePactMarkedFormat	Paktmarke!
 Feedback/&AdditionalDamagePactMarkedLine	Paktmarke fügt zusätzlichen Schaden zu!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Seelenfänger!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul Taker fügt zusätzlichen Schaden zu!
@@ -1203,7 +1203,7 @@ Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} erste
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} erstellt {1}
 Feedback/&ExtraDamageDescription	Zusätzlicher Schaden durch Blitzspeer.
 Feedback/&ExtraDamageTitle	Blitzspeer zusätzlichen Schaden
-Feedback/&LightningSpearAdditionalDamageDescription	Blitzschaden 1W6 extra einmal pro Zug.
+Feedback/&LightningSpearAdditionalDamageDescription	Blitzschaden 1W6 extra einmal pro Runde.
 Feedback/&LightningSpearAdditionalDamageTitle	Blitzspeer zusätzlichen Schaden
 Feedback/&NotifyEffectResonatingStrikeLine	{0} schwingt mit {1}!
 FightingStyle/&BlindFightingDescription	Sie haben Blindsicht mit einer Reichweite von 10 Fuß.
@@ -1283,7 +1283,7 @@ Message/&LevelDownMultiplayerAbortDescription	Kann während einer Multiplayer-Si
 Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
 Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
 Message/&RespecMultiplayerAbortDescription	Respec während einer Multiplayer-Sitzung oder auf der Erkundungskarte nicht möglich.
-Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung bei den Koordinaten ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Begegnungen können in einem Multiplayer-Spiel nicht gespawnt werden. Noch...
 Message/&SpawnCustomEncounterTitle	Begegnen
 Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren.
@@ -1300,7 +1300,7 @@ Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von 
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Eule vertraut.
 Monster/&OwlFamiliarTitle	Eule
-Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen zu finden, entweder um Besorgungen für ihre höllischen Herren zu erledigen, Rivalen auszuspionieren oder Sterbliche in die Irre zu führen und aufzulauern. Ein Kobold wird jedem bösen Meister jeder Art stolz dienen, aber er kann sich nicht darauf verlassen, dass er Aufgaben schnell oder effizient erledigt.
+Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen zu finden, entweder um Besorgungen für ihre höllischen Herren zu erledigen, Rivalen auszuspionieren oder Sterbliche zu täuschen und aufzulauern. Ein Kobold wird einem bösen Meister jeder Art stolz dienen, aber er kann sich nicht darauf verlassen, dass er Aufgaben schnell oder effizient erledigt.
 Monster/&PactOfChainCustomImpTitle	Kobold (Kettenpakt)
 Monster/&PactOfChainCustomPseudodragonDescription	Der schwer fassbare Pseudodrache lebt an den stillen Orten der Welt und lebt in Baumhöhlen und kleinen Höhlen. Mit seinen grünen Schuppen, Hörnern und einem Maul voller scharfer Zähne ähnelt ein Pseudodrache einem winzigen grünen Drachen, aber seine Veranlagung ist verspielt.
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodrache
@@ -1577,7 +1577,7 @@ Spell/&DHCastSpellGuardianNagaTitle	Zauberfähigkeit des Erzmagiers
 Spell/&DHCastSpellLichDescription	Lich-Casting-Fähigkeit.
 Spell/&DHCastSpellLichTitle	Lich-Casting-Fähigkeit
 Spell/&DHConjureCelestialSpellDescription	Du beschwörst einen Himmlischen der Herausforderungsstufe 4 oder niedriger, der in einem unbesetzten Feld erscheint, das du in Reichweite sehen kannst. Der Himmel verschwindet, wenn er auf 0 Trefferpunkte fällt oder wenn der Zauber endet. Der Himmlische ist für die Dauer freundlich zu dir und deinen Gefährten.
-Spell/&DHConjureCelestialSpellTitle	Celestial beschwören (Couatl)
+Spell/&DHConjureCelestialSpellTitle	Himmlische beschwören (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Du versuchst, eine Kreatur zu betören, die du in Reichweite sehen kannst. Ihr muss ein Weisheitsrettungswurf gelingen oder für die Dauer von dir bezaubert sein.
 Spell/&DHDominateMonsterSpellTitle	Beherrsche Monster
 Spell/&DHFeeblemindSpellDescription	Sie sprengen den Geist einer Kreatur, die Sie in Reichweite sehen können, und versuchen, ihren Intellekt und ihre Persönlichkeit zu zerstören. Das Ziel erleidet 4W6 psychischen Schaden und muss einen Intelligenzrettungswurf ablegen. Bei einem misslungenen Rettungswurf werden die Intelligenz- und Charismawerte der Kreatur zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf verständliche Weise kommunizieren.
@@ -1608,7 +1608,7 @@ Spell/&DHReverseGravitySpellDescription	Dieser Zauber kehrt die Schwerkraft in e
 Spell/&DHReverseGravitySpellTitle	Umgekehrte Schwerkraft
 Spell/&DHShapechangeSpellDescription	Du nimmst für die Dauer die Form einer anderen Kreatur an. Die neue Form kann jede Kreatur sein, deren Herausforderungswert deiner Stufe entspricht oder niedriger ist.
 Spell/&DHShapechangeSpellTitle	Formänderung
-Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß-Radius um einen von Ihnen gewählten Punkt in Reichweite auf. Jede Kreatur in diesem Licht muss einen Konstitutionsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 12W6 Strahlungsschaden und wird 1 Minute lang geblendet. Bei einem erfolgreichen Rettungswurf erleidet es halb so viel Schaden und wird von diesem Zauber nicht geblendet. Untote und Schlicke sind bei diesem Rettungswurf im Nachteil. Eine von diesem Zauber geblendete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Rettungswurf ist es nicht mehr geblendet. Dieser Zauber vertreibt jegliche Dunkelheit in seinem Bereich, die durch einen Zauber erzeugt wurde.
+Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß-Radius um einen von Ihnen gewählten Punkt in Reichweite auf. Jede Kreatur in diesem Licht muss einen Konstitutionsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 12W6 Strahlungsschaden und wird 1 Minute lang geblendet. Bei einem erfolgreichen Rettungswurf erleidet es halb so viel Schaden und wird von diesem Zauber nicht geblendet. Untote und Schlicke sind bei diesem Rettungswurf benachteiligt. Eine von diesem Zauber geblendete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Rettungswurf ist es nicht mehr geblendet. Dieser Zauber vertreibt jegliche Dunkelheit in seinem Bereich, die durch einen Zauber erzeugt wurde.
 Spell/&DHSunBurstSpellTitle	Sonnendurchbruch
 Spell/&DHTimeStopSpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
 Spell/&DHTimeStopSpellTitle	Zeitstopp
@@ -1653,7 +1653,7 @@ Spell/&PetalStormDescription	Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, 
 Spell/&PetalStormTitle	Blütensturm
 Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf machen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
 Spell/&ProtectThresholdTitle	Schwellenwert schützen
-Spell/&RadiantMotesDescription	Entfesselt einen Schwarm strahlender Projektile, die geringen Schaden verursachen, aber nie verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.
+Spell/&RadiantMotesDescription	Entfesselt einen Schwarm strahlender Projektile, die geringen Schaden verursachen, aber niemals verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.
 Spell/&RadiantMotesTitle	Strahlende Partikel
 Spell/&ThunderStrikeDescription	Erzeuge einen Donnerstoß, der allen um dich herum Schaden zufügt.
 Spell/&ThunderStrikeTitle	Schallausbruch
@@ -1753,7 +1753,7 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst über
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelheit
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
-Subclass/&BarbarianPathOfTheLightTitle	Weg des Lichts
+Subclass/&BarbarianPathOfTheLightTitle	Pfad des Lichts
 Subclass/&BloodWitchDescription	Blutmagie, die von den meisten Hexenzirkeln verboten ist, konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Flüchen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
 Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}\n\n .
 Subclass/&BloodWitchMagicTitle	Die Blutmagie
@@ -1790,6 +1790,24 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Kreis der Waldwächter-Dru
 Subclass/&DruidForestGuardianDruidSubclassTitle	Kreis der Waldwächter
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Berühren Sie eine Tasche und schaffen Sie zusätzlichen Raum, damit sie mehr Gewicht tragen kann, ohne Sie zu belasten. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Tasche des Haltens
+Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochstratoren des Schlachtfelds.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Wenn Sie einen Feind mit einem Nahkampfangriff treffen, können alle Ihre Gruppenmitglieder ihre Reaktion nutzen, um einen Gelegenheitsangriff gegen Ihr Ziel auszuführen.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Koordinierter Angriff
+Subclass/&FighterMarshalEncouragementPowerDescription	Einmal täglich eine Stunde damit verbringen, sich gegenseitig Mut zu machen und sich auf den nächsten Abenteuertag vorzubereiten, wird die Moral der Gruppe deutlich verbessert. Jeder ermutigte Charakter addiert 1W4 zu seinem Angriffs- und Rettungswurf. Die Wirkung hält bis zur langen Ruhe an.
+Subclass/&FighterMarshalEncouragementPowerTitle	Ermutigung
+Subclass/&MarshalEternalComradeDescription	Gefallener Kamerad
+Subclass/&MarshalEternalComradeTitle	Gefallener Kamerad
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Das Band zwischen dem Marschall und seinem Kameraden überschreitet die Grenze zwischen Leben und Tod. Als Bonusaktion kann der Marschall 2 Geister seiner gefallenen Kameraden beschwören, die ihm im Kampf helfen.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Ewiger Kamerad
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Du bist immun gegen Furchteffekte.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Furchtloser Kommandant
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Du addierst deinen Wissensstand über das aktuelle Ziel zu deinem Angriffswurf und deinem Schaden.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Kenne deinen Feind
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Als Bonusaktion kannst du versuchen, dein Wissen über dein Ziel zu erweitern, indem du einen Überlebenswurf machst. Sie können dies zweimal pro kurzer Pause tun.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 2 Geister des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + 2 x Fighter Class Level Hitpoints und seine AC beträgt 16 + Ihr PB. Darüber hinaus sind die Geister immun gegen Posion, Kälte, Nekrotik, Anfällig, Paralysieren, Zurückgehalten und resistent gegen Feuer, Säure, Blitz und Donner. Sie haben auch Resistenz gegen nicht-magischen Slashin-, Bludeoging- und Piercing-Schaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß weit fliegen und einen einzigen (2W6 + 5) magischen Hiebangriff mit einem Bonusangriff von 5 + PB ausführen.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
+Subclass/&FighterMarshalTitle	Marschall
 Subclass/&FighterSpellShieldDescription	Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
 Subclass/&FighterSpellShieldSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen der Abschwörung, Illusion, Transmutation und Nekromantie.
 Subclass/&FighterSpellShieldSpellcastingTitle	Zaubern
@@ -1875,7 +1893,7 @@ Subclass/&PowerSpellShieldRangedDeflectionDescription	Wenn ein Angreifer, den du
 Subclass/&PowerSpellShieldRangedDeflectionTitle	Fernablenkung
 Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Ihre Rüstung ist von magischen Verbesserungen Ihrer Fähigkeit durchdrungen, schlechte Auswirkungen zu vermeiden. Du erhältst 3W4 für jeden Rettungswurf, den du machst.
 Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Seele des Tüftlers
-Subclass/&PowerTinkererSpellStoringItemDescription	Als Bonusaktion kannst du Zauberslots zurückgewinnen. Sie können dies mehrmals am Tag in Höhe Ihres Intellifence-Modifikators tun.
+Subclass/&PowerTinkererSpellStoringItemDescription	Als Bonusaktion kannst du Zauberslots zurückgewinnen. Sie können dies so oft pro Tag tun, wie es Ihrem Intellifence-Modifikator entspricht.
 Subclass/&PowerTinkererSpellStoringItemTitle	Zauberspeichergegenstand
 Subclass/&PowerTransmuteConstitutionDescription	Benutze deine Transmutationskraft, um Konstitutionswürfe bis zur nächsten langen Pause zu beherrschen.
 Subclass/&PowerTransmuteConstitutionTitle	Verfassung speichert
@@ -1980,37 +1998,19 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn diese Umschaltung aktiviert ist, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
-Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochstratoren des Schlachtfelds.
-Subclass/&FighterMarshalCoordinatedAttackDescription	Wenn Sie einen Feind mit einem Nahkampfangriff treffen, können alle Ihre Gruppenmitglieder ihre Reaktion nutzen, um einen Gelegenheitsangriff gegen Ihr Ziel auszuführen.
-Subclass/&FighterMarshalCoordinatedAttackTitle	Koordinierter Angriff
-Subclass/&FighterMarshalEncouragementPowerDescription	Einmal täglich eine Stunde damit verbringen, sich gegenseitig Mut zu machen und sich auf den nächsten Abenteuertag vorzubereiten, wird die Moral der Gruppe deutlich verbessert. Jeder ermutigte Charakter addiert 1W4 zu seinem Angriffs- und Rettungswurf. Die Wirkung hält bis zur langen Ruhe an.
-Subclass/&FighterMarshalEncouragementPowerTitle	Ermutigung
-Subclass/&MarshalEternalComradeDescription	Gefallener Kamerad
-Subclass/&MarshalEternalComradeTitle	Gefallener Kamerad
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Das Band zwischen dem Marschall und seinem Kameraden überschreitet die Grenze zwischen Leben und Tod. Als Bonusaktion kann der Marschall 2 Geister seiner gefallenen Kameraden beschwören, die ihm im Kampf helfen.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Ewiger Kamerad
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Du bist immun gegen Furchteffekte.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Furchtloser Kommandant
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Du addierst deinen Wissensstand über das aktuelle Ziel zu deinem Angriffswurf und deinem Schaden.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Kenne deinen Feind
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Als Bonusaktion kannst du versuchen, dein Wissen über dein Ziel zu erweitern, indem du einen Überlebenswurf machst. Sie können dies zweimal pro kurzer Pause tun.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 2 Geister des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + 2 x Fighter Class Level Hitpoints und seine AC beträgt 16 + Ihr PB. Darüber hinaus sind die Geister immun gegen Posion, Kälte, Nekrotik, Anfällig, Paralysieren, Zurückgehalten und resistent gegen Feuer, Säure, Blitz und Donner. Sie haben auch Resistenz gegen nicht-magischen Slashin-, Bludeoging- und Piercing-Schaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß weit fliegen und einen einzigen (2W6 + 5) magischen Hiebangriff mit einem Bonusangriff von 5 + PB ausführen.
-Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
-Subclass/&FighterMarshalTitle	Marschall
-Reaction/&SpendPower{0}Title	Spend {0}
-Reaction/&SpendPower{0}Description	Spend {0}
-Reaction/&Use{0}Title	Use {0}
-Reaction/&Use{0}Description	Use {0}
-Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
-Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
-Reaction/&ReadiedAction{0}Title	Readied {0}
-Reaction/&ReadiedAction{0}Description	Readied {0}
-Spell/&MirrorImageTitle	Mirror Image
-Spell/&MirrorImageDescription	Mirror Image
+Reaction/&SpendPower{0}Title	{0} ausgeben
+Reaction/&SpendPower{0}Description	{0} ausgeben
+Reaction/&Use{0}Title	Verwenden Sie {0}
+Reaction/&Use{0}Description	Verwenden Sie {0}
+Reaction/&SpendSpellSlot{0}Title	Zauber {0} ausgeben
+Reaction/&SpendSpellSlot{0}Description	Zauber {0} ausgeben
+Reaction/&ReadiedAction{0}Title	Bereit {0}
+Reaction/&ReadiedAction{0}Description	Bereit {0}
+Spell/&MirrorImageTitle	Spiegelbild
+Spell/&MirrorImageDescription	Spiegelbild
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feat/&SharpShooterFeatTitle	Sharpshooter
-Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feature/&SharpShooterTitle	Sharpshooter
-Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
+Feat/&SharpShooterFeatDescription	Sie beherrschen Fernkampfwaffen und können Schüsse abgeben, die andere unmöglich finden. Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -Proficiency Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +2x Skill Bonus-Schaden zu verursachen.
+Feat/&SharpShooterFeatTitle	Scharfschütze
+Feature/&SharpShooterDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -Proficiency Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +2x Skill Bonus-Schaden zu verursachen.
+Feature/&SharpShooterTitle	Scharfschütze
+Tooltip/&SharpShooterConcentration	Scharfschütze deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an

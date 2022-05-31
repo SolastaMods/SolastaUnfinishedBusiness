@@ -54,7 +54,7 @@ Class/&WitchMaledictionRuinTitle	Arruinar Maldição
 Class/&WitchRitualCastingMagicAffinityDescription	Afinidade de Conjuração de Rituais.
 Class/&WitchRitualCastingMagicAffinityTitle	Fundição Ritual
 Class/&WitchSavingthrowProficiencyDescription	Sabedoria, Carisma.
-Class/&WitchSavingthrowProficiencyTitle	Proficiências em Testes de Resistência da Bruxa
+Class/&WitchSavingthrowProficiencyTitle	Proficiências no Teste de Resistência da Bruxa
 Class/&WitchSkillProficiencyDescription	Escolha dois de Arcana, Deception, Insight, Intimidation, Persuasion, Nature e Religion.
 Class/&WitchSkillProficiencyTitle	Habilidades de bruxa
 Class/&WitchSpellcastingDescription	Pode lançar feitiços da lista de feitiços da Bruxa.
@@ -65,7 +65,7 @@ Class/&WitchToolProficiencyTitle	Proficiências em Ferramentas de Bruxa
 Class/&WitchVisionsInitiativeDescription	Iniciativa Visões.
 Class/&WitchVisionsInitiativeTitle	Iniciativa Visões
 Class/&WitchWeaponProficiencyDescription	Armas Simples.
-Class/&WitchWeaponProficiencyTitle	Proficiências com Armas de Bruxa
+Class/&WitchWeaponProficiencyTitle	Proficiência com Armas de Bruxa
 Condition/&AbateDescription	Condição de abater.
 Condition/&AbateTitle	Abater
 Condition/&AncientForestPhotosynthesisDescription	Você pode absorver energia da luz solar. Enquanto você estiver sob luz direta, você ganha 2 HP por rodada.
@@ -302,7 +302,7 @@ Equipment/&Enchanted_Rapier_Warden_Description	Esta arma encantada foi forjada u
 Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
 Equipment/&Enchanted_Rapier_Whiteburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Whiteburn foi criado pelo primeiro Danantar para lutar contra uma invasão troll vinda dos pântanos ao sul de seu domínio entre os Sioltafin e os Scarafin.
 Equipment/&Enchanted_Rapier_Whiteburn_Title	Rapier Whiteburn
-Equipment/&Enchanted_Scimitar_Dragonblade_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Lestoreth Steelarm para lutar no norte congelado do Império.
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Ele foi projetado por Lestoreth Steelarm para lutar no norte congelado do Império.
 Equipment/&Enchanted_Scimitar_Dragonblade_Title	Cimitarra Lâmina do Dragão
 Equipment/&Enchanted_Scimitar_Frostburn_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Foi projetado por Keliandir Moltenheart, que forjou esta arma para combater salamandras depois que uma exploração dos planos elementais deu errado.
 Equipment/&Enchanted_Scimitar_Frostburn_Title	Cimitarra Queimadura de Gelo
@@ -405,7 +405,7 @@ Feat/&AddConstructCantripsDescription	Adiciona truques para curar e dispensar su
 Feat/&AddConstructCantripsTitle	Construir Truques
 Feat/&AddProtectorConstructCantripDescription	Adiciona os truques Mending Construct e Dismiss Construct para aumentar a flexibilidade de suas construções.
 Feat/&AddProtectorConstructCantripTitle	Truques de construção de bônus
-Feat/&AlchemistSubclassElixirsDescription	Aprenda a fazer elixires experimentais: Cura, Rapidez, Resiliência, Ousadia, Vôo.
+Feat/&AlchemistSubclassElixirsDescription	Aprenda a fazer elixires experimentais: Cura, Rapidez, Resiliência, Ousadia, Voo.
 Feat/&AlchemistSubclassElixirsTitle	Elixires Experimentais
 Feat/&AlchemistSubclassSpellsDescription	{0}.
 Feat/&AlchemistSubclassSpellsTitle	Aprenda feitiços para fazer poções
@@ -479,7 +479,7 @@ Feat/&ChefConDescription	Você ganha +1 em Constituição. Gaste 1 hora para coz
 Feat/&ChefConTitle	Cozinheiro (Constituição)
 Feat/&ChefShortRestFeastDescription	Gaste 1 hora para preparar uma refeição que ajude a curar você e seus companheiros 1d8.
 Feat/&ChefShortRestFeastTitle	Refeição de Descanso Curto
-Feat/&ChefWisDescription	Você ganha +1 em Sabedoria. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros. Uma vez por dia, você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando ingeridas.
+Feat/&ChefWisDescription	Você ganha +1 em Sabedoria. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros. Uma vez por dia você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando comidas.
 Feat/&ChefWisTitle	Chef (Sabedoria)
 Feat/&ConstructSelectingPoolDescription	Selecione o modo para o seu Construct.
 Feat/&ConstructSelectingPoolTitle	Modo Artilharia
@@ -541,7 +541,7 @@ Feat/&FeatMediumArmorDexDescription	Ganhe proficiência com Armaduras e Escudos 
 Feat/&FeatMediumArmorDexTitle	Armadura Média (Destreza)
 Feat/&FeatMediumArmorProficiencyDescription	Ganhe proficiência com Armaduras e Escudos Médios.
 Feat/&FeatMediumArmorProficiencyTitle	Armadura Média
-Feat/&FeatMediumArmorStrengthDescription	Ganhe proficiência com Armaduras e Escudos Médios e +1 de Força.
+Feat/&FeatMediumArmorStrengthDescription	Ganhe proficiência com armadura e escudos médios e +1 de força.
 Feat/&FeatMediumArmorStrengthTitle	Armadura Média (Força)
 Feat/&FeatMetamagicAdeptCarefulDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Cuidadosa e ganha 2 pontos de feitiçaria.
 Feat/&FeatMetamagicAdeptCarefulTitle	Metamágica: Cuidado
@@ -561,7 +561,7 @@ Feat/&FeatPrimalConstitutionDescription	Aumente sua Constituição em 1, até um
 Feat/&FeatPrimalConstitutionTitle	Fúria Primal (Constituição)
 Feat/&FeatPrimalStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Uma vez que você se enfureça dessa maneira, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
 Feat/&FeatPrimalStrengthTitle	Fúria Primal (Força)
-Feat/&FeatPugilistFightingStlyeDescription	Seus ataques desarmados causam um d4 adicional de dano e você pode socar com sua mão secundária como uma ação bônus.\nSe você tiver uma mão livre, pode empurrar como uma ação bônus.
+Feat/&FeatPugilistFightingStlyeDescription	Seus golpes desarmados causam um d4 adicional de dano e você pode socar com sua mão secundária como uma ação bônus.\nSe você tiver mão livre, você pode empurrar como uma ação bônus.
 Feat/&FeatPugilistFightingStlyeTitle	Estilo de luta: Pugilista
 Feat/&FeatSavageAttackerDescription	Rerrole os dados de dano de arma e feitiço quando rolam 1 (não rola novamente todas as fontes de dano, por exemplo, exclui Ataque Furtivo e Golpear).
 Feat/&FeatSavageAttackerReroll	Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
@@ -737,10 +737,10 @@ Feat/&SubclassProficienciesTitle	Proficiências de Subclasse
 Feat/&SummonArtificialServantDescription	O servo é amigável com você e seus companheiros e obedece às suas ordens.
 Feat/&SummonArtificialServantTitle	Invocar Servo Artificial
 Feat/&SummonArtilleryConstructDescription	O Blaster cria e comanda um Artillery Construct em um dos vários modos. O HP do constructo aumenta com os níveis de invocador e pode ser invocado gratuitamente por 1 hora uma vez por dia. O constructo pode ser invocado através de uma magia de 1º nível. Os três modos são:\n<color=#add8e6ff>Proteção da construção do domo:</color>\nConcede 1D8 + 4 HP temporário para aliados dentro de 10 pés\n<color=#add8e6ff>Construção de Artilharia Flamejante:</color>\nCria um cone de fogo que causa 2D8 de dano se falhar no teste de Dex\n<color=#add8e6ff>Construção de Artilharia da Força:</color>\nCausa 2D8 de dano de força e empurra o inimigo 5 pés para longe.
-Feat/&SummonArtilleryConstructlevel09Description	Uma nova função foi adicionada. O Artillery Construct pode se destruir causando 3D8 de dano de força se falhar na resistência.\nAlém disso, as jogadas de dano da Artilharia de Fogo e da Força aumentam em 1D8 para um total de 3D8.
+Feat/&SummonArtilleryConstructlevel09Description	Uma nova função foi adicionada. O Artillery Construct pode se destruir causando 3D8 de dano de força em uma falha na resistência.\nAlém disso, as jogadas de dano da Artilharia de Fogo e da Força aumentam em 1D8 para um total de 3D8.
 Feat/&SummonArtilleryConstructlevel09Title	Atualização de construção de artilharia: autodestruição
 Feat/&SummonArtilleryConstructlevel15Description	Uma nova função foi adicionada. O Artillery Construct agora oferece meia cobertura para aliados em até 10 pés\n<size=17><color=#add8e6ff>Atualização de construção de artilharia: reforços</color></size>\nAgora você pode convocar dois Constructos de Artilharia. As construções podem ser do mesmo modo ou de modos diferentes.
-Feat/&SummonArtilleryConstructlevel15Title	Atualização de construção de artilharia: Meia Cobertura Dome
+Feat/&SummonArtilleryConstructlevel15Title	Atualização de construção de artilharia: Meia Cúpula de Cobertura
 Feat/&SummonArtilleryConstructTitle	Evocar Construto de Artilharia
 Feat/&SummonProtectorConstructDescription	Seu próprio Battle Buddy está pronto para defendê-lo e atacar os inimigos. O Protector Construct pode se auto-reparar 3 vezes ao dia e pode impor desvantagem em ataques a aliados.
 Feat/&SummonProtectorConstructDescription_2	Invocar Melhoria de Construto Protetor.
@@ -1006,7 +1006,7 @@ Feature/&FlameArtilleryModePowerDescription	Evoca uma construção que dura 1 ho
 Feature/&FlameArtilleryModePowerTitle	Evocar Construto de Artilharia Flamejante
 Feature/&ForceArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia da Força: Causa 3D8 de dano de força e empurra o inimigo a 1,5 metro de distância.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.
 Feature/&ForceArtillery_09ModePowerTitle	Evocar Construto de Artilharia da Força
-Feature/&ForceArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia da Força: Causa 3D8 de dano de força e empurra o inimigo a 1,5 metro de distância.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&ForceArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia da Força: Causa 3D8 de dano de força e empurra o inimigo 5 pés de distância.\nAutodestruição: causa 3D8 de dano de força em uma falha na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
 Feature/&ForceArtillery_15ModePowerTitle	Evocar Construto de Artilharia da Força
 Feature/&ForceArtilleryAdditionalDamageTitle	Dano atualizado
 Feature/&ForceArtilleryModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia de Força: Causa 2D8 de dano de força e empurra o alvo a 1,5m de distância.
@@ -1082,7 +1082,7 @@ Feature/&ProficiencyBolgrifLanguagesDescription	Comum, Élfico e Gigante.
 Feature/&ProficiencyBolgrifLanguagesTitle	Linguagem
 Feature/&ProficiencyGnomishLanguagesDescription	Comum, Gnômico.
 Feature/&ProficiencyGnomishLanguagesTitle	línguas
-Feature/&ProficiencyRogueBlindSenseDescription	A partir do 14º nível, se você for capaz de ouvir, estará ciente da localização de qualquer criatura oculta ou invisível a até 3 metros de você.
+Feature/&ProficiencyRogueBlindSenseDescription	A partir do 14º nível, se você for capaz de ouvir, você está ciente da localização de qualquer criatura oculta ou invisível a até 3 metros de você.
 Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
 Feature/&ProficiencyRogueSlipperyMindDescription	No 15º nível, você adquiriu maior força mental. Você ganha proficiência em testes de resistência de Sabedoria.
 Feature/&ProficiencyRogueSlipperyMindTitle	Mente Escorregadia
@@ -1134,7 +1134,7 @@ Feature/&TinkererInfusionReplaceDescription	Selecione as infusões a serem subst
 Feature/&TinkererInfusionReplaceTitle	Substituir a infusão
 Feature/&TinkererSkillGainChoicesPluralDescription	As habilidades do Tinkerer são Arcana, História, Investigação, Medicina, Natureza, Percepção e Prestidigitação.
 Feature/&TinkererSkillPointsTitle	Habilidades de funileiro
-Feature/&TinkererToolsExpertiseDescription	Adquira experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento.
+Feature/&TinkererToolsExpertiseDescription	Ganhe experiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminhos, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento.
 Feature/&TinkererToolsExpertiseTitle	Expertise em ferramentas Tinkerer
 Feature/&TinkererToolsProficiencyDescription	Ganhe proficiência com muitas ferramentas, incluindo Ferramentas do Ladrão, Kits de Pergaminho, Kit do Envenenador, Kit de Herbalismo e Ferramentas de Encantamento.
 Feature/&TinkererToolsProficiencyTitle	Proficiências em Ferramentas
@@ -1306,7 +1306,7 @@ Monster/&PactOfChainCustomPseudodragonDescription	O indescritível pseudodragão
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragão
 Monster/&PactOfChainCustomQuasitDescription	Quasits infestam os Planos Inferiores. Fisicamente fracos, eles ficam nas sombras para tramar travessuras e maldades. Demônios mais poderosos usam quasits como espiões e mensageiros quando não os estão devorando ou separando-os para passar o tempo.
 Monster/&PactOfChainCustomQuasitTitle	Quasit (Pacto da Cadeia)
-Monster/&PactOfChainCustomSpriteDescription	Ao contrário dos duendes, os sprites raramente se entregam a alegria e diversão frívolas. Eles são guerreiros, protetores e juízes firmes, e sua inclinação severa faz com que outros feéricos os considerem excessivamente severos e sérios. No entanto, fadas que respeitam o território dos sprites os encontram aliados firmes em tempos de problemas.
+Monster/&PactOfChainCustomSpriteDescription	Ao contrário dos duendes, os sprites raramente se entregam a alegria e diversão frívolas. Eles são guerreiros firmes, protetores e juízes, e sua inclinação severa faz com que outros feéricos os considerem excessivamente severos e sérios. No entanto, fadas que respeitam o território dos sprites os encontram aliados firmes em tempos de dificuldade.
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pacto da Corrente)
 Monster/&WitchOwlFamiliarDescription	Coruja Familiar.
 Monster/&WitchOwlFamiliarTitle	Coruja
@@ -1364,7 +1364,7 @@ Power/&ClassMonkZenArrowPushTitle	Afastar
 Power/&ClassMonkZenArrowTechniqueDescription	Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n - Ele deve ser bem sucedido no teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n - Ele deve ter sucesso em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
 Power/&ClassMonkZenArrowTechniqueShortTitle	Mão Distante
 Power/&ClassMonkZenArrowTechniqueTitle	Técnica da mão distante
-Power/&ClassMonkZenArrowUpgradedDistractDescription	O alvo deve ser bem sucedido no teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
+Power/&ClassMonkZenArrowUpgradedDistractDescription	O alvo deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
 Power/&ClassMonkZenArrowUpgradedDistractTitle	Distrair
 Power/&ClassMonkZenArrowUpgradedProneDescription	O alvo deve ser bem sucedido no teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.
 Power/&ClassMonkZenArrowUpgradedProneTitle	Derrubar
@@ -1396,7 +1396,7 @@ Power/&PactofChainFamiliarScarePowerDescription	Uma criatura de sua escolha a at
 Power/&PactofChainFamiliarScarePowerTitle	Susto
 Power/&PowerFunctionHandwrapsOfPullingDescription	Como uma ação bônus, você pode puxar uma criatura a até 4,5 metros para mais perto de você.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Enrolar
-Power/&ToadKingCroakDescription	Emite uma onda de som que causa dano e empurra criaturas e objetos para longe.
+Power/&ToadKingCroakDescription	Emite uma onda de som que causa dano e afasta criaturas e objetos.
 Power/&ToadKingCroakTitle	Coaxar
 Power/&ToadKingGraspingTongueDescription	Puxe os inimigos para si mesmo.
 Power/&ToadKingGraspingTongueTitle	Língua de agarrar
@@ -1582,13 +1582,13 @@ Spell/&DHDominateMonsterSpellDescription	Você tenta seduzir uma criatura que vo
 Spell/&DHDominateMonsterSpellTitle	Dominar Monstro
 Spell/&DHFeeblemindSpellDescription	Você explode a mente de uma criatura que você pode ver dentro do alcance, tentando destruir seu intelecto e personalidade. O alvo sofre 4d6 de dano psíquico e deve fazer um teste de resistência de Inteligência. Se falhar, os valores de Inteligência e Carisma da criatura se tornam 1. A criatura não pode lançar feitiços, ativar itens mágicos, entender linguagem ou se comunicar de qualquer maneira inteligível.
 Spell/&DHFeeblemindSpellTitle	Mente fraca
-Spell/&DHFingerOfDeathSpellDescription	O alvo deve fazer um teste de resistência de Constituição. Ele sofre 7d8 + 30 de dano necrótico se falhar na resistência, ou metade desse dano se obtiver sucesso.
+Spell/&DHFingerOfDeathSpellDescription	O alvo deve fazer um teste de resistência de Constituição. Ele recebe 7d8 + 30 de dano necrótico se falhar na resistência, ou metade desse dano se obtiver sucesso.
 Spell/&DHFingerOfDeathSpellTitle	Dedo da Morte (Sem Zumbi)
 Spell/&DHForesightSpellDescription	Você toca uma criatura voluntária e concede uma habilidade limitada de ver o futuro imediato. Pela duração, o alvo não pode ser surpreendido e tem vantagem em jogadas de ataque, testes de habilidade e testes de resistência. Além disso, outras criaturas têm desvantagem nas jogadas de ataque contra o alvo pela duração.
 Spell/&DHForesightSpellTitle	Previsão
 Spell/&DHHolyAuraSpellDescription	A luz divina desaparece de você e se aglutina em um brilho suave em um raio de 9 metros ao seu redor. Criaturas de sua escolha nesse raio quando você conjurar esta magia emitem penumbra em um raio de 1,5 metro e têm vantagem em todos os testes de resistência, e outras criaturas têm desvantagem nas jogadas de ataque contra elas até que a magia termine.
 Spell/&DHHolyAuraSpellTitle	Aura Sagrada
-Spell/&DHIncendiaryCloudSpellDescription	Uma nuvem rodopiante de fumaça atravessada por brasas incandescentes aparece em uma esfera de 6 metros de raio centrada em um ponto dentro do alcance. A nuvem se espalha pelos cantos e é fortemente obscurecida. Ela dura pela duração ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) a disperse. Quando a nuvem aparece, cada criatura nela deve fazer um teste de resistência de Destreza. Uma criatura sofre 10d8 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura também deve fazer este teste de resistência quando entrar na área da magia pela primeira vez em um turno ou terminar seu turno lá. A nuvem se move 3 metros diretamente para longe de você em uma direção que você escolher no início de cada um de seus turnos. .
+Spell/&DHIncendiaryCloudSpellDescription	Uma nuvem rodopiante de fumaça atravessada por brasas incandescentes aparece em uma esfera de 6 metros de raio centrada em um ponto dentro do alcance. A nuvem se espalha pelos cantos e é fortemente obscurecida. Ela dura pela duração ou até que um vento de velocidade moderada ou maior (pelo menos 10 milhas por hora) a disperse. Quando a nuvem aparece, cada criatura nela deve fazer um teste de resistência de Destreza. Uma criatura sofre 10d8 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso. Uma criatura também deve fazer este teste de resistência quando entrar na área da magia pela primeira vez em um turno ou terminar seu turno lá. A nuvem se move 3 metros diretamente para longe de você em uma direção que você escolher no início de cada um de seus turnos .
 Spell/&DHIncendiaryCloudSpellTitle	Nuvem Incendiária
 Spell/&DHMassHealSpellDescription	Uma enxurrada de energia curativa flui de você para as criaturas feridas ao seu redor. Você restaura até 700 pontos de vida, divididos conforme sua escolha entre qualquer número de criaturas que você possa ver dentro do alcance. Criaturas curadas por este feitiço também são curadas de todas as doenças e qualquer efeito que as deixe cegas ou surdas. Esta magia não tem efeito em mortos-vivos ou constructos.
 Spell/&DHMassHealSpellTitle	Cura em massa
@@ -1616,7 +1616,7 @@ Spell/&DHWeirdSpellDescription	Com base nos medos mais profundos de um grupo de 
 Spell/&DHWeirdSpellTitle	Esquisito
 Spell/&EarthTremorDescription	Você atinge o chão e desencadeia um tremor de força sísmica, arremessando terra, rocha e areia.
 Spell/&EarthTremorTitle	Tremor de terra
-Spell/&EldritchBlastDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\nO feitiço cria mais de um feixe quando você alcança níveis mais altos: dois feixes no 5º nível, três feixes no 11º nível e quatro feixes no 17º nível. Você pode direcionar os feixes para o mesmo alvo ou para alvos diferentes. Faça uma jogada de ataque separada para cada raio.
+Spell/&EldritchBlastDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\nO feitiço cria mais de um feixe quando você atinge níveis mais altos: dois feixes no 5º nível, três feixes no 11º nível e quatro feixes no 17º nível. Você pode direcionar os feixes para o mesmo alvo ou para alvos diferentes. Faça uma jogada de ataque separada para cada raio.
 Spell/&EldritchBlastGraspingHandDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\n(quando você atinge uma criatura com sua rajada mística, você pode mover aquela criatura em linha reta 3 metros para mais perto de você.).
 Spell/&EldritchBlastGraspingHandTitle	Explosão Eldritch (Agarrando)
 Spell/&EldritchBlastRepellingBlastDescription	Um raio de energia crepitante atinge uma criatura dentro do alcance. Faça um ataque mágico à distância contra o alvo. Em um acerto, o alvo sofre 1d10 de dano de força.\n(Quando você atinge uma criatura com rajada mística, você pode empurrar a criatura até 3 metros de distância de você em linha reta.).
@@ -1714,13 +1714,13 @@ Subclass/&AttackModifierArtificerBlindingWeaponDescription	Toque uma arma que ga
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arma de Cegueira
 Subclass/&AttackModifierArtificerEnhancedArmorDescription	Toque em Armadura e ela se torna mágica e fornece +1 AC. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armadura Aprimorada
-Subclass/&AttackModifierArtificerEnhancedFocusDescription	Toque em um Focus e ele se torna mágico e ganha +1 para atacar e feitiço dc. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedFocusDescription	Toque em um Focus e ele se torna mágico e ganha +1 para atacar e feitiço dc. Observe que você só pode ter uma infusão ativa uma vez. Ativar uma segunda vez cancelará a primeira.
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Foco Aprimorado
 Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Toque em uma arma e ela se torna mágica e ganha +1 nas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Arma Aprimorada
 Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Toque em Armadura e ela se torna mágica e fornece +2 AC. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Armadura Aprimorada Aprimorada
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Toque em um Focus e ele se torna mágico e ganha +2 para atacar e feitiço dc. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Toque em um Focus e ele se torna mágico e ganha +2 para atacar e feitiço dc. Observe que você só pode ter uma infusão ativa uma vez. Ativar uma segunda vez cancelará a primeira.
 Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Foco Aprimorado Aprimorado
 Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Toque em uma arma e ela se torna mágica e ganha +2 nas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Arma Aprimorada Aprimorada
@@ -1790,6 +1790,24 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Círculo do Guardião da F
 Subclass/&DruidForestGuardianDruidSubclassTitle	Círculo do Guardião da Floresta
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toque em uma bolsa e infunda um espaço dimensional extra para ajudá-la a suportar mais peso sem sobrecarregar você. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Saco de Segurar
+Subclass/&FighterMarshalDescription	Habilidosos em estudar as fraquezas dos inimigos e coordenar os ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos ochestratores do campo de batalha.
+Subclass/&FighterMarshalCoordinatedAttackDescription	Quando você atinge um inimigo com um ataque corpo a corpo, todos os membros do seu grupo podem usar sua reação para fazer um ataque de oportunidade contra seu alvo.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordenado
+Subclass/&FighterMarshalEncouragementPowerDescription	Uma vez por dia, gastando uma hora para encorajar uns aos outros e se preparar para o próximo dia de aventura, o moral do grupo melhora significativamente. Cada personagem encorajado adiciona 1d4 ao seu ataque e teste de resistência. O efeito dura até descanso longo.
+Subclass/&FighterMarshalEncouragementPowerTitle	Encorajamento
+Subclass/&MarshalEternalComradeDescription	Camarada caído
+Subclass/&MarshalEternalComradeTitle	Camarada caído
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	O vínculo entre o marechal e seu companheiro cruza a fronteira entre a vida e a morte. Como uma ação bônus, o marechal pode convocar 2 espíritos de seus companheiros caídos para ajudá-lo no combate.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eterno Camarada
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Você é imune ao efeito do medo.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Comandante Destemido
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Você adiciona seu nível de conhecimento do alvo atual à sua jogada de ataque e ao seu dano.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conheça seu inimigo
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como uma ação bônus, você pode tentar aumentar seu conhecimento sobre seu alvo rolando um teste de sobrevivência. Você pode fazer isso duas vezes por descanso curto.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + 2 x pontos de vida de nível de classe de lutador e sua CA é 16 + seu PB. Além disso, os espíritos são imunes a Posion, Cold, Necrotic, Prone, Paralyze, Restricted e são resistentes a Fire, Acid, Lighting, Thunder. Eles também têm resistência contra danos não-mágicos Slashin, Bludeoging, Piercing. Por sua vez, eles podem voar até 50' e fazer um único (2d6 + 5) ataque mágico de ataque com bônus de ataque igual a 5 + PB.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
+Subclass/&FighterMarshalTitle	Marechal
 Subclass/&FighterSpellShieldDescription	Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
 Subclass/&FighterSpellShieldSpellcastingDescription	Lance feitiços e truques de mago das escolas Abjuração, Ilusão, Transmutação e Necromancia.
 Subclass/&FighterSpellShieldSpellcastingTitle	Feitiço
@@ -1820,7 +1838,7 @@ Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Você pode recuperar es
 Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Preparação Alquímica
 Subclass/&MagicAffinityFighterSpellShieldDescription	Vantagem em testes de concentração, bem como a capacidade de realizar componentes somáticos de feitiços enquanto segura itens.
 Subclass/&MagicAffinityFighterSpellShieldTitle	Conjuração de Combate
-Subclass/&MagicAffinityLifeTransmuterListDescription	Ao lançar alguns feitiços de Transmutação e Necromancia, eles são lançados em um slot de feitiço 2 níveis superior ao usado. Os feitiços aprimorados incluem: Vida Falsa, Cegueira, Voar, Doar Maldição, Toque Vampírico, Praga e Matar Nuvem. -- Nota A intenção é ter o benefício de Arma Mágica também, mas atualmente aumentar o nível de feitiço dessa forma em Arma Mágica não tem efeito.
+Subclass/&MagicAffinityLifeTransmuterListDescription	Ao lançar alguns feitiços de Transmutação e Necromancia, eles são lançados em um slot de feitiço 2 níveis acima do usado. Os feitiços aprimorados incluem: Vida Falsa, Cegueira, Voar, Doar Maldição, Toque Vampírico, Praga e Matar Nuvem. -- Nota A intenção é ter o benefício de Arma Mágica também, mas atualmente aumentar o nível de feitiço desta forma em Arma Mágica não tem efeito.
 Subclass/&MagicAffinityLifeTransmuterListTitle	Dobra da realidade
 Subclass/&MagicAffinityMasterManipulatorDC0Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 0.
 Subclass/&MagicAffinityMasterManipulatorDC1Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 1.
@@ -1851,7 +1869,7 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Escrever feitiços leva 1/
 Subclass/&MagicAffinitySpellMasterScribingTitle	Escriba Mestre
 Subclass/&ManipulatorMentalSavingThrowsDescription	Ganhe proficiência em testes de resistência com Constituição e Carisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Resistência Mental
-Subclass/&OpportunistDescription	Oportunistas são aqueles que nunca perdem a chance de terminar as lâminas de seus inimigos. Eles apunhalam rápido e apunhalam onde importa. Muitos não os enfrentaram podem escapar ilesos.
+Subclass/&OpportunistDescription	Oportunistas são aqueles que nunca perdem a chance de terminar suas lâminas inimigas. Eles apunhalam rápido e apunhalam onde importa. Muitos não os enfrentaram podem escapar ilesos.
 Subclass/&OpportunistTitle	Oportunista
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como Mágicos e você adiciona +7 às suas jogadas de ataque e dano. Observe que você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Arma de Infusão Aprimorada
@@ -1943,7 +1961,7 @@ Subclass/&WarlockMoonLitDescription	Seu patrono é um espírito da lua, uma enti
 Subclass/&WarlockMoonLitTitle	Pacto MoonLit
 Subclass/&WarlockToadKingDescription	Fey, demônio ou aberração causada pelo Cataclysm, a verdadeira natureza do Toad King não é conhecida, mas sabe-se que o Toad King governa uma grande área de pântanos e pântanos dentro das Badlands e oferece poder para aqueles dispostos a servir.
 Subclass/&WarlockToadKingTitle	Pacto Rei Sapo
-Subclass/&WarlockUrPriestDescription	Enquanto a grande maioria dos conjuradores divinos obtêm seus poderes de uma divindade, há aqueles que desprezam os deuses. Aqueles que se chamam Ur-sacerdotes aprenderam a sugar as energias divinas concedidas pelos deuses aos seus conjuradores divinos, usando-as para suas próprias necessidades sem dar nem mesmo palavrões a nenhum deus. Como um Ur-sacerdote, você difere da maioria dos feiticeiros, sem um patrono que lhe conceda seu poder. Invocações sobrenaturais que você descobre são formas distorcidas de magia que os deuses podem conceder a seus patronos, enquanto as Dádivas do Pacto são provavelmente artefatos divinos que você conseguiu roubar.
+Subclass/&WarlockUrPriestDescription	Enquanto a grande maioria dos conjuradores divinos obtêm seus poderes de uma divindade, há aqueles que desprezam os deuses. Aqueles que se chamam Ur-sacerdotes aprenderam a sugar as energias divinas concedidas pelos deuses aos seus feiticeiros divinos, usando-as para suas próprias necessidades sem dar nem mesmo palavrões a nenhum deus. Como um Ur-sacerdote, você difere da maioria dos feiticeiros, sem um patrono que lhe conceda seu poder. Invocações sobrenaturais que você descobre são formas distorcidas de magia que os deuses podem conceder a seus patronos, enquanto as Dádivas do Pacto são provavelmente artefatos divinos que você conseguiu roubar.
 Subclass/&WarlockUrPriestTitle	Pacto UrPriest
 Subclass/&WeaponProfArcaneFighterDescription	A experiência em combate deu ao Guerreiro Arcano treinamento em Armas Simples e Marciais.
 Subclass/&WeaponProfArcaneFighterTitle	Treinamento de Armas
@@ -1955,7 +1973,7 @@ Subclass/&WhiteWitchMagicTitle	Magia branca
 Subclass/&WhiteWitchTitle	bruxa branca
 Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se juntar a um Coven, um círculo inato de bruxas que se aprofundam em um caminho específico de bruxaria e maldições.
 Subclass/&WitchSubclassPathTitle	Covens de bruxas
-ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada
+ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada/primeira saída
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não sabe {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Tem ataque furtivo
@@ -1980,37 +1998,19 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se esta opção estiver LIGADA, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
-Subclass/&FighterMarshalDescription	Habilidosos em estudar as fraquezas dos inimigos e coordenar os ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos ochestratores do campo de batalha.
-Subclass/&FighterMarshalCoordinatedAttackDescription	Quando você atinge um inimigo com um ataque corpo a corpo, todos os membros do seu grupo podem usar sua reação para fazer um ataque de oportunidade contra seu alvo.
-Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordenado
-Subclass/&FighterMarshalEncouragementPowerDescription	Uma vez por dia, gastando uma hora para encorajar uns aos outros e se preparar para o próximo dia de aventura, o moral do grupo melhora significativamente. Cada personagem encorajado adiciona 1d4 ao seu ataque e teste de resistência. O efeito dura até descanso longo.
-Subclass/&FighterMarshalEncouragementPowerTitle	Encorajamento
-Subclass/&MarshalEternalComradeDescription	Camarada caído
-Subclass/&MarshalEternalComradeTitle	Camarada caído
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	O vínculo entre o marechal e seu companheiro cruza a fronteira entre a vida e a morte. Como uma ação bônus, o marechal pode convocar 2 espíritos de seus companheiros caídos para ajudá-lo no combate.
-Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eterno Camarada
-Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Você é imune ao efeito do medo.
-Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Comandante Destemido
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Você adiciona seu nível de conhecimento do alvo atual à sua jogada de ataque e ao seu dano.
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conheça seu inimigo
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como uma ação bônus, você pode tentar aumentar seu conhecimento sobre seu alvo rolando um teste de sobrevivência. Você pode fazer isso duas vezes por descanso curto.
-Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + 2 x pontos de vida de nível de classe de lutador e sua CA é 16 + seu PB. Além disso, os espíritos são imunes a Posion, Cold, Necrotic, Prone, Paralyze, Restricted e são resistentes a Fire, Acid, Lighting, Thunder. Eles também têm resistência contra danos não-mágicos de Slashin, Bludeoging, Piercing. Por sua vez, eles podem voar até 50' e fazer um único (2d6 + 5) ataque mágico de ataque com bônus de ataque igual a 5 + PB.
-Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
-Subclass/&FighterMarshalTitle	Marechal
-Reaction/&SpendPower{0}Title	Spend {0}
-Reaction/&SpendPower{0}Description	Spend {0}
-Reaction/&Use{0}Title	Use {0}
-Reaction/&Use{0}Description	Use {0}
-Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
-Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
-Reaction/&ReadiedAction{0}Title	Readied {0}
-Reaction/&ReadiedAction{0}Description	Readied {0}
-Spell/&MirrorImageTitle	Mirror Image
-Spell/&MirrorImageDescription	Mirror Image
+Reaction/&SpendPower{0}Title	Gaste {0}
+Reaction/&SpendPower{0}Description	Gaste {0}
+Reaction/&Use{0}Title	Usar {0}
+Reaction/&Use{0}Description	Usar {0}
+Reaction/&SpendSpellSlot{0}Title	Gastar feitiço {0}
+Reaction/&SpendSpellSlot{0}Description	Gastar feitiço {0}
+Reaction/&ReadiedAction{0}Title	Pronto {0}
+Reaction/&ReadiedAction{0}Description	Pronto {0}
+Spell/&MirrorImageTitle	Imagem espelhada
+Spell/&MirrorImageDescription	Imagem espelhada
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feat/&SharpShooterFeatTitle	Sharpshooter
-Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feature/&SharpShooterTitle	Sharpshooter
-Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
+Feat/&SharpShooterFeatDescription	Você dominou armas de longo alcance e pode fazer tiros que outros acham impossíveis. Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -Bônus de Proficiência ao seu acerto para causar +2x de dano de Bônus de Proficiência.
+Feat/&SharpShooterFeatTitle	Atirador afiado
+Feature/&SharpShooterDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -Bônus de Proficiência ao seu acerto para causar +2x de dano de Bônus de Proficiência.
+Feature/&SharpShooterTitle	Atirador afiado
+Tooltip/&SharpShooterConcentration	Desative o atirador de elite.\nO efeito durará até o início do seu próximo turno
