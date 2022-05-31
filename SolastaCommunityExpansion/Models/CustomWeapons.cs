@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
@@ -126,7 +127,7 @@ public static class CustomWeapons
             950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
         MagicWeapons.Add((HalberdPlus1, FactionStatusDefinitions.Alliance));
-        
+
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
             2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
@@ -164,12 +165,12 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         Pike.SetCustomSubFeatures(scale);
         GenericWeapons.Add((Pike, FactionStatusDefinitions.Indifference));
-        
+
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
             950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
         MagicWeapons.Add((PikePlus1, FactionStatusDefinitions.Alliance));
-        
+
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
@@ -207,12 +208,12 @@ public static class CustomWeapons
             20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
         LongMace.SetCustomSubFeatures(scale);
         GenericWeapons.Add((LongMace, FactionStatusDefinitions.Indifference));
-        
+
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
             950, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
         MagicWeapons.Add((LongMacePlus1, FactionStatusDefinitions.Alliance));
-        
+
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
             2500, true, RuleDefinitions.ItemRarity.Common, properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
@@ -223,24 +224,21 @@ public static class CustomWeapons
     {
         //TODO: do this only if mod option is toggled
 
-        GiveAssortment(GenericWeapons,
-            MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore //Caer Cyflen
-            //TODO: find weapon merchants in Lost Valley
-        );
+        GiveAssortment(GenericWeapons, MerchantTypeContext.MerchantTypes
+            .Where(e => e.Value.IsMeleeWeapon)
+            .Select(e => e.Key));
 
-        GiveAssortment(MagicWeapons,
-            MerchantDefinitions.Store_Merchant_CircleOfDanantar_Joriel_Foxeye //Caer Cyflen
-            //TODO: find magic weapon merchants in Lost Valley
-        );
+        GiveAssortment(MagicWeapons,MerchantTypeContext.MerchantTypes
+            .Where(e => e.Value.IsMagicalMeleeWeapon)
+            .Select(e => e.Key));
 
-        GiveAssortment(CraftingManuals,
-            MerchantDefinitions.Store_Merchant_Circe //Manacalon Ruins
-            //TODO: find crafting manuals merchants in Lost Valley
-        );
+        GiveAssortment(CraftingManuals,MerchantTypeContext.MerchantTypes
+            .Where(e => e.Value.IsDocument)
+            .Select(e => e.Key));
     }
 
     private static void GiveAssortment(List<(ItemDefinition, FactionStatusDefinition)> items,
-        params MerchantDefinition[] merchants)
+        IEnumerable<MerchantDefinition> merchants)
     {
         foreach (var merchant in merchants)
         {
