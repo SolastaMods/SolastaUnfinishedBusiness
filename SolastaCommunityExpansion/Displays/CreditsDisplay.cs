@@ -36,7 +36,7 @@ internal static class CreditsDisplay
         },
         {"Lyraele", "Warlock class design, quality assurance"},
         {"Narria", "modKit creator, developer"},
-        {"Nd", "Opportunist subclass"},
+        {"Nd", "Marshal subclass, Opportunist subclass"},
         {"Nyowwww", "Chinese translations"},
         {"PraiseThyBus", "quality assurance"},
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
@@ -48,7 +48,7 @@ internal static class CreditsDisplay
         {"Spacehamster", "dataminer"},
         {
             "TPABOBAP",
-            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Holic75's code integration"
+            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Sentinel Feat, Spells, Infrastructure patches, Holic75's code integration"
         },
         {"View619", "Darkvision, Superior Dark Vision"},
         {
