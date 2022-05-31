@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
+using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
@@ -9,11 +11,13 @@ using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;
+using static RuleDefinitions.ItemRarity;
 
 namespace SolastaCommunityExpansion.Models;
 
-public static class CustomWeapons
+public static class CustomWeaponsContext
 {
+    public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
     public static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     public static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     public static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
@@ -43,12 +47,11 @@ public static class CustomWeapons
 
     public static void Load()
     {
+        BuildHandwraps();
         BuildHalberds();
         BuildPikes();
         BuildLongMaces();
         BuildHandXbow();
-        HandwrapWeaponContext.Load(ShopItems);
-
         AddToShops();
     }
 
@@ -130,6 +133,81 @@ public static class CustomWeapons
         return weapon;
     }
 
+    private static void BuildHandwraps()
+    {
+        HandwrapsPlus1 = BuildHandwrapsCommon("Handwraps+1", 400, true, true, Uncommon, WeaponPlus1);
+        HandwrapsPlus2 = BuildHandwrapsCommon("Handwraps+2", 1500, true, true, Rare, WeaponPlus2);
+
+        ShopItems.Add((HandwrapsPlus1, ShopMeleePlus1));
+        ShopItems.Add((HandwrapsPlus2, ShopMeleePlus2));
+        
+        HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
+            WeaponPlus1AttackOnly);
+        HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
+            .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
+                damageType: RuleDefinitions.DamageTypeForce)
+            .Build());
+        
+        HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
+        HandwrapsOfPulling.SetIsUsableDevice(true);
+        HandwrapsOfPulling.SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
+            .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
+            .SetSaveDC(-1)
+            .AddFunctions(new DeviceFunctionDescriptionBuilder()
+                .SetPower(FeatureDefinitionPowerBuilder
+                    .Create("PowerFunctionHandwrapsOfPulling", Monk.GUID)
+                    .SetGuiPresentation(Category.Power)
+                    .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
+                    .SetUsesFixed(1)
+                    .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                    .SetEffectDescription(new EffectDescriptionBuilder()
+                        .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Distance, 3,
+                            RuleDefinitions.TargetType.Individuals)
+                        .ExcludeCaster()
+                        .SetSavingThrowData(
+                            true,
+                            true,
+                            AttributeDefinitions.Strength,
+                            false,
+                            RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                            AttributeDefinitions.Wisdom)
+                        .SetParticleEffectParameters(FeatureDefinitionPowers.PowerShadowTamerRopeGrapple
+                            .EffectDescription.EffectParticleParameters)
+                        .SetDurationData(RuleDefinitions.DurationType.Instantaneous)
+                        .SetEffectForms(new EffectFormBuilder()
+                            .SetMotionForm(MotionForm.MotionType.DragToOrigin, 2)
+                            .Build())
+                        .Build())
+                    .AddToDB())
+                .Build())
+            .Build());
+
+        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.GUID), ShopCrafting));
+
+        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus2, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Blood_Gem), Monk.GUID), ShopCrafting));
+
+        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfForce, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Soul_Gem), Monk.GUID), ShopCrafting));
+
+        ShopItems.Add((BuildManual(BuildRecipe(HandwrapsOfPulling, 48, 16, Monk.GUID,
+            ItemDefinitions.Ingredient_Enchant_Slavestone), Monk.GUID), ShopCrafting));
+    }
+
+    private static ItemDefinition BuildHandwrapsCommon(string name, int goldCost, bool noDescription, bool needId,
+        RuleDefinitions.ItemRarity rarity,
+        params ItemPropertyDescription[] properties)
+    {
+        return BuildWeapon(
+            name,
+            ItemDefinitions.UnarmedStrikeBase,
+            goldCost,
+            noDescription, rarity, needId: needId,
+            properties: properties
+        );
+    }
+
     private static void BuildHalberds()
     {
         var scale = new CustomScale(z: 3.5f);
@@ -157,12 +235,12 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         Halberd = BuildWeapon("CEHalberd", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HalberdIcon);
+            20, true, Common, basePresentation, baseDescription, HalberdIcon);
         Halberd.SetCustomSubFeatures(scale);
         ShopItems.Add((Halberd, ShopGenericMelee));
 
         HalberdPrimed = BuildWeapon("CEHalberdPrimed", baseItem,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, HalberdPrimedIcon);
+            40, true, Uncommon, basePresentation, baseDescription, HalberdPrimedIcon);
         HalberdPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HalberdPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         HalberdPrimed.SetCustomSubFeatures(scale);
@@ -170,7 +248,7 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(Halberd, HalberdPrimed), ShopCrafting));
 
         HalberdPlus1 = BuildWeapon("CEHalberd+1", Halberd,
-            950, true, RuleDefinitions.ItemRarity.Rare, icon: HalberdP1Icon, properties: new[] {WeaponPlus1});
+            950, true, Rare, icon: HalberdP1Icon, properties: new[] {WeaponPlus1});
         HalberdPlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((HalberdPlus1, ShopMeleePlus1));
         ShopItems.Add((BuildRecipeManual(HalberdPlus1, 24, 10,
@@ -180,7 +258,7 @@ public static class CustomWeapons
 
         var itemDefinition = ItemDefinitions.BattleaxePlus1;
         HalberdPlus2 = BuildWeapon("CEHalberd+2", Halberd,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdP2Icon,
             properties: new[] {WeaponPlus2});
         HalberdPlus2.SetCustomSubFeatures(scale);
@@ -191,7 +269,7 @@ public static class CustomWeapons
             ShopCrafting));
 
         HalberdLightning = BuildWeapon("CEHalberdLightning", Halberd,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HalberdLightningIcon, needId: false,
             properties: new[] {LightningImpactVFX, WeaponPlus1AttackOnly});
         HalberdLightning.SetCustomSubFeatures(scale);
@@ -232,12 +310,12 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         Pike = BuildWeapon("CEPike", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, PikeIcon);
+            20, true, Common, basePresentation, baseDescription, PikeIcon);
         Pike.SetCustomSubFeatures(scale);
         ShopItems.Add((Pike, ShopGenericMelee));
 
         PikePrimed = BuildWeapon("CEPikePrimed", baseItem,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, PikePrimedIcon);
+            40, true, Uncommon, basePresentation, baseDescription, PikePrimedIcon);
         PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         PikePrimed.SetCustomSubFeatures(scale);
@@ -245,7 +323,7 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(Pike, PikePrimed), ShopCrafting));
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            950, true, RuleDefinitions.ItemRarity.Rare, icon: PikeP1Icon, properties: new[] {WeaponPlus1});
+            950, true, Rare, icon: PikeP1Icon, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus1, ShopMeleePlus1));
         ShopItems.Add((BuildRecipeManual(PikePlus1, 24, 10,
@@ -255,7 +333,7 @@ public static class CustomWeapons
 
         var itemDefinition = ItemDefinitions.MorningstarPlus2;
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikeP2Icon,
             properties: new[] {WeaponPlus2});
@@ -267,7 +345,7 @@ public static class CustomWeapons
             ShopCrafting));
 
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation,
             icon: PikePsychicIcon, needId: false,
             properties: new[] {PsychicImpactVFX, WeaponPlus1AttackOnly});
@@ -309,12 +387,12 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         LongMace = BuildWeapon("CELongMace", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, LongMaceIcon);
+            20, true, Common, basePresentation, baseDescription, LongMaceIcon);
         LongMace.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMace, ShopGenericMelee));
 
         LongMacePrimed = BuildWeapon("CELongMacePrimed", baseItem,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, LongMacePrimedIcon);
+            40, true, Uncommon, basePresentation, baseDescription, LongMacePrimedIcon);
         LongMacePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         LongMacePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         LongMacePrimed.SetCustomSubFeatures(scale);
@@ -322,7 +400,7 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(LongMace, LongMacePrimed), ShopCrafting));
 
         LongMacePlus1 = BuildWeapon("CELongMace+1", LongMace,
-            950, true, RuleDefinitions.ItemRarity.Rare, icon: LongMaceP1Icon, properties: new[] {WeaponPlus1});
+            950, true, Rare, icon: LongMaceP1Icon, properties: new[] {WeaponPlus1});
         LongMacePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((LongMacePlus1, ShopMeleePlus1));
         ShopItems.Add((BuildRecipeManual(LongMacePlus1, 24, 10,
@@ -332,7 +410,7 @@ public static class CustomWeapons
 
         var itemDefinition = ItemDefinitions.MacePlus2;
         LongMacePlus2 = BuildWeapon("CELongMace+2", LongMace,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceP2Icon,
             properties: new[] {WeaponPlus2});
         LongMacePlus2.SetCustomSubFeatures(scale);
@@ -343,7 +421,7 @@ public static class CustomWeapons
             ShopCrafting));
 
         LongMaceThunder = BuildWeapon("CELongMaceThunder", LongMace,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: LongMaceThunderIcon, needId: false,
             properties: new[] {ThunderImpactVFX, WeaponPlus1AttackOnly});
         LongMaceThunder.SetCustomSubFeatures(scale);
@@ -386,13 +464,13 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         HandXbow = BuildWeapon("CEHandXbow", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, HandXbowIcon,
+            20, true, Common, basePresentation, baseDescription, HandXbowIcon,
             twoHanded: false);
         HandXbow.SetCustomSubFeatures(scale);
         ShopItems.Add((HandXbow, ShopGenericRanged));
 
         HandXbowPrimed = BuildWeapon("CEHandXbowPrimed", HandXbow,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, icon: HandXbowPrimedIcon, twoHanded: false);
+            40, true, Uncommon, icon: HandXbowPrimedIcon, twoHanded: false);
         HandXbowPrimed.SetCustomSubFeatures(scale);
         HandXbowPrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         HandXbowPrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
@@ -400,7 +478,7 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(HandXbow, HandXbowPrimed), ShopCrafting));
 
         HandXbowPlus1 = BuildWeapon("CEHandXbow+1", HandXbow,
-            950, true, RuleDefinitions.ItemRarity.Rare, icon: HandXbowP1Icon, twoHanded: false,
+            950, true, Rare, icon: HandXbowP1Icon, twoHanded: false,
             properties: new[] {WeaponPlus1});
         HandXbowPlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((HandXbowPlus1, ShopRangedPlus1));
@@ -411,7 +489,7 @@ public static class CustomWeapons
 
         var itemDefinition = ItemDefinitions.LightCrossbowPlus2;
         HandXbowPlus2 = BuildWeapon("CEHandXbow+2", HandXbow,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowP2Icon, twoHanded: false,
             properties: new[] {WeaponPlus2});
         HandXbowPlus2.SetCustomSubFeatures(scale);
@@ -422,7 +500,7 @@ public static class CustomWeapons
             ShopCrafting));
 
         HandXbowAcid = BuildWeapon("CEHandXbowAcid", HandXbow,
-            2500, true, RuleDefinitions.ItemRarity.VeryRare,
+            2500, true, VeryRare,
             itemDefinition.ItemPresentation, icon: HandXbowAcidIcon, needId: false, twoHanded: false,
             properties: new[] {AcidImpactVFX, WeaponPlus1AttackOnly});
         HandXbowAcid.SetCustomSubFeatures(scale);
