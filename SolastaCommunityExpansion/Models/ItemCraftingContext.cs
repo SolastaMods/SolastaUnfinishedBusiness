@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -18,26 +19,26 @@ internal static class ItemCraftingContext
 
     public static readonly Dictionary<string, string> RecipeTitles = new()
     {
-        {"PrimedItems", "Primed Items"},
-        {"EnchantingIngredients", "Enchanting Ingredients"},
-        {"RelicForgeries", "Relic Forgeries"},
-        {"LightCrossbow", "Light Crossbow"},
-        {"HeavyCrossbow", "Heavy Crossbow"},
-        {"Handaxe", "Handaxe"},
-        {"Javelin", "Javelin"},
-        {"Dart", "Dart"},
-        {"Club", "Club"},
-        {"Maul", "Maul"},
-        {"Warhammer", "Warhammer"},
-        {"Quarterstaff", "Quarterstaff"},
-        {"Rapier", "Rapier"},
-        {"Spear", "Spear"},
-        {"Scimitar", "Scimitar"},
-        {"Shield_Wooden", "Shield [Wooden]"},
-        {"Shield", "Shield"},
-        {"HideArmor", "Hide Armor"},
-        {"LeatherDruid", "Leather Druid"},
-        {"StuddedLeather", "Studded Leather"}
+        {"PrimedItems", Gui.Format("ModUi/&PrimedItems")},
+        {"EnchantingIngredients", Gui.Format("Tooltip/&IngredientsHeaderTitle")},
+        {"RelicForgeries", Gui.Format("ModUi/&RelicForgeries")},
+        {"LightCrossbow", Gui.Format("Equipment/&LightCrossbowTypeTitle")},
+        {"HeavyCrossbow", Gui.Format("Equipment/&HeavyCrossbowTypeTitle")},
+        {"Handaxe", Gui.Format("Equipment/&HandaxeTypeTitle")},
+        {"Javelin", Gui.Format("Equipment/&JavelinTitle")},
+        {"Dart", Gui.Format("Equipment/&DartTitle")},
+        {"Club", Gui.Format("Equipment/&ClubTitle")},
+        {"Maul", Gui.Format("Equipment/&MaulTypeTitle")},
+        {"Warhammer", Gui.Format("Equipment/&WarhammerTypeTitle")},
+        {"Quarterstaff",Gui.Format("Equipment/&MaulQuarterstaffTitle")},
+        {"Rapier", Gui.Format("Equipment/&RapierTypeTitle")},
+        {"Spear",Gui.Format("Equipment/&SpearTypeTitle")},
+        {"Scimitar", Gui.Format("Equipment/&ScimitarTypeTitle")},
+        {"Shield_Wooden", Gui.Format("Equipment/&Shield_Wooden_Title")},
+        {"Shield",  Gui.Format("Equipment/&ShieldCategoryTitle")},
+        {"HideArmor", Gui.Format("ModUi/&HiderArmor")},
+        {"LeatherDruid", Gui.Format("Equipment/&Druid_Leather_Title")},
+        {"StuddedLeather", Gui.Format("Equipment/&Armor_StuddedLeatherTitle")}
     };
 
     public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
