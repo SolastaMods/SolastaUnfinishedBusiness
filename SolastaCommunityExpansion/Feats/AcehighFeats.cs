@@ -111,6 +111,7 @@ internal static class AcehighFeats
 
             Definition.SetIgnoreRangeAdvantage(true);
             Definition.SetIgnoreCover(true);
+            Definition.SetSituationalContext(RuleDefinitions.SituationalContext.AttackingWithBow);
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
