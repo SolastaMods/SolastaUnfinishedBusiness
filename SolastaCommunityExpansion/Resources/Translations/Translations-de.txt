@@ -110,7 +110,7 @@ Condition/&DHFeeblemindSpellDescription	Die Intelligenz- und Charismawerte der K
 Condition/&DHFeeblemindSpellTitle	Schwachsinn
 Condition/&DHForesightSpellDescription	Vorteil bei Angriffswürfen, Attributswürfen und Rettungswürfen. Außerdem haben andere Kreaturen einen Nachteil bei Angriffswürfen.
 Condition/&DHForesightSpellTitle	Voraussicht
-Condition/&DHHolyAuraSpellDescription	Du wirkst diesen Zauber, der in einem Radius von 1,50 m schwaches Licht ausstrahlt und bei allen Rettungswürfen im Vorteil ist, während andere Kreaturen bei Angriffswürfen gegen sie im Nachteil sind, bis der Zauber endet. Wenn ein Unterweltler oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura außerdem in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+Condition/&DHHolyAuraSpellDescription	Du wirkst diesen Zauber, der in einem Radius von 1,50 m schwaches Licht verbreitet und bei allen Rettungswürfen im Vorteil ist, während andere Kreaturen bei Angriffswürfen gegen sie im Nachteil sind, bis der Zauber endet. Wenn ein Unterweltler oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura außerdem in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
 Condition/&DHHolyAuraSpellTitle	Geschützt durch Heilige Aura
 Condition/&DHMindBlankSpellDescription	Immun gegen psychischen Schaden und den verzauberten Zustand.
 Condition/&DHMindBlankSpellTitle	Verstand leer
@@ -124,7 +124,7 @@ Condition/&DisorientDescription	Die Genauigkeit dieser Kreatur ist verringert.
 Condition/&DisorientTitle	Desorientiert
 Condition/&EvilEyeDescription	Zustand des bösen Blicks.
 Condition/&EvilEyeTitle	Böser Blick
-Condition/&EWResonatingStrikeDamageDescription	Ab Level 5 verursacht ein Angriff, der von diesem Cantrip ausgelöst wird, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWResonatingStrikeDamageDescription	Ab Stufe 5 verursacht ein Angriff, der von diesem Cantrip ausgelöst wird, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich um 1W8 auf der 11. und 17. Stufe.
 Condition/&EWResonatingStrikeDamageTitle	Resonanz
 Condition/&EWSunlightBladeDamageDescription	Ab Level 5 verursacht ein Angriff, der von diesem Cantrip ausgelöst wird, zusätzlich 1W8 strahlenden Schaden. Der Schaden erhöht sich um 1W8 auf der 11. und 17. Stufe.
 Condition/&EWSunlightBladeDamageTitle	Brennen der sonnenbeschienenen Klinge
@@ -180,7 +180,7 @@ DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Teufel oder ein Untoter eine
 DamageAffinity/&DHHolyAuraSpellTitle	Vergeltung der Heiligen Aura
 Equipment/&ArcaneStaffDescription	Dieser Stab ist mit magischer Schrift beschriftet und kann als Fokus für das Wirken arkaner Zauber verwendet werden.
 Equipment/&ArcaneStaffTitle	Arkaner Stab
-Equipment/&DruidicAmuletDescription	Dieses totemistische Amulett kann als Fokus für druidische Zaubersprüche verwendet werden.
+Equipment/&DruidicAmuletDescription	Dieses Totem-Amulett kann als Fokus für druidische Zaubersprüche verwendet werden.
 Equipment/&DruidicAmuletTitle	Druidisches Amulett
 Equipment/&Enchanted_Club_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
 Equipment/&Enchanted_Club_Acuteness_Title	Club der Schärfe
@@ -188,7 +188,7 @@ Equipment/&Enchanted_Club_Bearclaw_Description	Diese verzauberte Waffe wurde mit
 Equipment/&Enchanted_Club_Bearclaw_Title	Club der Bärenklauen
 Equipment/&Enchanted_Club_Lightbringer_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen von Colthannins Schmiedemeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_Club_Lightbringer_Title	Club der Lichtbringer
-Equipment/&Enchanted_Club_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Manacalon-Arkaner haben diese Keule geschaffen, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
+Equipment/&Enchanted_Club_Power_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Einige Kreaturen respektieren nur körperliche Stärken. Arkanisten aus Manacalon haben diese Keule geschaffen, um Champions der Iron Legions die Kraft zu geben, die ihre Elfenkörper nicht bieten.
 Equipment/&Enchanted_Club_Power_Title	Club der Macht
 Equipment/&Enchanted_Club_Punisher_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
 Equipment/&Enchanted_Club_Punisher_Title	Punisher-Club
@@ -216,7 +216,7 @@ Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Diese verzauberte Waffe wu
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Schwere Armbrust
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Schwere Armbrust des Scharfschießens
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe nutzte – mit verheerender Wirkung!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Meisterbogenschützen geschmiedet. Es wurde von Galar Stromforge entworfen, dem ersten Zwergenschmied, der die Macht des Sturms in einer Waffe nutzte – mit verheerender Wirkung!
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Schwere Sturmarmbrust
 Equipment/&Enchanted_HideArmor_Deflection_Description	Diese verzauberte Rüstung wurde mit dem uralten Wissen der Rüstungsmeister von Manacalon hergestellt. Ildurial Stronghand schmiedete die erste dieser Rüstungen für die persönliche Garde des Imperators.
 Equipment/&Enchanted_HideArmor_Deflection_Title	Rüstung der Ablenkung verstecken
@@ -557,9 +557,9 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Erhöhe dein Charisma um 1 bis maxi
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagie: Beschleunigt
 Feat/&FeatMetamagicAdeptTwinnedDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die Zwillings-Metamagie und erhältst 2 Hexereipunkte.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagisch: Zwillinge
-Feat/&FeatPrimalConstitutionDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren mit einem Wutschaden von +1 definiert, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
+Feat/&FeatPrimalConstitutionDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
 Feat/&FeatPrimalConstitutionTitle	Urwut (Konstitution)
-Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
+Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren mit einem Wutschaden von +1 definiert, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
 Feat/&FeatPrimalStrengthTitle	Urwut (Stärke)
 Feat/&FeatPugilistFightingStlyeDescription	Deine waffenlosen Schläge verursachen einen zusätzlichen W4 Schaden und du kannst als Bonusaktion mit deiner Nebenhand schlagen.\nWenn Sie freie Hand haben, können Sie als Bonusaktion schubsen.
 Feat/&FeatPugilistFightingStlyeTitle	Kampfstil: Faustkämpfer
@@ -586,7 +586,7 @@ Feat/&FeatTelekineticChaPullTitle	Telekinetischer Zug
 Feat/&FeatTelekineticChaPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
 Feat/&FeatTelekineticChaPushTitle	Telekinetischer Schub
 Feat/&FeatTelekineticChaTitle	Telekinese (Charisma)
-Feat/&FeatTelekineticIntDescription	Erhöhe das Intelligenzattribut um 1. Erhalte eine Bonus-Aktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
+Feat/&FeatTelekineticIntDescription	Erhöhe das Intelligenzattribut um 1. Erhalte eine zusätzliche Aktionsfähigkeit, um Kreaturen zu schieben oder zu ziehen.
 Feat/&FeatTelekineticIntPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
 Feat/&FeatTelekineticIntPullTitle	Telekinetischer Zug
 Feat/&FeatTelekineticIntPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
@@ -658,7 +658,7 @@ Feat/&HealerStabilizeTitle	Stabilisieren
 Feat/&HealerTitle	Heiler
 Feat/&HealerUseMedicineDescription	Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
 Feat/&HealerUseMedicineTitle	Verwenden Sie Medizin
-Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
+Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
 Feat/&IncreaseConstructSelectingTitle	Verstärkung
 Feat/&InspiringLeaderDescription	Verbringen Sie 10 Minuten damit, bis zu 6 freundliche Kreaturen (darunter auch Sie selbst) innerhalb von 30 Fuß von Ihnen zu inspirieren. Jede Kreatur erhält temporäre Trefferpunkte in Höhe deiner Stufe + deines Charisma-Modifikators. Einmal pro kurzer Pause verwendbar.
 Feat/&InspiringLeaderTitle	Inspirierende Führungskraft
@@ -694,7 +694,7 @@ Feat/&PowerShadowTouchedFromFeatDescription	Lerne, die Zauber Unsichtbarkeit, Fa
 Feat/&PowerShadowTouchedFromFeatTitle	Lerne Unsichtbarkeit, falsches Leben und füge Wunden zu
 Feat/&ProfChefTreatActionDescription	Iss eine Leckerei als Bonusaktion und erhalte 5 temporäre Trefferpunkte.
 Feat/&ProfChefTreatActionTitle	Leckerbissen des Chefkochs essen
-Feat/&ProfChefTreatCookDescription	Verbringe eine Stunde damit, Leckereien zu kochen, die beim Verzehr 5 temporäre Trefferpunkte liefern.
+Feat/&ProfChefTreatCookDescription	Verbringen Sie eine Stunde damit, Leckereien zu kochen, die beim Verzehr 5 temporäre Trefferpunkte liefern.
 Feat/&ProfChefTreatCookTitle	Cook Chef's Treat
 Feat/&ProfChefTreatDescription	Essen als Bonusaktion und erhalte 5 temporäre Trefferpunkte.
 Feat/&ProfChefTreatTitle	Chef's Treat
@@ -726,7 +726,7 @@ Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Zusä
 Feat/&ScoutSentinelFeatureSet_level09Title	Scout-Wächter
 Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Verbesserter Sentinel-Modus</color></size>\nKann jetzt Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und über die Kraft Gauntlet Grapple 1W8 Donnerschaden zufügen\n\n<size=17><color=#add8e6ff>Verbesserter Scout-Modus</color></size>\nKann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
 Feat/&ScoutSentinelFeatureSet_level15Title	Scout-Wächter
-Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen GE-Rettungswurf für 3W8 Kraftschaden innerhalb von 10 Fuß.
+Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen GE-Rettungswurf für 3W8 Gewaltschaden innerhalb von 10 Fuß.
 Feat/&SelfDestructTitle	Selbstzerstörung
 Feat/&SelfRepairDescription	Heile dreimal täglich 2W8 HP.
 Feat/&SelfRepairTitle	Selbstreparatur
@@ -757,7 +757,7 @@ Feat/&ThunderShieldDescription	Verteidigungsschild bietet TempHP x Stufe. 5 mal 
 Feat/&ThunderShieldTitle	Donnerschild
 Feat/&TinkererConstructFamilyDescription	Erstellt von Tinkerer.
 Feat/&TinkererConstructFamilyTitle	Tüftlerkonstrukt
-Feat/&TorchbearerDescription	Du bist geübt im Umgang mit einer Fackel im Kampf. Einmal pro Runde kannst du dich als Bonusaktion dafür entscheiden, eine von dir ausgerüstete Lichtquelle zu verwenden, um zu versuchen, einen Feind, den du berühren kannst, in Brand zu setzen. Dein Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder 1 Minute lang oder bis es erlischt, 1W4 Feuerschaden pro Runde erleiden. Der SG dieses Rettungswurfs basiert auf Ihrem Geschicklichkeits- und Kompetenzbonus.
+Feat/&TorchbearerDescription	Du bist geübt im Umgang mit einer Fackel im Kampf. Einmal pro Zug kannst du als Bonusaktion wählen, eine von dir ausgerüstete Lichtquelle zu verwenden, um zu versuchen, einen Feind, den du berühren kannst, in Brand zu setzen. Dein Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder 1 Minute lang oder bis es erlischt, 1W4 Feuerschaden pro Runde erleiden. Der SG dieses Rettungswurfs basiert auf Ihrem Geschicklichkeits- und Kompetenzbonus.
 Feat/&TorchbearerTitle	Fackelträger
 Feat/&UseArmorWeaponsAsFocusDescription	Du kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden.
 Feat/&UseArmorWeaponsAsFocusTitle	Fokus auf Zauberei
@@ -780,12 +780,12 @@ Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und 
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Pakts
-Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe verleiht Ihnen Ihr jenseitiger Gönner ein Geschenk für Ihre treuen Dienste. Sie können wählen zwischen:
+Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe verleiht dir dein jenseitiger Gönner ein Geschenk für deine treuen Dienste. Sie können wählen zwischen:
 Feature/&AHWarlockClassPactBoonSetTitle	Pakt Segen
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	Sie beherrschen alle Waffen und Ihre Waffenangriffe gelten als magisch.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pakt der Klinge
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro langer Rast kannst du eine Waffe mit Seelenkraft stärken. Diese Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zu einer langen Pause als magisch.
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenkraft
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenstärke
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}\n\n .
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingenzauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deiner Stufe + Charisma-Modifikator.
@@ -974,7 +974,7 @@ Feature/&EldritchMindTitle	Eldritch-Geist
 Feature/&EldritchSightTitle	Unheimlicher Anblick
 Feature/&EldritchSmiteDescription	Einmal pro Runde, wenn du eine Kreatur mit deiner Paktwaffe triffst, kannst du einen Warlock-Zauberplatz aufwenden, um dem Ziel 1W8 zusätzlichen Machtschaden zuzufügen, plus weitere 1W8 pro Stufe des Zauberplatzes.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}\n\n  .
+Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden der Hexenmeister-Zauberliste für Sie hinzugefügt: {0}\n\n  .
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementarmagier-Zauber
 Feature/&ElementalPactAirPlane	Flugzeug
 Feature/&ElementalPactAstralPlane	Astralebene
@@ -1182,7 +1182,7 @@ Feedback/&AdditionalDamageElementalDamageFormat	Elementarschaden
 Feedback/&AdditionalDamageElementalDamageLine	Elementarform gewährt zusätzlichen Schaden
 Feedback/&AdditionalDamageLightningSpearFormat	Blitzspeer!
 Feedback/&AdditionalDamageLightningSpearLine	{0} schlägt {1} mit Blitzspeer! (+{2})
-Feedback/&AdditionalDamagePactMarkedFormat	Paktmarke!
+Feedback/&AdditionalDamagePactMarkedFormat	Paktzeichen!
 Feedback/&AdditionalDamagePactMarkedLine	Paktmarke fügt zusätzlichen Schaden zu!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Seelenfänger!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul Taker fügt zusätzlichen Schaden zu!
@@ -1257,17 +1257,13 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Verzaubern Sie Handband
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwickel +1
-Item/&Handwraps+1TitleUnidentifiedDescription	Fein gearbeitete Handbandagen.
-Item/&Handwraps+1TitleUnidentifiedTitle	Handbandagen von guter Qualität
+Item/&Handwraps+1UnidentifiedTitle	Handbandagen von guter Qualität
 Item/&Handwraps+2Title	Handwickel +2
-Item/&Handwraps+2TitleUnidentifiedDescription	Fein gearbeitete Handbandagen.
-Item/&Handwraps+2TitleUnidentifiedTitle	Prächtige Handbandagen
+Item/&Handwraps+2UnidentifiedTitle	Prächtige Handbandagen
 Item/&HandwrapsOfForceTitle	Kraftvolle Handwickel
-Item/&HandwrapsOfForceTitleUnidentifiedDescription	Fein gearbeitete Handbandagen.
-Item/&HandwrapsOfForceTitleUnidentifiedTitle	Prächtige Handbandagen
+Item/&HandwrapsOfForceUnidentifiedTitle	Prächtige Handbandagen
 Item/&HandwrapsOfPullingTitle	Handbandagen des Ziehens
-Item/&HandwrapsOfPullingTitleUnidentifiedDescription	Fein gearbeitete Handbandagen.
-Item/&HandwrapsOfPullingTitleUnidentifiedTitle	Prächtige Handbandagen
+Item/&HandwrapsOfPullingUnidentifiedTitle	Prächtige Handbandagen
 Language/&AbyssalDescription	Die Sprache des Abgrunds war die Form der ursprünglichen Sprache, die vom Bösen des Abgrunds umhüllt und verdreht wurde.
 Language/&AbyssalTitle	Abgrundtief
 Language/&GnomishLanguageDescription	Eine alte solastanische Sprache, die von Gnomen bewahrt wurde, die in den tiefen Wäldern von Solasta leben, hat die Katastrophe überlebt.
@@ -1283,10 +1279,10 @@ Message/&LevelDownMultiplayerAbortDescription	Kann während einer Multiplayer-Si
 Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
 Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
 Message/&RespecMultiplayerAbortDescription	Respec während einer Multiplayer-Sitzung oder auf der Erkundungskarte nicht möglich.
-Message/&SpawnCustomEncounterDescription	Spawn-Begegnung bei den Koordinaten ({0}, {1})?
-Message/&SpawnCustomEncounterErrorDescription	Begegnungen können in einem Multiplayer-Spiel nicht gespawnt werden. Noch...
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	Begegnungen können nicht auf einem Multiplayer -Spiel erscheinen. Noch...
 Message/&SpawnCustomEncounterTitle	Begegnen
-Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren.
+Message/&TeleportPartyDescription	Teleport Party zu koordinaten ({0}, {1})?\nSie können Quests oder Karten brechen, wenn Sie sich an einen unentdeckten Ort teleportieren.
 Message/&TeleportPartyTitle	Teleportieren
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Die Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zur langen Pause als magisch.
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Seele ermächtigt
@@ -1300,7 +1296,7 @@ Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von 
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Eule vertraut.
 Monster/&OwlFamiliarTitle	Eule
-Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen zu finden, entweder um Besorgungen für ihre höllischen Herren zu erledigen, Rivalen auszuspionieren oder Sterbliche zu täuschen und aufzulauern. Ein Kobold wird einem bösen Meister jeder Art stolz dienen, aber er kann sich nicht darauf verlassen, dass er Aufgaben schnell oder effizient erledigt.
+Monster/&PactOfChainCustomImpDescription	Kobolde sind überall in den unteren Ebenen zu finden, entweder um Besorgungen für ihre höllischen Herren zu erledigen, Rivalen auszuspionieren oder Sterbliche in die Irre zu führen und aufzulauern. Ein Kobold wird jedem bösen Meister jeder Art stolz dienen, aber er kann sich nicht darauf verlassen, dass er Aufgaben schnell oder effizient erledigt.
 Monster/&PactOfChainCustomImpTitle	Kobold (Kettenpakt)
 Monster/&PactOfChainCustomPseudodragonDescription	Der schwer fassbare Pseudodrache lebt an den stillen Orten der Welt und lebt in Baumhöhlen und kleinen Höhlen. Mit seinen grünen Schuppen, Hörnern und einem Maul voller scharfer Zähne ähnelt ein Pseudodrache einem winzigen grünen Drachen, aber seine Veranlagung ist verspielt.
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodrache
@@ -1327,7 +1323,7 @@ Power/&ClassMonkEmptyBodyDescription	Du kannst deine Aktion nutzen, um 4 Ki-Punk
 Power/&ClassMonkEmptyBodyTitle	Leerer Körper
 Power/&ClassMonkFlurryOfBlowsDescription	Nachdem du eine Aktion ausgegeben hast, um mit einer Mönchswaffe anzugreifen, kannst du 1 Ki-Punkt als Bonusaktion ausgeben, um 2 unbenannte Schläge auszuführen. Nur verfügbar, wenn Sie keine Rüstung oder Schild tragen.
 Power/&ClassMonkFlurryOfBlowsTitle	Schlaghagel
-Power/&ClassMonkKiPoolDescription	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Die maximale Menge entspricht deiner Mönchsstufe. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen.
+Power/&ClassMonkKiPoolDescription	Sie können die mystische Energie von ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von ki Punkten dargestellt. Die maximale Menge gleich Ihre Mönch Ebene. Alle verbrachten Punkte auf kurze oder lange Pause wieder. Sie können diese Punkte ausgeben, um verschiedene ki Funktionen Kraftstoff.
 Power/&ClassMonkKiPoolTitle	Ki-Punkte
 Power/&ClassMonkKiStillnessOfMindDescription	Sie können Ihre Aktion verwenden, um einen Effekt auf sich selbst zu beenden, der Sie bezaubert oder verängstigt macht.
 Power/&ClassMonkKiStillnessOfMindTitle	Stille des Geistes
@@ -1651,9 +1647,9 @@ Spell/&MuleDescription	Der Empfänger dieses Zaubers kann die Auswirkungen schwe
 Spell/&MuleTitle	Maultier
 Spell/&PetalStormDescription	Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, den Sie in Reichweite sehen können. Eine elementare Kraft wirbelnder Winde erscheint im Würfel und hält für die Dauer des Zaubers an. Die Wolke verdeckt stark ihren Bereich. Jede Kreatur, die den Sturm zum ersten Mal in einem Zug betritt oder dort ihren Zug beginnt, muss einen Kraftrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet die Kreatur 3W4 Hiebschaden. Als Bonusaktion kannst du den Sturm um bis zu 30 Fuß in jede Richtung bewegen.
 Spell/&PetalStormTitle	Blütensturm
-Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf machen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
+Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf ablegen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
 Spell/&ProtectThresholdTitle	Schwellenwert schützen
-Spell/&RadiantMotesDescription	Entfesselt einen Schwarm strahlender Projektile, die geringen Schaden verursachen, aber niemals verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.
+Spell/&RadiantMotesDescription	Entfesselt einen Schwarm strahlender Projektile, die geringen Schaden verursachen, aber nie verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.
 Spell/&RadiantMotesTitle	Strahlende Partikel
 Spell/&ThunderStrikeDescription	Erzeuge einen Donnerstoß, der allen um dich herum Schaden zufügt.
 Spell/&ThunderStrikeTitle	Schallausbruch
@@ -1753,7 +1749,7 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst über
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelheit
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
-Subclass/&BarbarianPathOfTheLightTitle	Pfad des Lichts
+Subclass/&BarbarianPathOfTheLightTitle	Weg des Lichts
 Subclass/&BloodWitchDescription	Blutmagie, die von den meisten Hexenzirkeln verboten ist, konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Flüchen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
 Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}\n\n .
 Subclass/&BloodWitchMagicTitle	Die Blutmagie
@@ -1907,8 +1903,8 @@ Subclass/&PowerTransmuteHealDescription	Nutze deine Transmutierungskraft, um bis
 Subclass/&PowerTransmuteHealTitle	Heilen
 Subclass/&PowerTransmuteReviveDescription	Verwenden Sie Ihre Transmute Force, um einen Charakter wiederzubeleben (innerhalb von 1 Minute nach seinem Tod).
 Subclass/&PowerTransmuteReviveTitle	Beleben
-Subclass/&PurpleWitchDescription	Lila Magie herrscht über die Bereiche der Illusionen und Verzauberungen, die den Geist der Menschen beherrschen, und über alles, was nicht ganz so ist, wie es scheint. Praktizierende dieser Form der Magie sind Puppenspieler, die die scheinbare Realität ihrer Umgebung zu ihrem Vorteil gestalten.
-Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}\n\n .
+Subclass/&PurpleWitchDescription	Lila Magie herrscht über die Bereiche der Illusionen und Verzauberungen, die die Gedanken der Menschen beherrschen, und über alles, was nicht ganz so ist, wie es scheint. Praktizierende dieser Form der Magie sind Puppenspieler, die die scheinbare Realität ihrer Umgebung zu ihrem Vorteil gestalten.
+Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zauber zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl bekannter Zauber:\n {0}\n\n .
 Subclass/&PurpleWitchMagicTitle	Lila Magie
 Subclass/&PurpleWitchTitle	Lila Hexe
 Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verschmilzt seine Waldläuferfähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
@@ -1967,7 +1963,7 @@ Subclass/&WeaponProfArcaneFighterDescription	Die Erfahrung im Kampf hat dem Arca
 Subclass/&WeaponProfArcaneFighterTitle	Waffentraining
 Subclass/&WeaponProfArtificerBattleSmithDescription	Die Erfahrung im Kampf hat dem Waffenschmied eine Ausbildung in Kampfwaffen gegeben.
 Subclass/&WeaponProfArtificerBattleSmithTitle	Waffentraining
-Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohlwollend für alle Lebewesen. Hexen, die dieses Handwerk anwenden, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und Pflege, mit der Absicht, die Welt zu verbessern.
+Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohlwollend für alle Lebewesen. Hexen, die dieses Handwerk annehmen, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und Pflege, mit der Absicht, die Welt zu verbessern.
 Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}\n\n .
 Subclass/&WhiteWitchMagicTitle	Weiße Magie
 Subclass/&WhiteWitchTitle	weiße Hexe
@@ -2014,3 +2010,55 @@ Feat/&SharpShooterFeatTitle	Scharfschütze
 Feature/&SharpShooterDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -Proficiency Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +2x Skill Bonus-Schaden zu verursachen.
 Feature/&SharpShooterTitle	Scharfschütze
 Tooltip/&SharpShooterConcentration	Scharfschütze deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
+Item/&CEHalberdTitle	Hellebarde
+Item/&CEHalberdPrimedTitle	Grundierte Hellebarde
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
+Item/&CEHalberd+1Title	Hellebarde +1
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
+Item/&CEHalberd+1UnidentifiedTitle	Qualität Hellebarde
+Item/&CEHalberd+2Title	Hellebarde +2
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Hellebarde +2 verzaubern
+Item/&CEHalberd+2UnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdLightningTitle	Blitzhellebarde
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Verzaubere Blitzhellebarde
+Item/&CEHalberdLightningUnidentifiedTitle	Prächtige Hellebarde
+Item/&CEPikeTitle	Pike
+Item/&CEPikePrimedTitle	Grundierter Hecht
+Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
+Item/&CEPike+1Title	Hecht +1
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
+Item/&CEPike+1UnidentifiedTitle	Qualitätshecht
+Item/&CEPike+2Title	Hecht +2
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
+Item/&CEPike+2UnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikePsychicTitle	Hellseher Pike
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
+Item/&CEPikePsychicUnidentifiedTitle	Prächtiger Hecht
+Item/&CELongMaceTitle	Langer Streitkolben
+Item/&CELongMacePrimedTitle	Grundierter langer Streitkolben
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
+Item/&CELongMace+1Title	Langer Streitkolben +1
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Verzaubert langen Streitkolben +1
+Item/&CELongMace+1UnidentifiedTitle	Hochwertiger langer Streitkolben
+Item/&CELongMace+2Title	Langer Streitkolben +2
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Verzaubert langen Streitkolben +2
+Item/&CELongMace+2UnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMaceThunderTitle	Donnernder langer Streitkolben
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden langen Streitkolben
+Item/&CELongMaceThunderUnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CEHandXbowTitle	Hand-Armbrust
+Item/&CEHandXbowPrimedTitle	Grundierte Handarmbrust
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
+Item/&CEHandXbow+1Title	Handarmbrust +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Verzaubert Handarmbrust +1
+Item/&CEHandXbow+1UnidentifiedTitle	Hochwertige Handarmbrust
+Item/&CEHandXbow+2Title	Handarmbrust +2
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Verzaubert Handarmbrust +2
+Item/&CEHandXbow+2UnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowAcidTitle	Säurehaltige Handarmbrust
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Verzaubert saure Handarmbrust
+Item/&CEHandXbowAcidUnidentifiedTitle	Prächtige Handarmbrust
+Equipment/&CEHalberdTypeTitle	Hellebarden
+Equipment/&CEPikeTypeTitle	Hechte
+Equipment/&CELongMaceTypeTitle	Lange Keulen
+Equipment/&CEHandXbowTypeTitle	Handarmbrüste
