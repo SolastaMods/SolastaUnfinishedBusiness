@@ -159,7 +159,6 @@ internal static class AcehighFeats
             Definition.SetAllowMultipleInstances(false);
             Definition.Features.Clear();
             Definition.Features.Add(SharpShooterAttackModifierBuilder.SharpShooterAttackModifier);
-            Definition.Features.Add(SharpShooterIgnoreDefenderBuilder.SharpShooterIgnoreDefender);
 
             Definition.SetDurationType(RuleDefinitions.DurationType.Round);
             Definition.SetDurationParameter(0);
@@ -188,6 +187,7 @@ internal static class AcehighFeats
 
             Definition.Features.Clear();
             Definition.Features.Add(BuildSharpShooterPower());
+            Definition.Features.Add(SharpShooterIgnoreDefenderBuilder.SharpShooterIgnoreDefender);
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
 
