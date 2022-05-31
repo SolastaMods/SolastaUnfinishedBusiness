@@ -54,6 +54,31 @@ public static class CustomWeapons
 
     #endregion
 
+    #region Pike Icons
+
+    private static AssetReferenceSprite _pikeIcon,
+        _pikePrimedIcon,
+        _pikeP1Icon,
+        _pikeP2Icon,
+        _pikeLightningIcon;
+
+    private static AssetReferenceSprite PikeIcon =>
+        _pikeIcon ??= CustomIcons.CreateAssetReferenceSprite("Pike", Resources.Pike, 128);
+
+    private static AssetReferenceSprite PikePrimedIcon => _pikePrimedIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("PikePrimed", Resources.PikePrimed, 128);
+
+    private static AssetReferenceSprite PikeP1Icon => _pikeP1Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Pike_1", Resources.Pike_1, 128);
+
+    private static AssetReferenceSprite PikeP2Icon => _pikeP2Icon ??=
+        CustomIcons.CreateAssetReferenceSprite("Pike_2", Resources.Pike_2, 128);
+
+    private static AssetReferenceSprite PikePsychicIcon => _pikeLightningIcon ??=
+        CustomIcons.CreateAssetReferenceSprite("PikePsychic", Resources.PikePsychic, 128);
+
+    #endregion
+
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
@@ -211,7 +236,6 @@ public static class CustomWeapons
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
         var baseItem = ItemDefinitions.Spear;
-        var icon = ItemDefinitions.Spear.GuiPresentation.SpriteReference;
         var basePresentation = ItemDefinitions.Morningstar.ItemPresentation;
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
@@ -230,12 +254,12 @@ public static class CustomWeapons
         damageForm.diceNumber = 1;
 
         Pike = BuildWeapon("CEPike", baseItem,
-            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, icon);
+            20, true, RuleDefinitions.ItemRarity.Common, basePresentation, baseDescription, PikeIcon);
         Pike.SetCustomSubFeatures(scale);
         ShopItems.Add((Pike, ShopGenericMelee));
 
         PikePrimed = BuildWeapon("CEPikePrimed", baseItem,
-            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, icon);
+            40, true, RuleDefinitions.ItemRarity.Uncommon, basePresentation, baseDescription, PikePrimedIcon);
         PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         PikePrimed.SetCustomSubFeatures(scale);
@@ -243,7 +267,7 @@ public static class CustomWeapons
         ShopItems.Add((BuildPrimingManual(Pike, PikePrimed), ShopCrafting));
 
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
-            950, true, RuleDefinitions.ItemRarity.Rare, properties: new[] {WeaponPlus1});
+            950, true, RuleDefinitions.ItemRarity.Rare, icon: PikeP1Icon, properties: new[] {WeaponPlus1});
         PikePlus1.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus1, ShopMeleePlus1));
         ShopItems.Add((BuildRecipeManual(PikePlus1, 24, 10,
@@ -255,7 +279,7 @@ public static class CustomWeapons
         PikePlus2 = BuildWeapon("CEPike+2", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
             basePresentation: itemDefinition.ItemPresentation,
-            icon: ItemDefinitions.SpearPlus2.GuiPresentation.SpriteReference,
+            icon: PikeP2Icon,
             properties: new[] {WeaponPlus2});
         PikePlus2.SetCustomSubFeatures(scale);
         ShopItems.Add((PikePlus2, ShopMeleePlus2));
@@ -267,7 +291,7 @@ public static class CustomWeapons
         PikePsychic = BuildWeapon("CEPikePsychic", Pike,
             2500, true, RuleDefinitions.ItemRarity.VeryRare,
             basePresentation: itemDefinition.ItemPresentation,
-            icon: ItemDefinitions.SpearPlus2.GuiPresentation.SpriteReference,
+            icon: PikePsychicIcon,
             properties: new[] {PsychicImpactVFX, WeaponPlus1});
         PikePsychic.SetCustomSubFeatures(scale);
         PikePsychic.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()

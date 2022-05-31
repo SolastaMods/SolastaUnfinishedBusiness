@@ -371,4 +371,19 @@
   <data name="Halberd_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Halberd+2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Pike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pike.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PikePrimed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PikePrimed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PikePsychic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PikePsychic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pike_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pike+1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pike_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pike+2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
