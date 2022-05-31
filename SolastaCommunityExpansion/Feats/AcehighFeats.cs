@@ -99,7 +99,7 @@ internal static class AcehighFeats
     private sealed class SharpShooterIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
     {
         private const string SharpShooterIgnoreDefenderName = "SharpShooterIgnoreDefender";
-        private const string SharpShooterIgnoreDefenderGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
+        private const string SharpShooterIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
 
         public static readonly FeatureDefinition SharpShooterIgnoreDefender
             = CreateAndAddToDB(SharpShooterIgnoreDefenderName, SharpShooterIgnoreDefenderGuid);

@@ -2010,7 +2010,7 @@ Spell/&MirrorImageTitle	Mirror Image
 Spell/&MirrorImageDescription	Mirror Image
 Feature/&AttributeModifier{0}Description	{0}
 Feat/&SharpShooterFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feat/&SharpShooterFeatTitle	Sharp Shooter
+Feat/&SharpShooterFeatTitle	Sharpshooter
 Feature/&SharpShooterDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
-Feature/&SharpShooterTitle	Sharp Shooter
-Tooltip/&SharpShooterConcentration	Disable Sharp Shooter.\nEffect will last until start of your next turn
+Feature/&SharpShooterTitle	Sharpshooter
+Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
