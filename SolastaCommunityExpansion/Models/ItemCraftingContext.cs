@@ -7,151 +7,150 @@ using System.Linq;
 using System.Text;
 #endif
 
-namespace SolastaCommunityExpansion.Models
+namespace SolastaCommunityExpansion.Models;
+
+internal static class ItemCraftingContext
 {
-    internal static class ItemCraftingContext
+    public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
     {
-        public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
+        "PrimedItems", "EnchantingIngredients", "RelicForgeries"
+    };
 
-        public static readonly List<string> BASE_GAME_ITEMS_CATEGORIES = new()
+    public static readonly Dictionary<string, string> RecipeTitles = new()
+    {
+        {"PrimedItems", "Primed Items"},
+        {"EnchantingIngredients", "Enchanting Ingredients"},
+        {"RelicForgeries", "Relic Forgeries"},
+        {"LightCrossbow", "Light Crossbow"},
+        {"HeavyCrossbow", "Heavy Crossbow"},
+        {"Handaxe", "Handaxe"},
+        {"Javelin", "Javelin"},
+        {"Dart", "Dart"},
+        {"Club", "Club"},
+        {"Maul", "Maul"},
+        {"Warhammer", "Warhammer"},
+        {"Quarterstaff", "Quarterstaff"},
+        {"Rapier", "Rapier"},
+        {"Spear", "Spear"},
+        {"Scimitar", "Scimitar"},
+        {"Shield_Wooden", "Shield [Wooden]"},
+        {"Shield", "Shield"},
+        {"HideArmor", "Hide Armor"},
+        {"LeatherDruid", "Leather Druid"},
+        {"StuddedLeather", "Studded Leather"}
+    };
+
+    public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
+
+    internal static void Load()
+    {
+        ItemRecipeGenerationHelper.StockItem(
+            DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
+            DatabaseHelper.ItemDefinitions.Maul);
+
+        ItemRecipeGenerationHelper.AddPrimingRecipes();
+        ItemRecipeGenerationHelper.AddIngredientEnchanting();
+        ItemRecipeGenerationHelper.AddFactionItems();
+
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(CrossbowData.CrossbowItems);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(HandaxeData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(ThrowingWeaponData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(BashingWeaponsData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(QuarterstaffData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(SpearData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
+        ItemRecipeGenerationHelper.AddRecipesForWeapons(RapierData.Items);
+
+        ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
+
+        foreach (var key in RecipeBooks.Keys)
         {
-            "PrimedItems", "EnchantingIngredients", "RelicForgeries"
-        };
+            UpdateCraftingItemsInDMState(key);
+            UpdateCraftingRecipesInDMState(key);
+        }
+    }
 
-        public static readonly Dictionary<string, string> RecipeTitles = new()
+    internal static void UpdateRecipeCost()
+    {
+        foreach (var items in RecipeBooks.Values)
         {
-            {"PrimedItems", "Primed Items"},
-            {"EnchantingIngredients", "Enchanting Ingredients"},
-            {"RelicForgeries", "Relic Forgeries"},
-            {"LightCrossbow", "Light Crossbow"},
-            {"HeavyCrossbow", "Heavy Crossbow"},
-            {"Handaxe", "Handaxe"},
-            {"Javelin", "Javelin"},
-            {"Dart", "Dart"},
-            {"Club", "Club"},
-            {"Maul", "Maul"},
-            {"Warhammer", "Warhammer"},
-            {"Quarterstaff", "Quarterstaff"},
-            {"Rapier", "Rapier"},
-            {"Spear", "Spear"},
-            {"Scimitar", "Scimitar"},
-            {"Shield_Wooden", "Shield [Wooden]"},
-            {"Shield", "Shield"},
-            {"HideArmor", "Hide Armor"},
-            {"LeatherDruid", "Leather Druid"},
-            {"StuddedLeather", "Studded Leather"}
-        };
-
-        internal static void Load()
-        {
-            ItemRecipeGenerationHelper.StockItem(
-                DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                DatabaseHelper.ItemDefinitions.Maul);
-
-            ItemRecipeGenerationHelper.AddPrimingRecipes();
-            ItemRecipeGenerationHelper.AddIngredientEnchanting();
-            ItemRecipeGenerationHelper.AddFactionItems();
-
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(CrossbowData.CrossbowItems);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(HandaxeData.Items);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(ThrowingWeaponData.Items);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(BashingWeaponsData.Items);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(QuarterstaffData.Items);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(SpearData.Items);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(ScimitarData.Items);
-            ItemRecipeGenerationHelper.AddRecipesForWeapons(RapierData.Items);
-
-            ItemRecipeGenerationHelper.AddRecipesForArmor(ArmorAndShieldData.Items);
-
-            foreach (var key in RecipeBooks.Keys)
+            foreach (var item in items)
             {
-                UpdateCraftingItemsInDMState(key);
-                UpdateCraftingRecipesInDMState(key);
+                item.SetCosts(new[] {0, Main.Settings.RecipeCost, 0, 0, 0});
             }
         }
+    }
 
-        internal static void UpdateRecipeCost()
+    internal static void AddToStore(string key)
+    {
+        if (Main.Settings.CraftingInStore.Contains(key))
         {
-            foreach (var items in RecipeBooks.Values)
+            foreach (var item in RecipeBooks[key])
             {
-                foreach (var item in items)
-                {
-                    item.SetCosts(new[] {0, Main.Settings.RecipeCost, 0, 0, 0});
-                }
+                ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, item);
+                ItemRecipeGenerationHelper.StockItem(
+                    DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, item);
             }
         }
+    }
 
-        internal static void AddToStore(string key)
+    internal static void UpdateCraftingItemsInDMState(string key)
+    {
+        if (BASE_GAME_ITEMS_CATEGORIES.Contains(key))
         {
-            if (Main.Settings.CraftingInStore.Contains(key))
-            {
-                foreach (var item in RecipeBooks[key])
-                {
-                    ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, item);
-                    ItemRecipeGenerationHelper.StockItem(
-                        DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, item);
-                }
-            }
+            // Don't touch the in dungeon state of base game items.
+            return;
         }
 
-        internal static void UpdateCraftingItemsInDMState(string key)
+        var available = Main.Settings.CraftingItemsInDM.Contains(key);
+        foreach (var recipeBookDefinition in RecipeBooks[key])
         {
-            if (BASE_GAME_ITEMS_CATEGORIES.Contains(key))
-            {
-                // Don't touch the in dungeon state of base game items.
-                return;
-            }
+            recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
+        }
+    }
 
-            var available = Main.Settings.CraftingItemsInDM.Contains(key);
-            foreach (var recipeBookDefinition in RecipeBooks[key])
-            {
-                recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
-            }
+    internal static void UpdateCraftingRecipesInDMState(string key)
+    {
+        var available = Main.Settings.CraftingRecipesInDM.Contains(key);
+        foreach (var recipeBookDefinition in RecipeBooks[key])
+        {
+            recipeBookDefinition.SetInDungeonEditor(available);
+        }
+    }
+
+    internal static void LearnRecipes(string key)
+    {
+        var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
+        if (gameLoreService == null)
+        {
+            return;
         }
 
-        internal static void UpdateCraftingRecipesInDMState(string key)
+        foreach (var recipeBookDefinition in RecipeBooks[key])
         {
-            var available = Main.Settings.CraftingRecipesInDM.Contains(key);
-            foreach (var recipeBookDefinition in RecipeBooks[key])
-            {
-                recipeBookDefinition.SetInDungeonEditor(available);
-            }
+            gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);
         }
-
-        internal static void LearnRecipes(string key)
-        {
-            var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
-            if (gameLoreService == null)
-            {
-                return;
-            }
-
-            foreach (var recipeBookDefinition in RecipeBooks[key])
-            {
-                gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);
-            }
-        }
+    }
 
 #if DEBUG
-        public static string GenerateItemsDescription()
+    public static string GenerateItemsDescription()
+    {
+        var outString = new StringBuilder();
+
+        foreach (var key in RecipeBooks.Keys)
         {
-            var outString = new StringBuilder();
+            outString.Append("\n[*][b]");
+            outString.Append(RecipeTitles[key]);
+            outString.Append("[/b]: ");
 
-            foreach (var key in RecipeBooks.Keys)
-            {
-                outString.Append("\n[*][b]");
-                outString.Append(RecipeTitles[key]);
-                outString.Append("[/b]: ");
+            var uniqueEntries = RecipeBooks[key]
+                .Select(rb => rb.DocumentDescription.RecipeDefinition.FormatTitle())
+                .Distinct();
 
-                var uniqueEntries = RecipeBooks[key]
-                    .Select(rb => rb.DocumentDescription.RecipeDefinition.FormatTitle())
-                    .Distinct();
-
-                outString.Append(string.Join(", ", uniqueEntries));
-            }
-
-            return outString.ToString();
+            outString.Append(string.Join(", ", uniqueEntries));
         }
-#endif
+
+        return outString.ToString();
     }
+#endif
 }

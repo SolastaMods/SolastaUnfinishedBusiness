@@ -5,9 +5,7 @@ using ModKit.Utility;
 using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 
-#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion.Utils;
-#pragma warning restore IDE0130 // Namespace does not match folder structure
 
 public class Core
 {
@@ -242,7 +240,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
 #if DEBUG
-        public bool DebugLogVariantMisuse { get; set; }
+    public bool DebugLogVariantMisuse { get; set; }
 #endif
 
     // Faction Relations

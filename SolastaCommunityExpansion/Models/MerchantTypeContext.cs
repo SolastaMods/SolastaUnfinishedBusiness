@@ -3,32 +3,14 @@ using System.Linq;
 using static SolastaModApi.DatabaseHelper.ItemFlagDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
+
 internal class MerchantTypeContext
 {
-    internal class MerchantType
-    {
-        public bool IsDocument;
-
-        public bool IsAmmunition;
-        public bool IsArmor;
-        public bool IsMeleeWeapon;
-        public bool IsRangeWeapon;
-
-        public bool IsMagicalAmmunition;
-        public bool IsMagicalArmor;
-        public bool IsMagicalMeleeWeapon;
-        public bool IsMagicalRangeWeapon;
-
-        public bool IsPrimedArmor;
-        public bool IsPrimedMeleeWeapon;
-        public bool IsPrimedRangeWeapon;
-    }
-
     internal static Dictionary<MerchantDefinition, MerchantType> MerchantTypes = new();
 
     internal static void Load()
     {
-        var rangeWeaponTypes = new string[]
+        var rangeWeaponTypes = new[]
         {
             "LightCrossbowType", "HeavyCrossbowType", "ShortbowType", "LongbowType", "DartType"
         };
@@ -104,7 +86,7 @@ internal class MerchantTypeContext
 
             MerchantTypes.Add(
                 merchant,
-                new MerchantType()
+                new MerchantType
                 {
                     IsDocument = isDocumentMerchant,
                     IsAmmunition = isAmmunitionMerchant,
@@ -120,5 +102,23 @@ internal class MerchantTypeContext
                     IsPrimedRangeWeapon = isPrimedRangeWeaponMerchant
                 });
         }
+    }
+
+    internal class MerchantType
+    {
+        public bool IsAmmunition;
+        public bool IsArmor;
+        public bool IsDocument;
+
+        public bool IsMagicalAmmunition;
+        public bool IsMagicalArmor;
+        public bool IsMagicalMeleeWeapon;
+        public bool IsMagicalRangeWeapon;
+        public bool IsMeleeWeapon;
+
+        public bool IsPrimedArmor;
+        public bool IsPrimedMeleeWeapon;
+        public bool IsPrimedRangeWeapon;
+        public bool IsRangeWeapon;
     }
 }

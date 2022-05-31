@@ -14,13 +14,14 @@ namespace SolastaCommunityExpansion.DataMiner
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            using (new PushValue<bool>(true, () => cannotWrite, (canWrite) => cannotWrite = canWrite))
+            using (new PushValue<bool>(true, () => cannotWrite, canWrite => cannotWrite = canWrite))
             {
                 serializer.Serialize(writer, value);
             }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }

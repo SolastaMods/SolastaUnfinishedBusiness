@@ -1,6 +1,7 @@
 ﻿#if DEBUG
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using SolastaCommunityExpansion;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaModApi.Diagnostics
@@ -36,7 +37,7 @@ namespace SolastaModApi.Diagnostics
         private readonly string typeName;
 
         public MethodLogger(string typeName, [CallerMemberName] string methodName = null) :
-            base(() => SolastaCommunityExpansion.Main.Log($"{typeName}.{methodName}: Enter"), () => SolastaCommunityExpansion.Main.Log($"{typeName}.{methodName}: Leave"))
+            base(() => Main.Log($"{typeName}.{methodName}: Enter"), () => Main.Log($"{typeName}.{methodName}: Leave"))
         {
             this.methodName = methodName;
             this.typeName = typeName;
@@ -45,7 +46,7 @@ namespace SolastaModApi.Diagnostics
         [Conditional("DEBUG")]
         public void Log(string message)
         {
-            SolastaCommunityExpansion.Main.Log($"{typeName}.{methodName}: {message}");
+            Main.Log($"{typeName}.{methodName}: {message}");
         }
     }
 }

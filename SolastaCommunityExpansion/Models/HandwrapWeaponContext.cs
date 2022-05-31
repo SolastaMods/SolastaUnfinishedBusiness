@@ -165,14 +165,14 @@ public static class HandwrapWeaponContext
     public static void AddToShops()
     {
         foreach (var merchant in MerchantTypeContext.MerchantTypes
-            .Where(x => x.Value.IsMagicalMeleeWeapon))
+                     .Where(x => x.Value.IsMagicalMeleeWeapon))
         {
             StockItem(merchant.Key, HandwrapsPlus1, FactionStatusDefinitions.Alliance);
             StockItem(merchant.Key, HandwrapsPlus2, FactionStatusDefinitions.Brotherhood);
         }
 
         foreach (var merchant in MerchantTypeContext.MerchantTypes
-            .Where(x => x.Value.IsDocument))
+                     .Where(x => x.Value.IsDocument))
         {
             foreach (var manual in CraftingManuals)
             {

@@ -15,6 +15,8 @@ namespace SolastaCommunityExpansion.DataMiner
 
         private static BlueprintExporter exporter;
 
+        internal static readonly ExportStatus[] CurrentExports = new ExportStatus[3];
+
         private static BlueprintExporter Exporter
         {
             get
@@ -28,14 +30,6 @@ namespace SolastaCommunityExpansion.DataMiner
                 return exporter;
             }
         }
-
-        internal struct ExportStatus
-        {
-            internal Coroutine coroutine;
-            internal float percentageComplete;
-        }
-
-        internal static readonly ExportStatus[] CurrentExports = new ExportStatus[3];
 
         private static void EnsureFolderExists(string path)
         {
@@ -76,7 +70,8 @@ namespace SolastaCommunityExpansion.DataMiner
             }
 
             var coroutine =
- ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, exportOriginalCopy, path);
+                ExportMany(exportId, baseDefinitions, baseDefinitionsMap, baseDefinitionAndCopy, exportOriginalCopy,
+                    path);
 
             SetExport(exportId, Exporter.StartCoroutine(coroutine), 0f);
         }
@@ -188,6 +183,12 @@ namespace SolastaCommunityExpansion.DataMiner
 
                 return definition;
             }
+        }
+
+        internal struct ExportStatus
+        {
+            internal Coroutine coroutine;
+            internal float percentageComplete;
         }
     }
 }
