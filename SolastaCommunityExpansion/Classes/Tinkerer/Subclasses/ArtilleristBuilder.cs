@@ -102,15 +102,10 @@ public static class ArtilleristBuilder
             .AddToDB();
         //     artillerist.AddFeatureAtLevel(protectorActivation, 3);
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Tinkerer,
-            flameAttack,
-            forceAttack,
-            protectorActivation
-        );
-
         artillerist.AddFeatureAtLevel(
             ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryConstructlevel03FeatureSet, 3);
 
+        // TODO: DEPRECATE IN FUTURE
         var artilleryConstructLevel03AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ArtilleryConstructLevel03AutopreparedSpells", TinkererClass.GuidNamespace)
             .SetGuiPresentation(Category.Feat)
@@ -119,7 +114,7 @@ public static class ArtilleristBuilder
                 BuildSpellGroup(1, SummonArtillerySpellConstructBuilder.SummonArtillerySpellConstruct))
             .AddToDB();
 
-        artillerist.AddFeatureAtLevel(artilleryConstructLevel03AutopreparedSpells, 03);
+        //artillerist.AddFeatureAtLevel(artilleryConstructLevel03AutopreparedSpells, 03);
 
         // Level 5: Arcane Firearm-- additional damage, school of evocation spells
         var arcaneFirearmGui = new GuiPresentationBuilder(
@@ -222,6 +217,7 @@ public static class ArtilleristBuilder
         artillerist.AddFeatureAtLevel(
             ArtilleryConstructlevel09FeatureSetBuilder.ArtilleryConstructlevel09FeatureSet, 9);
 
+        // TODO: DEPRECATE IN FUTURE
         var artilleryConstructLevel09AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ArtilleryConstructLevel09AutopreparedSpells", TinkererClass.GuidNamespace)
             .SetGuiPresentation(Category.Feat)
@@ -231,7 +227,7 @@ public static class ArtilleristBuilder
                 SummonArtillerySpellConstruct9Builder.SummonArtillerySpellConstruct9))
             .AddToDB();
 
-        artillerist.AddFeatureAtLevel(artilleryConstructLevel09AutopreparedSpells, 09);
+        //artillerist.AddFeatureAtLevel(artilleryConstructLevel09AutopreparedSpells, 09);
 
         // cannons doubled
         var fire15Effect = new EffectDescriptionBuilder();
@@ -308,7 +304,8 @@ public static class ArtilleristBuilder
 
         artillerist.AddFeatureAtLevel(
             ArtilleryConstructlevel15FeatureSetBuilder.ArtilleryConstructlevel15FeatureSet, 15);
-
+        
+        // TODO: DEPRECATE IN FUTURE
         var artilleryConstructLevel15AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ArtilleryConstructLevel15AutopreparedSpells", TinkererClass.GuidNamespace)
             .SetGuiPresentation(Category.Feat)
@@ -318,7 +315,20 @@ public static class ArtilleristBuilder
                 SummonArtillerySpellConstruct15Builder.SummonArtillerySpellConstruct15))
             .AddToDB();
 
-        artillerist.AddFeatureAtLevel(artilleryConstructLevel15AutopreparedSpells, 15);
+        //artillerist.AddFeatureAtLevel(artilleryConstructLevel15AutopreparedSpells, 15);
+
+        // ensures we can only keep one summon at a time
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Tinkerer,
+            ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower,
+            ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower,
+            ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower,
+            ArtilleryConstructlevel09FeatureSetBuilder.FlameArtillery_09modepower,
+            ArtilleryConstructlevel09FeatureSetBuilder.ForceArtillery_09modepower,
+            ArtilleryConstructlevel09FeatureSetBuilder.TempHPShield_09modepower,
+            ArtilleryConstructlevel15FeatureSetBuilder.FlameArtillery_15modepower,
+            ArtilleryConstructlevel15FeatureSetBuilder.ForceArtillery_15modepower,
+            ArtilleryConstructlevel15FeatureSetBuilder.TempHPShield_15modepower
+        );
 
         // build the subclass and add to the db
         return artillerist.AddToDB();
