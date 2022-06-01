@@ -1493,7 +1493,7 @@ Reaction/&CastSpellInRetributionDescription	{0}在攻击{1}！你能以反应施
 Reaction/&CastSpellInRetributionReactDescription	点击施放{0}
 Reaction/&CastSpellInRetributionReactTitle	施放法术
 Reaction/&CastSpellInRetributionTitle	以反应施放法术
-Reaction/&CustomDeflectMissileClassMonkTitle	{0}在攻击{1}，其能以反应降低即将受到的1D10+敏捷调整值+武僧等级点伤害
+Reaction/&CustomDeflectMissileMonkTitle	{0}在攻击{1}，其能以反应降低即将受到的1D10+敏捷调整值+武僧等级点伤害
 Reaction/&ReactionAttackFeatSentinelDescription	{0}攻击了你的盟友，你能以反应攻击
 Reaction/&ReactionAttackFeatSentinelReactDescription	以反应攻击
 Reaction/&ReactionAttackFeatSentinelReactTitle	攻击
@@ -1527,7 +1527,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	消耗1个赌注骰反击
 Reaction/&SpendPowerCounterStrikePowerReactTitle	反击
 Reaction/&SpendPowerCounterStrikePowerTitle	反击
 Reaction/&SpendPowerDH_RiftStrikeDescription	每天1次，当你在近战中受到伤害时，你能用你的反应创造一个裂隙传送，将攻击者从你存在的位面驱逐1轮
-Reaction/&SpendPowerDH_RiftStrikeTitle	裂隙反击
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	裂隙反击
 Reaction/&SpendPowerDiamondSoulDescription	{0}豁免失败，能消耗1点气重骰
 Reaction/&SpendPowerDiamondSoulReactDescription	消耗气重骰豁免
 Reaction/&SpendPowerDiamondSoulReactTitle	重骰

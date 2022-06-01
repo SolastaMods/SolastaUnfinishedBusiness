@@ -1493,7 +1493,7 @@ Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
-Reaction/&CustomDeflectMissileClassMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
+Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
 Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
@@ -1527,7 +1527,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Co
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
-Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
 Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
 Reaction/&SpendPowerDiamondSoulReactTitle	Reroll

@@ -1493,7 +1493,7 @@ Reaction/&CastSpellInRetributionDescription	{0} атакует {1}! Вы мож�
 Reaction/&CastSpellInRetributionReactDescription	Нажмите, чтобы разыграть {0}.
 Reaction/&CastSpellInRetributionReactTitle	Произнести заклинание
 Reaction/&CastSpellInRetributionTitle	Применить заклинание реакции
-Reaction/&CustomDeflectMissileClassMonkTitle	{0} атакует {1}, который может отреагировать, чтобы уменьшить входящий урон на 1D10 + модификатор ЛВК + уровень Монаха.
+Reaction/&CustomDeflectMissileMonkTitle	{0} атакует {1}, который может отреагировать, чтобы уменьшить входящий урон на 1D10 + модификатор ЛВК + уровень Монаха.
 Reaction/&ReactionAttackFeatSentinelDescription	{0} атаковал одного из ваших союзников, в ответ вы можете атаковать реакцией.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Используйте реакцию для атаки.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Атака
@@ -1527,7 +1527,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Потратьте куб
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Ответный удар
 Reaction/&SpendPowerCounterStrikePowerTitle	Ответный удар
 Reaction/&SpendPowerDH_RiftStrikeDescription	Раз в день при получении урона в ближнем бою вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана существования.
-Reaction/&SpendPowerDH_RiftStrikeTitle	Разломный удар
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Разломный удар
 Reaction/&SpendPowerDiamondSoulDescription	{0} не смог сохраниться и может потратить 1 ки, чтобы перебросить его.
 Reaction/&SpendPowerDiamondSoulReactDescription	Потратьте ки, чтобы перебросить неудачное сохранение.
 Reaction/&SpendPowerDiamondSoulReactTitle	Реролл
