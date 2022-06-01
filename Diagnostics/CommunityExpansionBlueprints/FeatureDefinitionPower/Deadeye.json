@@ -74,11 +74,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "SharpShooterTriggerCondition",
-          "conditionDefinition": "Definition:SharpShooterTriggerCondition:41167d12-0836-5722-a410-ccf21484f94a",
+          "conditionDefinitionName": "DeadeyeTriggerCondition",
+          "conditionDefinition": "Definition:DeadeyeTriggerCondition:1d3549c6-fdba-530f-9c3e-156a96837560",
           "operation": "Add",
           "conditionsList": [
-            "Definition:SharpShooterTriggerCondition:41167d12-0836-5722-a410-ccf21484f94a"
+            "Definition:DeadeyeTriggerCondition:1d3549c6-fdba-530f-9c3e-156a96837560"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -102,11 +102,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "SharpShooterCondition",
-          "conditionDefinition": "Definition:SharpShooterCondition:a0d24e21-3469-43af-ad63-729552120314",
+          "conditionDefinitionName": "DeadeyeCondition",
+          "conditionDefinition": "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314",
           "operation": "Add",
           "conditionsList": [
-            "Definition:SharpShooterCondition:a0d24e21-3469-43af-ad63-729552120314"
+            "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -330,11 +330,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&SharpShooterFeatTitle",
-    "description": "Feat/&SharpShooterFeatDescription",
+    "title": "Feat/&DeadeyeFeatTitle",
+    "description": "Feat/&DeadeyeFeatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0e86e882319c5fb3a944935e62495365",
+      "m_AssetGUID": "9a520f02972e5046add687d70ec26157",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -353,5 +353,5 @@
   "contentCopyright": "UserContent",
   "guid": "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1",
   "contentPack": 9999,
-  "name": "SharpShooter"
+  "name": "Deadeye"
 }

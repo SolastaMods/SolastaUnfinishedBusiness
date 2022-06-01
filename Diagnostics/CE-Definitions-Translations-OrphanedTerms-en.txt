@@ -345,7 +345,7 @@ Reaction/&ReadiedAction{0}Description	Readied {0}
 Spell/&MirrorImageTitle	Mirror Image
 Spell/&MirrorImageDescription	Mirror Image
 Feature/&AttributeModifier{0}Description	{0}
-Tooltip/&SharpShooterConcentration	Disable Sharpshooter.\nEffect will last until start of your next turn
+Tooltip/&DeadeyeConcentration	Disable Deadeye.\nEffect will last until start of your next turn
 Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
 Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
 Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 

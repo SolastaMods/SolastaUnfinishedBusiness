@@ -27,8 +27,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&SharpShooterTitle",
-    "description": "Feature/&SharpShooterDescription",
+    "title": "Feature/&DeadeyeTitle",
+    "description": "Feature/&DeadeyeDescription",
     "spriteReference": null,
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -45,5 +45,5 @@
   "contentCopyright": "UserContent",
   "guid": "38940e1f-fc62-4a1a-aebe-b4cb7064050d",
   "contentPack": 9999,
-  "name": "SharpShooterIgnoreDefender"
+  "name": "DeadeyeIgnoreDefender"
 }

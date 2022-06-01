@@ -186,6 +186,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Charismatic Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your charisma for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
 [*][b]Chef (Constitution)[/b]: You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 [*][b]Chef (Wisdom)[/b]: You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+[*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
 [*][b]Dual Weapon Defense[/b]: When yielding 2 weapons your AC increases by 1.
 [*][b]Fast Hands[/b]: You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action.
@@ -250,7 +251,6 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Shadow Touched (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 [*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
 Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6.
-[*][b]Sharpshooter[/b]: You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do a +2x Proficiency Bonus damage.
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.
 You gain advantage on shove attempts while weilding a shield..
 [*][b]Telekinetic (Charisma)[/b]: Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
@@ -339,7 +339,7 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [list=1]
 
 [*][b]Primed Items[/b]: Primed Battleaxe, Primed Breastplate, Primed Chain Mail, Primed Chain Shirt, Primed Dagger, Primed Greataxe, Primed Greatsword, Primed Half Plate, Primed Heavy Crossbow, Primed Hide Armor, Primed Druid Armor, Primed Leather Armor, Primed Crossbow, Primed Longbow, Primed Longsword, Primed Mace, Primed Maul, Primed Morningstar, Primed Plate, Primed Rapier, Primed Scale Mail, Primed Scimitar, Primed Shortbow, Primed Shortsword, Primed Spear, Primed Studded Armor, Primed Warhammer
-[*][b]Enchanting Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
+[*][b]Required Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
 [*][b]Relic Forgeries[/b]: Tirmarian Holy Symbol, Depleted Rune, Imperial Gate Plaque, Aksha's Journal, Ancient Manifest, Tirmarian Master Smith's Memoirs, Tirmarian Inquisitor's Journal, Poem, The Elven Wars, Silent Whisper Parchment
 [*][b]Light Crossbow[/b]: Light Crossbow of Accuracy, Light Crossbow of Sharpshooting, Lightbringer Light Crossbow, Light Stormcrossbow, Medusa Light Crossbow
 [*][b]Heavy Crossbow[/b]: Heavy Crossbow of Accuracy, Heavy Crossbow of Sharpshooting, Lightbringer Heavy Crossbow, Heavy Stormcrossbow, Medusa Heavy Crossbow
@@ -353,10 +353,10 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
 [*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
 [*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
-[*][b]Shield [Wooden][/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
+[*][b]Wooden Shield[/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
-[*][b]Leather Druid[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
+[*][b]Druid Leather Armor[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
 [/list]
 

@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SharpShooterTriggerFeature:b3598d86-d514-55f9-bc9b-1447c6e8e894"
+    "Definition:DeadeyeTriggerFeature:c335a551-46f9-5026-b560-5bf9fa3489ee"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -139,7 +139,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "41167d12-0836-5722-a410-ccf21484f94a",
+  "guid": "1d3549c6-fdba-530f-9c3e-156a96837560",
   "contentPack": 9999,
-  "name": "SharpShooterTriggerCondition"
+  "name": "DeadeyeTriggerCondition"
 }

@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SharpShooterAttackModifier:473f6ab6-af46-4717-b55e-ff9e31d909e2",
-    "Definition:SharpShooterIgnoreDefender:38940e1f-fc62-4a1a-aebe-b4cb7064050d"
+    "Definition:DeadeyeAttackModifier:473f6ab6-af46-4717-b55e-ff9e31d909e2"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -22,7 +21,7 @@
   "conditionTags": [],
   "recurrentEffectForms": [],
   "cancellingConditions": [
-    "Definition:SharpShooterCondition:a0d24e21-3469-43af-ad63-729552120314"
+    "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314"
   ],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
@@ -221,8 +220,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&SharpShooterTitle",
-    "description": "Feature/&SharpShooterDescription",
+    "title": "Feature/&DeadeyeTitle",
+    "description": "Feature/&DeadeyeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
@@ -244,5 +243,5 @@
   "contentCopyright": "UserContent",
   "guid": "a0d24e21-3469-43af-ad63-729552120314",
   "contentPack": 9999,
-  "name": "SharpShooterCondition"
+  "name": "DeadeyeCondition"
 }
