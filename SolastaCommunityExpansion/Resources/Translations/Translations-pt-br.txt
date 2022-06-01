@@ -2005,11 +2005,11 @@ Reaction/&ReadiedAction{0}Description	Pronto {0}
 Spell/&MirrorImageTitle	Imagem espelhada
 Spell/&MirrorImageDescription	Imagem espelhada
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	Você dominou armas de longo alcance e pode fazer tiros que outros acham impossíveis. Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -Bônus de Proficiência ao seu acerto para causar +2x de dano de Bônus de Proficiência.
-Feat/&SharpShooterFeatTitle	Atirador afiado
-Feature/&SharpShooterDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -Bônus de Proficiência ao seu acerto para causar +2x de dano de Bônus de Proficiência.
-Feature/&SharpShooterTitle	Atirador afiado
-Tooltip/&SharpShooterConcentration	Desative o atirador de elite.\nO efeito durará até o início do seu próximo turno
+Feat/&DeadeyeFeatDescription	Você dominou armas de longo alcance e pode fazer tiros que outros acham impossíveis. Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 ao seu acerto para causar +10 de dano.
+Feat/&DeadeyeFeatTitle	Atirador afiado
+Feature/&DeadeyeDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 ao seu acerto para causar +10 de dano.
+Feature/&DeadeyeTitle	Atirador afiado
+Tooltip/&DeadeyeConcentration	Desative o atirador de elite.\nO efeito durará até o início do seu próximo turno
 Item/&CEHalberdTitle	Alabarda
 Item/&CEHalberdPrimedTitle	Alabarda Preparada
 Item/&CraftingManualRecipePrimingCEHalberdTitle	Alabarda Prime

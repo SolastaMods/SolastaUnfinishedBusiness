@@ -2005,11 +2005,11 @@ Reaction/&ReadiedAction{0}Description	Bereit {0}
 Spell/&MirrorImageTitle	Spiegelbild
 Spell/&MirrorImageDescription	Spiegelbild
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	Sie beherrschen Fernkampfwaffen und können Schüsse abgeben, die andere unmöglich finden. Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -Proficiency Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +2x Skill Bonus-Schaden zu verursachen.
-Feat/&SharpShooterFeatTitle	Scharfschütze
-Feature/&SharpShooterDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -Proficiency Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +2x Skill Bonus-Schaden zu verursachen.
-Feature/&SharpShooterTitle	Scharfschütze
-Tooltip/&SharpShooterConcentration	Scharfschütze deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
+Feat/&DeadeyeFeatDescription	Sie beherrschen Fernkampfwaffen und können Schüsse abgeben, die andere unmöglich finden. Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -5 Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +10 Skill Bonus-Schaden zu verursachen.
+Feat/&DeadeyeFeatTitle	Scharfschütze
+Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -5 Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +10 Skill Bonus-Schaden zu verursachen.
+Feature/&DeadeyeTitle	Scharfschütze
+Tooltip/&DeadeyeConcentration	Scharfschütze deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
 Item/&CEHalberdTitle	Hellebarde
 Item/&CEHalberdPrimedTitle	Grundierte Hellebarde
 Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde

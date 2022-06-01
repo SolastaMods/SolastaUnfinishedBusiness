@@ -17,18 +17,18 @@ internal static class AcehighFeats
 {
     public static void CreateFeats(List<FeatDefinition> feats)
     {
-        feats.Add(SharpShooterFeatBuilder.SharpShooterFeat);
+        feats.Add(DeadeyeFeatBuilder.DeadeyeFeat);
         feats.Add(PowerAttackFeatBuilder.PowerAttackFeat);
         feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
     }
 
-    private static FeatureDefinition BuildSharpShooterPower()
+    private static FeatureDefinition BuildDeadeyePower()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("SharpShooter", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
-            .SetGuiPresentation("SharpShooterFeat", Category.Feat,
-                CustomIcons.CreateAssetReferenceSprite("SharpShooterIcon",
-                    Resources.SharpShooterIcon, 128, 64))
+            .Create("Deadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+            .SetGuiPresentation("DeadeyeFeat", Category.Feat,
+                CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
+                    Resources.DeadeyeIcon, 128, 64))
             .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
             .SetUsesFixed(1)
             .SetCostPerUse(0)
@@ -40,20 +40,20 @@ internal static class AcehighFeats
                 .SetEffectForms(
                     new EffectFormBuilder()
                         .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("SharpShooterTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+                            .Create("DeadeyeTriggerCondition", DefinitionBuilder.CENamespaceGuid)
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetDuration(RuleDefinitions.DurationType.Permanent)
                             .SetFeatures(
                                 FeatureDefinitionBuilder
-                                    .Create("SharpShooterTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                                    .Create("DeadeyeTriggerFeature", DefinitionBuilder.CENamespaceGuid)
                                     .SetGuiPresentationNoContent(true)
-                                    .SetCustomSubFeatures(new SharpShooterConcentrationProvider())
+                                    .SetCustomSubFeatures(new DeadeyeConcentrationProvider())
                                     .AddToDB())
                             .AddToDB(), ConditionForm.ConditionOperation.Add)
                         .Build(),
                     new EffectFormBuilder()
-                        .SetConditionForm(SharpShooterConditionBuilder.SharpShooterCondition,
+                        .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
@@ -96,18 +96,18 @@ internal static class AcehighFeats
             .AddToDB();
     }
 
-    private sealed class SharpShooterIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
+    private sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
     {
-        private const string SharpShooterIgnoreDefenderName = "SharpShooterIgnoreDefender";
-        private const string SharpShooterIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
+        private const string DeadeyeIgnoreDefenderName = "DeadeyeIgnoreDefender";
+        private const string DeadeyeIgnoreDefenderGuid = "38940e1f-fc62-4a1a-aebe-b4cb7064050d";
 
-        public static readonly FeatureDefinition SharpShooterIgnoreDefender
-            = CreateAndAddToDB(SharpShooterIgnoreDefenderName, SharpShooterIgnoreDefenderGuid);
+        public static readonly FeatureDefinition DeadeyeIgnoreDefender
+            = CreateAndAddToDB(DeadeyeIgnoreDefenderName, DeadeyeIgnoreDefenderGuid);
 
-        private SharpShooterIgnoreDefenderBuilder(string name, string guid) : base(name, guid)
+        private DeadeyeIgnoreDefenderBuilder(string name, string guid) : base(name, guid)
         {
-            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
-            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+            Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
+            Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
             Definition.SetIgnoreRangeAdvantage(true);
             Definition.SetIgnoreCover(true);
@@ -116,49 +116,49 @@ internal static class AcehighFeats
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SharpShooterIgnoreDefenderBuilder(name, guid).AddToDB();
+            return new DeadeyeIgnoreDefenderBuilder(name, guid).AddToDB();
         }
     }
 
-    private sealed class SharpShooterAttackModifierBuilder : FeatureDefinitionBuilder
+    private sealed class DeadeyeAttackModifierBuilder : FeatureDefinitionBuilder
     {
-        private const string SharpShooterAttackModifierName = "SharpShooterAttackModifier";
-        private const string SharpShooterAttackModifierGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
+        private const string DeadeyeAttackModifierName = "DeadeyeAttackModifier";
+        private const string DeadeyeAttackModifierGuid = "473f6ab6-af46-4717-b55e-ff9e31d909e2";
 
-        public static readonly FeatureDefinition SharpShooterAttackModifier
-            = CreateAndAddToDB(SharpShooterAttackModifierName, SharpShooterAttackModifierGuid);
+        public static readonly FeatureDefinition DeadeyeAttackModifier
+            = CreateAndAddToDB(DeadeyeAttackModifierName, DeadeyeAttackModifierGuid);
 
-        private SharpShooterAttackModifierBuilder(string name, string guid) : base(name, guid)
+        private DeadeyeAttackModifierBuilder(string name, string guid) : base(name, guid)
         {
-            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
-            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+            Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
+            Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
-            Definition.SetCustomSubFeatures(new ModifySharpShooterAttackPower());
+            Definition.SetCustomSubFeatures(new ModifyDeadeyeAttackPower());
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SharpShooterAttackModifierBuilder(name, guid).AddToDB();
+            return new DeadeyeAttackModifierBuilder(name, guid).AddToDB();
         }
     }
 
-    private sealed class SharpShooterConditionBuilder : ConditionDefinitionBuilder
+    private sealed class DeadeyeConditionBuilder : ConditionDefinitionBuilder
     {
-        private const string SharpShooterConditionName = "SharpShooterCondition";
-        private const string SharpShooterConditionNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
+        private const string DeadeyeConditionName = "DeadeyeCondition";
+        private const string DeadeyeConditionNameGuid = "a0d24e21-3469-43af-ad63-729552120314";
 
-        public static readonly ConditionDefinition SharpShooterCondition =
-            CreateAndAddToDB(SharpShooterConditionName, SharpShooterConditionNameGuid);
+        public static readonly ConditionDefinition DeadeyeCondition =
+            CreateAndAddToDB(DeadeyeConditionName, DeadeyeConditionNameGuid);
 
-        private SharpShooterConditionBuilder(string name, string guid) : base(
+        private DeadeyeConditionBuilder(string name, string guid) : base(
             DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle, name, guid)
         {
-            Definition.GuiPresentation.Title = "Feature/&SharpShooterTitle";
-            Definition.GuiPresentation.Description = "Feature/&SharpShooterDescription";
+            Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
+            Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
             Definition.SetAllowMultipleInstances(false);
             Definition.Features.Clear();
-            Definition.Features.Add(SharpShooterAttackModifierBuilder.SharpShooterAttackModifier);
+            Definition.Features.Add(DeadeyeAttackModifierBuilder.DeadeyeAttackModifier);
 
             Definition.SetDurationType(RuleDefinitions.DurationType.Round);
             Definition.SetDurationParameter(0);
@@ -167,50 +167,50 @@ internal static class AcehighFeats
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SharpShooterConditionBuilder(name, guid).AddToDB();
+            return new DeadeyeConditionBuilder(name, guid).AddToDB();
         }
     }
 
-    private sealed class SharpShooterFeatBuilder : FeatDefinitionBuilder
+    private sealed class DeadeyeFeatBuilder : FeatDefinitionBuilder
     {
-        private const string SharpShooterFeatName = "SharpShooterFeat";
-        private const string SharpShooterFeatNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
+        private const string DeadeyeFeatName = "DeadeyeFeat";
+        private const string DeadeyeFeatNameGuid = "d2ca939a-465e-4e43-8e9b-6469177e1839";
 
-        public static readonly FeatDefinition SharpShooterFeat =
-            CreateAndAddToDB(SharpShooterFeatName, SharpShooterFeatNameGuid);
+        public static readonly FeatDefinition DeadeyeFeat =
+            CreateAndAddToDB(DeadeyeFeatName, DeadeyeFeatNameGuid);
 
-        private SharpShooterFeatBuilder(string name, string guid) : base(
+        private DeadeyeFeatBuilder(string name, string guid) : base(
             DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
         {
-            Definition.GuiPresentation.Title = "Feat/&SharpShooterFeatTitle";
-            Definition.GuiPresentation.Description = "Feat/&SharpShooterFeatDescription";
+            Definition.GuiPresentation.Title = "Feat/&DeadeyeFeatTitle";
+            Definition.GuiPresentation.Description = "Feat/&DeadeyeFeatDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(BuildSharpShooterPower());
-            Definition.Features.Add(SharpShooterIgnoreDefenderBuilder.SharpShooterIgnoreDefender);
+            Definition.Features.Add(BuildDeadeyePower());
+            Definition.Features.Add(DeadeyeIgnoreDefenderBuilder.DeadeyeIgnoreDefender);
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
 
         private static FeatDefinition CreateAndAddToDB(string name, string guid)
         {
-            return new SharpShooterFeatBuilder(name, guid).AddToDB();
+            return new DeadeyeFeatBuilder(name, guid).AddToDB();
         }
     }
 
-    private sealed class SharpShooterConcentrationProvider : ICusomConcentrationProvider
+    private sealed class DeadeyeConcentrationProvider : ICusomConcentrationProvider
     {
         private static AssetReferenceSprite _icon;
-        public string Name => "SharpShooter";
-        public string Tooltip => "Tooltip/&SharpShooterConcentration";
+        public string Name => "Deadeye";
+        public string Tooltip => "Tooltip/&DeadeyeConcentration";
 
         public AssetReferenceSprite Icon => _icon ??=
-            CustomIcons.CreateAssetReferenceSprite("SharpShooterConcentrationIcon",
-                Resources.SharpShooterConcentrationIcon, 64, 64);
+            CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
+                Resources.DeadeyeConcentrationIcon, 64, 64);
 
         public void Stop(RulesetCharacter character)
         {
-            var triggerCondition = "SharpShooterTriggerCondition";
-            var attackCondition = SharpShooterConditionBuilder.SharpShooterCondition.Name;
+            var triggerCondition = "DeadeyeTriggerCondition";
+            var attackCondition = DeadeyeConditionBuilder.DeadeyeCondition.Name;
             var toRemove = new List<RulesetCondition>();
 
             foreach (var pair in character.ConditionsByCategory)
@@ -231,7 +231,7 @@ internal static class AcehighFeats
 
             character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(
                 character.Guid,
-                SharpShooterConditionBuilder.SharpShooterCondition, RuleDefinitions.DurationType.Round,
+                DeadeyeConditionBuilder.DeadeyeCondition, RuleDefinitions.DurationType.Round,
                 0,
                 RuleDefinitions.TurnOccurenceType.StartOfTurn,
                 character.Guid,
@@ -240,7 +240,7 @@ internal static class AcehighFeats
         }
     }
 
-    private class ModifySharpShooterAttackPower : IModifyAttackModeForWeapon
+    private class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
@@ -261,17 +261,16 @@ internal static class AcehighFeats
                 return;
             }
 
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var toHit = -proficiency;
-            var toDamage = proficiency * 2;
+            var toHit = -5;
+            var toDamage = 10;
 
             attackMode.ToHitBonus += toHit;
             attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(toHit,
-                RuleDefinitions.FeatureSourceType.Power, "SharpShooter", null));
+                RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
 
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
-                RuleDefinitions.FeatureSourceType.Power, "SharpShooter", null));
+                RuleDefinitions.FeatureSourceType.Power, "Deadeye", null));
         }
     }
 

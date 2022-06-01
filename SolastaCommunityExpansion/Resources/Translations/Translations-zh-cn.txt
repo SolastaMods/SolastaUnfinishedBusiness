@@ -2005,11 +2005,11 @@ Reaction/&ReadiedAction{0}Description	准备{0}
 Spell/&MirrorImageTitle	镜影术
 Spell/&MirrorImageDescription	镜影术
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中。攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
-Feat/&SharpShooterFeatTitle	神射手
-Feature/&SharpShooterDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
-Feature/&SharpShooterTitle	神射手
-Tooltip/&SharpShooterConcentration	禁用神射手\n持续至你下回合开始
+Feat/&DeadeyeFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中。攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
+Feat/&DeadeyeFeatTitle	神射手
+Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
+Feature/&DeadeyeTitle	神射手
+Tooltip/&DeadeyeConcentration	禁用神射手\n持续至你下回合开始
 Item/&CEHalberdTitle	戟
 Item/&CEHalberdPrimedTitle	制备好的戟
 Item/&CraftingManualRecipePrimingCEHalberdTitle	制备戟

@@ -2005,11 +2005,11 @@ Reaction/&ReadiedAction{0}Description	Prêt {0}
 Spell/&MirrorImageTitle	Image miroir
 Spell/&MirrorImageDescription	Image miroir
 Feature/&AttributeModifier{0}Description	{0}
-Feat/&SharpShooterFeatDescription	Vous maîtrisez les armes à distance et pouvez effectuer des tirs que d'autres trouvent impossibles. Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +2x.
-Feat/&SharpShooterFeatTitle	Tireur d'élite
-Feature/&SharpShooterDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +2x.
-Feature/&SharpShooterTitle	Tireur d'élite
-Tooltip/&SharpShooterConcentration	Désactivez le tireur d'élite.\nL'effet durera jusqu'au début de votre prochain tour
+Feat/&DeadeyeFeatDescription	Vous maîtrisez les armes à distance et pouvez effectuer des tirs que d'autres trouvent impossibles. Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +10.
+Feat/&DeadeyeFeatTitle	Tireur d'élite
+Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +10.
+Feature/&DeadeyeTitle	Tireur d'élite
+Tooltip/&DeadeyeConcentration	Désactivez le tireur d'élite.\nL'effet durera jusqu'au début de votre prochain tour
 Item/&CEHalberdTitle	Hallebarde
 Item/&CEHalberdPrimedTitle	Hallebarde apprêtée
 Item/&CraftingManualRecipePrimingCEHalberdTitle	Première hallebarde
