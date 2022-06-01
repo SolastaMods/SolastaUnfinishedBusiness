@@ -149,32 +149,32 @@ Condition/&SwallowingToadConditionDescription	若蛙王邪术师在单次攻击�
 Condition/&SwallowingToadConditionTitle	巨蛙吞食
 ContentPack/&CommunityExpansionPackDescription	社区扩展包增加了新的职业、子职、专长和法术。它带来了更高的等级上限、兼职、QOL功能、Bug修复和更多特性。这是一个名副其实的丰饶之角
 ContentPack/&CommunityExpansionPackTitle	社区扩展包
-CraftyFeats/&ApothecaryIntFeatDescription	+1智力，熟练或专精于草药工具包和奥秘
+CraftyFeats/&ApothecaryIntFeatDescription	智力+1，熟练或专精于草药工具包和奥秘
 CraftyFeats/&ApothecaryIntFeatTitle	炼金师(智力)
-CraftyFeats/&ApothecaryWisFeatDescription	+1感知，熟练或专精于草药工具包和奥秘
+CraftyFeats/&ApothecaryWisFeatDescription	感知+1，熟练或专精于草药工具包和奥秘
 CraftyFeats/&ApothecaryWisFeatTitle	炼金师(感知)
-CraftyFeats/&AttributeDexDescription	+1敏捷
+CraftyFeats/&AttributeDexDescription	敏捷+1
 CraftyFeats/&AttributeDexTitle	敏捷
-CraftyFeats/&AttributeIntDescription	+1智力
+CraftyFeats/&AttributeIntDescription	智力+1
 CraftyFeats/&AttributeIntTitle	智力
-CraftyFeats/&AttributeWisDescription	+1感知
+CraftyFeats/&AttributeWisDescription	感知+1
 CraftyFeats/&AttributeWisTitle	感知
 CraftyFeats/&CraftyArcanaDescription	熟练或专精于奥秘
 CraftyFeats/&CraftyBowsDescription	熟练使用弓箭和十字弩
 CraftyFeats/&CraftyBowsTitle	弓箭武器熟练
-CraftyFeats/&CraftyFletcherFeatDescription	+1敏捷，熟练或专精于窃贼工具，熟练使用弓箭和十字弩
+CraftyFeats/&CraftyFletcherFeatDescription	敏捷+1，熟练或专精于窃贼工具，熟练使用弓箭和十字弩
 CraftyFeats/&CraftyFletcherFeatTitle	造箭师
 CraftyFeats/&CraftyMedicineDescription	熟练或专精于医学
 CraftyFeats/&CraftyNatureDescription	熟练或专精于自然
-CraftyFeats/&CraftyScribeFeatDescription	+1智力，熟练或专精于卷轴工具包和奥秘，需要施法能力
+CraftyFeats/&CraftyScribeFeatDescription	智力+1，熟练或专精于卷轴工具包和奥秘，需要施法能力
 CraftyFeats/&CraftyScribeFeatTitle	抄书员
 CraftyFeats/&CraftySkillsTitle	技能
 CraftyFeats/&CraftyToolsTitle	工具
 CraftyFeats/&ManacalonCrafterFeatDescription	+1智力，熟练或专精于Manacalon念珠和奥秘，需要施法能力
 CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon工匠
-CraftyFeats/&ToxicologistIntFeatDescription	+1智力，熟练或专精于制毒工具和自然
+CraftyFeats/&ToxicologistIntFeatDescription	智力+1，熟练或专精于制毒工具和自然
 CraftyFeats/&ToxicologistIntFeatTitle	毒药学家（智力）
-CraftyFeats/&ToxicologistWisFeatDescription	+1感知，熟练或专精于制毒工具和自然
+CraftyFeats/&ToxicologistWisFeatDescription	感知+1，熟练或专精于制毒工具和自然
 CraftyFeats/&ToxicologistWisFeatTitle	毒药学家（感知）
 DamageAffinity/&DHHolyAuraSpellDescription	当一个邪魔或不死生物以近战攻击命中受术生物时，其灵光将产生耀眼的爆发，而攻击者必须进行一次体质豁免，豁免失败者将陷入目盲直至法术终止
 DamageAffinity/&DHHolyAuraSpellTitle	圣洁灵光反击
@@ -497,19 +497,19 @@ Feat/&FeatBlindFightingStlyeDescription	你获得10英尺范围的盲感
 Feat/&FeatBlindFightingStlyeTitle	战斗风格：盲斗
 Feat/&FeatBrutalThugDescription	你在正确的地方进行有力的打击\n你能用军用武器进行偷袭，并获得战士的武器的熟练项
 Feat/&FeatBrutalThugTitle	残忍暴徒
-Feat/&FeatChaIncrementDescription	+1 魅力
+Feat/&FeatChaIncrementDescription	魅力+1
 Feat/&FeatChaIncrementTitle	魅力属性提升
 Feat/&FeatCharismaticDefenseDescription	魅力+1，最高20点\n当你没有穿戴任何盔甲时，你的AC等于10+敏捷调整值+魅力调整值
 Feat/&FeatCharismaticDefenseTitle	诡魅防御
 Feat/&FeatCharismaticPrecisionDescription	在武器上激活时，它的攻击视为魔法武器，你的攻击和伤害骰使用你的魅力加值。持续1分钟，每次长休前能使用2次
 Feat/&FeatCharismaticPrecisionTitle	诡魅精准
-Feat/&FeatChefConIncrementDescription	+1 体质
+Feat/&FeatChefConIncrementDescription	体质+1
 Feat/&FeatChefConIncrementTitle	属性提升
-Feat/&FeatChefWisIncrementDescription	+1 感知
+Feat/&FeatChefWisIncrementDescription	感知+1
 Feat/&FeatChefWisIncrementTitle	属性提升
 Feat/&FeatCripplingDescription	将你近战范围内的对手的速度降低到10，直到下一回合结束
 Feat/&FeatCripplingTitle	战斗风格：致残
-Feat/&FeatDexIncrementDescription	+1 敏捷
+Feat/&FeatDexIncrementDescription	敏捷+1
 Feat/&FeatDexIncrementTitle	属性提升
 Feat/&FeatDualWeaponDefenseDescription	使用两把武器战斗时，你的AC+1
 Feat/&FeatDualWeaponDefenseTitle	双武器防御
@@ -529,7 +529,7 @@ Feat/&FeatHeavyArmorMasterClassDescription	获得钝击，穿刺和挥砍伤害�
 Feat/&FeatHeavyArmorMasterClassTitle	重甲防御大师
 Feat/&FeatImprovedCriticalDescription	你的攻击在掷出19或20时是视为重击
 Feat/&FeatImprovedCriticalTitle	重击精通
-Feat/&FeatIntIncrementDescription	+1 智力
+Feat/&FeatIntIncrementDescription	智力+1
 Feat/&FeatIntIncrementTitle	智力属性提升
 Feat/&FeatLightArmorDescription	获得轻甲熟练项，敏捷+1
 Feat/&FeatLightArmorProficiencyDescription	获得轻甲熟练项
@@ -578,7 +578,7 @@ Feat/&FeatShadyDescription	敏捷+1，最高20点\n每回合一次，你能对�
 Feat/&FeatShadyTitle	背刺
 Feat/&FeatShieldExpertDescription	你受训将盾牌作为武器使用。盾牌视为你熟练的近战武器，造成1d4点钝击伤害。\n在手持盾牌时，你在推撞上获得优势
 Feat/&FeatShieldExpertTitle	盾牌专家
-Feat/&FeatStrengthIncrementDescription	+1 力量
+Feat/&FeatStrengthIncrementDescription	力量+1
 Feat/&FeatStrengthIncrementTitle	属性提升
 Feat/&FeatTelekineticChaDescription	魅力+1。获得使用附赠动作来推离或拉近生物的能力
 Feat/&FeatTelekineticChaPullDescription	以念力将一个生物拉近你
@@ -608,7 +608,7 @@ Feat/&FeatWiseDefenseDescription	感知+1，最高20点\n当你没有穿戴任�
 Feat/&FeatWiseDefenseTitle	直觉防御
 Feat/&FeatWisePrecisionDescription	在武器上激活时，它的攻击视为魔法武器，你的攻击和伤害骰使用你的感知加值。持续1分钟，每次长休前能使用2次
 Feat/&FeatWisePrecisionTitle	直觉精准
-Feat/&FeatWisIncrementDescription	+1 感知
+Feat/&FeatWisIncrementDescription	感知+1
 Feat/&FeatWisIncrementTitle	感知属性提升
 Feat/&FeyTeleportationLanguageTirmarianDescription	获得Tirmar语熟练项
 Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmar语
@@ -815,13 +815,13 @@ Feature/&ArtificerSpecialistArchetypesTitle	奇械师专业
 Feature/&AscendantStepTitle	星移步法
 Feature/&AspectoftheMoonDescription	你不再需要睡觉所以能保持警戒，降低被攻击的几率，同时确保营地被攻击时你是清醒的
 Feature/&AspectoftheMoonTitle	月之相位
-Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	力量 +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	力量+1
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	属性提升
-Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	感知 +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	感知+2
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	属性提升
-Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	敏捷 +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	敏捷+1
 Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	森林侏儒属性提升
-Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	智力 +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	智力+2
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	侏儒属性提升
 Feature/&BarbarianIndomitableMightDescription	你进行力量检定的总值低于你的力量值时，能直接使用力量值作为检定结果
 Feature/&BarbarianIndomitableMightTitle	不屈勇武
@@ -1246,28 +1246,24 @@ FlexibleRaces/&PointPoolAbilityScore4Description	在你选择的任何4个属性
 FlexibleRaces/&PointPoolAbilityScore4Title	属性值提升
 Format/&LevelAndExperienceFormat	等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
 Format/&LevelAndExperienceMaxedFormat	等级：{0}\n经验值：{1}\n达到最大等级
-Item/&CraftingManualRecipeEnchantHandwraps+1Description	附魔手包 +1
-Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔手包 +1
-Item/&CraftingManualRecipeEnchantHandwraps+2Description	附魔手包 +2
-Item/&CraftingManualRecipeEnchantHandwraps+2Title	附魔手包 +2
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	力场之附魔手包
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	力场之附魔手包
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	牵引之附魔手包
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	牵引之附魔手包
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	附魔裹手+1
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔裹手+1
+Item/&CraftingManualRecipeEnchantHandwraps+2Description	附魔裹手+2
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	附魔裹手+2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	力场之附魔裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	力场之附魔裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	牵引之附魔裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	牵引之附魔裹手
 Item/&ForceArtilleryProjectileDescription	力场魔炮弹药
 Item/&ForceArtilleryProjectileTitle	力场魔炮弹药
-Item/&Handwraps+1Title	手包 +1
-Item/&Handwraps+1TitleUnidentifiedDescription	精制手包
-Item/&Handwraps+1TitleUnidentifiedTitle	质量很好的手包
-Item/&Handwraps+2Title	手包 +2
-Item/&Handwraps+2TitleUnidentifiedDescription	精制手包
-Item/&Handwraps+2TitleUnidentifiedTitle	卓越的手包
-Item/&HandwrapsOfForceTitle	Forceful Handwraps
-Item/&HandwrapsOfForceTitleUnidentifiedDescription	精制手包
-Item/&HandwrapsOfForceTitleUnidentifiedTitle	卓越的手包
-Item/&HandwrapsOfPullingTitle	牵引之手包
-Item/&HandwrapsOfPullingTitleUnidentifiedDescription	精制手包
-Item/&HandwrapsOfPullingTitleUnidentifiedTitle	卓越的手包
+Item/&Handwraps+1Title	裹手+1
+Item/&Handwraps+1UnidentifiedTitle	精制裹手
+Item/&Handwraps+2Title	裹手+2
+Item/&Handwraps+2UnidentifiedTitle	华丽裹手
+Item/&HandwrapsOfForceTitle	力场之裹手
+Item/&HandwrapsOfForceUnidentifiedTitle	华丽裹手
+Item/&HandwrapsOfPullingTitle	牵引之裹手
+Item/&HandwrapsOfPullingUnidentifiedTitle	华丽裹手
 Language/&AbyssalDescription	深渊语是被深渊的邪恶所环绕与扭曲的原始语言形式
 Language/&AbyssalTitle	深渊语
 Language/&GnomishLanguageDescription	这是一种古老的索拉斯塔语，由生活在索拉斯塔深林中的侏儒苏所留存，它在大灾变中幸存下来
@@ -1523,7 +1519,7 @@ Rules/&HalfCoverShieldAttributeDescription	10尺内盟友获得+2AC
 Rules/&HalfCoverShieldAttributeTitle	半遮蔽罩
 Rules/&HalfCoverShieldConditionDescription	+2AC
 Rules/&HalfCoverShieldConditionTitle	受到遮蔽罩守护
-Rules/&LightningSpearPowerDescription	闪电伤害 1d6 + 1d6
+Rules/&LightningSpearPowerDescription	闪电伤害 1d6+1d6
 Rules/&LightningSpearPowerTitle	电光之矛
 Rules/&SelfDestructionConditionDescription	自毁
 Rules/&SelfDestructionConditionTitle	自毁
@@ -2014,51 +2010,55 @@ Feat/&SharpShooterFeatTitle	神射手
 Feature/&SharpShooterDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
 Feature/&SharpShooterTitle	神射手
 Tooltip/&SharpShooterConcentration	禁用神射手\n持续至你下回合开始
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
-Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
-Item/&CEHalberd+2Title	Halberd +2
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchant Halberd +2
-Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
-Item/&CEHalberdLightningTitle	Lightning Halberd 
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchant Lightning Halberd 
-Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
-Item/&CEPikeTitle	Pike
-Item/&CEPikePrimedTitle	Primed Pike
-Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
-Item/&CEPike+1Title	Pike +1
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
-Item/&CEPike+1UnidentifiedTitle	Quality Pike
-Item/&CEPike+2Title	Pike +2
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
-Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
-Item/&CEPikePsychicTitle	Psychic Pike
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
-Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
-Item/&CELongMaceTitle	Long Mace
-Item/&CELongMacePrimedTitle	Primed Long Mace
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
-Item/&CELongMace+1Title	Long Mace +1
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchant Long Mace +1
-Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
-Item/&CELongMace+2Title	Long Mace +2
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
-Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
-Item/&CELongMaceThunderTitle	Thundering Long Mace
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
-Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
-Item/&CEHandXbowTitle	Hand Crossbow
-Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
-Item/&CEHandXbow+1Title	Hand Crossbow +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchant Hand Crossbow +1
-Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
-Item/&CEHandXbow+2Title	Hand Crossbow +2
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchant Hand Crossbow +2
-Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
-Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchant Acidic Hand Crossbow
-Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
-Equipment/&CEHalberdTypeTitle	Halberds
-Equipment/&CEPikeTypeTitle	Pikes
-Equipment/&CELongMaceTypeTitle	Long Maces
-Equipment/&CEHandXbowTypeTitle	Hand Crossbows
+Item/&CEHalberdTitle	戟
+Item/&CEHalberdPrimedTitle	制备好的戟
+Item/&CraftingManualRecipePrimingCEHalberdTitle	制备戟
+Item/&CEHalberd+1Title	戟+1
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	附魔戟+1
+Item/&CEHalberd+1UnidentifiedTitle	精制戟
+Item/&CEHalberd+2Title	戟+2
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	附魔戟+2
+Item/&CEHalberd+2UnidentifiedTitle	华丽戟
+Item/&CEHalberdLightningTitle	闪电之戟
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	闪电之附魔戟
+Item/&CEHalberdLightningUnidentifiedTitle	华丽戟
+Item/&CEPikeTitle	长矛
+Item/&CEPikePrimedTitle	制备好的长矛
+Item/&CraftingManualRecipePrimingCEPikeTitle	制备长矛
+Item/&CEPike+1Title	长矛+1
+Item/&CraftingManualRecipeEnchantCEPike+1Title	附魔长矛+1
+Item/&CEPike+1UnidentifiedTitle	精制长矛
+Item/&CEPike+2Title	长矛+2
+Item/&CraftingManualRecipeEnchantCEPike+2Title	附魔长矛+2
+Item/&CEPike+2UnidentifiedTitle	华丽长矛
+Item/&CEPikePsychicTitle	心灵之长矛
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	心灵之附魔长矛
+Item/&CEPikePsychicUnidentifiedTitle	华丽长矛
+Item/&CELongMaceTitle	长钉头锤
+Item/&CELongMacePrimedTitle	制备好的长钉头锤
+Item/&CraftingManualRecipePrimingCELongMaceTitle	制备长钉头锤
+Item/&CELongMace+1Title	长钉头锤+1
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	附魔长钉头锤+1
+Item/&CELongMace+1UnidentifiedTitle	精制长钉头锤
+Item/&CELongMace+2Title	长钉头锤+2
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	附魔长钉头锤+2
+Item/&CELongMace+2UnidentifiedTitle	华丽长钉头锤
+Item/&CELongMaceThunderTitle	雷鸣之长钉头锤
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	雷鸣之附魔长钉头锤
+Item/&CELongMaceThunderUnidentifiedTitle	华丽长钉头锤
+Item/&CEHandXbowTitle	手弩
+Item/&CEHandXbowPrimedTitle	制备好的手弩
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	制备手弩
+Item/&CEHandXbow+1Title	手弩+1
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	附魔手弩+1
+Item/&CEHandXbow+1UnidentifiedTitle	Quality 手弩
+Item/&CEHandXbow+2Title	手弩+2
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	附魔手弩+2
+Item/&CEHandXbow+2UnidentifiedTitle	华丽手弩
+Item/&CEHandXbowAcidTitle	强酸之手弩
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	强酸之附魔手弩
+Item/&CEHandXbowAcidUnidentifiedTitle	华丽手弩
+Equipment/&CEHalberdTypeTitle	戟
+Equipment/&CEPikeTypeTitle	长矛
+Equipment/&CELongMaceTypeTitle	长钉头锤
+Equipment/&CEHandXbowTypeTitle	手弩
