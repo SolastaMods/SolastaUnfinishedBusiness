@@ -1,7 +1,7 @@
 ﻿ModUi/&AddAllToStore	全部加入商店
 ModUi/&AddBleedingToLesserRestoration	添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces	添加<color=orange>协助</color>至全部种族
-ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[手包，戟，长矛，长钉头锤，手弩]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&AddPickpocketableLoot	添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
 ModUi/&AddToStore	加入商店
 ModUi/&Advanced	<color=yellow>进阶选项：</color>
@@ -25,7 +25,7 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>降�
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>目盲</color>状态禁止借机攻击 
 ModUi/&Blueprints	蓝图
 ModUi/&CampaignsAndLocations	<color=yellow>战役和地点：</color>
-ModUi/&CancelTranslate	在 {1} 取消 {0}
+ModUi/&CancelTranslate	从{1}取消{0}
 ModUi/&Character	角色
 ModUi/&CharactersPool	角色池
 ModUi/&Classes	<color=yellow>职业</color>
@@ -125,6 +125,7 @@ ModUi/&OfferAdditionalLoreFriendlyNames	在创建角色时提供更多有利于�
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ 只显示召唤列表中最强大的生物</i>
 ModUi/&OverrideMinMaxLevel	在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize	<color=white>覆盖自定义冒险的队伍大小</color>
+odUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>覆盖<color=orange>法师</color>控心大师子职的<color=orange>奥术之力</color>能力的法术DC</color>
 ModUi/&Patches	<color=yellow>补丁：</color>
 ModUi/&PrimedItems	制备好的物品
@@ -162,7 +163,7 @@ ModUi/&Subclasses	<color=yellow>子职</color>
 ModUi/&Tools	工具
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>在第1级时赋予额外专长数量</color>
 ModUi/&Translate	翻译
-ModUi/&TranslationHelp	. 将用户广告系列翻译为 {0} 并将它们保存回以语言代码为前缀的池中
+ModUi/&TranslationHelp	. 将自定义战役翻译为{0}，并将其以对应语言代码为前缀保存
 ModUi/&Translations	翻译
 ModUi/&UnleashEnemyAsNpc	允许在NPC工具上选择怪物<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
 ModUi/&UnleashNpcAsEnemy	允许在怪物工具上选择NPC<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
@@ -173,4 +174,3 @@ ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
-odUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>

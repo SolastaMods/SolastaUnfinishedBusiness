@@ -487,7 +487,7 @@ Feat/&ChefWisDescription	感知+1。花1小时准备一顿有助于治疗你和�
 Feat/&ChefWisTitle	厨师（感知）
 Feat/&ConstructSelectingPoolDescription	选择你的机甲的模式
 Feat/&ConstructSelectingPoolTitle	炮击模式
-Feat/&DeadeyeFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中。攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
+Feat/&DeadeyeFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中。攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
 Feat/&DeadeyeFeatTitle	神射手
 Feat/&DismissConstructDescription	解散你的机甲
 Feat/&DismissConstructTitle	解散机甲
@@ -909,7 +909,7 @@ Feature/&CounterStrikePowerDescription	消耗1个赌注骰反击敌人，若你�
 Feature/&CounterStrikePowerTitle	反击
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	当你生命值降至0而没有立即死亡时，能改为使生命值降至1
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	坚韧不屈
-Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
+Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
 Feature/&DeadeyeTitle	神射手
 Feature/&DevilsSightDescription	你能在黑暗（魔法和非魔法）中正常视物，距离为120英尺
 Feature/&DevilsSightTitle	魔鬼视界
@@ -1264,7 +1264,7 @@ Item/&CEHalberdLightningUnidentifiedTitle	华丽戟
 Item/&CEHalberdPrimedTitle	制备好的戟
 Item/&CEHalberdTitle	戟
 Item/&CEHandXbow+1Title	手弩+1
-Item/&CEHandXbow+1UnidentifiedTitle	Quality 手弩
+Item/&CEHandXbow+1UnidentifiedTitle	精制手弩
 Item/&CEHandXbow+2Title	手弩+2
 Item/&CEHandXbow+2UnidentifiedTitle	华丽手弩
 Item/&CEHandXbowAcidTitle	强酸之手弩
@@ -1289,24 +1289,24 @@ Item/&CEPikePsychicUnidentifiedTitle	华丽长矛
 Item/&CEPikeTitle	长矛
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	附魔戟+1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Title	附魔戟+2
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	闪电之附魔戟
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	附魔闪电之戟
 Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	附魔手弩+1
 Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	附魔手弩+2
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	强酸之附魔手弩
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	附魔强酸之手弩
 Item/&CraftingManualRecipeEnchantCELongMace+1Title	附魔长钉头锤+1
 Item/&CraftingManualRecipeEnchantCELongMace+2Title	附魔长钉头锤+2
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	雷鸣之附魔长钉头锤
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	附魔雷鸣之长钉头锤
 Item/&CraftingManualRecipeEnchantCEPike+1Title	附魔长矛+1
 Item/&CraftingManualRecipeEnchantCEPike+2Title	附魔长矛+2
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	心灵之附魔长矛
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	附魔心灵之长矛
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	附魔裹手+1
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔裹手+1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	附魔裹手+2
 Item/&CraftingManualRecipeEnchantHandwraps+2Title	附魔裹手+2
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	力场之附魔裹手
-Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	力场之附魔裹手
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	牵引之附魔裹手
-Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	牵引之附魔裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	附魔力场之裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	附魔力场之裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	附魔牵引之裹手
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	附魔牵引之裹手
 Item/&CraftingManualRecipePrimingCEHalberdTitle	制备戟
 Item/&CraftingManualRecipePrimingCEHandXbowTitle	制备手弩
 Item/&CraftingManualRecipePrimingCELongMaceTitle	制备长钉头锤
@@ -2022,7 +2022,7 @@ Subclass/&WarlockAncientForestDescription	你已与一个强大的自然实体�
 Subclass/&WarlockAncientForestTitle	远古森林契约
 Subclass/&WarlockMoonLitDescription	你的宗主是月亮的精魂，一个体现了光明与黑暗的周期性的实体。这些精魂试图维持月亮在夜空中的力量，同时遏制那些在黑暗中徘徊的世俗力量，并给他们的邪术师布置了同样的任务，授予他们对月亮的力量及其影响的控制力
 Subclass/&WarlockMoonLitTitle	月曜使者契约
-Subclass/&WarlockToadKingDescription	精类、恶魔抑或是异怪，蛙王的真实性质不为人知，但众所周知，蛙王统治着荒地内的大片沼泽地，并为那些愿意服务的人提供权能
+Subclass/&WarlockToadKingDescription	精类、恶魔抑或是异怪，蛙王的真实性质不为人知，但众所周知，蛙王统治着荒原内的大片沼泽地，并为那些愿意服务的人提供权能
 Subclass/&WarlockToadKingTitle	蛙王契约
 Subclass/&WarlockUrPriestDescription	虽然绝大多数神术师都从神灵那里获得了他们的力量，但也有一些人鄙视神灵。那些自称为亵渎祭司的人已经学会了抽走神明授予神术师的神力并将其满足自己的需要，甚至不对任何神明进行祷告。作为一名亵渎祭司，你与大多数邪术师不同，你没有一个赋予你力量的宗主。你所发现的魔能祈唤可能是诸神授予他们的信奉者的扭曲魔法，而你的契约恩泽可能是你设法偷来的神器
 Subclass/&WarlockUrPriestTitle	亵渎祭司契约
