@@ -1,6 +1,7 @@
 ﻿ModUi/&AddAllToStore	Добавить все в магазин
 ModUi/&AddBleedingToLesserRestoration	Добавьте состояние <color=orange>Кровотечение</color> к состояниям, удаленным с помощью <color=orange>Большого и малого восстановления</color>
 ModUi/&AddHelpActionToAllRaces	Добавьте действие <color=orange>Помощь</color> ко всем гонкам.
+ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[предлагается, если умение <color=orange>Карманные кражи</color> включено]</color></i>
 ModUi/&AddToStore	Добавить в магазин
 ModUi/&Advanced	<color=yellow>Дополнительно:</color>
@@ -24,6 +25,7 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Best
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Состояние <color=orange>Ослепление</color> не позволяет атаковать по возможности
 ModUi/&Blueprints	Чертежи
 ModUi/&CampaignsAndLocations	<color=yellow>Кампании и местоположения:</color>
+ModUi/&CancelTranslate	Отменить {0} в {1}
 ModUi/&Character	Персонаж
 ModUi/&CharactersPool	Пул персонажей
 ModUi/&Classes	<color=yellow>Классы</color>
@@ -66,6 +68,7 @@ ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ только обход, если
 ModUi/&EnableInventoryFilteringAndSorting	Включить фильтрацию и сортировку инвентаря
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Запятнать красным любой предмет, в котором герой не владеет</i>
 ModUi/&EnableInvisibleCrownOfTheMagister	Скрыть <color=orange>Корону Магистра</color> в интерфейсе игры.
+ModUi/&EnableLevel20	Включить уровень 20 <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	Включить диалоги журнала на игровой консоли во время повествовательных последовательностей
 ModUi/&EnableMinInOutAttributes	Обеспечить минимальные предварительные требования для оценки способностей
 ModUi/&EnableRelearnSpells	Может выбирать колдовство или заклинания, уже изученные другими классами.
@@ -95,6 +98,7 @@ ModUi/&General	<color=yellow>Общие:</color>
 ModUi/&GeneralMenu	Общий
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Скрыть визуальные эффекты выходов и телепортов, если они еще не обнаружены
 ModUi/&HideMonsterHitPoints	Отображение здоровья монстров с шагом 25% / 50% / 75% / 100% вместо точных очков жизни
+ModUi/&HiderArmor	Скрыть броню
 ModUi/&House	<color=yellow>Дом:</color>
 ModUi/&IncreaseSenseNormalVision	Увеличьте дальность <color=orange>Sense Normal Vision</color>, чтобы активировать дальние атаки <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Исходный выбор:</color>
@@ -107,7 +111,6 @@ ModUi/&KeyboardMouse	Клавиатура и мышь
 ModUi/&MakeAllMagicStaveArcaneFoci	Сделайте все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Также отмечайте местоположение невидимых телепортов на карте уровня после обнаружения</i>
 ModUi/&MaxAllowedClasses	<color=white>Максимум разрешенных классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&EnableLevel20	Включить уровень 20 <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Макс. резервные копии файлов для каждого местоположения или кампании</color>
 ModUi/&MaxBackupHelp	. Файлы резервных копий сохраняются в папке <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>.
 ModUi/&MaxSpellLevelsPerLine	<color=white>Максимальное количество уровней в строке на панели заклинаний</color>
@@ -125,12 +128,14 @@ ModUi/&OverridePartySize	<color=white>Переопределить размер 
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Переопределить <color=orange>Разбойник</color> Мошенник <color=orange>Улучшенное управление</color> Заклинание DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Переопределить <color=orange>Волшебник</color> Мастер-манипулятор <color=orange>Тайная манипуляция</color> Заклинание DC</color>
 ModUi/&Patches	<color=yellow>Заплатки:</color>
+ModUi/&PrimedItems	Праймированные предметы
 ModUi/&Progression	<color=yellow>Прогресс:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Колдовство Quick Cast Light сначала использует предметы, изношенные на голове или туловище.
 ModUi/&Races	<color=yellow>Гонки</color>
 ModUi/&RacesClassesSubclasses	Расы, классы и подклассы
 ModUi/&RecipeCost	<color=white>Стоимость рецепта</color>
 ModUi/&RecipesInDm	Рецепты в ЛС
+ModUi/&RelicForgeries	Подделки реликвий
 ModUi/&RemoveAttunementRequirements	Убрать требования к настройке <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&RemoveBugVisualModels	Замените похожие на жуков модели альтернативными визуальными эффектами в игре <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Удалите требования к идентификации <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
@@ -157,6 +162,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хью�
 ModUi/&Subclasses	<color=yellow>Подклассы</color>
 ModUi/&Tools	Инструменты
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего достижений на первом уровне</color>
+ModUi/&Translate	Перевести
+ModUi/&TranslationHelp	. Преобразует пользовательские кампании в {0} и сохраняет их обратно в пул с префиксом кода языка.
+ModUi/&Translations	Переводы
 ModUi/&UnleashEnemyAsNpc	Разрешить выбор монстров на гаджетах NPC <i><color=yellow>[нажмите <color=cyan>CTRL</color>, нажимая кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnleashNpcAsEnemy	Разрешить выбор NPC на гаджетах монстров <i><color=yellow>[нажмите <color=cyan>CTRL</color>, нажимая кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnlockAllNpcFaces	Разблокировать все лица NPC
@@ -166,11 +174,3 @@ ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся 
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать маркировку и татуировки для всех персонажей
 ModUi/&UseOfficialAdvantageDisadvantageRules	Используйте официальные правила преимуществ/недостатков
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
-ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&HiderArmor	Скрыть броню
-ModUi/&RelicForgeries	Подделки реликвий
-ModUi/&PrimedItems	Праймированные предметы
-ModUi/&Translations	Переводы
-ModUi/&Translate	Перевести
-ModUi/&CancelTranslate	Отменить {0} в {1}
-ModUi/&TranslationHelp	. Преобразует пользовательские кампании в {0} и сохраняет их обратно в пул с префиксом кода языка.

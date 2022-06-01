@@ -180,6 +180,10 @@ DamageAffinity/&DHHolyAuraSpellDescription	Когда демон или нежи
 DamageAffinity/&DHHolyAuraSpellTitle	Возмездие святой ауры
 Equipment/&ArcaneStaffDescription	Этот посох исписан магическими письменами, и его можно использовать в качестве фокуса для произнесения тайных заклинаний.
 Equipment/&ArcaneStaffTitle	Чародейский посох
+Equipment/&CEHalberdTypeTitle	алебарды
+Equipment/&CEHandXbowTypeTitle	Ручные арбалеты
+Equipment/&CELongMaceTypeTitle	Длинные булавы
+Equipment/&CEPikeTypeTitle	Щуки
 Equipment/&DruidicAmuletDescription	Этот тотемный амулет можно использовать в качестве фокуса для произнесения заклинаний друидов.
 Equipment/&DruidicAmuletTitle	Друидский амулет
 Equipment/&Enchanted_Club_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
@@ -483,6 +487,8 @@ Feat/&ChefWisDescription	Вы получаете +1 к Мудрости. Пот�
 Feat/&ChefWisTitle	Шеф-повар (Мудрость)
 Feat/&ConstructSelectingPoolDescription	Выберите режим для вашей конструкции.
 Feat/&ConstructSelectingPoolTitle	Артиллерийский режим
+Feat/&DeadeyeFeatDescription	Вы освоили оружие дальнего боя и можете делать выстрелы, которые другие считают невозможными. Атака на дальней дистанции не накладывает помехи на ваши броски атаки оружием дальнего боя. Ваше оружие дальнего боя игнорирует половину укрытия и укрытие на три четверти. Вы можете выбрать штраф - Бонус мастерства к вашему удару, чтобы нанести урон +2x Бонус мастерства.
+Feat/&DeadeyeFeatTitle	Снайпер
 Feat/&DismissConstructDescription	Отзовите свою конструкцию.
 Feat/&DismissConstructTitle	Отклонить конструкцию
 Feat/&DualFlurryDescription	Вы мастер боя спаренным оружием. В любой ход, когда вы дважды попадаете рукопашной атакой, держа по оружию в каждой руке, вы можете совершить дополнительную атаку левой рукой.
@@ -815,6 +821,7 @@ Feature/&ArtificerSpecialistArchetypesTitle	Специализации реме�
 Feature/&AscendantStepTitle	Восходящий шаг
 Feature/&AspectoftheMoonDescription	Вам больше не нужно спать, и вы можете нести вахту, снижая вероятность нападения и гарантируя, что вы бодрствуете, если лагерь подвергнется нападению.
 Feature/&AspectoftheMoonTitle	Аспект Луны
+Feature/&AttributeModifier{0}Description	{0}
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Сила +1.
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Увеличение атрибута
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Мудрость +2.
@@ -902,6 +909,8 @@ Feature/&CounterStrikePowerDescription	Потратьте кубик гамби�
 Feature/&CounterStrikePowerTitle	Ответный удар
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Когда ваше здоровье снижается до 0, но вы не убиты, вместо этого вы можете упасть до 1 HP.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Неумолимая выносливость
+Feature/&DeadeyeDescription	Атака на дальней дистанции не накладывает помехи на ваши броски атаки оружием дальнего боя. Ваше оружие дальнего боя игнорирует половину укрытия и укрытие на три четверти. Вы можете выбрать штраф - Бонус мастерства к вашему удару, чтобы нанести урон +2x Бонус мастерства.
+Feature/&DeadeyeTitle	Снайпер
 Feature/&DevilsSightDescription	Вы можете нормально видеть во Тьме, как магической, так и немагической, на расстоянии 120 футов.
 Feature/&DevilsSightTitle	Дьявольский взгляд
 Feature/&DH_BlinkDescription	В качестве бонусного действия вы исчезаете со своего текущего плана существования, предотвращая все повреждения. В начале вашего следующего хода вы возвращаетесь в клетку, из которой исчезли.
@@ -1246,6 +1255,50 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Используйте четы
 FlexibleRaces/&PointPoolAbilityScore4Title	Увеличение показателя способности
 Format/&LevelAndExperienceFormat	Уровень: {0}\nОпыт: {1}\n{2} очков, необходимых для достижения уровня {3}
 Format/&LevelAndExperienceMaxedFormat	Уровень: {0}\nОпыт: {1}\nдостигнут максимальный уровень
+Item/&CEHalberd+1Title	Алебарда +1
+Item/&CEHalberd+1UnidentifiedTitle	Качественная алебарда
+Item/&CEHalberd+2Title	Алебарда +2
+Item/&CEHalberd+2UnidentifiedTitle	Великолепная алебарда
+Item/&CEHalberdLightningTitle	Молниеносная алебарда
+Item/&CEHalberdLightningUnidentifiedTitle	Великолепная алебарда
+Item/&CEHalberdPrimedTitle	Загрунтованная алебарда
+Item/&CEHalberdTitle	алебарда
+Item/&CEHandXbow+1Title	Ручной арбалет +1
+Item/&CEHandXbow+1UnidentifiedTitle	Качественный ручной арбалет
+Item/&CEHandXbow+2Title	Ручной арбалет +2
+Item/&CEHandXbow+2UnidentifiedTitle	Великолепный ручной арбалет
+Item/&CEHandXbowAcidTitle	Кислотный ручной арбалет
+Item/&CEHandXbowAcidUnidentifiedTitle	Великолепный ручной арбалет
+Item/&CEHandXbowPrimedTitle	Загрунтованный ручной арбалет
+Item/&CEHandXbowTitle	Ручной арбалет
+Item/&CELongMace+1Title	Длинная булава +1
+Item/&CELongMace+1UnidentifiedTitle	Качественная длинная булава
+Item/&CELongMace+2Title	Длинная булава +2
+Item/&CELongMace+2UnidentifiedTitle	Великолепная длинная булава
+Item/&CELongMacePrimedTitle	Загрунтованная длинная булава
+Item/&CELongMaceThunderTitle	Гремящая длинная булава
+Item/&CELongMaceThunderUnidentifiedTitle	Великолепная длинная булава
+Item/&CELongMaceTitle	Длинная булава
+Item/&CEPike+1Title	Щука +1
+Item/&CEPike+1UnidentifiedTitle	Качественная щука
+Item/&CEPike+2Title	Щука +2
+Item/&CEPike+2UnidentifiedTitle	Великолепная щука
+Item/&CEPikePrimedTitle	Грунтованная щука
+Item/&CEPikePsychicTitle	Психическая щука
+Item/&CEPikePsychicUnidentifiedTitle	Великолепная щука
+Item/&CEPikeTitle	Щука
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Чары для алебарды +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Чары для алебарды +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Чары для алебарды молнии
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Чары для ручного арбалета +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Чары для ручного арбалета +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Чары для кислотного арбалета
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Чары для длинной булавы +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Чары для длинной булавы +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Чары для гремучей длинной булавы
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Чары для щуки +1
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Чары для щуки +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Чары для психической пики
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Чары для повязок +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Чары для повязок +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Чары для повязок +2.
@@ -1254,6 +1307,10 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Зачароват�
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Зачаровать силовые повязки
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Зачаровать повязки притяжения.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Чары для повязок притяжения
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Прайм Алебарда
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Арбалет Prime Hand
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Первоклассная длинная булава
+Item/&CraftingManualRecipePrimingCEPikeTitle	Прайм Пайк
 Item/&ForceArtilleryProjectileDescription	СилаАртиллерияСнаряд.
 Item/&ForceArtilleryProjectileTitle	СилаАртиллерияСнаряд
 Item/&Handwraps+1Title	Повязки +1
@@ -1441,6 +1498,10 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} атаковал одног�
 Reaction/&ReactionAttackFeatSentinelReactDescription	Используйте реакцию для атаки.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Атака
 Reaction/&ReactionAttackFeatSentinelTitle	Страж Реакция
+Reaction/&ReadiedAction{0}Description	Готов {0}
+Reaction/&ReadiedAction{0}Title	Готов {0}
+Reaction/&SpendPower{0}Description	Потратить {0}
+Reaction/&SpendPower{0}Title	Потратить {0}
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} поражает существо одной из атак, предоставляемых Шквалом ударов, и может наложить на эту цель один из следующих эффектов:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Применить выбранную технику.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Подать заявление
@@ -1479,6 +1540,8 @@ Reaction/&SpendPowerKnockDownPowerReactTitle	Сбить
 Reaction/&SpendPowerKnockDownPowerTitle	Сбить
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя.
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Щит от заклинаний
+Reaction/&SpendSpellSlot{0}Description	Потратить заклинание {0}
+Reaction/&SpendSpellSlot{0}Title	Потратить заклинание {0}
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} может потратить ячейку заклинания, чтобы нанести цели урон силовым полем 1d8 + 1d8 за уровень ячейки.
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Нажмите, чтобы потратить ячейку заклинания и увеличить урон цели.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Порази
@@ -1488,6 +1551,8 @@ Reaction/&SubitemSelectEldritchSmiteTitle	Уровень слота
 Reaction/&SubitemSelectPowerBundleTitle	Опции
 Reaction/&SubitemSelectSlotLevelTitle	Уровень слота
 Reaction/&SubitemSelectWarcasterTitle	Выберите действие
+Reaction/&Use{0}Description	Используйте {0}
+Reaction/&Use{0}Title	Используйте {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} падает и может использовать реакцию, чтобы предотвратить урон от падения.
 Reaction/&UseClassMonkSlowFallReactDescription	Используйте реакцию, чтобы предотвратить повреждение.
 Reaction/&UseClassMonkSlowFallReactTitle	Реагировать
@@ -1643,6 +1708,8 @@ Spell/&IlluminatingSphereTitle	Светящаяся сфера
 Spell/&IPConjureInvisibleStalkerTitle	Вызов элементаля (Невидимый охотник)
 Spell/&MinorLifestealDescription	Вы вытягиваете жизненную энергию из враждебного существа, которого видите в пределах досягаемости. Затем вы исцеляете хиты, равные количеству нанесенного урона. Это заклинание не действует на нежить или конструкции.
 Spell/&MinorLifestealTitle	Малый вампиризм
+Spell/&MirrorImageDescription	Зеркальное отражение
+Spell/&MirrorImageTitle	Зеркальное отражение
 Spell/&MuleDescription	Получатель этого заклинания может игнорировать влияние тяжелых грузов или брони на скорость передвижения. Они также могут нести немного больший вес.
 Spell/&MuleTitle	Мул
 Spell/&PetalStormDescription	Выберите незанятый 15-футовый куб воздуха, который вы можете видеть в пределах дистанции. В кубе появляется стихийная сила кружащихся ветров, которая действует в течение времени действия заклинания. Облако сильно затеняет его область. Любое существо, которое входит в бурю впервые за ход или начинает свой ход там, должно совершить спасбросок Силы. При провале существо получает рубящий урон 3d4. Бонусным действием вы можете переместить бурю на 30 футов в любом направлении.
@@ -1786,13 +1853,11 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Круг друидов-х
 Subclass/&DruidForestGuardianDruidSubclassTitle	Круг хранителя леса
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Прикоснитесь к сумке и создайте дополнительное пространственное пространство, чтобы она могла удерживать больший вес, не обременяя вас. Обратите внимание, что вы можете активировать инфузию только один раз. Активация во второй раз отменит первый.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Сумка Холдинга
-Subclass/&FighterMarshalDescription	Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными лидерами на поле боя.
 Subclass/&FighterMarshalCoordinatedAttackDescription	Когда вы поражаете врага рукопашной атакой, все члены вашей группы могут использовать свою реакцию, чтобы совершить атаку по возможности против вашей цели.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Скоординированная атака
+Subclass/&FighterMarshalDescription	Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными лидерами на поле боя.
 Subclass/&FighterMarshalEncouragementPowerDescription	Один раз в день, проводя час, чтобы подбодрить друг друга и подготовиться к следующему дню приключений, моральный дух группы значительно повышается. Каждый воодушевленный персонаж добавляет 1d4 к своей атаке и спасброску. Эффект длится до длительного отдыха.
 Subclass/&FighterMarshalEncouragementPowerTitle	Поощрение
-Subclass/&MarshalEternalComradeDescription	Падший товарищ
-Subclass/&MarshalEternalComradeTitle	Падший товарищ
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Связь между маршалом и его товарищем пересекает границу между жизнью и смертью. В качестве бонусного действия маршал может призвать 2 духа своих павших товарищей, которые помогут ему в бою.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Вечный товарищ
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Вы невосприимчивы к эффекту страха.
@@ -1865,6 +1930,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Написание зак�
 Subclass/&MagicAffinitySpellMasterScribingTitle	Мастер-писец
 Subclass/&ManipulatorMentalSavingThrowsDescription	Получите мастерство в спасбросках Телосложения и Харизмы.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Психическое сопротивление
+Subclass/&MarshalEternalComradeDescription	Падший товарищ
+Subclass/&MarshalEternalComradeTitle	Падший товарищ
 Subclass/&OpportunistDescription	Оппортунисты — это те, кто никогда не упускает возможности закончить свои слайды врага. Они наносят удар быстро и наносят удар там, где это необходимо. Не многие сталкивались с ними, чтобы не поцарапаться.
 Subclass/&OpportunistTitle	Оппортунист
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Вы наполняете свое оружие силой. Ваши атаки считаются магическими, и вы добавляете +7 к своим броскам атаки и урона. Обратите внимание, что вы можете активировать инфузию только один раз. Активация во второй раз отменит первый.
@@ -1971,6 +2038,7 @@ Subclass/&WitchSubclassPathDescription	Кульминацией ваших по�
 Subclass/&WitchSubclassPathTitle	Ковены ведьм
 ToolTip/&CheckBoxDefaultPartyTitle	Установите этот флажок, чтобы установить группу по умолчанию при запуске новых приключений или тестировании пользовательских локаций. Вы можете выбрать до {0} героев в порядке очереди.
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Вы можете использовать мистическую энергию ки. Ваш доступ к этой энергии представлен количеством точек ки. Максимальная сумма равна вашему уровню монаха. Все потраченные очки восстанавливаются при коротком или продолжительном отдыхе. Вы можете потратить эти очки на различные функции ки.
+Tooltip/&DeadeyeConcentration	Отключить снайпер.\nЭффект продлится до начала вашего следующего хода
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Не знает {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Имеет скрытую атаку
 Tooltip/&FeatPrerequisiteIsNotBarbarian	не варвар
@@ -1994,71 +2062,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Сила
 UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
 UI/&ForcePreferredCantripDescription	Если этот переключатель включен, может сработать только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый допустимый заговор, независимо от этого переключателя.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Reaction/&SpendPower{0}Title	Потратить {0}
-Reaction/&SpendPower{0}Description	Потратить {0}
-Reaction/&Use{0}Title	Используйте {0}
-Reaction/&Use{0}Description	Используйте {0}
-Reaction/&SpendSpellSlot{0}Title	Потратить заклинание {0}
-Reaction/&SpendSpellSlot{0}Description	Потратить заклинание {0}
-Reaction/&ReadiedAction{0}Title	Готов {0}
-Reaction/&ReadiedAction{0}Description	Готов {0}
-Spell/&MirrorImageTitle	Зеркальное отражение
-Spell/&MirrorImageDescription	Зеркальное отражение
-Feature/&AttributeModifier{0}Description	{0}
-Feat/&DeadeyeFeatDescription	Вы освоили оружие дальнего боя и можете делать выстрелы, которые другие считают невозможными. Атака на дальней дистанции не накладывает помехи на ваши броски атаки оружием дальнего боя. Ваше оружие дальнего боя игнорирует половину укрытия и укрытие на три четверти. Вы можете выбрать штраф - Бонус мастерства к вашему удару, чтобы нанести урон +2x Бонус мастерства.
-Feat/&DeadeyeFeatTitle	Снайпер
-Feature/&DeadeyeDescription	Атака на дальней дистанции не накладывает помехи на ваши броски атаки оружием дальнего боя. Ваше оружие дальнего боя игнорирует половину укрытия и укрытие на три четверти. Вы можете выбрать штраф - Бонус мастерства к вашему удару, чтобы нанести урон +2x Бонус мастерства.
-Feature/&DeadeyeTitle	Снайпер
-Tooltip/&DeadeyeConcentration	Отключить снайпер.\nЭффект продлится до начала вашего следующего хода
-Item/&CEHalberdTitle	алебарда
-Item/&CEHalberdPrimedTitle	Загрунтованная алебарда
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Прайм Алебарда
-Item/&CEHalberd+1Title	Алебарда +1
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Чары для алебарды +1
-Item/&CEHalberd+1UnidentifiedTitle	Качественная алебарда
-Item/&CEHalberd+2Title	Алебарда +2
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Чары для алебарды +2
-Item/&CEHalberd+2UnidentifiedTitle	Великолепная алебарда
-Item/&CEHalberdLightningTitle	Молниеносная алебарда
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Чары для алебарды молнии
-Item/&CEHalberdLightningUnidentifiedTitle	Великолепная алебарда
-Item/&CEPikeTitle	Щука
-Item/&CEPikePrimedTitle	Грунтованная щука
-Item/&CraftingManualRecipePrimingCEPikeTitle	Прайм Пайк
-Item/&CEPike+1Title	Щука +1
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Чары для щуки +1
-Item/&CEPike+1UnidentifiedTitle	Качественная щука
-Item/&CEPike+2Title	Щука +2
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Чары для щуки +2
-Item/&CEPike+2UnidentifiedTitle	Великолепная щука
-Item/&CEPikePsychicTitle	Психическая щука
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Чары для психической пики
-Item/&CEPikePsychicUnidentifiedTitle	Великолепная щука
-Item/&CELongMaceTitle	Длинная булава
-Item/&CELongMacePrimedTitle	Загрунтованная длинная булава
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Первоклассная длинная булава
-Item/&CELongMace+1Title	Длинная булава +1
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Чары для длинной булавы +1
-Item/&CELongMace+1UnidentifiedTitle	Качественная длинная булава
-Item/&CELongMace+2Title	Длинная булава +2
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Чары для длинной булавы +2
-Item/&CELongMace+2UnidentifiedTitle	Великолепная длинная булава
-Item/&CELongMaceThunderTitle	Гремящая длинная булава
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Чары для гремучей длинной булавы
-Item/&CELongMaceThunderUnidentifiedTitle	Великолепная длинная булава
-Item/&CEHandXbowTitle	Ручной арбалет
-Item/&CEHandXbowPrimedTitle	Загрунтованный ручной арбалет
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Арбалет Prime Hand
-Item/&CEHandXbow+1Title	Ручной арбалет +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Чары для ручного арбалета +1
-Item/&CEHandXbow+1UnidentifiedTitle	Качественный ручной арбалет
-Item/&CEHandXbow+2Title	Ручной арбалет +2
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Чары для ручного арбалета +2
-Item/&CEHandXbow+2UnidentifiedTitle	Великолепный ручной арбалет
-Item/&CEHandXbowAcidTitle	Кислотный ручной арбалет
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Чары для кислотного арбалета
-Item/&CEHandXbowAcidUnidentifiedTitle	Великолепный ручной арбалет
-Equipment/&CEHalberdTypeTitle	алебарды
-Equipment/&CEPikeTypeTitle	Щуки
-Equipment/&CELongMaceTypeTitle	Длинные булавы
-Equipment/&CEHandXbowTypeTitle	Ручные арбалеты

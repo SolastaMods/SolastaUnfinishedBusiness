@@ -1,6 +1,7 @@
 ﻿ModUi/&AddAllToStore	全部加入商店
 ModUi/&AddBleedingToLesserRestoration	添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces	添加<color=orange>协助</color>至全部种族
+ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[手包，戟，长矛，长钉头锤，手弩]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&AddPickpocketableLoot	添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
 ModUi/&AddToStore	加入商店
 ModUi/&Advanced	<color=yellow>进阶选项：</color>
@@ -24,6 +25,7 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>降�
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>目盲</color>状态禁止借机攻击 
 ModUi/&Blueprints	蓝图
 ModUi/&CampaignsAndLocations	<color=yellow>战役和地点：</color>
+ModUi/&CancelTranslate	在 {1} 取消 {0}
 ModUi/&Character	角色
 ModUi/&CharactersPool	角色池
 ModUi/&Classes	<color=yellow>职业</color>
@@ -66,6 +68,7 @@ ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ 仅在非重击时才略过</i>
 ModUi/&EnableInventoryFilteringAndSorting	启用物品栏筛选和排序功能
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ 将角色不熟练的物品染为红色</i>
 ModUi/&EnableInvisibleCrownOfTheMagister	将<color=orange>大法师之冠</color>于游戏UI隐藏
+ModUi/&EnableLevel20	启用20级<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	在对话日志中启用记录对话到游戏控制台的功能
 ModUi/&EnableMinInOutAttributes	强制兼职时的属性前置要求
 ModUi/&EnableRelearnSpells	能学习已从其它职业习得的戏法和法术
@@ -95,6 +98,7 @@ ModUi/&General	<color=yellow>通常：</color>
 ModUi/&GeneralMenu	通常
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	在未发现前隐藏出口和传送点的视觉效果
 ModUi/&HideMonsterHitPoints	以25%/50%/75%/100%为单位显示怪物的生命值状态，而非精确的生命值
+ModUi/&HiderArmor	隐藏护甲
 ModUi/&House	<color=yellow>房屋：</color>
 ModUi/&IncreaseSenseNormalVision	提高<color=orange>正常视觉</color>距离以允许长距离攻击<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>初始选择：</color>
@@ -107,7 +111,6 @@ ModUi/&KeyboardMouse	键盘与鼠标
 ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses	<color=white>最高职业数量</color> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
-ModUi/&EnableLevel20	启用20级<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>最高依地点/战役分类的备份存档数量</color>
 ModUi/&MaxBackupHelp	. 备份存档被保存在<i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>法术面版上每行最高环阶数</color>
@@ -122,15 +125,16 @@ ModUi/&OfferAdditionalLoreFriendlyNames	在创建角色时提供更多有利于�
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ 只显示召唤列表中最强大的生物</i>
 ModUi/&OverrideMinMaxLevel	在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize	<color=white>覆盖自定义冒险的队伍大小</color>
-odUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>覆盖<color=orange>法师</color>控心大师子职的<color=orange>奥术之力</color>能力的法术DC</color>
 ModUi/&Patches	<color=yellow>补丁：</color>
+ModUi/&PrimedItems	制备好的物品
 ModUi/&Progression	<color=yellow>进展：</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	快速施放光亮术戏法时优先使用头部或躯干上佩戴的物品
 ModUi/&Races	<color=yellow>种族</color>
 ModUi/&RacesClassesSubclasses	种族，职业与子职
 ModUi/&RecipeCost	<color=white>配方消耗</color>
 ModUi/&RecipesInDm	DM配方
+ModUi/&RelicForgeries	遗物赝品
 ModUi/&RemoveAttunementRequirements	移除同调的先决条件<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&RemoveBugVisualModels	将虫类模型以类似模型替代<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	移除检定的先决条件<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
@@ -157,6 +161,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci	在雨果的商店里销售<color=orange
 ModUi/&Subclasses	<color=yellow>子职</color>
 ModUi/&Tools	工具
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>在第1级时赋予额外专长数量</color>
+ModUi/&Translate	翻译
+ModUi/&TranslationHelp	. 将用户广告系列翻译为 {0} 并将它们保存回以语言代码为前缀的池中
+ModUi/&Translations	翻译
 ModUi/&UnleashEnemyAsNpc	允许在NPC工具上选择怪物<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
 ModUi/&UnleashNpcAsEnemy	允许在怪物工具上选择NPC<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
 ModUi/&UnlockAllNpcFaces	解锁全部NPC脸型
@@ -166,11 +173,4 @@ ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
-ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[手包，戟，长矛，长钉头锤，手弩]</color></i> <b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
-ModUi/&HiderArmor	隐藏护甲
-ModUi/&RelicForgeries	遗物赝品
-ModUi/&PrimedItems	制备好的物品
-ModUi/&Translations	翻译
-ModUi/&Translate	翻译
-ModUi/&CancelTranslate	在 {1} 取消 {0}
-ModUi/&TranslationHelp	. 将用户广告系列翻译为 {0} 并将它们保存回以语言代码为前缀的池中
+odUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>

@@ -180,6 +180,10 @@ DamageAffinity/&DHHolyAuraSpellDescription	When a fiend or an undead hits an aff
 DamageAffinity/&DHHolyAuraSpellTitle	Holy Aura Retaliation
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
 Equipment/&ArcaneStaffTitle	Arcane Staff
+Equipment/&CEHalberdTypeTitle	Halberds
+Equipment/&CEHandXbowTypeTitle	Hand Crossbows
+Equipment/&CELongMaceTypeTitle	Long Maces
+Equipment/&CEPikeTypeTitle	Pikes
 Equipment/&DruidicAmuletDescription	This totemic amulet can be used as a focus for Druidic spell casting.
 Equipment/&DruidicAmuletTitle	Druidic Amulet
 Equipment/&Enchanted_Club_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
@@ -483,6 +487,8 @@ Feat/&ChefWisDescription	You gain +1 to Wisdom. Spend 1 hour to cook a meal to h
 Feat/&ChefWisTitle	Chef (Wisdom)
 Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct.
 Feat/&ConstructSelectingPoolTitle	Artillery Mode
+Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
+Feat/&DeadeyeFeatTitle	Deadeye
 Feat/&DismissConstructDescription	Unsummon your construct.
 Feat/&DismissConstructTitle	Dismiss Construct
 Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
@@ -815,6 +821,7 @@ Feature/&ArtificerSpecialistArchetypesTitle	Tinkerer Specializations
 Feature/&AscendantStepTitle	Ascendant Step
 Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
+Feature/&AttributeModifier{0}Description	{0}
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Strength +1.
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attribute Increase
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Wisdom +2.
@@ -902,6 +909,8 @@ Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Relentless Endurance
+Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
+Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
 Feature/&DevilsSightTitle	Devil's Sight
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
@@ -1246,6 +1255,50 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scor
 FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
 Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
 Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
+Item/&CEHalberd+1Title	Halberd +1
+Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
+Item/&CEHalberd+2Title	Halberd +2
+Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
+Item/&CEHalberdLightningTitle	Lightning Halberd 
+Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
+Item/&CEHalberdPrimedTitle	Primed Halberd
+Item/&CEHalberdTitle	Halberd
+Item/&CEHandXbow+1Title	Hand Crossbow +1
+Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
+Item/&CEHandXbow+2Title	Hand Crossbow +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
+Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
+Item/&CEHandXbowTitle	Hand Crossbow
+Item/&CELongMace+1Title	Long Mace +1
+Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
+Item/&CELongMace+2Title	Long Mace +2
+Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
+Item/&CELongMacePrimedTitle	Primed Long Mace
+Item/&CELongMaceThunderTitle	Thundering Long Mace
+Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
+Item/&CELongMaceTitle	Long Mace
+Item/&CEPike+1Title	Pike +1
+Item/&CEPike+1UnidentifiedTitle	Quality Pike
+Item/&CEPike+2Title	Pike +2
+Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
+Item/&CEPikePrimedTitle	Primed Pike
+Item/&CEPikePsychicTitle	Psychic Pike
+Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
+Item/&CEPikeTitle	Pike
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchant Halberd +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchant Lightning Halberd 
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchant Hand Crossbow +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchant Hand Crossbow +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchant Acidic Hand Crossbow
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchant Long Mace +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchant Handwraps +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchant Handwraps +2.
@@ -1254,6 +1307,10 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchant Forceful Ha
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchant Handwraps Of Pulling.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Halberd
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
+Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1
@@ -1441,6 +1498,10 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies,
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
 Reaction/&ReactionAttackFeatSentinelTitle	Sentinel Reaction
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&SpendPower{0}Title	Spend {0}
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} hit a creature with one of the attacks granted by Flurry of Blows, and can impose one of the following effects on that target:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Apply
@@ -1479,6 +1540,8 @@ Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction.
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Spell Shield
+Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
+Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
@@ -1488,6 +1551,8 @@ Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectPowerBundleTitle	Options
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/&SubitemSelectWarcasterTitle	Select action
+Reaction/&Use{0}Description	Use {0}
+Reaction/&Use{0}Title	Use {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
 Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to prevent damage.
 Reaction/&UseClassMonkSlowFallReactTitle	React
@@ -1643,6 +1708,8 @@ Spell/&IlluminatingSphereTitle	Illuminating Sphere
 Spell/&IPConjureInvisibleStalkerTitle	Conjure Elemental (Invisible Stalker)
 Spell/&MinorLifestealDescription	You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs.
 Spell/&MinorLifestealTitle	Minor Lifesteal
+Spell/&MirrorImageDescription	Mirror Image
+Spell/&MirrorImageTitle	Mirror Image
 Spell/&MuleDescription	The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 Spell/&MuleTitle	Mule
 Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
@@ -1786,13 +1853,11 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guard
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
-Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
 Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack all of your party member can use their reaction to make an attack of opportunity against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
+Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
 Subclass/&FighterMarshalEncouragementPowerDescription	Once per day spending an hour to encourage each other and prepare for the next adventure day, the morale of the party is improved significantly. Each encouraged character add 1d4 to their attack and saving throw. The effect last until long rest. 
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&MarshalEternalComradeDescription	Fallen Comrade
-Subclass/&MarshalEternalComradeTitle	Fallen Comrade
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eternal Comrade
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	You are immune to fear effect.
@@ -1865,6 +1930,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Scribing spells takes 1/4 
 Subclass/&MagicAffinitySpellMasterScribingTitle	Master Scriber
 Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving throws with Constitution and Charisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
+Subclass/&MarshalEternalComradeDescription	Fallen Comrade
+Subclass/&MarshalEternalComradeTitle	Fallen Comrade
 Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 Subclass/&OpportunistTitle	Opportunist
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
@@ -1971,6 +2038,7 @@ Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in
 Subclass/&WitchSubclassPathTitle	Witch Covens
 ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
 Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
+Tooltip/&DeadeyeConcentration	Disable Deadeye.\nEffect will last until start of your next turn
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
@@ -1994,71 +2062,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Reaction/&SpendPower{0}Title	Spend {0}
-Reaction/&SpendPower{0}Description	Spend {0}
-Reaction/&Use{0}Title	Use {0}
-Reaction/&Use{0}Description	Use {0}
-Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
-Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
-Reaction/&ReadiedAction{0}Title	Readied {0}
-Reaction/&ReadiedAction{0}Description	Readied {0}
-Spell/&MirrorImageTitle	Mirror Image
-Spell/&MirrorImageDescription	Mirror Image
-Feature/&AttributeModifier{0}Description	{0}
-Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
-Feat/&DeadeyeFeatTitle	Deadeye
-Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
-Feature/&DeadeyeTitle	Deadeye
-Tooltip/&DeadeyeConcentration	Disable Deadeye.\nEffect will last until start of your next turn
-Item/&CEHalberdTitle	Halberd
-Item/&CEHalberdPrimedTitle	Primed Halberd
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Halberd
-Item/&CEHalberd+1Title	Halberd +1
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
-Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
-Item/&CEHalberd+2Title	Halberd +2
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchant Halberd +2
-Item/&CEHalberd+2UnidentifiedTitle	Magnificent Halberd
-Item/&CEHalberdLightningTitle	Lightning Halberd 
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchant Lightning Halberd 
-Item/&CEHalberdLightningUnidentifiedTitle	Magnificent Halberd 
-Item/&CEPikeTitle	Pike
-Item/&CEPikePrimedTitle	Primed Pike
-Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
-Item/&CEPike+1Title	Pike +1
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
-Item/&CEPike+1UnidentifiedTitle	Quality Pike
-Item/&CEPike+2Title	Pike +2
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
-Item/&CEPike+2UnidentifiedTitle	Magnificent Pike
-Item/&CEPikePsychicTitle	Psychic Pike
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
-Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
-Item/&CELongMaceTitle	Long Mace
-Item/&CELongMacePrimedTitle	Primed Long Mace
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
-Item/&CELongMace+1Title	Long Mace +1
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchant Long Mace +1
-Item/&CELongMace+1UnidentifiedTitle	Quality Long Mace
-Item/&CELongMace+2Title	Long Mace +2
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
-Item/&CELongMace+2UnidentifiedTitle	Magnificent Long Mace
-Item/&CELongMaceThunderTitle	Thundering Long Mace
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
-Item/&CELongMaceThunderUnidentifiedTitle	Magnificent Long Mace
-Item/&CEHandXbowTitle	Hand Crossbow
-Item/&CEHandXbowPrimedTitle	Primed Hand Crossbow
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
-Item/&CEHandXbow+1Title	Hand Crossbow +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchant Hand Crossbow +1
-Item/&CEHandXbow+1UnidentifiedTitle	Quality Hand Crossbow
-Item/&CEHandXbow+2Title	Hand Crossbow +2
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchant Hand Crossbow +2
-Item/&CEHandXbow+2UnidentifiedTitle	Magnificent Hand Crossbow
-Item/&CEHandXbowAcidTitle	Acidic Hand Crossbow
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchant Acidic Hand Crossbow
-Item/&CEHandXbowAcidUnidentifiedTitle	Magnificent Hand Crossbow
-Equipment/&CEHalberdTypeTitle	Halberds
-Equipment/&CEPikeTypeTitle	Pikes
-Equipment/&CELongMaceTypeTitle	Long Maces
-Equipment/&CEHandXbowTypeTitle	Hand Crossbows

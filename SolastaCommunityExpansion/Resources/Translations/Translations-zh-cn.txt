@@ -180,6 +180,10 @@ DamageAffinity/&DHHolyAuraSpellDescription	当一个邪魔或不死生物以近�
 DamageAffinity/&DHHolyAuraSpellTitle	圣洁灵光反击
 Equipment/&ArcaneStaffDescription	此杖刻有魔法文字，可作为奥术施法的媒触
 Equipment/&ArcaneStaffTitle	奥术法杖
+Equipment/&CEHalberdTypeTitle	戟
+Equipment/&CEHandXbowTypeTitle	手弩
+Equipment/&CELongMaceTypeTitle	长钉头锤
+Equipment/&CEPikeTypeTitle	长矛
 Equipment/&DruidicAmuletDescription	这个图腾护符能作为德鲁伊施法的触媒
 Equipment/&DruidicAmuletTitle	图腾护符
 Equipment/&Enchanted_Club_Acuteness_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
@@ -483,6 +487,8 @@ Feat/&ChefWisDescription	感知+1。花1小时准备一顿有助于治疗你和�
 Feat/&ChefWisTitle	厨师（感知）
 Feat/&ConstructSelectingPoolDescription	选择你的机甲的模式
 Feat/&ConstructSelectingPoolTitle	炮击模式
+Feat/&DeadeyeFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中。攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
+Feat/&DeadeyeFeatTitle	神射手
 Feat/&DismissConstructDescription	解散你的机甲
 Feat/&DismissConstructTitle	解散机甲
 Feat/&DualFlurryDescription	你是一个使用双武器作战的高手。在任何一轮中，若你在双手都持有武器的情况下用近战攻击击中两次，你能额外进行一次副手攻击
@@ -815,6 +821,7 @@ Feature/&ArtificerSpecialistArchetypesTitle	奇械师专业
 Feature/&AscendantStepTitle	星移步法
 Feature/&AspectoftheMoonDescription	你不再需要睡觉所以能保持警戒，降低被攻击的几率，同时确保营地被攻击时你是清醒的
 Feature/&AspectoftheMoonTitle	月之相位
+Feature/&AttributeModifier{0}Description	{0}
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	力量+1
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	属性提升
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	感知+2
@@ -902,6 +909,8 @@ Feature/&CounterStrikePowerDescription	消耗1个赌注骰反击敌人，若你�
 Feature/&CounterStrikePowerTitle	反击
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	当你生命值降至0而没有立即死亡时，能改为使生命值降至1
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	坚韧不屈
+Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
+Feature/&DeadeyeTitle	神射手
 Feature/&DevilsSightDescription	你能在黑暗（魔法和非魔法）中正常视物，距离为120英尺
 Feature/&DevilsSightTitle	魔鬼视界
 Feature/&DH_BlinkDescription	以一个附赠动作，你从你当前存在的位面消失并防止所有伤害。在你下一个回合开始时，你会回到你消失的空间
@@ -1246,6 +1255,50 @@ FlexibleRaces/&PointPoolAbilityScore4Description	在你选择的任何4个属性
 FlexibleRaces/&PointPoolAbilityScore4Title	属性值提升
 Format/&LevelAndExperienceFormat	等级：{0}\n经验值：{1}\n升级到等级{3}还需{2}点
 Format/&LevelAndExperienceMaxedFormat	等级：{0}\n经验值：{1}\n达到最大等级
+Item/&CEHalberd+1Title	戟+1
+Item/&CEHalberd+1UnidentifiedTitle	精制戟
+Item/&CEHalberd+2Title	戟+2
+Item/&CEHalberd+2UnidentifiedTitle	华丽戟
+Item/&CEHalberdLightningTitle	闪电之戟
+Item/&CEHalberdLightningUnidentifiedTitle	华丽戟
+Item/&CEHalberdPrimedTitle	制备好的戟
+Item/&CEHalberdTitle	戟
+Item/&CEHandXbow+1Title	手弩+1
+Item/&CEHandXbow+1UnidentifiedTitle	Quality 手弩
+Item/&CEHandXbow+2Title	手弩+2
+Item/&CEHandXbow+2UnidentifiedTitle	华丽手弩
+Item/&CEHandXbowAcidTitle	强酸之手弩
+Item/&CEHandXbowAcidUnidentifiedTitle	华丽手弩
+Item/&CEHandXbowPrimedTitle	制备好的手弩
+Item/&CEHandXbowTitle	手弩
+Item/&CELongMace+1Title	长钉头锤+1
+Item/&CELongMace+1UnidentifiedTitle	精制长钉头锤
+Item/&CELongMace+2Title	长钉头锤+2
+Item/&CELongMace+2UnidentifiedTitle	华丽长钉头锤
+Item/&CELongMacePrimedTitle	制备好的长钉头锤
+Item/&CELongMaceThunderTitle	雷鸣之长钉头锤
+Item/&CELongMaceThunderUnidentifiedTitle	华丽长钉头锤
+Item/&CELongMaceTitle	长钉头锤
+Item/&CEPike+1Title	长矛+1
+Item/&CEPike+1UnidentifiedTitle	精制长矛
+Item/&CEPike+2Title	长矛+2
+Item/&CEPike+2UnidentifiedTitle	华丽长矛
+Item/&CEPikePrimedTitle	制备好的长矛
+Item/&CEPikePsychicTitle	心灵之长矛
+Item/&CEPikePsychicUnidentifiedTitle	华丽长矛
+Item/&CEPikeTitle	长矛
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	附魔戟+1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	附魔戟+2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	闪电之附魔戟
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	附魔手弩+1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	附魔手弩+2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	强酸之附魔手弩
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	附魔长钉头锤+1
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	附魔长钉头锤+2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	雷鸣之附魔长钉头锤
+Item/&CraftingManualRecipeEnchantCEPike+1Title	附魔长矛+1
+Item/&CraftingManualRecipeEnchantCEPike+2Title	附魔长矛+2
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	心灵之附魔长矛
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	附魔裹手+1
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔裹手+1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	附魔裹手+2
@@ -1254,6 +1307,10 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	力场之附魔裹�
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	力场之附魔裹手
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	牵引之附魔裹手
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	牵引之附魔裹手
+Item/&CraftingManualRecipePrimingCEHalberdTitle	制备戟
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	制备手弩
+Item/&CraftingManualRecipePrimingCELongMaceTitle	制备长钉头锤
+Item/&CraftingManualRecipePrimingCEPikeTitle	制备长矛
 Item/&ForceArtilleryProjectileDescription	力场魔炮弹药
 Item/&ForceArtilleryProjectileTitle	力场魔炮弹药
 Item/&Handwraps+1Title	裹手+1
@@ -1441,6 +1498,10 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0}攻击了你的盟友，你�
 Reaction/&ReactionAttackFeatSentinelReactDescription	以反应攻击
 Reaction/&ReactionAttackFeatSentinelReactTitle	攻击
 Reaction/&ReactionAttackFeatSentinelTitle	哨兵反应
+Reaction/&ReadiedAction{0}Description	准备{0}
+Reaction/&ReadiedAction{0}Title	准备{0}
+Reaction/&SpendPower{0}Description	消耗{0}
+Reaction/&SpendPower{0}Title	消耗{0}
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0}用疾风连击特性的攻击击中敌人，能令此目标承受下列效应之一：
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	应用选定技巧
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	应用
@@ -1479,6 +1540,8 @@ Reaction/&SpendPowerKnockDownPowerReactTitle	击倒
 Reaction/&SpendPowerKnockDownPowerTitle	击倒
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	你能以反应利用奥术之力对自己施放护盾术
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	法术之盾
+Reaction/&SpendSpellSlot{0}Description	消耗法术{0}
+Reaction/&SpendSpellSlot{0}Title	消耗法术{0}
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0}能消耗一个法术位对目标造成额外1d8+每法术位等级1d8点力场伤害
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	点击来消耗一个法术位对目标造成额外伤害
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	魔能斩
@@ -1488,6 +1551,8 @@ Reaction/&SubitemSelectEldritchSmiteTitle	法术位等级
 Reaction/&SubitemSelectPowerBundleTitle	选项
 Reaction/&SubitemSelectSlotLevelTitle	法术位等级
 Reaction/&SubitemSelectWarcasterTitle	选择动作
+Reaction/&Use{0}Description	使用{0}
+Reaction/&Use{0}Title	使用{0}
 Reaction/&UseClassMonkSlowFallDescription	{0}在跌落，能使用反应来防止跌落伤害
 Reaction/&UseClassMonkSlowFallReactDescription	用反应来防止伤害
 Reaction/&UseClassMonkSlowFallReactTitle	反应
@@ -1643,6 +1708,8 @@ Spell/&IlluminatingSphereTitle 照明球
 Spell/&IPConjureInvisibleStalkerTitle	召唤元素（隐形追踪者）
 Spell/&MinorLifestealDescription	你从你能看到的范围内的敌对生物身上吸取生命能量。然后你会治疗与所造成伤害相等的生命值。此法术对不死生物和构装生物无效
 Spell/&MinorLifestealTitle	低等生命汲取
+Spell/&MirrorImageDescription	镜影术
+Spell/&MirrorImageTitle	镜影术
 Spell/&MuleDescription 此法术的受术者能忽略重物或盔甲对移动速度的影响。他们也能携带略高的重量
 Spell/&MuleTitle 承重术
 Spell/&PetalStormDescription	选择一个你能看到的范围内未被占据的15英尺的立方体空气区域。旋风的元素力量出现其中，并持续整个法术的持续时间。云层严重地遮蔽了这个区域。任何在一个回合中第一次进入风暴的生物或在其中开始其回合的生物都必须进行一次力量豁免。失败则此生物会受到3d4点挥砍伤害。以一个附赠动作，你能向任何方向移动风暴最远30英尺
@@ -1786,13 +1853,11 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	森林守卫结社的德�
 Subclass/&DruidForestGuardianDruidSubclassTitle	森林守卫结社
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	触摸一个背包，注入一个多维空间，以帮助它容纳更多的重量而不影响你。注意你只能激活一次注法。第二次激活将取消第一次注法的效果
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	置物袋
-Subclass/&FighterMarshalDescription	擅长研究敌人的弱点并协调其他队伍成员的攻击以利用这些弱点，接受过这一统帅训练的战士是著名的战场策划者
 Subclass/&FighterMarshalCoordinatedAttackDescription	当你以近身攻击命中敌人时，你的所有队伍成员都能以他们的反应对此目标进行一次借机攻击
 Subclass/&FighterMarshalCoordinatedAttackTitle	协作攻击
+Subclass/&FighterMarshalDescription	擅长研究敌人的弱点并协调其他队伍成员的攻击以利用这些弱点，接受过这一统帅训练的战士是著名的战场策划者
 Subclass/&FighterMarshalEncouragementPowerDescription	每天1次，消耗一个小时为了下一日的冒险而激励其他队伍成员，队伍的士气明显高涨。每个被激励的角色在其攻击和豁免骰上获得1d4加值。此效果持续至长休。
 Subclass/&FighterMarshalEncouragementPowerTitle	激励
-Subclass/&MarshalEternalComradeDescription	牺牲的战友
-Subclass/&MarshalEternalComradeTitle	牺牲的战友
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	统帅和其战友间的联系跨越生死界限。以一个附赠动作，统帅能召唤他两个牺牲的战友的灵魂来帮助其战斗
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	永恒战友
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	你对恐惧效果免疫
@@ -1865,6 +1930,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	抄写法术只需要1/4�
 Subclass/&MagicAffinitySpellMasterScribingTitle	抄写大师
 Subclass/&ManipulatorMentalSavingThrowsDescription	获得体质和魅力豁免的熟练项
 Subclass/&ManipulatorMentalSavingThrowsTitle	意志抗力
+Subclass/&MarshalEternalComradeDescription	牺牲的战友
+Subclass/&MarshalEternalComradeTitle	牺牲的战友
 Subclass/&OpportunistDescription 投机者是那些从不放过任何机会来结束他们的敌人的人。他们刺杀得快准狠。面对他们，没有多少人能够毫发无损地逃脱
 Subclass/&OpportunistTitle 投机者
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	你为你的武器注入力量。你的攻击视为魔法攻击，并且你的攻击和伤害骰+7。注意你只能激活一次注法。第二次激活将取消第一次注法的效果
@@ -1971,6 +2038,7 @@ Subclass/&WitchSubclassPathDescription	你的魔法知识在加入巫会时达�
 Subclass/&WitchSubclassPathTitle	巫师巫会
 ToolTip/&CheckBoxDefaultPartyTitle	勾选此框，设置你在开始新的冒险或测试自定义地点时的默认阵容。你以勾选顺序最多能选择{0}个英雄
 Tooltip/&CustomPortraitPoolClassMonkKiPool	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气以行使各种特性
+Tooltip/&DeadeyeConcentration	禁用神射手\n持续至你下回合开始
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未学习{0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	具有偷袭
 Tooltip/&FeatPrerequisiteIsNotBarbarian	非野蛮人
@@ -1994,71 +2062,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，只有首选的戏法能触发。若未选择首选戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
-Reaction/&SpendPower{0}Title	消耗{0}
-Reaction/&SpendPower{0}Description	消耗{0}
-Reaction/&Use{0}Title	使用{0}
-Reaction/&Use{0}Description	使用{0}
-Reaction/&SpendSpellSlot{0}Title	消耗法术{0}
-Reaction/&SpendSpellSlot{0}Description	消耗法术{0}
-Reaction/&ReadiedAction{0}Title	准备{0}
-Reaction/&ReadiedAction{0}Description	准备{0}
-Spell/&MirrorImageTitle	镜影术
-Spell/&MirrorImageDescription	镜影术
-Feature/&AttributeModifier{0}Description	{0}
-Feat/&DeadeyeFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中。攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
-Feat/&DeadeyeFeatTitle	神射手
-Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受等同于熟练加值的减值，若此攻击命中，其伤害骰获得2倍于熟练加值的加值
-Feature/&DeadeyeTitle	神射手
-Tooltip/&DeadeyeConcentration	禁用神射手\n持续至你下回合开始
-Item/&CEHalberdTitle	戟
-Item/&CEHalberdPrimedTitle	制备好的戟
-Item/&CraftingManualRecipePrimingCEHalberdTitle	制备戟
-Item/&CEHalberd+1Title	戟+1
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	附魔戟+1
-Item/&CEHalberd+1UnidentifiedTitle	精制戟
-Item/&CEHalberd+2Title	戟+2
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	附魔戟+2
-Item/&CEHalberd+2UnidentifiedTitle	华丽戟
-Item/&CEHalberdLightningTitle	闪电之戟
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	闪电之附魔戟
-Item/&CEHalberdLightningUnidentifiedTitle	华丽戟
-Item/&CEPikeTitle	长矛
-Item/&CEPikePrimedTitle	制备好的长矛
-Item/&CraftingManualRecipePrimingCEPikeTitle	制备长矛
-Item/&CEPike+1Title	长矛+1
-Item/&CraftingManualRecipeEnchantCEPike+1Title	附魔长矛+1
-Item/&CEPike+1UnidentifiedTitle	精制长矛
-Item/&CEPike+2Title	长矛+2
-Item/&CraftingManualRecipeEnchantCEPike+2Title	附魔长矛+2
-Item/&CEPike+2UnidentifiedTitle	华丽长矛
-Item/&CEPikePsychicTitle	心灵之长矛
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	心灵之附魔长矛
-Item/&CEPikePsychicUnidentifiedTitle	华丽长矛
-Item/&CELongMaceTitle	长钉头锤
-Item/&CELongMacePrimedTitle	制备好的长钉头锤
-Item/&CraftingManualRecipePrimingCELongMaceTitle	制备长钉头锤
-Item/&CELongMace+1Title	长钉头锤+1
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	附魔长钉头锤+1
-Item/&CELongMace+1UnidentifiedTitle	精制长钉头锤
-Item/&CELongMace+2Title	长钉头锤+2
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	附魔长钉头锤+2
-Item/&CELongMace+2UnidentifiedTitle	华丽长钉头锤
-Item/&CELongMaceThunderTitle	雷鸣之长钉头锤
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	雷鸣之附魔长钉头锤
-Item/&CELongMaceThunderUnidentifiedTitle	华丽长钉头锤
-Item/&CEHandXbowTitle	手弩
-Item/&CEHandXbowPrimedTitle	制备好的手弩
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	制备手弩
-Item/&CEHandXbow+1Title	手弩+1
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	附魔手弩+1
-Item/&CEHandXbow+1UnidentifiedTitle	Quality 手弩
-Item/&CEHandXbow+2Title	手弩+2
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	附魔手弩+2
-Item/&CEHandXbow+2UnidentifiedTitle	华丽手弩
-Item/&CEHandXbowAcidTitle	强酸之手弩
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	强酸之附魔手弩
-Item/&CEHandXbowAcidUnidentifiedTitle	华丽手弩
-Equipment/&CEHalberdTypeTitle	戟
-Equipment/&CEPikeTypeTitle	长矛
-Equipment/&CELongMaceTypeTitle	长钉头锤
-Equipment/&CEHandXbowTypeTitle	手弩

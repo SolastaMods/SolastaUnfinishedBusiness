@@ -1,6 +1,7 @@
 ﻿ModUi/&AddAllToStore	Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration	Fügen Sie den Zustand <color=orange>Bluten</color> zu den Zuständen hinzu, die durch <color=orange>Größere und Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddHelpActionToAllRaces	Füge allen Rennen die Aktion <color=orange>Hilfe</color> hinzu
+ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu <i><color=yellow>[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickpocketableLoot	Taschendiebstahl-Beute hinzufügen <i><color=yellow>[empfohlen, wenn <color=orange>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore	Zum Shop hinzufügen
 ModUi/&Advanced	<color=yellow>Erweitert:</color>
@@ -24,6 +25,7 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Fluc
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Der Zustand <color=orange>Geblendet</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints	Blaupausen
 ModUi/&CampaignsAndLocations	<color=yellow>Kampagnen und Standorte:</color>
+ModUi/&CancelTranslate	Stornieren Sie {0} um {1}
 ModUi/&Character	Charakter
 ModUi/&CharactersPool	Zeichenpool
 ModUi/&Classes	<color=yellow>Klassen</color>
@@ -66,6 +68,7 @@ ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ nur umgehen, wenn kein kritischer
 ModUi/&EnableInventoryFilteringAndSorting	Inventarfilterung und -sortierung aktivieren
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Beflecke alle Gegenstände, mit denen der Held nicht vertraut ist, rot</i>
 ModUi/&EnableInvisibleCrownOfTheMagister	Blende die <color=orange>Krone des Magisters</color> auf der Spieloberfläche aus
+ModUi/&EnableLevel20	Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes	Erzwingen Sie die minimalen Ein- und Ausstiegsvoraussetzungen für Fähigkeitswerte
 ModUi/&EnableRelearnSpells	Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden
@@ -95,6 +98,7 @@ ModUi/&General	<color=yellow>Allgemein:</color>
 ModUi/&GeneralMenu	Allgemein
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Blenden Sie die visuellen Effekte von Ausgängen und Teleportern aus, wenn sie noch nicht entdeckt wurden
 ModUi/&HideMonsterHitPoints	Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
+ModUi/&HiderArmor	Rüstung verstecken
 ModUi/&House	<color=yellow>Haus:</color>
 ModUi/&IncreaseSenseNormalVision	Erhöhen Sie die Reichweite von <color=orange>Normale Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Anfangsauswahl:</color>
@@ -107,7 +111,6 @@ ModUi/&KeyboardMouse	Tastatur maus
 ModUi/&MakeAllMagicStaveArcaneFoci	Mache alle magischen Stäbe zu arkanen Brennpunkten <i><color=yellow>[außer <color=orange>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
 ModUi/&MaxAllowedClasses	<color=white>Max. zulässige Klassen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableLevel20	Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>max. Sicherungsdateien pro Standort oder Kampagne</color>
 ModUi/&MaxBackupHelp	. Sicherungsdateien werden unter <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i> gespeichert
 ModUi/&MaxSpellLevelsPerLine	<color=white>Maximale Stufen pro Zeile im Zauberfeld</color>
@@ -125,12 +128,14 @@ ModUi/&OverridePartySize	<color=white>Gruppengröße in benutzerdefinierten Aben
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Überschreibe <color=orange>Schurke</color> Betrüger <color=orange>Verbesserte Manipulation</color> Zauber-SG</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Überschreibe <color=orange>Wizard</color>-Meistermanipulator <color=orange>Arkane Manipulation</color>-Zauber-SG</color>
 ModUi/&Patches	<color=yellow>Aufnäher:</color>
+ModUi/&PrimedItems	Geprimte Gegenstände
 ModUi/&Progression	<color=yellow>Fortschritt:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick Cast Light Cantrip verwendet zuerst am Kopf oder Oberkörper getragene Gegenstände
 ModUi/&Races	<color=yellow>Rennen</color>
 ModUi/&RacesClassesSubclasses	Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost	<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm	Rezepte in DM
+ModUi/&RelicForgeries	Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements	Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels	Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Identifizierungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
@@ -157,6 +162,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci	Lagert Hugos Laden mit <color=orange>Ide
 ModUi/&Subclasses	<color=yellow>Unterklassen</color>
 ModUi/&Tools	Werkzeug
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Auf der ersten Stufe gewährte Talente insgesamt</color>
+ModUi/&Translate	Übersetzen
+ModUi/&TranslationHelp	. Übersetzt Benutzerkampagnen in {0} und speichert sie zurück in den Pool, dem der Sprachcode vorangestellt ist
+ModUi/&Translations	Übersetzungen
 ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NPC-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
 ModUi/&UnleashNpcAsEnemy	Erlaube die Auswahl von NPCs auf Monster-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
 ModUi/&UnlockAllNpcFaces	Schalte alle NPC-Gesichter frei
@@ -166,11 +174,3 @@ ModUi/&UnlockGlowingEyeColors	Schalte leuchtende Augenfarben frei
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Schalte Markierungen und Tattoos für alle Charaktere frei
 ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu <i><color=yellow>[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&HiderArmor	Rüstung verstecken
-ModUi/&RelicForgeries	Reliquienfälschungen
-ModUi/&PrimedItems	Geprimte Gegenstände
-ModUi/&Translations	Übersetzungen
-ModUi/&Translate	Übersetzen
-ModUi/&CancelTranslate	Stornieren Sie {0} um {1}
-ModUi/&TranslationHelp	. Übersetzt Benutzerkampagnen in {0} und speichert sie zurück in den Pool, dem der Sprachcode vorangestellt ist

@@ -180,6 +180,10 @@ DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Teufel oder ein Untoter eine
 DamageAffinity/&DHHolyAuraSpellTitle	Vergeltung der Heiligen Aura
 Equipment/&ArcaneStaffDescription	Dieser Stab ist mit magischer Schrift beschriftet und kann als Fokus für das Wirken arkaner Zauber verwendet werden.
 Equipment/&ArcaneStaffTitle	Arkaner Stab
+Equipment/&CEHalberdTypeTitle	Hellebarden
+Equipment/&CEHandXbowTypeTitle	Handarmbrüste
+Equipment/&CELongMaceTypeTitle	Lange Keulen
+Equipment/&CEPikeTypeTitle	Hechte
 Equipment/&DruidicAmuletDescription	Dieses Totem-Amulett kann als Fokus für druidische Zaubersprüche verwendet werden.
 Equipment/&DruidicAmuletTitle	Druidisches Amulett
 Equipment/&Enchanted_Club_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
@@ -483,6 +487,8 @@ Feat/&ChefWisDescription	Du erhältst +1 auf Weisheit. Verbringen Sie 1 Stunde d
 Feat/&ChefWisTitle	Koch (Weisheit)
 Feat/&ConstructSelectingPoolDescription	Wählen Sie den Modus für Ihr Konstrukt.
 Feat/&ConstructSelectingPoolTitle	Artillerie-Modus
+Feat/&DeadeyeFeatDescription	Sie beherrschen Fernkampfwaffen und können Schüsse abgeben, die andere unmöglich finden. Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -5 Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +10 Skill Bonus-Schaden zu verursachen.
+Feat/&DeadeyeFeatTitle	Scharfschütze
 Feat/&DismissConstructDescription	Beschwöre dein Konstrukt.
 Feat/&DismissConstructTitle	Konstrukt verwerfen
 Feat/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, darfst du einen zusätzlichen Nebenhandangriff ausführen.
@@ -815,6 +821,7 @@ Feature/&ArtificerSpecialistArchetypesTitle	Tüftler-Spezialisierungen
 Feature/&AscendantStepTitle	Aszendentenschritt
 Feature/&AspectoftheMoonDescription	Sie müssen nicht mehr schlafen und können Wache halten, was die Wahrscheinlichkeit eines Angriffs verringert und sicherstellt, dass Sie wach sind, wenn das Lager angegriffen wird.
 Feature/&AspectoftheMoonTitle	Aspekt des Mondes
+Feature/&AttributeModifier{0}Description	{0}
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Stärke +1.
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attributerhöhung
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Weisheit +2.
@@ -902,6 +909,8 @@ Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere 
 Feature/&CounterStrikePowerTitle	Gegenschlag
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Wenn Sie auf 0 HP reduziert, aber nicht getötet werden, können Sie stattdessen auf 1 HP fallen.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Unerbittliche Ausdauer
+Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -5 Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +10 Skill Bonus-Schaden zu verursachen.
+Feature/&DeadeyeTitle	Scharfschütze
 Feature/&DevilsSightDescription	Sie können in der Dunkelheit normal sehen, sowohl magisch als auch nichtmagisch, bis zu einer Entfernung von 120 Fuß.
 Feature/&DevilsSightTitle	Teufelsblick
 Feature/&DH_BlinkDescription	Als Bonusaktion verschwindest du von deiner aktuellen Existenzebene und verhinderst jeglichen Schaden. Zu Beginn deines nächsten Zuges kehrst du auf das Feld zurück, von dem du verschwunden bist.
@@ -1246,6 +1255,50 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Verwenden Sie vier Boosts auf F
 FlexibleRaces/&PointPoolAbilityScore4Title	Erhöhung des Fähigkeitswerts
 Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Stufe {3} zu erreichen
 Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximales Level erreicht
+Item/&CEHalberd+1Title	Hellebarde +1
+Item/&CEHalberd+1UnidentifiedTitle	Qualität Hellebarde
+Item/&CEHalberd+2Title	Hellebarde +2
+Item/&CEHalberd+2UnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdLightningTitle	Blitzhellebarde
+Item/&CEHalberdLightningUnidentifiedTitle	Prächtige Hellebarde
+Item/&CEHalberdPrimedTitle	Grundierte Hellebarde
+Item/&CEHalberdTitle	Hellebarde
+Item/&CEHandXbow+1Title	Handarmbrust +1
+Item/&CEHandXbow+1UnidentifiedTitle	Hochwertige Handarmbrust
+Item/&CEHandXbow+2Title	Handarmbrust +2
+Item/&CEHandXbow+2UnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowAcidTitle	Säurehaltige Handarmbrust
+Item/&CEHandXbowAcidUnidentifiedTitle	Prächtige Handarmbrust
+Item/&CEHandXbowPrimedTitle	Grundierte Handarmbrust
+Item/&CEHandXbowTitle	Hand-Armbrust
+Item/&CELongMace+1Title	Langer Streitkolben +1
+Item/&CELongMace+1UnidentifiedTitle	Hochwertiger langer Streitkolben
+Item/&CELongMace+2Title	Langer Streitkolben +2
+Item/&CELongMace+2UnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMacePrimedTitle	Grundierter langer Streitkolben
+Item/&CELongMaceThunderTitle	Donnernder langer Streitkolben
+Item/&CELongMaceThunderUnidentifiedTitle	Herrlicher langer Streitkolben
+Item/&CELongMaceTitle	Langer Streitkolben
+Item/&CEPike+1Title	Hecht +1
+Item/&CEPike+1UnidentifiedTitle	Qualitätshecht
+Item/&CEPike+2Title	Hecht +2
+Item/&CEPike+2UnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikePrimedTitle	Grundierter Hecht
+Item/&CEPikePsychicTitle	Hellseher Pike
+Item/&CEPikePsychicUnidentifiedTitle	Prächtiger Hecht
+Item/&CEPikeTitle	Pike
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Hellebarde +2 verzaubern
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Verzaubere Blitzhellebarde
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Verzaubert Handarmbrust +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Verzaubert Handarmbrust +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Verzaubert saure Handarmbrust
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Verzaubert langen Streitkolben +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Verzaubert langen Streitkolben +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden langen Streitkolben
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Handwickel +1 verzaubern.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Handwickel +1 verzaubern
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Handwickel +2 verzaubern.
@@ -1254,6 +1307,10 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Verzaubere kraftvol
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Verzaubere kraftvolle Handwickel
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Verzaubern Sie Handbandagen des Ziehens.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Verzaubern Sie Handbandagen des Ziehens
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
+Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwickel +1
@@ -1441,6 +1498,10 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} hat einen deiner Verbündete
 Reaction/&ReactionAttackFeatSentinelReactDescription	Verwenden Sie die Reaktion auf den Angriff.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attacke
 Reaction/&ReactionAttackFeatSentinelTitle	Sentinel-Reaktion
+Reaction/&ReadiedAction{0}Description	Bereit {0}
+Reaction/&ReadiedAction{0}Title	Bereit {0}
+Reaction/&SpendPower{0}Description	{0} ausgeben
+Reaction/&SpendPower{0}Title	{0} ausgeben
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} trifft eine Kreatur mit einem der Angriffe, die durch Schlaghagel gewährt werden, und kann diesem Ziel einen der folgenden Effekte auferlegen:
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Ausgewählte Technik anwenden.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Sich bewerben
@@ -1479,6 +1540,8 @@ Reaction/&SpendPowerKnockDownPowerReactTitle	Niederschlagen
 Reaction/&SpendPowerKnockDownPowerTitle	Niederschlagen
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen.
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Zauberschild
+Reaction/&SpendSpellSlot{0}Description	Zauber {0} ausgeben
+Reaction/&SpendSpellSlot{0}Title	Zauber {0} ausgeben
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} kann einen Zauberslot ausgeben, um dem Ziel 1W8 + 1W8 Kraftschaden pro Slot-Stufe zuzufügen.
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Klicken Sie, um einen Zauberslot auszugeben und den Schaden am Ziel zu erhöhen.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Schlagen
@@ -1488,6 +1551,8 @@ Reaction/&SubitemSelectEldritchSmiteTitle	Slot-Level
 Reaction/&SubitemSelectPowerBundleTitle	Optionen
 Reaction/&SubitemSelectSlotLevelTitle	Slot-Level
 Reaction/&SubitemSelectWarcasterTitle	Aktion auswählen
+Reaction/&Use{0}Description	Verwenden Sie {0}
+Reaction/&Use{0}Title	Verwenden Sie {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} fällt und kann Reaktion einsetzen, um Fallschaden zu vermeiden.
 Reaction/&UseClassMonkSlowFallReactDescription	Verwenden Sie die Reaktion, um Schäden zu vermeiden.
 Reaction/&UseClassMonkSlowFallReactTitle	Reagieren
@@ -1643,6 +1708,8 @@ Spell/&IlluminatingSphereTitle	Erleuchtende Sphäre
 Spell/&IPConjureInvisibleStalkerTitle	Elementar beschwören (Unsichtbarer Stalker)
 Spell/&MinorLifestealDescription	Du entziehst einer feindlichen Kreatur, die du in Reichweite sehen kannst, Lebensenergie. Du heilst dann Trefferpunkte in Höhe des verursachten Schadens. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
 Spell/&MinorLifestealTitle	Kleiner Lebensraub
+Spell/&MirrorImageDescription	Spiegelbild
+Spell/&MirrorImageTitle	Spiegelbild
 Spell/&MuleDescription	Der Empfänger dieses Zaubers kann die Auswirkungen schwerer Lasten oder Rüstungen auf die Bewegungsgeschwindigkeit ignorieren. Sie können auch etwas mehr Gewicht tragen.
 Spell/&MuleTitle	Maultier
 Spell/&PetalStormDescription	Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, den Sie in Reichweite sehen können. Eine elementare Kraft wirbelnder Winde erscheint im Würfel und hält für die Dauer des Zaubers an. Die Wolke verdeckt stark ihren Bereich. Jede Kreatur, die den Sturm zum ersten Mal in einem Zug betritt oder dort ihren Zug beginnt, muss einen Kraftrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet die Kreatur 3W4 Hiebschaden. Als Bonusaktion kannst du den Sturm um bis zu 30 Fuß in jede Richtung bewegen.
@@ -1786,13 +1853,11 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Kreis der Waldwächter-Dru
 Subclass/&DruidForestGuardianDruidSubclassTitle	Kreis der Waldwächter
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Berühren Sie eine Tasche und schaffen Sie zusätzlichen Raum, damit sie mehr Gewicht tragen kann, ohne Sie zu belasten. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Tasche des Haltens
-Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochstratoren des Schlachtfelds.
 Subclass/&FighterMarshalCoordinatedAttackDescription	Wenn Sie einen Feind mit einem Nahkampfangriff treffen, können alle Ihre Gruppenmitglieder ihre Reaktion nutzen, um einen Gelegenheitsangriff gegen Ihr Ziel auszuführen.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Koordinierter Angriff
+Subclass/&FighterMarshalDescription	Kämpfer, die in diesem kriegerischen Teil trainiert wurden, sind begabt darin, die Schwächen der Feinde zu studieren und Angriffe anderer Gruppenmitglieder zu koordinieren, um sie auszunutzen, und sind berühmte Ochstratoren des Schlachtfelds.
 Subclass/&FighterMarshalEncouragementPowerDescription	Einmal täglich eine Stunde damit verbringen, sich gegenseitig Mut zu machen und sich auf den nächsten Abenteuertag vorzubereiten, wird die Moral der Gruppe deutlich verbessert. Jeder ermutigte Charakter addiert 1W4 zu seinem Angriffs- und Rettungswurf. Die Wirkung hält bis zur langen Ruhe an.
 Subclass/&FighterMarshalEncouragementPowerTitle	Ermutigung
-Subclass/&MarshalEternalComradeDescription	Gefallener Kamerad
-Subclass/&MarshalEternalComradeTitle	Gefallener Kamerad
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Das Band zwischen dem Marschall und seinem Kameraden überschreitet die Grenze zwischen Leben und Tod. Als Bonusaktion kann der Marschall 2 Geister seiner gefallenen Kameraden beschwören, die ihm im Kampf helfen.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Ewiger Kamerad
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Du bist immun gegen Furchteffekte.
@@ -1865,6 +1930,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Das Schreiben von Zaubersp
 Subclass/&MagicAffinitySpellMasterScribingTitle	Meister Schreiber
 Subclass/&ManipulatorMentalSavingThrowsDescription	Erlange Erfahrung in Rettungswürfen mit Konstitution und Charisma.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Geistiger Widerstand
+Subclass/&MarshalEternalComradeDescription	Gefallener Kamerad
+Subclass/&MarshalEternalComradeTitle	Gefallener Kamerad
 Subclass/&OpportunistDescription	Opportunisten sind diejenigen, die nie eine Chance haben, ihre Feindesrutschen zu beenden. Sie stechen schnell und stechen, wo es darauf ankommt. Nicht viele, denen sie gegenüberstanden, können unbeschadet davonkommen.
 Subclass/&OpportunistTitle	Opportunist
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Du verleihst deiner Waffe Kraft. Deine Angriffe zählen als magisch und du addierst deine +7 zu deinen Angriffs- und Schadenswürfen. Beachten Sie, dass Sie eine Infusion nur einmal aktiv haben können. Eine zweite Aktivierung bricht die erste ab.
@@ -1971,6 +2038,7 @@ Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhep
 Subclass/&WitchSubclassPathTitle	Hexenzirkel
 ToolTip/&CheckBoxDefaultPartyTitle	Aktivieren Sie dieses Kontrollkästchen, um Ihre Standardgruppe festzulegen, wenn Sie neue Abenteuer starten oder benutzerdefinierte Orte testen. Du kannst bis zu {0} Helden nach dem First-in/First-out-Prinzip auswählen
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Die maximale Menge entspricht deiner Mönchsstufe. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen
+Tooltip/&DeadeyeConcentration	Scharfschütze deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Hat Stealth-Angriff
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Ist kein Barbar
@@ -1994,71 +2062,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn diese Umschaltung aktiviert ist, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
-Reaction/&SpendPower{0}Title	{0} ausgeben
-Reaction/&SpendPower{0}Description	{0} ausgeben
-Reaction/&Use{0}Title	Verwenden Sie {0}
-Reaction/&Use{0}Description	Verwenden Sie {0}
-Reaction/&SpendSpellSlot{0}Title	Zauber {0} ausgeben
-Reaction/&SpendSpellSlot{0}Description	Zauber {0} ausgeben
-Reaction/&ReadiedAction{0}Title	Bereit {0}
-Reaction/&ReadiedAction{0}Description	Bereit {0}
-Spell/&MirrorImageTitle	Spiegelbild
-Spell/&MirrorImageDescription	Spiegelbild
-Feature/&AttributeModifier{0}Description	{0}
-Feat/&DeadeyeFeatDescription	Sie beherrschen Fernkampfwaffen und können Schüsse abgeben, die andere unmöglich finden. Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -5 Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +10 Skill Bonus-Schaden zu verursachen.
-Feat/&DeadeyeFeatTitle	Scharfschütze
-Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen -5 Bonus-Malus auf sich nehmen möchten, um zu treffen, um einen +10 Skill Bonus-Schaden zu verursachen.
-Feature/&DeadeyeTitle	Scharfschütze
-Tooltip/&DeadeyeConcentration	Scharfschütze deaktivieren.\nDer Effekt hält bis zum Beginn deines nächsten Zuges an
-Item/&CEHalberdTitle	Hellebarde
-Item/&CEHalberdPrimedTitle	Grundierte Hellebarde
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
-Item/&CEHalberd+1Title	Hellebarde +1
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
-Item/&CEHalberd+1UnidentifiedTitle	Qualität Hellebarde
-Item/&CEHalberd+2Title	Hellebarde +2
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Hellebarde +2 verzaubern
-Item/&CEHalberd+2UnidentifiedTitle	Prächtige Hellebarde
-Item/&CEHalberdLightningTitle	Blitzhellebarde
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Verzaubere Blitzhellebarde
-Item/&CEHalberdLightningUnidentifiedTitle	Prächtige Hellebarde
-Item/&CEPikeTitle	Pike
-Item/&CEPikePrimedTitle	Grundierter Hecht
-Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
-Item/&CEPike+1Title	Hecht +1
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
-Item/&CEPike+1UnidentifiedTitle	Qualitätshecht
-Item/&CEPike+2Title	Hecht +2
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
-Item/&CEPike+2UnidentifiedTitle	Prächtiger Hecht
-Item/&CEPikePsychicTitle	Hellseher Pike
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
-Item/&CEPikePsychicUnidentifiedTitle	Prächtiger Hecht
-Item/&CELongMaceTitle	Langer Streitkolben
-Item/&CELongMacePrimedTitle	Grundierter langer Streitkolben
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
-Item/&CELongMace+1Title	Langer Streitkolben +1
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Verzaubert langen Streitkolben +1
-Item/&CELongMace+1UnidentifiedTitle	Hochwertiger langer Streitkolben
-Item/&CELongMace+2Title	Langer Streitkolben +2
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Verzaubert langen Streitkolben +2
-Item/&CELongMace+2UnidentifiedTitle	Herrlicher langer Streitkolben
-Item/&CELongMaceThunderTitle	Donnernder langer Streitkolben
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden langen Streitkolben
-Item/&CELongMaceThunderUnidentifiedTitle	Herrlicher langer Streitkolben
-Item/&CEHandXbowTitle	Hand-Armbrust
-Item/&CEHandXbowPrimedTitle	Grundierte Handarmbrust
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
-Item/&CEHandXbow+1Title	Handarmbrust +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Verzaubert Handarmbrust +1
-Item/&CEHandXbow+1UnidentifiedTitle	Hochwertige Handarmbrust
-Item/&CEHandXbow+2Title	Handarmbrust +2
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Verzaubert Handarmbrust +2
-Item/&CEHandXbow+2UnidentifiedTitle	Prächtige Handarmbrust
-Item/&CEHandXbowAcidTitle	Säurehaltige Handarmbrust
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Verzaubert saure Handarmbrust
-Item/&CEHandXbowAcidUnidentifiedTitle	Prächtige Handarmbrust
-Equipment/&CEHalberdTypeTitle	Hellebarden
-Equipment/&CEPikeTypeTitle	Hechte
-Equipment/&CELongMaceTypeTitle	Lange Keulen
-Equipment/&CEHandXbowTypeTitle	Handarmbrüste

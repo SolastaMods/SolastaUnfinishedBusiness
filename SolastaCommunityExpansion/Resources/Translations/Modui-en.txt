@@ -1,6 +1,7 @@
 ﻿ModUi/&AddAllToStore	Add all to store
 ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
+ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore	Add to store
 ModUi/&Advanced	<color=yellow>Advanced:</color>
@@ -24,6 +25,7 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Best
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints	Blueprints
 ModUi/&CampaignsAndLocations	<color=yellow>Campaigns and locations:</color>
+ModUi/&CancelTranslate	Cancel {0} at {1}
 ModUi/&Character	Character
 ModUi/&CharactersPool	Characters Pool
 ModUi/&Classes	<color=yellow>Classes</color>
@@ -66,6 +68,7 @@ ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ only bypass if not a critical hit
 ModUi/&EnableInventoryFilteringAndSorting	Enable inventory filtering and sorting
 ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Taint in red any item the hero isn't proficient with</i>
 ModUi/&EnableInvisibleCrownOfTheMagister	Hide the <color=orange>Crown of the Magister</color> on game UI
+ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	Enable log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes	Enforce ability scores minimum in & out pre-requisites
 ModUi/&EnableRelearnSpells	Can select cantrips or spells already learned from other classes
@@ -95,6 +98,7 @@ ModUi/&General	<color=yellow>General:</color>
 ModUi/&GeneralMenu	General
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Hide exits and teleporters visual effects if not discovered yet
 ModUi/&HideMonsterHitPoints	Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points
+ModUi/&HiderArmor	Hide Armor
 ModUi/&House	<color=yellow>House:</color>
 ModUi/&IncreaseSenseNormalVision	Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Initial choices:</color>
@@ -107,7 +111,6 @@ ModUi/&KeyboardMouse	Keyboard & Mouse
 ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses	<color=white>Max allowed classes</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Max. backup files per location or campaign</color>
 ModUi/&MaxBackupHelp	. Backup files are saved under <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i>
 ModUi/&MaxSpellLevelsPerLine	<color=white>Max levels per line on Spell Panel</color>
@@ -125,12 +128,14 @@ ModUi/&OverridePartySize	<color=white>Override the party size in custom adventur
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Override <color=orange>Rogue</color> Con Artist <color=orange>Improved Manipulation</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Override <color=orange>Wizard</color> Master Manipulator <color=orange>Arcane Manipulation</color> Spell DC</color>
 ModUi/&Patches	<color=yellow>Patches:</color>
+ModUi/&PrimedItems	Primed Items
 ModUi/&Progression	<color=yellow>Progression:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick cast light cantrip uses head or torso worn items first
 ModUi/&Races	<color=yellow>Races</color>
 ModUi/&RacesClassesSubclasses	Races, Classes & Subclasses
 ModUi/&RecipeCost	<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm	Recipes in DM
+ModUi/&RelicForgeries	Relic Forgeries
 ModUi/&RemoveAttunementRequirements	Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels	Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -157,6 +162,9 @@ ModUi/&StockHugoStoreWithAdditionalFoci	Stocks Hugo's store with <color=orange>W
 ModUi/&Subclasses	<color=yellow>Subclasses</color>
 ModUi/&Tools	Tools
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
+ModUi/&Translate	Translate
+ModUi/&TranslationHelp	. Translates user campaigns to {0} and save them back to the pool prefixed by the language code
+ModUi/&Translations	Translations
 ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnlockAllNpcFaces	Unlock all NPC faces
@@ -166,11 +174,3 @@ ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&HiderArmor	Hide Armor
-ModUi/&RelicForgeries	Relic Forgeries
-ModUi/&PrimedItems	Primed Items
-ModUi/&Translations	Translations
-ModUi/&Translate	Translate
-ModUi/&CancelTranslate	Cancel {0} at {1}
-ModUi/&TranslationHelp	. Translates user campaigns to {0} and save them back to the pool prefixed by the language code

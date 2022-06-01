@@ -180,6 +180,10 @@ DamageAffinity/&DHHolyAuraSpellDescription	Lorsqu'un démon ou un mort-vivant fr
 DamageAffinity/&DHHolyAuraSpellTitle	Aura sacrée Représailles
 Equipment/&ArcaneStaffDescription	Ce bâton est gravé d'une écriture magique et peut être utilisé comme cible pour lancer des sorts arcaniques.
 Equipment/&ArcaneStaffTitle	Bâton arcanique
+Equipment/&CEHalberdTypeTitle	Hallebardes
+Equipment/&CEHandXbowTypeTitle	Arbalètes à main
+Equipment/&CELongMaceTypeTitle	Longues masses
+Equipment/&CEPikeTypeTitle	brochets
 Equipment/&DruidicAmuletDescription	Cette amulette totémique peut être utilisée comme focus pour lancer des sorts druidiques.
 Equipment/&DruidicAmuletTitle	Amulette druidique
 Equipment/&Enchanted_Club_Acuteness_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith de l'Arcaneum.
@@ -483,6 +487,8 @@ Feat/&ChefWisDescription	Vous gagnez +1 en Sagesse. Passez 1 heure à cuisiner u
 Feat/&ChefWisTitle	Cuisinier (Sagesse)
 Feat/&ConstructSelectingPoolDescription	Sélectionnez le mode de votre construction.
 Feat/&ConstructSelectingPoolTitle	Mode Artillerie
+Feat/&DeadeyeFeatDescription	Vous maîtrisez les armes à distance et pouvez effectuer des tirs que d'autres trouvent impossibles. Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +10.
+Feat/&DeadeyeFeatTitle	Tireur d'élite
 Feat/&DismissConstructDescription	Désinvoquez votre construction.
 Feat/&DismissConstructTitle	Ignorer la construction
 Feat/&DualFlurryDescription	Vous êtes un maître du combat avec des armes jumelées. À chaque tour où vous frappez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque secondaire supplémentaire.
@@ -815,6 +821,7 @@ Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
 Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
 Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&AttributeModifier{0}Description	{0}
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Force +1.
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Augmentation d'attribut
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Sagesse +2.
@@ -902,6 +909,8 @@ Feature/&CounterStrikePowerDescription	Dépensez un dé de gambit et Counter Str
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Lorsque vous êtes réduit à 0 HP mais pas tué, vous pouvez tomber à 1 HP à la place.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Endurance implacable
+Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +10.
+Feature/&DeadeyeTitle	Tireur d'élite
 Feature/&DevilsSightDescription	Vous pouvez voir normalement dans les ténèbres, à la fois magiques et non magiques, à une distance de 120 pieds.
 Feature/&DevilsSightTitle	La vue du diable
 Feature/&DH_BlinkDescription	Par une action bonus, vous disparaissez de votre plan d'existence actuel, évitant tous les dégâts. Au début de votre prochain tour, vous retournez dans la case d'où vous avez disparu.
@@ -1246,6 +1255,50 @@ FlexibleRaces/&PointPoolAbilityScore4Description	Utilisez quatre boosts sur les 
 FlexibleRaces/&PointPoolAbilityScore4Title	Augmentation du score de capacité
 Format/&LevelAndExperienceFormat	Niveau : {0}\nExpérience : {1}\n{2} points requis pour atteindre le niveau {3}
 Format/&LevelAndExperienceMaxedFormat	Niveau : {0}\nExpérience : {1}\nniveau maximum atteint
+Item/&CEHalberd+1Title	Hallebarde +1
+Item/&CEHalberd+1UnidentifiedTitle	Hallebarde de qualité
+Item/&CEHalberd+2Title	Hallebarde +2
+Item/&CEHalberd+2UnidentifiedTitle	Hallebarde magnifique
+Item/&CEHalberdLightningTitle	Hallebarde de foudre
+Item/&CEHalberdLightningUnidentifiedTitle	Hallebarde magnifique
+Item/&CEHalberdPrimedTitle	Hallebarde apprêtée
+Item/&CEHalberdTitle	Hallebarde
+Item/&CEHandXbow+1Title	Arbalète de poing +1
+Item/&CEHandXbow+1UnidentifiedTitle	Arbalète à main de qualité
+Item/&CEHandXbow+2Title	Arbalète de poing +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnifique arbalète à main
+Item/&CEHandXbowAcidTitle	Arbalète à main acide
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnifique arbalète à main
+Item/&CEHandXbowPrimedTitle	Arbalète à main apprêtée
+Item/&CEHandXbowTitle	Arbalète à main
+Item/&CELongMace+1Title	Masse longue +1
+Item/&CELongMace+1UnidentifiedTitle	Masse longue de qualité
+Item/&CELongMace+2Title	Masse longue +2
+Item/&CELongMace+2UnidentifiedTitle	Masse longue magnifique
+Item/&CELongMacePrimedTitle	Masse longue apprêtée
+Item/&CELongMaceThunderTitle	Masse longue fulgurante
+Item/&CELongMaceThunderUnidentifiedTitle	Masse longue magnifique
+Item/&CELongMaceTitle	Masse longue
+Item/&CEPike+1Title	Brochet +1
+Item/&CEPike+1UnidentifiedTitle	Brochet de qualité
+Item/&CEPike+2Title	Brochet +2
+Item/&CEPike+2UnidentifiedTitle	Magnifique brochet
+Item/&CEPikePrimedTitle	Brochet apprêté
+Item/&CEPikePsychicTitle	Pique psychique
+Item/&CEPikePsychicUnidentifiedTitle	Magnifique brochet
+Item/&CEPikeTitle	Brochet
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchantement hallebarde +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchantement hallebarde +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchantement de hallebarde de foudre
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchantement d'arbalète de poing +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchantement d'arbalète de poing +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchantement d'arbalète à main acide
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchantement longue masse +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchantement longue masse +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchantement de longue masse fulminante
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchantement de brochet +1
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchantement de brochet +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchantement de pique psychique
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchantement de bandages +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchantement de bandages +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchantement de bandages +2.
@@ -1254,6 +1307,10 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchantez des Prot�
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchantement de bandages puissants
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchantez des bandes de tirage.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchantement de bandages de traction
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Première hallebarde
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Arbalète de premier ordre
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Première longue masse
+Item/&CraftingManualRecipePrimingCEPikeTitle	Premier brochet
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtillerieProjectile
 Item/&Handwraps+1Title	Protège-mains +1
@@ -1441,6 +1498,10 @@ Reaction/&ReactionAttackFeatSentinelDescription	{0} a attaqué un de vos alliés
 Reaction/&ReactionAttackFeatSentinelReactDescription	Utilisez la réaction pour attaquer.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attaque
 Reaction/&ReactionAttackFeatSentinelTitle	Réaction sentinelle
+Reaction/&ReadiedAction{0}Description	Prêt {0}
+Reaction/&ReadiedAction{0}Title	Prêt {0}
+Reaction/&SpendPower{0}Description	Dépensez {0}
+Reaction/&SpendPower{0}Title	Dépensez {0}
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} touche une créature avec l'une des attaques conférées par Déluge de coups et peut imposer l'un des effets suivants à cette cible :
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Appliquer la technique sélectionnée.
 Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Appliquer
@@ -1479,6 +1540,8 @@ Reaction/&SpendPowerKnockDownPowerReactTitle	Abattre
 Reaction/&SpendPowerKnockDownPowerTitle	Abattre
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction.
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Bouclier anti-sort
+Reaction/&SpendSpellSlot{0}Description	Dépensez le sort {0}
+Reaction/&SpendSpellSlot{0}Title	Dépensez le sort {0}
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} peut dépenser un emplacement de sort pour infliger 1d8 + 1d8 dégâts de force par niveau d'emplacement à la cible.
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Cliquez pour dépenser un emplacement de sort et augmenter les dégâts infligés à la cible.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Châtiment
@@ -1488,6 +1551,8 @@ Reaction/&SubitemSelectEldritchSmiteTitle	Niveau d'emplacement
 Reaction/&SubitemSelectPowerBundleTitle	Choix
 Reaction/&SubitemSelectSlotLevelTitle	Niveau d'emplacement
 Reaction/&SubitemSelectWarcasterTitle	Sélectionnez l'action
+Reaction/&Use{0}Description	Utilisez {0}
+Reaction/&Use{0}Title	Utilisez {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} tombe et peut utiliser la réaction pour éviter les dégâts de chute.
 Reaction/&UseClassMonkSlowFallReactDescription	Utilisez la réaction pour éviter les dommages.
 Reaction/&UseClassMonkSlowFallReactTitle	Réagir
@@ -1643,6 +1708,8 @@ Spell/&IlluminatingSphereTitle	Sphère éclairante
 Spell/&IPConjureInvisibleStalkerTitle	Invocation d'élémentaire (traqueur invisible)
 Spell/&MinorLifestealDescription	Vous drainez l'énergie vitale d'une créature hostile que vous pouvez voir à portée. Vous soignez ensuite des points de vie égaux au nombre de dégâts infligés. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
 Spell/&MinorLifestealTitle	Vol de vie mineur
+Spell/&MirrorImageDescription	Image miroir
+Spell/&MirrorImageTitle	Image miroir
 Spell/&MuleDescription	Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids.
 Spell/&MuleTitle	Mule
 Spell/&PetalStormDescription	Choisissez un cube d'air inoccupé de 15 pieds que vous pouvez voir à portée. Une force élémentaire de vents tourbillonnants apparaît dans le cube et dure pendant toute la durée du sort. Le nuage obscurcit fortement sa zone. Toute créature qui entre dans la tempête pour la première fois lors d'un tour ou qui y commence son tour doit effectuer un jet de sauvegarde de Force. En cas d'échec, la créature subit 3d4 dégâts tranchants. Par une action bonus, vous pouvez déplacer la tempête jusqu'à 9 mètres dans n'importe quelle direction.
@@ -1786,13 +1853,11 @@ Subclass/&DruidForestGuardianDruidSubclassDescription	Les druides du Cercle des 
 Subclass/&DruidForestGuardianDruidSubclassTitle	Cercle du gardien de la forêt
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touchez un sac et infusez un espace dimensionnel supplémentaire pour l'aider à supporter plus de poids sans vous encombrer. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Sac de tenue
-Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont les célèbres orchestres du champ de bataille.
 Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, tous les membres de votre groupe peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
+Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont les célèbres orchestres du champ de bataille.
 Subclass/&FighterMarshalEncouragementPowerDescription	Une fois par jour, en passant une heure à s'encourager mutuellement et à se préparer pour la prochaine journée d'aventure, le moral du groupe est considérablement amélioré. Chaque personnage encouragé ajoute 1d4 à ses jets d'attaque et de sauvegarde. L'effet dure jusqu'au repos long.
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&MarshalEternalComradeDescription	Camarade tombé
-Subclass/&MarshalEternalComradeTitle	Camarade tombé
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer 2 esprits de ses camarades tombés pour l'aider au combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarade éternel
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Vous êtes immunisé contre l'effet de peur.
@@ -1865,6 +1930,8 @@ Subclass/&MagicAffinitySpellMasterScribingDescription	Les sorts de scribe prenne
 Subclass/&MagicAffinitySpellMasterScribingTitle	Maître scribe
 Subclass/&ManipulatorMentalSavingThrowsDescription	Maîtrisez les jets de sauvegarde avec Constitution et Charisme.
 Subclass/&ManipulatorMentalSavingThrowsTitle	Résistance mentale
+Subclass/&MarshalEternalComradeDescription	Camarade tombé
+Subclass/&MarshalEternalComradeTitle	Camarade tombé
 Subclass/&OpportunistDescription	Les opportunistes sont ceux qui ne laissent jamais une chance de finir leurs diapositives ennemies. Ils poignardent vite et poignardent là où ça compte. Peu d'entre eux peuvent s'en sortir indemnes.
 Subclass/&OpportunistTitle	Opportuniste
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Vous insufflez de la puissance à votre arme. Vos attaques comptent comme magiques et vous ajoutez votre +7 à vos jets d'attaque et de dégâts. Notez que vous ne pouvez activer une perfusion qu'une seule fois. L'activer une seconde fois annulera la première.
@@ -1971,6 +2038,7 @@ Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
+Tooltip/&DeadeyeConcentration	Désactivez le tireur d'élite.\nL'effet durera jusqu'au début de votre prochain tour
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
 Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
@@ -1994,71 +2062,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Reaction/&SpendPower{0}Title	Dépensez {0}
-Reaction/&SpendPower{0}Description	Dépensez {0}
-Reaction/&Use{0}Title	Utilisez {0}
-Reaction/&Use{0}Description	Utilisez {0}
-Reaction/&SpendSpellSlot{0}Title	Dépensez le sort {0}
-Reaction/&SpendSpellSlot{0}Description	Dépensez le sort {0}
-Reaction/&ReadiedAction{0}Title	Prêt {0}
-Reaction/&ReadiedAction{0}Description	Prêt {0}
-Spell/&MirrorImageTitle	Image miroir
-Spell/&MirrorImageDescription	Image miroir
-Feature/&AttributeModifier{0}Description	{0}
-Feat/&DeadeyeFeatDescription	Vous maîtrisez les armes à distance et pouvez effectuer des tirs que d'autres trouvent impossibles. Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +10.
-Feat/&DeadeyeFeatTitle	Tireur d'élite
-Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir une pénalité de bonus de maîtrise pour toucher afin d'infliger un bonus de dégâts de maîtrise +10.
-Feature/&DeadeyeTitle	Tireur d'élite
-Tooltip/&DeadeyeConcentration	Désactivez le tireur d'élite.\nL'effet durera jusqu'au début de votre prochain tour
-Item/&CEHalberdTitle	Hallebarde
-Item/&CEHalberdPrimedTitle	Hallebarde apprêtée
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Première hallebarde
-Item/&CEHalberd+1Title	Hallebarde +1
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchantement hallebarde +1
-Item/&CEHalberd+1UnidentifiedTitle	Hallebarde de qualité
-Item/&CEHalberd+2Title	Hallebarde +2
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchantement hallebarde +2
-Item/&CEHalberd+2UnidentifiedTitle	Hallebarde magnifique
-Item/&CEHalberdLightningTitle	Hallebarde de foudre
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchantement de hallebarde de foudre
-Item/&CEHalberdLightningUnidentifiedTitle	Hallebarde magnifique
-Item/&CEPikeTitle	Brochet
-Item/&CEPikePrimedTitle	Brochet apprêté
-Item/&CraftingManualRecipePrimingCEPikeTitle	Premier brochet
-Item/&CEPike+1Title	Brochet +1
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchantement de brochet +1
-Item/&CEPike+1UnidentifiedTitle	Brochet de qualité
-Item/&CEPike+2Title	Brochet +2
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchantement de brochet +2
-Item/&CEPike+2UnidentifiedTitle	Magnifique brochet
-Item/&CEPikePsychicTitle	Pique psychique
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchantement de pique psychique
-Item/&CEPikePsychicUnidentifiedTitle	Magnifique brochet
-Item/&CELongMaceTitle	Masse longue
-Item/&CELongMacePrimedTitle	Masse longue apprêtée
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Première longue masse
-Item/&CELongMace+1Title	Masse longue +1
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchantement longue masse +1
-Item/&CELongMace+1UnidentifiedTitle	Masse longue de qualité
-Item/&CELongMace+2Title	Masse longue +2
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchantement longue masse +2
-Item/&CELongMace+2UnidentifiedTitle	Masse longue magnifique
-Item/&CELongMaceThunderTitle	Masse longue fulgurante
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchantement de longue masse fulminante
-Item/&CELongMaceThunderUnidentifiedTitle	Masse longue magnifique
-Item/&CEHandXbowTitle	Arbalète à main
-Item/&CEHandXbowPrimedTitle	Arbalète à main apprêtée
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Arbalète de premier ordre
-Item/&CEHandXbow+1Title	Arbalète de poing +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchantement d'arbalète de poing +1
-Item/&CEHandXbow+1UnidentifiedTitle	Arbalète à main de qualité
-Item/&CEHandXbow+2Title	Arbalète de poing +2
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchantement d'arbalète de poing +2
-Item/&CEHandXbow+2UnidentifiedTitle	Magnifique arbalète à main
-Item/&CEHandXbowAcidTitle	Arbalète à main acide
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchantement d'arbalète à main acide
-Item/&CEHandXbowAcidUnidentifiedTitle	Magnifique arbalète à main
-Equipment/&CEHalberdTypeTitle	Hallebardes
-Equipment/&CEPikeTypeTitle	brochets
-Equipment/&CELongMaceTypeTitle	Longues masses
-Equipment/&CEHandXbowTypeTitle	Arbalètes à main
