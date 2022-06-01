@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.Models;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper;
@@ -100,6 +101,12 @@ public static class ArtilleristBuilder
                 FalseLife.GuiPresentation.SpriteReference)
             .AddToDB();
         //     artillerist.AddFeatureAtLevel(protectorActivation, 3);
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Tinkerer,
+            flameAttack,
+            forceAttack,
+            protectorActivation
+        );
 
         artillerist.AddFeatureAtLevel(
             ArtilleryConstructlevel03FeatureSetBuilder.ArtilleryConstructlevel03FeatureSet, 3);

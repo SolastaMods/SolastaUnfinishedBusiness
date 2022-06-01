@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Models;
 
 public class GlobalUniqueEffects
 {
-    public enum Group { Familiar }
+    public enum Group { Familiar, Tinkerer }
 
     private static readonly Dictionary<Group, (List<FeatureDefinitionPower>, List<SpellDefinition>)>
         _groups = new();
