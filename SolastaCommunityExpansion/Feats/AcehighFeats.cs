@@ -448,6 +448,7 @@ internal static class AcehighFeats
 
             Definition.Features.Clear();
             Definition.Features.Add(BuildPowerAttackPower());
+            // TODO: DEPRECATE IN FUTURE PowerAttackTwoHandedPower
             Definition.Features.Add(PowerAttackTwoHandedPowerBuilder.PowerAttackTwoHandedPower);
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
