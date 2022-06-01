@@ -78,6 +78,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetCanBeRestarted<T>(this T entity, System.Boolean value)
+            where T : QuestTreeDefinition
+        {
+            entity.SetField("canBeRestarted", value);
+            return entity;
+        }
+
         public static T SetCategory<T>(this T entity, QuestDefinitions.QuestCategory value)
             where T : QuestTreeDefinition
         {
