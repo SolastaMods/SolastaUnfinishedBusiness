@@ -19,13 +19,13 @@ public static class TranslationsDisplay
 
         using (UI.HorizontalScope())
         {
-            var intValue = Array.IndexOf(TranslationsExporter.AvailableLanguages, SelectedLanguage);
+            var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages, SelectedLanguage);
 
             if (UI.SelectionGrid(ref intValue,
-                    TranslationsExporter.AvailableLanguages, TranslationsExporter.AvailableLanguages.Length, 6,
+                    UserCampaignsTranslator.AvailableLanguages, UserCampaignsTranslator.AvailableLanguages.Length, 6,
                     UI.Width(500)))
             {
-                SelectedLanguage = TranslationsExporter.AvailableLanguages[intValue];
+                SelectedLanguage = UserCampaignsTranslator.AvailableLanguages[intValue];
             }
         }
 
@@ -41,7 +41,7 @@ public static class TranslationsDisplay
             {
                 string buttonLabel;
 
-                if (TranslationsExporter.CurrentExports.TryGetValue(exportName, out var status))
+                if (UserCampaignsTranslator.CurrentExports.TryGetValue(exportName, out var status))
                 {
                     buttonLabel = Gui.Format("ModUi/&CancelTranslate", status.LanguageCode.ToUpper(),
                         $"{status.PercentageComplete:00.0%}").bold().yellow();
@@ -55,12 +55,12 @@ public static class TranslationsDisplay
                     {
                         if (status == null)
                         {
-                            TranslationsExporter.TranslateUserCampaign(SelectedLanguage, userCampaign.Title,
+                            UserCampaignsTranslator.TranslateUserCampaign(SelectedLanguage, userCampaign.Title,
                                 userCampaign);
                         }
                         else
                         {
-                            TranslationsExporter.Cancel(userCampaign.Title);
+                            UserCampaignsTranslator.Cancel(userCampaign.Title);
                         }
                     },
                     UI.Width(200));

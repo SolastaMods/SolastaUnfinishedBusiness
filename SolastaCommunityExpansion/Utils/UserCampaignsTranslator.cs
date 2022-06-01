@@ -8,21 +8,21 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Utils;
 
-internal class TranslationsExporter : MonoBehaviour
+internal class UserCampaignsTranslator : MonoBehaviour
 {
-    private static TranslationsExporter _exporter;
+    private static UserCampaignsTranslator _exporter;
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
     internal static readonly string[] AvailableLanguages = LocalizationManager.GetAllLanguagesCode().ToArray();
 
-    private static TranslationsExporter Exporter
+    private static UserCampaignsTranslator Exporter
     {
         get
         {
             if (_exporter == null)
             {
-                _exporter = new GameObject().AddComponent<TranslationsExporter>();
+                _exporter = new GameObject().AddComponent<UserCampaignsTranslator>();
                 DontDestroyOnLoad(_exporter.gameObject);
             }
 
@@ -45,7 +45,7 @@ internal class TranslationsExporter : MonoBehaviour
     {
         var newUserCampaign = userCampaign.DeepCopy();
 
-        newUserCampaign.Title = $"{languageCode}_{userCampaign.Title}";
+        newUserCampaign.Title = $"[{languageCode}] - {userCampaign.Title}";
         newUserCampaign.IsWorkshopItem = false;
 
         var coroutine = TranslateUserCampaignRoutine(languageCode, exportName, newUserCampaign);
@@ -70,6 +70,9 @@ internal class TranslationsExporter : MonoBehaviour
         var total =
             userCampaign.UserDialogs
                 .SelectMany(x => x.AllDialogStates)
+                .SelectMany(x => x.DialogLines)
+                .Count() +
+            userCampaign.UserItems
                 .Count() +
             userCampaign.UserLocations
                 .SelectMany(x => x.GadgetsByName)
@@ -92,15 +95,42 @@ internal class TranslationsExporter : MonoBehaviour
         {
             dialog.Description = Translations.Translate(dialog.Description, languageCode);
 
-            foreach (var userDialogState in dialog.AllDialogStates)
+            foreach (var userDialogState in dialog.AllDialogStates
+                         .Where(x =>
+                             x.Type == "AnswerChoice"
+                             || x.Type == "CharacterSpeech"
+                             || x.Type == "NpcSpeech"))
             {
-                yield return Update();
-
                 foreach (var dialogLine in userDialogState.DialogLines)
                 {
+                    yield return Update();
+
                     dialogLine.TextLine = Translations.Translate(dialogLine.TextLine, languageCode);
                 }
             }
+        }
+
+        // USER ITEMS
+        foreach (var item in userCampaign.UserItems)
+        {
+            yield return Update();
+
+            item.Title = Translations.Translate(item.Title, languageCode);
+            item.Description = Translations.Translate(item.Title, languageCode);
+
+            if (item.DocumentFragments.Count == 0)
+            {
+                continue;
+            }
+
+            var newdocumentFragment = new List<string>();
+
+            foreach (var documentFragment in item.DocumentFragments)
+            {
+                newdocumentFragment.Add(Translations.Translate(documentFragment, languageCode));
+            }
+
+            item.DocumentFragments = newdocumentFragment;
         }
 
         // USER LOCATIONS
@@ -110,29 +140,25 @@ internal class TranslationsExporter : MonoBehaviour
             {
                 yield return Update();
 
-                foreach (var parameterValue in gadget.ParameterValues)
+                foreach (var parameterValue in gadget.ParameterValues
+                             .Where(x =>
+                                 x.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Npc
+                                 || x.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Speech
+                                 || x.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.SpeechList))
                 {
-                    switch (parameterValue.GadgetParameterDescription.Type)
+                    var newStringsList = new List<string>();
+
+                    foreach (var stringValue in parameterValue.StringsList)
                     {
-                        case GadgetBlueprintDefinitions.Type.Npc:
-                        case GadgetBlueprintDefinitions.Type.Speech:
-                        case GadgetBlueprintDefinitions.Type.SpeechList:
-                            var newStringsList = new List<string>();
+                        newStringsList.Add(Translations.Translate(stringValue, languageCode));
+                    }
 
-                            foreach (var stringValue in parameterValue.StringsList)
-                            {
-                                newStringsList.Add(Translations.Translate(stringValue, languageCode));
-                            }
+                    parameterValue.StringsList = newStringsList;
 
-                            parameterValue.StringsList = newStringsList;
-
-                            if (parameterValue.StringValue != string.Empty)
-                            {
-                                parameterValue.StringValue =
-                                    Translations.Translate(parameterValue.StringValue, languageCode);
-                            }
-
-                            break;
+                    if (parameterValue.StringValue != string.Empty)
+                    {
+                        parameterValue.StringValue =
+                            Translations.Translate(parameterValue.StringValue, languageCode);
                     }
                 }
             }
