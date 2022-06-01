@@ -90,6 +90,8 @@ internal class UserCampaignsTranslator : MonoBehaviour
             yield return null;
         }
 
+        userCampaign.Description = Translations.Translate(userCampaign.Description, languageCode);
+
         // USER DIALOGS
         foreach (var dialog in userCampaign.UserDialogs)
         {
@@ -140,25 +142,26 @@ internal class UserCampaignsTranslator : MonoBehaviour
             {
                 yield return Update();
 
-                foreach (var parameterValue in gadget.ParameterValues
-                             .Where(x =>
-                                 x.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Npc
-                                 || x.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Speech
-                                 || x.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.SpeechList))
+                foreach (var parameterValue in gadget.ParameterValues)
                 {
-                    var newStringsList = new List<string>();
-
-                    foreach (var stringValue in parameterValue.StringsList)
+                    if (parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Npc
+                        || parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Speech
+                        || parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.SpeechList)
                     {
-                        newStringsList.Add(Translations.Translate(stringValue, languageCode));
-                    }
+                        var newStringsList = new List<string>();
 
-                    parameterValue.StringsList = newStringsList;
+                        foreach (var stringValue in parameterValue.StringsList)
+                        {
+                            newStringsList.Add(Translations.Translate(stringValue, languageCode));
+                        }
 
-                    if (parameterValue.StringValue != string.Empty)
-                    {
-                        parameterValue.StringValue =
-                            Translations.Translate(parameterValue.StringValue, languageCode);
+                        parameterValue.StringsList = newStringsList;
+
+                        if (parameterValue.StringValue != string.Empty)
+                        {
+                            parameterValue.StringValue =
+                                Translations.Translate(parameterValue.StringValue, languageCode);
+                        }
                     }
                 }
             }
@@ -167,6 +170,7 @@ internal class UserCampaignsTranslator : MonoBehaviour
         // USER QUESTS
         foreach (var quest in userCampaign.UserQuests)
         {
+            quest.Title = Translations.Translate(quest.Description, languageCode);
             quest.Description = Translations.Translate(quest.Description, languageCode);
 
             foreach (var userQuestStep in quest.AllQuestStepDescriptions)
