@@ -35,9 +35,9 @@
       "$type": "GadgetParameterDescription, Assembly-CSharp",
       "name": "LocationExit",
       "type": "GenericBool",
-      "conditionalDisplay": false,
-      "conditionalParameter": "",
-      "conditionalMatch": false,
+      "conditionalDisplay": true,
+      "conditionalParameter": "AllowFastTravel",
+      "conditionalMatch": true,
       "intDefaultValue": 0,
       "intMinValue": 0,
       "intMaxValue": 0,
@@ -104,8 +104,8 @@
     "description": "Gadget/&MapWaypointDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ed890ced022650f44b3b76db2555c1e3",
-      "m_SubObjectName": "Exit",
+      "m_AssetGUID": "2dd60858fec32a44cb3e51609cd202f5",
+      "m_SubObjectName": "MapWaypoint",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

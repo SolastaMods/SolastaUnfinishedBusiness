@@ -54,7 +54,13 @@
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
-    "savingThrowAffinitiesByFamily": [],
+    "savingThrowAffinitiesByFamily": [
+      {
+        "$type": "SaveAffinityByFamilyDescription, Assembly-CSharp",
+        "family": "Plant",
+        "advantageType": "Disadvantage"
+      }
+    ],
     "advantageForEnemies": false,
     "canBeDispersed": false,
     "hasVelocity": false,
