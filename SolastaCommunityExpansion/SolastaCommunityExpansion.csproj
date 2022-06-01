@@ -93,6 +93,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="0Harmony">
       <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
       <Private>false</Private>
