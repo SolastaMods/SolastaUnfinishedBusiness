@@ -170,3 +170,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><c
 ModUi/&HiderArmor	Скрыть броню
 ModUi/&RelicForgeries	Подделки реликвий
 ModUi/&PrimedItems	Праймированные предметы
+ModUi/&Translations	Переводы
+ModUi/&Translate	Перевести
+ModUi/&CancelTranslate	Отменить {0} в {1}
+ModUi/&TranslationHelp	. Преобразует пользовательские кампании в {0} и сохраняет их обратно в пул с префиксом кода языка.

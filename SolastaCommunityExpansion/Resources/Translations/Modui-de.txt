@@ -170,3 +170,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte h
 ModUi/&HiderArmor	Rüstung verstecken
 ModUi/&RelicForgeries	Reliquienfälschungen
 ModUi/&PrimedItems	Geprimte Gegenstände
+ModUi/&Translations	Übersetzungen
+ModUi/&Translate	Übersetzen
+ModUi/&CancelTranslate	Stornieren Sie {0} um {1}
+ModUi/&TranslationHelp	. Übersetzt Benutzerkampagnen in {0} und speichert sie zurück in den Pool, dem der Sprachcode vorangestellt ist

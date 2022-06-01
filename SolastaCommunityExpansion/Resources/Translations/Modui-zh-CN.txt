@@ -170,3 +170,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><co
 ModUi/&HiderArmor	隐藏护甲
 ModUi/&RelicForgeries	遗物赝品
 ModUi/&PrimedItems	制备好的物品
+ModUi/&Translations	翻译
+ModUi/&Translate	翻译
+ModUi/&CancelTranslate	在 {1} 取消 {0}
+ModUi/&TranslationHelp	. 将用户广告系列翻译为 {0} 并将它们保存回以语言代码为前缀的池中

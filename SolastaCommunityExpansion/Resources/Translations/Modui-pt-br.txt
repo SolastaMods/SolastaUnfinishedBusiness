@@ -170,3 +170,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops	Adicione novas armas e receitas às lojas 
 ModUi/&HiderArmor	Armadura Hide
 ModUi/&RelicForgeries	Falsificações de Relíquias
 ModUi/&PrimedItems	Items Preparados
+ModUi/&Translations	Traduções
+ModUi/&Translate	Traduzir
+ModUi/&CancelTranslate	Cancelar {0} em {1}
+ModUi/&TranslationHelp	. Traduz campanhas de usuário para {0} e as salva de volta no pool prefixado pelo código de idioma

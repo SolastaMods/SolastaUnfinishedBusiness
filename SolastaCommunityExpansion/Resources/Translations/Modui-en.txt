@@ -170,3 +170,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><c
 ModUi/&HiderArmor	Hide Armor
 ModUi/&RelicForgeries	Relic Forgeries
 ModUi/&PrimedItems	Primed Items
+ModUi/&Translations	Translations
+ModUi/&Translate	Translate
+ModUi/&CancelTranslate	Cancel {0} at {1}
+ModUi/&TranslationHelp	. Translates user campaigns to {0} and save them back to the pool prefixed by the language code
