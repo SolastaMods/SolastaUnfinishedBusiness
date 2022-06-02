@@ -165,7 +165,7 @@ internal static class EldritchInvocationsBuilder
                 )
                 .AddToDB();
 
-            var bonusCantrip = FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder
+            var bonusCantrip = FeatureDefinitionBonusCantripsWithPrerequisitesBuilder
                 .Create(cantripName + "BonusCantrip", DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(Category.Feature, icon)
                 .ClearBonusCantrips()
@@ -274,7 +274,7 @@ internal static class EldritchInvocationsBuilder
             }
 
 
-            var EIPower = FeatureDefinitionFreeBonusCantripsBuilder
+            var EIPower = FeatureDefinitionBonusCantripsBuilder
                 .Create(textPseudoCantrips, DefinitionBuilder.CENamespaceGuid)
                 .SetGuiPresentation(guiPresentationEIPseudoCantrips)
                 .SetBonusCantrips(EICantrip)

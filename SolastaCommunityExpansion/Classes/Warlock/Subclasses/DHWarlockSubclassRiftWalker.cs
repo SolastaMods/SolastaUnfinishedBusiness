@@ -158,7 +158,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
 
     public static void AtWillWardingBond()
     {
-        WardingBondBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+        WardingBondBonusCantrip = FeatureDefinitionBonusCantripsBuilder
             .Create("DHWardingBondBonusCantrip", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .ClearBonusCantrips()
