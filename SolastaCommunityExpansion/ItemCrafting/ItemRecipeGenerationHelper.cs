@@ -381,7 +381,7 @@ internal static class ItemRecipeGenerationHelper
         }
     }
 
-    private static RecipeDefinition CreatePrimingRecipe(Guid baseGuid, ItemDefinition baseItem,
+    public static RecipeDefinition CreatePrimingRecipe(Guid baseGuid, ItemDefinition baseItem,
         ItemDefinition primed)
     {
         var recipeName = "RecipePriming" + baseItem.Name;

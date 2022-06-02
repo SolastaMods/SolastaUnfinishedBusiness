@@ -34,6 +34,10 @@ namespace SolastaCommunityExpansion.Patches
             // Needs to be after CacheTADefinitions
             CeContentPackContext.Load();
 
+            // Cache all Merchant definitions and what item types they sell
+            MerchantTypeContext.Load();
+
+            // These can be loaded in any order so we bump them at the beginning
             AdditionalNamesContext.Load();
             BugFixContext.Load();
             CharacterExportContext.Load();
@@ -49,7 +53,7 @@ namespace SolastaCommunityExpansion.Patches
             GameUiContext.Load();
             InventoryManagementContext.Load();
 
-            HandwrapWeaponContext.Load();
+            CustomWeaponsContext.Load();
             ShieldStrikeContext.Load();
             ItemCraftingContext.Load();
             ItemOptionsContext.Load();

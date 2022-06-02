@@ -117,7 +117,7 @@ Different Archfey, e.g. Winter-themed
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing.GuiPresentation.SpriteReference)
             .AddToDB();
 
-        var AncientForestBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+        var AncientForestBonusCantrip = FeatureDefinitionBonusCantripsBuilder
             .Create("DHAncientForestBonusCantrip", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .ClearBonusCantrips()

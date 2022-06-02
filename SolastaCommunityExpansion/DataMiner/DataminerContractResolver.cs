@@ -10,9 +10,8 @@ namespace SolastaCommunityExpansion.DataMiner
 {
     internal class DataminerContractResolver : DefaultContractResolver
     {
-        private readonly DefinitionReferenceConverter DefinitionReferenceConverter = new();
-
         private readonly DefinitionConverter DefinitionConverter = new();
+        private readonly DefinitionReferenceConverter DefinitionReferenceConverter = new();
 
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
@@ -32,10 +31,8 @@ namespace SolastaCommunityExpansion.DataMiner
                 {
                     return DefinitionConverter;
                 }
-                else
-                {
-                    return DefinitionReferenceConverter;
-                }
+
+                return DefinitionReferenceConverter;
             }
 
             return null;
@@ -52,6 +49,7 @@ namespace SolastaCommunityExpansion.DataMiner
                 contract.OnDeserializedCallbacks.Add((_, __) => contract.Converter = DefinitionConverter);
                 contract.OnDeserializingCallbacks.Add((_, __) => contract.Converter = DefinitionReferenceConverter);
             }
+
             return contract;
         }
 
@@ -80,7 +78,8 @@ namespace SolastaCommunityExpansion.DataMiner
                             "lightSourceForm" => effectForm.FormType == EffectForm.EffectFormType.LightSource,
                             "summonForm" => effectForm.FormType == EffectForm.EffectFormType.Summon,
                             "counterForm" => effectForm.FormType == EffectForm.EffectFormType.Counter,
-                            "temporaryHitPointsForm" => effectForm.FormType == EffectForm.EffectFormType.TemporaryHitPoints,
+                            "temporaryHitPointsForm" => effectForm.FormType ==
+                                                        EffectForm.EffectFormType.TemporaryHitPoints,
                             "motionForm" => effectForm.FormType == EffectForm.EffectFormType.Motion,
                             "spellSlotsForm" => effectForm.FormType == EffectForm.EffectFormType.SpellSlots,
                             "divinationForm" => effectForm.FormType == EffectForm.EffectFormType.Divination,
@@ -90,7 +89,7 @@ namespace SolastaCommunityExpansion.DataMiner
                             "reviveForm" => effectForm.FormType == EffectForm.EffectFormType.Revive,
                             "killForm" => effectForm.FormType == EffectForm.EffectFormType.Kill,
                             "shapeChangeForm" => effectForm.FormType == EffectForm.EffectFormType.ShapeChange,
-                            _ => true,
+                            _ => true
                         };
                     };
             }
@@ -117,7 +116,7 @@ namespace SolastaCommunityExpansion.DataMiner
                             "documentDescription" => definition.IsDocument,
                             "foodDescription" => definition.IsFood,
                             "factionRelicDescription" => definition.IsFactionRelic,
-                            _ => true,
+                            _ => true
                         };
                     };
             }

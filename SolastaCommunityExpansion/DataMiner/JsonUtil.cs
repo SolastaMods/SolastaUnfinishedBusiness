@@ -6,6 +6,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.DataMiner
 {
@@ -54,26 +55,29 @@ namespace SolastaCommunityExpansion.DataMiner
             }
 
             IEnumerable<MemberInfo> publicFields =
- objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
-                .Where(f => !f.IsInitOnly);
+                objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
+                    .Where(f => !f.IsInitOnly);
 
             IEnumerable<MemberInfo> privateFields =
- objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+                objectType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
             IEnumerable<MemberInfo> newtonsoftFields =
- objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
-                .Where(f => ((f.IsPublic && f.IsInitOnly) || f.IsPrivate) && Attribute.IsDefined(f, typeof(JsonPropertyAttribute)));
+                objectType.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
+                                     BindingFlags.DeclaredOnly)
+                    .Where(f => ((f.IsPublic && f.IsInitOnly) || f.IsPrivate) &&
+                                Attribute.IsDefined(f, typeof(JsonPropertyAttribute)));
 
             IEnumerable<MemberInfo> newtonsoftProperties =
- objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
-                .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
+                objectType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic |
+                                         BindingFlags.DeclaredOnly)
+                    .Where(p => Attribute.IsDefined(p, typeof(JsonPropertyAttribute)));
 
-            IEnumerable<MemberInfo> nameProperty = objectType == typeof(UnityEngine.Object) ?
-                    new MemberInfo[] { objectType.GetProperty("name") } :
-                    Array.Empty<MemberInfo>();
+            IEnumerable<MemberInfo> nameProperty = objectType == typeof(Object)
+                ? new MemberInfo[] {objectType.GetProperty("name")}
+                : Array.Empty<MemberInfo>();
 
             return privateFields
-                .Where((field) => Attribute.IsDefined(field, typeof(SerializeField)))
+                .Where(field => Attribute.IsDefined(field, typeof(SerializeField)))
                 .Concat(publicFields)
                 .Concat(GetUnitySerializableMembers(objectType.BaseType))
                 .Concat(nameProperty)

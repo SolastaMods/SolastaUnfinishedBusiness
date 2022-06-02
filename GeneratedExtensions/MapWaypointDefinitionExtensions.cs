@@ -57,6 +57,13 @@ namespace SolastaModApi.Extensions
             return entity;
         }
 
+        public static T SetDestinationUserLocation<T>(this T entity, System.String value)
+            where T : MapWaypointDefinition
+        {
+            entity.DestinationUserLocation = value;
+            return entity;
+        }
+
         public static T SetFastTravelFromSameSectorOnly<T>(this T entity, System.Boolean value)
             where T : MapWaypointDefinition
         {

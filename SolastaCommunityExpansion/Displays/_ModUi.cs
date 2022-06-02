@@ -15,6 +15,7 @@ using static SolastaCommunityExpansion.Displays.RulesDisplay;
 using static SolastaCommunityExpansion.Displays.Shared;
 using static SolastaCommunityExpansion.Displays.SpellsDisplay;
 using static SolastaCommunityExpansion.Displays.ToolsDisplay;
+using static SolastaCommunityExpansion.Displays.TranslationsDisplay;
 #if DEBUG
 using static SolastaCommunityExpansion.Displays.DiagnosticsDisplay;
 #endif
@@ -75,7 +76,9 @@ namespace SolastaCommunityExpansion.Displays
                     DisplayDungeonMaker),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&GameUi") : "Game UI", DisplayGameUi),
                 new NamedAction(Main.Enabled ? Gui.Format("ModUi/&KeyboardMouse") : "Keyboard & Mouse",
-                    DisplayKeyboardAndMouse));
+                    DisplayKeyboardAndMouse),
+                new NamedAction(Main.Enabled ? Gui.Format("ModUi/&Translations") : "Translations",
+                    DisplayTranslations));
         }
     }
 

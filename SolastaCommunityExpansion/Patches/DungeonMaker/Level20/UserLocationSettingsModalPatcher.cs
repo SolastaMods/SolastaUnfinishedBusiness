@@ -18,7 +18,7 @@ public static class UserLocationSettingsModal_OnMinLevelEndEdit
         if (Main.Settings.AllowDungeonsMaxLevel20)
         {
             code
-                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL + 1)
+                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
                 .ForEach(x => x.operand = MOD_MAX_LEVEL);
         }
 
@@ -37,7 +37,7 @@ public static class UserLocationSettingsModal_OnMaxLevelEndEdit
         if (Main.Settings.AllowDungeonsMaxLevel20)
         {
             code
-                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL + 1)
+                .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GAME_MAX_LEVEL)
                 .ForEach(x => x.operand = MOD_MAX_LEVEL);
         }
 

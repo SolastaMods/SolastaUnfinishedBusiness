@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -24,6 +25,24 @@ public static class DungeonMakerContext
     private const string BACKUP_FOLDER = "DungeonMakerBackups";
 
     public static readonly List<MonsterDefinition> ModdedMonsters = new();
+
+    internal static string ReplaceVariable(string line)
+    {
+        var service = ServiceRepository.GetService<IGameVariableService>();
+        var pattern = @"\{[a-zA-Z_][a-zA-Z0-9_]*\}";
+
+        foreach (Match match in Regex.Matches(line, pattern))
+        {
+            var variableName = match.Value.Substring(1, match.Value.Length - 2);
+
+            if (service.TryFindVariable(variableName, out var gameVariable))
+            {
+                line = line.Replace(match.Value, gameVariable.StringValue);
+            }
+        }
+
+        return line;
+    }
 
     // must be public because of transpiler
     public static void BackupAndDelete(string path, UserContent userContent)

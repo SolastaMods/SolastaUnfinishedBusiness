@@ -6,7 +6,7 @@
     "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
+    "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,

@@ -95,7 +95,6 @@ public static class DHWarlockSubclassRiftWalkerPatron
             .AddToDB();
 
         RiftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
-        RiftStrike.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
         RiftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
         RiftStrike.EffectDescription.HasSavingThrow = false;
         RiftStrike.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
@@ -159,7 +158,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
 
     public static void AtWillWardingBond()
     {
-        WardingBondBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+        WardingBondBonusCantrip = FeatureDefinitionBonusCantripsBuilder
             .Create("DHWardingBondBonusCantrip", CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .ClearBonusCantrips()

@@ -43,7 +43,7 @@ internal static class RulesetCharacterHero_ComputeNeededExperienceToReachLevel
             var gameQuestService = ServiceRepository.GetService<IGameQuestService>();
 
 #if DEBUG
-                gameQuestService?.ActiveQuests.ForEach(x => Main.Log($"Quest: {x.QuestTreeDefinition.Name}"));
+            gameQuestService?.ActiveQuests.ForEach(x => Main.Log($"Quest: {x.QuestTreeDefinition.Name}"));
 #endif
 
             // Level up essential for Caer_Cyflen_Quest_AfterTutorial.

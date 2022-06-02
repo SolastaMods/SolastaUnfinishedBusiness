@@ -69,10 +69,11 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
         EnsureSpellListsConfigured();
 
 #if DEBUG
-            if (spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
-            {
-                throw new ArgumentException($"{Definition.Name}. There are duplicate spells in the supplied level {level} spell list.");
-            }
+        if (spells.GroupBy(s => s.GUID).Any(g => g.Count() > 1))
+        {
+            throw new ArgumentException(
+                $"{Definition.Name}. There are duplicate spells in the supplied level {level} spell list.");
+        }
 #endif
 
         // Set the spells - remove duplicates - sort to add to list in determistic order

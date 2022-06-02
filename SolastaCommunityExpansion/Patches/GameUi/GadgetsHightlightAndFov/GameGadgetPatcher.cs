@@ -85,7 +85,7 @@ internal static class GameGadget_SetCondition
             Main.Log($"GameGadget_SetCondition {__instance.UniqueNameId}: {param} state = {state}");
 
 #if DEBUG
-                //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
+            //Main.Log("GameGadget_SetCondition: " + string.Join(",", __instance.conditionNames.Select(n => $"{n}={__instance.CheckConditionName(n, true, false)}")));
 #endif
 
             if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)

@@ -9,6 +9,7 @@ namespace SolastaCommunityExpansion.Models;
 public static class ItemPropertyDescriptions
 {
     public static readonly ItemPropertyDescription WeaponPlus1 = BuildFrom(AttackModifierWeaponPlus1);
+    public static readonly ItemPropertyDescription WeaponPlus1AttackOnly = BuildFrom(AttackModifierWeaponPlus1AT);
 
     public static readonly ItemPropertyDescription WeaponPlus2 = BuildFrom(AttackModifierWeaponPlus2);
 
@@ -17,10 +18,22 @@ public static class ItemPropertyDescriptions
     public static readonly ItemPropertyDescription ForceImpactVFX =
         BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.MagicMissile));
 
+    public static readonly ItemPropertyDescription LightningImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.LightningBolt));
+
+    public static readonly ItemPropertyDescription PsychicImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Fear));
+
+    public static readonly ItemPropertyDescription ThunderImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.Thunderwave));
+
+    public static readonly ItemPropertyDescription AcidImpactVFX =
+        BuildFrom(BuildAttackVFXFromSpell(SpellDefinitions.AcidSplash));
+
     public static ItemPropertyDescription BuildFrom(
         FeatureDefinition feature,
         bool appliesOnItemOnly = true,
-        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.ActiveAndHidden)
+        KnowledgeAffinity knowledgeAffinity = KnowledgeAffinity.InactiveAndHidden)
     {
         return ItemPropertyDescriptionBuilder.From(feature, appliesOnItemOnly, knowledgeAffinity).Build();
     }
@@ -44,8 +57,7 @@ public static class ItemPropertyDescriptions
         return FeatureDefinitionAttackModifierBuilder
             .Create(name, DefinitionBuilder.CENamespaceGuid)
             .Configure()
-            .SetImpactParticleReference(effect.EffectParticleParameters
-                .impactParticleReference)
+            .SetImpactParticleReference(effect.EffectParticleParameters.impactParticleReference)
             .AddToDB();
     }
 }

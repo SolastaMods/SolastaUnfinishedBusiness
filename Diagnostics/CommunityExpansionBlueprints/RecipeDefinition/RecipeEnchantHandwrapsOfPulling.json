@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:HandwrapsOfPulling:498249d6-4c45-5338-8c97-7ac6f7b7bf13",
+  "craftedItem": "Definition:HandwrapsOfPulling:7a06ecde-1316-58ad-89e6-2b4edbf999cb",
   "stackCount": 1,
   "craftingHours": 48,
   "craftingDC": 16,
@@ -17,7 +17,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&HandwrapsOfPullingTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

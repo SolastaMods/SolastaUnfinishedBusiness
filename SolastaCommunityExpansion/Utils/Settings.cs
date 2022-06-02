@@ -5,9 +5,7 @@ using ModKit.Utility;
 using SolastaCommunityExpansion.Models;
 using UnityModManagerNet;
 
-#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion.Utils;
-#pragma warning restore IDE0130 // Namespace does not match folder structure
 
 public class Core
 {
@@ -200,6 +198,13 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
+#if DEBUG
+    public bool AddNewWeaponsAndRecipesToShops { get; set; } = true; // simplifies diags. creation (one less boot)
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; } = true;
+#else
+    public bool AddNewWeaponsAndRecipesToShops { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
+#endif
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentifcationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
@@ -242,7 +247,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
 #if DEBUG
-        public bool DebugLogVariantMisuse { get; set; }
+    public bool DebugLogVariantMisuse { get; set; }
 #endif
 
     // Faction Relations
@@ -310,6 +315,13 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableCtrlClickBypassAttackReactionPanel { get; set; }
     public bool EnableIgnoreCtrlClickOnCriticalHit { get; set; }
     public bool EnableCtrlClickOnlySwapsMainHand { get; set; }
+
+    //
+    // Interface - Translations
+    //
+
+    public bool EnableOnTheFlyTranslations { get; set; }
+    public string SelectedLanguageCode { get; set; } = "en";
 
     //
     // Encounters - General

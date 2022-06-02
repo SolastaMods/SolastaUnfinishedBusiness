@@ -6,6 +6,8 @@ namespace SolastaCommunityExpansion.DataMiner
 {
     public class DefinitionReferenceConverter : JsonConverter
     {
+        private static readonly Type _tBaseDefinition = typeof(BaseDefinition);
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             try
@@ -19,12 +21,11 @@ namespace SolastaCommunityExpansion.DataMiner
             }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }
-
-        private static readonly Type _tBaseDefinition = typeof(BaseDefinition);
 
         public override bool CanConvert(Type objectType)
         {

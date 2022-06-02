@@ -1,6 +1,6 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
-  "craftedItem": "Definition:Handwraps+1:4b54e3b7-446c-55db-9474-45239b4c823c",
+  "craftedItem": "Definition:Handwraps+1:6268865e-345f-50c1-8566-2da9bde4cb3e",
   "stackCount": 1,
   "craftingHours": 24,
   "craftingDC": 10,
@@ -17,7 +17,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&Handwraps+1Title",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

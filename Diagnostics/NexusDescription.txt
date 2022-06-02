@@ -3,10 +3,6 @@
 
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
-[b]ATTENTION[/b]
-
-This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass, SolastaDungeonMakerPro and SolastaTinkerer.
-
 [size=4][b]Credits[/b][/size]
 
 [list]
@@ -24,16 +20,16 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
 [*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
-[*][b]Nd[/b]: Opportunist subclass
+[*][b]Nd[/b]: Marshal subclass, Opportunist subclass
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
-[*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Holic75's code integration
+[*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Feats, Spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Zappastuff[/b]: repository maintenance, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Holic75's code integration
+[*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Infrastructure and QoL patches, Holic75's code integration
 [/list]
 
 [size=4][b]How to Install[/b][/size]
@@ -60,7 +56,7 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-02.png?raw=true[/img]
 
-[size=4][b]Multiplayer [beta support][/b][/size]
+[size=4][b]Multiplayer[/b][/size]
 
 We did all possible efforts to ensure this Mod will work under a multiplayer session. You must ensure all players have this mod installed and at least all settings under CE Mod UI > Gameplay matches across all players. The easiest way to achieve that is ask the host to share his Mod settings.xml file with guests before a session.
 
@@ -83,35 +79,6 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCo
 [size=4][b]Features[/b][/size]
 
 All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again.
-
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/02-Character-ClassesSubclasses.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/03-Character-FeatsFightingStyles.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/04-Character-Spells.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/05-Gameplay-Rules.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-Tools.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Interface-DungeonMaker.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-GameUi.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-KeyboardMouse.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Encounters-General.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-Bestiary.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Pool.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-CreditsDiagnostics-Credits.png?raw=true[/img]
-[line]
 
 [size=3][b]Races[/b][/size]
 
@@ -139,17 +106,17 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Red Witch[/b]: Arcane magic tied to channeling the elements is deemed red magic, and is extremely hazardous when used. Witches that specialize in red magic are among the deadliest spellcasters in existence, channeling their curse into unhindered arcane wrath.
 [*][b]White Witch[/b]: White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
 [*][b]Way of the Open Hand[/b]: Monks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
-[*][b]Way of the Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
+[*][b]Way of the Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
 [*][b]Potion Maker[/b]: You specialize in potions, buffs, healing, and spell casting.
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions.
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
-[*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's fuction, provding enhanced protection and mobility.
+[*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
 [*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
-[*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordals present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of diferent elemental types.
+[*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
-[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift engeries to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
-[*][b]Toad King Pact[/b]: Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
+[*][b]Toad King Pact[/b]: Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
@@ -162,7 +129,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Life Transmuter[/b]: Masters of manipulating both matter and life energy.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
-[*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+[*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Spell Master[/b]: Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
@@ -178,30 +145,34 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Apothecary (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine.
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
-[*][b]Arcane Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
+[*][b]Arcane Precision[/b]: When active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls. It has a 1 minute duration and can be used twice per long rest.
 [*][b]Brutal Thug[/b]: You land powerful blows in the right places.
-You can sneak attack with martial based weapons and get figther weapon proficiency.
+You gain simple and martial weapon proficiencies and you can sneak attack with martial weapons.
 [*][b]Charismatic Defense[/b]: Increase your Charisma by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
-[*][b]Charismatic Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your charisma for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
-[*][b]Chef (Constitution)[/b]: You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+[*][b]Charismatic Precision[/b]: When active on a weapon, its attacks count as magical and you use your Charisma for your attack and damage rolls. It has a 1 minute duration and can be used twice per long rest.
+[*][b]Chef (Constitution)[/b]: You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8 HP. Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
 [*][b]Chef (Wisdom)[/b]: You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
-[*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
-[*][b]Dual Weapon Defense[/b]: When yielding 2 weapons your AC increases by 1.
+[*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible.
+• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
+• Your ranged weapon attacks ignore half cover and three-quarters cover.
+• You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
+[*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
+[*][b]Dual Weapon Defense[/b]: You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
 [*][b]Fast Hands[/b]: You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action.
 [*][b]Fey Teleportation (Charisma)[/b]: Increase Charisma attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 [*][b]Fey Teleportation (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 [*][b]Fey Teleportation (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to Misty Step once per short rest and learn the spell. Gain proficiency in Tirmarian.
 [*][b]Fighting Style: Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Fighting Style: Blind Fighting[/b]: You have blindsight with a range of 10 feet.
-[*][b]Fighting Style: Crippling[/b]: Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn.
-[*][b]Fighting Style: Defense[/b]: While you are wearing armor you gain a +1 bonus to AC.
+[*][b]Fighting Style: Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+[*][b]Fighting Style: Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Fighting Style: Dueling[/b]: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
 [*][b]Fighting Style: Great Weapon[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Fighting Style: Protection[/b]: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-[*][b]Fighting Style: Pugilist[/b]: Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.
-If you have free hand you can shove as a bonus action.
-[*][b]Fighting Style: Titan Fighting[/b]: You gain a +2 hit against creatures of size large or bigger.
+[*][b]Fighting Style: Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
+If you have a free hand, you can shove as a bonus action.
+[*][b]Fighting Style: Titan Fighting[/b]: You gain a +2 hit against creatures of Large size or bigger.
 [*][b]Fighting Style: Two Weapon[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 [*][b]Fighting Surge (Dexterity)[/b]: Increase your Dexterity by 1, to a maximum of 20.
 On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a long rest before you can use it again.
@@ -212,31 +183,37 @@ On your turn, you can take one additional action on top of your regular action a
 [*][b]Heavy Defense Mastery[/b]: Resistance to Bludgeoning, Slashing, and Piercing damage.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
-[*][b]Light Armor[/b]: Gain proficiency with Light Armor and +1 Dexterity.
+[*][b]Light Armor[/b]: Increase your Strength by 1, to a maximum of 20.
+You gain proficiency with Light Armor.
 [*][b]Manacalon Crafter[/b]: +1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells.
-[*][b]Marksman[/b]: When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack.
-[*][b]Medium Armor (Dexterity)[/b]: Gain proficiency with Medium Armor and Shields and +1 Dexterity.
-[*][b]Medium Armor (Strength)[/b]: Gain proficiency with Medium Armor and Shields and +1 Strength.
+[*][b]Marksman[/b]: When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
+[*][b]Medium Armor (Dexterity)[/b]: Increase your Dexterity by 1, to a maximum of 20.
+You gain proficiency with Medium Armor and shields.
+[*][b]Medium Armor (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
+You gain proficiency with Medium Armor and shields.
 [*][b]Metamagic: Careful[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Careful metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Distant[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Distant metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Empowered[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Emporewed metamgic and gain 2 sorcery points.
+You learn the Empowered metamgic and gain 2 sorcery points.
 [*][b]Metamagic: Extended[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Extended metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Heightened[/b]: You learn the Heightened metamagic and gain 4 sorcery points.
 [*][b]Metamagic: Quickened[/b]: Increase your Charisma by 1, to a maximum of 20.
-You learn the Quickned metamagic and gain 2 sorcery points.
+You learn the Quickened metamagic and gain 2 sorcery points.
 [*][b]Metamagic: Twinned[/b]: Increase your Charisma by 1, to a maximum of 20.
 You learn the Twinned metamagic and gain 2 sorcery points.
-[*][b]Pickpocket[/b]: You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
-[*][b]Power attack[/b]: You learned to trade accuracy to land deadlier blows. You can choose to take a -Proficiency Bonus penalty to your to hit in order to do more damage (+Proficiency Bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons.
+[*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
+[*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
+ - When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
+ - While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+[*][b]Power attack[/b]: You learned to trade accuracy to land deadlier blows. You can choose to take a -3 penalty to your to hit in order to do 3 + Proficiency Bonus extra damage with melee weapons.
 [*][b]Primal Rage (Constitution)[/b]: Increase your Constitution by 1, to a maximum of 20.
-You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
+You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 [*][b]Primal Rage (Strength)[/b]: Increase your Strength by 1, to a maximum of 20.
-You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.
+You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 [*][b]Reckless Fury[/b]: You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
@@ -245,26 +222,32 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
  - When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
  - Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
  - When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
-[*][b]Shadow Touched (Charisma)[/b]: Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
-[*][b]Shadow Touched (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
-[*][b]Shadow Touched (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+[*][b]Shadow Touched (Charisma)[/b]: Increase your Charisma attribute by 1, to a maximum of 20.
+You gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+[*][b]Shadow Touched (Intelligence)[/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
+You gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+[*][b]Shadow Touched (Wisdom)[/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
+You gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 [*][b]Shady[/b]: Increase your Dexterity by 1, to a maximum of 20.
-Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6. This can stack with Rogue's Sneak Attack.
-[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.
-You gain advantage on shove attempts while weilding a shield..
-[*][b]Telekinetic (Charisma)[/b]: Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
-[*][b]Telekinetic (Intelligence)[/b]: Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
-[*][b]Telekinetic (Wisdom)[/b]: Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
-[*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
+Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Rogue's Sneak Attack. At 12th level, this damage increases to 2d6 and at 20th level, to 4d6.
+[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.
+You gain advantage on shove attempts while wielding a shield.
+[*][b]Telekinetic (Charisma)[/b]: Increase your Charisma by 1, to a maximum of 20.
+As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
+[*][b]Telekinetic (Intelligence)[/b]: Increase your Intelligence by 1, to a maximum of 20.
+As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
+[*][b]Telekinetic (Wisdom)[/b]: Increase your Wisdom by 1, to a maximum of 20.
+As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
+[*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 [*][b]Toxicologist (Intelligence)[/b]: +1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature.
 [*][b]Toxicologist (Wisdom)[/b]: +1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
-You gain the ability to perform the somatic component of spells even with full hands.
+You gain the ability to perform the somatic component of spells even with both hands full.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 [*][b]Wise Defense[/b]: Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
-[*][b]Wise Precision[/b]: When active on a weapon, it's attacks count as Magical and you use your wisdom for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
+[*][b]Wise Precision[/b]: When active on a weapon, its attacks count as magical and you use your Wisdom for your attack and damage rolls. It has a 1 minute duration and can be used twice per long rest.
 [/list]
 
 [size=3][b]Fighting Styles[/b][/size]
@@ -272,10 +255,10 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [list=1]
 
 [*][b]Blind Fighting[/b]: You have blindsight with a range of 10 feet.
-[*][b]Crippling[/b]: Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.
-If you have free hand you can shove as a bonus action.
-[*][b]Titan Fighting[/b]: You gain a +2 hit against creatures of size large or bigger.
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.
+If you have free hand, you can shove as a bonus action.
+[*][b]Titan Fighting[/b]: You gain a +2 hit against creatures of size Large or bigger.
 [/list]
 
 [size=3][b]Spells[/b][/size]
@@ -292,14 +275,16 @@ The spell creates more than one beam when you reach higher levels: two beams at 
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. You then heal hit points equal to the amount of damage dealt. This spell has no effect on undead or constructs.
 [*][b]Resonating Strike[/b]: Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.
 At 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
-[*][b]Sound Burst[/b]: Create a burst of thundering sound, damaging everyone around you.
+[*][b]Sound Burst[/b]: Create a burst of thundering sound, forcing creatures adjacent to you to make a Constituion saving throw or take 1d6 thunder damage.
+This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 [*][b]Sunlit Blade[/b]: Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 [*][b]Find Familiar[/b]: You gain the service of a familiar.
 [*][b]Hellish Rebuke[/b]: You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
-[*][b]Pact Mark[/b]: You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits.
-[*][b]Radiant Motes[/b]: Unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute.
+[*][b]Pact Mark[/b]: You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with a weapon or spell attack. This damage is the same type as the attack that hits.
+[*][b]Radiant Motes[/b]: Unleashes a swarm of 5 radiant projectiles that deal 2 radiant damage each, but never miss. Targets may radiate light for up to 1 minute.
+When you cast this spell using a spell slot of 2nd level or higher, the spell creates 2 more projectiles for each slot above 1st.
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
@@ -318,8 +303,10 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Dominate Monster[/b]: You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration.
 [*][b]Feeblemind[/b]: You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.On a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
 [*][b]Holy Aura[/b]: Divine light washes out from you and coalesces in a soft radiance in a 30-foot radius around you. Creatures of your choice in that radius when you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends.
-[*][b]Incendiary Cloud[/b]: A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
-[*][b]Maze[/b]: You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check.
+[*][b]Incendiary Cloud[/b]: A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.
+When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.
+The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
+[*][b]Maze[/b]: You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt a DC 20 Intelligence check to escape.
 [*][b]Mind Blank[/b]: Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 [*][b]Power Word Stun[/b]: You speak a word of power that can overwhelm the mind of one creature you can see within range, leaving it dumbfounded. If the target has 150 hit points or fewer, it is stunned. Otherwise, the spell has no effect.
 [*][b]Sunburst[/b]: Brilliant sunlight flashes in a 60-foot radius centered on a point you choose within range. Each creature in that light must make a Constitution saving throw. On a failed save, a creature takes 12d6 radiant damage and is blinded for 1 minute. On a successful save, it takes half as much damage and isn't blinded by this spell. Undead and oozes have disadvantage on this saving throw.A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.This spell dispels any darkness in its area that was created by a spell.
@@ -338,7 +325,7 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [list=1]
 
 [*][b]Primed Items[/b]: Primed Battleaxe, Primed Breastplate, Primed Chain Mail, Primed Chain Shirt, Primed Dagger, Primed Greataxe, Primed Greatsword, Primed Half Plate, Primed Heavy Crossbow, Primed Hide Armor, Primed Druid Armor, Primed Leather Armor, Primed Crossbow, Primed Longbow, Primed Longsword, Primed Mace, Primed Maul, Primed Morningstar, Primed Plate, Primed Rapier, Primed Scale Mail, Primed Scimitar, Primed Shortbow, Primed Shortsword, Primed Spear, Primed Studded Armor, Primed Warhammer
-[*][b]Enchanting Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
+[*][b]Required Ingredients[/b]: Mithral Stone, Crystal of Winter, Blood Ruby, Soul Gem, Slavestone, Cloud Diamond, Stardust, Doom Gem, Shard of Fire, Shard of Ice, Life Stone, Diamond of Elai, Primordial Lava Stones, Blood of Solasta, Medusa Coral, Purple Amber, Heartstone, Spider Queen Venom
 [*][b]Relic Forgeries[/b]: Tirmarian Holy Symbol, Depleted Rune, Imperial Gate Plaque, Aksha's Journal, Ancient Manifest, Tirmarian Master Smith's Memoirs, Tirmarian Inquisitor's Journal, Poem, The Elven Wars, Silent Whisper Parchment
 [*][b]Light Crossbow[/b]: Light Crossbow of Accuracy, Light Crossbow of Sharpshooting, Lightbringer Light Crossbow, Light Stormcrossbow, Medusa Light Crossbow
 [*][b]Heavy Crossbow[/b]: Heavy Crossbow of Accuracy, Heavy Crossbow of Sharpshooting, Lightbringer Heavy Crossbow, Heavy Stormcrossbow, Medusa Heavy Crossbow
@@ -352,16 +339,43 @@ Regardless of its current hit points, a celestial, an elemental, a fey, or a fie
 [*][b]Spear[/b]: Black Viper Spear, Doom Tipped Spear, Spear of Acuteness, Whiteburn Spear, Lightbringer Spear, Spear of Sharpness
 [*][b]Scimitar[/b]: Stormblade Scimitar, Frostburn Scimitar, Lightbringer Scimitar, Dragonblade Scimitar, Warden Scimitar, Whiteburn Scimitar, Souldrinker Scimitar
 [*][b]Rapier[/b]: Stormblade Rapier, Frostburn Rapier, Lightbringer Rapier, Dragonblade Rapier, Warden Rapier, Whiteburn Rapier, Souldrinker Rapier, Rapier of Power
-[*][b]Shield [Wooden][/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
+[*][b]Wooden Shield[/b]: Wooden Shield of Sturdiness, Wooden Shield of Robustness, Wooden Shield of Survival, Wooden Shield of Flame Dancing, Wooden Shield of Frost Walking, Wooden Shield of Deflection
 [*][b]Shield[/b]: Shield of Sturdiness, Shield of Robustness, Shield of Survival, Shield of Flame Dancing, Shield of Frost Walking, Shield of Deflection
 [*][b]Hide Armor[/b]: Hide Armor of Sturdiness, Hide Armor of Robustness, Hide Armor of Survival, Hide Armor of Flame Dancing, Hide Armor of Frost Walking, Hide Armor of Deflection
-[*][b]Leather Druid[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
+[*][b]Druid Leather Armor[/b]: Druid Leather of Sturdiness, Druid Leather of Robustness, Druid Leather of Survival, Druid Leather of Flame Dancing, Druid Leather of Frost Walking, Druid Leather of Deflection
 [*][b]Studded Leather[/b]: Studded Leather of Sturdiness, Studded Leather of Robustness, Studded Leather of Survival, Studded Leather of Flame Dancing, Studded Leather of Frost Walking, Studded Leather of Deflection
 [/list]
 
-[size=3][b]Monsters[/b][/size]
+[size=3][b]All Settings[/b][/size]
 
-[list=1]
-
-[/list]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/02-Character-ClassesSubclasses.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/03-Character-FeatsFightingStyles.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/04-Character-Spells.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/05-Gameplay-Rules.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-Tools.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Interface-DungeonMaker.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-GameUi.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-KeyboardMouse.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Interface-Translations.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-General.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Bestiary.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
+[line]
 

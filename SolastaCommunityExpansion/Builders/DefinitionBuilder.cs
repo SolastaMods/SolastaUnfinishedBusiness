@@ -64,7 +64,7 @@ public abstract class DefinitionBuilder
                       $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
 
 #if DEBUG
-                throw new SolastaModApiException(msg);
+            throw new SolastaModApiException(msg);
 #else
             Main.Log(msg);
 #endif
@@ -635,11 +635,12 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
     {
 #if DEBUG
 #pragma warning disable S3060 // "is" should not be used with "this"
-            // TODO: check if this test is of any use
-            if (this is not TBuilder)
-            {
-                throw new SolastaModApiException($"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
-            }
+        // TODO: check if this test is of any use
+        if (this is not TBuilder)
+        {
+            throw new SolastaModApiException(
+                $"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
+        }
 #pragma warning restore S3060 // "is" should not be used with "this"
 #endif
 

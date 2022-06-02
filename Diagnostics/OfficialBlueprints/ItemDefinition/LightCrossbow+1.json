@@ -97,7 +97,7 @@
       "grantedConditionOnSave": null,
       "hasShoveRoll": false,
       "createdByCharacter": false,
-      "difficultyClassComputation": "FixedValue",
+      "difficultyClassComputation": "SpellCastingFeature",
       "savingThrowDifficultyAbility": "Wisdom",
       "fixedSavingThrowDifficultyClass": 15,
       "savingThrowAffinitiesBySense": [],
@@ -462,7 +462,7 @@
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&MagnificientCrossbow_Title",
-    "unidentifiedDescription": "Equipment/&MagnificientCrossbow_Description",
+    "unidentifiedDescription": "Equipment/&MagnificientCrossbowGenericPresentation",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

@@ -80,6 +80,24 @@ internal static class ItemsAndCraftingDisplay
         UI.Label(Gui.Format("ModUi/&General"));
         UI.Label("");
 
+        toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
+        if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
+            Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
+        }
+
+        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
+        {
+            toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
+            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToEditor")), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
+            }
+        }
+
+        UI.Label("");
+
         toggle = Main.Settings.RemoveAttunementRequirements;
         if (UI.Toggle(Gui.Format("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
         {
