@@ -29,7 +29,7 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
     {
         CanAttack = CanMeleeAttack;
         CanBeUsedToAttack = DefaultCanUseHandler;
-        PerformAttackAfterUse = DefautlAttackHandler;
+        PerformAttackAfterUse = DefaultAttackHandler;
     }
 
     public CanUseHandler CanBeUsedToAttack { get; set; }
@@ -60,7 +60,7 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
         return battleService.CanAttack(evalParams);
     }
 
-    private CharacterActionParams DefautlAttackHandler(CharacterActionMagicEffect effect)
+    private CharacterActionParams DefaultAttackHandler(CharacterActionMagicEffect effect)
     {
         if (effect == null) { return null; }
 
