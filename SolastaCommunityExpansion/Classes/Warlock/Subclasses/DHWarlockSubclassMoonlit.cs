@@ -218,7 +218,7 @@ public static class DHWarlockSubclassMoonLitPatron
             .SetSpellLevel(0)
             .AddToDB();
 
-        var MoonlitBonusCantrips = FeatureDefinitionFreeBonusCantripsBuilder
+        var MoonlitBonusCantrips = FeatureDefinitionBonusCantripsBuilder
             .Create("MoonlitBonusCantrips", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feat)
             .ClearBonusCantrips()

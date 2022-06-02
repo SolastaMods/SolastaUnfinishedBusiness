@@ -134,12 +134,6 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static bool IsSpellBonus(IPointPoolMaxBonus mod)
-    {
-        return mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip
-               || mod.PoolType == HeroDefinitions.PointsPoolType.Spell;
-    }
-
     internal static void RemoveFeatures(RulesetCharacterHero hero,
         CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
     {
