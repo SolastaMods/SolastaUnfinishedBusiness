@@ -356,7 +356,7 @@ internal static class DHWarlockSubclassElementalPatron
             .Create(ConjureMinorElementals, "DHAtWillConjureMinorElementals", DefinitionBuilder.CENamespaceGuid);
         AtWillConjureMinorElementalsBuilder.SetSpellLevel(0);
 
-        MinorElementalBonusCantrip = FeatureDefinitionFreeBonusCantripsBuilder
+        MinorElementalBonusCantrip = FeatureDefinitionBonusCantripsBuilder
             .Create("DHConjureMinorElementalsBonusCantrip", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature)
             .AddBonusCantrip(AtWillConjureMinorElementalsBuilder.AddToDB())
