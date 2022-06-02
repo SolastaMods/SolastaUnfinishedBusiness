@@ -505,12 +505,7 @@ internal static class AcehighFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
         {
-            if (attackMode == null)
-            {
-                return;
-            }
-
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
@@ -523,39 +518,16 @@ internal static class AcehighFeats
             }
 
             var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var toHit = -proficiency;
-            var toDamage = proficiency;
+            const int TO_HIT = -3;
+            var toDamage = 3 + proficiency;
 
-            if (attackMode.UseVersatileDamage
-                || IsTwoHanded(attackMode.SourceDefinition as ItemDefinition)
-                || IsTwoHanded(weapon?.ItemDefinition))
-            {
-                toDamage *= 2;
-            }
-
-            attackMode.ToHitBonus += toHit;
-            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(toHit,
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(TO_HIT,
                 RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
 
             damage.BonusDamage += toDamage;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(toDamage,
                 RuleDefinitions.FeatureSourceType.Power, "PowerAttack", null));
-        }
-
-        private static bool IsTwoHanded(ItemDefinition weapon)
-        {
-            if (weapon == null)
-            {
-                return false;
-            }
-
-            var description = weapon.WeaponDescription;
-            if (description == null)
-            {
-                return false;
-            }
-
-            return description.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
         }
     }
 

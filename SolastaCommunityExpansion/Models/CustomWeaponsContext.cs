@@ -151,14 +151,14 @@ public static class CustomWeaponsContext
 
         ShopItems.Add((HandwrapsPlus1, ShopMeleePlus1));
         ShopItems.Add((HandwrapsPlus2, ShopMeleePlus2));
-        
+
         HandwrapsOfForce = BuildHandwrapsCommon("HandwrapsOfForce", 2000, true, false, Rare, ForceImpactVFX,
             WeaponPlus1AttackOnly);
         HandwrapsOfForce.WeaponDescription.EffectDescription.AddEffectForms(new EffectFormBuilder()
             .SetDamageForm(diceNumber: 1, dieType: RuleDefinitions.DieType.D4,
                 damageType: RuleDefinitions.DamageTypeForce)
             .Build());
-        
+
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
         HandwrapsOfPulling.SetIsUsableDevice(true);
         HandwrapsOfPulling.SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()

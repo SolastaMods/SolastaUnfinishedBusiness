@@ -249,7 +249,7 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             {
                 var diceNumber = damageForm.DiceNumber;
 
-                if (damageForm.DieType != 0 & criticalHit && !damageForm.IgnoreCriticalDoubleDice)
+                if ((damageForm.DieType != 0) & criticalHit && !damageForm.IgnoreCriticalDoubleDice)
                 {
                     diceNumber *= 2;
                 }

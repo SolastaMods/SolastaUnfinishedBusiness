@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.Translator;
 
@@ -14,7 +15,7 @@ internal static class Gui_Format
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            line = Utils.UserCampaignsTranslator.Translate(
+            line = UserCampaignsTranslator.Translate(
                 line,
                 Main.Settings.SelectedLanguageCode);
         }

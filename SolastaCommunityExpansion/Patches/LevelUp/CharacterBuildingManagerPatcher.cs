@@ -2,10 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using ModKit;
-using SolastaCommunityExpansion.CustomInterfaces;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -38,6 +36,10 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                     foreach (var cantrip in cantrips.BonusCantrips)
                     {
                         __instance.AcquireBonusCantrip(heroBuildingData, cantrip, spellTag);
+                        if (CustomFeaturesContext.IsCustomTag(tag))
+                        {
+                            __instance.AcquireBonusCantrip(heroBuildingData, cantrip, tag);
+                        }
                     }
 
                     continue;
@@ -281,14 +283,32 @@ internal static class CharacterBuildingManager_ClearPrevious
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_UnacquireBonusCantrips
 {
-    internal static void Prefix(CharacterHeroBuildingData heroBuildingData, ref string tag)
+    internal static void Prefix(CharacterHeroBuildingData heroBuildingData, string tag)
     {
         if (string.IsNullOrEmpty(tag))
         {
             return;
         }
 
-        tag = CustomFeaturesContext.UnCustomizeTag(tag);
+        if (!CustomFeaturesContext.IsCustomTag(tag))
+        {
+            return;
+        }
+
+        if (!heroBuildingData.BonusCantrips.ContainsKey(tag))
+        {
+            return;
+        }
+
+        var spellTag = CustomFeaturesContext.UnCustomizeTag(tag);
+        if (!heroBuildingData.BonusCantrips.ContainsKey(spellTag))
+        {
+            return;
+        }
+
+        var customCantrips = heroBuildingData.BonusCantrips[tag];
+        var cantrips = heroBuildingData.BonusCantrips[spellTag];
+        cantrips.RemoveAll(c => customCantrips.Contains(c));
     }
 }
 
@@ -579,76 +599,19 @@ internal static class CharacterBuildingManager_UpgradeSpellPointPools
     }
 }
 
-[HarmonyPatch(typeof(CharacterBuildingManager), "RegisterPoolStack")]
-[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class CharacterBuildingManager_RegisterPoolStack
-{
-    internal static void Postfix(
-        CharacterHeroBuildingData heroBuildingData,
-        List<FeatureDefinition> features,
-        string tag)
-    {
-        if (!Main.Settings.EnableCustomSpellsPatch)
-        {
-            return;
-        }
-
-        var hero = heroBuildingData.HeroCharacter;
-        var poolMods = hero.GetFeaturesByType<IPointPoolMaxBonus>();
-        var spellMods = new List<IPointPoolMaxBonus>();
-
-        poolMods.RemoveAll(CustomFeaturesContext.IsSpellBonus);
-
-        heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinition>(features, (feature, _) =>
-        {
-            if (feature is IPointPoolMaxBonus bonus)
-            {
-                poolMods.Remove(bonus);
-                if (CustomFeaturesContext.IsSpellBonus(bonus))
-                {
-                    spellMods.Add(bonus);
-                }
-            }
-        }, tag);
-
-        var values = new Dictionary<HeroDefinitions.PointsPoolType, int>();
-
-        foreach (var mod in poolMods)
-        {
-            values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) + mod.MaxPointsBonus);
-        }
-
-        //Remove spell/cantrip pool modifiers gained on this level
-        foreach (var mod in spellMods)
-        {
-            values.AddOrReplace(mod.PoolType, values.GetValueOrDefault(mod.PoolType) - mod.MaxPointsBonus);
-        }
-
-        foreach (var mod in values)
-        {
-            var poolType = mod.Key;
-            var value = mod.Value;
-
-            var poolStack = heroBuildingData.PointPoolStacks[poolType] ?? new PointPoolStack(poolType);
-
-            var pool = poolStack.ActivePools.GetValueOrDefault(tag);
-
-            if (pool != null)
-            {
-                pool.MaxPoints += value;
-                pool.RemainingPoints += value;
-            }
-        }
-    }
-}
-
 [HarmonyPatch(typeof(CharacterBuildingManager), "ApplyFeatureCastSpell")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_ApplyFeatureCastSpell
 {
-    internal static void Postfix(CharacterHeroBuildingData heroBuildingData,
+    internal static void Postfix(CharacterBuildingManager __instance,
+        CharacterHeroBuildingData heroBuildingData,
         FeatureDefinition feature)
     {
+        if (!Main.Settings.BugFixCorrectlyAssignBonusCantrips)
+        {
+            return;
+        }
+
         if (feature is not FeatureDefinitionCastSpell spellCasting) { return; }
 
         var castingOrigin = spellCasting.SpellCastingOrigin;
@@ -658,45 +621,40 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         }
 
         var hero = heroBuildingData.HeroCharacter;
+        __instance.GetLastAssignedClassAndLevel(hero, out var lastClassDefinition, out var level);
+        var hasSubclass = hero.ClassesAndSubclasses.TryGetValue(lastClassDefinition, out var subclassDefinition);
 
-        ServiceRepository.GetService<ICharacterBuildingService>()
-            .GetLastAssignedClassAndLevel(hero, out var gainedClass, out _);
+        var classTag = AttributeDefinitions.GetClassTag(lastClassDefinition, level);
+        var subclassTag = hasSubclass && subclassDefinition != null
+            ? AttributeDefinitions.GetSubclassTag(lastClassDefinition, level, subclassDefinition)
+            : string.Empty;
 
-        var poolMods = hero.GetFeaturesByTypeAndTag<IPointPoolMaxBonus>(gainedClass.Name);
-
-        poolMods.RemoveAll(p => !CustomFeaturesContext.IsSpellBonus(p));
-
-        foreach (var mod in poolMods)
+        var tag = spellCasting.SpellCastingOrigin switch
         {
-            if (mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
-            {
-                heroBuildingData.TempAcquiredCantripsNumber += mod.MaxPointsBonus;
-            }
-            else if (mod.PoolType == HeroDefinitions.PointsPoolType.Spell)
-            {
-                heroBuildingData.TempAcquiredSpellsNumber += mod.MaxPointsBonus;
-            }
+            CastingOrigin.Class => classTag,
+            CastingOrigin.Subclass => subclassTag,
+            CastingOrigin.Race => AttributeDefinitions.TagRace,
+            _ => string.Empty
+        };
+
+        if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip) &&
+            heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(tag))
+        {
+            //Reduce by pool amount - any relevant pool bonuses would be added below
+            var activePool = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[tag];
+            heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
         }
 
-        //
-        // FIX an original TA bug not considering bonus cantrips from subclasses on this calculation
-        //
-        if (Main.Settings.BugFixCorrectlyAssignBonusCantrips)
-        {
-            for (var i = 0; i < hero.ActiveFeatures.Count - 1; i++)
-            {
-                var freeBonusCantripsFromSubclasses = hero.ActiveFeatures.ElementAt(i).Value
-                    .OfType<FeatureDefinitionPointPool>()
-                    .Where(x => x.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
-                    .Sum(x => x.PoolAmount);
+        var bonusPools = hero.GetTaggedFeaturesByType<FeatureDefinitionPointPool>()
+            .Where(x => x.Item2.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
+            .Select(x => x.Item2)
+            .Sum(x => x.PoolAmount);
 
-                var fixedBonusCantripsFromSubclasses = hero.ActiveFeatures.ElementAt(i).Value
-                    .OfType<FeatureDefinitionBonusCantrips>()
-                    .Sum(x => x.BonusCantrips.Count);
+        var bonusCantrips = hero.GetTaggedFeaturesByType<FeatureDefinitionBonusCantrips>()
+            .Where(x => x.Item1 != classTag && x.Item1 != subclassTag)
+            .Select(x => x.Item2)
+            .Sum(x => x.BonusCantrips.Count);
 
-                heroBuildingData.TempAcquiredCantripsNumber +=
-                    freeBonusCantripsFromSubclasses + fixedBonusCantripsFromSubclasses;
-            }
-        }
+        heroBuildingData.TempAcquiredCantripsNumber += bonusPools + bonusCantrips;
     }
 }

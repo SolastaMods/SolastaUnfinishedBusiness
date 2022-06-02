@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.Translator;
 
@@ -14,7 +15,7 @@ internal static class GuiQuest_GetStepTitle
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            __result = Utils.UserCampaignsTranslator.Translate(
+            __result = UserCampaignsTranslator.Translate(
                 __result,
                 Main.Settings.SelectedLanguageCode);
         }
@@ -31,7 +32,7 @@ internal static class GuiQuest_GetStepDescription
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            __result = Utils.UserCampaignsTranslator.Translate(
+            __result = UserCampaignsTranslator.Translate(
                 __result,
                 Main.Settings.SelectedLanguageCode);
         }

@@ -9,17 +9,17 @@ public static class TranslationsDisplay
 {
     internal static void DisplayTranslations()
     {
-
         UI.Label("");
 
         using (UI.HorizontalScope())
         {
             UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(120));
 
-            var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages, Main.Settings.SelectedLanguageCode);
+            var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages,
+                Main.Settings.SelectedLanguageCode);
             if (UI.SelectionGrid(
                     ref intValue,
-                    UserCampaignsTranslator.AvailableLanguages, UserCampaignsTranslator.AvailableLanguages.Length, 
+                    UserCampaignsTranslator.AvailableLanguages, UserCampaignsTranslator.AvailableLanguages.Length,
                     3, UI.Width(300)))
             {
                 Main.Settings.SelectedLanguageCode = UserCampaignsTranslator.AvailableLanguages[intValue];
