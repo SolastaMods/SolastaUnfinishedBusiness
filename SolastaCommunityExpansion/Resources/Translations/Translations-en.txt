@@ -686,7 +686,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day, you can cast Heal.
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your Intelligence modifier.
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -proficiency bonus penalty to your to hit in order to do more damage (+proficiency bonus damage for one handed weapons, double that for two handed and versatile weapons). Works only with melee weapons.
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -3 penalty to your to hit in order to do 3 + Proficiency Bonus extra damage with melee weapons.
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -1077,7 +1077,7 @@ Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
 Feature/&OpportunistQuickStrikeDescription	You have advantage when attack an enemies whose initiative is lower than yours. In addition, you also have advantage when perform an attack of opportunity.
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&PowerAttackDescription	When you make a melee weapon attack, you can take a penalty equal to your proficiency bonus for the rest of the turn to have your melee attacks deal additional damage equal to your proficiency bonus. Two-handed and versatile weapons deal damage equal to twice your proficiency bonus instead.
+Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack for the rest of the turn to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
 Feature/&PowerAttackTitle	Power attack
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies within 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
