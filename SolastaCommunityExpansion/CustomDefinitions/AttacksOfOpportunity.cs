@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Feats;
+using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using TA;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
@@ -18,6 +21,7 @@ public static class AttacksOfOpportunity
     public const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     public static readonly ICanIgnoreAoOImmunity CanIgnoreDisengage = new CanIgnoreDisengage();
     public static readonly object SentinelFeatMarker = new SentinelFeatMarker();
+    private static readonly Dictionary<ulong, (int3, int3)> movingCharactersCache = new();
 
     public static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
@@ -36,9 +40,6 @@ public static class AttacksOfOpportunity
             yield break;
         }
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-
         //Process features on attacker or defender
 
         var units = battle.AllContenders
@@ -50,14 +51,12 @@ public static class AttacksOfOpportunity
         {
             if (attacker != unit && defender != unit)
             {
-                ProcessSentinel(unit, attacker, defender, battleManager);
+                yield return ProcessSentinel(unit, attacker, defender, battleManager);
             }
         }
-
-        yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
 
-    private static void ProcessSentinel(GameLocationCharacter unit, GameLocationCharacter attacker,
+    private static IEnumerator ProcessSentinel(GameLocationCharacter unit, GameLocationCharacter attacker,
         GameLocationCharacter defender, GameLocationBattleManager battleManager)
     {
         if (attacker.IsOppositeSide(unit.Side)
@@ -67,6 +66,9 @@ public static class AttacksOfOpportunity
             && CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier,
                 battleManager))
         {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
             RequestReactionAttack(EWFeats.SentinelFeat, new CharacterActionParams(
                 unit,
                 ActionDefinitions.Id.AttackOpportunity,
@@ -74,7 +76,77 @@ public static class AttacksOfOpportunity
                 attacker,
                 actionModifier)
             );
+
+            yield return battleManager.WaitForReactions(unit, actionService, count);
         }
+    }
+
+    public static void ProcessOnCharacterMoveStart(GameLocationCharacter mover, int3 destination)
+    {
+        movingCharactersCache.AddOrReplace(mover.Guid, (mover.locationPosition, destination));
+    }
+
+    public static IEnumerator ProcessOnCharacterMoveEnd(GameLocationBattleManager battleManager,
+        GameLocationCharacter mover)
+    {
+        if (battleManager == null)
+        {
+            yield break;
+        }
+
+        var battle = battleManager.Battle;
+        if (battle == null)
+        {
+            yield break;
+        }
+
+        var units = battle.AllContenders
+            .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
+            .ToArray();
+
+        //Process other participants of the battle
+        foreach (var unit in units)
+        {
+            if (mover != unit)
+            {
+                yield return ProcessPolearmExpert(unit, mover, battleManager);
+            }
+        }
+    }
+
+    public static void CleanMovingCache()
+    {
+        movingCharactersCache.Clear();
+    }
+
+    private static IEnumerator ProcessPolearmExpert(GameLocationCharacter attacker, GameLocationCharacter mover,
+        GameLocationBattleManager battleManager)
+    {
+        if (attacker.IsOppositeSide(mover.Side)
+            && CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter)
+            && movingCharactersCache.TryGetValue(mover.Guid, out var movement)
+            && battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
+                out var attackMode))
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            actionService.ReactForOpportunityAttack(new CharacterActionParams(
+                attacker,
+                ActionDefinitions.Id.AttackOpportunity,
+                attackMode,
+                mover,
+                new ActionModifier()));
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
+        }
+    }
+
+    private static bool CanMakeAoOOnEnemyEnterReach(RulesetCharacter character)
+    {
+        return character != null &&
+               character.GetSubFeaturesByType<CanmakeAoOOnReachEntered>()
+                   .Any(f => f.IsValid(character));
     }
 
     public static void RequestReactionAttack(string type, CharacterActionParams actionParams)
@@ -149,4 +221,19 @@ internal class CanIgnoreDisengage : ICanIgnoreAoOImmunity
 
 internal class SentinelFeatMarker
 {
+}
+
+internal class CanmakeAoOOnReachEntered
+{
+    private readonly CharacterValidator[] validators;
+
+    public CanmakeAoOOnReachEntered(params CharacterValidator[] validators)
+    {
+        this.validators = validators;
+    }
+
+    public bool IsValid(RulesetCharacter character)
+    {
+        return character != null && character.IsValid(validators);
+    }
 }

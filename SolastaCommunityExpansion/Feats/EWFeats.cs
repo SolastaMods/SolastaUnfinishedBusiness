@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Models;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper;
 
@@ -82,6 +83,7 @@ public static class EWFeats
                 .Create("PolearmFeatFeature", GUID)
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
+                    new CanmakeAoOOnReachEntered(CharacterValidators.HasPolearm),
                     new AddPolearmFollowupAttack()
                 )
                 .AddToDB())
