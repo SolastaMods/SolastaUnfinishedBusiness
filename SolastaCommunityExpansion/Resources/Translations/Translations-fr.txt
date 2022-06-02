@@ -1,5 +1,4 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Impossible de lancer des sorts.
-ActionAffinity/&DHFeeblemindSpellTitle	Lancement de sorts faible
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	CA est réglé sur 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Écorce
 AttributeModifier/&DHFeeblemindChaSpellDescription	Le score de Charisme est égal à 1.
@@ -2062,3 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
+Tooltip/&TagPolearmWeaponTitle	Arme d'hast
+Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
+Feat/&FeatPolearmExpertDescription	Votre entraînement expert avec les armes d'hast vous confère les avantages suivants :\n - Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n - Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.

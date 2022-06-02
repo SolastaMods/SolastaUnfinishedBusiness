@@ -1,5 +1,4 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Incapaz de lançar feitiços.
-ActionAffinity/&DHFeeblemindSpellTitle	Feitiço Fraco
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC está definido para 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
 AttributeModifier/&DHFeeblemindChaSpellDescription	A pontuação de Carisma é igual a 1.
@@ -2062,3 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
+Tooltip/&TagPolearmWeaponTitle	Bastao
+Feat/&FeatPolearmExpertTitle	Experto em Bastao
+Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste concede a você os seguintes benefícios:\n - Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n - Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.

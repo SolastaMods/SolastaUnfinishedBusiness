@@ -1,5 +1,4 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Невозможно читать заклинания.
-ActionAffinity/&DHFeeblemindSpellTitle	Слабое колдовство
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC настроен на 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
 AttributeModifier/&DHFeeblemindChaSpellDescription	Показатель харизмы равен 1.
@@ -2062,3 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	Сила
 UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
 UI/&ForcePreferredCantripDescription	Если этот переключатель включен, может сработать только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый допустимый заговор, независимо от этого переключателя.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&TagPolearmWeaponTitle	Древковое оружие
+Feat/&FeatPolearmExpertTitle	Эксперт по древковому оружию
+Feat/&FeatPolearmExpertDescription	Профессиональное обучение обращению с древковым оружием дает вам следующие преимущества:\n — Когда вы выполняете действие Атака и атакуете только древковым оружием, вы можете использовать бонусное действие, чтобы совершить рукопашную атаку противоположным концом оружия. Эта атака использует тот же модификатор характеристики, что и основная атака. Кубик урона оружия для этой атаки равен d4, и оно наносит дробящий урон.\n — Пока вы держите в руках алебардное оружие, другие существа провоцируют атаку от вас, когда они входят в досягаемость вашего оружия с этим оружием.

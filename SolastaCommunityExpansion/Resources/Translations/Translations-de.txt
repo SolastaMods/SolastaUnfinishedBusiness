@@ -1,5 +1,4 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Kann keine Zauber wirken.
-ActionAffinity/&DHFeeblemindSpellTitle	Schwache Zauberei
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC ist auf 16 eingestellt.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Rindenleder
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charismawert ist gleich 1.
@@ -2062,3 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn dieser Schalter auf ON steht, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
+Tooltip/&TagPolearmWeaponTitle	Stangenwaffen
+Feat/&FeatPolearmExpertTitle	Stangenwaffen-Experte
+Feat/&FeatPolearmExpertDescriptionSeu treinamento especializado com armas de haste concede a você os seguintes benefícios:\n - Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n - Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
