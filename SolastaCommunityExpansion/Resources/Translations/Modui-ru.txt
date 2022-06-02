@@ -1,7 +1,8 @@
 ﻿ModUi/&AddAllToStore	Добавить все в магазин
-ModUi/&AddBleedingToLesserRestoration	Добавьте состояние <color=orange>Кровотечение</color> к состояниям, удаленным с помощью <color=orange>Большого и малого восстановления</color>
+ModUi/&AddBleedingToLesserRestoration	Добавьте условие <color=orange>Кровотечение</color> к состояниям, удаленным с помощью <color=orange>Большого и малого восстановления</color>
 ModUi/&AddHelpActionToAllRaces	Добавьте действие <color=orange>Помощь</color> ко всем гонкам.
-ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops	Добавьте новое оружие и рецепты в магазины <i><color=yellow>[бинты, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[ Требуется перезагрузка]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Также добавьте их в создателя подземелий</i>
 ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[предлагается, если умение <color=orange>Карманные кражи</color> включено]</color></i>
 ModUi/&AddToStore	Добавить в магазин
 ModUi/&Advanced	<color=yellow>Дополнительно:</color>
@@ -40,13 +41,13 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp	Отображение всех изв
 ModUi/&DontFollowCharacterInBattle	Боевая камера не следует, когда персонаж уже на экране
 ModUi/&DontFollowMargin	<i>+ Если герой не выключен или находится в пределах % от края экрана</i>
 ModUi/&DungeonMaker	<color=yellow>Создатель подземелий:</color>
-ModUi/&DungeonMakerBasicHelp	. Эти настройки не потребуют от игрока установки этого мода.
+ModUi/&DungeonMakerBasicHelp	. Эти настройки не потребуют от игрока установки этого мода.\n. Вы можете встроить любую переменную кампании в свои диалоги, описания и т. д.\n. CE заменит их на их значение во время игры <i><color=yellow>[т.е.: Привет, {Приветствие}, герой!]</color></i>
 ModUi/&DungeonMakerMenu	Создатель подземелий
 ModUi/&EmpressGarbAppearance	Внешний вид <color=orange>Одеяние императрицы</color>
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Добавление новых фокусных предметов в Dungeon Maker</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
 ModUi/&EnableAlternateHuman	Включить альтернативного человека <i><color=yellow>[+1 навык / +2 выбора атрибута / +1 навык]</color></i>
-ModUI/&EnableBetaContent	Включить бета-контент <i><color=yellow>[имейте в виду, что ваши сохранения или герои могут сломаться в будущем]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUI/&EnableBetaContent	Включить бета-контент <i><color=yellow>[имейте в виду, что ваши сохранения или герои могут сломаться в будущем]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]< /цвет></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Включить отмену действия по щелчку правой кнопкой мыши
 ModUi/&EnableCharacterChecker	Включить экран проверки символов
 ModUi/&EnableCharacterExport	Включить <color=cyan>CTRL-SHIFT-(E</color>)экспорт символа <i><color=yellow>[только на экране проверки символов]</color></i>
@@ -62,7 +63,7 @@ ModUi/&EnableFlexibleBackgrounds	Включить гибкие фоны <i><colo
 ModUi/&EnableFlexibleRaces	Включить гибкие расы <i><color=yellow>[назначить очки способностей вместо расовых значений по умолчанию]</color></i>
 ModUi/&EnableHotkeyDebugOverlay	Включить наложение <color=cyan>CTRL-SHIFT-(D</color>) ebug
 ModUi/&EnableHotkeyToggleHud	Включите <color=cyan>CTRL-SHIFT-(H</color>)ud, чтобы переключить видимость всех панелей пользовательского интерфейса.
-ModUi/&EnableHotkeyToggleIndividualHud	Включить <color=cyan>CTRL-SHIFT-(C</color>)панель управления, <color=cyan>CTRL-SHIFT-(L</color>)ог, <color=cyan>CTRL-SHIFT-(M</color>)ap и <color=cyan>CTRL-SHIFT-(P</color>)arty для переключения видимости каждой панели пользовательского интерфейса.
+ModUi/&EnableHotkeyToggleIndividualHud	Включить <color=cyan>CTRL-SHIFT-(C</color>)панель управления, <color=cyan>CTRL-SHIFT-(L</color>)ог, <color=cyan>CTRL-SHIFT-(M< /color>)ap и <color=cyan>CTRL-SHIFT-(P</color>)arty для переключения видимости каждой панели пользовательского интерфейса.
 ModUi/&EnableHotkeyZoomCamera	Включить <color=cyan>CTRL-SHIFT-(Z</color>) oom camera <i><color=yellow>[полезно при создании скриншотов подземелий для публикации]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ только обход, если не критическое попадание</i>
 ModUi/&EnableInventoryFilteringAndSorting	Включить фильтрацию и сортировку инвентаря
@@ -72,7 +73,7 @@ ModUi/&EnableLevel20	Включить уровень 20 <b><i><color=#C04040E0>[
 ModUi/&EnableLogDialoguesToConsole	Включить диалоги журнала на игровой консоли во время повествовательных последовательностей
 ModUi/&EnableMinInOutAttributes	Обеспечить минимальные предварительные требования для оценки способностей
 ModUi/&EnableRelearnSpells	Может выбирать колдовство или заклинания, уже изученные другими классами.
-ModUi/&EnableRespec	Включите действия RESPEC и Level Down после отдыха
+ModUi/&EnableRespec	Включите действия RESPEC и Level Down после отдыха.
 ModUi/&EnablesAsiAndFeat	Включить увеличение значений атрибутов и выбор умений <i><color=yellow>[вместо эксклюзивного выбора]</color></i>
 ModUi/&EnableSaveByLocation	Включить сохранение по кампаниям/местоположениям
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Включите кратковременную перезарядку <color=orange>Arcane Weapon</color> на <color=orange>Wizard</color> Arcane Fighter
@@ -108,7 +109,7 @@ ModUi/&InvertAltBehaviorOnTooltips	Инвертировать поведение
 ModUi/&ItemInDm	Предметы в ЛС
 ModUi/&ItemsCraftingMerchants	Предметы, крафт и торговцы
 ModUi/&KeyboardMouse	Клавиатура и мышь
-ModUi/&MakeAllMagicStaveArcaneFoci	Сделайте все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci	Сделать все магические посохи тайными фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Также отмечайте местоположение невидимых телепортов на карте уровня после обнаружения</i>
 ModUi/&MaxAllowedClasses	<color=white>Максимум разрешенных классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Макс. резервные копии файлов для каждого местоположения или кампании</color>
@@ -126,7 +127,7 @@ ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Показыват�
 ModUi/&OverrideMinMaxLevel	Переопределить требуемые минимальные и максимальные уровни при запуске новых приключений.
 ModUi/&OverridePartySize	<color=white>Переопределить размер группы в пользовательских приключениях</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Переопределить <color=orange>Разбойник</color> Мошенник <color=orange>Улучшенное управление</color> Заклинание DC</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Переопределить <color=orange>Волшебник</color> Мастер-манипулятор <color=orange>Тайная манипуляция</color> Заклинание DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Переопределить <color=orange>Волшебник</color> Мастер-манипулятор <color=orange>Магическая манипуляция</color> Заклинание DC</color>
 ModUi/&Patches	<color=yellow>Заплатки:</color>
 ModUi/&PrimedItems	Праймированные предметы
 ModUi/&Progression	<color=yellow>Прогресс:</color>
@@ -158,7 +159,7 @@ ModUi/&Spells	<color=yellow>Заклинания:</color>
 ModUi/&SpellsMenu	Заклинания
 ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Запасает магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хьюго с <color=orange>Жезл идентификации</color>, <color=orange>Чародейский посох</color>, <color=orange>Шея друида</color>, <color=orange>Посох</color > и <color=orange>Club</color> установлены как основные элементы
+ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хьюго с <color=orange>Жезл идентификации</color>, <color=orange>Чародейский посох</color>, <color=orange>Шея друида</color>, <color=orange>Посох</color > и <color=orange>Club</color> установлены в качестве фокусных элементов
 ModUi/&Subclasses	<color=yellow>Подклассы</color>
 ModUi/&Tools	Инструменты
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего достижений на первом уровне</color>

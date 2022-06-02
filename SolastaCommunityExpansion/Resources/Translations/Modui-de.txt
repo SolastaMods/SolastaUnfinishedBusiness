@@ -1,7 +1,8 @@
 ﻿ModUi/&AddAllToStore	Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration	Fügen Sie den Zustand <color=orange>Bluten</color> zu den Zuständen hinzu, die durch <color=orange>Größere und Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddHelpActionToAllRaces	Füge allen Rennen die Aktion <color=orange>Hilfe</color> hinzu
-ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu <i><color=yellow>[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu <i><color=yellow>[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[ Neustart erforderlich]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Fügen Sie sie auch dem Dungeon Maker hinzu</i>
 ModUi/&AddPickpocketableLoot	Taschendiebstahl-Beute hinzufügen <i><color=yellow>[empfohlen, wenn <color=orange>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore	Zum Shop hinzufügen
 ModUi/&Advanced	<color=yellow>Erweitert:</color>
@@ -40,13 +41,13 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp	Zeigen Sie während des Levelaufstiegs
 ModUi/&DontFollowCharacterInBattle	Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
 ModUi/&DontFollowMargin	<i>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</i>
 ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
-ModUi/&DungeonMakerBasicHelp	. Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat
+ModUi/&DungeonMakerBasicHelp	. Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat\n. Sie können beliebige Kampagnenvariablen in Ihre Dialoge, Beschreibungen usw. einbetten.\n. CE ersetzt sie während des Spiels durch ihren Wert <i><color=yellow>[z. B.: Hallo {Salute} Held!]</color></i>
 ModUi/&DungeonMakerMenu	Dungeon-Maker
 ModUi/&EmpressGarbAppearance	Aussehen <color=orange>Kaiserin-Gewand</color>
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Füge neue Fokusgegenstände zu Dungeon Maker hinzu</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAlternateHuman	Aktiviere den alternativen Menschen <i><color=yellow>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
-ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]< /Farbe></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Aktivieren Sie die Abbruchaktion mit einem Rechtsklick
 ModUi/&EnableCharacterChecker	Aktivieren Sie den Zeichenprüfbildschirm
 ModUi/&EnableCharacterExport	Aktivieren Sie <color=cyan>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
@@ -62,7 +63,7 @@ ModUi/&EnableFlexibleBackgrounds	Aktivieren Sie flexible Hintergründe <i><color
 ModUi/&EnableFlexibleRaces	Flexible Rassen aktivieren <i><color=yellow>[Fähigkeitspunktzahl statt der Rassenvorgaben zuweisen]</color></i>
 ModUi/&EnableHotkeyDebugOverlay	Aktivieren Sie <color=cyan>CTRL-SHIFT-(D</color>)ebug-Overlay
 ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
-ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
+ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M< /color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
 ModUi/&EnableHotkeyZoomCamera	Aktivieren Sie <color=cyan>STRG-UMSCHALT-(Z</color>)Raumkamera <i><color=yellow>[nützlich beim Aufnehmen von Dungeon-Screenshots zum Veröffentlichen]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ nur umgehen, wenn kein kritischer Treffer vorliegt</i>
 ModUi/&EnableInventoryFilteringAndSorting	Inventarfilterung und -sortierung aktivieren
@@ -108,7 +109,7 @@ ModUi/&InvertAltBehaviorOnTooltips	Kehrt das Verhalten der <color=cyan>ALT</colo
 ModUi/&ItemInDm	Artikel in DM
 ModUi/&ItemsCraftingMerchants	Gegenstände, Handwerk & Händler
 ModUi/&KeyboardMouse	Tastatur maus
-ModUi/&MakeAllMagicStaveArcaneFoci	Mache alle magischen Stäbe zu arkanen Brennpunkten <i><color=yellow>[außer <color=orange>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci	Mache alle magischen Stäbe zu arkanen Brennpunkten <i><color=yellow>[außer <color=orange>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color= #C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
 ModUi/&MaxAllowedClasses	<color=white>Max. zulässige Klassen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>max. Sicherungsdateien pro Standort oder Kampagne</color>
