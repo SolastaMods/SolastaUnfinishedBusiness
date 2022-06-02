@@ -21,7 +21,7 @@ public static class WeaponValidators
         return weapon != null
                && IsPolearm(weapon.ItemDefinition);
     }
-    
+
     public static bool IsPolearm(ItemDefinition weapon)
     {
         return weapon != null

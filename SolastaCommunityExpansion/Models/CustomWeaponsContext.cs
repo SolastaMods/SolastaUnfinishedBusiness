@@ -45,8 +45,7 @@ public static class CustomWeaponsContext
 
     public static readonly List<string> PolearmWeaponTypes = new()
     {
-        WeaponTypeDefinitions.QuarterstaffType.Name,
-        WeaponTypeDefinitions.SpearType.Name,
+        WeaponTypeDefinitions.QuarterstaffType.Name, WeaponTypeDefinitions.SpearType.Name
     };
 
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();

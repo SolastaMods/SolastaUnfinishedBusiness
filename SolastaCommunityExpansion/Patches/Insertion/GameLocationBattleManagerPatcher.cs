@@ -50,8 +50,8 @@ internal static class GameLocationBattleManagerPatcher
             }
         }
     }
-    
-    
+
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveStart")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleCharacterMoveStart
@@ -64,7 +64,7 @@ internal static class GameLocationBattleManagerPatcher
             AttacksOfOpportunity.ProcessOnCharacterMoveStart(mover, destination);
         }
     }
-    
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveEnd")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleCharacterMoveEnd

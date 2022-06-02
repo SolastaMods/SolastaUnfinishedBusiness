@@ -14,7 +14,7 @@ internal static class GuiItemDefinition_EnumerateTags
     {
         var tags = __instance.itemTags;
         var item = __instance.ItemDefinition;
-        
+
         if (WeaponValidators.IsPolearm(item))
         {
             tags.TryAdd(CustomWeaponsContext.PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
@@ -24,7 +24,7 @@ internal static class GuiItemDefinition_EnumerateTags
         {
             tags.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);
         }
-        
+
         if (DiagnosticsContext.IsCeDefinition(__instance.BaseDefinition))
         {
             tags.TryAdd(CeContentPackContext.CETag, TagsDefinitions.Criticity.Normal);
