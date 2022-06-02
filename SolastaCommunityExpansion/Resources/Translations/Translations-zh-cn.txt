@@ -2061,6 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
-Tooltip/&TagPolearmWeaponTitle	Polearm
-Feat/&FeatPolearmExpertTitle	Polearm Expert
-Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n - When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n - While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Tooltip/&TagPolearmWeaponTitle	长柄武器
+Feat/&FeatPolearmExpertTitle	长柄武器大师
+Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得下列增益：\n - 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n - 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
