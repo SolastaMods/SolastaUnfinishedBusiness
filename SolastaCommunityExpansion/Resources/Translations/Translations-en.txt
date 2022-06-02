@@ -1,11 +1,11 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells.
-ActionAffinity/&DHFeeblemindSpellTitle	Feeble spellcasting
+ActionAffinity/&DHFeeblemindSpellTitle	Feeble Spellcasting
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1.
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
 AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1.
-AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble intelligence
+AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble Intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
 Class/&ClassMonkDescription	Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.
@@ -68,27 +68,27 @@ Class/&WitchWeaponProficiencyDescription	Simple Weapons.
 Class/&WitchWeaponProficiencyTitle	Witch Weapon Proficiencies
 Condition/&AbateDescription	Abate condition.
 Condition/&AbateTitle	Abate
-Condition/&AncientForestPhotosynthesisDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round.
+Condition/&AncientForestPhotosynthesisDescription	You can absorb energy from sunlight. While you are in direct bright light, you regain 2 HP at the start of your turn.
 Condition/&AncientForestPhotosynthesisTitle	Photosynthesis
-Condition/&AncientForestRootedConditionDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will.
+Condition/&AncientForestRootedConditionDescription	Arboreal tendrils grow from your feet and dig into the ground. You can cast entangle at will. Your speed becomes 0 and you gain advantage on any saving throws to push you, pull you, or knock you prone.
 Condition/&AncientForestRootedConditionTitle	Rooted
 Condition/&ApathyDescription	Apathy condition.
 Condition/&ApathyTitle	Apathy
 Condition/&CharmDescription	Charm condition.
 Condition/&CharmTitle	Charm
-Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force damage.
+Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force.
 Condition/&ClassMonkEmptyBodyConditionTitle	Empty Body
-Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot make reactions.
+Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot use reactions.
 Condition/&ClassMonkOpenHandDistractConditionTitle	Distracted
 Condition/&ClassMonkStepOfTheWindConditionDescription	You can take the Disengage or Dash action as a bonus action and your jump distance is doubled for the turn.
 Condition/&ClassMonkStepOfTheWindConditionTitle	Step Of The Wind
-Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attackning you. Removed when you attack or cast spell. .
+Condition/&ClassMonkTanquilityConditionDescription	You have advantage on saving throws against spells and enemies have disadvantage attacking you. Removed when you make an attack or cast a spell.
 Condition/&ClassMonkTanquilityConditionTitle	Tranquility
 Condition/&ClassMonkZenArrowDistractConditionDescription	Has disadvantage on next attack.
 Condition/&ClassMonkZenArrowDistractConditionTitle	Distracted
 Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Has disadvantage on all attacks.
 Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distracted
-Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Movement is set to zero.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Movement is set to 0.
 Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Pinned
 Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest.
 Condition/&ConditionBarkWardTitle	Bark Ward
@@ -96,25 +96,25 @@ Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
 Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
-Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest cause 2d8 piercing damage to melee attackers.
+Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest deal 2d8 piercing damage to melee attackers.
 Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
 Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&ConditionMuleDescription	Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
 Condition/&ConditionMuleTitle	Mule
-Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and cause 3d8 piercing damage to melee attackers.
+Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and deal 3d8 piercing damage to melee attackers.
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
 Condition/&DebilitatedConditionDescription	Debilitated condition.
 Condition/&DebilitatedConditionTitle	Debilitated
 Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
 Condition/&DHFeeblemindSpellTitle	Feeblemind
-Condition/&DHForesightSpellDescription	advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls.
+Condition/&DHForesightSpellDescription	You have advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against you.
 Condition/&DHForesightSpellTitle	Foresight
-Condition/&DHHolyAuraSpellDescription	you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+Condition/&DHHolyAuraSpellDescription	When you cast this spell, allies within range shed dim light in a 5-foot radius, have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
 Condition/&DHHolyAuraSpellTitle	Protected by Holy Aura
 Condition/&DHMindBlankSpellDescription	Immune to psychic damage and the charmed condition.
 Condition/&DHMindBlankSpellTitle	Mind Blank
-Condition/&DHReverseGravitySpellDescription	can't move.
+Condition/&DHReverseGravitySpellDescription	Can't move.
 Condition/&DHReverseGravitySpellTitle	Caught by reverse gravity
 Condition/&DHTimeStopSpellDescription	Frozen by Time Stop.
 Condition/&DHTimeStopSpellTitle	Frozen by Time Stop
@@ -124,14 +124,14 @@ Condition/&DisorientDescription	This creature's accuracy is reduced.
 Condition/&DisorientTitle	Disoriented
 Condition/&EvilEyeDescription	Evil eye condition.
 Condition/&EvilEyeTitle	Evil Eye
-Condition/&EWResonatingStrikeDamageDescription	Starting from level 5 attack triggered by this cantrip deals additional 1d8 thunder damage. The damage increases by 1d8 at 11th and 17th levels.
+Condition/&EWResonatingStrikeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
 Condition/&EWResonatingStrikeDamageTitle	Resonance
-Condition/&EWSunlightBladeDamageDescription	Starting from level 5 attack triggered by this cantrip deals additional 1d8 radiant damage. The damage increases by 1d8 at 11th and 17th levels.
+Condition/&EWSunlightBladeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 radiant damage. The damage further increases by 1d8 at 11th and 17th levels.
 Condition/&EWSunlightBladeDamageTitle	Sunlit Blade's burn
 Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
-Condition/&HalfLifeConditionTitle	HalfLife
+Condition/&HalfLifeConditionTitle	Half Life
 Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
 Condition/&MoonTouchedConditionDescription	Your gravity is negated.
@@ -143,7 +143,7 @@ Condition/&RuinedDescription	This creature's defence is reduced.
 Condition/&RuinedTitle	Ruined
 Condition/&RuinTitle	Ruin
 Condition/&SentinelStopMovementConditionTitle	Stopped
-Condition/&SwallowedByToadConditionDescription	Takes 3D6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack.
 Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
 Condition/&SwallowingToadConditionDescription	Ends if the toad warlock is hit with 15 or more damage in single attack.
 Condition/&SwallowingToadConditionTitle	Swallowing Toad
@@ -188,7 +188,7 @@ Equipment/&DruidicAmuletDescription	This totemic amulet can be used as a focus f
 Equipment/&DruidicAmuletTitle	Druidic Amulet
 Equipment/&Enchanted_Club_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Club_Acuteness_Title	Club of Acuteness
-Equipment/&Enchanted_Club_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
+Equipment/&Enchanted_Club_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage. The first weapon of this kind was designed by Ildurial Stronghand.
 Equipment/&Enchanted_Club_Bearclaw_Title	Bearclaw Club
 Equipment/&Enchanted_Club_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 Equipment/&Enchanted_Club_Lightbringer_Title	Lightbringer Club
@@ -220,7 +220,7 @@ Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	This enchanted weapon was 
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Heavy Crossbow
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Heavy Crossbow of Sharpshooting
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Heavy Stormcrossbow
 Equipment/&Enchanted_HideArmor_Deflection_Description	This enchanted armor was created using the ancient knowledge of Manacalon's master armorers. Ildurial Stronghand forged the first of those armors for the Emperor's personal guard.
 Equipment/&Enchanted_HideArmor_Deflection_Title	Hide Armor of Deflection
@@ -262,11 +262,11 @@ Equipment/&Enchanted_LightCrossbow_Medusa_Description	This enchanted weapon was 
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Light Crossbow
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. The Coedymwarth preferred to deal with Manacalon's arcanists physically rather than magically. Its best archers were given crossbows, the creation of Defineth Sharpsight.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Light Crossbow of Sharpshooting
-Equipment/&Enchanted_LightCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master bowyers. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Light Stormcrossbow
 Equipment/&Enchanted_Maul_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Maul_Acuteness_Title	Maul of Acuteness
-Equipment/&Enchanted_Maul_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
+Equipment/&Enchanted_Maul_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage. The first weapon of this kind was designed by Ildurial Stronghand.
 Equipment/&Enchanted_Maul_Bearclaw_Title	Bearclaw Maul
 Equipment/&Enchanted_Maul_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Lightbringer Maul
@@ -284,7 +284,7 @@ Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	This enchanted weapon
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Lightbringer Quarterstaff
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Souldrinker Quarterstaff
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Stormblade Quarterstaff
 Equipment/&Enchanted_Quarterstaff_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
 Equipment/&Enchanted_Quarterstaff_Warden_Title	Warden Quarterstaff
@@ -300,7 +300,7 @@ Equipment/&Enchanted_Rapier_Power_Description	This enchanted weapon was forged u
 Equipment/&Enchanted_Rapier_Power_Title	Rapier of Power
 Equipment/&Enchanted_Rapier_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 Equipment/&Enchanted_Rapier_Souldrinker_Title	Souldrinker Rapier
-Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Rapier_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 Equipment/&Enchanted_Rapier_Stormblade_Title	Stormblade Rapier
 Equipment/&Enchanted_Rapier_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
 Equipment/&Enchanted_Rapier_Warden_Title	Warden Rapier
@@ -314,7 +314,7 @@ Equipment/&Enchanted_Scimitar_Lightbringer_Description	This enchanted weapon was
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	Lightbringer Scimitar
 Equipment/&Enchanted_Scimitar_Souldrinker_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. A favorite of Silent Whisper agents, this weapon was designed by Cylordir Redblade.
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	Souldrinker Scimitar
-Equipment/&Enchanted_Scimitar_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon � to devastating effect!
+Equipment/&Enchanted_Scimitar_Stormblade_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Galar Stromforge, the first dwarven smith to harness the power of storm in a weapon to devastating effect!
 Equipment/&Enchanted_Scimitar_Stormblade_Title	Stormblade Scimitar
 Equipment/&Enchanted_Scimitar_Warden_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. It was designed by Ildurial Strongarm, a famous Manacalon bladesmith. The first such blade, the Manacalon Warden, was offered to the commander of the Euraidd.
 Equipment/&Enchanted_Scimitar_Warden_Title	Warden Scimitar
@@ -370,7 +370,7 @@ Equipment/&Enchanted_StuddedLeather_Survival_Description	This enchanted armor wa
 Equipment/&Enchanted_StuddedLeather_Survival_Title	Studded Leather of Survival
 Equipment/&Enchanted_Warhammer_Acuteness_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. Its design was one of the early works of Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer of Acuteness
-Equipment/&Enchanted_Warhammer_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage � just as expected by Ildurial Stronghand, who designed the first weapon of this kind.
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. The sharp spikes of the bear's claw shred armor to inflict additional damage. The first weapon of this kind was designed by Ildurial Stronghand.
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	Bearclaw Warhammer
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	This enchanted weapon was forged using the ancient knowledge of Colthannin's master smiths. It was designed by Elgador Keenspirit, Magesmith of the Arcaneum to support combat against undead creatures.
 Equipment/&Enchanted_Warhammer_Lightbringer_Title	Lightbringer Warhammer
@@ -392,18 +392,18 @@ Equipment/&HerbalBrewHealingTitle	Brew of Quickening
 Equipment/&HerbalBrewToxifyingTitle	Brew of Toxifying
 Equipment/&ImprovedLightningSpearDescription	Can now create advantage for allies and disadvantage for enemies with a single attack.
 Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
-Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage.
+Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage.
 Equipment/&ImprovedThunderPunchTitle	Improved Thunder Punch
-Equipment/&LightningSpearDescription	1d6 lightning damage with 1D6 extra once per turn.
+Equipment/&LightningSpearDescription	Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.
 Equipment/&LightningSpearTitle	Lightning Spear
 Equipment/&LivewoodClubDescription	This club is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 Equipment/&LivewoodClubTitle	Livewood Club
 Equipment/&LivewoodStaffDescription	This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 Equipment/&LivewoodStaffTitle	Livewood Staff
-Equipment/&ThunderPunchDescription	1D8 thunder damage and imposes disadvantage on attack rolls against allies.
+Equipment/&ThunderPunchDescription	1d8 thunder damage and imposes disadvantage on attack rolls against allies.
 Equipment/&ThunderPunchTitle	Thunder Punch
-Equipment/&WandIdentifyDescription	Text Casts the spell identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
-Equipment/&WandIdentifyTitle	Text Wand of Identify
+Equipment/&WandIdentifyDescription	Casts the spell Identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
+Equipment/&WandIdentifyTitle	Wand of Identify
 Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
 Feat/&AddConstructCantripsDescription	Adds cantrips to heal and dismiss your constructs.
 Feat/&AddConstructCantripsTitle	Construct Cantrips
@@ -415,7 +415,7 @@ Feat/&AlchemistSubclassSpellsDescription	{0}.
 Feat/&AlchemistSubclassSpellsTitle	Learn Potion Maker Spells
 Feat/&ArmorModePoolDescription	Allows you to switch between armor modes.
 Feat/&ArmorModePoolTitle	Armor Mode
-Feat/&ArtificerAlchemistAlchemicalSavantDescription	When you heal, you heal an extra 1d4 + Your Level HP.
+Feat/&ArtificerAlchemistAlchemicalSavantDescription	When you heal, you heal additional HP equal to 1d4 + your level.
 Feat/&ArtificerAlchemistAlchemicalSavantTitle	Elixir Savant
 Feat/&ArtificerAlchemistBoldnessElixirDescription	The target can roll a d4 and add the number rolled to every attack roll and saving throw they make for the next minute.
 Feat/&ArtificerAlchemistBoldnessElixirTitle	Boldness Elixir
@@ -427,7 +427,7 @@ Feat/&ArtificerAlchemistResilienceElixirDescription	Increase target AC by +1 for
 Feat/&ArtificerAlchemistResilienceElixirTitle	Resilience Elixir
 Feat/&ArtificerAlchemistSwiftnessElixirDescription	Increase target movement speed by 10ft for 1 hour.
 Feat/&ArtificerAlchemistSwiftnessElixirTitle	Swiftness Elixir
-Feat/&ArtificerArtilleristArcaneFirearmDescription	When casting evocation spells, deal an extra 1d8 in damage once per turn.
+Feat/&ArtificerArtilleristArcaneFirearmDescription	When casting evocation spells, deal an extra 1d8 damage once per turn.
 Feat/&ArtificerArtilleristArcaneFirearmTitle	Blasting Enhancement
 Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	You gain the ability to detonate one of your devices causing damage to those near the target.
 Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Device Detonation
@@ -437,7 +437,7 @@ Feat/&ArtificialServantAttackDescription	Ranged attack 1d6 force damage from you
 Feat/&ArtificialServantAttackTitle	Force Sling
 Feat/&ArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&ArtificialServantTitle	Artificial Servant
-Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing 3d8 damage to those within 20 feet of the targeted location. A dexterity save allows those effected to take half damage.
+Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. Tthe creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
 Feat/&ArtilleristCannonDetonationTitle	Device Detonation
 Feat/&ArtilleristFlameCannon15Description	Spew fire, dealing 6d8 fire damage at your enemies as a bonus action.
 Feat/&ArtilleristFlameCannon15Title	Flamethrower
@@ -460,9 +460,9 @@ Feat/&ArtilleristSubclassSpellsTitle	Learn Blaster Spells
 Feat/&ArtilleryConstructDescription	Can damage or protect allies.
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Mending Construct, Dismiss Construct \nLevel 1: Resummon Artillery Construct.
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Construct Spells.
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	You gain bonus spells that are considered tinkerer spells for you, they are always prepared and don't count against the number of tinkerer spells you know.
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Construct Spells.
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	You gain bonus spells that are considered tinkerer spells for you, they are always prepared and don't count against the number of tinkerer spells you know.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construct Spells
 Feat/&ArtilleryConstructTitle	Artillery Construct
 Feat/&ArtilleryConstructTitle_3	Artillery Construct
@@ -479,45 +479,45 @@ Feat/&BattleSmithSubclassSpellsDescription	{0}.
 Feat/&BattleSmithSubclassSpellsTitle	Learn Weapon Smith Spells
 Feat/&CancelFlyingConditionDescription	End flying condtion to allow jumping and crawling.
 Feat/&CancelFlyingConditionTitle	Cancel Fly
-Feat/&ChefConDescription	You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefConDescription	You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8 HP. Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefConTitle	Chef (Constitution)
-Feat/&ChefShortRestFeastDescription	Spend 1 hour to prepare a meal that helps heal you and your companions 1d8.
+Feat/&ChefShortRestFeastDescription	Spend 1 hour to prepare a meal that helps heal you and your companions 1d8 HP.
 Feat/&ChefShortRestFeastTitle	Short Rest Meal
 Feat/&ChefWisDescription	You gain +1 to Wisdom. Spend 1 hour to cook a meal to heal yourself and your companions. Once a day you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefWisTitle	Chef (Wisdom)
 Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct.
 Feat/&ConstructSelectingPoolTitle	Artillery Mode
-Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible. Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
+Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible.\n• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n• Your ranged weapon attacks ignore half cover and three-quarters cover.\n• You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
 Feat/&DeadeyeFeatTitle	Deadeye
 Feat/&DismissConstructDescription	Unsummon your construct.
 Feat/&DismissConstructTitle	Dismiss Construct
-Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 Feat/&DualFlurryTitle	Dual Flurry
-Feat/&ExtraInfusionSlotsDescription	You gain extra infusion slots, should be used on armor/weapons.
+Feat/&ExtraInfusionSlotsDescription	You gain extra infusion slots that must be used on armor/weapons.
 Feat/&ExtraInfusionSlotsTitle	Extra Infusions
 Feat/&FeatArcaneDefenseDescription	Increase your Intelligence by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 Feat/&FeatArcaneDefenseTitle	Arcane Defense
-Feat/&FeatArcanePrecisionDescription	When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
+Feat/&FeatArcanePrecisionDescription	When active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls. It has a 1 minute duration and can be used twice per long rest.
 Feat/&FeatArcanePrecisionTitle	Arcane Precision
 Feat/&FeatBlindFightingStlyeDescription	You have blindsight with a range of 10 feet.
 Feat/&FeatBlindFightingStlyeTitle	Fighting Style: Blind Fighting
-Feat/&FeatBrutalThugDescription	You land powerful blows in the right places.\nYou can sneak attack with martial based weapons and get figther weapon proficiency.
+Feat/&FeatBrutalThugDescription	You land powerful blows in the right places.\nYou gain simple and martial weapon proficiencies and you can sneak attack with martial weapons.
 Feat/&FeatBrutalThugTitle	Brutal Thug
 Feat/&FeatChaIncrementDescription	+1 Charisma.
 Feat/&FeatChaIncrementTitle	Charisma Attribute Increase
 Feat/&FeatCharismaticDefenseDescription	Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 Feat/&FeatCharismaticDefenseTitle	Charismatic Defense
-Feat/&FeatCharismaticPrecisionDescription	When active on a weapon, it's attacks count as Magical and you use your charisma for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
+Feat/&FeatCharismaticPrecisionDescription	When active on a weapon, its attacks count as magical and you use your Charisma for your attack and damage rolls. It has a 1 minute duration and can be used twice per long rest.
 Feat/&FeatCharismaticPrecisionTitle	Charismatic Precision
 Feat/&FeatChefConIncrementDescription	+1 Constitution.
 Feat/&FeatChefConIncrementTitle	Attribute Increase
 Feat/&FeatChefWisIncrementDescription	+1 Wisdom.
 Feat/&FeatChefWisIncrementTitle	Attribute Increase
-Feat/&FeatCripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn.
+Feat/&FeatCripplingDescription	Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
 Feat/&FeatCripplingTitle	Fighting Style: Crippling
 Feat/&FeatDexIncrementDescription	+1 Dexterity.
 Feat/&FeatDexIncrementTitle	Attribute Increase
-Feat/&FeatDualWeaponDefenseDescription	When yielding 2 weapons your AC increases by 1.
+Feat/&FeatDualWeaponDefenseDescription	You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
 Feat/&FeatDualWeaponDefenseTitle	Dual Weapon Defense
 Feat/&FeatFastHandsDescription	You gain a Cunning Action and can use the Bonus Action granted by it to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action.
 Feat/&FeatFastHandsTitle	Fast Hands
@@ -537,23 +537,23 @@ Feat/&FeatImprovedCriticalDescription	Your attacks are critical hits on a roll o
 Feat/&FeatImprovedCriticalTitle	Improved Critical
 Feat/&FeatIntIncrementDescription	+1 Intelligence.
 Feat/&FeatIntIncrementTitle	Intelligence Attribute Increase
-Feat/&FeatLightArmorDescription	Gain proficiency with Light Armor and +1 Dexterity.
+Feat/&FeatLightArmorDescription	Increase your Strength by 1, to a maximum of 20.\nYou gain proficiency with Light Armor.
 Feat/&FeatLightArmorProficiencyDescription	Gain proficiency with Light Armor.
 Feat/&FeatLightArmorProficiencyTitle	Light Armor
 Feat/&FeatLightArmorTitle	Light Armor
-Feat/&FeatMarksmanDescription	When a visible opponent 2 cells or more from you attacks you with a ranged weapon or a spell, you can use your reaction to take a shot after the triggering attack.
+Feat/&FeatMarksmanDescription	When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
 Feat/&FeatMarksmanTitle	Marksman
-Feat/&FeatMediumArmorDexDescription	Gain proficiency with Medium Armor and Shields and +1 Dexterity.
+Feat/&FeatMediumArmorDexDescription	Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with Medium Armor and shields.
 Feat/&FeatMediumArmorDexTitle	Medium Armor (Dexterity)
-Feat/&FeatMediumArmorProficiencyDescription	Gain proficiency with Medium Armor and Shields.
+Feat/&FeatMediumArmorProficiencyDescription	Gain proficiency with Medium Armor and shields.
 Feat/&FeatMediumArmorProficiencyTitle	Medium Armor
-Feat/&FeatMediumArmorStrengthDescription	Gain proficiency with Medium Armor and Shields and +1 Strength.
+Feat/&FeatMediumArmorStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou gain proficiency with Medium Armor and shields.
 Feat/&FeatMediumArmorStrengthTitle	Medium Armor (Strength)
 Feat/&FeatMetamagicAdeptCarefulDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Careful metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptCarefulTitle	Metamagic: Careful
 Feat/&FeatMetamagicAdeptDistantDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Distant metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptDistantTitle	Metamagic: Distant
-Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Emporewed metamgic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Empowered metamgic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagic: Empowered
 Feat/&FeatMetamagicAdeptExtendedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Extended metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptExtendedTitle	Metamagic: Extended
@@ -563,56 +563,56 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagic: Quickened
 Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
-Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
+Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
-Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
+Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
-Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.\nIf you have free hand you can shove as a bonus action.
+Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle	Savage Attacker
 Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n - When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n - Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n - When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
 Feat/&FeatSentinelTitle	Sentinel
-Feat/&FeatShadowTouchedChaDescription	Increase Charisma attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedChaDescription	Increase your Charisma attribute by 1, to a maximum of 20.\nYou gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedChaTitle	Shadow Touched (Charisma)
-Feat/&FeatShadowTouchedIntDescription	Increase Intelligence attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedIntDescription	Increase your Intelligence attribute by 1, to a maximum of 20.\nYou gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedIntTitle	Shadow Touched (Intelligence)
-Feat/&FeatShadowTouchedWisDescription	Increase Wisdom attribute by 1. Gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
+Feat/&FeatShadowTouchedWisDescription	Increase your Wisdom attribute by 1, to a maximum of 20.\nYou gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedWisTitle	Shadow Touched (Wisdom)
-Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 12th level this damage increases to 2d6 and at 20th level to 4d6.
+Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Rogue's Sneak Attack. At 12th level, this damage increases to 2d6 and at 20th level, to 4d6.
 Feat/&FeatShadyTitle	Shady
-Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you it becomes a melee weapon that you are proficient with, doing 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while weilding a shield..
+Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while wielding a shield.
 Feat/&FeatShieldExpertTitle	Shield Expert
 Feat/&FeatStrengthIncrementDescription	+1 Strength.
 Feat/&FeatStrengthIncrementTitle	Attribute Increase
-Feat/&FeatTelekineticChaDescription	Increase Charisma attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticChaDescription	Increase your Charisma by 1, to a maximum of 20.\nAs a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
 Feat/&FeatTelekineticChaPullDescription	Telekinetically pull a creature toward you.
 Feat/&FeatTelekineticChaPullTitle	Telekinetic Pull
 Feat/&FeatTelekineticChaPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticChaPushTitle	Telekinetic Push
 Feat/&FeatTelekineticChaTitle	Telekinetic (Charisma)
-Feat/&FeatTelekineticIntDescription	Increase Intelligence attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticIntDescription	Increase your Intelligence by 1, to a maximum of 20.\nAs a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
 Feat/&FeatTelekineticIntPullDescription	Telekinetically pull a creature toward you.
 Feat/&FeatTelekineticIntPullTitle	Telekinetic Pull
 Feat/&FeatTelekineticIntPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticIntPushTitle	Telekinetic Push
 Feat/&FeatTelekineticIntTitle	Telekinetic (Intelligence)
-Feat/&FeatTelekineticWisDescription	Increase Wisdom attribute by 1. Gain a bonus action ability to shove or pull creatures.
+Feat/&FeatTelekineticWisDescription	Increase your Wisdom by 1, to a maximum of 20.\nAs a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
 Feat/&FeatTelekineticWisPullDescription	Telekinetically pull a creature toward you.
 Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
 Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you.
 Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
 Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
-Feat/&FeatTitanFightingDescription	You gain a +2 hit against creatures of size large or bigger.
+Feat/&FeatTitanFightingDescription	You gain a +2 hit against creatures of Large size or bigger.
 Feat/&FeatTitanFightingTitle	Fighting Style: Titan Fighting
 Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 Feat/&FeatToughTitle	Tough
-Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration.\nYou gain the ability to perform the somatic component of spells even with full hands.\nWhen a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
+Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration.\nYou gain the ability to perform the somatic component of spells even with both hands full.\nWhen a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 Feat/&FeatWarCasterTitle	War Caster
 Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
 Feat/&FeatWiseDefenseTitle	Wise Defense
-Feat/&FeatWisePrecisionDescription	When active on a weapon, it's attacks count as Magical and you use your wisdom for your attack and damage rolls. It has 1 minute duration and can be used twice before a long rest.
+Feat/&FeatWisePrecisionDescription	When active on a weapon, its attacks count as magical and you use your Wisdom for your attack and damage rolls. It has a 1 minute duration and can be used twice per long rest.
 Feat/&FeatWisePrecisionTitle	Wise Precision
 Feat/&FeatWisIncrementDescription	+1 Wisdom.
 Feat/&FeatWisIncrementTitle	Wisdom Attribute Increase
@@ -620,7 +620,7 @@ Feat/&FeyTeleportationLanguageTirmarianDescription	Gain proficiency in Tirmarian
 Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmarian
 Feat/&FightingStyleArcheryDescription	You gain a +2 bonus to attack rolls with ranged weapons.
 Feat/&FightingStyleArcheryTitle	Fighting Style: Archery
-Feat/&FightingStyleDefenseDescription	While you are wearing armor you gain a +1 bonus to AC.
+Feat/&FightingStyleDefenseDescription	While you are wearing armor, you gain a +1 bonus to AC.
 Feat/&FightingStyleDefenseTitle	Fighting Style: Defense
 Feat/&FightingStyleDuelingDescription	When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
 Feat/&FightingStyleDuelingTitle	Fighting Style: Dueling
@@ -632,29 +632,29 @@ Feat/&FightingStyleProtectionDescription	When a creature you can see attacks a t
 Feat/&FightingStyleProtectionTitle	Fighting Style: Protection
 Feat/&FightingStyleTwoWeaponDescription	When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 Feat/&FightingStyleTwoWeaponTitle	Fighting Style: Two Weapon
-Feat/&FlameArtillery_2Description	3D8 fire damage (Cone).
+Feat/&FlameArtillery_2Description	3d8 fire damage (Cone).
 Feat/&FlameArtillery_2Title	Flame Artillery (Improved)
-Feat/&FlameArtilleryConstructDescription	Creates a cone of fire that deals 2D8 damage on a failed save.
-Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3D8 damage on a failed save.
+Feat/&FlameArtilleryConstructDescription	Creates a cone of fire that deals 2d8 damage on a failed save.
+Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3d8 damage on a failed save.
 Feat/&FlameArtilleryConstructTitle	Flame Artillery Construct
 Feat/&FlameArtilleryConstructTitle_3	Flame Artillery Construct
 Feat/&FlameArtilleryConstructTitle_5	Flame Artillery Construct
-Feat/&FlameArtilleryDescription	2D8 fire damage (Cone).
+Feat/&FlameArtilleryDescription	2d8 fire damage (Cone).
 Feat/&FlameArtilleryTitle	Flame Artillery
-Feat/&ForceArtillery_2Description	3D8 Force damage and push target 5ft.
+Feat/&ForceArtillery_2Description	3d8 Force damage and push target 5ft.
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
-Feat/&ForceArtilleryAdditionalDamageDescription	The upgraded construct deals 1D8 more damage per hit.
-Feat/&ForceArtilleryConstructDescription	Deals 2D8 force damage and pushs enemy 5ft away from Construct.
-Feat/&ForceArtilleryConstructDescription_3	Deals 3D8 force damage and pushs enemy 5ft away from Construct.
+Feat/&ForceArtilleryAdditionalDamageDescription	The upgraded construct deals 1d8 more damage per hit.
+Feat/&ForceArtilleryConstructDescription	Deals 2d8 force damage and pushes target 5ft away from Construct.
+Feat/&ForceArtilleryConstructDescription_3	Deals 3d8 force damage and pushes target 5ft away from Construct.
 Feat/&ForceArtilleryConstructTitle	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_3	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_5	Force Artillery Construct
-Feat/&ForceArtilleryDescription	2D8 Force damage and push 5ft.
+Feat/&ForceArtilleryDescription	2d8 Force damage and push 5ft.
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
 Feat/&ForceStrikePowerTitle	Force Sling (Artifical Servant)
-Feat/&GauntletsGrappleDescription	Can now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage.
+Feat/&GauntletsGrappleDescription	Can now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage.
 Feat/&GauntletsGrappleTitle	Gauntlet grapple
-Feat/&HalfCoverShieldDescription	Gives 2 AC within 10ft.
+Feat/&HalfCoverShieldDescription	Gives +2 AC while within 10ft.
 Feat/&HalfCoverShieldTitle	Half Cover Dome
 Feat/&HealerDescription	You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 Feat/&HealerResuscitateDescription	Use an action to revive a creature that died within the last 15 seconds.
@@ -670,21 +670,21 @@ Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly cr
 Feat/&InspiringLeaderTitle	Inspiring Leader
 Feat/&IntToAttackAndDamageDescription	Add Int instead of Str or Dex to your Armor Weapons.
 Feat/&IntToAttackAndDamageTitle	Amror Weapon
-Feat/&MendingConstructDescription	Repair your construct for 2D6 over 1 min.
+Feat/&MendingConstructDescription	Repair your construct for 2d6 HP over 1 min.
 Feat/&MendingConstructTitle	Mending Construct
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons.
 Feat/&ModeSwitchingPoolTitle	Armor Mode
-Feat/&MoonlitBonusCantripsDescription	Your control of moon light has increased to the point than you can cast Moonbeam and Faerie Fire at will.
+Feat/&MoonlitBonusCantripsDescription	Your control of moon light has increased to a new level. You can cast Moonbeam and Faerie Fire at will.
 Feat/&MoonlitBonusCantripsTitle	Light Control
-Feat/&PickPocketFeatDescription	You gain proficiency with Sleight Of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
+Feat/&PickPocketFeatDescription	You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
-Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixier that emboldens your allies, providing them 4d6+intelligence modifier temporary hit points.
+Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixier that emboldens your allies, providing them 4d6 + Intelligence modifier temporary hit points.
 Feat/&PowerAlchemistEmboldeningShotsTitle	Emboldening Shots
-Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Once per day you can cast Greater Restoration.
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Once per day, you can cast Greater Restoration.
 Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Greater Restoration
-Feat/&PowerAlchemistHealElixirsDescription	Once per day you can cast Heal.
+Feat/&PowerAlchemistHealElixirsDescription	Once per day, you can cast Heal.
 Feat/&PowerAlchemistHealElixirsTitle	Heal
-Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your intelligence modifier.
+Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your Intelligence modifier.
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
 Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -3 penalty to your to hit in order to do 3 + Proficiency Bonus extra damage with melee weapons.
 Feat/&PowerAttackFeatTitle	Power attack
@@ -710,10 +710,10 @@ Feat/&ProtectorConstructAttackDescription	Melee 1d10 force damage from the prote
 Feat/&ProtectorConstructAttackTitle	Force Rend
 Feat/&ProtectorConstructDescription	It is friendly to you and your companions, and it obeys your commands.
 Feat/&ProtectorConstructDescription_5	Protector Construct Upgrade.
-Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Protector Construct AutopreparedSpells.
-Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Protector Construct AutopreparedSpells
-Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Protector Construct AutopreparedSpells.
-Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Protector Construct AutopreparedSpells
+Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	You gain bonus spells that are considered tinkerer spells for you, they are always prepared and don't count against the number of tinkerer spells you know.
+Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Protector Construct Spells
+Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	You gain bonus spells that are considered tinkerer spells for you, they are always prepared and don't count against the number of tinkerer spells you know.
+Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Protector Construct Spells
 Feat/&ProtectorConstructTitle	Protector Construct
 Feat/&ProtectorConstructTitle_5	Protector Construct Upgrade
 Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
@@ -722,7 +722,7 @@ Feat/&ResummonArtilleryConstruct_03Title	Resummon Artillery Construct 1
 Feat/&ResummonArtilleryConstruct_09Title	Resummon Artillery Construct 2
 Feat/&ResummonArtilleryConstruct_15Title	Resummon Artillery Construct 3
 Feat/&ResummonArtilleryConstructDescription	This spell allows the tinkerer to resummon an Artillery Construct in one of multiple modes after the initial summons expires. The resummoned construct also lasts 1 hour.
-Feat/&RetributionDescription	Construct damages 1D4 + Int when attacked.
+Feat/&RetributionDescription	Construct damages 1d4 + Int when attacked.
 Feat/&RetributionTitle	Retribution
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor.
 Feat/&ScoutSentinelFeatureSet_level03Title	Scout Sentinel
@@ -730,20 +730,20 @@ Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra
 Feat/&ScoutSentinelFeatureSet_level05Title	Scout Sentinel
 Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Extra Infusion Slots</color></size>\nYou gain extra infusion slots, should be used on armor.
 Feat/&ScoutSentinelFeatureSet_level09Title	Scout Sentinel
-Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Improved Sentinel Mode</color></size>\nCan now pull enemies into melee range with a bonus action and inflict 1D8 thunder damage via the Gauntlet Grapple power\n\n<size=17><color=#add8e6ff>Improved Scout Mode</color></size>\nCan now create advantage for allies and disadvantage for enemies with a single attack.
+Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Improved Sentinel Mode</color></size>\nCan now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage via the Gauntlet Grapple power\n\n<size=17><color=#add8e6ff>Improved Scout Mode</color></size>\nCan now create advantage for allies and disadvantage for enemies with a single attack.
 Feat/&ScoutSentinelFeatureSet_level15Title	Scout Sentinel
-Feat/&SelfDestructDescription	Self-destruct and force a Dex saving throw for 3D8 force damage within 10ft.
+Feat/&SelfDestructDescription	Self-destruct and force a Dexterity saving throw for creatures within 10ft. On a failure, deal 3d8 force damage.
 Feat/&SelfDestructTitle	Self-Destruct
-Feat/&SelfRepairDescription	Heal 2D8 HP, 3 times per day.
+Feat/&SelfRepairDescription	Heal 2d8 HP, 3 times per day.
 Feat/&SelfRepairTitle	Self-Repair
-Feat/&SubclassMovementDescription	Heavy armor does not have a strength requirement.
+Feat/&SubclassMovementDescription	Heavy armor does not have a Strength requirement.
 Feat/&SubclassMovementTitle	Heavy armor immunity
 Feat/&SubclassProficienciesDescription	You gain proficiency in smith's tools and heavy armor.
 Feat/&SubclassProficienciesTitle	Subclass Proficiencies
 Feat/&SummonArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&SummonArtificialServantTitle	Summon Artificial Servant
-Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with it's summoners levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1D8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire that deals 2D8 damage on a failed Dex save\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2D8 force damage and pushs enemy 5ft away.
-Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself dealing 3D8 force damage on a failed save. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1D8 to a total of 3D8.
+Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushs enemy 5ft away.
+Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
 Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade: Self-Destruct
 Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes.
 Feat/&SummonArtilleryConstructlevel15Title	Artillery Construct Upgrade: Half Cover Dome
@@ -754,16 +754,16 @@ Feat/&SummonProtectorConstructDescription_Upgrade	Summon Protector Construct Upg
 Feat/&SummonProtectorConstructTitle	Summon Protector Construct
 Feat/&SummonProtectorConstructTitle_2	Summon Protector Construct Upgrade
 Feat/&SummonProtectorConstructTitle_Upgrade	Summon Protector Construct Upgrade
-Feat/&TempHPShieldConstructDescription	Grants 1D8 + 4 temporary HP to allies within 10ft.
+Feat/&TempHPShieldConstructDescription	Grants 1d8 + 4 temporary HP to allies within 10ft.
 Feat/&TempHPShieldConstructTitle	Protecting Dome Construct
 Feat/&TempHPShieldConstructTitle_3	Protecting Dome Construct
 Feat/&TempHPShieldConstructTitle_5	Protecting Dome Construct
-Feat/&TempHPShieldDescription	Provide 1D8 + 4 TempHP to allies within 10ft.
-Feat/&ThunderShieldDescription	Denfensive shield provides TempHP x level. 5 times per day.
+Feat/&TempHPShieldDescription	Provide 1d8 + 4 TempHP to allies within 10ft.
+Feat/&ThunderShieldDescription	Defensive shield provides Temp HP equal to your level. Can be used 5 times per long rest.
 Feat/&ThunderShieldTitle	Thunder Shield
 Feat/&TinkererConstructFamilyDescription	Created by Tinkerer.
 Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
-Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw or take 1d4 fire damage per turn for 1 minute or until extinguished. The DC of this save is based on your Dexterity and Proficiency Bonus.
+Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
 Feat/&TorchbearerTitle	Torchbearer
 Feat/&UseArmorWeaponsAsFocusDescription	You can use the armor's weapons as a spellcasting focus for your spells.
 Feat/&UseArmorWeaponsAsFocusTitle	Spellcasting focus
@@ -794,7 +794,7 @@ Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest 
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
-Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + charisma modifier.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + Charisma modifier.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
@@ -807,9 +807,9 @@ Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcan
 Feature/&ArcaneDetonationTitle	Arcane Detonation
 Feature/&ArcaneDetonationUpgradeDescription	Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
 Feature/&ArcaneDetonationUpgradeTitle	Greater Arcane Detonation
-Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
+Feature/&ArcanePulseDescription	Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
 Feature/&ArcanePulseTitle	Arcane Pulse
-Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always pepared and don't count against the number of ranger spells you know: \n{0}\n\n
+Feature/&ArcanistAutoPreparedSpellsDescription	You gain bonus spells that are considered ranger spells for you, they are always prepared and don't count against the number of ranger spells you know: \n{0}\n\n
 Feature/&ArcanistAutoPreparedSpellsTitle	Ranger Arcanist Bonus Spells
 Feature/&ArcanistMarkDescription	Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
 Feature/&ArcanistMarkTitle	Arcanist's Mark
@@ -857,12 +857,12 @@ Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiTitle	Ki
 Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
 Feature/&ClassMonkMartialArtsTitle	Martial Arts
-Feature/&ClassMonkMartialDiceProgression00Description	You can roll <color=#57BCF4>D6</color> in place of the normal damage of your unarmed strike or monk weapon.
-Feature/&ClassMonkMartialDiceProgression00Title	Martial Arts Die Increase (D6)
-Feature/&ClassMonkMartialDiceProgression01Description	You can roll <color=#57BCF4>D8</color> in place of the normal damage of your unarmed strike or monk weapon.
-Feature/&ClassMonkMartialDiceProgression01Title	Martial Arts Die Increase (D8)
-Feature/&ClassMonkMartialDiceProgression02Description	You can roll <color=#57BCF4>D10</color> in place of the normal damage of your unarmed strike or monk weapon.
-Feature/&ClassMonkMartialDiceProgression02Title	Martial Arts Die Increase (D10)
+Feature/&ClassMonkMartialDiceProgression00Description	You can roll <color=#57BCF4>d6</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&ClassMonkMartialDiceProgression00Title	Martial Arts Die Increase (d6)
+Feature/&ClassMonkMartialDiceProgression01Description	You can roll <color=#57BCF4>d8</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&ClassMonkMartialDiceProgression01Title	Martial Arts Die Increase (d8)
+Feature/&ClassMonkMartialDiceProgression02Description	You can roll <color=#57BCF4>d10</color> in place of the normal damage of your unarmed strike or monk weapon.
+Feature/&ClassMonkMartialDiceProgression02Title	Martial Arts Die Increase (d10)
 Feature/&ClassMonkPerfectSelfDescription	When you start battle and have no ki points remaining, you regain 4 ki points.
 Feature/&ClassMonkPerfectSelfTitle	Perfect Self
 Feature/&ClassMonkPurityOfBodyDescription	Your mastery of the ki flowing through you makes you immune to disease and poison.
@@ -909,7 +909,7 @@ Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Relentless Endurance
-Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 Proficiency Bonus damage.
+Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 proficiency bonus damage.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
 Feature/&DevilsSightTitle	Devil's Sight
@@ -993,13 +993,13 @@ Feature/&ElementalPactFirePlane	Fire Plane
 Feature/&ElementalPactIcePlane	Ice Plane
 Feature/&ElementalPactShadowPlane	Shadow Plane
 Feature/&ElementalPatronDummyFeatureSetTitle	Elementalist
-Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your Proficiency Bonus on a first hit each round.
+Feature/&ElementalPatronElementalConditionFormatDescription	Deal additional {1} damage equal to your proficiency bonus on a first hit each round.
 Feature/&ElementalPatronElementalConditionFormatTitle	Channeling {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your Proficiency Bonus on a first hit each round.
+Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, deal additional {1} damage equal to your proficiency bonus on a first hit each round.
 Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
-Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply Proficiency Bonus as damage of the same type to first hit each round.
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply proficiency bonus as damage of the same type to first hit each round.
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
-Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round. .
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply proficiency bonus as damage of the same type to first hit each round. .
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals.
 Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
@@ -1007,18 +1007,18 @@ Feature/&EmptyString
 Feature/&EyesoftheRuneKeeperDescription	You can read all writing.
 Feature/&EyesoftheRuneKeeperTitle	Eyes of the RuneKeeper
 Feature/&FiendishVigorTitle	Fiendish Vigor
-Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit.
+Feature/&FlameArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3d8 damage on a failed save. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
 Feature/&FlameArtillery_09ModePowerTitle	Summon Flame Artillery Construct
-Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3D8 damage on a failed save. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
+Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 3d8 damage on a failed save. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
 Feature/&FlameArtillery_15ModePowerTitle	Summon Flame Artillery Construct
-Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2D8 damage on a failed save.
+Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2d8 damage on a failed save.
 Feature/&FlameArtilleryModePowerTitle	Summon Flame Artillery Construct
-Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit.
+Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
 Feature/&ForceArtillery_09ModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3D8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
+Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
 Feature/&ForceArtillery_15ModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryAdditionalDamageTitle	Upgraded damage
-Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2D8 force damage and pushs target 5ft away.
+Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushs target 5ft away.
 Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
@@ -1027,7 +1027,7 @@ Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on 
 Feature/&GambitResourcePoolTitle	Gambit dice pool
 Feature/&GiftoftheEverLivingOnesDescription	Regains the maximum number of hit points possible from any healing.
 Feature/&GiftoftheEverLivingOnesTitle	Gift of the Ever-Living Ones
-Feature/&GiftoftheProtectorsDescription	Whenyou are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you cant benefit from it until you finish a long rest.
+Feature/&GiftoftheProtectorsDescription	When you are reduced to 0 hit points but not killed outright, the creature magically drops to 1 hit point instead. Once this magic is triggered, you can't benefit from it until you finish a long rest.
 Feature/&GiftoftheProtectorsTitle	Gift of the Protectors
 Feature/&GnomeCunningFeatureDescription	You have advantage on all Intelligence, Wisdom, and Charisma saves against magic.
 Feature/&GnomeCunningFeatureTitle	Cunning
@@ -1049,9 +1049,9 @@ Feature/&ImprovedSentinelModePowerTitle	Improved Sentinel Mode
 Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
 Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
-Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6+2 temp hp.
+Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6 + 2 temp hp.
 Feature/&InspirePowerTitle	Inspire
-Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency.
+Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
 Feature/&KnockDownPowerTitle	Knock down
 Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
@@ -1060,26 +1060,26 @@ Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condi
 Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
 Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
 Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spells
-Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility.
+Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
 Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness.
 Feature/&MoonLitLightAffinityStrongTitle	Improved Umbral Cloak
 Feature/&MoonLitLightAffinityTitle	Umbral Cloak
-Feature/&OneWithShadowsDescription	If you start your turn in natural darkness you gain invisibility. Moving, attacking or using any power or spell that isn't teleport or self-buff breaks invisibility.
-Feature/&OneWithShadowsLightAffinityDescription	If you start your turn in natural darkness you gain invisibility. Moving, atacking or using any power or spell that isn't teleport or self-buff breaks invisibility.
+Feature/&OneWithShadowsDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
+Feature/&OneWithShadowsLightAffinityDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
 Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows now works in dim light and magical darkness.
 Feature/&OneWithShadowsLightAffinityStrongTitle	Darker Shadows
 Feature/&OneWithShadowsLightAffinityTitle	One With Shadows
 Feature/&OneWithShadowsStrongerDescription	One With Shadows now works in dim light and magical darkness.
 Feature/&OneWithShadowsStrongerTitle	Darker Shadows
 Feature/&OneWithShadowsTitle	One With Shadows
-Feature/&OpportunistDebilitatingStrikeDescription	Your sneak attack cause one of following conditions (Blinded/Bane/Bleeding/Stuned) to enemies if they fail a CON save vs 8 + your Dexerity + your proficiency.
+Feature/&OpportunistDebilitatingStrikeDescription	Your sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or suffer one of following conditions: blinded, bane, bleeding or stunned.
 Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
-Feature/&OpportunistQuickStrikeDescription	You have advatange when attack an enemies whose initiative is lower than yours. In addition you also have advatange when perform an attack of opportunity.
+Feature/&OpportunistQuickStrikeDescription	You have advantage when attack an enemies whose initiative is lower than yours. In addition, you also have advantage when perform an attack of opportunity.
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack for the rest of the turn to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
 Feature/&PowerAttackTitle	Power attack
-Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies withing 30ft.
+Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies within 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
 Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
@@ -1105,8 +1105,8 @@ Feature/&RageFeatConditionDescription	While in a rage you gain the following: Ad
 Feature/&RageFeatConditionTitle	Raging
 Feature/&RagePowerDescription	As a bonus action you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
 Feature/&RagePowerTitle	Rage
-Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on strength saves while raging.
-Feature/&RageStrengthSavingThrowAffinityTitle	Rage strength save advantage
+Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on Strength saves while raging.
+Feature/&RageStrengthSavingThrowAffinityTitle	Rage Strength save advantage
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
@@ -1116,19 +1116,19 @@ Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded li
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker Spells
 Feature/&SavingThrowTinkererProficiencyDescription	Proficiency in Constitution and Intelligence saving throws.
 Feature/&SavingThrowTinkererProficiencyTitle	Saving Throw Proficiency
-Feature/&ScoutModePowerDescription	Gain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.
+Feature/&ScoutModePowerDescription	Gain increased movement, advantage on Stealth checks and once per turn, your ranged weapon attacks deals an extra die of damage.
 Feature/&ScoutModePowerTitle	Scout Mode
-Feature/&SentinelModePowerDescription	Gain a limited number of TempHP based on level. Impose Disadvantage on enemies attacking allies.
+Feature/&SentinelModePowerDescription	Gain Temp HP equal to level. Impose Disadvantage on enemies attacking allies.
 Feature/&SentinelModePowerTitle	Sentinel Mode
 Feature/&ShroudofShadowTitle	Shroud of Shadow
 Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will.
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest.
-Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit.
+Feature/&TempHPShield_09ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
 Feature/&TempHPShield_09ModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3D8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft.
+Feature/&TempHPShield_15ModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: Provides half cover to allies within 10ft.
 Feature/&TempHPShield_15ModePowerTitle	Summon Protecting Dome Construct
-Feature/&TempHPShieldModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1D8 + 4 temporary HP to allies within 10ft.
+Feature/&TempHPShieldModePowerDescription	Summons a construct that lasts 1 hour. \nProtecting Dome: Grants 1d8 + 4 temporary HP to allies within 10ft.
 Feature/&TempHPShieldModePowerTitle	Summon Protecting Dome Construct
 Feature/&TempHPShieldTitle	Protecting Dome
 Feature/&ThiefofFiveFates	Cast {0} once per day
@@ -1143,23 +1143,23 @@ Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
 Feature/&TinkererInfusionReplaceTitle	Replace Infusion
 Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand.
 Feature/&TinkererSkillPointsTitle	Tinkerer Skills
-Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
+Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
 Feature/&TinkererToolsExpertiseTitle	Tinkerer Tool Expertise
-Feature/&TinkererToolsProficiencyDescription	Gain proficiency with many tools including Thieve's Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
+Feature/&TinkererToolsProficiencyDescription	Gain proficiency with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
 Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
 Feature/&TinkererWeaponProficiencyDescription	Proficiency with simple weapons.
 Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
 Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
 Feature/&ToadKingPoisonDamageAffinityTitle	Immune to Poison Damage
 Feature/&ToadKingStickyFeetTitle	Webbed Feet
 Feature/&TrickstersEscapeTitle	Trickster's Escape
-Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of it's devout clerics. Choose a cleric domain: you gain the features that domain grants at 1st level.
+Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of its devout clerics. Choose a Cleric domain: you gain the features that domain grants at 1st level.
 Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you.
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
@@ -1169,12 +1169,12 @@ Feature/&WitchCurseChoiceDescription	You are wracked by a terrible curse which i
 Feature/&WitchCurseChoiceTitle	Witch Curse
 Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you.
 Feature/&WitchMaledictionChoiceTitle	Maledictions
-Feature/&WitchSightDescription	You can sense or see invisibility up to 60 ft.
+Feature/&WitchSightDescription	You can sense or see invisible creatures within 60 ft of you.
 Feature/&WitchSightTitle	Witch Sight
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), add your Charisma modifier to the damage it deals on a hit
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), you add your Charisma modifier to the damage it deals on a hit.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -1202,7 +1202,7 @@ Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damag
 Feedback/&AdditionalDamageSunlightBladeFormat	Sunlit Blade!
 Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlit Blade! (+{2})
 Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
-Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1D8 more damage per hit
+Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1d8 more damage per hit.
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} creates {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} creates {1}
 Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} creates {1}
@@ -1212,16 +1212,16 @@ Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} creat
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} creates {1}
 Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear.
 Feedback/&ExtraDamageTitle	Lightning Spear extra damage
-Feedback/&LightningSpearAdditionalDamageDescription	lightning damage 1D6 extra once per turn.
+Feedback/&LightningSpearAdditionalDamageDescription	Deals an additional 1d6 lightning damage once per turn.
 Feedback/&LightningSpearAdditionalDamageTitle	Lightning Spear extra damage
 Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
 FightingStyle/&BlindFightingDescription	You have blindsight with a range of 10 feet.
 FightingStyle/&BlindFightingTitle	Blind Fighting
-FightingStyle/&CripplingDescription	Reduce the speed of your opponent on a melee attack hit to 10 until the end of the next turn.
+FightingStyle/&CripplingDescription	Upon hitting with a melee attack, you can reduce the speed of your opponent by 10 ft until the start of your next turn.
 FightingStyle/&CripplingTitle	Crippling
-FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional d4 of damage and you can punch with your offhand as a bonus action.\nIf you have free hand you can shove as a bonus action.
+FightingStyle/&PugilistFightingDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have free hand, you can shove as a bonus action.
 FightingStyle/&PugilistFightingTitle	Pugilist
-FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size large or bigger.
+FightingStyle/&TitanFightingDescription	You gain a +2 hit against creatures of size Large or bigger.
 FightingStyle/&TitanFightingTitle	Titan Fighting
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcana, Nature, and Insight.
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Suggested Skills
@@ -1363,14 +1363,14 @@ Monster/&PactOfChainCustomSpriteDescription	Unlike pixies, sprites rarely indulg
 Monster/&PactOfChainCustomSpriteTitle	Sprite (Pact of Chain)
 Monster/&WitchOwlFamiliarDescription	Owl Familiar.
 Monster/&WitchOwlFamiliarTitle	Owl
-MonsterAttack/&AttackWarlockDragonStingDescription	1d4 Piercing damage and target must succeed DC 11 Constitution save or become Poisoned.
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 piercing damage and target must succeed on a DC 11 Constitution saving throw or become poisoned.
 MonsterAttack/&AttackWarlockDragonStingTitle	Poisonous Sting
-MonsterAttack/&AttackWarlockImpStingDescription	Poisonous Sting of an Imp.
+MonsterAttack/&AttackWarlockImpStingDescription	Poisonous sting of an imp.
 MonsterAttack/&AttackWarlockImpStingTitle	Poisonous Sting
 MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
-Power/&AncientForestLifeSapDescription	When you damage enemy with spell you heal HP equal to half your level once per turn. If you are below half HP first target damaged this turn heals for level HP instead and next targets heal half level in HP but only up to half of max HP.
+Power/&AncientForestLifeSapDescription	When you damage an enemy with a spell, you heal HP equal to half your level once per turn. If you are below half HP, you instead heal HP equal to your level instead, but only up to half of your maximum HP.
 Power/&AncientForestLifeSapTitle	Life Sap
 Power/&AncientForestRootedPowerDescription	Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will.
 Power/&AncientForestRootedPowerTitle	Rooted
@@ -1378,7 +1378,7 @@ Power/&ClassMonkDiamondSoulPowerDescription	Whenever you make a saving throw and
 Power/&ClassMonkDiamondSoulPowerTitle	Diamond Soul
 Power/&ClassMonkEmptyBodyDescription	You can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
 Power/&ClassMonkEmptyBodyTitle	Empty Body
-Power/&ClassMonkFlurryOfBlowsDescription	After spending action to attack with monk weapon you can spend 1 ki point as a bonus action to do 2 unamed strikes. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkFlurryOfBlowsDescription	After spending your action to attack with monk weapon, you can spend 1 ki point as a bonus action to do 2 unarmed strikes. Only available if you are not wearing armor or wielding a shield.
 Power/&ClassMonkFlurryOfBlowsTitle	Flurry of Blows
 Power/&ClassMonkKiPoolDescription	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features.
 Power/&ClassMonkKiPoolTitle	Ki Points
@@ -1392,13 +1392,13 @@ Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving thro
 Power/&ClassMonkOpenHandPushTitle	Push Away
 Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n - It can't take reactions until the end of your next turn.
 Power/&ClassMonkOpenHandTechniqueTitle	Open Hand Technique
-Power/&ClassMonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only available if you are not wearing armor or shield.
 Power/&ClassMonkPatientDefenseTitle	Patient Defense
 Power/&ClassMonkQuiveringPalmDescription	When you hit a creature with an unarmed strike, you can spend 3 ki points to start imperceptible vibrations that force creature to make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage.
 Power/&ClassMonkQuiveringPalmTitle	Quivering Palm
 Power/&ClassMonkSlowFallDescription	You can use your reaction when you fall to prevent any falling damage.
 Power/&ClassMonkSlowFallTitle	Slow Fall
-Power/&ClassMonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkStepOfTheWindDescription	You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn. Only available if you are not wearing armor or shield.
 Power/&ClassMonkStepOfTheWindTitle	Step Of The Wind
 Power/&ClassMonkStunningStrikeDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
 Power/&ClassMonkStunningStrikeTitle	Stunning Strike
@@ -1406,28 +1406,28 @@ Power/&ClassMonkTanquilityDescription	Once per short rest as a free action you c
 Power/&ClassMonkTanquilityTitle	Tranquility
 Power/&ClassMonkWholenessOfBodyDescription	As an action, you can regain hit points equal to three times your monk level. You must finish a long rest before you can use this feature again.
 Power/&ClassMonkWholenessOfBodyTitle	Wholeness of Body
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	After spending action to attack with monk weapon you can spend 2 ki points as a bonus action to do 2 ranged attacks with a bow. Only availabe if you are not wearing armor or shield.
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	After spending action to attack with monk weapon, you can spend 2 ki points as a bonus action to do 2 ranged weapon attacks with a bow. Only available if you are not wearing armor or shield.
 Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Flurry of Arrows
-Power/&ClassMonkZenArrowDistractDescription	Target must succeed Wisdom saving throw or have disadvatnage on next attack until end of its next turn.
+Power/&ClassMonkZenArrowDistractDescription	Target must succeed Wisdom saving throw or have disadvantage on next attack until end of its next turn.
 Power/&ClassMonkZenArrowDistractTitle	Distract
 Power/&ClassMonkZenArrowProneDescription	Target must succeed Dexterity saving throw or be knocked prone.
 Power/&ClassMonkZenArrowProneTitle	Knock Down
 Power/&ClassMonkZenArrowPushDescription	Target must succeed Strength saving throw or be pushed 10 feet away from you.
 Power/&ClassMonkZenArrowPushTitle	Push Away
-Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must succeed Strength saving throw or be pushed 10 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on next attack until end of its next turn. 
+Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must succeed Strength saving throw or be pushed 10 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn. 
 Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowTechniqueTitle	Distant Hand Technique
-Power/&ClassMonkZenArrowUpgradedDistractDescription	Target must succeed Wisdom saving throw or have disadvatnage on all attacks until end of its next turn.
+Power/&ClassMonkZenArrowUpgradedDistractDescription	Target must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
 Power/&ClassMonkZenArrowUpgradedDistractTitle	Distract
-Power/&ClassMonkZenArrowUpgradedProneDescription	Target must succeed Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
+Power/&ClassMonkZenArrowUpgradedProneDescription	Target must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.
 Power/&ClassMonkZenArrowUpgradedProneTitle	Knock Down
-Power/&ClassMonkZenArrowUpgradedPushDescription	Target must succeed Strength saving throw or be pushed 20 feet away from you.
+Power/&ClassMonkZenArrowUpgradedPushDescription	Target must succeed on a Strength saving throw or be pushed 20 feet away from you.
 Power/&ClassMonkZenArrowUpgradedPushTitle	Push Away
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki - all effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n - It must succeed Strength saving throw or be pushed 20 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvatnage on all attacks until end of its next turn. 
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki - all effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n - It must succeed Strength saving throw or be pushed 20 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn. 
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Improved Distant Hand Technique
-Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
-Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times (equal to your Proficiency Bonus) per day by channeling elemental energy. You gain immunity to the relevant damage and apply Proficiency Bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
+Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times equal to your proficiency bonus per long rest by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply your proficiency bonus as damage of the same type to first spell damage done that turn. The forms last for 1 minute.
+Power/&DH_ElementalFormPoolEnhancedDescription	You can switch between enhanced elemental forms a number of times equal to your proficiency bonus per day by channeling elemental energy. You gain immunity to the relevant damage and apply proficiency bonus as damage of the same type to first spell damage each round. The forms last for 1 minute.
 Power/&DH_ElementalFormPoolEnhancedTitle	Enhanced Elemental Forms
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
 Power/&DH_ElementalFormPoolTitle	Elemental Forms
@@ -1437,29 +1437,29 @@ Power/&HelpActionDescription	You can aid a friendly creature in attacking a crea
 Power/&HelpActionTitle	Help
 Power/&MoonlitDanceoftheNightSkyDescription	You can cast Fly on 4 targets once per day.
 Power/&MoonlitDanceoftheNightSkyTitle	Dance of the Night Sky
-Power/&MoonlitDarkMoonDescription	You can cast Darkness (PB times per day).
+Power/&MoonlitDarkMoonDescription	You can cast Darkness a number of times per long rest equal to your proficiency bonus.
 Power/&MoonlitDarkMoonTitle	Dark Moon
-Power/&MoonlitFullMoonDescription	You can cast Daylight (PB times per day).
+Power/&MoonlitFullMoonDescription	You can cast Daylight a number of times per long rest equal to your proficiency bonus.
 Power/&MoonlitFullMoonTitle	Full Moon
 Power/&MoonlitMoonTouchedDescription	You conjure the gravitational pull of the moon in a small area, causing creatures who fail a saving throw to float upwards.
 Power/&MoonlitMoonTouchedTitle	Moon Touched
 Power/&PactofChainFamiliarInvisibilityPowerDescription	The creature magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the creaure wears or carries is invisible with it.
 Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibility
-Power/&PactofChainFamiliarScarePowerDescription	One creature of your choice within 20 ft. of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
+Power/&PactofChainFamiliarScarePowerDescription	One creature of your choice within 20 ft of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.
 Power/&PactofChainFamiliarScarePowerTitle	Scare
-Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action you can pull creature within 15 feet closer to you.
+Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action, you can pull a creature within 15 feet closer to you.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Reel In
 Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and pushes creatures and objects away.
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself.
 Power/&ToadKingGraspingTongueTitle	Grasping Tongue
-Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when attacked in melee range (up to PB times per day). if the attacker fails a Con save, they become lucinogenic toxin until they are attacked or otherwise interrupted.
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
-Power/&ToadKingSwallowDescription	Attempt to swallow a medium or smaller enemy. On a failed Str save, the monster is swallowed and receives 3D6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack.
+Power/&ToadKingSwallowDescription	Attempt to swallow a Medium or smaller enemy. On a failed Strength save, the monster is swallowed and receives 3d6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack.
 Power/&ToadKingSwallowTitle	Swallow
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands.
 Power/&UrPriestControlUndeadTitle	Control Undead
-Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistenances as other ghosts.
 Power/&UrPriestHalfLifeTitle	Half Life
 Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
 Power/&UrPriestRadiantWardTitle	Radiant Ward
@@ -1493,7 +1493,7 @@ Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
-Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1D10 + DEX modifier + Monk level
+Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1d10 + DEX modifier + Monk level
 Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
@@ -1526,23 +1526,23 @@ Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
-Reaction/&SpendPowerDH_RiftStrikeDescription	Once per day when damaged in melee, you can use you reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
+Reaction/&SpendPowerDH_RiftStrikeDescription	Once per long rest, when damaged by a melee attack, you can use your reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
 Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
 Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
 Reaction/&SpendPowerDiamondSoulTitle	Diamond Soul
-Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire or your ally to give 1d6+2 temp hp.
+Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire your ally, giving 1d6 + 2 temp HP.
 Reaction/&SpendPowerInspirePowerTitle	Inspire
-Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency.
-Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6+2 bludgeoning damage and knock them down until the start of their next turn if they fail a Strength save vs. 8 + your Strength + proficiency.
+Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
+Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
 Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
 Reaction/&SpendPowerKnockDownPowerTitle	Knock down
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction.
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Spell Shield
 Reaction/&SpendSpellSlot{0}Description	Spend Spell {0}
 Reaction/&SpendSpellSlot{0}Title	Spend Spell {0}
-Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 + 1d8 force damage per slot level to the target.
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to deal 1d8 force damage and an additional 1d8 damage per slot level to the target.
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
@@ -1553,8 +1553,8 @@ Reaction/&SubitemSelectSlotLevelTitle	Slot Level
 Reaction/&SubitemSelectWarcasterTitle	Select action
 Reaction/&Use{0}Description	Use {0}
 Reaction/&Use{0}Title	Use {0}
-Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use reaction to prevent falling damage.
-Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to prevent damage.
+Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use a reaction to not take fall damage.
+Reaction/&UseClassMonkSlowFallReactDescription	Use reaction to not take fall damage.
 Reaction/&UseClassMonkSlowFallReactTitle	React
 Reaction/&UseClassMonkSlowFallTitle	Slow Fall
 Reaction/&WarcasterAttackDescription	Attack target.
@@ -1565,7 +1565,7 @@ Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
 Requirement/&WarlockMissingEldritchBlast	Eldritch Blast cantrip
 Requirement/&WarlockRequiresNoMoonLit	Not Moonlit Patron
-Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" eldritch invocation
+Requirement/&WarlockRequiresOneWithShadows	"One With Shadows" Eldritch Invocation
 Requirement/&WarlockRequiresPactOfBlade	Pact of the Blade
 Requirement/&WarlockRequiresPactOfChain	Pact of the Chains
 Requirement/&WarlockRequiresPactOfTome	Pact of the Tome
@@ -1580,19 +1580,19 @@ Rules/&DisadvantageOnAttackByEnemyDescription	Distracted by lightning jolt.
 Rules/&DisadvantageOnAttackByEnemyTitle	Jolted
 Rules/&ExtraDamageOnAttackConditionDescription	Extra damage from Lighting Spear.
 Rules/&ExtraDamageOnAttackConditionTitle	Static shocked
-Rules/&HalfCoverShieldAttributeDescription	Allies Gain +2AC within 10ft.
+Rules/&HalfCoverShieldAttributeDescription	Allies within 10 ft gain +2 AC.
 Rules/&HalfCoverShieldAttributeTitle	Half Cover Dome
-Rules/&HalfCoverShieldConditionDescription	+2AC.
+Rules/&HalfCoverShieldConditionDescription	+2 AC.
 Rules/&HalfCoverShieldConditionTitle	Protected by Dome
-Rules/&LightningSpearPowerDescription	Lightning Damage 1D6 + 1D6.
+Rules/&LightningSpearPowerDescription	Deal 2d6 lightning damage.
 Rules/&LightningSpearPowerTitle	Lightning Spear
-Rules/&SelfDestructionConditionDescription	Self Destruction.
-Rules/&SelfDestructionConditionTitle	Self Destruction
+Rules/&SelfDestructionConditionDescription	Self-Destruction.
+Rules/&SelfDestructionConditionTitle	Self-Destruction
 Rules/&ThunderStruckBalancingAdvantageDescription	Balancing thunderstruck to only work for allies.
 Rules/&ThunderStruckBalancingAdvantageTitle	Taunted
-Rules/&ThunderStruckDescription	Disadvantage to attack Scout Sentinel's allies.
-Rules/&ThunderStruckTitle	Thunderstruck(Distracted)
-Screen/&CovenSpellDescription	Spell known because part of a Coven.
+Rules/&ThunderStruckDescription	Disadvantage when attacking Scout Sentinel's allies.
+Rules/&ThunderStruckTitle	Thunderstruck (Distracted)
+Screen/&CovenSpellDescription	Spell known as part of a Coven.
 Screen/&CovenSpellHeader	Coven
 Screen/&CovenSpellTitle	Coven
 Screen/&EditorLocationSize3Title	Huge [MODDED]
@@ -1606,7 +1606,7 @@ Screen/&ShadowTouchedSpellTitle	Shadow
 Screen/&SpellSlotsUsedLongDescription	You have expended {0} spell slot(s) at this level.
 Screen/&SpellSlotsUsedShortDescription	You have expended {0} pact magic slot(s).
 Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} pact magic slot(s) and {1} spell slot(s) at this level.
-Screen/&WitchSpellDescription	Spell known as a Witch.
+Screen/&WitchSpellDescription	Spells known as a Witch.
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
 Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
@@ -1615,13 +1615,13 @@ Spell/&AcidClawsDescription	Make a deadly attack with your sharpened claws.
 Spell/&AcidClawsTitle	Bloody Claws
 Spell/&AHHellishRebukeDescription	You point your finger, and the creature that damaged you is momentarily surrounded by hellish flames. The creature must make a Dexterity saving throw. It takes 2d10 fire damage on a failed save, or half as much damage on a successful one.
 Spell/&AHHellishRebukeTitle	Hellish Rebuke
-Spell/&AHPactMarkAdditionalDamageDescription	An additional 1d6 damage on a pact marked creature.
-Spell/&AHPactMarkAdditionalDamageTitle	Pact mark damage
-Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked by a pact and takes extra damage from the marker.
-Spell/&AHPactMarkMarkedByPactConditionTitle	Marked by pact
-Spell/&AHPactMarkPactMarkConditionDescription	You can mark other creatures with a pact mark and do an addition 1d6 damage to them with physical or spell attacks.
+Spell/&AHPactMarkAdditionalDamageDescription	A pact marked creature takes an additional 1d6 damage of the same type when hit by a weapon or spell attack by the marker.
+Spell/&AHPactMarkAdditionalDamageTitle	Pact Mark damage
+Spell/&AHPactMarkMarkedByPactConditionDescription	This creature has been marked by a pact and takes an additional 1d6 damage of the same type when hit by a weapon or spell attack by the marker.
+Spell/&AHPactMarkMarkedByPactConditionTitle	Pact Marked
+Spell/&AHPactMarkPactMarkConditionDescription	You can mark other creatures with a pact mark and you do an additional 1d6 damage to them with weapon or spell attacks.
 Spell/&AHPactMarkPactMarkConditionTitle	Pact Mark
-Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with an attack (physical or spell attack). This damage is the same type as the attack that hits.
+Spell/&AHPactMarkSpellDescription	You place a mark form your pact onto a creature you can see within 90ft. It becomes vulnerable to you and takes an additional 1d6 damage whenever you hit it with a weapon or spell attack. This damage is the same type as the attack that hits.
 Spell/&AHPactMarkSpellTitle	Pact Mark
 Spell/&AirBlastDescription	Fire a blast of focused air at your target.
 Spell/&AirBlastTitle	Air Blast
@@ -1649,11 +1649,11 @@ Spell/&DHForesightSpellDescription	You touch a willing creature and bestow a lim
 Spell/&DHForesightSpellTitle	Foresight
 Spell/&DHHolyAuraSpellDescription	Divine light washes out from you and coalesces in a soft radiance in a 30-foot radius around you. Creatures of your choice in that radius when you cast this spell shed dim light in a 5-foot radius and have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends.
 Spell/&DHHolyAuraSpellTitle	Holy Aura
-Spell/&DHIncendiaryCloudSpellDescription	A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.When the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.The cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
+Spell/&DHIncendiaryCloudSpellDescription	A swirling cloud of smoke shot through with white-hot embers appears in a 20-foot-radius sphere centered on a point within range. The cloud spreads around corners and is heavily obscured. It lasts for the duration or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.\nWhen the cloud appears, each creature in it must make a Dexterity saving throw. A creature takes 10d8 fire damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.\nThe cloud moves 10 feet directly away from you in a direction that you choose at the start of each of your turns.
 Spell/&DHIncendiaryCloudSpellTitle	Incendiary Cloud
 Spell/&DHMassHealSpellDescription	A flood of healing energy flows from you into injured creatures around you. You restore up to 700 hit points, divided as you choose among any number of creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 Spell/&DHMassHealSpellTitle	Mass Heal
-Spell/&DHMazeSpellDescription	You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt to escape. When it does so, it makes a DC 20 Intelligence check.
+Spell/&DHMazeSpellDescription	You banish a creature that you can see within range into a labyrinthine demiplane. The target remains there for the duration or until it escapes the maze. /nThe target can use its action to attempt a DC 20 Intelligence check to escape.
 Spell/&DHMazeSpellTitle	Maze
 Spell/&DHMeteorSwarmSingleTargetSpellDescription	Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 Spell/&DHMeteorSwarmSingleTargetSpellTitle	Meteor Swarm (Single Target)
@@ -1678,9 +1678,9 @@ Spell/&DHWeirdSpellTitle	Weird
 Spell/&EarthTremorDescription	You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 Spell/&EarthTremorTitle	Earth Tremor
 Spell/&EldritchBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\nThe spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.
-Spell/&EldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.).
+Spell/&EldritchBlastGraspingHandDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage. \n(When you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.)
 Spell/&EldritchBlastGraspingHandTitle	Eldritch Blast (Grasping)
-Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.).
+Spell/&EldritchBlastRepellingBlastDescription	A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.\n(When you hit a creature with eldritch blast, you can push the creature up to 10 feet away from you in a straight line.)
 Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Repelling)
 Spell/&EldritchBlastTitle	Eldritch Blast
 Spell/&EldritchOrbDescription	You fling a ball of eldritch energy at a creature or object within range and deal force damage in small radius.
@@ -1716,9 +1716,9 @@ Spell/&PetalStormDescription	Choose an unoccupied 15-foot cube of air that you c
 Spell/&PetalStormTitle	Petal Storm
 Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
 Spell/&ProtectThresholdTitle	Protect Threshold
-Spell/&RadiantMotesDescription	Unleashes a swarm of radiant projectiles that deal minor damage, but never miss. Targets may radiate light for up to 1 minute.
+Spell/&RadiantMotesDescription	Unleashes a swarm of 5 radiant projectiles that deal 2 radiant damage each, but never miss. Targets may radiate light for up to 1 minute.\nWhen you cast this spell using a spell slot of 2nd level or higher, the spell creates 2 more projectiles for each slot above 1st.
 Spell/&RadiantMotesTitle	Radiant Motes
-Spell/&ThunderStrikeDescription	Create a burst of thundering sound, damaging everyone around you.
+Spell/&ThunderStrikeDescription	Create a burst of thundering sound, forcing creatures adjacent to you to make a Constituion saving throw or take 1d6 thunder damage.\nThis spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 Spell/&ThunderStrikeTitle	Sound Burst
 Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone.
 Spell/&WinterBreathTitle	Winter's Breath
@@ -1759,7 +1759,7 @@ Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain wi
 Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade Pact
 Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&ArcaneFighterAdditionalActionTitle	Spell Fighting
-Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn your weapon attacks deal an extra 1d8 damage.
+Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn, your weapon attacks deal an extra 1d8 damage.
 Subclass/&ArcaneFighterBonusWeaponDamageTitle	Magically Powered Attacks
 Subclass/&ArtificerAlchemistDescription	You specialize in potions, buffs, healing, and spell casting.
 Subclass/&ArtificerAlchemistTitle	Potion Maker
@@ -1771,25 +1771,25 @@ Subclass/&ArtificerBattleSmithDescription	You specialize in using magical weapon
 Subclass/&ArtificerBattleSmithTitle	Weapon Smith
 Subclass/&ArtificerSpellcastingDescription	Cast Tinkerer spells.
 Subclass/&ArtificerSpellcastingTitle	Tinkerer Spellcasting
-Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Your attacks count as Magical and you use your intelligence for attack and damage rolls.
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Your attacks count as magical and you use your Intelligence for attack and damage rolls.
 Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Infused Weapon
-Subclass/&AttackModifierArtificerBlindingWeaponDescription	Touch a weapon that gains the ability to blind targets on hit (against a Constitution save). Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerBlindingWeaponDescription	A weapon you choose that gains the ability to blind targets on hit (against a Constitution save). You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerBlindingWeaponTitle	Blinding Weapon
-Subclass/&AttackModifierArtificerEnhancedArmorDescription	Touch Armor and it becomes magical and provides +1 AC. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	An armor you choose becomes magical and provides an additional +1 AC. You can only have an infusion active once. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerEnhancedArmorTitle	Enhanced Armor
-Subclass/&AttackModifierArtificerEnhancedFocusDescription	Touch a Focus and it becomes magical and gains +1 to attack and spell dc. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerEnhancedFocusDescription	A spellcasting focus you choose becomes magical and gains +1 to spell attack rolls and spell save DC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerEnhancedFocusTitle	Enhanced Focus
-Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Touch a weapon and it becomes magical and gains +1 to attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription	A weapon you choose becomes magical and gains +1 to attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Enhanced Weapon
-Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Touch Armor and it becomes magical and provides +2 AC. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	An armor you choose becomes magical and provides +2 AC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Improved Enhanced Armor
-Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Touch a Focus and it becomes magical and gains +2 to attack and spell dc. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	A spellcasting focus you choose becomes magical and gains +2 to spell attack rolls and spell save DC. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Improved Enhanced Focus
-Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Touch a weapon and it becomes magical and gains +2 to attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Touch a weapon and it becomes magical and gains +2 to attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Improved Enhanced Weapon
-Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add +7 to your attack and damage rolls.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you add +7 to your attack and damage rolls.
 Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Improved Infuse Weapon
-Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	When active on a weapon, it's attacks count as Magical and you use your intelligence for your attack and damage rolls.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	When active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls.
 Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arcane Weapon
 Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	You gain an extra attack.
 Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Extra Attack
@@ -1803,7 +1803,7 @@ Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Illuminated
 Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Disadvantage on any attack roll that isn't against the Path of the Light barbarian.
 Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Cannot become invisible.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	On the turn that you enter your rage, you can choose to illuminate up to three enemies within 30 feet of you. They must succeed on a Constitution saving throw (DC equal to 8 + your proficiency bonus + your Constitution modifier) or take 4d6 radiant damage and be illuminated by your Illuminating Strike for 1 minute. A creature illuminated in this way makes another Constitution saving throw at the end of each of its turns. On a successful save, the effect ends for it.
-Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three enemies take 4d6 radiant damage and become illuminated by your Illuminating Strike. (Constitution saving throw negates.).
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Up to three enemies make a Constitution saving throw or take 4d6 radiant damage and become illuminated by your Illuminating Strike.
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Illuminating Burst
 Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Illuminating Burst
 Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	While you're raging, the first creature you hit with an attack on your turn takes an additional 1d6 radiant damage and becomes magically illuminated until the start of your next turn. Additionally, the creature has disadvantage on any attack roll that isn't against you and cannot become invisible.
@@ -1818,7 +1818,7 @@ Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Can perceiv
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Invisibility Sight
 Subclass/&BarbarianPathOfTheLightTitle	Path of the Light
 Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards.
-Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n .
+Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
 Subclass/&BloodWitchMagicTitle	Blood Magic
 Subclass/&BloodWitchTitle	Blood Witch
 Subclass/&CancelCancelElixirFlyDescription	End the Fly condition from the Potion Maker Elixir.
@@ -1827,11 +1827,11 @@ Subclass/&CancelCancelElixirResilienceDescription	End the Resilience condition f
 Subclass/&CancelCancelElixirResilienceTitle	Cancel Resilience
 Subclass/&CancelCancelElixirSwiftnessDescription	End the Swiftness condition from the Potion Maker Elixir.
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancel Swiftness
-Subclass/&ClassMonkTraditionDescription	At 3rd level you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.  .
+Subclass/&ClassMonkTraditionDescription	At 3rd level, you choose spiritual way you follow towards enlightenment. It will shape how you manipulate ki.
 Subclass/&ClassMonkTraditionTitle	Monastic Traditions
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Monks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
-Subclass/&ClassMonkTraditionZenArcherDescription	Practitioners of the Way of the Distant Hand train to make arows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
+Subclass/&ClassMonkTraditionZenArcherDescription	Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
 Subclass/&ClassMonkTraditionZenArcherTitle	Way of the Distant Hand
 Subclass/&ClassWarlockPatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
 Subclass/&ClassWarlockPatronTitle	Otherwordly Patron
@@ -1841,7 +1841,7 @@ Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcan
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Arcane Deflection
 Subclass/&ConditionTransmuteConstitutionSaveDescription	Temporary Constitution save proficiency granted by the Transmute Force power.
 Subclass/&ConditionTransmuteConstitutionSaveTitle	Constitution Saves
-Subclass/&ConditionTransmutePoisonDescription	Temporary Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison Resistance granted by the Transmute Force power.
+Subclass/&ConditionTransmutePoisonDescription	Temporary acid, cold, fire, lightning, necrotic, poison and thunder resistance granted by the Transmute Force power.
 Subclass/&ConditionTransmutePoisonTitle	Elemental Resistance
 Subclass/&CraftingTinkererMagicItemAdeptDescription	You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Magic Item Adept
@@ -1851,22 +1851,22 @@ Subclass/&DHWarlockSubclassRiftWalkerDescription	Your patron is one of the rare 
 Subclass/&DHWarlockSubclassRiftWalkerTitle	Rift Walker Pact
 Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
-Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
-Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack all of your party member can use their reaction to make an attack of opportunity against your target.
+Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
 Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
-Subclass/&FighterMarshalEncouragementPowerDescription	Once per day spending an hour to encourage each other and prepare for the next adventure day, the morale of the party is improved significantly. Each encouraged character add 1d4 to their attack and saving throw. The effect last until long rest. 
+Subclass/&FighterMarshalEncouragementPowerDescription	Once per day, you can spend an hour to encourage each other and prepare for the next adventure day. The morale of the party is improved significantly and each encouraged character add 1d4 to their attack rolls and saving throw until the end of a long rest. 
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eternal Comrade
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	You are immune to fear effect.
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Fearless Commander
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	You add your knowledge level of current target to your attack roll and your damage.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	You add your knowledge level of your current target to your attack and damage rolls.
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Know Your Enemy
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	As a bonus action you can attempt to increase your knowledge about your target by rolling a survival check. You can do this twice per short rest.
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	   Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + 2 x Fighter Class Level hitpoints and its AC is 16 + your PB. In additional the spirits are immuned to Posion, Cold, Necrotic, Prone, Paralyze, Restrained and are resistant to Fire, Acid, Lighting, Thunder. They also have resistance against non-magical Slashin, Bludeoging, Piercing damage. On their turn, they can fly up to 50' and make a single (2d6 + 5) magical slasing attack with bonus attack equal to 5 + PB. 
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against nonmagical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
 Subclass/&FighterMarshalTitle	Marshal
 Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
@@ -1879,19 +1879,19 @@ Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the dom
 Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n{0}\n\n .
 Subclass/&GreenWitchMagicTitle	Green Magic
 Subclass/&GreenWitchTitle	Green Witch
-Subclass/&HArtilleryIncreaseDescription	ArtilleryPool Increase.
-Subclass/&HArtilleryIncreaseTitle	ArtilleryPool Increase
-Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	You can now infuse two additional items each day, this is intended to be use for your special Weapon Smith weapon.
+Subclass/&HArtilleryIncreaseDescription	Artillery Pool Increase.
+Subclass/&HArtilleryIncreaseTitle	Artillery Pool Increase
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	You can now infuse an two additional items each day. These are intended to be used for your special Weapon Smith weapon.
 Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Weapon Smith Weapon Infusion
 Subclass/&HealingPoolArtificerInfusionsDescription	2 times per day infuse items with magical effects.
 Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	You can now infuse one additional item each day.
 Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	More Infusions
 Subclass/&HealingPoolArtificerInfusionsTitle	Infusions
-Subclass/&HealingPoolLifeTransmuterBonusDescription	2 additional times per day you can force your will on reality.
-Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	4 additional times per day you can force your will on reality.
+Subclass/&HealingPoolLifeTransmuterBonusDescription	You can enforce your will on reality an 2 additional times per day.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	You can enforce your will on reality an 4 additional times per day.
 Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Additional Transmute Force
 Subclass/&HealingPoolLifeTransmuterBonusTitle	Additional Transmute Force
-Subclass/&HealingPoolLifeTransmuterListDescription	2 times per day enact your will on reality with special abilities.
+Subclass/&HealingPoolLifeTransmuterListDescription	You can enact your will on reality with special powers 2 times per day.
 Subclass/&HealingPoolLifeTransmuterListTitle	Transmute Force
 Subclass/&MagicAffinityAlchemicalSavantListDescription	When casting Acid Arrow and Flaming Sphere they behave as if cast 2 levels higher. Your cantrips are also boosted so even when the enemy saves they still take half damage.
 Subclass/&MagicAffinityAlchemicalSavantListTitle	Elixir Savant Spells
@@ -1899,7 +1899,7 @@ Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	You can recover spell s
 Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Alchemical Preparation
 Subclass/&MagicAffinityFighterSpellShieldDescription	Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
 Subclass/&MagicAffinityFighterSpellShieldTitle	Combat Casting
-Subclass/&MagicAffinityLifeTransmuterListDescription	When casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. -- Note Intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
+Subclass/&MagicAffinityLifeTransmuterListDescription	When casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. \n--Note: The intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
 Subclass/&MagicAffinityLifeTransmuterListTitle	Reality Bending
 Subclass/&MagicAffinityMasterManipulatorDC0Description	It is harder for opponents to resist your spells. The save DC increases by 0.
 Subclass/&MagicAffinityMasterManipulatorDC1Description	It is harder for opponents to resist your spells. The save DC increases by 1.
@@ -1922,7 +1922,7 @@ Subclass/&MagicAffinityRoguishConArtistDC5Description	Your spell save DC increas
 Subclass/&MagicAffinityRoguishConArtistDCTitle	Improved Manipulation
 Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Scribe an additional spell at each level up.
 Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Breadth of Knowledge
-Subclass/&MagicAffinitySpellMasterRecoveryDescription	Once per long rest you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryDescription	Once per long rest, you can recover spell slots (in addition to Arcane Recovery).
 Subclass/&MagicAffinitySpellMasterRecoveryTitle	Arcane Depth
 Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unlimited times you can recover spell slots (in addition to Arcane Recovery).
 Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arcane Depth
@@ -1932,21 +1932,21 @@ Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving th
 Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
 Subclass/&MarshalEternalComradeDescription	Fallen Comrade
 Subclass/&MarshalEternalComradeTitle	Fallen Comrade
-Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemis slides.They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemis slides. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 Subclass/&OpportunistTitle	Opportunist
-Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you add your +7 to your attack and damage rolls. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you add your +7 to your attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
-Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as Magical and you use your intelligence for attack and damage rolls until the next long rest.
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you use your Intelligence for attack and damage rolls until the next long rest.
 Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Infuse Weapon
-Subclass/&PowerInfuseArmorMagicalStrengthDescription	Infuse armor with magical strength. You gain advantage on strength ability checks and saving throws. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseArmorMagicalStrengthDescription	Infuse armor with magical strength. You gain advantage on Strength ability checks and saving throws. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&PowerInfuseArmorMagicalStrengthTitle	Armor of Magical Strength
-Subclass/&PowerInfuseDarkvisionDescription	Infuse the ability to see in the dark into a pair of goggles. Note you can only have an infusion active once. Activating it a second time will cancel the first. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseDarkvisionDescription	Infuse the ability to see in the dark into a pair of goggles. You can only have one of each infusion active at a time. Activating it a second time will cancel the first. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&PowerInfuseDarkvisionTitle	Goggles of Night
-Subclass/&PowerInfuseMindSharpenerDescription	Infuse an armor or robe with the ability to aid your spell casting concentration. You gain advantage on concentration checks and any damage less than 20 doesn't trigger a check. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseMindSharpenerDescription	Infuse an armor or robe with the ability to aid your spell casting concentration. You gain advantage on concentration checks and any damage less than 20 doesn't trigger a check. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&PowerInfuseMindSharpenerTitle	Mind Sharpener
-Subclass/&PowerInfuseResistantArmorDescription	Infuse damage resistance into your armor. It becomes resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage. Note you can only have an infusion active once. Activating it a second time will cancel the first.
+Subclass/&PowerInfuseResistantArmorDescription	Infuse damage resistance into your armor. It becomes resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&PowerInfuseResistantArmorTitle	Resistant Armor
-Subclass/&PowerManipulatorDominatePersonDescription	You can use Dominate Person a number of times per long rest equal to your intelligence modifier.
+Subclass/&PowerManipulatorDominatePersonDescription	You can use Dominate Person a number of times per long rest equal to your Intelligence modifier.
 Subclass/&PowerManipulatorDominatePersonTitle	Dominate Person
 Subclass/&PowerSpellRefuelingRingDescription	When you activate this, you regain half your level in spell slots.
 Subclass/&PowerSpellRefuelingRingTitle	Spell Refueling Ring
@@ -1956,13 +1956,13 @@ Subclass/&PowerSpellShieldRangedDeflectionDescription	When an attacker that you 
 Subclass/&PowerSpellShieldRangedDeflectionTitle	Ranged Deflection
 Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Imbued into your armor is magical improvements to your ability to avoid bad effects. You gain 3d4 to every saving throw you make.
 Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Soul of Tinkerer
-Subclass/&PowerTinkererSpellStoringItemDescription	As a bonus action you can regain spell slots. You can do this a number of times per day equal to your Intellifence modifier.
+Subclass/&PowerTinkererSpellStoringItemDescription	As a bonus action you can regain spell slots. You can do this a number of times per day equal to your Intelligence modifier.
 Subclass/&PowerTinkererSpellStoringItemTitle	Spell Storing Item
 Subclass/&PowerTransmuteConstitutionDescription	Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
 Subclass/&PowerTransmuteConstitutionTitle	Constitution Saves
 Subclass/&PowerTransmuteDarkvisionDescription	Use your Transmute Force to grant Superior Darkvision until the next long rest.
 Subclass/&PowerTransmuteDarkvisionTitle	Superior Darkvision
-Subclass/&PowerTransmuteElementalResistanceDescription	Use your Transmute Force to grant resistance to Acid, Cold, Fire, Lightning, Necrotic, Thunder, and Poison until the next long rest.
+Subclass/&PowerTransmuteElementalResistanceDescription	Use your Transmute Force to grant resistance to acid, cold, fire, lightning, necrotic, poison and thunder damage until the end of your next long rest.
 Subclass/&PowerTransmuteElementalResistanceTitle	Elemental Resistance
 Subclass/&PowerTransmuteFlyDescription	Use your Transmute Force to grant the ability of flight.
 Subclass/&PowerTransmuteFlyTitle	Fly
@@ -2011,7 +2011,7 @@ Subclass/&TraditionMasterManipulatorTitle	Master Manipulator
 Subclass/&TraditionSpellMasterBonusCantripsDescription	Gain 2 extra cantrips known.
 Subclass/&TraditionSpellMasterBonusCantripsTitle	Bonus Cantrips
 Subclass/&TraditionSpellMasterDescription	Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepare intelligence modifier additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepare Intelligence modifier additional spells so you always have what you need.
 Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra Prepared
 Subclass/&TraditionSpellMasterPreparedDescription	Prepare proficiency bonus additional spells so you always have what you need.
 Subclass/&TraditionSpellMasterPreparedTitle	Be Prepared
@@ -2060,5 +2060,5 @@ UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
 UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
 UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
-UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
+UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip

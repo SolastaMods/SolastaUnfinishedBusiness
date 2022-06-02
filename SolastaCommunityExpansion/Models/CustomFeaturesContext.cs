@@ -134,12 +134,6 @@ public static class CustomFeaturesContext
         }
     }
 
-    internal static bool IsSpellBonus(IPointPoolMaxBonus mod)
-    {
-        return mod.PoolType == HeroDefinitions.PointsPoolType.Cantrip
-               || mod.PoolType == HeroDefinitions.PointsPoolType.Spell;
-    }
-
     internal static void RemoveFeatures(RulesetCharacterHero hero,
         CharacterClassDefinition characterClassDefinition, string tag, List<FeatureDefinition> featuresToRemove)
     {
@@ -494,6 +488,11 @@ public static class CustomFeaturesContext
     public static string CustomizeTag(string tag)
     {
         return UnCustomizeTag(tag) + "[Custom]";
+    }
+
+    public static bool IsCustomTag(string tag)
+    {
+        return tag != null && tag.Contains("[Custom]");
     }
 
     public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
