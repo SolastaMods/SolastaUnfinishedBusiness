@@ -1,17 +1,17 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:EldritchInvocationFalseLifeCantrip:15b81b75-3736-5d6e-b104-a4f0f252e6e2"
+    "Definition:EldritchInvocationLevitateCantrip:ffe35e5c-fd04-5802-ab47-3f2898d3df7c"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FiendishVigorTitle",
-    "description": "Cast False Life at will.",
+    "title": "Feature/&AscendantStepTitle",
+    "description": "Cast Levitate at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",
-      "m_SubObjectName": "FalseLife",
+      "m_AssetGUID": "518af71d722898140ade6f799cf584fc",
+      "m_SubObjectName": "Levitate",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -27,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "55f44659-b729-53ce-9ca8-084a11273a21",
+  "guid": "f7005fc1-c45b-5b53-8444-dcc6f00df51d",
   "contentPack": 9999,
-  "name": "EldritchInvocationFalseLife"
+  "name": "EldritchInvocationLevitate"
 }

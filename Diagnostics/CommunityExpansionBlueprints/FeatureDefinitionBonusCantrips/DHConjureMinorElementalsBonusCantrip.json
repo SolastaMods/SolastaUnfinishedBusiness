@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
     "Definition:DHAtWillConjureMinorElementals:e7f87a1c-dc5a-5f25-966a-c4265ab7c2b0"
   ],

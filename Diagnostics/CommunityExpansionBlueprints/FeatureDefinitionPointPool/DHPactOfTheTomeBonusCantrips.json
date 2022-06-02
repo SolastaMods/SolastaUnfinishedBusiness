@@ -1,14 +1,14 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
-  "bonusCantrips": [
-    "Definition:MoonlitAtWillFaerieFire:2fb35a3d-82dc-5f89-9fc5-1df93619ef35",
-    "Definition:MoonlitAtWillMoonbeam:ad45f7b4-9125-542f-ae40-c1046355961d"
-  ],
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Cantrip",
+  "poolAmount": 3,
+  "restrictedChoices": [],
+  "uniqueChoices": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&MoonlitBonusCantripsTitle",
-    "description": "Feat/&MoonlitBonusCantripsDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -28,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eb0e5a7d-1f16-5a77-be8a-16e920c53d56",
+  "guid": "862cdcdd-3f35-5a3f-bc93-870c70fa15af",
   "contentPack": 9999,
-  "name": "MoonlitBonusCantrips"
+  "name": "DHPactOfTheTomeBonusCantrips"
 }
