@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.Translator;
 
@@ -14,7 +15,7 @@ internal static class FunctorDisplayLore_Execute
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            functorParameters.stringParameter = Utils.UserCampaignsTranslator.Translate(
+            functorParameters.stringParameter = UserCampaignsTranslator.Translate(
                 functorParameters.stringParameter,
                 Main.Settings.SelectedLanguageCode);
         }

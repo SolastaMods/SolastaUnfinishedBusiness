@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.Translator;
 
@@ -14,7 +15,7 @@ internal static class GameLocationScreenNarration_RefreshControlPanel
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            speechText = Utils.UserCampaignsTranslator.Translate(
+            speechText = UserCampaignsTranslator.Translate(
                 speechText,
                 Main.Settings.SelectedLanguageCode);
         }

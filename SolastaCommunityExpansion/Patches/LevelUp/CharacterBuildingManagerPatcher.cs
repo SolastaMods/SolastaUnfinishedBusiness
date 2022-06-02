@@ -611,7 +611,7 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         {
             return;
         }
-        
+
         if (feature is not FeatureDefinitionCastSpell spellCasting) { return; }
 
         var castingOrigin = spellCasting.SpellCastingOrigin;
@@ -622,14 +622,14 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
 
         var hero = heroBuildingData.HeroCharacter;
         __instance.GetLastAssignedClassAndLevel(hero, out var lastClassDefinition, out var level);
-         var hasSubclass = hero.ClassesAndSubclasses.TryGetValue(lastClassDefinition, out var subclassDefinition);
+        var hasSubclass = hero.ClassesAndSubclasses.TryGetValue(lastClassDefinition, out var subclassDefinition);
 
         var classTag = AttributeDefinitions.GetClassTag(lastClassDefinition, level);
         var subclassTag = hasSubclass && subclassDefinition != null
             ? AttributeDefinitions.GetSubclassTag(lastClassDefinition, level, subclassDefinition)
             : string.Empty;
 
-        string tag = spellCasting.SpellCastingOrigin switch
+        var tag = spellCasting.SpellCastingOrigin switch
         {
             CastingOrigin.Class => classTag,
             CastingOrigin.Subclass => subclassTag,
@@ -646,10 +646,10 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         }
 
         var bonusPools = hero.GetTaggedFeaturesByType<FeatureDefinitionPointPool>()
-            .Where((x) => x.Item2.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
+            .Where(x => x.Item2.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
             .Select(x => x.Item2)
             .Sum(x => x.PoolAmount);
-            
+
         var bonusCantrips = hero.GetTaggedFeaturesByType<FeatureDefinitionBonusCantrips>()
             .Where(x => x.Item1 != classTag && x.Item1 != subclassTag)
             .Select(x => x.Item2)

@@ -304,7 +304,7 @@ public static class ArtilleristBuilder
 
         artillerist.AddFeatureAtLevel(
             ArtilleryConstructlevel15FeatureSetBuilder.ArtilleryConstructlevel15FeatureSet, 15);
-        
+
         // TODO: DEPRECATE IN FUTURE
         var artilleryConstructLevel15AutopreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("ArtilleryConstructLevel15AutopreparedSpells", TinkererClass.GuidNamespace)

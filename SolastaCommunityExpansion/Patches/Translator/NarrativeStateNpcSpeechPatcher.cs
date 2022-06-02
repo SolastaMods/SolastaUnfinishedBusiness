@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.Translator;
 
@@ -14,7 +15,7 @@ internal static class NarrativeStateNpcSpeech_RecordSpeechLine_Getter
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            textLine = Utils.UserCampaignsTranslator.Translate(
+            textLine = UserCampaignsTranslator.Translate(
                 textLine,
                 Main.Settings.SelectedLanguageCode);
         }

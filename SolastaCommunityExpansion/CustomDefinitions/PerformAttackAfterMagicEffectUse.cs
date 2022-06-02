@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.CustomDefinitions.IPerformAttackAfterMagicEffectUse;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
