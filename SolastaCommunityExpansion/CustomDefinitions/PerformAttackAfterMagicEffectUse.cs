@@ -67,15 +67,17 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
         var actionParams = effect.ActionParams;
         if (actionParams == null) { return null; }
 
-        if (effect.Countered || effect.GetProperty<bool>("ExecutionFailed"))
+        //Spell got countered or it failed
+        if (effect.Countered || effect.ExecutionFailed)
         {
             return null;
         }
 
-        var outcome = effect.GetProperty<RuleDefinitions.RollOutcome>("Outcome");
-        if (outcome < minOutcomeToAttack) { return null; }
+        //Attack outcome is worse that required
+        if (effect.Outcome > minOutcomeToAttack) { return null; }
 
-        if (effect.SaveOutcome < minSaveOutcomeToAttack) { return null; }
+        //Target rolled saving throw and got better result
+        if (effect.RolledSaveThrow && effect.SaveOutcome < minSaveOutcomeToAttack) { return null; }
 
         var caster = actionParams.ActingCharacter;
         var targets = actionParams.TargetCharacters;
