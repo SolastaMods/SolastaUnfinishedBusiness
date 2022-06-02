@@ -26,7 +26,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Best
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints	Blueprints
 ModUi/&CampaignsAndLocations	<color=yellow>Campaigns and locations:</color>
-ModUi/&CancelTranslate	Cancel {0} at {1}
 ModUi/&Character	Character
 ModUi/&CharactersPool	Characters Pool
 ModUi/&Classes	<color=yellow>Classes</color>
@@ -164,8 +163,11 @@ ModUi/&Subclasses	<color=yellow>Subclasses</color>
 ModUi/&Tools	Tools
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
 ModUi/&Translate	Translate
-ModUi/&TranslationHelp	. Translates user campaigns to {0} and save them back to the pool prefixed by the language code
+ModUi/&TranslateCancel	Cancel {0} at {1}
+ModUi/&ExecuteBatchTranslations	Execute batch translations: <i><color=yellow>[campaigns are saved back to pool prefixed by target language]</color></i>
+ModUi/&EnableOnTheFlyTranslations	Enable real time custom content translations <i><color=yellow>[requires live outbound conn. to https://translate.googleapis.com]</color></i>
 ModUi/&Translations	Translations
+ModUi/&TargetLanguage	<color=yellow>Target Language:</color>
 ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnlockAllNpcFaces	Unlock all NPC faces

@@ -20,7 +20,17 @@ internal class UserCampaignsTranslator : MonoBehaviour
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
-    internal static readonly string[] AvailableLanguages = LocalizationManager.GetAllLanguagesCode().ToArray();
+    internal static readonly string[] AvailableLanguages =
+    {
+        "de",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pt",
+        "ru",
+        "zh-CN"
+    };
 
     internal static string Translate(string sourceText, string targetCode)
     {

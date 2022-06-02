@@ -26,7 +26,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Fluc
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Der Zustand <color=orange>Geblendet</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints	Blaupausen
 ModUi/&CampaignsAndLocations	<color=yellow>Kampagnen und Standorte:</color>
-ModUi/&CancelTranslate	Stornieren Sie {0} um {1}
 ModUi/&Character	Charakter
 ModUi/&CharactersPool	Zeichenpool
 ModUi/&Classes	<color=yellow>Klassen</color>
@@ -47,7 +46,7 @@ ModUi/&EmpressGarbAppearance	Aussehen <color=orange>Kaiserin-Gewand</color>
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Füge neue Fokusgegenstände zu Dungeon Maker hinzu</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
 ModUi/&EnableAlternateHuman	Aktiviere den alternativen Menschen <i><color=yellow>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
-ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]< /Farbe></i></b>
+ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Aktivieren Sie die Abbruchaktion mit einem Rechtsklick
 ModUi/&EnableCharacterChecker	Aktivieren Sie den Zeichenprüfbildschirm
 ModUi/&EnableCharacterExport	Aktivieren Sie <color=cyan>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
@@ -63,7 +62,7 @@ ModUi/&EnableFlexibleBackgrounds	Aktivieren Sie flexible Hintergründe <i><color
 ModUi/&EnableFlexibleRaces	Flexible Rassen aktivieren <i><color=yellow>[Fähigkeitspunktzahl statt der Rassenvorgaben zuweisen]</color></i>
 ModUi/&EnableHotkeyDebugOverlay	Aktivieren Sie <color=cyan>CTRL-SHIFT-(D</color>)ebug-Overlay
 ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
-ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M< /color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
+ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
 ModUi/&EnableHotkeyZoomCamera	Aktivieren Sie <color=cyan>STRG-UMSCHALT-(Z</color>)Raumkamera <i><color=yellow>[nützlich beim Aufnehmen von Dungeon-Screenshots zum Veröffentlichen]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ nur umgehen, wenn kein kritischer Treffer vorliegt</i>
 ModUi/&EnableInventoryFilteringAndSorting	Inventarfilterung und -sortierung aktivieren
@@ -164,8 +163,11 @@ ModUi/&Subclasses	<color=yellow>Unterklassen</color>
 ModUi/&Tools	Werkzeug
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Auf der ersten Stufe gewährte Talente insgesamt</color>
 ModUi/&Translate	Übersetzen
-ModUi/&TranslationHelp	. Übersetzt Benutzerkampagnen in {0} und speichert sie zurück in den Pool, dem der Sprachcode vorangestellt ist
+ModUi/&TranslateCancel	Stornieren Sie {0} um {1}
+ModUi/&ExecuteBatchTranslations	Batch-Übersetzungen ausführen: <i><color=yellow>[Kampagnen werden mit Präfix der Zielsprache zurück in den Pool gespeichert]</color></i>
+ModUi/&EnableOnTheFlyTranslations	Benutzerdefinierte Inhaltsübersetzungen in Echtzeit aktivieren <i><color=yellow>[erfordert ausgehende Live-Verbindung. zu https://translate.googleapis.com]</color></i>
 ModUi/&Translations	Übersetzungen
+ModUi/&TargetLanguage	<color=yellow>Zielsprache:</color>
 ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NPC-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
 ModUi/&UnleashNpcAsEnemy	Erlaube die Auswahl von NPCs auf Monster-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
 ModUi/&UnlockAllNpcFaces	Schalte alle NPC-Gesichter frei

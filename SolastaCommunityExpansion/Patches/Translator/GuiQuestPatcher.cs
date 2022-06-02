@@ -2,7 +2,7 @@
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 
-namespace SolastaCommunityExpansion.Patches.DungeonMaker.VariableReplacement;
+namespace SolastaCommunityExpansion.Patches.Translator;
 
 [HarmonyPatch(typeof(GuiQuest), "GetStepTitle")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -11,6 +11,13 @@ internal static class GuiQuest_GetStepTitle
     internal static void Postfix(ref string __result)
     {
         __result = DungeonMakerContext.ReplaceVariable(__result);
+
+        if (Main.Settings.EnableOnTheFlyTranslations)
+        {
+            __result = Utils.UserCampaignsTranslator.Translate(
+                __result,
+                Main.Settings.SelectedLanguageCode);
+        }
     }
 }
 
@@ -21,5 +28,12 @@ internal static class GuiQuest_GetStepDescription
     internal static void Postfix(ref string __result)
     {
         __result = DungeonMakerContext.ReplaceVariable(__result);
+
+        if (Main.Settings.EnableOnTheFlyTranslations)
+        {
+            __result = Utils.UserCampaignsTranslator.Translate(
+                __result,
+                Main.Settings.SelectedLanguageCode);
+        }
     }
 }
