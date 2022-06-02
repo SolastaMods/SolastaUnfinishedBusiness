@@ -638,10 +638,20 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         };
 
         if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip) &&
-            heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(tag))
+            heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(classTag))
         {
             //Reduce by pool amount - any relevant pool bonuses would be added below
-            var activePool = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[tag];
+            var activePool = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[classTag];
+            heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
+        }
+
+        // special case when these bonus cantrips get granted from a sub class (i.e.: Druid Circle of Land)
+        if (subclassTag != string.Empty
+            && __instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip) &&
+            heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(subclassTag))
+        {
+            //Reduce by pool amount - any relevant pool bonuses would be added below
+            var activePool = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools[subclassTag];
             heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
         }
 
