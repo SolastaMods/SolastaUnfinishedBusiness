@@ -14,7 +14,7 @@ public static class TranslationsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(100));
+            UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(120));
 
             var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages, Main.Settings.SelectedLanguageCode);
             if (UI.SelectionGrid(
@@ -50,7 +50,7 @@ public static class TranslationsDisplay
             {
                 string buttonLabel;
 
-                UI.Label(userCampaign.Author.bold().orange(), UI.Width(100));
+                UI.Label(userCampaign.Author.bold().orange(), UI.Width(120));
                 UI.Label(userCampaign.Title.bold().italic(), UI.Width(300));
 
                 if (UserCampaignsTranslator.CurrentExports.TryGetValue(exportName, out var status))

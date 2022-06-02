@@ -164,8 +164,8 @@ ModUi/&Tools	Tools
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
 ModUi/&Translate	Translate
 ModUi/&TranslateCancel	Cancel {0} at {1}
-ModUi/&ExecuteBatchTranslations	Execute batch translations: <i><color=yellow>[campaigns are saved back to pool prefixed by target language]</color></i>
-ModUi/&EnableOnTheFlyTranslations	Enable real time custom content translations <i><color=yellow>[requires live outbound conn. to https://translate.googleapis.com]</color></i>
+ModUi/&ExecuteBatchTranslations	<color=yellow>Batch translations:</color>\n\n. Campaigns are saved back to pool prefixed by target language
+ModUi/&EnableOnTheFlyTranslations	Enable real time custom content translations
 ModUi/&Translations	Translations
 ModUi/&TargetLanguage	<color=yellow>Target Language:</color>
 ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
