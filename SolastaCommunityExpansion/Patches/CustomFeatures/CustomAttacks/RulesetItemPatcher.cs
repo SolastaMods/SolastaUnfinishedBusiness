@@ -15,6 +15,11 @@ internal static class RulesetItem_FillTags
         object context,
         bool active = false)
     {
+        if (WeaponValidators.IsPolearm(__instance))
+        {
+            tagsMap.TryAdd(CustomWeaponsContext.PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
+        }
+        
         if (Monk.IsMonkWeapon(null, __instance))
         {
             tagsMap.TryAdd(Monk.WeaponTag, TagsDefinitions.Criticity.Normal);

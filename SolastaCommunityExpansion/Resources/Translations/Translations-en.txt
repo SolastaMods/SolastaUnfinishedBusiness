@@ -2062,3 +2062,4 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON only preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&TagPolearmWeaponTitle	Polearm

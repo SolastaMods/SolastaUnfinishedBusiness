@@ -17,6 +17,8 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class CustomWeaponsContext
 {
+    public const string PolearmWeaponTag = "PolearmWeapon";
+    public static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
     public static ItemDefinition HandwrapsPlus1, HandwrapsPlus2, HandwrapsOfForce, HandwrapsOfPulling;
     public static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     public static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
@@ -41,6 +43,12 @@ public static class CustomWeaponsContext
     public static readonly ShopItemType ShopRangedPlus2 = new(FactionStatusDefinitions.Brotherhood, MagicRanged);
     public static readonly ShopItemType ShopCrafting = new(FactionStatusDefinitions.Alliance, CraftingManual);
 
+    public static readonly List<string> PolearmWeaponTypes = new()
+    {
+        WeaponTypeDefinitions.QuarterstaffType.Name,
+        WeaponTypeDefinitions.SpearType.Name,
+    };
+
     private static readonly List<(ItemDefinition, ShopItemType)> ShopItems = new();
     private static StockUnitDescriptionBuilder _stockBuilder;
     private static StockUnitDescriptionBuilder StockBuilder => _stockBuilder ??= BuildStockBuilder();
@@ -54,6 +62,8 @@ public static class CustomWeaponsContext
         BuildHandXbow();
         AddToShops();
         AddToEditor();
+
+        PolearmWeaponTypes.AddRange(new[] {HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name});
     }
 
     public static ItemPresentation BuildPresentation(string unIdentifiedName, ItemPresentation basePresentation,
@@ -212,7 +222,7 @@ public static class CustomWeaponsContext
     private static void BuildHalberds()
     {
         var scale = new CustomScale(z: 3.5f);
-        var baseWeaponType = WeaponTypeDefinitionBuilder
+        HalberdWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
@@ -222,7 +232,7 @@ public static class CustomWeaponsContext
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 2,
-            weaponType = baseWeaponType.Name,
+            weaponType = HalberdWeaponType.Name,
             weaponTags = new List<string>
             {
                 TagsDefinitions.WeaponTagHeavy,
@@ -287,7 +297,7 @@ public static class CustomWeaponsContext
     private static void BuildPikes()
     {
         var scale = new CustomScale(z: 3.5f);
-        var baseWeaponType = WeaponTypeDefinitionBuilder
+        PikeWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.SpearType, "CEPikeType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
@@ -297,7 +307,7 @@ public static class CustomWeaponsContext
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 2,
-            weaponType = baseWeaponType.Name,
+            weaponType = PikeWeaponType.Name,
             weaponTags = new List<string>
             {
                 TagsDefinitions.WeaponTagHeavy,
@@ -364,7 +374,7 @@ public static class CustomWeaponsContext
     private static void BuildLongMaces()
     {
         var scale = new CustomScale(z: 3.5f);
-        var baseWeaponType = WeaponTypeDefinitionBuilder
+        LongMaceWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
@@ -374,7 +384,7 @@ public static class CustomWeaponsContext
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
             reachRange = 2,
-            weaponType = baseWeaponType.Name,
+            weaponType = LongMaceWeaponType.Name,
             weaponTags = new List<string>
             {
                 TagsDefinitions.WeaponTagHeavy,
@@ -439,7 +449,7 @@ public static class CustomWeaponsContext
     private static void BuildHandXbow()
     {
         var scale = new CustomScale(0.5f);
-        var baseWeaponType = WeaponTypeDefinitionBuilder
+        HandXbowWeaponType = WeaponTypeDefinitionBuilder
             .Create(WeaponTypeDefinitions.LightCrossbowType, "CEHandXbowType", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Equipment, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
@@ -449,7 +459,7 @@ public static class CustomWeaponsContext
         var basePresentation = new ItemPresentation(baseItem.ItemPresentation);
         var baseDescription = new WeaponDescription(baseItem.WeaponDescription)
         {
-            weaponType = baseWeaponType.Name,
+            weaponType = HandXbowWeaponType.Name,
             closeRange = 6,
             maxRange = 24,
             weaponTags = new List<string>
