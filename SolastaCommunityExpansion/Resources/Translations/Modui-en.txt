@@ -40,7 +40,7 @@ ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other cl
 ModUi/&DontFollowCharacterInBattle	Battle camera doesn't follow when character is already on screen
 ModUi/&DontFollowMargin	<i>+ Unless hero is off or within % of screen edge</i>
 ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
-ModUi/&DungeonMakerBasicHelp	. These settings won't require the player to have this mod installed
+ModUi/&DungeonMakerBasicHelp	. These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=yellow>[i.e: Hello {Salute} Hero!]</color></i>
 ModUi/&DungeonMakerMenu	Dungeon Maker
 ModUi/&EmpressGarbAppearance	<color=orange>Empress Garb</color> appearance
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Add new foci items to Dungeon Maker</i>
