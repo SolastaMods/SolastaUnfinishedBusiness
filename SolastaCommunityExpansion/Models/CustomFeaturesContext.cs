@@ -496,6 +496,11 @@ public static class CustomFeaturesContext
         return UnCustomizeTag(tag) + "[Custom]";
     }
 
+    public static bool IsCustomTag(string tag)
+    {
+        return tag != null && tag.Contains("[Custom]");
+    }
+
     public static string GetSpellLearningTag(RulesetCharacterHero hero, string tag)
     {
         if (tag == null)
