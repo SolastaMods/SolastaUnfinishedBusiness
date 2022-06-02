@@ -559,7 +559,7 @@ Feat/&FeatMetamagicAdeptExtendedDescription	Increase your Charisma by 1, to a ma
 Feat/&FeatMetamagicAdeptExtendedTitle	Metamagic: Extended
 Feat/&FeatMetamagicAdeptHeightenedDescription	You learn the Heightened metamagic and gain 4 sorcery points.
 Feat/&FeatMetamagicAdeptHeightenedTitle	Metamagic: Heightened
-Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Quickned metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Quickened metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagic: Quickened
 Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
@@ -771,7 +771,7 @@ Feat/&UsingitemPowerDescription	Allows weapon power to be used on bonus action.
 Feat/&UsingitemPowerTitle	Use Weapon Power
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&AdditionalDamageAgonizingBlastDescription	You add you Cha modifier to the first roll damge of an Eldritch Blast attack.
+Feature/&AdditionalDamageAgonizingBlastDescription	You add you Cha modifier to the first roll damage of an Eldritch Blast attack.
 Feature/&AdditionalDamageAgonizingBlastTitle	Agonizing Blast
 Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
@@ -792,12 +792,12 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	You become proficient with a
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pact of the Blade
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest you can empower a weapon with the power of souls. That weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + Charisma modifier.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
+Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
 Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round.
 Feature/&AncientForestLightAffinityTitle	Photosynthesis
@@ -881,7 +881,7 @@ Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Clim
 Feature/&ClassMonkWeaponProficiencyTitle	Monk Weapon Proficiencies
 Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantge when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
 Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
-Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows
 Feature/&ClassMonkZenArcherStunningArrowsTitle	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a arrow attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
@@ -911,7 +911,7 @@ Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When yo
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Relentless Endurance
 Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 proficiency bonus damage.
 Feature/&DeadeyeTitle	Deadeye
-Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and nonmagical, to a distance of 120 feet.
+Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and non-magical, to a distance of 120 feet.
 Feature/&DevilsSightTitle	Devil's Sight
 Feature/&DH_BlinkDescription	As a bonus action, you vanish from your current plane of existence, preventing all damage. At the start of your next turn, you return to the space you vanished from.
 Feature/&DH_BlinkTitle	Blink
@@ -983,7 +983,7 @@ Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n  .
+Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPactAstralPlane	Astral Plane
@@ -999,7 +999,7 @@ Feature/&ElementalPatronElementalDamageFormatDescription	When channeling {0}, de
 Feature/&ElementalPatronElementalDamageFormatTitle	Elemental Damage: {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	When channeling the {0}, you gain Immunity to {1} and apply proficiency bonus as damage of the same type to first hit each round.
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Channeling {0}
-Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply proficiency bonus as damage of the same type to first hit each round. .
+Feature/&ElementalPatronElementalFormFormatDescription	When channeling the {0}, you gain Resistance to {1} damage and apply Proficiency Bonus as damage of the same type to first hit each round.
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&ElementalPatronFeatureSet_Level06Description	You knowledge of elementals has increased to the point that you now gain advantage on ability checks towards elementals, and deal additional damage against elementals equal to your knowledge level. You can no longer be charmed or frightened by elementals.
 Feature/&ElementalPatronFeatureSet_Level06Title	Knowledge of Elementals
@@ -1058,7 +1058,7 @@ Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training
 Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition.
 Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
-Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
+Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spells
 Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
 Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness.
@@ -1112,7 +1112,7 @@ Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
 Feature/&RangerVanishActionTitle	Vanish
 Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
-Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
+Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker Spells
 Feature/&SavingThrowTinkererProficiencyDescription	Proficiency in Constitution and Intelligence saving throws.
 Feature/&SavingThrowTinkererProficiencyTitle	Saving Throw Proficiency
@@ -1141,7 +1141,7 @@ Feature/&TinkererInfusionChoiceDescription	Select the infusions that you will ha
 Feature/&TinkererInfusionChoiceTitle	Infusion Choice
 Feature/&TinkererInfusionReplaceDescription	Select the infusions to replace.
 Feature/&TinkererInfusionReplaceTitle	Replace Infusion
-Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medecine, Nature, Perception and Sleight of Hand.
+Feature/&TinkererSkillGainChoicesPluralDescription	Tinkerer skills are Arcana, History, Investigation, Medicine, Nature, Perception and Sleight of Hand.
 Feature/&TinkererSkillPointsTitle	Tinkerer Skills
 Feature/&TinkererToolsExpertiseDescription	Gain expertise with many tools including Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit, and Enchanting Tools.
 Feature/&TinkererToolsExpertiseTitle	Tinkerer Tool Expertise
@@ -1150,7 +1150,7 @@ Feature/&TinkererToolsProficiencyTitle	Tool Proficiencies
 Feature/&TinkererWeaponProficiencyDescription	Proficiency with simple weapons.
 Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
-Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n .
+Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
@@ -1316,11 +1316,11 @@ Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1
 Item/&Handwraps+1UnidentifiedTitle	Good Quality Handwraps
 Item/&Handwraps+2Title	Handwraps +2
-Item/&Handwraps+2UnidentifiedTitle	Maginificent Handwraps
+Item/&Handwraps+2UnidentifiedTitle	Magnificent Handwraps
 Item/&HandwrapsOfForceTitle	Forceful Handwraps
-Item/&HandwrapsOfForceUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfForceUnidentifiedTitle	Magnificent Handwraps
 Item/&HandwrapsOfPullingTitle	Handwraps Of Pulling
-Item/&HandwrapsOfPullingUnidentifiedTitle	Maginificent Handwraps
+Item/&HandwrapsOfPullingUnidentifiedTitle	Magnificent Handwraps
 Language/&AbyssalDescription	Abyssal language was the form of primordial language which has been wrapped and twisted by the evil of the abyss.
 Language/&AbyssalTitle	Abyssal
 Language/&GnomishLanguageDescription	An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
@@ -1845,9 +1845,9 @@ Subclass/&ConditionTransmutePoisonDescription	Temporary acid, cold, fire, lightn
 Subclass/&ConditionTransmutePoisonTitle	Elemental Resistance
 Subclass/&CraftingTinkererMagicItemAdeptDescription	You are adept at crafting magic items. It takes you 1/4 the time to craft items and you apply double your proficiency bonus when crafting.
 Subclass/&CraftingTinkererMagicItemAdeptTitle	Magic Item Adept
-Subclass/&DHWarlockSubclassElementalPatronDescription	You've been made a pact with and been changed by primordals present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of diferent elemental types.
+Subclass/&DHWarlockSubclassElementalPatronDescription	You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 Subclass/&DHWarlockSubclassElementalPatronTitle	Elementalist Pact
-Subclass/&DHWarlockSubclassRiftWalkerDescription	Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift engeries to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
+Subclass/&DHWarlockSubclassRiftWalkerDescription	Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 Subclass/&DHWarlockSubclassRiftWalkerTitle	Rift Walker Pact
 Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
@@ -1876,7 +1876,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	Your experience with spel
 Subclass/&FighterSpellShieldSpellResistanceTitle	Spell Resistance
 Subclass/&FighterSpellShieldTitle	Spell Shield
 Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
-Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n{0}\n\n .
+Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n{0}\n\n
 Subclass/&GreenWitchMagicTitle	Green Magic
 Subclass/&GreenWitchTitle	Green Witch
 Subclass/&HArtilleryIncreaseDescription	Artillery Pool Increase.
@@ -1932,7 +1932,7 @@ Subclass/&ManipulatorMentalSavingThrowsDescription	Gain proficiency in saving th
 Subclass/&ManipulatorMentalSavingThrowsTitle	Mental Resistance
 Subclass/&MarshalEternalComradeDescription	Fallen Comrade
 Subclass/&MarshalEternalComradeTitle	Fallen Comrade
-Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemis slides. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 Subclass/&OpportunistTitle	Opportunist
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you add your +7 to your attack and damage rolls. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Improved Infuse Weapon
@@ -1971,13 +1971,13 @@ Subclass/&PowerTransmuteHealTitle	Heal
 Subclass/&PowerTransmuteReviveDescription	Use your Transmute Force to revive a character (within 1 minute of them dying).
 Subclass/&PowerTransmuteReviveTitle	Revive
 Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
-Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n .
+Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
 Subclass/&PurpleWitchMagicTitle	Purple Magic
 Subclass/&PurpleWitchTitle	Purple Witch
 Subclass/&RangerArcanistRangerSubclassDescription	The Ranger Arcanist melds their ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 Subclass/&RangerArcanistRangerSubclassTitle	Ranger Arcanist
 Subclass/&RedWitchDescription	Arcane magic tied to channeling the elements is deemed red magic, and is extremely hazardous when used. Witches that specialize in red magic are among the deadliest spellcasters in existence, channeling their curse into unhindered arcane wrath.
-Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n .
+Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
 Subclass/&RedWitchMagicTitle	Red Magic
 Subclass/&RedWitchTitle	Red Witch
 Subclass/&RoguishConArtistDescription	Con Artists are rogues that specialize in deception and tricking others. They use magic to aid their natural manipulative abilities.
@@ -1990,7 +1990,7 @@ Subclass/&RoguishConArtistMentalSavingThrowsTitle	Mental Strength
 Subclass/&RoguishConArtistSpellcastingDescription	Cast wizard spells and cantrips from the Conjuration, Enchantment, Illusion, and Transmutation schools. The Con Artist uses Charisma to cast their spells.
 Subclass/&RoguishConArtistSpellcastingTitle	Spellcasting
 Subclass/&RoguishConArtistTitle	Con Artist
-Subclass/&ScoutSentinelTinkererSubclassDescription	A Scout Sentinel tinkerer modifies armor to enhance it's fuction, provding enhanced protection and mobility.
+Subclass/&ScoutSentinelTinkererSubclassDescription	A Scout Sentinel tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
 Subclass/&ScoutSentinelTinkererSubclassTitle	Scout Sentinel
 Subclass/&SpellShieldAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&SpellShieldAdditionalActionTitle	Spell Fighting
@@ -2022,7 +2022,7 @@ Subclass/&WarlockAncientForestDescription	You have forged a relationship with a 
 Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
 Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 Subclass/&WarlockMoonLitTitle	MoonLit Pact
-Subclass/&WarlockToadKingDescription	Fey, demon or abberation caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+Subclass/&WarlockToadKingDescription	Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 Subclass/&WarlockToadKingTitle	Toad King Pact
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
@@ -2031,7 +2031,7 @@ Subclass/&WeaponProfArcaneFighterTitle	Weapon Training
 Subclass/&WeaponProfArtificerBattleSmithDescription	Experience in combat has given the Weapon Smith training in Martial Weapons.
 Subclass/&WeaponProfArtificerBattleSmithTitle	Weapon Training
 Subclass/&WhiteWitchDescription	White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
-Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n .
+Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
 Subclass/&WhiteWitchMagicTitle	White Magic
 Subclass/&WhiteWitchTitle	White Witch
 Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
