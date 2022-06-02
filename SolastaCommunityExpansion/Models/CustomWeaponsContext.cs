@@ -53,6 +53,7 @@ public static class CustomWeaponsContext
         BuildLongMaces();
         BuildHandXbow();
         AddToShops();
+        AddToEditor();
     }
 
     public static ItemPresentation BuildPresentation(string unIdentifiedName, ItemPresentation basePresentation,
@@ -519,6 +520,17 @@ public static class CustomWeaponsContext
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
             GiveAssortment(ShopItems);
+        }
+    }
+
+    private static void AddToEditor()
+    {
+        if (Main.Settings.AddNewWeaponsAndRecipesToEditor)
+        {
+            foreach (var (item, _) in ShopItems)
+            {
+                item.SetInDungeonEditor(true);
+            }
         }
     }
 

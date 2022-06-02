@@ -84,6 +84,16 @@ internal static class ItemsAndCraftingDisplay
         if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
+            Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
+        }
+
+        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
+        {
+            toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
+            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToEditor")), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
+            }
         }
 
         UI.Label("");

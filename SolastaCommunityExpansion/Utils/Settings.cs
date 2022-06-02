@@ -202,6 +202,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AddNewWeaponsAndRecipesToShops { get; set; } = true; // simplifies diags. creation (one less boot)
 #else
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
+    public bool AddNewWeaponsAndRecipesToEditor { get; set; }
 #endif
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentifcationRequirements { get; set; }
