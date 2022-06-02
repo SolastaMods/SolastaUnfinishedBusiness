@@ -6,6 +6,7 @@ public delegate bool CharacterValidator(RulesetCharacter character);
 
 public static class CharacterValidators
 {
+    public static readonly CharacterValidator HasAttacked = character => character.ExecutedAttacks > 0;
     public static readonly CharacterValidator NoArmor = character => !character.IsWearingArmor();
 
     public static readonly CharacterValidator NoShield = character => !character.IsWearingShield();
@@ -13,6 +14,13 @@ public static class CharacterValidators
 
     public static readonly CharacterValidator EmptyOffhand = character =>
         character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+
+    public static readonly CharacterValidator HasPolearm = character =>
+    {
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        return WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
+               || WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
+    };
 
     public static readonly CharacterValidator FullyUnarmed = character =>
     {

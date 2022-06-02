@@ -215,6 +215,61 @@ public class AddExtraThrownAttack : AddExtraAttackBase
     }
 }
 
+public class AddPolearmFollowupAttack : AddExtraAttackBase
+{
+    public AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
+        CharacterValidators.HasAttacked, CharacterValidators.HasPolearm)
+    {
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+    {
+        var result = new List<RulesetAttackMode>();
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+        return result;
+    }
+
+    private void AddItemAttack(List<RulesetAttackMode> attackModes, string slot, RulesetCharacterHero hero)
+    {
+        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+        if (item == null || !WeaponValidators.IsPolearm(item))
+        {
+            return;
+        }
+
+        var strikeDefinition = item.ItemDefinition;
+
+        var attackMode = hero.RefreshAttackModePublic(
+            actionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            false,
+            true,
+            slot,
+            hero.attackModifiers,
+            hero.FeaturesOrigin,
+            item
+        );
+        attackMode.Reach = true;
+        attackMode.Ranged = false;
+        attackMode.Thrown = false;
+
+        var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
+        damage.DieType = DieType.D4;
+        damage.DiceNumber = 1;
+        damage.DamageType = DamageTypeBludgeoning;
+
+        var effectForm = EffectForm.Get();
+        effectForm.FormType = EffectForm.EffectFormType.Damage;
+        effectForm.DamageForm = damage;
+        attackMode.EffectDescription.Clear();
+        attackMode.EffectDescription.EffectForms.Add(effectForm);
+
+        attackModes.Add(attackMode);
+    }
+}
+
 public class AddBonusShieldAttack : AddExtraAttackBase
 {
     public AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus, false)

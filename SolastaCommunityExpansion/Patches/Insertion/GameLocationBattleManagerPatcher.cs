@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaCommunityExpansion.CustomDefinitions;
+using TA;
 
 namespace SolastaCommunityExpansion.Patches.Insertion;
 
@@ -47,6 +48,54 @@ internal static class GameLocationBattleManagerPatcher
             {
                 yield return extraEvents.Current;
             }
+        }
+    }
+    
+    
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveStart")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterMoveStart
+    {
+        internal static void Prefix(GameLocationBattleManager __instance,
+            GameLocationCharacter mover,
+            int3 destination
+        )
+        {
+            AttacksOfOpportunity.ProcessOnCharacterMoveStart(mover, destination);
+        }
+    }
+    
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveEnd")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterMoveEnd
+    {
+        internal static IEnumerator Postfix(
+            IEnumerator __result,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter mover
+        )
+        {
+            while (__result.MoveNext())
+            {
+                yield return __result.Current;
+            }
+
+            var extraEvents = AttacksOfOpportunity.ProcessOnCharacterMoveEnd(__instance, mover);
+
+            while (extraEvents.MoveNext())
+            {
+                yield return extraEvents.Current;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "PrepareBattleEnd")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class PrepareBattleEnd
+    {
+        internal static void Prefix(GameLocationBattleManager __instance)
+        {
+            AttacksOfOpportunity.CleanMovingCache();
         }
     }
 }
