@@ -1,17 +1,17 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:EldritchInvocationDetectMagicCantrip:b421a1e6-9874-53fa-89c4-1cccddd20663"
+    "Definition:EldritchInvocationInvisibilityCantrip:d64b5276-1afb-59ee-80bf-2e0015e89625"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&EldritchSightTitle",
-    "description": "Cast Detect Magic at will.",
+    "title": "Feature/&ShroudofShadowTitle",
+    "description": "Cast Invisibility at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "41c47ba900048504486f4bce9a0468c1",
-      "m_SubObjectName": "DetectMagic",
+      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
+      "m_SubObjectName": "Invisibility",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -27,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a86d2285-95da-518c-9c54-d866d8dd3864",
+  "guid": "91a1e031-bd55-5cd2-8621-f4fcead6dd65",
   "contentPack": 9999,
-  "name": "EldritchInvocationDetectMagic"
+  "name": "EldritchInvocationInvisibility"
 }

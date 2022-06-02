@@ -1,5 +1,4 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells.
-ActionAffinity/&DHFeeblemindSpellTitle	Feeble Spellcasting
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1.
@@ -2062,3 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Tooltip/&TagPolearmWeaponTitle	Polearm
+Feat/&FeatPolearmExpertTitle	Polearm Expert
+Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n - When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n - While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.

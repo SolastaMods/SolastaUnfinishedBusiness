@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantripsWithPrerequisites, SolastaCommunityExpansion",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionBonusCantripsWithPrerequisites, SolastaCommunityExpansion",
   "bonusCantrips": [
     "Definition:EldritchBlastRepellingBlast:919c97d2-986c-53e5-a614-237c6d10aeb5"
   ],

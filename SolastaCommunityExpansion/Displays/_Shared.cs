@@ -11,7 +11,7 @@ internal static class Shared
 
     internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
     {
-        UI.Label(Gui.Format("Bem-vindo / Bienvenue / Welcome / Wilkommen / пожалуйста / 欢迎".bold().yellow()));
+        UI.Label(Gui.Format("Bem-vindo / Bienvenue / Welcome / Wilkommen / добро пожаловать / 欢迎".bold().yellow()));
         UI.Div();
 
         if (Main.Enabled)

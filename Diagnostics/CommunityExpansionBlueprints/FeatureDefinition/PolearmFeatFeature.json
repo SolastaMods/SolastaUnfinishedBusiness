@@ -1,14 +1,10 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
-  "bonusCantrips": [
-    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
-    "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d"
-  ],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&DHAncientForestBonusCantripTitle",
-    "description": "Feature/&DHAncientForestBonusCantripDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -28,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "53093405-2ebb-5cef-9750-75bf8364da02",
+  "guid": "543884a6-8747-546f-b632-7220eff08c14",
   "contentPack": 9999,
-  "name": "DHAncientForestBonusCantrip"
+  "name": "PolearmFeatFeature"
 }

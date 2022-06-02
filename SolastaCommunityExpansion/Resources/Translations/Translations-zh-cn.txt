@@ -1,5 +1,4 @@
 ActionAffinity/&DHFeeblemindSpellDescription	无法施法
-ActionAffinity/&DHFeeblemindSpellTitle	施法能力衰减
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC设为16
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	树肤术
 AttributeModifier/&DHFeeblemindChaSpellDescription	魅力值为1
@@ -2062,3 +2061,6 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
+Tooltip/&TagPolearmWeaponTitle	Polearm
+Feat/&FeatPolearmExpertTitle	Polearm Expert
+Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n - When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n - While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.

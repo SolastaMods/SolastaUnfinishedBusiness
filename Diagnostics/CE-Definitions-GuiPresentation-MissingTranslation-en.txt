@@ -14,6 +14,7 @@ CraftingManualRecipePrimingCEHalberd	Description='Item/&CraftingManualRecipePrim
 CraftingManualRecipePrimingCEHandXbow	Description='Item/&CraftingManualRecipePrimingCEHandXbowDescription'.
 CraftingManualRecipePrimingCELongMace	Description='Item/&CraftingManualRecipePrimingCELongMaceDescription'.
 CraftingManualRecipePrimingCEPike	Description='Item/&CraftingManualRecipePrimingCEPikeDescription'.
+DHFeeblemindSpellActionAffinity	Title='ActionAffinity/&DHFeeblemindSpellTitle'.
 FeatureSetGreenWitchMagic	Title='Subclass/&GreenWitchMagic'.
 FeatureSetRedWitchMagic	Title='Subclass/&RedWitchMagic'.
 FeatureSetWhiteWitchMagic	Title='Subclass/&WhiteWitchMagic'.
