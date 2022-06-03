@@ -1855,9 +1855,9 @@ Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
 Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
 Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
-Subclass/&FighterMarshalEncouragementPowerDescription	Once per day, you can spend an hour to encourage each other and prepare for the next adventure day. The morale of the party is improved significantly and each encouraged character add 1d4 to their attack rolls and saving throw until the end of a long rest. 
+Subclass/&FighterMarshalEncouragementPowerDescription	The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eternal Comrade
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	You are immune to fear effect.
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Fearless Commander
@@ -2064,3 +2064,5 @@ UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
 Tooltip/&TagPolearmWeaponTitle	Polearm
 Feat/&FeatPolearmExpertTitle	Polearm Expert
 Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Feat/&FeatRangedExpertTitle	Ranged Expert
+Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\n - You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.\n - If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
