@@ -532,6 +532,14 @@ public static class CustomWeaponsContext
         }
     }
 
+    public static void TryAddItemsToUserMerchant(MerchantDefinition merchant)
+    {
+        if (Main.Settings.AddNewWeaponsAndRecipesToShops)
+        {
+            GiveAssortment(ShopItems, merchant, MerchantTypeContext.GetMerchantType(merchant));
+        }
+    }
+
     private static void AddToEditor()
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToEditor)
