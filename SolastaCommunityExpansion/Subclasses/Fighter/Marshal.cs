@@ -205,7 +205,7 @@ internal static class CoordinatedAttackBuilder
         ActionModifier attackModifier)
     {
         // melee only
-        if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure)
+        if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure || actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
         {
             return;
         }
@@ -387,7 +387,7 @@ public static class EternalComradeBuilder
             .SetActivationTime(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create(ConjureAnimalsTwoBeasts.EffectDescription.Copy())
+                    .Create(ConjureAnimalsOneBeast.EffectDescription.Copy())
                     .SetDurationData(DurationType.Round, 10)
                     .ClearEffectForms()
                     .AddEffectForm(effectForm)
@@ -472,14 +472,17 @@ public static class EncourageBuilder
     {
         var effect = EffectDescriptionBuilder
             .Create(Bless.EffectDescription)
-            .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique, 6, 6)
-            .SetDurationData(DurationType.UntilLongRest)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5, 2)
+            .SetDurationData(DurationType.Permanent)
+            .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
             .Build();
+        effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder
             .Create("Encouragement", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .Configure(1, UsesDetermination.Fixed, AttributeDefinitions.Charisma, ActivationTime.Hours1, 1,
-                RechargeRate.LongRest, false, false, AttributeDefinitions.Charisma, effect)
+            .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma, ActivationTime.PermanentUnlessIncapacitated, 1,
+                RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
+            .SetShowCasting(false)
             .SetGuiPresentation("FighterMarshalEncouragementPower", Category.Subclass,
                 Bless.GuiPresentation.SpriteReference)
             .AddToDB();
