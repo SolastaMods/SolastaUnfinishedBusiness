@@ -2,12 +2,13 @@
 ModUi/&AddBleedingToLesserRestoration	Adicione a condição <color=orange>Sangramento</color> às condições removidas pela <color=orange>Restauração Maior e Menor</color>
 ModUi/&AddHelpActionToAllRaces	Adicione a ação <color=orange>Ajuda</color> a todas as corridas
 ModUi/&AddNewWeaponsAndRecipesToShops	Adicione novas armas e receitas às lojas <i><color=yellow>[bandeiras de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[ Requer Reiniciar]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Adicione-os também ao criador de masmorras</i>
 ModUi/&AddPickpocketableLoot	Adicionar espólios de carteirista <i><color=yellow>[sugerido se o recurso <color=orange>Pocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore	Adicionar à loja
 ModUi/&Advanced	<color=yellow>Avançado:</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ATENÇÃO:</color></b> Esta configuração exigirá que o jogador tenha este mod instalado
 ModUi/&Adventure	<color=yellow>Aventura:</color>
-ModUi/&AllItemInDm	<i>+ Adicione-os também ao criador de masmorras</i>
+ModUi/&AllItemInDm	Todos os itens em DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Permitir que qualquer classe use armadura silvestre
 ModUi/&AllowDruidToWearMetalArmor	Permitir que <color=orange>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20	Permitir masmorras com nível máximo 20 <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>

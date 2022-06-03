@@ -2,12 +2,13 @@
 ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
 ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Also add them to dungeon maker</i>
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore	Add to store
 ModUi/&Advanced	<color=yellow>Advanced:</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ATTENTION:</color></b> This setting will require the player to have this mod installed
 ModUi/&Adventure	<color=yellow>Adventure:</color>
-ModUi/&AllItemInDm	<i>+ Also add them to dungeon maker</i>
+ModUi/&AllItemInDm	All items in DM
 ModUi/&AllowAnyClassToWearSylvanArmor	Allow any class to wear sylvan armor
 ModUi/&AllowDruidToWearMetalArmor	Allow <color=orange>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20	Allow dungeons with max level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

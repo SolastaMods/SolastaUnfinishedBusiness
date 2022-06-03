@@ -2,12 +2,13 @@
 ModUi/&AddBleedingToLesserRestoration	Добавьте условие <color=orange>Кровотечение</color> к состояниям, удаленным с помощью <color=orange>Большого и малого восстановления</color>
 ModUi/&AddHelpActionToAllRaces	Добавьте действие <color=orange>Помощь</color> ко всем гонкам.
 ModUi/&AddNewWeaponsAndRecipesToShops	Добавьте новое оружие и рецепты в магазины <i><color=yellow>[бинты, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[ Требуется перезагрузка]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Также добавьте их в создателя подземелий</i>
 ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[предлагается, если умение <color=orange>Карманные кражи</color> включено]</color></i>
 ModUi/&AddToStore	Добавить в магазин
 ModUi/&Advanced	<color=yellow>Дополнительно:</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Этот параметр потребует, чтобы у игрока был установлен этот мод.
 ModUi/&Adventure	<color=yellow>Приключение:</color>
-ModUi/&AllItemInDm	<i>+ Также добавьте их в создателя подземелий</i>
+ModUi/&AllItemInDm	Все товары в ДМ
 ModUi/&AllowAnyClassToWearSylvanArmor	Разрешить любому классу носить лесную броню
 ModUi/&AllowDruidToWearMetalArmor	Разрешить <color=orange>Друиду</color> носить металлическую броню
 ModUi/&AllowDungeonsMaxLevel20	Разрешить подземелья с максимальным уровнем 20 <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>

@@ -2,12 +2,13 @@
 ModUi/&AddBleedingToLesserRestoration	添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces	添加<color=orange>协助</color>至全部种族
 ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ 同时将其添加至地城制作器</i>
 ModUi/&AddPickpocketableLoot	添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
 ModUi/&AddToStore	加入商店
 ModUi/&Advanced	<color=yellow>进阶选项：</color>
 ModUi/&AdvancedHelp	. <color=#C04040E0>注意：</color> 此项设置将要求玩家安装此Mod
 ModUi/&Adventure	<color=yellow>冒险：</color>
-ModUi/&AllItemInDm	<i>+ 同时将其添加至地城制作器</i>
+ModUi/&AllItemInDm	所有物品加入DM
 ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业装备木族护甲
 ModUi/&AllowDruidToWearMetalArmor	允许<color=orange>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20	允许自定义地下城最大等级达到20级<i><color=#C04040E0>[需要重启游戏]</color></i>
