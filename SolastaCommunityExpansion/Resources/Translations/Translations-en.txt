@@ -129,7 +129,7 @@ Condition/&EWSunlightBladeDamageDescription	At 5th level, attacks triggered by t
 Condition/&EWSunlightBladeDamageTitle	Sunlit Blade's burn
 Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
-Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistances as other ghosts.
 Condition/&HalfLifeConditionTitle	Half Life
 Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
@@ -138,7 +138,7 @@ Condition/&MoonTouchedConditionTitle	Moon Touched
 Condition/&PoxDescription	Pox condition.
 Condition/&PoxTitle	Pox
 Condition/&RuinDescription	Ruin condition.
-Condition/&RuinedDescription	This creature's defence is reduced.
+Condition/&RuinedDescription	This creature's defense is reduced.
 Condition/&RuinedTitle	Ruined
 Condition/&RuinTitle	Ruin
 Condition/&SentinelStopMovementConditionTitle	Stopped
@@ -476,7 +476,7 @@ Feat/&AutoPreparedSpellsDescription	{0}.
 Feat/&AutoPreparedSpellsTitle	Learn Scout Sentinel spells
 Feat/&BattleSmithSubclassSpellsDescription	{0}.
 Feat/&BattleSmithSubclassSpellsTitle	Learn Weapon Smith Spells
-Feat/&CancelFlyingConditionDescription	End flying condtion to allow jumping and crawling.
+Feat/&CancelFlyingConditionDescription	End flying condition to allow jumping and crawling.
 Feat/&CancelFlyingConditionTitle	Cancel Fly
 Feat/&ChefConDescription	You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8 HP. Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefConTitle	Chef (Constitution)
@@ -552,7 +552,7 @@ Feat/&FeatMetamagicAdeptCarefulDescription	Increase your Charisma by 1, to a max
 Feat/&FeatMetamagicAdeptCarefulTitle	Metamagic: Careful
 Feat/&FeatMetamagicAdeptDistantDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Distant metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptDistantTitle	Metamagic: Distant
-Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Empowered metamgic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Empowered metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagic: Empowered
 Feat/&FeatMetamagicAdeptExtendedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Extended metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptExtendedTitle	Metamagic: Extended
@@ -650,7 +650,7 @@ Feat/&ForceArtilleryConstructTitle_3	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_5	Force Artillery Construct
 Feat/&ForceArtilleryDescription	2d8 Force damage and push 5ft.
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
-Feat/&ForceStrikePowerTitle	Force Sling (Artifical Servant)
+Feat/&ForceStrikePowerTitle	Force Sling (Artificial Servant)
 Feat/&GauntletsGrappleDescription	Can now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage.
 Feat/&GauntletsGrappleTitle	Gauntlet grapple
 Feat/&HalfCoverShieldDescription	Gives +2 AC while within 10ft.
@@ -668,7 +668,7 @@ Feat/&IncreaseConstructSelectingTitle	Reinforcements
 Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
 Feat/&InspiringLeaderTitle	Inspiring Leader
 Feat/&IntToAttackAndDamageDescription	Add Int instead of Str or Dex to your Armor Weapons.
-Feat/&IntToAttackAndDamageTitle	Amror Weapon
+Feat/&IntToAttackAndDamageTitle	Armor Weapon
 Feat/&MendingConstructDescription	Repair your construct for 2d6 HP over 1 min.
 Feat/&MendingConstructTitle	Mending Construct
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons.
@@ -677,7 +677,7 @@ Feat/&MoonlitBonusCantripsDescription	Your control of moon light has increased t
 Feat/&MoonlitBonusCantripsTitle	Light Control
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
-Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixier that emboldens your allies, providing them 4d6 + Intelligence modifier temporary hit points.
+Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixir that emboldens your allies, providing them 4d6 + Intelligence modifier temporary hit points.
 Feat/&PowerAlchemistEmboldeningShotsTitle	Emboldening Shots
 Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Once per day, you can cast Greater Restoration.
 Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Greater Restoration
@@ -685,7 +685,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day, you can cast Heal.
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your Intelligence modifier.
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -3 penalty to your to hit in order to do 3 + Proficiency Bonus extra damage with melee weapons.
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -742,7 +742,7 @@ Feat/&SubclassProficienciesTitle	Subclass Proficiencies
 Feat/&SummonArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&SummonArtificialServantTitle	Summon Artificial Servant
 Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushes enemy 5ft away.
-Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
+Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAdditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
 Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade: Self-Destruct
 Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes.
 Feat/&SummonArtilleryConstructlevel15Title	Artillery Construct Upgrade: Half Cover Dome
@@ -840,7 +840,7 @@ Feature/&BolgrifInvisibilityPowerDescription	As a bonus action, you can magicall
 Feature/&BolgrifInvisibilityPowerTitle	Vanish
 Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when determining your carrying capacity.
 Feature/&BolgrifPowerfulBuildTitle	Powerful Build
-Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away.
+Feature/&BondoftheTalismanDescription	Teleport up to 30 ft away.
 Feature/&BondoftheTalismanTitle	Teleport Talisman
 Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a WIS saving throw.
 Feature/&ChainsofCarceriTitle	Chains of Carceri
@@ -878,7 +878,7 @@ Feature/&ClassMonkUnarmoredMovementTitle	Unarmored Movement
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
 Feature/&ClassMonkWeaponProficiencyTitle	Monk Weapon Proficiencies
-Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantge when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
+Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantage when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
 Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
@@ -898,7 +898,7 @@ Feature/&ClassWarlockSavingThrowProficiencyDescription	Wisdom, Charisma.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Saving Throws Proficiencies
 Feature/&ClassWarlockSkillProficiencyDescription	Choose 2 of these skills: Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion.
 Feature/&ClassWarlockSkillProficiencyTitle	Warlock Skills
-Feature/&ClassWarlockSpellcastingDescription	Your arcane research and the magic bestowed on you by your otherwordly patron have given you facility with spells.
+Feature/&ClassWarlockSpellcastingDescription	Your arcane research and the magic bestowed on you by your otherworldly patron have given you facility with spells.
 Feature/&ClassWarlockSpellcastingTitle	Warlock Pact Magic
 Feature/&ClassWarlockToolsProficiencyDescription	You have been trained to brew herbal remedies and use enchanting equipment.
 Feature/&ClassWarlockToolsProficiencyTitle	Warlock Magical Crafting
@@ -1151,7 +1151,7 @@ Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from a hallucinogenic toxin until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
 Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
@@ -1458,7 +1458,7 @@ Power/&ToadKingSwallowDescription	Attempt to swallow a Medium or smaller enemy. 
 Power/&ToadKingSwallowTitle	Swallow
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands.
 Power/&UrPriestControlUndeadTitle	Control Undead
-Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistenances as other ghosts.
+Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistances as other ghosts.
 Power/&UrPriestHalfLifeTitle	Half Life
 Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
 Power/&UrPriestRadiantWardTitle	Radiant Ward
@@ -1744,9 +1744,9 @@ Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven
 Stage/&SubclassSelectionStageCovenTitle	Coven
 Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
-Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
-Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
-Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
+Stage/&SubclassSelectionStagePatronFeatures	Otherworldly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherworldly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherworldly Patrons
 Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
 Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
 Stage/&SubclassSelectionStageSpecialistHeader	Specializations
@@ -1833,7 +1833,7 @@ Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
 Subclass/&ClassMonkTraditionZenArcherDescription	Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
 Subclass/&ClassMonkTraditionZenArcherTitle	Way of the Distant Hand
 Subclass/&ClassWarlockPatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
-Subclass/&ClassWarlockPatronTitle	Otherwordly Patron
+Subclass/&ClassWarlockPatronTitle	Otherworldly Patron
 Subclass/&ConditionResistantArmorTitle	Resistant Armor
 Subclass/&ConditionResistnatArmorDescription	Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage.
 Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
