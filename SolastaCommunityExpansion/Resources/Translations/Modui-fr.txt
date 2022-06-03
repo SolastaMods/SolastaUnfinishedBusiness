@@ -2,13 +2,12 @@
 ModUi/&AddBleedingToLesserRestoration	Ajoutez la condition <color=orange>Saignement</color> aux conditions supprimées par <color=orange>Grande et Petite Restauration</color>
 ModUi/&AddHelpActionToAllRaces	Ajouter l'action <color=orange>Aide</color> à toutes les courses
 ModUi/&AddNewWeaponsAndRecipesToShops	Ajouter de nouvelles armes et recettes aux boutiques <i><color=yellow>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0>[ Nécessite un redémarrage]</color></i></b>
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Ajoutez-les également au créateur de donjons</i>
 ModUi/&AddPickpocketableLoot	Ajouter un butin pickpocketable <i><color=yellow>[suggéré si la fonctionnalité <color=orange>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore	Ajouter au magasin
 ModUi/&Advanced	<color=yellow>Avancé :</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ATTENTION :</color></b> Ce paramètre nécessitera que le joueur ait installé ce mod
 ModUi/&Adventure	<color=yellow>Aventure :</color>
-ModUi/&AllItemInDm	Tous les articles en DM
+ModUi/&AllItemInDm	<i>+ Ajoutez-les également au créateur de donjons</i>
 ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre
 ModUi/&AllowDruidToWearMetalArmor	Autoriser le <color=orange>druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons de niveau 20 maximum <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

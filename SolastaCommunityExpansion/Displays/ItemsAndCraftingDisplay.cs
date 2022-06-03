@@ -90,7 +90,7 @@ internal static class ItemsAndCraftingDisplay
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
             toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
-            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToEditor")), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AllItemInDm")), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
             }

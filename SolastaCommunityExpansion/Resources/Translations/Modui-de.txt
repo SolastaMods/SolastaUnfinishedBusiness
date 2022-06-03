@@ -2,13 +2,12 @@
 ModUi/&AddBleedingToLesserRestoration	Fügen Sie den Zustand <color=orange>Bluten</color> zu den Zuständen hinzu, die durch <color=orange>Größere und Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddHelpActionToAllRaces	Füge allen Rennen die Aktion <color=orange>Hilfe</color> hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu <i><color=yellow>[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[ Neustart erforderlich]</color></i></b>
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Fügen Sie sie auch dem Dungeon Maker hinzu</i>
 ModUi/&AddPickpocketableLoot	Taschendiebstahl-Beute hinzufügen <i><color=yellow>[empfohlen, wenn <color=orange>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore	Zum Shop hinzufügen
 ModUi/&Advanced	<color=yellow>Erweitert:</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellung erfordert, dass der Spieler diesen Mod installiert hat
 ModUi/&Adventure	<color=yellow>Abenteuer:</color>
-ModUi/&AllItemInDm	Alle Artikel in DM
+ModUi/&AllItemInDm	<i>+ Fügen Sie sie auch dem Dungeon Maker hinzu</i>
 ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, Waldrüstungen zu tragen
 ModUi/&AllowDruidToWearMetalArmor	Erlaube dem <color=orange>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20	Verliese mit maximaler Stufe 20 zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
