@@ -741,7 +741,7 @@ Feat/&SubclassProficienciesDescription	You gain proficiency in smith's tools and
 Feat/&SubclassProficienciesTitle	Subclass Proficiencies
 Feat/&SummonArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&SummonArtificialServantTitle	Summon Artificial Servant
-Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushs enemy 5ft away.
+Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushes enemy 5ft away.
 Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
 Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade: Self-Destruct
 Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes.
@@ -851,7 +851,7 @@ Feature/&ClassMonkDiamondSoulTitle	Diamond Soul
 Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ClassMonkExtraAttackTitle	Extra Attack
 Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
-Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiTitle	Ki
 Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
@@ -982,7 +982,7 @@ Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
+Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPactAstralPlane	Astral Plane
@@ -1012,12 +1012,12 @@ Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 
 Feature/&FlameArtillery_15ModePowerTitle	Summon Flame Artillery Construct
 Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2d8 damage on a failed save.
 Feature/&FlameArtilleryModePowerTitle	Summon Flame Artillery Construct
-Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
+Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
 Feature/&ForceArtillery_09ModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
+Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
 Feature/&ForceArtillery_15ModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryAdditionalDamageTitle	Upgraded damage
-Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushs target 5ft away.
+Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushes target 5ft away.
 Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
@@ -1151,7 +1151,7 @@ Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
 Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
@@ -1452,7 +1452,7 @@ Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and push
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself.
 Power/&ToadKingGraspingTongueTitle	Grasping Tongue
-Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
 Power/&ToadKingSwallowDescription	Attempt to swallow a Medium or smaller enemy. On a failed Strength save, the monster is swallowed and receives 3d6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack.
 Power/&ToadKingSwallowTitle	Swallow
@@ -1850,11 +1850,11 @@ Subclass/&DHWarlockSubclassRiftWalkerDescription	Your patron is one of the rare 
 Subclass/&DHWarlockSubclassRiftWalkerTitle	Rift Walker Pact
 Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
-Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
 Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
-Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
+Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
 Subclass/&FighterMarshalEncouragementPowerDescription	Once per day, you can spend an hour to encourage each other and prepare for the next adventure day. The morale of the party is improved significantly and each encouraged character add 1d4 to their attack rolls and saving throw until the end of a long rest. 
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
@@ -1865,7 +1865,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	You add your knowledg
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Know Your Enemy
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against nonmagical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against non-magical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
 Subclass/&FighterMarshalTitle	Marshal
 Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
