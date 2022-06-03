@@ -27,7 +27,7 @@ Class/&WitchFamiliarPowerTitle	Familier
 Class/&WitchFeatureSetBurnedCurseDescription	La quasi-totalité de votre corps a été brûlée par des flammes arcaniques, vous laissant avec des cicatrices noires saisissantes et des braises de magie qui brûlent sous la peau. En conséquence, vous avez une résistance aux dégâts de feu et vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
 Class/&WitchFeatureSetBurnedCurseTitle	Brûlé
 Class/&WitchFeatureSetLovelessCurseDescription	Tu es maudit de ne jamais trouver le véritable amour. Blasé et désaffecté, même la magie ne peut transformer votre cœur ; par conséquent, vous êtes immunisé contre le charme.
-Class/&WitchFeatureSetLovelessCurseTitle	Sans amour
+Class/&WitchFeatureSetLovelessCurseTitle	sans amour
 Class/&WitchFeatureSetRitualCastingDescription	Vous pouvez lancer n'importe quel sort de sorcière que vous connaissez en tant que rituel si ce sort a l'étiquette de rituel.
 Class/&WitchFeatureSetRitualCastingTitle	Casting rituel de sorcière
 Class/&WitchFeatureSetVisionsCurseDescription	Vous êtes maudit d'avoir de terribles visions de l'avenir, présageant la mort de vos amis, de votre famille et de vous-même. Cependant, bon nombre de ces visions sont de cruelles tromperies, elles sont parfois d'une précision sinistre. Vous pouvez ajouter votre modificateur de Charisme, en plus de votre modificateur de Dextérité, à vos jets d'initiative.
@@ -500,7 +500,7 @@ Feat/&FeatArcanePrecisionDescription	Lorsqu'elle est active sur une arme, ses at
 Feat/&FeatArcanePrecisionTitle	Précision arcanique
 Feat/&FeatBlindFightingStlyeDescription	Vous avez la vision aveugle avec une portée de 10 pieds.
 Feat/&FeatBlindFightingStlyeTitle	Style de combat : Combat à l'aveugle
-Feat/&FeatBrutalThugDescription	Vous portez des coups puissants aux bons endroits.\nVous gagnez des compétences en armes simples et martiales et vous pouvez attaquer sournoisement avec des armes martiales.
+Feat/&FeatBrutalThugDescription	Vous portez des coups puissants aux bons endroits.\nVous acquérez des compétences en armes simples et martiales et vous pouvez attaquer sournoisement avec des armes martiales.
 Feat/&FeatBrutalThugTitle	Voyou brutal
 Feat/&FeatChaIncrementDescription	+1 Charisme.
 Feat/&FeatChaIncrementTitle	Augmentation de l'attribut de charisme
@@ -897,7 +897,7 @@ Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, Charisme.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
 Feature/&ClassWarlockSkillProficiencyDescription	Choisissez 2 de ces compétences : Arcanes, Tromperie, Histoire, Intimidation, Enquête, Nature et Religion.
-Feature/&ClassWarlockSkillProficiencyTitle	Compétences de démoniste
+Feature/&ClassWarlockSkillProficiencyTitle	Compétences de Démoniste
 Feature/&ClassWarlockSpellcastingDescription	Vos recherches sur les arcanes et la magie que vous a conférée votre patron d'un autre monde vous ont facilité les sorts.
 Feature/&ClassWarlockSpellcastingTitle	Magie du pacte de démoniste
 Feature/&ClassWarlockToolsProficiencyDescription	Vous avez été formé pour préparer des remèdes à base de plantes et utiliser des équipements enchanteurs.
@@ -985,16 +985,16 @@ Feature/&EldritchSmiteTitle	Châtiment occulte
 Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&ElementalPactAirPlane	Avion
-Feature/&ElementalPactAstralPlane	Plan astral
+Feature/&ElementalPactAstralPlane	Plan Astral
 Feature/&ElementalPactEarthPlane	Plan de la Terre
 Feature/&ElementalPactEtherealPlane	Plan éthéré
 Feature/&ElementalPactFirePlane	Avion de pompiers
 Feature/&ElementalPactIcePlane	Avion de glace
 Feature/&ElementalPactShadowPlane	Plan d'ombre
 Feature/&ElementalPatronDummyFeatureSetTitle	Elémentaliste
-Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round.
+Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour.
 Feature/&ElementalPatronElementalConditionFormatTitle	Canaliser {0}
-Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour.
+Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round.
 Feature/&ElementalPatronElementalDamageFormatTitle	Dégâts élémentaires : {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Lorsque vous canalisez le {0}, vous gagnez l'immunité contre {1} et appliquez le bonus de compétence en tant que dégâts du même type au premier coup à chaque tour.
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canaliser {0}
@@ -1173,7 +1173,7 @@ Feature/&WitchSightTitle	Vue de sorcière
 Feature/&ZSPowerPaladinCleansingTouchDescription	Supprimez les effets des sorts en touchant un allié. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur de Charisme.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Toucher nettoyant
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosion agonisante
-Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez Explosion occulte, vous ajoutez votre modificateur de Charisme aux dégâts qu'elle inflige en cas de coup.
+Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez Explosion occulte, vous ajoutez votre modificateur de Charisme aux dégâts qu'il inflige en cas de coup.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Dégâts supplémentaires des attaques magiques
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Dégâts supplémentaires des attaques magiques
 Feedback/&AdditionalDamageArcaneFirearmFormat	Amélioration du dynamitage !
@@ -1855,9 +1855,9 @@ Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Sac de tenue
 Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, vos alliés peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
 Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont des orchestres célèbres du champ de bataille.
-Subclass/&FighterMarshalEncouragementPowerDescription	Une fois par jour, vous pouvez passer une heure à vous encourager mutuellement et à vous préparer pour la prochaine journée d'aventure. Le moral du groupe est considérablement amélioré et chaque personnage encouragé ajoute 1d4 à ses jets d'attaque et de sauvegarde jusqu'à la fin d'un repos long.
+Subclass/&FighterMarshalEncouragementPowerDescription	Le courage du maréchal inspire son membre du parti. Les alliés à moins de 3 mètres de lui ajoutent 1d4 au jet d'attaque et au jet de sauvegarde.
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer 2 esprits de ses camarades tombés pour l'aider au combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer un esprit de ses camarades tombés pour l'aider au combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarade éternel
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Vous êtes immunisé contre l'effet de peur.
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Commandant intrépide
@@ -1989,7 +1989,7 @@ Subclass/&RoguishConArtistMentalSavingThrowsTitle	Force mentale
 Subclass/&RoguishConArtistSpellcastingDescription	Lancez des sorts de magicien et des tours mineurs des écoles de conjuration, d'enchantement, d'illusion et de transmutation. L'escroc utilise le charisme pour lancer ses sorts.
 Subclass/&RoguishConArtistSpellcastingTitle	Lancer des sorts
 Subclass/&RoguishConArtistTitle	escroc
-Subclass/&ScoutSentinelTinkererSubclassDescription	Un bricoleur Scout Sentinel modifie l'armure pour améliorer sa fonction, offrant une protection et une mobilité accrues.
+Subclass/&ScoutSentinelTinkererSubclassDescription	Un bricoleur Scout Sentinel modifie l'armure pour améliorer sa fonction, offrant une protection et une mobilité améliorées.
 Subclass/&ScoutSentinelTinkererSubclassTitle	Sentinelle éclaireuse
 Subclass/&SpellShieldAdditionalActionDescription	Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
 Subclass/&SpellShieldAdditionalActionTitle	Combat de sorts
@@ -2018,7 +2018,7 @@ Subclass/&TraditionSpellMasterSpellResistanceDescription	Votre entraînement à 
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Résistance aux sorts
 Subclass/&TraditionSpellMasterTitle	Maître des sorts
 Subclass/&WarlockAncientForestDescription	Vous avez forgé une relation avec une entité naturelle puissante : Dryades antiques, Archidruides, Manifestations de la Feywild saignant dans le plan matériel, Dieux oubliés d'un âge primitif. Votre patron peut souhaiter que vous protégiez le monde naturel, voyagez dans des terres lointaines qu'il ne peut pas, ou il peut avoir un autre motif qui semble impénétrable aux mortels de courte durée.
-Subclass/&WarlockAncientForestTitle	Pacte de la forêt ancienne
+Subclass/&WarlockAncientForestTitle	Pacte de la forêt antique
 Subclass/&WarlockMoonLitDescription	Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et en chargent leurs sorciers, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
 Subclass/&WarlockMoonLitTitle	Pacte au clair de lune
 Subclass/&WarlockToadKingDescription	Fey, démon ou aberration causée par le cataclysme, la vraie nature du roi crapaud n'est pas connue, mais on sait que le roi crapaud règne sur une vaste zone de marécages et de marais dans les Badlands et offre du pouvoir à ceux qui veulent servir.
@@ -2064,3 +2064,5 @@ UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
 Tooltip/&TagPolearmWeaponTitle	Arme d'hast
 Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
 Feat/&FeatPolearmExpertDescription	Votre formation d'expert avec les armes d'hast vous offre ces avantages :\n• Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n• Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.
+Feat/&FeatRangedExpertTitle	Expert à distance
+Feat/&FeatRangedExpertDescription	Votre formation d'expert aux armes à distance vous confère ces avantages :\n - Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à 5 pieds de vous.\n - Si vous passez votre action à attaquer, vous pouvez utiliser l'action bonus pour effectuer une attaque avec une arme à distance ou de lancer à une main.
