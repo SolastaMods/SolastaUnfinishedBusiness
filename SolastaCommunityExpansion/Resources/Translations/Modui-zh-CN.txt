@@ -8,7 +8,7 @@ ModUi/&AddToStore	加入商店
 ModUi/&Advanced	<color=yellow>进阶选项：</color>
 ModUi/&AdvancedHelp	. <color=#C04040E0>注意：</color> 此项设置将要求玩家安装此Mod
 ModUi/&Adventure	<color=yellow>冒险：</color>
-ModUi/&AllItemInDm	所有物品加入DM
+ModUi/&AllItemInDm	添加全部至DM
 ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业装备木族护甲
 ModUi/&AllowDruidToWearMetalArmor	允许<color=orange>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20	允许自定义地下城最大等级达到20级<i><color=#C04040E0>[需要重启游戏]</color></i>

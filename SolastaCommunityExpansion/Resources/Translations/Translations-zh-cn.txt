@@ -908,7 +908,7 @@ Feature/&CounterStrikePowerDescription	消耗1个赌注骰反击敌人，若你�
 Feature/&CounterStrikePowerTitle	反击
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	当你生命值降至0而没有立即死亡时，能改为使生命值降至1
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	坚韧不屈
-Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
+Feature/&DeadeyeDescription	攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势。你的远程武器攻击忽视半身掩护和四分之三掩护状态。你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10加值
 Feature/&DeadeyeTitle	神射手
 Feature/&DevilsSightDescription	你能在黑暗（魔法和非魔法）中正常视物，距离为120英尺
 Feature/&DevilsSightTitle	魔鬼视界
@@ -2037,14 +2037,14 @@ Subclass/&WitchSubclassPathDescription	你的魔法知识在加入巫会时达�
 Subclass/&WitchSubclassPathTitle	巫师巫会
 ToolTip/&CheckBoxDefaultPartyTitle	勾选此框，设置你在开始新的冒险或测试自定义地点时的默认阵容。你以勾选顺序最多能选择{0}个英雄
 Tooltip/&CustomPortraitPoolClassMonkKiPool	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气以行使各种特性
-Tooltip/&DeadeyeConcentration	禁用神射手\n持续至你下回合开始
+Tooltip/&DeadeyeConcentration	禁用神射手
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未学习{0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	具有偷袭
 Tooltip/&FeatPrerequisiteIsNotBarbarian	非野蛮人
 Tooltip/&FeatPrerequisiteIsNotFighter	非战士
 Tooltip/&FeatPrerequisiteIsNotRogue	非游荡者
 Tooltip/&FeatPrerequisiteLevelFormat	最低角色等级{0}
-Tooltip/&PowerAttackConcentration	禁用猛力攻击\n持续至你下回合开始
+Tooltip/&PowerAttackConcentration	禁用猛力攻击
 Tooltip/&Tag9000Title	自定义效果
 Tooltip/&TagCommunityExpansionTitle	社区拓展
 Tooltip/&TagMaledictionTitle	巫咒
