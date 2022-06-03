@@ -30,7 +30,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Round",
+    "durationType": "Permanent",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -74,11 +74,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "PowerAttackTriggerCondition",
-          "conditionDefinition": "Definition:PowerAttackTriggerCondition:967b0467-17c5-5c88-bff4-2b74861a6cf4",
+          "conditionDefinitionName": "DeadeyeTriggerCondition",
+          "conditionDefinition": "Definition:DeadeyeTriggerCondition:1d3549c6-fdba-530f-9c3e-156a96837560",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:PowerAttackTriggerCondition:967b0467-17c5-5c88-bff4-2b74861a6cf4"
+            "Definition:DeadeyeTriggerCondition:1d3549c6-fdba-530f-9c3e-156a96837560"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -102,11 +102,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "PowerAttackCondition",
-          "conditionDefinition": "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292",
+          "conditionDefinitionName": "DeadeyeCondition",
+          "conditionDefinition": "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292"
+            "Definition:DeadeyeCondition:a0d24e21-3469-43af-ad63-729552120314"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -351,7 +351,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b45b8467-7caa-428e-b4b5-ba3c4a153f07",
+  "guid": "bd08cec9-86a6-5b72-802f-1dccd77b24b2",
   "contentPack": 9999,
-  "name": "PowerAttackTwoHanded"
+  "name": "TurnOffDeadeyePower"
 }
