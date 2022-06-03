@@ -908,7 +908,7 @@ Feature/&CounterStrikePowerDescription	Gaste um dado de jogada e faça um Counte
 Feature/&CounterStrikePowerTitle	Contra-ataque
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Quando você é reduzido a 0 HP, mas não morto, você pode cair para 1 HP.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Resistência implacável
-Feature/&DeadeyeDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 de bônus para acertar para causar +10 de dano de bônus de proficiência.
+Feature/&DeadeyeDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 de bônus para acertar para causar +10 de dano de bônus.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	Você pode ver normalmente na Escuridão, tanto mágica quanto não mágica, a uma distância de 36 metros.
 Feature/&DevilsSightTitle	Visão do Diabo
@@ -2037,14 +2037,14 @@ Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se 
 Subclass/&WitchSubclassPathTitle	Covens de bruxas
 ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
-Tooltip/&DeadeyeConcentration	Desabilitar Olho Morto.\nO efeito durará até o início do seu próximo turno
+Tooltip/&DeadeyeConcentration	Desative o Olho Morto.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não sabe {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Tem ataque furtivo
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Não é um bárbaro
 Tooltip/&FeatPrerequisiteIsNotFighter	Não é um lutador
 Tooltip/&FeatPrerequisiteIsNotRogue	Não é um vagabundo
 Tooltip/&FeatPrerequisiteLevelFormat	Nível mínimo de caractere {0}
-Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.\nO efeito durará até o início do seu próximo turno
+Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.
 Tooltip/&Tag9000Title	Efeito personalizado
 Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Caramba

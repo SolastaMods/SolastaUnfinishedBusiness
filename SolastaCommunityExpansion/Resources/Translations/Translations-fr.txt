@@ -908,7 +908,7 @@ Feature/&CounterStrikePowerDescription	Dépensez un dé de gambit et Counter Str
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Lorsque vous êtes réduit à 0 HP mais pas tué, vous pouvez tomber à 1 HP à la place.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Endurance implacable
-Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir un malus bonus de -5 pour toucher afin d'infliger un bonus de dégâts de compétence de +10.
+Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir un malus bonus de -5 pour toucher afin d'infliger un bonus de dégâts de +10.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	Vous pouvez voir normalement dans les ténèbres, à la fois magiques et non magiques, à une distance de 120 pieds.
 Feature/&DevilsSightTitle	La vue du diable
@@ -2037,14 +2037,14 @@ Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
-Tooltip/&DeadeyeConcentration	Désactivez Deadeye.\nL'effet durera jusqu'au début de votre prochain tour
+Tooltip/&DeadeyeConcentration	Désactivez Deadeye.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
 Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
 Tooltip/&FeatPrerequisiteIsNotFighter	N'est pas un combattant
 Tooltip/&FeatPrerequisiteIsNotRogue	N'est-ce pas un voleur
 Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
-Tooltip/&PowerAttackConcentration	Désactivez l'attaque puissante.\nL'effet durera jusqu'au début de votre prochain tour
+Tooltip/&PowerAttackConcentration	Désactivez l'attaque puissante.
 Tooltip/&Tag9000Title	Effet personnalisé
 Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
