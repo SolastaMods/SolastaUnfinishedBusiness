@@ -24,6 +24,8 @@ internal static class NewAdventurePanel_Refresh
         var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
             __instance.characterSessionPlatesTable.childCount);
 
+        __instance.RecreateSession();
+
         for (var i = 0; i < max; i++)
         {
             var characterPlateSession =
@@ -32,9 +34,7 @@ internal static class NewAdventurePanel_Refresh
             if (characterPlateSession.gameObject.activeSelf)
             {
                 var heroname = Main.Settings.DefaultPartyHeroes[i];
-                var filename = characterPoolService.BuildCharacterFilename(heroname);
 
-                characterPlateSession.BindCharacter(filename, false);
                 __instance.AutotestSelectCharacter(i, heroname);
             }
         }
