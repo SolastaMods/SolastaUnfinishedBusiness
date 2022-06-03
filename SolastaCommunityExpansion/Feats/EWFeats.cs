@@ -13,9 +13,17 @@ public static class EWFeats
 {
     public const string SentinelFeat = "FeatSentinel";
     public const string PolearmExpertFeat = "FeatPolearmExpert";
+    public const string RangedExpertFeat = "FeatRangedExpert";
     private static readonly Guid GUID = new("B4ED480F-2D06-4EB1-8732-9A721D80DD1A");
 
     public static void CreateFeats(List<FeatDefinition> feats)
+    {
+        feats.Add(BuildSentinel());
+        feats.Add(BuildPolearmExpert());
+        feats.Add(BuildRangedExpert());
+    }
+
+    private static FeatDefinition BuildSentinel()
     {
         var restrained = ConditionDefinitions.ConditionRestrained;
 
@@ -29,7 +37,7 @@ public static class EWFeats
             )
             .AddToDB();
 
-        feats.Add(FeatDefinitionBuilder
+        return FeatDefinitionBuilder
             .Create(SentinelFeat, GUID)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
@@ -69,9 +77,7 @@ public static class EWFeats
                     AttacksOfOpportunity.SentinelFeatMarker
                 )
                 .AddToDB())
-            .AddToDB());
-
-        feats.Add(BuildPolearmExpert());
+            .AddToDB();
     }
 
     private static FeatDefinition BuildPolearmExpert()
@@ -88,5 +94,26 @@ public static class EWFeats
                 )
                 .AddToDB())
             .AddToDB();
+    }
+
+    private static FeatDefinition BuildRangedExpert()
+    {
+        return FeatDefinitionBuilder
+            .Create(RangedExpertFeat, GUID)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatRangedExpertFeature", GUID)
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new RangedAttackInMeleeDisadvantageRemover(),
+                    new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus, CharacterValidators.HasAttacked)
+                )
+                .AddToDB())
+            .AddToDB();
+    }
+
+    private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    {
+        return WeaponValidators.IsRanged(weapon) && WeaponValidators.IsOneHanded(weapon);
     }
 }
