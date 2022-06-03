@@ -17,6 +17,12 @@ public static class EWFeats
 
     public static void CreateFeats(List<FeatDefinition> feats)
     {
+        feats.Add(BuildSentinel());
+        feats.Add(BuildPolearmExpert());
+    }
+
+    private static FeatDefinition BuildSentinel()
+    {
         var restrained = ConditionDefinitions.ConditionRestrained;
 
         var stopMovementCondition = ConditionDefinitionBuilder
@@ -29,7 +35,7 @@ public static class EWFeats
             )
             .AddToDB();
 
-        feats.Add(FeatDefinitionBuilder
+        return FeatDefinitionBuilder
             .Create(SentinelFeat, GUID)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionOnAttackHitEffectBuilder
@@ -69,9 +75,7 @@ public static class EWFeats
                     AttacksOfOpportunity.SentinelFeatMarker
                 )
                 .AddToDB())
-            .AddToDB());
-
-        feats.Add(BuildPolearmExpert());
+            .AddToDB();
     }
 
     private static FeatDefinition BuildPolearmExpert()
