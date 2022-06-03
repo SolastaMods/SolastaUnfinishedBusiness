@@ -528,7 +528,7 @@ public static class CustomWeaponsContext
     {
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
-            GiveAssortment(ShopItems);
+            GiveAssortment(ShopItems, MerchantTypeContext.MerchantTypes);
         }
     }
 
@@ -544,16 +544,23 @@ public static class CustomWeaponsContext
     }
 
     //TODO: move this to the separate shop context file
-    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items)
+    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items,
+        ICollection<(MerchantDefinition, MerchantTypeContext.MerchantType)> merchants)
     {
-        foreach (var e in MerchantTypeContext.MerchantTypes)
+        foreach (var (merchant, type) in merchants)
         {
-            foreach (var (item, itemType) in items)
+            GiveAssortment(items, merchant, type);
+        }
+    }
+
+    private static void GiveAssortment(List<(ItemDefinition, ShopItemType)> items, MerchantDefinition merchant,
+        MerchantTypeContext.MerchantType type)
+    {
+        foreach (var (item, itemType) in items)
+        {
+            if (itemType.filter.Matches(type))
             {
-                if (itemType.filter.Matches(e.Value))
-                {
-                    StockItem(e.Key, item, itemType.status);
-                }
+                StockItem(merchant, item, itemType.status);
             }
         }
     }
