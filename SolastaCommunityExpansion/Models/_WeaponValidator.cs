@@ -16,6 +16,18 @@ public static class WeaponValidators
     public static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
         HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
 
+    public static bool IsPolearm(RulesetItem weapon)
+    {
+        return weapon != null
+               && IsPolearm(weapon.ItemDefinition);
+    }
+
+    public static bool IsPolearm(ItemDefinition weapon)
+    {
+        return weapon != null
+               && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
+    }
+
     public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
     {
         var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;

@@ -7,29 +7,38 @@ namespace SolastaCommunityExpansion.Displays;
 
 public static class TranslationsDisplay
 {
-    internal static string SelectedLanguage = "en";
-
     internal static void DisplayTranslations()
     {
-        var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
-
-        UI.Label("");
-        UI.Label(Gui.Format("ModUi/&TranslationHelp", SelectedLanguage.yellow().bold()));
         UI.Label("");
 
         using (UI.HorizontalScope())
         {
-            var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages, SelectedLanguage);
+            UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(120));
 
-            if (UI.SelectionGrid(ref intValue,
-                    UserCampaignsTranslator.AvailableLanguages, UserCampaignsTranslator.AvailableLanguages.Length, 6,
-                    UI.Width(500)))
+            var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages,
+                Main.Settings.SelectedLanguageCode);
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    UserCampaignsTranslator.AvailableLanguages, UserCampaignsTranslator.AvailableLanguages.Length,
+                    3, UI.Width(300)))
             {
-                SelectedLanguage = UserCampaignsTranslator.AvailableLanguages[intValue];
+                Main.Settings.SelectedLanguageCode = UserCampaignsTranslator.AvailableLanguages[intValue];
             }
         }
 
         UI.Label("");
+
+        var toggle = Main.Settings.EnableOnTheFlyTranslations;
+        if (UI.Toggle(Gui.Format("ModUi/&EnableOnTheFlyTranslations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOnTheFlyTranslations = toggle;
+        }
+
+        UI.Label("");
+        UI.Label(Gui.Format("ModUi/&ExecuteBatchTranslations"));
+        UI.Label("");
+
+        var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
         foreach (var userCampaign in userCampaignPoolService.AllCampaigns
                      .Where(x => x.IsWorkshopItem)
@@ -41,9 +50,12 @@ public static class TranslationsDisplay
             {
                 string buttonLabel;
 
+                UI.Label(userCampaign.Author.bold().orange(), UI.Width(120));
+                UI.Label(userCampaign.Title.bold().italic(), UI.Width(300));
+
                 if (UserCampaignsTranslator.CurrentExports.TryGetValue(exportName, out var status))
                 {
-                    buttonLabel = Gui.Format("ModUi/&CancelTranslate", status.LanguageCode.ToUpper(),
+                    buttonLabel = Gui.Format("ModUi/&TranslateCancel", status.LanguageCode.ToUpper(),
                         $"{status.PercentageComplete:00.0%}").bold().yellow();
                 }
                 else
@@ -55,8 +67,8 @@ public static class TranslationsDisplay
                     {
                         if (status == null)
                         {
-                            UserCampaignsTranslator.TranslateUserCampaign(SelectedLanguage, userCampaign.Title,
-                                userCampaign);
+                            UserCampaignsTranslator.TranslateUserCampaign(
+                                Main.Settings.SelectedLanguageCode, userCampaign.Title, userCampaign);
                         }
                         else
                         {
@@ -64,9 +76,6 @@ public static class TranslationsDisplay
                         }
                     },
                     UI.Width(200));
-
-                UI.Label(userCampaign.Author.bold().orange(), UI.Width(100));
-                UI.Label(userCampaign.Title.bold().italic(), UI.Width(400));
             }
         }
 

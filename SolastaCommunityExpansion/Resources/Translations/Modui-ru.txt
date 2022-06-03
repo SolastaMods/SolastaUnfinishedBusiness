@@ -26,7 +26,6 @@ ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Best
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Состояние <color=orange>Ослепление</color> не позволяет атаковать по возможности
 ModUi/&Blueprints	Чертежи
 ModUi/&CampaignsAndLocations	<color=yellow>Кампании и местоположения:</color>
-ModUi/&CancelTranslate	Отменить {0} в {1}
 ModUi/&Character	Персонаж
 ModUi/&CharactersPool	Пул персонажей
 ModUi/&Classes	<color=yellow>Классы</color>
@@ -47,7 +46,7 @@ ModUi/&EmpressGarbAppearance	Внешний вид <color=orange>Одеяние 
 ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Добавление новых фокусных предметов в Dungeon Maker</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Включить дополнительные значки для лагерей, выходов и телепортов на карте уровня
 ModUi/&EnableAlternateHuman	Включить альтернативного человека <i><color=yellow>[+1 навык / +2 выбора атрибута / +1 навык]</color></i>
-ModUI/&EnableBetaContent	Включить бета-контент <i><color=yellow>[имейте в виду, что ваши сохранения или герои могут сломаться в будущем]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]< /цвет></i></b>
+ModUI/&EnableBetaContent	Включить бета-контент <i><color=yellow>[имейте в виду, что ваши сохранения или герои могут сломаться в будущем]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Включить отмену действия по щелчку правой кнопкой мыши
 ModUi/&EnableCharacterChecker	Включить экран проверки символов
 ModUi/&EnableCharacterExport	Включить <color=cyan>CTRL-SHIFT-(E</color>)экспорт символа <i><color=yellow>[только на экране проверки символов]</color></i>
@@ -63,7 +62,7 @@ ModUi/&EnableFlexibleBackgrounds	Включить гибкие фоны <i><colo
 ModUi/&EnableFlexibleRaces	Включить гибкие расы <i><color=yellow>[назначить очки способностей вместо расовых значений по умолчанию]</color></i>
 ModUi/&EnableHotkeyDebugOverlay	Включить наложение <color=cyan>CTRL-SHIFT-(D</color>) ebug
 ModUi/&EnableHotkeyToggleHud	Включите <color=cyan>CTRL-SHIFT-(H</color>)ud, чтобы переключить видимость всех панелей пользовательского интерфейса.
-ModUi/&EnableHotkeyToggleIndividualHud	Включить <color=cyan>CTRL-SHIFT-(C</color>)панель управления, <color=cyan>CTRL-SHIFT-(L</color>)ог, <color=cyan>CTRL-SHIFT-(M< /color>)ap и <color=cyan>CTRL-SHIFT-(P</color>)arty для переключения видимости каждой панели пользовательского интерфейса.
+ModUi/&EnableHotkeyToggleIndividualHud	Включить <color=cyan>CTRL-SHIFT-(C</color>)панель управления, <color=cyan>CTRL-SHIFT-(L</color>)ог, <color=cyan>CTRL-SHIFT-(M</color>)ap и <color=cyan>CTRL-SHIFT-(P</color>)arty для переключения видимости каждой панели пользовательского интерфейса.
 ModUi/&EnableHotkeyZoomCamera	Включить <color=cyan>CTRL-SHIFT-(Z</color>) oom camera <i><color=yellow>[полезно при создании скриншотов подземелий для публикации]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ только обход, если не критическое попадание</i>
 ModUi/&EnableInventoryFilteringAndSorting	Включить фильтрацию и сортировку инвентаря
@@ -73,7 +72,7 @@ ModUi/&EnableLevel20	Включить уровень 20 <b><i><color=#C04040E0>[
 ModUi/&EnableLogDialoguesToConsole	Включить диалоги журнала на игровой консоли во время повествовательных последовательностей
 ModUi/&EnableMinInOutAttributes	Обеспечить минимальные предварительные требования для оценки способностей
 ModUi/&EnableRelearnSpells	Может выбирать колдовство или заклинания, уже изученные другими классами.
-ModUi/&EnableRespec	Включите действия RESPEC и Level Down после отдыха.
+ModUi/&EnableRespec	Включите действия RESPEC и Level Down после отдыха
 ModUi/&EnablesAsiAndFeat	Включить увеличение значений атрибутов и выбор умений <i><color=yellow>[вместо эксклюзивного выбора]</color></i>
 ModUi/&EnableSaveByLocation	Включить сохранение по кампаниям/местоположениям
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Включите кратковременную перезарядку <color=orange>Arcane Weapon</color> на <color=orange>Wizard</color> Arcane Fighter
@@ -109,7 +108,7 @@ ModUi/&InvertAltBehaviorOnTooltips	Инвертировать поведение
 ModUi/&ItemInDm	Предметы в ЛС
 ModUi/&ItemsCraftingMerchants	Предметы, крафт и торговцы
 ModUi/&KeyboardMouse	Клавиатура и мышь
-ModUi/&MakeAllMagicStaveArcaneFoci	Сделать все магические посохи тайными фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&MakeAllMagicStaveArcaneFoci	Сделайте все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Также отмечайте местоположение невидимых телепортов на карте уровня после обнаружения</i>
 ModUi/&MaxAllowedClasses	<color=white>Максимум разрешенных классов</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>Макс. резервные копии файлов для каждого местоположения или кампании</color>
@@ -159,13 +158,16 @@ ModUi/&Spells	<color=yellow>Заклинания:</color>
 ModUi/&SpellsMenu	Заклинания
 ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Запасает магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хьюго с <color=orange>Жезл идентификации</color>, <color=orange>Чародейский посох</color>, <color=orange>Шея друида</color>, <color=orange>Посох</color > и <color=orange>Club</color> установлены в качестве фокусных элементов
+ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хьюго с <color=orange>Жезл идентификации</color>, <color=orange>Чародейский посох</color>, <color=orange>Шея друида</color>, <color=orange>Посох</color > и <color=orange>Club</color> установлены как основные элементы
 ModUi/&Subclasses	<color=yellow>Подклассы</color>
 ModUi/&Tools	Инструменты
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего достижений на первом уровне</color>
 ModUi/&Translate	Перевести
-ModUi/&TranslationHelp	. Преобразует пользовательские кампании в {0} и сохраняет их обратно в пул с префиксом кода языка.
+ModUi/&TranslateCancel	Отменить {0} в {1}
+ModUi/&ExecuteBatchTranslations	Выполнение пакетных переводов: <i><color=yellow>[кампании сохраняются обратно в пул с префиксом целевого языка]</color></i>
+ModUi/&EnableOnTheFlyTranslations	Включить перевод пользовательского контента в режиме реального времени <i><color=yellow>[требуется живое исходящее соединение. на https://translate.googleapis.com]</color></i>
 ModUi/&Translations	Переводы
+ModUi/&TargetLanguage	<color=yellow>Целевой язык:</color>
 ModUi/&UnleashEnemyAsNpc	Разрешить выбор монстров на гаджетах NPC <i><color=yellow>[нажмите <color=cyan>CTRL</color>, нажимая кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnleashNpcAsEnemy	Разрешить выбор NPC на гаджетах монстров <i><color=yellow>[нажмите <color=cyan>CTRL</color>, нажимая кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnlockAllNpcFaces	Разблокировать все лица NPC

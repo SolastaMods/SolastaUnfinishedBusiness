@@ -18,10 +18,6 @@ namespace SolastaCommunityExpansion.Displays
 
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
-[b]ATTENTION[/b]
-
-This is now a standalone mod. Please uninstall any other mod from your mods folder including: SolastaModApi, SolastaCommunityExpansionMulticlass, SolastaDungeonMakerPro and SolastaTinkerer.
-
 [size=4][b]Credits[/b][/size]
 
 [list]
@@ -52,7 +48,7 @@ This is now a standalone mod. Please uninstall any other mod from your mods fold
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-02.png?raw=true[/img]
 
-[size=4][b]Multiplayer [beta support][/b][/size]
+[size=4][b]Multiplayer[/b][/size]
 
 We did all possible efforts to ensure this Mod will work under a multiplayer session. You must ensure all players have this mod installed and at least all settings under CE Mod UI > Gameplay matches across all players. The easiest way to achieve that is ask the host to share his Mod settings.xml file with guests before a session.
 
@@ -75,35 +71,6 @@ You can contribute to this work at [url=https://github.com/SolastaMods/SolastaCo
 [size=4][b]Features[/b][/size]
 
 All settings start disabled by default. On first start the mod will display an welcome message and open the UMM Mod UI settings again.
-
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/02-Character-ClassesSubclasses.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/03-Character-FeatsFightingStyles.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/04-Character-Spells.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/05-Gameplay-Rules.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-Tools.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Interface-DungeonMaker.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-GameUi.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-KeyboardMouse.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Encounters-General.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-Bestiary.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Pool.png?raw=true[/img]
-[line]
-[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-CreditsDiagnostics-Credits.png?raw=true[/img]
-[line]
 
 [size=3][b]Races[/b][/size]
 
@@ -153,11 +120,38 @@ All settings start disabled by default. On first start the mod will display an w
 {8}
 [/list]
 
-[size=3][b]Monsters[/b][/size]
+[size=3][b]All Settings[/b][/size]
 
-[list=1]
-{9}
-[/list]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/01-Character-General.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/02-Character-ClassesSubclasses.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/03-Character-FeatsFightingStyles.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/04-Character-Spells.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/05-Gameplay-Rules.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/06-Gameplay-ItemsCraftingMerchants.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/07-Gameplay-Tools.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/08-Interface-DungeonMaker.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/09-Interface-GameUi.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/10-Interface-KeyboardMouse.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/11-Interface-Translations.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/12-Encounters-General.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/13-Encounters-Bestiary.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/14-Encounters-Pool.png?raw=true[/img]
+[line]
+[img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/15-CreditsDiagnostics-Credits.png?raw=true[/img]
+[line]
 ";
 
         internal static void DisplayDiagnostics()

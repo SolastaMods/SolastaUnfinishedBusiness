@@ -87,37 +87,10 @@ public class FeatureDefinitionBonusCantripsBuilder : FeatureDefinitionBonusCantr
     #endregion
 }
 
-public class FeatureDefinitionFreeBonusCantripsBuilder : FeatureDefinitionBonusCantripsBuilder<
-    FeatureDefinitionFreeBonusCantrips, FeatureDefinitionFreeBonusCantripsBuilder>
+public class FeatureDefinitionBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
+    FeatureDefinitionBonusCantripsWithPrerequisites, FeatureDefinitionBonusCantripsWithPrerequisitesBuilder>
 {
-    #region Constructors
-
-    public FeatureDefinitionFreeBonusCantripsBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-    {
-    }
-
-    public FeatureDefinitionFreeBonusCantripsBuilder(string name, string definitionGuid) : base(name,
-        definitionGuid)
-    {
-    }
-
-    public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
-        Guid namespaceGuid) : base(original, name, namespaceGuid)
-    {
-    }
-
-    public FeatureDefinitionFreeBonusCantripsBuilder(FeatureDefinitionFreeBonusCantrips original, string name,
-        string definitionGuid) : base(original, name, definitionGuid)
-    {
-    }
-
-    #endregion
-}
-
-public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : FeatureDefinitionBonusCantripsBuilder<
-    FeatureDefinitionFreeBonusCantripsWithPrerequisites, FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder>
-{
-    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder SetValidators(
+    public FeatureDefinitionBonusCantripsWithPrerequisitesBuilder SetValidators(
         params IFeatureDefinitionWithPrerequisites.Validate[] validators)
     {
         Definition.Validators.AddRange(validators);
@@ -127,25 +100,25 @@ public class FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder : Featur
 
     #region Constructors
 
-    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name,
+    public FeatureDefinitionBonusCantripsWithPrerequisitesBuilder(string name, Guid namespaceGuid) : base(name,
         namespaceGuid)
     {
     }
 
-    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(
+    public FeatureDefinitionBonusCantripsWithPrerequisitesBuilder(string name, string definitionGuid) : base(
         name,
         definitionGuid)
     {
     }
 
-    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
-        FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+    public FeatureDefinitionBonusCantripsWithPrerequisitesBuilder(
+        FeatureDefinitionBonusCantripsWithPrerequisites original, string name,
         Guid namespaceGuid) : base(original, name, namespaceGuid)
     {
     }
 
-    public FeatureDefinitionFreeBonusCantripsWithPrerequisitesBuilder(
-        FeatureDefinitionFreeBonusCantripsWithPrerequisites original, string name,
+    public FeatureDefinitionBonusCantripsWithPrerequisitesBuilder(
+        FeatureDefinitionBonusCantripsWithPrerequisites original, string name,
         string definitionGuid) : base(original, name, definitionGuid)
     {
     }

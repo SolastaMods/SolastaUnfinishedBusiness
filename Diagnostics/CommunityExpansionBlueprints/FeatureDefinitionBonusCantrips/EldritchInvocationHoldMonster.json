@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
     "Definition:EldritchInvocationHoldMonsterCantrip:0f7f0641-60ae-58b3-b858-f05dcad0bbc9"
   ],

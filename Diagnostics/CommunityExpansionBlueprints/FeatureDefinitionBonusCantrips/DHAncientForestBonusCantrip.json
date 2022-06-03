@@ -1,13 +1,14 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:DHAtWillWardingBond:098c6c7e-41e9-52a6-b232-02ac65ab2ab2"
+    "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
+    "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DHWardingBondBonusCantripTitle",
-    "description": "Feature/&DHWardingBondBonusCantripDescription",
+    "title": "Feature/&DHAncientForestBonusCantripTitle",
+    "description": "Feature/&DHAncientForestBonusCantripDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +28,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "859e6d65-6061-519f-b2fc-155daca9f481",
+  "guid": "53093405-2ebb-5cef-9750-75bf8364da02",
   "contentPack": 9999,
-  "name": "DHWardingBondBonusCantrip"
+  "name": "DHAncientForestBonusCantrip"
 }

@@ -1,17 +1,17 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:EldritchInvocationLevitateCantrip:ffe35e5c-fd04-5802-ab47-3f2898d3df7c"
+    "Definition:EldritchInvocationDetectMagicCantrip:b421a1e6-9874-53fa-89c4-1cccddd20663"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AscendantStepTitle",
-    "description": "Cast Levitate at will.",
+    "title": "Feature/&EldritchSightTitle",
+    "description": "Cast Detect Magic at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "518af71d722898140ade6f799cf584fc",
-      "m_SubObjectName": "Levitate",
+      "m_AssetGUID": "41c47ba900048504486f4bce9a0468c1",
+      "m_SubObjectName": "DetectMagic",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -27,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f7005fc1-c45b-5b53-8444-dcc6f00df51d",
+  "guid": "a86d2285-95da-518c-9c54-d866d8dd3864",
   "contentPack": 9999,
-  "name": "EldritchInvocationLevitate"
+  "name": "EldritchInvocationDetectMagic"
 }

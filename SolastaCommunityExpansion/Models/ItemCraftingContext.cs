@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi;
 using SolastaModApi.Extensions;
@@ -30,12 +29,12 @@ internal static class ItemCraftingContext
         {"Club", Gui.Format("Equipment/&ClubTypeTitle")},
         {"Maul", Gui.Format("Equipment/&MaulTypeTitle")},
         {"Warhammer", Gui.Format("Equipment/&WarhammerTypeTitle")},
-        {"Quarterstaff",Gui.Format("Equipment/&QuarterstaffTypeTitle")},
+        {"Quarterstaff", Gui.Format("Equipment/&QuarterstaffTypeTitle")},
         {"Rapier", Gui.Format("Equipment/&RapierTypeTitle")},
-        {"Spear",Gui.Format("Equipment/&SpearTypeTitle")},
+        {"Spear", Gui.Format("Equipment/&SpearTypeTitle")},
         {"Scimitar", Gui.Format("Equipment/&ScimitarTypeTitle")},
         {"Shield_Wooden", Gui.Format("Equipment/&Shield_Wooden_Title")},
-        {"Shield",  Gui.Format("Equipment/&ShieldCategoryTitle")},
+        {"Shield", Gui.Format("Equipment/&ShieldCategoryTitle")},
         {"HideArmor", Gui.Format("ModUi/&HiderArmor")},
         {"LeatherDruid", Gui.Format("Equipment/&Druid_Leather_Title")},
         {"StuddedLeather", Gui.Format("Equipment/&Armor_StuddedLeatherTitle")}

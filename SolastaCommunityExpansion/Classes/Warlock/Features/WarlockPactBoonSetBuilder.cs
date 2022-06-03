@@ -265,7 +265,7 @@ internal class DHPactOfTheTomeFeatureSetBuilder : FeatureDefinitionFeatureSetBui
     private const string DHPactOfTheTomeFeatureSetName = "DHPactOfTheTomeFeatureSet";
 
     private static readonly FeatureDefinitionPointPool DHPactOfTheTomeBonusCantrips =
-        FeatureDefinitionPointPoolWithBonusBuilder
+        FeatureDefinitionPointPoolBuilder
             .Create("DHPactOfTheTomeBonusCantrips", CENamespaceGuid)
             .SetGuiPresentationNoContent()
             .SetPool(HeroDefinitions.PointsPoolType.Cantrip, 3)

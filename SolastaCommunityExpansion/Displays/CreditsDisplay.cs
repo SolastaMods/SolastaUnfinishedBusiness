@@ -48,12 +48,12 @@ internal static class CreditsDisplay
         {"Spacehamster", "dataminer"},
         {
             "TPABOBAP",
-            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Sentinel Feat, Spells, Infrastructure patches, Holic75's code integration"
+            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Feats, Spells, infrastructure patches, Holic75's code integration"
         },
         {"View619", "Darkvision, Superior Dark Vision"},
         {
             "Zappastuff",
-            "repository maintenance, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Holic75's code integration"
+            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Infrastructure and QoL patches, Holic75's code integration"
         }
     };
 

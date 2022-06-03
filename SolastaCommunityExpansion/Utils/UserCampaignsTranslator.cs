@@ -6,7 +6,6 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using I2.Loc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaModApi.Infrastructure;
@@ -20,7 +19,21 @@ internal class UserCampaignsTranslator : MonoBehaviour
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
-    internal static readonly string[] AvailableLanguages = LocalizationManager.GetAllLanguagesCode().ToArray();
+    internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
+
+    private static UserCampaignsTranslator Exporter
+    {
+        get
+        {
+            if (_exporter == null)
+            {
+                _exporter = new GameObject().AddComponent<UserCampaignsTranslator>();
+                DontDestroyOnLoad(_exporter.gameObject);
+            }
+
+            return _exporter;
+        }
+    }
 
     internal static string Translate(string sourceText, string targetCode)
     {
@@ -55,20 +68,6 @@ internal class UserCampaignsTranslator : MonoBehaviour
         }
 
         return translation;
-    }
-
-    private static UserCampaignsTranslator Exporter
-    {
-        get
-        {
-            if (_exporter == null)
-            {
-                _exporter = new GameObject().AddComponent<UserCampaignsTranslator>();
-                DontDestroyOnLoad(_exporter.gameObject);
-            }
-
-            return _exporter;
-        }
     }
 
     internal static void Cancel(string exportName)

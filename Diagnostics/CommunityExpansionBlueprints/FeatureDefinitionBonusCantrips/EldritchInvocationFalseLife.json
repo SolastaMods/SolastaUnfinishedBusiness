@@ -1,17 +1,17 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionFreeBonusCantrips, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
   "bonusCantrips": [
-    "Definition:EldritchInvocationJumpCantrip:7eeb1770-2407-5fa5-98ef-a48a8d169381"
+    "Definition:EldritchInvocationFalseLifeCantrip:15b81b75-3736-5d6e-b104-a4f0f252e6e2"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&OtherworldlyLeapTitle",
-    "description": "Cast Jump at will.",
+    "title": "Feature/&FiendishVigorTitle",
+    "description": "Cast False Life at will.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "691c3829c1af8c746b7a029fb7db8e6b",
-      "m_SubObjectName": "Jump",
+      "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",
+      "m_SubObjectName": "FalseLife",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -27,7 +27,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8b98561b-b26b-5b46-a236-31ff0388a8a2",
+  "guid": "55f44659-b729-53ce-9ca8-084a11273a21",
   "contentPack": 9999,
-  "name": "EldritchInvocationJump"
+  "name": "EldritchInvocationFalseLife"
 }
