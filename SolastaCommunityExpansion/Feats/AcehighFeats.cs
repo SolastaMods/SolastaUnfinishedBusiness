@@ -2,6 +2,7 @@
 using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
@@ -36,9 +37,8 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
             Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
-            Definition.SetIgnoreRangeAdvantage(true);
             Definition.SetIgnoreCover(true);
-            Definition.SetSituationalContext(RuleDefinitions.SituationalContext.AttackingWithBow);
+            Definition.SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(WeaponValidators.AlwaysValid));
         }
 
         private static FeatureDefinition CreateAndAddToDB(string name, string guid)

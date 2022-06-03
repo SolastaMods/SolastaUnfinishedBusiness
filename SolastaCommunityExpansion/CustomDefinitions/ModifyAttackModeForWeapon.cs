@@ -157,3 +157,17 @@ public class AddEffectToWeaponAttack : ModifyAttackModeForWeaponBase
         attackMode.EffectDescription.AddEffectForms(effect);
     }
 }
+
+public class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
+{
+    public BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params CharacterValidator[] validators)
+        : base(isWeaponValid, validators)
+    {
+    }
+
+    protected override void TryModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        attackMode.closeRange = attackMode.maxRange;
+    }
+}
