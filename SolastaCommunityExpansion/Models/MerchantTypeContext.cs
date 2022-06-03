@@ -8,7 +8,7 @@ public class MerchantTypeContext
 {
     internal static List<(MerchantDefinition, MerchantType)> MerchantTypes = new();
 
-    private static readonly string[] RangedWeaponTypes = new[]
+    private static readonly string[] RangedWeaponTypes =
     {
         "LightCrossbowType", "HeavyCrossbowType", "ShortbowType", "LongbowType", "DartType"
     };

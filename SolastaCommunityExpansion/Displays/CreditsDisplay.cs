@@ -51,7 +51,7 @@ internal static class CreditsDisplay
             "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Feats, Spells, infrastructure patches, Holic75's code integration"
         },
         {"View619", "Darkvision, Superior Dark Vision"},
-        {"Vylantze", "English terms review" },
+        {"Vylantze", "English terms review"},
         {
             "Zappastuff",
             "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Infrastructure and QoL patches, Holic75's code integration"

@@ -106,7 +106,8 @@ public static class EWFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus, CharacterValidators.HasAttacked)
+                    new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
+                        CharacterValidators.HasAttacked)
                 )
                 .AddToDB())
             .AddToDB();

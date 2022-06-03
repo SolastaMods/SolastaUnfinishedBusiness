@@ -205,7 +205,8 @@ internal static class CoordinatedAttackBuilder
         ActionModifier attackModifier)
     {
         // melee only
-        if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure || actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
+        if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure ||
+            actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
         {
             return;
         }
@@ -480,7 +481,8 @@ public static class EncourageBuilder
 
         return FeatureDefinitionPowerBuilder
             .Create("Encouragement", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma, ActivationTime.PermanentUnlessIncapacitated, 1,
+            .Configure(-1, UsesDetermination.Fixed, AttributeDefinitions.Charisma,
+                ActivationTime.PermanentUnlessIncapacitated, 1,
                 RechargeRate.AtWill, false, false, AttributeDefinitions.Charisma, effect)
             .SetShowCasting(false)
             .SetGuiPresentation("FighterMarshalEncouragementPower", Category.Subclass,

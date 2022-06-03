@@ -168,7 +168,8 @@ public class AddExtraRangedAttack : AddExtraAttackBase
 {
     private readonly IsWeaponValidHandler weaponValidator;
 
-    public AddExtraRangedAttack(IsWeaponValidHandler weaponValidator, ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+    public AddExtraRangedAttack(IsWeaponValidHandler weaponValidator, ActionDefinitions.ActionType actionType,
+        params CharacterValidator[] validators) :
         base(
             actionType, validators)
     {
