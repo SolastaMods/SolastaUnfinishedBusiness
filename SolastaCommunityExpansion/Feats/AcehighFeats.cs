@@ -23,44 +23,6 @@ internal static class AcehighFeats
         feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
     }
 
-    private static FeatureDefinition BuildDeadeyePower()
-    {
-        return FeatureDefinitionPowerBuilder
-            .Create("Deadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
-            .SetGuiPresentation("DeadeyeFeat", Category.Feat,
-                CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
-                    Resources.DeadeyeIcon, 128, 64))
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Permanent)
-                .SetEffectForms(
-                    new EffectFormBuilder()
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("DeadeyeTriggerCondition", DefinitionBuilder.CENamespaceGuid)
-                            .SetGuiPresentationNoContent(true)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetDuration(RuleDefinitions.DurationType.Permanent)
-                            .SetFeatures(
-                                FeatureDefinitionBuilder
-                                    .Create("DeadeyeTriggerFeature", DefinitionBuilder.CENamespaceGuid)
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetCustomSubFeatures(new DeadeyeConcentrationProvider())
-                                    .AddToDB())
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    new EffectFormBuilder()
-                        .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
-            .AddToDB();
-    }
-
     private sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
     {
         private const string DeadeyeIgnoreDefenderName = "DeadeyeIgnoreDefender";
@@ -147,11 +109,77 @@ internal static class AcehighFeats
         private DeadeyeFeatBuilder(string name, string guid) : base(
             DatabaseHelper.FeatDefinitions.FollowUpStrike, name, guid)
         {
+            var concentrationProvider = new StopPowerConcentrationProvider("Deadeye", "Tooltip/&DeadeyeConcentration",
+                CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
+                    Resources.DeadeyeConcentrationIcon, 64, 64));
+
+            var triggerCondition = ConditionDefinitionBuilder
+                .Create("DeadeyeTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentationNoContent(true)
+                .SetSilent(Silent.WhenAddedOrRemoved)
+                .SetDuration(RuleDefinitions.DurationType.Permanent)
+                .SetFeatures(
+                    FeatureDefinitionBuilder
+                        .Create("DeadeyeTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(concentrationProvider)
+                        .AddToDB())
+                .AddToDB();
+
+            var turnOnPower = FeatureDefinitionPowerBuilder
+                .Create("Deadeye", "aa2cc094-0bf9-4e72-ac2c-50e99e680ca1")
+                .SetGuiPresentation("DeadeyeFeat", Category.Feat,
+                    CustomIcons.CreateAssetReferenceSprite("DeadeyeIcon",
+                        Resources.DeadeyeIcon, 128, 64))
+                .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+                .SetUsesFixed(1)
+                .SetCostPerUse(0)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                        RuleDefinitions.TargetType.Self)
+                    .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                    .SetEffectForms(
+                        new EffectFormBuilder()
+                            .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        new EffectFormBuilder()
+                            .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+                .AddToDB();
+
+            var turnOffPower = FeatureDefinitionPowerBuilder
+                .Create("TurnOffDeadeyePower", CENamespaceGuid)
+                .SetGuiPresentationNoContent(true)
+                .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+                .SetUsesFixed(1)
+                .SetCostPerUse(0)
+                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+                .SetEffectDescription(new EffectDescriptionBuilder()
+                    .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                        RuleDefinitions.TargetType.Self)
+                    .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                    .SetEffectForms(
+                        new EffectFormBuilder()
+                            .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
+                            .Build(),
+                        new EffectFormBuilder()
+                            .SetConditionForm(DeadeyeConditionBuilder.DeadeyeCondition,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
+                .AddToDB();
+
+            concentrationProvider.stopPower = turnOffPower;
+
             Definition.GuiPresentation.Title = "Feat/&DeadeyeFeatTitle";
             Definition.GuiPresentation.Description = "Feat/&DeadeyeFeatDescription";
 
             Definition.Features.Clear();
-            Definition.Features.Add(BuildDeadeyePower());
+            Definition.Features.Add(turnOnPower);
+            Definition.Features.Add(turnOffPower);
             Definition.Features.Add(DeadeyeIgnoreDefenderBuilder.DeadeyeIgnoreDefender);
             Definition.SetMinimalAbilityScorePrerequisite(false);
         }
@@ -159,49 +187,6 @@ internal static class AcehighFeats
         private static FeatDefinition CreateAndAddToDB(string name, string guid)
         {
             return new DeadeyeFeatBuilder(name, guid).AddToDB();
-        }
-    }
-
-    private sealed class DeadeyeConcentrationProvider : ICusomConcentrationProvider
-    {
-        private static AssetReferenceSprite _icon;
-        public string Name => "Deadeye";
-        public string Tooltip => "Tooltip/&DeadeyeConcentration";
-
-        public AssetReferenceSprite Icon => _icon ??=
-            CustomIcons.CreateAssetReferenceSprite("DeadeyeConcentrationIcon",
-                Resources.DeadeyeConcentrationIcon, 64, 64);
-
-        public void Stop(RulesetCharacter character)
-        {
-            var triggerCondition = "DeadeyeTriggerCondition";
-            var attackCondition = DeadeyeConditionBuilder.DeadeyeCondition.Name;
-            var toRemove = new List<RulesetCondition>();
-
-            foreach (var pair in character.ConditionsByCategory)
-            {
-                foreach (var rulesetCondition in pair.Value)
-                {
-                    if (rulesetCondition.Name == triggerCondition || rulesetCondition.Name == attackCondition)
-                    {
-                        toRemove.Add(rulesetCondition);
-                    }
-                }
-            }
-
-            foreach (var rulesetCondition in toRemove)
-            {
-                character.RemoveCondition(rulesetCondition);
-            }
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagEffect, RulesetCondition.CreateActiveCondition(
-                character.Guid,
-                DeadeyeConditionBuilder.DeadeyeCondition, RuleDefinitions.DurationType.Round,
-                0,
-                RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                character.Guid,
-                character.CurrentFaction.Name
-            ));
         }
     }
 
