@@ -436,7 +436,7 @@ Feat/&ArtificialServantAttackDescription	Ranged attack 1d6 force damage from you
 Feat/&ArtificialServantAttackTitle	Force Sling
 Feat/&ArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&ArtificialServantTitle	Artificial Servant
-Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. Tthe creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
+Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. The creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
 Feat/&ArtilleristCannonDetonationTitle	Device Detonation
 Feat/&ArtilleristFlameCannon15Description	Spew fire, dealing 6d8 fire damage at your enemies as a bonus action.
 Feat/&ArtilleristFlameCannon15Title	Flamethrower
