@@ -179,6 +179,8 @@ internal class UserCampaignsTranslator : MonoBehaviour
         // USER LOCATIONS
         foreach (var userLocation in userCampaign.UserLocations)
         {
+            userLocation.Description = Translate(userLocation.Description, languageCode);
+
             foreach (var gadget in userLocation.GadgetsByName.Values)
             {
                 yield return Update();
@@ -187,7 +189,8 @@ internal class UserCampaignsTranslator : MonoBehaviour
                 {
                     if (parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Npc
                         || parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.Speech
-                        || parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.SpeechList)
+                        || parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.SpeechList
+                        || parameterValue.GadgetParameterDescription.Type == GadgetBlueprintDefinitions.Type.LoreFormat)
                     {
                         var newStringsList = new List<string>();
 
