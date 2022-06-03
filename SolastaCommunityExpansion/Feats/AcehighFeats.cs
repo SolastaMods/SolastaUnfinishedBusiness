@@ -24,6 +24,91 @@ internal static class AcehighFeats
         feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
     }
 
+    private static FeatDefinition BuildPowerAttackFeat()
+    {
+        var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
+            "Tooltip/&PowerAttackConcentration", CustomIcons.CreateAssetReferenceSprite("PowerAttackConcentrationIcon",
+                Resources.PowerAttackConcentrationIcon, 64, 64));
+
+        var triggerCondition = ConditionDefinitionBuilder
+            .Create("PowerAttackTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetDuration(RuleDefinitions.DurationType.Permanent)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("PowerAttackTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(concentrationProvider)
+                .AddToDB())
+            .AddToDB();
+
+        var powerAttackCondition = ConditionDefinitionBuilder
+            .Create("PowerAttackCondition", "c125b7b9-e668-4c6f-a742-63c065ad2292")
+            .SetGuiPresentation("PowerAttack", Category.Feature,
+                DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetAllowMultipleInstances(false)
+            .SetFeatures(PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier)
+            .SetDuration(RuleDefinitions.DurationType.Round, 1)
+            .AddToDB();
+
+        var powerAttackPower = FeatureDefinitionPowerBuilder
+            .Create("PowerAttack", "0a3e6a7d-4628-4189-b91d-d7146d774bb6")
+            .SetGuiPresentation("PowerAttackFeat", Category.Feat,
+                CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(powerAttackCondition, ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        var turnOffPowerAttackPower = FeatureDefinitionPowerBuilder
+            // Reusing old two-handed power id - we need to keep this id anyway, so old characters won't crash
+            .Create("PowerAttackTwoHanded", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
+            .SetGuiPresentationNoContent(true)
+            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
+            .SetUsesFixed(1)
+            .SetCostPerUse(0)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetEffectDescription(new EffectDescriptionBuilder()
+                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
+                    RuleDefinitions.TargetType.Self)
+                .SetDurationData(RuleDefinitions.DurationType.Round)
+                .SetEffectForms(
+                    new EffectFormBuilder()
+                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
+                        .Build(),
+                    new EffectFormBuilder()
+                        .SetConditionForm(powerAttackCondition, ConditionForm.ConditionOperation.Remove)
+                        .Build()
+                )
+                .Build())
+            .AddToDB();
+
+        concentrationProvider.stopPower = turnOffPowerAttackPower;
+
+        return FeatDefinitionBuilder
+            .Create("PowerAttackFeat", "88f1fb27-66af-49c6-b038-a38142b1083e")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                powerAttackPower,
+                turnOffPowerAttackPower
+            )
+            .AddToDB();
+    }
+
     private sealed class DeadeyeIgnoreDefenderBuilder : FeatureDefinitionCombatAffinityBuilder
     {
         private const string DeadeyeIgnoreDefenderName = "DeadeyeIgnoreDefender";
@@ -114,13 +199,13 @@ internal static class AcehighFeats
                     Resources.DeadeyeConcentrationIcon, 64, 64));
 
             var triggerCondition = ConditionDefinitionBuilder
-                .Create("DeadeyeTriggerCondition", DefinitionBuilder.CENamespaceGuid)
+                .Create("DeadeyeTriggerCondition", CENamespaceGuid)
                 .SetGuiPresentationNoContent(true)
                 .SetSilent(Silent.WhenAddedOrRemoved)
                 .SetDuration(RuleDefinitions.DurationType.Permanent)
                 .SetFeatures(
                     FeatureDefinitionBuilder
-                        .Create("DeadeyeTriggerFeature", DefinitionBuilder.CENamespaceGuid)
+                        .Create("DeadeyeTriggerFeature", CENamespaceGuid)
                         .SetGuiPresentationNoContent(true)
                         .SetCustomSubFeatures(concentrationProvider)
                         .AddToDB())
@@ -246,96 +331,8 @@ internal static class AcehighFeats
         }
     }
 
-    private static FeatDefinition BuildPowerAttackFeat()
-    {
-        var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
-            "Tooltip/&PowerAttackConcentration", CustomIcons.CreateAssetReferenceSprite("PowerAttackConcentrationIcon",
-                Resources.PowerAttackConcentrationIcon, 64, 64));
-
-        var triggerCondition = ConditionDefinitionBuilder
-            .Create("PowerAttackTriggerCondition", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(RuleDefinitions.DurationType.Permanent)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("PowerAttackTriggerFeature", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(concentrationProvider)
-                .AddToDB())
-            .AddToDB();
-
-        var powerAttackCondition = ConditionDefinitionBuilder
-            .Create("PowerAttackCondition", "c125b7b9-e668-4c6f-a742-63c065ad2292")
-            .SetGuiPresentation("PowerAttack", Category.Feature,
-                DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetAllowMultipleInstances(false)
-            .SetFeatures(PowerAttackOneHandedAttackModifierBuilder.PowerAttackAttackModifier)
-            .SetDuration(RuleDefinitions.DurationType.Round, 1)
-            .AddToDB();
-
-        var powerAttackPower = FeatureDefinitionPowerBuilder
-            .Create("PowerAttack", "0a3e6a7d-4628-4189-b91d-d7146d774bb6")
-            .SetGuiPresentation("PowerAttackFeat", Category.Feat,
-                CustomIcons.CreateAssetReferenceSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Permanent)
-                .SetEffectForms(
-                    new EffectFormBuilder()
-                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    new EffectFormBuilder()
-                        .SetConditionForm(powerAttackCondition, ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
-            .AddToDB();
-
-        var turnOffPowerAttackPower = FeatureDefinitionPowerBuilder
-            // Reusing old two-handed power id - we need to keep this id anyway, so old characters won't crash
-            .Create("PowerAttackTwoHanded", "b45b8467-7caa-428e-b4b5-ba3c4a153f07")
-            .SetGuiPresentationNoContent(true)
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
-            .SetUsesFixed(1)
-            .SetCostPerUse(0)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-            .SetEffectDescription(new EffectDescriptionBuilder()
-                .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
-                    RuleDefinitions.TargetType.Self)
-                .SetDurationData(RuleDefinitions.DurationType.Round, 0)
-                .SetEffectForms(
-                    new EffectFormBuilder()
-                        .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)
-                        .Build(),
-                    new EffectFormBuilder()
-                        .SetConditionForm(powerAttackCondition, ConditionForm.ConditionOperation.Remove)
-                        .Build()
-                )
-                .Build())
-            .AddToDB();
-
-        concentrationProvider.stopPower = turnOffPowerAttackPower;
-
-        return FeatDefinitionBuilder
-            .Create("PowerAttackFeat", "88f1fb27-66af-49c6-b038-a38142b1083e")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                powerAttackPower,
-                turnOffPowerAttackPower
-            )
-            .AddToDB();
-    }
-
     private sealed class StopPowerConcentrationProvider : ICusomConcentrationProvider
     {
-        public string Name { get; }
-        public string Tooltip { get; }
-        public AssetReferenceSprite Icon { get; }
         public FeatureDefinitionPower stopPower;
 
         public StopPowerConcentrationProvider(string name, string tooltip, AssetReferenceSprite icon)
@@ -344,6 +341,10 @@ internal static class AcehighFeats
             Tooltip = tooltip;
             Icon = icon;
         }
+
+        public string Name { get; }
+        public string Tooltip { get; }
+        public AssetReferenceSprite Icon { get; }
 
         public void Stop(RulesetCharacter character)
         {
