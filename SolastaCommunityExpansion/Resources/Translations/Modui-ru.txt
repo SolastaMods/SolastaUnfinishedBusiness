@@ -6,7 +6,7 @@ ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Также добаить их в С
 ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[рекомендуется, если умение <color=orange>Карманная Кража</color> включено]</color></i>
 ModUi/&AddToStore	Добавить в магазин
 ModUi/&Advanced	<color=yellow>Дополнительно:</color>
-ModUi/&AdvancedHelp	. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Этот параметр потребует, чтобы у игрока был установлен этот мод.
+ModUi/&AdvancedHelp	. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Эти настройки потребуют, чтобы у игрока был установлен этот мод.
 ModUi/&Adventure	<color=yellow>Приключение:</color>
 ModUi/&AllItemInDm	Все предметы в Создателе Подземелий
 ModUi/&AllowAnyClassToWearSylvanArmor	Разрешить любому классу носить Сильванский доспех
