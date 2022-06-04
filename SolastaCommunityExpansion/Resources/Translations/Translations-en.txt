@@ -129,7 +129,7 @@ Condition/&EWSunlightBladeDamageDescription	At 5th level, attacks triggered by t
 Condition/&EWSunlightBladeDamageTitle	Sunlit Blade's burn
 Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature.
 Condition/&FrenziedTitle	Frenzied
-Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistenances as other ghosts.
+Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistances as other ghosts.
 Condition/&HalfLifeConditionTitle	Half Life
 Condition/&HelpActionDescription	This creature has been distracted.
 Condition/&HelpActionTitle	Distracted
@@ -138,7 +138,7 @@ Condition/&MoonTouchedConditionTitle	Moon Touched
 Condition/&PoxDescription	Pox condition.
 Condition/&PoxTitle	Pox
 Condition/&RuinDescription	Ruin condition.
-Condition/&RuinedDescription	This creature's defence is reduced.
+Condition/&RuinedDescription	This creature's defense is reduced.
 Condition/&RuinedTitle	Ruined
 Condition/&RuinTitle	Ruin
 Condition/&SentinelStopMovementConditionTitle	Stopped
@@ -436,7 +436,7 @@ Feat/&ArtificialServantAttackDescription	Ranged attack 1d6 force damage from you
 Feat/&ArtificialServantAttackTitle	Force Sling
 Feat/&ArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&ArtificialServantTitle	Artificial Servant
-Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. Tthe creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
+Feat/&ArtilleristCannonDetonationDescription	Detonate one of your devices causing creatures within 20 ft of the targeted location to make a Dexterity save. The creatures take 3d8 force damage on a failed save, and half as much damage on a successful one.
 Feat/&ArtilleristCannonDetonationTitle	Device Detonation
 Feat/&ArtilleristFlameCannon15Description	Spew fire, dealing 6d8 fire damage at your enemies as a bonus action.
 Feat/&ArtilleristFlameCannon15Title	Flamethrower
@@ -476,7 +476,7 @@ Feat/&AutoPreparedSpellsDescription	{0}.
 Feat/&AutoPreparedSpellsTitle	Learn Scout Sentinel spells
 Feat/&BattleSmithSubclassSpellsDescription	{0}.
 Feat/&BattleSmithSubclassSpellsTitle	Learn Weapon Smith Spells
-Feat/&CancelFlyingConditionDescription	End flying condtion to allow jumping and crawling.
+Feat/&CancelFlyingConditionDescription	End flying condition to allow jumping and crawling.
 Feat/&CancelFlyingConditionTitle	Cancel Fly
 Feat/&ChefConDescription	You gain +1 to Constitution. Spend 1 hour to cook a meal to heal yourself and your companions 1d8 HP. Once a day, you may spend an hour to cook treats that provide temporary HP when eaten.
 Feat/&ChefConTitle	Chef (Constitution)
@@ -552,7 +552,7 @@ Feat/&FeatMetamagicAdeptCarefulDescription	Increase your Charisma by 1, to a max
 Feat/&FeatMetamagicAdeptCarefulTitle	Metamagic: Careful
 Feat/&FeatMetamagicAdeptDistantDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Distant metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptDistantTitle	Metamagic: Distant
-Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Empowered metamgic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Empowered metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagic: Empowered
 Feat/&FeatMetamagicAdeptExtendedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Extended metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptExtendedTitle	Metamagic: Extended
@@ -562,16 +562,20 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagic: Quickened
 Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
+Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Feat/&FeatPolearmExpertTitle	Polearm Expert
 Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
 Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
 Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
+Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.\n• If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
+Feat/&FeatRangedExpertTitle	Ranged Expert
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle	Savage Attacker
-Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n - When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n - Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n - When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
 Feat/&FeatSentinelTitle	Sentinel
 Feat/&FeatShadowTouchedChaDescription	Increase your Charisma attribute by 1, to a maximum of 20.\nYou gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedChaTitle	Shadow Touched (Charisma)
@@ -650,7 +654,7 @@ Feat/&ForceArtilleryConstructTitle_3	Force Artillery Construct
 Feat/&ForceArtilleryConstructTitle_5	Force Artillery Construct
 Feat/&ForceArtilleryDescription	2d8 Force damage and push 5ft.
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
-Feat/&ForceStrikePowerTitle	Force Sling (Artifical Servant)
+Feat/&ForceStrikePowerTitle	Force Sling (Artificial Servant)
 Feat/&GauntletsGrappleDescription	Can now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage.
 Feat/&GauntletsGrappleTitle	Gauntlet grapple
 Feat/&HalfCoverShieldDescription	Gives +2 AC while within 10ft.
@@ -667,8 +671,8 @@ Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Con
 Feat/&IncreaseConstructSelectingTitle	Reinforcements
 Feat/&InspiringLeaderDescription	Spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier. Useable once per short rest.
 Feat/&InspiringLeaderTitle	Inspiring Leader
-Feat/&IntToAttackAndDamageDescription	Add Int instead of Str or Dex to your Armor Weapons.
-Feat/&IntToAttackAndDamageTitle	Amror Weapon
+Feat/&IntToAttackAndDamageDescription	You can use your Intelligence modifier, instead of Strength or Dexterity modifier, for your attack and damage rolls with Armor Weapons.
+Feat/&IntToAttackAndDamageTitle	Armor Weapon
 Feat/&MendingConstructDescription	Repair your construct for 2d6 HP over 1 min.
 Feat/&MendingConstructTitle	Mending Construct
 Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons.
@@ -677,7 +681,7 @@ Feat/&MoonlitBonusCantripsDescription	Your control of moon light has increased t
 Feat/&MoonlitBonusCantripsTitle	Light Control
 Feat/&PickPocketFeatDescription	You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 Feat/&PickPocketFeatTitle	Pickpocket
-Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixier that emboldens your allies, providing them 4d6 + Intelligence modifier temporary hit points.
+Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixir that emboldens your allies, providing them 4d6 + Intelligence modifier temporary hit points.
 Feat/&PowerAlchemistEmboldeningShotsTitle	Emboldening Shots
 Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Once per day, you can cast Greater Restoration.
 Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Greater Restoration
@@ -685,7 +689,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Once per day, you can cast Heal.
 Feat/&PowerAlchemistHealElixirsTitle	Heal
 Feat/&PowerAlchemistRestorativeElixirsDescription	You can cast Lesser Rotation without expending a spell slot. You can do this a number of times per long rest equal to your Intelligence modifier.
 Feat/&PowerAlchemistRestorativeElixirsTitle	Restorative Elixirs
-Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. You can choose to take a -3 penalty to your to hit in order to do 3 + Proficiency Bonus extra damage with melee weapons.
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 Feat/&PowerAttackFeatTitle	Power attack
 Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4+4 Temporary Hit Points for the Duration.
 Feat/&PowerFalseLifeFromFeatTitle	False Life
@@ -721,7 +725,7 @@ Feat/&ResummonArtilleryConstruct_03Title	Resummon Artillery Construct 1
 Feat/&ResummonArtilleryConstruct_09Title	Resummon Artillery Construct 2
 Feat/&ResummonArtilleryConstruct_15Title	Resummon Artillery Construct 3
 Feat/&ResummonArtilleryConstructDescription	This spell allows the tinkerer to resummon an Artillery Construct in one of multiple modes after the initial summons expires. The resummoned construct also lasts 1 hour.
-Feat/&RetributionDescription	Construct damages 1d4 + Int when attacked.
+Feat/&RetributionDescription	Construct does 1d4 + your Intelligence modifier force damage to the attacker when it is hit by an attack.
 Feat/&RetributionTitle	Retribution
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Multiple Armor Functions</color></size>\nYou can switch between function modes once per day by creating and using temporary weapons\n\n<size=17><color=#add8e6ff>Sentinel Mode</color></size>\nGain a limited number of temporary HP based on level. Impose disadvantage on enemies attacking allies\n\n<size=17><color=#add8e6ff>Scout Mode</color></size>\nGain increased movement, stealth advantage and a ranged attack which deals an extra die of damage once a turn.\n\n<size=17><color=#add8e6ff>Features</color></size>\nYou can use the armor's weapons as a spellcasting focus for your spells\nHeavy Armor does not have a strength requirement\nYou gain proficiency in smith's tools and heavy armor.
 Feat/&ScoutSentinelFeatureSet_level03Title	Scout Sentinel
@@ -741,8 +745,8 @@ Feat/&SubclassProficienciesDescription	You gain proficiency in smith's tools and
 Feat/&SubclassProficienciesTitle	Subclass Proficiencies
 Feat/&SummonArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
 Feat/&SummonArtificialServantTitle	Summon Artificial Servant
-Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushs enemy 5ft away.
-Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAddditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
+Feat/&SummonArtilleryConstructDescription	The Blaster creates and commands an Artillery Construct in one of multiple modes. The construct's HP increases with its summoner's levels and can be summoned for free for 1 hour once per day. The construct can be resummoned via 1st level spell. The three modes are: \n<color=#add8e6ff>Protecting Dome Construct:</color>\nGrants 1d8 + 4 temporary HP to allies within 10ft \n<color=#add8e6ff>Flame Artillery Construct:</color>\nCreates a cone of fire. Creatures must make a Dexterity saving throw or take 2d8 damage\n<color=#add8e6ff>Force Artillery Construct:</color>\nDeals 2d8 force damage and pushes enemy 5ft away.
+Feat/&SummonArtilleryConstructlevel09Description	A new function has been added. The Artillery Construct can destroy itself, forcing a Dexterity save or dealing 3d8 force damage on a failure. \nAdditionally both the Flame and Force Artillery damage rolls increase by 1d8 to a total of 3d8.
 Feat/&SummonArtilleryConstructlevel09Title	Artillery Construct Upgrade: Self-Destruct
 Feat/&SummonArtilleryConstructlevel15Description	A new function has been added. The Artillery Construct now provides half cover to allies within 10ft \n<size=17><color=#add8e6ff>Artillery Construct Upgrade: Reinforcements</color></size>\nYou can now summon two Artillery Constructs. The constructs can be of the same or different modes.
 Feat/&SummonArtilleryConstructlevel15Title	Artillery Construct Upgrade: Half Cover Dome
@@ -770,7 +774,7 @@ Feat/&UsingitemPowerDescription	Allows weapon power to be used on bonus action.
 Feat/&UsingitemPowerTitle	Use Weapon Power
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
-Feature/&AdditionalDamageAgonizingBlastDescription	You add you Cha modifier to the first roll damage of an Eldritch Blast attack.
+Feature/&AdditionalDamageAgonizingBlastDescription	You add your Charisma modifier to the first damage roll of an eldritch blast attack.
 Feature/&AdditionalDamageAgonizingBlastTitle	Agonizing Blast
 Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
@@ -783,7 +787,7 @@ Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
-Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Once per short rest you can summon forth a spiritual form of a weapon from your pact as a free action. As a bonus action, you can direct the weapon as desired to attack your foes. The weapon moves up to 20ft each time before striking.
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Spiritual Pact Weapon
 Feature/&AHWarlockClassPactBoonSetDescription	At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You can choose between:
 Feature/&AHWarlockClassPactBoonSetTitle	Pact boon
@@ -793,14 +797,14 @@ Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Once per long rest 
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Soul Empower
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	The Soul blade lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Soulblade Spells
-Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest you use the power of souls to defend yourself. Using a bonus action you gain temp hp equal to your level + Charisma modifier.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Once per short rest, you use the power of souls to defend yourself. Using a bonus action, you gain temp hp equal to your level + Charisma modifier.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Soul Shield
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
 Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round.
 Feature/&AncientForestLightAffinityTitle	Photosynthesis
-Feature/&AncientForestRegrowthDescription	A pool of healing power - 5 points per warlock level.
+Feature/&AncientForestRegrowthDescription	You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your warlock level × 5.
 Feature/&AncientForestRegrowthTitle	Regrowth
 Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
 Feature/&ArcaneDetonationTitle	Arcane Detonation
@@ -840,9 +844,9 @@ Feature/&BolgrifInvisibilityPowerDescription	As a bonus action, you can magicall
 Feature/&BolgrifInvisibilityPowerTitle	Vanish
 Feature/&BolgrifPowerfulBuildDescription	You count your size as Large when determining your carrying capacity.
 Feature/&BolgrifPowerfulBuildTitle	Powerful Build
-Feature/&BondoftheTalismanDescription	Teleport up to 5 cells away.
+Feature/&BondoftheTalismanDescription	Teleport up to 30 ft away.
 Feature/&BondoftheTalismanTitle	Teleport Talisman
-Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a WIS saving throw.
+Feature/&ChainsofCarceriDescription	Paralyzes a celestial, fiend or elemental unless it succeeds a Wisdom saving throw.
 Feature/&ChainsofCarceriTitle	Chains of Carceri
 Feature/&ClassMonkDeflectMissileDescription	You can use your reaction to deflect the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
 Feature/&ClassMonkDeflectMissileTitle	Deflect Missiles
@@ -851,10 +855,10 @@ Feature/&ClassMonkDiamondSoulTitle	Diamond Soul
 Feature/&ClassMonkExtraAttackDescription	You can attack twice, instead of once, whenever you take the Attack action on your turn.
 Feature/&ClassMonkExtraAttackTitle	Extra Attack
 Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic energy of ki. You gain ki points equal to your monk level. When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You can spend these points to fuel various ki features. You start knowing three such features:
-Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n - You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n - You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n - When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
+Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:\n• You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.\n• You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels.\n• When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action.
 Feature/&ClassMonkMartialArtsTitle	Martial Arts
 Feature/&ClassMonkMartialDiceProgression00Description	You can roll <color=#57BCF4>d6</color> in place of the normal damage of your unarmed strike or monk weapon.
 Feature/&ClassMonkMartialDiceProgression00Title	Martial Arts Die Increase (d6)
@@ -878,7 +882,7 @@ Feature/&ClassMonkUnarmoredMovementTitle	Unarmored Movement
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	While you are unarmored and not wielding a shield you can move on walls like a spider. Ability is temporarily lost if you preform any action that is not movement, or when it is not your turn in combat.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Unarmored Movement: Climbing
 Feature/&ClassMonkWeaponProficiencyTitle	Monk Weapon Proficiencies
-Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantge when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
+Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they are considered monk weapon for you.\nYou don't get disadvantage when making ranged attack with a monk weapon while in 5ft of an enemy, provided you wear no armor or shield.
 Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
@@ -898,7 +902,7 @@ Feature/&ClassWarlockSavingThrowProficiencyDescription	Wisdom, Charisma.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Saving Throws Proficiencies
 Feature/&ClassWarlockSkillProficiencyDescription	Choose 2 of these skills: Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion.
 Feature/&ClassWarlockSkillProficiencyTitle	Warlock Skills
-Feature/&ClassWarlockSpellcastingDescription	Your arcane research and the magic bestowed on you by your otherwordly patron have given you facility with spells.
+Feature/&ClassWarlockSpellcastingDescription	Your arcane research and the magic bestowed on you by your otherworldly patron have given you facility with spells.
 Feature/&ClassWarlockSpellcastingTitle	Warlock Pact Magic
 Feature/&ClassWarlockToolsProficiencyDescription	You have been trained to brew herbal remedies and use enchanting equipment.
 Feature/&ClassWarlockToolsProficiencyTitle	Warlock Magical Crafting
@@ -908,7 +912,7 @@ Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Relentless Endurance
-Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 proficiency bonus damage.
+Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 bonus damage.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and non-magical, to a distance of 120 feet.
 Feature/&DevilsSightTitle	Devil's Sight
@@ -982,7 +986,7 @@ Feature/&EldritchMindTitle	Eldritch Mind
 Feature/&EldritchSightTitle	Eldritch Sight
 Feature/&EldritchSmiteDescription	Once per turn when you hit a creature with your pact weapon, you can expend a warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n 
+Feature/&ElementalistSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementalist Spells
 Feature/&ElementalPactAirPlane	Air Plane
 Feature/&ElementalPactAstralPlane	Astral Plane
@@ -1012,12 +1016,12 @@ Feature/&FlameArtillery_15ModePowerDescription	Summons a construct that lasts 1 
 Feature/&FlameArtillery_15ModePowerTitle	Summon Flame Artillery Construct
 Feature/&FlameArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nFlame Artillery: Creates a cone of fire that deals 2d8 damage on a failed save.
 Feature/&FlameArtilleryModePowerTitle	Summon Flame Artillery Construct
-Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
+Feature/&ForceArtillery_09ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit.
 Feature/&ForceArtillery_09ModePowerTitle	Summon Force Artillery Construct
-Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushs enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
+Feature/&ForceArtillery_15ModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 3d8 force damage and pushes enemy 5ft away. \nSelf-Destruct: deals 3d8 force damage on a failed save and destroys the unit. \n Half Cover Dome: provides half cover to allies within 10ft.
 Feature/&ForceArtillery_15ModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryAdditionalDamageTitle	Upgraded damage
-Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushs target 5ft away.
+Feature/&ForceArtilleryModePowerDescription	Summons a construct that lasts 1 hour. \nForce Artillery: Deals 2d8 force damage and pushes target 5ft away.
 Feature/&ForceArtilleryModePowerTitle	Summon Force Artillery Construct
 Feature/&ForceArtilleryTitle	Force Artillery
 Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
@@ -1076,7 +1080,7 @@ Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
 Feature/&OpportunistQuickStrikeDescription	You have advantage when attack an enemies whose initiative is lower than yours. In addition, you also have advantage when perform an attack of opportunity.
 Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
-Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack for the rest of the turn to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
+Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
 Feature/&PowerAttackTitle	Power attack
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies within 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
@@ -1102,7 +1106,7 @@ Feature/&RageDamageBonusAttackModifierDescription	Add +2 damage to your attacks 
 Feature/&RageDamageBonusAttackModifierTitle	Rage damage
 Feature/&RageFeatConditionDescription	While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
 Feature/&RageFeatConditionTitle	Raging
-Feature/&RagePowerDescription	As a bonus action you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RagePowerDescription	As a bonus action, you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
 Feature/&RagePowerTitle	Rage
 Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on Strength saves while raging.
 Feature/&RageStrengthSavingThrowAffinityTitle	Rage Strength save advantage
@@ -1151,7 +1155,7 @@ Feature/&TinkererWeaponProficiencyTitle	Tinkerer Weapon Proficiencies
 Feature/&ToadKingBasicToxinTitle	Basic Toxin
 Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you: {0}\n\n
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from a hallucinogenic toxin until they are attacked or otherwise interrupted.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
 Feature/&ToadKingJumpTitle	Jump
 Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
@@ -1173,7 +1177,7 @@ Feature/&WitchSightTitle	Witch Sight
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
-Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast a spell using force damage (eldritch blast), you add your Charisma modifier to the damage it deals on a hit.
+Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast eldritch blast, you add your Charisma modifier to the damage it deals on a hit.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Additional Damage from Magically Powered Attacks
 Feedback/&AdditionalDamageArcaneFirearmFormat	Blasting Enhancement!
@@ -1389,7 +1393,7 @@ Power/&ClassMonkOpenHandProneDescription	Target must succeed Dexterity saving th
 Power/&ClassMonkOpenHandProneTitle	Knock Down
 Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving throw or be pushed 15 feet away from you.
 Power/&ClassMonkOpenHandPushTitle	Push Away
-Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n - It can't take reactions until the end of your next turn.
+Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n• It must succeed on a Dexterity saving throw or be knocked prone.\n• It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n• It can't take reactions until the end of your next turn.
 Power/&ClassMonkOpenHandTechniqueTitle	Open Hand Technique
 Power/&ClassMonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only available if you are not wearing armor or shield.
 Power/&ClassMonkPatientDefenseTitle	Patient Defense
@@ -1413,7 +1417,7 @@ Power/&ClassMonkZenArrowProneDescription	Target must succeed Dexterity saving th
 Power/&ClassMonkZenArrowProneTitle	Knock Down
 Power/&ClassMonkZenArrowPushDescription	Target must succeed Strength saving throw or be pushed 10 feet away from you.
 Power/&ClassMonkZenArrowPushTitle	Push Away
-Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone.\n - It must succeed Strength saving throw or be pushed 10 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn. 
+Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n• It must succeed on a Dexterity saving throw or be knocked prone.\n• It must succeed Strength saving throw or be pushed 10 feet away from you.\n• It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn. 
 Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowTechniqueTitle	Distant Hand Technique
 Power/&ClassMonkZenArrowUpgradedDistractDescription	Target must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
@@ -1422,7 +1426,7 @@ Power/&ClassMonkZenArrowUpgradedProneDescription	Target must succeed on a Dexter
 Power/&ClassMonkZenArrowUpgradedProneTitle	Knock Down
 Power/&ClassMonkZenArrowUpgradedPushDescription	Target must succeed on a Strength saving throw or be pushed 20 feet away from you.
 Power/&ClassMonkZenArrowUpgradedPushTitle	Push Away
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki - all effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n - It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n - It must succeed Strength saving throw or be pushed 20 feet away from you.\n - It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn. 
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki. All effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n• It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n• It must succeed Strength saving throw or be pushed 20 feet away from you.\n• It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn. 
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Improved Distant Hand Technique
 Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times equal to your proficiency bonus per long rest by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply your proficiency bonus as damage of the same type to first spell damage done that turn. The forms last for 1 minute.
@@ -1452,13 +1456,13 @@ Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and push
 Power/&ToadKingCroakTitle	Croak
 Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself.
 Power/&ToadKingGraspingTongueTitle	Grasping Tongue
-Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistent to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
 Power/&ToadKingSwallowDescription	Attempt to swallow a Medium or smaller enemy. On a failed Strength save, the monster is swallowed and receives 3d6 acid damage per round. Ends if the toad warlock is hit with 15 or more damage in single attack.
 Power/&ToadKingSwallowTitle	Swallow
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands.
 Power/&UrPriestControlUndeadTitle	Control Undead
-Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistenances as other ghosts.
+Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistances as other ghosts.
 Power/&UrPriestHalfLifeTitle	Half Life
 Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
 Power/&UrPriestRadiantWardTitle	Radiant Ward
@@ -1492,7 +1496,7 @@ Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
-Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1d10 + DEX modifier + Monk level
+Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1d10 + Dexterity modifier + Monk level
 Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Attack
@@ -1626,7 +1630,7 @@ Spell/&AirBlastDescription	Fire a blast of focused air at your target.
 Spell/&AirBlastTitle	Air Blast
 Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
 Spell/&BurstOfRadianceTitle	Burst of Radiance
-Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n50 hit points or fewer: deafened for 1 minute\n40 hit points or fewer: deafened and blinded for 10 minutes\n30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n
+Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n• 50 hit points or fewer: deafened for 1 minute\n• 40 hit points or fewer: deafened and blinded for 10 minutes\n• 30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n• 20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n
 Spell/&CJDivineWordTitle	Divine Word
 Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
@@ -1744,9 +1748,9 @@ Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven
 Stage/&SubclassSelectionStageCovenTitle	Coven
 Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
-Stage/&SubclassSelectionStagePatronFeatures	Otherwordly Patrons Features
-Stage/&SubclassSelectionStagePatronHeader	Warlock Otherwordly Patrons
-Stage/&SubclassSelectionStagePatronTitle	Otherwordly Patrons
+Stage/&SubclassSelectionStagePatronFeatures	Otherworldly Patrons Features
+Stage/&SubclassSelectionStagePatronHeader	Warlock Otherworldly Patrons
+Stage/&SubclassSelectionStagePatronTitle	Otherworldly Patrons
 Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
 Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
 Stage/&SubclassSelectionStageSpecialistHeader	Specializations
@@ -1833,7 +1837,7 @@ Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Way of the Open Hand
 Subclass/&ClassMonkTraditionZenArcherDescription	Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficent in using bows and delivering ki-empowered effects through arrows.
 Subclass/&ClassMonkTraditionZenArcherTitle	Way of the Distant Hand
 Subclass/&ClassWarlockPatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
-Subclass/&ClassWarlockPatronTitle	Otherwordly Patron
+Subclass/&ClassWarlockPatronTitle	Otherworldly Patron
 Subclass/&ConditionResistantArmorTitle	Resistant Armor
 Subclass/&ConditionResistnatArmorDescription	Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage.
 Subclass/&ConditionSpellShieldArcaneDeflectionDescription	You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
@@ -1850,14 +1854,14 @@ Subclass/&DHWarlockSubclassRiftWalkerDescription	Your patron is one of the rare 
 Subclass/&DHWarlockSubclassRiftWalkerTitle	Rift Walker Pact
 Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian
-Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimmensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Touch an bag and infuse an extra dimensional space to help it hold more weight without encumbering you. You can only have one of each infusion active at a time. Activating it a second time will cancel the first.
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Bag of Holding
 Subclass/&FighterMarshalCoordinatedAttackDescription	When you hit an enemy with a melee attack, your allies can use their reaction to make an opportunity attack against your target.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Coordinated Attack
-Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famouse ochestrator of the battle field.
-Subclass/&FighterMarshalEncouragementPowerDescription	Once per day, you can spend an hour to encourage each other and prepare for the next adventure day. The morale of the party is improved significantly and each encouraged character add 1d4 to their attack rolls and saving throw until the end of a long rest. 
+Subclass/&FighterMarshalDescription	Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
+Subclass/&FighterMarshalEncouragementPowerDescription	The courage of the marshal inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw. 
 Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon 2 spirit of his fallen comrades to aid him in combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	The bond between the marshal and his comrade crosses the boundary between life and death. As a bonus action, the marshal can summon one spirit of his fallen comrades to aid him in combat.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eternal Comrade
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	You are immune to fear effect.
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Fearless Commander
@@ -1865,7 +1869,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	You add your knowledg
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Know Your Enemy
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	As a bonus action, you can attempt to increase your knowledge about your target by rolling a Survival check. You can do this twice per short rest.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against nonmagical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 2 spirits of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against non-magical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
 Subclass/&FighterMarshalTitle	Marshal
 Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
@@ -1955,7 +1959,7 @@ Subclass/&PowerSpellShieldRangedDeflectionDescription	When an attacker that you 
 Subclass/&PowerSpellShieldRangedDeflectionTitle	Ranged Deflection
 Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Imbued into your armor is magical improvements to your ability to avoid bad effects. You gain 3d4 to every saving throw you make.
 Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Soul of Tinkerer
-Subclass/&PowerTinkererSpellStoringItemDescription	As a bonus action you can regain spell slots. You can do this a number of times per day equal to your Intelligence modifier.
+Subclass/&PowerTinkererSpellStoringItemDescription	As a bonus action, you can regain spell slots. You can do this a number of times per day equal to your Intelligence modifier.
 Subclass/&PowerTinkererSpellStoringItemTitle	Spell Storing Item
 Subclass/&PowerTransmuteConstitutionDescription	Use your Transmute Force to grant proficiency with Constitution Saves until the next long rest.
 Subclass/&PowerTransmuteConstitutionTitle	Constitution Saves
@@ -2037,19 +2041,20 @@ Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in
 Subclass/&WitchSubclassPathTitle	Witch Covens
 ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
 Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
-Tooltip/&DeadeyeConcentration	Disable Deadeye.\nEffect will last until start of your next turn
+Tooltip/&DeadeyeConcentration	Disable Deadeye.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
 Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
 Tooltip/&FeatPrerequisiteIsNotRogue	Isn't a Rogue
 Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
-Tooltip/&PowerAttackConcentration	Disable Power Attack.\nEffect will last until start of your next turn
+Tooltip/&PowerAttackConcentration	Disable Power Attack.
 Tooltip/&Tag9000Title	Custom Effect
 Tooltip/&TagCommunityExpansionTitle	Community Expansion
 Tooltip/&TagMaledictionTitle	Malediction
 Tooltip/&TagMonkWeaponTitle	Monk
 Tooltip/&TagOtherModContentTitle	From mod
+Tooltip/&TagPolearmWeaponTitle	Polearm
 Tooltip/&TagScoutSentinelWeaponTitle	Scout Sentinel
 UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
 UI/&CustomFeatureSelectionStageFeatures	Features
@@ -2061,6 +2066,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Tooltip/&TagPolearmWeaponTitle	Polearm
-Feat/&FeatPolearmExpertTitle	Polearm Expert
-Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n - When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n - While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.

@@ -16,7 +16,7 @@ internal static class DialogChoiceItem_Bind
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            __instance.labelHighlighter.TargetLabel.Text = UserCampaignsTranslator.Translate(
+            __instance.labelHighlighter.TargetLabel.Text = Translations.Translate(
                 __instance.labelHighlighter.TargetLabel.Text,
                 Main.Settings.SelectedLanguageCode);
         }

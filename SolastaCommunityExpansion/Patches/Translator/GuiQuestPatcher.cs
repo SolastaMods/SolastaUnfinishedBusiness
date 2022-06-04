@@ -15,7 +15,7 @@ internal static class GuiQuest_GetStepTitle
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            __result = UserCampaignsTranslator.Translate(
+            __result = Translations.Translate(
                 __result,
                 Main.Settings.SelectedLanguageCode);
         }
@@ -32,7 +32,7 @@ internal static class GuiQuest_GetStepDescription
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            __result = UserCampaignsTranslator.Translate(
+            __result = Translations.Translate(
                 __result,
                 Main.Settings.SelectedLanguageCode);
         }

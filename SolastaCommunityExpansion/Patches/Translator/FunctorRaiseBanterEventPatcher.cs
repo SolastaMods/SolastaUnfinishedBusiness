@@ -5,18 +5,18 @@ using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Patches.Translator;
 
-[HarmonyPatch(typeof(NarrativeStateNpcSpeech), "RecordSpeechLine")]
+[HarmonyPatch(typeof(FunctorRaiseBanterEvent), "Execute")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class NarrativeStateNpcSpeech_RecordSpeechLine_Getter
+internal static class FunctorRaiseBanterEvent_Execute
 {
-    internal static void Prefix(ref string textLine)
+    internal static void Prefix(FunctorParametersDescription functorParameters)
     {
-        textLine = DungeonMakerContext.ReplaceVariable(textLine);
+        functorParameters.stringParameter = DungeonMakerContext.ReplaceVariable(functorParameters.stringParameter);
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            textLine = Translations.Translate(
-                textLine,
+            functorParameters.stringParameter = Translations.Translate(
+                functorParameters.stringParameter,
                 Main.Settings.SelectedLanguageCode);
         }
     }

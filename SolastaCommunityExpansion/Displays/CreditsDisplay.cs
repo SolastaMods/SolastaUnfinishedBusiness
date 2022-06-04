@@ -34,11 +34,13 @@ internal static class CreditsDisplay
             "ImpPhil",
             "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
         },
+        {"JetBrains", "3 Rider full licenses"},
         {"Lyraele", "Warlock class design, quality assurance"},
         {"Narria", "modKit creator, developer"},
         {"Nd", "Marshal subclass, Opportunist subclass"},
         {"Nyowwww", "Chinese translations"},
         {"PraiseThyBus", "quality assurance"},
+        {"Tactical Adventures", "support to our initiative"},
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
         {
             "SilverGriffon",
@@ -51,6 +53,7 @@ internal static class CreditsDisplay
             "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Feats, Spells, infrastructure patches, Holic75's code integration"
         },
         {"View619", "Darkvision, Superior Dark Vision"},
+        {"Vylantze", "English terms review"},
         {
             "Zappastuff",
             "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Infrastructure and QoL patches, Holic75's code integration"

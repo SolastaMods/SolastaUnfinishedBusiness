@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ModKit;
-using SolastaCommunityExpansion.Utils;
+using SolastaCommunityExpansion.Models;
 
 namespace SolastaCommunityExpansion.Displays;
 
@@ -15,14 +15,15 @@ public static class TranslationsDisplay
         {
             UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(120));
 
-            var intValue = Array.IndexOf(UserCampaignsTranslator.AvailableLanguages,
+            var intValue = Array.IndexOf(UserCampaignsTranslatorContext.AvailableLanguages,
                 Main.Settings.SelectedLanguageCode);
             if (UI.SelectionGrid(
                     ref intValue,
-                    UserCampaignsTranslator.AvailableLanguages, UserCampaignsTranslator.AvailableLanguages.Length,
+                    UserCampaignsTranslatorContext.AvailableLanguages,
+                    UserCampaignsTranslatorContext.AvailableLanguages.Length,
                     3, UI.Width(300)))
             {
-                Main.Settings.SelectedLanguageCode = UserCampaignsTranslator.AvailableLanguages[intValue];
+                Main.Settings.SelectedLanguageCode = UserCampaignsTranslatorContext.AvailableLanguages[intValue];
             }
         }
 
@@ -53,7 +54,7 @@ public static class TranslationsDisplay
                 UI.Label(userCampaign.Author.bold().orange(), UI.Width(120));
                 UI.Label(userCampaign.Title.bold().italic(), UI.Width(300));
 
-                if (UserCampaignsTranslator.CurrentExports.TryGetValue(exportName, out var status))
+                if (UserCampaignsTranslatorContext.CurrentExports.TryGetValue(exportName, out var status))
                 {
                     buttonLabel = Gui.Format("ModUi/&TranslateCancel", status.LanguageCode.ToUpper(),
                         $"{status.PercentageComplete:00.0%}").bold().yellow();
@@ -67,12 +68,12 @@ public static class TranslationsDisplay
                     {
                         if (status == null)
                         {
-                            UserCampaignsTranslator.TranslateUserCampaign(
+                            UserCampaignsTranslatorContext.TranslateUserCampaign(
                                 Main.Settings.SelectedLanguageCode, userCampaign.Title, userCampaign);
                         }
                         else
                         {
-                            UserCampaignsTranslator.Cancel(userCampaign.Title);
+                            UserCampaignsTranslatorContext.Cancel(userCampaign.Title);
                         }
                     },
                     UI.Width(200));

@@ -164,17 +164,16 @@ public class AddExtraMainHandAttack : AddExtraAttackBase
     }
 }
 
-public class AddExtraThrownAttack : AddExtraAttackBase
+public class AddExtraRangedAttack : AddExtraAttackBase
 {
-    public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, bool clearSameType,
-        params CharacterValidator[] validators) : base(actionType, clearSameType, validators)
-    {
-    }
+    private readonly IsWeaponValidHandler weaponValidator;
 
-    public AddExtraThrownAttack(ActionDefinitions.ActionType actionType, params CharacterValidator[] validators) :
+    public AddExtraRangedAttack(IsWeaponValidHandler weaponValidator, ActionDefinitions.ActionType actionType,
+        params CharacterValidator[] validators) :
         base(
             actionType, validators)
     {
+        this.weaponValidator = weaponValidator;
     }
 
     protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
@@ -188,7 +187,7 @@ public class AddExtraThrownAttack : AddExtraAttackBase
     private void AddItemAttack(List<RulesetAttackMode> attackModes, string slot, RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
-        if (item == null || !WeaponValidators.IsThrownWeapon(item))
+        if (item == null || !weaponValidator.Invoke(null, item, hero))
         {
             return;
         }
@@ -208,7 +207,7 @@ public class AddExtraThrownAttack : AddExtraAttackBase
         );
         attackMode.Reach = false;
         attackMode.Ranged = true;
-        attackMode.Thrown = true;
+        attackMode.Thrown = WeaponValidators.IsThrownWeapon(item);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
         attackModes.Add(attackMode);

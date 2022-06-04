@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Models;
@@ -26,6 +27,16 @@ public static class WeaponValidators
     {
         return weapon != null
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
+    }
+
+    public static bool IsRanged(RulesetItem weapon)
+    {
+        return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
+    }
+
+    public static bool IsOneHanded(RulesetItem weapon)
+    {
+        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
 
     public static bool IsUnarmedWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
@@ -71,6 +82,17 @@ public static class WeaponValidators
         RulesetCharacter character)
     {
         return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
+    }
+
+    public static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)
+    {
+        return item != null && HasAnyWeaponTag(item.ItemDefinition, tags);
+    }
+
+    public static bool HasAnyWeaponTag(ItemDefinition item, params string[] tags)
+    {
+        var weaponTags = GetWeaponTags(item);
+        return weaponTags != null && tags.Any(t => weaponTags.Contains(t));
     }
 
     private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)

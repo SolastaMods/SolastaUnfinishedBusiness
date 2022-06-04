@@ -2,18 +2,18 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 60,
+    "rangeType": "Self",
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
-    "targetParameter2": 2,
+    "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -39,7 +39,7 @@
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -74,10 +74,40 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:PowerAttackTwoHandedCondition:7d0eecbd-9ad8-4915-a3f7-cfa131001fe6",
-          "operation": "Add",
-          "conditionsList": [],
+          "conditionDefinitionName": "PowerAttackTriggerCondition",
+          "conditionDefinition": "Definition:PowerAttackTriggerCondition:967b0467-17c5-5c88-bff4-2b74861a6cf4",
+          "operation": "Remove",
+          "conditionsList": [
+            "Definition:PowerAttackTriggerCondition:967b0467-17c5-5c88-bff4-2b74861a6cf4"
+          ],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "PowerAttackCondition",
+          "conditionDefinition": "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292",
+          "operation": "Remove",
+          "conditionsList": [
+            "Definition:PowerAttackCondition:c125b7b9-e668-4c6f-a742-63c065ad2292"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -103,7 +133,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 5.0,
+    "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -111,7 +141,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "4bcfd3b84d6fd5f4ea65243ec317be36",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -135,7 +165,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "817259d53e386934ea144edfbef304d5",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -280,20 +310,20 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "costPerUse": 0,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Wisdom",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&PowerAttackTitle",
+  "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "magical": true,
@@ -304,9 +334,9 @@
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "255fdc99aafc8044fb31353f8a5e61e1",
-      "m_SubObjectName": "LightningBlade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

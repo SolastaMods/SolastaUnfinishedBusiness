@@ -1,13 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Web;
 using I2.Loc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SolastaCommunityExpansion.Properties;
 
 namespace SolastaCommunityExpansion.Utils;
 
 public static class Translations
 {
+    internal static string Translate(string sourceText, string targetCode)
+    {
+        var translation = string.Empty;
+
+        try
+        {
+            var translationFromGoogle = "";
+
+            //Using secret translate.googleapis.com API that is internally used by the Google Translate extension for Chrome and requires no authentication
+            var url = string.Format(
+                "https://translate.googleapis.com/translate_a/single?client=gtx&sl={0}&tl={1}&dt=t&q={2}",
+                "auto", targetCode, HttpUtility.UrlEncode(sourceText));
+
+            using (var wc = new WebClient())
+            {
+                wc.Headers.Add("user-agent",
+                    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+                wc.Encoding = Encoding.UTF8;
+
+                translationFromGoogle = wc.DownloadString(url);
+            }
+
+            // Get translated text
+            var json = JsonConvert.DeserializeObject(translationFromGoogle);
+
+            translation = ((((json as JArray).First() as JArray).First() as JArray).First() as JValue).Value.ToString();
+        }
+        catch
+        {
+            Main.Logger.Log("Failed translating: " + sourceText);
+        }
+
+        return translation;
+    }
+
     private static Dictionary<string, string> GetWordsDictionary()
     {
         var words = new Dictionary<string, string>();

@@ -2,7 +2,6 @@
 ModUi/&AddBleedingToLesserRestoration	Ajoutez la condition <color=orange>Saignement</color> aux conditions supprimées par <color=orange>Grande et Petite Restauration</color>
 ModUi/&AddHelpActionToAllRaces	Ajouter l'action <color=orange>Aide</color> à toutes les courses
 ModUi/&AddNewWeaponsAndRecipesToShops	Ajouter de nouvelles armes et recettes aux boutiques <i><color=yellow>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0>[ Nécessite un redémarrage]</color></i></b>
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Ajoutez-les également au créateur de donjons</i>
 ModUi/&AddPickpocketableLoot	Ajouter un butin pickpocketable <i><color=yellow>[suggéré si la fonctionnalité <color=orange>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore	Ajouter au magasin
 ModUi/&Advanced	<color=yellow>Avancé :</color>
@@ -43,8 +42,8 @@ ModUi/&DungeonMaker	<color=yellow>Créateur de donjon :</color>
 ModUi/&DungeonMakerBasicHelp	. Ces paramètres n'exigeront pas que le joueur ait installé ce mod\n. Vous pouvez intégrer n'importe quelle variable de campagne dans vos boîtes de dialogue, descriptions, etc.\n. CE les remplacera par leur valeur pendant le jeu <i><color=yellow>[i.e : Hello {Salute} Hero !]</color></i>
 ModUi/&DungeonMakerMenu	Créateur de donjon
 ModUi/&EmpressGarbAppearance	Apparence de <color=orange>habit d'impératrice</color>
-ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Ajouter de nouveaux objets foci à Dungeon Maker</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur la carte de niveau
+ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ Ajouter de nouveaux objets à Dungeon Maker</i>
 ModUi/&EnableAlternateHuman	Activer l'humain alternatif <i><color=yellow>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
 ModUI/&EnableBetaContent	Activer le contenu bêta <i><color=yellow>[gardez à l'esprit que vos sauvegardes ou vos héros pourraient tomber en panne à l'avenir]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Activer l'action d'annulation avec un clic droit de la souris
@@ -71,6 +70,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister	Masquez la <color=orange>couronne du ma
 ModUi/&EnableLevel20	Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
 ModUi/&EnableMinInOutAttributes	Appliquer les scores de capacité minimum in & out pré-requis
+ModUi/&EnableOnTheFlyTranslations	Activer les traductions de contenu personnalisé en temps réel <i><color=yellow>[nécessite une connexion sortante en direct. vers https://translate.googleapis.com]</color></i>
 ModUi/&EnableRelearnSpells	Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes
 ModUi/&EnableRespec	Activer les actions RESPEC et Level Down après repos
 ModUi/&EnablesAsiAndFeat	Activer à la fois l'augmentation des scores d'attribut et la sélection des exploits <i><color=yellow>[au lieu d'un choix exclusif]</color></i>
@@ -82,6 +82,7 @@ ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Rencontres
+ModUi/&ExecuteBatchTranslations	Exécutez des traductions par lots : <i><color=yellow>[les campagnes sont enregistrées dans le pool préfixé par la langue cible]</color></i>
 ModUi/&ExpandAll	Développer tout
 ModUi/&FactionHelp	<color=#C04040E0>Chargez un jeu de campagne officiel pour modifier les relations entre les factions...</color>
 ModUi/&FactionRelations	<color=yellow>Relations entre factions :</color>
@@ -160,14 +161,12 @@ ModUi/&SRD	<color=yellow>SRD :</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Stocke le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	Stocke le magasin d'Hugo avec <color=orange>Baguette d'identification</color>, <color=orange>Bâton arcanique</color>, <color=orange>Cou de druide</color>, <color=orange>Bâton</color > et <color=orange>Club</color> définis comme éléments foci
 ModUi/&Subclasses	<color=yellow>Sous-classes</color>
+ModUi/&TargetLanguage	<color=yellow>Langue cible :</color>
 ModUi/&Tools	Outils
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total des dons accordés au premier niveau</color>
 ModUi/&Translate	Traduire
 ModUi/&TranslateCancel	Annuler {0} à {1}
-ModUi/&ExecuteBatchTranslations	Exécutez des traductions par lots : <i><color=yellow>[les campagnes sont enregistrées dans le pool préfixé par la langue cible]</color></i>
-ModUi/&EnableOnTheFlyTranslations	Activer les traductions de contenu personnalisé en temps réel <i><color=yellow>[nécessite une connexion sortante en direct. vers https://translate.googleapis.com]</color></i>
 ModUi/&Translations	Traductions
-ModUi/&TargetLanguage	<color=yellow>Langue cible :</color>
 ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets PNJ <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
 ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
 ModUi/&UnlockAllNpcFaces	Déverrouiller tous les visages de PNJ

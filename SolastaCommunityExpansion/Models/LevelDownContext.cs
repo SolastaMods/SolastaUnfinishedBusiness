@@ -82,6 +82,12 @@ internal static class LevelDownContext
         LevelUpContext.SetSelectedClass(hero, characterClassDefinition);
         LevelUpContext.SetSelectedSubclass(hero, characterSubclassDefinition);
 
+        foreach (var category in hero.ConditionsByCategory.Keys)
+        {
+            hero.RemoveAllConditionsOfCategory(category);
+        }
+
+        hero.RefreshConditionFlags();
         hero.RefreshActiveFightingStyles();
         hero.RefreshActiveItemFeatures();
         hero.RefreshArmorClass();

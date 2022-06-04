@@ -90,7 +90,8 @@ internal static class ItemsAndCraftingDisplay
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
             toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
-            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToEditor")), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
             }
@@ -243,7 +244,7 @@ internal static class ItemsAndCraftingDisplay
             if (Main.Settings.StockHugoStoreWithAdditionalFoci)
             {
                 toggle = Main.Settings.EnableAdditionalFociInDungeonMaker;
-                if (UI.Toggle(Gui.Format("ModUi/&EnableAdditionalFociInDungeonMaker"), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Format("ModUi/&EnableAdditionalItemsInDungeonMaker"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                     ItemOptionsContext.SwitchFociItemsDungeonMaker();

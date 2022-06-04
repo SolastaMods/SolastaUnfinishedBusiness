@@ -129,7 +129,7 @@ Condition/&EWSunlightBladeDamageDescription	No 5º nível, os ataques desencadea
 Condition/&EWSunlightBladeDamageTitle	Queimadura de Sunlit Blade
 Condition/&FrenziedDescription	Esta criatura está frenética e atacará a criatura mais próxima.
 Condition/&FrenziedTitle	Frenético
-Condition/&HalfLifeConditionDescription	Você recebe energia necrótica em si mesmo e fica entre a vida e a morte e é temporariamente possuído por seu próprio fantasma, ganhando voar, e as mesmas imunidades de condição e resistência a danos que outros fantasmas.
+Condition/&HalfLifeConditionDescription	Você recebe energia necrótica para dentro de si e fica entre a vida e a morte e é temporariamente possuído por seu próprio fantasma, ganhando voar, e as mesmas imunidades de condição e resistência a danos que outros fantasmas.
 Condition/&HalfLifeConditionTitle	Meia-vida
 Condition/&HelpActionDescription	Esta criatura foi distraída.
 Condition/&HelpActionTitle	Distraído
@@ -340,7 +340,7 @@ Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Escudo de madeira da camin
 Equipment/&Enchanted_Shield_Wooden_Robustness_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
 Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Escudo de Robustez de Madeira
 Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
-Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Escudo de robustez de madeira
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Escudo de madeira de robustez
 Equipment/&Enchanted_Shield_Wooden_Survival_Description	Esta armadura encantada foi criada usando o antigo conhecimento dos mestres armeiros de Manacalon. Ildurial Stronghand forjou a primeira dessas armaduras para a guarda pessoal do Imperador.
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Escudo de Sobrevivência de Madeira
 Equipment/&Enchanted_Spear_Acuteness_Description	Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. Seu design foi um dos primeiros trabalhos de Elgador Keenspirit, Magesmith of the Arcaneum.
@@ -476,7 +476,7 @@ Feat/&AutoPreparedSpellsDescription	{0}.
 Feat/&AutoPreparedSpellsTitle	Aprenda feitiços de Sentinela Escoteiro
 Feat/&BattleSmithSubclassSpellsDescription	{0}.
 Feat/&BattleSmithSubclassSpellsTitle	Aprenda feitiços de ferreiro de arma
-Feat/&CancelFlyingConditionDescription	Acabar com a condição de voo para permitir saltar e rastejar.
+Feat/&CancelFlyingConditionDescription	Termine a condição de vôo para permitir pular e rastejar.
 Feat/&CancelFlyingConditionTitle	Cancelar voo
 Feat/&ChefConDescription	Você ganha +1 em Constituição. Gaste 1 hora para cozinhar uma refeição para curar você e seus companheiros 1d8 HP. Uma vez por dia, você pode gastar uma hora para cozinhar guloseimas que fornecem HP temporário quando ingeridas.
 Feat/&ChefConTitle	Cozinheiro (Constituição)
@@ -562,16 +562,20 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Aumente seu Carisma em 1, até um m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamágica: Acelerada
 Feat/&FeatMetamagicAdeptTwinnedDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Geminada e ganha 2 pontos de feitiçaria.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamágica: Geminada
+Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste garante estes benefícios:\n• Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n• Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
+Feat/&FeatPolearmExpertTitle	Especialista em Polearm
 Feat/&FeatPrimalConstitutionDescription	Aumente sua Constituição em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Depois de entrar em fúria dessa forma, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
 Feat/&FeatPrimalConstitutionTitle	Fúria Primal (Constituição)
 Feat/&FeatPrimalStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Depois de entrar em fúria dessa forma, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
 Feat/&FeatPrimalStrengthTitle	Fúria Primal (Força)
 Feat/&FeatPugilistFightingStlyeDescription	Seus ataques desarmados causam 1d4 de dano de concussão adicional e você pode socar com sua mão secundária como uma ação bônus.\nSe você tiver uma mão livre, você pode empurrar como uma ação bônus.
 Feat/&FeatPugilistFightingStlyeTitle	Estilo de luta: Pugilista
+Feat/&FeatRangedExpertDescription	Seu treinamento especializado com armas de longo alcance garante esses benefícios:\n• Você não tem mais desvantagem em ataques à distância quando há um inimigo a 5 pés de distância de você.\n• Se você gastar sua ação atacando, você pode usar a ação bônus para fazer um ataque com uma arma à distância ou de arremesso de uma mão.
+Feat/&FeatRangedExpertTitle	Especialista à distância
 Feat/&FeatSavageAttackerDescription	Rerrole os dados de dano de arma e feitiço quando rolam 1 (não rola novamente todas as fontes de dano, por exemplo, exclui Ataque Furtivo e Golpear).
 Feat/&FeatSavageAttackerReroll	Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
 Feat/&FeatSavageAttackerTitle	Atacante Selvagem
-Feat/&FeatSentinelDescription	Você dominou técnicas para aproveitar cada queda na guarda de qualquer inimigo, ganhando os seguintes benefícios:\n - Quando você atinge uma criatura com um ataque de oportunidade, o deslocamento da criatura se torna 0 pelo resto do turno.\n - Criaturas provocam ataques de oportunidade de você mesmo que realizem a ação Desengajar antes de sair do seu alcance.\n - Quando uma criatura faz um ataque contra um alvo que não seja você (e esse alvo não tem este talento), você pode usar sua reação para fazer um ataque corpo a corpo com arma contra a criatura atacante.
+Feat/&FeatSentinelDescription	Você dominou técnicas para aproveitar cada queda na guarda de qualquer inimigo, ganhando os seguintes benefícios:\n• Quando você acerta uma criatura com um ataque de oportunidade, o deslocamento da criatura se torna 0 pelo resto do turno.\n• Criaturas provocam ataques de oportunidade de você mesmo que realizem a ação Desengajar antes de sair do seu alcance.\n• Quando uma criatura faz um ataque contra um alvo que não seja você (e esse alvo não tem este talento), você pode usar sua reação para fazer um ataque corpo a corpo com arma contra a criatura atacante.
 Feat/&FeatSentinelTitle	Sentinela
 Feat/&FeatShadowTouchedChaDescription	Aumente seu atributo Carisma em 1, até um máximo de 20.\nVocê ganha a habilidade de lançar Invisibilidade, Infligir Ferimentos e Vida Falsa uma vez por descanso longo e aprender as magias.
 Feat/&FeatShadowTouchedChaTitle	Tocado pela Sombra (Carisma)
@@ -667,8 +671,8 @@ Feat/&IncreaseConstructSelectingDescription	Agora você pode convocar dois Const
 Feat/&IncreaseConstructSelectingTitle	Reforços
 Feat/&InspiringLeaderDescription	Gaste 10 minutos para inspirar até 6 criaturas amigas (que podem incluir você mesmo) a até 9 metros de você. Cada criatura ganha pontos de vida temporários iguais ao seu nível + seu modificador de Carisma. Utilizável uma vez por descanso curto.
 Feat/&InspiringLeaderTitle	Líder inspirador
-Feat/&IntToAttackAndDamageDescription	Adicione Int em vez de Str ou Dex às suas Armas de Armadura.
-Feat/&IntToAttackAndDamageTitle	Arma de Amor
+Feat/&IntToAttackAndDamageDescription	Você pode usar seu modificador de Inteligência, em vez do modificador de Força ou Destreza, para suas jogadas de ataque e dano com Armas de Armadura.
+Feat/&IntToAttackAndDamageTitle	Arma de Armadura
 Feat/&MendingConstructDescription	Conserte sua construção em 2d6 HP ao longo de 1 min.
 Feat/&MendingConstructTitle	Consertando Construto
 Feat/&ModeSwitchingPoolDescription	Você pode alternar entre os modos uma vez por dia criando e usando armas temporárias.
@@ -677,7 +681,7 @@ Feat/&MoonlitBonusCantripsDescription	Seu controle da luz da lua aumentou para u
 Feat/&MoonlitBonusCantripsTitle	Controle de luz
 Feat/&PickPocketFeatDescription	Você ganha proficiência com Prestidigitação, ou perícia se já for proficiente. Você também tem vantagem em testes de Prestidigitação.
 Feat/&PickPocketFeatTitle	Batedor de carteiras
-Feat/&PowerAlchemistEmboldeningShotsDescription	Você ganha a habilidade de administrar um elixier que encoraja seus aliados, fornecendo a eles 4d6 + modificador de Inteligência pontos de vida temporários.
+Feat/&PowerAlchemistEmboldeningShotsDescription	Você ganha a habilidade de administrar um elixir que encoraja seus aliados, fornecendo a eles 4d6 + modificador de Inteligência pontos de vida temporários.
 Feat/&PowerAlchemistEmboldeningShotsTitle	Tiros encorajadores
 Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Uma vez por dia, você pode conjurar Restauração Maior.
 Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Maior Restauração
@@ -685,7 +689,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Uma vez por dia, você pode lançar C
 Feat/&PowerAlchemistHealElixirsTitle	Curar
 Feat/&PowerAlchemistRestorativeElixirsDescription	Você pode lançar Rotação Menor sem gastar um espaço de magia. Você pode fazer isso um número de vezes por descanso longo igual ao seu modificador de Inteligência.
 Feat/&PowerAlchemistRestorativeElixirsTitle	Elixires Restauradores
-Feat/&PowerAttackFeatDescription	Você aprendeu a trocar precisão para acertar golpes mais mortais. Você pode escolher receber uma penalidade de -3 para acertar para causar 3 + Bônus de Proficiência de dano extra com armas brancas.
+Feat/&PowerAttackFeatDescription	Você aprendeu a trocar precisão para acertar golpes mais mortais. Ao atacar com armas corpo a corpo, você pode escolher receber uma penalidade de -3 no seu ataque para causar dano adicional igual a 3 + seu bônus de proficiência.
 Feat/&PowerAttackFeatTitle	Ataque de poder
 Feat/&PowerFalseLifeFromFeatDescription	Reforçando-se com um fac-símile necromântico da vida, você ganha 1d4+4 Pontos de Vida Temporários pela Duração.
 Feat/&PowerFalseLifeFromFeatTitle	Vida Falsa
@@ -721,7 +725,7 @@ Feat/&ResummonArtilleryConstruct_03Title	Retomar Construto de Artilharia 1
 Feat/&ResummonArtilleryConstruct_09Title	Retomar Construto de Artilharia 2
 Feat/&ResummonArtilleryConstruct_15Title	Retomar Construto de Artilharia 3
 Feat/&ResummonArtilleryConstructDescription	Este feitiço permite que o funileiro ressuscite um Artillery Construct em um dos vários modos após a convocação inicial expirar. A construção recuperada também dura 1 hora.
-Feat/&RetributionDescription	Dano de construção 1d4 + Int quando atacado.
+Feat/&RetributionDescription	Constructo causa 1d4 + seu modificador de Inteligência de dano de força ao atacante quando é atingido por um ataque.
 Feat/&RetributionTitle	Retribuição
 Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Várias funções de armadura</color></size>\nVocê pode alternar entre os modos de função uma vez por dia criando e usando armas temporárias\n\n<size=17><color=#add8e6ff>Modo Sentinela</color></size>\nGanhe um número limitado de HP temporário com base no nível. Impor desvantagem em inimigos atacando aliados\n\n<size=17><color=#add8e6ff>Modo Explorador</color></size>\nGanhe movimento aumentado, vantagem furtiva e um ataque à distância que causa um dado extra de dano uma vez por turno.\n\n<size=17><color=#add8e6ff>Recursos</color></size>\nVocê pode usar as armas da armadura como um foco de conjuração para seus feitiços\nArmadura Pesada não tem um requisito de força\nVocê ganha proficiência em ferramentas de ferreiro e armaduras pesadas.
 Feat/&ScoutSentinelFeatureSet_level03Title	Sentinela Escoteira
@@ -742,7 +746,7 @@ Feat/&SubclassProficienciesTitle	Proficiências de Subclasse
 Feat/&SummonArtificialServantDescription	O servo é amigável com você e seus companheiros e obedece às suas ordens.
 Feat/&SummonArtificialServantTitle	Invocar Servo Artificial
 Feat/&SummonArtilleryConstructDescription	O Blaster cria e comanda um Artillery Construct em um dos vários modos. O HP do constructo aumenta com os níveis de seu invocador e pode ser invocado gratuitamente por 1 hora uma vez por dia. O constructo pode ser invocado através de uma magia de 1º nível. Os três modos são:\n<color=#add8e6ff>Proteção da construção do domo:</color>\nConcede 1d8 + 4 HP temporários para aliados dentro de 10 pés\n<color=#add8e6ff>Construção de Artilharia Flamejante:</color>\nCria um cone de fogo. As criaturas devem fazer um teste de resistência de Destreza ou sofrerão 2d8 de dano\n<color=#add8e6ff>Construção de Artilharia da Força:</color>\nCausa 2d8 de dano de força e empurra o inimigo 1,5 metro de distância.
-Feat/&SummonArtilleryConstructlevel09Description	Uma nova função foi adicionada. O Constructo de Artilharia pode destruir a si mesmo, forçando um teste de Destreza ou causando 3d8 de dano de força em uma falha.\nAlém disso, as jogadas de dano da Artilharia Flamejante e da Força aumentam em 1d8 para um total de 3d8.
+Feat/&SummonArtilleryConstructlevel09Description	Uma nova função foi adicionada. O Constructo de Artilharia pode destruir a si mesmo, forçando um teste de Destreza ou causando 3d8 de dano de força em uma falha.\nAlém disso, as jogadas de dano da Artilharia de Fogo e da Força aumentam em 1d8 para um total de 3d8.
 Feat/&SummonArtilleryConstructlevel09Title	Atualização de construção de artilharia: autodestruição
 Feat/&SummonArtilleryConstructlevel15Description	Uma nova função foi adicionada. O Artillery Construct agora oferece meia cobertura para aliados em até 10 pés\n<size=17><color=#add8e6ff>Atualização de construção de artilharia: reforços</color></size>\nAgora você pode convocar dois Constructos de Artilharia. As construções podem ser do mesmo modo ou de modos diferentes.
 Feat/&SummonArtilleryConstructlevel15Title	Atualização de construção de artilharia: Meia Cobertura Dome
@@ -770,7 +774,7 @@ Feat/&UsingitemPowerDescription	Permite que o poder da arma seja usado na ação
 Feat/&UsingitemPowerTitle	Usar o poder da arma
 Feature/&AdditionalActionDualFlurryDescription	Você pode fazer um ataque adicional com a mão inábil.
 Feature/&AdditionalActionDualFlurryTitle	Turbilhão duplo!
-Feature/&AdditionalDamageAgonizingBlastDescription	Você adiciona seu modificador de Car ao primeiro dano de rolagem de um ataque Eldritch Blast.
+Feature/&AdditionalDamageAgonizingBlastDescription	Você adiciona seu modificador de Carisma à primeira rolagem de dano de um ataque de explosão mística.
 Feature/&AdditionalDamageAgonizingBlastTitle	Explosão Agonizante
 Feature/&AdditionalDamageFeatShadySneakAttackDescription	Uma vez por turno, você pode causar 1d6 de dano extra a uma criatura que você acertar com um ataque que atenda ao Ataque Furtivo do Ladino. No 7º nível este dano aumenta para 2d6 e no 14º nível para 3d6. Isso pode acumular com o ataque furtivo de Rogue.
 Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque sorrateiro
@@ -793,14 +797,14 @@ Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Uma vez por descans
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Capacitação da alma
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	A lâmina da alma permite que você escolha de uma lista expandida de feitiços quando você aprende um feitiço de feiticeiro. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Feitiços de lâmina da alma
-Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por descanso curto você usa o poder das almas para se defender. Usando uma ação bônus, você ganha HP temporário igual ao seu nível + modificador de Carisma.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Uma vez por descanso curto, você usa o poder das almas para se defender. Usando uma ação bônus, você ganha HP temporário igual ao seu nível + modificador de Carisma.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo da Alma
 Feature/&AlwaysBeardDescription	{0}% de chances de crescer uma barba gloriosa!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Feitiços da Floresta Antiga
 Feature/&AncientForestLightAffinityDescription	Você pode absorver energia da luz solar. Enquanto você estiver sob luz direta, você ganha 2 HP por rodada.
 Feature/&AncientForestLightAffinityTitle	Fotossíntese
-Feature/&AncientForestRegrowthDescription	Uma piscina de poder de cura - 5 pontos por nível de bruxo.
+Feature/&AncientForestRegrowthDescription	Você tem um poder de cura que reabastece quando você faz um descanso longo. Com essa reserva, você pode restaurar um número total de pontos de vida igual ao seu nível de bruxo × 5.
 Feature/&AncientForestRegrowthTitle	Rebrota
 Feature/&ArcaneDetonationDescription	Quando você atinge uma criatura que tem sua Marca do Arcanista com um ataque com arma, a marca detona, causando 1d6 de dano de força e destruindo a marca.
 Feature/&ArcaneDetonationTitle	Detonação Arcana
@@ -840,9 +844,9 @@ Feature/&BolgrifInvisibilityPowerDescription	Como uma ação bônus, você pode 
 Feature/&BolgrifInvisibilityPowerTitle	Desaparecer
 Feature/&BolgrifPowerfulBuildDescription	Você conta seu tamanho como Grande ao determinar sua capacidade de carga.
 Feature/&BolgrifPowerfulBuildTitle	Construção poderosa
-Feature/&BondoftheTalismanDescription	Teletransporte até 5 células de distância.
+Feature/&BondoftheTalismanDescription	Teletransporte até 30 pés de distância.
 Feature/&BondoftheTalismanTitle	Talismã de Teletransporte
-Feature/&ChainsofCarceriDescription	Paralisa um celestial, demônio ou elemental a menos que seja bem sucedido em um teste de resistência de WIS.
+Feature/&ChainsofCarceriDescription	Paralisa um celestial, demônio ou elemental a menos que seja bem sucedido em um teste de resistência de Sabedoria.
 Feature/&ChainsofCarceriTitle	Correntes de Carceri
 Feature/&ClassMonkDeflectMissileDescription	Você pode usar sua reação para desviar o míssil quando for atingido por um ataque de arma à distância. Quando você faz isso, o dano que você recebe do ataque é reduzido em 1d10 + seu modificador de Destreza + seu nível de monge.
 Feature/&ClassMonkDeflectMissileTitle	Desviar mísseis
@@ -854,7 +858,7 @@ Feature/&ClassMonkKiDescription	Seu treinamento permite que você aproveite a en
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Seus ataques desarmados contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ataques Potenciais do Ki
 Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	Você ganha os seguintes benefícios enquanto estiver desarmado ou empunhando apenas armas de monge e não estiver usando armadura ou empunhando um escudo:\n - Você pode usar Destreza em vez de Força para as jogadas de ataque e dano de seus ataques desarmados e armas de monge.\n - Você pode rolar um d4 no lugar do dano normal de seu ataque desarmado ou arma de monge. Este dado muda conforme você ganha níveis de monge.\n - Quando você usa a ação Atacar com um golpe desarmado ou uma arma de monge no seu turno, você pode fazer um golpe desarmado como uma ação bônus.
+Feature/&ClassMonkMartialArtsDescription	Você ganha os seguintes benefícios enquanto estiver desarmado ou empunhando apenas armas de monge e não estiver usando armadura ou empunhando um escudo:\n• Você pode usar Destreza em vez de Força para as jogadas de ataque e dano de seus ataques desarmados e armas de monge.\n• Você pode rolar um d4 no lugar do dano normal de seu ataque desarmado ou arma de monge. Este dado muda conforme você ganha níveis de monge.\n• Quando você usa a ação Atacar com um golpe desarmado ou uma arma de monge em seu turno, você pode fazer um golpe desarmado como uma ação bônus.
 Feature/&ClassMonkMartialArtsTitle	Artes marciais
 Feature/&ClassMonkMartialDiceProgression00Description	Você pode rolar <color=#57BCF4>d6</color> no lugar do dano normal de seu ataque desarmado ou arma de monge.
 Feature/&ClassMonkMartialDiceProgression00Title	Aumento de Dados de Artes Marciais (d6)
@@ -908,7 +912,7 @@ Feature/&CounterStrikePowerDescription	Gaste um dado de jogada e faça um Counte
 Feature/&CounterStrikePowerTitle	Contra-ataque
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Quando você é reduzido a 0 HP, mas não morto, você pode cair para 1 HP.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Resistência implacável
-Feature/&DeadeyeDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 de bônus para acertar para causar +10 de dano de bônus de proficiência.
+Feature/&DeadeyeDescription	Atacar a longa distância não impõe desvantagem em suas jogadas de ataque à distância. Suas armas de longo alcance ignoram meia cobertura e três quartos de cobertura. Você pode escolher receber uma penalidade de -5 de bônus para acertar para causar +10 de dano de bônus.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	Você pode ver normalmente na Escuridão, tanto mágica quanto não mágica, a uma distância de 36 metros.
 Feature/&DevilsSightTitle	Visão do Diabo
@@ -1052,7 +1056,7 @@ Feature/&InspirePowerDescription	Gaste um dado de aposta e inspire você ou seu 
 Feature/&InspirePowerTitle	Inspirar
 Feature/&KnockDownPowerDescription	Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
 Feature/&KnockDownPowerTitle	Derrubar
-Feature/&MagicAffinityRangerArcanistDescription	Você é proficiente em lançar feitiços em batalha e pode lançar feitiços que exijam um componente somático mesmo se ambas as mãos estiverem segurando uma arma ou escudo.
+Feature/&MagicAffinityRangerArcanistDescription	Você é proficiente em lançar feitiços em batalha e pode lançar feitiços que exijam um componente somático mesmo que suas duas mãos estejam segurando uma arma ou escudo.
 Feature/&MagicAffinityRangerArcanistTitle	Treinamento de Combate Arcano
 Feature/&MiretheMindTitle	Mire a mente
 Feature/&MoonLitDarknessImmunityDescription	Você é imune à condição de escuridão.
@@ -1151,7 +1155,7 @@ Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
 Feature/&ToadKingBasicToxinTitle	Toxina Básica
 Feature/&ToadKingExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de bruxo. Os seguintes feitiços são adicionados à lista de feitiços de bruxo para você: {0}
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Feitiços do Rei Sapo
-Feature/&ToadKingHallucinogenicToxinAffintyDescription	Seu corpo mudou para se tornar resistente a toxinas e para produzir uma toxina defensiva quando atingido por ataques corpo a corpo, até um número de vezes por descanso longo igual ao seu bônus de proficiência. Se o atacante falhar em um teste de resistência de Constituição, ele sofre de toxina lucinogênica até ser atacado ou interrompido de outra forma.
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Seu corpo mudou para se tornar resistente a toxinas e produzir uma toxina defensiva quando atingido por ataques corpo a corpo, até um número de vezes por descanso longo igual ao seu bônus de proficiência. Se o atacante falhar em um teste de resistência de Constituição, ele sofre de uma toxina alucinógena até ser atacado ou interrompido de outra forma.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxina Alucinógena
 Feature/&ToadKingJumpTitle	Pular
 Feature/&ToadKingPoisonConditionAffinityTitle	Imune a Condição de Veneno
@@ -1173,7 +1177,7 @@ Feature/&WitchSightTitle	Visão da Bruxa
 Feature/&ZSPowerPaladinCleansingTouchDescription	Remova os efeitos da magia tocando em um aliado. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Carisma.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Toque de limpeza
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosão Agonizante
-Feedback/&AdditionalDamageAgonizing_BlastLine	Quando você lança um feitiço usando dano de força (explosão mística), você adiciona seu modificador de Carisma ao dano que ele causa em um acerto.
+Feedback/&AdditionalDamageAgonizing_BlastLine	Quando você conjura rajada mística, você adiciona seu modificador de Carisma ao dano que causa em um acerto.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Dano Adicional de Ataques com Poder Mágico
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Dano Adicional de Ataques com Poder Mágico
 Feedback/&AdditionalDamageArcaneFirearmFormat	Aprimoramento de explosão!
@@ -1389,7 +1393,7 @@ Power/&ClassMonkOpenHandProneDescription	O alvo deve ser bem sucedido no teste d
 Power/&ClassMonkOpenHandProneTitle	Derrubar
 Power/&ClassMonkOpenHandPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado a 4,5 metros de distância de você.
 Power/&ClassMonkOpenHandPushTitle	Afastar
-Power/&ClassMonkOpenHandTechniqueDescription	Você pode manipular o ki do seu inimigo quando usa o seu. Sempre que você acertar uma criatura com um dos ataques concedidos pela sua Rajada de Golpes, você pode impor um dos seguintes efeitos nesse alvo:\n - Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n - Deve fazer um teste de resistência de Força. Se falhar, você pode empurrá-lo até 15 pés de distância de você.\n - Ele não pode receber reações até o final do seu próximo turno.
+Power/&ClassMonkOpenHandTechniqueDescription	Você pode manipular o ki do seu inimigo quando usa o seu. Sempre que você acertar uma criatura com um dos ataques concedidos pela sua Rajada de Golpes, você pode impor um dos seguintes efeitos nesse alvo:\n• Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n• Deve fazer um teste de resistência de Força. Se falhar, você pode empurrá-lo até 15 pés de distância de você.\n• Ele não pode receber reações até o final do seu próximo turno.
 Power/&ClassMonkOpenHandTechniqueTitle	Técnica de Mão Aberta
 Power/&ClassMonkPatientDefenseDescription	Você pode gastar 1 ponto de ki como uma ação bônus para realizar a ação de Esquiva. Disponível apenas se você não estiver usando armadura ou escudo.
 Power/&ClassMonkPatientDefenseTitle	Defesa do paciente
@@ -1413,7 +1417,7 @@ Power/&ClassMonkZenArrowProneDescription	O alvo deve ser bem sucedido no teste d
 Power/&ClassMonkZenArrowProneTitle	Derrubar
 Power/&ClassMonkZenArrowPushDescription	O alvo deve ser bem sucedido no teste de resistência de Força ou será empurrado 3 metros para longe de você.
 Power/&ClassMonkZenArrowPushTitle	Afastar
-Power/&ClassMonkZenArrowTechniqueDescription	Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n - Ele deve ser bem sucedido no teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n - Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
+Power/&ClassMonkZenArrowTechniqueDescription	Você pode manipular o ki do seu inimigo quando você o atinge com suas flechas. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n• Ele deve ser bem sucedido em um teste de resistência de Destreza ou será derrubado.\n• Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado a 3 metros de distância de você.\n• Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem no próximo ataque até o final de seu próximo turno.
 Power/&ClassMonkZenArrowTechniqueShortTitle	Mão Distante
 Power/&ClassMonkZenArrowTechniqueTitle	Técnica da mão distante
 Power/&ClassMonkZenArrowUpgradedDistractDescription	O alvo deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
@@ -1422,7 +1426,7 @@ Power/&ClassMonkZenArrowUpgradedProneDescription	O alvo deve ser bem sucedido em
 Power/&ClassMonkZenArrowUpgradedProneTitle	Derrubar
 Power/&ClassMonkZenArrowUpgradedPushDescription	O alvo deve ser bem sucedido em um teste de resistência de Força ou será empurrado 6 metros para longe de você.
 Power/&ClassMonkZenArrowUpgradedPushTitle	Afastar
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Você melhora sua habilidade de manipular o ki - todos os efeitos da Técnica da Mão Distante são melhorados. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n - Ele deve ter sucesso em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.\n - Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado a 6 metros de distância de você.\n - Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Você melhora sua habilidade de manipular o ki. Todos os efeitos da Técnica da Mão Distante foram melhorados. Sempre que você acertar uma criatura com uma de suas flechas, você pode gastar 1 ki para impor um dos seguintes efeitos nesse alvo:\n• Ele deve ter sucesso em um teste de resistência de Destreza ou será derrubado e terá seu movimento definido como zero por um turno.\n• Ele deve ser bem sucedido em um teste de resistência de Força ou será empurrado 6 metros para longe de você.\n• Ele deve ser bem sucedido em um teste de resistência de Sabedoria ou terá desvantagem em todos os ataques até o final de seu próximo turno.
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Mão Distante
 Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Técnica de Mão Distante Aprimorada
 Power/&DH_ElementalFormPoolDescription	Você pode alternar entre formas elementais um número de vezes igual ao seu bônus de proficiência por descanso longo canalizando energia elemental. Você ganha resistência ao dano relevante e, uma vez por turno, aplica seu bônus de proficiência como dano do mesmo tipo ao primeiro dano mágico causado naquele turno. Os formulários duram 1 minuto.
@@ -1452,13 +1456,13 @@ Power/&ToadKingCroakDescription	Emite uma onda de som que causa dano e empurra c
 Power/&ToadKingCroakTitle	Coaxar
 Power/&ToadKingGraspingTongueDescription	Puxe os inimigos para si mesmo.
 Power/&ToadKingGraspingTongueTitle	Língua de agarrar
-Power/&ToadKingHallucinogenicToxinPowerDescription	Seu corpo mudou para se tornar resistente a toxinas e para produzir uma toxina defensiva quando atingido por ataques corpo a corpo, até um número de vezes por descanso longo igual ao seu bônus de proficiência. Se o atacante falhar em um teste de resistência de Constituição, ele sofre de toxina lucinogênica até ser atacado ou interrompido de outra forma.
+Power/&ToadKingHallucinogenicToxinPowerDescription	Seu corpo mudou para se tornar resistente a toxinas e produzir uma toxina defensiva quando atingido por ataques corpo a corpo, até um número de vezes por descanso longo igual ao seu bônus de proficiência. Se o atacante falhar em um teste de resistência de Constituição, ele sofre de toxina lucinogênica até ser atacado ou interrompido de outra forma.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Toxina Alucinógena
 Power/&ToadKingSwallowDescription	Tente engolir um inimigo Médio ou menor. Se falhar no teste de Força, o monstro é engolido e recebe 3d6 de dano de ácido por rodada. Termina se o feiticeiro sapo for atingido com 15 ou mais de dano em um único ataque.
 Power/&ToadKingSwallowTitle	Engolir
 Power/&UrPriestControlUndeadDescription	Com uma ação, você tem como alvo uma criatura morta-viva que você pode ver a até 9 metros de você. O alvo deve fazer um teste de resistência de Sabedoria. Em uma falha no salvamento, o alvo deve obedecer aos seus comandos.
 Power/&UrPriestControlUndeadTitle	Controlar mortos-vivos
-Power/&UrPriestHalfLifeDescription	Você leva energia necrótica para dentro de si, pendurado entre a vida e a morte e é temporariamente possuído por seu próprio fantasma. Você ganha velocidade de vôo e as mesmas imunidades a condições e resistência a danos que outros fantasmas.
+Power/&UrPriestHalfLifeDescription	Você leva energia necrótica para dentro de si, pendurado entre a vida e a morte e é temporariamente possuído por seu próprio fantasma. Você ganha velocidade de vôo e as mesmas imunidades a condição e resistência a dano que outros fantasmas.
 Power/&UrPriestHalfLifeTitle	Meia-vida
 Power/&UrPriestRadiantWardDescription	Com uma ação, você ganha um número de pontos de vida temporários igual ao dobro do seu nível de bruxo.
 Power/&UrPriestRadiantWardTitle	Ala Radiante
@@ -1492,7 +1496,7 @@ Reaction/&CastSpellInRetributionDescription	{0} está atacando {1}! Você pode l
 Reaction/&CastSpellInRetributionReactDescription	Clique para transmitir {0}.
 Reaction/&CastSpellInRetributionReactTitle	Feitiço lançado
 Reaction/&CastSpellInRetributionTitle	Feitiço de Reação de Conjuração
-Reaction/&CustomDeflectMissileMonkTitle	{0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1d10 + modificador de DES + nível de monge
+Reaction/&CustomDeflectMissileMonkTitle	{0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1d10 + modificador de Destreza + nível de Monge
 Reaction/&ReactionAttackFeatSentinelDescription	{0} atacou um de seus aliados, em resposta você pode usar sua reação para atacar.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use a reação para atacar.
 Reaction/&ReactionAttackFeatSentinelReactTitle	Ataque
@@ -1626,7 +1630,7 @@ Spell/&AirBlastDescription	Dispare uma rajada de ar focado em seu alvo.
 Spell/&AirBlastTitle	Jato de ar
 Spell/&BurstOfRadianceDescription	Crie um flash brilhante de luz cintilante, danificando todos os inimigos ao seu redor.
 Spell/&BurstOfRadianceTitle	Explosão de Radiância
-Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n50 pontos de vida ou menos: surdo por 1 minuto\n40 pontos de vida ou menos: surdo e cego por 10 minutos\n30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
+Spell/&CJDivineWordDescription	Você pronuncia uma palavra divina, imbuída do poder que moldou o mundo no início da criação. Escolha qualquer número de criaturas que você possa ver dentro do alcance. Cada criatura que pode ouvir você deve fazer um teste de resistência de Carisma. Em uma falha na resistência, uma criatura sofre um efeito baseado em seus pontos de vida atuais:\n• 50 pontos de vida ou menos: surdo por 1 minuto\n• 40 pontos de vida ou menos: surdo e cego por 10 minutos\n• 30 pontos de vida ou menos: cego, surdo e atordoado por 1 hora\n• 20 pontos de vida ou menos: morto instantaneamente\nIndependentemente de seus pontos de vida atuais, um celestial, um elemental, uma fada ou um demônio que falhe no teste de resistência é forçado a voltar ao seu plano de origem (se já não estiver lá) e não pode retornar ao seu plano atual por 24 horas por qualquer meio que não seja um feitiço de desejo.
 Spell/&CJDivineWordTitle	Palavra Divina
 Spell/&DHAnimalShapesSpellDescription	Escolha qualquer número de criaturas voluntárias que você possa ver dentro do alcance. Você transforma cada alvo na forma de uma besta Grande ou menor com nível de desafio 4 ou menor.
 Spell/&DHAnimalShapesSpellTitle	Formas de animais
@@ -1744,9 +1748,9 @@ Stage/&SubclassSelectionStageCovenFeaturesTitle	Conventículo
 Stage/&SubclassSelectionStageCovenHeader	Selecione um Coven
 Stage/&SubclassSelectionStageCovenTitle	Conventículo
 Stage/&SubclassSelectionStagePatronDescription	Um bruxo é definido por um pacto com um ser de outro mundo. Às vezes, a relação entre feiticeiro e patrono é como a de um clérigo e uma divindade, embora os seres que servem como patronos não sejam deuses.
-Stage/&SubclassSelectionStagePatronFeatures	Recursos de Patronos do Outro Mundo
-Stage/&SubclassSelectionStagePatronHeader	Patronos do outro mundo bruxo
-Stage/&SubclassSelectionStagePatronTitle	Patronos do Outro Mundo
+Stage/&SubclassSelectionStagePatronFeatures	Recursos de patronos sobrenaturais
+Stage/&SubclassSelectionStagePatronHeader	Patronos do Outro Mundo Bruxo
+Stage/&SubclassSelectionStagePatronTitle	Patronos de outro mundo
 Stage/&SubclassSelectionStageSpecialistDescription	Descrição Há uma grande variedade de especialidades em Tinkerers, incluindo fazer elixires como um Potion Maker, fazer explosões como um Blaster e empunhar armas mágicas como um Weapon Smith.
 Stage/&SubclassSelectionStageSpecialistFeatures	Recursos especializados
 Stage/&SubclassSelectionStageSpecialistHeader	Especializações
@@ -1854,10 +1858,10 @@ Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toque em uma bolsa e 
 Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Saco de Segurar
 Subclass/&FighterMarshalCoordinatedAttackDescription	Quando você atinge um inimigo com um ataque corpo a corpo, seus aliados podem usar sua reação para fazer um ataque de oportunidade contra seu alvo.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordenado
-Subclass/&FighterMarshalDescription	Habilidosos em estudar as fraquezas dos inimigos e coordenar os ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos ochestratores do campo de batalha.
-Subclass/&FighterMarshalEncouragementPowerDescription	Uma vez por dia, você pode passar uma hora para encorajar um ao outro e se preparar para o próximo dia de aventura. O moral do grupo é melhorado significativamente e cada personagem encorajado adiciona 1d4 às suas jogadas de ataque e teste de resistência até o final de um descanso longo.
+Subclass/&FighterMarshalDescription	Habilidosos em estudar as fraquezas dos inimigos e coordenar os ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos ochestrator do campo de batalha.
+Subclass/&FighterMarshalEncouragementPowerDescription	A coragem do marechal inspira seu membro do partido. Aliados a até 3 metros dele adicionam 1d4 à jogada de ataque e teste de resistência.
 Subclass/&FighterMarshalEncouragementPowerTitle	Encorajamento
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	O vínculo entre o marechal e seu companheiro cruza a fronteira entre a vida e a morte. Como uma ação bônus, o marechal pode convocar 2 espíritos de seus companheiros caídos para ajudá-lo em combate.
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	O vínculo entre o marechal e seu companheiro cruza a fronteira entre a vida e a morte. Como uma ação bônus, o marechal pode convocar um espírito de seus companheiros caídos para ajudá-lo em combate.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Eterno Camarada
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Você é imune ao efeito do medo.
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Comandante Destemido
@@ -1865,7 +1869,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Você adiciona seu n�
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conheça seu inimigo
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como uma ação bônus, você pode tentar aumentar seu conhecimento sobre seu alvo rolando um teste de Sobrevivência. Você pode fazer isso duas vezes por descanso curto.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + o dobro do seu nível de lutador de HP e sua CA é 16 + seu bônus de proficiência. Os espíritos são imunes às condições venenosas, frias, necróticas, propensas, paralisadas e contidas. Os espíritos têm resistência a dano de fogo, ácido, raio e trovão e têm resistência a danos cortantes não mágicos, concussão e perfurantes. Por sua vez, eles podem voar até 15 metros e fazer um único ataque corpo a corpo com arma que causa 2d6 + 5 de dano mágico cortante com um bônus de 5 + bônus de proficiência para acertar.
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + o dobro do seu nível de lutador de HP e sua CA é 16 + seu bônus de proficiência. Os espíritos são imunes às condições venenosas, frias, necróticas, propensas, paralisadas e contidas. Os espíritos têm resistência a dano de fogo, ácido, raio e trovão e têm resistência a danos não-mágicos de corte, concussão e perfurante. Por sua vez, eles podem voar até 15 metros e fazer um único ataque corpo a corpo com arma que causa 2d6 + 5 de dano mágico cortante com um bônus de 5 + bônus de proficiência para acertar.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
 Subclass/&FighterMarshalTitle	Marechal
 Subclass/&FighterSpellShieldDescription	Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
@@ -2037,19 +2041,20 @@ Subclass/&WitchSubclassPathDescription	Seu conhecimento de magia culminou em se 
 Subclass/&WitchSubclassPathTitle	Covens de bruxas
 ToolTip/&CheckBoxDefaultPartyTitle	Marque esta caixa para definir sua parte padrão ao iniciar novas aventuras ou testar locais personalizados. Você pode selecionar até {0} heróis por ordem de chegada
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Você pode aproveitar a energia mística do ki. Seu acesso a essa energia é representado por vários pontos de ki. A quantidade máxima é igual ao seu nível de monge. Todos os pontos gastos são recuperados em descanso curto ou longo. Você pode gastar esses pontos para alimentar vários recursos de ki
-Tooltip/&DeadeyeConcentration	Desabilitar Olho Morto.\nO efeito durará até o início do seu próximo turno
+Tooltip/&DeadeyeConcentration	Desative o Olho Morto.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Não sabe {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Tem ataque furtivo
 Tooltip/&FeatPrerequisiteIsNotBarbarian	Não é um bárbaro
 Tooltip/&FeatPrerequisiteIsNotFighter	Não é um lutador
 Tooltip/&FeatPrerequisiteIsNotRogue	Não é um vagabundo
 Tooltip/&FeatPrerequisiteLevelFormat	Nível mínimo de caractere {0}
-Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.\nO efeito durará até o início do seu próximo turno
+Tooltip/&PowerAttackConcentration	Desative o Ataque Poderoso.
 Tooltip/&Tag9000Title	Efeito personalizado
 Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Caramba
 Tooltip/&TagMonkWeaponTitle	Monge
 Tooltip/&TagOtherModContentTitle	Do modo
+Tooltip/&TagPolearmWeaponTitle	Pistola
 Tooltip/&TagScoutSentinelWeaponTitle	Sentinela Escoteira
 UI/&CustomFeatureSelectionStageDescription	Selecione recursos extras de sua classe/subclasse.
 UI/&CustomFeatureSelectionStageFeatures	Características
@@ -2061,6 +2066,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
-Tooltip/&TagPolearmWeaponTitle	Bastao
-Feat/&FeatPolearmExpertTitle	Experto em Bastao
-Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste concede a você os seguintes benefícios:\n - Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n - Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
