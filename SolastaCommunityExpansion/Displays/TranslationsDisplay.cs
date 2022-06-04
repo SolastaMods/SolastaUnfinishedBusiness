@@ -14,7 +14,7 @@ public static class TranslationsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(120));
+            UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120));
 
             var intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
 
@@ -32,7 +32,7 @@ public static class TranslationsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Format("ModUi/&TranslationEngine"), UI.Width(120));
+            UI.Label(Gui.Localize("ModUi/&TranslationEngine"), UI.Width(120));
 
             var intValue = (int)Main.Settings.TranslationEngine;
 
@@ -49,13 +49,13 @@ public static class TranslationsDisplay
         UI.Label("");
 
         var toggle = Main.Settings.EnableOnTheFlyTranslations;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableOnTheFlyTranslations"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOnTheFlyTranslations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableOnTheFlyTranslations = toggle;
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&ExecuteBatchTranslations"));
+        UI.Label(Gui.Localize("ModUi/&ExecuteBatchTranslations"));
         UI.Label("");
 
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
@@ -80,7 +80,7 @@ public static class TranslationsDisplay
                 }
                 else
                 {
-                    buttonLabel = Gui.Format("ModUi/&Translate");
+                    buttonLabel = Gui.Localize("ModUi/&Translate");
                 }
 
                 UI.ActionButton(buttonLabel, () =>

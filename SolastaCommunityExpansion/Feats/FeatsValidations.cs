@@ -39,10 +39,10 @@ internal static class FeatsValidations
 
             if (isNotClass)
             {
-                return (true, Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}"));
+                return (true, Gui.Localize($"Tooltip/&FeatPrerequisiteIsNot{className}"));
             }
 
-            return (false, Gui.Colorize(Gui.Format($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171"));
+            return (false, Gui.Colorize(Gui.Localize($"Tooltip/&FeatPrerequisiteIsNot{className}"), "EA7171"));
         };
     }
 
@@ -56,9 +56,9 @@ internal static class FeatsValidations
 
         if (hasStealthAttack)
         {
-            return (true, Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack"));
+            return (true, Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"));
         }
 
-        return (false, Gui.Colorize(Gui.Format("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
+        return (false, Gui.Colorize(Gui.Localize("Tooltip/&FeatPrerequisiteHasStealthAttack"), "EA7171"));
     }
 }

@@ -18,7 +18,7 @@ internal static class ItemsAndCraftingDisplay
             UI.Space(20);
 
             toggle = Main.Settings.CraftingInStore.Contains(key);
-            if (UI.Toggle(Gui.Format("ModUi/&AddToStore"), ref toggle, UI.Width(125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width(125)))
             {
                 if (toggle)
                 {
@@ -33,7 +33,7 @@ internal static class ItemsAndCraftingDisplay
             }
 
             toggle = Main.Settings.CraftingRecipesInDM.Contains(key);
-            if (UI.Toggle(Gui.Format("ModUi/&RecipesInDm"), ref toggle, UI.Width(125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width(125)))
             {
                 if (toggle)
                 {
@@ -50,7 +50,7 @@ internal static class ItemsAndCraftingDisplay
             if (!ItemCraftingContext.BASE_GAME_ITEMS_CATEGORIES.Contains(key))
             {
                 toggle = Main.Settings.CraftingItemsInDM.Contains(key);
-                if (UI.Toggle(Gui.Format("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
                 {
                     if (toggle)
                     {
@@ -77,11 +77,11 @@ internal static class ItemsAndCraftingDisplay
         int intValue;
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&General"));
+        UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label("");
 
         toggle = Main.Settings.AddNewWeaponsAndRecipesToShops;
-        if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&AddNewWeaponsAndRecipesToShops")), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddNewWeaponsAndRecipesToShops = toggle;
             Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
@@ -90,7 +90,7 @@ internal static class ItemsAndCraftingDisplay
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
             toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
-            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle,
+            if (UI.Toggle(Gui.Localize(Gui.Localize("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle,
                     UI.AutoWidth()))
             {
                 Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
@@ -100,13 +100,13 @@ internal static class ItemsAndCraftingDisplay
         UI.Label("");
 
         toggle = Main.Settings.RemoveAttunementRequirements;
-        if (UI.Toggle(Gui.Format("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveAttunementRequirements"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveAttunementRequirements = toggle;
         }
 
         toggle = Main.Settings.RemoveIdentifcationRequirements;
-        if (UI.Toggle(Gui.Format("ModUi/&RemoveIdentifcationRequirements"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveIdentifcationRequirements"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveIdentifcationRequirements = toggle;
         }
@@ -114,7 +114,7 @@ internal static class ItemsAndCraftingDisplay
         UI.Label("");
 
         toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
-        if (UI.Toggle(Gui.Format("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ShowCraftingRecipeInDetailedTooltips = toggle;
         }
@@ -122,7 +122,7 @@ internal static class ItemsAndCraftingDisplay
         UI.Label("");
 
         intValue = Main.Settings.RecipeCost;
-        if (UI.Slider(Gui.Format("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
+        if (UI.Slider(Gui.Localize("ModUi/&RecipeCost"), ref intValue, 1, 500, 200, "G", UI.AutoWidth()))
         {
             Main.Settings.RecipeCost = intValue;
             ItemCraftingContext.UpdateRecipeCost();
@@ -131,7 +131,7 @@ internal static class ItemsAndCraftingDisplay
         UI.Label("");
 
         intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
-        if (UI.Slider(Gui.Format("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
+        if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
                 0, 100, 50, "%", UI.Width(500)))
         {
             Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
@@ -141,7 +141,7 @@ internal static class ItemsAndCraftingDisplay
         UI.Label("");
 
         toggle = Main.Settings.DisplayCraftingToggle;
-        if (UI.DisclosureToggle(Gui.Format("ModUi/&Crafting"), ref toggle, 200))
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Crafting"), ref toggle, 200))
         {
             Main.Settings.DisplayCraftingToggle = toggle;
         }
@@ -149,7 +149,7 @@ internal static class ItemsAndCraftingDisplay
         if (Main.Settings.DisplayCraftingToggle)
         {
             UI.Label("");
-            UI.Label(Gui.Format("ModUi/&CraftingHelp"));
+            UI.Label(Gui.Localize("ModUi/&CraftingHelp"));
             UI.Label("");
 
             using (UI.HorizontalScope(UI.AutoWidth()))
@@ -157,7 +157,7 @@ internal static class ItemsAndCraftingDisplay
                 UI.Space(204);
 
                 toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
-                if (UI.Toggle(Gui.Format("ModUi/&AddAllToStore"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width(125)))
                 {
                     Main.Settings.CraftingInStore.Clear();
 
@@ -168,7 +168,7 @@ internal static class ItemsAndCraftingDisplay
                 }
 
                 toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDM.Count;
-                if (UI.Toggle(Gui.Format("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125)))
                 {
                     Main.Settings.CraftingRecipesInDM.Clear();
 
@@ -179,7 +179,7 @@ internal static class ItemsAndCraftingDisplay
                 }
 
                 toggle = ItemCraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDM.Count;
-                if (UI.Toggle(Gui.Format("ModUi/&AllItemInDm"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width(125)))
                 {
                     Main.Settings.CraftingItemsInDM.Clear();
 
@@ -217,7 +217,7 @@ internal static class ItemsAndCraftingDisplay
         UI.Label("");
 
         toggle = Main.Settings.DisplayMerchantsToggle;
-        if (UI.DisclosureToggle(Gui.Format("ModUi/&Merchants"), ref toggle, 200))
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Merchants"), ref toggle, 200))
         {
             Main.Settings.DisplayMerchantsToggle = toggle;
         }
@@ -227,14 +227,14 @@ internal static class ItemsAndCraftingDisplay
             UI.Label("");
 
             toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
-            if (UI.Toggle(Gui.Format("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
+            if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
                     UI.AutoWidth()))
             {
                 Main.Settings.StockGorimStoreWithAllNonMagicalClothing = toggle;
             }
 
             toggle = Main.Settings.StockHugoStoreWithAdditionalFoci;
-            if (UI.Toggle(Gui.Format("ModUi/&StockHugoStoreWithAdditionalFoci"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&StockHugoStoreWithAdditionalFoci"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.StockHugoStoreWithAdditionalFoci = toggle;
                 Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
@@ -244,7 +244,7 @@ internal static class ItemsAndCraftingDisplay
             if (Main.Settings.StockHugoStoreWithAdditionalFoci)
             {
                 toggle = Main.Settings.EnableAdditionalFociInDungeonMaker;
-                if (UI.Toggle(Gui.Format("ModUi/&EnableAdditionalItemsInDungeonMaker"), ref toggle, UI.AutoWidth()))
+                if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalItemsInDungeonMaker"), ref toggle, UI.AutoWidth()))
                 {
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                     ItemOptionsContext.SwitchFociItemsDungeonMaker();
@@ -252,32 +252,32 @@ internal static class ItemsAndCraftingDisplay
             }
 
             UI.Label("");
-            UI.Label(Gui.Format("ModUi/&RestockHelp"));
+            UI.Label(Gui.Localize("ModUi/&RestockHelp"));
             UI.Label("");
 
             toggle = Main.Settings.RestockAntiquarians;
-            if (UI.Toggle(Gui.Format("ModUi/&RestockAntiquarians"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&RestockAntiquarians"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RestockAntiquarians = toggle;
                 ItemOptionsContext.SwitchRestockAntiquarian();
             }
 
             toggle = Main.Settings.RestockArcaneum;
-            if (UI.Toggle(Gui.Format("ModUi/&RestockArcaneum"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&RestockArcaneum"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RestockArcaneum = toggle;
                 ItemOptionsContext.SwitchRestockArcaneum();
             }
 
             toggle = Main.Settings.RestockCircleOfDanantar;
-            if (UI.Toggle(Gui.Format("ModUi/&RestockCircleOfDanantar"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&RestockCircleOfDanantar"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RestockCircleOfDanantar = toggle;
                 ItemOptionsContext.SwitchRestockCircleOfDanantar();
             }
 
             toggle = Main.Settings.RestockTowerOfKnowledge;
-            if (UI.Toggle(Gui.Format("ModUi/&RestockTowerOfKnowledge"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&RestockTowerOfKnowledge"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.RestockTowerOfKnowledge = toggle;
                 ItemOptionsContext.SwitchRestockTowerOfKnowledge();

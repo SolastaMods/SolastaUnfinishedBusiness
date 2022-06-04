@@ -15,11 +15,11 @@ internal static class GameUiDisplay
         #region Battle
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&Battle"));
+        UI.Label(Gui.Localize("ModUi/&Battle"));
         UI.Label("");
 
         toggle = Main.Settings.DontFollowCharacterInBattle;
-        if (UI.Toggle(Gui.Format("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&DontFollowCharacterInBattle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DontFollowCharacterInBattle = toggle;
         }
@@ -27,7 +27,7 @@ internal static class GameUiDisplay
         if (Main.Settings.DontFollowCharacterInBattle)
         {
             intValue = Main.Settings.DontFollowMargin;
-            if (UI.Slider(Gui.Format("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
+            if (UI.Slider(Gui.Localize("ModUi/&DontFollowMargin"), ref intValue, 0, 20,
                     1, "%", UI.AutoWidth()))
             {
                 Main.Settings.DontFollowMargin = intValue;
@@ -37,7 +37,7 @@ internal static class GameUiDisplay
         }
 
         toggle = Main.Settings.AutoPauseOnVictory;
-        if (UI.Toggle(Gui.Format("ModUi/&AutoPauseOnVictory"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&AutoPauseOnVictory"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AutoPauseOnVictory = toggle;
         }
@@ -45,7 +45,7 @@ internal static class GameUiDisplay
         UI.Label("");
 
         floatValue = Main.Settings.FasterTimeModifier;
-        if (UI.Slider(Gui.Format("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
+        if (UI.Slider(Gui.Localize("ModUi/&FasterTimeModifier"), ref floatValue, 1.5f, 10f, 1.5f,
                 1, "X", UI.AutoWidth()))
         {
             Main.Settings.FasterTimeModifier = floatValue;
@@ -56,11 +56,11 @@ internal static class GameUiDisplay
         #region Campaign
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&CampaignsAndLocations"));
+        UI.Label(Gui.Localize("ModUi/&CampaignsAndLocations"));
         UI.Label("");
 
         toggle = Main.Settings.FollowCharactersOnTeleport;
-        if (UI.Toggle(Gui.Format("ModUi/&FollowCharactersOnTeleport"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&FollowCharactersOnTeleport"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FollowCharactersOnTeleport = toggle;
         }
@@ -68,7 +68,7 @@ internal static class GameUiDisplay
         UI.Label("");
 
         toggle = Main.Settings.EnableLogDialoguesToConsole;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableLogDialoguesToConsole = toggle;
         }
@@ -76,7 +76,7 @@ internal static class GameUiDisplay
         UI.Label("");
 
         toggle = Main.Settings.EnableAdditionalIconsOnLevelMap;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalIconsOnLevelMap"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableAdditionalIconsOnLevelMap = toggle;
 
@@ -89,14 +89,14 @@ internal static class GameUiDisplay
         if (Main.Settings.EnableAdditionalIconsOnLevelMap)
         {
             toggle = Main.Settings.MarkInvisibleTeleportersOnLevelMap;
-            if (UI.Toggle(Gui.Format("ModUi/&MarkInvisibleTeleportersOnLevelMap"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUi/&MarkInvisibleTeleportersOnLevelMap"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.MarkInvisibleTeleportersOnLevelMap = toggle;
             }
         }
 
         toggle = Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered;
-        if (UI.Toggle(Gui.Format("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.HideExitAndTeleporterGizmosIfNotDiscovered = toggle;
         }
@@ -106,11 +106,11 @@ internal static class GameUiDisplay
         #region Item
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&InventoryAndItems"));
+        UI.Label(Gui.Localize("ModUi/&InventoryAndItems"));
         UI.Label("");
 
         toggle = Main.Settings.EnableInventoryFilteringAndSorting;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryFilteringAndSorting"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryFilteringAndSorting"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableInventoryFilteringAndSorting = toggle;
             Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
@@ -120,7 +120,7 @@ internal static class GameUiDisplay
         if (Main.Settings.EnableInventoryFilteringAndSorting)
         {
             toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
-            if (UI.Toggle(Gui.Format("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle,
+            if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle,
                     UI.AutoWidth()))
             {
                 Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
@@ -128,7 +128,7 @@ internal static class GameUiDisplay
         }
 
         toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInvisibleCrownOfTheMagister"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
             ItemOptionsContext.SwitchCrownOfTheMagister();
@@ -138,7 +138,7 @@ internal static class GameUiDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Format("ModUi/&EmpressGarbAppearance"), UI.Width(325));
+            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
 
             intValue = Array.IndexOf(ItemOptionsContext.EmpressGarbAppearances,
                 Main.Settings.EmpressGarbAppearance);
@@ -155,17 +155,17 @@ internal static class GameUiDisplay
         #region Monster
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&Monsters"));
+        UI.Label(Gui.Localize("ModUi/&Monsters"));
         UI.Label("");
 
         toggle = Main.Settings.HideMonsterHitPoints;
-        if (UI.Toggle(Gui.Format("ModUi/&HideMonsterHitPoints"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&HideMonsterHitPoints"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.HideMonsterHitPoints = toggle;
         }
 
         toggle = Main.Settings.RemoveBugVisualModels;
-        if (UI.Toggle(Gui.Format("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBugVisualModels = toggle;
         }
@@ -175,11 +175,11 @@ internal static class GameUiDisplay
         #region Spell
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&Spells"));
+        UI.Label(Gui.Localize("ModUi/&Spells"));
         UI.Label("");
 
         intValue = Main.Settings.MaxSpellLevelsPerLine;
-        if (UI.Slider(Gui.Format("ModUi/&MaxSpellLevelsPerLine"), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
+        if (UI.Slider(Gui.Localize("ModUi/&MaxSpellLevelsPerLine"), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
         {
             Main.Settings.MaxSpellLevelsPerLine = intValue;
         }

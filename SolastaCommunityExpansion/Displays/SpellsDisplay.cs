@@ -17,11 +17,11 @@ internal static class SpellsDisplay
         bool toggle;
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&SpellInstructions"));
+        UI.Label(Gui.Localize("ModUi/&SpellInstructions"));
         UI.Label("");
 
         intValue = SpellLevelFilter;
-        if (UI.Slider(Gui.Format("ModUi/&SpellLevelFilter"), ref intValue, SHOW_ALL, 9, SHOW_ALL))
+        if (UI.Slider(Gui.Localize("ModUi/&SpellLevelFilter"), ref intValue, SHOW_ALL, 9, SHOW_ALL))
         {
             SpellLevelFilter = intValue;
         }
@@ -31,19 +31,19 @@ internal static class SpellsDisplay
         using (UI.HorizontalScope())
         {
             toggle = SpellsContext.IsAllSetSelected();
-            if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
             {
                 SpellsContext.SelectAllSet(toggle);
             }
 
             toggle = SpellsContext.IsSuggestedSetSelected();
-            if (UI.Toggle(Gui.Format("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
             {
                 SpellsContext.SelectSuggestedSet(toggle);
             }
 
             toggle = Main.Settings.DisplaySpellListsToggle.All(x => x.Value);
-            if (UI.Toggle(Gui.Format("ModUi/&ExpandAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+            if (UI.Toggle(Gui.Localize("ModUi/&ExpandAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
             {
                 var keys = Main.Settings.DisplaySpellListsToggle.Keys.ToHashSet();
 
@@ -70,13 +70,13 @@ internal static class SpellsDisplay
             void AdditionalRendering()
             {
                 toggle = spellListContext.IsAllSetSelected;
-                if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     spellListContext.SelectAllSetInternal(toggle);
                 }
 
                 toggle = spellListContext.IsSuggestedSetSelected;
-                if (UI.Toggle(Gui.Format("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&SelectSuggested"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     spellListContext.SelectSuggestedSetInternal(toggle);
                 }

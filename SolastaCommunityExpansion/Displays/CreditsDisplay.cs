@@ -71,7 +71,7 @@ internal static class CreditsDisplay
         if (IsUnityExplorerInstalled)
         {
             UI.Label("");
-            UI.ActionButton(Gui.Format("ModUi/&EnableUnityExplorer"), () =>
+            UI.ActionButton(Gui.Localize("ModUi/&EnableUnityExplorer"), () =>
             {
                 if (!IsUnityExplorerEnabled)
                 {
@@ -92,14 +92,14 @@ internal static class CreditsDisplay
             UI.Label("");
 
             var toggle = Main.Settings.EnableBetaContent;
-            if (UI.Toggle(Gui.Format("ModUI/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Localize("ModUI/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
             {
                 Main.Settings.EnableBetaContent = toggle;
             }
 #endif
 
         UI.Label("");
-        UI.DisclosureToggle(Gui.Format("ModUi/&Patches"), ref displayPatches, 200);
+        UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref displayPatches, 200);
 
         UI.Label("");
 

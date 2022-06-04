@@ -59,7 +59,7 @@ internal static class SubspellSelectionModal_Bind
             {
                 ChallengeRating = g.Key,
                 SpellDefinitions = g.Select(s => s.SpellDefinition)
-                    .OrderBy(s => Gui.Format(s.GuiPresentation.Title))
+                    .OrderBy(s => Gui.Localize(s.GuiPresentation.Title))
             })
             .Where(s => s.ChallengeRating <= mySlotLevel)
             .OrderByDescending(s => s.ChallengeRating)
@@ -71,7 +71,7 @@ internal static class SubspellSelectionModal_Bind
 
         FilteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
-        FilteredSubspells.ForEach(s => Main.Log($"{Gui.Format(s.GuiPresentation.Title)}"));
+        FilteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
         return FilteredSubspells;
     }

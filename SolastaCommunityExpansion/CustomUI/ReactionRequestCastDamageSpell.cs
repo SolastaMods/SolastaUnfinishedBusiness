@@ -28,7 +28,7 @@ public class ReactionRequestCastDamageSpell : ReactionRequestCastSpell
     {
         var spellName = (ReactionParams.RulesetEffect as RulesetEffectSpell)?.SpellDefinition.GuiPresentation
             .Title;
-        return Gui.Format(Gui.Localize("Reaction/&CastSpellInRetributionReactDescription"), spellName);
+        return Gui.Format("Reaction/&CastSpellInRetributionReactDescription", spellName);
     }
 
     public override string FormatTitle()

@@ -11,7 +11,7 @@ internal static class Shared
 
     internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
     {
-        UI.Label(Gui.Format("Bem-vindo / Bienvenue / Welcome / Wilkommen / добро пожаловать / 欢迎".bold().yellow()));
+        UI.Label("Bem-vindo / Bienvenue / Welcome / Wilkommen / добро пожаловать / 欢迎".bold().yellow());
         UI.Div();
 
         if (Main.Enabled)
@@ -58,7 +58,7 @@ internal static class Shared
                 {
                     additionalRendering.Invoke();
                 }
-                else if (UI.Toggle(Gui.Format("ModUi/&SelectAll"), ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
+                else if (UI.Toggle(Gui.Localize("ModUi/&SelectAll"), ref selectAll, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     foreach (var registeredDefinition in registeredDefinitions)
                     {
@@ -67,7 +67,7 @@ internal static class Shared
                 }
 
                 toggle = sliderPosition == 1;
-                if (UI.Toggle(Gui.Format("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
+                if (UI.Toggle(Gui.Localize("ModUi/&ShowDescriptions"), ref toggle, UI.Width(PIXELS_PER_COLUMN)))
                 {
                     sliderPosition = toggle ? 1 : 4;
                 }
