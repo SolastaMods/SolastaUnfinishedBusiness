@@ -14,7 +14,7 @@ internal static class FeatsAndFightingStylesDisplay
         displayToggle = Main.Settings.DisplayFeatsToggle;
         sliderPos = Main.Settings.FeatSliderPosition;
         DisplayDefinitions(
-            Gui.Format("ModUi/&Feats"),
+            Gui.Localize("ModUi/&Feats"),
             FeatsContext.Switch,
             FeatsContext.Feats,
             Main.Settings.FeatEnabled,
@@ -26,7 +26,7 @@ internal static class FeatsAndFightingStylesDisplay
         displayToggle = Main.Settings.DisplayFightingStylesToggle;
         sliderPos = Main.Settings.FightingStyleSliderPosition;
         DisplayDefinitions(
-            Gui.Format("ModUi/&FightingStyles"),
+            Gui.Localize("ModUi/&FightingStyles"),
             FightingStyleContext.Switch,
             FightingStyleContext.FightingStyles,
             Main.Settings.FightingStyleEnabled,

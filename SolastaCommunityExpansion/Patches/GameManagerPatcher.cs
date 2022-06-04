@@ -26,6 +26,8 @@ namespace SolastaCommunityExpansion.Patches
             Translations.LoadTranslations("Modui");
             Translations.LoadTranslations("Translations");
 
+            var a = Translations.TranslateBaidu("Hello, how are you?", "pt");
+
             ResourceLocatorContext.Load();
 
             // Cache TA definitions for diagnostics and export

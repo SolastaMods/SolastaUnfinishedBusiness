@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont con
 Feature/&ClassMonkZenArcherCombatTitle	Combat à distance
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Flèches époustouflantes
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
 Feature/&ClassWarlockArmorProficiencyDescription	Armure légère.
 Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation à remplacer.
@@ -1530,6 +1530,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Dépensez un dé de gambi
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Une fois par repos long, lorsque vous êtes endommagé par une attaque au corps à corps, vous pouvez utiliser votre réaction pour créer un portail qui bannit l'attaquant pendant 1 round de votre plan d'existence.
+Reaction/&SpendPowerDH_RiftStrikeTitle	Frappe de faille
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Frappe de faille
 Reaction/&SpendPowerDiamondSoulDescription	{0} a raté une sauvegarde et peut dépenser 1 ki pour la relancer.
 Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée.

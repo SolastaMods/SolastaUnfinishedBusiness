@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Erlangen Sie Kenntnisse im Umgang m
 Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Atemberaubende Pfeile
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Pfeilangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Atemberaubende Pfeile
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Pfeilangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
 Feature/&ClassWarlockArmorProficiencyDescription	Leichte Rüstung.
 Feature/&ClassWarlockArmorProficiencyTitle	Hexenmeister-Rüstungsfähigkeiten
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Wählen Sie Eldritch Invocation zum Ersetzen aus.
@@ -1530,6 +1530,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Gib einen Gambit-Würfel 
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Gegenschlag
 Reaction/&SpendPowerCounterStrikePowerTitle	Gegenschlag
 Reaction/&SpendPowerDH_RiftStrikeDescription	Wenn Sie durch einen Nahkampfangriff beschädigt werden, können Sie einmal pro langer Pause Ihre Reaktion nutzen, um ein Portal zu erstellen, das den Angreifer für 1 Runde aus Ihrer Existenzebene verbannt.
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rissschlag
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rissschlag
 Reaction/&SpendPowerDiamondSoulDescription	{0} ist ein Rettungswurf misslungen und er kann 1 Ki ausgeben, um ihn erneut zu würfeln.
 Reaction/&SpendPowerDiamondSoulReactDescription	Gib Ki aus, um einen fehlgeschlagenen Rettungswurf zu wiederholen.

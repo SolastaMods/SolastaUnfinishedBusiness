@@ -184,8 +184,8 @@ internal static class InventoryManagementContext
 
         int SortByName(RulesetItem a, RulesetItem b)
         {
-            var at = Gui.Format(a.ItemDefinition.GuiPresentation.Title);
-            var bt = Gui.Format(b.ItemDefinition.GuiPresentation.Title);
+            var at = Gui.Localize(a.ItemDefinition.GuiPresentation.Title);
+            var bt = Gui.Localize(b.ItemDefinition.GuiPresentation.Title);
 
             if (at == bt)
             {
@@ -207,9 +207,9 @@ internal static class InventoryManagementContext
                 {
                     var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
-                    var amct = Gui.Format(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory)
+                    var amct = Gui.Localize(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory)
                         .GuiPresentation.Title);
-                    var bmct = Gui.Format(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory)
+                    var bmct = Gui.Localize(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory)
                         .GuiPresentation.Title);
 
                     if (amct == bmct)

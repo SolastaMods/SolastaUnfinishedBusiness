@@ -160,7 +160,9 @@ internal static class StudyYourEnemyBuilder
             }
 
             if (!manager.Bestiary.TryGetBestiaryEntry(creature, out var entry)
-                && creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full)
+                && (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full
+                    || (creature.MonsterDefinition.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Reference &&
+                        creature.MonsterDefinition.BestiaryReference.BestiaryEntry == BestiaryDefinitions.BestiaryEntry.Full)))
             {
                 entry = manager.Bestiary.AddNewMonsterEntry(creature.MonsterDefinition);
                 manager.MonsterKnowledgeChanged?.Invoke(creature.MonsterDefinition, entry.KnowledgeLevelDefinition);

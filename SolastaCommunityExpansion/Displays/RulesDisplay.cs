@@ -11,11 +11,11 @@ internal static class RulesDisplay
         bool toggle;
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&SRD"));
+        UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label("");
 
         toggle = Main.Settings.UseOfficialAdvantageDisadvantageRules;
-        if (UI.Toggle(Gui.Format("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&UseOfficialAdvantageDisadvantageRules"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
         }
@@ -23,14 +23,14 @@ internal static class RulesDisplay
         UI.Label("");
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;
-        if (UI.Toggle(Gui.Format("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddBleedingToLesserRestoration = toggle;
             HouseSpellTweaks.AddBleedingToRestoration();
         }
 
         toggle = Main.Settings.BlindedConditionDontAllowAttackOfOpportunity;
-        if (UI.Toggle(Gui.Format("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&BlindedConditionDontAllowAttackOfOpportunity"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.BlindedConditionDontAllowAttackOfOpportunity = toggle;
@@ -40,7 +40,7 @@ internal static class RulesDisplay
         UI.Label("");
 
         toggle = Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell;
-        if (UI.Toggle(Gui.Format("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.AllowTargetingSelectionWhenCastingChainLightningSpell = toggle;
@@ -48,14 +48,14 @@ internal static class RulesDisplay
         }
 
         toggle = Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove;
-        if (UI.Toggle(Gui.Format("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
         }
 
         toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableUpcastConjureElementalAndFey = toggle;
             Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = false;
@@ -65,7 +65,7 @@ internal static class RulesDisplay
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
         {
             toggle = Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey;
-            if (UI.Toggle(Gui.Format("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle,
+            if (UI.Toggle(Gui.Localize("ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey"), ref toggle,
                     UI.AutoWidth()))
             {
                 Main.Settings.OnlyShowMostPowerfulUpcastConjuredElementalOrFey = toggle;
@@ -73,44 +73,44 @@ internal static class RulesDisplay
         }
 
         toggle = Main.Settings.FixSorcererTwinnedLogic;
-        if (UI.Toggle(Gui.Format("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FixSorcererTwinnedLogic = toggle;
         }
 
         toggle = Main.Settings.FullyControlConjurations;
-        if (UI.Toggle(Gui.Format("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&FullyControlConjurations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.FullyControlConjurations = toggle;
             ConjurationsContext.Load();
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&House"));
+        UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
         toggle = Main.Settings.AllowAnyClassToWearSylvanArmor;
-        if (UI.Toggle(Gui.Format("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
             ItemOptionsContext.SwitchUniversalSylvanArmor();
         }
 
         toggle = Main.Settings.AllowDruidToWearMetalArmor;
-        if (UI.Toggle(Gui.Format("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowDruidToWearMetalArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowDruidToWearMetalArmor = toggle;
             ItemOptionsContext.SwitchDruidAllowMetalArmor();
         }
 
         toggle = Main.Settings.DisableAutoEquip;
-        if (UI.Toggle(Gui.Format("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoEquip"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.DisableAutoEquip = toggle;
         }
 
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
-        if (UI.Toggle(Gui.Format("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.MakeAllMagicStaveArcaneFoci = toggle;
             ItemOptionsContext.SwitchMagicStaffFoci();
@@ -119,7 +119,7 @@ internal static class RulesDisplay
         UI.Label("");
 
         toggle = Main.Settings.IncreaseSenseNormalVision;
-        if (UI.Toggle(Gui.Format("ModUi/&IncreaseSenseNormalVision"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseSenseNormalVision"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = toggle;
         }
@@ -127,7 +127,7 @@ internal static class RulesDisplay
         UI.Label("");
 
         toggle = Main.Settings.QuickCastLightCantripOnWornItemsFirst;
-        if (UI.Toggle(Gui.Format("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&QuickCastLightCantripOnWornItemsFirst"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.QuickCastLightCantripOnWornItemsFirst = toggle;
         }
@@ -135,7 +135,7 @@ internal static class RulesDisplay
         UI.Label("");
 
         toggle = Main.Settings.AddPickpocketableLoot;
-        if (UI.Toggle(Gui.Format("ModUi/&AddPickpocketableLoot"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPickpocketableLoot"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPickpocketableLoot = toggle;
             if (toggle)
@@ -145,14 +145,14 @@ internal static class RulesDisplay
         }
 
         toggle = Main.Settings.AllowStackedMaterialComponent;
-        if (UI.Toggle(Gui.Format("ModUi/&AllowStackedMaterialComponent"), ref toggle,
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle,
                 UI.AutoWidth()))
         {
             Main.Settings.AllowStackedMaterialComponent = toggle;
         }
 
         toggle = Main.Settings.ScaleMerchantPricesCorrectly;
-        if (UI.Toggle(Gui.Format("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ScaleMerchantPricesCorrectly = toggle;
         }

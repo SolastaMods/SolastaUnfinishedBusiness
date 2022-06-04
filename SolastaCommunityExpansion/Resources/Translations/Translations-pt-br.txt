@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Ganhe proficiência com arcos e ele
 Feature/&ClassMonkZenArcherCombatTitle	Combate à distância
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Flechas Impressionantes
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressionantes
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura leve.
 Feature/&ClassWarlockArmorProficiencyTitle	Proficiência em Armadura de Bruxo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecione Invocação Eldritch para substituir.
@@ -1530,6 +1530,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Gaste um dado de jogada e
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Contra-ataque
 Reaction/&SpendPowerCounterStrikePowerTitle	Contra-ataque
 Reaction/&SpendPowerDH_RiftStrikeDescription	Uma vez por descanso longo, quando danificado por um ataque corpo a corpo, você pode usar sua reação para criar um portal que bane o atacante por 1 rodada do seu plano de existência.
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} falhou no salvamento e pode gastar 1 ki para rerrolá-lo.
 Reaction/&SpendPowerDiamondSoulReactDescription	Gaste ki para refazer o salvamento com falha.

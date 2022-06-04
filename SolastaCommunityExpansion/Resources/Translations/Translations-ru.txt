@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Научитесь обращать
 Feature/&ClassMonkZenArcherCombatTitle	Дистанционный рукопашный бой
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ваши атаки луком считаются магическими с точки зрения преодоления сопротивления и иммунитета к немагическим атакам и повреждениям.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ки-усиленные стрелы
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Потрясающие стрелы
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Вы можете препятствовать потоку ки в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Потрясающие стрелы
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Вы можете препятствовать потоку ки в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
 Feature/&ClassWarlockArmorProficiencyDescription	Легкая броня.
 Feature/&ClassWarlockArmorProficiencyTitle	Навыки доспехов чернокнижника
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Выберите Eldritch Invocation для замены.
@@ -1530,6 +1530,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Потратьте куб
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Ответный удар
 Reaction/&SpendPowerCounterStrikePowerTitle	Ответный удар
 Reaction/&SpendPowerDH_RiftStrikeDescription	Один раз за продолжительный отдых, получив урон от атаки в ближнем бою, вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана существования.
+Reaction/&SpendPowerDH_RiftStrikeTitle	Разломный удар
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Разломный удар
 Reaction/&SpendPowerDiamondSoulDescription	{0} не смог сохраниться и может потратить 1 ки, чтобы перебросить его.
 Reaction/&SpendPowerDiamondSoulReactDescription	Потратьте ки, чтобы перебросить неудачное сохранение.

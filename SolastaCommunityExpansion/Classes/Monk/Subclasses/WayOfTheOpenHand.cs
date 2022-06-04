@@ -31,7 +31,7 @@ public static class WayOfTheOpenHand
             .SetRechargeRate(RechargeRate.AtWill)
             .SetUsesFixed(1)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _) => mode.AttackTags.Contains(Monk.FlurryTag)
+                (mode, _, _, _) => mode.AttackTags.Contains(Monk.FlurryTag)
             ))
             .AddToDB();
 
@@ -179,7 +179,7 @@ public static class WayOfTheOpenHand
             .SetFixedUsesPerRecharge(3)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCustomSubFeatures(
-                new ReactionAttackModeRestriction((mode, _, _) => WeaponValidators.IsUnarmedWeapon(mode)))
+                new ReactionAttackModeRestriction((mode, _, _, _) => WeaponValidators.IsUnarmedWeapon(mode)))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Instantaneous)

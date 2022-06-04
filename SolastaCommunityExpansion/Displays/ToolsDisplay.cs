@@ -22,30 +22,30 @@ internal static class ToolsDisplay
         int intValue;
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&General"));
+        UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label("");
 
         toggle = Main.Settings.EnableSaveByLocation;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableSaveByLocation = toggle;
         }
 
         toggle = Main.Settings.EnableCharacterChecker;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCharacterChecker = toggle;
         }
 
 
         toggle = Main.Settings.EnableCheatMenu;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableCheatMenu = toggle;
         }
 
         toggle = Main.Settings.EnableRespec;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableRespec"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableRespec = toggle;
             RespecContext.Switch();
@@ -53,24 +53,24 @@ internal static class ToolsDisplay
 
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&Adventure"));
+        UI.Label(Gui.Localize("ModUi/&Adventure"));
         UI.Label("");
 
 
         toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
         {
             Main.Settings.EnableTogglesToOverwriteDefaultTestParty = toggle;
         }
 
         toggle = Main.Settings.NoExperienceOnLevelUp;
-        if (UI.Toggle(Gui.Format("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&NoExperienceOnLevelUp"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.NoExperienceOnLevelUp = toggle;
         }
 
         toggle = Main.Settings.OverrideMinMaxLevel;
-        if (UI.Toggle(Gui.Format("ModUi/&OverrideMinMaxLevel"), ref toggle))
+        if (UI.Toggle(Gui.Localize("ModUi/&OverrideMinMaxLevel"), ref toggle))
         {
             Main.Settings.OverrideMinMaxLevel = toggle;
         }
@@ -78,14 +78,14 @@ internal static class ToolsDisplay
         UI.Label("");
 
         intValue = Main.Settings.MultiplyTheExperienceGainedBy;
-        if (UI.Slider(Gui.Format("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, "",
+        if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, "",
                 UI.Width(100)))
         {
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
         }
 
         intValue = Main.Settings.OverridePartySize;
-        if (UI.Slider(Gui.Format("ModUi/&OverridePartySize"), ref intValue,
+        if (UI.Slider(Gui.Localize("ModUi/&OverridePartySize"), ref intValue,
                 DungeonMakerContext.MIN_PARTY_SIZE, DungeonMakerContext.MAX_PARTY_SIZE,
                 DungeonMakerContext.GAME_PARTY_SIZE, "", UI.AutoWidth()))
         {
@@ -93,20 +93,20 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&DungeonMaker"));
+        UI.Label(Gui.Localize("ModUi/&DungeonMaker"));
         UI.Label("");
 
         intValue = Main.Settings.MaxBackupFilesPerLocationCampaign;
-        if (UI.Slider(Gui.Format("ModUi/&MaxBackupFilesPerLocationCampaign"), ref intValue, 0, 20, 10))
+        if (UI.Slider(Gui.Localize("ModUi/&MaxBackupFilesPerLocationCampaign"), ref intValue, 0, 20, 10))
         {
             Main.Settings.MaxBackupFilesPerLocationCampaign = intValue;
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&MaxBackupHelp"));
+        UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&FactionRelations"));
+        UI.Label(Gui.Localize("ModUi/&FactionRelations"));
         UI.Label("");
 
         var flip = true;
@@ -155,7 +155,7 @@ internal static class ToolsDisplay
         }
         else
         {
-            UI.Label(Gui.Format("ModUi/&FactionHelp"));
+            UI.Label(Gui.Localize("ModUi/&FactionHelp"));
         }
 
         UI.Label("");

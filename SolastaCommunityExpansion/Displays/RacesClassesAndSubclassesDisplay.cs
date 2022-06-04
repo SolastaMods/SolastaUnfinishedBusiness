@@ -16,7 +16,7 @@ internal static class RacesClassesAndSubclassesDisplay
         UI.Label("");
 
         toggle = Main.Settings.DisplayGeneralRaceClassSubClassToggle;
-        if (UI.DisclosureToggle(Gui.Format("ModUi/&General"), ref toggle, 200))
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&General"), ref toggle, 200))
         {
             Main.Settings.DisplayGeneralRaceClassSubClassToggle = toggle;
         }
@@ -29,7 +29,7 @@ internal static class RacesClassesAndSubclassesDisplay
         UI.Label("");
 
         toggle = Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter"),
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter"),
                 ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter = toggle;
@@ -37,7 +37,7 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 
         toggle = Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster;
-        if (UI.Toggle(Gui.Format("ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster"),
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster"),
                 ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster = toggle;
@@ -45,7 +45,7 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
+        UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
         intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
         if (UI.Slider("", ref intValue, 0, 5, 3, "", UI.AutoWidth()))
         {
@@ -54,7 +54,7 @@ internal static class RacesClassesAndSubclassesDisplay
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"));
+        UI.Label(Gui.Localize("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"));
         intValue = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
         if (UI.Slider("", ref intValue, 0, 5, 2, "", UI.AutoWidth()))
         {
@@ -73,7 +73,7 @@ internal static class RacesClassesAndSubclassesDisplay
         displayToggle = Main.Settings.DisplayRacesToggle;
         sliderPos = Main.Settings.RaceSliderPosition;
         DisplayDefinitions(
-            Gui.Format("ModUi/&Races"),
+            Gui.Localize("ModUi/&Races"),
             RacesContext.Switch,
             RacesContext.Races,
             Main.Settings.RaceEnabled,
@@ -85,7 +85,7 @@ internal static class RacesClassesAndSubclassesDisplay
         displayToggle = Main.Settings.DisplayClassesToggle;
         sliderPos = Main.Settings.ClassSliderPosition;
         DisplayDefinitions(
-            Gui.Format("ModUi/&Classes"),
+            Gui.Localize("ModUi/&Classes"),
             ClassesContext.Switch,
             ClassesContext.Classes,
             Main.Settings.ClassEnabled,
@@ -97,7 +97,7 @@ internal static class RacesClassesAndSubclassesDisplay
         displayToggle = Main.Settings.DisplaySubclassesToggle;
         sliderPos = Main.Settings.SubclassSliderPosition;
         DisplayDefinitions(
-            Gui.Format("ModUi/&Subclasses"),
+            Gui.Localize("ModUi/&Subclasses"),
             SubclassesContext.Switch,
             SubclassesContext.Subclasses,
             Main.Settings.SubclassEnabled,

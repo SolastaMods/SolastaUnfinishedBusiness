@@ -2,8 +2,9 @@
 
 public interface IReactionAttackModeRestriction
 {
-    bool ValidReactionMode(RulesetAttackMode attackMode, RulesetCharacter character, RulesetCharacter target);
+    bool ValidReactionMode(RulesetAttackMode attackMode, bool rangedAttack,
+        GameLocationCharacter character, GameLocationCharacter target);
 }
 
-public delegate bool ValidReactionModeHandler(RulesetAttackMode attackMode, RulesetCharacter character,
-    RulesetCharacter target);
+public delegate bool ValidReactionModeHandler(RulesetAttackMode attackMode, bool rangedAttack,
+    GameLocationCharacter character, GameLocationCharacter target);

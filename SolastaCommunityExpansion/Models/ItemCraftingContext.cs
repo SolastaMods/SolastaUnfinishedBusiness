@@ -18,26 +18,26 @@ internal static class ItemCraftingContext
 
     public static readonly Dictionary<string, string> RecipeTitles = new()
     {
-        {"PrimedItems", Gui.Format("ModUi/&PrimedItems")},
-        {"EnchantingIngredients", Gui.Format("Tooltip/&IngredientsHeaderTitle")},
-        {"RelicForgeries", Gui.Format("ModUi/&RelicForgeries")},
-        {"LightCrossbow", Gui.Format("Equipment/&LightCrossbowTypeTitle")},
-        {"HeavyCrossbow", Gui.Format("Equipment/&HeavyCrossbowTypeTitle")},
-        {"Handaxe", Gui.Format("Equipment/&HandaxeTypeTitle")},
-        {"Javelin", Gui.Format("Equipment/&JavelinTypeTitle")},
-        {"Dart", Gui.Format("Equipment/&DartTypeTitle")},
-        {"Club", Gui.Format("Equipment/&ClubTypeTitle")},
-        {"Maul", Gui.Format("Equipment/&MaulTypeTitle")},
-        {"Warhammer", Gui.Format("Equipment/&WarhammerTypeTitle")},
-        {"Quarterstaff", Gui.Format("Equipment/&QuarterstaffTypeTitle")},
-        {"Rapier", Gui.Format("Equipment/&RapierTypeTitle")},
-        {"Spear", Gui.Format("Equipment/&SpearTypeTitle")},
-        {"Scimitar", Gui.Format("Equipment/&ScimitarTypeTitle")},
-        {"Shield_Wooden", Gui.Format("Equipment/&Shield_Wooden_Title")},
-        {"Shield", Gui.Format("Equipment/&ShieldCategoryTitle")},
-        {"HideArmor", Gui.Format("ModUi/&HiderArmor")},
-        {"LeatherDruid", Gui.Format("Equipment/&Druid_Leather_Title")},
-        {"StuddedLeather", Gui.Format("Equipment/&Armor_StuddedLeatherTitle")}
+        {"PrimedItems", Gui.Localize("ModUi/&PrimedItems")},
+        {"EnchantingIngredients", Gui.Localize("Tooltip/&IngredientsHeaderTitle")},
+        {"RelicForgeries", Gui.Localize("ModUi/&RelicForgeries")},
+        {"LightCrossbow", Gui.Localize("Equipment/&LightCrossbowTypeTitle")},
+        {"HeavyCrossbow", Gui.Localize("Equipment/&HeavyCrossbowTypeTitle")},
+        {"Handaxe", Gui.Localize("Equipment/&HandaxeTypeTitle")},
+        {"Javelin", Gui.Localize("Equipment/&JavelinTypeTitle")},
+        {"Dart", Gui.Localize("Equipment/&DartTypeTitle")},
+        {"Club", Gui.Localize("Equipment/&ClubTypeTitle")},
+        {"Maul", Gui.Localize("Equipment/&MaulTypeTitle")},
+        {"Warhammer", Gui.Localize("Equipment/&WarhammerTypeTitle")},
+        {"Quarterstaff", Gui.Localize("Equipment/&QuarterstaffTypeTitle")},
+        {"Rapier", Gui.Localize("Equipment/&RapierTypeTitle")},
+        {"Spear", Gui.Localize("Equipment/&SpearTypeTitle")},
+        {"Scimitar", Gui.Localize("Equipment/&ScimitarTypeTitle")},
+        {"Shield_Wooden", Gui.Localize("Equipment/&Shield_Wooden_Title")},
+        {"Shield", Gui.Localize("Equipment/&ShieldCategoryTitle")},
+        {"HideArmor", Gui.Localize("ModUi/&HiderArmor")},
+        {"LeatherDruid", Gui.Localize("Equipment/&Druid_Leather_Title")},
+        {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")}
     };
 
     public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();

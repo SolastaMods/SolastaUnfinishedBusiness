@@ -276,7 +276,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DontFollowCharacterInBattle { get; set; }
     public int DontFollowMargin { get; set; } = 5;
     public bool AutoPauseOnVictory { get; set; }
-    public float FasterTimeModifier { get; set; }
+    public float FasterTimeModifier { get; set; } = 1.5f;
 
     // Campaigns and Locations
     public bool FollowCharactersOnTeleport { get; set; }
@@ -322,6 +322,7 @@ public class Settings : UnityModManager.ModSettings
 
     public bool EnableOnTheFlyTranslations { get; set; }
     public string SelectedLanguageCode { get; set; } = "en";
+    public Translations.Engine TranslationEngine { get; set; } = Translations.Engine.Google;
 
     //
     // Encounters - General

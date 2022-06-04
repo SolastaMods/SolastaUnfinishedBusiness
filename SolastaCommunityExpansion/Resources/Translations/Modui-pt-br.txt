@@ -166,6 +166,7 @@ ModUi/&Tools	Ferramentas
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total de talentos concedidos no primeiro nível</color>
 ModUi/&Translate	Traduzir
 ModUi/&TranslateCancel	Cancelar {0} em {1}
+ModUi/&TranslationEngine	<color=yellow>Motor de tradução:</color>
 ModUi/&Translations	Traduções
 ModUi/&UnleashEnemyAsNpc	Permitir que Monstros sejam selecionados em gadgets NPC <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
 ModUi/&UnleashNpcAsEnemy	Permitir que NPCs sejam selecionados em gadgets de monstros <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>

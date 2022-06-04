@@ -346,7 +346,7 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Title	求生木盾
 Equipment/&Enchanted_Spear_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
 Equipment/&Enchanted_Spear_Acuteness_Title	精准之矛
 Equipment/&Enchanted_Spear_BlackViper_Description	这件魔法武器是Manacalon的铁匠大师以上古知识，用一根长矛和一只来自索拉斯塔深处的传奇蜘蛛的毒液铸造的。这把刀的设计者是格里格-黑心，一个在艾尔-艾莱的锻造厂工作的臭名昭著的沼泽半身人铁匠
-Equipment/&Enchanted_Spear_BlackViper_Title	黑蝰蛇矛
+Equipment/&Enchanted_Spear_BlackViper_Title	黑蛇之矛
 Equipment/&Enchanted_Spear_Doomblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识铸造的。凯纳罗斯-黑心设计了末日之刃作为惩罚那些抵抗帝国魔法的人的工具
 Equipment/&Enchanted_Spear_Doomblade_Title	末日之矛
 Equipment/&Enchanted_Spear_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	获得弓的熟练项，弓视为�
 Feature/&ClassMonkZenArcherCombatTitle	延臂战法
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
-Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
-Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑箭
+Feature/&ClassMonkZenArcherStunningArrowsTitle	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
+Feature/&ClassMonkZenArcherStunningArrowsDescription	震慑箭
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤进行替换
@@ -1530,6 +1530,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	消耗1个赌注骰反击
 Reaction/&SpendPowerCounterStrikePowerReactTitle	反击
 Reaction/&SpendPowerCounterStrikePowerTitle	反击
 Reaction/&SpendPowerDH_RiftStrikeDescription	每长休1次，当你在近战中受到伤害时，你能用你的反应创造一个裂隙传送，将攻击者从你存在的位面驱逐1轮
+Reaction/&SpendPowerDH_RiftStrikeTitle	裂隙反击
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	裂隙反击
 Reaction/&SpendPowerDiamondSoulDescription	{0}豁免失败，能消耗1点气重骰
 Reaction/&SpendPowerDiamondSoulReactDescription	消耗气重骰豁免
@@ -2065,4 +2066,4 @@ UI/&CustomFeatureSelectionTooltipTypeFeature	特性
 UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
-UI/&ForcePreferredCantripTitle	默认首选戏法
+UI/&ForcePreferredCantripTitle	强制默认戏法

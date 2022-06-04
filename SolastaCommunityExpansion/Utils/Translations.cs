@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using I2.Loc;
@@ -14,39 +15,100 @@ namespace SolastaCommunityExpansion.Utils;
 
 public static class Translations
 {
-    internal static string Translate(string sourceText, string targetCode)
+    public enum Engine
     {
-        var translation = string.Empty;
+        Baidu,
+        Google
+    }
+
+    internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
+
+    internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
+
+    private static string GetPayload(string url)
+    {
+        using var wc = new WebClient();
+
+        wc.Headers.Add("user-agent",
+            "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+        wc.Encoding = Encoding.UTF8;
+
+        return wc.DownloadString(url);
+    }
+
+    public static string GetMd5Hash(string input)
+    {
+        var builder = new StringBuilder();
+        var md5Hash = MD5.Create();
+        var payload = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+        foreach (var item in payload)
+        {
+            builder.Append(item.ToString("x2"));
+        }
+
+        return builder.ToString();
+    }
+
+    internal static string TranslateBaidu(string sourceText, string targetCode)
+    {
+        const string BASE_URL = "http://api.fanyi.baidu.com/api/trans/vip/translate";
+
+        var encoded = HttpUtility.UrlEncode(sourceText);
+        var r = new Random();
+        var salt = "";
+
+        for (var i = 0; i < 9; i++)
+        {
+            salt += r.Next(1, 11);
+        }
 
         try
         {
-            var translationFromGoogle = "";
+            var sign = "20181009000216890" + sourceText + salt + "TcAihQsIFCsOdnA14NyA";
+            var signHash = GetMd5Hash(sign).ToLower();
+            var finalUrl =
+                $"{BASE_URL}?appid=20181009000216890&from=en&to={targetCode}&q={encoded}&salt={salt}&sign={signHash}";
+            var payload = GetPayload(finalUrl);
+            var json = JsonConvert.DeserializeObject<Model>(payload);
 
-            //Using secret translate.googleapis.com API that is internally used by the Google Translate extension for Chrome and requires no authentication
-            var url = string.Format(
-                "https://translate.googleapis.com/translate_a/single?client=gtx&sl={0}&tl={1}&dt=t&q={2}",
-                "auto", targetCode, HttpUtility.UrlEncode(sourceText));
+            return json.trans_result.First().dst;
+        }
+        catch
+        {
+            return sourceText;
+        }
+    }
 
-            using (var wc = new WebClient())
-            {
-                wc.Headers.Add("user-agent",
-                    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
-                wc.Encoding = Encoding.UTF8;
+    internal static string TranslateGoogle(string sourceText, string targetCode)
+    {
+        try
+        {
+            var encoded = HttpUtility.UrlEncode(sourceText);
+            var url =
+                $"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={targetCode}&dt=t&q={encoded}";
+            var payload = GetPayload(url);
+            var json = JsonConvert.DeserializeObject(payload);
 
-                translationFromGoogle = wc.DownloadString(url);
-            }
-
-            // Get translated text
-            var json = JsonConvert.DeserializeObject(translationFromGoogle);
-
-            translation = ((((json as JArray).First() as JArray).First() as JArray).First() as JValue).Value.ToString();
+            // TODO: create a model for this
+            return ((((json as JArray).First() as JArray).First() as JArray).First() as JValue).Value.ToString();
         }
         catch
         {
             Main.Logger.Log("Failed translating: " + sourceText);
-        }
 
-        return translation;
+            return sourceText;
+        }
+    }
+
+    internal static string Translate(string sourceText, string targetCode)
+    {
+        return Main.Settings.TranslationEngine switch
+        {
+            Engine.Baidu => TranslateBaidu(sourceText, targetCode),
+            Engine.Google => TranslateGoogle(sourceText, targetCode),
+            _ => sourceText
+        };
     }
 
     private static Dictionary<string, string> GetWordsDictionary()
@@ -121,5 +183,18 @@ public static class Translations
                 languageSourceData.AddTerm(term).Languages[languageIndex] = text;
             }
         }
+    }
+
+    public class Model
+    {
+        public string from { get; set; }
+        public string to { get; set; }
+        public List<ResultModel> trans_result { get; set; }
+    }
+
+    public class ResultModel
+    {
+        public string src { get; set; }
+        public string dst { get; set; }
     }
 }

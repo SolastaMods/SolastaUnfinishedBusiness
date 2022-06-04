@@ -166,6 +166,7 @@ ModUi/&Tools	Werkzeug
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Auf der ersten Stufe gewährte Talente insgesamt</color>
 ModUi/&Translate	Übersetzen
 ModUi/&TranslateCancel	Stornieren Sie {0} um {1}
+ModUi/&TranslationEngine	<color=yellow>Übersetzungsmaschine:</color>
 ModUi/&Translations	Übersetzungen
 ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NPC-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
 ModUi/&UnleashNpcAsEnemy	Erlaube die Auswahl von NPCs auf Monster-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
