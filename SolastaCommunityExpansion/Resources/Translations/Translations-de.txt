@@ -570,7 +570,7 @@ Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\n
 Feat/&FeatPrimalStrengthTitle	Urwut (Stärke)
 Feat/&FeatPugilistFightingStlyeDescription	Deine waffenlosen Schläge verursachen zusätzlich 1W4 Knüppelschaden und du kannst als Bonusaktion mit deiner Nebenhand schlagen.\nWenn Sie eine freie Hand haben, können Sie als Bonusaktion schubsen.
 Feat/&FeatPugilistFightingStlyeTitle	Kampfstil: Faustkämpfer
-Feat/&FeatRangedExpertDescription	Ihre Expertenausbildung mit Fernkampfwaffen gewährt Ihnen diese Vorteile:\n - Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind in 5 Fuß Reichweite von Ihnen befindet.\n - Wenn Sie Ihre Aktion zum Angreifen aufwenden, können Sie die Bonusaktion verwenden, um einen Angriff mit einer einhändigen Fernkampf- oder Wurfwaffe durchzuführen.
+Feat/&FeatRangedExpertDescription	Ihre Expertenausbildung mit Fernkampfwaffen gewährt Ihnen diese Vorteile:\n• Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind in 5 Fuß Reichweite von Ihnen befindet.\n• Wenn Sie Ihre Aktion zum Angreifen aufwenden, können Sie die Bonusaktion verwenden, um einen Angriff mit einer einhändigen Fernkampf- oder Wurfwaffe durchzuführen.
 Feat/&FeatRangedExpertTitle	Fernkampfexperte
 Feat/&FeatSavageAttackerDescription	Waffen- und Zauberschadenswürfel neu würfeln, wenn sie eine 1 würfeln (es werden nicht alle Schadensquellen neu gewürfelt, z. B. ausgenommen Sneak Attack und Smite).
 Feat/&FeatSavageAttackerReroll	Da er ein Wilder Angreifer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.

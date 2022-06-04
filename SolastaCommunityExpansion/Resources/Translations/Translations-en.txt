@@ -570,7 +570,7 @@ Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
 Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
-Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\n - You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.\n - If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
+Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.\n• If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
 Feat/&FeatRangedExpertTitle	Ranged Expert
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}

@@ -570,7 +570,7 @@ Feat/&FeatPrimalStrengthDescription	Augmentez votre Force de 1, jusqu'à un maxi
 Feat/&FeatPrimalStrengthTitle	Rage Primale (Force)
 Feat/&FeatPugilistFightingStlyeDescription	Vos frappes à mains nues infligent 1d4 dégâts contondants supplémentaires et vous pouvez frapper avec votre main secondaire en tant qu'action bonus.\nSi vous avez une main libre, vous pouvez pousser en tant qu'action bonus.
 Feat/&FeatPugilistFightingStlyeTitle	Style de combat : Pugiliste
-Feat/&FeatRangedExpertDescription	Votre formation d'expert aux armes à distance vous confère ces avantages :\n - Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à 5 pieds de vous.\n - Si vous passez votre action à attaquer, vous pouvez utiliser l'action bonus pour effectuer une attaque avec une arme à distance ou de lancer à une main.
+Feat/&FeatRangedExpertDescription	Votre formation d'expert aux armes à distance vous confère ces avantages :\n• Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à 5 pieds de vous.\n• Si vous passez votre action à attaquer, vous pouvez utiliser l'action bonus pour effectuer une attaque avec une arme à distance ou de lancer à une main.
 Feat/&FeatRangedExpertTitle	Expert à distance
 Feat/&FeatSavageAttackerDescription	Relancez les dés de dégâts des armes et des sorts lorsqu'ils obtiennent un 1 (ne relance pas toutes les sources de dégâts, par exemple exclut l'attaque sournoise et le châtiment).
 Feat/&FeatSavageAttackerReroll	En raison d'être un attaquant sauvage, {0} relance le {1} dé d'un {2} à un {3}
