@@ -18,11 +18,13 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Esker[/b]: Warlock class design, quality assurance
 [*][b]Holic75[/b]: SolastaModHelpers and SolastaExtraContent
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
+[*][b]JetBrains[/b]: 3 Rider full licenses
 [*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
 [*][b]Nd[/b]: Marshal subclass, Opportunist subclass
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
+[*][b]Tactical Adventures[/b]: support to our initiative
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
@@ -217,8 +219,8 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 You can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
- - You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.
- - If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
+• You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.
+• If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
 [*][b]Reckless Fury[/b]: You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 [*][b]Scribe[/b]: +1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells.
