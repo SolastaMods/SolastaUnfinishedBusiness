@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	获得弓的熟练项，弓视为�
 Feature/&ClassMonkZenArcherCombatTitle	延臂战法
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
-Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
-Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑箭
+Feature/&ClassMonkZenArcherStunningArrowsTitle	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
+Feature/&ClassMonkZenArcherStunningArrowsDescription	震慑箭
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤进行替换

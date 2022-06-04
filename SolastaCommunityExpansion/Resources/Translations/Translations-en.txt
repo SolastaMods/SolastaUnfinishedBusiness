@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they
 Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Stunning Arrows
-Feature/&ClassMonkZenArcherStunningArrowsTitle	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a arrow attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
+Feature/&ClassMonkZenArcherStunningArrowsDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a arrow attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor.
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace.

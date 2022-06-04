@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Научитесь обращать
 Feature/&ClassMonkZenArcherCombatTitle	Дистанционный рукопашный бой
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ваши атаки луком считаются магическими с точки зрения преодоления сопротивления и иммунитета к немагическим атакам и повреждениям.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ки-усиленные стрелы
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Потрясающие стрелы
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Вы можете препятствовать потоку ки в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Потрясающие стрелы
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Вы можете препятствовать потоку ки в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
 Feature/&ClassWarlockArmorProficiencyDescription	Легкая броня.
 Feature/&ClassWarlockArmorProficiencyTitle	Навыки доспехов чернокнижника
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Выберите Eldritch Invocation для замены.
