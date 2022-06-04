@@ -1531,6 +1531,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	Contra-ataque
 Reaction/&SpendPowerCounterStrikePowerTitle	Contra-ataque
 Reaction/&SpendPowerDH_RiftStrikeDescription	Uma vez por descanso longo, quando danificado por um ataque corpo a corpo, você pode usar sua reação para criar um portal que bane o atacante por 1 rodada do seu plano de existência.
 Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} falhou no salvamento e pode gastar 1 ki para rerrolá-lo.
 Reaction/&SpendPowerDiamondSoulReactDescription	Gaste ki para refazer o salvamento com falha.
 Reaction/&SpendPowerDiamondSoulReactTitle	Role novamente

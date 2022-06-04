@@ -1531,6 +1531,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	反击
 Reaction/&SpendPowerCounterStrikePowerTitle	反击
 Reaction/&SpendPowerDH_RiftStrikeDescription	每长休1次，当你在近战中受到伤害时，你能用你的反应创造一个裂隙传送，将攻击者从你存在的位面驱逐1轮
 Reaction/&SpendPowerDH_RiftStrikeTitle	裂隙反击
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	裂隙反击
 Reaction/&SpendPowerDiamondSoulDescription	{0}豁免失败，能消耗1点气重骰
 Reaction/&SpendPowerDiamondSoulReactDescription	消耗气重骰豁免
 Reaction/&SpendPowerDiamondSoulReactTitle	重骰

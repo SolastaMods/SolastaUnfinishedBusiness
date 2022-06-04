@@ -1531,6 +1531,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Une fois par repos long, lorsque vous êtes endommagé par une attaque au corps à corps, vous pouvez utiliser votre réaction pour créer un portail qui bannit l'attaquant pendant 1 round de votre plan d'existence.
 Reaction/&SpendPowerDH_RiftStrikeTitle	Frappe de faille
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Frappe de faille
 Reaction/&SpendPowerDiamondSoulDescription	{0} a raté une sauvegarde et peut dépenser 1 ki pour la relancer.
 Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée.
 Reaction/&SpendPowerDiamondSoulReactTitle	Relancer

@@ -1531,6 +1531,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	Ответный удар
 Reaction/&SpendPowerCounterStrikePowerTitle	Ответный удар
 Reaction/&SpendPowerDH_RiftStrikeDescription	Один раз за продолжительный отдых, получив урон от атаки в ближнем бою, вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана существования.
 Reaction/&SpendPowerDH_RiftStrikeTitle	Разломный удар
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Разломный удар
 Reaction/&SpendPowerDiamondSoulDescription	{0} не смог сохраниться и может потратить 1 ки, чтобы перебросить его.
 Reaction/&SpendPowerDiamondSoulReactDescription	Потратьте ки, чтобы перебросить неудачное сохранение.
 Reaction/&SpendPowerDiamondSoulReactTitle	Реролл
