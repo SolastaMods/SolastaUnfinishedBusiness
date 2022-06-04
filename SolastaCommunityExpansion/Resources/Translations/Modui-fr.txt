@@ -166,7 +166,7 @@ ModUi/&Tools	Outils
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total des dons accordés au premier niveau</color>
 ModUi/&Translate	Traduire
 ModUi/&TranslateCancel	Annuler {0} à {1}
-ModUi/&TranslationEngine	<color=yellow>Translation engine:</color>
+ModUi/&TranslationEngine	<color=yellow>Moteur de traduction:</color>
 ModUi/&Translations	Traductions
 ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets PNJ <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
 ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>

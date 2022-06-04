@@ -2,7 +2,6 @@
 ModUi/&AddBleedingToLesserRestoration	Добавить состояние <color=orange>Кровотечение</color> к состояниям, снимаемым <color=orange>Большим и Малым восстановлением</color>
 ModUi/&AddHelpActionToAllRaces	Добавить действие <color=orange>Помощь</color> всем расам.
 ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Также добаить их в Создатель Подземелий</i>
-ModUi/&AddNewWeaponsAndRecipesToShops	Добавить новое оружие и рецепты в магазины <i><color=yellow>[повязки, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[ Требуется перезагрузка]</color></i></b>
 ModUi/&AddPickpocketableLoot	Добавить добычу для карманных краж <i><color=yellow>[рекомендуется, если умение <color=orange>Карманная Кража</color> включено]</color></i>
 ModUi/&AddToStore	Добавить в магазин
 ModUi/&Advanced	<color=yellow>Дополнительно:</color>
@@ -167,6 +166,7 @@ ModUi/&Tools	Инструменты
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего бонусных особенностей (черт) на первом уровне</color>
 ModUi/&Translate	Перевести
 ModUi/&TranslateCancel	Отменить {0} в {1}
+ModUi/&TranslationEngine	<color=yellow>Механизм перевода:</color>
 ModUi/&Translations	Переводы
 ModUi/&UnleashEnemyAsNpc	Разрешить выбор монстров на гаджетах NPC <i><color=yellow>[зажмите <color=cyan>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnleashNpcAsEnemy	Разрешить выбор NPC на гаджетах монстров <i><color=yellow>[зажмите <color=cyan>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
