@@ -126,7 +126,7 @@ ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Показыват�
 ModUi/&OverrideMinMaxLevel	Переопределять требуемые минимальный и максимальный уровни при запуске новых приключений.
 ModUi/&OverridePartySize	<color=white>Переопределять размер группы в пользовательских приключениях</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Переопределить увеличение бонуса к сложности спасброска от <color=orange>Улучшенной манипуляции</color> <color=orange>Разбойника</color> Мошенника</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Переопределить сложность спасброска от <color=orange>Магической манипуляции</color> <color=orange>Волшебника</color> Мастера-манипулятора</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Переопределить сложность спасброска от <color=orange>Тайной манипуляции</color> <color=orange>Волшебника</color> Мастера-манипулятора</color>
 ModUi/&Patches	<color=yellow>Патчи:</color>
 ModUi/&PrimedItems	Подготовленные предметы
 ModUi/&Progression	<color=yellow>Прогресс:</color>
