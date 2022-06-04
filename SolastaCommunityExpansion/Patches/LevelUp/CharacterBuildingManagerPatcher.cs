@@ -658,13 +658,15 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
         }
 
+        var selectedClassName = LevelUpContext.GetSelectedClass(hero).Name;
+
         var bonusPools = hero.GetTaggedFeaturesByType<FeatureDefinitionPointPool>()
             .Where(x => x.Item2.PoolType == HeroDefinitions.PointsPoolType.Cantrip)
             .Select(x => x.Item2)
             .Sum(x => x.PoolAmount);
 
         var bonusCantrips = hero.GetTaggedFeaturesByType<FeatureDefinitionBonusCantrips>()
-            .Where(x => x.Item1 != classTag && x.Item1 != subclassTag)
+            .Where(x => x.Item1 != classTag && x.Item1 != subclassTag && x.Item1.Contains(selectedClassName))
             .Select(x => x.Item2)
             .Sum(x => x.BonusCantrips.Count);
 
