@@ -562,12 +562,16 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	魅力+1，最高20点\n你习得�
 Feat/&FeatMetamagicAdeptQuickenedTitle	超魔：瞬发
 Feat/&FeatMetamagicAdeptTwinnedDescription	魅力+1，最高20点\n你习得孪生超魔，并获得2点术法点
 Feat/&FeatMetamagicAdeptTwinnedTitle	超魔：孪生
+Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
+Feat/&FeatPolearmExpertTitle	长柄武器大师
 Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
 Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalStrengthTitle	原初狂怒（力量）
 Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，并且你能以附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
+Feat/&FeatRangedExpertDescription	你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n• 若你使用动作进行攻击，你能使用附赠行动以单手的远程或投掷武器进行一次攻击
+Feat/&FeatRangedExpertTitle	远程武器大师
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为 {3}
 Feat/&FeatSavageAttackerTitle	野性袭击者
@@ -2050,6 +2054,7 @@ Tooltip/&TagCommunityExpansionTitle	社区拓展
 Tooltip/&TagMaledictionTitle	巫咒
 Tooltip/&TagMonkWeaponTitle	武僧
 Tooltip/&TagOtherModContentTitle	源于Mod
+Tooltip/&TagPolearmWeaponTitle	长柄武器
 Tooltip/&TagScoutSentinelWeaponTitle	侦察哨兵
 UI/&CustomFeatureSelectionStageDescription	从你的职业/子职中选择额外特性
 UI/&CustomFeatureSelectionStageFeatures	特性
@@ -2061,8 +2066,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
 UI/&ForcePreferredCantripTitle	默认首选戏法
-Tooltip/&TagPolearmWeaponTitle	长柄武器
-Feat/&FeatPolearmExpertTitle	长柄武器大师
-Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
-Feat/&FeatRangedExpertTitle	远程武器大师
-Feat/&FeatRangedExpertDescription	你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n• 若你使用动作进行攻击，你能使用附赠行动以单手的远程或投掷武器进行一次攻击

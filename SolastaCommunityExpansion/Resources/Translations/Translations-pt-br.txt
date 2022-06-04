@@ -562,12 +562,16 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Aumente seu Carisma em 1, até um m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamágica: Acelerada
 Feat/&FeatMetamagicAdeptTwinnedDescription	Aumente seu Carisma em 1, até um máximo de 20.\nVocê aprende a metamágica Geminada e ganha 2 pontos de feitiçaria.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamágica: Geminada
+Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste garante estes benefícios:\n• Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n• Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
+Feat/&FeatPolearmExpertTitle	Especialista em Polearm
 Feat/&FeatPrimalConstitutionDescription	Aumente sua Constituição em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Depois de entrar em fúria dessa forma, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
 Feat/&FeatPrimalConstitutionTitle	Fúria Primal (Constituição)
 Feat/&FeatPrimalStrengthDescription	Aumente sua Força em 1, até um máximo de 20.\nVocê pode inserir uma fúria como uma ação bônus conforme definido na característica de classe de fúria do Bárbaro com +1 de dano de fúria que pode acumular com a fúria do Bárbaro. Depois de entrar em fúria dessa forma, você deve terminar um descanso longo antes de usar esse recurso novamente.\nEnquanto você não estiver usando nenhuma armadura, sua CA é igual a 10 + seu modificador de Destreza + seu modificador de Constituição.
 Feat/&FeatPrimalStrengthTitle	Fúria Primal (Força)
 Feat/&FeatPugilistFightingStlyeDescription	Seus ataques desarmados causam 1d4 de dano de concussão adicional e você pode socar com sua mão secundária como uma ação bônus.\nSe você tiver uma mão livre, você pode empurrar como uma ação bônus.
 Feat/&FeatPugilistFightingStlyeTitle	Estilo de luta: Pugilista
+Feat/&FeatRangedExpertDescription	Seu treinamento especializado com armas de longo alcance garante esses benefícios:\n - Você não tem mais desvantagem em ataques à distância quando há um inimigo a 5 pés de distância de você.\n - Se você gastar sua ação atacando, você pode usar a ação bônus para fazer um ataque com uma arma à distância ou de arremesso de uma mão.
+Feat/&FeatRangedExpertTitle	Especialista à distância
 Feat/&FeatSavageAttackerDescription	Rerrole os dados de dano de arma e feitiço quando rolam 1 (não rola novamente todas as fontes de dano, por exemplo, exclui Ataque Furtivo e Golpear).
 Feat/&FeatSavageAttackerReroll	Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
 Feat/&FeatSavageAttackerTitle	Atacante Selvagem
@@ -2050,6 +2054,7 @@ Tooltip/&TagCommunityExpansionTitle	Expansão da comunidade
 Tooltip/&TagMaledictionTitle	Caramba
 Tooltip/&TagMonkWeaponTitle	Monge
 Tooltip/&TagOtherModContentTitle	Do modo
+Tooltip/&TagPolearmWeaponTitle	Pistola
 Tooltip/&TagScoutSentinelWeaponTitle	Sentinela Escoteira
 UI/&CustomFeatureSelectionStageDescription	Selecione recursos extras de sua classe/subclasse.
 UI/&CustomFeatureSelectionStageFeatures	Características
@@ -2061,8 +2066,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
-Tooltip/&TagPolearmWeaponTitle	Pistola
-Feat/&FeatPolearmExpertTitle	Especialista em Polearm
-Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste garante estes benefícios:\n• Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n• Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
-Feat/&FeatRangedExpertTitle	Especialista à distância
-Feat/&FeatRangedExpertDescription	Seu treinamento especializado com armas de longo alcance garante esses benefícios:\n - Você não tem mais desvantagem em ataques à distância quando há um inimigo a 5 pés de distância de você.\n - Se você gastar sua ação atacando, você pode usar a ação bônus para fazer um ataque com uma arma à distância ou de arremesso de uma mão.

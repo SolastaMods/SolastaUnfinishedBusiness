@@ -562,12 +562,16 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Augmentez votre Charisme de 1, jusq
 Feat/&FeatMetamagicAdeptQuickenedTitle	Métamagique : Accéléré
 Feat/&FeatMetamagicAdeptTwinnedDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie jumelée et gagnez 2 points de sorcellerie.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Métamagique : Jumelé
+Feat/&FeatPolearmExpertDescription	Votre formation d'expert avec les armes d'hast vous offre ces avantages :\n• Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n• Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.
+Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
 Feat/&FeatPrimalConstitutionDescription	Augmentez votre Constitution de 1, jusqu'à un maximum de 20.\nVous pouvez entrer dans une rage en tant qu'action bonus telle que définie dans la capacité de classe de rage du barbare avec +1 dégâts de rage qui peuvent se cumuler avec la rage du barbare. Une fois que vous avez fait rage de cette façon, vous devez terminer un repos long avant d'utiliser à nouveau cette capacité.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution.
 Feat/&FeatPrimalConstitutionTitle	Rage primordiale (Constitution)
 Feat/&FeatPrimalStrengthDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous pouvez entrer dans une rage en tant qu'action bonus telle que définie dans la capacité de classe de rage du barbare avec +1 dégâts de rage qui peuvent se cumuler avec la rage du barbare. Une fois que vous avez fait rage de cette façon, vous devez terminer un repos long avant d'utiliser à nouveau cette capacité.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution.
 Feat/&FeatPrimalStrengthTitle	Rage Primale (Force)
 Feat/&FeatPugilistFightingStlyeDescription	Vos frappes à mains nues infligent 1d4 dégâts contondants supplémentaires et vous pouvez frapper avec votre main secondaire en tant qu'action bonus.\nSi vous avez une main libre, vous pouvez pousser en tant qu'action bonus.
 Feat/&FeatPugilistFightingStlyeTitle	Style de combat : Pugiliste
+Feat/&FeatRangedExpertDescription	Votre formation d'expert aux armes à distance vous confère ces avantages :\n - Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à 5 pieds de vous.\n - Si vous passez votre action à attaquer, vous pouvez utiliser l'action bonus pour effectuer une attaque avec une arme à distance ou de lancer à une main.
+Feat/&FeatRangedExpertTitle	Expert à distance
 Feat/&FeatSavageAttackerDescription	Relancez les dés de dégâts des armes et des sorts lorsqu'ils obtiennent un 1 (ne relance pas toutes les sources de dégâts, par exemple exclut l'attaque sournoise et le châtiment).
 Feat/&FeatSavageAttackerReroll	En raison d'être un attaquant sauvage, {0} relance le {1} dé d'un {2} à un {3}
 Feat/&FeatSavageAttackerTitle	Attaquant sauvage
@@ -2050,6 +2054,7 @@ Tooltip/&TagCommunityExpansionTitle	Expansion de la communauté
 Tooltip/&TagMaledictionTitle	Bon sang
 Tooltip/&TagMonkWeaponTitle	Moine
 Tooltip/&TagOtherModContentTitle	À partir du module
+Tooltip/&TagPolearmWeaponTitle	Arme d'hast
 Tooltip/&TagScoutSentinelWeaponTitle	Sentinelle éclaireuse
 UI/&CustomFeatureSelectionStageDescription	Sélectionnez des fonctionnalités supplémentaires dans votre classe/sous-classe.
 UI/&CustomFeatureSelectionStageFeatures	Fonctionnalités
@@ -2061,8 +2066,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Tooltip/&TagPolearmWeaponTitle	Arme d'hast
-Feat/&FeatPolearmExpertTitle	Expert en armes d'hast
-Feat/&FeatPolearmExpertDescription	Votre formation d'expert avec les armes d'hast vous offre ces avantages :\n• Lorsque vous effectuez l'action Attaquer et que vous attaquez uniquement avec une arme d'hast, vous pouvez utiliser une action bonus pour effectuer une attaque au corps à corps avec l'extrémité opposée de l'arme. Cette attaque utilise le même modificateur de capacité que l'attaque principale. Le dé de dégâts de l'arme pour cette attaque est un d4, et il inflige des dégâts contondants.\n• Pendant que vous maniez une arme d'hast, d'autres créatures provoquent une attaque d'opportunité de votre part lorsqu'elles entrent dans la portée que vous avez avec cette arme.
-Feat/&FeatRangedExpertTitle	Expert à distance
-Feat/&FeatRangedExpertDescription	Votre formation d'expert aux armes à distance vous confère ces avantages :\n - Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à 5 pieds de vous.\n - Si vous passez votre action à attaquer, vous pouvez utiliser l'action bonus pour effectuer une attaque avec une arme à distance ou de lancer à une main.

@@ -2,7 +2,6 @@
 ModUi/&AddBleedingToLesserRestoration	Adicione a condição <color=orange>Sangramento</color> às condições removidas pela <color=orange>Restauração Maior e Menor</color>
 ModUi/&AddHelpActionToAllRaces	Adicione a ação <color=orange>Ajuda</color> a todas as corridas
 ModUi/&AddNewWeaponsAndRecipesToShops	Adicione novas armas e receitas às lojas <i><color=yellow>[bandeiras de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[ Requer Reiniciar]</color></i></b>
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Adicione-os também ao criador de masmorras</i>
 ModUi/&AddPickpocketableLoot	Adicionar espólios de carteirista <i><color=yellow>[sugerido se o recurso <color=orange>Pocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore	Adicionar à loja
 ModUi/&Advanced	<color=yellow>Avançado:</color>
@@ -43,8 +42,8 @@ ModUi/&DungeonMaker	<color=yellow>Criador de Masmorras:</color>
 ModUi/&DungeonMakerBasicHelp	. Essas configurações não exigirão que o jogador tenha este mod instalado\n. Você pode incorporar qualquer variável de campanha em seus diálogos, descrições, etc.\n. O CE irá substituí-los pelo seu valor durante o jogo <i><color=yellow>[i.e: Olá {Salute} Hero!]</color></i>
 ModUi/&DungeonMakerMenu	Criador de masmorras
 ModUi/&EmpressGarbAppearance	<color=orange>Traje de Imperatriz</color> aparência
-ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Adicionar novos itens de foco ao Dungeon Maker</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Habilite ícones adicionais para acampamentos, saídas e teletransportadores no mapa de nível
+ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ Adicionar novos itens ao Dungeon Maker</i>
 ModUi/&EnableAlternateHuman	Ative o humano alternativo <i><color=yellow>[+1 talento / +2 escolhas de atributo / +1 habilidade]</color></i>
 ModUI/&EnableBetaContent	Ative o conteúdo beta <i><color=yellow>[lembre-se de que seus salvamentos ou heróis podem quebrar no futuro]</color></i> <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Ative a ação de cancelamento com o botão direito do mouse
@@ -71,6 +70,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister	Esconda a <color=orange>Crown of the Ma
 ModUi/&EnableLevel20	Ative o nível 20 <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	Ative os diálogos de log para o console de jogos durante as sequências narrativas
 ModUi/&EnableMinInOutAttributes	Aplicar os pré-requisitos mínimos de entrada e saída de pontuações de habilidade
+ModUi/&EnableOnTheFlyTranslations	Ativar traduções de conteúdo personalizado em tempo real <i><color=yellow>[requer conexão de saída ao vivo. para https://translate.googleapis.com]</color></i>
 ModUi/&EnableRelearnSpells	Pode selecionar truques ou feitiços já aprendidos de outras classes
 ModUi/&EnableRespec	Ative as ações RESPEC e Level Down após descanso
 ModUi/&EnablesAsiAndFeat	Ative o aumento de pontuação de atributo e a seleção de talentos <i><color=yellow>[em vez de uma escolha exclusiva]</color></i>
@@ -82,6 +82,7 @@ ModUi/&EnableUnityExplorer	Ativar a interface do usuário do Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Ative a <color=orange>Recuperação Arcana</color> ilimitada no <color=orange>Assistente</color> Mestre de Feitiços\n<i><color=yellow>Deve ser ativado quando a habilidade tiver usos disponíveis ou antes da criação do personagem</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Ativar upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Encontros
+ModUi/&ExecuteBatchTranslations	Execute traduções em lote: <i><color=yellow>[as campanhas são salvas de volta no pool prefixadas pelo idioma de destino]</color></i>
 ModUi/&ExpandAll	Expandir todos
 ModUi/&FactionHelp	<color=#C04040E0>Carregue um jogo de campanha oficial para modificar as relações de facção...</color>
 ModUi/&FactionRelations	<color=yellow>Relações de facções:</color>
@@ -160,14 +161,12 @@ ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Abastece a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	Estoque a loja do Hugo com <color=orange>Wand of Identify</color>, <color=orange>Arcane Staff</color>, <color=orange>Druid Neck</color>, <color=orange>Staf</color> > e <color=orange>Clube</color> definidos como itens de foco
 ModUi/&Subclasses	<color=yellow>Subclasses</color>
+ModUi/&TargetLanguage	<color=yellow>Idioma de destino:</color>
 ModUi/&Tools	Ferramentas
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total de talentos concedidos no primeiro nível</color>
 ModUi/&Translate	Traduzir
 ModUi/&TranslateCancel	Cancelar {0} em {1}
-ModUi/&ExecuteBatchTranslations	Execute traduções em lote: <i><color=yellow>[as campanhas são salvas de volta no pool prefixadas pelo idioma de destino]</color></i>
-ModUi/&EnableOnTheFlyTranslations	Ativar traduções de conteúdo personalizado em tempo real <i><color=yellow>[requer conexão de saída ao vivo. para https://translate.googleapis.com]</color></i>
 ModUi/&Translations	Traduções
-ModUi/&TargetLanguage	<color=yellow>Idioma de destino:</color>
 ModUi/&UnleashEnemyAsNpc	Permitir que Monstros sejam selecionados em gadgets NPC <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
 ModUi/&UnleashNpcAsEnemy	Permitir que NPCs sejam selecionados em gadgets de monstros <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
 ModUi/&UnlockAllNpcFaces	Desbloqueie todos os rostos de NPCs

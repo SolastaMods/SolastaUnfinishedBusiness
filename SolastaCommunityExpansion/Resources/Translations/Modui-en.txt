@@ -2,7 +2,6 @@
 ModUi/&AddBleedingToLesserRestoration	Add the <color=orange>Bleeding</color> condition to the conditions removed by <color=orange>Greater and Lesser Restoration</color>
 ModUi/&AddHelpActionToAllRaces	Add the <color=orange>Help</color> action to all races
 ModUi/&AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops <i><color=yellow>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ Also add them to dungeon maker</i>
 ModUi/&AddPickpocketableLoot	Add pickpocketable loot <i><color=yellow>[suggested if <color=orange>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore	Add to store
 ModUi/&Advanced	<color=yellow>Advanced:</color>
@@ -43,8 +42,8 @@ ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
 ModUi/&DungeonMakerBasicHelp	. These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=yellow>[i.e: Hello {Salute} Hero!]</color></i>
 ModUi/&DungeonMakerMenu	Dungeon Maker
 ModUi/&EmpressGarbAppearance	<color=orange>Empress Garb</color> appearance
-ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ Add new foci items to Dungeon Maker</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	Enable additional icons for camps, exits and teleporters on level map
+ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ Add new items to Dungeon Maker</i>
 ModUi/&EnableAlternateHuman	Enable the alternate human <i><color=yellow>[+1 feat / +2 attribute choices / +1 skill]</color></i>
 ModUI/&EnableBetaContent	Enable beta content <i><color=yellow>[keep in mind your saves or heroes might break in the future]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick	Enable cancel action with right-mouse click
@@ -71,6 +70,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister	Hide the <color=orange>Crown of the Mag
 ModUi/&EnableLevel20	Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole	Enable log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes	Enforce ability scores minimum in & out pre-requisites
+ModUi/&EnableOnTheFlyTranslations	Enable real time custom content translations
 ModUi/&EnableRelearnSpells	Can select cantrips or spells already learned from other classes
 ModUi/&EnableRespec	Enable the RESPEC and Level Down after rest actions
 ModUi/&EnablesAsiAndFeat	Enable both attribute scores increase and feat selection <i><color=yellow>[instead of an exclusive choice]</color></i>
@@ -82,6 +82,7 @@ ModUi/&EnableUnityExplorer	Enable the Unity Explorer UI
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Encounters
+ModUi/&ExecuteBatchTranslations	<color=yellow>Batch translations:</color>\n\n. Campaigns are saved back to pool prefixed by target language
 ModUi/&ExpandAll	Expand All
 ModUi/&FactionHelp	<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations	<color=yellow>Faction Relations:</color>
@@ -160,14 +161,12 @@ ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Stocks Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	Stocks Hugo's store with <color=orange>Wand of Identify</color>, <color=orange>Arcane Staff</color>, <color=orange>Druid Neck</color>, <color=orange>Staff</color> and <color=orange>Club</color> set as foci items
 ModUi/&Subclasses	<color=yellow>Subclasses</color>
+ModUi/&TargetLanguage	<color=yellow>Target Language:</color>
 ModUi/&Tools	Tools
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
 ModUi/&Translate	Translate
 ModUi/&TranslateCancel	Cancel {0} at {1}
-ModUi/&ExecuteBatchTranslations	<color=yellow>Batch translations:</color>\n\n. Campaigns are saved back to pool prefixed by target language
-ModUi/&EnableOnTheFlyTranslations	Enable real time custom content translations
 ModUi/&Translations	Translations
-ModUi/&TargetLanguage	<color=yellow>Target Language:</color>
 ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnlockAllNpcFaces	Unlock all NPC faces

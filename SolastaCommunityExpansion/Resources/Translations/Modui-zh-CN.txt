@@ -2,7 +2,6 @@
 ModUi/&AddBleedingToLesserRestoration	添加<color=orange>流血</color>状态至<color=orange>次级/高等复原术</color>的移除效果范围
 ModUi/&AddHelpActionToAllRaces	添加<color=orange>协助</color>至全部种族
 ModUi/&AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店<i><color=yellow>[裹手，戟，长矛，长钉头锤，手弩]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&AddNewWeaponsAndRecipesToEditor	<i>+ 同时将其添加至地城制作器</i>
 ModUi/&AddPickpocketableLoot	添加可扒窃的战利品 <i><color=yellow>[建议在<color=orange>扒窃</color>专长被启用时启用]</color></i>
 ModUi/&AddToStore	加入商店
 ModUi/&Advanced	<color=yellow>进阶选项：</color>
@@ -43,8 +42,8 @@ ModUi/&DungeonMaker	<color=yellow>地下城制作：</color>
 ModUi/&DungeonMakerBasicHelp	. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<i><color=yellow>[例如：你好英雄{Salute}！]</color></i>
 ModUi/&DungeonMakerMenu	地下城制作
 ModUi/&EmpressGarbAppearance	<color=orange>女皇服饰链甲衫</color>外形
-ModUi/&EnableAdditionalFociInDungeonMaker	<i>+ 添加新的法器至地下城制作</i>
 ModUi/&EnableAdditionalIconsOnLevelMap	在地图上给营地、出口和传送点添加额外的图标
+ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ 添加新的法器至地下城制作</i>
 ModUi/&EnableAlternateHuman	启用变种人类<i><color=yellow>[+1专长 / +2属性值选择 / +1 技能]</color></i>
 ModUI/&EnableBetaContent	启用Beta内容<i><color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&EnableCancelEditOnRightMouseClick	启用以右键取消动作
@@ -71,6 +70,7 @@ ModUi/&EnableInvisibleCrownOfTheMagister	将<color=orange>大法师之冠</color
 ModUi/&EnableLevel20	启用20级<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&EnableLogDialoguesToConsole	在对话日志中启用记录对话到游戏控制台的功能
 ModUi/&EnableMinInOutAttributes	强制兼职时的属性前置要求
+ModUi/&EnableOnTheFlyTranslations	启用实时自定义内容翻译
 ModUi/&EnableRelearnSpells	能学习已从其它职业习得的戏法和法术
 ModUi/&EnableRespec	启用在休息后重置角色和降级的功能
 ModUi/&EnablesAsiAndFeat	启用属性和专长的同时选择<i><color=yellow>[而非二选一]</color></i>
@@ -82,6 +82,7 @@ ModUi/&EnableUnityExplorer	启用Unity Explorer界面
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
 ModUi/&Encounters	遭遇战
+ModUi/&ExecuteBatchTranslations	<color=yellow>批量翻译：</color>\n\n. 战役将被以目标语言的形式进行批量翻译
 ModUi/&ExpandAll	全部展开
 ModUi/&FactionHelp	<color=#C04040E0>加载官方战役以修改派系关系...</color>
 ModUi/&FactionRelations	<color=yellow>派系关系：</color>
@@ -160,14 +161,12 @@ ModUi/&SRD	<color=yellow>SRD：</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	在格里姆的商店里销售所有非魔法服装<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&StockHugoStoreWithAdditionalFoci	在雨果的商店里销售<color=orange>鉴定魔杖</color>，<color=orange>奥术法杖</color>，<color=orange>德鲁伊项链</color>，<color=orange>法杖</color>和<color=orange>短棒</color>，并且设置为法器
 ModUi/&Subclasses	<color=yellow>子职</color>
+ModUi/&TargetLanguage	<color=yellow>目标语言：</color>
 ModUi/&Tools	工具
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>在第1级时赋予额外专长数量</color>
 ModUi/&Translate	翻译
 ModUi/&TranslateCancel	从{1}取消{0}
-ModUi/&ExecuteBatchTranslations	<color=yellow>批量翻译：</color>\n\n. 战役将被以目标语言的形式进行批量翻译
-ModUi/&EnableOnTheFlyTranslations	启用实时自定义内容翻译
 ModUi/&Translations	翻译
-ModUi/&TargetLanguage	<color=yellow>目标语言：</color>
 ModUi/&UnleashEnemyAsNpc	允许在NPC工具上选择怪物<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
 ModUi/&UnleashNpcAsEnemy	允许在怪物工具上选择NPC<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
 ModUi/&UnlockAllNpcFaces	解锁全部NPC脸型
