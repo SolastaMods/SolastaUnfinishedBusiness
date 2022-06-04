@@ -1530,7 +1530,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Gib einen Gambit-Würfel 
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Gegenschlag
 Reaction/&SpendPowerCounterStrikePowerTitle	Gegenschlag
 Reaction/&SpendPowerDH_RiftStrikeDescription	Wenn Sie durch einen Nahkampfangriff beschädigt werden, können Sie einmal pro langer Pause Ihre Reaktion nutzen, um ein Portal zu erstellen, das den Angreifer für 1 Runde aus Ihrer Existenzebene verbannt.
-Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rissschlag
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rissschlag
 Reaction/&SpendPowerDiamondSoulDescription	{0} ist ein Rettungswurf misslungen und er kann 1 Ki ausgeben, um ihn erneut zu würfeln.
 Reaction/&SpendPowerDiamondSoulReactDescription	Gib Ki aus, um einen fehlgeschlagenen Rettungswurf zu wiederholen.
 Reaction/&SpendPowerDiamondSoulReactTitle	Neu würfeln
