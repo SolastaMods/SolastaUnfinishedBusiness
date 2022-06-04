@@ -840,8 +840,8 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
                 {
                     var validator = usablePower.PowerDefinition
                         .GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
-                    if (validator != null && !validator.ValidReactionMode(attackMode, attacker.RulesetCharacter,
-                            defender.RulesetCharacter))
+                    if (validator != null && !validator.ValidReactionMode(attackMode, rangedAttack, attacker,
+                            defender))
                     {
                         continue;
                     }

@@ -102,7 +102,7 @@ public static class ZenArcher
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _) => mode.AttackTags.Contains(ZenArrowTag)
+                (mode, _, _, _) => mode.AttackTags.Contains(ZenArrowTag)
             ))
             .AddToDB();
 
@@ -291,7 +291,7 @@ public static class ZenArcher
             .SetCostPerUse(1)
             .SetOverriddenPower(DistantHandTechnique)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _) => mode.AttackTags.Contains(ZenArrowTag)
+                (mode, _, _, _) => mode.AttackTags.Contains(ZenArrowTag)
             ))
             .AddToDB();
 
@@ -418,7 +418,7 @@ public static class ZenArcher
 
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
-        return mode is {Reach: false, Magical: false}
+        return mode != null
                && (mode.Ranged || mode.Thrown)
                && IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition);
     }
