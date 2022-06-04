@@ -61,7 +61,6 @@ public static class TranslationsDisplay
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
         foreach (var userCampaign in userCampaignPoolService.AllCampaigns
-                     .Where(x => x.IsWorkshopItem)
                      .OrderBy(x => x.Title))
         {
             var exportName = userCampaign.Title;
