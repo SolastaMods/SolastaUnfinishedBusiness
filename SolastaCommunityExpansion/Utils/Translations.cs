@@ -21,7 +21,7 @@ public static class Translations
         Google
     }
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "pt", "ru", "zh-CN" };
+    internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
 
     internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
 
@@ -29,7 +29,8 @@ public static class Translations
     {
         using var wc = new WebClient();
 
-        wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
+        wc.Headers.Add("user-agent",
+            "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
         wc.Encoding = Encoding.UTF8;
 
         return wc.DownloadString(url);
@@ -47,19 +48,6 @@ public static class Translations
         }
 
         return builder.ToString();
-    }
-
-    public class Model
-    {
-        public string from { get; set; }
-        public string to { get; set; }
-        public List<ResultModel> trans_result { get; set; }
-    }
-
-    public class ResultModel
-    {
-        public string src { get; set; }
-        public string dst { get; set; }
     }
 
     internal static string TranslateBaidu(string sourceText, string targetCode)
@@ -97,7 +85,8 @@ public static class Translations
         try
         {
             var encoded = HttpUtility.UrlEncode(sourceText);
-            var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={targetCode}&dt=t&q={encoded}";
+            var url =
+                $"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={targetCode}&dt=t&q={encoded}";
             var payload = GetPayload(url);
             var json = JsonConvert.DeserializeObject(payload);
 
@@ -194,5 +183,18 @@ public static class Translations
                 languageSourceData.AddTerm(term).Languages[languageIndex] = text;
             }
         }
+    }
+
+    public class Model
+    {
+        public string from { get; set; }
+        public string to { get; set; }
+        public List<ResultModel> trans_result { get; set; }
+    }
+
+    public class ResultModel
+    {
+        public string src { get; set; }
+        public string dst { get; set; }
     }
 }

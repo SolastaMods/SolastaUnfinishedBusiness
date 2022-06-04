@@ -34,7 +34,7 @@ public class ReactionAttackModeRestriction : IReactionAttackModeRestriction
         this.validators = validators;
     }
 
-    public bool ValidReactionMode(RulesetAttackMode attackMode, bool rangedAttack, 
+    public bool ValidReactionMode(RulesetAttackMode attackMode, bool rangedAttack,
         GameLocationCharacter character, GameLocationCharacter target)
     {
         return validators.All(v => v(attackMode, rangedAttack, character, target));

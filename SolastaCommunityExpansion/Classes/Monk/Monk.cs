@@ -724,8 +724,8 @@ public static class Monk
         GameLocationCharacter character, GameLocationCharacter target)
     {
         var rulesetCharacter = character.RulesetCharacter;
-        return rulesetCharacter != null
-               && ReactionAttackModeRestriction.MeleeOnly(mode, rangedAttack, character, target)
+        return (rulesetCharacter != null
+                && ReactionAttackModeRestriction.MeleeOnly(mode, rangedAttack, character, target))
                || (rulesetCharacter.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
                    && ZenArcher.IsMonkWeapon(rulesetCharacter, mode.SourceDefinition as ItemDefinition));
     }
