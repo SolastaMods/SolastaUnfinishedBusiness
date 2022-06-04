@@ -15,7 +15,7 @@ internal static class NarrativeStateNpcSpeech_RecordSpeechLine_Getter
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            textLine = UserCampaignsTranslator.Translate(
+            textLine = UserCampaignsTranslatorContext.Translate(
                 textLine,
                 Main.Settings.SelectedLanguageCode);
         }

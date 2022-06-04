@@ -15,7 +15,7 @@ internal static class FunctorRaiseBanterEvent_Execute
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            functorParameters.stringParameter = UserCampaignsTranslator.Translate(
+            functorParameters.stringParameter = UserCampaignsTranslatorContext.Translate(
                 functorParameters.stringParameter,
                 Main.Settings.SelectedLanguageCode);
         }

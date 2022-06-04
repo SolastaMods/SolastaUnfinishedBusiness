@@ -11,23 +11,23 @@ using Newtonsoft.Json.Linq;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Utils;
+namespace SolastaCommunityExpansion.Models;
 
-internal class UserCampaignsTranslator : MonoBehaviour
+internal class UserCampaignsTranslatorContext : MonoBehaviour
 {
-    private static UserCampaignsTranslator _exporter;
+    private static UserCampaignsTranslatorContext _exporter;
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
     internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
 
-    private static UserCampaignsTranslator Exporter
+    private static UserCampaignsTranslatorContext Exporter
     {
         get
         {
             if (_exporter == null)
             {
-                _exporter = new GameObject().AddComponent<UserCampaignsTranslator>();
+                _exporter = new GameObject().AddComponent<UserCampaignsTranslatorContext>();
                 DontDestroyOnLoad(_exporter.gameObject);
             }
 
