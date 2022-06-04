@@ -166,6 +166,7 @@ ModUi/&Tools	工具
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>在第1级时赋予额外专长数量</color>
 ModUi/&Translate	翻译
 ModUi/&TranslateCancel	从{1}取消{0}
+ModUi/&TranslationEngine	<color=yellow>Translation engine:</color>
 ModUi/&Translations	翻译
 ModUi/&UnleashEnemyAsNpc	允许在NPC工具上选择怪物<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>
 ModUi/&UnleashNpcAsEnemy	允许在怪物工具上选择NPC<i><color=yellow>[在工具面板上点击时按<color=cyan>CTRL</color>以选择]</color></i>

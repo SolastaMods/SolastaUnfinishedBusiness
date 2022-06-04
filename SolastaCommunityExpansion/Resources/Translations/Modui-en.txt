@@ -166,6 +166,7 @@ ModUi/&Tools	Tools
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total feats granted at first level</color>
 ModUi/&Translate	Translate
 ModUi/&TranslateCancel	Cancel {0} at {1}
+ModUi/&TranslationEngine	<color=yellow>Translation engine:</color>
 ModUi/&Translations	Translations
 ModUi/&UnleashEnemyAsNpc	Allow Monsters to be selected on NPC gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>
 ModUi/&UnleashNpcAsEnemy	Allow NPCs to be selected on monster gadgets <i><color=yellow>[press <color=cyan>CTRL</color> while clicking Select on gadget panel]</color></i>

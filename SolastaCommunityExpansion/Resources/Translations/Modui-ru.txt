@@ -159,13 +159,14 @@ ModUi/&Spells	<color=yellow>Заклинания:</color>
 ModUi/&SpellsMenu	Заклинания
 ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Запасает магазин Горима всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хьюго с <color=orange>Жезл идентификации</color>, <color=orange>Чародейский посох</color>, <color=orange>Шея друида</color>, <color=orange>Посох</color > и <color=orange>Club</color> установлены как основные элементы
+ModUi/&StockHugoStoreWithAdditionalFoci	Запасы в магазине Хьюго с <color=orange>Жезл идентификации</color>, <color=orange>Чародейский посох</color>, <color=orange>Шея друида</color>, <color=orange>Посох</color> и <color=orange>Club</color> установлены как основные элементы
 ModUi/&Subclasses	<color=yellow>Подклассы</color>
 ModUi/&TargetLanguage	<color=yellow>Целевой язык:</color>
 ModUi/&Tools	Инструменты
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего достижений на первом уровне</color>
 ModUi/&Translate	Перевести
 ModUi/&TranslateCancel	Отменить {0} в {1}
+ModUi/&TranslationEngine	<color=yellow>Translation engine:</color>
 ModUi/&Translations	Переводы
 ModUi/&UnleashEnemyAsNpc	Разрешить выбор монстров на гаджетах NPC <i><color=yellow>[нажмите <color=cyan>CTRL</color>, нажимая кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnleashNpcAsEnemy	Разрешить выбор NPC на гаджетах монстров <i><color=yellow>[нажмите <color=cyan>CTRL</color>, нажимая кнопку «Выбрать» на панели гаджетов]</color></i>

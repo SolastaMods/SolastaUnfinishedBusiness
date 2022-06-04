@@ -2,6 +2,7 @@
 using System.Linq;
 using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Utils;
 
 namespace SolastaCommunityExpansion.Displays;
 
@@ -15,15 +16,33 @@ public static class TranslationsDisplay
         {
             UI.Label(Gui.Format("ModUi/&TargetLanguage"), UI.Width(120));
 
-            var intValue = Array.IndexOf(UserCampaignsTranslatorContext.AvailableLanguages,
-                Main.Settings.SelectedLanguageCode);
+            var intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
+
             if (UI.SelectionGrid(
                     ref intValue,
-                    UserCampaignsTranslatorContext.AvailableLanguages,
-                    UserCampaignsTranslatorContext.AvailableLanguages.Length,
+                    Translations.AvailableLanguages,
+                    Translations.AvailableLanguages.Length,
                     3, UI.Width(300)))
             {
-                Main.Settings.SelectedLanguageCode = UserCampaignsTranslatorContext.AvailableLanguages[intValue];
+                Main.Settings.SelectedLanguageCode = Translations.AvailableLanguages[intValue];
+            }
+        }
+
+        UI.Label("");
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Format("ModUi/&TranslationEngine"), UI.Width(120));
+
+            var intValue = (int)Main.Settings.TranslationEngine;
+
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    Translations.AvailableEngines,
+                    Translations.AvailableEngines.Length,
+                    3, UI.Width(300)))
+            {
+                Main.Settings.TranslationEngine = (Translations.Engine)intValue;
             }
         }
 

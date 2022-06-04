@@ -15,8 +15,6 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
 
-    internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
-
     private static UserCampaignsTranslatorContext Exporter
     {
         get

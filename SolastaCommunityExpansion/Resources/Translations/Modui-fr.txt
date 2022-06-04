@@ -159,13 +159,14 @@ ModUi/&Spells	<color=yellow>Sorts :</color>
 ModUi/&SpellsMenu	Sorts
 ModUi/&SRD	<color=yellow>SRD :</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Stocke le magasin de Gorim avec tous les vêtements non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci	Stocke le magasin d'Hugo avec <color=orange>Baguette d'identification</color>, <color=orange>Bâton arcanique</color>, <color=orange>Cou de druide</color>, <color=orange>Bâton</color > et <color=orange>Club</color> définis comme éléments foci
+ModUi/&StockHugoStoreWithAdditionalFoci	Stocke le magasin d'Hugo avec <color=orange>Baguette d'identification</color>, <color=orange>Bâton arcanique</color>, <color=orange>Cou de druide</color>, <color=orange>Bâton</color> et <color=orange>Club</color> définis comme éléments foci
 ModUi/&Subclasses	<color=yellow>Sous-classes</color>
 ModUi/&TargetLanguage	<color=yellow>Langue cible :</color>
 ModUi/&Tools	Outils
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total des dons accordés au premier niveau</color>
 ModUi/&Translate	Traduire
 ModUi/&TranslateCancel	Annuler {0} à {1}
+ModUi/&TranslationEngine	<color=yellow>Translation engine:</color>
 ModUi/&Translations	Traductions
 ModUi/&UnleashEnemyAsNpc	Autoriser la sélection de monstres sur les gadgets PNJ <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
 ModUi/&UnleashNpcAsEnemy	Autoriser la sélection des PNJ sur les gadgets monstres <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> tout en cliquant sur Sélectionner sur le panneau du gadget]</color></i>
