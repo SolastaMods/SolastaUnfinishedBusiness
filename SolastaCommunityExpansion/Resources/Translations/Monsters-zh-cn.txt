@@ -30,8 +30,8 @@ Monster/&DH_Custom_Balor_Description	巴洛炎魔作为古老而恐怖的邪恶�
 Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>巴洛炎魔</color>
 Monster/&DH_Custom_ConstructTitan_Description	为战争而建造的由重金属锻造而成的巨大构装体。它是一个不可阻挡的巨无霸，它的存在是为了遵循其创造者的命令，并按照创造者的要求进行保护或攻击
 Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>机械构装泰坦</color>
-Monster/&DH_Custom_Deva_Description	梵天神侍是充当神明信使或代理人的天使，它们被派往主物质位面、堕影冥界、妖精荒野等任何适合其从事工作的国度
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>梵天神侍</color>
+Monster/&DH_Custom_Deva_Description	樊天神侍是充当神明信使或代理人的天使，它们被派往主物质位面、堕影冥界、妖精荒野等任何适合其从事工作的国度
+Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>樊天神侍</color>
 Monster/&DH_Custom_Djinni_Description	气元素位面一种高傲敏锐的生物，身为气之大师的气巨灵坐下是一种自己可以随心所欲的创造和引导的强大旋风，有时甚至可以以此搭载乘客
 Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>气巨灵</color>
 Monster/&DH_Custom_EarthTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
@@ -42,8 +42,8 @@ Monster/&DH_Custom_Erinyes_Description	欲魔是最凶猛与自律的勇士。�
 Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>欲魔</color>
 Monster/&DH_Custom_FireTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
 Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>原初火焰泰坦</color>
-Monster/&DH_Custom_GuardianNaga_Description	巡守纳迦作为睿智善良的美丽守护者保护着带有魔法力量的圣地与物品，以免落入邪恶之手。它们在其隐秘的棱堡中研究法术，并策划出复杂的计谋米挫败敌人的邪恶盘算
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>巡守纳迦</color>
+Monster/&DH_Custom_GuardianNaga_Description	巡守纳加作为睿智善良的美丽守护者保护着带有魔法力量的圣地与物品，以免落入邪恶之手。它们在其隐秘的棱堡中研究法术，并策划出复杂的计谋米挫败敌人的邪恶盘算
+Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>巡守纳加</color>
 Monster/&DH_Custom_HornedDevil_Description	 作为地狱军团的飞行步兵，角魔们会一丝不苟的按命令行事
 Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>角魔</color>
 Monster/&DH_Custom_IceDevil_Description	冰魔贪求其深狱炼魔长官的力量并因此以晋升为目标不断努力。它们不断屠杀九狱的敌人，并努力获取更多的灵魂以进献给其大魔鬼主子

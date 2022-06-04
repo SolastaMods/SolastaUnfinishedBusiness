@@ -346,7 +346,7 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Title	求生木盾
 Equipment/&Enchanted_Spear_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
 Equipment/&Enchanted_Spear_Acuteness_Title	精准之矛
 Equipment/&Enchanted_Spear_BlackViper_Description	这件魔法武器是Manacalon的铁匠大师以上古知识，用一根长矛和一只来自索拉斯塔深处的传奇蜘蛛的毒液铸造的。这把刀的设计者是格里格-黑心，一个在艾尔-艾莱的锻造厂工作的臭名昭著的沼泽半身人铁匠
-Equipment/&Enchanted_Spear_BlackViper_Title	黑蝰蛇矛
+Equipment/&Enchanted_Spear_BlackViper_Title	黑蛇之矛
 Equipment/&Enchanted_Spear_Doomblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识铸造的。凯纳罗斯-黑心设计了末日之刃作为惩罚那些抵抗帝国魔法的人的工具
 Equipment/&Enchanted_Spear_Doomblade_Title	末日之矛
 Equipment/&Enchanted_Spear_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
@@ -2065,4 +2065,4 @@ UI/&CustomFeatureSelectionTooltipTypeFeature	特性
 UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
-UI/&ForcePreferredCantripTitle	默认首选戏法
+UI/&ForcePreferredCantripTitle	强制默认戏法
