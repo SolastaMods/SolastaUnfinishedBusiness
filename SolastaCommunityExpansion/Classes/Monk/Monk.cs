@@ -720,12 +720,14 @@ public static class Monk
             .AddToDB();
     }
 
-    private static bool CanUseStunningStrike(RulesetAttackMode mode, RulesetCharacter character,
-        RulesetCharacter target)
+    private static bool CanUseStunningStrike(RulesetAttackMode mode, bool rangedAttack,
+        GameLocationCharacter character, GameLocationCharacter target)
     {
-        return ReactionAttackModeRestriction.MeleeOnly(mode, character, target)
-               || (character.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
-                   && ZenArcher.IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition));
+        var rulesetCharacter = character.RulesetCharacter;
+        return rulesetCharacter != null
+               && ReactionAttackModeRestriction.MeleeOnly(mode, rangedAttack, character, target)
+               || (rulesetCharacter.HasSubFeatureOfType<ZenArcher.ZenArcherStunningArrows>()
+                   && ZenArcher.IsMonkWeapon(rulesetCharacter, mode.SourceDefinition as ItemDefinition));
     }
 
     private static FeatureDefinition BuildKiPoolIncrease()
