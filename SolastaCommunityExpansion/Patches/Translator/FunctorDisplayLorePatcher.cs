@@ -15,7 +15,7 @@ internal static class FunctorDisplayLore_Execute
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            functorParameters.stringParameter = UserCampaignsTranslatorContext.Translate(
+            functorParameters.stringParameter = Translations.Translate(
                 functorParameters.stringParameter,
                 Main.Settings.SelectedLanguageCode);
         }

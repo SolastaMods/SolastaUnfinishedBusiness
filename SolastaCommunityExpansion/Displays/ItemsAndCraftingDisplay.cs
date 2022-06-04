@@ -90,7 +90,8 @@ internal static class ItemsAndCraftingDisplay
         if (Main.Settings.AddNewWeaponsAndRecipesToShops)
         {
             toggle = Main.Settings.AddNewWeaponsAndRecipesToEditor;
-            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle, UI.AutoWidth()))
+            if (UI.Toggle(Gui.Format(Gui.Format("ModUi/&EnableAdditionalItemsInDungeonMaker")), ref toggle,
+                    UI.AutoWidth()))
             {
                 Main.Settings.AddNewWeaponsAndRecipesToEditor = toggle;
             }

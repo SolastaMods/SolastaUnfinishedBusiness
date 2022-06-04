@@ -15,7 +15,7 @@ internal static class Gui_Format
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            line = UserCampaignsTranslatorContext.Translate(
+            line = Translations.Translate(
                 line,
                 Main.Settings.SelectedLanguageCode);
         }

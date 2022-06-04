@@ -15,7 +15,7 @@ internal static class GameLocationScreenNarration_RefreshControlPanel
 
         if (Main.Settings.EnableOnTheFlyTranslations)
         {
-            speechText = UserCampaignsTranslatorContext.Translate(
+            speechText = Translations.Translate(
                 speechText,
                 Main.Settings.SelectedLanguageCode);
         }

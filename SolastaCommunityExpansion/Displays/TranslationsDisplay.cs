@@ -19,7 +19,8 @@ public static class TranslationsDisplay
                 Main.Settings.SelectedLanguageCode);
             if (UI.SelectionGrid(
                     ref intValue,
-                    UserCampaignsTranslatorContext.AvailableLanguages, UserCampaignsTranslatorContext.AvailableLanguages.Length,
+                    UserCampaignsTranslatorContext.AvailableLanguages,
+                    UserCampaignsTranslatorContext.AvailableLanguages.Length,
                     3, UI.Width(300)))
             {
                 Main.Settings.SelectedLanguageCode = UserCampaignsTranslatorContext.AvailableLanguages[intValue];

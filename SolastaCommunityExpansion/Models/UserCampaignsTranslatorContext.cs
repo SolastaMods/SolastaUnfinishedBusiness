@@ -2,12 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using SolastaCommunityExpansion.Utils;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
@@ -33,41 +29,6 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
 
             return _exporter;
         }
-    }
-
-    internal static string Translate(string sourceText, string targetCode)
-    {
-        var translation = string.Empty;
-
-        try
-        {
-            var translationFromGoogle = "";
-
-            //Using secret translate.googleapis.com API that is internally used by the Google Translate extension for Chrome and requires no authentication
-            var url = string.Format(
-                "https://translate.googleapis.com/translate_a/single?client=gtx&sl={0}&tl={1}&dt=t&q={2}",
-                "auto", targetCode, HttpUtility.UrlEncode(sourceText));
-
-            using (var wc = new WebClient())
-            {
-                wc.Headers.Add("user-agent",
-                    "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
-                wc.Encoding = Encoding.UTF8;
-
-                translationFromGoogle = wc.DownloadString(url);
-            }
-
-            // Get translated text
-            var json = JsonConvert.DeserializeObject(translationFromGoogle);
-
-            translation = ((((json as JArray).First() as JArray).First() as JArray).First() as JValue).Value.ToString();
-        }
-        catch
-        {
-            Main.Logger.Log("Failed translating: " + sourceText);
-        }
-
-        return translation;
     }
 
     internal static void Cancel(string exportName)
@@ -131,12 +92,12 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
             yield return null;
         }
 
-        userCampaign.Description = Translate(userCampaign.Description, languageCode);
+        userCampaign.Description = Translations.Translate(userCampaign.Description, languageCode);
 
         // USER DIALOGS
         foreach (var dialog in userCampaign.UserDialogs)
         {
-            dialog.Description = Translate(dialog.Description, languageCode);
+            dialog.Description = Translations.Translate(dialog.Description, languageCode);
 
             foreach (var userDialogState in dialog.AllDialogStates
                          .Where(x =>
@@ -148,7 +109,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
                 {
                     yield return Update();
 
-                    dialogLine.TextLine = Translate(dialogLine.TextLine, languageCode);
+                    dialogLine.TextLine = Translations.Translate(dialogLine.TextLine, languageCode);
                 }
             }
         }
@@ -158,8 +119,8 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         {
             yield return Update();
 
-            item.Title = Translate(item.Title, languageCode);
-            item.Description = Translate(item.Title, languageCode);
+            item.Title = Translations.Translate(item.Title, languageCode);
+            item.Description = Translations.Translate(item.Title, languageCode);
 
             if (item.DocumentFragments.Count == 0)
             {
@@ -170,7 +131,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
 
             foreach (var documentFragment in item.DocumentFragments)
             {
-                newdocumentFragment.Add(Translate(documentFragment, languageCode));
+                newdocumentFragment.Add(Translations.Translate(documentFragment, languageCode));
             }
 
             item.DocumentFragments = newdocumentFragment;
@@ -179,7 +140,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         // USER LOCATIONS
         foreach (var userLocation in userCampaign.UserLocations)
         {
-            userLocation.Description = Translate(userLocation.Description, languageCode);
+            userLocation.Description = Translations.Translate(userLocation.Description, languageCode);
 
             foreach (var gadget in userLocation.GadgetsByName.Values)
             {
@@ -196,7 +157,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
 
                         foreach (var stringValue in parameterValue.StringsList)
                         {
-                            newStringsList.Add(Translate(stringValue, languageCode));
+                            newStringsList.Add(Translations.Translate(stringValue, languageCode));
                         }
 
                         parameterValue.StringsList = newStringsList;
@@ -204,7 +165,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
                         if (parameterValue.StringValue != string.Empty)
                         {
                             parameterValue.StringValue =
-                                Translate(parameterValue.StringValue, languageCode);
+                                Translations.Translate(parameterValue.StringValue, languageCode);
                         }
                     }
                 }
@@ -214,19 +175,19 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         // USER QUESTS
         foreach (var quest in userCampaign.UserQuests)
         {
-            quest.Title = Translate(quest.Description, languageCode);
-            quest.Description = Translate(quest.Description, languageCode);
+            quest.Title = Translations.Translate(quest.Description, languageCode);
+            quest.Description = Translations.Translate(quest.Description, languageCode);
 
             foreach (var userQuestStep in quest.AllQuestStepDescriptions)
             {
-                userQuestStep.Title = Translate(userQuestStep.Title, languageCode);
-                userQuestStep.Description = Translate(userQuestStep.Description, languageCode);
+                userQuestStep.Title = Translations.Translate(userQuestStep.Title, languageCode);
+                userQuestStep.Description = Translations.Translate(userQuestStep.Description, languageCode);
 
                 foreach (var outcome in userQuestStep.OutcomesTable)
                 {
                     yield return Update();
 
-                    outcome.DescriptionText = Translate(outcome.DescriptionText, languageCode);
+                    outcome.DescriptionText = Translations.Translate(outcome.DescriptionText, languageCode);
                 }
             }
         }
