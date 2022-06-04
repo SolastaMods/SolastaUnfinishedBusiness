@@ -54,9 +54,11 @@ internal static class ItemRecipeGenerationHelper
 
                 if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {
-                    StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
-                    StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                        craftingManual);
+                    foreach (var merchant in MerchantTypeContext.MerchantTypes
+                                 .Where(x => x.Item2.IsDocument))
+                    {
+                        StockItem(merchant.Item1, craftingManual);
+                    }
                 }
             }
         }
@@ -106,9 +108,11 @@ internal static class ItemRecipeGenerationHelper
 
                 if (Main.Settings.CraftingInStore.Contains(baseItem.Name))
                 {
-                    StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
-                    StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                        craftingManual);
+                    foreach (var merchant in MerchantTypeContext.MerchantTypes
+                                 .Where(x => x.Item2.IsDocument))
+                    {
+                        StockItem(merchant.Item1, craftingManual);
+                    }
                 }
             }
         }
@@ -225,9 +229,11 @@ internal static class ItemRecipeGenerationHelper
 
             if (Main.Settings.CraftingInStore.Contains(groupKey))
             {
-                StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
-                StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                    craftingManual);
+                foreach (var merchant in MerchantTypeContext.MerchantTypes
+                             .Where(x => x.Item2.IsDocument))
+                {
+                    StockItem(merchant.Item1, craftingManual);
+                }
             }
         }
     }
@@ -283,9 +289,11 @@ internal static class ItemRecipeGenerationHelper
 
             if (Main.Settings.CraftingInStore.Contains(groupKey))
             {
-                StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
-                StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                    craftingManual);
+                foreach (var merchant in MerchantTypeContext.MerchantTypes
+                             .Where(x => x.Item2.IsDocument))
+                {
+                    StockItem(merchant.Item1, craftingManual);
+                }
             }
         }
     }
@@ -374,9 +382,11 @@ internal static class ItemRecipeGenerationHelper
 
             if (Main.Settings.CraftingInStore.Contains(groupKey))
             {
-                StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, craftingManual);
-                StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-                    craftingManual);
+                foreach (var merchant in MerchantTypeContext.MerchantTypes
+                             .Where(x => x.Item2.IsDocument))
+                {
+                    StockItem(merchant.Item1, craftingManual);
+                }
             }
         }
     }
