@@ -1,2 +1,6 @@
-﻿- Add MacOS support
-- Add recipes to any merchant selling documents
+﻿- Add mod auto update offer during bootup
+- Hide translated campaigns from Translations Mod UI
+- Rework Marshal's coordinated attack / Warcaster integration
+- Deprecate Toad Kink Warlock subclass
+- Prefer pact slots over spell slots if same max level
+- Fix translations
