@@ -9,7 +9,7 @@ BlueprintCategory/&FlatRoomsTitle	平房
 Caption/&GadgetParametersCustomRemoveDescription	移除:\n{0}
 Class/&ClassMonkDescription	经过各种训练后，武僧能奇妙的运用流淌在身体中的能量。无论是引导其加强武斗技艺，还是精妙地将其用于防御和移动，这股能量都使武僧获得了全面的强化
 Class/&ClassMonkTitle	武僧
-Class/&ClassWarlockDescription	邪术师们致力于发掘潜藏在多元宇宙根源中的神秘学识。他们与神话般的大能存在缔结契约，并以此得以使用精妙而惊人的魔法效应
+Class/&ClassWarlockDescription	邪术师们致力于发掘潜藏在多元宇宙根源中的神秘学识。他们与神话般的大能存在缔结契约，并因此得以使用精妙而惊人的魔法效应
 Class/&ClassWarlockTitle	邪术师
 Class/&TinkererDescription	奇械师是不仅仅是发明家和炼金术士。他们在魔法和技术之间架起桥梁
 Class/&TinkererTitle	奇械师
@@ -21,7 +21,7 @@ Class/&WitchBurnedProduceFlameDescription	召唤燃烧火焰
 Class/&WitchBurnedProduceFlameTitle	燃火术
 Class/&WitchCacklePowerDescription	你能使用你的附赠动作进行狂笑。60英尺内每有一个受到影响的生物,持续时间增加一轮\n不是所有的巫师讥笑的时候都会疯狂地大笑，但所有的讥笑都需要一个语言成分，比如一句话语。这些话语能是寻常的诅咒和侮辱，也能是咕哝已死之语或者倒着说话
 Class/&WitchCacklePowerTitle	讥笑
-Class/&WitchDescription	受到邪恶诅咒的折磨，巫师能将魔力转化为诅咒用以削弱敌人。他们也有他们的熟悉而忠诚的魔宠相伴，为他们抵挡致命的攻击
+Class/&WitchDescription	受到邪恶诅咒的折磨，巫师能将魔力转化为诅咒削弱敌人。他们也有他们的熟悉而忠诚的魔宠相伴，为他们抵挡致命的攻击
 Class/&WitchFamiliarPowerDescription	你学会了召唤巫师魔宠，例如一个进阶的魔宠咒语,在没有施法材料的情况下也能作为仪式法术施展。这个法术不会消耗你的法术位。这个法术在以下方面提升了召唤魔宠的能力：\n• 你的魔宠将在每轮你的回合前或之后立即进行其回合（由你选择）\n• 每回合一次，以一个动作或附赠动作，你能以心灵感应命令你的魔宠使用其反应进行一次攻击\n• 当你施展法术时，你能通过你的魔宠传递，就像它施展了法术一样，即使此法术范围并非触碰\n• 你的魔宠能附加你的法术攻击加值于其攻击骰\n• 你的魔宠将你的熟练加值加至其护甲等级、豁免检定和伤害骰上\n• 你的魔宠的最大生命值获得两倍于你的巫师等级的加值
 Class/&WitchFamiliarPowerTitle	魔宠
 Class/&WitchFeatureSetBurnedCurseDescription	你的身体几乎都被奥术火焰烧焦了，留下了醒目的黑色疤痕和皮肤下燃烧的魔法余烬。因此，你对火焰伤害有抗性，你习得"燃火术"法术，它不计入你已知的戏法总数
@@ -401,7 +401,7 @@ Equipment/&LivewoodStaffDescription	这根法杖是由活体木头组成的，�
 Equipment/&LivewoodStaffTitle	灵木法杖
 Equipment/&ThunderPunchDescription	1d8点雷鸣伤害，并使其对盟友的攻击处于劣势
 Equipment/&ThunderPunchTitle	雷鸣一击
-Equipment/&WandIdentifyDescription	消耗1点充能以施放“鉴定术”。魔杖有3点充能，每次黎明时分可恢复1d3点充能
+Equipment/&WandIdentifyDescription	消耗1点充能施放“鉴定术”。魔杖有3点充能，每次黎明时分可恢复1d3点充能
 Equipment/&WandIdentifyTitle	鉴定手杖
 Failure/&FailureFlagTargetMeleeWeaponError	不能用当前武器对此目标进行近战攻击
 Feat/&AddConstructCantripsDescription	增加治疗和解散你的构装体的戏法
@@ -518,7 +518,7 @@ Feat/&FeatDexIncrementDescription	敏捷+1
 Feat/&FeatDexIncrementTitle	属性提升
 Feat/&FeatDualWeaponDefenseDescription	当你双手都持用单独的近战武器时，你的AC获得+1加值
 Feat/&FeatDualWeaponDefenseTitle	双武器防御
-Feat/&FeatFastHandsDescription	你获得一个灵巧动作，并能使用它赋予的附赠动作以进行敏捷（巧手）检定、使用你的盗贼工具以解除陷阱或打开锁、或采取“使用物品”动作
+Feat/&FeatFastHandsDescription	你获得一个灵巧动作，并能使用它赋予的附赠动作进行敏捷（巧手）检定、使用你的盗贼工具解除陷阱或打开锁、或采取“使用物品”动作
 Feat/&FeatFastHandsTitle	手脚伶俐
 Feat/&FeatFeyTeleportationChaDescription	魅力+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得Tirmar语熟练项
 Feat/&FeatFeyTeleportationChaTitle	精类传送（魅力）
@@ -540,7 +540,7 @@ Feat/&FeatLightArmorDescription	力量+1，最高20点\n你获得轻甲熟练项
 Feat/&FeatLightArmorProficiencyDescription	获得轻甲熟练项
 Feat/&FeatLightArmorProficiencyTitle	轻甲
 Feat/&FeatLightArmorTitle	轻甲
-Feat/&FeatMarksmanDescription	当距离你10英尺以外的可见敌人以远程武器或法术攻击你时，你能在此触发的攻击结束后以你的反应进行一次远程武器射击
+Feat/&FeatMarksmanDescription	当距离你10英尺外的可见敌人以远程武器或法术攻击你时，你能在此触发的攻击结束后以你的反应进行一次远程武器射击
 Feat/&FeatMarksmanTitle	狙击手
 Feat/&FeatMediumArmorDexDescription	敏捷+1，获得中甲和盾牌熟练项
 Feat/&FeatMediumArmorDexTitle	中甲熟练（敏捷）
@@ -655,17 +655,17 @@ Feat/&ForceArtilleryConstructTitle_5	力场魔炮
 Feat/&ForceArtilleryDescription	2d8点力场伤害并推离5英尺
 Feat/&ForceStrikePowerDescription	你可靠的伙伴以远程攻击造成了1d6点力场伤害
 Feat/&ForceStrikePowerTitle	力场投射 (构装体)
-Feat/&GauntletsGrappleDescription	现在能用额外动作将敌人拉入近战范围并造成1d8点雷鸣伤害
+Feat/&GauntletsGrappleDescription	现在能以附赠动作将敌人拉入近战范围并造成1d8点雷鸣伤害
 Feat/&GauntletsGrappleTitle	铁手擒拿
 Feat/&HalfCoverShieldDescription	赋予10英尺内AC+2
 Feat/&HalfCoverShieldTitle	半遮蔽罩
-Feat/&HealerDescription	你能使用一个动作以使在过去12秒内死亡的一个生物复活
-Feat/&HealerResuscitateDescription	你能使用一个动作以使在过去12秒内死亡的一个生物复活
+Feat/&HealerDescription	你能使用一个动作使在过去12秒内死亡的一个生物复活
+Feat/&HealerResuscitateDescription	你能使用一个动作使在过去12秒内死亡的一个生物复活
 Feat/&HealerResuscitateTitle	抢救
 Feat/&HealerStabilizeDescription	使用一个动作稳定一个垂死的生物的伤势
 Feat/&HealerStabilizeTitle	稳定伤势
 Feat/&HealerTitle	治疗者
-Feat/&HealerUseMedicineDescription	你能使用一个动作以恢复1d6+4+人物等级的生命值，每次短休可使用次数等同于你的感知调整值
+Feat/&HealerUseMedicineDescription	你能使用一个动作恢复1d6+4+人物等级的生命值，每次短休可使用次数等同于你的感知调整值
 Feat/&HealerUseMedicineTitle	使用药剂
 Feat/&IncreaseConstructSelectingDescription	你现在能召唤两个魔炮。它们能是相同或不同的模式
 Feat/&IncreaseConstructSelectingTitle	增援
@@ -689,7 +689,7 @@ Feat/&PowerAlchemistHealElixirsDescription	每天1次，你能施放疗伤术
 Feat/&PowerAlchemistHealElixirsTitle	疗伤术
 Feat/&PowerAlchemistRestorativeElixirsDescription	你能在不耗费法术位的情况下施展次级复原术。每次长休你能使用的次数等同于你的智力调整值
 Feat/&PowerAlchemistRestorativeElixirsTitle	复原灵药
-Feat/&PowerAttackFeatDescription	你学会了用准确性以换取致命的打击。当你使用近战武器攻击时，你能选择使此攻击检定承受-3减值，以额外造成3+熟练加值点伤害
+Feat/&PowerAttackFeatDescription	你学会了用准确性换取致命的打击。当你使用近战武器攻击时，你能选择使此攻击检定承受-3减值，以额外造成3+熟练加值点伤害
 Feat/&PowerAttackFeatTitle	猛力攻击
 Feat/&PowerFalseLifeFromFeatDescription	你从死灵法术中获得了额外的生命力。在法术持续时间内，你获得1d4+4的临时生命值
 Feat/&PowerFalseLifeFromFeatTitle	虚假生命
@@ -766,7 +766,7 @@ Feat/&ThunderShieldDescription	防护护盾提供等同于等级的临时生命�
 Feat/&ThunderShieldTitle	雷鸣盾
 Feat/&TinkererConstructFamilyDescription	由奇械师制造
 Feat/&TinkererConstructFamilyTitle	奇械师构装体
-Feat/&TorchbearerDescription	你在战斗中能熟练使用火把。每轮一次，以一次额外动作你能选择使用你所装备的光源试图令你能接触到的敌人着火。你的目标必须通过一次敏捷豁免（DC=8+熟练加值+敏捷调整值），否则每轮受到1d4点火焰伤害，持续1分钟或直到熄灭
+Feat/&TorchbearerDescription	你在战斗中能熟练使用火把。每轮一次，以一次附赠动作你能选择使用你所装备的光源试图令你能接触到的敌人着火。你的目标必须通过一次敏捷豁免（DC=8+熟练加值+敏捷调整值），否则每轮受到1d4点火焰伤害，持续1分钟或直到熄灭
 Feat/&TorchbearerTitle	火炬手
 Feat/&UseArmorWeaponsAsFocusDescription	你能使用装甲的武器作为你的法术法器
 Feat/&UseArmorWeaponsAsFocusTitle	施法法器
@@ -787,7 +787,7 @@ Feature/&AHSoulBladeEmpowerWeaponConditionDescription	你受到强化，在你�
 Feature/&AHSoulBladeEmpowerWeaponConditionTitle	魂力赋能
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	你受到强化，在你的所有攻击上获得与你的熟练加值相等的伤害加值
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	魂力赋能
-Feature/&AHSoulBladeSummonPactWeaponPowerDescription	每短休1次，你能以自由动作从你的契约中召唤出一个精神形态的武器。你能以一个附赠动作根据需要指挥此武器以攻击你的敌人。此武器在攻击前每次最多移动20英尺
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	每短休1次，你能以自由动作从你的契约中召唤出一个精神形态的武器。你能以一个附赠动作根据需要指挥此武器攻击你的敌人。此武器在攻击前每次最多移动20英尺
 Feature/&AHSoulBladeSummonPactWeaponPowerTitle	契约灵武
 Feature/&AHWarlockClassPactBoonSetDescription	第3级时，你的宗主赋予你一份馈赠作为你忠诚服务的回馈。你能在以下选项中选择：
 Feature/&AHWarlockClassPactBoonSetTitle	契约恩泽
@@ -795,16 +795,16 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	你获得对所有武器的�
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	刃之契约
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	每长休1次，你能用魂力赋能武器。武器在攻击和伤害骰上使用魅力调整值并视为魔法武器，直至下一次长休
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	魂力赋能
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	你在学习邪术师法术时从额外法术列表中选择。以下的法术会被添加到邪术师法术列表中：\n{0}\n\n
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	灵魂之刃法术
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	每短休1次，你能使用魂能保护自己。以一个附赠动作，你获得等同于等级+魅力调整值的临时生命值
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	灵魂护盾
 Feature/&AlwaysBeardDescription	{0}% 概率长出光荣的胡须
-Feature/&AncientForestExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下的法术会被添加到邪术师法术列表中：\n{0}\n\n
+Feature/&AncientForestExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&AncientForestExpandedSpelllistAfinityTitle	远古森林法术
 Feature/&AncientForestLightAffinityDescription	你能从阳光中汲取能量。你在明亮光照下每回合获得2点生命值
 Feature/&AncientForestLightAffinityTitle	光合作用
-Feature/&AncientForestRegrowthDescription	你有治愈能量池，长休以补充。你能利用此治愈池恢复等同于5倍于邪术师等级的生命值。
+Feature/&AncientForestRegrowthDescription	你有治愈能量池，长休补充。你能利用此治愈池恢复等同于5倍于邪术师等级的生命值。
 Feature/&AncientForestRegrowthTitle	再生长
 Feature/&ArcaneDetonationDescription	当你用武器攻击击中拥有你奥能印记的生物时，印记会被引爆，造成1d6点力场伤害并摧毁印记
 Feature/&ArcaneDetonationTitle	奥能引爆
@@ -854,17 +854,17 @@ Feature/&ClassMonkDiamondSoulDescription	你对气的掌控令你所有的豁免
 Feature/&ClassMonkDiamondSoulTitle	金刚魂
 Feature/&ClassMonkExtraAttackDescription	你在自己回合内执行攻击动作时能发动两次攻击而非一次
 Feature/&ClassMonkExtraAttackTitle	额外攻击
-Feature/&ClassMonkKiDescription	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气以行使各种特性。一开始你掌握三种特性：
+Feature/&ClassMonkKiDescription	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气行使各种特性。一开始你掌握三种特性：
 Feature/&ClassMonkKiEmpoweredStrikesDescription	攻击对非魔法攻击或伤害具有抗性或免疫的目标时，你的徒手打击视为魔法攻击
 Feature/&ClassMonkKiEmpoweredStrikesTitle	真气驻拳
 Feature/&ClassMonkKiTitle	气
 Feature/&ClassMonkMartialArtsDescription	未装备任何护甲也未持用盾牌时，若你徒手或只持用武僧武器，则你拥有以下增益：\n• 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n• 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。此骰子将随武僧职业等级的提升而增大\n• 你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
 Feature/&ClassMonkMartialArtsTitle	武艺
-Feature/&ClassMonkMartialDiceProgression00Description	你能骰<color=#57BCF4>d6</color>以代替你徒手打击或武僧武器的伤害
+Feature/&ClassMonkMartialDiceProgression00Description	你能骰<color=#57BCF4>d6</color>代替你徒手打击或武僧武器的伤害
 Feature/&ClassMonkMartialDiceProgression00Title	武艺骰提升 (d6)
-Feature/&ClassMonkMartialDiceProgression01Description	你能骰<color=#57BCF4>d8</color>以代替你徒手打击或武僧武器的伤害
+Feature/&ClassMonkMartialDiceProgression01Description	你能骰<color=#57BCF4>d8</color>代替你徒手打击或武僧武器的伤害
 Feature/&ClassMonkMartialDiceProgression01Title	武艺骰提升 (d8)
-Feature/&ClassMonkMartialDiceProgression02Description	你能骰<color=#57BCF4>d10</color>以代替你徒手打击或武僧武器的伤害
+Feature/&ClassMonkMartialDiceProgression02Description	你能骰<color=#57BCF4>d10</color>代替你徒手打击或武僧武器的伤害
 Feature/&ClassMonkMartialDiceProgression02Title	武艺骰提升 (d10)
 Feature/&ClassMonkPerfectSelfDescription	若你骰先攻时身上未储备气，则你获得4点气
 Feature/&ClassMonkPerfectSelfTitle	超凡入圣
@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	获得弓的熟练项，弓视为�
 Feature/&ClassMonkZenArcherCombatTitle	延臂战法
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
-Feature/&ClassMonkZenArcherStunningArrowsTitle	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
-Feature/&ClassMonkZenArcherStunningArrowsDescription	震慑箭
+Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑箭
+Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤进行替换
@@ -961,7 +961,7 @@ Feature/&DomainOblivionDomainlevel1FeaturesTitle	湮没领域
 Feature/&DomainSunDomainlevel1FeaturesDescription	你学习此领域的1级特性
 Feature/&DomainSunDomainlevel1FeaturesTitle	太阳领域
 Feature/&DreadfulWordTitle	恐惧箴言
-Feature/&DruidForestGuardianBarkWardDescription	你获得了召唤树皮护卫保护自己的能力。以一个附赠动作，你能消耗1次荒野形态以获得每等级4点临时生命值。这些临时生命值会持续10分钟，或直到你再次使用你的荒野形态
+Feature/&DruidForestGuardianBarkWardDescription	你获得了召唤树皮护卫保护自己的能力。以一个附赠动作，你能消耗1次荒野形态获得每等级4点临时生命值。这些临时生命值会持续10分钟，或直到你再次使用你的荒野形态
 Feature/&DruidForestGuardianBarkWardTitle	树皮守卫
 Feature/&DruidForestGuardianExtraAttackDescription	第6级起，你在自己回合内执行攻击动作时能发动两次攻击而非一次
 Feature/&DruidForestGuardianExtraAttackTitle	额外攻击
@@ -986,7 +986,7 @@ Feature/&EldritchMindTitle	魔能意志
 Feature/&EldritchSightTitle	魔能视界
 Feature/&EldritchSmiteDescription	每回合一次，当你以契约武器命中一个生物，你能消耗一个邪术师法术位，对目标造成额外1d8+每法术位等级1d8点力场伤害
 Feature/&EldritchSmiteTitle	魔能斩
-Feature/&ElementalistSpellsMagicAffinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下的法术会被添加到邪术师法术列表中：\n{0}\n\n
+Feature/&ElementalistSpellsMagicAffinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&ElementalistSpellsMagicAffinityTitle	元素使者法术
 Feature/&ElementalPactAirPlane	气位面
 Feature/&ElementalPactAstralPlane	星界位面
@@ -1061,7 +1061,7 @@ Feature/&MagicAffinityRangerArcanistTitle	奥术战斗训练
 Feature/&MiretheMindTitle	心灵泥沼
 Feature/&MoonLitDarknessImmunityDescription	你对黑暗状态免疫
 Feature/&MoonLitDarknessImmunityTitle	月曜之暗
-Feature/&MoonLitExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下的法术会被添加到邪术师法术列表中：\n{0}\n\n
+Feature/&MoonLitExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&MoonLitExpandedSpelllistAfinityTitle	月曜使者法术
 Feature/&MoonLitLightAffinityDescription	若你在自然黑暗中开始你的回合，你会进入隐形。移动、攻击或使用任何非传送或自我强化的能力或法术都会使隐形失效。
 Feature/&MoonLitLightAffinityStrongDescription	阴影斗篷现在能在昏暗光照和魔法黑暗中生效
@@ -1110,12 +1110,12 @@ Feature/&RagePowerDescription	以一个附赠动作，你进入狂暴并获得�
 Feature/&RagePowerTitle	狂暴
 Feature/&RageStrengthSavingThrowAffinityDescription	你在狂暴时获得力量豁免的优势
 Feature/&RageStrengthSavingThrowAffinityTitle	狂暴力量豁免优势
-Feature/&RangerFeralSensesDescription	你获得超自然的感官以帮助你对抗看不见的生物。此后，你攻击一个你看不见的生物时不会因此承受劣势
+Feature/&RangerFeralSensesDescription	你获得超自然的感官帮助你对抗看不见的生物。此后，你攻击一个你看不见的生物时不会因此承受劣势
 Feature/&RangerFeralSensesTitle	野性感官
 Feature/&RangerVanishActionDescription	第14级起，你能在自己回合以一个附赠动作的形式执行躲藏动作
 Feature/&RangerVanishActionTitle	无踪步
 Feature/&RiftWalkerRestrainedImmunityTitle	瞬身步
-Feature/&RiftWalkerSpellsMagicAffinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下的法术会被添加到邪术师法术列表中：\n{0}\n\n
+Feature/&RiftWalkerSpellsMagicAffinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&RiftWalkerSpellsMagicAffinityTitle	裂隙行者法术
 Feature/&SavingThrowTinkererProficiencyDescription	熟练于体质和智力豁免
 Feature/&SavingThrowTinkererProficiencyTitle	豁免熟练
@@ -1153,7 +1153,7 @@ Feature/&TinkererToolsProficiencyTitle	工具熟练
 Feature/&TinkererWeaponProficiencyDescription	获得简易武器的熟练项
 Feature/&TinkererWeaponProficiencyTitle	奇械师武器熟练
 Feature/&ToadKingBasicToxinTitle	基础毒素
-Feature/&ToadKingExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下的法术会被添加到邪术师法术列表中：\n{0}\n\n
+Feature/&ToadKingExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&ToadKingExpandedSpelllistAfinityTitle	蛙王法术列表
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	你的身体已改变而变得对毒素有抗力，在近战范围内受到攻击时，会产生一种防御性的毒素（每长休最多次数为熟练度加值）。若攻击者未能成功通过体质豁免，他们会感染致幻毒素，直到他们被攻击或其他方式打断
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	致幻毒素
@@ -1172,9 +1172,9 @@ Feature/&WitchCurseChoiceDescription	你被一种可怕的诅咒所困扰，它�
 Feature/&WitchCurseChoiceTitle	巫师诅咒
 Feature/&WitchMaledictionChoiceDescription	你能学习一些强大的咒语，被称为巫咒，它们源自曾诅咒你的相同的阴邪魔法
 Feature/&WitchMaledictionChoiceTitle	巫咒
-Feature/&WitchSightDescription	你能感知或看穿60英尺以内的隐形状态
+Feature/&WitchSightDescription	你能感知或看穿60英尺内的隐形状态
 Feature/&WitchSightTitle	巫师视界
-Feature/&ZSPowerPaladinCleansingTouchDescription	触碰一个盟友以移除其法术效果。此特性的可用次数等于你的魅力调整值
+Feature/&ZSPowerPaladinCleansingTouchDescription	触碰一个盟友移除其法术效果。此特性的可用次数等于你的魅力调整值
 Feature/&ZSPowerPaladinCleansingTouchTitle	净化之触
 Feedback/&AdditionalDamageAgonizing_BlastFormat	苦痛魔爆
 Feedback/&AdditionalDamageAgonizing_BlastLine	当你施放魔能爆时，你能将魅力调整值加到其命中所造成的伤害中
@@ -1381,9 +1381,9 @@ Power/&ClassMonkDiamondSoulPowerDescription	当豁免失败时，你能消耗1�
 Power/&ClassMonkDiamondSoulPowerTitle	金刚魂
 Power/&ClassMonkEmptyBodyDescription	你能消耗4点气并使用动作隐形1分钟。此时，你对力场伤害之外的所有伤害都具有抗性
 Power/&ClassMonkEmptyBodyTitle	空灵体
-Power/&ClassMonkFlurryOfBlowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，你能消耗1点气以一个附赠动作发动两次徒手打击
+Power/&ClassMonkFlurryOfBlowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，你能以一个附赠动作消耗1点气发动两次徒手打击
 Power/&ClassMonkFlurryOfBlowsTitle	疾风连击
-Power/&ClassMonkKiPoolDescription	你能消耗气以行使各种特性
+Power/&ClassMonkKiPoolDescription	你能消耗气行使各种特性
 Power/&ClassMonkKiPoolTitle	气
 Power/&ClassMonkKiStillnessOfMindDescription	你能用你的动作结束一个正影响你的魅惑或恐慌状态
 Power/&ClassMonkKiStillnessOfMindTitle	心如止水
@@ -1395,13 +1395,13 @@ Power/&ClassMonkOpenHandPushDescription	目标必须进行一次力量豁免，�
 Power/&ClassMonkOpenHandPushTitle	击退
 Power/&ClassMonkOpenHandTechniqueDescription	 你能在击中敌人时操作其体内的气。当你用疾风连击特性的攻击击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须进行一次敏捷豁免，豁免失败则应击倒地\n• 目标必须进行一次力量豁免，豁免失败则被往远离你的方向推离15英尺\n• 目标直到你的下一回合结束前，无法执行反应
 Power/&ClassMonkOpenHandTechniqueTitle	散打技巧
-Power/&ClassMonkPatientDefenseDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内，能消耗1点气以一个附赠动作执行回避动作
+Power/&ClassMonkPatientDefenseDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内，能以一个附赠动作消耗1点气执行回避动作
 Power/&ClassMonkPatientDefenseTitle	耐心防御
 Power/&ClassMonkQuiveringPalmDescription	你的徒手打击命中目标生物时，能消耗3点气将一股致命的劲力送入敌人体内。目标必须进行一次体质豁免，豁免失败则其生命值降为0，豁免成功则目标受到10d10的暗蚀伤害
 Power/&ClassMonkQuiveringPalmTitle	渗透劲
 Power/&ClassMonkSlowFallDescription	当你要承受坠地伤害时，你能使用反应将无视伤害
 Power/&ClassMonkSlowFallTitle	轻身坠
-Power/&ClassMonkStepOfTheWindDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内，你能消耗1点气以一个附赠动作执行撤离或疾走，并使你此回合内的跳跃距离加倍
+Power/&ClassMonkStepOfTheWindDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内，你能以一个附赠动作消耗1点气执行撤离或疾走，并使你此回合内的跳跃距离加倍
 Power/&ClassMonkStepOfTheWindTitle	飞檐走壁
 Power/&ClassMonkStunningStrikeDescription	你能够阻碍敌人体内气的流动。当你的近战武器攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑拳。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
 Power/&ClassMonkStunningStrikeTitle	震慑拳
@@ -1409,7 +1409,7 @@ Power/&ClassMonkTanquilityDescription	每短休1次，你能以一个自由动�
 Power/&ClassMonkTanquilityTitle	宁神境
 Power/&ClassMonkWholenessOfBodyDescription	你能使用一个动作获得等同于三倍武僧职业等级的生命值。你必须完成一次长休才能再次使用此特性
 Power/&ClassMonkWholenessOfBodyTitle	混元体
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，你能消耗2点气以一个附赠动作以弓发动两次远程攻击
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内以武僧武器执行攻击动作后，你能以一个附赠动作消耗2点气以弓发动两次远程攻击
 Power/&ClassMonkZenArcherFlurryOfArrowsTitle	疾风连狙
 Power/&ClassMonkZenArrowDistractDescription	目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
 Power/&ClassMonkZenArrowDistractTitle	分心
@@ -1436,7 +1436,7 @@ Power/&DH_ElementalFormPoolEnhancedTitleShort	元素形态
 Power/&DH_ElementalFormPoolTitle	元素形态
 Power/&FindFamiliarBundlePowerDescription	以伪龙、小妖精、小魔鬼或夸塞魔的形式召唤魔宠
 Power/&FindFamiliarBundlePowerTitle	获得魔宠
-Power/&HelpActionDescription	你能帮助一个友好的生物攻击你周围5英尺内的生物。你进行佯攻、使目标分心或以其他团队协作方式以使你的盟友的攻击更有效率。你的盟友在你的下回合前攻击目标，则第一次攻击骰带有优势
+Power/&HelpActionDescription	你能帮助一个友好的生物攻击你周围5英尺内的生物。你进行佯攻、使目标分心或以其他团队协作方式使你的盟友的攻击更有效率。你的盟友在你的下回合前攻击目标，则第一次攻击骰带有优势
 Power/&HelpActionTitle	协助
 Power/&MoonlitDanceoftheNightSkyDescription	每天能对4个目标施放一次飞行术
 Power/&MoonlitDanceoftheNightSkyTitle	夜空之舞
@@ -1460,13 +1460,13 @@ Power/&ToadKingHallucinogenicToxinPowerDescription	你的身体已改变而变�
 Power/&ToadKingHallucinogenicToxinPowerTitle	致幻毒素
 Power/&ToadKingSwallowDescription	试图吞下一个中型或小型的敌人。若此生物力量豁免失败，其每回合受到3D6酸性伤害。若蛙王邪术师在单次攻击被15或更高点数的伤害击中，此效果结束
 Power/&ToadKingSwallowTitle	巨蛙吞食
-Power/&UrPriestControlUndeadDescription	你以一个动作，将你可见范围内30英尺内一个不死生物作为目标。此生物必须成功进行一次感知豁免，否则将服从你的控制
+Power/&UrPriestControlUndeadDescription	你以一个动作将你可见范围内30英尺内一个不死生物作为目标。此生物必须成功进行一次感知豁免，否则将服从你的控制
 Power/&UrPriestControlUndeadTitle	控制不死生物
 Power/&UrPriestHalfLifeDescription	你将暗蚀能量注入自身，处于生与死夹缝之间，暂时被自己的鬼魂占有，获得飞行的能力，和其他鬼魂具有相同条件的免疫和伤害抗性
 Power/&UrPriestHalfLifeTitle	出魂术
 Power/&UrPriestRadiantWardDescription	以一个动作，你获得等同2倍于你邪术师等级的临时生命值
 Power/&UrPriestRadiantWardTitle	光耀守卫
-Power/&UrPriestSpellSiphonDescription	你学会了如何结合你正常的力量以撬动更大的魔法根源。以一个动作，你能消耗一次"引导神力"以重新获得你的6级秘术的一次已消耗次数
+Power/&UrPriestSpellSiphonDescription	你学会了如何结合你正常的力量撬动更大的魔法根源。以一个动作，你能消耗一次"引导神力"重新获得你的6级秘术的一次已消耗次数
 Power/&UrPriestSpellSiphonTitle	法术虹吸
 Race/&BolgrifRaceDescription	博格里夫是生活在索拉斯塔冰冻高原上的半巨人。他们狡猾、谨慎、孤僻，不信任除精灵以外的大多数类人生物，喜欢生活在远离文明的密集部族。若被逼入战斗，博格里夫会展现出强大的武器和自然魔法技能
 Race/&BolgrifRaceTitle	博格里夫
@@ -1547,7 +1547,7 @@ Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	法术之盾
 Reaction/&SpendSpellSlot{0}Description	消耗法术{0}
 Reaction/&SpendSpellSlot{0}Title	消耗法术{0}
 Reaction/&SpendSpellSlotEldritchSmiteDescription	{0}能消耗一个法术位对目标造成额外1d8+每法术位等级1d8点力场伤害
-Reaction/&SpendSpellSlotEldritchSmiteReactDescription	点击消耗一个法术位以对目标造成额外伤害
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	点击消耗1个法术位对目标造成额外伤害
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	魔能斩
 Reaction/&SpendSpellSlotEldritchSmiteTitle	魔能斩
 Reaction/&SubitemSelectEldritchSmiteDescription	为魔能斩选择消耗的法术位
@@ -1557,8 +1557,8 @@ Reaction/&SubitemSelectSlotLevelTitle	法术位等级
 Reaction/&SubitemSelectWarcasterTitle	选择动作
 Reaction/&Use{0}Description	使用{0}
 Reaction/&Use{0}Title	使用{0}
-Reaction/&UseClassMonkSlowFallDescription	{0}在跌落，能使用反应以防止跌落伤害
-Reaction/&UseClassMonkSlowFallReactDescription	使用反应以防止伤害
+Reaction/&UseClassMonkSlowFallDescription	{0}在跌落，能使用反应防止跌落伤害
+Reaction/&UseClassMonkSlowFallReactDescription	使用反应防止伤害
 Reaction/&UseClassMonkSlowFallReactTitle	反应
 Reaction/&UseClassMonkSlowFallTitle	轻身坠
 Reaction/&WarcasterAttackDescription	攻击目标
@@ -1647,7 +1647,7 @@ Spell/&DHDominateMonsterSpellDescription	你试图安抚一个施法距离内你
 Spell/&DHDominateMonsterSpellTitle	支配怪物
 Spell/&DHFeeblemindSpellDescription	指定施法距离内一个你能看见的生物，并尝试摧毁其理智与人格。目标受4d6点心灵伤害且须进行一次智力豁免。豁免失败时，此生物的智力和魅力变为1。受术生物将不能施法，也不能启动魔法物品，甚至不能听懂语言或以智慧方式沟通
 Spell/&DHFeeblemindSpellTitle	弱智术
-Spell/&DHFingerOfDeathSpellDescription	此生物必须进行以此体质豁免。豁免失败则受到7d8+30点黯蚀伤害，豁免成功则伤害减半
+Spell/&DHFingerOfDeathSpellDescription	此生物必须进行一次体质豁免。豁免失败则受到7d8+30点黯蚀伤害，豁免成功则伤害减半
 Spell/&DHFingerOfDeathSpellTitle	死亡一指（不死生物无效）
 Spell/&DHForesightSpellDescription	你触碰一个自愿生物，并授予其预示最近未来事件的有限能力。此目标在法术持续时间内无法被突袭，并且其进行的攻击检定、属性检定和豁免检定均具有优势。而其他生物对其进行攻击检定时具有劣势
 Spell/&DHForesightSpellTitle	预警术
@@ -1759,7 +1759,7 @@ Stage/&SubclassSelectionStageSpecialistNoneDescription	专业无说明
 Stage/&SubclassSelectionStageSpecialistTitle	选择专业
 Subclass/&AbilityAffinityRogueConArtistDescription	在游说、欺瞒、表演和巧手的能力检定时具有优势
 Subclass/&AbilityAffinityRogueConArtistTitle	操纵
-Subclass/&AHWarlockSubclassSoulBladePactDescription	你与一个有生命的武器达成了协议，你向其提供灵魂以换取力量
+Subclass/&AHWarlockSubclassSoulBladePactDescription	你与一个有生命的武器达成了协议，你向其提供灵魂换取力量
 Subclass/&AHWarlockSubclassSoulBladePactTitle	灵魂之刃契约
 Subclass/&ArcaneFighterAdditionalActionDescription	在你用武器击败敌人后，你能施放一个法术
 Subclass/&ArcaneFighterAdditionalActionTitle	施法作战
@@ -1821,7 +1821,7 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	刺破黑暗
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	能察觉到隐形的生物
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	看破隐形
 Subclass/&BarbarianPathOfTheLightTitle	光辉道途
-Subclass/&BloodWitchDescription	血魔法被大多数巫会禁止，它的核心是使用黑暗咒语和凡间魔咒以汲取施法者的本质。从根本上说，它比其他巫术更危险，但它的大量风险也伴随着大量的回报
+Subclass/&BloodWitchDescription	血魔法被大多数巫会禁止，它的核心是使用黑暗咒语和凡间魔咒汲取施法者的本质。从根本上说，它比其他巫术更危险，但它的大量风险也伴随着大量的回报
 Subclass/&BloodWitchMagicDescription	你获得以下法术。这些法术视为巫师法术，但并不计入你已知巫师法术数量\n\n等级法术\n1级：纠缠术，神莓术\n2级：树肤术，防护毒素\n3级：召唤动物，造粮术\n4级：巨虫术，石肤术\n5级：防护善恶，疫病虫群
 Subclass/&BloodWitchMagicTitle	血魔法
 Subclass/&BloodWitchTitle	血巫师
@@ -1831,9 +1831,9 @@ Subclass/&CancelCancelElixirResilienceDescription	停止炼金师灵药的抵抗
 Subclass/&CancelCancelElixirResilienceTitle	停止韧性灵药
 Subclass/&CancelCancelElixirSwiftnessDescription	停止炼金师灵药的迅捷状态
 Subclass/&CancelCancelElixirSwiftnessTitle	停止迅捷灵药
-Subclass/&ClassMonkTraditionDescription	在第3级时，你能选择你所遵循的精神方式以实现开悟。它将决定你如何操纵气
+Subclass/&ClassMonkTraditionDescription	在第3级时，你能选择你所遵循的精神方式实现开悟。它将决定你如何操纵气
 Subclass/&ClassMonkTraditionTitle	修行宗派
-Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	无论是用运用拳头还是兵刃，散打宗的武僧都是终极的战技大师。他们精通击退和绊倒敌人，运用气治疗己身，并通过深入冥想以杜绝灾厄
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	无论是用运用拳头还是兵刃，散打宗的武僧都是终极的战技大师。他们精通击退和绊倒敌人，运用气治疗己身，并通过深入冥想杜绝灾厄
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	散打宗
 Subclass/&ClassMonkTraditionZenArcherDescription	延臂宗的修行者通过训练使箭成为他们手臂的延伸。他们能熟练使用弓箭，并通过弓箭发挥气的功效
 Subclass/&ClassMonkTraditionZenArcherTitle	延臂宗
@@ -1862,13 +1862,13 @@ Subclass/&FighterMarshalCoordinatedAttackTitle	协作攻击
 Subclass/&FighterMarshalDescription	擅长研究敌人的弱点并协调其他队伍成员的攻击以利用这些弱点，接受过这一统帅训练的战士是著名的战场策划者
 Subclass/&FighterMarshalEncouragementPowerDescription	统帅的勇气激励了他的队伍成员。在其10英尺内的盟友在攻击和豁免骰上获得1d4加值。
 Subclass/&FighterMarshalEncouragementPowerTitle	激励
-Subclass/&FighterMarshalEternalComradeFeatureSetDescription	统帅和其战友间的联系跨越生死界限。以一个附赠动作，统帅能召唤他一位牺牲的战友的灵魂以帮助其战斗
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	统帅和其战友间的联系跨越生死界限。以一个附赠动作，统帅能召唤他一位牺牲的战友的灵魂帮助其战斗
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	永恒战友
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	你对恐惧效果免疫
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	无畏司令
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	你将你对当前目标的学识程度加至你的攻击和伤害骰上
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	知己知彼
-Subclass/&FighterMarshalStudyYourEnemyPowerDescription	你能以附赠动作尝试通过一次生存检定以提高对于目标的了解。每短休2次。
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	你能以附赠动作尝试通过一次生存检定提高对于目标的了解。每短休2次。
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	研究敌人
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	   召唤统帅一位牺牲的战友的灵魂。灵魂具有45+2倍战士职业等级的生命值并且其AC为16+熟练加值。此外，灵魂对毒素、冷冻、黯蚀、倒地、麻痹、束缚免疫，并且对火焰、强酸、闪电、雷鸣伤害有抗力。同时，其对非魔法的挥砍、钝击和穿刺伤害也有抗力。在其回合内，其能飞行最多50英尺并进行一次攻击加值为5+熟练加值的的魔法攻击，造成2d6+5挥砍伤害。
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	召唤永恒战友
@@ -1880,7 +1880,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	你对法术的经验，�
 Subclass/&FighterSpellShieldSpellResistanceTitle	法术抗力
 Subclass/&FighterSpellShieldTitle	法术之盾
 Subclass/&GreenWitchDescription	植物、自然和生长之物是绿色魔法的范畴。这些通常是德鲁伊倡导的一种奥术，一些巫师与绿色魔法的力量有着密切的联系，并能哄劝植物和动物听从他们的命令
-Subclass/&GreenWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下的法术会被添加到巫师法术列表中：\n{0}\n\n
+Subclass/&GreenWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下法术会被添加到巫师法术列表中：\n{0}\n\n
 Subclass/&GreenWitchMagicTitle	绿色魔法
 Subclass/&GreenWitchTitle	绿色巫师
 Subclass/&HArtilleryIncreaseDescription	魔炮池提升
@@ -1975,26 +1975,26 @@ Subclass/&PowerTransmuteHealTitle	治疗
 Subclass/&PowerTransmuteReviveDescription	使用你的"变化之力"复生的一名角色（死亡时间1分钟内）
 Subclass/&PowerTransmuteReviveTitle	复生
 Subclass/&PurpleWitchDescription	紫色魔法掌握着幻觉和附魔的领域，控制着人们的思想，以及任何似是而非的东西。这种形式的魔法的练习者是操纵大师，塑造他们周围人的表层现实使之对自己有利
-Subclass/&PurpleWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下的法术会被添加到巫师法术列表中：\n{0}\n\n
+Subclass/&PurpleWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下法术会被添加到巫师法术列表中：\n{0}\n\n
 Subclass/&PurpleWitchMagicTitle	紫色魔法
 Subclass/&PurpleWitchTitle	紫色巫师
-Subclass/&RangerArcanistRangerSubclassDescription	奥术游侠将他们的游侠技能与奥术能力融为一体。他们的武器能用奥能印记以折磨他们的对手，并且学会了如何施放一些法师的法术并使之作为他们游侠法术的一部分
+Subclass/&RangerArcanistRangerSubclassDescription	奥术游侠将他们的游侠技能与奥术能力融为一体。他们的武器能用奥能印记折磨他们的对手，并且学会了如何施放一些法师的法术并使之作为他们游侠法术的一部分
 Subclass/&RangerArcanistRangerSubclassTitle	奥术游侠
 Subclass/&RedWitchDescription	与引导元素相关的奥术魔法被认为是红色魔法，使用时非常危险。专注于红色魔法的巫师是现存最致命的施法者之一，她们将自己的诅咒转化为不受阻碍的奥术之怒
-Subclass/&RedWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下的法术会被添加到巫师法术列表中：\n{0}\n\n
+Subclass/&RedWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下法术会被添加到巫师法术列表中：\n{0}\n\n
 Subclass/&RedWitchMagicTitle	红色魔法
 Subclass/&RedWitchTitle	红色巫师
 Subclass/&RoguishConArtistDescription	诡徒是专门从事欺骗和玩弄他人的游荡者。他们使用魔法协助他们的操纵能力
 Subclass/&RoguishConArtistFeintConditionDescription	诡计得逞后会在下一次攻击中获得优势
 Subclass/&RoguishConArtistFeintConditionTitle	诡计得逞
-Subclass/&RoguishConArtistFeintDescription	获得在战斗中以额外动作进行佯攻的能力。若目标未能通过豁免，将使他们在下一次对目标的攻击中获得优势
+Subclass/&RoguishConArtistFeintDescription	获得在战斗中以附赠动作进行佯攻的能力。若目标未能通过豁免，将使他们在下一次对目标的攻击中获得优势
 Subclass/&RoguishConArtistFeintTitle	佯攻
 Subclass/&RoguishConArtistMentalSavingThrowsDescription	你获得感知和魅力豁免的熟练项
 Subclass/&RoguishConArtistMentalSavingThrowsTitle	心智之力
 Subclass/&RoguishConArtistSpellcastingDescription	施展法师的法术和戏法，它们来源于咒法、附魔、幻术和变化系。诡徒使用魅力施展他们的法术
 Subclass/&RoguishConArtistSpellcastingTitle	施法能力
 Subclass/&RoguishConArtistTitle	诡徒
-Subclass/&ScoutSentinelTinkererSubclassDescription	侦察哨兵奇械师改进盔甲以增强其功能，提供更强的保护和灵活性
+Subclass/&ScoutSentinelTinkererSubclassDescription	侦察哨兵奇械师改进盔甲增强其功能，提供更强的保护和灵活性
 Subclass/&ScoutSentinelTinkererSubclassTitle	侦察哨兵
 Subclass/&SpellShieldAdditionalActionDescription	你能在用武器攻击击败敌人后施展法术
 Subclass/&SpellShieldAdditionalActionTitle	施法作战
@@ -2024,7 +2024,7 @@ Subclass/&TraditionSpellMasterSpellResistanceTitle	法术抗力
 Subclass/&TraditionSpellMasterTitle	法术大师
 Subclass/&WarlockAncientForestDescription	你已与一个强大的自然实体建立了联系。古老的树灵、大德鲁伊、进入物质界的精灵、原始时代被遗忘的神。你的宗主可能希望你保护自然，前往它无法到达的遥远之地，或者它可能也有其他动机，而这些动机对于短命的凡人来说似乎是不可捉摸的
 Subclass/&WarlockAncientForestTitle	远古森林契约
-Subclass/&WarlockMoonLitDescription	你的宗主是月亮的精魂，一个体现了光明与黑暗的周期性的实体。这些精魂试图维持月亮在夜空中的力量，同时遏制那些在黑暗中徘徊的世俗力量，并给他们的邪术师布置了同样的任务，授予他们对月亮的力量及其影响的控制力
+Subclass/&WarlockMoonLitDescription	你的宗主是月亮的精魂，一个体现了光明与黑暗的周期性的实体。这些精魂试图维持月亮在夜空中的力量，同时遏制那些在黑暗中徘徊的世俗力量，并给他们的邪术师布置了同样的任务，授予他们对月亮的力量以及其影响的控制力
 Subclass/&WarlockMoonLitTitle	月曜使者契约
 Subclass/&WarlockToadKingDescription	精类、恶魔抑或是异怪，蛙王的真实性质不为人知，但众所周知，蛙王统治着荒原内的大片沼泽地，并为那些愿意服务的人提供权能
 Subclass/&WarlockToadKingTitle	蛙王契约
@@ -2035,13 +2035,13 @@ Subclass/&WeaponProfArcaneFighterTitle	武器训练
 Subclass/&WeaponProfArtificerBattleSmithDescription	战斗的经验使战地匠师接受了军用武器的训练
 Subclass/&WeaponProfArtificerBattleSmithTitle	武器训练
 Subclass/&WhiteWitchDescription	白色魔法从根本上说对所有生物都是善意而仁慈的。采用这种技艺的巫师，尽管感染了可恨的诅咒，却往往致力于治疗和看护，目的是为了改善世界
-Subclass/&WhiteWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下的法术会被添加到巫师法术列表中：\n{0}\n\n
+Subclass/&WhiteWitchMagicDescription	你在学习巫师法术时从额外法术列表中选择。以下法术会被添加到巫师法术列表中：\n{0}\n\n
 Subclass/&WhiteWitchMagicTitle	白色魔法
 Subclass/&WhiteWitchTitle	白色巫师
 Subclass/&WitchSubclassPathDescription	你的魔法知识在加入巫会时达到了顶峰，巫会是一个与生俱来的圈子，他们深入研究巫术和诅咒的特定道路
 Subclass/&WitchSubclassPathTitle	巫师巫会
 ToolTip/&CheckBoxDefaultPartyTitle	勾选此框，设置你在开始新的冒险或测试自定义地点时的默认阵容。你以勾选顺序最多能选择{0}个英雄
-Tooltip/&CustomPortraitPoolClassMonkKiPool	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气以行使各种特性
+Tooltip/&CustomPortraitPoolClassMonkKiPool	你掌握一股名为气的神秘能量。此后你将拥有等同于你武僧等级数量的气作为储备。消耗掉的气必须在你短休或长休后才能重获。你能消耗气行使各种特性
 Tooltip/&DeadeyeConcentration	禁用神射手
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle 未学习{0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	具有偷袭
