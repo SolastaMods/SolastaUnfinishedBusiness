@@ -3,4 +3,5 @@
 - Rework Marshal's coordinated attack / Warcaster integration
 - Deprecate Toad Kink and Rift Walker subclasses
 - Prefer pact slots over spell slots if both have same max level
+- Fix Reckless feat not working with reach weapons
 - Fix translations
