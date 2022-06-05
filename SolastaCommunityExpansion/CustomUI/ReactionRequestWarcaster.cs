@@ -45,30 +45,55 @@ public class ReactionRequestWarcaster : ReactionRequest
     private void BuildSuboptions()
     {
         SubOptionsAvailability.Clear();
-        SubOptionsAvailability.Add(0, true);
+        SubOptionsAvailability.Add(0, !reactionParams.BoolParameter4);
 
         var battleManager = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
-        if (battleManager == null)
+        var actingCharacter = reactionParams.ActingCharacter;
+        var cantrips = GetValidCantrips(battleManager, actingCharacter, reactionParams.targetCharacters[0]);
+        if (cantrips != null && !cantrips.Empty())
         {
-            SelectSubOption(0);
-            return;
+            reactionParams.SpellRepertoire = new RulesetSpellRepertoire();
+
+            var i = 1;
+            foreach (var c in cantrips)
+            {
+                reactionParams.SpellRepertoire.KnownSpells.Add(c);
+                SubOptionsAvailability.Add(i, true);
+                i++;
+            }
         }
 
-        var reactionParams = ReactionParams;
-        var actingCharacter = reactionParams.ActingCharacter;
-        var rulesetCharacter = actingCharacter.RulesetCharacter;
+        foreach (var pair in SubOptionsAvailability)
+        {
+            if (pair.Value)
+            {
+                SelectSubOption(pair.Key);
+                break;
+            }
+        }
+    }
+
+    public static List<SpellDefinition> GetValidCantrips(GameLocationBattleManager battle,
+        GameLocationCharacter character, GameLocationCharacter target)
+    {
+        if (battle == null)
+        {
+            return null;
+        }
+
+        var rulesetCharacter = character.RulesetCharacter;
 
         // should not trigger if a wildshape form
         if (rulesetCharacter is not RulesetCharacterHero)
         {
-            return;
+            return null;
         }
 
         //TODO: find better way to detect warcaster
         var affinities = rulesetCharacter.GetFeaturesByType<FeatureDefinitionMagicAffinity>();
         if (affinities == null || affinities.All(a => a.Name != "MagicAffinityWarCasterFeat"))
         {
-            return;
+            return null;
         }
 
         var cantrips = new List<SpellDefinition>();
@@ -84,37 +109,25 @@ public class ReactionRequestWarcaster : ReactionRequest
 
             var attackParams = new BattleDefinitions.AttackEvaluationParams();
             var actionModifier = new ActionModifier();
-            var targetCharacters = reactionParams.TargetCharacters;
 
-            attackParams.FillForMagic(actingCharacter,
-                actingCharacter.LocationPosition,
+            attackParams.FillForMagic(character,
+                character.LocationPosition,
                 cantrip.EffectDescription,
                 cantrip.Name,
-                targetCharacters[0],
-                targetCharacters[0].LocationPosition,
+                target,
+                target.LocationPosition,
                 actionModifier);
 
-            return !battleManager.IsValidAttackForReadiedAction(attackParams, false);
+            return !battle.IsValidAttackForReadiedAction(attackParams, false);
         });
 
-        reactionParams.SpellRepertoire = new RulesetSpellRepertoire();
-
-        var i = 1;
-        foreach (var c in cantrips)
-        {
-            reactionParams.SpellRepertoire.KnownSpells.Add(c);
-            SubOptionsAvailability.Add(i, true);
-            i++;
-        }
-
-        SelectSubOption(0);
+        return cantrips;
     }
 
 
     public override void SelectSubOption(int option)
     {
         ReactionParams.RulesetEffect?.Terminate(false);
-        var reactionParams = ReactionParams;
 
         var targetCharacters = reactionParams.TargetCharacters;
 
