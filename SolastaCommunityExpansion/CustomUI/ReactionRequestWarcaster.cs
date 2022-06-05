@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomUI;
@@ -8,16 +7,16 @@ namespace SolastaCommunityExpansion.CustomUI;
 public class ReactionRequestWarcaster : ReactionRequest
 {
     public const string Name = "WarcasterReaction";
+    private readonly GuiCharacter guiTarget;
 
     private readonly string type;
-    private readonly GuiCharacter guiTarget;
 
     public ReactionRequestWarcaster(CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
         BuildSuboptions();
-        type = string.IsNullOrEmpty(ReactionParams.StringParameter2) 
-            ? Name 
+        type = string.IsNullOrEmpty(ReactionParams.StringParameter2)
+            ? Name
             : ReactionParams.StringParameter2;
         // ReactionParams.StringParameter2 = type;
         guiTarget = new GuiCharacter(reactionParams.targetCharacters[0]);

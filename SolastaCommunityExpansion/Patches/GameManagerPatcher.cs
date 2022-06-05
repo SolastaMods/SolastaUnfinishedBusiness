@@ -1,14 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Net;
+using System.Text;
 using HarmonyLib;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaMonsters.Models;
 using UnityModManagerNet;
-using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -154,7 +154,8 @@ namespace SolastaCommunityExpansion.Patches
 
         private static bool CheckForUpdates(out string version, out string changeLog)
         {
-            const string BASE_URL = "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
+            const string BASE_URL =
+                "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
 
             var hasUpdate = false;
 

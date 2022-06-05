@@ -18,7 +18,7 @@ internal static class CharacterActionAttackPatcher
             var character = actingCharacter.RulesetCharacter;
             var found = false;
             GameLocationCharacter defender = null;
-            RuleDefinitions.RollOutcome outcome = RuleDefinitions.RollOutcome.Neutral;
+            var outcome = RuleDefinitions.RollOutcome.Neutral;
             CharacterActionParams actionParams = null;
             RulesetAttackMode mode = null;
             ActionModifier modifier = null;
@@ -49,7 +49,10 @@ internal static class CharacterActionAttackPatcher
 
             actingCharacter.AttackImpactStart -= AttackImpactStartHandler;
 
-            if (!found || features == null || features.Empty()) yield break;
+            if (!found || features == null || features.Empty())
+            {
+                yield break;
+            }
 
             foreach (var feature in features)
             {
