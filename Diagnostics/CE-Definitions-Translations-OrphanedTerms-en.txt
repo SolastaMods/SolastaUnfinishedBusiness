@@ -209,6 +209,7 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Co
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Once per long rest, when damaged by a melee attack, you can use your reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
 Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
