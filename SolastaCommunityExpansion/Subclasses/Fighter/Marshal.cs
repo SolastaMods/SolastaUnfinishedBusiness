@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -216,6 +217,7 @@ internal static class CoordinatedAttackBuilder
 
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
+        var battleManager = gameLocationBattleService as GameLocationBattleManager;
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
         var allies = new List<GameLocationCharacter>();
@@ -259,6 +261,7 @@ internal static class CoordinatedAttackBuilder
             var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             var attackParams = default(BattleDefinitions.AttackEvaluationParams);
             var actionModifierBefore = new ActionModifier();
+            var canAttack = true;
             if (allAttackMode.Ranged)
             {
                 attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, allAttackMode,
@@ -272,11 +275,19 @@ internal static class CoordinatedAttackBuilder
 
             if (!gameLocationBattleService.CanAttack(attackParams))
             {
-                continue;
+                canAttack = false;
+                var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
+                if (cantrips == null || cantrips.Empty())
+                {
+                    continue;
+                }
             }
 
             var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
-                allAttackMode, defender, actionModifierBefore);
+                allAttackMode, defender, actionModifierBefore)
+            {
+                BoolParameter4 = !canAttack
+            };
 
             actionService.ReactForOpportunityAttack(reactionParams);
         }
