@@ -65,8 +65,10 @@ internal static class KnowYourEnemyBuilder
             return;
         }
 
-        attackModifier.AttacktoHitTrends.Add(new TrendInfo(GetKnowledgeLevelOfEnemy(defender.RulesetCharacter),
-            FeatureSourceType.CharacterFeature, "KnowYourEnemies", null));
+        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender.RulesetCharacter);
+        attackerAttackMode.toHitBonus += knowledgeLevelOfEnemy;
+        attackModifier.AttacktoHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
+            FeatureSourceType.CharacterFeature, "KnowYourEnemy", null));
     }
 
     public static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
