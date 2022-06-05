@@ -120,6 +120,7 @@ public static class Warlock
     private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
     {
         // DEPRECATED
+        _ = DHWarlockSubclassRiftWalkerPatron.Build();
         _ = DHWarlockSubclassToadKingPatron.Build();
 
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
@@ -131,8 +132,7 @@ public static class Warlock
                 AHWarlockSubclassSoulBladePact.Build(),
                 DHWarlockSubclassAncientForestPatron.Build(),
                 DHWarlockSubclassElementalPatron.Build(),
-                DHWarlockSubclassMoonLitPatron.Build(),
-                DHWarlockSubclassRiftWalkerPatron.Build()
+                DHWarlockSubclassMoonLitPatron.Build()
             )
             .AddToDB();
 

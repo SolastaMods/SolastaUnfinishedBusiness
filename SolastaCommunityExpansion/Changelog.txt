@@ -1,6 +1,6 @@
 ﻿- Add mod auto update offer during bootup
 - Hide translated campaigns from Translations Mod UI
 - Rework Marshal's coordinated attack / Warcaster integration
-- Deprecate Toad Kink Warlock subclass
-- Prefer pact slots over spell slots if same max level
+- Deprecate Toad Kink and Rift Walker subclasses
+- Prefer pact slots over spell slots if both have same max level
 - Fix translations
