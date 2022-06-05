@@ -287,6 +287,7 @@ internal static class CoordinatedAttackBuilder
             var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
                 allAttackMode, defender, actionModifierBefore)
             {
+                StringParameter2 = "CoordinatedAttack",
                 BoolParameter4 = !canAttack
             };
             reactions.Add(reactionParams);
