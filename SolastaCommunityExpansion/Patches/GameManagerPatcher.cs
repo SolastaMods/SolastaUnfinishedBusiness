@@ -1,9 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaMonsters.Models;
 using UnityModManagerNet;
+using System.Net;
+using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 #if DEBUG
 using SolastaCommunityExpansion.Patches.Diagnostic;
 #endif
@@ -128,8 +133,109 @@ namespace SolastaCommunityExpansion.Patches
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");
 
-                DisplayWelcomeMessage();
+                if (CheckForUpdates(out var version, out var changeLog))
+                {
+                    DisplayUpdateMessage(version, changeLog);
+                }
+                else
+                {
+                    DisplayWelcomeMessage();
+                }
             };
+        }
+
+        private static string GetInstalledVersion()
+        {
+            var infoPayload = File.ReadAllText(Path.Combine(Main.MOD_FOLDER, "Info.json"));
+            var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
+
+            return infoJson["Version"].Value<string>();
+        }
+
+        private static bool CheckForUpdates(out string version, out string changeLog)
+        {
+            const string BASE_URL = "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
+
+            var hasUpdate = false;
+
+            version = "";
+            changeLog = "";
+
+            using var wc = new WebClient();
+
+            wc.Encoding = Encoding.UTF8;
+
+            try
+            {
+                var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
+                var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
+
+                version = infoJson["Version"].Value<string>();
+                hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
+
+                changeLog = wc.DownloadString($"{BASE_URL}/ChangeLog.txt");
+            }
+            catch
+            {
+                Main.Logger.Log("cannot fetch update data.");
+            }
+
+            return hasUpdate;
+        }
+
+        private static void UpdateMod(string version)
+        {
+            using var wc = new WebClient();
+
+            wc.Encoding = Encoding.UTF8;
+
+            try
+            {
+                var files = new[] {"SolastaCommunityExpansion.dll", "Info.json"};
+
+                foreach (var file in files)
+                {
+                    wc.DownloadFile(
+                        $"https://github.com/SolastaMods/SolastaCommunityExpansion/releases/download/{version}/{file}",
+                        Path.Combine(Main.MOD_FOLDER, $"{file}.UPD"));
+                }
+
+                foreach (var file in files)
+                {
+                    File.Delete(file);
+                    File.Move($"{file}.UPD", file);
+                }
+
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Informative1,
+                    "Message/&MessageModWelcomeTitle",
+                    "Update successful. Please restart.",
+                    "Message/&MessageOkTitle",
+                    string.Empty,
+                    null,
+                    null);
+            }
+            catch
+            {
+                Main.Logger.Log("cannot fetch update payload.");
+            }
+        }
+
+        private static void DisplayUpdateMessage(string version, string changeLog)
+        {
+            if (changeLog == string.Empty)
+            {
+                changeLog = ". no changelog found";
+            }
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Attention2,
+                "Message/&MessageModWelcomeTitle",
+                $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?",
+                "Message/&MessageOkTitle",
+                "Message/&MessageCancelTitle",
+                () => UpdateMod(version),
+                null);
         }
 
         private static void DisplayWelcomeMessage()
