@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi;
 using SolastaModApi.Extensions;
 #if DEBUG
-using System.Linq;
 using System.Text;
 #endif
 
@@ -44,9 +44,11 @@ internal static class ItemCraftingContext
 
     internal static void Load()
     {
-        ItemRecipeGenerationHelper.StockItem(
-            DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore,
-            DatabaseHelper.ItemDefinitions.Maul);
+        foreach (var merchant in MerchantTypeContext.MerchantTypes
+                     .Where(x => x.Item2.IsDocument))
+        {
+            ItemRecipeGenerationHelper.StockItem(merchant.Item1, DatabaseHelper.ItemDefinitions.Maul);
+        }
 
         ItemRecipeGenerationHelper.AddPrimingRecipes();
         ItemRecipeGenerationHelper.AddIngredientEnchanting();
@@ -87,9 +89,11 @@ internal static class ItemCraftingContext
         {
             foreach (var item in RecipeBooks[key])
             {
-                ItemRecipeGenerationHelper.StockItem(DatabaseHelper.MerchantDefinitions.Store_Merchant_Circe, item);
-                ItemRecipeGenerationHelper.StockItem(
-                    DatabaseHelper.MerchantDefinitions.Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore, item);
+                foreach (var merchant in MerchantTypeContext.MerchantTypes
+                             .Where(x => x.Item2.IsDocument))
+                {
+                    ItemRecipeGenerationHelper.StockItem(merchant.Item1, item);
+                }
             }
         }
     }

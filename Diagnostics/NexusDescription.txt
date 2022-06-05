@@ -35,7 +35,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Infrastructure and QoL patches, Holic75's code integration
 [/list]
 
-[size=4][b]How to Install[/b][/size]
+[size=4][b]How to Install - Windows[/b][/size]
 
 [b]STEP 1:[/b] Install Unity Mod Manager (UMM):
 
@@ -58,6 +58,30 @@ This is a collection of work from the Solasta modding community. It includes mul
 [/list]
 
 [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/UMM-02.png?raw=true[/img]
+
+[size=4][b]How to Install - MacOS[/b][/size]
+
+[b]STEP 1:[/b] Install Unity Mod Manager (UMM):
+
+[list]
+[*] Download the custom MacOS UMM from optional files on this mod, unzip and copy the [b]Contents[/b] folder to the clipboard
+[*] Open Steam or GOG client, navigate to your game library, select Solasta and [i]Browse Local Files[/i]
+
+    [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/macos-00.png?raw=true[/img]
+
+[*] Right-click [b]Solasta[/b] and [i]Show Package Contents[/i]
+
+    [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/macos-01.png?raw=true[/img]
+
+[*] Paste here the contents folder from the clipboard. CHOOSE MERGE!
+
+    [img]https://github.com/SolastaMods/SolastaCommunityExpansion/blob/master/Media/macos-02.png?raw=true[/img]
+[/list]
+
+[b]STEP 2:[/b] Install Community Expansion (CE):
+
+[*] Create the folder [b]/Applications/Mods[/b]
+[*] Download CE from the files section, unzip and copy it under above folder
 
 [size=4][b]Multiplayer[/b][/size]
 

@@ -61,352 +61,372 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap AcidClaws {
+        public static byte[] AcidClaws {
             get {
                 object obj = ResourceManager.GetObject("AcidClaws", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap AirBlast {
+        public static byte[] AirBlast {
             get {
                 object obj = ResourceManager.GetObject("AirBlast", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Bolgrif {
+        public static byte[] Bolgrif {
             get {
                 object obj = ResourceManager.GetObject("Bolgrif", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap BurstOfRadiance {
+        public static byte[] BurstOfRadiance {
             get {
                 object obj = ResourceManager.GetObject("BurstOfRadiance", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ContentPack {
+        public static byte[] ContentPack {
             get {
                 object obj = ResourceManager.GetObject("ContentPack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Destination {
+        public static byte[] DeadeyeConcentrationIcon {
+            get {
+                object obj = ResourceManager.GetObject("DeadeyeConcentrationIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] DeadeyeIcon {
+            get {
+                object obj = ResourceManager.GetObject("DeadeyeIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Destination {
             get {
                 object obj = ResourceManager.GetObject("Destination", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap EarthTremor {
+        public static byte[] EarthTremor {
             get {
                 object obj = ResourceManager.GetObject("EarthTremor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap EldritchBlast {
+        public static byte[] EldritchBlast {
             get {
                 object obj = ResourceManager.GetObject("EldritchBlast", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap EldritchBlastGrasp {
+        public static byte[] EldritchBlastGrasp {
             get {
                 object obj = ResourceManager.GetObject("EldritchBlastGrasp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap EldritchBlastRepell {
+        public static byte[] EldritchBlastRepell {
             get {
                 object obj = ResourceManager.GetObject("EldritchBlastRepell", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap EldritchInvocation {
+        public static byte[] EldritchInvocation {
             get {
                 object obj = ResourceManager.GetObject("EldritchInvocation", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ElementalForm {
+        public static byte[] ElementalForm {
             get {
                 object obj = ResourceManager.GetObject("ElementalForm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ElementalFormEnhanced {
+        public static byte[] ElementalFormEnhanced {
             get {
                 object obj = ResourceManager.GetObject("ElementalFormEnhanced", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ElementalFormIcon {
+        public static byte[] ElementalFormIcon {
             get {
                 object obj = ResourceManager.GetObject("ElementalFormIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ElementalFormIconEnhanced {
+        public static byte[] ElementalFormIconEnhanced {
             get {
                 object obj = ResourceManager.GetObject("ElementalFormIconEnhanced", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Entry {
+        public static byte[] Entry {
             get {
                 object obj = ResourceManager.GetObject("Entry", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Fire {
+        public static byte[] Fire {
             get {
                 object obj = ResourceManager.GetObject("Fire", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap FlurryOfArrows {
+        public static byte[] FlurryOfArrows {
             get {
                 object obj = ResourceManager.GetObject("FlurryOfArrows", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Gnome {
+        public static byte[] Gnome {
             get {
                 object obj = ResourceManager.GetObject("Gnome", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Halberd {
+        public static byte[] Halberd {
             get {
                 object obj = ResourceManager.GetObject("Halberd", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Halberd_1 {
+        public static byte[] Halberd_1 {
             get {
                 object obj = ResourceManager.GetObject("Halberd_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Halberd_2 {
+        public static byte[] Halberd_2 {
             get {
                 object obj = ResourceManager.GetObject("Halberd_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HalberdLightning {
+        public static byte[] HalberdLightning {
             get {
                 object obj = ResourceManager.GetObject("HalberdLightning", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HalberdPrimed {
+        public static byte[] HalberdPrimed {
             get {
                 object obj = ResourceManager.GetObject("HalberdPrimed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HandXbow {
+        public static byte[] HandXbow {
             get {
                 object obj = ResourceManager.GetObject("HandXbow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HandXbow_1 {
+        public static byte[] HandXbow_1 {
             get {
                 object obj = ResourceManager.GetObject("HandXbow_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HandXbow_2 {
+        public static byte[] HandXbow_2 {
             get {
                 object obj = ResourceManager.GetObject("HandXbow_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HandXbowAcid {
+        public static byte[] HandXbowAcid {
             get {
                 object obj = ResourceManager.GetObject("HandXbowAcid", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HandXbowPrimed {
+        public static byte[] HandXbowPrimed {
             get {
                 object obj = ResourceManager.GetObject("HandXbowPrimed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap HellishRebuke {
+        public static byte[] HellishRebuke {
             get {
                 object obj = ResourceManager.GetObject("HellishRebuke", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap LongMace {
+        public static byte[] LongMace {
             get {
                 object obj = ResourceManager.GetObject("LongMace", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap LongMace_1 {
+        public static byte[] LongMace_1 {
             get {
                 object obj = ResourceManager.GetObject("LongMace_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap LongMace_2 {
+        public static byte[] LongMace_2 {
             get {
                 object obj = ResourceManager.GetObject("LongMace_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap LongMacePrimed {
+        public static byte[] LongMacePrimed {
             get {
                 object obj = ResourceManager.GetObject("LongMacePrimed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap LongMaceThunder {
+        public static byte[] LongMaceThunder {
             get {
                 object obj = ResourceManager.GetObject("LongMaceThunder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
@@ -414,7 +434,7 @@ namespace SolastaCommunityExpansion.Properties {
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Alle zum Shop hinzufügen
         ///ModUi/&amp;AddBleedingToLesserRestoration	Fügen Sie den Zustand &lt;color=orange&gt;Bluten&lt;/color&gt; zu den Zuständen hinzu, die durch &lt;color=orange&gt;Größere und Geringere Wiederherstellung&lt;/color&gt; entfernt wurden
         ///ModUi/&amp;AddHelpActionToAllRaces	Füge allen Rennen die Aktion &lt;color=orange&gt;Hilfe&lt;/color&gt; hinzu
-        ///ModUi/&amp;AddPickpocketableLoot	Taschendiebstahl-Beute hinzufügen &lt;i&gt;&lt;color=yellow&gt;[empfohlen, wenn &lt;color=orange&gt;Taschendiebstahl&lt;/color&gt;-Talent aktiviert ist]&lt;/color&gt;&lt;/i [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu &lt;i&gt;&lt;color=yellow&gt;[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]&lt;/co [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_de {
             get {
@@ -426,9 +446,7 @@ namespace SolastaCommunityExpansion.Properties {
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Add all to store
         ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=orange&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=orange&gt;Greater and Lesser Restoration&lt;/color&gt;
         ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=orange&gt;Help&lt;/color&gt; action to all races
-        ///ModUi/&amp;AddPickpocketableLoot	Add pickpocketable loot &lt;i&gt;&lt;color=yellow&gt;[suggested if &lt;color=orange&gt;Pickpocket&lt;/color&gt; feat is enabled]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddToStore	Add to store
-        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;Advance [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops &lt;i&gt;&lt;color=yellow&gt;[hand wraps, halberds, pikes, long maces, hand crossbows]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=#C04040E0&gt;[Requires Restart]&lt;/color&gt;&lt;/i&gt;&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_en {
             get {
@@ -440,8 +458,7 @@ namespace SolastaCommunityExpansion.Properties {
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Ajouter tout au magasin
         ///ModUi/&amp;AddBleedingToLesserRestoration	Ajoutez la condition &lt;color=orange&gt;Saignement&lt;/color&gt; aux conditions supprimées par &lt;color=orange&gt;Grande et Petite Restauration&lt;/color&gt;
         ///ModUi/&amp;AddHelpActionToAllRaces	Ajouter l&apos;action &lt;color=orange&gt;Aide&lt;/color&gt; à toutes les courses
-        ///ModUi/&amp;AddPickpocketableLoot	Ajouter un butin pickpocketable &lt;i&gt;&lt;color=yellow&gt;[suggéré si la fonctionnalité &lt;color=orange&gt;Pickpocket&lt;/color&gt; est activée]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddToStore	Ajouter a [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Ajouter de nouvelles armes et recettes aux boutiques &lt;i&gt;&lt;color=yellow&gt;[bandages à main, hallebardes, piques, masses longues, arbalètes à main]&lt;/color&gt;&lt;/i&gt; &lt; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_fr {
             get {
@@ -453,9 +470,7 @@ namespace SolastaCommunityExpansion.Properties {
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Adicionar tudo à loja
         ///ModUi/&amp;AddBleedingToLesserRestoration	Adicione a condição &lt;color=orange&gt;Sangramento&lt;/color&gt; às condições removidas pela &lt;color=orange&gt;Restauração Maior e Menor&lt;/color&gt;
         ///ModUi/&amp;AddHelpActionToAllRaces	Adicione a ação &lt;color=orange&gt;Ajuda&lt;/color&gt; a todas as corridas
-        ///ModUi/&amp;AddPickpocketableLoot	Adicionar espólio de carteirista &lt;i&gt;&lt;color=yellow&gt;[sugerido se o recurso &lt;color=orange&gt;Pocket&lt;/color&gt; estiver ativado]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddToStore	Adicionar à loja
-        ///ModUi/ [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Adicione novas armas e receitas às lojas &lt;i&gt;&lt;color=yellow&gt;[bandeiras de mão, alabardas, lanças, maças longas, bestas de mão]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=#C04040E0&gt;[ Req [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_pt_BR {
             get {
@@ -465,10 +480,10 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Добавить все в магазин
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Добавьте состояние &lt;color=orange&gt;Кровотечение&lt;/color&gt; к состояниям, удаленным с помощью &lt;color=orange&gt;Большого и малого восстановления&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Добавьте действие &lt;color=orange&gt;Помощь&lt;/color&gt; ко всем гонкам.
-        ///ModUi/&amp;AddPickpocketableLoot	Добавить добычу для карманных краж &lt;i&gt;&lt;color=yellow&gt;[предлагается, если умение &lt;color=orange&gt;Карманные кражи&lt;/color&gt; включено]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddToStore	Доб [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Добавить состояние &lt;color=orange&gt;Кровотечение&lt;/color&gt; к состояниям, снимаемым &lt;color=orange&gt;Большим и Малым восстановлением&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Добавить действие &lt;color=orange&gt;Помощь&lt;/color&gt; всем расам.
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToEditor	&lt;i&gt;+ Также добаить их в Создатель Подземелий&lt;/i&gt;
+        ///ModUi/&amp;AddPickpocketableLoot	Добавить добычу для карманных краж &lt;i&gt;&lt;color=yellow&gt;[рекомендуется, если умение &lt;color= [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_ru {
             get {
@@ -480,12 +495,10 @@ namespace SolastaCommunityExpansion.Properties {
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	全部加入商店
         ///ModUi/&amp;AddBleedingToLesserRestoration	添加&lt;color=orange&gt;流血&lt;/color&gt;状态至&lt;color=orange&gt;次级/高等复原术&lt;/color&gt;的移除效果范围
         ///ModUi/&amp;AddHelpActionToAllRaces	添加&lt;color=orange&gt;协助&lt;/color&gt;至全部种族
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店&lt;i&gt;&lt;color=yellow&gt;[裹手，戟，长矛，长钉头锤，手弩]&lt;/color&gt;&lt;/i&gt; &lt;i&gt;&lt;color=#C04040E0&gt;[需要重启游戏]&lt;/color&gt;&lt;/i&gt;
         ///ModUi/&amp;AddPickpocketableLoot	添加可扒窃的战利品 &lt;i&gt;&lt;color=yellow&gt;[建议在&lt;color=orange&gt;扒窃&lt;/color&gt;专长被启用时启用]&lt;/color&gt;&lt;/i&gt;
         ///ModUi/&amp;AddToStore	加入商店
-        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;进阶选项：&lt;/color&gt;
-        ///ModUi/&amp;AdvancedHelp	. &lt;b&gt;&lt;color=#C04040E0&gt;注意：&lt;/color&gt;&lt;/b&gt; 此项设置将要求玩家安装此Mod
-        ///ModUi/&amp;Adventure	&lt;color=yellow&gt;冒险：&lt;/color&gt;
-        ///ModUi/&amp;AllItemInDm [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;进阶选项：&lt;/color&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_zh_CN {
             get {
@@ -494,102 +507,102 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Monk {
+        public static byte[] Monk {
             get {
                 object obj = ResourceManager.GetObject("Monk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkEmptyBody {
+        public static byte[] MonkEmptyBody {
             get {
                 object obj = ResourceManager.GetObject("MonkEmptyBody", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkFlurryOfBlows {
+        public static byte[] MonkFlurryOfBlows {
             get {
                 object obj = ResourceManager.GetObject("MonkFlurryOfBlows", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkKiIcon {
+        public static byte[] MonkKiIcon {
             get {
                 object obj = ResourceManager.GetObject("MonkKiIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkPatientDefense {
+        public static byte[] MonkPatientDefense {
             get {
                 object obj = ResourceManager.GetObject("MonkPatientDefense", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkPictogram {
+        public static byte[] MonkPictogram {
             get {
                 object obj = ResourceManager.GetObject("MonkPictogram", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkSlowFall {
+        public static byte[] MonkSlowFall {
             get {
                 object obj = ResourceManager.GetObject("MonkSlowFall", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkStepOfTheWind {
+        public static byte[] MonkStepOfTheWind {
             get {
                 object obj = ResourceManager.GetObject("MonkStepOfTheWind", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkStillnessOfMind {
+        public static byte[] MonkStillnessOfMind {
             get {
                 object obj = ResourceManager.GetObject("MonkStillnessOfMind", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap MonkStunningStrike {
+        public static byte[] MonkStunningStrike {
             get {
                 object obj = ResourceManager.GetObject("MonkStunningStrike", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
@@ -676,11 +689,16 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monster/&amp;DH_Custom_AirTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
-        ///Monster/&amp;DH_Custom_AirTitan_Title	&lt;color=#ff0000ff&gt;原初空气泰坦&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Description	作为色彩龙中最暴躁卑劣的种类，黑龙会将倒毙者的残骸连同其财宝一同收集起来。黑龙们厌恶眼见弱者的兴盛，并乐见类人生物王国崩溃。恶臭的沼泽，以及覆亡王国曾经耸立的废墟瓦砾会是他们理想的家园
-        ///Monster/&amp;DH_Custom_AncientBlackDragon_Title	&lt;color=#ff0000ff&gt;远古黑龙&lt;/color&gt;
-        ///Monster/&amp;DH_Custom_AncientBlueDragon_Description	自负且极具领土意识的蓝龙翱翔于沙漠的天空之上，时常捕食商队并在沙漠边际的旷野狩猎畜群和定居者。这种龙也会出现在干燥的草原，灼热的荒漠以及多岩的海岸，他们会守卫自己的领地而对抗所有潜在的对手，特别是 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	反重力
+        ///Condition/&amp;DH_ReverseGravity_Spell_Title	反重力
+        ///Condition/&amp;DH_TimeStop_Spell_Description	因时间停止而冻结
+        ///Condition/&amp;DH_TimeStop_Spell_Title	因时间停止而冻结
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	闪电风暴
+        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	闪电风暴
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	任意施放火球术
+        ///Feature/&amp;DH_AtWill_Fireball_Power_Title	火球术
+        ///Feature/&amp;DH_AtWill_HoldMonster_Power_Description	每天3次
+        ///Feature/&amp;DH_AtWill_HoldMonster_Powe [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Monsters_zh_CN {
             get {
@@ -689,22 +707,15 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DwarfFemale	Dearma
-        ///DwarfFemale	Jenrin
-        ///DwarfFemale	Nisleen
-        ///DwarfFemale	Misnan
-        ///DwarfFemale	Jenndora
-        ///DwarfFemale	Renmera
-        ///DwarfFemale	Nasnyl
-        ///DwarfFemale	Brallesyl
-        ///DwarfFemale	Torthiel
-        ///DwarfFemale	Myrnera
-        ///DwarfFemale	Bretri
-        ///DwarfFemale	Abagtha
+        ///   Looks up a localized string similar to DwarfFemale	Abagtha
         ///DwarfFemale	Bera
         ///DwarfFemale	Birsha
+        ///DwarfFemale	Brallesyl
+        ///DwarfFemale	Bretri
+        ///DwarfFemale	Bronnura
         ///DwarfFemale	Clauda
         ///DwarfFemale	Dabareh
+        ///DwarfFemale	Dearma
         ///DwarfFemale	Demelza
         ///DwarfFemale	Dodai
         ///DwarfFemale	Dura
@@ -714,7 +725,14 @@ namespace SolastaCommunityExpansion.Properties {
         ///DwarfFemale	Halah
         ///DwarfFemale	Hanan
         ///DwarfFemale	Iddo
-        ///DwarfFemale	 [rest of string was truncated]&quot;;.
+        ///DwarfFemale	Jenndora
+        ///DwarfFemale	Jenrin
+        ///DwarfFemale	Juttah
+        ///DwarfFemale	Melea
+        ///DwarfFemale	Meribah
+        ///DwarfFemale	Misnan
+        ///DwarfFemale	Myrnera
+        ///DwarfFemale	Na [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Names_en {
             get {
@@ -723,133 +741,113 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Pike {
+        public static byte[] Pike {
             get {
                 object obj = ResourceManager.GetObject("Pike", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Pike_1 {
+        public static byte[] Pike_1 {
             get {
                 object obj = ResourceManager.GetObject("Pike_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Pike_2 {
+        public static byte[] Pike_2 {
             get {
                 object obj = ResourceManager.GetObject("Pike_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap PikePrimed {
+        public static byte[] PikePrimed {
             get {
                 object obj = ResourceManager.GetObject("PikePrimed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap PikePsychic {
+        public static byte[] PikePsychic {
             get {
                 object obj = ResourceManager.GetObject("PikePsychic", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap PowerAttackConcentrationIcon {
+        public static byte[] PowerAttackConcentrationIcon {
             get {
                 object obj = ResourceManager.GetObject("PowerAttackConcentrationIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap PowerAttackIcon {
+        public static byte[] PowerAttackIcon {
             get {
                 object obj = ResourceManager.GetObject("PowerAttackIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ResonatingStrike {
+        public static byte[] ResonatingStrike {
             get {
                 object obj = ResourceManager.GetObject("ResonatingStrike", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap DeadeyeConcentrationIcon {
-            get {
-                object obj = ResourceManager.GetObject("DeadeyeConcentrationIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap DeadeyeIcon {
-            get {
-                object obj = ResourceManager.GetObject("DeadeyeIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap SunlightBlade {
+        public static byte[] SunlightBlade {
             get {
                 object obj = ResourceManager.GetObject("SunlightBlade", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Teleport {
+        public static byte[] Teleport {
             get {
                 object obj = ResourceManager.GetObject("Teleport", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Kann keine Zauber wirken.
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Schwache Zauberei
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC ist auf 16 eingestellt.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Rindenleder
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charismawert ist gleich 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Schwaches Charisma
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwer [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwert ist gleich 1.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellTi [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_de {
             get {
@@ -859,13 +857,12 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells.
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feeble spellcasting
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1.
-        ///Att [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	Feeble Intelligenc [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_en {
             get {
@@ -875,12 +872,12 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts.
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Lancement de sorts faible
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	CA est réglé sur 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Écorce
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de Charisme est égal à 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Charisme faible
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le sco [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le score d&apos;intelligence est égal à 1.
+        ///AttributeModifier/&amp;DHFeeblemindIn [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_fr {
             get {
@@ -890,12 +887,12 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Incapaz de lançar feitiços.
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Feitiço fraco
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está definido para 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de Carisma é igual a 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de i [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de inteligência é igual a 1.
+        ///AttributeModifier/&amp;DHFeeblem [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_pt_BR {
             get {
@@ -905,12 +902,12 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Невозможно читать заклинания.
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	Слабое колдовство
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC настроен на 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Показатель харизмы равен 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Слабая харизма
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Показатель интеллект [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Показатель интеллекта равен 1.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	С [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_ru {
             get {
@@ -920,7 +917,6 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	无法施法
-        ///ActionAffinity/&amp;DHFeeblemindSpellTitle	施法能力衰减
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC设为16
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	树肤术
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	魅力值为1
@@ -928,7 +924,8 @@ namespace SolastaCommunityExpansion.Properties {
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	智力值为1
         ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	智力衰减
         ///BlueprintCategory/&amp;FlatRoomsTitle	平房
-        ///Caption/&amp;Gadg [rest of string was truncated]&quot;;.
+        ///Caption/&amp;GadgetParametersCustomRemoveDescription	移除:\n{0}
+        ///C [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_zh_CN {
             get {
@@ -937,42 +934,42 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap Warlock {
+        public static byte[] Warlock {
             get {
                 object obj = ResourceManager.GetObject("Warlock", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap WarlockChainSummon {
+        public static byte[] WarlockChainSummon {
             get {
                 object obj = ResourceManager.GetObject("WarlockChainSummon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap WinterBreath {
+        public static byte[] WinterBreath {
             get {
                 object obj = ResourceManager.GetObject("WinterBreath", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static System.Drawing.Bitmap ZenArrow {
+        public static byte[] ZenArrow {
             get {
                 object obj = ResourceManager.GetObject("ZenArrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
     }
