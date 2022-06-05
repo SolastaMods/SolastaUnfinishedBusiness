@@ -237,3 +237,31 @@ internal class CanmakeAoOOnReachEntered
         return character != null && character.IsValid(validators);
     }
 }
+
+public interface IReactToAttackFinished
+{
+    IEnumerator HandleReactToAttackFinished(GameLocationCharacter character, GameLocationCharacter defender,
+        RuleDefinitions.RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode,
+        ActionModifier modifier);
+}
+
+public delegate IEnumerator ReactToAttackFinishedHandler(GameLocationCharacter character,
+    GameLocationCharacter defender, RuleDefinitions.RollOutcome outcome,
+    CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier);
+
+public class ReactToAttackFinished : IReactToAttackFinished
+{
+    private readonly ReactToAttackFinishedHandler handler;
+
+    public ReactToAttackFinished(ReactToAttackFinishedHandler handler)
+    {
+        this.handler = handler;
+    }
+
+    public IEnumerator HandleReactToAttackFinished(GameLocationCharacter character, GameLocationCharacter defender,
+        RuleDefinitions.RollOutcome outcome,
+        CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+    {
+        yield return handler(character, defender, outcome, actionParams, mode, modifier);
+    }
+}
