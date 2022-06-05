@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Sélectionnez un niveau d'emplac
 Reaction/&SubitemSelectEldritchSmiteTitle	Niveau d'emplacement
 Reaction/&SubitemSelectPowerBundleTitle	Choix
 Reaction/&SubitemSelectSlotLevelTitle	Niveau d'emplacement
-Reaction/&SubitemSelectWarcasterTitle	Sélectionnez l'action
+Reaction/&SubitemSelectWarcasterReactionTitle	Sélectionnez l'action
 Reaction/&Use{0}Description	Utilisez {0}
 Reaction/&Use{0}Title	Utilisez {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} tombe et peut utiliser une réaction pour ne pas subir de dégâts de chute.
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
+Reaction/&WarcasterReactionReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&WarcasterReactionReactTitle	Attaque
+Reaction/&SubitemSelectCoordinatedAttackTitle	Sélectionnez l'action
+Reaction/&CoordinatedAttackDescription	{0} a été attaqué en coordonnant l'attaque, certains personnages peuvent utiliser leur réaction pour rejoindre cette attaque.
+Reaction/&CoordinatedAttackTitle	Attaque coordonnée
+Reaction/&CoordinatedAttackReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&CoordinatedAttackReactTitle	Attaque

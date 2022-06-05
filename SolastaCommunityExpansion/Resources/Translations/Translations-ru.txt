@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Выберите уровень 
 Reaction/&SubitemSelectEldritchSmiteTitle	Уровень слота
 Reaction/&SubitemSelectPowerBundleTitle	Опции
 Reaction/&SubitemSelectSlotLevelTitle	Уровень слота
-Reaction/&SubitemSelectWarcasterTitle	Выберите действие
+Reaction/&SubitemSelectWarcasterReactionTitle	Выберите действие
 Reaction/&Use{0}Description	Используйте {0}
 Reaction/&Use{0}Title	Используйте {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} падает и может использовать реакцию, чтобы не получить урон от падения.
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Сила
 UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
 UI/&ForcePreferredCantripDescription	Если этот переключатель включен, может сработать только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый допустимый заговор, независимо от этого переключателя.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Reaction/&WarcasterReactionReactDescription	Используйте реакцию, чтобы атаковать цель.
+Reaction/&WarcasterReactionReactTitle	Атака
+Reaction/&SubitemSelectCoordinatedAttackTitle	Выберите действие
+Reaction/&CoordinatedAttackDescription	{0} был атакован скоординированной атакой, некоторые персонажи могут использовать свою реакцию, чтобы присоединиться к этой атаке.
+Reaction/&CoordinatedAttackTitle	Скоординированная атака
+Reaction/&CoordinatedAttackReactDescription	Используйте реакцию, чтобы атаковать цель.
+Reaction/&CoordinatedAttackReactTitle	Атака

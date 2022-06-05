@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Selecione um nível de slot para
 Reaction/&SubitemSelectEldritchSmiteTitle	Nível do slot
 Reaction/&SubitemSelectPowerBundleTitle	Opções
 Reaction/&SubitemSelectSlotLevelTitle	Nível do slot
-Reaction/&SubitemSelectWarcasterTitle	Selecionar ação
+Reaction/&SubitemSelectWarcasterReactionTitle	Selecionar ação
 Reaction/&Use{0}Description	Usar {0}
 Reaction/&Use{0}Title	Usar {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} está caindo e pode usar uma reação para não sofrer dano de queda.
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
+Reaction/&WarcasterReactionReactDescription	Use a reação para atacar o alvo.
+Reaction/&WarcasterReactionReactTitle	Ataque
+Reaction/&SubitemSelectCoordinatedAttackTitle	Selecionar ação
+Reaction/&CoordinatedAttackDescription	{0} foi atacado por um ataque coordenado, alguns personagens podem usar sua reação para participar deste ataque.
+Reaction/&CoordinatedAttackTitle	Ataque coordenado
+Reaction/&CoordinatedAttackReactDescription	Use a reação para atacar o alvo.
+Reaction/&CoordinatedAttackReactTitle	Ataque
