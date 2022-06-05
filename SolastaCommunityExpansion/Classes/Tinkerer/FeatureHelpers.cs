@@ -4,7 +4,6 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;

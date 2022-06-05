@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaCommunityExpansion.Level20.Features;

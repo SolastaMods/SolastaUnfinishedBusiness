@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaCommunityExpansion.Builders.Features;

@@ -51,8 +51,8 @@ internal static class RulesetCharacterExension
 
     public static RulesetItem GetItemInSlot(this RulesetCharacter instance, string slot)
     {
-        if (instance == null 
-            || instance.CharacterInventory == null 
+        if (instance == null
+            || instance.CharacterInventory == null
             || instance.CharacterInventory.InventorySlotsByName == null
            )
         {

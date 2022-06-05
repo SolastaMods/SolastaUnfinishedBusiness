@@ -42,6 +42,6 @@ public static class HouseFeatureContext
     private static void FixRecklessAttckForReachWeapons()
     {
         DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (RuleDefinitions.SituationalContext) ExtendedSituationalContext.MainWeaponIsMelee;
+            .situationalContext = (RuleDefinitions.SituationalContext)ExtendedSituationalContext.MainWeaponIsMelee;
     }
 }
