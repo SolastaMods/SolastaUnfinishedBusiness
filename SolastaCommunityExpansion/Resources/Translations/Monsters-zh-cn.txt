@@ -32,11 +32,11 @@ Monster/&DH_Custom_ConstructTitan_Description	为战争而建造的由重金属�
 Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>机械构装泰坦</color>
 Monster/&DH_Custom_Deva_Description	樊天神侍是充当神明信使或代理人的天使，它们被派往主物质位面、堕影冥界、妖精荒野等任何适合其从事工作的国度
 Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>樊天神侍</color>
-Monster/&DH_Custom_Djinni_Description	气元素位面一种高傲敏锐的生物，身为气之大师的气巨灵坐下是一种自己可以随心所欲的创造和引导的强大旋风，有时甚至可以以此搭载乘客
+Monster/&DH_Custom_Djinni_Description	气元素位面一种高傲敏锐的生物，身为气之大师的气巨灵坐下是一种自己能随心所欲的创造和引导的强大旋风，有时甚至能以此搭载乘客
 Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>气巨灵</color>
 Monster/&DH_Custom_EarthTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
 Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>原初大地泰坦</color>
-Monster/&DH_Custom_Efreeti_Description	火元素位面的魁梧巨灵，火巨灵是烈焰之主，它们不受火焰的影响，而且可以随心所欲地创造火焰
+Monster/&DH_Custom_Efreeti_Description	火元素位面的魁梧巨灵，火巨灵是烈焰之主，它们不受火焰的影响，而且能随心所欲地创造火焰
 Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>火巨灵</color>
 Monster/&DH_Custom_Erinyes_Description	欲魔是最凶猛与自律的勇士。它们从空中扫荡而来，迅速结果那些冒犯其主人的生物
 Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>欲魔</color>
@@ -46,7 +46,7 @@ Monster/&DH_Custom_GuardianNaga_Description	巡守纳加作为睿智善良的美
 Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>巡守纳加</color>
 Monster/&DH_Custom_HornedDevil_Description	 作为地狱军团的飞行步兵，角魔们会一丝不苟的按命令行事
 Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>角魔</color>
-Monster/&DH_Custom_IceDevil_Description	冰魔贪求其深狱炼魔长官的力量并因此以晋升为目标不断努力。它们不断屠杀九狱的敌人，并努力获取更多的灵魂以进献给其大魔鬼主子
+Monster/&DH_Custom_IceDevil_Description	冰魔贪求其深狱炼魔长官的力量并因此以晋升为目标不断努力。它们不断屠杀九狱的敌人，并努力获取更多的灵魂进献给其大魔鬼主子
 Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>冰魔</color>
 Monster/&DH_Custom_Lich_Description	某些强大的法师为了能长存于世，会抛弃生命而投向不死之道成为巫妖。巫妖们不计代价地追求力量，除非牵涉自身，否则它们对生灵活物的事情漠不关心。阴险又癫狂的巫妖渴求着流失于时间长河中的佚闻学识与令人胆寒的秘密
 Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>巫妖</color>
@@ -62,7 +62,7 @@ Monster/&DH_Custom_Solar_Description	在战场上，炽天神侍的剑无需双�
 Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>炽天神侍</color>
 Monster/&DH_Custom_StormGiant_Description	风暴巨人生活在远离凡人的世界角落，是善于深思熟虑的隐世先知。它们大多长着紫灰色的皮肤与发色，以及闪耀着祖母绿色的眼睛
 Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>风暴巨人</color>
-Monster/&DH_Custom_Tarrasque_Description	传说中的泰拉斯奎巨兽可能是物质位面中最可怕的怪物。人们普遍认为，只有一只这样的泰拉斯奎存在，尽管没有人能预测它将在何时何地发动袭击。泰拉斯奎身上长着鳞甲，高50尺，长70尺，重达数百吨
+Monster/&DH_Custom_Tarrasque_Description	传说中的泰拉斯奎巨兽可能是物质位面中最可怕的怪物。人们普遍认为，只有一只这样的泰拉斯奎存在，尽管没有人能预测它将在何时何地发动袭击。泰拉斯奎身上长着鳞甲，高50英尺，长70英尺，重达数百吨
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>泰拉斯奎</color>
 Monster/&DH_Custom_Vampire_Description	从无尽暗夜中觉醒的吸血鬼渴求着自己失去的生命，并以生者的鲜血填补其饥渴。吸血鬼对阳光深恶痛绝，仅接触阳光便足以使其燃烧。吸血鬼们不会留下影子或倒影，因此它们会尽量在生者间保持低调，停留在远离光洁表面的阴暗处
 Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>吸血鬼</color>
@@ -84,7 +84,7 @@ MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8挥砍伤害 & 3D6火焰伤
 MonsterAttack/&DH_Balor_Whip_Attack_Title	鞭攻击
 MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8力场伤害并击倒目标
 MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	力场大炮
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8钝击伤害并击退目标20尺
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8钝击伤害并击退目标20英尺
 MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	挥击
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	无法执行动作并每回合受到16d6强酸伤害。一次不低于60伤害的攻击会使被吞咽者被吐出
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	吞咽
@@ -166,7 +166,7 @@ MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10雷鸣伤害并在目标豁
 MonsterPower/&DH_AirTitan_Gale_Power_Title	尖啸疾风
 MonsterPower/&DH_AirTitan_Lightning_Power_Description	范围内3D10闪电伤害
 MonsterPower/&DH_AirTitan_Lightning_Power_Title	闪电一击
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	龙可以扇动翅膀，产生飓风将大多数类人生物推开并击倒
+MonsterPower/&DH_AncientDragon_Wing_Power_Description	龙能扇动翅膀，产生飓风将大多数类人生物推开并击倒
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	振翅攻击
 MonsterPower/&DH_Balor_FireAura_Power_Description	3D6火焰伤害
 MonsterPower/&DH_Balor_FireAura_Power_Title	火焰灵光
@@ -192,15 +192,15 @@ MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10钝击伤害
 MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	地震
 MonsterPower/&DH_ErinyesParry_Power_Description	+3AC
 MonsterPower/&DH_ErinyesParry_Power_Title	招架
-MonsterPower/&DH_FireTitan_Aura_Power_Description	30尺范围内的所有生物都会受到35(10d6)火焰伤害，在灵光中没有被穿戴或携带的易燃物会被点燃
+MonsterPower/&DH_FireTitan_Aura_Power_Description	30英尺内的所有生物都会受到35(10d6)火焰伤害，在灵光中没有被穿戴或携带的易燃物会被点燃
 MonsterPower/&DH_FireTitan_Aura_Power_Title	火焰泰坦灵光
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	在10尺范围内，任何接触Maegera或用近战攻击击中它的生物会受到35(10d6)火焰伤害
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	在10英尺内，任何接触Maegera或用近战攻击击中它的生物会受到35(10d6)火焰伤害
 MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	火焰泰坦反击
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	在10尺范围内，任何接触Maegera或用近战攻击击中它的生物会受到35(10d6)火焰伤害
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description	在10英尺内，任何接触Maegera或用近战攻击击中它的生物会受到35(10d6)火焰伤害
 MonsterPower/&DH_FireTitan_Retaliate_Power_Title	火焰泰坦反击
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	施法时该区域内的任何生物都会被光笼罩。在持续时间内，物体和受影响的生物会在10尺范围内发出昏暗光照
+MonsterPower/&DH_IlluminatingCrystals_Power_Description	施法时该区域内的任何生物都会被光笼罩。在持续时间内，物体和受影响的生物会在10英尺内发出昏暗光照
 MonsterPower/&DH_IlluminatingCrystals_Power_Title	照明水晶
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	 泰坦聚焦其周围20尺的区域。在以该点为中心的20尺半径、20尺高的圆柱体中的任何生物都必须通过敏捷豁免(DC26)，否则会受到33(6d10)钝击伤害并被击倒和束缚一回合
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description	 泰坦聚焦其周围20英尺的区域。以此点为中心的20英尺半径、20英尺高的圆柱体中的任何生物都必须通过敏捷豁免(DC26)，否则会受到33(6d10)钝击伤害并被击倒和束缚一回合
 MonsterPower/&DH_IncreasedGravityZone_Attack_Title	强重力区域
 MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6黯蚀伤害
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	扰乱生命
@@ -232,7 +232,7 @@ MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	泰拉斯奎�
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	反弹甲壳
 MonsterPower/&DH_TarrasqueSwallowPower_Description	泰拉斯奎对正被它擒抱的大型或更小体型生物发动一次啃咬攻击。若该攻击命中，则目标被吞下并终止其擒抱状态
 MonsterPower/&DH_TarrasqueSwallowPower_Title	吞咽
-MonsterPower/&DH_VampireCharmPower_Description	吸血鬼指定其周边30尺一个它能看见的类人生物，其必须通过一次感知豁免(DC17)否被魅惑
+MonsterPower/&DH_VampireCharmPower_Description	吸血鬼指定其周边30英尺一个它能看见的类人生物，其必须通过一次感知豁免(DC17)否被魅惑
 MonsterPower/&DH_VampireCharmPower_Title	魅惑
 MonsterPower/&DHAirTitanLightningStormPowerDescription	大范围内6d8闪电伤害
 MonsterPower/&DHAirTitanLightningStormPowerTitle	闪电风暴
@@ -240,5 +240,5 @@ MonsterPower/&DHGenericLightningAttackPowerDescription	12D8伤害
 MonsterPower/&DHGenericLightningAttackPowerTitle	闪电一击
 Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
 Spell/&DHAnimalShapesSpellTitle	动物形态
-Spell/&DHTimeStop_SpellDescription	你使时间在除你之外所有生物的世界中暂时停止流动。你一次性进行1d4+1个回合，在这段过程内时间对于其他生物来说是静止的，但你可以像正常一样移动和使用动作
+Spell/&DHTimeStop_SpellDescription	你使时间在除你之外所有生物的世界中暂时停止流动。你一次性进行1d4+1个回合，在这段过程内时间对于其他生物是静止的，但你能像正常一样移动和使用动作
 Spell/&DHTimeStop_SpellTitle	时间停止
