@@ -23,9 +23,11 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
+            // Translations must load first
             Translations.LoadTranslations("Modui");
             Translations.LoadTranslations("Translations");
 
+            // Resources must load second
             ResourceLocatorContext.Load();
 
             // Cache TA definitions for diagnostics and export
@@ -42,35 +44,32 @@ namespace SolastaCommunityExpansion.Patches
             BugFixContext.Load();
             CharacterExportContext.Load();
             ConjurationsContext.Load();
+            CustomReactionsContext.Load();
+            CustomWeaponsContext.Load();
             DmProEditorContext.Load();
             FaceUnlockContext.Load();
+            FlexibleBackgroundsContext.Switch();
+            GameUiContext.Load();
+            InitialChoicesContext.Load();
+            InventoryManagementContext.Load();
+            ItemCraftingContext.Load();
+            ItemOptionsContext.Load();
+            Level20Context.Load();
+            LevelDownContext.Load();
+            PickPocketContext.Load();
+            PowerBundleContext.Load();
+            RemoveBugVisualModelsContext.Load();
+            RespecContext.Load();
+            ShieldStrikeContext.Load();
 
             // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
             FightingStyleContext.Load();
 
-            FlexibleBackgroundsContext.Switch();
-            InitialChoicesContext.Load();
-            GameUiContext.Load();
-            InventoryManagementContext.Load();
-
-            CustomWeaponsContext.Load();
-            ShieldStrikeContext.Load();
-            ItemCraftingContext.Load();
-            ItemOptionsContext.Load();
-            Level20Context.Load();
-            PickPocketContext.Load();
-            CustomReactionsContext.Load();
-
             // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
             PowersContext.Load();
 
-            RemoveBugVisualModelsContext.Load();
-            RespecContext.Load();
-            LevelDownContext.Load();
-
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
             SpellsContext.Load();
-            SrdAndHouseRulesContext.Load();
 
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
@@ -84,11 +83,11 @@ namespace SolastaCommunityExpansion.Patches
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
 
+            // Load SRD and House rules last in case they change previous blueprints
+            SrdAndHouseRulesContext.Load();
+
             // Custom High Level Monsters
             MonsterContext.Load();
-
-            // Only a functor registration
-            PowerBundleContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
             {
