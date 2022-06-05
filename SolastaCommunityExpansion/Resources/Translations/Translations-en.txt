@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume f
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectPowerBundleTitle	Options
 Reaction/&SubitemSelectSlotLevelTitle	Slot Level
-Reaction/&SubitemSelectWarcasterTitle	Select action
+Reaction/&SubitemSelectWarcasterReactionTitle	Select action
 Reaction/&Use{0}Description	Use {0}
 Reaction/&Use{0}Title	Use {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} is falling and can use a reaction to not take fall damage.
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
+Reaction/&WarcasterReactionReactTitle	Attack
+Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
+Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
+Reaction/&CoordinatedAttackTitle	Coordinated Attack
+Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
+Reaction/&CoordinatedAttackReactTitle	Attack

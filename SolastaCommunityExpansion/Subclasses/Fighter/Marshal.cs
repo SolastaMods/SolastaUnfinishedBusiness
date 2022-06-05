@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -200,7 +201,7 @@ internal static class StudyYourEnemyBuilder
 
 internal static class CoordinatedAttackBuilder
 {
-    private static void CoordinatedAttackOnAttackHitDelegate(
+    private static IEnumerator CoordinatedAttackOnAttackHitDelegate(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         RollOutcome outcome,
@@ -212,13 +213,12 @@ internal static class CoordinatedAttackBuilder
         if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure ||
             actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
         {
-            return;
+            yield break;
         }
 
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
         var battleManager = gameLocationBattleService as GameLocationBattleManager;
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
 
         var allies = new List<GameLocationCharacter>();
         foreach (var guestCharacter in characterService.GuestCharacters)
@@ -256,6 +256,7 @@ internal static class CoordinatedAttackBuilder
             allies.Add(partyCharacter);
         }
 
+        var reactions = new List<CharacterActionParams>();
         foreach (var partyCharacter in allies)
         {
             var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
@@ -286,19 +287,32 @@ internal static class CoordinatedAttackBuilder
             var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
                 allAttackMode, defender, actionModifierBefore)
             {
+                StringParameter2 = "CoordinatedAttack",
                 BoolParameter4 = !canAttack
             };
+            reactions.Add(reactionParams);
+        }
 
-            actionService.ReactForOpportunityAttack(reactionParams);
+        if (!reactions.Empty() && battleManager != null)
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            foreach (var reaction in reactions)
+            {
+                actionService.ReactForOpportunityAttack(reaction);
+            }
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 
-    public static FeatureDefinitionOnAttackHitEffect BuildCoordinatedAttack()
+    public static FeatureDefinition BuildCoordinatedAttack()
     {
-        return FeatureDefinitionOnAttackHitEffectBuilder
+        return FeatureDefinitionBuilder
             .Create("CoordinatedAttack", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation("FighterMarshalCoordinatedAttack", Category.Subclass)
-            .SetOnAttackHitDelegates(null, CoordinatedAttackOnAttackHitDelegate)
+            .SetCustomSubFeatures(new ReactToAttackFinished(CoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
     }
 }
@@ -415,35 +429,35 @@ public static class EternalComradeBuilder
             .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternarlComradeAC",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin((ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var stConditionDefinition = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondSavingThrows, "ConditionMarshalEternarlComradeST",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin((ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var damageConditionDefinition = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeDamage, "ConditionMarshalEternarlComradeDamage",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin((ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var hitConditionDefinition = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondMeleeAttack, "ConditionMarshalEternarlComradeHit",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetAmountOrigin((ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceProficiencyBonus)
             .AddToDB();
 
         var hpConditionDefinition = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternarlComradeHP",
                 MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentationNoContent()
-            .SetAmountOrigin((ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel)
+            .SetAmountOrigin((ConditionDefinition.OriginOfAmount) ExtraOriginOfAmount.SourceClassLevel)
             .SetAllowMultipleInstances(true)
             .AddToDB();
 
@@ -510,7 +524,7 @@ public static class MarshalFighterSubclassBuilder
     private const string MarshalFighterSubclassName = "MarshalFighter";
     public static readonly Guid MarshalFighterSubclassNameGuid = new("79608b4e-8293-452e-bd1a-9cf0d0e9d077");
 
-    private static readonly FeatureDefinitionOnAttackHitEffect CoordinatedAttack =
+    private static readonly FeatureDefinition CoordinatedAttack =
         CoordinatedAttackBuilder.BuildCoordinatedAttack();
 
     private static readonly FeatureDefinitionFeatureSet KnowYourEnemies =
