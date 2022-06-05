@@ -173,7 +173,7 @@ namespace SolastaCommunityExpansion.Patches
                 version = infoJson["Version"].Value<string>();
                 hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
 
-                changeLog = wc.DownloadString($"{BASE_URL}/ChangeLog.txt");
+                changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
             }
             catch
             {
@@ -195,15 +195,14 @@ namespace SolastaCommunityExpansion.Patches
 
                 foreach (var file in files)
                 {
+                    var fullFileName = Path.Combine(Main.MOD_FOLDER, file);
+
                     wc.DownloadFile(
                         $"https://github.com/SolastaMods/SolastaCommunityExpansion/releases/download/{version}/{file}",
-                        Path.Combine(Main.MOD_FOLDER, $"{file}.UPD"));
-                }
+                        $"{fullFileName}.UPD");
 
-                foreach (var file in files)
-                {
-                    File.Delete(file);
-                    File.Move($"{file}.UPD", file);
+                    File.Delete(fullFileName);
+                    File.Move($"{fullFileName}.UPD", fullFileName);
                 }
 
                 Gui.GuiService.ShowMessage(
