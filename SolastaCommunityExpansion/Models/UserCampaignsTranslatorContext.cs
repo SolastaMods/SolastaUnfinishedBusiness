@@ -11,6 +11,8 @@ namespace SolastaCommunityExpansion.Models;
 
 internal class UserCampaignsTranslatorContext : MonoBehaviour
 {
+    internal static string CE2_TRANSLATION_TAG = "CE2 auto translation\n";
+
     private static UserCampaignsTranslatorContext _exporter;
 
     internal static readonly Dictionary<string, ExportStatus> CurrentExports = new();
@@ -91,6 +93,8 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
         }
 
         userCampaign.Description = Translations.Translate(userCampaign.Description, languageCode);
+        userCampaign.TechnicalInfo = CE2_TRANSLATION_TAG
+                                     + Translations.Translate(userCampaign.TechnicalInfo, languageCode);
 
         // USER DIALOGS
         foreach (var dialog in userCampaign.UserDialogs)
