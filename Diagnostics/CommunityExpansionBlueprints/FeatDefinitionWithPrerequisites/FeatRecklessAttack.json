@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -10,19 +10,18 @@
   "armorProficiencyCategory": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
-    "Definition:AHRagePower:a46c1722-7825-4a81-bca1-392b51cd7d97"
+    "Definition:ActionAffinityBarbarianRecklessAttack:f992624db9f12d042a442fbbbe3a86d5"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&RecklessFuryFeatTitle",
-    "description": "Feat/&RecklessFuryFeatDescription",
+    "title": "Action/&RecklessAttackTitle",
+    "description": "Action/&RecklessAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -37,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "78c5fd76-e25b-499d-896f-3eaf84c711d8",
+  "guid": "52aae91a-4f02-5ddf-a63a-7a2bdf9afd6e",
   "contentPack": 9999,
-  "name": "RecklessFuryFeat"
+  "name": "FeatRecklessAttack"
 }

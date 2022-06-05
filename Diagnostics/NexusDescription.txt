@@ -138,6 +138,8 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions.
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
 [*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
+[*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
+[*][b]Toad King Pact[/b]: Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 [*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
@@ -243,7 +245,7 @@ While you are not wearing any armor, your AC equals 10 + your Dexterity modifier
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.
 • If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
-[*][b]Reckless Fury[/b]: You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
+[*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Savage Attacker[/b]: Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 [*][b]Scribe[/b]: +1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells.
 [*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
