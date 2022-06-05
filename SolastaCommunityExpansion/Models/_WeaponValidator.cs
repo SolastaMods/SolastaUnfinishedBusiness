@@ -29,6 +29,11 @@ public static class WeaponValidators
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
 
+    public static bool IsMelee(RulesetItem weapon)
+    {
+        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
+    }
+
     public static bool IsRanged(RulesetItem weapon)
     {
         return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Api.AdditionalExtensions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -21,6 +22,9 @@ public static class CharacterValidators
         return WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || WeaponValidators.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
+
+    public static readonly CharacterValidator MainHandIsMeleeWeapon = character =>
+        WeaponValidators.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
     public static readonly CharacterValidator FullyUnarmed = character =>
     {
