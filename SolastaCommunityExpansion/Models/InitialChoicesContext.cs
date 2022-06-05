@@ -87,9 +87,9 @@ internal static class InitialChoicesContext
             }
         }
 
-        if (Main.Settings.IncreaseSenseNormalVision)
+        if (Main.Settings.IncreaseSenseNormalVision > HouseFeatureContext.DEFAULT_VISION_RANGE)
         {
-            SenseNormalVision.SetSenseRange(120);
+            SenseNormalVision.SetSenseRange(Main.Settings.IncreaseSenseNormalVision);
         }
     }
 
