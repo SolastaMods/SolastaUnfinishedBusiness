@@ -21,13 +21,13 @@ internal static class CustomIcons
     /// <summary>
     ///     Convert a bitmap stored as an embedded resource to a Sprite.
     /// </summary>
-    internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int size,
+    internal static Sprite GetOrCreateSprite(string name, Byte[] bitmap, int size,
         bool throwIfAlreadyExists = false)
     {
         return GetOrCreateSprite(name, bitmap, size, size, throwIfAlreadyExists);
     }
 
-    internal static Sprite GetOrCreateSprite(string name, Bitmap bitmap, int sizex, int sizey,
+    internal static Sprite GetOrCreateSprite(string name, Byte[] bitmap, int sizex, int sizey,
         bool throwIfAlreadyExists = false)
     {
         var (id, guid) = GetSpriteIds(name, sizex, sizey);
@@ -50,7 +50,7 @@ internal static class CustomIcons
         }
 
         var texture = new Texture2D(sizex, sizey, TextureFormat.DXT5, false);
-        texture.LoadImage((byte[])new ImageConverter().ConvertTo(bitmap, typeof(byte[])));
+        texture.LoadImage(bitmap);
         sprite = Sprite.Create(texture, new Rect(0, 0, sizex, sizey), new Vector2(0, 0));
 
         SpritesByGuid[guid] = sprite;
@@ -85,12 +85,12 @@ internal static class CustomIcons
         return GuidHelper.Create(DefinitionBuilder.CENamespaceGuid, id).ToString("n");
     }
 
-    internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int size)
+    internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Byte[] bitmap, int size)
     {
         return CreateAssetReferenceSprite(name, bitmap, size, size);
     }
 
-    internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Bitmap bitmap, int sizex,
+    internal static AssetReferenceSprite CreateAssetReferenceSprite(string name, Byte[] bitmap, int sizex,
         int sizey)
     {
         var sprite = GetOrCreateSprite(name, bitmap, sizex, sizey);
