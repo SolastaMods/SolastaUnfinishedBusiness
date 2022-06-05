@@ -53,8 +53,8 @@ Feature written by ElAntonius for the Ranger
 //            Definition.FeatureSet.Add(foe_slayer_attack);
 //            Definition.FeatureSet.Add(foe_slayer_used);
 
-//            Definition.SetEnumerateInDescription(false);
-//            Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
+//            Definition.enumerateInDescription = false;
+//            Definition.mode = FeatureDefinitionFeatureSet.FeatureSetMode.Union;
 //        }
 
 //        private static FeatureDefinitionFeatureSet CreateAndAddToDB(string name, string guid)

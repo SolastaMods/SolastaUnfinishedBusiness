@@ -10,40 +10,40 @@ public class FeatureDefinitionAttributeModifierBuilder : FeatureDefinitionBuilde
     public FeatureDefinitionAttributeModifierBuilder SetModifier(AttributeModifierOperation modifierType,
         string attribute, int amount)
     {
-        Definition.SetModifierType2(modifierType);
-        Definition.SetModifiedAttribute(attribute);
-        Definition.SetModifierValue(amount);
+        Definition.modifierType2 = modifierType;
+        Definition.modifiedAttribute = attribute;
+        Definition.modifierValue = amount;
         return this;
     }
 
     public FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(string abilityScore)
     {
-        Definition.SetModifierAbilityScore(abilityScore);
+        Definition.modifierAbilityScore = abilityScore;
         return this;
     }
 
     public FeatureDefinitionAttributeModifierBuilder SetModifierValue(int amount)
     {
-        Definition.SetModifierValue(amount);
+        Definition.modifierValue = amount;
         return this;
     }
 
     public FeatureDefinitionAttributeModifierBuilder SetModifiedAttribute(string attribute)
     {
-        Definition.SetModifiedAttribute(attribute);
+        Definition.modifiedAttribute = attribute;
         return this;
     }
 
     public FeatureDefinitionAttributeModifierBuilder SetModifierType2(AttributeModifierOperation modifierType)
     {
-        Definition.SetModifierType2(modifierType);
+        Definition.modifierType2 = modifierType;
         return this;
     }
 
     public FeatureDefinitionAttributeModifierBuilder SetSituationalContext(
         RuleDefinitions.SituationalContext situationalContext)
     {
-        Definition.SetSituationalContext(situationalContext);
+        Definition.situationalContext = situationalContext;
         return this;
     }
 

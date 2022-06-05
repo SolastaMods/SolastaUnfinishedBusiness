@@ -13,13 +13,13 @@ public abstract class
 
     public TBuilder SetMyAttackModifierDieType(RuleDefinitions.DieType dieType)
     {
-        Definition.SetMyAttackModifierDieType(dieType);
+        Definition.myAttackModifierDieType = dieType;
         return This();
     }
 
     public TBuilder SetMyAttackAdvantage(RuleDefinitions.AdvantageType advantage)
     {
-        Definition.SetMyAttackAdvantage(advantage);
+        Definition.myAttackAdvantage = advantage;
         return This();
     }
 

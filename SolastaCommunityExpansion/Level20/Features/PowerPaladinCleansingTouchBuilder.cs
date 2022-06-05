@@ -15,12 +15,12 @@ internal sealed class PowerPaladinCleansingTouchBuilder : FeatureDefinitionPower
 
     private PowerPaladinCleansingTouchBuilder(string name, string guid) : base(name, guid)
     {
-        Definition.SetFixedUsesPerRecharge(0);
-        Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
-        Definition.SetUsesAbilityScoreName(AttributeDefinitions.Charisma);
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        Definition.SetCostPerUse(1);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+        Definition.fixedUsesPerRecharge = 0;
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed;
+        Definition.usesAbilityScoreName = AttributeDefinitions.Charisma;
+        Definition.activationTime = RuleDefinitions.ActivationTime.Action;
+        Definition.costPerUse = 1;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
         var cleansingTouch = new EffectDescriptionBuilder();
         cleansingTouch.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Individuals);
@@ -33,12 +33,12 @@ internal sealed class PowerPaladinCleansingTouchBuilder : FeatureDefinitionPower
             .SetCounterForm(CounterForm.CounterType.DissipateSpells, 9, 10, true, true).Build());
         cleansingTouch.AddEffectForm(new EffectFormBuilder().CreatedByCharacter()
             .SetAlterationForm(AlterationForm.Type.DissipateSpell).Build());
-        Definition.SetEffectDescription(cleansingTouch.Build());
+        Definition.effectDescription = cleansingTouch.Build();
         var cleansingGui = new GuiPresentationBuilder("Feature/&ZSPowerPaladinCleansingTouchTitle",
             "Feature/&ZSPowerPaladinCleansingTouchDescription");
         cleansingGui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerPaladinLayOnHands
             .GuiPresentation.SpriteReference);
-        Definition.SetGuiPresentation(cleansingGui.Build());
+        Definition.guiPresentation = cleansingGui.Build();
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

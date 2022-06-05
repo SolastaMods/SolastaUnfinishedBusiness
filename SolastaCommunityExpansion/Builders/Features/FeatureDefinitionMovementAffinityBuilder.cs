@@ -8,13 +8,13 @@ public class FeatureDefinitionMovementAffinityBuilder
 {
     public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedAdditiveModifier(int value)
     {
-        Definition.SetBaseSpeedAdditiveModifier(value);
+        Definition.baseSpeedAdditiveModifier = value;
         return this;
     }
 
     public FeatureDefinitionMovementAffinityBuilder SetBaseSpeedMultiplicativeModifier(float value)
     {
-        Definition.SetBaseSpeedMultiplicativeModifier(value);
+        Definition.baseSpeedMultiplicativeModifier = value;
         return this;
     }
 

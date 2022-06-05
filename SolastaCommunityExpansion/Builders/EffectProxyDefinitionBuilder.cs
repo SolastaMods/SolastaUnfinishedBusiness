@@ -29,24 +29,24 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
     public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
         RuleDefinitions.DieType damageDie, string damageType)
     {
-        Definition.SetCanAttack(canAttack);
-        Definition.SetAttackMethod(attackMethod);
-        Definition.SetDamageDie(damageDie);
-        Definition.SetDamageType(damageType);
+        Definition.canAttack = canAttack;
+        Definition.attackMethod = attackMethod;
+        Definition.damageDie = damageDie;
+        Definition.damageType = damageType;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetLightSource(LightSourceForm lightSourceForm)
     {
-        Definition.SetAddLightSource(true);
-        Definition.SetLightSourceForm(lightSourceForm);
+        Definition.addLightSource = true;
+        Definition.lightSourceForm = lightSourceForm;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
     {
-        Definition.SetHasPortrait(true);
-        Definition.SetPortraitSpriteReference(portraitSpriteReference);
+        Definition.hasPortrait = true;
+        Definition.portraitSpriteReference = portraitSpriteReference;
         return this;
     }
 
@@ -63,53 +63,53 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
 
     public EffectProxyDefinitionBuilder SetShowWorldLocationFeedbacks()
     {
-        Definition.SetShowWorldLocationFeedbacks(true);
+        Definition.showWorldLocationFeedbacks = true;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetAttackParticle(AssetReference attackParticle)
     {
-        Definition.SetAttackParticle(attackParticle);
+        Definition.attackParticle = attackParticle;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetAttackImpactParticle(AssetReference attackImpactParticle)
     {
-        Definition.SetAttackImpactParticle(attackImpactParticle);
+        Definition.attackImpactParticle = attackImpactParticle;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetSoundEffectOnHitDescription(
         SoundEffectOnHitDescription soundEffectOnHitDescription)
     {
-        Definition.SetSoundEffectOnHitDescription(soundEffectOnHitDescription);
+        Definition.soundEffectOnHitDescription = soundEffectOnHitDescription;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetCanMove()
     {
-        Definition.SetCanMove(true);
+        Definition.canMove = true;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetImpactsPlacement()
     {
-        Definition.SetImpactsPlacement(true);
+        Definition.impactsPlacement = true;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetModelScale(float modelScale)
     {
-        Definition.SetModelScale(modelScale);
+        Definition.modelScale = modelScale;
         return this;
     }
 
     public EffectProxyDefinitionBuilder SetPresentationInformation(bool hasPresentation,
         AssetReference prefabReference, bool isEmptyPresentation)
     {
-        Definition.SetHasPresentation(hasPresentation);
-        Definition.SetPrefabReference(prefabReference);
-        Definition.SetIsEmptyPresentation(isEmptyPresentation);
+        Definition.hasPresentation = hasPresentation;
+        Definition.prefabReference = prefabReference;
+        Definition.isEmptyPresentation = isEmptyPresentation;
         return this;
     }
 }

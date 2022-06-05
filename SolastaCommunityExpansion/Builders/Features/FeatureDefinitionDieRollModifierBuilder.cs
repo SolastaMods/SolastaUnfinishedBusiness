@@ -9,11 +9,11 @@ public class FeatureDefinitionDieRollModifierBuilder
     public FeatureDefinitionDieRollModifierBuilder SetModifiers(
         RuleDefinitions.RollContext context, int rerollCount, int minRerollValue, string consoleLocalizationKey)
     {
-        Definition.SetValidityContext(context);
-        Definition.SetRerollLocalizationKey(consoleLocalizationKey);
-        Definition.SetRerollCount(rerollCount);
-        Definition.SetMinRerollValue(minRerollValue);
-        Definition.SetMinRollValue(minRerollValue);
+        Definition.validityContext = context;
+        Definition.rerollLocalizationKey = consoleLocalizationKey;
+        Definition.rerollCount = rerollCount;
+        Definition.minRerollValue = minRerollValue;
+        Definition.minRollValue = minRerollValue;
         return this;
     }
 

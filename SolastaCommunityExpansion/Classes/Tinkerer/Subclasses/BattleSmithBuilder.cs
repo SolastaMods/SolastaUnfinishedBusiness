@@ -126,10 +126,10 @@ public static class BattleSmithBuilder
         public FeatureDefinitionAttackModifierBuilder(string name, Guid guidNamespace,
             AbilityScoreReplacement abilityReplacement, string additionalAttackTag) : base(name, guidNamespace)
         {
-            Definition.SetAbilityScoreReplacement(abilityReplacement);
-            Definition.SetAdditionalAttackTag(additionalAttackTag);
-            Definition.SetAttackRollModifierMethod(AttackModifierMethod.FlatValue);
-            Definition.SetDamageRollModifierMethod(AttackModifierMethod.FlatValue);
+            Definition.abilityScoreReplacement = abilityReplacement;
+            Definition.additionalAttackTag = additionalAttackTag;
+            Definition.attackRollModifierMethod = AttackModifierMethod.FlatValue;
+            Definition.damageRollModifierMethod = AttackModifierMethod.FlatValue;
         }
     }
 }

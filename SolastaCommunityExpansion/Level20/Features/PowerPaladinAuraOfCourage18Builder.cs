@@ -19,7 +19,7 @@ internal sealed class PowerPaladinAuraOfCourage18Builder : FeatureDefinitionPowe
         ed.SetRangeParameter(0);
         ed.SetRequiresTargetProximity(false);
 
-        Definition.SetOverriddenPower(PowerPaladinAuraOfCourage);
+        Definition.overriddenPower = PowerPaladinAuraOfCourage;
         Definition.GuiPresentation.Description = "Feature/&PowerPaladinAuraOfCourage18Description";
         Definition.GuiPresentation.Title = "Feature/&PowerPaladinAuraOfCourage18Title";
     }

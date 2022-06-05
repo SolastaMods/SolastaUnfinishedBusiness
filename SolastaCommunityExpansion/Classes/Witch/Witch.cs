@@ -1042,7 +1042,7 @@ internal static class Witch
                     WITCH_BASE_GUID).AddToDB();
             var witchFamiliarAttackIteration = new MonsterAttackIteration(witchAttackDefinition, 1);
             // We remove the inherent bonus as we will be using the Witch's spell attack bonus
-            witchFamiliarAttackIteration.MonsterAttackDefinition.SetToHitBonus(0);
+            witchFamiliarAttackIteration.MonsterAttackDefinition.toHitBonus = 0;
 
             witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm
                 .SetDiceNumber(1)
@@ -1165,7 +1165,7 @@ internal static class Witch
                 .AddToDB();
 
             // Find a better place to put this in?
-            hpConditionDefinition.SetAdditionalDamageType("ClassWitch");
+            hpConditionDefinition.additionalDamageType = "ClassWitch";
 
             var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
                 .Create(FeatureDefinitionSummoningAffinitys.SummoningAffinityKindredSpiritBond,

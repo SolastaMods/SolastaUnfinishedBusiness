@@ -11,13 +11,13 @@ public abstract class
 {
     public TBuilder SetConditionAffinityType(RuleDefinitions.ConditionAffinityType value)
     {
-        Definition.SetConditionAffinityType(value);
+        Definition.conditionAffinityType = value;
         return This();
     }
 
     public TBuilder SetConditionType(ConditionDefinition value)
     {
-        Definition.SetConditionType(value.Name);
+        Definition.conditionType = value.Name;
         return This();
     }
 

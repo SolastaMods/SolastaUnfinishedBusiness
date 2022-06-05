@@ -11,13 +11,13 @@ public class FeatureDefinitionSubclassChoiceBuilder
 {
     public FeatureDefinitionSubclassChoiceBuilder SetFilterByDeity(bool requireDeity)
     {
-        Definition.SetFilterByDeity(requireDeity);
+        Definition.filterByDeity = requireDeity;
         return this;
     }
 
     public FeatureDefinitionSubclassChoiceBuilder SetSubclassSuffix(string subclassSuffix)
     {
-        Definition.SetSubclassSuffix(subclassSuffix);
+        Definition.subclassSuffix = subclassSuffix;
         return this;
     }
 

@@ -7,23 +7,23 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
 {
     public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem)
     {
-        Definition.SetCraftedItem(craftedItem);
+        Definition.craftedItem = craftedItem;
         return this;
     }
 
     public RecipeDefinitionBuilder SetCraftedItem(ItemDefinition craftedItem, int stackCount)
     {
-        Definition.SetCraftedItem(craftedItem);
-        Definition.SetStackCount(stackCount);
+        Definition.craftedItem = craftedItem;
+        Definition.stackCount = stackCount;
         return this;
     }
 
     public RecipeDefinitionBuilder SetCraftingCheckData(int craftingHours, int craftingDC,
         ToolTypeDefinition toolType)
     {
-        Definition.SetCraftingHours(craftingHours);
-        Definition.SetCraftingDC(craftingDC);
-        Definition.SetToolTypeDefinition(toolType);
+        Definition.craftingHours = craftingHours;
+        Definition.craftingDC = craftingDC;
+        Definition.toolTypeDefinition = toolType;
         return this;
     }
 
@@ -63,7 +63,7 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
 
     public RecipeDefinitionBuilder SetSpellDefinition(SpellDefinition spellDefinition)
     {
-        Definition.SetSpellDefinition(spellDefinition);
+        Definition.spellDefinition = spellDefinition;
         return this;
     }
 

@@ -9,37 +9,37 @@ public class
 {
     public CharacterRaceDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition characterSizeDefinition)
     {
-        Definition.SetSizeDefinition(characterSizeDefinition);
+        Definition.sizeDefinition = characterSizeDefinition;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetMinimalAge(int minimalAge)
     {
-        Definition.SetMinimalAge(minimalAge);
+        Definition.minimalAge = minimalAge;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetMaximalAge(int maximalAge)
     {
-        Definition.SetMinimalAge(maximalAge);
+        Definition.minimalAge = maximalAge;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetBaseHeight(int baseHeight)
     {
-        Definition.SetBaseHeight(baseHeight);
+        Definition.baseHeight = baseHeight;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetBaseWeight(int baseWeight)
     {
-        Definition.SetBaseWeight(baseWeight);
+        Definition.baseWeight = baseWeight;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetRacePresentation(RacePresentation racePresentation)
     {
-        Definition.SetRacePresentation(racePresentation);
+        Definition.racePresentation = racePresentation;
         return this;
     }
 

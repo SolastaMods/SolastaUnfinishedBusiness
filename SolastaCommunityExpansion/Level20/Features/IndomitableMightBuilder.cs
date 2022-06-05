@@ -21,7 +21,7 @@ internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefiniti
             "Feature/&BarbarianIndomitableMightTitle",
             "Feature/&BarbarianIndomitableMightDescription");
 
-        Definition.SetGuiPresentation(guiPresentationBuilder.Build());
+        Definition.guiPresentation = guiPresentationBuilder.Build();
     }
 
     private static FeatureDefinition CreateAndAddToDB(string name, string guid)

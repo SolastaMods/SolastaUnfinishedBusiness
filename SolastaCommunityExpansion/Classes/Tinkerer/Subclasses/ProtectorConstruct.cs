@@ -87,7 +87,7 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
         Definition.GuiPresentation.SetSpriteReference(null);
 
-        Definition.SetEffectOnConjuredDeath(false);
+        Definition.effectOnConjuredDeath = false;
         Definition.AddedConditions.Clear();
         Definition.AddedConditions.Empty();
         Definition.EffectForms.Clear();
@@ -95,7 +95,7 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
 
         // changed the tag here and in relevant constructs
         // so the scaling is only applied to the Protector and Artillry Constructs
-        Definition.SetRequiredMonsterTag("ScalingTinkererConstruct");
+        Definition.requiredMonsterTag = "ScalingTinkererConstruct";
         Definition.AddedConditions.AddRange(new List<ConditionDefinition>
         {
             // using kindred conditions for following reasons
@@ -147,12 +147,12 @@ internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPo
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
             .GuiPresentation.SpriteReference);
 
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.NoCost);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        Definition.SetFixedUsesPerRecharge(1);
-        Definition.SetCostPerUse(1);
-        Definition.SetHasCastingFailure(false);
-        Definition.SetUniqueInstance(true);
+        Definition.activationTime = RuleDefinitions.ActivationTime.NoCost;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        Definition.fixedUsesPerRecharge = 1;
+        Definition.costPerUse = 1;
+        Definition.hasCastingFailure = false;
+        Definition.uniqueInstance = true;
 
         var ProtectorConstructEffect = new EffectDescriptionBuilder();
         ProtectorConstructEffect.SetDurationData(RuleDefinitions.DurationType.UntilLongRest, 1,
@@ -163,7 +163,7 @@ internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPo
             ScriptableObject.CreateInstance<ItemDefinition>(), 1, ProtectorConstructBuilder.ProtectorConstruct.name,
             null, true, null, ScriptableObject.CreateInstance<EffectProxyDefinition>()).Build());
 
-        Definition.SetEffectDescription(ProtectorConstructEffect.Build());
+        Definition.effectDescription = ProtectorConstructEffect.Build();
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -190,7 +190,7 @@ internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefin
         Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle_2";
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_2";
 
-        Definition.SetOverriddenPower(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct);
+        Definition.overriddenPower = SummonProtectorPowerConstructBuilder.SummonProtectorConstruct;
 
         Definition.EffectDescription.EffectForms[0].SummonForm
             .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
@@ -222,13 +222,13 @@ internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuil
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
             .GuiPresentation.SpriteReference);
 
-        Definition.SetSpellLevel(1);
-        Definition.SetRequiresConcentration(false);
-        Definition.SetUniqueInstance(true);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.NoCost);
-        Definition.SetSomaticComponent(false);
-        Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
-        Definition.SetVerboseComponent(false);
+        Definition.spellLevel = 1;
+        Definition.requiresConcentration = false;
+        Definition.uniqueInstance = true;
+        Definition.castingTime = RuleDefinitions.ActivationTime.NoCost;
+        Definition.somaticComponent = false;
+        Definition.materialComponentType = RuleDefinitions.MaterialComponentType.None;
+        Definition.verboseComponent = false;
 
         Definition.SetEffectDescription(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
             .EffectDescription);
@@ -347,7 +347,7 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
     private ProtectorConstructBuilder(string name, string guid) : base(
         DatabaseHelper.MonsterDefinitions.ConjuredEightBeast_Wolf, name, guid)
     {
-        Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.MonsterPresentation);
+        Definition.monsterPresentation = DatabaseHelper.MonsterDefinitions.Ghost_Wolf.MonsterPresentation;
 
         Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription";
@@ -355,12 +355,12 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
             .SpriteReference);
         Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
+        Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;
 
-        Definition.SetArmorClass(15);
-        Definition.SetNoExperienceGain(true);
-        Definition.SetHitDice(3);
-        Definition.SetHitDiceType(RuleDefinitions.DieType.D8);
+        Definition.armorClass = 15;
+        Definition.noExperienceGain = true;
+        Definition.hitDice = 3;
+        Definition.hitDiceType = RuleDefinitions.DieType.D8;
 
         Definition.AbilityScores.Empty();
         Definition.AbilityScores.AddToArray(14); // STR
@@ -381,11 +381,11 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
             new MonsterSkillProficiency(SkillDefinitions.Athletics, 2),
             new MonsterSkillProficiency(SkillDefinitions.Perception, 4));
 
-        Definition.SetFullyControlledWhenAllied(true);
-        Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
-        Definition.SetStandardHitPoints(20);
-        Definition.SetDefaultFaction("Party");
-        Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+        Definition.fullyControlledWhenAllied = true;
+        Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
+        Definition.standardHitPoints = 20;
+        Definition.defaultFaction = "Party";
+        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
         // the following tag is used for scaling purposes
         Definition.CreatureTags.Add("ScalingTinkererConstruct");
 
@@ -427,7 +427,7 @@ internal sealed class ProtectorConstructUpgradeBuilder : MonsterDefinitionBuilde
         Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle_5";
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription_5";
 
-        Definition.SetArmorClass(17);
+        Definition.armorClass = 17;
         Definition.Features.Add(RetributionBuilder.Retribution);
     }
 
@@ -487,8 +487,8 @@ internal sealed class ProtectorConstructAttackBuilder : MonsterAttackDefinitionB
             .EffectDescription.EffectParticleParameters);
 
         //replaced by new bond methods?
-        Definition.SetEffectDescription(newEffectDescription);
-        Definition.SetToHitBonus(0);
+        Definition.effectDescription = newEffectDescription;
+        Definition.toHitBonus = 0;
     }
 
     private static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)
@@ -514,10 +514,10 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.Title = "Feat/&SelfRepairTitle";
         Definition.GuiPresentation.Description = "Feat/&SelfRepairDescription";
 
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        Definition.SetFixedUsesPerRecharge(3);
-        Definition.SetCostPerUse(1);
+        Definition.activationTime = RuleDefinitions.ActivationTime.Action;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        Definition.fixedUsesPerRecharge = 3;
+        Definition.costPerUse = 1;
 
         var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
 
@@ -556,9 +556,9 @@ internal sealed class RetributionBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&RetributionTitle";
         Definition.GuiPresentation.Description = "Feat/&RetributionDescription";
-        Definition.SetShortTitleOverride("Feat/&RetributionTitle");
+        Definition.shortTitleOverride = "Feat/&RetributionTitle";
 
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
         Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 1;
         Definition.EffectDescription.EffectForms[0].DamageForm.DieType = RuleDefinitions.DieType.D4;
 

@@ -20,7 +20,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
             abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
 
-        Definition.SetGuiPresentation(guiPresentation);
+        Definition.guiPresentation = guiPresentation;
     }
 
     public FeatureDefinitionPowerSharedPoolBuilder(string name,
@@ -35,7 +35,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         Configure(poolPower, recharge, activationTime, costPerUse, proficiencyBonusToAttack,
             abilityScoreBonusToAttack, abilityScore, effectDescription, uniqueInstance);
 
-        Definition.SetGuiPresentation(guiPresentation);
+        Definition.guiPresentation = guiPresentation;
     }
 
     protected override void Initialise()
@@ -43,7 +43,7 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
         base.Initialise();
 
         // We set uses determination to fixed because the code handling updates needs that.
-        Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
     }
 
     internal override void Validate()
@@ -65,14 +65,14 @@ public class FeatureDefinitionPowerSharedPoolBuilder : FeatureDefinitionPowerBui
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}] poolPower is null.");
 
         // Recharge rate probably shouldn't be in here, but for now leave it be because there is already usage outside of this mod.
-        Definition.SetRechargeRate(recharge);
-        Definition.SetActivationTime(activationTime);
-        Definition.SetCostPerUse(costPerUse);
-        Definition.SetProficiencyBonusToAttack(proficiencyBonusToAttack);
-        Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
-        Definition.SetAbilityScore(abilityScore);
-        Definition.SetEffectDescription(effectDescription);
-        Definition.SetUniqueInstance(uniqueInstance);
+        Definition.rechargeRate = recharge;
+        Definition.activationTime = activationTime;
+        Definition.costPerUse = costPerUse;
+        Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
+        Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
+        Definition.abilityScore = abilityScore;
+        Definition.effectDescription = effectDescription;
+        Definition.uniqueInstance = uniqueInstance;
         Definition.SharedPool = poolPower;
 
         return This();

@@ -15,7 +15,7 @@ internal sealed class
 
     private RangerFeralSensesBuilder(string name, string guid) : base(SenseSeeInvisible12, name, guid)
     {
-        Definition.SetSenseRange(6);
+        Definition.senseRange = 6;
         Definition.GuiPresentation.Title = "Feature/&RangerFeralSensesTitle";
         Definition.GuiPresentation.Description = "Feature/&RangerFeralSensesDescription";
     }

@@ -15,25 +15,25 @@ public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definition
         //
         // Should fix lots of official spells getting modified by spells on this mod
         //
-        Definition.SetEffectDescription(Definition.EffectDescription.DeepCopy());
-        Definition.SetImplemented(true);
+        Definition.effectDescription = Definition.EffectDescription.DeepCopy();
+        Definition.implemented = true;
     }
 
     public TBuilder SetSpellLevel(int spellLevel)
     {
-        Definition.SetSpellLevel(spellLevel);
+        Definition.spellLevel = spellLevel;
         return This();
     }
 
     public TBuilder SetRequiresConcentration(bool value)
     {
-        Definition.SetRequiresConcentration(value);
+        Definition.requiresConcentration = value;
         return This();
     }
 
     public TBuilder SetSchoolOfMagic(SchoolOfMagicDefinition school)
     {
-        Definition.SetSchoolOfMagic(school.Name);
+        Definition.schoolOfMagic = school.Name;
         return This();
     }
 
@@ -44,73 +44,73 @@ public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definition
 
     public TBuilder SetSubSpells(IEnumerable<TDefinition> subspells)
     {
-        Definition.SetSpellsBundle(true);
+        Definition.spellsBundle = true;
         Definition.SubspellsList.SetRange(subspells);
         return This();
     }
 
     public TBuilder SetCastingTime(RuleDefinitions.ActivationTime castingTime)
     {
-        Definition.SetCastingTime(castingTime);
+        Definition.castingTime = castingTime;
         return This();
     }
 
     public TBuilder SetRitualCasting(RuleDefinitions.ActivationTime ritualCastingTime)
     {
-        Definition.SetRitual(true);
-        Definition.SetRitualCastingTime(ritualCastingTime);
+        Definition.ritual = true;
+        Definition.ritualCastingTime = ritualCastingTime;
         return This();
     }
 
     public TBuilder SetUniqueInstance(bool unique = true)
     {
-        Definition.SetUniqueInstance(unique);
+        Definition.uniqueInstance = unique;
         return This();
     }
 
     public TBuilder SetVerboseComponent(bool verboseComponent)
     {
-        Definition.SetVerboseComponent(verboseComponent);
+        Definition.verboseComponent = verboseComponent;
         return This();
     }
 
     public TBuilder SetSomaticComponent(bool somaticComponent)
     {
-        Definition.SetSomaticComponent(somaticComponent);
+        Definition.somaticComponent = somaticComponent;
         return This();
     }
 
     public TBuilder SetMaterialComponent(RuleDefinitions.MaterialComponentType materialComponentType)
     {
-        Definition.SetMaterialComponentType(materialComponentType);
+        Definition.materialComponentType = materialComponentType;
         return This();
     }
 
     public TBuilder SetSpecificMaterialComponent(string specificMaterialComponentTag,
         int specificMaterialComponentCostGp, bool specificMaterialComponentConsumed)
     {
-        Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Specific);
-        Definition.SetSpecificMaterialComponentTag(specificMaterialComponentTag);
-        Definition.SetSpecificMaterialComponentCostGp(specificMaterialComponentCostGp);
-        Definition.SetSpecificMaterialComponentConsumed(specificMaterialComponentConsumed);
+        Definition.materialComponentType = RuleDefinitions.MaterialComponentType.Specific;
+        Definition.specificMaterialComponentTag = specificMaterialComponentTag;
+        Definition.specificMaterialComponentCostGp = specificMaterialComponentCostGp;
+        Definition.specificMaterialComponentConsumed = specificMaterialComponentConsumed;
         return This();
     }
 
     public TBuilder SetEffectDescription(EffectDescription effectDescription)
     {
-        Definition.SetEffectDescription(effectDescription);
+        Definition.effectDescription = effectDescription;
         return This();
     }
 
     public TBuilder SetAiParameters(SpellAIParameters aiParameters)
     {
-        Definition.SetAiParameters(aiParameters);
+        Definition.aiParameters = aiParameters;
         return This();
     }
 
     public TBuilder SetConcentrationAction(ActionDefinitions.ActionParameter concentrationAction)
     {
-        Definition.SetConcentrationAction(concentrationAction);
+        Definition.concentrationAction = concentrationAction;
         return This();
     }
 

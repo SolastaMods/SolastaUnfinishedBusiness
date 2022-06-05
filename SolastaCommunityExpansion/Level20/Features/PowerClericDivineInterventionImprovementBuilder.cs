@@ -39,8 +39,8 @@ internal sealed class PowerClericDivineInterventionImprovementBuilder : FeatureD
     private PowerClericDivineInterventionImprovementBuilder(FeatureDefinitionPower basePower, string name,
         string guid) : base(basePower, name, guid)
     {
-        Definition.SetHasCastingFailure(false);
-        Definition.SetOverriddenPower(basePower);
+        Definition.hasCastingFailure = false;
+        Definition.overriddenPower = basePower;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(FeatureDefinitionPower basePower, string name,

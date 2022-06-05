@@ -22,7 +22,7 @@ internal sealed class TinkererConstructFamilyBuilder : CharacterFamilyDefinition
     private TinkererConstructFamilyBuilder(string name, string guid) : base(
         DatabaseHelper.CharacterFamilyDefinitions.Construct, name, guid)
     {
-        Definition.SetExtraplanar(true);
+        Definition.extraplanar = true;
     }
 
     private static CharacterFamilyDefinition CreateAndAddToDB(string name, string guid)
@@ -86,9 +86,9 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
         effect.SetHealingForm(mendingconstruct);
         effect.SetCreatedByCharacter(true);
 
-        Definition.SetRitual(false);
-        Definition.SetSpellLevel(0);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Minute1);
+        Definition.ritual = false;
+        Definition.spellLevel = 0;
+        Definition.castingTime = RuleDefinitions.ActivationTime.Minute1;
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
         Definition.EffectDescription.EffectForms.Add(effect);
@@ -122,12 +122,12 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship
             .GuiPresentation.SpriteReference);
 
-        Definition.SetSpellLevel(0);
-        Definition.SetRequiresConcentration(false);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
-        Definition.SetSomaticComponent(false);
-        Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.None);
-        Definition.SetVerboseComponent(false);
+        Definition.spellLevel = 0;
+        Definition.requiresConcentration = false;
+        Definition.castingTime = RuleDefinitions.ActivationTime.Action;
+        Definition.somaticComponent = false;
+        Definition.materialComponentType = RuleDefinitions.MaterialComponentType.None;
+        Definition.verboseComponent = false;
 
         var dismissConstruct = new CounterForm();
         dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
@@ -166,7 +166,7 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
             DatabaseHelper.CharacterFamilyDefinitions.Undead.Name
         );
 
-        Definition.SetEffectDescription(effectDescription);
+        Definition.effectDescription = effectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -195,12 +195,12 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
         Definition.MonsterPresentation.SetUniqueNameTitle("Feat/&ArtificialServantTitle");
         Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None);
+        Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;
 
-        Definition.SetArmorClass(13);
-        Definition.SetNoExperienceGain(true);
-        Definition.SetHitDice(3);
-        Definition.SetHitDiceType(RuleDefinitions.DieType.D4);
+        Definition.armorClass = 13;
+        Definition.noExperienceGain = true;
+        Definition.hitDice = 3;
+        Definition.hitDiceType = RuleDefinitions.DieType.D4;
 
         Definition.AbilityScores.Empty();
         Definition.AbilityScores.AddToArray(4); // STR
@@ -219,11 +219,11 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
             new MonsterSkillProficiency(SkillDefinitions.Stealth, 2),
             new MonsterSkillProficiency(SkillDefinitions.Perception, 4));
 
-        Definition.SetFullyControlledWhenAllied(true);
-        Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
-        Definition.SetStandardHitPoints(10);
-        Definition.SetDefaultFaction("Party");
-        Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+        Definition.fullyControlledWhenAllied = true;
+        Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
+        Definition.standardHitPoints = 10;
+        Definition.defaultFaction = "Party";
+        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
 
         // a tag should be added if scaling is applied to the servant
         //Definition.CreatureTags.Add();
@@ -306,7 +306,7 @@ internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBu
         newEffectDescription.SetEffectParticleParameters(DatabaseHelper.MonsterAttackDefinitions
             .Attack_Goblin_PebbleThrow.EffectDescription.EffectParticleParameters);
 
-        Definition.SetEffectDescription(newEffectDescription);
+        Definition.effectDescription = newEffectDescription;
 
         Definition.SetToHitBonus(assumedIntModifier + assumedProficiencyBonus);
     }
@@ -359,7 +359,7 @@ internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuild
         effectDescription.EffectForms.Clear();
         effectDescription.EffectForms.Add(effect);
 
-        Definition.SetEffectDescription(effectDescription);
+        Definition.effectDescription = effectDescription;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

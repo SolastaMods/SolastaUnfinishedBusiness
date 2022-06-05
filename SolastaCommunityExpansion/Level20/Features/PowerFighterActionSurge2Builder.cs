@@ -14,8 +14,8 @@ internal sealed class PowerFighterActionSurge2Builder : FeatureDefinitionPowerBu
 
     private PowerFighterActionSurge2Builder(string name, string guid) : base(PowerFighterActionSurge, name, guid)
     {
-        Definition.SetFixedUsesPerRecharge(2);
-        Definition.SetOverriddenPower(PowerFighterActionSurge);
+        Definition.fixedUsesPerRecharge = 2;
+        Definition.overriddenPower = PowerFighterActionSurge;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

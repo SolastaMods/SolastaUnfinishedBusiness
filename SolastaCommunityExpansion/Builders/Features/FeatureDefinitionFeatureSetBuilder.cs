@@ -44,19 +44,19 @@ public abstract class
 
     public TBuilder SetEnumerateInDescription(bool value)
     {
-        Definition.SetEnumerateInDescription(value);
+        Definition.enumerateInDescription = value;
         return (TBuilder)this;
     }
 
     public TBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
-        Definition.SetMode(mode);
+        Definition.mode = mode;
         return (TBuilder)this;
     }
 
     public TBuilder SetUniqueChoices(bool uniqueChoice)
     {
-        Definition.SetUniqueChoices(uniqueChoice);
+        Definition.uniqueChoices = uniqueChoice;
         return (TBuilder)this;
     }
 

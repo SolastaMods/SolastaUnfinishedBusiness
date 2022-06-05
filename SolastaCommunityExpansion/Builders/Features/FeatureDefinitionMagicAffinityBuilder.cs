@@ -11,10 +11,10 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
     public FeatureDefinitionMagicAffinityBuilder SetConcentrationModifiers(
         RuleDefinitions.ConcentrationAffinity concentrationAffinity, int threshold)
     {
-        Definition.SetConcentrationAffinity(concentrationAffinity);
+        Definition.concentrationAffinity = concentrationAffinity;
         if (threshold > 0)
         {
-            Definition.SetOverConcentrationThreshold(threshold);
+            Definition.overConcentrationThreshold = threshold;
         }
 
         return this;
@@ -23,9 +23,9 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
     public FeatureDefinitionMagicAffinityBuilder SetHandsFullCastingModifiers(bool weapon, bool weaponOrShield,
         bool weaponAsFocus)
     {
-        Definition.SetSomaticWithWeaponOrShield(weaponOrShield);
-        Definition.SetSomaticWithWeapon(weapon);
-        Definition.SetCanUseProficientWeaponAsFocus(weaponAsFocus);
+        Definition.somaticWithWeaponOrShield = weaponOrShield;
+        Definition.somaticWithWeapon = weapon;
+        Definition.canUseProficientWeaponAsFocus = weaponAsFocus;
         return this;
     }
 
@@ -34,13 +34,13 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         RuleDefinitions.SpellParamsModifierType dcModifierType, bool noProximityPenalty, bool cantripRetribution,
         bool halfDamageCantrips)
     {
-        Definition.SetSpellAttackModifierType(attackModifierType);
-        Definition.SetSpellAttackModifier(attackModifier);
-        Definition.SetRangeSpellNoProximityPenalty(noProximityPenalty);
-        Definition.SetSaveDCModifierType(dcModifierType);
-        Definition.SetSaveDCModifier(dcModifier);
-        Definition.SetCantripRetribution(cantripRetribution);
-        Definition.SetForceHalfDamageOnCantrips(halfDamageCantrips);
+        Definition.spellAttackModifierType = attackModifierType;
+        Definition.spellAttackModifier = attackModifier;
+        Definition.rangeSpellNoProximityPenalty = noProximityPenalty;
+        Definition.saveDCModifierType = dcModifierType;
+        Definition.saveDCModifier = dcModifier;
+        Definition.cantripRetribution = cantripRetribution;
+        Definition.forceHalfDamageOnCantrips = halfDamageCantrips;
         return this;
     }
 
@@ -51,8 +51,8 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
 
     public FeatureDefinitionMagicAffinityBuilder SetWarList(int levelBonus, IEnumerable<SpellDefinition> spells)
     {
-        Definition.SetUsesWarList(true);
-        Definition.SetWarListSlotBonus(levelBonus);
+        Definition.usesWarList = true;
+        Definition.warListSlotBonus = levelBonus;
         Definition.WarListSpells.AddRange(spells.Select(s => s.Name));
         Definition.WarListSpells.Sort();
         return this;
@@ -63,24 +63,24 @@ public class FeatureDefinitionMagicAffinityBuilder : FeatureDefinitionAffinityBu
         int additionalScribedSpells, RuleDefinitions.AdvantageType scribeAdvantage,
         RuleDefinitions.PreparedSpellsModifier preparedModifier)
     {
-        Definition.SetScribeCostMultiplier(scribeCostMultiplier);
-        Definition.SetScribeDurationMultiplier(scribeDurationMultiplier);
-        Definition.SetAdditionalScribedSpells(additionalScribedSpells);
-        Definition.SetScribeAdvantageType(scribeAdvantage);
-        Definition.SetPreparedSpellModifier(preparedModifier);
+        Definition.scribeCostMultiplier = scribeCostMultiplier;
+        Definition.scribeDurationMultiplier = scribeDurationMultiplier;
+        Definition.additionalScribedSpells = additionalScribedSpells;
+        Definition.scribeAdvantageType = scribeAdvantage;
+        Definition.preparedSpellModifier = preparedModifier;
         return this;
     }
 
     public FeatureDefinitionMagicAffinityBuilder SetRitualCasting(RuleDefinitions.RitualCasting ritualCasting)
     {
-        Definition.SetRitualCasting(ritualCasting);
+        Definition.ritualCasting = ritualCasting;
         return this;
     }
 
 
     public FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
     {
-        Definition.SetExtendedSpellList(spellListDefinition);
+        Definition.extendedSpellList = spellListDefinition;
         return this;
     }
 

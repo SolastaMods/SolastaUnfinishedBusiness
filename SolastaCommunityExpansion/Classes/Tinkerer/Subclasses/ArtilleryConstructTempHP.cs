@@ -20,13 +20,13 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
     private TempHPShieldBuilder(string name, string guid) : base(ThunderShieldBuilder.ThunderShield, name, guid)
     {
         Definition.GuiPresentation.Title = "Feature/&TempHPShieldTitle";
-        Definition.SetShortTitleOverride("Feature/&TempHPShieldTitle");
+        Definition.shortTitleOverride = "Feature/&TempHPShieldTitle";
         Definition.GuiPresentation.Description = "Feat/&TempHPShieldDescription";
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
             .SpriteReference);
 
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        Definition.activationTime = RuleDefinitions.ActivationTime.Action;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
 
         var tempHPShield = new TemporaryHitPointsForm
         {
@@ -83,7 +83,7 @@ internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
         DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
     {
         // cant use set, need to copy individual parts of presentation
-        //Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation);
+        //Definition.monsterPresentation = DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation;
 
         Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&TempHPShieldConstructDescription";
@@ -100,10 +100,10 @@ internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
         Definition.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions
             .KindredSpiritBear.MonsterPresentation.SecondCharacterShaderColor);
 
-        Definition.SetArmorClass(18);
-        Definition.SetNoExperienceGain(true);
-        Definition.SetHitDice(3);
-        Definition.SetHitDiceType(RuleDefinitions.DieType.D8);
+        Definition.armorClass = 18;
+        Definition.noExperienceGain = true;
+        Definition.hitDice = 3;
+        Definition.hitDiceType = RuleDefinitions.DieType.D8;
 
         Definition.AbilityScores.Empty();
         Definition.AbilityScores.AddToArray(10); // STR
@@ -113,11 +113,11 @@ internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
         Definition.AbilityScores.AddToArray(10); // WIS
         Definition.AbilityScores.AddToArray(10); // CHA
 
-        Definition.SetFullyControlledWhenAllied(true);
-        Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
-        Definition.SetStandardHitPoints(15);
-        Definition.SetDefaultFaction("Party");
-        Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+        Definition.fullyControlledWhenAllied = true;
+        Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
+        Definition.standardHitPoints = 15;
+        Definition.defaultFaction = "Party";
+        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
         //
 
         Definition.Features.Clear();
@@ -229,10 +229,10 @@ internal sealed class SummonTempHPShieldSpellConstructBuilder : SpellDefinitionB
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
             .SpriteReference);
 
-        Definition.SetSpellLevel(1);
-        Definition.SetRequiresConcentration(false);
-        Definition.SetUniqueInstance(true);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
+        Definition.spellLevel = 1;
+        Definition.requiresConcentration = false;
+        Definition.uniqueInstance = true;
+        Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
         Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower
             .EffectDescription);
@@ -289,7 +289,7 @@ internal sealed class SummonTempHPShieldSpellConstruct15Builder : SpellDefinitio
     {
         Definition.GuiPresentation.Title = "Feature/&TempHPShield_15ModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&TempHPShield_15ModePowerDescription";
-        Definition.SetUniqueInstance(false);
+        Definition.uniqueInstance = false;
         Definition.EffectDescription.EffectForms[0].SummonForm
             .SetMonsterDefinitionName(TempHPShieldConstruct15Builder.TempHPShieldConstruct15.Name);
     }

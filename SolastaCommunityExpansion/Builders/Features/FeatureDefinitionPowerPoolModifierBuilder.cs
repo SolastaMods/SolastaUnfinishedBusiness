@@ -21,10 +21,10 @@ public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerB
         if (IsNew)
         {
             // This is just an activation time that should not be shown in the UI.
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.Permanent);
+            Definition.activationTime = RuleDefinitions.ActivationTime.Permanent;
 
             // Math for usage gets weird if this isn't 1.
-            Definition.SetCostPerUse(1);
+            Definition.costPerUse = 1;
         }
     }
 
@@ -43,10 +43,10 @@ public class FeatureDefinitionPowerPoolModifierBuilder : FeatureDefinitionPowerB
     {
         Preconditions.IsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
 
-        Definition.SetFixedUsesPerRecharge(powerPoolModifier);
-        Definition.SetUsesDetermination(usesDetermination);
-        Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-        Definition.SetOverriddenPower(Definition);
+        Definition.fixedUsesPerRecharge = powerPoolModifier;
+        Definition.usesDetermination = usesDetermination;
+        Definition.usesAbilityScoreName = usesAbilityScoreName;
+        Definition.overriddenPower = Definition;
 
         Definition.PoolPower = poolPower;
 

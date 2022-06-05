@@ -45,7 +45,7 @@ public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAff
 
     public FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
     {
-        Definition.SetAncestryDefinesDamageType(ancestryDefinesDamageType);
+        Definition.ancestryDefinesDamageType = ancestryDefinesDamageType;
 
         return This();
     }
@@ -61,8 +61,8 @@ public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAff
     public FeatureDefinitionDamageAffinityBuilder SetRetaliate(FeatureDefinitionPower featureDefinitionPower,
         int rangeCells)
     {
-        Definition.SetRetaliatePower(featureDefinitionPower);
-        Definition.SetRetaliateRangeCells(rangeCells);
+        Definition.retaliatePower = featureDefinitionPower;
+        Definition.retaliateRangeCells = rangeCells;
 
         return This();
     }
@@ -71,7 +71,7 @@ public class FeatureDefinitionDamageAffinityBuilder : FeatureDefinitionDamageAff
         int rangeCells, bool reliateWhenHit)
     {
         SetRetaliate(featureDefinitionPower, rangeCells);
-        Definition.SetRetaliateWhenHit(reliateWhenHit);
+        Definition.retaliateWhenHit = reliateWhenHit;
 
         return This();
     }

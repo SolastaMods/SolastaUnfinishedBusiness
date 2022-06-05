@@ -26,8 +26,8 @@ internal class WarlockClassPactBoonSetBuilder : FeatureDefinitionFeatureSetBuild
         Definition.FeatureSet.Add(DHWarlockClassPactOfTheChainFeatureSetBuilder
             .DHWarlockClassPactOfTheChainFeatureSet);
         Definition.FeatureSet.Add(DHPactOfTheTomeFeatureSetBuilder.DHPactOfTheTomeFeatureSet);
-        Definition.SetUniqueChoices(true);
-        Definition.SetEnumerateInDescription(true);
+        Definition.uniqueChoices = true;
+        Definition.enumerateInDescription = true;
     }
 
     internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
@@ -53,8 +53,8 @@ internal class AHWarlockClassPactOfTheBladeSetBuilder : FeatureDefinitionFeature
         Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionProficiencys.ProficiencyFighterWeapon);
         Definition.FeatureSet.Add(DatabaseHelper.FeatureDefinitionAttackModifiers
             .AttackModifierMartialSpellBladeMagicWeapon);
-        Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
-        Definition.SetUniqueChoices(false);
+        Definition.mode = FeatureDefinitionFeatureSet.FeatureSetMode.Union;
+        Definition.uniqueChoices = false;
     }
 
     internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
@@ -251,7 +251,7 @@ internal class DHWarlockClassPactOfTheChainFeatureSetBuilder : FeatureDefinition
             FindFamiliarQuasitPower
         );
 
-        Definition.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
+        Definition.mode = FeatureDefinitionFeatureSet.FeatureSetMode.Union;
     }
 
     internal static FeatureDefinitionFeatureSet CreateAndAddToDB(string name)
@@ -336,7 +336,7 @@ internal class DHPactOfTheTomeMagicAffinityBuilder : FeatureDefinitionMagicAffin
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
 
-        Definition.SetExtendedSpellList(DHPactOfTheTomeSpellListBuilder.DHPactOfTheTomeSpellList);
+        Definition.extendedSpellList = DHPactOfTheTomeSpellListBuilder.DHPactOfTheTomeSpellList;
     }
 
     internal static FeatureDefinitionMagicAffinity CreateAndAddToDB(string name)

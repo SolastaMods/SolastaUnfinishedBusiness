@@ -164,7 +164,7 @@ internal static class FeatureHelpers
                 costPerUse, recharge,
                 proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription)
         {
-            Definition.SetOverriddenPower(overridenPower);
+            Definition.overriddenPower = overridenPower;
         }
     }
 
@@ -175,10 +175,10 @@ internal static class FeatureHelpers
             AttributeModifierOperation modifierType,
             string attribute, int amount, GuiPresentation guiPresentation) : base(name, guidNamespace)
         {
-            Definition.SetModifierType2(modifierType);
-            Definition.SetModifiedAttribute(attribute);
-            Definition.SetModifierValue(amount);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.modifierType2 = modifierType;
+            Definition.modifiedAttribute = attribute;
+            Definition.modifierValue = amount;
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -193,25 +193,25 @@ internal static class FeatureHelpers
         public FeatureDefinitionMagicAffinityBuilder(string name, Guid guidNamespace, int levelBonus,
             GuiPresentation guiPresentation, IEnumerable<string> spellNames) : base(name, guidNamespace)
         {
-            Definition.SetUsesWarList(true);
-            Definition.SetWarListSlotBonus(levelBonus);
+            Definition.usesWarList = true;
+            Definition.warListSlotBonus = levelBonus;
             Definition.WarListSpells.AddRange(spellNames);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.guiPresentation = guiPresentation;
         }
 
         public FeatureDefinitionMagicAffinityBuilder(string name, Guid guidNamespace, int attackModifier,
             int dcModifier, GuiPresentation guiPresentation) : base(name, guidNamespace)
         {
-            Definition.SetSpellAttackModifier(attackModifier);
-            Definition.SetSaveDCModifier(dcModifier);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.spellAttackModifier = attackModifier;
+            Definition.saveDCModifier = dcModifier;
+            Definition.guiPresentation = guiPresentation;
         }
 
         public FeatureDefinitionMagicAffinityBuilder(string name, Guid guidNamesapce,
             GuiPresentation guiPresentation) : base(name, guidNamesapce)
         {
-            Definition.SetSomaticWithWeaponOrShield(true);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.somaticWithWeaponOrShield = true;
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -251,7 +251,7 @@ internal static class FeatureHelpers
                 Definition.AffinityGroups.Add(group);
             }
 
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -281,7 +281,7 @@ internal static class FeatureHelpers
                 Definition.AffinityGroups.Add(group);
             }
 
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -304,7 +304,7 @@ internal static class FeatureHelpers
                 Definition.AffinityGroups.Add(group);
             }
 
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -315,11 +315,11 @@ internal static class FeatureHelpers
             RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter) : base(name,
             guidNamespace)
         {
-            Definition.SetRestStage(restStage);
-            Definition.SetRestType(restType);
-            Definition.SetCondition(condition);
-            Definition.SetFunctor(functor);
-            Definition.SetStringParameter(stringParameter);
+            Definition.restStage = restStage;
+            Definition.restType = restType;
+            Definition.condition = condition;
+            Definition.functor = functor;
+            Definition.stringParameter = stringParameter;
         }
     }
 
@@ -329,11 +329,11 @@ internal static class FeatureHelpers
         public FeatureDefinitionMovementAffinityBuilder(string name, Guid guidNamespace, bool addBase,
             int speedAdd, float speedMult, GuiPresentation guiPresentation) : base(name, guidNamespace)
         {
-            Definition.SetAppliesToAllModes(true);
-            Definition.SetBaseSpeedMultiplicativeModifier(speedMult);
-            Definition.SetBaseSpeedAdditiveModifier(speedAdd);
-            Definition.SetSpeedAddBase(addBase);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.appliesToAllModes = true;
+            Definition.baseSpeedMultiplicativeModifier = speedMult;
+            Definition.baseSpeedAdditiveModifier = speedAdd;
+            Definition.speedAddBase = addBase;
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -343,10 +343,10 @@ internal static class FeatureHelpers
             RuleDefinitions.DieType healingBonusDiceType,
             RuleDefinitions.LevelSourceType addLevel, GuiPresentation guiPresentation) : base(name, guidNamespace)
         {
-            Definition.SetHealingBonusDiceNumber(healingBonusDiceNumber);
-            Definition.SetHealingBonusDiceType(healingBonusDiceType);
-            Definition.SetAddLevel(addLevel);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.healingBonusDiceNumber = healingBonusDiceNumber;
+            Definition.healingBonusDiceType = healingBonusDiceType;
+            Definition.addLevel = addLevel;
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -367,25 +367,25 @@ internal static class FeatureHelpers
             IEnumerable<ConditionOperationDescription> conditionOperations,
             GuiPresentation guiPresentation) : base(name, guidNamesapce)
         {
-            Definition.SetNotificationTag(notificationTag);
-            Definition.SetLimitedUsage(limitedUsage);
-            Definition.SetDamageValueDetermination(damageValueDetermination);
-            Definition.SetTriggerCondition(triggerCondition);
-            Definition.SetRequiredProperty(requiredProperty);
-            Definition.SetAttackModeOnly(attackModeOnly);
-            Definition.SetDamageDieType(damageDieType);
-            Definition.SetDamageDiceNumber(damageDiceNumber);
-            Definition.SetAdditionalDamageType(additionalDamageType);
-            Definition.SetSpecificDamageType(specificDamageType);
-            Definition.SetDamageAdvancement(damageAdvancement);
+            Definition.notificationTag = notificationTag;
+            Definition.limitedUsage = limitedUsage;
+            Definition.damageValueDetermination = damageValueDetermination;
+            Definition.triggerCondition = triggerCondition;
+            Definition.requiredProperty = requiredProperty;
+            Definition.attackModeOnly = attackModeOnly;
+            Definition.damageDieType = damageDieType;
+            Definition.damageDiceNumber = damageDiceNumber;
+            Definition.additionalDamageType = additionalDamageType;
+            Definition.specificDamageType = specificDamageType;
+            Definition.damageAdvancement = damageAdvancement;
             Definition.DiceByRankTable.SetRange(diceByRankTable);
-            Definition.SetDamageDieType(damageDieType);
-            Definition.SetHasSavingThrow(hasSavingThrow);
-            Definition.SetSavingThrowAbility(savingThrowAbility);
-            Definition.SetSavingThrowDC(savingThrowDC);
-            Definition.SetDamageSaveAffinity(damageSaveAffinity);
+            Definition.damageDieType = damageDieType;
+            Definition.hasSavingThrow = hasSavingThrow;
+            Definition.savingThrowAbility = savingThrowAbility;
+            Definition.savingThrowDC = savingThrowDC;
+            Definition.damageSaveAffinity = damageSaveAffinity;
             Definition.ConditionOperations.SetRange(conditionOperations);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.guiPresentation = guiPresentation;
         }
     }
 
@@ -397,11 +397,11 @@ internal static class FeatureHelpers
             bool enumerateInDescription, GuiPresentation guiPresentation) : base(name, guidNamespace)
         {
             Definition.FeatureSet.SetRange(featureSet);
-            Definition.SetMode(mode);
-            Definition.SetDefaultSelection(defaultSelection);
-            Definition.SetUniqueChoices(uniqueChoices);
-            Definition.SetEnumerateInDescription(enumerateInDescription);
-            Definition.SetGuiPresentation(guiPresentation);
+            Definition.mode = mode;
+            Definition.defaultSelection = defaultSelection;
+            Definition.uniqueChoices = uniqueChoices;
+            Definition.enumerateInDescription = enumerateInDescription;
+            Definition.guiPresentation = guiPresentation;
         }
     }
 }
