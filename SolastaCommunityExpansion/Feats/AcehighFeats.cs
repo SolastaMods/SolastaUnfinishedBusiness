@@ -21,7 +21,6 @@ internal static class AcehighFeats
     {
         feats.Add(DeadeyeFeatBuilder.DeadeyeFeat);
         feats.Add(BuildPowerAttackFeat());
-        feats.Add(RecklessFuryFeatBuilder.RecklessFuryFeat);
     }
 
     private static FeatDefinition BuildPowerAttackFeat()
@@ -400,6 +399,7 @@ internal static class AcehighFeats
         }
     }
 
+    // Leaving this to not break existing characters
     private sealed class RecklessFuryFeatBuilder : FeatDefinitionBuilder
     {
         private const string RecklessFuryFeatName = "RecklessFuryFeat";
