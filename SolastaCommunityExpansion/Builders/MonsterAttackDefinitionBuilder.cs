@@ -30,7 +30,7 @@ public abstract class
 
     public TBuilder SetProximity(RuleDefinitions.AttackProximity proximity)
     {
-        Definition.SetProximity(proximity);
+        Definition.proximity = proximity;
         return This();
     }
 

@@ -15,7 +15,7 @@ public class
 {
     public CharacterClassDefinitionBuilder SetHitDice(RuleDefinitions.DieType die)
     {
-        Definition.SetHitDice(die);
+        Definition.hitDice = die;
         return this;
     }
 
@@ -41,31 +41,31 @@ public class
 
     public CharacterClassDefinitionBuilder SetIngredientGatheringOdds(int odds)
     {
-        Definition.SetIngredientGatheringOdds(odds);
+        Definition.ingredientGatheringOdds = odds;
         return this;
     }
 
     public CharacterClassDefinitionBuilder SetBattleAI(DecisionPackageDefinition decisionPackage)
     {
-        Definition.SetDefaultBattleDecisions(decisionPackage);
+        Definition.defaultBattleDecisions = decisionPackage;
         return this;
     }
 
     public CharacterClassDefinitionBuilder SetPictogram(AssetReferenceSprite sprite)
     {
-        Definition.SetClassPictogramReference(sprite);
+        Definition.classPictogramReference = sprite;
         return this;
     }
 
     public CharacterClassDefinitionBuilder SetAnimationId(AnimationDefinitions.ClassAnimationId animId)
     {
-        Definition.SetClassAnimationId(animId);
+        Definition.classAnimationId = animId;
         return this;
     }
 
     public CharacterClassDefinitionBuilder RequireDeity()
     {
-        Definition.SetRequiresDeity(true);
+        Definition.requiresDeity = true;
         return this;
     }
 

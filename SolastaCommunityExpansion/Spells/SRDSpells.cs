@@ -209,12 +209,12 @@ public static class SrdSpells
     //           Definition.GuiPresentation.Description = DescriptionString;
     //
     //           Definition.SetSilentWhenAdded ( false);
-    //           Definition.SetSilentWhenRemoved(false);
+    //           Definition.silentWhenRemoved = false;
     //
-    //           Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
-    //           Definition.SetSpecialDuration(true);
-    //           Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-    //           Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+    //           Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
+    //           Definition.specialDuration = true;
+    //           Definition.durationType = RuleDefinitions.DurationType.Round;
+    //           Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
     //
     //
     //           Definition.Features.Clear();
@@ -1858,7 +1858,7 @@ public static class SrdSpells
 
         protected ReverseGravityConditionBuilder(string name, string guid) : base(ConditionLevitate, name, guid)
         {
-            Definition.SetConditionType(RuleDefinitions.ConditionType.Neutral);
+            Definition.conditionType = RuleDefinitions.ConditionType.Neutral;
             Definition.Features.SetRange
             (
                 FeatureDefinitionMovementAffinitys.MovementAffinityConditionLevitate,
@@ -1887,7 +1887,7 @@ public static class SrdSpells
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
-            Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+            Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
             Definition.Features.SetRange(
                 FeatureDefinitionMagicAffinitys.MagicAffinitySilenced,
                 FeatureDefinitionMagicAffinitys.MagicAffinityConditionRaging,
@@ -1917,11 +1917,11 @@ public static class SrdSpells
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
-            Definition.SetModifiedAttribute(SmartAttributeDefinitions.Intelligence.name);
-            Definition.SetModifierAbilityScore(SmartAttributeDefinitions.Intelligence.name);
-            Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
-            Definition.SetModifierValue(1);
-            Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
+            Definition.modifiedAttribute = SmartAttributeDefinitions.Intelligence.name;
+            Definition.modifierAbilityScore = SmartAttributeDefinitions.Intelligence.name;
+            Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force;
+            Definition.modifierValue = 1;
+            Definition.situationalContext = RuleDefinitions.SituationalContext.None;
         }
 
         private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
@@ -1945,11 +1945,11 @@ public static class SrdSpells
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
-            Definition.SetModifiedAttribute(SmartAttributeDefinitions.Charisma.name);
-            Definition.SetModifierAbilityScore(SmartAttributeDefinitions.Charisma.name);
-            Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force);
-            Definition.SetModifierValue(1);
-            Definition.SetSituationalContext(RuleDefinitions.SituationalContext.None);
+            Definition.modifiedAttribute = SmartAttributeDefinitions.Charisma.name;
+            Definition.modifierAbilityScore = SmartAttributeDefinitions.Charisma.name;
+            Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Force;
+            Definition.modifierValue = 1;
+            Definition.situationalContext = RuleDefinitions.SituationalContext.None;
         }
 
         private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
@@ -2005,7 +2005,7 @@ public static class SrdSpells
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
-            Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+            Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
             Definition.Features.SetRange
             (
                 FeatureDefinitionCombatAffinitys.CombatAffinityDodging,
@@ -2035,13 +2035,13 @@ public static class SrdSpells
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;
-            Definition.SetDamageAffinityType(RuleDefinitions.DamageAffinityType.None);
-            Definition.SetSavingThrowAdvantageType(RuleDefinitions.AdvantageType.None);
-            Definition.SetKnockOutAffinity(RuleDefinitions.KnockoutAffinity.None);
-            Definition.SetRetaliateWhenHit(true);
-            Definition.SetRetaliateProximity(RuleDefinitions.AttackProximity.Melee);
-            Definition.SetRetaliateRangeCells(1);
-            Definition.SetRetaliatePower(HolyAuraBlindingPowerBuilder.HolyAuraBlindingPower);
+            Definition.damageAffinityType = RuleDefinitions.DamageAffinityType.None;
+            Definition.savingThrowAdvantageType = RuleDefinitions.AdvantageType.None;
+            Definition.knockOutAffinity = RuleDefinitions.KnockoutAffinity.None;
+            Definition.retaliateWhenHit = true;
+            Definition.retaliateProximity = RuleDefinitions.AttackProximity.Melee;
+            Definition.retaliateRangeCells = 1;
+            Definition.retaliatePower = HolyAuraBlindingPowerBuilder.HolyAuraBlindingPower;
         }
 
         internal static FeatureDefinitionDamageAffinity CreateAndAddToDB(string name, string guid)
@@ -2086,7 +2086,7 @@ public static class SrdSpells
                         new List<ConditionDefinition>())
                     .Build());
 
-            Definition.SetEffectDescription(effectDescription.Build());
+            Definition.effectDescription = effectDescription.Build();
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -2170,8 +2170,8 @@ public static class SrdSpells
             Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
             Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
             Definition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Damaged);
-            Definition.SetInterruptionDamageThreshold(1);
-            Definition.SetInterruptionRequiresSavingThrow(false);
+            Definition.interruptionDamageThreshold = 1;
+            Definition.interruptionRequiresSavingThrow = false;
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)

@@ -417,7 +417,7 @@ internal static class ItemOptionsContext
                 Definition.GuiPresentation.SetSpriteReference(assetReferenceSprite);
             }
 
-            Definition.SetCosts(ComponentPouch.Costs);
+            Definition.costs = ComponentPouch.Costs;
 
             if (slotTypes.Length > 0)
             {

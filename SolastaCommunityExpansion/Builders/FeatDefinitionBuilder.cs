@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -36,15 +35,15 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
 
     public TBuilder SetAbilityScorePrerequisite(string abilityScore, int value)
     {
-        Definition.SetMinimalAbilityScorePrerequisite(true);
-        Definition.SetMinimalAbilityScoreName(abilityScore);
-        Definition.SetMinimalAbilityScoreValue(value);
+        Definition.minimalAbilityScorePrerequisite = true;
+        Definition.minimalAbilityScoreName = abilityScore;
+        Definition.minimalAbilityScoreValue = value;
         return This();
     }
 
     public TBuilder SetMustCastSpellsPrerequisite()
     {
-        Definition.SetMustCastSpellsPrerequisite(true);
+        Definition.mustCastSpellsPrerequisite = true;
         return This();
     }
 
@@ -83,8 +82,8 @@ public abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : DefinitionB
 
     public TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category)
     {
-        Definition.SetArmorProficiencyPrerequisite(true);
-        Definition.SetArmorProficiencyCategory(category.Name);
+        Definition.armorProficiencyPrerequisite = true;
+        Definition.armorProficiencyCategory = category.Name;
         return This();
     }
 

@@ -21,164 +21,164 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetAlignment(string alignment)
     {
-        Definition.SetAlignment(alignment);
+        Definition.alignment = alignment;
         return this;
     }
 
     public MonsterDefinitionBuilder SetAlwaysHideStats(bool value)
     {
-        Definition.SetAlwaysHideStats(value);
+        Definition.alwaysHideStats = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetArmor(string armor)
     {
-        Definition.SetArmor(armor);
+        Definition.armor = armor;
         return this;
     }
 
     public MonsterDefinitionBuilder SetArmorClass(int armorClass)
     {
-        Definition.SetArmorClass(armorClass);
+        Definition.armorClass = armorClass;
         return this;
     }
 
     public MonsterDefinitionBuilder SetAudioRaceRTPCValue(float audioRaceRTPCValue)
     {
-        Definition.SetAudioRaceRTPCValue(audioRaceRTPCValue);
+        Definition.audioRaceRTPCValue = audioRaceRTPCValue;
         return this;
     }
 
     public MonsterDefinitionBuilder SetBestiaryEntry(BestiaryEntry entry)
     {
-        Definition.SetBestiaryEntry(entry);
+        Definition.bestiaryEntry = entry;
         return this;
     }
 
     public MonsterDefinitionBuilder SetBestiaryReference(MonsterDefinition monster)
     {
-        Definition.SetBestiaryReference(monster);
+        Definition.bestiaryReference = monster;
         return this;
     }
 
     public MonsterDefinitionBuilder SetBestiarySpriteReference(AssetReferenceSprite sprite)
     {
-        Definition.SetBestiarySpriteReference(sprite);
+        Definition.bestiarySpriteReference = sprite;
         return this;
     }
 
     public MonsterDefinitionBuilder SetChallengeRating(float challengeRating)
     {
-        Definition.SetChallengeRating(challengeRating);
+        Definition.challengeRating = challengeRating;
         return this;
     }
 
     public MonsterDefinitionBuilder SetCharacterFamily(string family)
     {
-        Definition.SetCharacterFamily(family);
+        Definition.characterFamily = family;
         return this;
     }
 
     public MonsterDefinitionBuilder SetDefaultBattleDecisionPackage(DecisionPackageDefinition decisionPackage)
     {
-        Definition.SetDefaultBattleDecisionPackage(decisionPackage);
+        Definition.defaultBattleDecisionPackage = decisionPackage;
         return this;
     }
 
     public MonsterDefinitionBuilder SetDefaultFaction(string faction)
     {
-        Definition.SetDefaultFaction(faction);
+        Definition.defaultFaction = faction;
         return this;
     }
 
     public MonsterDefinitionBuilder SetDifferentActionEachTurn(bool value)
     {
-        Definition.SetDifferentActionEachTurn(value);
+        Definition.differentActionEachTurn = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetDroppedLootDefinition(LootPackDefinition lootPack)
     {
-        Definition.SetDroppedLootDefinition(lootPack);
+        Definition.droppedLootDefinition = lootPack;
         return this;
     }
 
     public MonsterDefinitionBuilder SetDualSex(bool value)
     {
-        Definition.SetDualSex(value);
+        Definition.dualSex = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetFollowFloorAngle(bool value)
     {
-        Definition.SetFollowFloorAngle(value);
+        Definition.followFloorAngle = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetForceCombatStartsAnimation(bool value)
     {
-        Definition.SetForceCombatStartsAnimation(value);
+        Definition.forceCombatStartsAnimation = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetForceNoFlyAnimation(bool value)
     {
-        Definition.SetForceNoFlyAnimation(value);
+        Definition.forceNoFlyAnimation = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetForcePersistentBody(bool value)
     {
-        Definition.SetForcePersistentBody(value);
+        Definition.forcePersistentBody = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetFullyControlledWhenAllied(bool value)
     {
-        Definition.SetFullyControlledWhenAllied(value);
+        Definition.fullyControlledWhenAllied = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetGroupAttacks(bool value)
     {
-        Definition.SetGroupAttacks(value);
+        Definition.groupAttacks = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHasLookAt(bool value)
     {
-        Definition.SetHasLookAt(value);
+        Definition.hasLookAt = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHeight(int Height)
     {
-        Definition.SetHeight(Height);
+        Definition.height = Height;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHitDiceNumber(int hitDice)
     {
-        Definition.SetHitDice(hitDice);
+        Definition.hitDice = hitDice;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHitDiceType(DieType dieType)
     {
-        Definition.SetHitDiceType(dieType);
+        Definition.hitDiceType = dieType;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHitDice(DieType dieType, int numberOf)
     {
-        Definition.SetHitDiceType(dieType);
-        Definition.SetHitDice(numberOf);
+        Definition.hitDiceType = dieType;
+        Definition.hitDice = numberOf;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHitPointsBonus(int bonus)
     {
-        Definition.SetHitPointsBonus(bonus);
+        Definition.hitPointsBonus = bonus;
         return this;
     }
 
@@ -186,11 +186,11 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
     {
         if (value)
         {
-            Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.Monster);
+            Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.Monster;
         }
         else
         {
-            Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
+            Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
         }
 
         return this;
@@ -198,109 +198,109 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetInterceptStance(MoveStance interceptStance)
     {
-        Definition.SetInterceptStance(interceptStance);
+        Definition.interceptStance = interceptStance;
         return this;
     }
 
     public MonsterDefinitionBuilder SetIsHusk(bool value)
     {
-        Definition.SetIsHusk(value);
+        Definition.isHusk = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetIsUnique(bool value)
     {
-        Definition.SetIsUnique(value);
+        Definition.isUnique = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetLegendaryCreature(bool value)
     {
-        Definition.SetLegendaryCreature(value);
+        Definition.legendaryCreature = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetMaximalAge(int Age)
     {
-        Definition.SetMaximalAge(Age);
+        Definition.maximalAge = Age;
         return this;
     }
 
     public MonsterDefinitionBuilder SetMaxLegendaryActionPoints(int maxLegendaryActionPoints)
     {
-        Definition.SetMaxLegendaryActionPoints(maxLegendaryActionPoints);
+        Definition.maxLegendaryActionPoints = maxLegendaryActionPoints;
         return this;
     }
 
     public MonsterDefinitionBuilder SetMaxLegendaryResistances(int maxLegendaryResistances)
     {
-        Definition.SetMaxLegendaryResistances(maxLegendaryResistances);
+        Definition.maxLegendaryResistances = maxLegendaryResistances;
         return this;
     }
 
     public MonsterDefinitionBuilder SetMinimalAge(int minimalAge)
     {
-        Definition.SetMinimalAge(minimalAge);
+        Definition.minimalAge = minimalAge;
         return this;
     }
 
     public MonsterDefinitionBuilder SetMonsterPresentation(MonsterPresentation monsterPresentation)
     {
-        Definition.SetMonsterPresentation(monsterPresentation);
+        Definition.monsterPresentation = monsterPresentation;
         return this;
     }
 
     public MonsterDefinitionBuilder SetNoExperienceGain(bool value)
     {
-        Definition.SetNoExperienceGain(value);
+        Definition.noExperienceGain = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetPatrolStance(MoveStance patrolStance)
     {
-        Definition.SetPatrolStance(patrolStance);
+        Definition.patrolStance = patrolStance;
         return this;
     }
 
     public MonsterDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition sizeDefinition)
     {
-        Definition.SetSizeDefinition(sizeDefinition);
+        Definition.sizeDefinition = sizeDefinition;
         return this;
     }
 
     public MonsterDefinitionBuilder SetSneakStance(MoveStance SneakStance)
     {
-        Definition.SetSneakStance(SneakStance);
+        Definition.sneakStance = SneakStance;
         return this;
     }
 
     public MonsterDefinitionBuilder SetStandardHitPoints(int Hp)
     {
-        Definition.SetStandardHitPoints(Hp);
+        Definition.standardHitPoints = Hp;
         return this;
     }
 
     public MonsterDefinitionBuilder SetStealableLootDefinition(LootPackDefinition stealableLoot)
     {
-        Definition.SetStealableLootDefinition(stealableLoot);
+        Definition.stealableLootDefinition = stealableLoot;
         return this;
     }
 
     public MonsterDefinitionBuilder SetThreatEvaluatorDefinition(ThreatEvaluatorDefinition threatEvaluator)
     {
-        Definition.SetThreatEvaluatorDefinition(threatEvaluator);
+        Definition.threatEvaluatorDefinition = threatEvaluator;
         return this;
     }
 
     public MonsterDefinitionBuilder SetUniqueNameId(string uniqueName)
     {
-        Definition.SetUniqueNameId(uniqueName);
+        Definition.uniqueNameId = uniqueName;
         return this;
     }
 
     public MonsterDefinitionBuilder SetWeight(int weight)
     {
-        Definition.SetWeight(weight);
+        Definition.weight = weight;
         return this;
     }
 

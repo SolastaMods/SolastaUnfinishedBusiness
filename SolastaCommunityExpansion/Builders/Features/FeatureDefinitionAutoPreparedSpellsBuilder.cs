@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAutoPreparedSpells;
 
@@ -25,13 +24,13 @@ public class FeatureDefinitionAutoPreparedSpellsBuilder
 
     public FeatureDefinitionAutoPreparedSpellsBuilder SetCastingClass(CharacterClassDefinition castingClass)
     {
-        Definition.SetSpellcastingClass(castingClass);
+        Definition.spellcastingClass = castingClass;
         return this;
     }
 
     public FeatureDefinitionAutoPreparedSpellsBuilder SetAffinityRace(CharacterRaceDefinition castingRace)
     {
-        Definition.SetAffinityRace(castingRace);
+        Definition.affinityRace = castingRace;
         return this;
     }
 
@@ -42,13 +41,13 @@ public class FeatureDefinitionAutoPreparedSpellsBuilder
          */
     public FeatureDefinitionAutoPreparedSpellsBuilder SetAutoTag(string tag)
     {
-        Definition.SetAutopreparedTag(tag);
+        Definition.autopreparedTag = tag;
         return this;
     }
 
     public FeatureDefinitionAutoPreparedSpellsBuilder SetSpellcastingClass(CharacterClassDefinition characterClass)
     {
-        Definition.SetSpellcastingClass(characterClass);
+        Definition.spellcastingClass = characterClass;
         return this;
     }
 

@@ -17,7 +17,7 @@ public class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<Feat
     public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
         IEnumerable<string> proficiencies)
     {
-        Definition.SetProficiencyType(type);
+        Definition.proficiencyType = type;
         Definition.SetProficiencies(proficiencies);
         Definition.Proficiencies.Sort();
 

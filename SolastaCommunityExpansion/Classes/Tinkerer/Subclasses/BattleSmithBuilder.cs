@@ -1,7 +1,6 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaModApi.DatabaseHelper;
@@ -126,10 +125,10 @@ public static class BattleSmithBuilder
         public FeatureDefinitionAttackModifierBuilder(string name, Guid guidNamespace,
             AbilityScoreReplacement abilityReplacement, string additionalAttackTag) : base(name, guidNamespace)
         {
-            Definition.SetAbilityScoreReplacement(abilityReplacement);
-            Definition.SetAdditionalAttackTag(additionalAttackTag);
-            Definition.SetAttackRollModifierMethod(AttackModifierMethod.FlatValue);
-            Definition.SetDamageRollModifierMethod(AttackModifierMethod.FlatValue);
+            Definition.abilityScoreReplacement = abilityReplacement;
+            Definition.additionalAttackTag = additionalAttackTag;
+            Definition.attackRollModifierMethod = AttackModifierMethod.FlatValue;
+            Definition.damageRollModifierMethod = AttackModifierMethod.FlatValue;
         }
     }
 }

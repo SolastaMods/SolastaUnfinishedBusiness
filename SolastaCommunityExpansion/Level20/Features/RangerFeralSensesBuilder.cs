@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Level20.Features;
@@ -15,7 +14,7 @@ internal sealed class
 
     private RangerFeralSensesBuilder(string name, string guid) : base(SenseSeeInvisible12, name, guid)
     {
-        Definition.SetSenseRange(6);
+        Definition.senseRange = 6;
         Definition.GuiPresentation.Title = "Feature/&RangerFeralSensesTitle";
         Definition.GuiPresentation.Description = "Feature/&RangerFeralSensesDescription";
     }

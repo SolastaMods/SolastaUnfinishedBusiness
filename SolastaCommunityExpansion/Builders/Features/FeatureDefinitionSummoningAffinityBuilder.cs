@@ -17,7 +17,7 @@ public class FeatureDefinitionSummoningAffinityBuilder
 
     public FeatureDefinitionSummoningAffinityBuilder SetRequiredMonsterTag(string tag)
     {
-        Definition.SetRequiredMonsterTag(tag);
+        Definition.requiredMonsterTag = tag;
         return this;
     }
 

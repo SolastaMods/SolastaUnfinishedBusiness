@@ -1,5 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Net;
+using System.Text;
 using HarmonyLib;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaMonsters.Models;
@@ -23,9 +28,11 @@ namespace SolastaCommunityExpansion.Patches
             ItemDefinitionVerification.Load();
             EffectFormVerification.Load();
 #endif
+            // Translations must load first
             Translations.LoadTranslations("Modui");
             Translations.LoadTranslations("Translations");
 
+            // Resources must load second
             ResourceLocatorContext.Load();
 
             // Cache TA definitions for diagnostics and export
@@ -42,35 +49,32 @@ namespace SolastaCommunityExpansion.Patches
             BugFixContext.Load();
             CharacterExportContext.Load();
             ConjurationsContext.Load();
+            CustomReactionsContext.Load();
+            CustomWeaponsContext.Load();
             DmProEditorContext.Load();
             FaceUnlockContext.Load();
+            FlexibleBackgroundsContext.Switch();
+            GameUiContext.Load();
+            InitialChoicesContext.Load();
+            InventoryManagementContext.Load();
+            ItemCraftingContext.Load();
+            ItemOptionsContext.Load();
+            Level20Context.Load();
+            LevelDownContext.Load();
+            PickPocketContext.Load();
+            PowerBundleContext.Load();
+            RemoveBugVisualModelsContext.Load();
+            RespecContext.Load();
+            ShieldStrikeContext.Load();
 
             // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
             FightingStyleContext.Load();
 
-            FlexibleBackgroundsContext.Switch();
-            InitialChoicesContext.Load();
-            GameUiContext.Load();
-            InventoryManagementContext.Load();
-
-            CustomWeaponsContext.Load();
-            ShieldStrikeContext.Load();
-            ItemCraftingContext.Load();
-            ItemOptionsContext.Load();
-            Level20Context.Load();
-            PickPocketContext.Load();
-            CustomReactionsContext.Load();
-
             // Powers needs to be added to db before spells because of summoned creatures that have new powers defined here.
             PowersContext.Load();
 
-            RemoveBugVisualModelsContext.Load();
-            RespecContext.Load();
-            LevelDownContext.Load();
-
             // There are spells that rely on new monster definitions with powers loaded during the PowersContext. So spells should get added to db after powers.
             SpellsContext.Load();
-            SrdAndHouseRulesContext.Load();
 
             // Races may rely on spells and powers being in the DB before they can properly load.
             RacesContext.Load();
@@ -84,11 +88,11 @@ namespace SolastaCommunityExpansion.Patches
             // Multiclass blueprints should always load to avoid issues with heroes saves and after classes and subclasses
             MulticlassContext.Load();
 
+            // Load SRD and House rules last in case they change previous blueprints
+            SrdAndHouseRulesContext.Load();
+
             // Custom High Level Monsters
             MonsterContext.Load();
-
-            // Only a functor registration
-            PowerBundleContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
             {
@@ -129,8 +133,109 @@ namespace SolastaCommunityExpansion.Patches
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");
 
-                DisplayWelcomeMessage();
+                if (CheckForUpdates(out var version, out var changeLog))
+                {
+                    DisplayUpdateMessage(version, changeLog);
+                }
+                else
+                {
+                    DisplayWelcomeMessage();
+                }
             };
+        }
+
+        private static string GetInstalledVersion()
+        {
+            var infoPayload = File.ReadAllText(Path.Combine(Main.MOD_FOLDER, "Info.json"));
+            var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
+
+            return infoJson["Version"].Value<string>();
+        }
+
+        private static bool CheckForUpdates(out string version, out string changeLog)
+        {
+            const string BASE_URL =
+                "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
+
+            var hasUpdate = false;
+
+            version = "";
+            changeLog = "";
+
+            using var wc = new WebClient();
+
+            wc.Encoding = Encoding.UTF8;
+
+            try
+            {
+                var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
+                var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
+
+                version = infoJson["Version"].Value<string>();
+                hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
+
+                changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
+            }
+            catch
+            {
+                Main.Logger.Log("cannot fetch update data.");
+            }
+
+            return hasUpdate;
+        }
+
+        private static void UpdateMod(string version)
+        {
+            using var wc = new WebClient();
+
+            wc.Encoding = Encoding.UTF8;
+
+            try
+            {
+                var files = new[] {"SolastaCommunityExpansion.dll", "Info.json"};
+
+                foreach (var file in files)
+                {
+                    var fullFileName = Path.Combine(Main.MOD_FOLDER, file);
+
+                    wc.DownloadFile(
+                        $"https://github.com/SolastaMods/SolastaCommunityExpansion/releases/download/{version}/{file}",
+                        $"{fullFileName}.UPD");
+
+                    File.Delete(fullFileName);
+                    File.Move($"{fullFileName}.UPD", fullFileName);
+                }
+
+                Gui.GuiService.ShowMessage(
+                    MessageModal.Severity.Informative1,
+                    "Message/&MessageModWelcomeTitle",
+                    "Update successful. Please restart.",
+                    "Message/&MessageOkTitle",
+                    string.Empty,
+                    null,
+                    null);
+            }
+            catch
+            {
+                Main.Logger.Log("cannot fetch update payload.");
+            }
+        }
+
+        private static void DisplayUpdateMessage(string version, string changeLog)
+        {
+            if (changeLog == string.Empty)
+            {
+                changeLog = ". no changelog found";
+            }
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Attention2,
+                "Message/&MessageModWelcomeTitle",
+                $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?",
+                "Message/&MessageOkTitle",
+                "Message/&MessageCancelTitle",
+                () => UpdateMod(version),
+                null);
         }
 
         private static void DisplayWelcomeMessage()

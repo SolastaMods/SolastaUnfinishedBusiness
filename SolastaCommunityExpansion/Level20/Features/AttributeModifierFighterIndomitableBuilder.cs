@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaCommunityExpansion.Level20.Features;
@@ -17,7 +16,7 @@ internal sealed class AttributeModifierFighterIndomitableBuilder : FeatureDefini
     {
         Definition.GuiPresentation.Title = "Feature/&IndomitableResistanceAddTitle";
         Definition.GuiPresentation.Description = "Feature/&IndomitableResistanceAddDescription";
-        Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive);
+        Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
     }
 
     private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)

@@ -39,7 +39,7 @@ internal static class DmProEditorContext
 
         foreach (var itemDefinition in itemDefinitions)
         {
-            itemDefinition.SetInDungeonEditor(true);
+            itemDefinition.inDungeonEditor = true;
         }
     }
 

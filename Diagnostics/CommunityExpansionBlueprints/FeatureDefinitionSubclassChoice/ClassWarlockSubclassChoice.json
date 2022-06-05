@@ -4,9 +4,7 @@
     "AHWarlockSubclassSoulBladePact",
     "AncientForest",
     "DHWarlockSubclassElementalPatron",
-    "DHWarlockSubclassRiftWalker",
-    "MoonLit",
-    "ToadKing"
+    "MoonLit"
   ],
   "filterByDeity": false,
   "subclassSuffix": "Patron",

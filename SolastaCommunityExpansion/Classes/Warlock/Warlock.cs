@@ -119,6 +119,10 @@ public static class Warlock
 
     private static void BuildProgression(CharacterClassDefinitionBuilder classWarlockBuilder)
     {
+        // DEPRECATED
+        _ = DHWarlockSubclassRiftWalkerPatron.Build();
+        _ = DHWarlockSubclassToadKingPatron.Build();
+
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
             .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation("ClassWarlockPatron", Category.Subclass)
@@ -128,11 +132,7 @@ public static class Warlock
                 AHWarlockSubclassSoulBladePact.Build(),
                 DHWarlockSubclassAncientForestPatron.Build(),
                 DHWarlockSubclassElementalPatron.Build(),
-                DHWarlockSubclassMoonLitPatron.Build(),
-                DHWarlockSubclassRiftWalkerPatron.Build(),
-                // needs more work and verification, autoprepared spells cant just be reused because they specific cleric class, battle domain divine Fortitude (wrath in code) also didnt work
-                // DHWarlockSubclassUrPriestPatron.Build(),
-                DHWarlockSubclassToadKingPatron.Build()
+                DHWarlockSubclassMoonLitPatron.Build()
             )
             .AddToDB();
 

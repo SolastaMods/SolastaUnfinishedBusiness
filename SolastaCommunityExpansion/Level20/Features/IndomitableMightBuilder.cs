@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features;
 
@@ -21,7 +20,7 @@ internal sealed class FeatureDefinitionIndomitableMightBuilder : FeatureDefiniti
             "Feature/&BarbarianIndomitableMightTitle",
             "Feature/&BarbarianIndomitableMightDescription");
 
-        Definition.SetGuiPresentation(guiPresentationBuilder.Build());
+        Definition.guiPresentation = guiPresentationBuilder.Build();
     }
 
     private static FeatureDefinition CreateAndAddToDB(string name, string guid)

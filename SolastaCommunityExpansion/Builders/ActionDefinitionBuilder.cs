@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -7,7 +6,7 @@ public class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Actio
 {
     public ActionDefinitionBuilder SetId(ActionDefinitions.Id value)
     {
-        Definition.SetId(value);
+        Definition.id = value;
         return this;
     }
 
