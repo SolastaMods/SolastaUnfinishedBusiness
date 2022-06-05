@@ -138,12 +138,12 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Blaster[/b]: You specialize in hurling projectiles and causing explosions.
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
 [*][b]Scout Sentinel[/b]: A Scout Sentinel tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
+[*][b]Toad King Pact[/b]: Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 [*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
-[*][b]Toad King Pact[/b]: Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]
