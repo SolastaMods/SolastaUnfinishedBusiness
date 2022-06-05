@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Builders;
 using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomUI;
@@ -8,11 +9,18 @@ public class ReactionRequestWarcaster : ReactionRequest
 {
     public const string Name = "WarcasterReaction";
 
+    private readonly string type;
+    private readonly GuiCharacter guiTarget;
+
     public ReactionRequestWarcaster(CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
         BuildSuboptions();
-        ReactionParams.StringParameter2 = "Warcaster";
+        type = string.IsNullOrEmpty(ReactionParams.StringParameter2) 
+            ? Name 
+            : ReactionParams.StringParameter2;
+        // ReactionParams.StringParameter2 = type;
+        guiTarget = new GuiCharacter(reactionParams.targetCharacters[0]);
     }
 
     public override int SelectedSubOption
@@ -30,7 +38,7 @@ public class ReactionRequestWarcaster : ReactionRequest
     }
 
 
-    public override string SuboptionTag => "Warcaster";
+    public override string SuboptionTag => type;
 
     public override bool IsStillValid
     {
@@ -181,15 +189,24 @@ public class ReactionRequestWarcaster : ReactionRequest
         }
     }
 
+    public override string FormatTitle()
+    {
+        return Gui.Localize($"Reaction/&{type}Title");
+    }
+
     public override string FormatDescription()
     {
-        var target = new GuiCharacter(ReactionParams.TargetCharacters[0]);
-        return Gui.Format(base.FormatDescription(), target.Name);
+        return Gui.Format($"Reaction/&{type}Description", guiTarget.Name);
+    }
+
+    public override string FormatReactTitle()
+    {
+        return Gui.Localize($"Reaction/&{type}ReactTitle");
     }
 
     public override string FormatReactDescription()
     {
-        return Gui.Format(base.FormatReactDescription(), "");
+        return Gui.Localize($"Reaction/&{type}ReactDescription");
     }
 
     public override void OnSetInvalid()
