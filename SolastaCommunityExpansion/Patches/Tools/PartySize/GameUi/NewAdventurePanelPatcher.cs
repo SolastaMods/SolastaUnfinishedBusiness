@@ -4,7 +4,6 @@ using HarmonyLib;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Tools.DefaultParty;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -24,7 +23,7 @@ internal static class NewAdventurePanel_OnBeginShow
         Global.IsNewAdventurePanelInContext = true;
 
         // overrides campaign party size
-        DatabaseHelper.CampaignDefinitions.UserCampaign.SetPartySize(Main.Settings.OverridePartySize);
+        DatabaseHelper.CampaignDefinitions.UserCampaign.partySize = Main.Settings.OverridePartySize;
 
         // adds new character plates if required
         for (var i = DungeonMakerContext.GAME_PARTY_SIZE; i < Main.Settings.OverridePartySize; i++)

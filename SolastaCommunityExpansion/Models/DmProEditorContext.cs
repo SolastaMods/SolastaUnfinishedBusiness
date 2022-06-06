@@ -166,12 +166,12 @@ internal static class DmProEditorContext
             flatRoom.GuiPresentation.Title = "Flat".yellow() + " Room";
             flatRoom.GuiPresentation.SetSortOrder(multiplier);
             flatRoom.GuiPresentation.SetHidden(true);
-            flatRoom.SetCategory("FlatRooms");
-            flatRoom.SetDimensions(new Vector2Int(flatRoom.Dimensions.x * multiplier,
-                flatRoom.Dimensions.y * multiplier));
-            flatRoom.SetCellInfos(new int[flatRoom.Dimensions.x * flatRoom.Dimensions.y]);
-            flatRoom.SetWallSpriteReference(new AssetReferenceSprite(""));
-            flatRoom.SetWallAndOpeningSpriteReference(new AssetReferenceSprite(""));
+            flatRoom.category = "FlatRooms";
+            flatRoom.dimensions = new Vector2Int(flatRoom.Dimensions.x * multiplier,
+                flatRoom.Dimensions.y * multiplier);
+            flatRoom.cellInfos = new int[flatRoom.Dimensions.x * flatRoom.Dimensions.y];
+            flatRoom.wallSpriteReference = new AssetReferenceSprite("");
+            flatRoom.wallAndOpeningSpriteReference = new AssetReferenceSprite("");
 
             for (var i = 0; i < flatRoom.CellInfos.Length; i++)
             {
@@ -192,7 +192,7 @@ internal static class DmProEditorContext
         flatRoom.GuiPresentation.Title = "Flat".yellow() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
         flatRoom.GuiPresentation.SetSortOrder(sortOrder);
         flatRoom.GuiPresentation.SetHidden(true);
-        flatRoom.SetCategory("FlatRooms");
+        flatRoom.category = "FlatRooms";
 
         for (var i = 0; i < flatRoom.CellInfos.Length; i++)
         {
@@ -227,15 +227,15 @@ internal static class DmProEditorContext
                 newGadgetBlueprint.GuiPresentation.Title = Gui.Localize(gadgetBlueprint.GuiPresentation.Title) + " " +
                                                            Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                                .Title).yellow();
-                newGadgetBlueprint.SetCategory(categoryName);
+                newGadgetBlueprint.category = categoryName;
                 newGadgetBlueprint.PrefabsByEnvironment.Clear();
 
                 foreach (var environmentDefinition in dbEnvironmentDefinition)
                 {
                     var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
 
-                    myPrefabByEnvironment.SetEnvironment(environmentDefinition.name);
-                    myPrefabByEnvironment.SetPrefabReference(prefabByEnvironment.PrefabReference);
+                    myPrefabByEnvironment.environment = environmentDefinition.name;
+                    myPrefabByEnvironment.prefabReference = prefabByEnvironment.PrefabReference;
                     newGadgetBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
                 }
 
@@ -268,15 +268,15 @@ internal static class DmProEditorContext
                 newPropBlueprint.GuiPresentation.Title = Gui.Localize(propBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).yellow();
-                newPropBlueprint.SetCategory(categoryName);
+                newPropBlueprint.category = categoryName;
                 newPropBlueprint.PrefabsByEnvironment.Clear();
 
                 foreach (var environmentDefinition in dbEnvironmentDefinition)
                 {
                     var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
 
-                    myPrefabByEnvironment.SetEnvironment(environmentDefinition.name);
-                    myPrefabByEnvironment.SetPrefabReference(prefabByEnvironment.PrefabReference);
+                    myPrefabByEnvironment.environment = environmentDefinition.name;
+                    myPrefabByEnvironment.prefabReference = prefabByEnvironment.PrefabReference;
                     newPropBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
                 }
 
@@ -310,7 +310,7 @@ internal static class DmProEditorContext
                 newRoomBlueprint.GuiPresentation.Title = Gui.Localize(roomBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).yellow();
-                newRoomBlueprint.SetCategory(categoryName);
+                newRoomBlueprint.category = categoryName;
                 newRoomBlueprint.GuiPresentation.SetHidden(false);
                 newRoomBlueprint.PrefabsByEnvironment.Clear();
 
@@ -319,8 +319,8 @@ internal static class DmProEditorContext
                 {
                     var myPrefabByEnvironment = new BaseBlueprint.PrefabByEnvironmentDescription();
 
-                    myPrefabByEnvironment.SetEnvironment(environmentDefinition.name);
-                    myPrefabByEnvironment.SetPrefabReference(prefabByEnvironment.PrefabReference);
+                    myPrefabByEnvironment.environment = environmentDefinition.name;
+                    myPrefabByEnvironment.prefabReference = prefabByEnvironment.PrefabReference;
                     newRoomBlueprint.PrefabsByEnvironment.Add(myPrefabByEnvironment);
                 }
 

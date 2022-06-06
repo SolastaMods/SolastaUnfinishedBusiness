@@ -184,8 +184,8 @@ public class NewMonsterSpells
         PowerWordKill_Spell.EffectDescription.EffectForms.Clear();
 
         KillForm killForm = new();
-        killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
-        killForm.SetHitPoints(100);
+        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
+        killForm.hitPoints = 100;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);

@@ -470,8 +470,8 @@ public class NewMonsterAttributes
         LichSpell_level_9.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
         Lich_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
-        Lich_spelllist.SetMaxSpellLevel(7);
-        Lich_spelllist.SetHasCantrips(true);
+        Lich_spelllist.maxSpellLevel = 7;
+        Lich_spelllist.hasCantrips = true;
         Lich_spelllist.SpellsByLevel.Clear();
         Lich_spelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>
         {
@@ -1000,8 +1000,8 @@ public class NewMonsterAttributes
         ArchmageSpell_level_9.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
         Archmage_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
-        Archmage_spelllist.SetMaxSpellLevel(7);
-        Archmage_spelllist.SetHasCantrips(true);
+        Archmage_spelllist.maxSpellLevel = 7;
+        Archmage_spelllist.hasCantrips = true;
         Archmage_spelllist.SpellsByLevel.Clear();
         Archmage_spelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>
         {
@@ -1502,8 +1502,8 @@ public class NewMonsterAttributes
         GuardianNagaSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
         GuardianNaga_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
-        GuardianNaga_spelllist.SetMaxSpellLevel(6);
-        GuardianNaga_spelllist.SetHasCantrips(true);
+        GuardianNaga_spelllist.maxSpellLevel = 6;
+        GuardianNaga_spelllist.hasCantrips = true;
         GuardianNaga_spelllist.SpellsByLevel.Clear();
         GuardianNaga_spelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>
         {

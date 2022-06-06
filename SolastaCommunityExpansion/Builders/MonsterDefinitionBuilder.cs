@@ -451,7 +451,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
     public MonsterDefinitionBuilder AddLegendaryActionOptions(
         IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
     {
-        Definition.AddLegendaryActionOptions(legendaryActionDescriptions);
+        Definition.LegendaryActionOptions.AddRange(legendaryActionDescriptions);
         Definition.LegendaryActionOptions.Sort(Sorting.Compare);
         return this;
     }

@@ -137,8 +137,8 @@ public class EffectDescriptionBuilder
     {
         var hitAffinity = new HitAffinityByTag();
 
-        hitAffinity.SetTag(tag);
-        hitAffinity.SetAdvantageType(advantageType);
+        hitAffinity.tag = tag;
+        hitAffinity.advantageType = advantageType;
         effect.HitAffinitiesByTargetTag.Add(hitAffinity);
         return this;
     }

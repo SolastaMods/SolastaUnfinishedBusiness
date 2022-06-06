@@ -609,9 +609,9 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
         Definition.Features.Clear();
 
         var SelfDestruct = new KillForm();
-        SelfDestruct.SetChallengeRating(10);
-        SelfDestruct.SetHitPoints(200);
-        SelfDestruct.SetKillCondition(RuleDefinitions.KillCondition.Always);
+        SelfDestruct.challengeRating = 10;
+        SelfDestruct.hitPoints = 200;
+        SelfDestruct.killCondition = RuleDefinitions.KillCondition.Always;
 
         var KillEffect = new EffectForm {FormType = EffectForm.EffectFormType.Kill};
         KillEffect.SetKillForm(SelfDestruct);
@@ -870,15 +870,13 @@ internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : Featu
         Definition.GuiPresentation.SetSpriteReference(null);
 
         Definition.effectOnConjuredDeath = false;
-        Definition.AddedConditions.Clear();
-        Definition.AddedConditions.Empty();
         Definition.EffectForms.Clear();
         Definition.EffectForms.Empty();
 
         // changed the tag here and in relevant constructs
         // so the scaling is only applied to the Protector and Artillry Constructs
         Definition.requiredMonsterTag = "ScalingTinkererArtilleryConstruct";
-        Definition.AddedConditions.AddRange(
+        Definition.AddedConditions.SetRange(
             // using kindred conditions for following reasons
             // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
             //    FeatureDefinitionAttributeModifierBuilder are available as it is likely a rewrite

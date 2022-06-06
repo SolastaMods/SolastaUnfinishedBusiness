@@ -21,14 +21,14 @@ public class
 
     public CharacterSubclassDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
     {
-        Definition.AddFeatureUnlocks(new FeatureUnlockByLevel(feature, level));
+        Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;
     }
 
     public CharacterSubclassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
-        Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+        Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;
     }

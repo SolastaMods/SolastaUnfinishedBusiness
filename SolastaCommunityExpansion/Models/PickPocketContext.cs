@@ -187,7 +187,7 @@ public static class PickPocketContext
             .SetGuiPresentationNoContent()
             .AddToDB();
 
-        pick_pocket_loot.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
+        pick_pocket_loot.lootChallengeMode = LootPackDefinition.LootChallenge.ByPartyLevel;
         pick_pocket_loot.ItemOccurencesList.Clear();
         pick_pocket_loot.ItemOccurencesList.Add(loot_pickpocket_table);
 
@@ -196,7 +196,7 @@ public static class PickPocketContext
             .SetGuiPresentationNoContent()
             .AddToDB();
 
-        pick_pocket_undead.SetLootChallengeMode(LootPackDefinition.LootChallenge.ByPartyLevel);
+        pick_pocket_undead.lootChallengeMode = LootPackDefinition.LootChallenge.ByPartyLevel;
         pick_pocket_undead.ItemOccurencesList.Clear();
         pick_pocket_undead.ItemOccurencesList.Add(loot_pickpocket_undead);
 

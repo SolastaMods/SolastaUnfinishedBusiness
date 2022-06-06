@@ -88,15 +88,13 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
         Definition.GuiPresentation.SetSpriteReference(null);
 
         Definition.effectOnConjuredDeath = false;
-        Definition.AddedConditions.Clear();
-        Definition.AddedConditions.Empty();
         Definition.EffectForms.Clear();
         Definition.EffectForms.Empty();
 
         // changed the tag here and in relevant constructs
         // so the scaling is only applied to the Protector and Artillry Constructs
         Definition.requiredMonsterTag = "ScalingTinkererConstruct";
-        Definition.AddedConditions.AddRange(new List<ConditionDefinition>
+        Definition.AddedConditions.SetRange(new List<ConditionDefinition>
         {
             // using kindred conditions for following reasons
             // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and

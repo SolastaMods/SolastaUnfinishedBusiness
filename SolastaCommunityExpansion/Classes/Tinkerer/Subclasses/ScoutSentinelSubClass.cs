@@ -600,8 +600,8 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         });
 
         var focusItemDescription = new FocusItemDescription();
-        focusItemDescription.SetShownAsFocus(true);
-        focusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
+        focusItemDescription.shownAsFocus = true;
+        focusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
 
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
@@ -914,8 +914,8 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         });
 
         var focusItemDescription = new FocusItemDescription();
-        focusItemDescription.SetShownAsFocus(true);
-        focusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
+        focusItemDescription.shownAsFocus = true;
+        focusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
 
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
