@@ -77,7 +77,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder ClearFeatures()
     {
-        Definition.ClearFeatures();
+        Definition.Features.Clear();
         return This();
     }
 
@@ -110,11 +110,10 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
         ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
     {
-        Definition
-            .SetAdditionalDamageWhenHit(additionalDamageWhenHit)
-            .SetAdditionalDamageDieType(dieType)
-            .SetAdditionalDamageDieNumber(numberOfDie)
-            .SetAdditionalDamageQuantity(damageQuantity);
+        Definition.additionalDamageWhenHit = additionalDamageWhenHit;
+        Definition.additionalDamageDieType = dieType;
+        Definition.additionalDamageDieNumber = numberOfDie;
+        Definition.additionalDamageQuantity = damageQuantity;
 
         return This();
     }
@@ -201,7 +200,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder ClearRecurrentEffectForms()
     {
-        Definition.ClearRecurrentEffectForms();
+        Definition.RecurrentEffectForms.Clear();
         return This();
     }
 

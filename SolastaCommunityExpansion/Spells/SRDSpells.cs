@@ -1357,8 +1357,8 @@ public static class SrdSpells
 
         var effect = effectDescription.Build();
 
-        effect.EffectParticleParameters.SetImpactParticleReference(
-            new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91"));
+        effect.EffectParticleParameters.impactParticleReference =
+            new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91");
 
         var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
             .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)

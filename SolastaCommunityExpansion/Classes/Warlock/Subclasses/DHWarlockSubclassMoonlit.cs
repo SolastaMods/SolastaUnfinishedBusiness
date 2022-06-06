@@ -6,6 +6,7 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionMovementAffinitys;
@@ -343,7 +344,7 @@ internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustom
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        condition.SetCancellingConditions(RevealedCondition);
+        condition.CancellingConditions.SetRange(RevealedCondition);
 
         return condition;
     }

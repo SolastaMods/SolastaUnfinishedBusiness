@@ -333,12 +333,12 @@ internal static class BazouSpells
             .SetCanMove()
             .SetPortrait(WindWall.GuiPresentation.SpriteReference)
             .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
-            .AddToDB()
-            // TODO: move into builder
-            .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
-            .SetAttackMethod(RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms)
-            .SetCanMoveOnCharacters(true)
-            .SetIsEmptyPresentation(false);
+            .AddToDB();
+
+        effectProxyDefinition.actionId = ActionDefinitions.Id.ProxyFlamingSphere;
+        effectProxyDefinition.attackMethod = RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms;
+        effectProxyDefinition.canMoveOnCharacters = true;
+        effectProxyDefinition.isEmptyPresentation = false;
 
         spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
 

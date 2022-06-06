@@ -33,8 +33,9 @@ internal class Crippling : AbstractFightingStyle
             //+ NO LIMIT per round (wow!)
             var conditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionHindered_By_Frost, "CripplingConditionDefinition", Namespace)
-                .AddToDB()
-                .SetAllowMultipleInstances(true);
+                .AddToDB();
+
+            conditionDefinition.allowMultipleInstances = true;
 
             var conditionOperation = new ConditionOperationDescription();
             conditionOperation

@@ -353,7 +353,7 @@ Different Archfey, e.g. Winter-themed
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName, DefinitionBuilder.CENamespaceGuid)
             .SetGold(0)
             .AddToDB();
-        brewItem.SetGuiPresentation(guiPresentation);
+        brewItem.guiPresentation = guiPresentation;
         brewItem.SetIsFood(true);
         brewItem.SetFoodDescription(food);
         brewItem.SetIsUsableDevice(true);
@@ -459,7 +459,7 @@ Different Archfey, e.g. Winter-themed
             .SetUsableDeviceDescription(potionFunction)
             .AddToDB();
         var description = brewItem.UsableDeviceDescription;
-        brewItem.SetGuiPresentation(guiPresentation);
+        brewItem.guiPresentation = guiPresentation;
         brewItem.SetIsFood(true);
         brewItem.SetItemRarity(ItemRarity.Common);
         brewItem.SetFoodDescription(food);

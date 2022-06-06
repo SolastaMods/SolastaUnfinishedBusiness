@@ -370,7 +370,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "condition" + "_Description"
         );
 
-        BleedingWound_Condition.SetAllowMultipleInstances(true);
+        BleedingWound_Condition.allowMultipleInstances = true;
         BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(3);
         BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 

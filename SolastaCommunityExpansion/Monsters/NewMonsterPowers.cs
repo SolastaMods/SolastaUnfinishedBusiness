@@ -143,8 +143,8 @@ public class NewMonsterPowers
             "MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description"
         );
 
-        TarrasqueSwallowingCondition.SetInterruptionDamageThreshold(60);
-        TarrasqueSwallowingCondition.SetInterruptionRequiresSavingThrow(false);
+        TarrasqueSwallowingCondition.interruptionDamageThreshold = 60;
+        TarrasqueSwallowingCondition.interruptionRequiresSavingThrow = false;
 
 
         var TarrasqueSwallowedCondition = NewMonsterAttacks.BuildNewCondition(
@@ -577,8 +577,8 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        AtWillSelfBuff_Invisibility_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.Invisibility
-            .GuiPresentation);
+        AtWillSelfBuff_Invisibility_Power.guiPresentation = DatabaseHelper.SpellDefinitions.Invisibility
+            .GuiPresentation;
         AtWillSelfBuff_Invisibility_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.Invisibility
             .EffectDescription);
         AtWillSelfBuff_Invisibility_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
@@ -597,7 +597,7 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Title",
             "MonsterPower/&DH_" + text + "_Description"
         );
-        AtWillAOE_Fireball_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.Fireball.GuiPresentation);
+        AtWillAOE_Fireball_Power.guiPresentation = DatabaseHelper.SpellDefinitions.Fireball.GuiPresentation;
         AtWillAOE_Fireball_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
         AtWillAOE_Fireball_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
         AtWillAOE_Fireball_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
@@ -625,8 +625,8 @@ public class NewMonsterPowers
         );
 
         LimitedPerDayTargetDebuff_HoldMonster_Power.SetUniqueInstance(true);
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.HoldMonster
-            .GuiPresentation);
+        LimitedPerDayTargetDebuff_HoldMonster_Power.guiPresentation = DatabaseHelper.SpellDefinitions.HoldMonster
+            .GuiPresentation;
         LimitedPerDayTargetDebuff_HoldMonster_Power.SetShortTitleOverride(DatabaseHelper.SpellDefinitions
             .HoldMonster.GuiPresentation.Title);
         LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions
@@ -655,8 +655,8 @@ public class NewMonsterPowers
         );
 
         LimitedPerDayAOE_WallOfFire_Power.SetUniqueInstance(false);
-        LimitedPerDayAOE_WallOfFire_Power.SetGuiPresentation(DatabaseHelper.SpellDefinitions.WallOfFire
-            .GuiPresentation);
+        LimitedPerDayAOE_WallOfFire_Power.guiPresentation = DatabaseHelper.SpellDefinitions.WallOfFire
+            .GuiPresentation;
         LimitedPerDayAOE_WallOfFire_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions
             .WallOfFireRing_Outer.EffectDescription);
         LimitedPerDayAOE_WallOfFire_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions

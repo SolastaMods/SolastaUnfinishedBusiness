@@ -114,7 +114,7 @@ internal static class DmProEditorContext
         var flatRoomsCategory = Object.Instantiate(emptyRoomsCategory);
 
         flatRoomsCategory.name = "FlatRooms";
-        flatRoomsCategory.SetGuid(GuidHelper.Create(GUID, flatRoomsCategory.name).ToString());
+        flatRoomsCategory.guid = GuidHelper.Create(GUID, flatRoomsCategory.name).ToString();
         flatRoomsCategory.GuiPresentation.Title =
             Gui.Localize($"BlueprintCategory/&{flatRoomsCategory.name}Title").yellow();
         dbBlueprintCategory.Add(flatRoomsCategory);
@@ -128,8 +128,8 @@ internal static class DmProEditorContext
                 var categoryName = blueprintCategory.Name + "~" + environmentName + "~MOD";
 
                 newBlueprintCategory.name = categoryName;
-                newBlueprintCategory.SetGuid(GuidHelper.Create(GUID, newBlueprintCategory.name)
-                    .ToString());
+                newBlueprintCategory.guid = GuidHelper.Create(GUID, newBlueprintCategory.name)
+                    .ToString();
                 newBlueprintCategory.GuiPresentation.Title = Gui.Localize(blueprintCategory.GuiPresentation.Title) +
                                                              " " + Gui.Localize(environmentDefinition.GuiPresentation
                                                                  .Title) + " [MODDED]".yellow();
@@ -162,7 +162,7 @@ internal static class DmProEditorContext
             var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
             flatRoom.name = $"Flat{multiplier:D2}Room";
-            flatRoom.SetGuid(GuidHelper.Create(GUID, flatRoom.name).ToString());
+            flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();
             flatRoom.GuiPresentation.Title = "Flat".yellow() + " Room";
             flatRoom.GuiPresentation.SetSortOrder(multiplier);
             flatRoom.GuiPresentation.SetHidden(true);
@@ -188,7 +188,7 @@ internal static class DmProEditorContext
         var flatRoom = Object.Instantiate(dbRoomBlueprint.GetElement(template));
 
         flatRoom.name = "Flat" + template;
-        flatRoom.SetGuid(GuidHelper.Create(GUID, flatRoom.name).ToString());
+        flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();
         flatRoom.GuiPresentation.Title = "Flat".yellow() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
         flatRoom.GuiPresentation.SetSortOrder(sortOrder);
         flatRoom.GuiPresentation.SetHidden(true);
@@ -222,8 +222,7 @@ internal static class DmProEditorContext
                 var categoryName = gadgetBlueprint.Category + "~" + environmentName + "~MOD";
 
                 newGadgetBlueprint.name = gadgetBlueprint.Name + "~" + environmentName + "~MOD";
-                newGadgetBlueprint.SetGuid(
-                    GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString());
+                newGadgetBlueprint.guid = GuidHelper.Create(GUID, newGadgetBlueprint.name).ToString();
                 newGadgetBlueprint.GuiPresentation.Title = Gui.Localize(gadgetBlueprint.GuiPresentation.Title) + " " +
                                                            Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                                .Title).yellow();
@@ -264,7 +263,7 @@ internal static class DmProEditorContext
                 var categoryName = propBlueprint.Category + "~" + environmentName + "~MOD";
 
                 newPropBlueprint.name = propBlueprint.Name + "~" + environmentName + "~MOD";
-                newPropBlueprint.SetGuid(GuidHelper.Create(GUID, newPropBlueprint.name).ToString());
+                newPropBlueprint.guid = GuidHelper.Create(GUID, newPropBlueprint.name).ToString();
                 newPropBlueprint.GuiPresentation.Title = Gui.Localize(propBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).yellow();
@@ -306,7 +305,7 @@ internal static class DmProEditorContext
                 var categoryName = roomBlueprint.Category + "~" + environmentName + "~MOD";
 
                 newRoomBlueprint.name = roomBlueprint.Name + "~" + environmentName + "~MOD";
-                newRoomBlueprint.SetGuid(GuidHelper.Create(GUID, newRoomBlueprint.name).ToString());
+                newRoomBlueprint.guid = GuidHelper.Create(GUID, newRoomBlueprint.name).ToString();
                 newRoomBlueprint.GuiPresentation.Title = Gui.Localize(roomBlueprint.GuiPresentation.Title) + " " +
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).yellow();

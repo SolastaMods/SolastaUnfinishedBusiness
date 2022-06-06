@@ -469,7 +469,7 @@ public class NewMonsterAttributes
         };
         LichSpell_level_9.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
-        Lich_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
+        Lich_spelllist.contentCopyright = BaseDefinition.Copyright.UserContent;
         Lich_spelllist.maxSpellLevel = 7;
         Lich_spelllist.hasCantrips = true;
         Lich_spelllist.SpellsByLevel.Clear();
@@ -999,7 +999,7 @@ public class NewMonsterAttributes
         };
         ArchmageSpell_level_9.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
-        Archmage_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
+        Archmage_spelllist.contentCopyright = BaseDefinition.Copyright.UserContent;
         Archmage_spelllist.maxSpellLevel = 7;
         Archmage_spelllist.hasCantrips = true;
         Archmage_spelllist.SpellsByLevel.Clear();
@@ -1501,7 +1501,7 @@ public class NewMonsterAttributes
         };
         GuardianNagaSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
-        GuardianNaga_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
+        GuardianNaga_spelllist.contentCopyright = BaseDefinition.Copyright.UserContent;
         GuardianNaga_spelllist.maxSpellLevel = 6;
         GuardianNaga_spelllist.hasCantrips = true;
         GuardianNaga_spelllist.SpellsByLevel.Clear();
