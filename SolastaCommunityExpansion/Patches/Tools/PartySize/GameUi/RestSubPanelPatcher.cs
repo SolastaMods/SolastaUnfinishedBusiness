@@ -1,12 +1,10 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.Tools.PartySize.GameUi;
 
-// this patch scales down the rest sub panel whenever the party size is bigger than 4
+// this patch scales down the rest sub panel whenever the party size differs from 4
 //
 // this patch is protected by partyCount result
 //
@@ -18,18 +16,15 @@ internal static class RestSubPanel_OnBeginShow
     {
         var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
-        if (partyCount > DungeonMakerContext.GAME_PARTY_SIZE)
-        {
-            var scale = (float)Math.Pow(DungeonMakerContext.REST_PANEL_DEFAULT_SCALE,
-                partyCount - DungeonMakerContext.GAME_PARTY_SIZE);
+        var width = 128 * partyCount;
+        __instance.RectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+        var modules = __instance.restModulesTable;
 
-            __instance.restModulesTable.localScale = new Vector3(scale, scale, scale);
-            __instance.characterPlatesTable.localScale = new Vector3(scale, scale, scale);
-        }
-        else
+        for (var i = 0; i < modules.childCount; i++)
         {
-            __instance.restModulesTable.localScale = new Vector3(1, 1, 1);
-            __instance.characterPlatesTable.localScale = new Vector3(1, 1, 1);
+            modules.GetChild(i)
+                .GetComponent<RectTransform>()
+                .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
         }
     }
 }
