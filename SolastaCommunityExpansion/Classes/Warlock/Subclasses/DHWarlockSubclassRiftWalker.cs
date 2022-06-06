@@ -179,7 +179,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
             .SetSpellsAtLevel(2, Blur, PassWithoutTrace)
             .SetSpellsAtLevel(3, Haste, Slow)
             .SetSpellsAtLevel(4, FreedomOfMovement, GreaterInvisibility)
-            .SetSpellsAtLevel(5, MindTwist, DispelEvilAndGood)
+            .SetSpellsAtLevel(5, ConjureElemental, DispelEvilAndGood)
             .FinalizeSpells()
             .AddToDB();
 

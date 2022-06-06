@@ -127,8 +127,8 @@ public static class AHWarlockSubclassSoulBladePact
             .SetSpellsAtLevel(1, Shield, FalseLife)
             .SetSpellsAtLevel(2, Blur, BrandingSmite)
             .SetSpellsAtLevel(3, Haste, Slow)
-            .SetSpellsAtLevel(4, PhantasmalKiller, BlackTentacles)
-            .SetSpellsAtLevel(5, ConeOfCold, MindTwist)
+            .SetSpellsAtLevel(4, PhantasmalKiller, FireShield)
+            .SetSpellsAtLevel(5, ConeOfCold, GlobeOfInvulnerability)
             .FinalizeSpells()
             .AddToDB();
 

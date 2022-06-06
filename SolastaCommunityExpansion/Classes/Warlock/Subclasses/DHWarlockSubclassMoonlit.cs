@@ -34,7 +34,7 @@ public static class DHWarlockSubclassMoonLitPatron
             .SetSpellsAtLevel(2, MoonBeam, SeeInvisibility)
             .SetSpellsAtLevel(3, Daylight, Slow)
             .SetSpellsAtLevel(4, GreaterInvisibility, GuardianOfFaith)
-            .SetSpellsAtLevel(5, DominatePerson, MindTwist)
+            .SetSpellsAtLevel(5, DominatePerson, DispelEvilAndGood)
             .FinalizeSpells()
             .AddToDB();
 

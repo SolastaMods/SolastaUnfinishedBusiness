@@ -29,7 +29,7 @@ public static class DHWarlockSubclassAncientForestPatron
             .SetSpellsAtLevel(1, Goodberry, Entangle)
             .SetSpellsAtLevel(2, ProtectionFromPoison, SpikeGrowth)
             .SetSpellsAtLevel(3, Revivify, StinkingCloud)
-            .SetSpellsAtLevel(4, Blight, GiantInsect)
+            .SetSpellsAtLevel(4, ConjureMinorElementals, GiantInsect)
             .SetSpellsAtLevel(5, Contagion, InsectPlague)
             .FinalizeSpells()
             .AddToDB();
