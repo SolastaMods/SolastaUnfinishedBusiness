@@ -14,7 +14,10 @@ using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static SolastaCommunityExpansion.Spells.AceHighSpells;
 using static SolastaCommunityExpansion.Spells.BazouSpells;
+using static SolastaCommunityExpansion.Spells.SGSpells;
+using static SolastaCommunityExpansion.Spells.SrdSpells;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -52,10 +55,10 @@ internal static class Witch
             MinorLifesteal, Resistance, SpareTheDying, TrueStrike)
         .SetSpellsAtLevel(1,
             AnimalFriendship, Bane, CharmPerson, ComprehendLanguages,
-            DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HideousLaughter,
+            DetectMagic, ExpeditiousRetreat, FaerieFire, FindFamiliar, HellishRebukeSpell, HideousLaughter, RadiantMotes,
             ProtectionFromEvilGood, Sleep, Thunderwave)
         .SetSpellsAtLevel(2,
-            Blindness, CalmEmotions, Darkness, Darkvision,
+            Blindness, CalmEmotions, Darkness, Darkvision, HeatMetal,
             HoldPerson, Invisibility, Knock, Levitate,
             MistyStep, PetalStorm, ProtectThreshold, RayOfEnfeeblement,
             SeeInvisibility, Shatter, SpiderClimb)
@@ -70,6 +73,12 @@ internal static class Witch
             Contagion, DispelEvilAndGood, DominatePerson, HoldMonster)
         .SetSpellsAtLevel(6,
             Eyebite, Frenzy, TrueSeeing)
+        .SetSpellsAtLevel(7,
+            ReverseGravity)
+        .SetSpellsAtLevel(8,
+            DominateMonster, Feeblemind, Maze)
+        .SetSpellsAtLevel(9, 
+            PowerWordKill, TimeStop, Weird)
         .FinalizeSpells()
         .AddToDB();
 
