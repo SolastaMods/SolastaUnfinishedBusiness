@@ -317,11 +317,10 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
 
         // for some reason only Die value determination increments feature uses
         // this fix increments for all other types otherwise additional damage features that use other types
-        // (like Elemental Forms of Elementalist Warlock use PB as dmage bonus) will trigger on each hit
+        // (like Elemental Forms of Elementalist Warlock use PB as damage bonus) will trigger on each hit
         // regardless of usage limit setting
 
-        if (Main.Settings.BugFixCorrectlyCalculateDamageOnMultipleHits
-            && provider.DamageValueDetermination != RuleDefinitions.AdditionalDamageValueDetermination.Die)
+        if (provider.DamageValueDetermination != RuleDefinitions.AdditionalDamageValueDetermination.Die)
         {
             if (attacker.UsedSpecialFeatures.ContainsKey(provider.Name))
             {

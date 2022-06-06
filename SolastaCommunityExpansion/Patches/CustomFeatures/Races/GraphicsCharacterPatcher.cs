@@ -11,11 +11,6 @@ internal class GraphicsCharacter_ResetScale
 {
     internal static void Postfix(GraphicsCharacter __instance, ref float __result)
     {
-        if (!Main.Settings.EnableRacesScalePatch)
-        {
-            return;
-        }
-
         if (__instance.RulesetCharacter is RulesetCharacterHero rulesetCharacterHero
             && RacesContext.RaceScaleMap.TryGetValue(rulesetCharacterHero.RaceDefinition, out var scale))
         {

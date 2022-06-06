@@ -14,10 +14,9 @@ internal static class Functor_SelectCharacters
     internal static void Postfix(FunctorParametersDescription functorParameters,
         List<GameLocationCharacter> selectedCharacters)
     {
-        if (!Main.Settings.BugFixConjuredUnitsTeleportWithParty)
-        {
-            return;
-        }
+        //
+        // BUGFIX: conjured units teleport with party
+        //
 
         if (functorParameters.CharacterLookUpMethod != FunctorDefinitions.CharacterLookUpMethod.AllPartyMembers)
         {

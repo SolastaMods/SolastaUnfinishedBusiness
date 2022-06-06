@@ -11,11 +11,6 @@ internal static class AfterRestActionItem_OnExecuteCb
 {
     internal static bool Prefix(AfterRestActionItem __instance)
     {
-        if (!Main.Settings.EnablePowersBundlePatch)
-        {
-            return true;
-        }
-
         if (__instance.executing)
         {
             return true;

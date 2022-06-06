@@ -11,11 +11,6 @@ internal static class GuiSpellDefinitionl_EffectDescription
 {
     internal static void Postfix(GuiSpellDefinition __instance, ref EffectDescription __result)
     {
-        if (!Main.Settings.EnableCustomSpellsPatch)
-        {
-            return;
-        }
-
         __result = CustomFeaturesContext.ModifySpellEffectGui(__result, __instance);
     }
 }

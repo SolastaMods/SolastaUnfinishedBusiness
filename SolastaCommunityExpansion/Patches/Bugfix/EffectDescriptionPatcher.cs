@@ -10,10 +10,9 @@ internal static class EffectDescription_ComputeRoundsDuration
 {
     public static bool Prefix(EffectDescription __instance, int slotLevel, ref int __result)
     {
-        if (!Main.Settings.BugFixDominateSpells)
-        {
-            return true;
-        }
+        //
+        // BUGFIX: dominate spells
+        //
 
         if (__instance.EffectAdvancement.AlteredDuration >= 0)
         {

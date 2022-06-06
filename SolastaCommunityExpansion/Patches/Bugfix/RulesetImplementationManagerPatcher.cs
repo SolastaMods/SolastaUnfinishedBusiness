@@ -12,10 +12,9 @@ internal static class RulesetImplementationManager_TerminateEffect
 {
     internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
     {
-        if (!Main.Settings.BugFixCorrectlyTerminateEffectsOnWorldTravel)
-        {
-            return;
-        }
+        //
+        // BUGFIX: correctly terminate effects on world travel
+        //
 
         if (__instance is not RulesetImplementationManagerCampaign)
         {

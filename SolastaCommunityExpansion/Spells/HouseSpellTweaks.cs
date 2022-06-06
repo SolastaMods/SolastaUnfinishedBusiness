@@ -19,23 +19,24 @@ internal static class HouseSpellTweaks
         // Shows Concentration tag in UI
         BladeBarrier.SetRequiresConcentration(true);
 
-        if (Main.Settings.BugFixSpellDurations)
-        {
-            // Use our logic to calculate duration for DominatePerson/Beast/Monster
-            DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration(
-                (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast);
-            DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration(
-                (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson);
+        //
+        // BUGFIX: spells durations
+        //
 
-            // Stops upcasting assigning non-SRD durations
-            ClearAlteredDuration(ProtectionFromEnergy);
-            ClearAlteredDuration(ProtectionFromEnergyAcid);
-            ClearAlteredDuration(ProtectionFromEnergyCold);
-            ClearAlteredDuration(ProtectionFromEnergyFire);
-            ClearAlteredDuration(ProtectionFromEnergyLightning);
-            ClearAlteredDuration(ProtectionFromEnergyThunder);
-            ClearAlteredDuration(ProtectionFromPoison);
-        }
+        // Use our logic to calculate duration for DominatePerson/Beast/Monster
+        DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration(
+            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast);
+        DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration(
+            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson);
+
+        // Stops upcasting assigning non-SRD durations
+        ClearAlteredDuration(ProtectionFromEnergy);
+        ClearAlteredDuration(ProtectionFromEnergyAcid);
+        ClearAlteredDuration(ProtectionFromEnergyCold);
+        ClearAlteredDuration(ProtectionFromEnergyFire);
+        ClearAlteredDuration(ProtectionFromEnergyLightning);
+        ClearAlteredDuration(ProtectionFromEnergyThunder);
+        ClearAlteredDuration(ProtectionFromPoison);
 
         static void ClearAlteredDuration(SpellDefinition spell)
         {

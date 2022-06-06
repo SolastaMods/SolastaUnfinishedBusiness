@@ -35,31 +35,28 @@ internal static class SubspellSelectionModal_OnActivate
             }
         }
 
-        if (Main.Settings.EnablePowersBundlePatch)
+        var masterPower = PowerBundleContext.GetPower(__instance.masterSpell);
+
+        if (masterPower != null)
         {
-            var masterPower = PowerBundleContext.GetPower(__instance.masterSpell);
-
-            if (masterPower != null)
+            if (__instance.spellCastEngaged != null)
             {
-                if (__instance.spellCastEngaged != null)
-                {
-                    __instance.spellCastEngaged(__instance.spellRepertoire,
-                        __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
-                }
-                else
-                {
-                    __instance.deviceFunctionEngaged?.Invoke(
-                        __instance.guiCharacter,
-                        __instance.rulesetItemDevice,
-                        __instance.rulesetDeviceFunction,
-                        0, index
-                    );
-                }
-
-                __instance.Hide();
-
-                return false;
+                __instance.spellCastEngaged(__instance.spellRepertoire,
+                    __instance.spellRepertoire.KnownSpells[index], __instance.slotLevel);
             }
+            else
+            {
+                __instance.deviceFunctionEngaged?.Invoke(
+                    __instance.guiCharacter,
+                    __instance.rulesetItemDevice,
+                    __instance.rulesetDeviceFunction,
+                    0, index
+                );
+            }
+
+            __instance.Hide();
+
+            return false;
         }
 
         return true;
