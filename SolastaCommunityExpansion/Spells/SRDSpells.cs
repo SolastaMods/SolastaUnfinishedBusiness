@@ -1575,9 +1575,9 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordKill()
     {
-        var killForm = new KillForm()
-            .SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints)
-            .SetHitPoints(100);
+        var killForm = new KillForm();
+        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
+        killForm.hitPoints = 100;
 
         var effectForm = new EffectForm()
             .SetApplyLevel(EffectForm.LevelApplianceType.No)
@@ -1614,10 +1614,11 @@ public static class SrdSpells
 
     private static SpellDefinition BuildShapechange()
     {
-        var shapeChangeForm = new ShapeChangeForm()
-            .SetKeepMentalAbilityScores(true)
-            .SetShapeChangeType(ShapeChangeForm.Type.FreeListSelection)
-            .SetSpecialSubstituteCondition(ConditionWildShapeSubstituteForm);
+        var shapeChangeForm = new ShapeChangeForm();
+
+        shapeChangeForm.keepMentalAbilityScores = true;
+        shapeChangeForm.shapeChangeType = ShapeChangeForm.Type.FreeListSelection;
+        shapeChangeForm.specialSubstituteCondition = ConditionWildShapeSubstituteForm;
 
         shapeChangeForm.ShapeOptions.AddRange
         (

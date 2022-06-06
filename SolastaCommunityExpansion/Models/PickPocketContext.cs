@@ -173,14 +173,14 @@ public static class PickPocketContext
             .AddToDB();
 
         var loot_pickpocket_table = new ItemOccurence(Zombie_loot_drop.ItemOccurencesList[0]);
-        loot_pickpocket_table.SetItemMode(ItemOccurence.SelectionMode.TreasureTable);
-        loot_pickpocket_table.SetTreasureTableDefinition(pick_pocket_table);
-        loot_pickpocket_table.SetDiceNumber(1);
+        loot_pickpocket_table.itemMode = ItemOccurence.SelectionMode.TreasureTable;
+        loot_pickpocket_table.treasureTableDefinition = pick_pocket_table;
+        loot_pickpocket_table.diceNumber = 1;
 
         var loot_pickpocket_undead = new ItemOccurence(Zombie_loot_drop.ItemOccurencesList[0]);
-        loot_pickpocket_undead.SetItemMode(ItemOccurence.SelectionMode.TreasureTable);
-        loot_pickpocket_undead.SetTreasureTableDefinition(pick_pocket_table_undead);
-        loot_pickpocket_undead.SetDiceNumber(1);
+        loot_pickpocket_undead.itemMode = ItemOccurence.SelectionMode.TreasureTable;
+        loot_pickpocket_undead.treasureTableDefinition = pick_pocket_table_undead;
+        loot_pickpocket_undead.diceNumber = 1;
 
         var pick_pocket_loot = LootPackDefinitionBuilder.CreateCopyFrom(Tutorial_04_Loot_Stealable,
                 "PickPocketLoot", "30c308db-1ad7-4f93-9431-43ce32358493")

@@ -5,7 +5,7 @@ using static FeatureDefinitionFeatureSet;
 
 namespace SolastaModApi.Extensions;
 
-public static partial class RulesetActorExtensions
+public static class RulesetActorExtensions
 {
     /// <summary>
     ///     Makes using RulesetActor.EnumerateFeaturesToBrowse simpler

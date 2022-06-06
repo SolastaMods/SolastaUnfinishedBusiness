@@ -586,8 +586,8 @@ public class NewMonsterAttacks
         extraDamageEffect.SetDamageForm(damageForm);
 
         KillForm killForm = new();
-        killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
-        killForm.SetHitPoints(100);
+        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
+        killForm.hitPoints = 100;
 
         EffectForm killEffect = new();
         killEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);

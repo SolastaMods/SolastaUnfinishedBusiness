@@ -136,7 +136,7 @@ internal static class ItemOptionsContext
 
             case "Plain Shirt":
                 Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
-                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(false);
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
                 break;
 
             case "Studded Leather":

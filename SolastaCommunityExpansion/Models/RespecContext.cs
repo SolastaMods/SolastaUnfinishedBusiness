@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
 using TA;
 
 namespace SolastaCommunityExpansion.Models;
@@ -45,13 +44,13 @@ public static class RespecContext
     {
         if (Main.Settings.EnableRespec)
         {
-            RestActivityLevelDown.SetCondition(RestActivityDefinition.ActivityCondition.None);
-            RestActivityRespec.SetCondition(RestActivityDefinition.ActivityCondition.None);
+            RestActivityLevelDown.condition = RestActivityDefinition.ActivityCondition.None;
+            RestActivityRespec.condition = RestActivityDefinition.ActivityCondition.None;
         }
         else
         {
-            RestActivityLevelDown.SetCondition(ActivityConditionDisabled);
-            RestActivityRespec.SetCondition(ActivityConditionDisabled);
+            RestActivityLevelDown.condition = ActivityConditionDisabled;
+            RestActivityRespec.condition = ActivityConditionDisabled;
         }
     }
 
@@ -130,7 +129,7 @@ public static class RespecContext
             var gameLocationCharacter =
                 gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
 
-            newHero.SetGuid(guid);
+            newHero.guid = guid;
             newHero.Tags.AddRange(tags);
             newHero.Attributes[AttributeDefinitions.Experience] = experience;
 

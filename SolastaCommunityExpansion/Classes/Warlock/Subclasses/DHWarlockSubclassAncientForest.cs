@@ -346,12 +346,16 @@ Different Archfey, e.g. Winter-themed
             baseItem.GuiPresentation.SpriteReference
         ).Build();
 
+        var food = new FoodDescription();
+        food.nutritiveCapacity = 0;
+        food.perishable = true;
+
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName, DefinitionBuilder.CENamespaceGuid)
             .SetGold(0)
             .AddToDB();
         brewItem.SetGuiPresentation(guiPresentation);
         brewItem.SetIsFood(true);
-        brewItem.SetFoodDescription(new FoodDescription().SetNutritiveCapacity(0).SetPerishable(true));
+        brewItem.SetFoodDescription(food);
         brewItem.SetIsUsableDevice(true);
         brewItem.SetUsableDeviceDescription(baseItem.UsableDeviceDescription);
 
@@ -444,6 +448,10 @@ Different Archfey, e.g. Winter-themed
                 true)
             .AddToDB();
 
+        var food = new FoodDescription();
+        food.nutritiveCapacity = 0;
+        food.perishable = true;
+
         var brewItem = ItemDefinitionBuilder.Create(baseItem, itemName, DefinitionBuilder.CENamespaceGuid)
             .SetGold(0)
             .SetGuiPresentation(guiPresentation)
@@ -454,7 +462,7 @@ Different Archfey, e.g. Winter-themed
         brewItem.SetGuiPresentation(guiPresentation);
         brewItem.SetIsFood(true);
         brewItem.SetItemRarity(ItemRarity.Common);
-        brewItem.SetFoodDescription(new FoodDescription().SetNutritiveCapacity(0).SetPerishable(true));
+        brewItem.SetFoodDescription(food);
         brewItem.SetIsUsableDevice(true);
         brewItem.SetRequiresIdentification(false);
         brewItem.SetUsableDeviceDescription(description);

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SolastaModApi.Extensions;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -147,7 +146,7 @@ internal static class CharacterExportContext
                     item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
             }
 
-            heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
+            heroCharacter.currentHitPoints = heroCharacter.GetAttribute("HitPoints").CurrentValue;
             heroCharacter.Unregister();
             heroCharacter.ResetForOutgame();
 
@@ -156,7 +155,7 @@ internal static class CharacterExportContext
         finally
         {
             // restore original values
-            heroCharacter.SetGuid(guid);
+            heroCharacter.guid = guid;
             heroCharacter.Name = firstName;
             heroCharacter.SurName = surName;
             heroCharacter.BuiltIn = builtin;
@@ -177,18 +176,18 @@ internal static class CharacterExportContext
 
             foreach (var item in heroItemGuids)
             {
-                item.Item.SetGuid(item.Guid);
+                item.Item.guid = item.Guid;
             }
 
             foreach (var item in inventoryItemGuids)
             {
-                item.Item.SetGuid(item.Guid);
+                item.Item.guid = item.Guid;
             }
 
             // restore active spells and effects
             heroCharacter.PowersUsedByMe.AddRange(powers);
             heroCharacter.SpellsCastByMe.AddRange(spells);
-            heroCharacter.SetCurrentHitPoints(hitPoints);
+            heroCharacter.currentHitPoints = hitPoints;
 
             heroCharacter.Register(false);
         }

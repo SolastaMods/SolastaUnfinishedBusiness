@@ -123,11 +123,11 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Counter;
         var counterForm = new CounterForm();
-        counterForm.SetType(type);
-        counterForm.SetAutomaticSpellLevel(automaticSpellLevel);
-        counterForm.SetCheckBaseDC(checkBaseDC);
-        counterForm.SetAddSpellCastingAbility(addSpellCastingAbility);
-        counterForm.SetAddProficiencyBonus(addProficiencyBonus);
+        counterForm.type = type;
+        counterForm.automaticSpellLevel = automaticSpellLevel;
+        counterForm.checkBaseDC = checkBaseDC;
+        counterForm.addSpellCastingAbility = addSpellCastingAbility;
+        counterForm.addProficiencyBonus = addProficiencyBonus;
         effectForm.SetCounterForm(counterForm);
         return this;
     }
@@ -178,10 +178,10 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Divination;
         var divinationForm = new DivinationForm();
-        divinationForm.SetDivinationType(divinationType);
+        divinationForm.divinationType = divinationType;
         divinationForm.CreatureFamilies.SetRange(creatureFamilies);
         divinationForm.RevealedTags.SetRange(revealedTags);
-        divinationForm.SetRangeCells(rangeCells);
+        divinationForm.rangeCells = rangeCells;
         effectForm.SetDivinationForm(divinationForm);
         return this;
     }

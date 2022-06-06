@@ -215,7 +215,7 @@ public class NewMonsterAttributes
         );
 
 
-        TarrasqueSwallow_Decision.Decision.SetStringParameter("TarrasqueSwallow");
+        TarrasqueSwallow_Decision.Decision.stringParameter = "TarrasqueSwallow";
     }
 
     public static void BuildNew_Tarrasque_CombatDecisions()
@@ -1997,9 +1997,9 @@ public class NewMonsterAttributes
             GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
         );
 
-        SummonCreature_Magic_Decision.Decision.SetEnumParameter((int)RuleDefinitions.MagicType.SummonsCreature);
+        SummonCreature_Magic_Decision.Decision.enumParameter = (int)RuleDefinitions.MagicType.SummonsCreature;
 
-        SummonCreature_Magic_Decision.Decision.SetStringParameter("SummonCreature");
+        SummonCreature_Magic_Decision.Decision.stringParameter = "SummonCreature";
     }
 
     public static void BuildNew_AtWillAOE_Magic_Decision()
@@ -2014,7 +2014,7 @@ public class NewMonsterAttributes
         );
 
 
-        AtWillAOE_Magic_Decision.Decision.SetStringParameter("AtWillAOE");
+        AtWillAOE_Magic_Decision.Decision.stringParameter = "AtWillAOE";
     }
 
     public static void BuildNew_CastMagic_StoneSkin_Decision()
@@ -2029,7 +2029,7 @@ public class NewMonsterAttributes
         );
 
 
-        CastMagic_Stoneskin_Decision.Decision.SetStringParameter("Stoneskin");
+        CastMagic_Stoneskin_Decision.Decision.stringParameter = "Stoneskin";
     }
 
     public static void BuildNew_LimitedPerDayAOE_Magic_Decision()
@@ -2043,7 +2043,7 @@ public class NewMonsterAttributes
             GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
         );
 
-        LimitedPerDayAOE_Magic_Decision.Decision.SetStringParameter("LimitedPerDayAOE");
+        LimitedPerDayAOE_Magic_Decision.Decision.stringParameter = "LimitedPerDayAOE";
     }
 
     public static void BuildNew_AtWillSelfBuff_Magic_Decision()
@@ -2058,7 +2058,7 @@ public class NewMonsterAttributes
         );
 
 
-        AtWillSelfBuff_Magic_Decision.Decision.SetStringParameter("AtWillSelfBuff");
+        AtWillSelfBuff_Magic_Decision.Decision.stringParameter = "AtWillSelfBuff";
     }
 
     public static void BuildNew_LimitedPerDayTargetDebuffMagic_Decision()
@@ -2072,7 +2072,7 @@ public class NewMonsterAttributes
             GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
         );
 
-        LimitedPerDayTargetDebuff_Magic_Decision.Decision.SetStringParameter("LimitedPerDayTargetDebuff");
+        LimitedPerDayTargetDebuff_Magic_Decision.Decision.stringParameter = "LimitedPerDayTargetDebuff";
     }
 
     public static void BuildNew_Solar_CombatDecisions()

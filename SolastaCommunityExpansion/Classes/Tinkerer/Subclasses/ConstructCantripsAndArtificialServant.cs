@@ -130,7 +130,7 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         Definition.verboseComponent = false;
 
         var dismissConstruct = new CounterForm();
-        dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
+        dismissConstruct.type = CounterForm.CounterType.DismissCreature;
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Counter};
         effect.SetCounterForm(dismissConstruct);
