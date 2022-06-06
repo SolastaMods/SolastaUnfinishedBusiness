@@ -61,6 +61,7 @@ public static class TranslationsDisplay
         var userCampaignPoolService = ServiceRepository.GetService<IUserCampaignPoolService>();
 
         foreach (var userCampaign in userCampaignPoolService.AllCampaigns
+                     .Where(x => !x.TechnicalInfo.StartsWith(UserCampaignsTranslatorContext.CE2_TRANSLATION_TAG))
                      .OrderBy(x => x.Title))
         {
             var exportName = userCampaign.Title;

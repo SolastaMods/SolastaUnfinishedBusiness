@@ -241,7 +241,7 @@ internal static class RulesetSpellRepertoirePatcher
 
             var forcePactSlot = __instance.SpellCastingClass == IntegrationContext.WarlockClass;
             var forceSpellSlot = canConsumeSpellSlot &&
-                                 (isShiftPressed || (!forcePactSlot && sharedSpellLevel <= warlockSpellLevel));
+                                 (isShiftPressed || (!forcePactSlot && sharedSpellLevel < warlockSpellLevel));
 
             // uses short rest slots across all repertoires
             if (canConsumePactSlot && !forceSpellSlot)

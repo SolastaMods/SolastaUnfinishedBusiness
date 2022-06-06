@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Wählen Sie eine Slot-Stufe aus,
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot-Level
 Reaction/&SubitemSelectPowerBundleTitle	Optionen
 Reaction/&SubitemSelectSlotLevelTitle	Slot-Level
-Reaction/&SubitemSelectWarcasterTitle	Aktion auswählen
+Reaction/&SubitemSelectWarcasterReactionTitle	Aktion auswählen
 Reaction/&Use{0}Description	Verwenden Sie {0}
 Reaction/&Use{0}Title	Verwenden Sie {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} fällt und kann eine Reaktion verwenden, um keinen Fallschaden zu erleiden.
@@ -1870,7 +1870,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Sie addieren Ihren Wi
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Kenne deinen Feind
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Als Bonusaktion kannst du versuchen, dein Wissen über dein Ziel zu erweitern, indem du einen Wurf auf Überleben würfelst. Sie können dies zweimal pro kurzer Pause tun.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 2 Geister des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + das Doppelte deines Kämpferlevels an HP und seine RK ist 16 + dein Fertigkeitsbonus. Die Geister sind immun gegen Gift, Kälte, nekrotische, anfällige, gelähmte und zurückgehaltene Zustände. Die Geister haben Resistenz gegen Feuer-, Säure-, Blitz- und Donnerschaden sowie Resistenz gegen nichtmagischen Hieb-, Knüppel- und Stichschaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß hoch fliegen und einen einzelnen Nahkampfwaffenangriff ausführen, der 2W6 + 5 magischen Hiebschaden mit einem Bonus von 5 + Geschicklichkeitsbonus auf Treffer verursacht.
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 1 Geister des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + das Doppelte deines Kämpferlevels an HP und seine RK ist 16 + dein Fertigkeitsbonus. Die Geister sind immun gegen Gift, Kälte, nekrotische, anfällige, gelähmte und zurückgehaltene Zustände. Die Geister haben Resistenz gegen Feuer-, Säure-, Blitz- und Donnerschaden sowie Resistenz gegen nichtmagischen Hieb-, Knüppel- und Stichschaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß hoch fliegen und einen einzelnen Nahkampfwaffenangriff ausführen, der 2W6 + 5 magischen Hiebschaden mit einem Bonus von 5 + Geschicklichkeitsbonus auf Treffer verursacht.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
 Subclass/&FighterMarshalTitle	Marschall
 Subclass/&FighterSpellShieldDescription	Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn dieser Schalter auf ON steht, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
+Reaction/&WarcasterReactionReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&WarcasterReactionReactTitle	Attacke
+Reaction/&SubitemSelectCoordinatedAttackTitle	Aktion auswählen
+Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Angriff angegriffen, einige Charaktere können ihre Reaktion nutzen, um sich diesem Angriff anzuschließen.
+Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
+Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&CoordinatedAttackReactTitle	Attacke

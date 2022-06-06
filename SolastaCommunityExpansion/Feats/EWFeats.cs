@@ -14,6 +14,7 @@ public static class EWFeats
     public const string SentinelFeat = "FeatSentinel";
     public const string PolearmExpertFeat = "FeatPolearmExpert";
     public const string RangedExpertFeat = "FeatRangedExpert";
+    public const string RecklessAttackFeat = "FeatRecklessAttack";
     private static readonly Guid GUID = new("B4ED480F-2D06-4EB1-8732-9A721D80DD1A");
 
     public static void CreateFeats(List<FeatDefinition> feats)
@@ -21,6 +22,7 @@ public static class EWFeats
         feats.Add(BuildSentinel());
         feats.Add(BuildPolearmExpert());
         feats.Add(BuildRangedExpert());
+        feats.Add(BuildRecklessAttack());
     }
 
     private static FeatDefinition BuildSentinel()
@@ -110,6 +112,16 @@ public static class EWFeats
                         CharacterValidators.HasAttacked)
                 )
                 .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildRecklessAttack()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(RecklessAttackFeat, GUID)
+            .SetGuiPresentation("RecklessAttack", Category.Action)
+            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityBarbarianRecklessAttack)
+            .SetValidators(FeatsValidations.ValidateNotClass(CharacterClassDefinitions.Barbarian))
             .AddToDB();
     }
 

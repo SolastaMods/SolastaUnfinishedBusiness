@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	Selecione um nível de slot para
 Reaction/&SubitemSelectEldritchSmiteTitle	Nível do slot
 Reaction/&SubitemSelectPowerBundleTitle	Opções
 Reaction/&SubitemSelectSlotLevelTitle	Nível do slot
-Reaction/&SubitemSelectWarcasterTitle	Selecionar ação
+Reaction/&SubitemSelectWarcasterReactionTitle	Selecionar ação
 Reaction/&Use{0}Description	Usar {0}
 Reaction/&Use{0}Title	Usar {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} está caindo e pode usar uma reação para não sofrer dano de queda.
@@ -1870,7 +1870,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Você adiciona seu n�
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conheça seu inimigo
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como uma ação bônus, você pode tentar aumentar seu conhecimento sobre seu alvo rolando um teste de Sobrevivência. Você pode fazer isso duas vezes por descanso curto.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 2 espíritos do camarada caído do marechal. Cada espírito tem 45 + o dobro do seu nível de lutador de HP e sua CA é 16 + seu bônus de proficiência. Os espíritos são imunes às condições venenosas, frias, necróticas, propensas, paralisadas e contidas. Os espíritos têm resistência a dano de fogo, ácido, raio e trovão e têm resistência a danos não-mágicos de corte, concussão e perfurante. Por sua vez, eles podem voar até 15 metros e fazer um único ataque corpo a corpo com arma que causa 2d6 + 5 de dano mágico cortante com um bônus de 5 + bônus de proficiência para acertar.
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoque 1 espírito do camarada caído do marechal. Cada espírito tem 45 + o dobro do seu nível de lutador de HP e sua CA é 16 + seu bônus de proficiência. Os espíritos são imunes às condições venenosas, frias, necróticas, propensas, paralisadas e contidas. Os espíritos têm resistência a dano de fogo, ácido, raio e trovão e têm resistência a danos não-mágicos de corte, concussão e perfurante. Por sua vez, eles podem voar até 15 metros e fazer um único ataque corpo a corpo com arma que causa 2d6 + 5 de dano mágico cortante com um bônus de 5 + bônus de proficiência para acertar.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
 Subclass/&FighterMarshalTitle	Marechal
 Subclass/&FighterSpellShieldDescription	Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
+Reaction/&WarcasterReactionReactDescription	Use a reação para atacar o alvo.
+Reaction/&WarcasterReactionReactTitle	Ataque
+Reaction/&SubitemSelectCoordinatedAttackTitle	Selecionar ação
+Reaction/&CoordinatedAttackDescription	{0} foi atacado por um ataque coordenado, alguns personagens podem usar sua reação para participar deste ataque.
+Reaction/&CoordinatedAttackTitle	Ataque coordenado
+Reaction/&CoordinatedAttackReactDescription	Use a reação para atacar o alvo.
+Reaction/&CoordinatedAttackReactTitle	Ataque

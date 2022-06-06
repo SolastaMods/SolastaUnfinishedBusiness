@@ -48,4 +48,23 @@ internal static class RulesetCharacterExension
         return instance.GetSubFeaturesByType<IAttackModificationProvider>()
             .Any(p => p.CanAddAbilityBonusToSecondary);
     }
+
+    public static RulesetItem GetItemInSlot(this RulesetCharacter instance, string slot)
+    {
+        if (instance == null 
+            || instance.CharacterInventory == null 
+            || instance.CharacterInventory.InventorySlotsByName == null
+           )
+        {
+            return null;
+        }
+
+        var inventorySlot = instance.CharacterInventory.InventorySlotsByName[slot];
+        if (inventorySlot == null)
+        {
+            return null;
+        }
+
+        return inventorySlot.EquipedItem;
+    }
 }

@@ -1554,7 +1554,7 @@ Reaction/&SubitemSelectEldritchSmiteDescription	为魔能斩选择消耗的法�
 Reaction/&SubitemSelectEldritchSmiteTitle	法术位等级
 Reaction/&SubitemSelectPowerBundleTitle	选项
 Reaction/&SubitemSelectSlotLevelTitle	法术位等级
-Reaction/&SubitemSelectWarcasterTitle	选择动作
+Reaction/&SubitemSelectWarcasterReactionTitle	选择动作
 Reaction/&Use{0}Description	使用{0}
 Reaction/&Use{0}Title	使用{0}
 Reaction/&UseClassMonkSlowFallDescription	{0}在跌落，能使用反应防止跌落伤害
@@ -2067,3 +2067,10 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
 UI/&ForcePreferredCantripTitle	强制默认戏法
+Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
+Reaction/&WarcasterReactionReactTitle	Attack
+Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
+Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
+Reaction/&CoordinatedAttackTitle	Coordinated Attack
+Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
+Reaction/&CoordinatedAttackReactTitle	Attack

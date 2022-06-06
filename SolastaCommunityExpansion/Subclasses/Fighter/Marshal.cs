@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi.Extensions;
 using UnityEngine;
@@ -63,8 +65,10 @@ internal static class KnowYourEnemyBuilder
             return;
         }
 
-        attackModifier.AttacktoHitTrends.Add(new TrendInfo(GetKnowledgeLevelOfEnemy(defender.RulesetCharacter),
-            FeatureSourceType.CharacterFeature, "KnowYourEnemies", null));
+        var knowledgeLevelOfEnemy = GetKnowledgeLevelOfEnemy(defender.RulesetCharacter);
+        attackerAttackMode.toHitBonus += knowledgeLevelOfEnemy;
+        attackModifier.AttacktoHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
+            FeatureSourceType.CharacterFeature, "KnowYourEnemy", null));
     }
 
     public static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
@@ -199,7 +203,7 @@ internal static class StudyYourEnemyBuilder
 
 internal static class CoordinatedAttackBuilder
 {
-    private static void CoordinatedAttackOnAttackHitDelegate(
+    private static IEnumerator CoordinatedAttackOnAttackHitDelegate(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         RollOutcome outcome,
@@ -211,12 +215,12 @@ internal static class CoordinatedAttackBuilder
         if (attackMode.ranged || outcome == RollOutcome.CriticalFailure || outcome == RollOutcome.Failure ||
             actionParams.actionDefinition.Id == ActionDefinitions.Id.AttackOpportunity)
         {
-            return;
+            yield break;
         }
 
         var characterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationBattleService = ServiceRepository.GetService<IGameLocationBattleService>();
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+        var battleManager = gameLocationBattleService as GameLocationBattleManager;
 
         var allies = new List<GameLocationCharacter>();
         foreach (var guestCharacter in characterService.GuestCharacters)
@@ -254,11 +258,13 @@ internal static class CoordinatedAttackBuilder
             allies.Add(partyCharacter);
         }
 
+        var reactions = new List<CharacterActionParams>();
         foreach (var partyCharacter in allies)
         {
             var allAttackMode = partyCharacter.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             var attackParams = default(BattleDefinitions.AttackEvaluationParams);
             var actionModifierBefore = new ActionModifier();
+            var canAttack = true;
             if (allAttackMode.Ranged)
             {
                 attackParams.FillForPhysicalRangeAttack(partyCharacter, partyCharacter.LocationPosition, allAttackMode,
@@ -272,22 +278,42 @@ internal static class CoordinatedAttackBuilder
 
             if (!gameLocationBattleService.CanAttack(attackParams))
             {
-                continue;
+                canAttack = false;
+                var cantrips = ReactionRequestWarcaster.GetValidCantrips(battleManager, partyCharacter, defender);
+                if (cantrips == null || cantrips.Empty())
+                {
+                    continue;
+                }
             }
 
             var reactionParams = new CharacterActionParams(partyCharacter, ActionDefinitions.Id.AttackOpportunity,
-                allAttackMode, defender, actionModifierBefore);
+                allAttackMode, defender, actionModifierBefore)
+            {
+                StringParameter2 = "CoordinatedAttack", BoolParameter4 = !canAttack
+            };
+            reactions.Add(reactionParams);
+        }
 
-            actionService.ReactForOpportunityAttack(reactionParams);
+        if (!reactions.Empty() && battleManager != null)
+        {
+            var actionService = ServiceRepository.GetService<IGameLocationActionService>();
+            var count = actionService.PendingReactionRequestGroups.Count;
+
+            foreach (var reaction in reactions)
+            {
+                actionService.ReactForOpportunityAttack(reaction);
+            }
+
+            yield return battleManager.WaitForReactions(attacker, actionService, count);
         }
     }
 
-    public static FeatureDefinitionOnAttackHitEffect BuildCoordinatedAttack()
+    public static FeatureDefinition BuildCoordinatedAttack()
     {
-        return FeatureDefinitionOnAttackHitEffectBuilder
+        return FeatureDefinitionBuilder
             .Create("CoordinatedAttack", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
             .SetGuiPresentation("FighterMarshalCoordinatedAttack", Category.Subclass)
-            .SetOnAttackHitDelegates(null, CoordinatedAttackOnAttackHitDelegate)
+            .SetCustomSubFeatures(new ReactToAttackFinished(CoordinatedAttackOnAttackHitDelegate))
             .AddToDB();
     }
 }
@@ -499,7 +525,7 @@ public static class MarshalFighterSubclassBuilder
     private const string MarshalFighterSubclassName = "MarshalFighter";
     public static readonly Guid MarshalFighterSubclassNameGuid = new("79608b4e-8293-452e-bd1a-9cf0d0e9d077");
 
-    private static readonly FeatureDefinitionOnAttackHitEffect CoordinatedAttack =
+    private static readonly FeatureDefinition CoordinatedAttack =
         CoordinatedAttackBuilder.BuildCoordinatedAttack();
 
     private static readonly FeatureDefinitionFeatureSet KnowYourEnemies =
