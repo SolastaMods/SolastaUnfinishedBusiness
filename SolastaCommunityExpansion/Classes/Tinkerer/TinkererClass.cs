@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -54,11 +54,15 @@ internal static class TinkererClass
 
     private static readonly List<FeatureDefinition> Level10InfusionList = new()
     {
+        InfusionHelpers.BootsOfStridingAndSpringing,
+        InfusionHelpers.BootsOfTheWinterland,
+        InfusionHelpers.BroochOfShielding,
         InfusionHelpers.BracesrOfArchery,
         InfusionHelpers.CloakOfProtection,
         InfusionHelpers.GauntletsOfOgrePower,
+        InfusionHelpers.GlovesOfMissileSnaring,
         InfusionHelpers.HeadbandOfIntellect,
-        InfusionHelpers.SlippersOfSpiderClimbing
+        InfusionHelpers.SlippersOfSpiderClimbing,
     };
 
     private static readonly List<FeatureDefinition> Level14InfusionList = new()
