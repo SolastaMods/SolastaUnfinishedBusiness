@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -12,7 +12,7 @@ public abstract class
 {
     public TBuilder SetFeatures(IEnumerable<FeatureDefinition> features)
     {
-        Definition.SetFeatures(features.OrderBy(f => f.Name));
+        Definition.Features.SetRange(features.OrderBy(f => f.Name));
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }

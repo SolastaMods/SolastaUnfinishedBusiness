@@ -21,14 +21,14 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
     {
         if (Definition.DocumentDescription == null)
         {
-            Definition.SetDocumentDescription(new DocumentDescription());
+            Definition.documentDescription = new DocumentDescription();
         }
 
         Definition.IsDocument = true;
-        Definition.DocumentDescription.SetRecipeDefinition(recipeDefinition);
-        Definition.DocumentDescription.SetLoreType(RuleDefinitions.LoreType.CraftingRecipe);
-        Definition.DocumentDescription.SetDestroyAfterReading(true);
-        Definition.DocumentDescription.SetLocationKnowledgeLevel(GameCampaignDefinitions.NodeKnowledge.Known);
+        Definition.DocumentDescription.recipeDefinition = recipeDefinition;
+        Definition.DocumentDescription.loreType = RuleDefinitions.LoreType.CraftingRecipe;
+        Definition.DocumentDescription.destroyAfterReading = true;
+        Definition.DocumentDescription.locationKnowledgeLevel = GameCampaignDefinitions.NodeKnowledge.Known;
         Definition.DocumentDescription.ContentFragments.SetRange(contentFragments);
         return this;
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -9,7 +8,7 @@ public class FeatureDefinitionLightAffinityBuilder : FeatureDefinitionBuilder<Fe
     public FeatureDefinitionLightAffinityBuilder AddLightingEffectAndCondition(
         FeatureDefinitionLightAffinity.LightingEffectAndCondition lightingEffectAndCondition)
     {
-        Definition.AddLightingEffectAndConditionList(lightingEffectAndCondition);
+        Definition.LightingEffectAndConditionList.Add(lightingEffectAndCondition);
         return this;
     }
 

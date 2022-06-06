@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -10,7 +10,7 @@ public class FeatureDefinitionFightingStyleChoiceBuilder : FeatureDefinitionBuil
 {
     public FeatureDefinitionFightingStyleChoiceBuilder ClearFightingStyles()
     {
-        Definition.ClearFightingStyles();
+        Definition.FightingStyles.Clear();
         return This();
     }
 
@@ -21,7 +21,7 @@ public class FeatureDefinitionFightingStyleChoiceBuilder : FeatureDefinitionBuil
 
     public FeatureDefinitionFightingStyleChoiceBuilder SetFightingStyles(IEnumerable<string> styles)
     {
-        Definition.SetFightingStyles(styles);
+        Definition.FightingStyles.SetRange(styles);
         Definition.FightingStyles.Sort();
         return This();
     }
@@ -33,7 +33,7 @@ public class FeatureDefinitionFightingStyleChoiceBuilder : FeatureDefinitionBuil
 
     public FeatureDefinitionFightingStyleChoiceBuilder AddFightingStyles(IEnumerable<string> styles)
     {
-        Definition.AddFightingStyles(styles);
+        Definition.FightingStyles.AddRange(styles);
         Definition.FightingStyles.Sort();
         return This();
     }

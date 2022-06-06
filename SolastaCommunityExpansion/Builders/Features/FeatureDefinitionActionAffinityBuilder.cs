@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
@@ -9,7 +8,7 @@ public class FeatureDefinitionActionAffinityBuilder : FeatureDefinitionBuilder<F
 {
     public FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
     {
-        Definition.SetAuthorizedActions(actions);
+        Definition.AuthorizedActions.SetRange(actions);
         Definition.AuthorizedActions.Sort();
         return This();
     }
