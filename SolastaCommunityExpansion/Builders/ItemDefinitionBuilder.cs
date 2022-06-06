@@ -42,32 +42,32 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
 
     public ItemDefinitionBuilder SetGold(int gold)
     {
-        Definition.SetCosts(new[] {0, gold, 0, 0, 0});
+        Definition.costs = new[] {0, gold, 0, 0, 0};
         return this;
     }
 
     public ItemDefinitionBuilder SetCosts(int[] costs)
     {
-        Definition.SetCosts(costs);
+        Definition.costs = costs;
         return this;
     }
 
     public ItemDefinitionBuilder SetInDungeonEditor(bool inDungeonEditor)
     {
-        Definition.SetInDungeonEditor(inDungeonEditor);
+        Definition.inDungeonEditor = inDungeonEditor;
         return this;
     }
 
     public ItemDefinitionBuilder MakeMagical()
     {
         Definition.ItemTags.Remove("Standard");
-        Definition.SetMagical(true);
+        Definition.magical = true;
         return this;
     }
 
     public ItemDefinitionBuilder SetMerchantCategory(MerchantCategoryDefinition category)
     {
-        Definition.SetMerchantCategory(category.Name);
+        Definition.merchantCategory = category.Name;
         return this;
     }
 
@@ -79,25 +79,25 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
 
     public ItemDefinitionBuilder SetSlotTypes(params string[] slotTypes)
     {
-        Definition.SetSlotTypes(slotTypes);
+        Definition.SlotTypes.SetRange(slotTypes);
         return this;
     }
 
     public ItemDefinitionBuilder SetSlotTypes(params SlotTypeDefinition[] slotTypes)
     {
-        Definition.SetSlotTypes(slotTypes.Select(t => t.Name));
+        Definition.SlotTypes.SetRange(slotTypes.Select(t => t.Name));
         return this;
     }
 
     public ItemDefinitionBuilder SetSlotsWhereActive(params string[] slotTypes)
     {
-        Definition.SetSlotsWhereActive(slotTypes);
+        Definition.SlotsWhereActive.SetRange(slotTypes);
         return this;
     }
 
     public ItemDefinitionBuilder SetSlotsWhereActive(params SlotTypeDefinition[] slotTypes)
     {
-        Definition.SetSlotsWhereActive(slotTypes.Select(t => t.Name));
+        Definition.SlotsWhereActive.SetRange(slotTypes.Select(t => t.Name));
         return this;
     }
 
@@ -109,32 +109,32 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
 
     public ItemDefinitionBuilder SetWeaponDescription(WeaponDescription weapon)
     {
-        Definition.SetIsWeapon(true);
-        Definition.SetWeaponDescription(weapon);
+        Definition.isWeapon = true;
+        Definition.weaponDefinition = weapon;
         return this;
     }
 
     public ItemDefinitionBuilder SetItemPresentation(ItemPresentation presentation)
     {
-        Definition.SetItemPresentation(presentation);
+        Definition.itemPresentation = presentation;
         return this;
     }
 
     public ItemDefinitionBuilder SetItemRarity(RuleDefinitions.ItemRarity rarity)
     {
-        Definition.SetItemRarity(rarity);
+        Definition.itemRarity = rarity;
         return this;
     }
 
     public ItemDefinitionBuilder SetRequiresIdentification(bool value)
     {
-        Definition.SetRequiresIdentification(value);
+        Definition.requiresIdentification = value;
         return this;
     }
 
     public ItemDefinitionBuilder SetRequiresAttunement(bool value)
     {
-        Definition.SetRequiresAttunement(value);
+        Definition.requiresAttunement = value;
         return this;
     }
 
@@ -159,7 +159,7 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
     public ItemDefinitionBuilder SetUsableDeviceDescription(UsableDeviceDescription usableDescription)
     {
         Definition.IsUsableDevice = true;
-        Definition.SetUsableDeviceDescription(usableDescription);
+        Definition.usableDeviceDescription = usableDescription;
         return this;
     }
 
@@ -171,7 +171,7 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
     public ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
     {
         Definition.IsUsableDevice = true;
-        Definition.SetUsableDeviceDescription(new UsableDeviceDescription());
+        Definition.usableDeviceDescription = new UsableDeviceDescription();
         Definition.UsableDeviceDescription.DeviceFunctions.Clear();
 
         var deviceFunction = Berry_Ration.UsableDeviceDescription.DeviceFunctions[0];

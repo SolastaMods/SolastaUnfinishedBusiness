@@ -208,7 +208,7 @@ public static class SrdSpells
     //           Definition.GuiPresentation.Title = TitleString;
     //           Definition.GuiPresentation.Description = DescriptionString;
     //
-    //           Definition.SetSilentWhenAdded ( false);
+    //           Definition.silentWhenAdded = false;
     //           Definition.silentWhenRemoved = false;
     //
     //           Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;

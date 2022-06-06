@@ -183,8 +183,8 @@ internal sealed class SummonForceArtillerySpellConstructBuilder : SpellDefinitio
         Definition.uniqueInstance = true;
         Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

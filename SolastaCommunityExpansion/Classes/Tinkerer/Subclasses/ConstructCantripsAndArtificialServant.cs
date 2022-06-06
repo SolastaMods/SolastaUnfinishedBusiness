@@ -228,8 +228,8 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
         // a tag should be added if scaling is applied to the servant
         //Definition.CreatureTags.Add();
 
-        Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .DefaultRangeWithBackupMeleeDecisions);
+        Definition.defaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .DefaultRangeWithBackupMeleeDecisions;
         Definition.Features.Clear();
         Definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12);
         Definition.Features.Add(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionBootsWinged);
@@ -308,7 +308,7 @@ internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBu
 
         Definition.effectDescription = newEffectDescription;
 
-        Definition.SetToHitBonus(assumedIntModifier + assumedProficiencyBonus);
+        Definition.toHitBonus = assumedIntModifier + assumedProficiencyBonus;
     }
 
     private static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)

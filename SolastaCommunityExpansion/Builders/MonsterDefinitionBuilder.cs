@@ -465,7 +465,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
     {
-        Definition.SetLegendaryActionOptions(legendaryActionDescriptions);
+        Definition.LegendaryActionOptions.SetRange(legendaryActionDescriptions);
         return this;
     }
 
@@ -548,13 +548,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetCreatureTags(params string[] tags)
     {
-        Definition.SetCreatureTags(tags);
+        Definition.CreatureTags.SetRange(tags);
         return this;
     }
 
     public MonsterDefinitionBuilder SetCreatureTags(IEnumerable<string> tags)
     {
-        Definition.SetCreatureTags(tags);
+        Definition.CreatureTags.SetRange(tags);
         return this;
     }
 

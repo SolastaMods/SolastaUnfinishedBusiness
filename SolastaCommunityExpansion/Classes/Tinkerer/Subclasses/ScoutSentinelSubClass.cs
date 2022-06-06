@@ -606,7 +606,7 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
         Definition.defaultStackCount = 2;
-        Definition.SetFocusItemDescription(focusItemDescription);
+        Definition.focusItemDefinition = focusItemDescription;
         Definition.forceEquip = false;
         Definition.forceEquipSlot = "";
         Definition.inDungeonEditor = true;
@@ -618,7 +618,7 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.requiresIdentification = false;
         Definition.stackSize = 2;
         Definition.usableDeviceDescription = usableDeviceDescription;
-        Definition.SetWeaponDescription(ThunderPunch);
+        Definition.weaponDefinition = ThunderPunch;
         Definition.weight = 1;
         Definition.StaticProperties.Add(usingBonusActionItemPower);
 
@@ -920,7 +920,7 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.activeOnGround = false;
         Definition.canBeStacked = true;
         Definition.defaultStackCount = -1;
-        Definition.SetFocusItemDescription(focusItemDescription);
+        Definition.focusItemDefinition = focusItemDescription;
         Definition.forceEquip = false;
         Definition.forceEquipSlot = "MainHandSlot";
         Definition.inDungeonEditor = true;
@@ -930,7 +930,7 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.requiresAttunement = false;
         Definition.requiresIdentification = false;
         Definition.stackSize = 2;
-        Definition.SetWeaponDescription(LightningSpear);
+        Definition.weaponDefinition = LightningSpear;
         Definition.weight = 1;
         Definition.StaticProperties.Add(LightningSpearAdditionalDamage);
         Definition.StaticProperties.Add(LightningCloakStealth);

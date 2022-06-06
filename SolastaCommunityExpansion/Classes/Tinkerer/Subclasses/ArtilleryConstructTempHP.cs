@@ -234,8 +234,8 @@ internal sealed class SummonTempHPShieldSpellConstructBuilder : SpellDefinitionB
         Definition.uniqueInstance = true;
         Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

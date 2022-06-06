@@ -230,8 +230,8 @@ internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuil
         Definition.materialComponentType = RuleDefinitions.MaterialComponentType.None;
         Definition.verboseComponent = false;
 
-        Definition.SetEffectDescription(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
-            .EffectDescription);
+        Definition.effectDescription = SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

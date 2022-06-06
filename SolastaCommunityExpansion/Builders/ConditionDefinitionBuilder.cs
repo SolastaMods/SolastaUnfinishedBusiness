@@ -97,7 +97,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
     {
-        Definition.SetFeatures(value);
+        Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
@@ -164,7 +164,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
-        Definition.SetSpecialInterruptions(value);
+        Definition.SpecialInterruptions.SetRange(value);
         return This();
     }
 
