@@ -76,7 +76,7 @@ internal static class CharacterExportContext
             {
                 if (newFirstName.Contains(" "))
                 {
-                    var a = newFirstName.Split(new[] {' '}, 2);
+                    var a = newFirstName.Split(new[] { ' ' }, 2);
 
                     newFirstName = ParseText(a[0]);
                     newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
@@ -117,7 +117,7 @@ internal static class CharacterExportContext
 
         heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
-        var attunedItems = inventoryItems.ConvertAll(i => new {Item = i, Name = i.AttunedToCharacter});
+        var attunedItems = inventoryItems.ConvertAll(i => new { Item = i, Name = i.AttunedToCharacter });
 
         // NOTE: don't use Gui.GameLocation?. which bypasses Unity object lifetime check
         var customItems = (Gui.GameLocation
@@ -126,8 +126,8 @@ internal static class CharacterExportContext
                     ui.ReferenceItemDefinition == i.ItemDefinition) == true)
             : Enumerable.Empty<RulesetItem>()).ToList();
 
-        var heroItemGuids = heroCharacter.Items.ConvertAll(i => new {Item = i, i.Guid});
-        var inventoryItemGuids = inventoryItems.ConvertAll(i => new {Item = i, i.Guid});
+        var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
+        var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
 
         try
         {

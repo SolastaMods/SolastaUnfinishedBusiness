@@ -57,7 +57,7 @@ public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureD
         {
             ClassLevel = 1,
             SpellsList =
-                new List<SpellDefinition> {SummonProtectorSpellConstructBuilder.SummonProtectorConstruct}
+                new List<SpellDefinition> { SummonProtectorSpellConstructBuilder.SummonProtectorConstruct }
         };
 #pragma warning restore S1481, IDE0059 // Unused local variables should be removed
     }
@@ -517,9 +517,9 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         Definition.fixedUsesPerRecharge = 3;
         Definition.costPerUse = 1;
 
-        var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
+        var selfrepair = new HealingForm { BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2 };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Healing };
         effect.SetHealingForm(selfrepair);
         effect.SetCreatedByCharacter(true);
 

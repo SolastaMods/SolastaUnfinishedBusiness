@@ -215,7 +215,7 @@ public static class CustomFeaturesContext
 
             if (features.Contains(feature))
             {
-                var featuresToRemove = new List<FeatureDefinition> {feature};
+                var featuresToRemove = new List<FeatureDefinition> { feature };
                 RecursiveRemoveCustomFeatures(hero, tag, featuresToRemove, false);
                 if (selectedClass != null)
                 {

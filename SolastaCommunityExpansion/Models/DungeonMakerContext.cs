@@ -44,7 +44,7 @@ public static class DungeonMakerContext
 
     public static float GetPartyControlScale()
     {
-        return (float) GAME_PARTY_SIZE / Gui.GameCampaign.Party.CharactersList.Count;
+        return (float)GAME_PARTY_SIZE / Gui.GameCampaign.Party.CharactersList.Count;
     }
 
     // must be public because of transpiler

@@ -1,2 +1,4 @@
-﻿- Change Sense Normal Vision feature to a slider
+﻿- Allow hand xbows to leverage Archery feat or fighting style
+- Change Sense Normal Vision feature to a slider
+- Fix Level 20 after TA decided to cap level 12 in other places
 - Improve Party of 6 UI scaling

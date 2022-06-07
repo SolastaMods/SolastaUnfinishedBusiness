@@ -35,12 +35,12 @@ public static partial class UI
 
     public static GUILayoutOption[] Width(float min, float max)
     {
-        return new[] {GL.MinWidth(min), GL.MaxWidth(max)};
+        return new[] { GL.MinWidth(min), GL.MaxWidth(max) };
     }
 
     public static GUILayoutOption[] Height(float min, float max)
     {
-        return new[] {GL.MinHeight(min), GL.MaxHeight(max)};
+        return new[] { GL.MinHeight(min), GL.MaxHeight(max) };
     }
 
     public static GUILayoutOption Height(float v)

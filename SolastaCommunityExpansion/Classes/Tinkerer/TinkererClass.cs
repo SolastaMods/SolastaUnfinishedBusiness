@@ -62,7 +62,7 @@ internal static class TinkererClass
         InfusionHelpers.GauntletsOfOgrePower,
         InfusionHelpers.GlovesOfMissileSnaring,
         InfusionHelpers.HeadbandOfIntellect,
-        InfusionHelpers.SlippersOfSpiderClimbing,
+        InfusionHelpers.SlippersOfSpiderClimbing
     };
 
     private static readonly List<FeatureDefinition> Level14InfusionList = new()

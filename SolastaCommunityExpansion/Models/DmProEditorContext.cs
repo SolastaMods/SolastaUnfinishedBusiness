@@ -93,8 +93,8 @@ internal static class DmProEditorContext
     {
         var customDungeonSizes = new Dictionary<UserLocationDefinitions.Size, int>
         {
-            {(UserLocationDefinitions.Size)ExtendedDungeonSize.Huge, 150},
-            {(UserLocationDefinitions.Size)ExtendedDungeonSize.Gargantuan, 200}
+            { (UserLocationDefinitions.Size)ExtendedDungeonSize.Huge, 150 },
+            { (UserLocationDefinitions.Size)ExtendedDungeonSize.Gargantuan, 200 }
         };
 
         UserLocationDefinitions.CellsBySize[UserLocationDefinitions.Size.Medium] = 75;

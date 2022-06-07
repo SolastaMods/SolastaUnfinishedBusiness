@@ -31,7 +31,7 @@ public static partial class UI
         {
             if (_buttonStyle == null)
             {
-                _buttonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
             }
 
             return _buttonStyle;
@@ -44,7 +44,7 @@ public static partial class UI
         {
             if (_largeStyle == null)
             {
-                _largeStyle = new GUIStyle(GUI.skin.box) {richText = true};
+                _largeStyle = new GUIStyle(GUI.skin.box) { richText = true };
             }
 
             _largeStyle.fixedHeight = 24.point();
@@ -67,7 +67,7 @@ public static partial class UI
         {
             if (_textBoxStyle == null)
             {
-                _textBoxStyle = new GUIStyle(GUI.skin.box) {richText = true};
+                _textBoxStyle = new GUIStyle(GUI.skin.box) { richText = true };
             }
 
             _textBoxStyle.fontSize = 14.point();
@@ -89,7 +89,7 @@ public static partial class UI
         {
             if (_toggleStyle == null)
             {
-                _toggleStyle = new GUIStyle(GUI.skin.label) {alignment = TextAnchor.MiddleLeft};
+                _toggleStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
             }
 
             return _toggleStyle;
@@ -131,7 +131,7 @@ public static partial class UI
         {
             if (_rarityButtonStyle == null)
             {
-                _rarityButtonStyle = new GUIStyle(GUI.skin.button) {alignment = TextAnchor.MiddleLeft};
+                _rarityButtonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
                 _rarityButtonStyle.normal.background = RarityTexture;
             }
 
@@ -170,7 +170,7 @@ public static partial class UI
         }
 
         //if (divStyle == null) {
-        divStyle = new GUIStyle {fixedHeight = 1};
+        divStyle = new GUIStyle { fixedHeight = 1 };
         //}
         fillTexture.SetPixel(0, 0, color);
         fillTexture.Apply();

@@ -51,7 +51,7 @@ internal static class DiagnosticsContext
 
     internal static readonly string DiagnosticsFolder = GetDiagnosticsFolder();
 
-    internal static List<string> KnownDuplicateDefinitionNames { get; } = new() {"SummonProtectorConstruct"};
+    internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
 
     private static string GetDiagnosticsFolder()
     {

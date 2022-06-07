@@ -53,10 +53,8 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
 
                         continue;
                     }
-                    else
-                    {
-                        continue;
-                    }
+
+                    continue;
 
                 case FeatureDefinitionFeatureSet featureSet:
                     if (featureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)

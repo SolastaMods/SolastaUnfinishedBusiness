@@ -9,7 +9,7 @@ public static class PlayerControllerContext
 
     private static readonly Dictionary<GameLocationCharacter, int> controllersChoices = new();
 
-    internal static readonly string[] Controllers = {"Human", "AI"};
+    internal static readonly string[] Controllers = { "Human", "AI" };
 
     private static int[] playerCharactersChoices { get; set; }
 

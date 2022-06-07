@@ -35,7 +35,7 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         var itemPropertyForm = new ItemPropertyForm();
         itemPropertyForm.FeatureBySlotLevel.Add(
             new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-        var effectItem = new EffectForm {FormType = EffectForm.EffectFormType.ItemProperty};
+        var effectItem = new EffectForm { FormType = EffectForm.EffectFormType.ItemProperty };
         effectItem.SetItemPropertyForm(itemPropertyForm);
         return effectItem;
     }
@@ -249,7 +249,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         var itemPropertyForm = new ItemPropertyForm();
         itemPropertyForm.FeatureBySlotLevel.Add(
             new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
-        var effectItem = new EffectForm {FormType = EffectForm.EffectFormType.ItemProperty};
+        var effectItem = new EffectForm { FormType = EffectForm.EffectFormType.ItemProperty };
         effectItem.SetItemPropertyForm(itemPropertyForm);
 
         var effectImprovedSentinelmode = new EffectDescription();
@@ -593,7 +593,7 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         usableDeviceDescription.SetSaveDC(19);
         usableDeviceDescription.DeviceFunctions.Add(deviceFunctionDescription);
 
-        Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
+        Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
         Definition.SlotsWhereActive.AddRange(new List<string>
         {
             "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"
@@ -655,7 +655,7 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
         Definition.activationTime = RuleDefinitions.ActivationTime.BonusAction;
         Definition.shortTitleOverride = "Feat/&ThunderShieldTitle";
 
-        var healingEffect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
+        var healingEffect = new EffectForm { FormType = EffectForm.EffectFormType.TemporaryHitPoints };
 
         var tempHPForm = new TemporaryHitPointsForm
         {
@@ -907,7 +907,7 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         LightningCloakMovement.SetType(ItemPropertyDescription.PropertyType.Feature);
         LightningCloakMovement.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
 
-        Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
+        Definition.SlotTypes.AddRange(new List<string> { "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot" });
         Definition.SlotsWhereActive.AddRange(new List<string>
         {
             "MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"
@@ -1089,7 +1089,7 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
         Definition.shortTitleOverride = "Feat/&GauntletsGrappleTitle";
         Definition.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
 
-        var motionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
+        var motionEffect = new EffectForm { FormType = EffectForm.EffectFormType.Motion };
 
         var motion = new MotionForm();
         motion.SetDistance(6);

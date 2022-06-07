@@ -265,7 +265,7 @@ public static class ZenArcher
                 (mode, _, character) => IsMonkWeapon(character, mode.SourceDefinition as ItemDefinition)))
             .AddToDB();
 
-        return new[] {kiPoweredArrows, flurryOfArrows};
+        return new[] { kiPoweredArrows, flurryOfArrows };
     }
 
     private static FeatureDefinition[] BuildLevel11Features()
@@ -276,7 +276,7 @@ public static class ZenArcher
             .SetCustomSubFeatures(new ZenArcherStunningArrows())
             .AddToDB();
 
-        return new[] {stunningArrows, BuildUpgradedZenArrow()};
+        return new[] { stunningArrows, BuildUpgradedZenArrow() };
     }
 
     private static FeatureDefinition BuildUpgradedZenArrow()

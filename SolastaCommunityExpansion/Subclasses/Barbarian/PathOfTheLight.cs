@@ -22,25 +22,25 @@ internal class PathOfTheLight : AbstractSubclass
     private static readonly Guid SubclassNamespace = new("c2067110-5086-45c0-b0c2-4c140599605c");
 
     private static readonly List<ConditionDefinition> InvisibleConditions =
-        new() {ConditionInvisibleBase, ConditionInvisible, ConditionInvisibleGreater};
+        new() { ConditionInvisibleBase, ConditionInvisible, ConditionInvisibleGreater };
 
     private static readonly Dictionary<int, int> LightsProtectionAmountHealedByClassLevel = new()
     {
-        {6, 3},
-        {7, 3},
-        {8, 4},
-        {9, 4},
-        {10, 5},
-        {11, 5},
-        {12, 6},
-        {13, 6},
-        {14, 7},
-        {15, 7},
-        {16, 8},
-        {17, 8},
-        {18, 9},
-        {19, 9},
-        {20, 10}
+        { 6, 3 },
+        { 7, 3 },
+        { 8, 4 },
+        { 9, 4 },
+        { 10, 5 },
+        { 11, 5 },
+        { 12, 6 },
+        { 13, 6 },
+        { 14, 7 },
+        { 15, 7 },
+        { 16, 8 },
+        { 17, 8 },
+        { 18, 9 },
+        { 19, 9 },
+        { 20, 10 }
     };
 
     private static ConditionDefinitionIlluminated illuminatedCondition;

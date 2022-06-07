@@ -294,29 +294,29 @@ public class NewMonsterPowers
     {
         Dictionary<string, int> dictionaryofAncientDragonBreathExtraDamageDiceNumbers = new()
         {
-            {"Ancient Black Dragon", 15},
-            {"Ancient Blue Dragon", 16},
-            {"Ancient Green Dragon", 22},
-            {"Ancient Red Dragon", 26},
-            {"Ancient White Dragon", 16}
+            { "Ancient Black Dragon", 15 },
+            { "Ancient Blue Dragon", 16 },
+            { "Ancient Green Dragon", 22 },
+            { "Ancient Red Dragon", 26 },
+            { "Ancient White Dragon", 16 }
         };
 
         Dictionary<string, RuleDefinitions.DieType> dictionaryofAncientDragonBreathExtraDamageDiceType = new()
         {
-            {"Ancient Black Dragon", RuleDefinitions.DieType.D8},
-            {"Ancient Blue Dragon", RuleDefinitions.DieType.D10},
-            {"Ancient Green Dragon", RuleDefinitions.DieType.D6},
-            {"Ancient Red Dragon", RuleDefinitions.DieType.D6},
-            {"Ancient White Dragon", RuleDefinitions.DieType.D8}
+            { "Ancient Black Dragon", RuleDefinitions.DieType.D8 },
+            { "Ancient Blue Dragon", RuleDefinitions.DieType.D10 },
+            { "Ancient Green Dragon", RuleDefinitions.DieType.D6 },
+            { "Ancient Red Dragon", RuleDefinitions.DieType.D6 },
+            { "Ancient White Dragon", RuleDefinitions.DieType.D8 }
         };
 
         Dictionary<string, RuleDefinitions.TargetType> dictionaryofAncientDragonBreathShape = new()
         {
-            {"Ancient Black Dragon", RuleDefinitions.TargetType.Line},
-            {"Ancient Blue Dragon", RuleDefinitions.TargetType.Line},
-            {"Ancient Green Dragon", RuleDefinitions.TargetType.Cone},
-            {"Ancient Red Dragon", RuleDefinitions.TargetType.Cone},
-            {"Ancient White Dragon", RuleDefinitions.TargetType.Cone}
+            { "Ancient Black Dragon", RuleDefinitions.TargetType.Line },
+            { "Ancient Blue Dragon", RuleDefinitions.TargetType.Line },
+            { "Ancient Green Dragon", RuleDefinitions.TargetType.Cone },
+            { "Ancient Red Dragon", RuleDefinitions.TargetType.Cone },
+            { "Ancient White Dragon", RuleDefinitions.TargetType.Cone }
         };
 
         Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBreathEffectparticles = new()
@@ -452,12 +452,12 @@ public class NewMonsterPowers
     {
         Dictionary<SpellDefinition, int> dictionaryelementals = new()
         {
-            {DatabaseHelper.SpellDefinitions.ConjureElementalAir, 1},
-            {DatabaseHelper.SpellDefinitions.ConjureElementalEarth, 1},
-            {DatabaseHelper.SpellDefinitions.ConjureElementalFire, 1},
-            {DatabaseHelper.SpellDefinitions.ConjureMinorElementalsFour, 4},
-            {DatabaseHelper.SpellDefinitions.ConjureMinorElementalsOne, 1},
-            {DatabaseHelper.SpellDefinitions.ConjureMinorElementalsTwo, 2}
+            { DatabaseHelper.SpellDefinitions.ConjureElementalAir, 1 },
+            { DatabaseHelper.SpellDefinitions.ConjureElementalEarth, 1 },
+            { DatabaseHelper.SpellDefinitions.ConjureElementalFire, 1 },
+            { DatabaseHelper.SpellDefinitions.ConjureMinorElementalsFour, 4 },
+            { DatabaseHelper.SpellDefinitions.ConjureMinorElementalsOne, 1 },
+            { DatabaseHelper.SpellDefinitions.ConjureMinorElementalsTwo, 2 }
         };
 
 

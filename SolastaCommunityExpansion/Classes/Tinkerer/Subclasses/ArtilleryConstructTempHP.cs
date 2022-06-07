@@ -36,7 +36,7 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
             BonusHitPoints = 4
         };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.TemporaryHitPoints };
         effect.SetTemporaryHitPointsForm(tempHPShield);
         effect.SetCreatedByCharacter(true);
 

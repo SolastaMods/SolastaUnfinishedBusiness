@@ -41,7 +41,7 @@ internal static class PartyControlPanel_Refresh
         {
             var scale = DungeonMakerContext.GetPartyControlScale();
 
-            var y = 10f + scale * __instance.partyPlatesTable.rect.height;
+            var y = 10f + (scale * __instance.partyPlatesTable.rect.height);
             var guestPlatesTable = __instance.guestPlatesTable;
             guestPlatesTable.anchoredPosition = new Vector2(guestPlatesTable.anchoredPosition.x, -y);
         }

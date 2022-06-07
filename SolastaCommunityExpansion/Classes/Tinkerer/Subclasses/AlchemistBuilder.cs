@@ -203,7 +203,7 @@ public static class AlchemistBuilder
             "Subclass/&MagicAffinityAlchemicalSavantListTitle",
             "Subclass/&MagicAffinityAlchemicalSavantListDescription");
         var alchemicalSavantSpells = BuildMagicAffinityHeightenedList(
-            new List<string> {AcidArrow.Name, FlamingSphere.Name}, 2,
+            new List<string> { AcidArrow.Name, FlamingSphere.Name }, 2,
             "MagicAffinityArtificerAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
         alchemicalSavantSpells.SetForceHalfDamageOnCantrips(true);
 

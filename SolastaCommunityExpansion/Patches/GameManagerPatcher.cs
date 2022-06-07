@@ -195,7 +195,7 @@ namespace SolastaCommunityExpansion.Patches
 
             try
             {
-                var files = new[] {"SolastaCommunityExpansion.dll", "Info.json"};
+                var files = new[] { "SolastaCommunityExpansion.dll", "Info.json" };
 
                 foreach (var file in files)
                 {

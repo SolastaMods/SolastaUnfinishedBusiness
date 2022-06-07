@@ -167,7 +167,7 @@ internal static class CasterFeats
                 DatabaseHelper.LanguageDefinitions.Language_Tirmarian.Name)
             .AddToDB();
 
-        var feyFeatures = new List<FeatureDefinition> {feyTeleportationLanguage, mistyStepPower};
+        var feyFeatures = new List<FeatureDefinition> { feyTeleportationLanguage, mistyStepPower };
         feyFeatures.AddRange(mistyStepClassesPreparedSpells);
 
         feats.AddRange(
@@ -282,7 +282,7 @@ internal static class CasterFeats
         foreach (var klass in classes)
         {
             autoPrepList.Add(BuildAutoPreparedSpells(
-                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> {spellGroup}, klass,
+                new List<FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup> { spellGroup }, klass,
                 namePrefix + klass.Name, autoPrepTag, learnShadowTouchedPresentation));
         }
 

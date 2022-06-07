@@ -388,7 +388,7 @@ public static partial class UI
                 "itemSearchText",
                 text => { changed = true; },
                 () => { },
-                xCols == 1 ? options : new[] {Width(300)});
+                xCols == 1 ? options : new[] { Width(300) });
             if (searchText?.Length > 0)
             {
                 var searchStr = searchText.ToLower();

@@ -113,7 +113,7 @@ public class NewMonsterAttributes
         };
 
     public static List<string> ListofDamageTypes_Physical =
-        new() {"DamageSlashing", "DamageBludgeoning", "DamagePiercing"};
+        new() { "DamageSlashing", "DamageBludgeoning", "DamagePiercing" };
 
     public static List<string> ListofDamageTypes_Other = new()
     {
@@ -394,7 +394,7 @@ public class NewMonsterAttributes
         );
 
 
-        SpellListDefinition.SpellsByLevelDuplet LichSpell_Cantrips = new() {Spells = new List<SpellDefinition>()};
+        SpellListDefinition.SpellsByLevelDuplet LichSpell_Cantrips = new() { Spells = new List<SpellDefinition>() };
         LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.FireBolt);
         LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.RayOfFrost);
         // LichSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.ChillTouch);
@@ -513,7 +513,7 @@ public class NewMonsterAttributes
         CastSpell_Lich.SetSpellCastingLevel(18);
         CastSpell_Lich.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-        int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+        int[] cantrip_arr = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
         CastSpell_Lich.KnownCantrips.AddRange(cantrip_arr);
 
         CastSpell_Lich.SlotsPerLevels.Clear();
@@ -929,7 +929,7 @@ public class NewMonsterAttributes
         );
 
 
-        SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_Cantrips = new() {Spells = new List<SpellDefinition>()};
+        SpellListDefinition.SpellsByLevelDuplet ArchmageSpell_Cantrips = new() { Spells = new List<SpellDefinition>() };
         ArchmageSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.FireBolt);
         ArchmageSpell_Cantrips.Spells.Add(DatabaseHelper.SpellDefinitions.ShockingGrasp);
 
@@ -1043,7 +1043,7 @@ public class NewMonsterAttributes
         CastSpell_ArchMage.SetSpellCastingLevel(18);
         CastSpell_ArchMage.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
 
-        int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+        int[] cantrip_arr = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
         CastSpell_ArchMage.KnownCantrips.AddRange(cantrip_arr);
 
         CastSpell_ArchMage.SlotsPerLevels.Clear();
@@ -1543,7 +1543,7 @@ public class NewMonsterAttributes
         //    CastSpell_GuardianNaga.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
         //    CastSpell_GuardianNaga.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
 
-        int[] cantrip_arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        int[] cantrip_arr = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
         CastSpell_GuardianNaga.KnownCantrips.AddRange(cantrip_arr);
 
         CastSpell_GuardianNaga.SlotsPerLevels.Clear();

@@ -1757,7 +1757,7 @@ public static class SrdSpells
 
     private sealed class DivineWordEffectForm : CustomEffectForm
     {
-        private readonly List<string> monsterFamilyPlaneshiftList = new() {"Celestial", "Elemental", "Fey", "Fiend"};
+        private readonly List<string> monsterFamilyPlaneshiftList = new() { "Celestial", "Elemental", "Fey", "Fiend" };
 
         public override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,

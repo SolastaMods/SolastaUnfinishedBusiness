@@ -21,7 +21,8 @@ internal static class TinkererSpellList
             .SetSpellsAtLevel(1, CureWounds, DetectMagic, ExpeditiousRetreat, FaerieFire, FalseLife, FeatherFall,
                 Grease, Identify, Jump, Longstrider)
             // web, pyrotechnics, heat metal, enlarge/reduce
-            .SetSpellsAtLevel(2, Aid, Blur, Darkvision, EnhanceAbility, HeatMetal, Invisibility, LesserRestoration, Levitate,
+            .SetSpellsAtLevel(2, Aid, Blur, Darkvision, EnhanceAbility, HeatMetal, Invisibility, LesserRestoration,
+                Levitate,
                 MagicWeapon, ProtectionFromPoison, SeeInvisibility, SpiderClimb)
             // blink, elemental weapon, flame arrows
             .SetSpellsAtLevel(3, CreateFood, DispelMagic, Fly, Haste, ProtectionFromEnergy, Revivify)

@@ -140,7 +140,7 @@ public static class PowerBundleContext
     public static void SpendBundledPowerIfNeeded(CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
-        if (activePower is not {OriginItem: null})
+        if (activePower is not { OriginItem: null })
         {
             return;
         }

@@ -257,7 +257,7 @@ Different Archfey, e.g. Winter-themed
             .SetUniqueChoices(false)
             .AddToDB();
 
-        var thornSpells = new List<SpellDefinition> {WallOfThornsWallLine, WallOfThornsWallRing};
+        var thornSpells = new List<SpellDefinition> { WallOfThornsWallLine, WallOfThornsWallRing };
 
         foreach (var spell in thornSpells)
         {
