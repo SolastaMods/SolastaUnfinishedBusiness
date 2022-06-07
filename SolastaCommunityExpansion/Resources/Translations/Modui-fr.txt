@@ -101,7 +101,8 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Masquer les sorties et les eff
 ModUi/&HideMonsterHitPoints	Afficher la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
 ModUi/&HiderArmor	Cacher l'armure
 ModUi/&House	<color=yellow>Maison :</color>
-ModUi/&IncreaseSenseNormalVision	Augmentez la portée <color=orange>Sense Normal Vision</color> pour activer les attaques à longue portée <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	<color=white>Augmente la portée <color=orange>Sense Normal Vision</color> pour permettre des attaques à longue portée</color> <i><color=yellow>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]< /couleur></i>
+ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Choix initiaux :</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventaire et articles :</color>

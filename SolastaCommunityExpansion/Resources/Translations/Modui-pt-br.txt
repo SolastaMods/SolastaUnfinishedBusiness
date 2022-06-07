@@ -101,7 +101,8 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Ocultar efeitos visuais de sa�
 ModUi/&HideMonsterHitPoints	Exiba a saúde dos Monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos
 ModUi/&HiderArmor	Esconder Armadura
 ModUi/&House	<color=yellow>Casa:</color>
-ModUi/&IncreaseSenseNormalVision	Aumente o alcance de <color=orange>Sense Normal Vision</color> para habilitar ataques de longo alcance <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	<color=white>Aumente o alcance de <color=orange>Sense Normal Vision</color> para permitir ataques de longo alcance</color> <i><color=yellow>[40 é ideal para evitar que inimigos se juntem de muito longe]< /color></i>
+ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Escolhas iniciais:</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventário e itens:</color>

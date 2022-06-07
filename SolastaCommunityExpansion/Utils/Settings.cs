@@ -156,7 +156,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
-    public bool IncreaseSenseNormalVision { get; set; }
+    public int IncreaseSenseNormalVision { get; set; } = HouseFeatureContext.DEFAULT_VISION_RANGE;
 
     public bool QuickCastLightCantripOnWornItemsFirst { get; set; }
 
