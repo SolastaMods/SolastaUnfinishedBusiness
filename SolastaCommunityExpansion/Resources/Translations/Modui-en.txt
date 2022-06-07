@@ -101,7 +101,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Hide exits and teleporters vis
 ModUi/&HideMonsterHitPoints	Display Monsters's health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&HiderArmor	Hide Armor
 ModUi/&House	<color=yellow>House:</color>
-ModUi/&IncreaseSenseNormalVision	Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	<color=white>Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks (40 is ideal to avoid enemies joining from too far away) </color><b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Initial choices:</color>
 ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventory and items:</color>
