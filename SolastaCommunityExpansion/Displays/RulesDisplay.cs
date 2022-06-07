@@ -120,7 +120,8 @@ internal static class RulesDisplay
         UI.Label("");
 
         intValue = Main.Settings.IncreaseSenseNormalVision;
-        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVision"), ref intValue,
+        UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
+        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"), ref intValue,
                 HouseFeatureContext.DEFAULT_VISION_RANGE, HouseFeatureContext.MAX_VISION_RANGE,
                 HouseFeatureContext.DEFAULT_VISION_RANGE, "", UI.AutoWidth()))
         {
