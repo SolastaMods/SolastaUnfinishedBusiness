@@ -37,4 +37,9 @@ internal static class Level20Context
         ShadowcasterBuilder.Load();
         SpellShieldBuilder.Load();
     }
+
+    internal static void LateLoad()
+    {
+        Level20PatchingContext.Load();
+    }
 }

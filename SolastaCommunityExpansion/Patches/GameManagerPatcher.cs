@@ -115,6 +115,9 @@ namespace SolastaCommunityExpansion.Patches
                 // Divine Smite fixes
                 HouseFeatureContext.LateLoad();
 
+                // Level 20
+                Level20Context.LateLoad();
+
                 // Multiclass
                 MulticlassContext.LateLoad();
 
