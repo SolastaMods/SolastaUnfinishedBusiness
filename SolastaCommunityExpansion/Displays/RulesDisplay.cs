@@ -9,6 +9,7 @@ internal static class RulesDisplay
     internal static void DisplayRules()
     {
         bool toggle;
+        int intValue;
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&SRD"));
@@ -118,10 +119,12 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.IncreaseSenseNormalVision;
-        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseSenseNormalVision"), ref toggle, UI.AutoWidth()))
+        intValue = Main.Settings.IncreaseSenseNormalVision;
+        if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVision"), ref intValue,
+                HouseFeatureContext.DEFAULT_VISION_RANGE, HouseFeatureContext.MAX_VISION_RANGE,
+                HouseFeatureContext.DEFAULT_VISION_RANGE, "", UI.AutoWidth()))
         {
-            Main.Settings.IncreaseSenseNormalVision = toggle;
+            Main.Settings.IncreaseSenseNormalVision = intValue;
         }
 
         UI.Label("");

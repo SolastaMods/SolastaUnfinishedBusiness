@@ -7,6 +7,9 @@ namespace SolastaCommunityExpansion.Models;
 
 public static class HouseFeatureContext
 {
+    internal const int DEFAULT_VISION_RANGE = 16;
+    internal const int MAX_VISION_RANGE = 120;
+
     public static void LateLoad()
     {
         FixDivineSmiteRestrictions();
