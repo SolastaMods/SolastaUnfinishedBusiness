@@ -1,4 +1,5 @@
-﻿- Allow hand xbows to leverage Archery feat or fighting style
+﻿- Add more infusions to Tinkerer and tweak spell list
+- Allow crossbows and hand crossbows to leverage Archery
 - Change Sense Normal Vision feature to a slider
-- Fix Level 20 after TA decided to cap level 12 in other places
+- Fix Level 20 to remove cap in new code places
 - Improve Party of 6 UI scaling
