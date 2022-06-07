@@ -1,9 +1,9 @@
 ﻿{
-	"Id": "SolastaCeBootstrap",
-	"DisplayName": "Community Expansion Bootstrap",
-	"Author": "ImpPhil;Zappastuff",
-	"Version": "1.0",
-	"ManagerVersion": "0.24.0",
-	"AssemblyName": "SolastaCeBootstrap.dll",
-	"EntryMethod": "SolastaCeBootstrap.Main.Load"
+  "Id": "SolastaCeBootstrap",
+  "DisplayName": "Community Expansion Bootstrap",
+  "Author": "ImpPhil;Zappastuff",
+  "Version": "1.0",
+  "ManagerVersion": "0.24.0",
+  "AssemblyName": "SolastaCeBootstrap.dll",
+  "EntryMethod": "SolastaCeBootstrap.Main.Load"
 }
