@@ -10,10 +10,9 @@ internal static class SubclassRetrocompatibilityHelper_RetrocompatibilityCheckMi
 {
     internal static bool Prefix(RulesetCharacterHero hero)
     {
-        if (!Main.Settings.BugFixDeityOfferingOnMulticlassHeroes)
-        {
-            return true;
-        }
+        //
+        // BUGFIX: deity offering on MC heroes
+        //
 
         return hero.ClassesAndLevels.Count == 1;
     }

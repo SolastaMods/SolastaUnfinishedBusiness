@@ -84,29 +84,32 @@ public static class FlexibleBackgroundsContext
 
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> addedFeatures = new()
     {
-        {Academic, new List<FeatureDefinition> {skillThree, academicSuggestedSkills, toolChoice}},
-        {Acolyte, new List<FeatureDefinition> {skillThree, acolyteSuggestedSkills, toolChoice}},
-        {Aristocrat, new List<FeatureDefinition> {skillThree, aristocratSuggestedSkills}},
-        {Lawkeeper, new List<FeatureDefinition> {skillTwo, lawkeeperSuggestedSkills}},
-        {Lowlife, new List<FeatureDefinition> {skillThree, lowlifeSuggestedSkills, toolChoice}},
-        {Philosopher, new List<FeatureDefinition> {skillTwo, philosopherSuggestedSkills, toolChoice}},
-        {SellSword, new List<FeatureDefinition> {skillTwo, sellswordSuggestedSkills, toolChoice}},
-        {Spy, new List<FeatureDefinition> {skillThree, spySuggestedSkills, toolChoice}},
-        {Wanderer, new List<FeatureDefinition> {skillTwo, wandererSuggestedSkills, toolChoiceTwo}}
+        { Academic, new List<FeatureDefinition> { skillThree, academicSuggestedSkills, toolChoice } },
+        { Acolyte, new List<FeatureDefinition> { skillThree, acolyteSuggestedSkills, toolChoice } },
+        { Aristocrat, new List<FeatureDefinition> { skillThree, aristocratSuggestedSkills } },
+        { Lawkeeper, new List<FeatureDefinition> { skillTwo, lawkeeperSuggestedSkills } },
+        { Lowlife, new List<FeatureDefinition> { skillThree, lowlifeSuggestedSkills, toolChoice } },
+        { Philosopher, new List<FeatureDefinition> { skillTwo, philosopherSuggestedSkills, toolChoice } },
+        { SellSword, new List<FeatureDefinition> { skillTwo, sellswordSuggestedSkills, toolChoice } },
+        { Spy, new List<FeatureDefinition> { skillThree, spySuggestedSkills, toolChoice } },
+        { Wanderer, new List<FeatureDefinition> { skillTwo, wandererSuggestedSkills, toolChoiceTwo } }
     };
 
     private static readonly Dictionary<CharacterBackgroundDefinition, List<FeatureDefinition>> removedFeatures =
         new()
         {
-            {Academic, new List<FeatureDefinition> {ProficiencyAcademicSkills, ProficiencyAcademicSkillsTool}},
-            {Acolyte, new List<FeatureDefinition> {ProficiencyAcolyteSkills, ProficiencyAcolyteToolsSkills}},
-            {Aristocrat, new List<FeatureDefinition> {ProficiencyAristocratSkills}},
-            {Lawkeeper, new List<FeatureDefinition> {ProficiencyLawkeeperSkills}},
-            {Lowlife, new List<FeatureDefinition> {ProficiencyLowlifeSkills, ProficiencyLowLifeSkillsTools}},
-            {Philosopher, new List<FeatureDefinition> {ProficiencyPhilosopherSkills, ProficiencyPhilosopherTools}},
-            {SellSword, new List<FeatureDefinition> {ProficiencySellSwordSkills, ProficiencySmithTools}},
-            {Spy, new List<FeatureDefinition> {ProficiencySpySkills, ProficienctSpySkillsTool}},
-            {Wanderer, new List<FeatureDefinition> {ProficiencyWandererSkills, ProficiencyWandererTools}}
+            { Academic, new List<FeatureDefinition> { ProficiencyAcademicSkills, ProficiencyAcademicSkillsTool } },
+            { Acolyte, new List<FeatureDefinition> { ProficiencyAcolyteSkills, ProficiencyAcolyteToolsSkills } },
+            { Aristocrat, new List<FeatureDefinition> { ProficiencyAristocratSkills } },
+            { Lawkeeper, new List<FeatureDefinition> { ProficiencyLawkeeperSkills } },
+            { Lowlife, new List<FeatureDefinition> { ProficiencyLowlifeSkills, ProficiencyLowLifeSkillsTools } },
+            {
+                Philosopher,
+                new List<FeatureDefinition> { ProficiencyPhilosopherSkills, ProficiencyPhilosopherTools }
+            },
+            { SellSword, new List<FeatureDefinition> { ProficiencySellSwordSkills, ProficiencySmithTools } },
+            { Spy, new List<FeatureDefinition> { ProficiencySpySkills, ProficienctSpySkillsTool } },
+            { Wanderer, new List<FeatureDefinition> { ProficiencyWandererSkills, ProficiencyWandererTools } }
         };
 
     internal static void Switch()

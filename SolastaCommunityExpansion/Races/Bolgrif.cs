@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using TA;
 using static SolastaModApi.DatabaseHelper;
@@ -85,9 +84,9 @@ internal static class BolgrifRaceBuilder
 
         var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
 
-        bolgrifRacePresentation.SetPreferedSkinColors(new RangedInt(45, 48));
-        bolgrifRacePresentation.SetPreferedHairColors(new RangedInt(16, 32));
-        bolgrifRacePresentation.SetNeedBeard(false);
+        bolgrifRacePresentation.preferedSkinColors = new RangedInt(45, 48);
+        bolgrifRacePresentation.preferedHairColors = new RangedInt(16, 32);
+        bolgrifRacePresentation.needBeard = false;
         bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);
 
         var bolgrif = CharacterRaceDefinitionBuilder

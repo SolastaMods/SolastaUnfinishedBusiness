@@ -244,7 +244,7 @@ public static partial class ReflectionCache
             DynamicMethod method = new(
                 Info.Name,
                 Info.ReturnType,
-                new[] {type.IsValueType ? type.MakeByRefType() : type}
+                new[] { type.IsValueType ? type.MakeByRefType() : type }
                     .Concat(parameters.Select(item => item.ParameterType)).ToArray(),
                 typeof(CachedMethodOfNonStatic<T, TMethod>),
                 true);

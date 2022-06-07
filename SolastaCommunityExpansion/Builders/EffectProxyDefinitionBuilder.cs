@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -57,7 +56,7 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
 
     public EffectProxyDefinitionBuilder AddAdditionalFeatures(IEnumerable<FeatureDefinition> features)
     {
-        Definition.AddAdditionalFeatures(features);
+        Definition.AdditionalFeatures.AddRange(features);
         return this;
     }
 

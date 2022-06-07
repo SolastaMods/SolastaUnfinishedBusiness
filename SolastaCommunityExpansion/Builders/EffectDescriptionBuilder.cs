@@ -67,10 +67,10 @@ public class EffectDescriptionBuilder
         int cooldownForBattle, bool dynamicCooldown)
     {
         var aiParams = new EffectAIParameters();
-        aiParams.SetAoeScoreMultiplier(aoeScoreMultiplier);
-        aiParams.SetCooldownForCaster(cooldownForCaster);
-        aiParams.SetCooldownForBattle(cooldownForBattle);
-        aiParams.SetDynamicCooldown(dynamicCooldown);
+        aiParams.aoeScoreMultiplier = aoeScoreMultiplier;
+        aiParams.cooldownForCaster = cooldownForCaster;
+        aiParams.cooldownForBattle = cooldownForBattle;
+        aiParams.dynamicCooldown = dynamicCooldown;
         effect.SetEffectAIParameters(aiParams);
         return this;
     }
@@ -137,8 +137,8 @@ public class EffectDescriptionBuilder
     {
         var hitAffinity = new HitAffinityByTag();
 
-        hitAffinity.SetTag(tag);
-        hitAffinity.SetAdvantageType(advantageType);
+        hitAffinity.tag = tag;
+        hitAffinity.advantageType = advantageType;
         effect.HitAffinitiesByTargetTag.Add(hitAffinity);
         return this;
     }

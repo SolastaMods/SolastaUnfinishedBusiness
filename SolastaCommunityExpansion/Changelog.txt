@@ -1,8 +1,6 @@
-﻿- Add mod auto update offer during bootup
-- Hide translated campaigns from Translations Mod UI
-- Rework Marshal's coordinated attack / Warcaster integration
-- Deprecate Toad Kink and Rift Walker subclasses
-- Prefer pact slots over spell slots if both have same max level
-- Fix Reckless feat not working with reach weapons
-- Fix Known Your Enemy feature to add knowledge bonus
-- Fix translations
+﻿- Add more infusions to Tinkerer and tweak spell list
+- Allow crossbows and hand crossbows to leverage Archery
+- Bring back Royal Knight subclass
+- Change Sense Normal Vision setting to a slider
+- Fix Level 20 to remove cap in new places
+- Improve Party of 6 UI scaling

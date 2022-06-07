@@ -7,7 +7,7 @@ AttributeModifier/&DHFeeblemindIntSpellDescription	Le score d'intelligence est �
 AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligence faible
 BlueprintCategory/&FlatRoomsTitle	Chambres à plat
 Caption/&GadgetParametersCustomRemoveDescription	Retirer:\n{0}.
-Class/&ClassMonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée comme une démonstration saisissante de prouesses au combat ou comme un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un moine fait.
+Class/&ClassMonkDescription	Les moines sont unis dans leur capacité à exploiter comme par magie l'énergie qui circule dans leur corps. Qu'elle soit canalisée sous la forme d'une démonstration saisissante de prouesses au combat ou d'un objectif plus subtil de capacité défensive et de vitesse, cette énergie imprègne tout ce qu'un Moine fait.
 Class/&ClassMonkTitle	Moine
 Class/&ClassWarlockDescription	Les sorciers sont des chercheurs de la connaissance cachée dans le tissu du multivers. Grâce à des pactes conclus avec des êtres mystérieux au pouvoir surnaturel, les sorciers débloquent des effets magiques à la fois subtils et spectaculaires.
 Class/&ClassWarlockTitle	démoniste
@@ -22,12 +22,12 @@ Class/&WitchBurnedProduceFlameTitle	Produire de la flamme
 Class/&WitchCacklePowerDescription	Vous pouvez utiliser votre action bonus pour caqueter. La durée de votre Malédiction est prolongée de 1 round pour chaque créature affectée dans un rayon de 18 mètres autour de vous.\nToutes les sorcières ne rient pas de manière maniaque lorsqu'elles ricanent, mais tous les ricanements nécessitent une composante verbale, comme un sort. Celles-ci vont des malédictions et des insultes banales au murmure de langues mortes et au parler à l'envers.
 Class/&WitchCacklePowerTitle	Caqueter
 Class/&WitchDescription	Affligées par une sinistre malédiction, les sorcières peuvent transformer la magie noire en malédictions, qu'elles utilisent pour affaiblir leurs ennemis. Ils sont également accompagnés de leurs familiers, fidèles compagnons magiques qu'ils utilisent pour porter le coup fatal.
-Class/&WitchFamiliarPowerDescription	Vous apprenez le sort Witch Familiar, c'est-à-dire un sort Find Familiar amélioré, et pouvez le lancer comme un rituel sans composants matériels. Le sort ne compte pas dans votre nombre de sorts connus. Le sort améliore Find Familiar des manières suivantes :\n• Votre familier joue son tour immédiatement avant ou après votre tour à chaque tour (au choix).\n• Une fois par tour, en tant qu'action ou action bonus, vous pouvez ordonner mentalement à votre familier d'utiliser sa réaction pour effectuer une attaque.\n• Lorsque vous lancez un sort, vous pouvez le délivrer à travers votre familier comme s'il avait lancé le sort, même si le sort n'a pas de portée de contact.\n• Votre familier peut utiliser votre bonus d'attaque des sorts pour ses jets d'attaque.\n• Votre familier ajoute votre bonus de compétence à sa classe d'armure, ses jets de sauvegarde et ses jets de dégâts.\n• Vous ajoutez deux fois votre niveau de sorcière aux points de vie maximum de votre familier.
+Class/&WitchFamiliarPowerDescription	Vous apprenez le sort Witch Familiar, c'est-à-dire un sort Find Familiar amélioré, et pouvez le lancer comme un rituel sans composants matériels. Le sort ne compte pas dans votre nombre de sorts connus. Le sort améliore Find Familiar des manières suivantes :\n• Votre familier joue son tour immédiatement avant ou après votre tour à chaque tour (au choix).\n• Une fois par tour, en tant qu'action ou action bonus, vous pouvez ordonner mentalement à votre familier d'utiliser sa réaction pour effectuer une attaque.\n• Lorsque vous lancez un sort, vous pouvez le délivrer à travers votre familier comme s'il avait lancé le sort, même si le sort n'a pas de portée de contact.\n• Votre familier peut utiliser votre bonus d'attaque des sorts pour ses jets d'attaque.\n• Votre familier ajoute votre bonus de compétence à sa classe d'armure, ses jets de sauvegarde et ses jets de dégâts.\n• Vous ajoutez deux fois votre niveau de Sorcière aux points de vie maximum de votre familier.
 Class/&WitchFamiliarPowerTitle	Familier
 Class/&WitchFeatureSetBurnedCurseDescription	La quasi-totalité de votre corps a été brûlée par des flammes arcaniques, vous laissant avec des cicatrices noires saisissantes et des braises de magie qui brûlent sous la peau. En conséquence, vous avez une résistance aux dégâts de feu et vous connaissez le sort mineur Produce Flame, qui ne compte pas dans votre nombre total de sorts mineurs connus.
 Class/&WitchFeatureSetBurnedCurseTitle	Brûlé
 Class/&WitchFeatureSetLovelessCurseDescription	Tu es maudit de ne jamais trouver le véritable amour. Blasé et désaffecté, même la magie ne peut transformer votre cœur ; par conséquent, vous êtes immunisé contre le charme.
-Class/&WitchFeatureSetLovelessCurseTitle	sans amour
+Class/&WitchFeatureSetLovelessCurseTitle	Sans amour
 Class/&WitchFeatureSetRitualCastingDescription	Vous pouvez lancer n'importe quel sort de sorcière que vous connaissez en tant que rituel si ce sort a l'étiquette de rituel.
 Class/&WitchFeatureSetRitualCastingTitle	Casting rituel de sorcière
 Class/&WitchFeatureSetVisionsCurseDescription	Vous êtes maudit d'avoir de terribles visions de l'avenir, présageant la mort de vos amis, de votre famille et de vous-même. Cependant, bon nombre de ces visions sont de cruelles tromperies, elles sont parfois d'une précision sinistre. Vous pouvez ajouter votre modificateur de Charisme, en plus de votre modificateur de Dextérité, à vos jets d'initiative.
@@ -142,9 +142,9 @@ Condition/&RuinedDescription	La défense de cette créature est réduite.
 Condition/&RuinedTitle	Ruiné
 Condition/&RuinTitle	Ruine
 Condition/&SentinelStopMovementConditionTitle	Arrêté
-Condition/&SwallowedByToadConditionDescription	Subit 3d6 dégâts d'acide par round. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque.
+Condition/&SwallowedByToadConditionDescription	Subit 3d6 dégâts d'acide par round. Se termine si le démoniste crapaud subit 15 dégâts ou plus en une seule attaque.
 Condition/&SwallowedByToadConditionTitle	Avalé par le crapaud
-Condition/&SwallowingToadConditionDescription	Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque.
+Condition/&SwallowingToadConditionDescription	Se termine si le démoniste crapaud subit 15 dégâts ou plus en une seule attaque.
 Condition/&SwallowingToadConditionTitle	Crapaud avaleur
 ContentPack/&CommunityExpansionPackDescription	Le pack Community Expansion ajoute de nouvelles classes, sous-classes, exploits et sorts. Il existe un plafond de niveau supérieur, des fonctionnalités multi-classes, QOL, des corrections de bogues et plus encore. C'est une véritable corne d'abondance (TM)...
 ContentPack/&CommunityExpansionPackTitle	Pack d'extension communautaire
@@ -275,7 +275,7 @@ Equipment/&Enchanted_Maul_Punisher_Description	Cette arme enchantée a été cr�
 Equipment/&Enchanted_Maul_Punisher_Title	Maul punisseur
 Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Sa conception était l'une des premières œuvres d'Elgador Keenspirit, Magesmith de l'Arcaneum.
 Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Bâton d'acuité
-Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Lestoreth Steelarm pour combattre dans le nord gelé de l'Empire.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Lestoreth Steelarm pour combattre dans le Nord gelé de l'Empire.
 Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Bâton Dragonblade
 Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Keliandir Moltenheart, qui a forgé cette arme pour combattre les salamandres après qu'une exploration des plans élémentaires ait mal tourné.
 Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Bâton brûle-givre
@@ -293,7 +293,7 @@ Equipment/&Enchanted_Rapier_Dragonblade_Description	Cette arme enchantée a ét�
 Equipment/&Enchanted_Rapier_Dragonblade_Title	Rapière Dragonblade
 Equipment/&Enchanted_Rapier_Frostburn_Description	Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Il a été conçu par Keliandir Moltenheart, qui a forgé cette arme pour combattre les salamandres après qu'une exploration des plans élémentaires ait mal tourné.
 Equipment/&Enchanted_Rapier_Frostburn_Title	Rapière brûle-givre
-Equipment/&Enchanted_Rapier_Lightbringer_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Colthannin. Il a été conçu par Elgador Keenspirit, Magesmith of the Arcaneum pour soutenir le combat contre les créatures mort-vivantes.
+Equipment/&Enchanted_Rapier_Lightbringer_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Colthannin. Il a été conçu par Elgador Keenspirit, Magesmith de l'Arcaneum pour soutenir le combat contre les créatures mort-vivantes.
 Equipment/&Enchanted_Rapier_Lightbringer_Title	Rapière du porteur de lumière
 Equipment/&Enchanted_Rapier_Power_Description	Cette arme enchantée a été forgée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. Certaines créatures ne respectent que les forces physiques. Les arcanistes de Manacalon ont créé cette Rapière pour donner aux champions des Légions de Fer la force que leur corps elfique n'offrait pas.
 Equipment/&Enchanted_Rapier_Power_Title	Rapière de puissance
@@ -611,7 +611,7 @@ Feat/&FeatTitanFightingDescription	Vous bénéficiez d'un bonus de +2 contre les
 Feat/&FeatTitanFightingTitle	Style de combat : Combat contre les Titans
 Feat/&FeatToughDescription	Votre maximum de points de vie augmente d'un montant égal à deux fois votre niveau lorsque vous obtenez ce don. Chaque fois que vous gagnez un niveau par la suite, votre maximum de points de vie augmente de 2 points de vie supplémentaires.
 Feat/&FeatToughTitle	Dure
-Feat/&FeatWarCasterDescription	Vous obtenez un avantage sur les contrôles pour maintenir la concentration.\nVous gagnez la capacité d'exécuter la composante somatique des sorts même avec les deux mains pleines.\nLorsque le mouvement d'une créature hostile provoque une attaque d'opportunité de votre part, vous pouvez utiliser votre réaction pour lancer un sort mineur sur la créature, plutôt que de faire une attaque d'opportunité. Le sort mineur doit avoir un temps d'incantation de 1 action ou action bonus et ne doit cibler que cette créature.
+Feat/&FeatWarCasterDescription	Vous gagnez un avantage sur les contrôles pour maintenir la concentration.\nVous gagnez la capacité d'exécuter la composante somatique des sorts même avec les deux mains pleines.\nLorsque le mouvement d'une créature hostile provoque une attaque d'opportunité de votre part, vous pouvez utiliser votre réaction pour lancer un sort mineur sur la créature, plutôt que de faire une attaque d'opportunité. Le sort mineur doit avoir un temps d'incantation de 1 action ou action bonus et ne doit cibler que cette créature.
 Feat/&FeatWarCasterTitle	Lanceur de guerre
 Feat/&FeatWiseDefenseDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
 Feat/&FeatWiseDefenseTitle	Défense sage
@@ -644,7 +644,7 @@ Feat/&FlameArtilleryConstructTitle_3	Construction d'artillerie de flammes
 Feat/&FlameArtilleryConstructTitle_5	Construction d'artillerie de flammes
 Feat/&FlameArtilleryDescription	2d8 dégâts de feu (cône).
 Feat/&FlameArtilleryTitle	Flamme Artillerie
-Feat/&ForceArtillery_2Description	3d8 Forcer les dégâts et pousser la cible de 1,50 mètre.
+Feat/&ForceArtillery_2Description	3d8 Dégâts forcés et poussée de 1,50 mètre sur la cible.
 Feat/&ForceArtillery_2Title	Artillerie de force (améliorée)
 Feat/&ForceArtilleryAdditionalDamageDescription	La construction améliorée inflige 1d8 dégâts supplémentaires par coup.
 Feat/&ForceArtilleryConstructDescription	Inflige 2d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
@@ -795,16 +795,16 @@ Feature/&AHWarlockClassPactOfTheBladeSetDescription	Vous maîtrisez toutes les a
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pacte de la Lame
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Une fois par repos long, vous pouvez renforcer une arme avec le pouvoir des âmes. Cette arme utilise le modificateur de Charisme pour les jets d'attaque et de dégâts et compte comme magique jusqu'au repos prolongé.
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Autonomisation de l'âme
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort Warlock. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Sorts d'âmelame
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Une fois par repos court, vous utilisez le pouvoir des âmes pour vous défendre. En utilisant une action bonus, vous gagnez des PV temporaires égaux à votre modificateur de niveau + Charisme.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Bouclier d'âme
 Feature/&AlwaysBeardDescription	{0} % de chances de faire pousser une magnifique barbe !
-Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Sorts de la forêt ancienne
 Feature/&AncientForestLightAffinityDescription	Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous gagnez 2 PV par round.
 Feature/&AncientForestLightAffinityTitle	Photosynthèse
-Feature/&AncientForestRegrowthDescription	Vous avez un réservoir de pouvoir de guérison qui se reconstitue lorsque vous prenez un long repos. Avec ce pool, vous pouvez restaurer un nombre total de points de vie égal à votre niveau de démoniste × 5.
+Feature/&AncientForestRegrowthDescription	Vous avez un réservoir de pouvoir de guérison qui se reconstitue lorsque vous prenez un long repos. Avec ce pool, vous pouvez restaurer un nombre total de points de vie égal à votre niveau d'Arcaniste × 5.
 Feature/&AncientForestRegrowthTitle	Repousse
 Feature/&ArcaneDetonationDescription	Lorsque vous touchez une créature qui a votre marque d'arcaniste avec une attaque avec une arme, la marque explose, infligeant 1d6 dégâts de force et détruisant la marque.
 Feature/&ArcaneDetonationTitle	Détonation arcanique
@@ -812,7 +812,7 @@ Feature/&ArcaneDetonationUpgradeDescription	À partir du niveau 11, les dégâts
 Feature/&ArcaneDetonationUpgradeTitle	Détonation des arcanes supérieure
 Feature/&ArcanePulseDescription	À partir du niveau 7, vous pouvez provoquer une éruption d'énergie arcanique à une distance de 9 mètres. Les créatures hostiles situées dans un rayon de 4,50 mètres autour du point d'impact subissent 4d8 dégâts et gagnent une marque d'arcaniste. Vous pouvez utiliser cette capacité un nombre de fois égal à votre modificateur de Sagesse par repos long. Au niveau 15, les dégâts de votre Arcane Pulse passent à 8d8.
 Feature/&ArcanePulseTitle	Impulsion arcanique
-Feature/&ArcanistAutoPreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés pour vous comme des sorts de rôdeur, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de rôdeur que vous connaissez :\n{0}
+Feature/&ArcanistAutoPreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés pour vous comme des sorts de Rôdeur, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de Rôdeur que vous connaissez :\n{0}
 Feature/&ArcanistAutoPreparedSpellsTitle	Sorts bonus d'arcaniste de rôdeur
 Feature/&ArcanistMarkDescription	À partir du niveau 3, vous imprégnez vos armes d'un pouvoir arcanique. Les créatures touchées par vos attaques sont affectées par la marque de l'arcaniste.
 Feature/&ArcanistMarkTitle	Marque d'arcaniste
@@ -823,7 +823,7 @@ Feature/&ArtificerSpecialistArchetypesDescription	Dans quel domaine d'études vo
 Feature/&ArtificerSpecialistArchetypesTitle	Spécialisations de bricoleur
 Feature/&AscendantStepTitle	Étape ascendante
 Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
-Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&AspectoftheMoonTitle	Aspect de la lune
 Feature/&AttributeModifier{0}Description	{0}
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Force +1.
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Augmentation d'attribut
@@ -848,23 +848,23 @@ Feature/&BondoftheTalismanDescription	Téléportation jusqu'à 30 pieds.
 Feature/&BondoftheTalismanTitle	Talisman de téléportation
 Feature/&ChainsofCarceriDescription	Paralyse un céleste, un démon ou un élémental à moins qu'il ne réussisse un jet de sauvegarde de Sagesse.
 Feature/&ChainsofCarceriTitle	Chaînes de Carceri
-Feature/&ClassMonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine.
+Feature/&ClassMonkDeflectMissileDescription	Vous pouvez utiliser votre réaction pour dévier le missile lorsque vous êtes touché par une attaque à distance. Lorsque vous le faites, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de Moine.
 Feature/&ClassMonkDeflectMissileTitle	Dévier les missiles
 Feature/&ClassMonkDiamondSoulDescription	Votre maîtrise du ki vous confère la maîtrise de tous les jets de sauvegarde.\nDe plus, chaque fois que vous faites un jet de sauvegarde et que vous échouez, vous pouvez dépenser 1 point de ki pour le relancer et prendre le deuxième résultat.
 Feature/&ClassMonkDiamondSoulTitle	Âme de diamant
 Feature/&ClassMonkExtraAttackDescription	Vous pouvez attaquer deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
 Feature/&ClassMonkExtraAttackTitle	Attaque supplémentaire
-Feature/&ClassMonkKiDescription	Votre entraînement vous permet d'exploiter l'énergie mystique du ki. Vous gagnez des points ki égaux à votre niveau de moine. Lorsque vous dépensez un point de ki, il n'est pas disponible jusqu'à ce que vous terminiez un repos court ou long, à la fin duquel vous récupérez tout votre ki dépensé. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki. Vous commencez à connaître trois de ces fonctionnalités :
+Feature/&ClassMonkKiDescription	Votre entraînement vous permet d'exploiter l'énergie mystique du ki. Vous gagnez des points ki égaux à votre niveau de Moine. Lorsque vous dépensez un point de ki, il n'est pas disponible jusqu'à ce que vous terminiez un repos court ou long, à la fin duquel vous récupérez tout votre ki dépensé. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki. Vous commencez à connaître trois de ces fonctionnalités :
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Vos frappes à mains nues sont considérées comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Frappes renforcées par le Ki
 Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n• Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de moine.\n• Vous pouvez lancer un d4 à la place des dégâts normaux de votre attaque à mains nues ou de votre arme de moine. Ce dé change à mesure que vous gagnez des niveaux de moine.\n• Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus.
+Feature/&ClassMonkMartialArtsDescription	Vous bénéficiez des avantages suivants tant que vous n'êtes pas armé ou que vous ne portez que des armes de moine et que vous ne portez pas d'armure ni de bouclier :\n• Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes à mains nues et des armes de Moine.\n• Vous pouvez lancer un d4 à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de Moine. Ce dé change à mesure que vous gagnez des niveaux de Moine.\n• Lorsque vous utilisez l'action Attaquer avec une frappe à mains nues ou une arme de Moine à votre tour, vous pouvez effectuer une frappe à mains nues en tant qu'action bonus.
 Feature/&ClassMonkMartialArtsTitle	Arts martiaux
-Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>d6</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
+Feature/&ClassMonkMartialDiceProgression00Description	Vous pouvez lancer <color=#57BCF4>d6</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de Moine.
 Feature/&ClassMonkMartialDiceProgression00Title	Augmentation du dé d'arts martiaux (d6)
-Feature/&ClassMonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>d8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
+Feature/&ClassMonkMartialDiceProgression01Description	Vous pouvez lancer <color=#57BCF4>d8</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de Moine.
 Feature/&ClassMonkMartialDiceProgression01Title	Augmentation du dé d'arts martiaux (d8)
-Feature/&ClassMonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>d10</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de moine.
+Feature/&ClassMonkMartialDiceProgression02Description	Vous pouvez lancer <color=#57BCF4>d10</color> à la place des dégâts normaux de votre frappe à mains nues ou de votre arme de Moine.
 Feature/&ClassMonkMartialDiceProgression02Title	Augmentation du dé d'arts martiaux (d10)
 Feature/&ClassMonkPerfectSelfDescription	Lorsque vous commencez la bataille et qu'il ne vous reste plus de points de ki, vous regagnez 4 points de ki.
 Feature/&ClassMonkPerfectSelfTitle	Soi parfait
@@ -877,12 +877,12 @@ Feature/&ClassMonkUnarmoredDefenseDescription	Tant que vous ne portez pas d'armu
 Feature/&ClassMonkUnarmoredDefenseTitle	Défense non blindée
 Feature/&ClassMonkUnarmoredMovementBonusDescription	Le bonus de déplacement augmente de 1,50 mètre.
 Feature/&ClassMonkUnarmoredMovementBonusTitle	Amélioration du mouvement sans armure
-Feature/&ClassMonkUnarmoredMovementDescription	Votre vitesse augmente de 3 mètres tant que vous ne portez pas d'armure ou ne brandissez pas de bouclier. Ce bonus augmente lorsque vous atteignez certains niveaux de moine.
+Feature/&ClassMonkUnarmoredMovementDescription	Votre vitesse augmente de 3 mètres tant que vous ne portez pas d'armure ou ne brandissez pas de bouclier. Ce bonus augmente lorsque vous atteignez certains niveaux de Moine.
 Feature/&ClassMonkUnarmoredMovementTitle	Mouvement non blindé
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Tant que vous n'êtes pas armé et que vous ne brandissez pas de bouclier, vous pouvez vous déplacer sur les murs comme une araignée. La capacité est temporairement perdue si vous effectuez une action qui n'est pas un mouvement, ou lorsque ce n'est pas votre tour de combat.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Mouvement sans armure : Escalade
 Feature/&ClassMonkWeaponProficiencyTitle	Maîtrise des armes du moine
-Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont considérés comme une arme de moine pour vous.\nVous n'êtes pas désavantagé lorsque vous effectuez une attaque à distance avec une arme de moine à 5 pieds d'un ennemi, à condition que vous ne portiez ni armure ni bouclier.
+Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont considérés comme une arme de moine pour vous.\nVous n'êtes pas désavantagé lorsque vous effectuez une attaque à distance avec une arme de moine à 1,50 mètre d'un ennemi, à condition que vous ne portiez ni armure ni bouclier.
 Feature/&ClassMonkZenArcherCombatTitle	Combat à distance
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
@@ -896,7 +896,7 @@ Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Ajoutez une invocatio
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Invocation occulte
 Feature/&ClassWarlockEldritchMasterDescription	vous pouvez puiser dans votre réserve intérieure de pouvoir mystique tout en suppliant votre patron de récupérer les emplacements de sorts dépensés. Vous pouvez passer 1 minute à implorer votre patron pour qu'il vous aide à récupérer tous vos emplacements de sorts dépensés grâce à votre fonction Pacte magique. Une fois que vous avez récupéré des emplacements de sorts avec cette capacité, vous devez terminer un repos long avant de pouvoir le faire à nouveau.
 Feature/&ClassWarlockEldritchMasterTitle	Maître occulte
-Feature/&ClassWarlockMysticArcanumSetDescription	Votre protecteur vous confie un secret magique appelé arcane. Vous pouvez lancer votre sort d'arcane une fois sans dépenser d'emplacement de sort. Vous devez terminer un repos long avant de pouvoir recommencer. Aux niveaux supérieurs, vous gagnez plus de sorts de démoniste de votre choix qui peuvent être lancés de cette manière : un sort de niveau 6 au niveau 11, un sort de niveau 7 au niveau 13, un sort de niveau 8 au niveau 15 et un sort de niveau 9. sort de niveau au niveau 17.
+Feature/&ClassWarlockMysticArcanumSetDescription	Votre protecteur vous confie un secret magique appelé arcane. Vous pouvez lancer votre sort d'arcane une fois sans dépenser d'emplacement de sort. Vous devez terminer un repos long avant de pouvoir recommencer. Aux niveaux supérieurs, vous gagnez plus de sorts d'Arcaniste de votre choix qui peuvent être lancés de cette manière : un sort de niveau 6 au niveau 11, un sort de niveau 7 au niveau 13, un sort de niveau 8 au niveau 15 et un sort de niveau 9. sort de niveau au niveau 17.
 Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, Charisme.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
@@ -912,7 +912,7 @@ Feature/&CounterStrikePowerDescription	Dépensez un dé de gambit et Counter Str
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Lorsque vous êtes réduit à 0 HP mais pas tué, vous pouvez tomber à 1 HP à la place.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Endurance implacable
-Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de subir un malus bonus de -5 pour toucher afin d'infliger un bonus de dégâts de +10.
+Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de prendre un bonus de malus de -5 à votre coup afin d'infliger un bonus de dégâts de +10.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	Vous pouvez voir normalement dans les ténèbres, à la fois magiques et non magiques, à une distance de 120 pieds.
 Feature/&DevilsSightTitle	La vue du diable
@@ -934,7 +934,7 @@ Feature/&DHConjureMinorElementalsBonusCantripDescription	Votre contrôle des én
 Feature/&DHConjureMinorElementalsBonusCantripTitle	Sbires élémentaires
 Feature/&DHHolyAuraBlindingPowerDescription	Lorsqu'un démon ou un mort-vivant frappe une créature affectée avec une attaque au corps à corps, l'aura clignote d'une lumière brillante. L'attaquant doit réussir un jet de sauvegarde de Constitution ou être aveuglé jusqu'à la fin du sort.
 Feature/&DHHolyAuraBlindingPowerTitle	Aura sacrée Représailles
-Feature/&DHPactOfTheTomeFeatureSetDescription	Votre mécène vous donne un grimoire appelé Livre des Ombres. Lorsque vous gagnez cette capacité, choisissez trois sorts mineurs dans la liste de sorts de n'importe quelle classe. Les sorts mineurs n'ont pas besoin d'être de la même liste de sorts. Pendant que le livre est sur vous, vous pouvez lancer ces sorts mineurs à volonté. Ils ne comptent pas dans votre nombre de cantrips connus. Tout sort mineur que vous lancez avec cette capacité est considéré comme un sort mineur de sorcier pour vous.
+Feature/&DHPactOfTheTomeFeatureSetDescription	Votre mécène vous donne un grimoire appelé Livre des Ombres. Lorsque vous gagnez cette capacité, choisissez trois sorts mineurs dans la liste de sorts de n'importe quelle classe. Les sorts mineurs n'ont pas besoin d'être de la même liste de sorts. Pendant que le livre est sur vous, vous pouvez lancer ces sorts mineurs à volonté. Ils ne comptent pas dans votre nombre de cantrips connus. Tout sort mineur que vous lancez avec cette capacité est considéré comme un sort mineur d'Arcaniste pour vous.
 Feature/&DHPactOfTheTomeFeatureSetTitle	Pacte du Tome
 Feature/&DHWardingBondBonusCantripDescription	Votre contrôle des portails de faille a augmenté au point que vous pouvez désormais accorder la protection de la faille à d'autres. Vous pouvez lancer Lien protecteur à volonté (sans partager les dégâts).
 Feature/&DHWardingBondBonusCantripTitle	Cape de faille
@@ -984,9 +984,9 @@ Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Explosion répulsive
 Feature/&EldritchMindDescription	Vous avez un avantage sur les jets de sauvegarde de Constitution que vous effectuez pour maintenir votre concentration sur un sort.
 Feature/&EldritchMindTitle	Esprit Eldritch
 Feature/&EldritchSightTitle	Vue occulte
-Feature/&EldritchSmiteDescription	Une fois par tour, lorsque vous touchez une créature avec votre arme du pacte, vous pouvez dépenser un emplacement de sort de sorcier pour infliger 1d8 dégâts de force supplémentaires à la cible, plus 1d8 supplémentaires par niveau de l'emplacement de sort.
+Feature/&EldritchSmiteDescription	Une fois par tour, lorsque vous touchez une créature avec votre arme du pacte, vous pouvez dépenser un emplacement de sort Démoniste pour infliger 1d8 dégâts de force supplémentaires à la cible, plus 1d8 supplémentaires par niveau de l'emplacement de sort.
 Feature/&EldritchSmiteTitle	Châtiment occulte
-Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
+Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
 Feature/&ElementalPactAirPlane	Avion
 Feature/&ElementalPactAstralPlane	Plan Astral
@@ -1061,7 +1061,7 @@ Feature/&MagicAffinityRangerArcanistTitle	Entraînement au combat arcanique
 Feature/&MiretheMindTitle	Mire l'esprit
 Feature/&MoonLitDarknessImmunityDescription	Vous êtes immunisé contre la condition Obscurité.
 Feature/&MoonLitDarknessImmunityTitle	Ténèbres au clair de lune
-Feature/&MoonLitExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&MoonLitExpandedSpelllistAfinityTitle	Sorts au clair de lune
 Feature/&MoonLitLightAffinityDescription	Si vous commencez votre tour dans l'obscurité naturelle, vous devenez invisible. Bouger, attaquer ou utiliser n'importe quel pouvoir ou sort qui ne cible pas seulement vous-même brise l'invisibilité.
 Feature/&MoonLitLightAffinityStrongDescription	La cape ombrale fonctionne désormais dans la pénombre et les ténèbres magiques.
@@ -1080,7 +1080,7 @@ Feature/&OpportunistDebilitatingStrikeTitle	Frappe débilitante
 Feature/&OpportunistQuickStrikeDescription	Vous avez l'avantage lorsque vous attaquez un ennemi dont l'initiative est inférieure à la vôtre. De plus, vous avez également un avantage lorsque vous effectuez une attaque d'opportunité.
 Feature/&OpportunistQuickStrikeTitle	Frappe rapide
 Feature/&OtherworldlyLeapTitle	Saut d'un autre monde
-Feature/&PowerAttackDescription	Prenez une pénalité de -3 pour toucher à votre attaque pour le reste du tour pour infliger 3 + bonus de dégâts supplémentaires lorsque vous frappez avec des armes de mêlée.
+Feature/&PowerAttackDescription	Prenez une pénalité de -3 pour toucher votre attaque pour infliger 3 + bonus de dégâts supplémentaires lorsque vous frappez avec des armes de mêlée.
 Feature/&PowerAttackTitle	Attaque puissante
 Feature/&PowerPaladinAuraOfCourage18Description	Confère un bonus de jet de sauvegarde aux alliés à moins de 9 mètres.
 Feature/&PowerPaladinAuraOfCourage18Title	Aura de courage améliorée
@@ -1115,7 +1115,7 @@ Feature/&RangerFeralSensesTitle	Sens sauvages
 Feature/&RangerVanishActionDescription	À partir du niveau 14, vous pouvez utiliser l'action Cacher comme une action bonus à votre tour.
 Feature/&RangerVanishActionTitle	Disparaître
 Feature/&RiftWalkerRestrainedImmunityTitle	Pas fugace
-Feature/&RiftWalkerSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Sorts de marcheur de faille
 Feature/&SavingThrowTinkererProficiencyDescription	Maîtrise des jets de sauvegarde de Constitution et d'Intelligence.
 Feature/&SavingThrowTinkererProficiencyTitle	Maîtrise du jet de sauvegarde
@@ -1153,7 +1153,7 @@ Feature/&TinkererToolsProficiencyTitle	Maîtrise des outils
 Feature/&TinkererWeaponProficiencyDescription	Maîtrise des armes simples.
 Feature/&TinkererWeaponProficiencyTitle	Maîtrise des armes du bricoleur
 Feature/&ToadKingBasicToxinTitle	Toxine de base
-Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts suivants sont ajoutés à la liste des sorts de sorcier pour vous : {0}
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Sorts du roi crapaud
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Votre corps a changé pour devenir résistant aux toxines et pour produire une toxine défensive lorsqu'il est touché par des attaques de mêlée, jusqu'à un nombre de fois par repos long égal à votre bonus de compétence. Si l'attaquant échoue à un jet de sauvegarde de Constitution, il souffre d'une toxine hallucinogène jusqu'à ce qu'il soit attaqué ou autrement interrompu.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxine hallucinogène
@@ -1164,7 +1164,7 @@ Feature/&ToadKingStickyFeetTitle	Pieds palmés
 Feature/&TrickstersEscapeTitle	L'évasion d'un escroc
 Feature/&UrPriestDomainTheftDescription	Vous arrachez les secrets qu'un dieu accorde à tous ses prêtres dévots. Choisissez un domaine Clerc : vous gagnez les fonctionnalités que le domaine accorde au 1er niveau.
 Feature/&UrPriestDomainTheftTitle	Vol de domaine
-Feature/&UrPriestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de sorcier. Les sorts de clerc sont ajoutés à la liste des sorts de sorcier pour vous.
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts de clerc sont ajoutés à la liste des sorts de démoniste pour vous.
 Feature/&UrPriestExpandedSpelllistAfinityTitle	Sorts d'UrPrêtre
 Feature/&WallofThornsFeatureSetDescription	Lancez Mur d'épines une fois par jour.
 Feature/&WallofThornsFeatureSetTitle	Barrière forestière
@@ -1177,7 +1177,7 @@ Feature/&WitchSightTitle	Vue de sorcière
 Feature/&ZSPowerPaladinCleansingTouchDescription	Supprimez les effets des sorts en touchant un allié. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur de Charisme.
 Feature/&ZSPowerPaladinCleansingTouchTitle	Toucher nettoyant
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosion agonisante
-Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez Explosion occulte, vous ajoutez votre modificateur de Charisme aux dégâts qu'il inflige en cas de coup.
+Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez Explosion occulte, vous ajoutez votre modificateur de Charisme aux dégâts qu'elle inflige en cas de coup.
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Dégâts supplémentaires des attaques magiques
 Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Dégâts supplémentaires des attaques magiques
 Feedback/&AdditionalDamageArcaneFirearmFormat	Amélioration du dynamitage !
@@ -1381,9 +1381,9 @@ Power/&ClassMonkDiamondSoulPowerDescription	Chaque fois que vous faites un jet d
 Power/&ClassMonkDiamondSoulPowerTitle	Âme de diamant
 Power/&ClassMonkEmptyBodyDescription	Vous pouvez utiliser votre action pour dépenser 4 points de ki pour devenir invisible pendant 1 minute. Pendant ce temps, vous avez également une résistance à tous les dégâts, sauf les dégâts de force.
 Power/&ClassMonkEmptyBodyTitle	Corps vide
-Power/&ClassMonkFlurryOfBlowsDescription	Après avoir dépensé votre action pour attaquer avec une arme de moine, vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer 2 frappes à mains nues. Uniquement disponible si vous ne portez pas d'armure ou ne brandissez pas de bouclier.
+Power/&ClassMonkFlurryOfBlowsDescription	Après avoir dépensé votre action pour attaquer avec l'arme du Moine, vous pouvez dépenser 1 point de ki en tant qu'action bonus pour effectuer 2 frappes à mains nues. Uniquement disponible si vous ne portez pas d'armure ou ne brandissez pas de bouclier.
 Power/&ClassMonkFlurryOfBlowsTitle	Rafale de coups
-Power/&ClassMonkKiPoolDescription	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki.
+Power/&ClassMonkKiPoolDescription	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de Moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki.
 Power/&ClassMonkKiPoolTitle	Points Ki
 Power/&ClassMonkKiStillnessOfMindDescription	Vous pouvez utiliser votre action pour mettre fin à un effet sur vous-même qui vous charme ou vous effraie.
 Power/&ClassMonkKiStillnessOfMindTitle	Silence d'esprit
@@ -1407,9 +1407,9 @@ Power/&ClassMonkStunningStrikeDescription	Vous pouvez interférer avec le flux d
 Power/&ClassMonkStunningStrikeTitle	Frappe étourdissante
 Power/&ClassMonkTanquilityDescription	Une fois par repos court, en tant qu'action libre, vous pouvez entrer dans un état de tranquillité, calmer vos émotions et vous concentrer sur ce qui vous entoure. Tant que vous êtes dans cet état, vous bénéficiez d'un avantage aux jets de sauvegarde contre les sorts et les ennemis sont désavantagés lorsqu'ils vous attaquent. La tranquillité dure jusqu'au prochain repos ou jusqu'à ce que vous attaquiez ou lanciez un sort.
 Power/&ClassMonkTanquilityTitle	Tranquillité
-Power/&ClassMonkWholenessOfBodyDescription	Par une action, vous pouvez regagner des points de vie égaux à trois fois votre niveau de moine. Vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette capacité.
+Power/&ClassMonkWholenessOfBodyDescription	Par une action, vous pouvez regagner des points de vie égaux à trois fois votre niveau de Moine. Vous devez terminer un repos long avant de pouvoir utiliser à nouveau cette capacité.
 Power/&ClassMonkWholenessOfBodyTitle	Intégralité du corps
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Après avoir dépensé une action pour attaquer avec une arme de moine, vous pouvez dépenser 2 points de ki en tant qu'action bonus pour effectuer 2 attaques à distance avec une arme avec un arc. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Après avoir dépensé une action pour attaquer avec une arme de Moine, vous pouvez dépenser 2 points de ki en tant qu'action bonus pour effectuer 2 attaques à distance avec une arme avec un arc. Uniquement disponible si vous ne portez pas d'armure ou de bouclier.
 Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Rafale de flèches
 Power/&ClassMonkZenArrowDistractDescription	La cible doit réussir un jet de sauvegarde de Sagesse ou avoir un désavantage lors de la prochaine attaque jusqu'à la fin de son prochain tour.
 Power/&ClassMonkZenArrowDistractTitle	Distraire
@@ -1458,13 +1458,13 @@ Power/&ToadKingGraspingTongueDescription	Attirez les ennemis vers vous.
 Power/&ToadKingGraspingTongueTitle	Langue saisissante
 Power/&ToadKingHallucinogenicToxinPowerDescription	Votre corps a changé pour devenir résistant aux toxines et pour produire une toxine défensive lorsqu'il est touché par des attaques de mêlée, jusqu'à un nombre de fois par repos long égal à votre bonus de compétence. Si l'attaquant échoue à un jet de sauvegarde de Constitution, il souffre de toxine lucinogène jusqu'à ce qu'il soit attaqué ou autrement interrompu.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Toxine hallucinogène
-Power/&ToadKingSwallowDescription	Essayez d'avaler un ennemi moyen ou plus petit. En cas d'échec au jet de Force, le monstre est avalé et subit 3d6 dégâts d'acide par round. Se termine si le sorcier crapaud subit 15 dégâts ou plus en une seule attaque.
+Power/&ToadKingSwallowDescription	Essayez d'avaler un ennemi moyen ou plus petit. En cas d'échec au jet de Force, le monstre est avalé et subit 3d6 dégâts d'acide par round. Se termine si le démoniste crapaud subit 15 dégâts ou plus en une seule attaque.
 Power/&ToadKingSwallowTitle	Avaler
 Power/&UrPriestControlUndeadDescription	Par une action, vous ciblez un mort-vivant que vous pouvez voir dans un rayon de 9 mètres autour de vous. La cible doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec de sauvegarde, la cible doit obéir à vos ordres.
 Power/&UrPriestControlUndeadTitle	Contrôlez les morts-vivants
 Power/&UrPriestHalfLifeDescription	Vous prenez l'énergie nécrotique en vous, suspendu entre la vie et la mort et êtes temporairement possédé par votre propre fantôme. Vous gagnez en vitesse de vol, ainsi que les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
 Power/&UrPriestHalfLifeTitle	Demi vie
-Power/&UrPriestRadiantWardDescription	Par une action, vous gagnez un nombre de points de vie temporaires égal à deux fois votre niveau de démoniste.
+Power/&UrPriestRadiantWardDescription	Par une action, vous gagnez un nombre de points de vie temporaires égal à deux fois votre niveau d'Arcaniste.
 Power/&UrPriestRadiantWardTitle	Service radieux
 Power/&UrPriestSpellSiphonDescription	vous apprenez à puiser dans une plus grande source de magie en combinaison avec votre réserve de puissance normale. Par une action, vous pouvez dépenser une Divinité canalisée pour retrouver une utilisation dépensée de votre arcane mystique de niveau 6.
 Power/&UrPriestSpellSiphonTitle	Siphon de sorts
@@ -1655,7 +1655,7 @@ Spell/&DHHolyAuraSpellDescription	La lumière divine s'éloigne de vous et fusio
 Spell/&DHHolyAuraSpellTitle	Aura sacrée
 Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises chauffées à blanc apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant toute la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse.\nLorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour.\nLe nuage s'éloigne de 3 mètres directement de vous dans une direction que vous choisissez au début de chacun de vos virages.
 Spell/&DHIncendiaryCloudSpellTitle	Nuage incendiaire
-Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez jusqu'à 700 points de vie, répartis comme vous le souhaitez parmi n'importe quel nombre de créatures que vous pouvez voir à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
+Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez jusqu'à 700 points de vie, répartis comme vous le souhaitez parmi un nombre quelconque de créatures que vous pouvez voir à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
 Spell/&DHMassHealSpellTitle	Guérison de masse
 Spell/&DHMazeSpellDescription	Vous bannissez une créature que vous pouvez voir à portée dans un demi-plan labyrinthique. La cible y reste pendant toute la durée ou jusqu'à ce qu'elle sorte du labyrinthe. /nLa cible peut utiliser son action pour tenter un test d'Intelligence DD 20 pour s'échapper.
 Spell/&DHMazeSpellTitle	Labyrinthe
@@ -1748,7 +1748,7 @@ Stage/&SubclassSelectionStageCovenFeaturesHeader	Caractéristiques du Coven
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Couvent
 Stage/&SubclassSelectionStageCovenHeader	Sélectionnez un coven
 Stage/&SubclassSelectionStageCovenTitle	Couvent
-Stage/&SubclassSelectionStagePatronDescription	Un sorcier est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre le sorcier et le mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
+Stage/&SubclassSelectionStagePatronDescription	Un démoniste est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre Warlock et mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
 Stage/&SubclassSelectionStagePatronFeatures	Caractéristiques des clients d'un autre monde
 Stage/&SubclassSelectionStagePatronHeader	Mécènes d'un autre monde démoniste
 Stage/&SubclassSelectionStagePatronTitle	Clients d'un autre monde
@@ -1818,10 +1818,10 @@ Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Vous regagnez des p
 Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Protection de la lumière
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Vous bénéficiez d'une vision dans le noir supérieure.
 Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Percer les ténèbres
-Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Peut percevoir les créatures invisibles.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Peut percevoir des créatures invisibles.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vue d'invisibilité
 Subclass/&BarbarianPathOfTheLightTitle	Chemin de la Lumière
-Subclass/&BloodWitchDescription	Interdite par la plupart des covens de sorcières, la magie du sang se concentre sur l'utilisation de sorts sombres et de maléfices mortels qui puisent dans l'essence même du lanceur de sorts. Il est fondamentalement plus périlleux que les autres métiers de la sorcellerie, mais ses nombreux risques s'accompagnent de nombreuses récompenses.
+Subclass/&BloodWitchDescription	Interdite par la plupart des covens de sorcières, la magie du sang se concentre sur l'utilisation de sorts sombres et de maléfices mortels qui puisent dans l'essence même du lanceur de sorts. Il est fondamentalement plus périlleux que les autres métiers de sorcière, mais ses nombreux risques s'accompagnent de nombreuses récompenses.
 Subclass/&BloodWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
 Subclass/&BloodWitchMagicTitle	Magie du sang
 Subclass/&BloodWitchTitle	Sorcière de sang
@@ -1837,7 +1837,7 @@ Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Les Moines de la Voie de
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Voie de la main ouverte
 Subclass/&ClassMonkTraditionZenArcherDescription	Les pratiquants de la voie de la main lointaine s'entraînent à faire des flèches une extension de leurs mains. Ils sont habiles à utiliser des arcs et à produire des effets de ki grâce à des flèches.
 Subclass/&ClassMonkTraditionZenArcherTitle	Voie de la main lointaine
-Subclass/&ClassWarlockPatronDescription	Un sorcier est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre le sorcier et le mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
+Subclass/&ClassWarlockPatronDescription	Un démoniste est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre Warlock et mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
 Subclass/&ClassWarlockPatronTitle	Mécène d'un autre monde
 Subclass/&ConditionResistantArmorTitle	Armure résistante
 Subclass/&ConditionResistnatArmorDescription	Votre armure est résistante aux dommages causés par l'acide, le froid, le feu, la force, la foudre, la nécrose, le poison, le psychique, le rayonnement et le tonnerre.
@@ -1874,7 +1874,7 @@ Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 1 esprit d
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
 Subclass/&FighterMarshalTitle	Maréchal
 Subclass/&FighterSpellShieldDescription	Les Spell Shields sont des combattants spécialisés dans la défense et la protection. Ils utilisent la magie pour aider leurs capacités naturelles.
-Subclass/&FighterSpellShieldSpellcastingDescription	Lancez des sorts de magicien et des tours mineurs des écoles d'abjuration, d'illusion, de transmutation et de nécromancie.
+Subclass/&FighterSpellShieldSpellcastingDescription	Lancez des sorts et des tours mineurs de magicien des écoles d'abjuration, d'illusion, de transmutation et de nécromancie.
 Subclass/&FighterSpellShieldSpellcastingTitle	Lancer des sorts
 Subclass/&FighterSpellShieldSpellResistanceDescription	Votre expérience des sorts et de la magie d'abjuration en particulier vous a rendu résistant aux sorts lancés contre vous.
 Subclass/&FighterSpellShieldSpellResistanceTitle	Résistance aux sorts
@@ -1978,7 +1978,7 @@ Subclass/&PurpleWitchDescription	La magie pourpre règne sur les domaines des il
 Subclass/&PurpleWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
 Subclass/&PurpleWitchMagicTitle	Magie violette
 Subclass/&PurpleWitchTitle	Sorcière violette
-Subclass/&RangerArcanistRangerSubclassDescription	Le Ranger Arcanist fusionne ses compétences de ranger avec des capacités arcaniques. Leurs armes peuvent affliger leurs adversaires avec la marque de l'arcaniste et ont appris à lancer des sorts de magicien dans le cadre de leur répertoire de sorts de Ranger.
+Subclass/&RangerArcanistRangerSubclassDescription	Le Ranger Arcanist fusionne ses compétences de Ranger avec des capacités arcaniques. Leurs armes peuvent affliger leurs adversaires avec la marque de l'arcaniste et ont appris à lancer des sorts de magicien dans le cadre de leur répertoire de sorts de Ranger.
 Subclass/&RangerArcanistRangerSubclassTitle	Arcaniste Rôdeur
 Subclass/&RedWitchDescription	La magie arcanique liée à la canalisation des éléments est considérée comme de la magie rouge et est extrêmement dangereuse lorsqu'elle est utilisée. Les sorcières spécialisées dans la magie rouge sont parmi les lanceurs de sorts les plus meurtriers qui existent, canalisant leur malédiction en une colère arcanique sans entrave.
 Subclass/&RedWitchMagicDescription	Vous gagnez les sorts suivants. Ces sorts comptent pour vous comme des sorts de Sorcière et ne comptent pas dans votre nombre total de sorts connus :\n {0}
@@ -1991,10 +1991,10 @@ Subclass/&RoguishConArtistFeintDescription	Gagnez la capacité de feinter au com
 Subclass/&RoguishConArtistFeintTitle	Feinte
 Subclass/&RoguishConArtistMentalSavingThrowsDescription	Vous maîtrisez les jets de sauvegarde de Sagesse et de Charisme.
 Subclass/&RoguishConArtistMentalSavingThrowsTitle	Force mentale
-Subclass/&RoguishConArtistSpellcastingDescription	Lancez des sorts de magicien et des tours mineurs des écoles de conjuration, d'enchantement, d'illusion et de transmutation. L'escroc utilise le charisme pour lancer ses sorts.
+Subclass/&RoguishConArtistSpellcastingDescription	Lancez des sorts de magicien et des sorts mineurs des écoles de conjuration, d'enchantement, d'illusion et de transmutation. L'escroc utilise le charisme pour lancer ses sorts.
 Subclass/&RoguishConArtistSpellcastingTitle	Lancer des sorts
 Subclass/&RoguishConArtistTitle	escroc
-Subclass/&ScoutSentinelTinkererSubclassDescription	Un bricoleur Scout Sentinel modifie l'armure pour améliorer sa fonction, offrant une protection et une mobilité améliorées.
+Subclass/&ScoutSentinelTinkererSubclassDescription	Un Scout Sentinel Tinkerer modifie l'armure pour améliorer sa fonction, offrant une protection et une mobilité améliorées.
 Subclass/&ScoutSentinelTinkererSubclassTitle	Sentinelle éclaireuse
 Subclass/&SpellShieldAdditionalActionDescription	Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
 Subclass/&SpellShieldAdditionalActionTitle	Combat de sorts
@@ -2023,7 +2023,7 @@ Subclass/&TraditionSpellMasterSpellResistanceDescription	Votre entraînement à 
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Résistance aux sorts
 Subclass/&TraditionSpellMasterTitle	Maître des sorts
 Subclass/&WarlockAncientForestDescription	Vous avez forgé une relation avec une entité naturelle puissante : Dryades antiques, Archidruides, Manifestations de la Feywild saignant dans le plan matériel, Dieux oubliés d'un âge primitif. Votre patron peut souhaiter que vous protégiez le monde naturel, voyagez dans des terres lointaines qu'il ne peut pas, ou il peut avoir un autre motif qui semble impénétrable aux mortels de courte durée.
-Subclass/&WarlockAncientForestTitle	Pacte de la forêt antique
+Subclass/&WarlockAncientForestTitle	Pacte de la forêt ancienne
 Subclass/&WarlockMoonLitDescription	Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et en chargent leurs sorciers, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
 Subclass/&WarlockMoonLitTitle	Pacte au clair de lune
 Subclass/&WarlockToadKingDescription	Fey, démon ou aberration causée par le cataclysme, la vraie nature du roi crapaud n'est pas connue, mais on sait que le roi crapaud règne sur une vaste zone de marécages et de marais dans les Badlands et offre du pouvoir à ceux qui veulent servir.
@@ -2041,7 +2041,7 @@ Subclass/&WhiteWitchTitle	Sorcière blanche
 Subclass/&WitchSubclassPathDescription	Votre connaissance de la magie a culminé en rejoignant un Coven, un cercle inné de sorcières qui explorent un chemin spécifique de sorcellerie et de malédictions.
 Subclass/&WitchSubclassPathTitle	Couvents de sorcières
 ToolTip/&CheckBoxDefaultPartyTitle	Cochez cette case pour définir votre groupe par défaut lorsque vous démarrez de nouvelles aventures ou testez des emplacements personnalisés. Vous pouvez sélectionner jusqu'à {0} héros selon le principe du premier entré / premier sorti
-Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
+Tooltip/&CustomPortraitPoolClassMonkKiPool	Vous pouvez exploiter l'énergie mystique du ki. Votre accès à cette énergie est représenté par un certain nombre de points ki. Le montant maximum est égal à votre niveau de Moine. Tous les points dépensés sont récupérés sur un repos court ou long. Vous pouvez dépenser ces points pour alimenter diverses fonctionnalités ki
 Tooltip/&DeadeyeConcentration	Désactivez Deadeye.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
@@ -2074,3 +2074,13 @@ Reaction/&CoordinatedAttackDescription	{0} a été attaqué en coordonnant l'att
 Reaction/&CoordinatedAttackTitle	Attaque coordonnée
 Reaction/&CoordinatedAttackReactDescription	Utilisez la réaction pour attaquer la cible.
 Reaction/&CoordinatedAttackReactTitle	Attaque
+Feature/&RallyingCryPowerTitle	Cri de ralliement
+Feature/&RallyingCryPowerTitleShort	Cri de ralliement
+Feature/&RallyingCryPowerDescription	Remplace Second Wind par un pouvoir permettant de restaurer 4 fois les points de vie des niveaux de combattant à un ou plusieurs alliés dans un rayon de 6 cellules, jusqu'à leur maximum de points de vie.
+Feature/&RoyalEnvoyFeatureTitle	Envoyé royal
+Feature/&RoyalEnvoyFeatureDescription	Ajoutez la moitié de votre bonus de maîtrise (arrondi au supérieur) à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
+Feature/&InspiringSurgePowerTitle	Surtension inspirante
+Feature/&InspiringSurgePowerTitleShort	Surtension inspirante
+Feature/&InspiringSurgePowerDescription	Confère à un allié une action principale supplémentaire pendant 1 tour. Ne se cumule pas avec Action Surge.
+Subclass/&FighterRoyalKnightTitle	chevalier royal
+Subclass/&FighterRoyalKnightDescription	Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier solitaire est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.

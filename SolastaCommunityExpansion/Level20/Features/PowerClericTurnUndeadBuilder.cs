@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features;
@@ -21,7 +20,7 @@ internal sealed class PowerClericTurnUndeadBuilder : FeatureDefinitionPowerBuild
     private PowerClericTurnUndeadBuilder(string name, string guid, int challengeRating) : base(
         PowerClericTurnUndead8, name, guid)
     {
-        Definition.EffectDescription.EffectForms[0].KillForm.SetChallengeRating(challengeRating);
+        Definition.EffectDescription.EffectForms[0].KillForm.challengeRating = challengeRating;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid, int challengeRating)

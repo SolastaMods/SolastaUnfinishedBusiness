@@ -25,11 +25,6 @@ internal static class SpellsByLevelGroup_CommonBind
         List<SpellDefinition> allSpells,
         List<SpellDefinition> auToPreparedSpells)
     {
-        if (!Main.Settings.ShowAllAutoPreparedSpells)
-        {
-            return;
-        }
-
         // Collect all the auto prepared spells.
         // Also filter the prepped spells by level this group is displaying.
         caster.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(caster.FeaturesToBrowse);

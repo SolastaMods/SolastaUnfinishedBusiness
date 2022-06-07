@@ -17,12 +17,8 @@ internal static class RulesetCharacterHero_RefreshAll
     internal static void Postfix(RulesetCharacterHero __instance)
     {
         // Anything that grants powers dynamically will stop working if this is turned off.
-        // I'm making it a setting to allow it to be disabled if that becomes necesary, but
-        // this shouldn't get exposed in the UI.
-        if (Main.Settings.AllowDynamicPowers)
-        {
-            RefreshPowers(__instance);
-        }
+
+        RefreshPowers(__instance);
     }
 
     private static void RefreshPowers(RulesetCharacterHero hero)

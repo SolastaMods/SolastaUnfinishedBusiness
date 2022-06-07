@@ -14,8 +14,6 @@ public static class DungeonMakerContext
     internal const int MAX_PARTY_SIZE = 6;
 
     internal const float ADVENTURE_PANEL_DEFAULT_SCALE = 0.75f;
-    internal const float REST_PANEL_DEFAULT_SCALE = 0.8f;
-    internal const float PARTY_CONTROL_PANEL_DEFAULT_SCALE = 0.95f;
     internal const float VICTORY_MODAL_DEFAULT_SCALE = 0.85f;
     internal const float REVIVE_PARTY_CONTROL_PANEL_DEFAULT_SCALE = 0.85f;
 
@@ -42,6 +40,11 @@ public static class DungeonMakerContext
         }
 
         return line;
+    }
+
+    public static float GetPartyControlScale()
+    {
+        return (float)GAME_PARTY_SIZE / Gui.GameCampaign.Party.CharactersList.Count;
     }
 
     // must be public because of transpiler

@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -63,31 +62,31 @@ public class GuiPresentationBuilder
 
     public GuiPresentationBuilder SetTitle(string title)
     {
-        guiPresentation.SetTitle(title);
+        guiPresentation.title = title;
         return this;
     }
 
     public GuiPresentationBuilder SetColor(Color color)
     {
-        guiPresentation.SetColor(color);
+        guiPresentation.color = color;
         return this;
     }
 
     public GuiPresentationBuilder SetHidden(bool hidden)
     {
-        guiPresentation.SetHidden(hidden);
+        guiPresentation.hidden = hidden;
         return this;
     }
 
     public GuiPresentationBuilder SetSortOrder(int sortOrder)
     {
-        guiPresentation.SetSortOrder(sortOrder);
+        guiPresentation.sortOrder = sortOrder;
         return this;
     }
 
     public GuiPresentationBuilder SetSpriteReference(AssetReferenceSprite sprite)
     {
-        guiPresentation.SetSpriteReference(sprite);
+        guiPresentation.spriteReference = sprite;
         return this;
     }
 
@@ -109,11 +108,11 @@ public class GuiPresentationBuilder
 
         guip.Title = title;
         guip.Description = description;
+        guip.spriteReference = sprite ?? reference?.SpriteReference ?? EmptySprite;
+        guip.sortOrder = sortOrder ?? reference?.SortOrder ?? 0;
+        guip.hidden = hidden ?? reference?.Hidden ?? false;
 
-        return guip
-            .SetSpriteReference(sprite ?? reference?.SpriteReference ?? EmptySprite)
-            .SetSortOrder(sortOrder ?? reference?.SortOrder ?? 0)
-            .SetHidden(hidden ?? reference?.Hidden ?? false);
+        return guip;
     }
 
     public static GuiPresentation Build(string name, Category category, AssetReferenceSprite sprite = null,

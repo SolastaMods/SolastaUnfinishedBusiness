@@ -64,40 +64,40 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder AddConditionTags(IEnumerable<string> value)
     {
-        Definition.AddConditionTags(value);
+        Definition.ConditionTags.AddRange(value);
         return This();
     }
 
     public TBuilder AddConditionTags(params string[] value)
     {
-        Definition.AddConditionTags(value);
+        Definition.ConditionTags.AddRange(value);
         Definition.ConditionTags.Sort();
         return This();
     }
 
     public TBuilder ClearFeatures()
     {
-        Definition.ClearFeatures();
+        Definition.Features.Clear();
         return This();
     }
 
     public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
     {
-        Definition.AddFeatures(value);
+        Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
     public TBuilder AddFeatures(params FeatureDefinition[] value)
     {
-        Definition.AddFeatures(value);
+        Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
     public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
     {
-        Definition.SetFeatures(value);
+        Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
@@ -110,11 +110,10 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
         ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
     {
-        Definition
-            .SetAdditionalDamageWhenHit(additionalDamageWhenHit)
-            .SetAdditionalDamageDieType(dieType)
-            .SetAdditionalDamageDieNumber(numberOfDie)
-            .SetAdditionalDamageQuantity(damageQuantity);
+        Definition.additionalDamageWhenHit = additionalDamageWhenHit;
+        Definition.additionalDamageDieType = dieType;
+        Definition.additionalDamageDieNumber = numberOfDie;
+        Definition.additionalDamageQuantity = damageQuantity;
 
         return This();
     }
@@ -164,7 +163,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
-        Definition.SetSpecialInterruptions(value);
+        Definition.SpecialInterruptions.SetRange(value);
         return This();
     }
 
@@ -201,7 +200,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder ClearRecurrentEffectForms()
     {
-        Definition.ClearRecurrentEffectForms();
+        Definition.RecurrentEffectForms.Clear();
         return This();
     }
 
@@ -222,7 +221,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     public TBuilder Configure(RuleDefinitions.DurationType durationType, int durationParameter,
         bool silent, params FeatureDefinition[] conditionFeatures)
     {
-        Definition.AddFeatures(conditionFeatures);
+        Definition.Features.AddRange(conditionFeatures);
         Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
         Definition.allowMultipleInstances = false;
         Definition.durationType = durationType;

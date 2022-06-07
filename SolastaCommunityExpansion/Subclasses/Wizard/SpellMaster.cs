@@ -125,17 +125,17 @@ internal class SpellMaster : AbstractSubclass
     {
         if (Main.Settings.EnableUnlimitedArcaneRecoveryOnWizardSpellMaster)
         {
+            BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited",
+                Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
             BonusRecovery
-                .SetGuiPresentation(GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited",
-                    Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference))
                 .SetCostPerUse(0)
                 .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
         }
         else
         {
+            BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery",
+                Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
             BonusRecovery
-                .SetGuiPresentation(GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery",
-                    Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference))
                 .SetCostPerUse(1)
                 .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
         }

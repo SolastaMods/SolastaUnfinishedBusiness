@@ -183,8 +183,8 @@ internal sealed class SummonForceArtillerySpellConstructBuilder : SpellDefinitio
         Definition.uniqueInstance = true;
         Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -297,7 +297,7 @@ Web
         motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
         motionForm.SetDistance(1);
 
-        var effectmotion = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
+        var effectmotion = new EffectForm { FormType = EffectForm.EffectFormType.Motion };
         effectmotion.SetMotionForm(motionForm);
         effectmotion.SetCreatedByCharacter(true);
         effectmotion.HasSavingThrow = false;
@@ -314,7 +314,7 @@ Web
             BonusDamage = 0
         };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = forceArtilleryAttack};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Damage, DamageForm = forceArtilleryAttack };
         effect.SetCreatedByCharacter(true);
         effect.HasSavingThrow = false;
         effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;

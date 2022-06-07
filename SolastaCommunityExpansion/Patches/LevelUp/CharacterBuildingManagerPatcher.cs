@@ -18,10 +18,9 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
         List<FeatureDefinition> grantedFeatures,
         string tag)
     {
-        if (!Main.Settings.BugFixBrowseFeatures)
-        {
-            return true;
-        }
+        //
+        // BUGFIX: browse for features should not return too soon
+        //
 
         var spellTag = CustomFeaturesContext.GetSpellLearningTag(heroBuildingData.HeroCharacter, tag);
 
@@ -54,10 +53,8 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
 
                         continue;
                     }
-                    else
-                    {
-                        continue;
-                    }
+
+                    continue;
 
                 case FeatureDefinitionFeatureSet featureSet:
                     if (featureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)
@@ -607,11 +604,6 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
         CharacterHeroBuildingData heroBuildingData,
         FeatureDefinition feature)
     {
-        if (!Main.Settings.BugFixCorrectlyAssignBonusCantrips)
-        {
-            return;
-        }
-
         if (feature is not FeatureDefinitionCastSpell spellCasting) { return; }
 
         var castingOrigin = spellCasting.SpellCastingOrigin;
@@ -637,6 +629,10 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             _ => string.Empty
         };
 
+        //
+        // BUGFIX: correctly apply bonus cantrips
+        //
+
         if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip) &&
             heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools.ContainsKey(classTag))
         {
@@ -645,6 +641,7 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
                 .ActivePools[classTag];
             heroBuildingData.TempAcquiredCantripsNumber -= activePool.MaxPoints;
         }
+
 
         // special case when these bonus cantrips get granted from a sub class (i.e.: Druid Circle of Land)
         if (subclassTag != string.Empty

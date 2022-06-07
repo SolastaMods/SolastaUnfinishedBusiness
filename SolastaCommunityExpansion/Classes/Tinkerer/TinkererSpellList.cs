@@ -1,5 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Spells.EWSpells;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer;
 
@@ -15,12 +16,13 @@ internal static class TinkererSpellList
             // pull enemy towards you (thorn whip/lightning lure)
             // I'm surrounded (thunderclap/sword burst)
             .SetSpellsAtLevel(0, AcidSplash, DancingLights, FireBolt, Guidance, Light, PoisonSpray, RayOfFrost,
-                Resistance, ShockingGrasp, SpareTheDying)
+                Resistance, ResonatingStrike, ShockingGrasp, SpareTheDying)
             // absorb elements, snare, catapult, tasha's caustic brew
             .SetSpellsAtLevel(1, CureWounds, DetectMagic, ExpeditiousRetreat, FaerieFire, FalseLife, FeatherFall,
                 Grease, Identify, Jump, Longstrider)
             // web, pyrotechnics, heat metal, enlarge/reduce
-            .SetSpellsAtLevel(2, Aid, Blur, Darkvision, EnhanceAbility, Invisibility, LesserRestoration, Levitate,
+            .SetSpellsAtLevel(2, Aid, Blur, Darkvision, EnhanceAbility, HeatMetal, Invisibility, LesserRestoration,
+                Levitate,
                 MagicWeapon, ProtectionFromPoison, SeeInvisibility, SpiderClimb)
             // blink, elemental weapon, flame arrows
             .SetSpellsAtLevel(3, CreateFood, DispelMagic, Fly, Haste, ProtectionFromEnergy, Revivify)

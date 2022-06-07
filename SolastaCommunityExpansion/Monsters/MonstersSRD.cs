@@ -423,7 +423,7 @@ internal static class MonstersSRD
                     MonstersAttributes.ArchmagemonsterSkillProficiency_2
                 },
             AttackIterations =
-                new List<MonsterAttackIteration> {DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0]},
+                new List<MonsterAttackIteration> { DatabaseHelper.MonsterDefinitions.SRD_Mage.AttackIterations[0] },
             LegendaryActionOptions = new List<LegendaryActionDescription>(),
             DefaultBattleDecisionPackage = NewMonsterAttributes.HighLevelCaster_CombatDecisions,
             GroupAttacks = false,
@@ -990,7 +990,7 @@ internal static class MonstersSRD
                     MonstersAttributes.LichmonsterSkillProficiency_3,
                     MonstersAttributes.LichmonsterSkillProficiency_4
                 },
-            AttackIterations = new List<MonsterAttackIteration> {MonstersAttributes.LichAttackIteration},
+            AttackIterations = new List<MonsterAttackIteration> { MonstersAttributes.LichAttackIteration },
             LegendaryActionOptions = new List<LegendaryActionDescription>
             {
                 MonstersAttributes.LichlegendaryActionDescription_0,
@@ -1191,9 +1191,9 @@ internal static class MonstersSRD
                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Wizard
                 },
             SkillScores =
-                new List<MonsterSkillProficiency> {MonstersAttributes.PlanetarmonsterSkillProficiency_1},
+                new List<MonsterSkillProficiency> { MonstersAttributes.PlanetarmonsterSkillProficiency_1 },
             AttackIterations =
-                new List<MonsterAttackIteration> {MonstersAttributes.PlanetarLongswordAttackIteration},
+                new List<MonsterAttackIteration> { MonstersAttributes.PlanetarLongswordAttackIteration },
             LegendaryActionOptions = new List<LegendaryActionDescription>(),
             DefaultBattleDecisionPackage =
                 DatabaseHelper.MonsterDefinitions.Divine_Avatar_Cleric.DefaultBattleDecisionPackage,
@@ -1242,7 +1242,7 @@ internal static class MonstersSRD
                     DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
                     DatabaseHelper.FeatureDefinitionPowers.PowerRemorhazSwallow
                 },
-            SkillScores = new List<MonsterSkillProficiency> {MonstersAttributes.RocmonsterSkillProficiency_1},
+            SkillScores = new List<MonsterSkillProficiency> { MonstersAttributes.RocmonsterSkillProficiency_1 },
             AttackIterations =
                 new List<MonsterAttackIteration>
                 {
@@ -1303,7 +1303,7 @@ internal static class MonstersSRD
                     DatabaseHelper.FeatureDefinitionCastSpells.CastSpellDivineAvatar_Cleric,
                     NewMonsterPowers.AtWillSelfBuff_Invisibility_Power
                 },
-            SkillScores = new List<MonsterSkillProficiency> {MonstersAttributes.SolarmonsterSkillProficiency_1},
+            SkillScores = new List<MonsterSkillProficiency> { MonstersAttributes.SolarmonsterSkillProficiency_1 },
             AttackIterations =
                 new List<MonsterAttackIteration>
                 {

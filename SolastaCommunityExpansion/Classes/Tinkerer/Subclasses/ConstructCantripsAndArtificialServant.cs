@@ -80,9 +80,10 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
         Definition.EffectDescription.SetTargetParameter(1);
         Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
 
-        var mendingconstruct = new HealingForm {BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2};
+        var mendingconstruct =
+            new HealingForm { BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2 };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Healing };
         effect.SetHealingForm(mendingconstruct);
         effect.SetCreatedByCharacter(true);
 
@@ -130,9 +131,9 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         Definition.verboseComponent = false;
 
         var dismissConstruct = new CounterForm();
-        dismissConstruct.SetType(CounterForm.CounterType.DismissCreature);
+        dismissConstruct.type = CounterForm.CounterType.DismissCreature;
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Counter};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Counter };
         effect.SetCounterForm(dismissConstruct);
         effect.HasSavingThrow = false;
         effect.SetCreatedByCharacter(true);
@@ -228,8 +229,8 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
         // a tag should be added if scaling is applied to the servant
         //Definition.CreatureTags.Add();
 
-        Definition.SetDefaultBattleDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .DefaultRangeWithBackupMeleeDecisions);
+        Definition.defaultBattleDecisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .DefaultRangeWithBackupMeleeDecisions;
         Definition.Features.Clear();
         Definition.Features.Add(DatabaseHelper.FeatureDefinitionSenses.SenseDarkvision12);
         Definition.Features.Add(DatabaseHelper.FeatureDefinitionPowers.PowerFunctionBootsWinged);
@@ -281,7 +282,7 @@ internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBu
         var damageEffect = new EffectForm
         {
             AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
-            DamageForm = new DamageForm {DiceNumber = 1, DieType = RuleDefinitions.DieType.D4}
+            DamageForm = new DamageForm { DiceNumber = 1, DieType = RuleDefinitions.DieType.D4 }
         };
 
         const int assumedIntModifier = 3;
@@ -308,7 +309,7 @@ internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBu
 
         Definition.effectDescription = newEffectDescription;
 
-        Definition.SetToHitBonus(assumedIntModifier + assumedProficiencyBonus);
+        Definition.toHitBonus = assumedIntModifier + assumedProficiencyBonus;
     }
 
     private static MonsterAttackDefinition CreateAndAddToDB(string name, string guid)

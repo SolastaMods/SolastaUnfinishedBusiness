@@ -153,7 +153,7 @@ public class FeatureDefinitionRemover : FeatureDefinition, IFeatureDefinitionCus
         //technically we return feature not where we took it from
         tag = AttributeDefinitions.GetClassTag(lastClass, classLevel - 1);
         ServiceRepository.GetService<ICharacterBuildingService>()
-            .GrantFeatures(hero, new List<FeatureDefinition> {FeatureToRemove}, tag, false);
+            .GrantFeatures(hero, new List<FeatureDefinition> { FeatureToRemove }, tag, false);
     }
 }
 

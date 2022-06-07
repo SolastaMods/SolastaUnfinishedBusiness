@@ -66,10 +66,9 @@ internal static class GuiFeatDefinition_IsFeatMatchingPrerequisites
 
     private static int CanCastSpells(RulesetCharacterHero hero)
     {
-        return Main.Settings.EnableFirstLevelCasterFeats
-            // Replace call to RulesetCharacterHero.SpellRepertores.Count with Count list of FeatureCastSpell 
-            // which are registered before feat selection at lvl 1
-            ? hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count
-            : hero.SpellRepertoires.Count;
+        // Replace call to RulesetCharacterHero.SpellRepertoires.Count with Count list of FeatureCastSpell 
+        // which are registered before feat selection at lvl 1
+
+        return hero.EnumerateFeaturesToBrowse<FeatureDefinitionCastSpell>().Count;
     }
 }

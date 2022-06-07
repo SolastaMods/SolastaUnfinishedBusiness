@@ -6,7 +6,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 using static SolastaModApi.DatabaseHelper;
@@ -339,10 +338,10 @@ internal static class InfusionHelpers
         InfuseArmorMagicalStrengthCondition.SetSpriteReference(ConditionBullsStrength.GuiPresentation
             .SpriteReference);
         var strengthAbilityAffinity = BuildAbilityAffinity("AbilityAffinityInfusionMagicalStrength",
-            new List<Tuple<string, string>> {new(AttributeDefinitions.Strength, "")}, 0, RuleDefinitions.DieType.D1,
+            new List<Tuple<string, string>> { new(AttributeDefinitions.Strength, "") }, 0, RuleDefinitions.DieType.D1,
             RuleDefinitions.CharacterAbilityCheckAffinity.Advantage, InfuseArmorMagicalStrengthCondition.Build());
         var strengthSaveAffinity = BuildSavingThrowAffinity("SaveAffinityInfusionMagicalStrength",
-            new List<string> {AttributeDefinitions.Strength},
+            new List<string> { AttributeDefinitions.Strength },
             RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
             FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, 0, RuleDefinitions.DieType.D1, false,
             InfuseArmorMagicalStrengthCondition.Build());
@@ -422,8 +421,8 @@ internal static class InfusionHelpers
             Operation = ConditionOperationDescription.ConditionOperation.Add, ConditionDefinition = ConditionBlinded
         };
 
-        addBlindingCondition.SetSaveAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        addBlindingCondition.SetConditionName(ConditionBlinded.Name);
+        addBlindingCondition.saveAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+        addBlindingCondition.conditionName = ConditionBlinded.Name;
 
         var radiantDamage = new FeatureHelpers.FeatureDefinitionAdditionalDamageBuilder(
                 "AdditionalDamageRadiantWeapon",
@@ -435,7 +434,7 @@ internal static class InfusionHelpers
                 RuleDefinitions.AdditionalDamageType.Specific,
                 "DamageRadiant", RuleDefinitions.AdditionalDamageAdvancement.None, new List<DiceByRank>(), true,
                 AttributeDefinitions.Constitution, 15, RuleDefinitions.EffectSavingThrowType.None,
-                new List<ConditionOperationDescription> {addBlindingCondition}, radiantWeaponEffectGui.Build())
+                new List<ConditionOperationDescription> { addBlindingCondition }, radiantWeaponEffectGui.Build())
             .AddToDB();
 
         var radiantWeaponGui = new GuiPresentationBuilder(
@@ -460,7 +459,7 @@ internal static class InfusionHelpers
         itemEffect.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Touch, 1,
             RuleDefinitions.TargetType.Item, 1, 1, itemType);
         itemEffect.AddEffectForm(new EffectFormBuilder()
-            .SetItemPropertyForm(new List<FeatureUnlockByLevel> {new(itemFeature, 0)},
+            .SetItemPropertyForm(new List<FeatureUnlockByLevel> { new(itemFeature, 0) },
                 RuleDefinitions.ItemPropertyUsage.Unlimited, 1).Build());
 
         return BuildBasicInfusionPower(name, itemEffect.Build())

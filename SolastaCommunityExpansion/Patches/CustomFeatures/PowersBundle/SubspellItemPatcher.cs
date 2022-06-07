@@ -15,11 +15,6 @@ internal static class SubspellItem_Bind
         int index,
         SubspellItem.OnActivateHandler onActivate)
     {
-        if (!Main.Settings.EnablePowersBundlePatch)
-        {
-            return true;
-        }
-
         var power = PowerBundleContext.GetPower(spellDefinition);
 
         if (power == null)

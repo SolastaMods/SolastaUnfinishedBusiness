@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -123,7 +122,7 @@ public abstract class
 
     public TBuilder SetDiceByRank(params (int rank, int dice)[] diceByRank)
     {
-        Definition.SetDiceByRankTable(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
+        Definition.DiceByRankTable.SetRange(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         return This();
     }
 

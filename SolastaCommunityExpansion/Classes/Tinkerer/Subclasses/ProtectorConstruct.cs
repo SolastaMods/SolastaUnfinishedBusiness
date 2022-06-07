@@ -57,7 +57,7 @@ public sealed class ProtectorConstructLevel3AutopreparedSpellsBuilder : FeatureD
         {
             ClassLevel = 1,
             SpellsList =
-                new List<SpellDefinition> {SummonProtectorSpellConstructBuilder.SummonProtectorConstruct}
+                new List<SpellDefinition> { SummonProtectorSpellConstructBuilder.SummonProtectorConstruct }
         };
 #pragma warning restore S1481, IDE0059 // Unused local variables should be removed
     }
@@ -88,15 +88,13 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
         Definition.GuiPresentation.SetSpriteReference(null);
 
         Definition.effectOnConjuredDeath = false;
-        Definition.AddedConditions.Clear();
-        Definition.AddedConditions.Empty();
         Definition.EffectForms.Clear();
         Definition.EffectForms.Empty();
 
         // changed the tag here and in relevant constructs
         // so the scaling is only applied to the Protector and Artillry Constructs
         Definition.requiredMonsterTag = "ScalingTinkererConstruct";
-        Definition.AddedConditions.AddRange(new List<ConditionDefinition>
+        Definition.AddedConditions.SetRange(new List<ConditionDefinition>
         {
             // using kindred conditions for following reasons
             // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
@@ -230,8 +228,8 @@ internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuil
         Definition.materialComponentType = RuleDefinitions.MaterialComponentType.None;
         Definition.verboseComponent = false;
 
-        Definition.SetEffectDescription(SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
-            .EffectDescription);
+        Definition.effectDescription = SummonProtectorPowerConstructBuilder.SummonProtectorConstruct
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -519,9 +517,9 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         Definition.fixedUsesPerRecharge = 3;
         Definition.costPerUse = 1;
 
-        var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
+        var selfrepair = new HealingForm { BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2 };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Healing };
         effect.SetHealingForm(selfrepair);
         effect.SetCreatedByCharacter(true);
 

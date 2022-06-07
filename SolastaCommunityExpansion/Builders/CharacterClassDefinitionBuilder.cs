@@ -118,7 +118,7 @@ public class
 
     public CharacterClassDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
-        Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+        Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;
     }

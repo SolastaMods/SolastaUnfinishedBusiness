@@ -13,10 +13,9 @@ internal static class GameCampaignCharacterPatcher
     {
         internal static bool Prefix(GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
         {
-            if (!Main.Settings.BugFixCorrectlyTerminateEffectsOnWorldTravel)
-            {
-                return true;
-            }
+            //
+            // BUGFIX: correctly terminate effects on world travelS
+            //
 
             if (__instance.RulesetCharacter is not RulesetCharacterHero hero)
             {

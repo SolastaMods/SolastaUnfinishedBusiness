@@ -118,7 +118,7 @@ public static partial class ReflectionCache
                 DynamicMethod method = new(
                     "get_" + Info.Name,
                     Info.PropertyType,
-                    new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType},
+                    new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType },
                     typeof(CachedProperty<TProperty>),
                     true);
                 method.DefineParameter(1, ParameterAttributes.In, "instance");
@@ -138,7 +138,7 @@ public static partial class ReflectionCache
                 DynamicMethod method = new(
                     "set_" + Info.Name,
                     null,
-                    new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.PropertyType},
+                    new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.PropertyType },
                     typeof(CachedProperty<TProperty>),
                     true);
                 method.DefineParameter(1, ParameterAttributes.In, "instance");

@@ -637,7 +637,7 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
 
             if (!tags.ContainsKey(poolId))
             {
-                var pool = new FeaturePool(poolId) {Max = 1, Used = 0, FeatureSet = featureSet};
+                var pool = new FeaturePool(poolId) { Max = 1, Used = 0, FeatureSet = featureSet };
                 tags.Add(poolId, pool);
                 allPools.Add(pool);
             }
@@ -669,7 +669,7 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
 
         if (pool == null)
         {
-            pool = new FeaturePool(id) {FeatureSet = set, Max = 0, Used = 0};
+            pool = new FeaturePool(id) { FeatureSet = set, Max = 0, Used = 0 };
             allPools.Add(pool);
             allPools.Sort(poolCompare);
             BuildLearnSteps();

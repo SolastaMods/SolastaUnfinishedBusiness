@@ -43,7 +43,7 @@ internal static class KnockDownPowerBuilder
         };
 
         //Create the prone effect - Weirdly enough the motion form seems to also automatically apply the prone condition
-        var proneMotionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
+        var proneMotionEffect = new EffectForm { FormType = EffectForm.EffectFormType.Motion };
         var proneMotion = new MotionForm();
         proneMotion.SetType(MotionForm.MotionType.FallProne);
         proneMotion.SetDistance(1);
@@ -86,7 +86,7 @@ internal static class InspirePowerBuilder
     public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
         //Create the temp hp form
-        var healingEffect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
+        var healingEffect = new EffectForm { FormType = EffectForm.EffectFormType.TemporaryHitPoints };
         var tempHPForm = new TemporaryHitPointsForm
         {
             DiceNumber = 1, DieType = RuleDefinitions.DieType.D6, BonusHitPoints = 2

@@ -107,7 +107,7 @@ public static partial class ReflectionCache
             DynamicMethod method = new(
                 "get_" + Info.Name,
                 Info.FieldType,
-                new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType},
+                new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType },
                 typeof(CachedField<TField>),
                 true);
             method.DefineParameter(1, ParameterAttributes.In, "instance");
@@ -136,7 +136,7 @@ public static partial class ReflectionCache
                 "getRef_" + Info.Name,
                 MethodAttributes.Static | MethodAttributes.Public,
                 Info.FieldType.MakeByRefType(),
-                new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType});
+                new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType });
             methodBuilder.DefineParameter(1, ParameterAttributes.In, "instance");
 
             var il = methodBuilder.GetILGenerator();
@@ -163,7 +163,7 @@ public static partial class ReflectionCache
             DynamicMethod method = new(
                 "set_" + Info.Name,
                 null,
-                new[] {isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.FieldType},
+                new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.FieldType },
                 typeof(CachedField<TField>),
                 true);
             method.DefineParameter(1, ParameterAttributes.In, "instance");
@@ -304,7 +304,7 @@ public static partial class ReflectionCache
             DynamicMethod method = new(
                 "set_" + Info.Name,
                 null,
-                new[] {Info.FieldType},
+                new[] { Info.FieldType },
                 typeof(CachedField<TField>),
                 true);
             method.DefineParameter(1, ParameterAttributes.In, "value");

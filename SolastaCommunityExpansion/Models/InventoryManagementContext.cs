@@ -119,7 +119,7 @@ internal static class InventoryManagementContext
         FilterGuiDropdown.ClearOptions();
         FilterGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-        ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced {text = x.FormatTitle()}));
+        ItemCategories.ForEach(x => filterOptions.Add(new OptionDataAdvanced { text = x.FormatTitle() }));
 
         FilterGuiDropdown.AddOptions(filterOptions);
         FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
@@ -152,7 +152,7 @@ internal static class InventoryManagementContext
         SortGuiDropdown.ClearOptions();
         SortGuiDropdown.onValueChanged.AddListener(delegate { SelectionChanged(); });
 
-        SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced {text = x}));
+        SortCategories.ForEach(x => sortOptions.Add(new OptionDataAdvanced { text = x }));
 
         SortGuiDropdown.AddOptions(sortOptions);
         SortGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);

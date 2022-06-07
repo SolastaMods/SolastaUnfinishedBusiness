@@ -2,7 +2,7 @@
 
 namespace SolastaModApi.Extensions;
 
-public static partial class ConditionDefinitionExtensions
+public static class ConditionDefinitionExtensions
 {
 #if false
         public static ConditionDefinition ClearParticleReferences(this ConditionDefinition definition)

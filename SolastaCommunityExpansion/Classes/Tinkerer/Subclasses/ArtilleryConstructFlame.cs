@@ -40,7 +40,7 @@ internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
         // AlterationForm alterationForm = new AlterationForm();
         //alterationForm.SetAlterationType (AlterationForm.Type.LightUp);
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = flameArtillery};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Damage, DamageForm = flameArtillery };
         effect.SetCreatedByCharacter(true);
         effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         effect.HasSavingThrow = true;
@@ -261,8 +261,8 @@ internal sealed class SummonFlameArtillerySpellConstructBuilder : SpellDefinitio
         Definition.uniqueInstance = true;
         Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

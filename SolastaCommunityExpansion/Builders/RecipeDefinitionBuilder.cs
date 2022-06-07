@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -36,8 +35,8 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
     public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient)
     {
         var description = new IngredientOccurenceDescription();
-        description.SetItemDefinition(ingredient);
-        description.SetAmount(1);
+        description.itemDefinition = ingredient;
+        description.amount = 1;
         Definition.Ingredients.Add(description);
         return this;
     }
@@ -45,8 +44,8 @@ public class RecipeDefinitionBuilder : DefinitionBuilder<RecipeDefinition, Recip
     public RecipeDefinitionBuilder AddIngredient(ItemDefinition ingredient, int amount)
     {
         var description = new IngredientOccurenceDescription();
-        description.SetItemDefinition(ingredient);
-        description.SetAmount(amount);
+        description.itemDefinition = ingredient;
+        description.amount = amount;
         Definition.Ingredients.Add(description);
         return this;
     }

@@ -98,3 +98,21 @@ internal static class RulesetCharacterHero_RefreshAll
         }
     }
 }
+
+// Make crossbows and hand crossbows benefit from anything that grants benefits on using bows
+[HarmonyPatch(typeof(RulesetCharacterHero), "IsWieldingBow")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal static class RulesetCharacterHero_IsWieldingBow
+{
+    internal static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
+    {
+        var equipedItem = __instance.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+    
+        // TODO: might be better to keep the original code and leverage tags here. for now this works
+        __result = equipedItem != null
+            && equipedItem.ItemDefinition.IsWeapon && DatabaseRepository
+                .GetDatabase<WeaponTypeDefinition>().Name.ToLower().Contains("bow");
+
+        return false;
+    }
+}

@@ -101,7 +101,8 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Blenden Sie die visuellen Effe
 ModUi/&HideMonsterHitPoints	Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&HiderArmor	Rüstung verstecken
 ModUi/&House	<color=yellow>Haus:</color>
-ModUi/&IncreaseSenseNormalVision	Erhöhen Sie die Reichweite von <color=orange>Normale Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	<color=white>Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=yellow>[40 is ideal to avoid enemies joining from too far away]</color></i>
+ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>Anfangsauswahl:</color>
 ModUi/&Interface	Schnittstelle
 ModUi/&InventoryAndItems	<color=yellow>Inventar und Gegenstände:</color>

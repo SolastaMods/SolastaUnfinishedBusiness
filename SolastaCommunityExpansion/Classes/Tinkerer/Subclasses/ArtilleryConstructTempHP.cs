@@ -36,7 +36,7 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
             BonusHitPoints = 4
         };
 
-        var effect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
+        var effect = new EffectForm { FormType = EffectForm.EffectFormType.TemporaryHitPoints };
         effect.SetTemporaryHitPointsForm(tempHPShield);
         effect.SetCreatedByCharacter(true);
 
@@ -234,8 +234,8 @@ internal sealed class SummonTempHPShieldSpellConstructBuilder : SpellDefinitionB
         Definition.uniqueInstance = true;
         Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SolastaModApi.Extensions;
 using TMPro;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -77,7 +76,7 @@ internal static class CharacterExportContext
             {
                 if (newFirstName.Contains(" "))
                 {
-                    var a = newFirstName.Split(new[] {' '}, 2);
+                    var a = newFirstName.Split(new[] { ' ' }, 2);
 
                     newFirstName = ParseText(a[0]);
                     newSurname = hasSurname ? ParseText(a[1]) ?? string.Empty : string.Empty;
@@ -118,7 +117,7 @@ internal static class CharacterExportContext
 
         heroCharacter.CharacterInventory.EnumerateAllItems(inventoryItems);
 
-        var attunedItems = inventoryItems.ConvertAll(i => new {Item = i, Name = i.AttunedToCharacter});
+        var attunedItems = inventoryItems.ConvertAll(i => new { Item = i, Name = i.AttunedToCharacter });
 
         // NOTE: don't use Gui.GameLocation?. which bypasses Unity object lifetime check
         var customItems = (Gui.GameLocation
@@ -127,8 +126,8 @@ internal static class CharacterExportContext
                     ui.ReferenceItemDefinition == i.ItemDefinition) == true)
             : Enumerable.Empty<RulesetItem>()).ToList();
 
-        var heroItemGuids = heroCharacter.Items.ConvertAll(i => new {Item = i, i.Guid});
-        var inventoryItemGuids = inventoryItems.ConvertAll(i => new {Item = i, i.Guid});
+        var heroItemGuids = heroCharacter.Items.ConvertAll(i => new { Item = i, i.Guid });
+        var inventoryItemGuids = inventoryItems.ConvertAll(i => new { Item = i, i.Guid });
 
         try
         {
@@ -147,7 +146,7 @@ internal static class CharacterExportContext
                     item.Item.AttunedToCharacter == firstName ? newFirstName : string.Empty;
             }
 
-            heroCharacter.SetCurrentHitPoints(heroCharacter.GetAttribute("HitPoints").CurrentValue);
+            heroCharacter.currentHitPoints = heroCharacter.GetAttribute("HitPoints").CurrentValue;
             heroCharacter.Unregister();
             heroCharacter.ResetForOutgame();
 
@@ -156,7 +155,7 @@ internal static class CharacterExportContext
         finally
         {
             // restore original values
-            heroCharacter.SetGuid(guid);
+            heroCharacter.guid = guid;
             heroCharacter.Name = firstName;
             heroCharacter.SurName = surName;
             heroCharacter.BuiltIn = builtin;
@@ -177,18 +176,18 @@ internal static class CharacterExportContext
 
             foreach (var item in heroItemGuids)
             {
-                item.Item.SetGuid(item.Guid);
+                item.Item.guid = item.Guid;
             }
 
             foreach (var item in inventoryItemGuids)
             {
-                item.Item.SetGuid(item.Guid);
+                item.Item.guid = item.Guid;
             }
 
             // restore active spells and effects
             heroCharacter.PowersUsedByMe.AddRange(powers);
             heroCharacter.SpellsCastByMe.AddRange(spells);
-            heroCharacter.SetCurrentHitPoints(hitPoints);
+            heroCharacter.currentHitPoints = hitPoints;
 
             heroCharacter.Register(false);
         }

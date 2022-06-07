@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -39,10 +38,10 @@ public abstract class
     {
         base.Initialise();
 
-        if (Definition.EffectDescription == null)
+        if (Definition.effectDescription == null)
         {
             // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
+            Definition.effectDescription = new EffectDescription();
         }
     }
 

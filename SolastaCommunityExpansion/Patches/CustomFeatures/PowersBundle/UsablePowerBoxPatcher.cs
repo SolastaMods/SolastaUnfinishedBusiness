@@ -10,11 +10,6 @@ internal static class UsablePowerBox_OnActivateCb
 {
     internal static bool Prefix(UsablePowerBox __instance)
     {
-        if (!Main.Settings.EnablePowersBundlePatch)
-        {
-            return true;
-        }
-
         var masterPower = __instance.usablePower.PowerDefinition;
 
         if (PowerBundleContext.GetBundle(masterPower) == null)

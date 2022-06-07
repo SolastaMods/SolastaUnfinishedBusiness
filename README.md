@@ -18,13 +18,14 @@ Do you have a mod you want to see included here? We are happy to take new contri
 # How to Compile
 
 0. Install all required development pre-requisites:
-	- [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)
-	- [.NET "Current" x86 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
+    - [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)
+    - [.NET "Current" x86 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
 1. Download and install [Unity Mod Manager (UMM)](https://www.nexusmods.com/site/mods/21)
 2. Execute UMM, Select Solasta, and Install
 3. Create the environment variable *SolastaInstallDir* and point it to your Solasta game home folder
-	- tip: search for "edit the system environment variables" on windows search bar
-4. Use "Install Release" or "Install Debug" to have the Mod installed directly to your Game Mods folder
+    - tip: search for "edit the system environment variables" on windows search bar
+4. Open the project and clean the solution. This is key to allow the publicize assembly to be created
+5. Use "Install Release" or "Install Debug" to have the Mod installed directly to your Game Mods folder
 
 NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.microsoft.com/fwlink/?linkid=874338)
 

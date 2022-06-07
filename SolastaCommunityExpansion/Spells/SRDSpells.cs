@@ -208,7 +208,7 @@ public static class SrdSpells
     //           Definition.GuiPresentation.Title = TitleString;
     //           Definition.GuiPresentation.Description = DescriptionString;
     //
-    //           Definition.SetSilentWhenAdded ( false);
+    //           Definition.silentWhenAdded = false;
     //           Definition.silentWhenRemoved = false;
     //
     //           Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
@@ -1357,8 +1357,8 @@ public static class SrdSpells
 
         var effect = effectDescription.Build();
 
-        effect.EffectParticleParameters.SetImpactParticleReference(
-            new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91"));
+        effect.EffectParticleParameters.impactParticleReference =
+            new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91");
 
         var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
             .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
@@ -1575,9 +1575,9 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordKill()
     {
-        var killForm = new KillForm()
-            .SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints)
-            .SetHitPoints(100);
+        var killForm = new KillForm();
+        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
+        killForm.hitPoints = 100;
 
         var effectForm = new EffectForm()
             .SetApplyLevel(EffectForm.LevelApplianceType.No)
@@ -1614,10 +1614,11 @@ public static class SrdSpells
 
     private static SpellDefinition BuildShapechange()
     {
-        var shapeChangeForm = new ShapeChangeForm()
-            .SetKeepMentalAbilityScores(true)
-            .SetShapeChangeType(ShapeChangeForm.Type.FreeListSelection)
-            .SetSpecialSubstituteCondition(ConditionWildShapeSubstituteForm);
+        var shapeChangeForm = new ShapeChangeForm();
+
+        shapeChangeForm.keepMentalAbilityScores = true;
+        shapeChangeForm.shapeChangeType = ShapeChangeForm.Type.FreeListSelection;
+        shapeChangeForm.specialSubstituteCondition = ConditionWildShapeSubstituteForm;
 
         shapeChangeForm.ShapeOptions.AddRange
         (
@@ -1756,7 +1757,7 @@ public static class SrdSpells
 
     private sealed class DivineWordEffectForm : CustomEffectForm
     {
-        private readonly List<string> monsterFamilyPlaneshiftList = new() {"Celestial", "Elemental", "Fey", "Fiend"};
+        private readonly List<string> monsterFamilyPlaneshiftList = new() { "Celestial", "Elemental", "Fey", "Fiend" };
 
         public override void ApplyForm(
             RulesetImplementationDefinitions.ApplyFormsParams formsParams,

@@ -54,9 +54,13 @@ internal static class TinkererClass
 
     private static readonly List<FeatureDefinition> Level10InfusionList = new()
     {
+        InfusionHelpers.BootsOfStridingAndSpringing,
+        InfusionHelpers.BootsOfTheWinterland,
+        InfusionHelpers.BroochOfShielding,
         InfusionHelpers.BracesrOfArchery,
         InfusionHelpers.CloakOfProtection,
         InfusionHelpers.GauntletsOfOgrePower,
+        InfusionHelpers.GlovesOfMissileSnaring,
         InfusionHelpers.HeadbandOfIntellect,
         InfusionHelpers.SlippersOfSpiderClimbing
     };
@@ -141,7 +145,7 @@ internal static class TinkererClass
             EquipmentDefinitions.OptionArmor, 1));
         mediumArmor.Add(EquipmentOptionsBuilder.Option(ItemDefinitions.ScaleMail, EquipmentDefinitions.OptionArmor,
             1));
-        artificerBuilder.AddEquipmentRow(lightArmor, mediumArmor);
+        artificerBuilder.AddEquipmentRow(mediumArmor, lightArmor);
 
         artificerBuilder.AddEquipmentRow(
             EquipmentOptionsBuilder.Option(ItemDefinitions.ArcaneFocusWand,

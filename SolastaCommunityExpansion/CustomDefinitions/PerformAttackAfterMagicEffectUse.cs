@@ -95,7 +95,7 @@ public class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagicEffectUs
         if (target != null)
         {
             var attackActionParams =
-                new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) {AttackMode = attackMode};
+                new CharacterActionParams(caster, ActionDefinitions.Id.AttackFree) { AttackMode = attackMode };
 
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);

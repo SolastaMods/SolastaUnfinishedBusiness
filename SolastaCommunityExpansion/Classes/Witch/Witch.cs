@@ -617,7 +617,7 @@ internal static class Witch
             .SetFeatureSet(visionsInitiative)
             .AddToDB();
 
-        var cursesFeatures = new FeatureDefinition[] {burnedCurse, lovelessCurse, visionsCurse};
+        var cursesFeatures = new FeatureDefinition[] { burnedCurse, lovelessCurse, visionsCurse };
 
         FeatureDefinitionFeatureSetWitchCurses = FeatureDefinitionFeatureSetCustomBuilder
             .Create("WitchCurseChoice", WITCH_BASE_GUID)
@@ -979,7 +979,7 @@ internal static class Witch
             .AddToDB();
 
         var maledictionsFeatures =
-            new FeatureDefinition[] {abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin};
+            new FeatureDefinition[] { abate, apathy, charm, disorient, evileye, obfuscate, pox, ruin };
 
         FeatureDefinitionFeatureSetMaledictions = FeatureDefinitionFeatureSetCustomBuilder
             .Create("WitchMaledictionChoice", WITCH_BASE_GUID)

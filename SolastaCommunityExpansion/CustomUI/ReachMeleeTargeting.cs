@@ -23,7 +23,7 @@ public static class ReachMeleeTargeting
 
             instructions[insertionIndex] = new CodeInstruction(OpCodes.Call, method);
             instructions.InsertRange(insertionIndex,
-                new[] {new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldloc_1)});
+                new[] { new CodeInstruction(OpCodes.Ldarg_0), new CodeInstruction(OpCodes.Ldloc_1) });
         }
     }
 
@@ -48,7 +48,7 @@ public static class ReachMeleeTargeting
         battleBoundingBox.Inflate(reachRange);
         var foundDestination = false;
 
-        var current = new GameLocationCharacterDefinitions.PathStep {moveCost = 99999};
+        var current = new GameLocationCharacterDefinitions.PathStep { moveCost = 99999 };
         var distance = (current.position - actorPosition).magnitudeSqr;
 
         foreach (var destination in validDestinations)

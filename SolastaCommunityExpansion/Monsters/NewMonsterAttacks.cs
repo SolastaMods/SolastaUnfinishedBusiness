@@ -370,7 +370,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "condition" + "_Description"
         );
 
-        BleedingWound_Condition.SetAllowMultipleInstances(true);
+        BleedingWound_Condition.allowMultipleInstances = true;
         BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(3);
         BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 
@@ -586,8 +586,8 @@ public class NewMonsterAttacks
         extraDamageEffect.SetDamageForm(damageForm);
 
         KillForm killForm = new();
-        killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
-        killForm.SetHitPoints(100);
+        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
+        killForm.hitPoints = 100;
 
         EffectForm killEffect = new();
         killEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -637,7 +637,7 @@ public class NewMonsterAttacks
         motion.SetDistance(2);
         motion.SetType(MotionForm.MotionType.PushFromOrigin);
 
-        EffectForm motionEffect = new() {FormType = EffectForm.EffectFormType.Motion};
+        EffectForm motionEffect = new() { FormType = EffectForm.EffectFormType.Motion };
         motionEffect.SetMotionForm(motion);
         motionEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
         motionEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
@@ -815,20 +815,20 @@ public class NewMonsterAttacks
     {
         Dictionary<string, int> dictionaryofAncientDragonBiteExtraDamageDiceNumbers = new()
         {
-            {"Ancient Black Dragon", 2},
-            {"Ancient Blue Dragon", 2},
-            {"Ancient Green Dragon", 3},
-            {"Ancient Red Dragon", 4},
-            {"Ancient White Dragon", 2}
+            { "Ancient Black Dragon", 2 },
+            { "Ancient Blue Dragon", 2 },
+            { "Ancient Green Dragon", 3 },
+            { "Ancient Red Dragon", 4 },
+            { "Ancient White Dragon", 2 }
         };
 
         Dictionary<string, RuleDefinitions.DieType> dictionaryofAncientDragonBiteExtraDamageDiceType = new()
         {
-            {"Ancient Black Dragon", RuleDefinitions.DieType.D8},
-            {"Ancient Blue Dragon", RuleDefinitions.DieType.D10},
-            {"Ancient Green Dragon", RuleDefinitions.DieType.D6},
-            {"Ancient Red Dragon", RuleDefinitions.DieType.D6},
-            {"Ancient White Dragon", RuleDefinitions.DieType.D8}
+            { "Ancient Black Dragon", RuleDefinitions.DieType.D8 },
+            { "Ancient Blue Dragon", RuleDefinitions.DieType.D10 },
+            { "Ancient Green Dragon", RuleDefinitions.DieType.D6 },
+            { "Ancient Red Dragon", RuleDefinitions.DieType.D6 },
+            { "Ancient White Dragon", RuleDefinitions.DieType.D8 }
         };
 
         Dictionary<string, EffectParticleParameters> dictionaryofAncientDragonBiteEffectparticles = new()

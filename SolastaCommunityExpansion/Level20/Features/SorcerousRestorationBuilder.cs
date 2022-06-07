@@ -1,7 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features;
 
@@ -28,8 +27,8 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
             .EffectDescription.EffectParticleParameters);
 
         var restoreForm = new EffectFormBuilder().CreatedByCharacter().SetSpellForm(9).Build();
-        restoreForm.SpellSlotsForm.SetType(SpellSlotsForm.EffectType.GainSorceryPoints);
-        restoreForm.SpellSlotsForm.SetSorceryPointsGain(4);
+        restoreForm.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
+        restoreForm.SpellSlotsForm.sorceryPointsGain = 4;
         restoration.AddEffectForm(restoreForm);
         Definition.effectDescription = restoration.Build();
 

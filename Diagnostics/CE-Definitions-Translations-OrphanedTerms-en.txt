@@ -95,7 +95,7 @@ Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest.
 Feature/&ThiefofFiveFates	Cast {0} once per day
 Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of its devout clerics. Choose a Cleric domain: you gain the features that domain grants at 1st level.
 Feature/&UrPriestDomainTheftTitle	Domain Theft
-Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a warlock spell. Cleric spells are added to the warlock spell list for you.
+Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. Cleric spells are added to the Warlock spell list for you.
 Feature/&UrPriestExpandedSpelllistAfinityTitle	UrPriest Spells
 Feedback/&AdditionalDamageAgonizing_BlastFormat	Agonizing Blast
 Feedback/&AdditionalDamageAgonizing_BlastLine	When you cast eldritch blast, you add your Charisma modifier to the damage it deals on a hit.
@@ -179,7 +179,7 @@ Power/&UrPriestControlUndeadDescription	As an action, you target one undead crea
 Power/&UrPriestControlUndeadTitle	Control Undead
 Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistances as other ghosts.
 Power/&UrPriestHalfLifeTitle	Half Life
-Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your warlock level.
+Power/&UrPriestRadiantWardDescription	As an action, you gain a number of temporary hit points equal to twice your Warlock level.
 Power/&UrPriestRadiantWardTitle	Radiant Ward
 Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source of magic in combination with your normal reserve of power. As an action, you can expend a Channel Divinity to regain an expended use of your 6th-level Mystic Arcanum.
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
@@ -305,7 +305,7 @@ Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
 Stage/&SubclassSelectionStageCovenHeader	Select a Coven
 Stage/&SubclassSelectionStageCovenTitle	Coven
-Stage/&SubclassSelectionStagePatronDescription	A warlock is defined by a pact with an otherworldly being. Sometimes the relationship between warlock and patron is like that of a cleric and a deity, though the beings that serve as patrons are not gods.
+Stage/&SubclassSelectionStagePatronDescription	A Warlock is defined by a pact with an otherworldly being. Sometimes the relationship between Warlock and patron is like that of a Cleric and a deity, though the beings that serve as patrons are not gods.
 Stage/&SubclassSelectionStagePatronFeatures	Otherworldly Patrons Features
 Stage/&SubclassSelectionStagePatronHeader	Warlock Otherworldly Patrons
 Stage/&SubclassSelectionStagePatronTitle	Otherworldly Patrons
@@ -318,7 +318,7 @@ Subclass/&ArtificerArtileristCannonsDescription	You create a set of cannons that
 Subclass/&ArtificerArtileristCannonsTitle	Cannons
 Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	You infuse your weapon with power. Your attacks count as magical and you add +7 to your attack and damage rolls.
 Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Improved Infuse Weapon
-Subclass/&BloodWitchDescription	Forbidden by most witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other witch crafts, but its many risks come with copious rewards.
+Subclass/&BloodWitchDescription	Forbidden by most Witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other Witch crafts, but its many risks come with copious rewards.
 Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
 Subclass/&BloodWitchMagicTitle	Blood Magic
 Subclass/&BloodWitchTitle	Blood Witch
@@ -344,7 +344,7 @@ Subclass/&PurpleWitchTitle	Purple Witch
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
 ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
-Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
+Tooltip/&CustomPortraitPoolClassMonkKiPool	You can harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Maximum amount is equal to your Monk level. All spent points are regained on short or long rest. You can spend these points to fuel various ki features
 Tooltip/&DeadeyeConcentration	Disable Deadeye.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
@@ -377,3 +377,5 @@ Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, 
 Reaction/&CoordinatedAttackTitle	Coordinated Attack
 Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
 Reaction/&CoordinatedAttackReactTitle	Attack
+Feature/&RallyingCryPowerTitleShort	Rallying Cry
+Feature/&InspiringSurgePowerTitleShort	Inspiring Surge

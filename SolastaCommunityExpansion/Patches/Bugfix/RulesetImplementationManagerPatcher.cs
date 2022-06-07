@@ -12,17 +12,16 @@ internal static class RulesetImplementationManager_TerminateEffect
 {
     internal static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
     {
-        if (!Main.Settings.BugFixCorrectlyTerminateEffectsOnWorldTravel)
-        {
-            return;
-        }
+        //
+        // BUGFIX: correctly terminate effects on world travel
+        //
 
         if (__instance is not RulesetImplementationManagerCampaign)
         {
             return;
         }
 
-        if (activeEffect is {TrackedLightSourceGuids.Count: > 0})
+        if (activeEffect is { TrackedLightSourceGuids.Count: > 0 })
         {
             var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
             foreach (var trackedLightSourceGuid in activeEffect.TrackedLightSourceGuids)
@@ -37,7 +36,7 @@ internal static class RulesetImplementationManager_TerminateEffect
                         RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
                     {
                         if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
-                            bearer is {CharacterInventory: { }})
+                            bearer is { CharacterInventory: { } })
                         {
                             bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
                                 bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
@@ -71,7 +70,7 @@ internal static class RulesetImplementationManager_TerminateEffect
             activeEffect.TrackedLightSourceGuids.Clear();
         }
 
-        if (activeEffect is {TrackedItemPropertyGuids.Count: > 0})
+        if (activeEffect is { TrackedItemPropertyGuids.Count: > 0 })
         {
             foreach (var itemPropertyGuid in activeEffect.TrackedItemPropertyGuids)
             {

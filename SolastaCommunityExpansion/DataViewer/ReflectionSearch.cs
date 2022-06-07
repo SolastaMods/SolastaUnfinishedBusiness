@@ -107,7 +107,7 @@ public class ReflectionSearch : MonoBehaviour
         Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
         if (searchText.Length != 0)
         {
-            var todo = new List<Node> {node};
+            var todo = new List<Node> { node };
 
             searchCoroutine = Search(searchText, todo, 0, 0, SequenceNumber, updator, resultRoot);
             StartCoroutine(searchCoroutine);

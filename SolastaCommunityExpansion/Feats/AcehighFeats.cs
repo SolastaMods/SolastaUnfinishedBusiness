@@ -121,7 +121,7 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
             Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
-            Definition.SetIgnoreCover(true);
+            Definition.ignoreCover = true;
             Definition.SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(WeaponValidators.AlwaysValid));
         }
 
@@ -167,13 +167,14 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&DeadeyeTitle";
             Definition.GuiPresentation.Description = "Feature/&DeadeyeDescription";
 
-            Definition.SetAllowMultipleInstances(false);
+            Definition.allowMultipleInstances = false;
             Definition.Features.Clear();
             Definition.Features.Add(DeadeyeAttackModifierBuilder.DeadeyeAttackModifier);
 
-            Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-            Definition.SetDurationParameter(0);
-            Definition.SetCancellingConditions(Definition);
+            Definition.durationType = RuleDefinitions.DurationType.Round;
+            Definition.durationParameter = 0;
+            Definition.CancellingConditions.Clear();
+            Definition.CancellingConditions.Add(Definition);
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -265,7 +266,7 @@ internal static class AcehighFeats
             Definition.Features.Add(turnOnPower);
             Definition.Features.Add(turnOffPower);
             Definition.Features.Add(DeadeyeIgnoreDefenderBuilder.DeadeyeIgnoreDefender);
-            Definition.SetMinimalAbilityScorePrerequisite(false);
+            Definition.minimalAbilityScorePrerequisite = false;
         }
 
         private static FeatDefinition CreateAndAddToDB(string name, string guid)
@@ -290,7 +291,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not {Reach: false, Ranged: true, Thrown: false})
+            if (attackMode is not { Reach: false, Ranged: true, Thrown: false })
             {
                 return;
             }
@@ -359,8 +360,8 @@ internal static class AcehighFeats
                 ActionDefinitions.Id.PowerNoCost)
             {
                 SkipAnimationsAndVFX = true,
-                TargetCharacters = {locationCharacter},
-                ActionModifiers = {new ActionModifier()},
+                TargetCharacters = { locationCharacter },
+                ActionModifiers = { new ActionModifier() },
                 RulesetEffect = rules.InstantiateEffectPower(character, usable, false)
             };
 
@@ -380,7 +381,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not {Ranged: false, Thrown: false})
+            if (attackMode is not { Ranged: false, Thrown: false })
             {
                 return;
             }
@@ -417,7 +418,7 @@ internal static class AcehighFeats
             Definition.Features.Clear();
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionPowers.PowerReckless);
             Definition.Features.Add(RagePowerBuilder.RagePower);
-            Definition.SetMinimalAbilityScorePrerequisite(false);
+            Definition.minimalAbilityScorePrerequisite = false;
         }
 
         private static FeatDefinition CreateAndAddToDB(string name, string guid)
@@ -440,11 +441,11 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&RagePowerTitle";
             Definition.GuiPresentation.Description = "Feature/&RagePowerDescription";
 
-            Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-            Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-            Definition.SetCostPerUse(1);
-            Definition.SetFixedUsesPerRecharge(1);
-            Definition.SetShortTitleOverride("Feature/&RagePowerTitle");
+            Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+            Definition.activationTime = RuleDefinitions.ActivationTime.BonusAction;
+            Definition.costPerUse = 1;
+            Definition.fixedUsesPerRecharge = 1;
+            Definition.shortTitleOverride = "Feature/&RagePowerTitle";
 
             //Create the power attack effect
             var rageEffect = new EffectForm
@@ -469,7 +470,7 @@ internal static class AcehighFeats
             newEffectDescription.SetTargetType(RuleDefinitions.TargetType.Self);
             newEffectDescription.SetCanBePlacedOnCharacter(true);
 
-            Definition.SetEffectDescription(newEffectDescription);
+            Definition.effectDescription = newEffectDescription;
         }
 
         private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -492,7 +493,7 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Title = "Feature/&RageFeatConditionTitle";
             Definition.GuiPresentation.Description = "Feature/&RageFeatConditionDescription";
 
-            Definition.SetAllowMultipleInstances(false);
+            Definition.allowMultipleInstances = false;
             Definition.Features.Clear();
             Definition.Features.Add(DatabaseHelper.FeatureDefinitionDamageAffinitys
                 .DamageAffinityBludgeoningResistance);
@@ -504,8 +505,8 @@ internal static class AcehighFeats
                 .AbilityCheckAffinityConditionBullsStrength);
             Definition.Features.Add(RageStrengthSavingThrowAffinityBuilder.RageStrengthSavingThrowAffinity);
             Definition.Features.Add(RageDamageBonusAttackModifierBuilder.RageDamageBonusAttackModifier);
-            Definition.SetDurationType(RuleDefinitions.DurationType.Minute);
-            Definition.SetDurationParameter(1);
+            Definition.durationType = RuleDefinitions.DurationType.Minute;
+            Definition.durationParameter = 1;
         }
 
         private static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -558,9 +559,9 @@ internal static class AcehighFeats
             Definition.GuiPresentation.Description = "Feature/&RageDamageBonusAttackModifierDescription";
 
             //Currently works with ranged weapons, in the end it's fine.
-            Definition.SetAttackRollModifier(0);
-            Definition.SetDamageRollModifier(
-                2); //Could find a way to up this at level 9 to match barb but that seems like a lot of work right now :)
+            Definition.attackRollModifier = 0;
+            Definition.damageRollModifier =
+                2; //Could find a way to up this at level 9 to match barb but that seems like a lot of work right now :)
         }
 
         private static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
