@@ -102,7 +102,8 @@ ModUi/&HideMonsterHitPoints	以25%/50%/75%/100%为单位显示怪物的生命值
 ModUi/&HiderArmor	兽皮甲
 ModUi/&House	<color=yellow>房屋：</color>
 ModUi/&IncreaseSenseNormalVision	<color=white>Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=yellow>[40 is ideal to avoid enemies joining from too far away]</color></i>
-ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Requires Restart]</color></i></b>ModUi/&InitialChoices	<color=yellow>初始选择：</color>
+ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&InitialChoices	<color=yellow>初始选择：</color>
 ModUi/&Interface	界面
 ModUi/&InventoryAndItems	<color=yellow>物品栏和物品：</color>
 ModUi/&InvertAltBehaviorOnTooltips	颠倒<color=cyan>ALT</color>键在工具提示时的效果
