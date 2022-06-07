@@ -2067,10 +2067,20 @@ UI/&CustomFeatureSelectionTooltipTypePower	能力
 UI/&CustomFeatureSelectionTooltipTypeProficiency	熟练度
 UI/&ForcePreferredCantripDescription	若此选项开启，仅默认戏法能触发。若未选择默认戏法，那么第一个有效的戏法将被触发，此时将无视此选项开关状态
 UI/&ForcePreferredCantripTitle	强制默认戏法
-Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
-Reaction/&WarcasterReactionReactTitle	Attack
-Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
-Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
-Reaction/&CoordinatedAttackTitle	Coordinated Attack
-Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
-Reaction/&CoordinatedAttackReactTitle	Attack
+Reaction/&WarcasterReactionReactDescription	使用反应攻击目标
+Reaction/&WarcasterReactionReactTitle	攻击
+Reaction/&SubitemSelectCoordinatedAttackTitle	选择动作
+Reaction/&CoordinatedAttackDescription	{0}受到协同攻击，一些角色能使用其反应来加入此攻击
+Reaction/&CoordinatedAttackTitle	协同攻击
+Reaction/&CoordinatedAttackReactDescription	使用反应攻击目标
+Reaction/&CoordinatedAttackReactTitle	攻击
+Feature/&RallyingCryPowerTitle	集结战吼
+Feature/&RallyingCryPowerTitleShort	集结战吼
+Feature/&RallyingCryPowerDescription	以新的能力取代“回气”，当你使用时为6格内的一位或多位盟友恢复4倍于战士等级的生命值，最高至其生命值上限
+Feature/&RoyalEnvoyFeatureTitle	皇室特使
+Feature/&RoyalEnvoyFeatureDescription	将你的熟练加值的一半（向上取整）加至任何没有添加你的熟练度加值的魅力检定中。额外的，你获得魅力豁免的熟练项
+Feature/&InspiringSurgePowerTitle	激励如潮
+Feature/&InspiringSurgePowerTitleShort	激励如潮
+Feature/&InspiringSurgePowerDescription	赋予盟友一个额外的主要动作，持续1回合。不与“动作如潮”叠加
+Subclass/&FighterRoyalKnightTitle	皇家骑士
+Subclass/&FighterRoyalKnightDescription	一位通过战斗中的英勇行径激励他人的伟大骑士。一位落单的骑士仅仅是个熟练的战士，但一位带领着盟友的骑士能将最羸弱民兵变成凶猛的战队
