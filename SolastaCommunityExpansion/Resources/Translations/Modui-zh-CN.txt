@@ -101,8 +101,8 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	在未发现前隐藏出口和
 ModUi/&HideMonsterHitPoints	以25%/50%/75%/100%为单位显示怪物的生命值状态，而非精确的生命值
 ModUi/&HiderArmor	兽皮甲
 ModUi/&House	<color=yellow>房屋：</color>
-ModUi/&IncreaseSenseNormalVision	<color=white>Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=yellow>[40 is ideal to avoid enemies joining from too far away]</color></i>
-ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&IncreaseSenseNormalVision	<color=white>提高<color=orange>正常视觉</color>距离以允许长距离攻击</color> <i><color=yellow>[40是一个相对理想的距离，以避免敌人从过远的距离加入战斗]</color></i>
+ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
 ModUi/&InitialChoices	<color=yellow>初始选择：</color>
 ModUi/&Interface	界面
 ModUi/&InventoryAndItems	<color=yellow>物品栏和物品：</color>
