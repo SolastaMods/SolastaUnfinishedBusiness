@@ -19,7 +19,7 @@ internal static class FaceUnlockContext
                               x.SubclassFilterMask == GraphicsDefinitions.MorphotypeSubclassFilterTag
                                   .SorcererManaPainter))
             {
-                morphotype.SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All);
+                morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
             }
         }
 
@@ -28,7 +28,7 @@ internal static class FaceUnlockContext
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.EyeColor))
             {
-                morphotype.SetPlayerSelectable(true);
+                morphotype.playerSelectable = true;
             }
         }
 
@@ -37,14 +37,14 @@ internal static class FaceUnlockContext
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
             {
-                morphotype.SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All);
+                morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
             }
         }
 
         if (Main.Settings.UnlockAllNpcFaces)
         {
-            FaceAndSkin_Defiler.SetPlayerSelectable(true);
-            FaceAndSkin_Neutral.SetPlayerSelectable(true);
+            FaceAndSkin_Defiler.playerSelectable = true;
+            FaceAndSkin_Neutral.playerSelectable = true;
 
             HalfElf.RacePresentation.FemaleFaceShapeOptions.Add("FaceShape_NPC_Princess");
             HalfElf.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_HalfElf_NPC_Bartender");
@@ -55,7 +55,7 @@ internal static class FaceUnlockContext
                          x.Category == MorphotypeElementDefinition.ElementCategory.FaceShape &&
                          x != FaceShape_NPC_Aksha))
             {
-                morphotype.SetPlayerSelectable(true);
+                morphotype.playerSelectable = true;
             }
         }
 
@@ -64,7 +64,7 @@ internal static class FaceUnlockContext
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
                          x.Category == MorphotypeElementDefinition.ElementCategory.BodyDecoration))
             {
-                morphotype.SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All);
+                morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
             }
         }
 

@@ -1,7 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Level20.Features;
 
@@ -15,12 +14,12 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
 
     private SorcerousRestorationBuilder(string name, string guid) : base(name, guid)
     {
-        Definition.SetFixedUsesPerRecharge(1);
-        Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-        Definition.SetUsesAbilityScoreName(AttributeDefinitions.Charisma);
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Rest);
-        Definition.SetCostPerUse(1);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        Definition.fixedUsesPerRecharge = 1;
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+        Definition.usesAbilityScoreName = AttributeDefinitions.Charisma;
+        Definition.activationTime = RuleDefinitions.ActivationTime.Rest;
+        Definition.costPerUse = 1;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
         var restoration = new EffectDescriptionBuilder();
         restoration.SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
             RuleDefinitions.TargetType.Self);
@@ -28,17 +27,17 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
             .EffectDescription.EffectParticleParameters);
 
         var restoreForm = new EffectFormBuilder().CreatedByCharacter().SetSpellForm(9).Build();
-        restoreForm.SpellSlotsForm.SetType(SpellSlotsForm.EffectType.GainSorceryPoints);
-        restoreForm.SpellSlotsForm.SetSorceryPointsGain(4);
+        restoreForm.SpellSlotsForm.type = SpellSlotsForm.EffectType.GainSorceryPoints;
+        restoreForm.SpellSlotsForm.sorceryPointsGain = 4;
         restoration.AddEffectForm(restoreForm);
-        Definition.SetEffectDescription(restoration.Build());
+        Definition.effectDescription = restoration.Build();
 
         var gui = new GuiPresentationBuilder(
             "Sorceror/&ZSSorcerousRestorationTitle",
             "Sorceror/&ZSSorcerousRestorationDescription");
         gui.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers.PowerWizardArcaneRecovery.GuiPresentation
             .SpriteReference);
-        Definition.SetGuiPresentation(gui.Build());
+        Definition.guiPresentation = gui.Build();
 
         _ = RestActivityBuilder.RestActivityRestoration;
     }
@@ -61,7 +60,7 @@ internal sealed class SorcerousRestorationBuilder : FeatureDefinitionPowerBuilde
         {
             Definition.GuiPresentation.Title = "RestActivity/&ZSSorcerousRestorationTitle";
             Definition.GuiPresentation.Description = "RestActivity/&ZSSorcerousRestorationDescription";
-            Definition.SetStringParameter(SorcerousRestorationName);
+            Definition.stringParameter = SorcerousRestorationName;
         }
 
         // get only property

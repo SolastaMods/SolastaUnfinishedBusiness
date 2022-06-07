@@ -49,34 +49,10 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS HIDDEN ON UI
     //
 
-    public bool AllowDynamicPowers { get; set; } = true;
-
-    public bool BugFixBrowseFeatures { get; set; } = true;
-
-    //public bool BugFixButtonActivatorTriggerIssue { get; set; } = true;
-    public bool BugFixConjuredUnitsTeleportWithParty { get; set; } = true;
-    public bool BugFixCorrectlyAssignBonusCantrips { get; set; } = true;
-    public bool BugFixCorrectlyCalculateDamageOnMultipleHits { get; set; } = true;
-    public bool BugFixCorrectlyTerminateEffectsOnWorldTravel { get; set; } = true;
-    public bool BugFixDeityOfferingOnMulticlassHeroes { get; set; } = true;
-    public bool BugFixDominateSpells { get; set; } = true;
-    public bool BugFixExpandColorTables { get; set; } = true;
-    public bool BugFixHeroKeepConditionsAcrossLocations { get; set; } = true;
-    public bool BugFixHideReactionSpells { get; set; } = true;
-    public bool BugFixLeakedMetamagicPanel { get; set; } = true;
-    public bool BugFixNullRecipesOnGameSerialization { get; set; } = true;
-    public bool BugFixPowerActivationTime { get; set; } = true;
-    public bool BugFixSpellDurations { get; set; } = true;
-    public bool BugFixWieldedConfigurationSelector { get; set; } = true;
-    public bool EnableCustomSpellsPatch { get; set; } = true;
     public bool EnableDungeonMakerPro { get; set; } = true;
-    public bool EnableFirstLevelCasterFeats { get; set; } = true;
     public bool EnableMoveSorceryPointsBox { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
-    public bool EnablePowersBundlePatch { get; set; } = true;
-    public bool EnableGlobalUniqueEffectsPatch { get; set; } = true;
-    public bool EnableRacesScalePatch { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSortingClasses { get; set; } = true;
     public bool EnableSortingDeities { get; set; } = true;
@@ -89,8 +65,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableEnhancedCharacterInspection { get; set; } = true;
     public bool KeepCharactersPanelOpenAndHeroSelectedOnLevelUp { get; set; } = true;
     public bool KeepSpellsOpenSwitchingEquipment { get; set; } = true;
-    public bool ShowAllAutoPreparedSpells { get; set; } = true;
-    public bool SupportAutoPreparedSpellsOnSubclassCasters { get; set; } = true;
 
     //
     // Character - General
@@ -160,7 +134,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public SerializableDictionary<string, int> SpellListSliderPosition { get; set; } = new();
-
     public SerializableDictionary<string, List<string>> SpellListSpellEnabled { get; set; } = new();
 
     //
@@ -177,7 +150,6 @@ public class Settings : UnityModManager.ModSettings
     public bool OnlyShowMostPowerfulUpcastConjuredElementalOrFey { get; set; }
     public bool FixSorcererTwinnedLogic { get; set; }
     public bool FullyControlConjurations { get; set; }
-
 
     // House
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
@@ -266,7 +238,6 @@ public class Settings : UnityModManager.ModSettings
 #else
     public bool EnableExtraHighLevelMonsters { get; set; }
 #endif
-
 
     //
     // Interface - Game UI

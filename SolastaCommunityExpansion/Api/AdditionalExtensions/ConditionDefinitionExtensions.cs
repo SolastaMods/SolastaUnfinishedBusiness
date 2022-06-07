@@ -9,10 +9,10 @@ public static partial class ConditionDefinitionExtensions
         {
             var assetReference = new AssetReference();
 
-            definition.SetConditionStartParticleReference(assetReference);
-            definition.SetConditionParticleReference(assetReference);
-            definition.SetConditionEndParticleReference(assetReference);
-            definition.SetCharacterShaderReference(assetReference);
+            definition.conditionStartParticleReference = assetReference;
+            definition.conditionParticleReference = assetReference;
+            definition.conditionEndParticleReference = assetReference;
+            definition.characterShaderReference = assetReference;
 
             return definition;
         }
@@ -24,22 +24,22 @@ public static partial class ConditionDefinitionExtensions
 
         if (definition.conditionStartParticleReference == null)
         {
-            definition.SetConditionStartParticleReference(assetReference);
+            definition.conditionStartParticleReference = assetReference;
         }
 
         if (definition.conditionParticleReference == null)
         {
-            definition.SetConditionParticleReference(assetReference);
+            definition.conditionParticleReference = assetReference;
         }
 
         if (definition.conditionEndParticleReference == null)
         {
-            definition.SetConditionEndParticleReference(assetReference);
+            definition.conditionEndParticleReference = assetReference;
         }
 
         if (definition.characterShaderReference == null)
         {
-            definition.SetCharacterShaderReference(assetReference);
+            definition.characterShaderReference = assetReference;
         }
 
         return definition;

@@ -42,12 +42,11 @@ internal static class GameLocationManager_StopCharacterEffectsIfRelevant
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        var code = instructions.ToList();
+        //
+        // BUGFIX: hero keep conditions across locations
+        //
 
-        if (!Main.Settings.BugFixHeroKeepConditionsAcrossLocations)
-        {
-            return code;
-        }
+        var code = instructions.ToList();
 
         var removeEffects = code.FindIndex(x =>
             x.opcode == OpCodes.Callvirt && x.operand.ToString().Contains("Terminate"));

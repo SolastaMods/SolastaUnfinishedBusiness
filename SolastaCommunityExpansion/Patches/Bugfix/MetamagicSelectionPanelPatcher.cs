@@ -7,12 +7,11 @@ namespace SolastaCommunityExpansion.Patches.BugFix;
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class MetamagicSelectionPanel_Unbind
 {
-    public static void Prefix(MetamagicSelectionPanel __instance)
+    internal static void Prefix(MetamagicSelectionPanel __instance)
     {
-        if (!Main.Settings.BugFixLeakedMetamagicPanel)
-        {
-            return;
-        }
+        //
+        // BUGFIX: leaked metamagic panel
+        //
 
         Gui.ReleaseChildrenToPool(__instance.metamagicOptionsTable.transform);
     }

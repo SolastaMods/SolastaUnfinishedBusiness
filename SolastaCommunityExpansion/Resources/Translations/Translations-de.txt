@@ -7,7 +7,7 @@ AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligenzwert ist gleich 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
 BlueprintCategory/&FlatRoomsTitle	Flache Zimmer
 Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}.
-Class/&ClassMonkDescription	Mönche sind sich einig in ihrer Fähigkeit, die Energie, die in ihren Körpern fließt, auf magische Weise zu nutzen. Ob als auffällige Demonstration von Kampfstärke oder als subtilerer Fokus von Verteidigungsfähigkeit und Schnelligkeit kanalisiert, diese Energie durchdringt alles, was ein Mönch tut.
+Class/&ClassMonkDescription	Mönche sind sich einig in ihrer Fähigkeit, die Energie, die in ihren Körpern fließt, auf magische Weise zu nutzen. Ob als auffällige Demonstration von Kampfstärke oder als subtilerer Fokus auf Verteidigungsfähigkeit und Schnelligkeit kanalisiert, diese Energie durchdringt alles, was ein Mönch tut.
 Class/&ClassMonkTitle	Mönch
 Class/&ClassWarlockDescription	Hexenmeister sind Sucher des Wissens, das im Gefüge des Multiversums verborgen liegt. Durch Pakte, die mit mysteriösen Wesen mit übernatürlichen Kräften geschlossen werden, entfesseln Warlocks sowohl subtile als auch spektakuläre magische Effekte.
 Class/&ClassWarlockTitle	Hexenmeister
@@ -22,7 +22,7 @@ Class/&WitchBurnedProduceFlameTitle	Flamme produzieren
 Class/&WitchCacklePowerDescription	Sie können Ihre Bonusaktion zum Gackern verwenden. Die Dauer deines Fluchs verlängert sich um 1 Runde für jede betroffene Kreatur innerhalb von 60 Fuß von dir.\nNicht alle Hexen lachen wahnsinnig, wenn sie gackern, aber jedes Gackern erfordert eine verbale Komponente als Zauber. Diese reichen von weltlichen Flüchen und Beleidigungen bis hin zum Murmeln toter Sprachen und Rückwärtssprechen.
 Class/&WitchCacklePowerTitle	Gackern
 Class/&WitchDescription	Von einem finsteren Fluch heimgesucht, können Hexen dunkle Magie in Verwünschungen verwandeln, die sie verwenden, um Feinde zu schwächen. Sie werden auch von ihren Vertrauten begleitet, treuen magischen Gefährten, mit denen sie den Todesstoß versetzen.
-Class/&WitchFamiliarPowerDescription	Du lernst den Witch Familiar-Zauber, also einen verbesserten Find Familiar-Zauber, und kannst ihn als Ritual ohne materielle Komponenten wirken. Der Zauber zählt nicht zu deiner Anzahl bekannter Zauber. Der Zauber verbessert Find Familiar auf folgende Weise:\n• Dein Vertrauter ist in jeder Runde unmittelbar vor oder nach deinem Zug an der Reihe (deine Wahl).\n• Einmal pro Zug als Aktion oder Bonusaktion kannst du deinem Vertrauten im Geiste befehlen, seine Reaktion zu nutzen, um einen Angriff auszuführen.\n• Wenn du einen Zauber wirkst, kannst du ihn durch deinen Vertrauten übermitteln, als ob er den Zauber gewirkt hätte, selbst wenn der Zauber keine Reichweite hat.\n• Ihr Vertrauter kann Ihren Zauberangriffsbonus für seine Angriffswürfe verwenden.\n• Ihr Vertrauter addiert Ihren Fertigkeitsbonus zu seiner Rüstungsklasse, Rettungswürfen und Schadenswürfen.\n• Du addierst das Doppelte deiner Hexenstufe zu den maximalen Trefferpunkten deines Vertrauten.
+Class/&WitchFamiliarPowerDescription	Du lernst den Witch Familiar-Zauber, also einen verbesserten Find Familiar-Zauber, und kannst ihn als Ritual ohne materielle Komponenten wirken. Der Zauber zählt nicht zu deiner Anzahl bekannter Zauber. Der Zauber verbessert Find Familiar auf folgende Weise:\n• Dein Vertrauter ist in jeder Runde unmittelbar vor oder nach deinem Zug an der Reihe (deine Wahl).\n• Einmal pro Zug als Aktion oder Bonusaktion kannst du deinem Vertrauten im Geiste befehlen, seine Reaktion zu nutzen, um einen Angriff auszuführen.\n• Wenn du einen Zauber wirkst, kannst du ihn durch deinen Vertrauten übermitteln, als ob er den Zauber gewirkt hätte, selbst wenn der Zauber keine Reichweite hat.\n• Ihr Vertrauter kann Ihren Zauberangriffsbonus für seine Angriffswürfe verwenden.\n• Ihr Vertrauter addiert Ihren Fertigkeitsbonus zu seiner Rüstungsklasse, Rettungswürfen und Schadenswürfen.\n• Du addierst das Doppelte deines Hexenlevels zu den maximalen Trefferpunkten deines Vertrauten.
 Class/&WitchFamiliarPowerTitle	Vertraut
 Class/&WitchFeatureSetBurnedCurseDescription	Fast dein ganzer Körper wurde von arkanen Flammen versengt und hinterlässt auffällige schwarze Narben und magische Glut, die unter der Haut brennen. Infolgedessen haben Sie Widerstand gegen Feuerschaden und kennen die Cantrip-Produce-Flamme, die nicht zu Ihrer Gesamtzahl bekannter Cantrips zählt.
 Class/&WitchFeatureSetBurnedCurseTitle	Verbrannt
@@ -38,7 +38,7 @@ Class/&WitchMaledictionAbateDescription	Wähle als Aktion eine Kreatur, die du i
 Class/&WitchMaledictionAbateTitle	Fang den Fluch
 Class/&WitchMaledictionApathyDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß von dir sehen kannst, um einen Charisma-Rettungswurf zu machen. Bei einem misslungenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges einer Kreatur deiner Wahl gegenüber, der sie feindlich gesinnt ist, gleichgültig. Diese Gleichgültigkeit endet, wenn das Ziel durch einen Zauber der Kreatur, der es gleichgültig ist, angegriffen oder verletzt wird.
 Class/&WitchMaledictionApathyTitle	Apathie Verwünschung
-Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Weisheitsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
+Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Weisheitswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
 Class/&WitchMaledictionCharmTitle	Zauberspruch
 Class/&WitchMaledictionDisorientDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf muss dieses Ziel jedes Mal, wenn es vor dem Ende deines nächsten Zuges einen Angriffswurf macht, einen W6 würfeln und die gewürfelte Zahl vom Angriffswurf abziehen.
 Class/&WitchMaledictionDisorientTitle	Fluch der Desorientierung
@@ -215,7 +215,7 @@ Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Diese verzauberte Waffe 
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Schwere Armbrust der Genauigkeit
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Schwere Armbrust des Lichtbringers
-Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Meisterbogenschützen geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Medusa Schwere Armbrust
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Schwere Armbrust des Scharfschießens
@@ -257,7 +257,7 @@ Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Diese verzauberte Waffe 
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Leichte Armbrust der Genauigkeit
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Es wurde von Elgador Keenspirit, Magesmith des Arcaneums, entworfen, um den Kampf gegen untote Kreaturen zu unterstützen.
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Lightbringer Leichte Armbrust
-Equipment/&Enchanted_LightCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Meisterbogenschützen geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Magie verschmolz Medusenkoralle und Hartholz zu einem tödlichen Bogen, der von den Enterkommandos der Inselhalblinge bevorzugt wurde.
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Medusa Leichte Armbrust
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens von Colthannins Bogenschützenmeistern geschmiedet. Der Coedymwarth zog es vor, mit Manacalons Arkanisten eher physisch als magisch umzugehen. Seine besten Bogenschützen erhielten Armbrüste, die Schöpfung von Defineth Sharpsight.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Leichte Armbrust des Scharfschießens
@@ -345,7 +345,7 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Description	Diese verzauberte Rüstu
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Überlebensschild aus Holz
 Equipment/&Enchanted_Spear_Acuteness_Description	Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Sein Design war eines der frühen Werke von Elgador Keenspirit, Magesmith des Arcaneums.
 Equipment/&Enchanted_Spear_Acuteness_Title	Speer der Schärfe
-Equipment/&Enchanted_Spear_BlackViper_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Meisterschmiede von Manacalon geschmiedet, wobei ein Speer und das Gift einer legendären Spinne aus Solastas Tiefen verwendet wurden. Der Konstrukteur der Klinge war Grigg Blackheart, ein berüchtigter Halblingsschmied aus den Marsh, der in den Schmieden der Aer Elai arbeitete.
+Equipment/&Enchanted_Spear_BlackViper_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet, wobei ein Speer und das Gift einer legendären Spinne aus Solastas Tiefen verwendet wurden. Der Konstrukteur der Klinge war Grigg Blackheart, ein berüchtigter Halblingsschmied aus den Marsh, der in den Schmieden der Aer Elai arbeitete.
 Equipment/&Enchanted_Spear_BlackViper_Title	Schwarzer Viper-Speer
 Equipment/&Enchanted_Spear_Doomblade_Description	Diese verzauberte Waffe wurde mit dem uralten Wissen der Schmiedemeister von Manacalon geschmiedet. Kenaloth Darkmind erfand die Schicksalsklingen als Werkzeug zur Bestrafung derjenigen, die sich der Magie des Imperiums widersetzten.
 Equipment/&Enchanted_Spear_Doomblade_Title	Speer mit Doom-Spitze
@@ -570,7 +570,7 @@ Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\n
 Feat/&FeatPrimalStrengthTitle	Urwut (Stärke)
 Feat/&FeatPugilistFightingStlyeDescription	Deine waffenlosen Schläge verursachen zusätzlich 1W4 Knüppelschaden und du kannst als Bonusaktion mit deiner Nebenhand schlagen.\nWenn Sie eine freie Hand haben, können Sie als Bonusaktion schubsen.
 Feat/&FeatPugilistFightingStlyeTitle	Kampfstil: Faustkämpfer
-Feat/&FeatRangedExpertDescription	Ihre Expertenausbildung mit Fernkampfwaffen gewährt Ihnen diese Vorteile:\n• Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind in 5 Fuß Reichweite von Ihnen befindet.\n• Wenn Sie Ihre Aktion zum Angreifen aufwenden, können Sie die Bonusaktion verwenden, um einen Angriff mit einer einhändigen Fernkampf- oder Wurfwaffe durchzuführen.
+Feat/&FeatRangedExpertDescription	Ihre Expertenausbildung mit Fernkampfwaffen gewährt Ihnen diese Vorteile:\n• Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind in 1,50 m Entfernung von Ihnen befindet.\n• Wenn Sie Ihre Aktion zum Angreifen aufwenden, können Sie die Bonusaktion verwenden, um einen Angriff mit einer einhändigen Fernkampf- oder Wurfwaffe durchzuführen.
 Feat/&FeatRangedExpertTitle	Fernkampfexperte
 Feat/&FeatSavageAttackerDescription	Waffen- und Zauberschadenswürfel neu würfeln, wenn sie eine 1 würfeln (es werden nicht alle Schadensquellen neu gewürfelt, z. B. ausgenommen Sneak Attack und Smite).
 Feat/&FeatSavageAttackerReroll	Da er ein Wilder Angreifer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.
@@ -585,7 +585,7 @@ Feat/&FeatShadowTouchedWisDescription	Erhöhe dein Weisheitsattribut um 1 bis ma
 Feat/&FeatShadowTouchedWisTitle	Schatten berührt (Weisheit)
 Feat/&FeatShadyDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nEinmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der die Voraussetzungen für den Hinterhältigen Angriff des Schurken erfüllt, 1W6 zusätzlichen Schaden zufügen. Auf der 12. Stufe steigt dieser Schaden auf 2W6 und auf der 20. Stufe auf 4W6.
 Feat/&FeatShadyTitle	Schattig
-Feat/&FeatShieldExpertDescription	Du hast den Umgang mit einem Schild als Waffe geübt. Für dich wird es zu einer Nahkampfwaffe, mit der du vertraut bist und die 1W4 Knüppelschaden verursacht.\nDu verschaffst dir einen Vorteil bei Stoßversuchen, während du einen Schild führst.
+Feat/&FeatShieldExpertDescription	Du hast den Umgang mit einem Schild als Waffe geübt. Für Sie wird es zu einer Nahkampfwaffe, die Sie beherrschen und die 1W4 Knüppelschaden verursacht.\nDu verschaffst dir einen Vorteil bei Stoßversuchen, während du einen Schild führst.
 Feat/&FeatShieldExpertTitle	Schild-Experte
 Feat/&FeatStrengthIncrementDescription	+1 Stärke.
 Feat/&FeatStrengthIncrementTitle	Attributerhöhung
@@ -748,7 +748,7 @@ Feat/&SummonArtificialServantTitle	Beschwöre einen künstlichen Diener
 Feat/&SummonArtilleryConstructDescription	Der Blaster erstellt und befehligt ein Artilleriekonstrukt in einem von mehreren Modi. Die HP des Konstrukts steigen mit der Stufe seines Beschwörers und können einmal pro Tag für 1 Stunde kostenlos beschworen werden. Das Konstrukt kann mit einem Zauber der 1. Stufe wiederbeschworen werden. Die drei Modi sind:\n<color=#add8e6ff>Schutzkuppel-Konstrukt:</color>\nGewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP\n<color=#add8e6ff>Flammenartillerie-Konstrukt:</color>\nErzeugt einen Feuerkegel. Kreaturen müssen einen Geschicklichkeitsrettungswurf machen oder 2W8 Schaden erleiden\n<color=#add8e6ff>Force Artillery Construct:</color>\nVerursacht 2W8 Kraftschaden und stößt den Gegner 1,50 m weit weg.
 Feat/&SummonArtilleryConstructlevel09Description	Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt kann sich selbst zerstören, indem es einen Geschicklichkeitswurf erzwingt oder bei einem Fehlschlag 3W8 Machtschaden verursacht.\nZusätzlich erhöhen sich sowohl die Flammen- als auch die Machtartillerie-Schadenswürfe um 1W8 auf insgesamt 3W8.
 Feat/&SummonArtilleryConstructlevel09Title	Artillerie-Konstrukt-Upgrade: Selbstzerstörung
-Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
+Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
 Feat/&SummonArtilleryConstructlevel15Title	Upgrade des Artilleriekonstrukts: Halbe Deckungskuppel
 Feat/&SummonArtilleryConstructTitle	Artilleriekonstrukt beschwören
 Feat/&SummonProtectorConstructDescription	Dein eigener Battle Buddy steht bereit, um dich zu verteidigen und Feinde anzugreifen. Das Beschützerkonstrukt kann sich dreimal täglich selbst reparieren und Verbündeten bei Angriffen Nachteile zufügen.
@@ -788,23 +788,23 @@ Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Seele ermächtigt
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Du bist ermächtigt und fügst bei all deinen Angriffen einen Schadensbonus in Höhe deines Könnens zu.
 Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Seele ermächtigt
 Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.
-Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Pakts
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Waffe des spirituellen Paktes
 Feature/&AHWarlockClassPactBoonSetDescription	Auf der 3. Stufe verleiht Ihnen Ihr jenseitiger Gönner ein Geschenk für Ihre treuen Dienste. Sie können wählen zwischen:
 Feature/&AHWarlockClassPactBoonSetTitle	Pakt Segen
 Feature/&AHWarlockClassPactOfTheBladeSetDescription	Sie beherrschen alle Waffen und Ihre Waffenangriffe gelten als magisch.
 Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pakt der Klinge
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Einmal pro langer Rast kannst du eine Waffe mit Seelenkraft stärken. Diese Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zu einer langen Pause als magisch.
-Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenkraft
-Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge kannst du aus einer erweiterten Liste von Zaubersprüchen wählen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Seelenstärke
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Mit der Seelenklinge können Sie aus einer erweiterten Liste von Zaubersprüchen wählen, wenn Sie einen Warlock-Zauber lernen. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Seelenklingenzauber
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deines Levels + Charisma-Modifikator.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Seelenschild
 Feature/&AlwaysBeardDescription	{0} % Chancen, einen herrlichen Bart wachsen zu lassen!
-Feature/&AncientForestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Alte Waldzauber
 Feature/&AncientForestLightAffinityDescription	Sie können Energie aus Sonnenlicht absorbieren. Während Sie sich in direktem hellem Licht befinden, erhalten Sie 2 HP pro Runde.
 Feature/&AncientForestLightAffinityTitle	Photosynthese
-Feature/&AncientForestRegrowthDescription	Sie haben einen Pool an Heilkraft, der sich füllt, wenn Sie sich lange ausruhen. Mit diesem Pool können Sie eine Gesamtzahl an Trefferpunkten wiederherstellen, die Ihrer Hexenmeisterstufe × 5 entspricht.
+Feature/&AncientForestRegrowthDescription	Sie haben einen Pool an Heilkraft, der sich füllt, wenn Sie sich lange ausruhen. Mit diesem Pool können Sie eine Gesamtzahl an Trefferpunkten wiederherstellen, die Ihrem Warlock-Level × 5 entspricht.
 Feature/&AncientForestRegrowthTitle	Nachwachsen
 Feature/&ArcaneDetonationDescription	Wenn du eine Kreatur mit dem Mal deines Arkanisten mit einem Waffenangriff triffst, detoniert das Mal, verursacht 1W6 Machtschaden und zerstört das Mal.
 Feature/&ArcaneDetonationTitle	Arkane Detonation
@@ -848,7 +848,7 @@ Feature/&BondoftheTalismanDescription	Teleportiere dich bis zu 30 Fuß entfernt.
 Feature/&BondoftheTalismanTitle	Teleport-Talisman
 Feature/&ChainsofCarceriDescription	Paralysiert einen Himmlischen, Unterweltler oder Elementar, es sei denn, ihm gelingt ein Weisheitswurf.
 Feature/&ChainsofCarceriTitle	Ketten von Carceri
-Feature/&ClassMonkDeflectMissileDescription	Sie können Ihre Reaktion nutzen, um die Rakete abzulenken, wenn Sie von einem Fernkampfwaffenangriff getroffen werden. Wenn du dies tust, verringert sich der Schaden, den du durch den Angriff erleidest, um 1W10 + deinen Geschicklichkeitsmodifikator + deine Mönchsstufe.
+Feature/&ClassMonkDeflectMissileDescription	Sie können Ihre Reaktion nutzen, um die Rakete abzulenken, wenn Sie von einem Fernkampfwaffenangriff getroffen werden. Wenn du dies tust, verringert sich der Schaden, den du durch den Angriff erleidest, um 1W10 + deinen Geschicklichkeitsmodifikator + deine Stufe als Mönch.
 Feature/&ClassMonkDeflectMissileTitle	Raketen ablenken
 Feature/&ClassMonkDiamondSoulDescription	Deine Beherrschung des Ki verleiht dir Beherrschung aller Rettungswürfe.\nAußerdem kannst du jedes Mal, wenn du einen Rettungswurf machst und misslingt, 1 Ki-Punkt ausgeben, um ihn zu wiederholen und das zweite Ergebnis zu nehmen.
 Feature/&ClassMonkDiamondSoulTitle	Diamantseele
@@ -858,13 +858,13 @@ Feature/&ClassMonkKiDescription	Ihr Training ermöglicht es Ihnen, die mystische
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Ihre waffenlosen Schläge zählen als magisch, um den Widerstand und die Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-ermächtigte Schläge
 Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	Du erhältst die folgenden Vorteile, wenn du unbewaffnet bist oder nur Mönchswaffen trägst und keine Rüstung trägst oder einen Schild schwingst:\n• Du kannst Geschicklichkeit anstelle von Stärke für die Angriffs- und Schadenswürfe deiner waffenlosen Schläge und Mönchswaffen verwenden.\n• Du kannst einen W4 anstelle des normalen Schadens deines waffenlosen Schlags oder deiner Mönchswaffe würfeln. Dieser Würfel ändert sich mit steigender Mönchsstufe.\n• Wenn du in deinem Zug die Angriffsaktion mit einem waffenlosen Schlag oder einer Mönchswaffe verwendest, kannst du als Bonusaktion einen waffenlosen Schlag ausführen.
+Feature/&ClassMonkMartialArtsDescription	Du erhältst die folgenden Vorteile, wenn du unbewaffnet bist oder nur Mönchswaffen trägst und keine Rüstung trägst oder einen Schild schwingst:\n• Du kannst Geschicklichkeit anstelle von Stärke für die Angriffs- und Schadenswürfe deiner waffenlosen Schläge und Mönchswaffen verwenden.\n• Sie können anstelle des normalen Schadens Ihres unbewaffneten Angriffs oder Ihrer Mönchswaffe einen W4 würfeln. Dieser Würfel ändert sich, wenn du Mönchsstufen erreichst.\n• Wenn du in deinem Zug die Angriffsaktion mit einem waffenlosen Schlag oder einer Mönchswaffe verwendest, kannst du als Bonusaktion einen waffenlosen Schlag ausführen.
 Feature/&ClassMonkMartialArtsTitle	Kampfkünste
-Feature/&ClassMonkMartialDiceProgression00Description	Du kannst <color=#57BCF4>d6</color> anstelle des normalen Schadens deines waffenlosen Schlags oder deiner Mönchswaffe würfeln.
+Feature/&ClassMonkMartialDiceProgression00Description	Du kannst <color=#57BCF4>d6</color> anstelle des normalen Schadens deines unbewaffneten Angriffs oder deiner Mönchswaffe würfeln.
 Feature/&ClassMonkMartialDiceProgression00Title	Kampfkunstwürfel erhöhen (W6)
-Feature/&ClassMonkMartialDiceProgression01Description	Du kannst <color=#57BCF4>W8</color> anstelle des normalen Schadens deines waffenlosen Schlags oder deiner Mönchswaffe würfeln.
+Feature/&ClassMonkMartialDiceProgression01Description	Du kannst <color=#57BCF4>W8</color> anstelle des normalen Schadens deines unbewaffneten Angriffs oder deiner Mönchswaffe würfeln.
 Feature/&ClassMonkMartialDiceProgression01Title	Kampfkunstwürfel erhöhen (W8)
-Feature/&ClassMonkMartialDiceProgression02Description	Du kannst <color=#57BCF4>W10</color> anstelle des normalen Schadens deines waffenlosen Schlags oder deiner Mönchswaffe würfeln.
+Feature/&ClassMonkMartialDiceProgression02Description	Du kannst <color=#57BCF4>W10</color> anstelle des normalen Schadens deines unbewaffneten Angriffs oder deiner Mönchswaffe würfeln.
 Feature/&ClassMonkMartialDiceProgression02Title	Kampfkunstwürfel erhöhen (d10)
 Feature/&ClassMonkPerfectSelfDescription	Wenn Sie den Kampf beginnen und keine Ki-Punkte mehr übrig haben, gewinnen Sie 4 Ki-Punkte zurück.
 Feature/&ClassMonkPerfectSelfTitle	Perfektes Selbst
@@ -882,7 +882,7 @@ Feature/&ClassMonkUnarmoredMovementTitle	Ungepanzerte Bewegung
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Wenn Sie keine Rüstung tragen und keinen Schild tragen, können Sie sich wie eine Spinne auf Wänden bewegen. Die Fähigkeit geht vorübergehend verloren, wenn Sie eine Aktion ausführen, die keine Bewegung ist, oder wenn Sie im Kampf nicht an der Reihe sind.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Ungepanzerte Bewegung: Klettern
 Feature/&ClassMonkWeaponProficiencyTitle	Waffenfertigkeiten der Mönche
-Feature/&ClassMonkZenArcherCombatDescription	Erlangen Sie Kenntnisse im Umgang mit Bögen und sie gelten für Sie als Mönchswaffe.\nSie werden nicht benachteiligt, wenn Sie mit einer Mönchswaffe einen Fernkampfangriff ausführen, während Sie sich in 5 Fuß Entfernung von einem Feind befinden, vorausgesetzt, Sie tragen keine Rüstung oder Schild.
+Feature/&ClassMonkZenArcherCombatDescription	Wenn Sie sich mit Bögen auskennen, gelten sie für Sie als Mönchswaffe.\nSie werden nicht benachteiligt, wenn Sie mit einer Mönchswaffe einen Fernkampfangriff ausführen, während Sie sich in 1,50 m Entfernung von einem Feind befinden, vorausgesetzt, Sie tragen keine Rüstung oder Schild.
 Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
@@ -896,7 +896,7 @@ Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Fügen Sie eine unhei
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Eldritch-Anrufung
 Feature/&ClassWarlockEldritchMasterDescription	Sie können auf Ihre innere Reserve an mystischer Kraft zurückgreifen, während Sie Ihren Gönner bitten, verbrauchte Zauberslots wiederzuerlangen. Sie können 1 Minute damit verbringen, Ihren Patron um Hilfe zu bitten, um alle Ihre verbrauchten Zauberslots aus Ihrer Paktmagie-Funktion zurückzugewinnen. Sobald Sie mit dieser Funktion Zauberslots wiedererlangen, müssen Sie eine lange Pause einlegen, bevor Sie dies erneut tun können.
 Feature/&ClassWarlockEldritchMasterTitle	Eldritch-Meister
-Feature/&ClassWarlockMysticArcanumSetDescription	Ihr Gönner verleiht Ihnen ein magisches Geheimnis namens Arkanum. Du kannst deinen Arcanum-Zauber einmal wirken, ohne einen Zauberslot zu verbrauchen. Sie müssen eine lange Pause beenden, bevor Sie dies erneut tun können. Auf höheren Stufen erhältst du mehr Hexenmeisterzauber deiner Wahl, die auf diese Weise gewirkt werden können: einen Zauber der 6. Stufe auf der 11. Stufe, einen Zauber der 7. Stufe auf der 13. Stufe, einen Zauber der 8. Stufe auf der 15. Stufe und einen 9. Grad -Stufenzauber auf Stufe 17.
+Feature/&ClassWarlockMysticArcanumSetDescription	Ihr Gönner verleiht Ihnen ein magisches Geheimnis namens Arkanum. Du kannst deinen Arcanum-Zauber einmal wirken, ohne einen Zauberslot zu verbrauchen. Sie müssen eine lange Pause beenden, bevor Sie dies erneut tun können. Auf höheren Stufen erhältst du mehr Hexenmeister-Zauber deiner Wahl, die auf diese Weise gewirkt werden können: einen Zauber der 6. Stufe auf der 11. Stufe, einen Zauber der 7. Stufe auf der 13. Stufe, einen Zauber der 8. Stufe auf der 15. Stufe und einen der 9. Stufe -Stufenzauber auf Stufe 17.
 Feature/&ClassWarlockMysticArcanumSetTitle	Mystisches Arkanum
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Weisheit, Charisma.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Fähigkeiten zum Speichern von Würfen
@@ -912,7 +912,7 @@ Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere 
 Feature/&CounterStrikePowerTitle	Gegenschlag
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Wenn Sie auf 0 HP reduziert, aber nicht getötet werden, können Sie stattdessen auf 1 HP fallen.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Unerbittliche Ausdauer
-Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen Bonusmalus von -5 auf Ihren Treffer hinnehmen möchten, um einen Fertigkeitsbonusschaden von +10.
+Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen Bonusmalus von -5 auf Ihren Treffer hinnehmen möchten, um einen Bonusschaden von +10 zu verursachen.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	Sie können in der Dunkelheit normal sehen, sowohl magisch als auch nicht magisch, bis zu einer Entfernung von 120 Fuß.
 Feature/&DevilsSightTitle	Teufelsblick
@@ -951,7 +951,7 @@ Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elementare (Beleuchtun
 Feature/&DomainInsightDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
 Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight-Domäne
 Feature/&DomainLawDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
-Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsgebiet
+Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsbereich
 Feature/&DomainLifeDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
 Feature/&DomainLifeDomainlevel1FeaturesTitle	Lebensbereich
 Feature/&DomainMischiefDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
@@ -967,7 +967,7 @@ Feature/&DruidForestGuardianExtraAttackDescription	Ab der 6. Stufe kannst du zwe
 Feature/&DruidForestGuardianExtraAttackTitle	Extra-Angriff
 Feature/&DruidForestGuardianImprovedBarkWardDescription	Deinem Rindenschutz wachsen jetzt Dornen, die Nahkampfangreifern Schaden zufügen. Feinde, die dich erfolgreich mit einem Nahkampfangriff treffen, erleiden 2W8 Stichschaden.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Verbesserter Bark Ward
-Feature/&DruidForestGuardianMagicDescription	Ab der 2. Stufe erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}
+Feature/&DruidForestGuardianMagicDescription	Ab der 2. Ebene erhältst du, wenn du diesen Kreis wählst, Zugriff auf eine erweiterte Zauberliste, die immer bereit ist:\n{0}
 Feature/&DruidForestGuardianMagicTitle	Zirkelzauber
 Feature/&DruidForestGuardianSuperiorBarkWardDescription	Eure Fähigkeit „Bark Ward“ reflektiert jetzt 3W8 Stichschaden auf Nahkampfangreifer. Zusätzlich gewährt dir Bark Ward jetzt Immunität gegen Gift, solange es aktiv ist.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
@@ -981,12 +981,12 @@ Feature/&EldritchBlastGraspingHandBonusCantripDescription	Wenn Sie eine Kreatur 
 Feature/&EldritchBlastGraspingHandBonusCantripTitle	Greifende Explosion
 Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Wenn Sie eine Kreatur mit einer unheimlichen Explosion treffen, können Sie die Kreatur in einer geraden Linie bis zu 3 m von sich wegschieben.
 Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Abstoßende Explosion
-Feature/&EldritchMindDescription	Du hast einen Vorteil bei Konstitutionswürfen, die du machst, um deine Konzentration auf einen Zauber aufrechtzuerhalten.
+Feature/&EldritchMindDescription	Du hast einen Vorteil bei Konstitutionsrettungswürfen, die du machst, um deine Konzentration auf einen Zauber aufrechtzuerhalten.
 Feature/&EldritchMindTitle	Eldritch-Geist
 Feature/&EldritchSightTitle	Unheimlicher Anblick
-Feature/&EldritchSmiteDescription	Einmal pro Runde, wenn du eine Kreatur mit deiner Paktwaffe triffst, kannst du einen Warlock-Zauberplatz aufwenden, um dem Ziel 1W8 zusätzlichen Machtschaden zuzufügen, plus weitere 1W8 pro Stufe des Zauberplatzes.
+Feature/&EldritchSmiteDescription	Einmal pro Zug, wenn du eine Kreatur mit deiner Paktwaffe triffst, kannst du einen Hexenmeister-Zauberplatz aufwenden, um dem Ziel 1W8 zusätzlichen Machtschaden zuzufügen, plus weitere 1W8 pro Stufe des Zauberplatzes.
 Feature/&EldritchSmiteTitle	Eldritch Smite
-Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&ElementalistSpellsMagicAffinityTitle	Elementarmagier-Zauber
 Feature/&ElementalPactAirPlane	Flugzeug
 Feature/&ElementalPactAstralPlane	Astralebene
@@ -1043,7 +1043,7 @@ Feature/&HinderingBlastDescription	Wenn du eine Kreatur mit deiner unheimlichen 
 Feature/&HinderingBlastMagicAffinityDescription	Wenn du eine Kreatur mit deiner unheimlichen Explosion triffst, kannst du die Geschwindigkeit dieser Kreatur bis zum Ende deines nächsten Zuges um 3 m reduzieren.
 Feature/&HinderingBlastMagicAffinityTitle	Hinderliche Explosion
 Feature/&HinderingBlastTitle	Hinderliche Explosion
-Feature/&ImprovedPactWeaponDescription	Du kannst jede Waffe als Zauberfokus für deine Hexenmeisterzauber verwenden. Außerdem erhält die Waffe einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
+Feature/&ImprovedPactWeaponDescription	Du kannst jede Waffe als Zauberfokus für deine Warlock-Zauber verwenden. Außerdem erhält die Waffe einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
 Feature/&ImprovedPactWeaponTitle	Verbesserte Paktwaffe
 Feature/&ImprovedScoutModePowerDescription	Erhalten Sie verbesserte Scout-Modus-Funktionen. Kann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
 Feature/&ImprovedScoutModePowerTitle	Verbesserter Scout-Modus
@@ -1054,14 +1054,14 @@ Feature/&IndomitableResistanceAddTitle	Unbezwingbarer Widerstand (erhöht)
 Feature/&IndomitableResistanceTitle	Unbezwingbarer Widerstand
 Feature/&InspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere dich selbst oder deinen Verbündeten, 1W6 + 2 temporäre TP zu geben.
 Feature/&InspirePowerTitle	Inspirieren
-Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
+Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
 Feature/&KnockDownPowerTitle	Niederschlagen
 Feature/&MagicAffinityRangerArcanistDescription	Du bist geübt im Wirken von Zaubern im Kampf und kannst Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
 Feature/&MagicAffinityRangerArcanistTitle	Arkanes Kampftraining
-Feature/&MiretheMindTitle	Beschmutze den Verstand
+Feature/&MiretheMindTitle	Beschmutze den Geist
 Feature/&MoonLitDarknessImmunityDescription	Du bist immun gegen den Dunkelheitszustand.
 Feature/&MoonLitDarknessImmunityTitle	Mondhelle Dunkelheit
-Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&MoonLitExpandedSpelllistAfinityTitle	Mondschein-Zauber
 Feature/&MoonLitLightAffinityDescription	Wenn Sie Ihren Zug in natürlicher Dunkelheit beginnen, werden Sie unsichtbar. Das Bewegen, Angreifen oder Verwenden von Kräften oder Zaubersprüchen, die nicht nur auf dich selbst abzielen, bricht die Unsichtbarkeit.
 Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak funktioniert jetzt bei schwachem Licht und magischer Dunkelheit.
@@ -1080,7 +1080,7 @@ Feature/&OpportunistDebilitatingStrikeTitle	Lähmender Schlag
 Feature/&OpportunistQuickStrikeDescription	Sie haben einen Vorteil, wenn Sie einen Feind angreifen, dessen Initiative geringer ist als Ihre. Darüber hinaus haben Sie auch einen Vorteil, wenn Sie einen Gelegenheitsangriff ausführen.
 Feature/&OpportunistQuickStrikeTitle	Schneller Schlag
 Feature/&OtherworldlyLeapTitle	Jenseitiger Sprung
-Feature/&PowerAttackDescription	Nehmen Sie für den Rest des Zuges eine Trefferstrafe von -3 auf Ihren Angriff, um 3 + Fertigkeitsbonus zusätzlichen Schaden zu verursachen, wenn Sie Ihre Schläge mit Nahkampfwaffen landen.
+Feature/&PowerAttackDescription	Nehmen Sie einen Malus von -3 auf Ihren Angriff, um 3 + Fertigkeitsbonus zusätzlichen Schaden zu verursachen, wenn Sie Ihre Schläge mit Nahkampfwaffen landen.
 Feature/&PowerAttackTitle	Machtangriff
 Feature/&PowerPaladinAuraOfCourage18Description	Gewährt Verbündeten innerhalb von 30 Fuß einen Rettungswurfbonus.
 Feature/&PowerPaladinAuraOfCourage18Title	Verbesserte Aura des Mutes
@@ -1115,7 +1115,7 @@ Feature/&RangerFeralSensesTitle	Wilde Sinne
 Feature/&RangerVanishActionDescription	Ab der 14. Stufe kannst du die Aktion Verstecken als Bonusaktion in deinem Zug nutzen.
 Feature/&RangerVanishActionTitle	Verschwinden
 Feature/&RiftWalkerRestrainedImmunityTitle	Flüchtiger Schritt
-Feature/&RiftWalkerSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker-Zauber
 Feature/&SavingThrowTinkererProficiencyDescription	Beherrschung von Konstitutions- und Intelligenzwürfen.
 Feature/&SavingThrowTinkererProficiencyTitle	Rettungswurf-Fertigkeit
@@ -1153,7 +1153,7 @@ Feature/&TinkererToolsProficiencyTitle	Werkzeugkenntnisse
 Feature/&TinkererWeaponProficiencyDescription	Umgang mit einfachen Waffen.
 Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
 Feature/&ToadKingBasicToxinTitle	Basisches Toxin
-Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&ToadKingExpandedSpelllistAfinityTitle	Krötenkönig-Zauber
 Feature/&ToadKingHallucinogenicToxinAffintyDescription	Ihr Körper hat sich so verändert, dass er gegen Toxine resistent wird und ein Abwehrgift produziert, wenn er von Nahkampfangriffen getroffen wird, und zwar bis zu einer Anzahl von Malen pro langer Pause, die Ihrem Kompetenzbonus entspricht. Wenn dem Angreifer ein Konstitutionsrettungswurf misslingt, leidet er unter einem halluzinogenen Toxin, bis er angegriffen oder anderweitig unterbrochen wird.
 Feature/&ToadKingHallucinogenicToxinAffintyTitle	Halluzinogenes Toxin
@@ -1164,7 +1164,7 @@ Feature/&ToadKingStickyFeetTitle	Schwimmhäute
 Feature/&TrickstersEscapeTitle	Die Flucht des Tricksters
 Feature/&UrPriestDomainTheftDescription	Sie schnappen sich die Geheimnisse, die ein Gott all seinen frommen Kleriker gewährt. Wählen Sie eine Kleriker-Domain: Sie erhalten die Funktionen, die die Domain auf der 1. Ebene gewährt.
 Feature/&UrPriestDomainTheftTitle	Domain-Diebstahl
-Feature/&UrPriestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubersprüchen, wenn du einen Hexenmeisterzauber lernst. Kleriker-Zauber werden für dich zur Hexenmeister-Zauberliste hinzugefügt.
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Kleriker-Zauber werden für dich zur Hexenmeister-Zauberliste hinzugefügt.
 Feature/&UrPriestExpandedSpelllistAfinityTitle	Urpriester-Zauber
 Feature/&WallofThornsFeatureSetDescription	Wirke einmal täglich Dornenwand.
 Feature/&WallofThornsFeatureSetTitle	Waldbarriere
@@ -1194,7 +1194,7 @@ Feedback/&AdditionalDamageElementalDamageFormat	Elementarschaden
 Feedback/&AdditionalDamageElementalDamageLine	Elementarform gewährt zusätzlichen Schaden
 Feedback/&AdditionalDamageLightningSpearFormat	Blitzspeer!
 Feedback/&AdditionalDamageLightningSpearLine	{0} schlägt {1} mit Blitzspeer! (+{2})
-Feedback/&AdditionalDamagePactMarkedFormat	Paktzeichen!
+Feedback/&AdditionalDamagePactMarkedFormat	Paktmarke!
 Feedback/&AdditionalDamagePactMarkedLine	Paktmarke fügt zusätzlichen Schaden zu!
 Feedback/&AdditionalDamagePactSoulTakerFormat	Seelenfänger!
 Feedback/&AdditionalDamagePactSoulTakerLine	Soul Taker fügt zusätzlichen Schaden zu!
@@ -1339,7 +1339,7 @@ Message/&LevelDownMultiplayerAbortDescription	Kann während einer Multiplayer-Si
 Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
 Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
 Message/&RespecMultiplayerAbortDescription	Respec während einer Multiplayer-Sitzung oder auf der Erkundungskarte nicht möglich.
-Message/&SpawnCustomEncounterDescription	Spawn-Begegnung bei den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	Begegnungen können in einem Multiplayer-Spiel nicht gespawnt werden. Noch...
 Message/&SpawnCustomEncounterTitle	Begegnen
 Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren.
@@ -1381,9 +1381,9 @@ Power/&ClassMonkDiamondSoulPowerDescription	Immer wenn du einen Rettungswurf mac
 Power/&ClassMonkDiamondSoulPowerTitle	Diamantseele
 Power/&ClassMonkEmptyBodyDescription	Du kannst deine Aktion nutzen, um 4 Ki-Punkte auszugeben, um 1 Minute lang unsichtbar zu werden. Während dieser Zeit haben Sie auch Widerstand gegen jeglichen Schaden außer Gewaltschaden.
 Power/&ClassMonkEmptyBodyTitle	Leerer Körper
-Power/&ClassMonkFlurryOfBlowsDescription	Nachdem du deine Aktion zum Angriff mit der Mönchswaffe ausgegeben hast, kannst du 1 Ki-Punkt als Bonusaktion ausgeben, um 2 waffenlose Schläge auszuführen. Nur verfügbar, wenn du keine Rüstung trägst oder einen Schild schwingst.
+Power/&ClassMonkFlurryOfBlowsDescription	Nachdem Sie Ihre Aktion zum Angriff mit der Mönchswaffe ausgegeben haben, können Sie 1 Ki-Punkt als Bonusaktion ausgeben, um 2 waffenlose Schläge auszuführen. Nur verfügbar, wenn du keine Rüstung trägst oder einen Schild schwingst.
 Power/&ClassMonkFlurryOfBlowsTitle	Schlaghagel
-Power/&ClassMonkKiPoolDescription	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Die maximale Menge entspricht deiner Mönchsstufe. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen.
+Power/&ClassMonkKiPoolDescription	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Der Höchstbetrag entspricht Ihrem Mönchslevel. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen.
 Power/&ClassMonkKiPoolTitle	Ki-Punkte
 Power/&ClassMonkKiStillnessOfMindDescription	Sie können Ihre Aktion verwenden, um einen Effekt auf sich selbst zu beenden, der Sie bezaubert oder verängstigt macht.
 Power/&ClassMonkKiStillnessOfMindTitle	Stille des Geistes
@@ -1458,13 +1458,13 @@ Power/&ToadKingGraspingTongueDescription	Ziehen Sie Feinde zu sich heran.
 Power/&ToadKingGraspingTongueTitle	Greifende Zunge
 Power/&ToadKingHallucinogenicToxinPowerDescription	Ihr Körper hat sich so verändert, dass er gegen Toxine resistent wird und ein Abwehrgift produziert, wenn er von Nahkampfangriffen getroffen wird, und zwar bis zu einer Anzahl von Malen pro langer Pause, die Ihrem Kompetenzbonus entspricht. Wenn dem Angreifer ein Konstitutionsrettungswurf misslingt, leidet er unter luzinogenem Toxin, bis er angegriffen oder anderweitig unterbrochen wird.
 Power/&ToadKingHallucinogenicToxinPowerTitle	Halluzinogenes Toxin
-Power/&ToadKingSwallowDescription	Versuchen Sie, einen mittelgroßen oder kleineren Feind zu verschlucken. Bei einem misslungenen Stärkewurf wird das Monster verschluckt und erleidet 3W6 Säureschaden pro Runde. Endet, wenn der Krötenhexenmeister bei einem einzigen Angriff mit 15 oder mehr Schaden getroffen wird.
+Power/&ToadKingSwallowDescription	Versuchen Sie, einen mittelgroßen oder kleineren Feind zu verschlucken. Bei einem fehlgeschlagenen Stärkewurf wird das Monster verschluckt und erleidet 3W6 Säureschaden pro Runde. Endet, wenn der Krötenhexenmeister bei einem einzigen Angriff mit 15 oder mehr Schaden getroffen wird.
 Power/&ToadKingSwallowTitle	Schlucken
 Power/&UrPriestControlUndeadDescription	Als Aktion zielst du auf eine untote Kreatur, die du innerhalb von 9 m von dir sehen kannst. Das Ziel muss einen Weisheitsrettungswurf machen. Bei einem fehlgeschlagenen Speichern muss das Ziel Ihren Befehlen gehorchen.
 Power/&UrPriestControlUndeadTitle	Kontrolliere Untote
 Power/&UrPriestHalfLifeDescription	Du nimmst nekrotische Energie in dich auf, hängst zwischen Leben und Tod und bist vorübergehend von deinem eigenen Geist besessen. Sie erhalten Fluggeschwindigkeit und die gleichen Zustandsimmunitäten und Schadensresistenzen wie andere Geister.
 Power/&UrPriestHalfLifeTitle	Halbwertszeit
-Power/&UrPriestRadiantWardDescription	Als Aktion erhalten Sie eine Anzahl temporärer Trefferpunkte in Höhe des Doppelten Ihrer Hexenmeisterstufe.
+Power/&UrPriestRadiantWardDescription	Als Aktion erhalten Sie eine Anzahl temporärer Trefferpunkte in Höhe des Doppelten Ihrer Stufe als Hexenmeister.
 Power/&UrPriestRadiantWardTitle	Strahlende Station
 Power/&UrPriestSpellSiphonDescription	Sie lernen, wie Sie in Kombination mit Ihrer normalen Kraftreserve eine größere Quelle der Magie anzapfen können. Als Aktion kannst du eine Göttlichkeit kanalisieren, um eine verbrauchte Nutzung deines mystischen Arkanums der 6. Stufe wiederzuerlangen.
 Power/&UrPriestSpellSiphonTitle	Siphon buchstabieren
@@ -1538,8 +1538,8 @@ Reaction/&SpendPowerDiamondSoulReactTitle	Neu würfeln
 Reaction/&SpendPowerDiamondSoulTitle	Diamantseele
 Reaction/&SpendPowerInspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere deinen Verbündeten mit 1W6 + 2 temporären HP.
 Reaction/&SpendPowerInspirePowerTitle	Inspirieren
-Reaction/&SpendPowerKnockDownPowerDescription	Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
-Reaction/&SpendPowerKnockDownPowerReactDescription	Gib einen Gambit-Würfel aus und verstärke deinen Angriff, um zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
+Reaction/&SpendPowerKnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
+Reaction/&SpendPowerKnockDownPowerReactDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
 Reaction/&SpendPowerKnockDownPowerReactTitle	Niederschlagen
 Reaction/&SpendPowerKnockDownPowerTitle	Niederschlagen
 Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Du kannst deine arkanen Kräfte einsetzen, um dich als Reaktion abzuschirmen.
@@ -1557,7 +1557,7 @@ Reaction/&SubitemSelectSlotLevelTitle	Slot-Level
 Reaction/&SubitemSelectWarcasterReactionTitle	Aktion auswählen
 Reaction/&Use{0}Description	Verwenden Sie {0}
 Reaction/&Use{0}Title	Verwenden Sie {0}
-Reaction/&UseClassMonkSlowFallDescription	{0} fällt und kann eine Reaktion verwenden, um keinen Fallschaden zu erleiden.
+Reaction/&UseClassMonkSlowFallDescription	{0} fällt und kann eine Reaktion verwenden, um keinen Sturzschaden zu erleiden.
 Reaction/&UseClassMonkSlowFallReactDescription	Verwenden Sie die Reaktion, um keinen Fallschaden zu erleiden.
 Reaction/&UseClassMonkSlowFallReactTitle	Reagieren
 Reaction/&UseClassMonkSlowFallTitle	Langsamer Fall
@@ -1677,7 +1677,7 @@ Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß
 Spell/&DHSunBurstSpellTitle	Sonnendurchbruch
 Spell/&DHTimeStopSpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
 Spell/&DHTimeStopSpellTitle	Zeitstopp
-Spell/&DHWeirdSpellDescription	Du schöpfst aus den tiefsten Ängsten einer Gruppe von Kreaturen und erschaffst illusorische Kreaturen in ihren Köpfen, die nur für sie sichtbar sind. Jede Kreatur in einer Kugel mit einem Radius von 30 Fuß, deren Mittelpunkt ein Punkt deiner Wahl in Reichweite ist, muss einen Weisheitswurf ablegen. Bei einem fehlgeschlagenen Rettungswurf bekommt eine Kreatur für die Dauer Angst. Die Illusion ruft die tiefsten Ängste der Kreatur hervor und manifestiert ihre schlimmsten Alpträume als unerbittliche Bedrohung. Am Ende jedes Zuges der verängstigten Kreatur muss ihr ein Weisheitsrettungswurf gelingen oder sie erleidet 4W10 psychischen Schaden. Bei einem erfolgreichen Rettungswurf endet der Zauber für diese Kreatur.
+Spell/&DHWeirdSpellDescription	Du schöpfst aus den tiefsten Ängsten einer Gruppe von Kreaturen und erschaffst illusorische Kreaturen in ihren Köpfen, die nur für sie sichtbar sind. Jede Kreatur in einer Kugel mit einem Radius von 30 Fuß, deren Mittelpunkt ein Punkt deiner Wahl in Reichweite ist, muss einen Weisheitswurf ablegen. Bei einem fehlgeschlagenen Rettungswurf bekommt eine Kreatur für die Dauer Angst. Die Illusion ruft die tiefsten Ängste der Kreatur hervor und manifestiert ihre schlimmsten Albträume als unerbittliche Bedrohung. Am Ende jedes Zuges der verängstigten Kreatur muss ihr ein Weisheitsrettungswurf gelingen oder sie erleidet 4W10 psychischen Schaden. Bei einem erfolgreichen Rettungswurf endet der Zauber für diese Kreatur.
 Spell/&DHWeirdSpellTitle	Seltsam
 Spell/&EarthTremorDescription	Du triffst auf den Boden und entfesselst ein Beben seismischer Kraft, das Erde, Felsen und Sand aufwirbelt.
 Spell/&EarthTremorTitle	Erdbeben
@@ -1689,7 +1689,7 @@ Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (Abstoßend)
 Spell/&EldritchBlastTitle	Eldritch-Explosion
 Spell/&EldritchOrbDescription	Du schleuderst eine Kugel unheimlicher Energie auf eine Kreatur oder ein Objekt in Reichweite und fügst in einem kleinen Radius Gewaltschaden zu.
 Spell/&EldritchOrbTitle	Unheimliche Kugel
-Spell/&EWResonatingStrikeDescription	Wähle eine Kreatur in Nahkampfreichweite von dir und eine andere Kreatur, die du innerhalb von 1,50 m vom Hauptziel sehen kannst. Du führst einen Nahkampfangriff mit der aktuellen Waffe gegen die erste Kreatur aus. Bei einem Treffer erleidet das Ziel die normalen Effekte des Waffenangriffs und ein resonierendes Geräusch springt zum zweiten Ziel und verursacht Donnerschaden in Höhe deines Fähigkeitsmodifikators zum Zaubern.\nAuf der 5. Stufe fügt der Nahkampfangriff dem Ziel bei einem Treffer zusätzlich 1W8 Donnerschaden zu, und der Donnerschaden der zweiten Kreatur steigt auf 1W8 + deinen Modifikator für Zauberfähigkeiten. Beide Schadenswürfe erhöhen sich um 1W8 auf der 11. und 17. Stufe.
+Spell/&EWResonatingStrikeDescription	Wähle eine Kreatur in Nahkampfreichweite von dir und eine andere Kreatur, die du innerhalb von 1,50 m vom Hauptziel sehen kannst. Du führst einen Nahkampfangriff mit der aktuellen Waffe gegen die erste Kreatur aus. Bei einem Treffer erleidet das Ziel die normalen Effekte des Waffenangriffs, und ein resonierendes Geräusch springt zum zweiten Ziel und verursacht Donnerschaden in Höhe Ihres Modifikators für Zauberfähigkeiten.\nAuf der 5. Stufe fügt der Nahkampfangriff dem Ziel bei einem Treffer zusätzlich 1W8 Donnerschaden zu, und der Donnerschaden der zweiten Kreatur erhöht sich auf 1W8 + Modifikator deiner Fähigkeit zum Zaubern. Beide Schadenswürfe erhöhen sich um 1W8 auf der 11. und 17. Stufe.
 Spell/&EWResonatingStrikeTitle	Resonanzschlag
 Spell/&EWSunlightBladeDescription	Führen Sie einen Nahkampfangriff mit einer Waffe durch. Bei einem Treffer erleidet das Ziel die normalen Effekte des Angriffs und wird von glühender strahlender Energie eingehüllt, die für die Runde ein schwaches Licht ausstrahlt. Der nächste Angriff gegen diese Kreatur, während sie hervorgehoben ist, wird mit Vorteil ausgeführt.\nAuf der 5. Stufe fügt der Nahkampfangriff dem Ziel zusätzlich 1W8 Strahlenschaden zu. Der Schaden erhöht sich um weitere 1W8 auf der 11. und 17. Stufe.
 Spell/&EWSunlightBladeTitle	Sonnenbeschienene Klinge
@@ -1821,17 +1821,17 @@ Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelhe
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
 Subclass/&BarbarianPathOfTheLightTitle	Weg des Lichts
-Subclass/&BloodWitchDescription	Blutmagie, die von den meisten Hexenzirkeln verboten ist, konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Flüchen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
+Subclass/&BloodWitchDescription	Die von den meisten Hexenzirkeln verbotene Blutmagie konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Verwünschungen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
 Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
 Subclass/&BloodWitchMagicTitle	Die Blutmagie
 Subclass/&BloodWitchTitle	Blut Hexe
-Subclass/&CancelCancelElixirFlyDescription	Beende die Fliegen-Bedingung aus dem Trankmacher-Elixier.
+Subclass/&CancelCancelElixirFlyDescription	Beende die Fliegen-Bedingung durch das Trankmacher-Elixier.
 Subclass/&CancelCancelElixirFlyTitle	Fliegen abbrechen
 Subclass/&CancelCancelElixirResilienceDescription	Beenden Sie die Resilienz-Bedingung des Trankmacher-Elixiers.
 Subclass/&CancelCancelElixirResilienceTitle	Resilienz abbrechen
 Subclass/&CancelCancelElixirSwiftnessDescription	Beende den Schnelligkeits-Zustand des Trankmacher-Elixiers.
 Subclass/&CancelCancelElixirSwiftnessTitle	Schnelligkeit abbrechen
-Subclass/&ClassMonkTraditionDescription	Auf der 3. Ebene wählst du den spirituellen Weg, dem du zur Erleuchtung folgst. Es wird prägen, wie Sie Ki manipulieren.
+Subclass/&ClassMonkTraditionDescription	Auf der 3. Stufe wählst du den spirituellen Weg, dem du zur Erleuchtung folgst. Es wird prägen, wie Sie Ki manipulieren.
 Subclass/&ClassMonkTraditionTitle	Klostertraditionen
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Mönche des Weges der Offenen Hand sind die ultimativen Meister der Kampfkünste, ob bewaffnet oder unbewaffnet. Sie lernen Techniken, um ihre Gegner zu stoßen und zu Fall zu bringen, Ki zu manipulieren, um Schäden an ihrem Körper zu heilen, und praktizieren fortgeschrittene Meditation, die sie vor Schaden schützen kann.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Weg der offenen Hand
@@ -1866,15 +1866,15 @@ Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Das Band zwischen de
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Ewiger Kamerad
 Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Du bist immun gegen Furchteffekte.
 Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Furchtloser Kommandant
-Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Sie addieren Ihren Wissensstand über Ihr aktuelles Ziel zu Ihren Angriffs- und Schadenswürfen.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Du addierst deinen Wissensstand über dein aktuelles Ziel zu deinen Angriffs- und Schadenswürfen.
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Kenne deinen Feind
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Als Bonusaktion kannst du versuchen, dein Wissen über dein Ziel zu erweitern, indem du einen Wurf auf Überleben würfelst. Sie können dies zweimal pro kurzer Pause tun.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 1 Geister des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + das Doppelte deines Kämpferlevels an HP und seine RK ist 16 + dein Fertigkeitsbonus. Die Geister sind immun gegen Gift, Kälte, nekrotische, anfällige, gelähmte und zurückgehaltene Zustände. Die Geister haben Resistenz gegen Feuer-, Säure-, Blitz- und Donnerschaden sowie Resistenz gegen nichtmagischen Hieb-, Knüppel- und Stichschaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß hoch fliegen und einen einzelnen Nahkampfwaffenangriff ausführen, der 2W6 + 5 magischen Hiebschaden mit einem Bonus von 5 + Geschicklichkeitsbonus auf Treffer verursacht.
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 1 Geist des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + das Doppelte deines Kämpferlevels an HP und seine RK ist 16 + dein Fertigkeitsbonus. Die Geister sind immun gegen Gift, Kälte, nekrotische, anfällige, gelähmte und zurückgehaltene Zustände. Die Geister haben Resistenz gegen Feuer-, Säure-, Blitz- und Donnerschaden sowie Resistenz gegen nichtmagischen Hieb-, Knüppel- und Stichschaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß hoch fliegen und einen einzelnen Nahkampfwaffenangriff ausführen, der 2W6 + 5 magischen Hiebschaden mit einem Bonus von 5 + Geschicklichkeitsbonus auf Treffer verursacht.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
 Subclass/&FighterMarshalTitle	Marschall
 Subclass/&FighterSpellShieldDescription	Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
-Subclass/&FighterSpellShieldSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen der Abschwörung, Illusion, Transmutation und Nekromantie.
+Subclass/&FighterSpellShieldSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen Abjuration, Illusion, Transmutation und Nekromantie.
 Subclass/&FighterSpellShieldSpellcastingTitle	Zaubern
 Subclass/&FighterSpellShieldSpellResistanceDescription	Deine Erfahrung mit Zaubersprüchen und insbesondere der Bannzaubermagie hat dich resistent gegen gegen dich gerichtete Zauber gemacht.
 Subclass/&FighterSpellShieldSpellResistanceTitle	Zauberwiderstand
@@ -1903,7 +1903,7 @@ Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Ihr könnt während ein
 Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Alchemistische Zubereitung
 Subclass/&MagicAffinityFighterSpellShieldDescription	Vorteil bei Konzentrationswürfen sowie die Fähigkeit, somatische Komponenten von Zaubersprüchen auszuführen, während Gegenstände gehalten werden.
 Subclass/&MagicAffinityFighterSpellShieldTitle	Kampf-Casting
-Subclass/&MagicAffinityLifeTransmuterListDescription	Wenn einige Transmutations- und Nekromantiezauber gewirkt werden, werden sie auf einem Zauberplatz gewirkt, der 2 Stufen höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Falsches Leben, Blindheit, Fliegen, Fluch verleihen, Vampirberührung, Seuche und Wolkentötung.\n--Hinweis: Es ist beabsichtigt, auch den Vorteil von Magic Weapon zu haben, aber derzeit hat die Erhöhung des Zauberlevels auf Magic Weapon keine Auswirkung.
+Subclass/&MagicAffinityLifeTransmuterListDescription	Wenn einige Transmutations- und Nekromantiezauber gewirkt werden, werden sie auf einem Zauberplatz gewirkt, der 2 Stufen höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Falsches Leben, Blindheit, Fliegen, Fluch verleihen, Vampirberührung, Seuche und Wolkentötung.\n--Hinweis: Es ist beabsichtigt, auch den Vorteil von Magischer Waffe zu haben, aber derzeit hat das Erhöhen des Zauberlevels auf Magische Waffe auf diese Weise keine Wirkung.
 Subclass/&MagicAffinityLifeTransmuterListTitle	Realitätsbeugung
 Subclass/&MagicAffinityMasterManipulatorDC0Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 0.
 Subclass/&MagicAffinityMasterManipulatorDC1Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 1.
@@ -1913,7 +1913,7 @@ Subclass/&MagicAffinityMasterManipulatorDC4Description	Es ist schwieriger für G
 Subclass/&MagicAffinityMasterManipulatorDC5Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 5.
 Subclass/&MagicAffinityMasterManipulatorDCDescription	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 3.
 Subclass/&MagicAffinityMasterManipulatorDCTitle	Arkane Kraft
-Subclass/&MagicAffinityMasterManipulatorListDescription	Wenn einige Verzauberungs-, Bann- und Illusionszauber gewirkt werden, werden sie mit einem Zauberplatz gewirkt, der 1 Stufe höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Person bezaubern, Schlaf, Farbspray, Person festhalten, Unsichtbarkeit, Gegenzauber, Magie bannen, Verbannung, Verwirrung, Phantasmal Killer, Person beherrschen und Monster festhalten.
+Subclass/&MagicAffinityMasterManipulatorListDescription	Beim Wirken einiger Verzauberungs-, Bannzauber- und Illusionszauber werden sie mit einem Zauberplatz gewirkt, der 1 Stufe höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Person bezaubern, Schlaf, Farbspray, Person festhalten, Unsichtbarkeit, Gegenzauber, Magie bannen, Verbannung, Verwirrung, Phantasmal Killer, Person beherrschen und Monster festhalten.
 Subclass/&MagicAffinityMasterManipulatorListTitle	Arkane Manipulation
 Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Verschaffen Sie sich aufgrund der Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationswürfen.
 Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Verbesserte Konzentration
@@ -1978,7 +1978,7 @@ Subclass/&PurpleWitchDescription	Lila Magie herrscht über die Bereiche der Illu
 Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
 Subclass/&PurpleWitchMagicTitle	Lila Magie
 Subclass/&PurpleWitchTitle	Lila Hexe
-Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verschmilzt seine Waldläuferfähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
+Subclass/&RangerArcanistRangerSubclassDescription	Der Waldläufer-Arkanist verschmilzt seine Waldläufer-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen, und sie haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
 Subclass/&RangerArcanistRangerSubclassTitle	Ranger-Arkanist
 Subclass/&RedWitchDescription	Arkane Magie, die mit dem Kanalisieren der Elemente verbunden ist, gilt als rote Magie und ist bei Verwendung äußerst gefährlich. Hexen, die sich auf rote Magie spezialisiert haben, gehören zu den tödlichsten Zauberkundigen, die es gibt, und kanalisieren ihren Fluch ungehindert in arkanen Zorn.
 Subclass/&RedWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
@@ -1994,7 +1994,7 @@ Subclass/&RoguishConArtistMentalSavingThrowsTitle	Mentale Stärke
 Subclass/&RoguishConArtistSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen der Beschwörung, Verzauberung, Illusion und Transmutation. Der Betrüger nutzt Charisma, um seine Zauber zu wirken.
 Subclass/&RoguishConArtistSpellcastingTitle	Zaubern
 Subclass/&RoguishConArtistTitle	Trickbetrüger
-Subclass/&ScoutSentinelTinkererSubclassDescription	Ein Scout Sentinel-Tüftler modifiziert Rüstungen, um ihre Funktion zu verbessern und verbesserten Schutz und Mobilität zu bieten.
+Subclass/&ScoutSentinelTinkererSubclassDescription	Ein Scout Sentinel Tinkerer modifiziert Rüstungen, um ihre Funktion zu verbessern und verbesserten Schutz und Mobilität zu bieten.
 Subclass/&ScoutSentinelTinkererSubclassTitle	Scout-Wächter
 Subclass/&SpellShieldAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
 Subclass/&SpellShieldAdditionalActionTitle	Zauberkampf
@@ -2041,7 +2041,7 @@ Subclass/&WhiteWitchTitle	weiße Hexe
 Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhepunkt erreicht, indem du einem Coven beigetreten bist, einem angeborenen Kreis von Hexen, die einen bestimmten Pfad der Hexerei und der Flüche beschreiten.
 Subclass/&WitchSubclassPathTitle	Hexenzirkel
 ToolTip/&CheckBoxDefaultPartyTitle	Aktivieren Sie dieses Kontrollkästchen, um Ihre Standardgruppe festzulegen, wenn Sie neue Abenteuer starten oder benutzerdefinierte Orte testen. Du kannst bis zu {0} Helden nach dem First-in/First-out-Prinzip auswählen
-Tooltip/&CustomPortraitPoolClassMonkKiPool	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Die maximale Menge entspricht deiner Mönchsstufe. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen
+Tooltip/&CustomPortraitPoolClassMonkKiPool	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Der Höchstbetrag entspricht Ihrem Mönchslevel. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen
 Tooltip/&DeadeyeConcentration	Deadeye deaktivieren.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
 Tooltip/&FeatPrerequisiteHasStealthAttack	Hat Stealth-Angriff
@@ -2074,3 +2074,13 @@ Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Ang
 Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
 Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
 Reaction/&CoordinatedAttackReactTitle	Attacke
+Feature/&RallyingCryPowerTitle	Sammelnder Schrei
+Feature/&RallyingCryPowerTitleShort	Sammelnder Schrei
+Feature/&RallyingCryPowerDescription	Ersetzt Zweiter Wind durch eine Kraft, um 4x Kämpferstufen-Trefferpunkte bei einem oder mehreren Verbündeten innerhalb von 6 Zellen bis zu ihrem Trefferpunkte-Maximum wiederherzustellen.
+Feature/&RoyalEnvoyFeatureTitle	Königlicher Gesandter
+Feature/&RoyalEnvoyFeatureDescription	Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
+Feature/&InspiringSurgePowerTitle	Inspirierende Welle
+Feature/&InspiringSurgePowerTitleShort	Inspirierende Welle
+Feature/&InspiringSurgePowerDescription	Gewähre einem Verbündeten eine zusätzliche Hauptaktion für 1 Runde. Kann nicht mit Action Surge gestapelt werden.
+Subclass/&FighterRoyalKnightTitle	königlicher Ritter
+Subclass/&FighterRoyalKnightDescription	Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein einsamer Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.

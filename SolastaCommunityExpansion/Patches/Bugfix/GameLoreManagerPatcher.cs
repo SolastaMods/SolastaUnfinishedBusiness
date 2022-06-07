@@ -13,10 +13,9 @@ internal static class GameLoreManager_SerializeElements
     // from the list of known recipes.
     internal static void Postfix(GameLoreManager __instance)
     {
-        if (!Main.Settings.BugFixNullRecipesOnGameSerialization)
-        {
-            return;
-        }
+        //
+        // BUGFIX: null recipes on game serialization
+        //
 
         __instance.KnownRecipes.RemoveAll(item => item == null);
     }

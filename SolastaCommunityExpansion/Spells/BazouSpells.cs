@@ -232,11 +232,11 @@ internal static class BazouSpells
         actionAffinity.RandomBehaviourOptions.Clear();
 
         var behaviorMode = new BehaviorModeDescription();
-        behaviorMode.SetBehaviour(RuleDefinitions.RandomBehaviour.ConditionDuringTurn);
+        behaviorMode.behaviour = RuleDefinitions.RandomBehaviour.ConditionDuringTurn;
         // This condition seems to only attack a creature adjacent to where it is. 
         // It will not make the affected creature move towards another creature... :(
-        behaviorMode.SetCondition(ConditionConfusedAttack);
-        behaviorMode.SetWeight(10);
+        behaviorMode.condition = ConditionConfusedAttack;
+        behaviorMode.weight = 10;
 
         actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
         conditionDefinition.Features.SetRange(actionAffinity);
@@ -333,12 +333,12 @@ internal static class BazouSpells
             .SetCanMove()
             .SetPortrait(WindWall.GuiPresentation.SpriteReference)
             .AddAdditionalFeatures(FeatureDefinitionMoveModes.MoveModeMove6)
-            .AddToDB()
-            // TODO: move into builder
-            .SetActionId(ActionDefinitions.Id.ProxyFlamingSphere)
-            .SetAttackMethod(RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms)
-            .SetCanMoveOnCharacters(true)
-            .SetIsEmptyPresentation(false);
+            .AddToDB();
+
+        effectProxyDefinition.actionId = ActionDefinitions.Id.ProxyFlamingSphere;
+        effectProxyDefinition.attackMethod = RuleDefinitions.ProxyAttackMethod.ReproduceDamageForms;
+        effectProxyDefinition.canMoveOnCharacters = true;
+        effectProxyDefinition.isEmptyPresentation = false;
 
         spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
 

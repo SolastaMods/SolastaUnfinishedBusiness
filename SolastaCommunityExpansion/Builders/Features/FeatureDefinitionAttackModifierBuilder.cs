@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Builders.Features;
@@ -17,14 +16,14 @@ public class FeatureDefinitionAttackModifierBuilder
         bool canAddAbilityBonusToSecondary = false,
         string additionalAttackTag = "")
     {
-        Definition.SetAttackRollModifierMethod(attackRollModifierMethod);
-        Definition.SetAttackRollModifier(attackRollModifier);
-        Definition.SetAttackRollAbilityScore(attackRollAbilityScore);
-        Definition.SetDamageRollModifierMethod(damageRollModifierMethod);
-        Definition.SetDamageRollModifier(damageRollModifier);
-        Definition.SetDamageRollAbilityScore(damageRollAbilityScore);
-        Definition.SetCanAddAbilityBonusToSecondary(canAddAbilityBonusToSecondary);
-        Definition.SetAdditionalAttackTag(additionalAttackTag);
+        Definition.attackRollModifierMethod = attackRollModifierMethod;
+        Definition.attackRollModifier = attackRollModifier;
+        Definition.attackRollAbilityScore = attackRollAbilityScore;
+        Definition.damageRollModifierMethod = damageRollModifierMethod;
+        Definition.damageRollModifier = damageRollModifier;
+        Definition.damageRollAbilityScore = damageRollAbilityScore;
+        Definition.canAddAbilityBonusToSecondary = canAddAbilityBonusToSecondary;
+        Definition.additionalAttackTag = additionalAttackTag;
 
         return This();
     }
@@ -32,21 +31,21 @@ public class FeatureDefinitionAttackModifierBuilder
     public FeatureDefinitionAttackModifierBuilder SetAbilityScoreReplacement(
         RuleDefinitions.AbilityScoreReplacement replacement)
     {
-        Definition.SetAbilityScoreReplacement(replacement);
+        Definition.abilityScoreReplacement = replacement;
 
         return This();
     }
 
     public FeatureDefinitionAttackModifierBuilder SetAdditionalAttackTag(string tag)
     {
-        Definition.SetAdditionalAttackTag(tag);
+        Definition.additionalAttackTag = tag;
 
         return This();
     }
 
     public FeatureDefinitionAttackModifierBuilder SetImpactParticleReference(AssetReference asset)
     {
-        Definition.SetImpactParticleReference(asset);
+        Definition.impactParticleReference = asset;
 
         return This();
     }

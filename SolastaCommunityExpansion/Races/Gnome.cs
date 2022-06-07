@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using TA;
 using static SolastaModApi.DatabaseHelper;
@@ -72,7 +71,7 @@ internal static class GnomeRaceBuilder
 
         var gnomeRacePresentation = CharacterRaceDefinitions.HalfElf.RacePresentation.DeepCopy();
 
-        gnomeRacePresentation.SetPreferedHairColors(new RangedInt(26, 47));
+        gnomeRacePresentation.preferedHairColors = new RangedInt(26, 47);
 
         var gnome = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "GnomeRace", "ce63140e-c018-4f83-8e6e-bc7bbc815a17")

@@ -82,12 +82,12 @@ internal static class AceHighSpells
         {
             Definition.GuiPresentation.Title = "Spell/&AHPactMarkSpellTitle";
             Definition.GuiPresentation.Description = "Spell/&AHPactMarkSpellDescription";
-            Definition.SetSpellLevel(1);
-            Definition.SetSomaticComponent(true);
-            Definition.SetVerboseComponent(true);
-            Definition.SetSchoolOfMagic("SchoolEnchantment");
-            Definition.SetMaterialComponentType(RuleDefinitions.MaterialComponentType.Mundane);
-            Definition.SetCastingTime(RuleDefinitions.ActivationTime.BonusAction);
+            Definition.spellLevel = 1;
+            Definition.somaticComponent = true;
+            Definition.verboseComponent = true;
+            Definition.schoolOfMagic = "SchoolEnchantment";
+            Definition.materialComponentType = RuleDefinitions.MaterialComponentType.Mundane;
+            Definition.castingTime = RuleDefinitions.ActivationTime.BonusAction;
 
             var markedByPactEffectForm = new EffectForm
             {
@@ -118,7 +118,7 @@ internal static class AceHighSpells
             effectDescription.EffectForms.Add(markedByPactEffectForm);
             effectDescription.EffectForms.Add(pactMarkEffectForm);
 
-            Definition.SetEffectDescription(effectDescription);
+            Definition.effectDescription = effectDescription;
         }
 
         public static SpellDefinition CreateAndAddToDB()
@@ -181,9 +181,9 @@ internal static class AceHighSpells
         {
             Definition.GuiPresentation.Title = "Spell/&AHPactMarkAdditionalDamageTitle";
             Definition.GuiPresentation.Description = "Spell/&AHPactMarkAdditionalDamageDescription";
-            Definition.SetAttackModeOnly(false);
-            Definition.SetRequiredTargetCondition(PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition);
-            Definition.SetNotificationTag("PactMarked");
+            Definition.attackModeOnly = false;
+            Definition.requiredTargetCondition = PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition;
+            Definition.notificationTag = "PactMarked";
         }
 
         public static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name)

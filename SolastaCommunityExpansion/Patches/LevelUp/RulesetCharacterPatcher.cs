@@ -10,11 +10,6 @@ internal static class RulesetCharacter_ComputeAutopreparedSpells
 {
     internal static bool Prefix(RulesetCharacter __instance, RulesetSpellRepertoire spellRepertoire)
     {
-        if (!Main.Settings.SupportAutoPreparedSpellsOnSubclassCasters)
-        {
-            return true;
-        }
-
         var spellcastingClass = spellRepertoire.SpellCastingClass;
         if (spellRepertoire.SpellCastingSubclass != null)
         {

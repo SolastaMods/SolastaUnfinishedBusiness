@@ -12,12 +12,12 @@ public class UsableDeviceDescriptionBuilder
     {
         description = new UsableDeviceDescription();
 
-        description.SetUsage(ItemUsage.ByFunction);
+        description.usage = ItemUsage.ByFunction;
 
-        description.SetChargesCapital(ItemChargesCapital.Fixed);
-        description.SetChargesCapitalNumber(1);
-        description.SetChargesCapitalDie(RuleDefinitions.DieType.D1);
-        description.SetChargesCapitalBonus(0);
+        description.chargesCapital = ItemChargesCapital.Fixed;
+        description.chargesCapitalNumber = 1;
+        description.chargesCapitalDie = RuleDefinitions.DieType.D1;
+        description.chargesCapitalBonus = 0;
 
         description.SetRechargeRate(RuleDefinitions.RechargeRate.Dawn);
         description.SetRechargeNumber(1);

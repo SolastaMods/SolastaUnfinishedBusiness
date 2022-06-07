@@ -6,7 +6,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
 using static SolastaModApi.DatabaseHelper;
@@ -422,8 +421,8 @@ internal static class InfusionHelpers
             Operation = ConditionOperationDescription.ConditionOperation.Add, ConditionDefinition = ConditionBlinded
         };
 
-        addBlindingCondition.SetSaveAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        addBlindingCondition.SetConditionName(ConditionBlinded.Name);
+        addBlindingCondition.saveAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+        addBlindingCondition.conditionName = ConditionBlinded.Name;
 
         var radiantDamage = new FeatureHelpers.FeatureDefinitionAdditionalDamageBuilder(
                 "AdditionalDamageRadiantWeapon",

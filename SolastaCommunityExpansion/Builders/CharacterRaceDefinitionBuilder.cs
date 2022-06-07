@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -9,57 +9,57 @@ public class
 {
     public CharacterRaceDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition characterSizeDefinition)
     {
-        Definition.SetSizeDefinition(characterSizeDefinition);
+        Definition.sizeDefinition = characterSizeDefinition;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetMinimalAge(int minimalAge)
     {
-        Definition.SetMinimalAge(minimalAge);
+        Definition.minimalAge = minimalAge;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetMaximalAge(int maximalAge)
     {
-        Definition.SetMinimalAge(maximalAge);
+        Definition.minimalAge = maximalAge;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetBaseHeight(int baseHeight)
     {
-        Definition.SetBaseHeight(baseHeight);
+        Definition.baseHeight = baseHeight;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetBaseWeight(int baseWeight)
     {
-        Definition.SetBaseWeight(baseWeight);
+        Definition.baseWeight = baseWeight;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetRacePresentation(RacePresentation racePresentation)
     {
-        Definition.SetRacePresentation(racePresentation);
+        Definition.racePresentation = racePresentation;
         return this;
     }
 
     public CharacterRaceDefinitionBuilder AddFeatureAtLevel(FeatureDefinition feature, int level)
     {
-        Definition.AddFeatureUnlocks(new FeatureUnlockByLevel(feature, level));
+        Definition.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;
     }
 
     public CharacterRaceDefinitionBuilder AddFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
-        Definition.AddFeatureUnlocks(features.Select(f => new FeatureUnlockByLevel(f, level)));
+        Definition.FeatureUnlocks.AddRange(features.Select(f => new FeatureUnlockByLevel(f, level)));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;
     }
 
     public CharacterRaceDefinitionBuilder SetFeaturesAtLevel(int level, params FeatureDefinition[] features)
     {
-        Definition.SetFeatureUnlocks(
+        Definition.FeatureUnlocks.SetRange(
             features.Select(f => new FeatureUnlockByLevel(f, level)));
         Definition.FeatureUnlocks.Sort(Sorting.Compare);
         return this;

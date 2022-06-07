@@ -7,19 +7,18 @@ using HarmonyLib;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
 
-// Fixes TA's code not checking for some power's activation time and directly loking it up in a dict where this activation time is absent.
+// Fixes TA's code not checking for some power's activation time and directly looking it up in a dict where this activation time is absent.
 [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class PowerSelectionPanel_Bind
 {
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        var codes = instructions.ToList();
+        //
+        // BUGFIX: power activation time
+        //
 
-        if (!Main.Settings.BugFixPowerActivationTime)
-        {
-            return codes;
-        }
+        var codes = instructions.ToList();
 
         var customMethod =
             new Func<List<FeatureDefinition>, FeatureDefinitionPower, bool>(CustomCheck).Method;

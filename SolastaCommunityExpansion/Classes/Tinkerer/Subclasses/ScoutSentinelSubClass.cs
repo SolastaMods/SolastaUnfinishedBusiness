@@ -364,7 +364,7 @@ internal sealed class ScoutSentinelAutopreparedSpellsBuilder : FeatureDefinition
         // todo: refactor so the Tinkerer class can easily get passed in to BuildAndAddSubclass and into the auto prepared spells builder instead of using a getter.
         var tinkerer = DatabaseRepository.GetDatabase<CharacterClassDefinition>().TryGetElement("ClassTinkerer",
             GuidHelper.Create(TinkererClass.GuidNamespace, "ClassTinkerer").ToString());
-        Definition.SetSpellcastingClass(tinkerer);
+        Definition.spellcastingClass = tinkerer;
     }
 
     private static FeatureDefinitionAutoPreparedSpells CreateAndAddToDB(string name, string guid)
@@ -415,7 +415,7 @@ internal sealed class SubclassMovementAffinitiesBuilder : FeatureDefinitionMovem
     {
         Definition.GuiPresentation.Title = "Feat/&SubclassMovementTitle";
         Definition.GuiPresentation.Description = "Feat/&SubclassMovementDescription";
-        Definition.SetHeavyArmorImmunity(true);
+        Definition.heavyArmorImmunity = true;
     }
 
     private static FeatureDefinitionMovementAffinity CreateAndAddToDB(string name, string guid)
@@ -441,9 +441,9 @@ internal sealed class UseArmorWeaponsAsFocusBuilder : FeatureDefinitionMagicAffi
     {
         Definition.GuiPresentation.Title = "Feat/&UseArmorWeaponsAsFocusTitle";
         Definition.GuiPresentation.Description = "Feat/&UseArmorWeaponsAsFocusDescription";
-        Definition.SetCanUseProficientWeaponAsFocus(true);
-        Definition.SetSomaticWithWeapon(true);
-        Definition.SetRangeSpellNoProximityPenalty(false);
+        Definition.canUseProficientWeaponAsFocus = true;
+        Definition.somaticWithWeapon = true;
+        Definition.rangeSpellNoProximityPenalty = false;
     }
 
     private static FeatureDefinitionMagicAffinity CreateAndAddToDB(string name, string guid)
@@ -470,13 +470,13 @@ internal sealed class IntToAttackAndDamageBuilder : FeatureDefinitionAttackModif
         Definition.GuiPresentation.Title = "Feat/&IntToAttackAndDamageTitle";
         Definition.GuiPresentation.Description = "Feat/&IntToAttackAndDamageDescription";
 
-        Definition.SetDamageDieReplacement(RuleDefinitions.DamageDieReplacement.None);
-        Definition.SetCanAddAbilityBonusToSecondary(true);
-        Definition.SetAbilityScoreReplacement(RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility);
+        Definition.damageDieReplacement = RuleDefinitions.DamageDieReplacement.None;
+        Definition.canAddAbilityBonusToSecondary = true;
+        Definition.abilityScoreReplacement = RuleDefinitions.AbilityScoreReplacement.SpellcastingAbility;
 
         //    AssetReference assetReference = new AssetReference();
         //    assetReference.SetField("m_AssetGUID", "ad68a1be3193a314c911afd02ca8d360");
-        //    Definition.SetImpactParticleReference(assetReference);
+        //    Definition.impactParticleReference = assetReference;
     }
 
     private static FeatureDefinitionAttackModifier CreateAndAddToDB(string name, string guid)
@@ -506,7 +506,7 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.IsWeapon = true;
         //         Definition.IsFood = true;
 
-        Definition.SetInDungeonEditor(true);
+        Definition.inDungeonEditor = true;
 
         var damageEffect = new EffectForm
         {
@@ -600,26 +600,26 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         });
 
         var focusItemDescription = new FocusItemDescription();
-        focusItemDescription.SetShownAsFocus(true);
-        focusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
+        focusItemDescription.shownAsFocus = true;
+        focusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
 
-        Definition.SetActiveOnGround(false);
-        Definition.SetCanBeStacked(true);
-        Definition.SetDefaultStackCount(2);
-        Definition.SetFocusItemDescription(focusItemDescription);
-        Definition.SetForceEquip(false);
-        Definition.SetForceEquipSlot("");
-        Definition.SetInDungeonEditor(true);
-        Definition.SetItemRarity(RuleDefinitions.ItemRarity.VeryRare);
-        Definition.SetMagical(true); //
-        Definition.SetMerchantCategory("Weapon");
-        Definition.SetRequiresAttunement(false);
+        Definition.activeOnGround = false;
+        Definition.canBeStacked = true;
+        Definition.defaultStackCount = 2;
+        Definition.focusItemDefinition = focusItemDescription;
+        Definition.forceEquip = false;
+        Definition.forceEquipSlot = "";
+        Definition.inDungeonEditor = true;
+        Definition.itemRarity = RuleDefinitions.ItemRarity.VeryRare;
+        Definition.magical = true; //
+        Definition.merchantCategory = "Weapon";
+        Definition.requiresAttunement = false;
 
-        Definition.SetRequiresIdentification(false);
-        Definition.SetStackSize(2);
-        Definition.SetUsableDeviceDescription(usableDeviceDescription);
-        Definition.SetWeaponDescription(ThunderPunch);
-        Definition.SetWeight(1);
+        Definition.requiresIdentification = false;
+        Definition.stackSize = 2;
+        Definition.usableDeviceDescription = usableDeviceDescription;
+        Definition.weaponDefinition = ThunderPunch;
+        Definition.weight = 1;
         Definition.StaticProperties.Add(usingBonusActionItemPower);
 
         Definition.GuiPresentation.Title = "Equipment/&ThunderPunchTitle";
@@ -649,11 +649,11 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.Description = "Feat/&ThunderShieldDescription";
         Definition.GuiPresentation.SetSpriteReference(Shield.GuiPresentation.SpriteReference);
 
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        Definition.SetCostPerUse(1);
-        Definition.SetFixedUsesPerRecharge(5);
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-        Definition.SetShortTitleOverride("Feat/&ThunderShieldTitle");
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        Definition.costPerUse = 1;
+        Definition.fixedUsesPerRecharge = 5;
+        Definition.activationTime = RuleDefinitions.ActivationTime.BonusAction;
+        Definition.shortTitleOverride = "Feat/&ThunderShieldTitle";
 
         var healingEffect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
 
@@ -683,7 +683,7 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
 
         newEffectDescription.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
 
-        Definition.SetEffectDescription(newEffectDescription);
+        Definition.effectDescription = newEffectDescription;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -707,20 +707,20 @@ internal sealed class ThunderStruckConditionBuilder : ConditionDefinitionBuilder
         Definition.GuiPresentation.Title = "Rules/&ThunderStruckTitle";
         Definition.GuiPresentation.Description = "Rules/&ThunderStruckDescription";
 
-        Definition.SetAllowMultipleInstances(true);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Neutral);
+        Definition.allowMultipleInstances = true;
+        Definition.conditionType = RuleDefinitions.ConditionType.Neutral;
 
         Definition.Features.Add(ThunderStruckDisadvantageCombatAffintityBuilder.Disadvantage);
-        Definition.SetSpecialDuration(true);
-        Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-        Definition.SetDurationParameter(1);
-        Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        Definition.specialDuration = true;
+        Definition.durationType = RuleDefinitions.DurationType.Round;
+        Definition.durationParameter = 1;
+        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
 
         // Fx
         var assetReference = new AssetReference();
         assetReference.SetField("m_AssetGUID", "3e25fca5d3585174f9b7e20aca6ef3d9");
-        Definition.SetConditionStartParticleReference(assetReference);
-        Definition.SetConditionParticleReference(assetReference);
+        Definition.conditionStartParticleReference = assetReference;
+        Definition.conditionParticleReference = assetReference;
     }
 
     private static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -740,7 +740,7 @@ internal sealed class ThunderStruckDisadvantageCombatAffintityBuilder : FeatureD
     private ThunderStruckDisadvantageCombatAffintityBuilder(string name, string guid) : base(
         DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned, name, guid)
     {
-        Definition.SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Disadvantage);
+        Definition.myAttackAdvantage = RuleDefinitions.AdvantageType.Disadvantage;
     }
 
     private static FeatureDefinitionCombatAffinity CreateAndAddToDB(string name, string guid)
@@ -764,12 +764,12 @@ internal sealed class ThunderStruckBalancingAdvantageConditionBuilder : Conditio
         Definition.GuiPresentation.Title = "Rules/&ThunderStruckBalancingAdvantageTitle";
         Definition.GuiPresentation.Description = "Rules/&ThunderStruckBalancingAdvantageDescription";
 
-        Definition.SetAllowMultipleInstances(true);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Neutral);
-        Definition.SetSpecialDuration(true);
-        Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-        Definition.SetDurationParameter(1);
-        Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        Definition.allowMultipleInstances = true;
+        Definition.conditionType = RuleDefinitions.ConditionType.Neutral;
+        Definition.specialDuration = true;
+        Definition.durationType = RuleDefinitions.DurationType.Round;
+        Definition.durationParameter = 1;
+        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
 
         Definition.Features.Add(BalancingAdvantageCombatAffintityBuilder.BalancingAdvantage);
     }
@@ -791,8 +791,8 @@ internal sealed class BalancingAdvantageCombatAffintityBuilder : FeatureDefiniti
     private BalancingAdvantageCombatAffintityBuilder(string name, string guid) : base(
         DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityCursedByBestowCurseOnAttackRoll, name, guid)
     {
-        Definition.SetMyAttackAdvantage(RuleDefinitions.AdvantageType.Advantage);
-        Definition.SetSituationalContext(RuleDefinitions.SituationalContext.TargetIsEffectSource);
+        Definition.myAttackAdvantage = RuleDefinitions.AdvantageType.Advantage;
+        Definition.situationalContext = RuleDefinitions.SituationalContext.TargetIsEffectSource;
     }
 
     private static FeatureDefinitionCombatAffinity CreateAndAddToDB(string name, string guid)
@@ -845,7 +845,7 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         //     Definition.IsFood = true;
         //   Definition.IsUsableDevice = true;
 
-        Definition.SetInDungeonEditor(true);
+        Definition.inDungeonEditor = true;
 
         var damageEffect = new EffectForm
         {
@@ -914,24 +914,24 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         });
 
         var focusItemDescription = new FocusItemDescription();
-        focusItemDescription.SetShownAsFocus(true);
-        focusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
+        focusItemDescription.shownAsFocus = true;
+        focusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
 
-        Definition.SetActiveOnGround(false);
-        Definition.SetCanBeStacked(true);
-        Definition.SetDefaultStackCount(-1);
-        Definition.SetFocusItemDescription(focusItemDescription);
-        Definition.SetForceEquip(false);
-        Definition.SetForceEquipSlot("MainHandSlot");
-        Definition.SetInDungeonEditor(true);
-        Definition.SetItemRarity(RuleDefinitions.ItemRarity.VeryRare);
-        Definition.SetMagical(true);
-        Definition.SetMerchantCategory("Weapon");
-        Definition.SetRequiresAttunement(false);
-        Definition.SetRequiresIdentification(false);
-        Definition.SetStackSize(2);
-        Definition.SetWeaponDescription(LightningSpear);
-        Definition.SetWeight(1);
+        Definition.activeOnGround = false;
+        Definition.canBeStacked = true;
+        Definition.defaultStackCount = -1;
+        Definition.focusItemDefinition = focusItemDescription;
+        Definition.forceEquip = false;
+        Definition.forceEquipSlot = "MainHandSlot";
+        Definition.inDungeonEditor = true;
+        Definition.itemRarity = RuleDefinitions.ItemRarity.VeryRare;
+        Definition.magical = true;
+        Definition.merchantCategory = "Weapon";
+        Definition.requiresAttunement = false;
+        Definition.requiresIdentification = false;
+        Definition.stackSize = 2;
+        Definition.weaponDefinition = LightningSpear;
+        Definition.weight = 1;
         Definition.StaticProperties.Add(LightningSpearAdditionalDamage);
         Definition.StaticProperties.Add(LightningCloakStealth);
         Definition.StaticProperties.Add(LightningCloakMovement);
@@ -941,7 +941,7 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring
             .GuiPresentation.SpriteReference);
 
-        Definition.SetItemPresentation(DatabaseHelper.ItemDefinitions.UnarmedStrikeBase.ItemPresentation);
+        Definition.itemPresentation = DatabaseHelper.ItemDefinitions.UnarmedStrikeBase.ItemPresentation;
     }
 
     private static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -963,13 +963,13 @@ internal sealed class LightningSpearAdditionalDamageBuilder : FeatureDefinitionA
     {
         Definition.GuiPresentation.Title = "Feedback/&LightningSpearAdditionalDamageTitle";
         Definition.GuiPresentation.Description = "Feedback/&LightningSpearAdditionalDamageDescription";
-        Definition.SetNotificationTag("LightningSpear");
-        Definition.SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive);
-        Definition.SetLimitedUsage(RuleDefinitions.FeatureLimitedUsage.OncePerTurn);
-        Definition.SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon);
-        Definition.SetDamageDieType(RuleDefinitions.DieType.D6);
-        Definition.SetDamageDiceNumber(1);
-        Definition.SetSpecificDamageType(RuleDefinitions.DamageTypeLightning);
+        Definition.notificationTag = "LightningSpear";
+        Definition.triggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
+        Definition.limitedUsage = RuleDefinitions.FeatureLimitedUsage.OncePerTurn;
+        Definition.requiredProperty = RuleDefinitions.AdditionalDamageRequiredProperty.RangeWeapon;
+        Definition.damageDieType = RuleDefinitions.DieType.D6;
+        Definition.damageDiceNumber = 1;
+        Definition.specificDamageType = RuleDefinitions.DamageTypeLightning;
     }
 
     private static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name, string guid)
@@ -988,7 +988,7 @@ internal sealed class LightningCloakMovementAffinitiesBuilder : FeatureDefinitio
 
     private LightningCloakMovementAffinitiesBuilder(string name, string guid) : base(name, guid)
     {
-        Definition.SetBaseSpeedAdditiveModifier(1);
+        Definition.baseSpeedAdditiveModifier = 1;
     }
 
     private static FeatureDefinitionMovementAffinity CreateAndAddToDB(string name, string guid)
@@ -1082,12 +1082,12 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers
             .PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference);
 
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        Definition.SetCostPerUse(1);
-        Definition.SetFixedUsesPerRecharge(6);
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
-        Definition.SetShortTitleOverride("Feat/&GauntletsGrappleTitle");
-        Definition.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        Definition.costPerUse = 1;
+        Definition.fixedUsesPerRecharge = 6;
+        Definition.activationTime = RuleDefinitions.ActivationTime.BonusAction;
+        Definition.shortTitleOverride = "Feat/&GauntletsGrappleTitle";
+        Definition.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
 
         var motionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
 
@@ -1138,7 +1138,7 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
         newEffectDescription.SetEffectParticleParameters(DatabaseHelper.FeatureDefinitionPowers
             .PowerShadowTamerRopeGrapple.EffectDescription.EffectParticleParameters);
 
-        Definition.SetEffectDescription(newEffectDescription);
+        Definition.effectDescription = newEffectDescription;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -1166,7 +1166,7 @@ internal sealed class ImprovedScoutSuitWeaponBuilder : ItemDefinitionBuilder
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring
             .GuiPresentation.SpriteReference);
 
-        Definition.SetInDungeonEditor(true);
+        Definition.inDungeonEditor = true;
 
         //next attack advantage // condition true strike or guiding bolt
         var NextAttackAdvantage = new EffectForm
@@ -1279,18 +1279,18 @@ internal sealed class ExtraDamageOnAttackConditionBuilder : ConditionDefinitionB
         Definition.GuiPresentation.Title = "Rules/&ExtraDamageOnAttackConditionTitle";
         Definition.GuiPresentation.Description = "Rules/&ExtraDamageOnAttackConditionDescription";
         //Static shocked
-        Definition.SetAllowMultipleInstances(true);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
-        Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-        Definition.SetDurationParameter(1);
-        Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        Definition.allowMultipleInstances = true;
+        Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
+        Definition.durationType = RuleDefinitions.DurationType.Round;
+        Definition.durationParameter = 1;
+        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
         Definition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
 
-        Definition.SetAdditionalDamageWhenHit(true);
-        Definition.SetAdditionalDamageDieNumber(1);
-        Definition.SetAdditionalDamageDieType(RuleDefinitions.DieType.D6);
-        Definition.SetAdditionalDamageType(RuleDefinitions.DamageTypeLightning);
-        Definition.SetAdditionalDamageQuantity(ConditionDefinition.DamageQuantity.Dice);
+        Definition.additionalDamageWhenHit = true;
+        Definition.additionalDamageDieNumber = 1;
+        Definition.additionalDamageDieType = RuleDefinitions.DieType.D6;
+        Definition.additionalDamageType = RuleDefinitions.DamageTypeLightning;
+        Definition.additionalDamageQuantity = ConditionDefinition.DamageQuantity.Dice;
     }
 
     private static ConditionDefinition CreateAndAddToDB(string name, string guid)

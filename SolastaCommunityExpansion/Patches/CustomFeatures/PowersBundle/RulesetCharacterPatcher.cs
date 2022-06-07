@@ -17,10 +17,6 @@ internal static class Helper
         foreach (var power in powers)
         {
             allSubPowers.Add(power);
-            if (!Main.Settings.EnablePowersBundlePatch)
-            {
-                continue;
-            }
 
             var bundles = PowerBundleContext.GetMasterPowersBySubPower(power);
 
@@ -92,17 +88,11 @@ internal static class RulesetCharacter_TerminateMatchingUniquePower
 {
     internal static void Postfix(RulesetCharacter __instance, FeatureDefinitionPower powerDefinition)
     {
-        if (Main.Settings.EnableGlobalUniqueEffectsPatch)
-        {
-            var (powers, spells) = GlobalUniqueEffects.GetSameGroupItems(powerDefinition);
-            powers.Add(powerDefinition);
-            Helper.TerminatePowers(__instance, powerDefinition, powers);
-            Helper.TerminateSpells(__instance, null, spells);
-        }
-        else if (Main.Settings.EnableGlobalUniqueEffectsPatch)
-        {
-            Helper.TerminatePowers(__instance, powerDefinition, new[] {powerDefinition});
-        }
+        var (powers, spells) = GlobalUniqueEffects.GetSameGroupItems(powerDefinition);
+
+        powers.Add(powerDefinition);
+        Helper.TerminatePowers(__instance, powerDefinition, powers);
+        Helper.TerminateSpells(__instance, null, spells);
     }
 }
 
@@ -112,13 +102,11 @@ internal static class RulesetActor_TerminateMatchingUniqueSpell
 {
     internal static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition)
     {
-        if (Main.Settings.EnableGlobalUniqueEffectsPatch)
-        {
-            var (powers, spells) = GlobalUniqueEffects.GetSameGroupItems(spellDefinition);
-            spells.Add(spellDefinition);
-            Helper.TerminatePowers(__instance, null, powers);
-            Helper.TerminateSpells(__instance, spellDefinition, spells);
-        }
+        var (powers, spells) = GlobalUniqueEffects.GetSameGroupItems(spellDefinition);
+
+        spells.Add(spellDefinition);
+        Helper.TerminatePowers(__instance, null, powers);
+        Helper.TerminateSpells(__instance, spellDefinition, spells);
     }
 }
 

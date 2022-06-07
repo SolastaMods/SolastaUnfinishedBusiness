@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
@@ -11,20 +10,20 @@ public class FeatureDefinitionAdditionalActionBuilder : FeatureDefinitionBuilder
 {
     public FeatureDefinitionAdditionalActionBuilder SetActionType(ActionDefinitions.ActionType actionType)
     {
-        Definition.SetActionType(actionType);
+        Definition.actionType = actionType;
         return this;
     }
 
     public FeatureDefinitionAdditionalActionBuilder SetMaxAttacksNumber(int maxAttacksNumber)
     {
-        Definition.SetMaxAttacksNumber(maxAttacksNumber);
+        Definition.maxAttacksNumber = maxAttacksNumber;
         return this;
     }
 
     public FeatureDefinitionAdditionalActionBuilder SetTriggerCondition(
         RuleDefinitions.AdditionalActionTriggerCondition triggerCondition)
     {
-        Definition.SetTriggerCondition(triggerCondition);
+        Definition.triggerCondition = triggerCondition;
         return this;
     }
 

@@ -512,10 +512,10 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.Title = "Feat/&SelfDestructTitle";
         Definition.GuiPresentation.Description = "Feat/&SelfDestructDescription";
         Definition.GuiPresentation.SetSpriteReference(FlamingSphere.GuiPresentation.SpriteReference);
-        Definition.SetShortTitleOverride("Feat/&SelfDestructTitle");
+        Definition.shortTitleOverride = "Feat/&SelfDestructTitle";
 
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        Definition.activationTime = RuleDefinitions.ActivationTime.Action;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
 
         // SelfDestructionConditionBuilder.SelfDestructionCondition
 
@@ -578,8 +578,8 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
         newEffectDescription.SetCanBePlacedOnCharacter(true);
         newEffectDescription.SetEffectParticleParameters(Fireball.EffectDescription.EffectParticleParameters);
 
-        Definition.SetUniqueInstance(true);
-        Definition.SetEffectDescription(newEffectDescription);
+        Definition.uniqueInstance = true;
+        Definition.effectDescription = newEffectDescription;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -609,9 +609,9 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
         Definition.Features.Clear();
 
         var SelfDestruct = new KillForm();
-        SelfDestruct.SetChallengeRating(10);
-        SelfDestruct.SetHitPoints(200);
-        SelfDestruct.SetKillCondition(RuleDefinitions.KillCondition.Always);
+        SelfDestruct.challengeRating = 10;
+        SelfDestruct.hitPoints = 200;
+        SelfDestruct.killCondition = RuleDefinitions.KillCondition.Always;
 
         var KillEffect = new EffectForm {FormType = EffectForm.EffectFormType.Kill};
         KillEffect.SetKillForm(SelfDestruct);
@@ -623,11 +623,11 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
 
         Definition.RecurrentEffectForms.Add(KillEffect);
 
-        Definition.SetDurationType(RuleDefinitions.DurationType.Permanent);
-        Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-        Definition.SetSpecialDuration(true);
-        Definition.SetDurationParameter(1);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Detrimental);
+        Definition.durationType = RuleDefinitions.DurationType.Permanent;
+        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
+        Definition.specialDuration = true;
+        Definition.durationParameter = 1;
+        Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
     }
 
     private static ConditionDefinition CreateAndAddToDB(string name, string guid)
@@ -740,9 +740,9 @@ internal sealed class HalfCoverShieldAttributeBuilder : FeatureDefinitionAttribu
         Definition.GuiPresentation.Title = "Rules/&HalfCoverShieldAttributeTitle";
         Definition.GuiPresentation.Description = "Rules/&HalfCoverShieldAttributeDescription";
 
-        Definition.SetModifiedAttribute(DatabaseHelper.SmartAttributeDefinitions.ArmorClass.Name);
-        Definition.SetModifierType2(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive);
-        Definition.SetModifierValue(2);
+        Definition.modifiedAttribute = DatabaseHelper.SmartAttributeDefinitions.ArmorClass.Name;
+        Definition.modifierType2 = FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive;
+        Definition.modifierValue = 2;
     }
 
     private static FeatureDefinitionAttributeModifier CreateAndAddToDB(string name, string guid)
@@ -769,12 +769,12 @@ internal sealed class SummonArtillerySpellConstructBuilder : SpellDefinitionBuil
         Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
         Definition.GuiPresentation.SetSpriteReference(FaerieFire.GuiPresentation.SpriteReference);
 
-        Definition.SetSpellLevel(1);
-        Definition.SetRequiresConcentration(false);
-        Definition.SetUniqueInstance(true);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
+        Definition.spellLevel = 1;
+        Definition.requiresConcentration = false;
+        Definition.uniqueInstance = true;
+        Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetSpellsBundle(true);
+        Definition.spellsBundle = true;
         Definition.SubspellsList.AddRange(
             SummonFlameArtillerySpellConstructBuilder.SummonFlameArtilleryConstruct,
             SummonForceArtillerySpellConstructBuilder.SummonForceArtilleryConstruct,
@@ -869,16 +869,14 @@ internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : Featu
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
         Definition.GuiPresentation.SetSpriteReference(null);
 
-        Definition.SetEffectOnConjuredDeath(false);
-        Definition.AddedConditions.Clear();
-        Definition.AddedConditions.Empty();
+        Definition.effectOnConjuredDeath = false;
         Definition.EffectForms.Clear();
         Definition.EffectForms.Empty();
 
         // changed the tag here and in relevant constructs
         // so the scaling is only applied to the Protector and Artillry Constructs
-        Definition.SetRequiredMonsterTag("ScalingTinkererArtilleryConstruct");
-        Definition.AddedConditions.AddRange(
+        Definition.requiredMonsterTag = "ScalingTinkererArtilleryConstruct";
+        Definition.AddedConditions.SetRange(
             // using kindred conditions for following reasons
             // 1- Didnt want to create custom conditions until custom ConditionDefintionBuilder and
             //    FeatureDefinitionAttributeModifierBuilder are available as it is likely a rewrite

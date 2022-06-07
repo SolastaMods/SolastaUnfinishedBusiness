@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -17,8 +17,8 @@ public class FeatureDefinitionProficiencyBuilder : FeatureDefinitionBuilder<Feat
     public FeatureDefinitionProficiencyBuilder SetProficiencies(RuleDefinitions.ProficiencyType type,
         IEnumerable<string> proficiencies)
     {
-        Definition.SetProficiencyType(type);
-        Definition.SetProficiencies(proficiencies);
+        Definition.proficiencyType = type;
+        Definition.Proficiencies.SetRange(proficiencies);
         Definition.Proficiencies.Sort();
 
         return this;

@@ -27,15 +27,9 @@ internal static class WieldedConfigurationSelector_Bind
 
     internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
-        if (!Main.Settings.BugFixWieldedConfigurationSelector)
-        {
-            foreach (var instruction in instructions)
-            {
-                yield return instruction;
-            }
-
-            yield break;
-        }
+        //
+        // BUGFIX: wielded configuration selection
+        //
 
         var bindMethod = typeof(InventorySlotBox).GetMethod("Bind");
         var myBindMethod = typeof(WieldedConfigurationSelector_Bind).GetMethod("MyBind");

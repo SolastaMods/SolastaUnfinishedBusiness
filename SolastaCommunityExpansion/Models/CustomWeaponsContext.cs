@@ -70,12 +70,11 @@ public static class CustomWeaponsContext
     {
         var presentation = new ItemPresentation(basePresentation);
         presentation.ItemFlags.Clear();
-        presentation.SetAssetReference(basePresentation.AssetReference);
-        presentation.SetUnidentifiedTitle(GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item));
-        presentation.SetUnidentifiedDescription(
-            hasUnidDescription
-                ? GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item)
-                : Gui.NoLocalization);
+        presentation.assetReference = basePresentation.AssetReference;
+        presentation.unidentifiedTitle = GuiPresentationBuilder.CreateTitleKey(unIdentifiedName, Category.Item);
+        presentation.unidentifiedDescription = hasUnidDescription
+            ? GuiPresentationBuilder.CreateDescriptionKey(unIdentifiedName, Category.Item)
+            : Gui.NoLocalization;
 
         presentation.scaleFactorWhileWielded = scale;
         return presentation;

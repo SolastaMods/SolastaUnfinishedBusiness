@@ -125,7 +125,7 @@ public static class Translations
         {
             try
             {
-                var splitted = line.Split(new[] {'\t', ' '}, 2);
+                var splitted = line.Split(new[] {'\t'}, 2);
 
                 words.Add(splitted[0], splitted[1]);
             }

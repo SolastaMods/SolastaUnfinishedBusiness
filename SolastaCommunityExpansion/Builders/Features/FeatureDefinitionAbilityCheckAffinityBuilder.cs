@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
 
@@ -39,7 +39,7 @@ public abstract class
 
     public TBuilder SetAffinityGroups(IEnumerable<AbilityCheckAffinityGroup> affinityGroups)
     {
-        Definition.SetAffinityGroups(affinityGroups);
+        Definition.AffinityGroups.SetRange(affinityGroups);
         Definition.AffinityGroups.Sort(Sorting.Compare);
         return This();
     }

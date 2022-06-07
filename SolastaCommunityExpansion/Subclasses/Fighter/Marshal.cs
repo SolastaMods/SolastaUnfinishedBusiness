@@ -463,7 +463,7 @@ public static class EternalComradeBuilder
             .AddToDB();
 
         // Find a better place to put this in?
-        hpConditionDefinition.SetAdditionalDamageType("Fighter");
+        hpConditionDefinition.additionalDamageType = "Fighter";
 
         var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
             .Create(SummoningAffinityKindredSpiritBond, "SummoningAffinityMarshalEternalComrade",

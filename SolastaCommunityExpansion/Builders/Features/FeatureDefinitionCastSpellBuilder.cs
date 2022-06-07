@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using SolastaModApi.Diagnostics;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
@@ -229,58 +228,58 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
 
     public FeatureDefinitionCastSpellBuilder SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin origin)
     {
-        Definition.SetSpellCastingOrigin(origin);
+        Definition.spellCastingOrigin = origin;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellCastingAbility(string attribute)
     {
-        Definition.SetSpellcastingAbility(attribute);
+        Definition.spellcastingAbility = attribute;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetStaticParameters(int dcValue, int toHitValue)
     {
-        Definition.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
-        Definition.SetStaticDCValue(dcValue);
-        Definition.SetStaticToHitValue(toHitValue);
+        Definition.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
+        Definition.staticDCValue = dcValue;
+        Definition.staticToHitValue = toHitValue;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellList(SpellListDefinition spellList)
     {
-        Definition.SetSpellListDefinition(spellList);
+        Definition.spellListDefinition = spellList;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellKnowledge(RuleDefinitions.SpellKnowledge knowledge)
     {
-        Definition.SetSpellKnowledge(knowledge);
+        Definition.spellKnowledge = knowledge;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellReadyness(RuleDefinitions.SpellReadyness readyness)
     {
-        Definition.SetSpellReadyness(readyness);
+        Definition.spellReadyness = readyness;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellPreparationCount(
         RuleDefinitions.SpellPreparationCount prepCount)
     {
-        Definition.SetSpellPreparationCount(prepCount);
+        Definition.spellPreparationCount = prepCount;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
     {
-        Definition.SetSlotsRecharge(slotRecharge);
+        Definition.slotsRecharge = slotRecharge;
         return this;
     }
 
     public FeatureDefinitionCastSpellBuilder SetSpellCastingLevel(int level)
     {
-        Definition.SetSpellCastingLevel(level);
+        Definition.spellCastingLevel = level;
         return this;
     }
 

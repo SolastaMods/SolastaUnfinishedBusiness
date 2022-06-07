@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SpellListDefinition;
 
@@ -112,8 +111,8 @@ public class SpellListDefinitionBuilder : DefinitionBuilder<SpellListDefinition,
     /// <returns></returns>
     public SpellListDefinitionBuilder SetMaxSpellLevel(int maxLevel, bool hasCantrips)
     {
-        Definition.SetMaxSpellLevel(maxLevel);
-        Definition.SetHasCantrips(hasCantrips);
+        Definition.maxSpellLevel = maxLevel;
+        Definition.hasCantrips = hasCantrips;
         return this;
     }
 

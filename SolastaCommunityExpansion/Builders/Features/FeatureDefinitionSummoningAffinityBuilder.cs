@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -11,13 +11,13 @@ public class FeatureDefinitionSummoningAffinityBuilder
 {
     public FeatureDefinitionSummoningAffinityBuilder ClearEffectForms()
     {
-        Definition.ClearEffectForms();
+        Definition.EffectForms.Clear();
         return this;
     }
 
     public FeatureDefinitionSummoningAffinityBuilder SetRequiredMonsterTag(string tag)
     {
-        Definition.SetRequiredMonsterTag(tag);
+        Definition.requiredMonsterTag = tag;
         return this;
     }
 
@@ -29,7 +29,7 @@ public class FeatureDefinitionSummoningAffinityBuilder
 
     public FeatureDefinitionSummoningAffinityBuilder SetAddedConditions(IEnumerable<ConditionDefinition> value)
     {
-        Definition.SetAddedConditions(value);
+        Definition.AddedConditions.SetRange(value);
         Definition.AddedConditions.Sort(Sorting.Compare);
         return this;
     }

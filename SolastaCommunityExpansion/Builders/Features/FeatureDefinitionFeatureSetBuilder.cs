@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Extensions;
+using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -14,7 +14,7 @@ public abstract class
 {
     public TBuilder ClearFeatureSet()
     {
-        Definition.ClearFeatureSet();
+        Definition.FeatureSet.Clear();
         return (TBuilder)this;
     }
 
@@ -25,7 +25,7 @@ public abstract class
 
     public TBuilder SetFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
     {
-        Definition.SetFeatureSet(featureDefinitions);
+        Definition.FeatureSet.SetRange(featureDefinitions);
         Definition.FeatureSet.Sort(Sorting.CompareTitle);
         return (TBuilder)this;
     }
@@ -37,26 +37,26 @@ public abstract class
 
     public TBuilder AddFeatureSet(IEnumerable<FeatureDefinition> featureDefinitions)
     {
-        Definition.AddFeatureSet(featureDefinitions);
+        Definition.FeatureSet.AddRange(featureDefinitions);
         Definition.FeatureSet.Sort(Sorting.CompareTitle);
         return (TBuilder)this;
     }
 
     public TBuilder SetEnumerateInDescription(bool value)
     {
-        Definition.SetEnumerateInDescription(value);
+        Definition.enumerateInDescription = value;
         return (TBuilder)this;
     }
 
     public TBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
-        Definition.SetMode(mode);
+        Definition.mode = mode;
         return (TBuilder)this;
     }
 
     public TBuilder SetUniqueChoices(bool uniqueChoice)
     {
-        Definition.SetUniqueChoices(uniqueChoice);
+        Definition.uniqueChoices = uniqueChoice;
         return (TBuilder)this;
     }
 

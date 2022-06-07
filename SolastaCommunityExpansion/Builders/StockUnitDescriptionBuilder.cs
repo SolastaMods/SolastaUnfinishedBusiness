@@ -1,6 +1,5 @@
 ﻿using System;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -93,7 +92,7 @@ public class StockUnitDescriptionBuilder
         stock.ReassortRateType = _reassortRateType;
         stock.ReassortRateValue = _reassortRateValue;
         stock.RequiredFaction = _requiredFaction;
-        stock.SetFactionStatus(_factionStatus);
+        stock.factionStatus = _factionStatus;
         return stock;
     }
 }

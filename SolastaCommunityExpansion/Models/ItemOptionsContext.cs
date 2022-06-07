@@ -136,7 +136,7 @@ internal static class ItemOptionsContext
 
             case "Plain Shirt":
                 Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
-                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.SetUseCustomArmorMaterial(false);
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
                 break;
 
             case "Studded Leather":
@@ -209,7 +209,7 @@ internal static class ItemOptionsContext
             if (Main.Settings.MakeAllMagicStaveArcaneFoci)
             {
                 item.IsFocusItem = true;
-                item.FocusItemDescription.SetFocusType(EquipmentDefinitions.FocusType.Arcane);
+                item.FocusItemDescription.focusType = EquipmentDefinitions.FocusType.Arcane;
             }
         }
     }
@@ -408,7 +408,7 @@ internal static class ItemOptionsContext
         {
             // Use IsXXXItem = true/SetIsXXXItem(true) before using the XXXItemDescription
             Definition.IsFocusItem = true;
-            Definition.FocusItemDescription.SetFocusType(type);
+            Definition.FocusItemDescription.focusType = type;
             Definition.GuiPresentation.Title = title;
             Definition.GuiPresentation.Description = description;
 
@@ -417,7 +417,7 @@ internal static class ItemOptionsContext
                 Definition.GuiPresentation.SetSpriteReference(assetReferenceSprite);
             }
 
-            Definition.SetCosts(ComponentPouch.Costs);
+            Definition.costs = ComponentPouch.Costs;
 
             if (slotTypes.Length > 0)
             {

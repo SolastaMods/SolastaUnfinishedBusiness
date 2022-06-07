@@ -23,7 +23,7 @@ internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
         DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
     {
         // can use set, need to copy individual parts of presentation
-        //Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation);
+        //Definition.monsterPresentation = DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation;
 
         Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription";
@@ -41,10 +41,10 @@ internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
         Definition.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyGiantApe
             .MonsterPresentation.SecondCharacterShaderColor);
 
-        Definition.SetArmorClass(18);
-        Definition.SetNoExperienceGain(true);
-        Definition.SetHitDice(3);
-        Definition.SetHitDiceType(RuleDefinitions.DieType.D8);
+        Definition.armorClass = 18;
+        Definition.noExperienceGain = true;
+        Definition.hitDice = 3;
+        Definition.hitDiceType = RuleDefinitions.DieType.D8;
 
         Definition.AbilityScores.Empty();
         Definition.AbilityScores.AddToArray(10); // STR
@@ -54,11 +54,11 @@ internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
         Definition.AbilityScores.AddToArray(10); // WIS
         Definition.AbilityScores.AddToArray(10); // CHA
 
-        Definition.SetFullyControlledWhenAllied(true);
-        Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
-        Definition.SetStandardHitPoints(15);
-        Definition.SetDefaultFaction("Party");
-        Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+        Definition.fullyControlledWhenAllied = true;
+        Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
+        Definition.standardHitPoints = 15;
+        Definition.defaultFaction = "Party";
+        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
         //
 
         Definition.Features.Clear();
@@ -178,13 +178,13 @@ internal sealed class SummonForceArtillerySpellConstructBuilder : SpellDefinitio
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
             .SpriteReference);
 
-        Definition.SetSpellLevel(1);
-        Definition.SetRequiresConcentration(false);
-        Definition.SetUniqueInstance(true);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
+        Definition.spellLevel = 1;
+        Definition.requiresConcentration = false;
+        Definition.uniqueInstance = true;
+        Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -238,7 +238,7 @@ internal sealed class SummonForceArtillerySpellConstruct15Builder : SpellDefinit
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtillery_15ModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&ForceArtillery_15ModePowerDescription";
-        Definition.SetUniqueInstance(false);
+        Definition.uniqueInstance = false;
 
         Definition.EffectDescription.EffectForms[0].SummonForm
             .SetMonsterDefinitionName(ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.Name);
@@ -266,11 +266,11 @@ internal sealed class ForceArtilleryAttackBuilder : MonsterAttackDefinitionBuild
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
             .SpriteReference);
 
-        Definition.SetToHitBonus(0);
-        Definition.SetActionType(ActionDefinitions.ActionType.Main);
-        Definition.SetCloseRange(24);
-        Definition.SetMaxRange(24);
-        Definition.SetReachRange(24);
+        Definition.toHitBonus = 0;
+        Definition.actionType = ActionDefinitions.ActionType.Main;
+        Definition.closeRange = 24;
+        Definition.maxRange = 24;
+        Definition.reachRange = 24;
 
         /*
          *Arrow
@@ -289,9 +289,9 @@ SpiderCrimson_AcidSpit
 Spit
 Web
 */
-        // Definition.SetProjectile("OrcGrimblade_IceDagger");
-        Definition.SetProjectile(ForceArtilleryProjectileBuilder.ForceArtilleryProjectile.name);
-        Definition.SetProjectileBone(AnimationDefinitions.BoneType.Chest);
+        // Definition.projectile = "OrcGrimblade_IceDagger";
+        Definition.projectile = ForceArtilleryProjectileBuilder.ForceArtilleryProjectile.name;
+        Definition.projectileBone = AnimationDefinitions.BoneType.Chest;
 
         var motionForm = new MotionForm();
         motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
@@ -364,12 +364,12 @@ internal sealed class ForceArtilleryAdditionalDamageBuilder : FeatureDefinitionA
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
             .SpriteReference);
 
-        Definition.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.SameAsBaseDamage);
-        Definition.SetAttackModeOnly(true);
-        Definition.SetDamageDiceNumber(1);
-        Definition.SetDamageDieType(RuleDefinitions.DieType.D8);
-        Definition.SetNotificationTag("UpgradedConstruct");
-        Definition.SetLimitedUsage(RuleDefinitions.FeatureLimitedUsage.None);
+        Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.SameAsBaseDamage;
+        Definition.attackModeOnly = true;
+        Definition.damageDiceNumber = 1;
+        Definition.damageDieType = RuleDefinitions.DieType.D8;
+        Definition.notificationTag = "UpgradedConstruct";
+        Definition.limitedUsage = RuleDefinitions.FeatureLimitedUsage.None;
     }
 
     private static FeatureDefinitionAdditionalDamage CreateAndAddToDB(string name, string guid)

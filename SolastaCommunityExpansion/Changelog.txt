@@ -4,4 +4,5 @@
 - Deprecate Toad Kink and Rift Walker subclasses
 - Prefer pact slots over spell slots if both have same max level
 - Fix Reckless feat not working with reach weapons
+- Fix Known Your Enemy feature to add knowledge bonus
 - Fix translations

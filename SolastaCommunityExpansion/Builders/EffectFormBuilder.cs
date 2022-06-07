@@ -69,7 +69,7 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Alteration;
         var alterationForm = new AlterationForm();
-        alterationForm.SetAlterationType(alterationType);
+        alterationForm.alterationType = alterationType;
         effectForm.SetAlterationForm(alterationForm);
         return this;
     }
@@ -78,10 +78,10 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Alteration;
         var alterationForm = new AlterationForm();
-        alterationForm.SetAlterationType(AlterationForm.Type.AbilityScoreIncrease);
-        alterationForm.SetAbilityScore(abilityScore);
-        alterationForm.SetValueIncrease(valueIncrease);
-        alterationForm.SetMaximumIncrease(maximumIncrease);
+        alterationForm.alterationType = AlterationForm.Type.AbilityScoreIncrease;
+        alterationForm.abilityScore = abilityScore;
+        alterationForm.valueIncrease = valueIncrease;
+        alterationForm.maximumIncrease = maximumIncrease;
         effectForm.SetAlterationForm(alterationForm);
         return this;
     }
@@ -123,11 +123,11 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Counter;
         var counterForm = new CounterForm();
-        counterForm.SetType(type);
-        counterForm.SetAutomaticSpellLevel(automaticSpellLevel);
-        counterForm.SetCheckBaseDC(checkBaseDC);
-        counterForm.SetAddSpellCastingAbility(addSpellCastingAbility);
-        counterForm.SetAddProficiencyBonus(addProficiencyBonus);
+        counterForm.type = type;
+        counterForm.automaticSpellLevel = automaticSpellLevel;
+        counterForm.checkBaseDC = checkBaseDC;
+        counterForm.addSpellCastingAbility = addSpellCastingAbility;
+        counterForm.addProficiencyBonus = addProficiencyBonus;
         effectForm.SetCounterForm(counterForm);
         return this;
     }
@@ -165,9 +165,9 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Kill;
         var killForm = new KillForm();
-        killForm.SetKillCondition(condition);
-        killForm.SetChallengeRating(challengeRating);
-        killForm.SetHitPoints(hitPoints);
+        killForm.killCondition = condition;
+        killForm.challengeRating = challengeRating;
+        killForm.hitPoints = hitPoints;
         effectForm.SetKillForm(killForm);
         return this;
     }
@@ -178,10 +178,10 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Divination;
         var divinationForm = new DivinationForm();
-        divinationForm.SetDivinationType(divinationType);
+        divinationForm.divinationType = divinationType;
         divinationForm.CreatureFamilies.SetRange(creatureFamilies);
         divinationForm.RevealedTags.SetRange(revealedTags);
-        divinationForm.SetRangeCells(rangeCells);
+        divinationForm.rangeCells = rangeCells;
         effectForm.SetDivinationForm(divinationForm);
         return this;
     }
@@ -259,8 +259,8 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Revive;
         var reviveForm = new ReviveForm();
-        reviveForm.SetMaxSecondsSinceDeath(secondsSinceDeath);
-        reviveForm.SetReviveHitPoints(reviveHitPoints);
+        reviveForm.maxSecondsSinceDeath = secondsSinceDeath;
+        reviveForm.reviveHitPoints = reviveHitPoints;
         reviveForm.RemovedConditions.SetRange(removedConditions);
 
         effectForm.SetReviveForm(reviveForm);
@@ -271,8 +271,8 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.SpellSlots;
         var spellSlotsForm = new SpellSlotsForm();
-        spellSlotsForm.SetType(SpellSlotsForm.EffectType.RecoverHalfLevelUp);
-        spellSlotsForm.SetMaxSlotLevel(maxSlotLevel);
+        spellSlotsForm.type = SpellSlotsForm.EffectType.RecoverHalfLevelUp;
+        spellSlotsForm.maxSlotLevel = maxSlotLevel;
         effectForm.SetSpellSlotsForm(spellSlotsForm);
         return this;
     }
@@ -345,8 +345,8 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Topology;
         var topologyForm = new TopologyForm();
-        topologyForm.SetChangeType(changeType);
-        topologyForm.SetImpactsFlyingCharacters(impactsFlyingCharacters);
+        topologyForm.changeType = changeType;
+        topologyForm.impactsFlyingCharacters = impactsFlyingCharacters;
         effectForm.SetTopologyForm(topologyForm);
         return this;
     }

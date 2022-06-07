@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features;
@@ -14,8 +13,8 @@ internal sealed class PowerFighterActionSurge2Builder : FeatureDefinitionPowerBu
 
     private PowerFighterActionSurge2Builder(string name, string guid) : base(PowerFighterActionSurge, name, guid)
     {
-        Definition.SetFixedUsesPerRecharge(2);
-        Definition.SetOverriddenPower(PowerFighterActionSurge);
+        Definition.fixedUsesPerRecharge = 2;
+        Definition.overriddenPower = PowerFighterActionSurge;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)

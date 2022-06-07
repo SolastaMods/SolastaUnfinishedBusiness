@@ -215,7 +215,7 @@ public class NewMonsterAttributes
         );
 
 
-        TarrasqueSwallow_Decision.Decision.SetStringParameter("TarrasqueSwallow");
+        TarrasqueSwallow_Decision.Decision.stringParameter = "TarrasqueSwallow";
     }
 
     public static void BuildNew_Tarrasque_CombatDecisions()
@@ -469,9 +469,9 @@ public class NewMonsterAttributes
         };
         LichSpell_level_9.Spells.Add(NewMonsterSpells.PowerWordKill_Spell);
 
-        Lich_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
-        Lich_spelllist.SetMaxSpellLevel(7);
-        Lich_spelllist.SetHasCantrips(true);
+        Lich_spelllist.contentCopyright = BaseDefinition.Copyright.UserContent;
+        Lich_spelllist.maxSpellLevel = 7;
+        Lich_spelllist.hasCantrips = true;
         Lich_spelllist.SpellsByLevel.Clear();
         Lich_spelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>
         {
@@ -999,9 +999,9 @@ public class NewMonsterAttributes
         };
         ArchmageSpell_level_9.Spells.Add(NewMonsterSpells.TimeStop_Spell);
 
-        Archmage_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
-        Archmage_spelllist.SetMaxSpellLevel(7);
-        Archmage_spelllist.SetHasCantrips(true);
+        Archmage_spelllist.contentCopyright = BaseDefinition.Copyright.UserContent;
+        Archmage_spelllist.maxSpellLevel = 7;
+        Archmage_spelllist.hasCantrips = true;
         Archmage_spelllist.SpellsByLevel.Clear();
         Archmage_spelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>
         {
@@ -1501,9 +1501,9 @@ public class NewMonsterAttributes
         };
         GuardianNagaSpell_level_6.Spells.Add(DatabaseHelper.SpellDefinitions.GlobeOfInvulnerability);
 
-        GuardianNaga_spelllist.SetContentCopyright(BaseDefinition.Copyright.UserContent);
-        GuardianNaga_spelllist.SetMaxSpellLevel(6);
-        GuardianNaga_spelllist.SetHasCantrips(true);
+        GuardianNaga_spelllist.contentCopyright = BaseDefinition.Copyright.UserContent;
+        GuardianNaga_spelllist.maxSpellLevel = 6;
+        GuardianNaga_spelllist.hasCantrips = true;
         GuardianNaga_spelllist.SpellsByLevel.Clear();
         GuardianNaga_spelllist.SpellsByLevel.AddRange(new List<SpellListDefinition.SpellsByLevelDuplet>
         {
@@ -1997,9 +1997,9 @@ public class NewMonsterAttributes
             GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
         );
 
-        SummonCreature_Magic_Decision.Decision.SetEnumParameter((int)RuleDefinitions.MagicType.SummonsCreature);
+        SummonCreature_Magic_Decision.Decision.enumParameter = (int)RuleDefinitions.MagicType.SummonsCreature;
 
-        SummonCreature_Magic_Decision.Decision.SetStringParameter("SummonCreature");
+        SummonCreature_Magic_Decision.Decision.stringParameter = "SummonCreature";
     }
 
     public static void BuildNew_AtWillAOE_Magic_Decision()
@@ -2014,7 +2014,7 @@ public class NewMonsterAttributes
         );
 
 
-        AtWillAOE_Magic_Decision.Decision.SetStringParameter("AtWillAOE");
+        AtWillAOE_Magic_Decision.Decision.stringParameter = "AtWillAOE";
     }
 
     public static void BuildNew_CastMagic_StoneSkin_Decision()
@@ -2029,7 +2029,7 @@ public class NewMonsterAttributes
         );
 
 
-        CastMagic_Stoneskin_Decision.Decision.SetStringParameter("Stoneskin");
+        CastMagic_Stoneskin_Decision.Decision.stringParameter = "Stoneskin";
     }
 
     public static void BuildNew_LimitedPerDayAOE_Magic_Decision()
@@ -2043,7 +2043,7 @@ public class NewMonsterAttributes
             GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
         );
 
-        LimitedPerDayAOE_Magic_Decision.Decision.SetStringParameter("LimitedPerDayAOE");
+        LimitedPerDayAOE_Magic_Decision.Decision.stringParameter = "LimitedPerDayAOE";
     }
 
     public static void BuildNew_AtWillSelfBuff_Magic_Decision()
@@ -2058,7 +2058,7 @@ public class NewMonsterAttributes
         );
 
 
-        AtWillSelfBuff_Magic_Decision.Decision.SetStringParameter("AtWillSelfBuff");
+        AtWillSelfBuff_Magic_Decision.Decision.stringParameter = "AtWillSelfBuff";
     }
 
     public static void BuildNew_LimitedPerDayTargetDebuffMagic_Decision()
@@ -2072,7 +2072,7 @@ public class NewMonsterAttributes
             GuidHelper.Create(new Guid(MonsterContext.GUID), "DH_Custom_" + text).ToString()
         );
 
-        LimitedPerDayTargetDebuff_Magic_Decision.Decision.SetStringParameter("LimitedPerDayTargetDebuff");
+        LimitedPerDayTargetDebuff_Magic_Decision.Decision.stringParameter = "LimitedPerDayTargetDebuff";
     }
 
     public static void BuildNew_Solar_CombatDecisions()

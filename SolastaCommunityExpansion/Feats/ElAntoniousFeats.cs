@@ -37,7 +37,7 @@ internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
         Definition.Features.Clear();
         Definition.Features.Add(BuildFeatureDualFlurry());
 
-        Definition.SetMinimalAbilityScorePrerequisite(false);
+        Definition.minimalAbilityScorePrerequisite = false;
     }
 
     private static FeatDefinition CreateAndAddToDB(string name, string guid)
@@ -88,14 +88,14 @@ internal sealed class ConditionDualFlurryApplyBuilder : ConditionDefinitionBuild
         Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryApplyTitle";
         Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryApplyDescription";
 
-        Definition.SetAllowMultipleInstances(false);
-        Definition.SetDurationParameter(0);
-        Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-        Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-        Definition.SetPossessive(true);
-        Definition.SetSilentWhenAdded(true);
-        Definition.SetSilentWhenRemoved(true);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+        Definition.allowMultipleInstances = false;
+        Definition.durationParameter = 0;
+        Definition.durationType = RuleDefinitions.DurationType.Round;
+        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
+        Definition.possessive = true;
+        Definition.silentWhenAdded = true;
+        Definition.silentWhenRemoved = true;
+        Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
         Definition.Features.Clear();
     }
 
@@ -126,14 +126,14 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
         Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryGrantDescription";
         Definition.GuiPresentation.SetHidden(true);
 
-        Definition.SetAllowMultipleInstances(false);
-        Definition.SetDurationParameter(0);
-        Definition.SetDurationType(RuleDefinitions.DurationType.Round);
-        Definition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
-        Definition.SetPossessive(true);
-        Definition.SetSilentWhenAdded(false);
-        Definition.SetSilentWhenRemoved(false);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
+        Definition.allowMultipleInstances = false;
+        Definition.durationParameter = 0;
+        Definition.durationType = RuleDefinitions.DurationType.Round;
+        Definition.turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
+        Definition.possessive = true;
+        Definition.silentWhenAdded = false;
+        Definition.silentWhenRemoved = false;
+        Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
         Definition.Features.Clear();
         Definition.Features.Add(BuildAdditionalActionDualFlurry());
     }
@@ -186,7 +186,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
         Definition.Features.Clear();
         Definition.Features.Add(BuildFeatureTorchbearer());
 
-        Definition.SetMinimalAbilityScorePrerequisite(false);
+        Definition.minimalAbilityScorePrerequisite = false;
     }
 
     private static FeatDefinition CreateAndAddToDB(string name, string guid)

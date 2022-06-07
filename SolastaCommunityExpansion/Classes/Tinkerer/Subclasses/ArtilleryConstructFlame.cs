@@ -26,8 +26,8 @@ internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
             .SpriteReference);
 
-        Definition.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        Definition.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        Definition.activationTime = RuleDefinitions.ActivationTime.Action;
+        Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
 
         var flameArtillery = new DamageForm
         {
@@ -94,7 +94,7 @@ internal sealed class FlameArtillery2Builder : FeatureDefinitionPowerBuilder
             .SpriteReference);
 
         Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 3;
-        Definition.SetOverriddenPower(FlameArtilleryBuilder.FlameArtillery);
+        Definition.overriddenPower = FlameArtilleryBuilder.FlameArtillery;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -119,7 +119,7 @@ internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
         DatabaseHelper.MonsterDefinitions.Magic_Mouth, name, guid)
     {
         // can use set, need to copy individual parts of presentation
-        //Definition.SetMonsterPresentation(DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation);
+        //Definition.monsterPresentation = DatabaseHelper.MonsterDefinitions.CubeOfLight.MonsterPresentation;
 
         Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&FlameArtilleryConstructDescription";
@@ -130,10 +130,10 @@ internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
         Definition.MonsterPresentation.SetAttachedParticlesReference(new AssetReference());
 
-        Definition.SetArmorClass(18);
-        Definition.SetNoExperienceGain(true);
-        Definition.SetHitDice(3);
-        Definition.SetHitDiceType(RuleDefinitions.DieType.D8);
+        Definition.armorClass = 18;
+        Definition.noExperienceGain = true;
+        Definition.hitDice = 3;
+        Definition.hitDiceType = RuleDefinitions.DieType.D8;
 
         Definition.AbilityScores.Empty();
         Definition.AbilityScores.AddToArray(10); // STR
@@ -143,11 +143,11 @@ internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
         Definition.AbilityScores.AddToArray(10); // WIS
         Definition.AbilityScores.AddToArray(10); // CHA
 
-        Definition.SetFullyControlledWhenAllied(true);
-        Definition.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None);
-        Definition.SetStandardHitPoints(15);
-        Definition.SetDefaultFaction("Party");
-        Definition.SetCharacterFamily(TinkererConstructFamilyBuilder.TinkererConstructFamily.Name);
+        Definition.fullyControlledWhenAllied = true;
+        Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
+        Definition.standardHitPoints = 15;
+        Definition.defaultFaction = "Party";
+        Definition.characterFamily = TinkererConstructFamilyBuilder.TinkererConstructFamily.Name;
         //
 
         Definition.Features.Clear();
@@ -256,13 +256,13 @@ internal sealed class SummonFlameArtillerySpellConstructBuilder : SpellDefinitio
         Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
             .SpriteReference);
 
-        Definition.SetSpellLevel(1);
-        Definition.SetRequiresConcentration(false);
-        Definition.SetUniqueInstance(true);
-        Definition.SetCastingTime(RuleDefinitions.ActivationTime.Action);
+        Definition.spellLevel = 1;
+        Definition.requiresConcentration = false;
+        Definition.uniqueInstance = true;
+        Definition.castingTime = RuleDefinitions.ActivationTime.Action;
 
-        Definition.SetEffectDescription(ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower
-            .EffectDescription);
+        Definition.effectDescription = ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower
+            .EffectDescription;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -315,7 +315,7 @@ internal sealed class SummonFlameArtillerySpellConstruct15Builder : SpellDefinit
     {
         Definition.GuiPresentation.Title = "Feature/&FlameArtillery_15ModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&FlameArtillery_15ModePowerDescription";
-        Definition.SetUniqueInstance(false);
+        Definition.uniqueInstance = false;
         Definition.EffectDescription.EffectForms[0].SummonForm
             .SetMonsterDefinitionName(FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.Name);
     }

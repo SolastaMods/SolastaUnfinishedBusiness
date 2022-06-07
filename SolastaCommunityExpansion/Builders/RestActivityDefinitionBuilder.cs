@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -10,11 +9,11 @@ public class
         RestDefinitions.RestStage restStage, RuleDefinitions.RestType restType,
         RestActivityDefinition.ActivityCondition condition, string functor, string stringParameter)
     {
-        Definition.SetRestStage(restStage);
-        Definition.SetRestType(restType);
-        Definition.SetCondition(condition);
-        Definition.SetFunctor(functor);
-        Definition.SetStringParameter(stringParameter);
+        Definition.restStage = restStage;
+        Definition.restType = restType;
+        Definition.condition = condition;
+        Definition.functor = functor;
+        Definition.stringParameter = stringParameter;
 
         return This();
     }

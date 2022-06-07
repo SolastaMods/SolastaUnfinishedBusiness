@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -39,10 +38,10 @@ public abstract class
     {
         base.Initialise();
 
-        if (Definition.EffectDescription == null)
+        if (Definition.effectDescription == null)
         {
             // The game throws an exception if there is no effect description.
-            Definition.SetEffectDescription(new EffectDescription());
+            Definition.effectDescription = new EffectDescription();
         }
     }
 
@@ -52,16 +51,16 @@ public abstract class
         bool proficiencyBonusToAttack, bool abilityScoreBonusToAttack, string abilityScore,
         EffectDescription effectDescription)
     {
-        Definition.SetFixedUsesPerRecharge(usesPerRecharge);
-        Definition.SetUsesDetermination(usesDetermination);
-        Definition.SetUsesAbilityScoreName(usesAbilityScoreName);
-        Definition.SetActivationTime(activationTime);
-        Definition.SetCostPerUse(costPerUse);
-        Definition.SetRechargeRate(recharge);
-        Definition.SetProficiencyBonusToAttack(proficiencyBonusToAttack);
-        Definition.SetAbilityScoreBonusToAttack(abilityScoreBonusToAttack);
-        Definition.SetAbilityScore(abilityScore);
-        Definition.SetEffectDescription(effectDescription);
+        Definition.fixedUsesPerRecharge = usesPerRecharge;
+        Definition.usesDetermination = usesDetermination;
+        Definition.usesAbilityScoreName = usesAbilityScoreName;
+        Definition.activationTime = activationTime;
+        Definition.costPerUse = costPerUse;
+        Definition.rechargeRate = recharge;
+        Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
+        Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
+        Definition.abilityScore = abilityScore;
+        Definition.effectDescription = effectDescription;
 
         return This();
     }
@@ -75,7 +74,7 @@ public abstract class
         Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
             recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
 
-        Definition.SetOverriddenPower(overridenPower);
+        Definition.overriddenPower = overridenPower;
 
         return This();
     }
@@ -89,182 +88,182 @@ public abstract class
         Configure(usesPerRecharge, usesDetermination, usesAbilityScoreName, activationTime, costPerUse,
             recharge, proficiencyBonusToAttack, abilityScoreBonusToAttack, abilityScore, effectDescription);
 
-        Definition.SetUniqueInstance(uniqueInstance);
+        Definition.uniqueInstance = uniqueInstance;
 
         return This();
     }
 
     public TBuilder SetEffectDescription(EffectDescription effect)
     {
-        Definition.SetEffectDescription(effect);
+        Definition.effectDescription = effect;
         return This();
     }
 
     public TBuilder DelegatedToAction()
     {
-        Definition.SetDelegatedToAction(true);
+        Definition.delegatedToAction = true;
         return This();
     }
 
     public TBuilder SurrogateToSpell(SpellDefinition spell)
     {
-        Definition.SetSurrogateToSpell(spell);
+        Definition.surrogateToSpell = spell;
         return This();
     }
 
     public TBuilder SetActivation(RuleDefinitions.ActivationTime time, int costPerUse)
     {
-        Definition.SetActivationTime(time);
-        Definition.SetCostPerUse(costPerUse);
+        Definition.activationTime = time;
+        Definition.costPerUse = costPerUse;
         return This();
     }
 
     // TODO: combine with above with default?
     public TBuilder SetActivationTime(RuleDefinitions.ActivationTime value)
     {
-        Definition.SetActivationTime(value);
+        Definition.activationTime = value;
         return This();
     }
 
     public TBuilder SetReaction(RuleDefinitions.ReactionTriggerContext context, string name)
     {
-        Definition.SetReactionContext(context);
-        Definition.SetReactionName(name);
+        Definition.reactionContext = context;
+        Definition.reactionName = name;
         return This();
     }
 
     public TBuilder SetCastingFailure(RuleDefinitions.CastingSuccessComputation computation)
     {
-        Definition.SetHasCastingFailure(true);
-        Definition.SetCastingSuccessComputation(computation);
+        Definition.hasCastingFailure = true;
+        Definition.castingSuccessComputation = computation;
         return This();
     }
 
     public TBuilder CanUseInDialog()
     {
-        Definition.SetCanUseInDialog(true);
+        Definition.canUseInDialog = true;
         return This();
     }
 
     public TBuilder SetDisablingCondition(ConditionDefinition condition)
     {
-        Definition.SetDisableIfConditionIsOwned(condition);
+        Definition.disableIfConditionIsOwned = condition;
         return This();
     }
 
     public TBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
-        Definition.SetRechargeRate(rate);
+        Definition.rechargeRate = rate;
 
         return This();
     }
 
     public TBuilder SetShortTitleOverride(string titleOverride)
     {
-        Definition.SetShortTitleOverride(titleOverride);
+        Definition.shortTitleOverride = titleOverride;
         return This();
     }
 
     public TBuilder SetSpellCastingFeature(FeatureDefinitionCastSpell spellFeature)
     {
-        Definition.SetSpellcastingFeature(spellFeature);
+        Definition.spellcastingFeature = spellFeature;
         return This();
     }
 
     public TBuilder SetUsesFixed(int fixedUses)
     {
-        Definition.SetFixedUsesPerRecharge(fixedUses);
-        Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
+        Definition.fixedUsesPerRecharge = fixedUses;
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
         return This();
     }
 
     public TBuilder SetFixedUsesPerRecharge(int fixedUses)
     {
-        Definition.SetFixedUsesPerRecharge(fixedUses);
+        Definition.fixedUsesPerRecharge = fixedUses;
         return This();
     }
 
     public TBuilder SetCostPerUse(int costPerUse)
     {
-        Definition.SetCostPerUse(costPerUse);
+        Definition.costPerUse = costPerUse;
         return This();
     }
 
     public TBuilder SetUsesProficiency()
     {
-        Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.ProficiencyBonus);
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.ProficiencyBonus;
         return This();
     }
 
     public TBuilder SetAbilityScore(string abilityScoreName)
     {
-        Definition.SetAbilityScore(abilityScoreName);
+        Definition.abilityScore = abilityScoreName;
         return This();
     }
 
     public TBuilder SetUsesAbilityScoreName(string abilityScoreName)
     {
-        Definition.SetUsesAbilityScoreName(abilityScoreName);
+        Definition.usesAbilityScoreName = abilityScoreName;
         return This();
     }
 
     public TBuilder SetUsesAbility(int fixedUses, string attribute)
     {
-        Definition.SetFixedUsesPerRecharge(fixedUses);
-        Definition.SetUsesAbilityScoreName(attribute);
-        Definition.SetUsesDetermination(RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed);
+        Definition.fixedUsesPerRecharge = fixedUses;
+        Definition.usesAbilityScoreName = attribute;
+        Definition.usesDetermination = RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed;
         return This();
     }
 
     public TBuilder UseSpellCastingModifier()
     {
-        Definition.SetAbilityScoreDetermination(RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility);
+        Definition.abilityScoreDetermination = RuleDefinitions.AbilityScoreDetermination.SpellcastingAbility;
         return This();
     }
 
     public TBuilder SetAttackModifierAbility(bool ability, bool proficiency, string attribute)
     {
-        Definition.SetAbilityScore(attribute);
-        Definition.SetAbilityScoreBonusToAttack(ability);
-        Definition.SetProficiencyBonusToAttack(proficiency);
-        Definition.SetAttackHitComputation(RuleDefinitions.PowerAttackHitComputation.AbilityScore);
+        Definition.abilityScore = attribute;
+        Definition.abilityScoreBonusToAttack = ability;
+        Definition.proficiencyBonusToAttack = proficiency;
+        Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.AbilityScore;
         return This();
     }
 
     public TBuilder SetAttackModifierStatic(int attackModifier)
     {
-        Definition.SetFixedAttackHit(attackModifier);
-        Definition.SetAttackHitComputation(RuleDefinitions.PowerAttackHitComputation.Fixed);
+        Definition.fixedAttackHit = attackModifier;
+        Definition.attackHitComputation = RuleDefinitions.PowerAttackHitComputation.Fixed;
         return This();
     }
 
     public TBuilder SetUniqueInstance(bool uniqueInstance)
     {
-        Definition.SetUniqueInstance(uniqueInstance);
+        Definition.uniqueInstance = uniqueInstance;
         return This();
     }
 
     public TBuilder SetShowCasting(bool casting)
     {
-        Definition.SetShowCasting(casting);
+        Definition.showCasting = casting;
         return This();
     }
 
     public TBuilder SetOverriddenPower(FeatureDefinitionPower overridenPower)
     {
-        Definition.SetOverriddenPower(overridenPower);
+        Definition.overriddenPower = overridenPower;
         return This();
     }
 
     public TBuilder SetShortTitle(string title)
     {
-        Definition.SetShortTitleOverride(title);
+        Definition.shortTitleOverride = title;
         return This();
     }
 
     public TBuilder SetAbility(string ability)
     {
-        Definition.SetAbilityScore(ability);
+        Definition.abilityScore = ability;
         return This();
     }
 

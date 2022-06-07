@@ -43,7 +43,7 @@ public class NewMonsterSpells
         );
 
 
-        ReverseGravity_Condition.SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+        ReverseGravity_Condition.turnOccurence = RuleDefinitions.TurnOccurenceType.StartOfTurn;
 
         MotionForm motionForm = new();
         motionForm.SetDistance(10);
@@ -184,8 +184,8 @@ public class NewMonsterSpells
         PowerWordKill_Spell.EffectDescription.EffectForms.Clear();
 
         KillForm killForm = new();
-        killForm.SetKillCondition(RuleDefinitions.KillCondition.UnderHitPoints);
-        killForm.SetHitPoints(100);
+        killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
+        killForm.hitPoints = 100;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -274,8 +274,8 @@ public class NewMonsterSpells
         TimeStopped_Condition.HasSpecialInterruptionOfType(RuleDefinitions.ConditionInterruption.Damaged);
         TimeStopped_Condition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Attacked);
         TimeStopped_Condition.SpecialInterruptions.Add(RuleDefinitions.ConditionInterruption.Damaged);
-        TimeStopped_Condition.SetInterruptionDamageThreshold(1);
-        TimeStopped_Condition.SetInterruptionRequiresSavingThrow(false);
+        TimeStopped_Condition.interruptionDamageThreshold = 1;
+        TimeStopped_Condition.interruptionRequiresSavingThrow = false;
 
 
         TimeStop_Spell = BuildNewSpell(

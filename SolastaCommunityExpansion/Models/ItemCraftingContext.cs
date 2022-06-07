@@ -118,7 +118,7 @@ internal static class ItemCraftingContext
         var available = Main.Settings.CraftingRecipesInDM.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
-            recipeBookDefinition.SetInDungeonEditor(available);
+            recipeBookDefinition.inDungeonEditor = available;
         }
     }
 

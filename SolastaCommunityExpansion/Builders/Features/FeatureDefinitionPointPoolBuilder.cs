@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -13,10 +12,10 @@ public abstract class
     public TBuilder Configure(HeroDefinitions.PointsPoolType poolType, int poolAmount,
         bool uniqueChoices, params string[] choices)
     {
-        Definition.SetPoolType(poolType);
-        Definition.SetPoolAmount(poolAmount);
+        Definition.poolType = poolType;
+        Definition.poolAmount = poolAmount;
         Definition.RestrictedChoices.AddRange(choices);
-        Definition.SetUniqueChoices(uniqueChoices);
+        Definition.uniqueChoices = uniqueChoices;
         Definition.RestrictedChoices.Sort();
 
         return This();
@@ -24,8 +23,8 @@ public abstract class
 
     public TBuilder SetPool(HeroDefinitions.PointsPoolType poolType, int poolAmount)
     {
-        Definition.SetPoolType(poolType);
-        Definition.SetPoolAmount(poolAmount);
+        Definition.poolType = poolType;
+        Definition.poolAmount = poolAmount;
         return This();
     }
 
@@ -43,7 +42,7 @@ public abstract class
 
     public TBuilder OnlyUniqueChoices()
     {
-        Definition.SetUniqueChoices(true);
+        Definition.uniqueChoices = true;
         return This();
     }
 

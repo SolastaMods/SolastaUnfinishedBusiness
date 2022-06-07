@@ -40,64 +40,64 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     // Setters delegating to Definition
     public TBuilder SetAllowMultipleInstances(bool value)
     {
-        Definition.SetAllowMultipleInstances(value);
+        Definition.allowMultipleInstances = value;
         return This();
     }
 
     public TBuilder SetAmountOrigin(ConditionDefinition.OriginOfAmount value)
     {
-        Definition.SetAmountOrigin(value);
+        Definition.amountOrigin = value;
         return This();
     }
 
     public TBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {
-        Definition.SetConditionType(value);
+        Definition.conditionType = value;
         return This();
     }
 
     public TBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
     {
-        Definition.SetTurnOccurence(value);
+        Definition.turnOccurence = value;
         return This();
     }
 
     public TBuilder AddConditionTags(IEnumerable<string> value)
     {
-        Definition.AddConditionTags(value);
+        Definition.ConditionTags.AddRange(value);
         return This();
     }
 
     public TBuilder AddConditionTags(params string[] value)
     {
-        Definition.AddConditionTags(value);
+        Definition.ConditionTags.AddRange(value);
         Definition.ConditionTags.Sort();
         return This();
     }
 
     public TBuilder ClearFeatures()
     {
-        Definition.ClearFeatures();
+        Definition.Features.Clear();
         return This();
     }
 
     public TBuilder AddFeatures(IEnumerable<FeatureDefinition> value)
     {
-        Definition.AddFeatures(value);
+        Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
     public TBuilder AddFeatures(params FeatureDefinition[] value)
     {
-        Definition.AddFeatures(value);
+        Definition.Features.AddRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
 
     public TBuilder SetFeatures(IEnumerable<FeatureDefinition> value)
     {
-        Definition.SetFeatures(value);
+        Definition.Features.SetRange(value);
         Definition.Features.Sort(Sorting.Compare);
         return This();
     }
@@ -110,36 +110,35 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     public TBuilder SetAdditionalDamageData(RuleDefinitions.DieType dieType, int numberOfDie,
         ConditionDefinition.DamageQuantity damageQuantity, bool additionalDamageWhenHit)
     {
-        Definition
-            .SetAdditionalDamageWhenHit(additionalDamageWhenHit)
-            .SetAdditionalDamageDieType(dieType)
-            .SetAdditionalDamageDieNumber(numberOfDie)
-            .SetAdditionalDamageQuantity(damageQuantity);
+        Definition.additionalDamageWhenHit = additionalDamageWhenHit;
+        Definition.additionalDamageDieType = dieType;
+        Definition.additionalDamageDieNumber = numberOfDie;
+        Definition.additionalDamageQuantity = damageQuantity;
 
         return This();
     }
 
     public TBuilder SetParentCondition(ConditionDefinition value)
     {
-        Definition.SetParentCondition(value);
+        Definition.parentCondition = value;
         return This();
     }
 
     public TBuilder SetTerminateWhenRemoved(bool value)
     {
-        Definition.SetTerminateWhenRemoved(value);
+        Definition.terminateWhenRemoved = value;
         return This();
     }
 
     public TBuilder SetSilentWhenAdded(bool value)
     {
-        Definition.SetSilentWhenAdded(value);
+        Definition.silentWhenAdded = value;
         return This();
     }
 
     public TBuilder SetSilentWhenRemoved(bool value)
     {
-        Definition.SetSilentWhenRemoved(value);
+        Definition.silentWhenRemoved = value;
         return This();
     }
 
@@ -152,43 +151,43 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder SetSpecialDuration(bool value)
     {
-        Definition.SetSpecialDuration(value);
+        Definition.specialDuration = value;
         return This();
     }
 
     public TBuilder SetPossessive(bool value)
     {
-        Definition.SetPossessive(value);
+        Definition.possessive = value;
         return This();
     }
 
     public TBuilder SetSpecialInterruptions(params RuleDefinitions.ConditionInterruption[] value)
     {
-        Definition.SetSpecialInterruptions(value);
+        Definition.SpecialInterruptions.SetRange(value);
         return This();
     }
 
     public TBuilder SetCharacterShaderReference(AssetReference assetReference)
     {
-        Definition.SetCharacterShaderReference(assetReference);
+        Definition.characterShaderReference = assetReference;
         return This();
     }
 
     public TBuilder SetInterruptionDamageThreshold(int value)
     {
-        Definition.SetInterruptionDamageThreshold(value);
+        Definition.interruptionDamageThreshold = value;
         return This();
     }
 
     public TBuilder SetConditionParticleReference(AssetReference assetReference)
     {
-        Definition.SetConditionParticleReference(assetReference);
+        Definition.conditionParticleReference = assetReference;
         return This();
     }
 
     public TBuilder SetConditionParticleReferenceFrom(ConditionDefinition reference)
     {
-        Definition.SetConditionParticleReference(reference.conditionParticleReference);
+        Definition.conditionParticleReference = reference.conditionParticleReference;
         return This();
     }
 
@@ -201,7 +200,7 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
 
     public TBuilder ClearRecurrentEffectForms()
     {
-        Definition.ClearRecurrentEffectForms();
+        Definition.RecurrentEffectForms.Clear();
         return This();
     }
 
@@ -213,8 +212,8 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
             Preconditions.IsValidDuration(type, duration);
         }
 
-        Definition.SetDurationParameter(duration);
-        Definition.SetDurationType(type);
+        Definition.durationParameter = duration;
+        Definition.durationType = type;
 
         return This();
     }
@@ -222,15 +221,15 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     public TBuilder Configure(RuleDefinitions.DurationType durationType, int durationParameter,
         bool silent, params FeatureDefinition[] conditionFeatures)
     {
-        Definition.AddFeatures(conditionFeatures);
-        Definition.SetConditionType(RuleDefinitions.ConditionType.Beneficial);
-        Definition.SetAllowMultipleInstances(false);
-        Definition.SetDurationType(durationType);
-        Definition.SetDurationParameter(durationParameter);
+        Definition.Features.AddRange(conditionFeatures);
+        Definition.conditionType = RuleDefinitions.ConditionType.Beneficial;
+        Definition.allowMultipleInstances = false;
+        Definition.durationType = durationType;
+        Definition.durationParameter = durationParameter;
         if (silent)
         {
-            Definition.SetSilentWhenAdded(true);
-            Definition.SetSilentWhenRemoved(true);
+            Definition.silentWhenAdded = true;
+            Definition.silentWhenRemoved = true;
         }
 
         return This();

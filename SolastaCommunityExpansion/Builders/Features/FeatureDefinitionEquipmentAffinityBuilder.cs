@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -10,11 +9,11 @@ public class FeatureDefinitionEquipmentAffinityBuilder
     public FeatureDefinitionEquipmentAffinityBuilder SetCarryingCapacityMultiplier(float carryingCapacityMultiplier,
         float? additionalCarryingCapacity)
     {
-        Definition.SetCarryingCapacityMultiplier(carryingCapacityMultiplier);
+        Definition.carryingCapacityMultiplier = carryingCapacityMultiplier;
 
         if (additionalCarryingCapacity != null)
         {
-            Definition.SetAdditionalCarryingCapacity(additionalCarryingCapacity.Value);
+            Definition.additionalCarryingCapacity = additionalCarryingCapacity.Value;
         }
 
         return This();

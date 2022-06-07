@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -15,28 +14,28 @@ public abstract class
 {
     public TBuilder SetSpecificDamageType(string damageType)
     {
-        Definition.SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific);
-        Definition.SetSpecificDamageType(damageType);
+        Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.Specific;
+        Definition.specificDamageType = damageType;
         return This();
     }
 
     public TBuilder SetDamageDice(RuleDefinitions.DieType dieType, int diceNumber)
     {
-        Definition.SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die);
-        Definition.SetDamageDiceNumber(diceNumber);
-        Definition.SetDamageDieType(dieType);
+        Definition.damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.Die;
+        Definition.damageDiceNumber = diceNumber;
+        Definition.damageDieType = dieType;
         return This();
     }
 
     public TBuilder SetNotificationTag(string tag)
     {
-        Definition.SetNotificationTag(tag);
+        Definition.notificationTag = tag;
         return This();
     }
 
     public TBuilder SetNoAdvancement()
     {
-        Definition.SetDamageAdvancement(RuleDefinitions.AdditionalDamageAdvancement.None);
+        Definition.damageAdvancement = RuleDefinitions.AdditionalDamageAdvancement.None;
         return This();
     }
 
@@ -55,20 +54,20 @@ public abstract class
     public TBuilder SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement advancement,
         IEnumerable<DiceByRank> diceByRanks)
     {
-        Definition.SetDamageAdvancement(advancement);
+        Definition.damageAdvancement = advancement;
         Definition.DiceByRankTable.SetRange(diceByRanks);
         return This();
     }
 
     public TBuilder SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
-        Definition.SetTriggerCondition(trigger);
+        Definition.triggerCondition = trigger;
         return This();
     }
 
     public TBuilder SetNoSave()
     {
-        Definition.SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None);
+        Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
         return This();
     }
 
@@ -86,56 +85,56 @@ public abstract class
     public TBuilder SetTargetCondition(ConditionDefinition requiredCondition,
         RuleDefinitions.AdditionalDamageTriggerCondition trigger)
     {
-        Definition.SetRequiredTargetCondition(requiredCondition);
-        Definition.SetTriggerCondition(trigger);
+        Definition.requiredTargetCondition = requiredCondition;
+        Definition.triggerCondition = trigger;
         return This();
     }
 
     public TBuilder SetFrequencyLimit(RuleDefinitions.FeatureLimitedUsage limit)
     {
-        Definition.SetLimitedUsage(limit);
+        Definition.limitedUsage = limit;
         return This();
     }
 
     public TBuilder SetImpactParticleReference(AssetReference asset)
     {
-        Definition.SetImpactParticleReference(asset);
+        Definition.impactParticleReference = asset;
         return This();
     }
 
     public TBuilder SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty property)
     {
-        Definition.SetRequiredProperty(property);
+        Definition.requiredProperty = property;
         return This();
     }
 
     public TBuilder SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType damageType)
     {
-        Definition.SetAdditionalDamageType(damageType);
+        Definition.additionalDamageType = damageType;
         return This();
     }
 
     public TBuilder SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination determination)
     {
-        Definition.SetDamageValueDetermination(determination);
+        Definition.damageValueDetermination = determination;
         return This();
     }
 
     public TBuilder SetDiceByRank(params (int rank, int dice)[] diceByRank)
     {
-        Definition.SetDiceByRankTable(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
+        Definition.DiceByRankTable.SetRange(diceByRank.Select(d => DiceByRankBuilder.BuildDiceByRank(d.rank, d.dice)));
         return This();
     }
 
     public TBuilder SetAddLightSource(bool addLightSource)
     {
-        Definition.SetAddLightSource(addLightSource);
+        Definition.addLightSource = addLightSource;
         return This();
     }
 
     public TBuilder SetLightSourceForm(LightSourceForm form)
     {
-        Definition.SetLightSourceForm(form);
+        Definition.lightSourceForm = form;
         return This();
     }
 
@@ -181,20 +180,20 @@ public class FeatureDefinitionAdditionalDamageBuilder : FeatureDefinitionAdditio
         // this should be first to avoid issues with Damage Value determination
         SetDamageDice(damageDieType, damageDiceNumber);
 
-        Definition.SetNotificationTag(notificationTag);
-        Definition.SetLimitedUsage(limitedUsage);
-        Definition.SetDamageValueDetermination(damageValueDetermination);
-        Definition.SetTriggerCondition(triggerCondition);
-        Definition.SetRequiredProperty(requiredProperty);
-        Definition.SetAttackModeOnly(attackModeOnly);
+        Definition.notificationTag = notificationTag;
+        Definition.limitedUsage = limitedUsage;
+        Definition.damageValueDetermination = damageValueDetermination;
+        Definition.triggerCondition = triggerCondition;
+        Definition.requiredProperty = requiredProperty;
+        Definition.attackModeOnly = attackModeOnly;
 
         // Does this conflict with SetSpecificDamageType below?
-        Definition.SetAdditionalDamageType(additionalDamageType);
-        Definition.SetSpecificDamageType(specificDamageType);
+        Definition.additionalDamageType = additionalDamageType;
+        Definition.specificDamageType = specificDamageType;
 
-        Definition.SetDamageAdvancement(damageAdvancement);
+        Definition.damageAdvancement = damageAdvancement;
         Definition.DiceByRankTable.SetRange(diceByRankTable);
-        Definition.SetDamageDieType(damageDieType);
+        Definition.damageDieType = damageDieType;
 
         return This();
     }
