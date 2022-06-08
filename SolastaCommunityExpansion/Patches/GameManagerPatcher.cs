@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Text;
 using HarmonyLib;
@@ -61,6 +62,7 @@ namespace SolastaCommunityExpansion.Patches
             ItemOptionsContext.Load();
             Level20Context.Load();
             LevelDownContext.Load();
+            MonsterContext.Load();
             PickPocketContext.Load();
             PowerBundleContext.Load();
             RemoveBugVisualModelsContext.Load();
@@ -90,9 +92,6 @@ namespace SolastaCommunityExpansion.Patches
 
             // Load SRD and House rules last in case they change previous blueprints
             SrdAndHouseRulesContext.Load();
-
-            // Custom High Level Monsters
-            MonsterContext.Load();
 
             ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
             {
@@ -136,17 +135,21 @@ namespace SolastaCommunityExpansion.Patches
                 Main.Enabled = true;
                 Main.Logger.Log("Enabled.");
 
-                if (CheckForUpdates(out var version, out var changeLog))
+                if (ShouldUpdate(out var version, out var changeLog))
                 {
                     DisplayUpdateMessage(version, changeLog);
                 }
-                else
+                else if (Main.Settings.DisplayWelcomeMessage)
                 {
                     DisplayWelcomeMessage();
+                    
+                    Main.Settings.DisplayWelcomeMessage = false;
                 }
             };
         }
-
+        
+        private const string REPO_URL = "https://github.com/SolastaMods/SolastaCommunityExpansion";
+        
         private static string GetInstalledVersion()
         {
             var infoPayload = File.ReadAllText(Path.Combine(Main.MOD_FOLDER, "Info.json"));
@@ -155,11 +158,8 @@ namespace SolastaCommunityExpansion.Patches
             return infoJson["Version"].Value<string>();
         }
 
-        private static bool CheckForUpdates(out string version, out string changeLog)
+        private static bool ShouldUpdate(out string version, out string changeLog)
         {
-            const string BASE_URL =
-                "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
-
             var hasUpdate = false;
 
             version = "";
@@ -171,13 +171,13 @@ namespace SolastaCommunityExpansion.Patches
 
             try
             {
-                var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
+                var infoPayload = wc
+                    .DownloadString($"{REPO_URL}/master/SolastaCommunityExpansion/Info.json");
                 var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
                 version = infoJson["Version"].Value<string>();
                 hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
-
-                changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
+                changeLog = wc.DownloadString($"{REPO_URL}/master/SolastaCommunityExpansion/Changelog.txt");
             }
             catch
             {
@@ -193,42 +193,39 @@ namespace SolastaCommunityExpansion.Patches
 
             wc.Encoding = Encoding.UTF8;
 
+            var file = $"SolastaCommunityExpansion-{version}.zip";
+            var url = $"{REPO_URL}/releases/download/{version}/{file}";
+            string message;
+
             try
             {
-                var files = new[] { "SolastaCommunityExpansion.dll", "Info.json" };
+                var fullFileName = Path.Combine(Main.MOD_FOLDER, file);
 
-                foreach (var file in files)
-                {
-                    var fullFileName = Path.Combine(Main.MOD_FOLDER, file);
-
-                    wc.DownloadFile(
-                        $"https://github.com/SolastaMods/SolastaCommunityExpansion/releases/download/{version}/{file}",
-                        $"{fullFileName}.UPD");
-
-                    File.Delete(fullFileName);
-                    File.Move($"{fullFileName}.UPD", fullFileName);
-                }
-
-                Gui.GuiService.ShowMessage(
-                    MessageModal.Severity.Informative1,
-                    "Message/&MessageModWelcomeTitle",
-                    "Update successful. Please restart.",
-                    "Message/&MessageOkTitle",
-                    string.Empty,
-                    null,
-                    null);
+                wc.DownloadFile(url, fullFileName);
+                ZipFile.ExtractToDirectory(fullFileName, Main.MOD_FOLDER);
+                message = "Update successful. Please restart.";
             }
             catch
             {
-                Main.Logger.Log("cannot fetch update payload.");
+                message = $"Cannot fetch update payload. Try again or download from:\n{url}.";
+                Main.Logger.Log(message);
             }
+
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "Message/&MessageModWelcomeTitle",
+                message,
+                "Message/&MessageOkTitle",
+                string.Empty,
+                null,
+                null);
         }
 
         private static void DisplayUpdateMessage(string version, string changeLog)
         {
             if (changeLog == string.Empty)
             {
-                changeLog = ". no changelog found";
+                changeLog = "- no changelog found";
             }
 
             Gui.GuiService.ShowMessage(
@@ -243,13 +240,6 @@ namespace SolastaCommunityExpansion.Patches
 
         private static void DisplayWelcomeMessage()
         {
-            if (!Main.Settings.DisplayWelcomeMessage)
-            {
-                return;
-            }
-
-            Main.Settings.DisplayWelcomeMessage = false;
-
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Informative1,
                 "Message/&MessageModWelcomeTitle",
