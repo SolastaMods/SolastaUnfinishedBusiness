@@ -1,6 +1,1 @@
-﻿- Add more infusions to Tinkerer and tweak spell list
-- Allow crossbows and hand crossbows to leverage Archery
-- Bring back Royal Knight subclass
-- Change Sense Normal Vision setting to a slider
-- Fix Level 20 to remove cap in new places
-- Improve Party of 6 UI scaling
+﻿- Add Items granter under Gameplay > Tools
