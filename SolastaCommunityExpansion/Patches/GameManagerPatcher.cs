@@ -192,28 +192,48 @@ namespace SolastaCommunityExpansion.Patches
         {
             const string BASE_URL = "https://github.com/SolastaMods/SolastaCommunityExpansion";
 
+            var destFiles = new[] {"Info.json", "SolastaCommunityExpansion.dll"};
+
             using var wc = new WebClient();
 
             wc.Encoding = Encoding.UTF8;
 
-            var file = $"SolastaCommunityExpansion-{version}.zip";
-            var url = $"{BASE_URL}/releases/download/{version}/{file}";
             string message;
+            var zipFile = $"SolastaCommunityExpansion-{version}.zip";
+            var fullZipFile = Path.Combine(Main.MOD_FOLDER, zipFile);
+            var fullZipFolder = Path.Combine(Main.MOD_FOLDER, "SolastaCommunityExpansion");
+            var url = $"{BASE_URL}/releases/download/{version}/{zipFile}";
 
             try
             {
-                var fullFileName = Path.Combine(Main.MOD_FOLDER, file);
+                wc.DownloadFile(url, fullZipFile);
 
-                wc.DownloadFile(url, fullFileName);
-                ZipFile.ExtractToDirectory(fullFileName, Main.MOD_FOLDER);
+                if (Directory.Exists(fullZipFolder))
+                {
+                    Directory.Delete(fullZipFolder);
+                }
+
+                ZipFile.ExtractToDirectory(fullZipFile, Main.MOD_FOLDER);
+                File.Delete(fullZipFile);
+
+                foreach (var destFile in destFiles)
+                {
+                    var fullDestFile = Path.Combine(Main.MOD_FOLDER, destFile);
+
+                    File.Delete(fullDestFile);
+                    File.Move(
+                        Path.Combine(fullZipFolder, destFile),
+                        fullDestFile);
+                }
+
                 message = "Update successful. Please restart.";
             }
             catch
             {
                 message = $"Cannot fetch update payload. Try again or download from:\n{url}.";
-                Main.Logger.Log(message);
             }
 
+            Main.Logger.Log(message);
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Informative1,
                 "Message/&MessageModWelcomeTitle",
