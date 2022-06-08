@@ -132,12 +132,30 @@ internal static class TinkererClass
         // Complicated stuff
 
         // Starting equipment.
-        var simpleWeaponList = new List<HeroEquipmentOption>();
-        var simpleWeaponOption = EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
-            EquipmentDefinitions.OptionWeaponSimpleChoice, 1);
-        simpleWeaponList.Add(simpleWeaponOption);
-        simpleWeaponList.Add(simpleWeaponOption);
-        artificerBuilder.AddEquipmentRow(simpleWeaponList);
+        artificerBuilder.AddEquipmentRow(
+            new List<CharacterClassDefinition.HeroEquipmentOption>
+            {
+                EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
+                    EquipmentDefinitions.OptionWeapon, 1)
+            },
+            new List<CharacterClassDefinition.HeroEquipmentOption>
+            {
+                EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
+                    EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
+            }
+        );
+        artificerBuilder.AddEquipmentRow(
+            new List<CharacterClassDefinition.HeroEquipmentOption>
+            {
+                EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
+                    EquipmentDefinitions.OptionWeapon, 1)
+            },
+            new List<CharacterClassDefinition.HeroEquipmentOption>
+            {
+                EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
+                    EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
+            }
+        );
 
         var lightArmor = new List<HeroEquipmentOption>();
         var mediumArmor = new List<HeroEquipmentOption>();
