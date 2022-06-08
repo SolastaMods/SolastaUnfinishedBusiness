@@ -18,8 +18,8 @@ Do you have a mod you want to see included here? We are happy to take new contri
 # How to Compile
 
 0. Install all required development pre-requisites:
-    - [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)
-    - [.NET "Current" x86 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
+    - [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/downloads/)
+    - [.NET x64 6.00.300 SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
 1. Download and install [Unity Mod Manager (UMM)](https://www.nexusmods.com/site/mods/21)
 2. Execute UMM, Select Solasta, and Install
 3. Create the environment variable *SolastaInstallDir* and point it to your Solasta game home folder
