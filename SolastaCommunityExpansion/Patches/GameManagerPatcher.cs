@@ -142,14 +142,12 @@ namespace SolastaCommunityExpansion.Patches
                 else if (Main.Settings.DisplayWelcomeMessage)
                 {
                     DisplayWelcomeMessage();
-                    
+
                     Main.Settings.DisplayWelcomeMessage = false;
                 }
             };
         }
-        
-        private const string REPO_URL = "https://github.com/SolastaMods/SolastaCommunityExpansion";
-        
+
         private static string GetInstalledVersion()
         {
             var infoPayload = File.ReadAllText(Path.Combine(Main.MOD_FOLDER, "Info.json"));
@@ -160,6 +158,9 @@ namespace SolastaCommunityExpansion.Patches
 
         private static bool ShouldUpdate(out string version, out string changeLog)
         {
+            const string BASE_URL =
+                "https://raw.githubusercontent.com/SolastaMods/SolastaCommunityExpansion/master/SolastaCommunityExpansion";
+
             var hasUpdate = false;
 
             version = "";
@@ -171,13 +172,13 @@ namespace SolastaCommunityExpansion.Patches
 
             try
             {
-                var infoPayload = wc
-                    .DownloadString($"{REPO_URL}/master/SolastaCommunityExpansion/Info.json");
+                var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
                 var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
                 version = infoJson["Version"].Value<string>();
                 hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
-                changeLog = wc.DownloadString($"{REPO_URL}/master/SolastaCommunityExpansion/Changelog.txt");
+
+                changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
             }
             catch
             {
@@ -189,12 +190,14 @@ namespace SolastaCommunityExpansion.Patches
 
         private static void UpdateMod(string version)
         {
+            const string BASE_URL = "https://github.com/SolastaMods/SolastaCommunityExpansion";
+
             using var wc = new WebClient();
 
             wc.Encoding = Encoding.UTF8;
 
             var file = $"SolastaCommunityExpansion-{version}.zip";
-            var url = $"{REPO_URL}/releases/download/{version}/{file}";
+            var url = $"{BASE_URL}/releases/download/{version}/{file}";
             string message;
 
             try
