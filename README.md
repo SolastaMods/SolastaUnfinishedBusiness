@@ -1,8 +1,6 @@
 # Solasta Community Expansion
 
-This is a collection of work from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
-
-The goal with the modifications provided here is to minimize code patches. Minimizing code patches means compatibility with other mods is easier as well as makes maintenance easier. Any code patches should be as targeted and minimal as possible to reduce the chance of unintended side effects. There are a lot of interesting things that can be done with just edits to the database.
+This is a [collection of work](https://github.com/SolastaMods/SolastaCommunityExpansion/wiki) from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
 # How to contribute
 
@@ -15,7 +13,7 @@ Do you have a mod you want to see included here? We are happy to take new contri
 5. Wait for a review. We try to stay on top of this, but it's a hobby.
 6. Once the review is done, the changes will get merged in to the `Dev` branch. The `Dev` branch will periodically be tested and merged in to `master` to build releases.
 
-# How to Compile
+# How to compile
 
 0. Install all required development pre-requisites:
     - [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/downloads/)
@@ -29,7 +27,7 @@ Do you have a mod you want to see included here? We are happy to take new contri
 
 NOTE Unity Mod Manager and this mod template make use of [Harmony](https://go.microsoft.com/fwlink/?linkid=874338)
 
-# How to Debug
+# How to debug
 
 1. Open Solasta game folder
 	* Rename UnityPlayer.dll to UnityPlayer.dll.original
