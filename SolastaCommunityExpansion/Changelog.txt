@@ -1,1 +1,2 @@
 ﻿- Add Items granter under Gameplay > Tools
+- Fix Fletcher feat granting Wis instead of Dex
