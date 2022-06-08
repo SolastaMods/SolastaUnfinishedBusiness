@@ -30,7 +30,7 @@ public static class CraftyFeats
             .AddToDB();
 
         var crafty_dex = FeatureDefinitionAttributeModifierBuilder
-            .Create(AttributeModifierCreed_Of_Maraike, "AttributeModifierFeatCraftyDex",
+            .Create(AttributeModifierCreed_Of_Misaye, "AttributeModifierFeatCraftyDex",
                 "4db12466-67da-47a4-8d96-a9bf9cf3a251")
             .SetGuiPresentation("AttributeDex", Category.CraftyFeats,
                 AttributeModifierCreed_Of_Misaye.GuiPresentation.SpriteReference)
