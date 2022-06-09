@@ -37,7 +37,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	将<color=orange>黑暗视觉</color>�
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	将<color=orange>增强黑暗视觉</color>从所有种族中移除<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	在升级时显示所有从其它职业上习得的法术
 ModUi/&DontFollowCharacterInBattle	摄像机不再跟随已出现在屏幕上的角色
-ModUi/&DontFollowMargin	<i><color=white>+ 除非角色靠近于 % 的屏幕边缘</color></i>
+ModUi/&DontFollowMargin	<i><color=white>+ 除非角色靠近于%的屏幕边缘</color></i>
 ModUi/&DungeonMaker	<color=yellow>地城制作：</color>
 ModUi/&DungeonMakerBasicHelp	. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<i><color=yellow>[例如：你好英雄{Salute}！]</color></i>
 ModUi/&DungeonMakerMenu	地城制作
@@ -84,7 +84,7 @@ ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</colo
 ModUi/&Encounters	遭遇战
 ModUi/&ExecuteBatchTranslations	<color=yellow>批量翻译：</color>\n\n. 战役将以目标语言进行批量翻译
 ModUi/&ExpandAll	全部展开
-ModUi/&FactionHelp	<color=#C04040E0>加载官方战役修改派系关系...</color>
+ModUi/&FactionHelp	<color=#C04040E0>加载官方战役修改派系关系……</color>
 ModUi/&FactionRelations	<color=yellow>派系关系：</color>
 ModUi/&FasterTimeModifier	<color=white>按空格键时可调整游戏速度</color>
 ModUi/&Feats	<color=yellow>专长</color>
@@ -102,7 +102,7 @@ ModUi/&HideMonsterHitPoints	以25%/50%/75%/100%为单位显示怪物的生命值
 ModUi/&HiderArmor	兽皮甲
 ModUi/&House	<color=yellow>房屋：</color>
 ModUi/&IncreaseSenseNormalVision	<color=white>提高<color=orange>正常视觉</color>距离以允许长距离攻击</color> <i><color=yellow>[40是一个相对理想的距离，以避免敌人从过远的距离加入战斗]</color></i>
-ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&IncreaseSenseNormalVisionHelp	<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&InitialChoices	<color=yellow>初始选择：</color>
 ModUi/&Interface	界面
 ModUi/&InventoryAndItems	<color=yellow>物品栏和物品：</color>
@@ -122,7 +122,7 @@ ModUi/&Multiclass	<color=yellow>兼职：</color>
 ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color>点击一个法术会消耗一个法术位，而非默认的契约法术位
 ModUi/&MultiplyTheExperienceGainedBy	<color=white>获得的经验倍率</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp	无需经验即可升级
-ModUi/&NotAvailable	在Mod上还没有可用的{0}...
+ModUi/&NotAvailable	在Mod上还没有可用的{0}……
 ModUi/&OfferAdditionalLoreFriendlyNames	在创建角色时提供更多有利于传闻的名字
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ 只显示召唤列表中最强大的生物</i>
 ModUi/&OverrideMinMaxLevel	在开启新的冒险时覆盖其最低/最高等级
@@ -178,10 +178,10 @@ ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
-ModUi/&Items	<color=yellow>Items:</color>
-ModUi/&ItemsHelp1	<color=#C04040E0>You must have the character inspection screen open to add items to heroes...</color>
-ModUi/&ItemsHelp2	. Press + to add items to the ground container on inspection panel
-ModUi/&Armor	<color=yellow>Armor</color>
-ModUi/&Weapon	<color=yellow>Weapons</color>
-ModUi/&Ammunition	<color=yellow>Ammunition</color>
-ModUi/&UsableDevice	<color=yellow>Usable Device</color>
+ModUi/&Items	<color=yellow>物品：</color>
+ModUi/&ItemsHelp1	<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
+ModUi/&ItemsHelp2	. 在检查界面按+将物品添加到地面容器中
+ModUi/&Armor	<color=yellow>护甲</color>
+ModUi/&Weapon	<color=yellow>武器</color>
+ModUi/&Ammunition	<color=yellow>弹药</color>
+ModUi/&UsableDevice	<color=yellow>可用装置</color>
