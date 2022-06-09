@@ -185,3 +185,4 @@ ModUi/&UsableDevice	<color=yellow>Usable Device</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	Allow crossbows to benefit from bows features

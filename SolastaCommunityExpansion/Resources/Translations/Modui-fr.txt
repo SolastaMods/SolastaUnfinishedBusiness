@@ -185,3 +185,4 @@ ModUi/&UsableDevice	<color=yellow>Appareil utilisable</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals	<color=yellow>Visuels :</color>
 ModUi/&Weapon	<color=yellow>Armes</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	Permettre aux arbalètes de bénéficier des fonctionnalités des arcs

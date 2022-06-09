@@ -185,3 +185,4 @@ ModUi/&UsableDevice	<color=yellow>Verwendbares Gerät</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Waffen</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	Ermöglichen Sie Armbrüsten, von den Bogenfunktionen zu profitieren

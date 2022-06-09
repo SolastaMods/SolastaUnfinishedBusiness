@@ -185,3 +185,4 @@ ModUi/&UsableDevice	<color=yellow>可用装置</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon	<color=yellow>武器</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	允许弩从弓相关的特性中收益

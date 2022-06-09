@@ -185,3 +185,4 @@ ModUi/&UsableDevice	<color=yellow>Используемое устройство<
 ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
 ModUi/&Weapon	<color=yellow>Оружие</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	Разрешить арбалетам пользоваться преимуществами луков

@@ -106,6 +106,11 @@ internal static class RulesetCharacterHero_IsWieldingBow
 {
     internal static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
     {
+        if (!Main.Settings.AllowCrossbowsToUseBowFeatures)
+        {
+            return true;
+        }
+
         var equipedItem = __instance.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
