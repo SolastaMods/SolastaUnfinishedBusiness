@@ -362,11 +362,11 @@ internal static class AcehighFeats
                 SkipAnimationsAndVFX = true,
                 TargetCharacters = { locationCharacter },
                 ActionModifiers = { new ActionModifier() },
-                RulesetEffect = rules.InstantiateEffectPower(character, usable, false)
+                RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
             };
 
             ServiceRepository.GetService<ICommandService>()
-                .ExecuteInstantSingleAction(actionParams);
+                .ExecuteAction(actionParams, _ => { }, false);
         }
     }
 
