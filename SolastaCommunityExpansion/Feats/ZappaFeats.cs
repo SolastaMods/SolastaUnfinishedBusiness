@@ -576,7 +576,7 @@ internal sealed class FeatureDefinitionMetamagicOption : FeatureDefinition, IFea
     {
         if (!hero.MetamagicFeatures.ContainsKey(MetamagicOption))
         {
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
+            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> {MetamagicOption});
 
             MetamagicTrained = true;
         }

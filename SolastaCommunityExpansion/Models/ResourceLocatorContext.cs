@@ -85,7 +85,7 @@ internal class SpriteResourceLocator : IResourceLocator
                 locationsCache.Add(id, location);
             }
 
-            locations = new List<IResourceLocation> { location };
+            locations = new List<IResourceLocation> {location};
             return true;
         }
 

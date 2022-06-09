@@ -613,7 +613,7 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
         SelfDestruct.hitPoints = 200;
         SelfDestruct.killCondition = RuleDefinitions.KillCondition.Always;
 
-        var KillEffect = new EffectForm { FormType = EffectForm.EffectFormType.Kill };
+        var KillEffect = new EffectForm {FormType = EffectForm.EffectFormType.Kill};
         KillEffect.SetKillForm(SelfDestruct);
         KillEffect.SetCreatedByCharacter(true);
         KillEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;

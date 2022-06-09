@@ -160,7 +160,7 @@ public static class GUIHelper
         style ??= GUI.skin.button;
         minWidth = Math.Max(minWidth, style.CalcSize(content).x);
         if (GUILayout.Button(content, style,
-                options?.Concat(new[] { GUILayout.Width(minWidth) }).ToArray() ?? new[] { GUILayout.Width(minWidth) }))
+                options?.Concat(new[] {GUILayout.Width(minWidth)}).ToArray() ?? new[] {GUILayout.Width(minWidth)}))
         {
             toggle = toggle.Flip();
         }
@@ -301,7 +301,7 @@ public static class GUIHelper
             fillTexture = new Texture2D(1, 1);
         }
 
-        var divStyle = new GUIStyle { fixedHeight = 1 };
+        var divStyle = new GUIStyle {fixedHeight = 1};
         fillTexture.SetPixel(0, 0, color);
         fillTexture.Apply();
         divStyle.normal.background = fillTexture;

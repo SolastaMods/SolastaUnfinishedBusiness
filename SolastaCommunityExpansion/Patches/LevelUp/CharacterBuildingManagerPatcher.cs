@@ -50,8 +50,6 @@ internal static class CharacterBuildingManager_BrowseGrantedFeaturesHierarchical
                             var style = DatabaseRepository.GetDatabase<FightingStyleDefinition>().GetElement(name);
                             __instance.AcquireBonusFightingStyle(heroBuildingData, style, tag);
                         }
-
-                        continue;
                     }
 
                     continue;

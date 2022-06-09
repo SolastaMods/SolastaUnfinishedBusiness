@@ -57,11 +57,11 @@ internal static class InitialChoicesContext
     {
         if (Main.Settings.EnableEpicPointsAndArray)
         {
-            AttributeDefinitions.PredeterminedRollScores = new[] { 17, 15, 13, 12, 10, 8 };
+            AttributeDefinitions.PredeterminedRollScores = new[] {17, 15, 13, 12, 10, 8};
         }
         else
         {
-            AttributeDefinitions.PredeterminedRollScores = new[] { 15, 14, 13, 12, 10, 8 };
+            AttributeDefinitions.PredeterminedRollScores = new[] {15, 14, 13, 12, 10, 8};
         }
     }
 
@@ -107,7 +107,7 @@ internal static class InitialChoicesContext
 
     internal static void SwitchEvenLevelFeats()
     {
-        var levels = new[] { 2, 6, 10, 14 };
+        var levels = new[] {2, 6, 10, 14};
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
         foreach (var characterClassDefinition in dbCharacterClassDefinition)

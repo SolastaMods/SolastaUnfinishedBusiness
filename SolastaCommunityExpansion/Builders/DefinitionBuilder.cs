@@ -448,7 +448,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
                     throw new SolastaModApiException($"Could not locate the 'Add' method for {dbType.FullName}.");
                 }
 
-                methodInfo.Invoke(db, new object[] { Definition });
+                methodInfo.Invoke(db, new object[] {Definition});
             }
 
             bool dbHasElement(string name)
@@ -461,7 +461,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
                         $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                 }
 
-                return (bool)methodInfo.Invoke(db, new object[] { name });
+                return (bool)methodInfo.Invoke(db, new object[] {name});
             }
 
             bool dbHasElementByGuid(string guid)
@@ -474,7 +474,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
                         $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
                 }
 
-                return (bool)methodInfo.Invoke(db, new object[] { guid });
+                return (bool)methodInfo.Invoke(db, new object[] {guid});
             }
         }
 

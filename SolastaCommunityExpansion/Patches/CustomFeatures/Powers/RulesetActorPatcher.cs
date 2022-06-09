@@ -12,7 +12,7 @@ internal static class RulesetActor_RefreshAttributes
 {
     private static readonly Dictionary<string, CharacterClassDefinition> rules = new()
     {
-        { AttributeDefinitions.HealingPool, Paladin }, { AttributeDefinitions.SorceryPoints, Sorcerer }
+        {AttributeDefinitions.HealingPool, Paladin}, {AttributeDefinitions.SorceryPoints, Sorcerer}
     };
 
     public static int GetClassOrCharacterLevel(int characterLevel, RulesetCharacter rulesetCharacter,

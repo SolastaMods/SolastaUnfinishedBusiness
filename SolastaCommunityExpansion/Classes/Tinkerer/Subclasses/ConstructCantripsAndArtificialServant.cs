@@ -81,9 +81,9 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
         Definition.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Touch);
 
         var mendingconstruct =
-            new HealingForm { BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2 };
+            new HealingForm {BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2};
 
-        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Healing };
+        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
         effect.SetHealingForm(mendingconstruct);
         effect.SetCreatedByCharacter(true);
 
@@ -133,7 +133,7 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         var dismissConstruct = new CounterForm();
         dismissConstruct.type = CounterForm.CounterType.DismissCreature;
 
-        var effect = new EffectForm { FormType = EffectForm.EffectFormType.Counter };
+        var effect = new EffectForm {FormType = EffectForm.EffectFormType.Counter};
         effect.SetCounterForm(dismissConstruct);
         effect.HasSavingThrow = false;
         effect.SetCreatedByCharacter(true);
@@ -282,7 +282,7 @@ internal sealed class ArtificialServantAttackBuilder : MonsterAttackDefinitionBu
         var damageEffect = new EffectForm
         {
             AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus,
-            DamageForm = new DamageForm { DiceNumber = 1, DieType = RuleDefinitions.DieType.D4 }
+            DamageForm = new DamageForm {DiceNumber = 1, DieType = RuleDefinitions.DieType.D4}
         };
 
         const int assumedIntModifier = 3;

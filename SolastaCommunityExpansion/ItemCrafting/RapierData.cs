@@ -14,7 +14,7 @@ internal static class RapierData
         get => items ??= new ItemCollection
         {
             BaseGuid = new Guid("16757d1b-518f-4669-af43-1ddf5d23c223"),
-            BaseWeapons = new List<ItemDefinition> { DatabaseHelper.ItemDefinitions.Rapier },
+            BaseWeapons = new List<ItemDefinition> {DatabaseHelper.ItemDefinitions.Rapier},
             PossiblePrimedItemsToReplace = new List<ItemDefinition>
             {
                 DatabaseHelper.ItemDefinitions.Primed_Longsword,

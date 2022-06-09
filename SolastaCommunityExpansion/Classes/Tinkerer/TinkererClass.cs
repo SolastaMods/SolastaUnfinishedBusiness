@@ -133,24 +133,24 @@ internal static class TinkererClass
 
         // Starting equipment.
         artificerBuilder.AddEquipmentRow(
-            new List<CharacterClassDefinition.HeroEquipmentOption>
+            new List<HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
                     EquipmentDefinitions.OptionWeapon, 1)
             },
-            new List<CharacterClassDefinition.HeroEquipmentOption>
+            new List<HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
                     EquipmentDefinitions.OptionWeaponSimpleChoice, 1)
             }
         );
         artificerBuilder.AddEquipmentRow(
-            new List<CharacterClassDefinition.HeroEquipmentOption>
+            new List<HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Dagger,
                     EquipmentDefinitions.OptionWeapon, 1)
             },
-            new List<CharacterClassDefinition.HeroEquipmentOption>
+            new List<HeroEquipmentOption>
             {
                 EquipmentOptionsBuilder.Option(ItemDefinitions.Mace,
                     EquipmentDefinitions.OptionWeaponSimpleChoice, 1)

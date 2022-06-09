@@ -379,7 +379,7 @@ internal static class MonstersHomebrew
                 AttackIteration.SetField("number", 2);
 
                 NewMonster.ClearAttackIterations();
-                NewMonster.AddAttackIterations(new List<MonsterAttackIteration> { AttackIteration });
+                NewMonster.AddAttackIterations(new List<MonsterAttackIteration> {AttackIteration});
 
                 LegendaryActionDescription legendaryActionDescription = new();
                 legendaryActionDescription.SetCost(1);
@@ -434,7 +434,7 @@ internal static class MonstersHomebrew
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(
-                    new List<MonsterAttackIteration> { AttackIteration, AttackIteration_2 });
+                    new List<MonsterAttackIteration> {AttackIteration, AttackIteration_2});
 
                 LegendaryActionDescription legendaryActionDescription_1 = new();
                 legendaryActionDescription_1.SetCost(1);
@@ -495,7 +495,7 @@ internal static class MonstersHomebrew
                 AttackIteration.SetField("number", 3);
 
                 NewMonster.ClearAttackIterations();
-                NewMonster.AddAttackIterations(new List<MonsterAttackIteration> { AttackIteration });
+                NewMonster.AddAttackIterations(new List<MonsterAttackIteration> {AttackIteration});
 
                 LegendaryActionDescription legendaryActionDescription_2 = new();
                 legendaryActionDescription_2.SetCost(1);
@@ -533,10 +533,7 @@ internal static class MonstersHomebrew
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(
-                    new List<MonsterAttackIteration>
-                    {
-                        AttackIteration
-                    }); //  , AttackIteration_2, AttackIteration_2 });
+                    new List<MonsterAttackIteration> {AttackIteration}); //  , AttackIteration_2, AttackIteration_2 });
                 NewMonster.SetGroupAttacks(true);
                 NewMonster.ClearLegendaryActionOptions();
 
@@ -556,7 +553,7 @@ internal static class MonstersHomebrew
                     .LegendaryLaetharCast_Debuff);
 
                 NewMonster.AddLegendaryActionOptions(
-                    new List<LegendaryActionDescription> { legendaryActionDescription, legendaryActionDescription2 });
+                    new List<LegendaryActionDescription> {legendaryActionDescription, legendaryActionDescription2});
 
                 NewMonster.AddFeatures(new List<FeatureDefinition>
                 {

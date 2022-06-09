@@ -751,7 +751,7 @@ public static class Monk
             })
             .AddToDB();
 
-        deflectMissile.AllowedActionTypes = new[] { true, true, true, true, true, true };
+        deflectMissile.AllowedActionTypes = new[] {true, true, true, true, true, true};
 
         return deflectMissile;
     }
@@ -934,7 +934,7 @@ public static class Monk
 
     public static bool IsMonkWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
     {
-        if (attackMode is not { SourceDefinition: ItemDefinition item })
+        if (attackMode is not {SourceDefinition: ItemDefinition item})
         {
             return false;
         }

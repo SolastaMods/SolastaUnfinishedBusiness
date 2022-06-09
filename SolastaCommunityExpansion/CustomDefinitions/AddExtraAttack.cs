@@ -123,7 +123,7 @@ public class AddExtraUnarmedAttack : AddExtraAttackBase
             isUnarmedWeapon ? mainHandItem : null
         );
 
-        return new List<RulesetAttackMode> { attackMode };
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
 
@@ -160,7 +160,7 @@ public class AddExtraMainHandAttack : AddExtraAttackBase
             mainHandItem
         );
 
-        return new List<RulesetAttackMode> { attackMode };
+        return new List<RulesetAttackMode> {attackMode};
     }
 }
 
@@ -334,6 +334,6 @@ public class AddBonusShieldAttack : AddExtraAttackBase
             }
         }
 
-        return new List<RulesetAttackMode> { attackMode };
+        return new List<RulesetAttackMode> {attackMode};
     }
 }

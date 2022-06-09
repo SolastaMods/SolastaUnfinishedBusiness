@@ -55,9 +55,9 @@ public static class RulesetActorExtensions
 
     private static IEnumerable<FeatureDefinition> Unfold(FeatureDefinition feature)
     {
-        return feature is FeatureDefinitionFeatureSet { Mode: FeatureSetMode.Union } set
+        return feature is FeatureDefinitionFeatureSet {Mode: FeatureSetMode.Union} set
             ? set.FeatureSet.SelectMany(Unfold)
-            : new[] { feature };
+            : new[] {feature};
     }
 
     public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
@@ -86,7 +86,7 @@ public static class RulesetActorExtensions
         //TODO: should we add FeatureDefinitionFeatureSetCustom flattening too?
         return features.SelectMany(f => f is FeatureDefinitionFeatureSet set
             ? FlattenFeatureList(set.FeatureSet)
-            : new List<FeatureDefinition> { f });
+            : new List<FeatureDefinition> {f});
     }
 
     public static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
