@@ -17,6 +17,8 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Autoriser la sélec
 ModUi/&AllowUnmarkedSorcerers	Autoriser les <color=orange>sorciers</color> non marqués
 ModUi/&AllRecipesInDm	Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=cyan>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]
+ModUi/&Ammunition	<color=yellow>Munition</color>
+ModUi/&Armor	<color=yellow>Armure</color>
 ModUi/&AutoPauseOnVictory	Pause de l'interface utilisateur en cas de victoire au combat
 ModUi/&Basic	<color=yellow>Basique :</color>
 ModUi/&Battle	<color=yellow>Bataille :</color>
@@ -108,7 +110,10 @@ ModUi/&Interface	Interface
 ModUi/&InventoryAndItems	<color=yellow>Inventaire et articles :</color>
 ModUi/&InvertAltBehaviorOnTooltips	Inverser le comportement de la touche <color=cyan>ALT</color> dans les infobulles
 ModUi/&ItemInDm	Articles en DM
+ModUi/&Items	<color=yellow>Articles:</color>
 ModUi/&ItemsCraftingMerchants	Objets, artisanat et marchands
+ModUi/&ItemsHelp1	<color=#C04040E0>Vous devez avoir l'écran d'inspection des personnages ouvert pour ajouter des objets aux héros...</color>
+ModUi/&ItemsHelp2	. Appuyez sur + pour ajouter des articles au conteneur de sol sur le panneau d'inspection
 ModUi/&KeyboardMouse	Clavier souris
 ModUi/&MakeAllMagicStaveArcaneFoci	Faire de tous les bâtons magiques des foyers arcaniques <i><color=yellow>[sauf le <color=orange>Bâton de guérison</color> qui est universel]</color></i> <b><i><color= #C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
@@ -176,12 +181,7 @@ ModUi/&UnlockEyeStyles	Déverrouiller les styles d'yeux
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
 ModUi/&UnlockGlowingEyeColors	Débloquez des couleurs d'yeux éclatantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Débloquez des marquages ​​et des tatouages ​​pour tous les personnages
+ModUi/&UsableDevice	<color=yellow>Appareil utilisable</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals	<color=yellow>Visuels :</color>
-ModUi/&Items	<color=yellow>Articles:</color>
-ModUi/&ItemsHelp1	<color=#C04040E0>Vous devez avoir l'écran d'inspection des personnages ouvert pour ajouter des objets aux héros...</color>
-ModUi/&ItemsHelp2	. Appuyez sur + pour ajouter des articles au conteneur de sol sur le panneau d'inspection
-ModUi/&Armor	<color=yellow>Armure</color>
 ModUi/&Weapon	<color=yellow>Armes</color>
-ModUi/&Ammunition	<color=yellow>Munition</color>
-ModUi/&UsableDevice	<color=yellow>Appareil utilisable</color>

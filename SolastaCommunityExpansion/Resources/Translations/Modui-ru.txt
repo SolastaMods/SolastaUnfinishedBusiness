@@ -17,6 +17,8 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Разрешить 
 ModUi/&AllowUnmarkedSorcerers	Разрешить неотмеченных <color=orange>Заклинателей</color>
 ModUi/&AllRecipesInDm	Все рецепты в Создателе Подземелий
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	Клавиша <color=cyan>ALT</color> выделяет гаджеты только в поле зрения группы [только в пользовательских подземельях]
+ModUi/&Ammunition	<color=yellow>Боеприпасы</color>
+ModUi/&Armor	<color=yellow>Броня</color>
 ModUi/&AutoPauseOnVictory	Ставить паузу после победы в бою
 ModUi/&Basic	<color=yellow>Основное:</color>
 ModUi/&Battle	<color=yellow>Битва:</color>
@@ -108,7 +110,10 @@ ModUi/&Interface	Интерфейс
 ModUi/&InventoryAndItems	<color=yellow>Инвентарь и предметы:</color>
 ModUi/&InvertAltBehaviorOnTooltips	Инвертировать поведение клавиши <color=cyan>ALT</color> во всплывающих подсказках
 ModUi/&ItemInDm	Предметы в Создателе Подземелий
+ModUi/&Items	<color=yellow>Предметы:</color>
 ModUi/&ItemsCraftingMerchants	Предметы, изготовление и торговцы
+ModUi/&ItemsHelp1	<color=#C04040E0>У вас должен быть открыт экран проверки персонажей, чтобы добавлять предметы героям...</color>
+ModUi/&ItemsHelp2	. Нажмите +, чтобы добавить предметы в наземный контейнер на панели осмотра.
 ModUi/&KeyboardMouse	Клавиатура и мышь
 ModUi/&MakeAllMagicStaveArcaneFoci	Сделать все магические посохи магическими фокусами <i><color=yellow>[кроме <color=orange>Посоха исцеления</color>, который является универсальным]</color></i> <b><i><color= #C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Также отмечать местоположение невидимых телепортов на карте уровня после обнаружения</i>
@@ -176,12 +181,7 @@ ModUi/&UnlockEyeStyles	Разблокировать стили глаз
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Разблокировать светящиеся цвета для всех отметин и татуировок
 ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся цвета глаз
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать отметины и татуировки для всех персонажей
+ModUi/&UsableDevice	<color=yellow>Используемое устройство</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
-ModUi/&Items	<color=yellow>Предметы:</color>
-ModUi/&ItemsHelp1	<color=#C04040E0>У вас должен быть открыт экран проверки персонажей, чтобы добавлять предметы героям...</color>
-ModUi/&ItemsHelp2	. Нажмите +, чтобы добавить предметы в наземный контейнер на панели осмотра.
-ModUi/&Armor	<color=yellow>Броня</color>
 ModUi/&Weapon	<color=yellow>Оружие</color>
-ModUi/&Ammunition	<color=yellow>Боеприпасы</color>
-ModUi/&UsableDevice	<color=yellow>Используемое устройство</color>

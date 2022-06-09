@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Wenn Sie sich mit Bögen auskennen,
 Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Atemberaubende Pfeile
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Pfeilangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Atemberaubende Pfeile
 Feature/&ClassWarlockArmorProficiencyDescription	Leichte Rüstung.
 Feature/&ClassWarlockArmorProficiencyTitle	Hexenmeister-Rüstungsfähigkeiten
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Wählen Sie Eldritch Invocation zum Ersetzen aus.
@@ -1054,6 +1054,9 @@ Feature/&IndomitableResistanceAddTitle	Unbezwingbarer Widerstand (erhöht)
 Feature/&IndomitableResistanceTitle	Unbezwingbarer Widerstand
 Feature/&InspirePowerDescription	Gib einen Gambit-Würfel aus und inspiriere dich selbst oder deinen Verbündeten, 1W6 + 2 temporäre TP zu geben.
 Feature/&InspirePowerTitle	Inspirieren
+Feature/&InspiringSurgePowerDescription	Gewähre einem Verbündeten eine zusätzliche Hauptaktion für 1 Runde. Kann nicht mit Action Surge gestapelt werden.
+Feature/&InspiringSurgePowerTitle	Inspirierende Welle
+Feature/&InspiringSurgePowerTitleShort	Inspirierende Welle
 Feature/&KnockDownPowerDescription	Gib einen Gambit-Würfel aus und ermächtige deinen Angriff, zusätzlich 1W6 + 2 Knüppelschaden zu verursachen. Das Ziel macht einen Stärkewurf (SG 8 + dein Kompetenzbonus + dein Stärkemodifikator) oder wird bis zum Beginn seines nächsten Zuges niedergeschlagen.
 Feature/&KnockDownPowerTitle	Niederschlagen
 Feature/&MagicAffinityRangerArcanistDescription	Du bist geübt im Wirken von Zaubern im Kampf und kannst Zauber wirken, die eine somatische Komponente erfordern, selbst wenn du mit beiden Händen eine Waffe oder einen Schild hältst.
@@ -1110,6 +1113,9 @@ Feature/&RagePowerDescription	Als Bonusaktion gerätst du für eine Minute in Wu
 Feature/&RagePowerTitle	Wut
 Feature/&RageStrengthSavingThrowAffinityDescription	Während du tobst, erhältst du einen Vorteil bei Stärkewürfen.
 Feature/&RageStrengthSavingThrowAffinityTitle	Wutstärke-Speichervorteil
+Feature/&RallyingCryPowerDescription	Ersetzt Zweiter Wind durch eine Kraft, um 4x Kämpferstufen-Trefferpunkte bei einem oder mehreren Verbündeten innerhalb von 6 Zellen bis zu ihrem Trefferpunkte-Maximum wiederherzustellen.
+Feature/&RallyingCryPowerTitle	Sammelnder Schrei
+Feature/&RallyingCryPowerTitleShort	Sammelnder Schrei
 Feature/&RangerFeralSensesDescription	Du erhältst übernatürliche Sinne, die dir helfen, Kreaturen zu bekämpfen, die du nicht sehen kannst. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie.
 Feature/&RangerFeralSensesTitle	Wilde Sinne
 Feature/&RangerVanishActionDescription	Ab der 14. Stufe kannst du die Aktion Verstecken als Bonusaktion in deinem Zug nutzen.
@@ -1117,6 +1123,8 @@ Feature/&RangerVanishActionTitle	Verschwinden
 Feature/&RiftWalkerRestrainedImmunityTitle	Flüchtiger Schritt
 Feature/&RiftWalkerSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker-Zauber
+Feature/&RoyalEnvoyFeatureDescription	Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
+Feature/&RoyalEnvoyFeatureTitle	Königlicher Gesandter
 Feature/&SavingThrowTinkererProficiencyDescription	Beherrschung von Konstitutions- und Intelligenzwürfen.
 Feature/&SavingThrowTinkererProficiencyTitle	Rettungswurf-Fertigkeit
 Feature/&ScoutModePowerDescription	Du erhältst mehr Bewegung, einen Vorteil bei Fertigkeitswürfen für Heimlichkeit und einmal pro Zug verursachen deine Fernwaffenangriffe einen zusätzlichen Schadenswürfel.
@@ -1496,6 +1504,10 @@ Reaction/&CastSpellInRetributionDescription	{0} greift {1} an! Du kannst {2} als
 Reaction/&CastSpellInRetributionReactDescription	Klicken Sie, um {0} zu wirken.
 Reaction/&CastSpellInRetributionReactTitle	Zauber wirken
 Reaction/&CastSpellInRetributionTitle	Wirke Reaktionszauber
+Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Angriff angegriffen, einige Charaktere können ihre Reaktion nutzen, um sich diesem Angriff anzuschließen.
+Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&CoordinatedAttackReactTitle	Attacke
+Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
 Reaction/&CustomDeflectMissileMonkTitle	{0} greift {1} an, der reagieren kann, um den eingehenden Schaden um 1W10 + Geschicklichkeitsmodifikator + Mönchsstufe zu verringern
 Reaction/&ReactionAttackFeatSentinelDescription	{0} hat einen deiner Verbündeten angegriffen, als Reaktion darauf kannst du deine Angriffsreaktion nutzen.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Verwenden Sie die Reaktion auf den Angriff.
@@ -1530,8 +1542,8 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Gib einen Gambit-Würfel 
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Gegenschlag
 Reaction/&SpendPowerCounterStrikePowerTitle	Gegenschlag
 Reaction/&SpendPowerDH_RiftStrikeDescription	Wenn Sie durch einen Nahkampfangriff beschädigt werden, können Sie einmal pro langer Pause Ihre Reaktion nutzen, um ein Portal zu erstellen, das den Angreifer für 1 Runde aus Ihrer Existenzebene verbannt.
-Reaction/&SpendPowerDH_RiftStrikeTitle	Rissschlag
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rissschlag
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rissschlag
 Reaction/&SpendPowerDiamondSoulDescription	{0} ist ein Rettungswurf misslungen und er kann 1 Ki ausgeben, um ihn erneut zu würfeln.
 Reaction/&SpendPowerDiamondSoulReactDescription	Gib Ki aus, um einen fehlgeschlagenen Rettungswurf zu wiederholen.
 Reaction/&SpendPowerDiamondSoulReactTitle	Neu würfeln
@@ -1550,6 +1562,7 @@ Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} kann einen Zauberslot ausge
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Klicken Sie, um einen Zauberslot auszugeben und den Schaden am Ziel zu erhöhen.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Schlagen
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SubitemSelectCoordinatedAttackTitle	Aktion auswählen
 Reaction/&SubitemSelectEldritchSmiteDescription	Wählen Sie eine Slot-Stufe aus, die Sie für Ihr Eldritch Smite verbrauchen möchten.
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot-Level
 Reaction/&SubitemSelectPowerBundleTitle	Optionen
@@ -1564,6 +1577,8 @@ Reaction/&UseClassMonkSlowFallTitle	Langsamer Fall
 Reaction/&WarcasterAttackDescription	Angriffsziel.
 Reaction/&WarcasterAttackTitle	Attacke
 Reaction/&WarcasterReactionDescription	{0} verlässt ein Gebiet, das von einem oder mehreren Charakteren bedroht wird.
+Reaction/&WarcasterReactionReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&WarcasterReactionReactTitle	Attacke
 Reaction/&WarcasterReactionTitle	Angriff der Gelegenheit
 Requirement/&FeatureSelectionRequireCharacterLevel	Stufe {0}
 Requirement/&FeatureSelectionRequireClassLevel	Stufe {0} von {1}
@@ -1873,6 +1888,8 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Studiere deinen Feind
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Beschwöre 1 Geist des gefallenen Kameraden des Marschalls. Jeder Geist hat 45 + das Doppelte deines Kämpferlevels an HP und seine RK ist 16 + dein Fertigkeitsbonus. Die Geister sind immun gegen Gift, Kälte, nekrotische, anfällige, gelähmte und zurückgehaltene Zustände. Die Geister haben Resistenz gegen Feuer-, Säure-, Blitz- und Donnerschaden sowie Resistenz gegen nichtmagischen Hieb-, Knüppel- und Stichschaden. Wenn sie an der Reihe sind, können sie bis zu 50 Fuß hoch fliegen und einen einzelnen Nahkampfwaffenangriff ausführen, der 2W6 + 5 magischen Hiebschaden mit einem Bonus von 5 + Geschicklichkeitsbonus auf Treffer verursacht.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Beschwöre den ewigen Kameraden
 Subclass/&FighterMarshalTitle	Marschall
+Subclass/&FighterRoyalKnightDescription	Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein einsamer Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
+Subclass/&FighterRoyalKnightTitle	königlicher Ritter
 Subclass/&FighterSpellShieldDescription	Zauberschilde sind Kämpfer, die sich auf Verteidigung und Schutz spezialisiert haben. Sie verwenden Magie, um ihre natürlichen Fähigkeiten zu unterstützen.
 Subclass/&FighterSpellShieldSpellcastingDescription	Wirke Zaubersprüche und Cantrips aus den Schulen Abjuration, Illusion, Transmutation und Nekromantie.
 Subclass/&FighterSpellShieldSpellcastingTitle	Zaubern
@@ -2067,20 +2084,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn dieser Schalter auf ON steht, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
-Reaction/&WarcasterReactionReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
-Reaction/&WarcasterReactionReactTitle	Attacke
-Reaction/&SubitemSelectCoordinatedAttackTitle	Aktion auswählen
-Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Angriff angegriffen, einige Charaktere können ihre Reaktion nutzen, um sich diesem Angriff anzuschließen.
-Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
-Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
-Reaction/&CoordinatedAttackReactTitle	Attacke
-Feature/&RallyingCryPowerTitle	Sammelnder Schrei
-Feature/&RallyingCryPowerTitleShort	Sammelnder Schrei
-Feature/&RallyingCryPowerDescription	Ersetzt Zweiter Wind durch eine Kraft, um 4x Kämpferstufen-Trefferpunkte bei einem oder mehreren Verbündeten innerhalb von 6 Zellen bis zu ihrem Trefferpunkte-Maximum wiederherzustellen.
-Feature/&RoyalEnvoyFeatureTitle	Königlicher Gesandter
-Feature/&RoyalEnvoyFeatureDescription	Addiere die Hälfte deines Kompetenzbonus (aufgerundet) zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
-Feature/&InspiringSurgePowerTitle	Inspirierende Welle
-Feature/&InspiringSurgePowerTitleShort	Inspirierende Welle
-Feature/&InspiringSurgePowerDescription	Gewähre einem Verbündeten eine zusätzliche Hauptaktion für 1 Runde. Kann nicht mit Action Surge gestapelt werden.
-Subclass/&FighterRoyalKnightTitle	königlicher Ritter
-Subclass/&FighterRoyalKnightDescription	Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein einsamer Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
