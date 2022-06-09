@@ -226,6 +226,8 @@ namespace SolastaCommunityExpansion.Patches
                         fullDestFile);
                 }
 
+                Directory.Delete(fullZipFolder);
+
                 message = "Update successful. Please restart.";
             }
             catch
