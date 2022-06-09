@@ -8,7 +8,7 @@ ModUi/&Advanced	<color=yellow>Дополнительно:</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Эти настройки потребуют, чтобы у игрока был установлен этот мод.
 ModUi/&Adventure	<color=yellow>Приключение:</color>
 ModUi/&AllItemInDm	Все предметы в Создателе Подземелий
-ModUi/&AllowAnyClassToWearSylvanArmor	Разрешить любому классу носить Сильванский доспех
+ModUi/&AllowAnyClassToWearSylvanArmor	Разрешить любому классу носить лесную броню или одежду Светоносного.
 ModUi/&AllowDruidToWearMetalArmor	Разрешить <color=orange>Друидам</color> носить металлические доспехи
 ModUi/&AllowDungeonsMaxLevel20	Разрешить подземелья с максимальным уровнем 20 <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Разрешить размещение гаджетов и объектов в любом месте на карте <i><color=yellow>[нажмите <color=cyan>CTRL</color> во время размещения, чтобы обойти любую проверку]</color></i>

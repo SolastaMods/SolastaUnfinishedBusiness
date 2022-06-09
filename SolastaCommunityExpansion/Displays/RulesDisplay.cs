@@ -94,7 +94,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
-            ItemOptionsContext.SwitchUniversalSylvanArmor();
+            ItemOptionsContext.SwitchUniversalSylvanArmorAndLightbringer();
         }
 
         toggle = Main.Settings.AllowDruidToWearMetalArmor;

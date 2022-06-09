@@ -8,7 +8,7 @@ ModUi/&Advanced	<color=yellow>Avancé :</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ATTENTION :</color></b> Ce paramètre nécessitera que le joueur ait installé ce mod
 ModUi/&Adventure	<color=yellow>Aventure :</color>
 ModUi/&AllItemInDm	Tous les articles en DM
-ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre
+ModUi/&AllowAnyClassToWearSylvanArmor	Autoriser n'importe quelle classe à porter une armure sylvestre ou des vêtements de porteur de lumière
 ModUi/&AllowDruidToWearMetalArmor	Autoriser le <color=orange>druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20	Autoriser les donjons de niveau 20 maximum <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Autoriser les gadgets et les accessoires à être placés n'importe où sur la carte <i><color=yellow>[appuyez sur <color=cyan>CTRL</color> pendant le placement pour ignorer toute vérification]</color></i>

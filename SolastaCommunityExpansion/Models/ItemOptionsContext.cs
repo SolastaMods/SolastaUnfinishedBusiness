@@ -268,13 +268,15 @@ internal static class ItemOptionsContext
         }
     }
 
-    internal static void SwitchUniversalSylvanArmor()
+    internal static void SwitchUniversalSylvanArmorAndLightbringer()
     {
         GreenmageArmor.RequiredAttunementClasses.Clear();
+        WizardClothes_Alternate.RequiredAttunementClasses.Clear();
 
         if (!Main.Settings.AllowAnyClassToWearSylvanArmor)
         {
             GreenmageArmor.RequiredAttunementClasses.Add(Wizard);
+            WizardClothes_Alternate.RequiredAttunementClasses.Add(Wizard);
         }
     }
 
@@ -312,7 +314,7 @@ internal static class ItemOptionsContext
         SwitchRestockArcaneum();
         SwitchRestockCircleOfDanantar();
         SwitchRestockTowerOfKnowledge();
-        SwitchUniversalSylvanArmor();
+        SwitchUniversalSylvanArmorAndLightbringer();
     }
 
     private sealed class WandIdentifyBuilder : ItemDefinitionBuilder
