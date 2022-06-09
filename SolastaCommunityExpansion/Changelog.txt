@@ -1,2 +1,1 @@
-﻿- Allow Clothes of Lightbringer to be worn by any class
-- Fix Deadeye and Power Attack feats under multiplayer
+﻿
