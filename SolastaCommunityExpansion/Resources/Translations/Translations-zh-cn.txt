@@ -169,8 +169,8 @@ CraftyFeats/&CraftyScribeFeatDescription	智力+1，熟练或专精于卷轴工�
 CraftyFeats/&CraftyScribeFeatTitle	抄书员
 CraftyFeats/&CraftySkillsTitle	技能
 CraftyFeats/&CraftyToolsTitle	工具
-CraftyFeats/&ManacalonCrafterFeatDescription	+1智力，熟练或专精于Manacalon念珠和奥秘，需要施法能力
-CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon工匠
+CraftyFeats/&ManacalonCrafterFeatDescription	+1智力，熟练或专精于玛纳卡隆念珠和奥秘，需要施法能力
+CraftyFeats/&ManacalonCrafterFeatTitle	玛纳卡隆工匠
 CraftyFeats/&ToxicologistIntFeatDescription	智力+1，熟练或专精于制毒工具和自然
 CraftyFeats/&ToxicologistIntFeatTitle	毒药学家（智力）
 CraftyFeats/&ToxicologistWisFeatDescription	感知+1，熟练或专精于制毒工具和自然
@@ -185,197 +185,197 @@ Equipment/&CELongMaceTypeTitle	长钉头锤
 Equipment/&CEPikeTypeTitle	长矛
 Equipment/&DruidicAmuletDescription	这个图腾护符能作为德鲁伊施法的触媒
 Equipment/&DruidicAmuletTitle	图腾护符
-Equipment/&Enchanted_Club_Acuteness_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Club_Acuteness_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Club_Acuteness_Title	精准木棒
-Equipment/&Enchanted_Club_Bearclaw_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。熊爪的锋利尖刺能撕碎盔甲，造成额外的伤害。第一件此类武器是由伊尔杜利亚·强手所设计的
+Equipment/&Enchanted_Club_Bearclaw_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。熊爪的锋利尖刺能撕碎盔甲，造成额外的伤害。第一件此类武器是由伊杜瑞尔·强手所设计的
 Equipment/&Enchanted_Club_Bearclaw_Title	熊爪木棒
-Equipment/&Enchanted_Club_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与亡灵生物的战斗
+Equipment/&Enchanted_Club_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与亡灵生物的战斗
 Equipment/&Enchanted_Club_Lightbringer_Title	光明使者木棒
-Equipment/&Enchanted_Club_Power_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。Manacalon的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
+Equipment/&Enchanted_Club_Power_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。玛纳卡隆的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
 Equipment/&Enchanted_Club_Power_Title	力量木棒
-Equipment/&Enchanted_Club_Punisher_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。最好的金属和锻造石的结合赋予了这把武器难以置信的穿刺力
+Equipment/&Enchanted_Club_Punisher_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。最好的金属和锻造石的结合赋予了这把武器难以置信的穿刺力
 Equipment/&Enchanted_Club_Punisher_Title	惩罚者木棒
-Equipment/&Enchanted_Dart_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Dart_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Dart_Acuteness_Title	精准飞镖
-Equipment/&Enchanted_Dart_Frostburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
+Equipment/&Enchanted_Dart_Frostburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
 Equipment/&Enchanted_Dart_Frostburn_Title	霜燃飞镖
-Equipment/&Enchanted_Dart_Sharpness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Dart_Sharpness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Dart_Sharpness_Title	锋锐飞镖
-Equipment/&Enchanted_Dart_Souldrinker_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由凯洛德·赤刃设计
+Equipment/&Enchanted_Dart_Souldrinker_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由赛洛迪尔·赤刃设计
 Equipment/&Enchanted_Dart_Souldrinker_Title	饮魂飞镖
-Equipment/&Enchanted_Handaxe_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Handaxe_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Handaxe_Acuteness_Title	精准手斧
-Equipment/&Enchanted_Handaxe_Frostburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
+Equipment/&Enchanted_Handaxe_Frostburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
 Equipment/&Enchanted_Handaxe_Frostburn_Title	霜燃手斧
-Equipment/&Enchanted_Handaxe_Sharpness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Handaxe_Sharpness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Handaxe_Sharpness_Title	锋锐手斧
-Equipment/&Enchanted_Handaxe_Souldrinker_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由凯洛德·赤刃设计
+Equipment/&Enchanted_Handaxe_Souldrinker_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由赛洛迪尔·赤刃设计
 Equipment/&Enchanted_Handaxe_Souldrinker_Title	饮魂手斧
-Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。它的原始设计带有迪菲尼斯·锐目的标志，他是一名著名的精灵附魔师
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。它的原始设计带有迪菲尼丝·锐目的标志，他是一名著名的精灵附魔师
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	精准重弩
-Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。它是由奥术馆的法师埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。它是由奥术馆的法师艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	光明使者重弩
-Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。以魔法将美杜莎珊瑚和硬木混合在一起，从而创造出一种致命的弓，受到海岛半身人的船队的青睐
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。以魔法将美杜莎珊瑚和硬木混合在一起，从而创造出一种致命的弓，受到海岛半身人的船队的青睐
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	美杜莎重弩
-Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。Coedymwarth人更愿意用躯体而非魔法以对付Manacalon的奥术师。他们最好的弓箭手被赋予此弓，这是迪菲尼斯·锐目的作品
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。柯迪姆沃斯人更愿意用躯体而非魔法以对付玛纳卡隆的奥术师。他们最好的弓箭手被赋予此弓，这是迪菲尼丝·锐目的作品
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	狙击重弩
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。它是由加拉尔·风锻者设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--也因此具有了毁灭性的效果
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。它是由加拉尔·风锻设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--也因此具有了毁灭性的效果
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	风暴重弩
-Equipment/&Enchanted_HideArmor_Deflection_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_HideArmor_Deflection_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_HideArmor_Deflection_Title	偏斜皮甲
-Equipment/&Enchanted_HideArmor_FlameDancing_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_HideArmor_FlameDancing_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_HideArmor_FlameDancing_Title	炎舞皮甲
-Equipment/&Enchanted_HideArmor_FrostWalking_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_HideArmor_FrostWalking_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_HideArmor_FrostWalking_Title	霜行皮甲
-Equipment/&Enchanted_HideArmor_Robustness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_HideArmor_Robustness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_HideArmor_Robustness_Title	强韧之皮甲
-Equipment/&Enchanted_HideArmor_Sturdiness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_HideArmor_Sturdiness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_HideArmor_Sturdiness_Title	坚固之皮甲
-Equipment/&Enchanted_HideArmor_Survival_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_HideArmor_Survival_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_HideArmor_Survival_Title	求生皮甲
-Equipment/&Enchanted_Javelin_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Javelin_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Javelin_Acuteness_Title	精准标枪
-Equipment/&Enchanted_Javelin_Frostburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
+Equipment/&Enchanted_Javelin_Frostburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
 Equipment/&Enchanted_Javelin_Frostburn_Title	霜燃标枪
-Equipment/&Enchanted_Javelin_Sharpness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Javelin_Sharpness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Javelin_Sharpness_Title	锋锐标枪
-Equipment/&Enchanted_Javelin_Souldrinker_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由凯洛德·赤刃设计
+Equipment/&Enchanted_Javelin_Souldrinker_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由赛洛迪尔·赤刃设计
 Equipment/&Enchanted_Javelin_Souldrinker_Title	饮魂标枪
-Equipment/&Enchanted_LeatherDruid_Deflection_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_LeatherDruid_Deflection_Title	偏斜德鲁伊革甲
-Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	炎舞德鲁伊革甲
-Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	霜行德鲁伊革甲
-Equipment/&Enchanted_LeatherDruid_Robustness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_LeatherDruid_Robustness_Title	强韧之德鲁伊革甲
-Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	坚固之德鲁伊革甲
-Equipment/&Enchanted_LeatherDruid_Survival_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_LeatherDruid_Survival_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_LeatherDruid_Survival_Title	求生德鲁伊革甲
-Equipment/&Enchanted_LightCrossbow_Accuracy_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。它的原始设计带有迪菲尼斯·锐目的标志，他是一名著名的精灵附魔师
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。它的原始设计带有迪菲尼丝·锐目的标志，他是一名著名的精灵附魔师
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	精准轻弩
-Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。它是由奥术馆的法师埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。它是由奥术馆的法师艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	光明使者轻弩
-Equipment/&Enchanted_LightCrossbow_Medusa_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。以魔法将美杜莎珊瑚和硬木混合在一起，从而创造出一种致命的弓，受到海岛半身人的船队的青睐
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。以魔法将美杜莎珊瑚和硬木混合在一起，从而创造出一种致命的弓，受到海岛半身人的船队的青睐
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	美杜莎轻弩
-Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。Coedymwarth人更愿意用躯体而非魔法以对付Manacalon的奥术师。他们最好的弓箭手被赋予此弓，这是迪菲尼斯·锐目的作品
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。柯迪姆沃斯人更愿意用躯体而非魔法以对付玛纳卡隆的奥术师。他们最好的弓箭手被赋予此弓，这是迪菲尼丝·锐目的作品
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	狙击轻弩
-Equipment/&Enchanted_LightCrossbow_Stormbow_Description	这件魔法武器是Colthannin的弓匠大师以上古知识铸造的。它是由加拉尔·风锻者设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--也因此具有了毁灭性的效果
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	这件魔法武器是科萨宁的弓匠大师以上古知识铸造的。它是由加拉尔·风锻设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--也因此具有了毁灭性的效果
 Equipment/&Enchanted_LightCrossbow_Stormbow_Title	风暴轻弩
-Equipment/&Enchanted_Maul_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Maul_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Maul_Acuteness_Title	精准之锤
-Equipment/&Enchanted_Maul_Bearclaw_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。熊爪的锋利尖刺能撕碎盔甲，造成额外的伤害。第一件此类武器是由伊尔杜利亚·强手所设计的
+Equipment/&Enchanted_Maul_Bearclaw_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。熊爪的锋利尖刺能撕碎盔甲，造成额外的伤害。第一件此类武器是由伊杜瑞尔·强手所设计的
 Equipment/&Enchanted_Maul_Bearclaw_Title	熊爪之锤
-Equipment/&Enchanted_Maul_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_Maul_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_Maul_Lightbringer_Title	光明使者之锤
-Equipment/&Enchanted_Maul_Power_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。Manacalon的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
+Equipment/&Enchanted_Maul_Power_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。玛纳卡隆的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
 Equipment/&Enchanted_Maul_Power_Title	力量之锤
-Equipment/&Enchanted_Maul_Punisher_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。最好的金属和锻造石的结合赋予了这把武器难以置信的穿刺力
+Equipment/&Enchanted_Maul_Punisher_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。最好的金属和锻造石的结合赋予了这把武器难以置信的穿刺力
 Equipment/&Enchanted_Maul_Punisher_Title	惩戒者之锤
-Equipment/&Enchanted_Quarterstaff_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Quarterstaff_Acuteness_Title	精准手杖
-Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由莱斯特雷思·钢臂设计的，用于在帝国的北方冻土作战。
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由莱斯托尔斯·钢臂设计的，用于在帝国的北方冻土作战。
 Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	龙刃手杖
-Equipment/&Enchanted_Quarterstaff_Frostburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
 Equipment/&Enchanted_Quarterstaff_Frostburn_Title	霜燃手杖
-Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	光明使者手杖
-Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由凯洛德·赤刃设计
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由赛洛迪尔·赤刃设计
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	饮魂者手杖
-Equipment/&Enchanted_Quarterstaff_Stormblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由加拉尔·风锻者设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--这使它具有了毁灭性的效果
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由加拉尔·风锻设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--这使它具有了毁灭性的效果
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	雷刃手杖
-Equipment/&Enchanted_Quarterstaff_Warden_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由伊尔杜利亚·强手设计的，他是一个著名的Manacalon武器制造者。第一把这样的武器，马纳卡龙守护者，被献给了Euraidd的指挥官
+Equipment/&Enchanted_Quarterstaff_Warden_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由伊杜瑞尔·强手设计的，他是一个著名的玛纳卡隆武器制造者。第一把这样的武器，马纳卡龙守护者，被献给了Euraidd的指挥官
 Equipment/&Enchanted_Quarterstaff_Warden_Title	守护者手杖
-Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	白炙手杖
-Equipment/&Enchanted_Rapier_Dragonblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由莱斯特雷思·钢臂设计的，用于在帝国的北方冻土作战
+Equipment/&Enchanted_Rapier_Dragonblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由莱斯托尔斯·钢臂设计的，用于在帝国的北方冻土作战
 Equipment/&Enchanted_Rapier_Dragonblade_Title	龙刃细剑
-Equipment/&Enchanted_Rapier_Frostburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
+Equipment/&Enchanted_Rapier_Frostburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
 Equipment/&Enchanted_Rapier_Frostburn_Title	霜燃细剑
-Equipment/&Enchanted_Rapier_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_Rapier_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_Rapier_Lightbringer_Title	光明使者细剑
-Equipment/&Enchanted_Rapier_Power_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。Manacalon的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
+Equipment/&Enchanted_Rapier_Power_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。玛纳卡隆的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
 Equipment/&Enchanted_Rapier_Power_Title	力量细剑
-Equipment/&Enchanted_Rapier_Souldrinker_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由凯洛德·赤刃设计
+Equipment/&Enchanted_Rapier_Souldrinker_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由赛洛迪尔·赤刃设计
 Equipment/&Enchanted_Rapier_Souldrinker_Title	饮魂者细剑
-Equipment/&Enchanted_Rapier_Stormblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由加拉尔·风锻者设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--这使它具有了毁灭性的效果
+Equipment/&Enchanted_Rapier_Stormblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由加拉尔·风锻设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--这使它具有了毁灭性的效果
 Equipment/&Enchanted_Rapier_Stormblade_Title	雷刃细剑
-Equipment/&Enchanted_Rapier_Warden_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由伊尔杜利亚·强手设计的，他是一个著名的Manacalon武器制造者。第一把这样的武器，马纳卡龙守护者，被献给了Euraidd的指挥官
+Equipment/&Enchanted_Rapier_Warden_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由伊杜瑞尔·强手设计的，他是一个著名的玛纳卡隆武器制造者。第一把这样的武器，马纳卡龙守护者，被献给了Euraidd的指挥官
 Equipment/&Enchanted_Rapier_Warden_Title	守护者细剑
-Equipment/&Enchanted_Rapier_Whiteburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
+Equipment/&Enchanted_Rapier_Whiteburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
 Equipment/&Enchanted_Rapier_Whiteburn_Title	白炙细剑
-Equipment/&Enchanted_Scimitar_Dragonblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由莱斯特雷思·钢臂设计的，用于在帝国的北方冻土作战
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由莱斯托尔斯·钢臂设计的，用于在帝国的北方冻土作战
 Equipment/&Enchanted_Scimitar_Dragonblade_Title	龙刃弯刀
-Equipment/&Enchanted_Scimitar_Frostburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
+Equipment/&Enchanted_Scimitar_Frostburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它由克里安迪尔·熔心设计，在一次对元素位面的探索出现意外后，他锻造了这把武器以对抗沙罗曼蛇
 Equipment/&Enchanted_Scimitar_Frostburn_Title	霜燃弯刀
-Equipment/&Enchanted_Scimitar_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_Scimitar_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_Scimitar_Lightbringer_Title	光明使者弯刀
-Equipment/&Enchanted_Scimitar_Souldrinker_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由凯洛德·赤刃设计
+Equipment/&Enchanted_Scimitar_Souldrinker_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。低语者特工的最爱，这种武器由赛洛迪尔·赤刃设计
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	饮魂者弯刀
-Equipment/&Enchanted_Scimitar_Stormblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由加拉尔·风锻者设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--这使它具有了毁灭性的效果
+Equipment/&Enchanted_Scimitar_Stormblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由加拉尔·风锻设计的，他是第一个在武器中利用风暴的力量的矮人铁匠--这使它具有了毁灭性的效果
 Equipment/&Enchanted_Scimitar_Stormblade_Title	雷刃弯刀
-Equipment/&Enchanted_Scimitar_Warden_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是由伊尔杜利亚·强手设计的，他是一个著名的Manacalon武器制造者。第一把这样的武器，马纳卡龙守护者，被献给了Euraidd的指挥官
+Equipment/&Enchanted_Scimitar_Warden_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是由伊杜瑞尔·强手设计的，他是一个著名的玛纳卡隆武器制造者。第一把这样的武器，马纳卡龙守护者，被献给了Euraidd的指挥官
 Equipment/&Enchanted_Scimitar_Warden_Title	守护者弯刀
-Equipment/&Enchanted_Scimitar_Whiteburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
 Equipment/&Enchanted_Scimitar_Whiteburn_Title	白炙弯刀
-Equipment/&Enchanted_Shield_Deflection_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Deflection_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Deflection_Title	偏斜之盾
-Equipment/&Enchanted_Shield_FlameDancing_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_FlameDancing_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_FlameDancing_Title	炎舞之盾
-Equipment/&Enchanted_Shield_FrostWalking_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_FrostWalking_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_FrostWalking_Title	霜行之盾
-Equipment/&Enchanted_Shield_Robustness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Robustness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Robustness_Title	强韧之之盾
-Equipment/&Enchanted_Shield_Sturdiness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Sturdiness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Sturdiness_Title	坚固之之盾
-Equipment/&Enchanted_Shield_Survival_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Survival_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Survival_Title	求生之盾
-Equipment/&Enchanted_Shield_Wooden_Deflection_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Wooden_Deflection_Title	偏斜木盾
-Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	炎舞木盾
-Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	霜行木盾
-Equipment/&Enchanted_Shield_Wooden_Robustness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Wooden_Robustness_Title	强韧之木盾
-Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	坚固之木盾
-Equipment/&Enchanted_Shield_Wooden_Survival_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_Shield_Wooden_Survival_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	求生木盾
-Equipment/&Enchanted_Spear_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Spear_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Spear_Acuteness_Title	精准之矛
-Equipment/&Enchanted_Spear_BlackViper_Description	这件魔法武器是Manacalon的铁匠大师以上古知识，用一根长矛和一只来自索拉斯塔深处的传奇蜘蛛的毒液铸造的。这把刀的设计者是格里格-黑心，一个在艾尔-艾莱的锻造厂工作的臭名昭著的沼泽半身人铁匠
+Equipment/&Enchanted_Spear_BlackViper_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识，用一根长矛和一只来自索拉斯塔深处的传奇蜘蛛的毒液铸造的。这把刀的设计者是格里格-黑心，一个在艾尔-艾莱的锻造厂工作的臭名昭著的沼泽半身人铁匠
 Equipment/&Enchanted_Spear_BlackViper_Title	黑蛇之矛
-Equipment/&Enchanted_Spear_Doomblade_Description	这件魔法武器是Manacalon的铁匠大师以上古知识铸造的。凯纳罗斯-黑心设计了末日之刃作为惩罚那些抵抗帝国魔法的人的工具
+Equipment/&Enchanted_Spear_Doomblade_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识铸造的。凯纳罗斯-黑心设计了末日之刃作为惩罚那些抵抗帝国魔法的人的工具
 Equipment/&Enchanted_Spear_Doomblade_Title	末日之矛
-Equipment/&Enchanted_Spear_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_Spear_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_Spear_Lightbringer_Title	光明使者之矛
-Equipment/&Enchanted_Spear_Sharpness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Spear_Sharpness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Spear_Sharpness_Title	锋锐之矛
-Equipment/&Enchanted_Spear_Whiteburn_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
+Equipment/&Enchanted_Spear_Whiteburn_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。白炙是由第一代Danantar人创建的，目的是为了对抗来自领地南边的Sioltafin和Scarafin之间的沼泽地的巨魔入侵
 Equipment/&Enchanted_Spear_Whiteburn_Title	白炙之矛
-Equipment/&Enchanted_StuddedLeather_Deflection_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_StuddedLeather_Deflection_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_StuddedLeather_Deflection_Title	偏斜带钉革甲
-Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	炎舞带钉革甲
-Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	霜行带钉革甲
-Equipment/&Enchanted_StuddedLeather_Robustness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_StuddedLeather_Robustness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_StuddedLeather_Robustness_Title	强韧之带钉革甲
-Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	坚固之带钉革甲
-Equipment/&Enchanted_StuddedLeather_Survival_Description	这件魔法盔甲是Manacalon的盔甲大师以上古知识锻造的。伊尔杜利亚·强手为皇帝的私人卫队锻造了第一批这样的盔甲
+Equipment/&Enchanted_StuddedLeather_Survival_Description	这件魔法盔甲是玛纳卡隆的盔甲大师以上古知识锻造的。伊杜瑞尔·强手为皇帝的私人卫队锻造了第一批这样的盔甲
 Equipment/&Enchanted_StuddedLeather_Survival_Title	求生带钉革甲
-Equipment/&Enchanted_Warhammer_Acuteness_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者埃尔加多·坚意的早期作品之一
+Equipment/&Enchanted_Warhammer_Acuteness_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。它是奥术会的魔法锻造者艾尔戈多·锐意的早期作品之一
 Equipment/&Enchanted_Warhammer_Acuteness_Title	精准战锤
-Equipment/&Enchanted_Warhammer_Bearclaw_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。熊爪的锋利尖刺能撕碎盔甲，造成额外的伤害。第一件此类武器是由伊尔杜利亚·强手所设计的
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。熊爪的锋利尖刺能撕碎盔甲，造成额外的伤害。第一件此类武器是由伊杜瑞尔·强手所设计的
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	熊爪战锤
-Equipment/&Enchanted_Warhammer_Lightbringer_Description	这件魔法武器是Colthannin的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者埃尔加多·坚意设计的，用于支持与不死生物的战斗
+Equipment/&Enchanted_Warhammer_Lightbringer_Description	这件魔法武器是科萨宁的铁匠大师以上古知识锻造的。它是由奥术结社的奥术锻造者艾尔戈多·锐意设计的，用于支持与不死生物的战斗
 Equipment/&Enchanted_Warhammer_Lightbringer_Title	光明使者战锤
-Equipment/&Enchanted_Warhammer_Power_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。Manacalon的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
+Equipment/&Enchanted_Warhammer_Power_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。有些生物只尊重身体的力量。玛纳卡隆的奥术师们创造了这个木棒，给钢铁军团的勇士提供了他们精灵身躯所不能提供的力量
 Equipment/&Enchanted_Warhammer_Power_Title	力量战锤
-Equipment/&Enchanted_Warhammer_Punisher_Description	这件魔法武器是Manacalon的铁匠大师以上古知识锻造的。最好的金属和锻造石的结合赋予了这把武器难以置信的穿刺力
+Equipment/&Enchanted_Warhammer_Punisher_Description	这件魔法武器是玛纳卡隆的铁匠大师以上古知识锻造的。最好的金属和锻造石的结合赋予了这把武器难以置信的穿刺力
 Equipment/&Enchanted_Warhammer_Punisher_Title	惩戒者战锤
 Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	赋予强酸防护1小时
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	强酸防护药酒
@@ -520,11 +520,11 @@ Feat/&FeatDualWeaponDefenseDescription	当你双手都持用单独的近战武�
 Feat/&FeatDualWeaponDefenseTitle	双武器防御
 Feat/&FeatFastHandsDescription	你获得一个灵巧动作，并能使用它赋予的附赠动作进行敏捷（巧手）检定、使用你的盗贼工具解除陷阱或打开锁、或采取“使用物品”动作
 Feat/&FeatFastHandsTitle	手脚伶俐
-Feat/&FeatFeyTeleportationChaDescription	魅力+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得Tirmar语熟练项
+Feat/&FeatFeyTeleportationChaDescription	魅力+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得特玛尔语熟练项
 Feat/&FeatFeyTeleportationChaTitle	精类传送（魅力）
-Feat/&FeatFeyTeleportationIntDescription	智力+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得Tirmar语熟练项
+Feat/&FeatFeyTeleportationIntDescription	智力+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得特玛尔语熟练项
 Feat/&FeatFeyTeleportationIntTitle	精类传送（智力）
-Feat/&FeatFeyTeleportationWisDescription	感知+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得Tirmar语熟练项
+Feat/&FeatFeyTeleportationWisDescription	感知+1。获得每短休1次的施放“迷踪步”的能力并学会此法术。获得特玛尔语熟练项
 Feat/&FeatFeyTeleportationWisTitle	精类传送（感知）
 Feat/&FeatFightingSurgeDexterityDescription	敏捷+1，最高20点\n在你的回合中，你能在你的常规动作和一个可能的附赠动作之外，采取一个额外的动作。一旦你使用了这个能力，你必须进行一次长休才能再次使用它
 Feat/&FeatFightingSurgeDexterityTitle	战意如潮（敏捷）
@@ -619,8 +619,8 @@ Feat/&FeatWisePrecisionDescription	在武器上激活时，它的攻击视为魔
 Feat/&FeatWisePrecisionTitle	直觉精准
 Feat/&FeatWisIncrementDescription	感知+1
 Feat/&FeatWisIncrementTitle	感知属性提升
-Feat/&FeyTeleportationLanguageTirmarianDescription	获得Tirmar语熟练项
-Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmar语
+Feat/&FeyTeleportationLanguageTirmarianDescription	获得特玛尔语熟练项
+Feat/&FeyTeleportationLanguageTirmarianTitle	特玛尔语
 Feat/&FightingStyleArcheryDescription	你在使用远程武器的攻击骰上获得+2加值
 Feat/&FightingStyleArcheryTitle	战斗风格：箭术
 Feat/&FightingStyleDefenseDescription	当你穿着盔甲时，你的AC获得+1加值
@@ -887,7 +887,7 @@ Feature/&ClassMonkZenArcherCombatTitle	延臂战法
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
 Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
-Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑箭
+Feature/&ClassMonkZenArcherStunningArrowsTitle  震慑箭
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤进行替换
@@ -1054,9 +1054,9 @@ Feature/&IndomitableResistanceAddTitle	不屈抗力（提升）
 Feature/&IndomitableResistanceTitle	不屈抗力
 Feature/&InspirePowerDescription	消耗1个赌注骰激励自己或盟友，获得1d6+2点临时生命值
 Feature/&InspirePowerTitle	激励
-Feature/&InspiringSurgePowerDescription	赋予盟友一个额外的主要动作，持续1回合。不与“动作如潮”叠加
-Feature/&InspiringSurgePowerTitle	激励如潮
-Feature/&InspiringSurgePowerTitleShort	激励如潮
+Feature/&InspiringSurgePowerDescription 赋予盟友一个额外的主要动作，持续1回合。不与“动作如潮”叠加
+Feature/&InspiringSurgePowerTitle 激励如潮
+Feature/&InspiringSurgePowerTitleShort  激励如潮
 Feature/&KnockDownPowerDescription	消耗1个赌注骰，赋予你的攻击额外的1d6+2点钝击伤害，若目标未成功通过一次力量豁免（DC=8+熟练度加值+力量调整值)，其被击倒直到其下一回合开始
 Feature/&KnockDownPowerTitle	击倒
 Feature/&MagicAffinityRangerArcanistDescription	你精通在战斗中施展法术，即使你的双手都拿着武器或盾牌，也能施展需要姿势成分的法术
@@ -1113,9 +1113,9 @@ Feature/&RagePowerDescription	以一个附赠动作，你进入狂暴并获得�
 Feature/&RagePowerTitle	狂暴
 Feature/&RageStrengthSavingThrowAffinityDescription	你在狂暴时获得力量豁免的优势
 Feature/&RageStrengthSavingThrowAffinityTitle	狂暴力量豁免优势
-Feature/&RallyingCryPowerDescription	以新的能力取代“回气”，当你使用时为6格内的一位或多位盟友恢复4倍于战士等级的生命值，最高至其生命值上限
-Feature/&RallyingCryPowerTitle	集结战吼
-Feature/&RallyingCryPowerTitleShort	集结战吼
+Feature/&RallyingCryPowerDescription  以新的能力取代“回气”，当你使用时为6格内的一位或多位盟友恢复4倍于战士等级的生命值，最高至其生命值上限
+Feature/&RallyingCryPowerTitle  集结战吼
+Feature/&RallyingCryPowerTitleShort 集结战吼
 Feature/&RangerFeralSensesDescription	你获得超自然的感官帮助你对抗看不见的生物。此后，你攻击一个你看不见的生物时不会因此承受劣势
 Feature/&RangerFeralSensesTitle	野性感官
 Feature/&RangerVanishActionDescription	第14级起，你能在自己回合以一个附赠动作的形式执行躲藏动作
@@ -1123,8 +1123,8 @@ Feature/&RangerVanishActionTitle	无踪步
 Feature/&RiftWalkerRestrainedImmunityTitle	瞬身步
 Feature/&RiftWalkerSpellsMagicAffinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&RiftWalkerSpellsMagicAffinityTitle	裂隙行者法术
-Feature/&RoyalEnvoyFeatureDescription	将你的熟练加值的一半（向上取整）加至任何没有添加你的熟练度加值的魅力检定中。额外的，你获得魅力豁免的熟练项
-Feature/&RoyalEnvoyFeatureTitle	皇室特使
+Feature/&RoyalEnvoyFeatureDescription 将你的熟练加值的一半（向上取整）加至任何没有添加你的熟练度加值的魅力检定中。额外的，你获得魅力豁免的熟练项
+Feature/&RoyalEnvoyFeatureTitle 皇室特使
 Feature/&SavingThrowTinkererProficiencyDescription	熟练于体质和智力豁免
 Feature/&SavingThrowTinkererProficiencyTitle	豁免熟练
 Feature/&ScoutModePowerDescription	获得更快的移动速度、隐匿优势和每回合造成一次额外的伤害的远程攻击
@@ -1269,34 +1269,34 @@ Format/&LevelAndExperienceMaxedFormat	等级：{0}\n经验值：{1}\n达到最�
 Item/&CEHalberd+1Title	戟+1
 Item/&CEHalberd+1UnidentifiedTitle	精制戟
 Item/&CEHalberd+2Title	戟+2
-Item/&CEHalberd+2UnidentifiedTitle	华丽戟
+Item/&CEHalberd+2UnidentifiedTitle	华丽的戟
 Item/&CEHalberdLightningTitle	闪电之戟
-Item/&CEHalberdLightningUnidentifiedTitle	华丽戟
-Item/&CEHalberdPrimedTitle	制备好的戟
+Item/&CEHalberdLightningUnidentifiedTitle	华丽的戟
+Item/&CEHalberdPrimedTitle	已制备的戟
 Item/&CEHalberdTitle	戟
 Item/&CEHandXbow+1Title	手弩+1
 Item/&CEHandXbow+1UnidentifiedTitle	精制手弩
 Item/&CEHandXbow+2Title	手弩+2
-Item/&CEHandXbow+2UnidentifiedTitle	华丽手弩
+Item/&CEHandXbow+2UnidentifiedTitle	华丽的手弩
 Item/&CEHandXbowAcidTitle	强酸之手弩
-Item/&CEHandXbowAcidUnidentifiedTitle	华丽手弩
-Item/&CEHandXbowPrimedTitle	制备好的手弩
+Item/&CEHandXbowAcidUnidentifiedTitle	华丽的手弩
+Item/&CEHandXbowPrimedTitle	已制备的手弩
 Item/&CEHandXbowTitle	手弩
 Item/&CELongMace+1Title	长钉头锤+1
 Item/&CELongMace+1UnidentifiedTitle	精制长钉头锤
 Item/&CELongMace+2Title	长钉头锤+2
-Item/&CELongMace+2UnidentifiedTitle	华丽长钉头锤
-Item/&CELongMacePrimedTitle	制备好的长钉头锤
+Item/&CELongMace+2UnidentifiedTitle	华丽的长钉头锤
+Item/&CELongMacePrimedTitle	已制备的长钉头锤
 Item/&CELongMaceThunderTitle	雷鸣之长钉头锤
-Item/&CELongMaceThunderUnidentifiedTitle	华丽长钉头锤
+Item/&CELongMaceThunderUnidentifiedTitle	华丽的长钉头锤
 Item/&CELongMaceTitle	长钉头锤
 Item/&CEPike+1Title	长矛+1
 Item/&CEPike+1UnidentifiedTitle	精制长矛
 Item/&CEPike+2Title	长矛+2
-Item/&CEPike+2UnidentifiedTitle	华丽长矛
-Item/&CEPikePrimedTitle	制备好的长矛
+Item/&CEPike+2UnidentifiedTitle	华丽的长矛
+Item/&CEPikePrimedTitle	已制备的长矛
 Item/&CEPikePsychicTitle	心灵之长矛
-Item/&CEPikePsychicUnidentifiedTitle	华丽长矛
+Item/&CEPikePsychicUnidentifiedTitle	华丽的长矛
 Item/&CEPikeTitle	长矛
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	附魔戟+1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Title	附魔戟+2
@@ -1327,11 +1327,11 @@ Item/&ForceArtilleryProjectileTitle	力场魔炮弹药
 Item/&Handwraps+1Title	裹手+1
 Item/&Handwraps+1UnidentifiedTitle	精制裹手
 Item/&Handwraps+2Title	裹手+2
-Item/&Handwraps+2UnidentifiedTitle	华丽裹手
+Item/&Handwraps+2UnidentifiedTitle	华丽的裹手
 Item/&HandwrapsOfForceTitle	力场之裹手
-Item/&HandwrapsOfForceUnidentifiedTitle	华丽裹手
+Item/&HandwrapsOfForceUnidentifiedTitle	华丽的裹手
 Item/&HandwrapsOfPullingTitle	牵引之裹手
-Item/&HandwrapsOfPullingUnidentifiedTitle	华丽裹手
+Item/&HandwrapsOfPullingUnidentifiedTitle	华丽的裹手
 Language/&AbyssalDescription	深渊语是被深渊的邪恶所环绕与扭曲的原始语言形式
 Language/&AbyssalTitle	深渊语
 Language/&GnomishLanguageDescription	这是一种古老的索拉斯塔语，由生活在索拉斯塔深林中的侏儒苏所留存，它在大灾变中幸存下来
@@ -1504,10 +1504,10 @@ Reaction/&CastSpellInRetributionDescription	{0}在攻击{1}！你能以反应施
 Reaction/&CastSpellInRetributionReactDescription	点击施放{0}
 Reaction/&CastSpellInRetributionReactTitle	施放法术
 Reaction/&CastSpellInRetributionTitle	以反应施放法术
-Reaction/&CoordinatedAttackDescription	{0}受到协同攻击，一些角色能使用其反应来加入此攻击
-Reaction/&CoordinatedAttackReactDescription	使用反应攻击目标
-Reaction/&CoordinatedAttackReactTitle	攻击
-Reaction/&CoordinatedAttackTitle	协同攻击
+Reaction/&CoordinatedAttackDescription  {0}受到协同攻击，一些角色能使用其反应来加入此攻击
+Reaction/&CoordinatedAttackReactDescription 使用反应攻击目标
+Reaction/&CoordinatedAttackReactTitle 攻击
+Reaction/&CoordinatedAttackTitle  协同攻击
 Reaction/&CustomDeflectMissileMonkTitle	{0}在攻击{1}，其能以反应降低即将受到的1d10+敏捷调整值+武僧等级点伤害
 Reaction/&ReactionAttackFeatSentinelDescription	{0}攻击了你的盟友，你能以反应攻击
 Reaction/&ReactionAttackFeatSentinelReactDescription	以反应攻击
@@ -1543,7 +1543,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	反击
 Reaction/&SpendPowerCounterStrikePowerTitle	反击
 Reaction/&SpendPowerDH_RiftStrikeDescription	每长休1次，当你在近战中受到伤害时，你能用你的反应创造一个裂隙传送，将攻击者从你存在的位面驱逐1轮
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	裂隙反击
-Reaction/&SpendPowerDH_RiftStrikeTitle	裂隙反击
+Reaction/&SpendPowerDH_RiftStrikeTitle  裂隙反击
 Reaction/&SpendPowerDiamondSoulDescription	{0}豁免失败，能消耗1点气重骰
 Reaction/&SpendPowerDiamondSoulReactDescription	消耗气重骰豁免
 Reaction/&SpendPowerDiamondSoulReactTitle	重骰
@@ -1562,7 +1562,7 @@ Reaction/&SpendSpellSlotEldritchSmiteDescription	{0}能消耗一个法术位对�
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	点击消耗1个法术位对目标造成额外伤害
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	魔能斩
 Reaction/&SpendSpellSlotEldritchSmiteTitle	魔能斩
-Reaction/&SubitemSelectCoordinatedAttackTitle	选择动作
+Reaction/&SubitemSelectCoordinatedAttackTitle 选择动作
 Reaction/&SubitemSelectEldritchSmiteDescription	为魔能斩选择消耗的法术位
 Reaction/&SubitemSelectEldritchSmiteTitle	法术位等级
 Reaction/&SubitemSelectPowerBundleTitle	选项
@@ -1577,8 +1577,8 @@ Reaction/&UseClassMonkSlowFallTitle	轻身坠
 Reaction/&WarcasterAttackDescription	攻击目标
 Reaction/&WarcasterAttackTitle	攻击
 Reaction/&WarcasterReactionDescription	{0}正在离开一个或多个角色的威胁范围
-Reaction/&WarcasterReactionReactDescription	使用反应攻击目标
-Reaction/&WarcasterReactionReactTitle	攻击
+Reaction/&WarcasterReactionReactDescription 使用反应攻击目标
+Reaction/&WarcasterReactionReactTitle 攻击
 Reaction/&WarcasterReactionTitle	借机攻击
 Requirement/&FeatureSelectionRequireCharacterLevel	等级{0}
 Requirement/&FeatureSelectionRequireClassLevel	等级{0}的{1}
@@ -1888,8 +1888,8 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	研究敌人
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	   召唤统帅一位牺牲的战友的灵魂。灵魂具有45+2倍战士职业等级的生命值并且其AC为16+熟练加值。此外，灵魂对毒素、冷冻、黯蚀、倒地、麻痹、束缚免疫，并且对火焰、强酸、闪电、雷鸣伤害有抗力。同时，其对非魔法的挥砍、钝击和穿刺伤害也有抗力。在其回合内，其能飞行最多50英尺并进行一次攻击加值为5+熟练加值的的魔法攻击，造成2d6+5挥砍伤害。
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	召唤永恒战友
 Subclass/&FighterMarshalTitle	统帅
-Subclass/&FighterRoyalKnightDescription	一位通过战斗中的英勇行径激励他人的伟大骑士。一位落单的骑士仅仅是个熟练的战士，但一位带领着盟友的骑士能将最羸弱民兵变成凶猛的战队
-Subclass/&FighterRoyalKnightTitle	皇家骑士
+Subclass/&FighterRoyalKnightDescription 一位通过战斗中的英勇行径激励他人的伟大骑士。一位落单的骑士仅仅是个熟练的战士，但一位带领着盟友的骑士能将最羸弱民兵变成凶猛的战队
+Subclass/&FighterRoyalKnightTitle 皇家骑士
 Subclass/&FighterSpellShieldDescription	法术之盾是专门从事防御和保护的战士。他们使用魔法协助自身的天然能力
 Subclass/&FighterSpellShieldSpellcastingDescription	能施展法师的法术和戏法，这些法术和戏法来自咒法、幻术、变化和死灵系
 Subclass/&FighterSpellShieldSpellcastingTitle	施法能力
