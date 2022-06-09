@@ -1,10 +1,1 @@
-﻿- Add Items granter under Gameplay > Tools
-- Fix Fletcher feat granting Wis instead of Dex
-- Fix for Deadeye desync under MP (maybe?)
-- Make hand crossbows light weapons
-- Tweak Tinkerer starting equipment
-
-REQUEST:
-
-- I'm looking to provide better translations with an official Deepl Pro annual subscription
-- Please check Nexus posts for the donation link if you believe you can contribute
+﻿- Allow Clothes of Lightbringer to be worn by any class
