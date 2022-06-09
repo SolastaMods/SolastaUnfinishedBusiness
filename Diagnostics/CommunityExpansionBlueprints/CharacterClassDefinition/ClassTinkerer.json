@@ -9,11 +9,46 @@
           "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WeaponSimpleChoice",
               "itemReference": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
               "defaultChoice": "",
               "number": 1
-            },
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Dagger:a6eba377e5a35ad43a0e27441766735e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "WeaponSimpleChoice",
@@ -35,7 +70,7 @@
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
-              "itemReference": "Definition:StuddedLeather:d5ecaa9b5baa3e94f96107c280f33c0c",
+              "itemReference": "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
               "defaultChoice": "",
               "number": 1
             }
@@ -47,7 +82,7 @@
             {
               "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
               "optionType": "Armor",
-              "itemReference": "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
+              "itemReference": "Definition:StuddedLeather:d5ecaa9b5baa3e94f96107c280f33c0c",
               "defaultChoice": "",
               "number": 1
             }

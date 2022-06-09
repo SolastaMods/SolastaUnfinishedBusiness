@@ -245,7 +245,7 @@ internal static class AcehighFeats
                 .SetEffectDescription(new EffectDescriptionBuilder()
                     .SetTargetingData(RuleDefinitions.Side.Ally, RuleDefinitions.RangeType.Self, 1,
                         RuleDefinitions.TargetType.Self)
-                    .SetDurationData(RuleDefinitions.DurationType.Permanent)
+                    .SetDurationData(RuleDefinitions.DurationType.Round, 0, false)
                     .SetEffectForms(
                         new EffectFormBuilder()
                             .SetConditionForm(triggerCondition, ConditionForm.ConditionOperation.Remove)

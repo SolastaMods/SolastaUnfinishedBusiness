@@ -1,10 +1,22 @@
-﻿using ModKit;
+﻿using System.Linq;
+using ModKit;
 using SolastaCommunityExpansion.Models;
+using SolastaModApi.Infrastructure;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.Displays;
 
 internal static class ToolsDisplay
 {
+    private static bool displayArmor;
+    private static bool displayWeapons;
+    private static bool displayAmmunition;
+    private static bool displayUsableDevices;
+    private static Vector2 armorScrollPosition = Vector2.zero;
+    private static Vector2 weaponsScrollPosition = Vector2.zero;
+    private static Vector2 ammunitionScrollPosition = Vector2.zero;
+    private static Vector2 usableDevicesScrollPosition = Vector2.zero;
+
     internal static void SetFactionRelation(string name, int value)
     {
         var service = ServiceRepository.GetService<IGameFactionService>();
@@ -37,7 +49,6 @@ internal static class ToolsDisplay
             Main.Settings.EnableCharacterChecker = toggle;
         }
 
-
         toggle = Main.Settings.EnableCheatMenu;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
         {
@@ -51,11 +62,9 @@ internal static class ToolsDisplay
             RespecContext.Switch();
         }
 
-
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&Adventure"));
         UI.Label("");
-
 
         toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableTogglesToOverwriteDefaultTestParty"), ref toggle))
@@ -104,6 +113,14 @@ internal static class ToolsDisplay
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
+
+        DisplayItems();
+        DisplayFactionRelations();
+    }
+
+    private static void DisplayFactionRelations()
+    {
+        int intValue;
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&FactionRelations"));
@@ -159,5 +176,70 @@ internal static class ToolsDisplay
         }
 
         UI.Label("");
+    }
+
+    private static void DisplayItems()
+    {
+        UI.Label("");
+        UI.Label(Gui.Localize("ModUi/&Items"));
+        UI.Label("");
+
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+
+        if (!characterInspectionScreen.Visible || characterInspectionScreen.externalContainer == null)
+        {
+            UI.Label(Gui.Localize("ModUi/&ItemsHelp1"));
+
+            return;
+        }
+
+        UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
+
+        DisplayItemGroup("Armor", Gui.Localize("ModUi/&Armor"), ref displayArmor, ref armorScrollPosition);
+        DisplayItemGroup("Weapon", Gui.Localize("ModUi/&Weapon"), ref displayWeapons, ref weaponsScrollPosition);
+        DisplayItemGroup("Ammunition", Gui.Localize("ModUi/&Ammunition"), ref displayAmmunition,
+            ref ammunitionScrollPosition);
+        DisplayItemGroup("UsableDevice", Gui.Localize("ModUi/&UsableDevice"), ref displayUsableDevices,
+            ref usableDevicesScrollPosition);
+    }
+
+    private static void DisplayItemGroup(string group, string title, ref bool displayGroup, ref Vector2 scrollPosition)
+    {
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+        var rulesetItemFactoryService = ServiceRepository.GetService<IRulesetItemFactoryService>();
+        var characterName = characterInspectionScreen.InspectedCharacter.Name;
+
+        UI.Label("");
+        UI.DisclosureToggle(title.yellow(), ref displayGroup, 200);
+
+        if (!displayGroup)
+        {
+            return;
+        }
+
+        var items = DatabaseRepository.GetDatabase<ItemDefinition>()
+            .Where(x => !x.guiPresentation.Hidden)
+            .Where(x => x.GetField<ItemDefinition, bool>($"is{group}"))
+            .OrderBy(x => x.FormatTitle());
+
+        using var scrollView =
+            new GUILayout.ScrollViewScope(scrollPosition, GUILayout.Width(350), GUILayout.Height(300));
+
+        scrollPosition = scrollView.scrollPosition;
+
+        foreach (var item in items)
+        {
+            using (UI.HorizontalScope())
+            {
+                UI.ActionButton("+".bold().red(), () =>
+                    {
+                        var rulesetItem = rulesetItemFactoryService.CreateStandardItem(item, true, characterName);
+
+                        characterInspectionScreen.externalContainer.AddSubItem(rulesetItem);
+                    },
+                    UI.Width(30));
+                UI.Label(item.FormatTitle(), UI.Width(300));
+            }
+        }
     }
 }

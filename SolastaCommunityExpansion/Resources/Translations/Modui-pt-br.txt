@@ -178,3 +178,10 @@ ModUi/&UnlockGlowingEyeColors	Desbloqueie cores de olhos brilhantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Desbloqueie marcações e tatuagens para todos os personagens
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals	<color=yellow>Visual:</color>
+ModUi/&Items	<color=yellow>Itens:</color>
+ModUi/&ItemsHelp1	<color=#C04040E0>Você deve ter a tela de inspeção de personagem aberta para adicionar itens aos heróis...</color>
+ModUi/&ItemsHelp2	. Pressione + para adicionar itens ao contêiner de solo no painel de inspeção
+ModUi/&Armor	<color=yellow>Armadura</color>
+ModUi/&Weapon	<color=yellow>Armas</color>
+ModUi/&Ammunition	<color=yellow>Munição</color>
+ModUi/&UsableDevice	<color=yellow>Dispositivos</color>

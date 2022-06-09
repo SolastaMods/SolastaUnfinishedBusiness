@@ -11,7 +11,7 @@ internal static class MonsterContext
 {
     internal static string GUID = "d825a5ac-75bf-4ffa-81d3-b8c8b5f5d2a3";
 
-    public static void Load()
+    public static void LateLoad()
     {
         if (!Main.Settings.EnableExtraHighLevelMonsters)
         {

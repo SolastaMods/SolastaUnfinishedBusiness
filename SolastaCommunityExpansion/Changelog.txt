@@ -1,6 +1,10 @@
-﻿- Add more infusions to Tinkerer and tweak spell list
-- Allow crossbows and hand crossbows to leverage Archery
-- Bring back Royal Knight subclass
-- Change Sense Normal Vision setting to a slider
-- Fix Level 20 to remove cap in new places
-- Improve Party of 6 UI scaling
+﻿- Add Items granter under Gameplay > Tools
+- Fix Fletcher feat granting Wis instead of Dex
+- Fix for Deadeye desync under MP (maybe?)
+- Make hand crossbows light weapons
+- Tweak Tinkerer starting equipment
+
+REQUEST:
+
+- I'm looking to provide better translations with an official Deepl Pro annual subscription
+- Please check Nexus posts for the donation link if you believe you can contribute

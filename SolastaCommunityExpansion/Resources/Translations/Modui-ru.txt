@@ -178,3 +178,10 @@ ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся 
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать отметины и татуировки для всех персонажей
 ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
+ModUi/&Items	<color=yellow>Предметы:</color>
+ModUi/&ItemsHelp1	<color=#C04040E0>У вас должен быть открыт экран проверки персонажей, чтобы добавлять предметы героям...</color>
+ModUi/&ItemsHelp2	. Нажмите +, чтобы добавить предметы в наземный контейнер на панели осмотра.
+ModUi/&Armor	<color=yellow>Броня</color>
+ModUi/&Weapon	<color=yellow>Оружие</color>
+ModUi/&Ammunition	<color=yellow>Боеприпасы</color>
+ModUi/&UsableDevice	<color=yellow>Используемое устройство</color>

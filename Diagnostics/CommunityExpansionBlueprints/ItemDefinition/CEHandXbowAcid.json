@@ -63,6 +63,7 @@
     "closeRange": 6,
     "maxRange": 24,
     "weaponTags": [
+      "Light",
       "Range",
       "Loading",
       "Ammunition"
