@@ -48,7 +48,7 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableCharacterChecker = toggle;
         }
-        
+
         toggle = Main.Settings.EnableCheatMenu;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableCheatMenu"), ref toggle, UI.AutoWidth()))
         {
@@ -181,29 +181,33 @@ internal static class ToolsDisplay
     private static void DisplayItems()
     {
         UI.Label("");
-        UI.Label("Items:".yellow());
+        UI.Label(Gui.Localize("ModUi/&Items"));
         UI.Label("");
 
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
 
         if (!characterInspectionScreen.Visible || characterInspectionScreen.externalContainer == null)
         {
-            UI.Label("You must have the character inspection screen open to add items to heroes...".red());
+            UI.Label(Gui.Localize("ModUi/&ItemsHelp1"));
 
             return;
         }
 
-        UI.Label(". Press + to add items to the ground container on inspection panel");
+        UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
 
-        DisplayItemGroup("Armor", "Armors", ref displayArmor, ref armorScrollPosition);
-        DisplayItemGroup("Weapon", "Weapons", ref displayWeapons, ref weaponsScrollPosition);
-        DisplayItemGroup("Ammunition", "Ammunition", ref displayAmmunition, ref ammunitionScrollPosition);
-        DisplayItemGroup("UsableDevice", "Usable Devices", ref displayUsableDevices, ref usableDevicesScrollPosition);
+        DisplayItemGroup("Armor", Gui.Localize("ModUi/&Armor"), ref displayArmor, ref armorScrollPosition);
+        DisplayItemGroup("Weapon", Gui.Localize("ModUi/&Weapon"), ref displayWeapons, ref weaponsScrollPosition);
+        DisplayItemGroup("Ammunition", Gui.Localize("ModUi/&Ammunition"), ref displayAmmunition,
+            ref ammunitionScrollPosition);
+        DisplayItemGroup("UsableDevice", Gui.Localize("ModUi/&UsableDevice"), ref displayUsableDevices,
+            ref usableDevicesScrollPosition);
     }
 
     private static void DisplayItemGroup(string group, string title, ref bool displayGroup, ref Vector2 scrollPosition)
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+        var rulesetItemFactoryService = ServiceRepository.GetService<IRulesetItemFactoryService>();
+        var characterName = characterInspectionScreen.InspectedCharacter.Name;
 
         UI.Label("");
         UI.DisclosureToggle(title.yellow(), ref displayGroup, 200);
@@ -217,7 +221,8 @@ internal static class ToolsDisplay
             .Where(x => x.GetField<ItemDefinition, bool>($"is{group}"))
             .OrderBy(x => x.FormatTitle());
 
-        using var scrollView = new GUILayout.ScrollViewScope(scrollPosition, GUILayout.Width(350), GUILayout.Height(300));
+        using var scrollView =
+            new GUILayout.ScrollViewScope(scrollPosition, GUILayout.Width(350), GUILayout.Height(300));
 
         scrollPosition = scrollView.scrollPosition;
 
@@ -227,8 +232,9 @@ internal static class ToolsDisplay
             {
                 UI.ActionButton("+".bold().red(), () =>
                     {
-                        characterInspectionScreen.externalContainer.AddSubItem(
-                            new RulesetItem(item));
+                        var rulesetItem = rulesetItemFactoryService.CreateStandardItem(item, true, characterName);
+
+                        characterInspectionScreen.externalContainer.AddSubItem(rulesetItem);
                     },
                     UI.Width(30));
                 UI.Label(item.FormatTitle(), UI.Width(300));

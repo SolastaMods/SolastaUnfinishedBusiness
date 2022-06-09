@@ -178,3 +178,10 @@ ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
+ModUi/&Items	<color=yellow>Items:</color>
+ModUi/&ItemsHelp1	<color=red>You must have the character inspection screen open to add items to heroes...</color>
+ModUi/&ItemsHelp2	. Press + to add items to the ground container on inspection panel
+ModUi/&Armor	<color=yellow>Armor</color>
+ModUi/&Weapon	<color=yellow>Weapons</color>
+ModUi/&Ammunition	<color=yellow>Ammunition</color>
+ModUi/&UsableDevice	<color=yellow>Usable Device</color>
