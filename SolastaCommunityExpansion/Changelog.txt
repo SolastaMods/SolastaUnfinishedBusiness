@@ -1,2 +1,7 @@
-﻿- Allow Clothes of Lightbringer to be worn by any class
+- Allow Clothes of Lightbringer to be worn by any class
 - Fix Deadeye and Power Attack feats under multiplayer
+
+REQUEST:
+
+- I'm looking to provide better translations with an official Deepl Pro license
+- Please check Nexus posts for the donation link if you believe you can contribute
