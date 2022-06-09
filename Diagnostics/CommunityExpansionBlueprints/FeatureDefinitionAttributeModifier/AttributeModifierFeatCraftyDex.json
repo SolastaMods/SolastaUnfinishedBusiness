@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifierType2": "Additive",
-  "modifiedAttribute": "Wisdom",
+  "modifiedAttribute": "Dexterity",
   "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",

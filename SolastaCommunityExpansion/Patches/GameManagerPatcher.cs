@@ -62,7 +62,6 @@ namespace SolastaCommunityExpansion.Patches
             ItemOptionsContext.Load();
             Level20Context.Load();
             LevelDownContext.Load();
-            MonsterContext.Load();
             PickPocketContext.Load();
             PowerBundleContext.Load();
             RemoveBugVisualModelsContext.Load();
@@ -123,6 +122,9 @@ namespace SolastaCommunityExpansion.Patches
                 // Classes Features Sorting
                 ClassesContext.LateLoad();
 
+                // Load Monsters last to ensure it leverages all mod blueprints
+                MonsterContext.LateLoad();
+                
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
 
