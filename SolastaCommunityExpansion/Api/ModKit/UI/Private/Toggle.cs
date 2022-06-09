@@ -125,7 +125,7 @@ public static class UI
     {
         var state = value ? on : off;
         var sStyle = new GUIStyle(stateStyle);
-        var lStyle = new GUIStyle(labelStyle) { wordWrap = false };
+        var lStyle = new GUIStyle(labelStyle) {wordWrap = false};
         var stateSize = sStyle.CalcSize(state);
         lStyle.fixedHeight = stateSize.y - 2;
         var padding = new RectOffset(0, (int)stateSize.x + 5, 0, 0);

@@ -26,7 +26,7 @@ internal static class PaladinBuilder
         AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
             new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = 13, SpellsList = new List<SpellDefinition> { FreedomOfMovement, GuardianOfFaith }
+                ClassLevel = 13, SpellsList = new List<SpellDefinition> {FreedomOfMovement, GuardianOfFaith}
             });
 
         AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
@@ -44,13 +44,13 @@ internal static class PaladinBuilder
         AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
             new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = 13, SpellsList = new List<SpellDefinition> { WallOfFire, Stoneskin }
+                ClassLevel = 13, SpellsList = new List<SpellDefinition> {WallOfFire, Stoneskin}
             });
 
         AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
             new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = 17, SpellsList = new List<SpellDefinition> { FlameStrike }
+                ClassLevel = 17, SpellsList = new List<SpellDefinition> {FlameStrike}
             });
 
         //// Oath of Tirmar
@@ -68,7 +68,7 @@ internal static class PaladinBuilder
         AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
             new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = 17, SpellsList = new List<SpellDefinition> { WallOfForce, HoldMonster }
+                ClassLevel = 17, SpellsList = new List<SpellDefinition> {WallOfForce, HoldMonster}
             });
 
         CastSpellPaladin.SetSpellCastingLevel(5);

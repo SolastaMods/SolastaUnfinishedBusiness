@@ -40,7 +40,7 @@ public static class RulesetCharacterHeroExtensions
         var list = new List<(string, T)>();
         foreach (var feature in features)
         {
-            if (feature is FeatureDefinitionFeatureSet { Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union } set)
+            if (feature is FeatureDefinitionFeatureSet {Mode: FeatureDefinitionFeatureSet.FeatureSetMode.Union} set)
             {
                 list.AddRange(GetTaggedFeatures<T>(tag, set.FeatureSet));
             }

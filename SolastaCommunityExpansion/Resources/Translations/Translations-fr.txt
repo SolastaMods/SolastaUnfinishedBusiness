@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Maîtrisez les arcs et ils sont con
 Feature/&ClassMonkZenArcherCombatTitle	Combat à distance
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Vos attaques à l'arc comptent comme magiques dans le but de surmonter la résistance et l'immunité aux attaques et aux dégâts non magiques.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flèches renforcées par le Ki
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Vous pouvez interférer avec le flux de ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature qui n'est pas étourdie par une attaque de flèche, vous pouvez dépenser 1 point de ki pour tenter un coup étourdissant. La cible doit réussir un jet de sauvegarde de Constitution ou être étourdie jusqu'à la fin de votre prochain tour.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flèches époustouflantes
 Feature/&ClassWarlockArmorProficiencyDescription	Armure légère.
 Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation à remplacer.
@@ -1054,6 +1054,9 @@ Feature/&IndomitableResistanceAddTitle	Résistance indomptable (augmentée)
 Feature/&IndomitableResistanceTitle	Résistance indomptable
 Feature/&InspirePowerDescription	Passez un dé de gambit et inspirez-vous ou votre allié à donner 1d6 + 2 PV temporaires.
 Feature/&InspirePowerTitle	Inspirer
+Feature/&InspiringSurgePowerDescription	Confère à un allié une action principale supplémentaire pendant 1 tour. Ne se cumule pas avec Action Surge.
+Feature/&InspiringSurgePowerTitle	Surtension inspirante
+Feature/&InspiringSurgePowerTitleShort	Surtension inspirante
 Feature/&KnockDownPowerDescription	Dépensez un dé de gambit et renforcez votre attaque pour infliger 1d6 + 2 dégâts contondants supplémentaires. La cible effectue un jet de Force (DD 8 + votre bonus de maîtrise + votre modificateur de Force) ou est renversée jusqu'au début de son prochain tour.
 Feature/&KnockDownPowerTitle	Abattre
 Feature/&MagicAffinityRangerArcanistDescription	Vous êtes compétent pour lancer des sorts au combat et pouvez lancer des sorts qui nécessitent une composante somatique même si vos deux mains tiennent une arme ou un bouclier.
@@ -1110,6 +1113,9 @@ Feature/&RagePowerDescription	En tant qu'action bonus, vous entrez en rage penda
 Feature/&RagePowerTitle	Rage
 Feature/&RageStrengthSavingThrowAffinityDescription	Vous bénéficiez d'un avantage sur les sauvegardes de Force lorsque vous êtes en rage.
 Feature/&RageStrengthSavingThrowAffinityTitle	Avantage de sauvegarde de Force de rage
+Feature/&RallyingCryPowerDescription	Remplace Second Wind par un pouvoir permettant de restaurer 4 fois les points de vie des niveaux de combattant à un ou plusieurs alliés dans un rayon de 6 cellules, jusqu'à leur maximum de points de vie.
+Feature/&RallyingCryPowerTitle	Cri de ralliement
+Feature/&RallyingCryPowerTitleShort	Cri de ralliement
 Feature/&RangerFeralSensesDescription	Vous gagnez des sens surnaturels qui vous aident à combattre des créatures que vous ne pouvez pas voir. Lorsque vous attaquez une créature que vous ne pouvez pas voir, votre incapacité à la voir n'impose pas de désavantage à vos jets d'attaque contre elle.
 Feature/&RangerFeralSensesTitle	Sens sauvages
 Feature/&RangerVanishActionDescription	À partir du niveau 14, vous pouvez utiliser l'action Cacher comme une action bonus à votre tour.
@@ -1117,6 +1123,8 @@ Feature/&RangerVanishActionTitle	Disparaître
 Feature/&RiftWalkerRestrainedImmunityTitle	Pas fugace
 Feature/&RiftWalkerSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Sorts de marcheur de faille
+Feature/&RoyalEnvoyFeatureDescription	Ajoutez la moitié de votre bonus de maîtrise (arrondi au supérieur) à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
+Feature/&RoyalEnvoyFeatureTitle	Envoyé royal
 Feature/&SavingThrowTinkererProficiencyDescription	Maîtrise des jets de sauvegarde de Constitution et d'Intelligence.
 Feature/&SavingThrowTinkererProficiencyTitle	Maîtrise du jet de sauvegarde
 Feature/&ScoutModePowerDescription	Bénéficiez d'un mouvement accru, d'un avantage sur les tests de furtivité et une fois par tour, vos attaques à distance avec une arme infligent un dé de dégâts supplémentaire.
@@ -1496,6 +1504,10 @@ Reaction/&CastSpellInRetributionDescription	{0} attaque {1} ! Vous pouvez lance
 Reaction/&CastSpellInRetributionReactDescription	Cliquez pour diffuser {0}.
 Reaction/&CastSpellInRetributionReactTitle	Lancer un sort
 Reaction/&CastSpellInRetributionTitle	Lancer un sort de réaction
+Reaction/&CoordinatedAttackDescription	{0} a été attaqué en coordonnant l'attaque, certains personnages peuvent utiliser leur réaction pour rejoindre cette attaque.
+Reaction/&CoordinatedAttackReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&CoordinatedAttackReactTitle	Attaque
+Reaction/&CoordinatedAttackTitle	Attaque coordonnée
 Reaction/&CustomDeflectMissileMonkTitle	{0} attaque {1}, qui peut réagir pour réduire les dégâts subis de 1d10 + modificateur de Dextérité + niveau du Moine
 Reaction/&ReactionAttackFeatSentinelDescription	{0} a attaqué un de vos alliés, en réponse vous pouvez utiliser votre réaction pour attaquer.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Utilisez la réaction pour attaquer.
@@ -1530,8 +1542,8 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Dépensez un dé de gambi
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Une fois par repos long, lorsque vous êtes endommagé par une attaque au corps à corps, vous pouvez utiliser votre réaction pour créer un portail qui bannit l'attaquant pendant 1 round de votre plan d'existence.
-Reaction/&SpendPowerDH_RiftStrikeTitle	Frappe de faille
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Frappe de faille
+Reaction/&SpendPowerDH_RiftStrikeTitle	Frappe de faille
 Reaction/&SpendPowerDiamondSoulDescription	{0} a raté une sauvegarde et peut dépenser 1 ki pour la relancer.
 Reaction/&SpendPowerDiamondSoulReactDescription	Dépensez du ki pour relancer la sauvegarde ratée.
 Reaction/&SpendPowerDiamondSoulReactTitle	Relancer
@@ -1550,6 +1562,7 @@ Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} peut dépenser un emplaceme
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Cliquez pour dépenser un emplacement de sort et augmenter les dégâts infligés à la cible.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Châtiment
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Châtiment occulte
+Reaction/&SubitemSelectCoordinatedAttackTitle	Sélectionnez l'action
 Reaction/&SubitemSelectEldritchSmiteDescription	Sélectionnez un niveau d'emplacement à consommer pour votre Eldritch Smite.
 Reaction/&SubitemSelectEldritchSmiteTitle	Niveau d'emplacement
 Reaction/&SubitemSelectPowerBundleTitle	Choix
@@ -1564,6 +1577,8 @@ Reaction/&UseClassMonkSlowFallTitle	Chute lente
 Reaction/&WarcasterAttackDescription	Cible d'attaque.
 Reaction/&WarcasterAttackTitle	Attaque
 Reaction/&WarcasterReactionDescription	{0} quitte une zone menacée par un ou plusieurs personnages.
+Reaction/&WarcasterReactionReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&WarcasterReactionReactTitle	Attaque
 Reaction/&WarcasterReactionTitle	Attaque d'opportunité
 Requirement/&FeatureSelectionRequireCharacterLevel	Niveau {0}
 Requirement/&FeatureSelectionRequireClassLevel	Niveau {0} sur {1}
@@ -1873,6 +1888,8 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 1 esprit du camarade déchu du maréchal. Chaque esprit a 45 + deux fois votre niveau de combattant en PV et sa CA est de 16 + votre bonus de compétence. Les esprits sont immunisés contre les conditions empoisonnées, froides, nécrotiques, enclines, paralysées et restreintes. Les esprits ont une résistance au feu, à l'acide, à la foudre et aux dégâts du tonnerre et ont une résistance aux dégâts non magiques tranchants, contondants et perforants. À leur tour, ils peuvent voler jusqu'à 15 mètres et effectuer une seule attaque au corps à corps avec une arme qui inflige 2d6 + 5 dégâts magiques tranchants avec un bonus de 5 + bonus de maîtrise pour toucher.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
 Subclass/&FighterMarshalTitle	Maréchal
+Subclass/&FighterRoyalKnightDescription	Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier solitaire est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.
+Subclass/&FighterRoyalKnightTitle	chevalier royal
 Subclass/&FighterSpellShieldDescription	Les Spell Shields sont des combattants spécialisés dans la défense et la protection. Ils utilisent la magie pour aider leurs capacités naturelles.
 Subclass/&FighterSpellShieldSpellcastingDescription	Lancez des sorts et des tours mineurs de magicien des écoles d'abjuration, d'illusion, de transmutation et de nécromancie.
 Subclass/&FighterSpellShieldSpellcastingTitle	Lancer des sorts
@@ -2067,20 +2084,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Du pouvoir
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Compétence
 UI/&ForcePreferredCantripDescription	Si cette option est activée, seul le cantrip préféré peut se déclencher. Si le sort mineur préféré n'est pas sélectionné, le premier sort mineur valide se déclenchera, quelle que soit cette bascule.
 UI/&ForcePreferredCantripTitle	Forcer le sort mineur préféré
-Reaction/&WarcasterReactionReactDescription	Utilisez la réaction pour attaquer la cible.
-Reaction/&WarcasterReactionReactTitle	Attaque
-Reaction/&SubitemSelectCoordinatedAttackTitle	Sélectionnez l'action
-Reaction/&CoordinatedAttackDescription	{0} a été attaqué en coordonnant l'attaque, certains personnages peuvent utiliser leur réaction pour rejoindre cette attaque.
-Reaction/&CoordinatedAttackTitle	Attaque coordonnée
-Reaction/&CoordinatedAttackReactDescription	Utilisez la réaction pour attaquer la cible.
-Reaction/&CoordinatedAttackReactTitle	Attaque
-Feature/&RallyingCryPowerTitle	Cri de ralliement
-Feature/&RallyingCryPowerTitleShort	Cri de ralliement
-Feature/&RallyingCryPowerDescription	Remplace Second Wind par un pouvoir permettant de restaurer 4 fois les points de vie des niveaux de combattant à un ou plusieurs alliés dans un rayon de 6 cellules, jusqu'à leur maximum de points de vie.
-Feature/&RoyalEnvoyFeatureTitle	Envoyé royal
-Feature/&RoyalEnvoyFeatureDescription	Ajoutez la moitié de votre bonus de maîtrise (arrondi au supérieur) à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
-Feature/&InspiringSurgePowerTitle	Surtension inspirante
-Feature/&InspiringSurgePowerTitleShort	Surtension inspirante
-Feature/&InspiringSurgePowerDescription	Confère à un allié une action principale supplémentaire pendant 1 tour. Ne se cumule pas avec Action Surge.
-Subclass/&FighterRoyalKnightTitle	chevalier royal
-Subclass/&FighterRoyalKnightDescription	Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier solitaire est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.

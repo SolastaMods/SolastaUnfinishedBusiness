@@ -57,7 +57,7 @@ internal static class AfterRestActionItem_OnExecuteCb
     {
         item.executing = true;
 
-        var parameters = new FunctorParametersDescription { RestingHero = item.Hero, StringParameter = powerName };
+        var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
         var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
 
         yield return ServiceRepository.GetService<IFunctorService>()

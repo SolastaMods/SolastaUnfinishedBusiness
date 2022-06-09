@@ -105,7 +105,7 @@ public class EffectFormBuilder
         IEnumerable<ConditionDefinition> detrimentalConditions)
     {
         effectForm.FormType = EffectForm.EffectFormType.Condition;
-        var conditionForm = new ConditionForm { Operation = operation, ConditionDefinition = condition };
+        var conditionForm = new ConditionForm {Operation = operation, ConditionDefinition = condition};
         if (condition != null)
         {
             conditionForm.SetConditionDefinitionName(condition.Name);

@@ -291,7 +291,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not { Reach: false, Ranged: true, Thrown: false })
+            if (attackMode is not {Reach: false, Ranged: true, Thrown: false})
             {
                 return;
             }
@@ -360,13 +360,13 @@ internal static class AcehighFeats
                 ActionDefinitions.Id.PowerNoCost)
             {
                 SkipAnimationsAndVFX = true,
-                TargetCharacters = { locationCharacter },
-                ActionModifiers = { new ActionModifier() },
-                RulesetEffect = rules.InstantiateEffectPower(character, usable, false)
+                TargetCharacters = {locationCharacter},
+                ActionModifiers = {new ActionModifier()},
+                RulesetEffect = rules.InstantiateEffectPower(character, usable, true)
             };
 
             ServiceRepository.GetService<ICommandService>()
-                .ExecuteInstantSingleAction(actionParams);
+                .ExecuteAction(actionParams, _ => { }, false);
         }
     }
 
@@ -381,7 +381,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not { Ranged: false, Thrown: false })
+            if (attackMode is not {Ranged: false, Thrown: false})
             {
                 return;
             }

@@ -26,7 +26,7 @@ public static class LevelUpContext
         bool levelingUp = false)
     {
         LevelUpTab.TryAdd(rulesetCharacterHero,
-            new LevelUpData { SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp });
+            new LevelUpData {SelectedClass = lastClass, SelectedSubclass = lastSubclass, IsLevelingUp = levelingUp});
 
         // fixes max level and exp in case level 20 gets enabled after a campaign starts
         var characterLevelAttribute = rulesetCharacterHero.GetAttribute(AttributeDefinitions.CharacterLevel);

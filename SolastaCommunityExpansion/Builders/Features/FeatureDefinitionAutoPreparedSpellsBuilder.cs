@@ -85,6 +85,6 @@ public static class AutoPreparedSpellsGroupBuilder
 
     public static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, IEnumerable<SpellDefinition> spellnames)
     {
-        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellnames.ToList() };
+        return new AutoPreparedSpellsGroup {ClassLevel = classLevel, SpellsList = spellnames.ToList()};
     }
 }

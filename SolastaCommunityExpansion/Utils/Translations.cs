@@ -21,7 +21,7 @@ public static class Translations
         Google
     }
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "pt", "ru", "zh-CN" };
+    internal static readonly string[] AvailableLanguages = {"de", "en", "es", "fr", "it", "pt", "ru", "zh-CN"};
 
     internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
 
@@ -125,7 +125,7 @@ public static class Translations
         {
             try
             {
-                var splitted = line.Split(new[] { '\t' }, 2);
+                var splitted = line.Split(new[] {'\t'}, 2);
 
                 words.Add(splitted[0], splitted[1]);
             }
@@ -144,7 +144,7 @@ public static class Translations
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
         var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
         var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
-        var lines = new List<string>(payload.Split(new[] { Environment.NewLine }, StringSplitOptions.None));
+        var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 
         foreach (var line in lines)
         {
@@ -153,7 +153,7 @@ public static class Translations
 
             try
             {
-                var splitted = line.Split(new[] { '\t', ' ' }, 2);
+                var splitted = line.Split(new[] {'\t', ' '}, 2);
 
                 term = splitted[0];
                 text = splitted[1];

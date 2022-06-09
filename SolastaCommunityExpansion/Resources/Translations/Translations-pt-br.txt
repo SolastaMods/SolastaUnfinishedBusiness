@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Ganhe proficiência com arcos e ele
 Feature/&ClassMonkZenArcherCombatTitle	Combate à distância
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Seus ataques de arco contam como mágicos com o propósito de superar resistência e imunidade a ataques e danos não mágicos.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas Energizadas com Ki
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressionantes
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Você pode interferir no fluxo de ki no corpo de um oponente. Quando você atinge outra criatura que não está atordoada com um ataque de flecha, você pode gastar 1 ponto de ki para tentar um golpe atordoante. O alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará atordoado até o final do seu próximo turno.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas Impressionantes
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura leve.
 Feature/&ClassWarlockArmorProficiencyTitle	Proficiência em Armadura de Bruxo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecione Invocação Eldritch para substituir.
@@ -1054,6 +1054,9 @@ Feature/&IndomitableResistanceAddTitle	Resistência Indomável (aumentada)
 Feature/&IndomitableResistanceTitle	Resistência Indomável
 Feature/&InspirePowerDescription	Gaste um dado de aposta e inspire você ou seu aliado a dar 1d6 + 2 PV temporários.
 Feature/&InspirePowerTitle	Inspirar
+Feature/&InspiringSurgePowerDescription	Concede a um aliado uma ação principal adicional por 1 rodada. Não acumula com Surto de Ação.
+Feature/&InspiringSurgePowerTitle	Surto inspirador
+Feature/&InspiringSurgePowerTitleShort	Surto inspirador
 Feature/&KnockDownPowerDescription	Gaste um dado de jogada e fortaleça seu ataque para causar mais 1d6 + 2 de dano de concussão. O alvo faz um teste de resistência de Força (CD 8 + seu bônus de proficiência + seu modificador de Força) ou é derrubado até o início de seu próximo turno.
 Feature/&KnockDownPowerTitle	Derrubar
 Feature/&MagicAffinityRangerArcanistDescription	Você é proficiente em lançar feitiços em batalha e pode lançar feitiços que exijam um componente somático mesmo que suas duas mãos estejam segurando uma arma ou escudo.
@@ -1110,6 +1113,9 @@ Feature/&RagePowerDescription	Como uma ação bônus, você entra em fúria por 
 Feature/&RagePowerTitle	Fúria
 Feature/&RageStrengthSavingThrowAffinityDescription	Você ganha vantagem em salvamentos de Força enquanto estiver em fúria.
 Feature/&RageStrengthSavingThrowAffinityTitle	Vantagem de salvamento de Força de Fúria
+Feature/&RallyingCryPowerDescription	Substitui o Segundo Vento por um poder de restaurar 4x os pontos de vida dos Níveis de Lutador para um ou mais aliados dentro de 6 células, até o máximo de pontos de vida.
+Feature/&RallyingCryPowerTitle	Grito de guerra
+Feature/&RallyingCryPowerTitleShort	Grito de guerra
 Feature/&RangerFeralSensesDescription	Você ganha sentidos sobrenaturais que o ajudam a lutar contra criaturas que você não pode ver. Quando você ataca uma criatura que não pode ver, sua incapacidade de vê-la não impõe desvantagem em suas jogadas de ataque contra ela.
 Feature/&RangerFeralSensesTitle	Sentidos Ferais
 Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar a ação Esconder-se como uma ação bônus no seu turno.
@@ -1117,6 +1123,8 @@ Feature/&RangerVanishActionTitle	Desaparecer
 Feature/&RiftWalkerRestrainedImmunityTitle	Passo fugaz
 Feature/&RiftWalkerSpellsMagicAffinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de Bruxo. Os seguintes feitiços são adicionados à lista de feitiços do Bruxo para você: {0}
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Feitiços do Rift Walker
+Feature/&RoyalEnvoyFeatureDescription	Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
+Feature/&RoyalEnvoyFeatureTitle	enviado real
 Feature/&SavingThrowTinkererProficiencyDescription	Proficiência em testes de resistência de Constituição e Inteligência.
 Feature/&SavingThrowTinkererProficiencyTitle	Proficiência em jogadas de proteção
 Feature/&ScoutModePowerDescription	Ganhe movimento aumentado, vantagem em testes de Furtividade e uma vez por turno, seus ataques de arma de longo alcance causam um dado extra de dano.
@@ -1496,6 +1504,10 @@ Reaction/&CastSpellInRetributionDescription	{0} está atacando {1}! Você pode l
 Reaction/&CastSpellInRetributionReactDescription	Clique para transmitir {0}.
 Reaction/&CastSpellInRetributionReactTitle	Feitiço lançado
 Reaction/&CastSpellInRetributionTitle	Feitiço de Reação de Conjuração
+Reaction/&CoordinatedAttackDescription	{0} foi atacado por um ataque coordenado, alguns personagens podem usar sua reação para participar deste ataque.
+Reaction/&CoordinatedAttackReactDescription	Use a reação para atacar o alvo.
+Reaction/&CoordinatedAttackReactTitle	Ataque
+Reaction/&CoordinatedAttackTitle	Ataque coordenado
 Reaction/&CustomDeflectMissileMonkTitle	{0} está atacando {1}, que pode reagir para reduzir o dano recebido em 1d10 + modificador de Destreza + nível de Monge
 Reaction/&ReactionAttackFeatSentinelDescription	{0} atacou um de seus aliados, em resposta você pode usar sua reação para atacar.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use a reação para atacar.
@@ -1530,8 +1542,8 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Gaste um dado de jogada e
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Contra-ataque
 Reaction/&SpendPowerCounterStrikePowerTitle	Contra-ataque
 Reaction/&SpendPowerDH_RiftStrikeDescription	Uma vez por descanso longo, quando danificado por um ataque corpo a corpo, você pode usar sua reação para criar um portal que bane o atacante por 1 rodada do seu plano de existência.
-Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} falhou no salvamento e pode gastar 1 ki para rerrolá-lo.
 Reaction/&SpendPowerDiamondSoulReactDescription	Gaste ki para refazer o salvamento com falha.
 Reaction/&SpendPowerDiamondSoulReactTitle	Role novamente
@@ -1550,6 +1562,7 @@ Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} pode gastar espaço de magi
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Clique para gastar um espaço de feitiço e aumentar o dano ao alvo.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Desbaratar
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Golpe Mágico
+Reaction/&SubitemSelectCoordinatedAttackTitle	Selecionar ação
 Reaction/&SubitemSelectEldritchSmiteDescription	Selecione um nível de slot para consumir em seu Eldritch Smite.
 Reaction/&SubitemSelectEldritchSmiteTitle	Nível do slot
 Reaction/&SubitemSelectPowerBundleTitle	Opções
@@ -1564,6 +1577,8 @@ Reaction/&UseClassMonkSlowFallTitle	Queda Lenta
 Reaction/&WarcasterAttackDescription	Alvo de ataque.
 Reaction/&WarcasterAttackTitle	Ataque
 Reaction/&WarcasterReactionDescription	{0} está saindo de uma área ameaçada por um ou mais personagens.
+Reaction/&WarcasterReactionReactDescription	Use a reação para atacar o alvo.
+Reaction/&WarcasterReactionReactTitle	Ataque
 Reaction/&WarcasterReactionTitle	Ataque de oportunidade
 Requirement/&FeatureSelectionRequireCharacterLevel	Nível {0}
 Requirement/&FeatureSelectionRequireClassLevel	Nível {0} de {1}
@@ -1873,6 +1888,8 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estude seu inimigo
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Evoca 1 espírito do camarada caído do marechal. Cada espírito tem 45 + o dobro do seu nível de lutador de HP e sua CA é 16 + seu bônus de proficiência. Os espíritos são imunes às condições venenosas, frias, necróticas, propensas, paralisadas e contidas. Os espíritos têm resistência a dano de fogo, ácido, raio e trovão e têm resistência a danos não-mágicos de corte, concussão e perfurante. Por sua vez, eles podem voar até 15 metros e fazer um único ataque corpo a corpo com arma que causa 2d6 + 5 de dano mágico cortante com um bônus de 5 + bônus de proficiência para acertar.
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Convocar Camarada Eterno
 Subclass/&FighterMarshalTitle	Marechal
+Subclass/&FighterRoyalKnightDescription	Um cavaleiro que inspira grandeza nos outros ao cometer atos de bravura em batalha. Um cavaleiro solitário é um guerreiro habilidoso, mas um líder de um bando de aliados pode transformar até mesmo a milícia mais mal equipada em um bando de guerra feroz.
+Subclass/&FighterRoyalKnightTitle	Cavaleiro real
 Subclass/&FighterSpellShieldDescription	Spell Shields são lutadores especializados em defesa e proteção. Eles usam magia para ajudar suas habilidades naturais.
 Subclass/&FighterSpellShieldSpellcastingDescription	Lance feitiços e truques de Mago das escolas Abjuração, Ilusão, Transmutação e Necromancia.
 Subclass/&FighterSpellShieldSpellcastingTitle	Feitiço
@@ -2067,20 +2084,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Poder
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competência
 UI/&ForcePreferredCantripDescription	Se estiver ativado, apenas o truque preferido pode ser acionado. Se o truque preferido não for selecionado, o primeiro truque válido será acionado, independentemente dessa alternância.
 UI/&ForcePreferredCantripTitle	Forçar Truque Preferido
-Reaction/&WarcasterReactionReactDescription	Use a reação para atacar o alvo.
-Reaction/&WarcasterReactionReactTitle	Ataque
-Reaction/&SubitemSelectCoordinatedAttackTitle	Selecionar ação
-Reaction/&CoordinatedAttackDescription	{0} foi atacado por um ataque coordenado, alguns personagens podem usar sua reação para participar deste ataque.
-Reaction/&CoordinatedAttackTitle	Ataque coordenado
-Reaction/&CoordinatedAttackReactDescription	Use a reação para atacar o alvo.
-Reaction/&CoordinatedAttackReactTitle	Ataque
-Feature/&RallyingCryPowerTitle	Grito de guerra
-Feature/&RallyingCryPowerTitleShort	Grito de guerra
-Feature/&RallyingCryPowerDescription	Substitui o Segundo Vento por um poder de restaurar 4x os pontos de vida dos Níveis de Lutador para um ou mais aliados dentro de 6 células, até o máximo de pontos de vida.
-Feature/&RoyalEnvoyFeatureTitle	enviado real
-Feature/&RoyalEnvoyFeatureDescription	Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
-Feature/&InspiringSurgePowerTitle	Surto inspirador
-Feature/&InspiringSurgePowerTitleShort	Surto inspirador
-Feature/&InspiringSurgePowerDescription	Concede a um aliado uma ação principal adicional por 1 rodada. Não acumula com Surto de Ação.
-Subclass/&FighterRoyalKnightTitle	Cavaleiro real
-Subclass/&FighterRoyalKnightDescription	Um cavaleiro que inspira grandeza nos outros ao cometer atos de bravura em batalha. Um cavaleiro solitário é um guerreiro habilidoso, mas um líder de um bando de aliados pode transformar até mesmo a milícia mais mal equipada em um bando de guerra feroz.

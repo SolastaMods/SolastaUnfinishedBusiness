@@ -94,7 +94,7 @@ internal class Arcanist : AbstractSubclass
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
 
-        return new FeatureDefinition[] { preparedSpells, arcanist_affinity };
+        return new FeatureDefinition[] {preparedSpells, arcanist_affinity};
     }
 
     private static FeatureDefinitionAdditionalDamage CreateArcanistMark()

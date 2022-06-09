@@ -131,10 +131,10 @@ internal static class EldritchInvocationsBuilder
             .SetSomaticComponent(true)
             .SetEffectDescription(eldritchBlastEffect)
             .SetFeatureEffects(
-                (new List<FeatureDefinition> { agonizingBlastFeature, hinderingBlastFeature },
+                (new List<FeatureDefinition> {agonizingBlastFeature, hinderingBlastFeature},
                     hinderingAgonizingBlastEffect),
-                (new List<FeatureDefinition> { agonizingBlastFeature }, agonizingBlastEffect),
-                (new List<FeatureDefinition> { hinderingBlastFeature }, hinderingBlastEffect)
+                (new List<FeatureDefinition> {agonizingBlastFeature}, agonizingBlastEffect),
+                (new List<FeatureDefinition> {hinderingBlastFeature}, hinderingBlastEffect)
             )
             .SetAiParameters(new SpellAIParameters())
             .AddToDB();
@@ -208,21 +208,21 @@ internal static class EldritchInvocationsBuilder
     {
         Dictionary<string, SpellDefinition> dictionaryofEIPseudoCantrips = new()
         {
-            { "ArmorofShadows", SpellDefinitions.MageArmor }, // self
-            { "EldritchSight", SpellDefinitions.DetectMagic },
-            { "FiendishVigor", SpellDefinitions.FalseLife }, // self
-            { "AscendantStep", SpellDefinitions.Levitate }, // self
-            { "OtherworldlyLeap", SpellDefinitions.Jump }, // self
-            { "ChainsofCarceri", SpellDefinitions.HoldMonster },
-            { "ShroudofShadow", SpellDefinitions.Invisibility }
+            {"ArmorofShadows", SpellDefinitions.MageArmor}, // self
+            {"EldritchSight", SpellDefinitions.DetectMagic},
+            {"FiendishVigor", SpellDefinitions.FalseLife}, // self
+            {"AscendantStep", SpellDefinitions.Levitate}, // self
+            {"OtherworldlyLeap", SpellDefinitions.Jump}, // self
+            {"ChainsofCarceri", SpellDefinitions.HoldMonster},
+            {"ShroudofShadow", SpellDefinitions.Invisibility}
         };
 
         Dictionary<string, SpellDefinition> dictionaryofEIPseudoSpells = new()
         {
-            { "ThiefofFiveFates", SpellDefinitions.Bane },
-            { "MiretheMind", SpellDefinitions.Slow },
-            { "DreadfulWord", SpellDefinitions.Confusion },
-            { "TrickstersEscape", SpellDefinitions.FreedomOfMovement }
+            {"ThiefofFiveFates", SpellDefinitions.Bane},
+            {"MiretheMind", SpellDefinitions.Slow},
+            {"DreadfulWord", SpellDefinitions.Confusion},
+            {"TrickstersEscape", SpellDefinitions.FreedomOfMovement}
         };
 
         // EI that arent valid for game right now

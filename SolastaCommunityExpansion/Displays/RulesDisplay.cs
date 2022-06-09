@@ -23,6 +23,14 @@ internal static class RulesDisplay
 
         UI.Label("");
 
+        toggle = Main.Settings.AllowCrossbowsToUseBowFeatures;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowCrossbowsToUseBowFeatures"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowCrossbowsToUseBowFeatures = toggle;
+        }
+
+        UI.Label("");
+
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {
@@ -94,7 +102,7 @@ internal static class RulesDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AllowAnyClassToWearSylvanArmor"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowAnyClassToWearSylvanArmor = toggle;
-            ItemOptionsContext.SwitchUniversalSylvanArmor();
+            ItemOptionsContext.SwitchUniversalSylvanArmorAndLightbringer();
         }
 
         toggle = Main.Settings.AllowDruidToWearMetalArmor;

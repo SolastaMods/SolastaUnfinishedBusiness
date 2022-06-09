@@ -8,7 +8,7 @@ ModUi/&Advanced	<color=yellow>Erweitert:</color>
 ModUi/&AdvancedHelp	. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellung erfordert, dass der Spieler diesen Mod installiert hat
 ModUi/&Adventure	<color=yellow>Abenteuer:</color>
 ModUi/&AllItemInDm	Alle Artikel in DM
-ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, Waldrüstungen zu tragen
+ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, Waldrüstungen oder Lichtbringerkleidung zu tragen
 ModUi/&AllowDruidToWearMetalArmor	Erlaube dem <color=orange>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20	Verliese mit maximaler Stufe 20 zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Ermöglicht das Platzieren von Gadgets und Requisiten überall auf der Karte <i><color=yellow>[drücken Sie während der Platzierung <color=cyan>STRG</color>, um jede Überprüfung zu umgehen]</color></i>
@@ -17,6 +17,8 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Zielauswahl beim Wi
 ModUi/&AllowUnmarkedSorcerers	Erlaube unmarkierte <color=orange>Zauberer</color>
 ModUi/&AllRecipesInDm	Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>-Taste markiert nur Gadgets im Sichtfeld der Gruppe [nur in benutzerdefinierten Dungeons]
+ModUi/&Ammunition	<color=yellow>Munition</color>
+ModUi/&Armor	<color=yellow>Rüstung</color>
 ModUi/&AutoPauseOnVictory	Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
 ModUi/&Basic	<color=yellow>Einfach:</color>
 ModUi/&Battle	<color=yellow>Kampf:</color>
@@ -37,7 +39,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	Deaktiviere <color=orange>Dunkle Sicht
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Deaktiviere <color=orange>Superior Sense Dark Vision</color> für alle Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Zeigen Sie während des Levelaufstiegs alle bekannten Zaubersprüche aus anderen Klassen an
 ModUi/&DontFollowCharacterInBattle	Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
-ModUi/&DontFollowMargin	<i>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</i>
+ModUi/&DontFollowMargin	<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
 ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
 ModUi/&DungeonMakerBasicHelp	. Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat\n. Sie können beliebige Kampagnenvariablen in Ihre Dialoge, Beschreibungen usw. einbetten.\n. CE ersetzt sie während des Spiels durch ihren Wert <i><color=yellow>[z. B.: Hallo {Salute} Held!]</color></i>
 ModUi/&DungeonMakerMenu	Dungeon-Maker
@@ -108,7 +110,10 @@ ModUi/&Interface	Schnittstelle
 ModUi/&InventoryAndItems	<color=yellow>Inventar und Gegenstände:</color>
 ModUi/&InvertAltBehaviorOnTooltips	Kehrt das Verhalten der <color=cyan>ALT</color>-Taste in Tooltips um
 ModUi/&ItemInDm	Artikel in DM
+ModUi/&Items	<color=yellow>Items:</color>
 ModUi/&ItemsCraftingMerchants	Gegenstände, Handwerk & Händler
+ModUi/&ItemsHelp1	<color=#C04040E0>Du musst den Charakter-Überprüfungsbildschirm geöffnet haben, um Gegenstände zu Helden hinzuzufügen ...</color>
+ModUi/&ItemsHelp2	. Drücken Sie +, um Gegenstände zum Bodenbehälter auf dem Inspektionsfeld hinzuzufügen
 ModUi/&KeyboardMouse	Tastatur maus
 ModUi/&MakeAllMagicStaveArcaneFoci	Mache alle magischen Stäbe zu arkanen Brennpunkten <i><color=yellow>[außer <color=orange>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color= #C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
@@ -176,12 +181,8 @@ ModUi/&UnlockEyeStyles	Schalte Augenstile frei
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
 ModUi/&UnlockGlowingEyeColors	Schalte leuchtende Augenfarben frei
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Schalte Markierungen und Tattoos für alle Charaktere frei
+ModUi/&UsableDevice	<color=yellow>Verwendbares Gerät</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&Items	<color=yellow>Items:</color>
-ModUi/&ItemsHelp1	<color=#C04040E0>Du musst den Charakter-Überprüfungsbildschirm geöffnet haben, um Gegenstände zu Helden hinzuzufügen ...</color>
-ModUi/&ItemsHelp2	. Drücken Sie +, um Gegenstände zum Bodenbehälter auf dem Inspektionsfeld hinzuzufügen
-ModUi/&Armor	<color=yellow>Rüstung</color>
 ModUi/&Weapon	<color=yellow>Waffen</color>
-ModUi/&Ammunition	<color=yellow>Munition</color>
-ModUi/&UsableDevice	<color=yellow>Verwendbares Gerät</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	Ermöglichen Sie Armbrüsten, von den Bogenfunktionen zu profitieren

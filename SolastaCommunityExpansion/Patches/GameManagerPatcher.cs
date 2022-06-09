@@ -124,7 +124,7 @@ namespace SolastaCommunityExpansion.Patches
 
                 // Load Monsters last to ensure it leverages all mod blueprints
                 MonsterContext.LateLoad();
-                
+
                 // Save by location initialization depends on services to be ready
                 SaveByLocationContext.LateLoad();
 

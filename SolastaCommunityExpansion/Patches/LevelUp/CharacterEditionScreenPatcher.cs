@@ -62,7 +62,7 @@ internal static class CharacterEditionScreen_LoadStagePanels
         var deitySelectionPanel = Gui.GetPrefabFromPool(stagePanelPrefabs[2], __instance.StagesPanelContainer)
             .GetComponent<CharacterStagePanel>();
         var newLevelUpSequence =
-            new Dictionary<string, CharacterStagePanel> { { "ClassSelection", classSelectionPanel } };
+            new Dictionary<string, CharacterStagePanel> {{"ClassSelection", classSelectionPanel}};
 
         foreach (var stagePanel in __instance.stagePanelsByName)
         {

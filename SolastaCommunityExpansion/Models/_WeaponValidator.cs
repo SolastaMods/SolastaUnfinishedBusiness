@@ -86,7 +86,7 @@ public static class WeaponValidators
     public static bool IsReactionAttackMode(RulesetAttackMode attackMode, RulesetItem weapon,
         RulesetCharacter character)
     {
-        return attackMode is { ActionType: ActionDefinitions.ActionType.Reaction };
+        return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
     }
 
     public static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)

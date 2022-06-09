@@ -1,11 +1,5 @@
-- Add Items granter under Gameplay > Tools
-- Fix Fletcher feat granting Wis instead of Dex
-- Make hand crossbows light weapons
-- Tweak Tinkerer starting equipment
-
-KNOWN ISSUES:
-
-- Deadeye and Power Attack feats will desync MP
+- Allow Clothes of Lightbringer to be worn by any class
+- Fix Deadeye and Power Attack feats under multiplayer
 
 REQUEST:
 

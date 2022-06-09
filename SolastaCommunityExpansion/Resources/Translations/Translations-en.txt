@@ -886,8 +886,8 @@ Feature/&ClassMonkZenArcherCombatDescription	Gain proficiency with bows and they
 Feature/&ClassMonkZenArcherCombatTitle	Distant Hand Combat
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Your bow attacks count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-Empowered Arrows
-Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
 Feature/&ClassMonkZenArcherStunningArrowsDescription	You can interfere with the flow of ki in an opponent's body. When you hit another creature that is not stunned with a arrow attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Stunning Arrows
 Feature/&ClassWarlockArmorProficiencyDescription	Light Armor.
 Feature/&ClassWarlockArmorProficiencyTitle	Warlock Armor Proficiencies
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Select Eldritch Invocation to replace.
@@ -1054,6 +1054,9 @@ Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
 Feature/&IndomitableResistanceTitle	Indomitable Resistance
 Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6 + 2 temp hp.
 Feature/&InspirePowerTitle	Inspire
+Feature/&InspiringSurgePowerDescription	Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
+Feature/&InspiringSurgePowerTitle	Inspiring Surge
+Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
 Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
 Feature/&KnockDownPowerTitle	Knock down
 Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
@@ -1110,6 +1113,9 @@ Feature/&RagePowerDescription	As a bonus action, you enter a rage for one minute
 Feature/&RagePowerTitle	Rage
 Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on Strength saves while raging.
 Feature/&RageStrengthSavingThrowAffinityTitle	Rage Strength save advantage
+Feature/&RallyingCryPowerDescription	Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
+Feature/&RallyingCryPowerTitle	Rallying Cry
+Feature/&RallyingCryPowerTitleShort	Rallying Cry
 Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 Feature/&RangerFeralSensesTitle	Feral Senses
 Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
@@ -1117,6 +1123,8 @@ Feature/&RangerVanishActionTitle	Vanish
 Feature/&RiftWalkerRestrainedImmunityTitle	Fleeting Step
 Feature/&RiftWalkerSpellsMagicAffinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
 Feature/&RiftWalkerSpellsMagicAffinityTitle	Rift Walker Spells
+Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
+Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
 Feature/&SavingThrowTinkererProficiencyDescription	Proficiency in Constitution and Intelligence saving throws.
 Feature/&SavingThrowTinkererProficiencyTitle	Saving Throw Proficiency
 Feature/&ScoutModePowerDescription	Gain increased movement, advantage on Stealth checks and once per turn, your ranged weapon attacks deals an extra die of damage.
@@ -1496,6 +1504,10 @@ Reaction/&CastSpellInRetributionDescription	{0} is attacking {1}! You can cast {
 Reaction/&CastSpellInRetributionReactDescription	Click to cast {0}.
 Reaction/&CastSpellInRetributionReactTitle	Cast Spell
 Reaction/&CastSpellInRetributionTitle	Cast Reaction Spell
+Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
+Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
+Reaction/&CoordinatedAttackReactTitle	Attack
+Reaction/&CoordinatedAttackTitle	Coordinated Attack
 Reaction/&CustomDeflectMissileMonkTitle	{0} is attacking {1}, who can react to reduce the incoming damage by 1d10 + Dexterity modifier + Monk level
 Reaction/&ReactionAttackFeatSentinelDescription	{0} attacked one of your allies, in response you can use your reaction to attack.
 Reaction/&ReactionAttackFeatSentinelReactDescription	Use reaction to attack.
@@ -1530,8 +1542,8 @@ Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Co
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
 Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
 Reaction/&SpendPowerDH_RiftStrikeDescription	Once per long rest, when damaged by a melee attack, you can use your reaction to create a portal that banishes the attacker for 1 round from your plane of existence.
-Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Rift Strike
+Reaction/&SpendPowerDH_RiftStrikeTitle	Rift Strike
 Reaction/&SpendPowerDiamondSoulDescription	{0} has failed a save and can spend 1 ki to reroll it.
 Reaction/&SpendPowerDiamondSoulReactDescription	Spend ki to reroll failed save.
 Reaction/&SpendPowerDiamondSoulReactTitle	Reroll
@@ -1550,6 +1562,7 @@ Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} can spend spell slot to dea
 Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Click to spend a spell slot and increase damage to the target.
 Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Smite
 Reaction/&SpendSpellSlotEldritchSmiteTitle	Eldritch Smite
+Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
 Reaction/&SubitemSelectEldritchSmiteDescription	Select a slot level to consume for your Eldritch Smite.
 Reaction/&SubitemSelectEldritchSmiteTitle	Slot Level
 Reaction/&SubitemSelectPowerBundleTitle	Options
@@ -1564,6 +1577,8 @@ Reaction/&UseClassMonkSlowFallTitle	Slow Fall
 Reaction/&WarcasterAttackDescription	Attack target.
 Reaction/&WarcasterAttackTitle	Attack
 Reaction/&WarcasterReactionDescription	{0} is leaving an area threatened by one or more characters.
+Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
+Reaction/&WarcasterReactionReactTitle	Attack
 Reaction/&WarcasterReactionTitle	Attack of Opportunity
 Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
 Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
@@ -1873,6 +1888,8 @@ Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Study Your Enemy
 Subclass/&FighterMarshalSummonEternalComradePowerDescription	Summon 1 spirit of the marshal's fallen comrade. Each spirit has 45 + twice your Fighter level worth of HP and its AC is 16 + your proficiency bonus. The spirits are immune to the poison, cold, necrotic, prone, paralyzed and restrained conditions. The spirits have resistance to fire, acid, lighting and thunder damage and have resistance against non-magical slashing, bludgeoning and piercing damage. On their turn, they can fly up to 50 ft and make a single melee weapon attack that deals 2d6 + 5 magical slashing damage with a bonus 5 + proficency bonus to hit. 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Summon Eternal Comrade
 Subclass/&FighterMarshalTitle	Marshal
+Subclass/&FighterRoyalKnightDescription	A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
+Subclass/&FighterRoyalKnightTitle	Royal Knight
 Subclass/&FighterSpellShieldDescription	Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 Subclass/&FighterSpellShieldSpellcastingDescription	Cast Wizard spells and cantrips from the Abjuration, Illusion, Transmutation, and Necromancy schools.
 Subclass/&FighterSpellShieldSpellcastingTitle	Spellcasting
@@ -2067,20 +2084,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
-Reaction/&WarcasterReactionReactTitle	Attack
-Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
-Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
-Reaction/&CoordinatedAttackTitle	Coordinated Attack
-Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
-Reaction/&CoordinatedAttackReactTitle	Attack
-Feature/&RallyingCryPowerTitle	Rallying Cry
-Feature/&RallyingCryPowerTitleShort	Rallying Cry
-Feature/&RallyingCryPowerDescription	Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
-Feature/&RoyalEnvoyFeatureTitle	Royal Envoy
-Feature/&RoyalEnvoyFeatureDescription	Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
-Feature/&InspiringSurgePowerTitle	Inspiring Surge
-Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
-Feature/&InspiringSurgePowerDescription	Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
-Subclass/&FighterRoyalKnightTitle	Royal Knight
-Subclass/&FighterRoyalKnightDescription	A knight who inspires greatness in others by committing brave deeds in battle. A lone knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
