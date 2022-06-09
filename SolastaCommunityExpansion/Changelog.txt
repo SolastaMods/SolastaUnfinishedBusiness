@@ -2,3 +2,8 @@
 - Fix Fletcher feat granting Wis instead of Dex
 - Update Tinkerer starting equipment to Mace and Dagger
 - Possible fix for Deadeye desync under MP
+
+REQUEST:
+
+- I'm looking to provide better translations with an official Deepl Pro annual subscription
+- Please check Nexus posts for the donation link if you believe you can contribute
