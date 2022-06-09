@@ -462,6 +462,7 @@ public static class CustomWeaponsContext
             maxRange = 24,
             weaponTags = new List<string>
             {
+                TagsDefinitions.WeaponTagLight,
                 TagsDefinitions.WeaponTagRange,
                 TagsDefinitions.WeaponTagLoading,
                 TagsDefinitions.WeaponTagAmmunition

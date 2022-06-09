@@ -1,7 +1,8 @@
 ﻿- Add Items granter under Gameplay > Tools
 - Fix Fletcher feat granting Wis instead of Dex
-- Update Tinkerer starting equipment to Mace and Dagger
-- Possible fix for Deadeye desync under MP
+- Fix for Deadeye desync under MP (maybe?)
+- Make hand crossbows light weapons
+- Tweak Tinkerer starting equipment
 
 REQUEST:
 
