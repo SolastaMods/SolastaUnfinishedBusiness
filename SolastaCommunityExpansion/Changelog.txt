@@ -3,6 +3,10 @@
 - Make hand crossbows light weapons
 - Tweak Tinkerer starting equipment
 
+KNOWN ISSUES:
+
+- Deadeye and Power Attack feats will desync MP
+
 REQUEST:
 
 - I'm looking to provide better translations with an official Deepl Pro license
