@@ -8,7 +8,7 @@ ModUi/&Advanced	<color=yellow>进阶选项：</color>
 ModUi/&AdvancedHelp	. <color=#C04040E0>注意：</color> 此项设置将要求玩家安装此Mod
 ModUi/&Adventure	<color=yellow>冒险：</color>
 ModUi/&AllItemInDm	全部物品加入地城制作
-ModUi/&AllowAnyClassToWearSylvanArmor	Allow any class to wear sylvan armor or lightbringer clothes
+ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业穿戴精灵护甲或光明使者服饰
 ModUi/&AllowDruidToWearMetalArmor	允许<color=orange>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20	允许自定义地城最大等级达到20级<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	允许在地图上任何地方放置互动物件和装饰物<i><color=yellow>[在放置时按<color=cyan>CTRL</color>跳过任何检定]</color></i>
