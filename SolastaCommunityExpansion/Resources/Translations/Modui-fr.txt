@@ -37,7 +37,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	Désactiver <color=orange>Sense Dark V
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Désactiver <color=orange>Superior Sense Dark Vision</color> de toutes les races <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Afficher tous les sorts connus des autres classes pendant la montée de niveau
 ModUi/&DontFollowCharacterInBattle	La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran
-ModUi/&DontFollowMargin	<i>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</i>
+ModUi/&DontFollowMargin	<i><color=white>+ Sauf si le héros est éteint ou à moins de % du bord de l'écran</color></i>
 ModUi/&DungeonMaker	<color=yellow>Créateur de donjon :</color>
 ModUi/&DungeonMakerBasicHelp	. Ces paramètres n'exigeront pas que le joueur ait installé ce mod\n. Vous pouvez intégrer n'importe quelle variable de campagne dans vos boîtes de dialogue, descriptions, etc.\n. CE les remplacera par leur valeur pendant le jeu <i><color=yellow>[i.e : Hello {Salute} Hero !]</color></i>
 ModUi/&DungeonMakerMenu	Créateur de donjon

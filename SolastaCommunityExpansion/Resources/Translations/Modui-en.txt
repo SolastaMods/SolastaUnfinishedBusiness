@@ -37,7 +37,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	Disable <color=orange>Sense Dark Visio
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Disable <color=orange>Superior Sense Dark Vision</color> from all races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Display all known spells from other classes during level up
 ModUi/&DontFollowCharacterInBattle	Battle camera doesn't follow when character is already on screen
-ModUi/&DontFollowMargin	<i>+ Unless hero is off or within % of screen edge</i>
+ModUi/&DontFollowMargin	<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
 ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
 ModUi/&DungeonMakerBasicHelp	. These settings won't require the player to have this mod installed\n. You can embed any campaign variable in your dialogs, descriptions, etc.\n. CE will replace them with their value during gameplay <i><color=yellow>[i.e: Hello {Salute} Hero!]</color></i>
 ModUi/&DungeonMakerMenu	Dungeon Maker

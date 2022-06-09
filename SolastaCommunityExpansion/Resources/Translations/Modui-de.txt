@@ -37,7 +37,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	Deaktiviere <color=orange>Dunkle Sicht
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Deaktiviere <color=orange>Superior Sense Dark Vision</color> für alle Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Zeigen Sie während des Levelaufstiegs alle bekannten Zaubersprüche aus anderen Klassen an
 ModUi/&DontFollowCharacterInBattle	Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
-ModUi/&DontFollowMargin	<i>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</i>
+ModUi/&DontFollowMargin	<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
 ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
 ModUi/&DungeonMakerBasicHelp	. Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat\n. Sie können beliebige Kampagnenvariablen in Ihre Dialoge, Beschreibungen usw. einbetten.\n. CE ersetzt sie während des Spiels durch ihren Wert <i><color=yellow>[z. B.: Hallo {Salute} Held!]</color></i>
 ModUi/&DungeonMakerMenu	Dungeon-Maker

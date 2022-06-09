@@ -37,7 +37,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	Desative <color=orange>Sensor de Visã
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Desative <color=orange>Superior Sense Dark Vision</color> de todas as raças <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Exiba todos os feitiços conhecidos de outras classes durante o aumento de nível
 ModUi/&DontFollowCharacterInBattle	A câmera de batalha não segue quando o personagem já está na tela
-ModUi/&DontFollowMargin	<i>+ A menos que o herói esteja desativado ou dentro de % da borda da tela</i>
+ModUi/&DontFollowMargin	<i><color=white>+ A menos que o herói esteja desativado ou dentro de % da borda da tela</color></i>
 ModUi/&DungeonMaker	<color=yellow>Criador de Masmorras:</color>
 ModUi/&DungeonMakerBasicHelp	. Essas configurações não exigirão que o jogador tenha este mod instalado\n. Você pode incorporar qualquer variável de campanha em seus diálogos, descrições, etc.\n. O CE irá substituí-los pelo seu valor durante o jogo <i><color=yellow>[i.e: Olá {Salute} Hero!]</color></i>
 ModUi/&DungeonMakerMenu	Criador de masmorras

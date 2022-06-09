@@ -37,7 +37,7 @@ ModUi/&DisableSenseDarkVisionFromAllRaces	将<color=orange>黑暗视觉</color>�
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	将<color=orange>增强黑暗视觉</color>从所有种族中移除<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	在升级时显示所有从其它职业上习得的法术
 ModUi/&DontFollowCharacterInBattle	摄像机不再跟随已出现在屏幕上的角色
-ModUi/&DontFollowMargin	<i>+ 除非角色靠近于 % 的屏幕边缘</i>
+ModUi/&DontFollowMargin	<i><color=white>+ 除非角色靠近于 % 的屏幕边缘</color></i>
 ModUi/&DungeonMaker	<color=yellow>地城制作：</color>
 ModUi/&DungeonMakerBasicHelp	. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<i><color=yellow>[例如：你好英雄{Salute}！]</color></i>
 ModUi/&DungeonMakerMenu	地城制作
