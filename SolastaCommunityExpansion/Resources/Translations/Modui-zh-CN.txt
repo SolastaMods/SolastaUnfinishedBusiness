@@ -179,7 +179,7 @@ ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Items	<color=yellow>Items:</color>
-ModUi/&ItemsHelp1	<color=red>You must have the character inspection screen open to add items to heroes...</color>
+ModUi/&ItemsHelp1	<color=#C04040E0>You must have the character inspection screen open to add items to heroes...</color>
 ModUi/&ItemsHelp2	. Press + to add items to the ground container on inspection panel
 ModUi/&Armor	<color=yellow>Armor</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>

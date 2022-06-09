@@ -179,7 +179,7 @@ ModUi/&UnlockMarkAndTatoosForAllCharacters	Schalte Markierungen und Tattoos für
 ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Items	<color=yellow>Items:</color>
-ModUi/&ItemsHelp1	<color=red>Du musst den Charakter-Überprüfungsbildschirm geöffnet haben, um Gegenstände zu Helden hinzuzufügen ...</color>
+ModUi/&ItemsHelp1	<color=#C04040E0>Du musst den Charakter-Überprüfungsbildschirm geöffnet haben, um Gegenstände zu Helden hinzuzufügen ...</color>
 ModUi/&ItemsHelp2	. Drücken Sie +, um Gegenstände zum Bodenbehälter auf dem Inspektionsfeld hinzuzufügen
 ModUi/&Armor	<color=yellow>Rüstung</color>
 ModUi/&Weapon	<color=yellow>Waffen</color>

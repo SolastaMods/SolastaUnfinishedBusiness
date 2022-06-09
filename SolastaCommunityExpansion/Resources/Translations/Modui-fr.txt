@@ -179,7 +179,7 @@ ModUi/&UnlockMarkAndTatoosForAllCharacters	Débloquez des marquages ​​et des
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals	<color=yellow>Visuels :</color>
 ModUi/&Items	<color=yellow>Articles:</color>
-ModUi/&ItemsHelp1	<color=red>Vous devez avoir l'écran d'inspection des personnages ouvert pour ajouter des objets aux héros...</color>
+ModUi/&ItemsHelp1	<color=#C04040E0>Vous devez avoir l'écran d'inspection des personnages ouvert pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2	. Appuyez sur + pour ajouter des articles au conteneur de sol sur le panneau d'inspection
 ModUi/&Armor	<color=yellow>Armure</color>
 ModUi/&Weapon	<color=yellow>Armes</color>
