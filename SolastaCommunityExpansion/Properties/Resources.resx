@@ -269,12 +269,20 @@
     <value>..\Resources\Translations\Monsters-de.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Monsters-es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Monsters-es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Monsters-en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations\Monsters-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations\Monsters-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Monsters-it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Monsters-it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Monsters-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">

@@ -633,6 +633,19 @@ namespace SolastaCommunityExpansion.Properties {
         ///Feature/&amp;DH_AtWill_Fireball_Power_Title	Fireball
         ///Feature/ [rest of string was truncated]&quot;;.
         /// </summary>
+
+        public static string Monsters_it {
+            get {
+                return ResourceManager.GetString("Monsters-it", resourceCulture);
+            }
+        }
+
+        public static string Monsters_es {
+            get {
+                return ResourceManager.GetString("Monsters-es", resourceCulture);
+            }
+        }
+
         public static string Monsters_en {
             get {
                 return ResourceManager.GetString("Monsters-en", resourceCulture);
