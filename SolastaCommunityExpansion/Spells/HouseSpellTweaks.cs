@@ -12,6 +12,20 @@ internal static class HouseSpellTweaks
         AddBleedingToRestoration();
         //UseHeightOneCylinderEffect();
         MinorFixes();
+        RemoveConcentrationRequirementsFromAnySpell();
+    }
+
+    internal static void RemoveConcentrationRequirementsFromAnySpell()
+    {
+        if (!Main.Settings.RemoveConcentrationRequirementsFromAnySpell)
+        {
+            return;
+        }
+
+        foreach (var spell in DatabaseRepository.GetDatabase<SpellDefinition>())
+        {
+            spell.requiresConcentration = false;
+        }
     }
 
     internal static void MinorFixes()

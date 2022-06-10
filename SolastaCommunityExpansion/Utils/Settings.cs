@@ -153,6 +153,7 @@ public class Settings : UnityModManager.ModSettings
     public bool FullyControlConjurations { get; set; }
 
     // House
+    public bool RemoveConcentrationRequirementsFromAnySpell { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }
