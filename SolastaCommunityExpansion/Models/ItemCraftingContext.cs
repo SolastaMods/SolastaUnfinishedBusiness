@@ -3,6 +3,8 @@ using System.Linq;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaModApi;
 using SolastaModApi.Extensions;
+using TMPro;
+using UnityEngine;
 #if DEBUG
 using System.Text;
 #endif
@@ -40,7 +42,27 @@ internal static class ItemCraftingContext
         {"StuddedLeather", Gui.Localize("Equipment/&Armor_StuddedLeatherTitle")}
     };
 
+    private static readonly List<string> SortCategories = new()
+    {
+        "Name",
+        "Category",
+        "Cost",
+        "Weight",
+        "Cost per Weight"
+    };
+
+    private static readonly List<string> ItemCategories = new()
+    {
+        "All",
+        "Ammunition",
+        "Armor",
+        "Usable Devices",
+        "Weapons"
+    };
+
     public static Dictionary<string, List<ItemDefinition>> RecipeBooks { get; } = new();
+
+    private static GuiDropdown FilterGuiDropdown { get; set; }
 
     internal static void Load()
     {
@@ -70,6 +92,8 @@ internal static class ItemCraftingContext
             UpdateCraftingItemsInDMState(key);
             UpdateCraftingRecipesInDMState(key);
         }
+
+        LoadFilteringAndSorting();
     }
 
     internal static void UpdateRecipeCost()
@@ -133,6 +157,69 @@ internal static class ItemCraftingContext
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
             gameLoreService.LearnRecipe(recipeBookDefinition.DocumentDescription.RecipeDefinition, false);
+        }
+    }
+
+    internal static void LoadFilteringAndSorting()
+    {
+        var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
+        var craftingPanel = characterInspectionScreen.craftingPanel;
+
+        var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
+
+        var filter = Object.Instantiate(dropdownPrefab, craftingPanel.transform);
+        var filterRect = filter.GetComponent<RectTransform>();
+
+        FilterGuiDropdown = filter.GetComponent<GuiDropdown>();
+
+        // adds the filter dropdown
+
+        var filterOptions = new List<TMP_Dropdown.OptionData>();
+
+        filter.name = "FilterDropdown";
+        filter.transform.localPosition = new Vector3(95f, 415f, 0f);
+
+        filterRect.sizeDelta = new Vector2(150f, 28f);
+
+        FilterGuiDropdown.ClearOptions();
+        FilterGuiDropdown.onValueChanged.AddListener(delegate { craftingPanel.Refresh(); });
+
+        ItemCategories.ForEach(x => filterOptions.Add(new GuiDropdown.OptionDataAdvanced {text = x}));
+
+        FilterGuiDropdown.AddOptions(filterOptions);
+        FilterGuiDropdown.template.sizeDelta = new Vector2(1f, 208f);
+    }
+
+    internal static void FilterRecipes(ref List<RecipeDefinition> knownRecipes)
+    {
+        switch (FilterGuiDropdown.value)
+        {
+            case 0: // all
+                return;
+
+            case 1: // ammunition
+                knownRecipes = knownRecipes
+                    .Where(x => x.CraftedItem.IsAmmunition)
+                    .ToList();
+                return;
+
+            case 2: // armor
+                knownRecipes = knownRecipes
+                    .Where(x => x.CraftedItem.IsArmor)
+                    .ToList();
+                return;
+
+            case 3: // usable devices
+                knownRecipes = knownRecipes
+                    .Where(x => x.CraftedItem.IsUsableDevice)
+                    .ToList();
+                return;
+
+            case 4: // weapons
+                knownRecipes = knownRecipes
+                    .Where(x => x.CraftedItem.IsWeapon)
+                    .ToList();
+                return;
         }
     }
 
