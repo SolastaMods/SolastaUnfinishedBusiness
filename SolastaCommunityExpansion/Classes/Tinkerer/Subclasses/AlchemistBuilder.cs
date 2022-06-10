@@ -205,7 +205,7 @@ public static class AlchemistBuilder
         var alchemicalSavantSpells = BuildMagicAffinityHeightenedList(
             new List<string> {AcidArrow.Name, FlamingSphere.Name}, 2,
             "MagicAffinityArtificerAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
-        alchemicalSavantSpells.SetForceHalfDamageOnCantrips(true);
+        alchemicalSavantSpells.forceHalfDamageOnCantrips = (true);
 
         var restorativeElixirsPower = new FeatureHelpers.FeatureDefinitionPowerBuilder(
                 "PowerAlchemistRestorativeElixirs", TinkererClass.GuidNamespace,

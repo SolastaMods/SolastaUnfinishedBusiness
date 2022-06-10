@@ -70,13 +70,13 @@ internal static class FaceUnlockContext
 
         if (Main.Settings.AllowUnmarkedSorcerers)
         {
-            SorcerousDraconicBloodline.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
+            SorcerousDraconicBloodline.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
                 .Default);
-            SorcerousManaPainter.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
+            SorcerousManaPainter.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
                 .Default);
-            SorcerousChildRift.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
+            SorcerousChildRift.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
                 .Default);
-            SorcerousHauntedSoul.SetMorphotypeSubclassFilterTag(GraphicsDefinitions.MorphotypeSubclassFilterTag
+            SorcerousHauntedSoul.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
                 .Default);
         }
     }

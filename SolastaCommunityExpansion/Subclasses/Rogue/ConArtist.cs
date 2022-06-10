@@ -127,7 +127,7 @@ internal class ConArtist : AbstractSubclass
     {
         if (DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.SetSaveDCModifier(Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc);
+            DcIncreaseAffinity.saveDCModifier = (Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc);
             DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
         }
     }

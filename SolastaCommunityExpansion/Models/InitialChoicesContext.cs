@@ -89,7 +89,7 @@ internal static class InitialChoicesContext
 
         if (Main.Settings.IncreaseSenseNormalVision > HouseFeatureContext.DEFAULT_VISION_RANGE)
         {
-            SenseNormalVision.SetSenseRange(Main.Settings.IncreaseSenseNormalVision);
+            SenseNormalVision.senseRange = (Main.Settings.IncreaseSenseNormalVision);
         }
     }
 
@@ -97,11 +97,11 @@ internal static class InitialChoicesContext
     {
         if (Main.Settings.EnablesAsiAndFeat)
         {
-            FeatureSetAbilityScoreChoice.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union);
+            FeatureSetAbilityScoreChoice.mode = (FeatureDefinitionFeatureSet.FeatureSetMode.Union);
         }
         else
         {
-            FeatureSetAbilityScoreChoice.SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion);
+            FeatureSetAbilityScoreChoice.mode = (FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion);
         }
     }
 

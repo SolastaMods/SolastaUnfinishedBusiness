@@ -293,7 +293,7 @@ Different Archfey, e.g. Winter-themed
             ).AddToDB();
 
 
-            WallofThornsFeatureSet.AddFeatureSet(WallofThornsPower);
+            WallofThornsFeatureSet.FeatureSet.Add(WallofThornsPower);
         }
         // should Use features sets so character saves don't break
 

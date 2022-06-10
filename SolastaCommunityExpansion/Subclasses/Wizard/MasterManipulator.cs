@@ -84,7 +84,7 @@ internal class MasterManipulator : AbstractSubclass
     {
         if (DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.SetSaveDCModifier(Main.Settings
+            DcIncreaseAffinity.saveDCModifier = (Main.Settings
                 .OverrideWizardMasterManipulatorArcaneManipulationSpellDc);
             DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
         }
