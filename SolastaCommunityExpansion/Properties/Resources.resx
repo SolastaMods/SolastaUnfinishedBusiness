@@ -297,8 +297,16 @@
     <value>..\Resources\Translations\Translations-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Translations-es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Translations-es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Translations-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations\Translations-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Translations-it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Translations-it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Translations-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -321,8 +329,16 @@
     <value>..\Resources\Translations\Modui-en.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Modui-es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Modui-es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Modui-fr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Translations\Modui-fr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Modui-it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Modui-it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Modui-pt-BR" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -414,5 +430,13 @@
   </data>
   <data name="HandXbow_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandXbow+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Unofficial-it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Unofficial-it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Unofficial-es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Unofficial-es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

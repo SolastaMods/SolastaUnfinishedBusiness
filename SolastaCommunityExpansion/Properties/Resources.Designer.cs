@@ -934,6 +934,38 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [OBSOLEADO]Haz clic para desarmar esta trampa.
+        ///[OBSOLEADO]Haz clic para interactuar con este objeto.
+        ///[OBSOLETE]Haz clic para examinar este objeto.
+        ///Esta acción está disponible para su uso durante el turno de este personaje.
+        ///Esta criatura no puede realizar este tipo de acción.
+        ///Acción ya en proceso. Las acciones del mismo tipo (principal, de bonificación, etc.) no pueden ser utilizadas hasta que ésta haya terminado.
+        ///Acción irrelevante aquí. Intenta otra cosa.
+        ///Acción no disponible - se ha seleccionado un [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Unofficial_es {
+            get {
+                return ResourceManager.GetString("Unofficial-es", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [OBSOLETE]Fare clic per disattivare questa trappola.
+        ///[OBSOLETE]Fare clic per interagire con questo oggetto.
+        ///[OBSOLETE]Fare clic per esaminare questo oggetto.
+        ///Questa azione può essere utilizzata durante il turno di questo personaggio.
+        ///Questa creatura non può eseguire questo tipo di azione.
+        ///Azione già in corso. Le azioni dello stesso tipo (principale, bonus, ecc.) non possono essere utilizzate finché non sono terminate.
+        ///Azione non pertinente. Provare con qualcos&apos;altro.
+        ///Azione non disponibile - è stata  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Unofficial_it {
+            get {
+                return ResourceManager.GetString("Unofficial-it", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] Warlock {
