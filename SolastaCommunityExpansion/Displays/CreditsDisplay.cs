@@ -12,10 +12,14 @@ internal static class CreditsDisplay
 
     internal static readonly Dictionary<string, string> ThanksTable = new()
     {
-        {"Tactical Adventures", "for the great community support"}, {"JetBrains", "rider full development license"},
-        {"Our Patrons", "F. Lorenz, M. Brandmaier, R. Baker, J. Cohen, J. Smedley, E. Antonio, R. Maxim, M. Despard, J. Ball"}
+        {"Tactical Adventures", "for the great community support"},
+        {"JetBrains", "rider full development license"},
+        {
+            "Our Patrons",
+            "F. Lorenz, M. Brandmaier, R. Baker, J. Cohen, J. Smedley, E. Antonio, R. Maxim, M. Despard, J. Ball"
+        }
     };
-    
+
     internal static readonly Dictionary<string, string> CreditsTable = new()
     {
         {
@@ -121,9 +125,9 @@ internal static class CreditsDisplay
                 UI.Label(kvp.Value, UI.Width(600));
             }
         }
-        
+
         UI.Label("");
-        
+
         // credits
         foreach (var kvp in ThanksTable)
         {

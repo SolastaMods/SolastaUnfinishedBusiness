@@ -119,6 +119,7 @@ public static class CustomFeaturesContext
                     RecursiveRemoveCustomFeatures(hero, tag, feature.Features);
                     hero.TrainedFeats.RemoveAt(hero.TrainedFeats.Count - 1);
                 }
+
                 break;
 
             case HeroDefinitions.PointsPoolType.Language:
