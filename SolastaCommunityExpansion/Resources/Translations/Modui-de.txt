@@ -188,3 +188,4 @@ ModUi/&Weapon	<color=yellow>Waffen</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Ermöglichen Sie Armbrüsten, von den Bogenfunktionen zu profitieren
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Konzentrationsanforderung von allen Zaubern entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Spielsprache überschreiben:</color>
+ModUi/&Campaigns	<color=yellow>Campaigns:</color>

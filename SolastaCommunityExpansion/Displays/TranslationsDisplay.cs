@@ -30,7 +30,7 @@ public static class TranslationsDisplay
         }
 
         UI.Label("");
-        UI.Label(Gui.Format("Screen/&ContentToggleCampaignTitle"));
+        UI.Label(Gui.Format("ModUi/&Campaigns"));
         UI.Label("");
 
         var toggle = Main.Settings.EnableOnTheFlyTranslations;
