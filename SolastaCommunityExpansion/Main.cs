@@ -9,9 +9,7 @@ using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
 using Debug = UnityEngine.Debug;
 
-#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion;
-#pragma warning restore IDE0130 // Namespace does not match folder structure
 
 internal static class Main
 {
@@ -105,10 +103,8 @@ internal static class Main
                 continue;
             }
 
-#pragma warning disable S3885 // "Assembly.Load" should be used
             var sidecarAssembly = Assembly.LoadFile(path);
             var harmony = new Harmony(sidecarAssembly.GetName().Name);
-#pragma warning restore S3885 // "Assembly.Load" should be used
 
             harmony.PatchAll(sidecarAssembly);
         }

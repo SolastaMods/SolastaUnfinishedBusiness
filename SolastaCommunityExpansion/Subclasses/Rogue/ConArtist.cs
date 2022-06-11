@@ -122,7 +122,7 @@ internal class ConArtist : AbstractSubclass
             Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc + "Description");
     }
 
-    public static void UpdateSpellDCBoost()
+    internal static void UpdateSpellDCBoost()
     {
         if (DcIncreaseAffinity)
         {

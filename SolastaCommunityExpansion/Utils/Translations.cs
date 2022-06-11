@@ -50,7 +50,7 @@ public static class Translations
         return builder.ToString();
     }
 
-    internal static string TranslateBaidu(string sourceText, string targetCode)
+    private static string TranslateBaidu(string sourceText, string targetCode)
     {
         const string BASE_URL = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 
@@ -80,7 +80,7 @@ public static class Translations
         }
     }
 
-    internal static string TranslateGoogle(string sourceText, string targetCode)
+    private static string TranslateGoogle(string sourceText, string targetCode)
     {
         try
         {

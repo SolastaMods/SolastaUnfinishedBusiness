@@ -109,7 +109,7 @@ internal class SpellMaster : AbstractSubclass
         Subclass = spellMaster;
     }
 
-    internal static FeatureDefinitionPower BonusRecovery { get; private set; }
+    private static FeatureDefinitionPower BonusRecovery { get; set; }
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {

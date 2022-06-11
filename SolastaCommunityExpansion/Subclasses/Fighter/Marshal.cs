@@ -71,7 +71,7 @@ internal static class KnowYourEnemyBuilder
             FeatureSourceType.CharacterFeature, "KnowYourEnemy", null));
     }
 
-    public static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
+    internal static FeatureDefinitionFeatureSet BuildKnowYourEnemyFeatureSet()
     {
         var knowYourEnemiesAttackHitModifier = FeatureDefinitionOnAttackEffectBuilder
             .Create("KnowYourEnemyAttackHitModifier", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
@@ -308,7 +308,7 @@ internal static class CoordinatedAttackBuilder
         }
     }
 
-    public static FeatureDefinition BuildCoordinatedAttack()
+    internal static FeatureDefinition BuildCoordinatedAttack()
     {
         return FeatureDefinitionBuilder
             .Create("CoordinatedAttack", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
@@ -318,7 +318,7 @@ internal static class CoordinatedAttackBuilder
     }
 }
 
-public static class EternalComradeBuilder
+internal static class EternalComradeBuilder
 {
     private static readonly MonsterDefinition EternalComrade = BuildEternalComradeMonster();
 
@@ -394,7 +394,7 @@ public static class EternalComradeBuilder
             .AddToDB();
     }
 
-    public static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
+    internal static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
     {
         var summonForm = new SummonForm();
         summonForm.SetMonsterDefinitionName(EternalComrade.Name);
@@ -483,9 +483,9 @@ public static class EternalComradeBuilder
     }
 }
 
-public static class FearlessCommanderBuilder
+internal static class FearlessCommanderBuilder
 {
-    public static FeatureDefinitionFeatureSet BuildFearlessCommander()
+    internal static FeatureDefinitionFeatureSet BuildFearlessCommander()
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create("FearlessCommander", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
@@ -496,9 +496,9 @@ public static class FearlessCommanderBuilder
     }
 }
 
-public static class EncourageBuilder
+internal static class EncourageBuilder
 {
-    public static FeatureDefinitionPower BuildEncourage()
+    internal static FeatureDefinitionPower BuildEncourage()
     {
         var effect = EffectDescriptionBuilder
             .Create(Bless.EffectDescription)
@@ -520,10 +520,10 @@ public static class EncourageBuilder
     }
 }
 
-public static class MarshalFighterSubclassBuilder
+internal static class MarshalFighterSubclassBuilder
 {
     private const string MarshalFighterSubclassName = "MarshalFighter";
-    public static readonly Guid MarshalFighterSubclassNameGuid = new("79608b4e-8293-452e-bd1a-9cf0d0e9d077");
+    internal static readonly Guid MarshalFighterSubclassNameGuid = new("79608b4e-8293-452e-bd1a-9cf0d0e9d077");
 
     private static readonly FeatureDefinition CoordinatedAttack =
         CoordinatedAttackBuilder.BuildCoordinatedAttack();
@@ -541,7 +541,7 @@ public static class MarshalFighterSubclassBuilder
     private static readonly FeatureDefinitionFeatureSet EternalComrade =
         EternalComradeBuilder.BuildEternalComradeFeatureSet();
 
-    public static CharacterSubclassDefinition BuildAndAddSubclass()
+    internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         return CharacterSubclassDefinitionBuilder
             .Create(MarshalFighterSubclassName, MarshalFighterSubclassNameGuid)

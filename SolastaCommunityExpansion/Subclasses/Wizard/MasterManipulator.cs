@@ -79,7 +79,7 @@ internal class MasterManipulator : AbstractSubclass
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
     }
 
-    public static void UpdateSpellDCBoost()
+    internal static void UpdateSpellDCBoost()
     {
         if (DcIncreaseAffinity)
         {

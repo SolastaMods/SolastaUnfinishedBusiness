@@ -5,12 +5,12 @@ namespace SolastaCommunityExpansion.Utils;
 
 public static class DiceByRankMaker
 {
-    public static List<DiceByRank> Make(params (int, int)[] ranks)
-    {
-        return ranks
-            .Select(rank => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
-            .ToList();
-    }
+    // public static List<DiceByRank> Make(params (int, int)[] ranks)
+    // {
+    //     return ranks
+    //         .Select(rank => new DiceByRank().SetRank(rank.Item1).SetDices(rank.Item2))
+    //         .ToList();
+    // }
 
     public static List<DiceByRank> MakeBySteps(int start = 0, int increment = 1, int step = 0)
     {

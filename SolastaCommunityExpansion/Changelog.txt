@@ -1,1 +1,4 @@
-﻿
+﻿- Add a dropdown filter to the crafting panel
+- Add a house rule to ignore spell concentration
+- Add game unofficial translations in Spanish and Italian
+- Improve translations

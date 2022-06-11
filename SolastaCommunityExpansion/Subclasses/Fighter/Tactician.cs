@@ -27,7 +27,7 @@ internal static class KnockDownPowerBuilder
     private const string KnockDownPowerName = "KnockDownPower";
     private const string KnockDownPowerNameGuid = "90dd5e81-40d7-4824-89b4-45bcf4c05218";
 
-    public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
+    private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
         //Create the damage form - TODO make it do the same damage as the wielded weapon?  This doesn't seem possible
         var damageEffect = new EffectForm
@@ -72,7 +72,7 @@ internal static class KnockDownPowerBuilder
         return builder.AddToDB();
     }
 
-    public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
+    internal static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
     {
         return Build(KnockDownPowerName, KnockDownPowerNameGuid);
     }
@@ -83,7 +83,7 @@ internal static class InspirePowerBuilder
     private const string InspirePowerName = "InspirePower";
     private const string InspirePowerNameGuid = "163c28de-48e5-4f75-bdd0-d42374a75ef8";
 
-    public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
+    private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
         //Create the temp hp form
         var healingEffect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
@@ -127,7 +127,7 @@ internal static class InspirePowerBuilder
         return builder.AddToDB();
     }
 
-    public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
+    internal static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
     {
         return Build(InspirePowerName, InspirePowerNameGuid);
     }
@@ -138,7 +138,7 @@ internal static class CounterStrikePowerBuilder
     private const string CounterStrikePowerName = "CounterStrikePower";
     private const string CounterStrikePowerNameGuid = "88c294ce-14fa-4f7e-8b81-ea4d289e3d8b";
 
-    public static FeatureDefinitionPowerSharedPool Build(string name, string guid)
+    private static FeatureDefinitionPowerSharedPool Build(string name, string guid)
     {
         //Create the damage form - TODO make it do the same damage as the wielded weapon (seems impossible with current tools, would need to use the AdditionalDamage feature but I'm not sure how to combine that with this to make it a reaction ability).
         var damageEffect = new EffectForm
@@ -171,7 +171,7 @@ internal static class CounterStrikePowerBuilder
         return builder.AddToDB();
     }
 
-    public static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
+    internal static FeatureDefinitionPowerSharedPool CreateAndAddToDB()
     {
         return Build(CounterStrikePowerName, CounterStrikePowerNameGuid);
     }
@@ -191,7 +191,7 @@ internal static class GambitResourcePoolAddBuilder
     private const string GambitResourcePoolAdd18Name = "GambitResourcePoolAdd18";
     private const string GambitResourcePoolAdd18Guid = "c7ced45a-572f-4af0-8ec5-2add074dd7c3";
 
-    public static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
+    private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
     {
         return FeatureDefinitionPowerPoolModifierBuilder.Create(name, guid)
             .Configure(1, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity,
@@ -201,60 +201,57 @@ internal static class GambitResourcePoolAddBuilder
             .AddToDB();
     }
 
-    public static FeatureDefinitionPower GambitResourcePoolAdd()
+    internal static FeatureDefinitionPower GambitResourcePoolAdd()
     {
         return CreateAndAddToDB(GambitResourcePoolAddName, GambitResourcePoolAddNameGuid);
     }
 
-    public static FeatureDefinitionPower GambitResourcePoolAdd10()
+    internal static FeatureDefinitionPower GambitResourcePoolAdd10()
     {
         return CreateAndAddToDB(GambitResourcePoolAdd10Name, GambitResourcePoolAdd10Guid);
     }
 
-    public static FeatureDefinitionPower GambitResourcePoolAdd15()
+    internal static FeatureDefinitionPower GambitResourcePoolAdd15()
     {
         return CreateAndAddToDB(GambitResourcePoolAdd15Name, GambitResourcePoolAdd15Guid);
     }
 
-    public static FeatureDefinitionPower GambitResourcePoolAdd18()
+    internal static FeatureDefinitionPower GambitResourcePoolAdd18()
     {
         return CreateAndAddToDB(GambitResourcePoolAdd18Name, GambitResourcePoolAdd18Guid);
     }
 }
 
-public static class TacticianFighterSubclassBuilder
+internal static class TacticianFighterSubclassBuilder
 {
     private const string TacticianFighterSubclassName = "TacticianFighter";
     private const string TacticianFighterSubclassNameGuid = "9d32577d-d3ec-4859-b66d-451d071bb117";
 
-    public static readonly FeatureDefinitionPower GambitResourcePool = FeatureDefinitionPowerPoolBuilder
+    internal static readonly FeatureDefinitionPower GambitResourcePool = FeatureDefinitionPowerPoolBuilder
         .Create("GambitResourcePool", "00da2b27-139a-4ca0-a285-aaa70d108bc8")
         .Configure(4, RuleDefinitions.UsesDetermination.Fixed, AttributeDefinitions.Dexterity,
             RuleDefinitions.RechargeRate.ShortRest)
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
-    public static readonly FeatureDefinitionPower GambitResourcePoolAdd =
-        GambitResourcePoolAddBuilder.GambitResourcePoolAdd();
-
-    public static readonly FeatureDefinitionPower GambitResourcePoolAdd10 =
+    private static readonly FeatureDefinitionPower GambitResourcePoolAdd10 =
         GambitResourcePoolAddBuilder.GambitResourcePoolAdd10();
 
-    public static readonly FeatureDefinitionPower GambitResourcePoolAdd15 =
+    private static readonly FeatureDefinitionPower GambitResourcePoolAdd15 =
         GambitResourcePoolAddBuilder.GambitResourcePoolAdd15();
 
-    public static readonly FeatureDefinitionPower GambitResourcePoolAdd18 =
+    private static readonly FeatureDefinitionPower GambitResourcePoolAdd18 =
         GambitResourcePoolAddBuilder.GambitResourcePoolAdd18();
 
-    public static readonly FeatureDefinitionPowerSharedPool KnockDownPower =
+    private static readonly FeatureDefinitionPowerSharedPool KnockDownPower =
         KnockDownPowerBuilder.CreateAndAddToDB();
 
-    public static readonly FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
+    private static readonly FeatureDefinitionPowerSharedPool InspirePower = InspirePowerBuilder.CreateAndAddToDB();
 
-    public static readonly FeatureDefinitionPowerSharedPool CounterStrikePower =
+    private static readonly FeatureDefinitionPowerSharedPool CounterStrikePower =
         CounterStrikePowerBuilder.CreateAndAddToDB();
 
-    public static CharacterSubclassDefinition BuildAndAddSubclass()
+    internal static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         return CharacterSubclassDefinitionBuilder
             .Create(TacticianFighterSubclassName, TacticianFighterSubclassNameGuid)
