@@ -27,8 +27,8 @@ internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
+            .SpriteReference;
 
         Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
@@ -175,8 +175,8 @@ internal sealed class SummonForceArtillerySpellConstructBuilder : SpellDefinitio
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtilleryModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&ForceArtilleryModePowerDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -263,8 +263,8 @@ internal sealed class ForceArtilleryAttackBuilder : MonsterAttackDefinitionBuild
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtilleryTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         Definition.toHitBonus = 0;
         Definition.actionType = ActionDefinitions.ActionType.Main;
@@ -361,8 +361,8 @@ internal sealed class ForceArtilleryAdditionalDamageBuilder : FeatureDefinitionA
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtilleryAdditionalDamageTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryAdditionalDamageDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.SameAsBaseDamage;
         Definition.attackModeOnly = true;
@@ -391,8 +391,8 @@ internal sealed class ForceArtilleryProjectileBuilder : ItemDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Item/&ForceArtilleryProjectileTitle";
         Definition.GuiPresentation.Description = "Item/&ForceArtilleryProjectileDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         var effectParticleParameters = new EffectParticleParameters();
         effectParticleParameters.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription

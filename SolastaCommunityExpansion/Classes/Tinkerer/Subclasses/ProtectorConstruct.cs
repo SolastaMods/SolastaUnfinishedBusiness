@@ -85,7 +85,7 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-        Definition.GuiPresentation.SetSpriteReference(null);
+        Definition.GuiPresentation.spriteReference = null;
 
         Definition.effectOnConjuredDeath = false;
         Definition.EffectForms.Clear();
@@ -142,8 +142,8 @@ internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPo
     {
         Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
+            .GuiPresentation.SpriteReference;
 
         Definition.activationTime = RuleDefinitions.ActivationTime.NoCost;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
@@ -217,8 +217,8 @@ internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuil
     {
         Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
+            .GuiPresentation.SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -349,8 +349,8 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
+            .SpriteReference;
         Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
         Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;

@@ -159,8 +159,8 @@ public class NewMonsterSpells
         FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm
             .SetSpecialDeathCondition(DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster);
 
-        FingerOfDeath_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement
-            .GuiPresentation.SpriteReference);
+        FingerOfDeath_Spell.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.RayOfEnfeeblement
+            .GuiPresentation.SpriteReference;
     }
 
     public static void BuildNew_PowerWordKill_Spell()
@@ -198,8 +198,8 @@ public class NewMonsterSpells
 
         PowerWordKill_Spell.EffectDescription.EffectForms.Add(effectForm);
 
-        PowerWordKill_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Banishment
-            .GuiPresentation.SpriteReference);
+        PowerWordKill_Spell.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Banishment
+            .GuiPresentation.SpriteReference;
     }
 
     public static void BuildNew_PowerWordStun_Spell()
@@ -253,8 +253,8 @@ public class NewMonsterSpells
         PowerWordStun_Spell.EffectDescription.SetHasSavingThrow(true);
 
 
-        PowerWordStun_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Contagion
-            .GuiPresentation.SpriteReference);
+        PowerWordStun_Spell.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Contagion
+            .GuiPresentation.SpriteReference;
     }
 
 
@@ -323,8 +323,8 @@ public class NewMonsterSpells
         TimeStop_Spell.EffectDescription.SetRangeParameter(0);
         TimeStop_Spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
 
-        TimeStop_Spell.GuiPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers
-            .PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference);
+        TimeStop_Spell.GuiPresentation.spriteReference = DatabaseHelper.FeatureDefinitionPowers
+            .PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference;
     }
 
     public static SpellDefinition BuildNewSpell(string name, SpellDefinition baseSpell, string guid, string title,

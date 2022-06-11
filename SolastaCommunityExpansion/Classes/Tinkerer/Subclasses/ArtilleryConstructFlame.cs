@@ -23,8 +23,8 @@ internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&FlameArtilleryTitle";
         Definition.GuiPresentation.Description = "Feat/&FlameArtilleryDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
+            .SpriteReference;
 
         Definition.activationTime = RuleDefinitions.ActivationTime.Action;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
@@ -90,8 +90,8 @@ internal sealed class FlameArtillery2Builder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&FlameArtillery_2Title";
         Definition.GuiPresentation.Description = "Feat/&FlameArtillery_2Description";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
+            .SpriteReference;
 
         Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 3;
         Definition.overriddenPower = FlameArtilleryBuilder.FlameArtillery;
@@ -123,8 +123,8 @@ internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&FlameArtilleryConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
+            .SpriteReference;
 
         Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
@@ -253,8 +253,8 @@ internal sealed class SummonFlameArtillerySpellConstructBuilder : SpellDefinitio
     {
         Definition.GuiPresentation.Title = "Feature/&FlameArtilleryModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&FlameArtilleryModePowerDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
+            .SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;

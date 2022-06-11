@@ -216,8 +216,8 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.ItemProperty;
         var itemForm = new ItemPropertyForm();
-        itemForm.SetUsageLimitation(usageLimitation);
-        itemForm.SetUseAmount(useAmount);
+        itemForm.usageLimitation = usageLimitation;
+        itemForm.useAmount = useAmount;
         itemForm.FeatureBySlotLevel.SetRange(featureBySlotLevel);
         effectForm.SetItemPropertyForm(itemForm);
         return this;

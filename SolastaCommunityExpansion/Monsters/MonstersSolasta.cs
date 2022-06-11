@@ -58,7 +58,7 @@ internal static class MonstersSolasta
                     monster.SetThreatEvaluatorDefinition(DatabaseHelper.MonsterDefinitions
                         .GreenDragon_MasterOfConjuration.ThreatEvaluatorDefinition);
                     // guipresentation title is mislabeled as a green dragon
-                    monster.GuiPresentation.SetTitle(monster.Name);
+                    monster.GuiPresentation.title = monster.Name;
                 }
             }
 

@@ -43,10 +43,10 @@ internal static class ScoutSentinelTinkererSubclassBuilder
     private static FeatureDefinitionPowerSharedPool CreateScoutModePower()
     {
         var guiPresentationScout = new GuiPresentation();
-        guiPresentationScout.SetDescription("Feature/&ScoutModePowerDescription");
-        guiPresentationScout.SetTitle("Feature/&ScoutModePowerTitle");
-        guiPresentationScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
-        guiPresentationScout.SetSortOrder(1);
+        guiPresentationScout.description = "Feature/&ScoutModePowerDescription";
+        guiPresentationScout.title = "Feature/&ScoutModePowerTitle";
+        guiPresentationScout.spriteReference = ShadowArmor.GuiPresentation.SpriteReference;
+        guiPresentationScout.sortOrder = 1;
 
         var effectScoutMode = new EffectDescription();
         effectScoutMode.Copy(ProduceFlameHold.EffectDescription);
@@ -93,9 +93,9 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         effectsentinelmode.EffectForms.Add(CreateEffectItem());
 
         var guiPresentationSentinel = new GuiPresentation();
-        guiPresentationSentinel.SetDescription("Feature/&SentinelModePowerDescription");
-        guiPresentationSentinel.SetTitle("Feature/&SentinelModePowerTitle");
-        guiPresentationSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
+        guiPresentationSentinel.description = "Feature/&SentinelModePowerDescription";
+        guiPresentationSentinel.title = "Feature/&SentinelModePowerTitle";
+        guiPresentationSentinel.spriteReference = MageArmor.GuiPresentation.SpriteReference;
 
         return new FeatureDefinitionPowerSharedPoolBuilder
         (
@@ -242,9 +242,9 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         Definition.FeatureSet.Clear();
 
         var guiPresentationImprovedSentinel = new GuiPresentation();
-        guiPresentationImprovedSentinel.SetDescription("Feature/&ImprovedSentinelModePowerDescription");
-        guiPresentationImprovedSentinel.SetTitle("Feature/&ImprovedSentinelModePowerTitle");
-        guiPresentationImprovedSentinel.SetSpriteReference(MageArmor.GuiPresentation.SpriteReference);
+        guiPresentationImprovedSentinel.description = "Feature/&ImprovedSentinelModePowerDescription";
+        guiPresentationImprovedSentinel.title = "Feature/&ImprovedSentinelModePowerTitle";
+        guiPresentationImprovedSentinel.spriteReference = MageArmor.GuiPresentation.SpriteReference;
 
         var itemPropertyForm = new ItemPropertyForm();
         itemPropertyForm.FeatureBySlotLevel.Add(
@@ -285,10 +285,10 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
 
         var guiPresentationImprovedScout = new GuiPresentation();
-        guiPresentationImprovedScout.SetDescription("Feature/&ImprovedScoutModePowerDescription");
-        guiPresentationImprovedScout.SetTitle("Feature/&ImprovedScoutModePowerTitle");
-        guiPresentationImprovedScout.SetSpriteReference(ShadowArmor.GuiPresentation.SpriteReference);
-        guiPresentationImprovedScout.SetSortOrder(1);
+        guiPresentationImprovedScout.description = "Feature/&ImprovedScoutModePowerDescription";
+        guiPresentationImprovedScout.title = "Feature/&ImprovedScoutModePowerTitle";
+        guiPresentationImprovedScout.spriteReference = ShadowArmor.GuiPresentation.SpriteReference;
+        guiPresentationImprovedScout.sortOrder = 1;
 
         var effectImprovedScoutMode = new EffectDescription();
         effectImprovedScoutMode.Copy(ProduceFlameHold.EffectDescription);
@@ -582,15 +582,15 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         deviceFunctionDescription.SetUseAmount(6);
 
         var usableDeviceDescription = new UsableDeviceDescription();
-        usableDeviceDescription.SetUsage(EquipmentDefinitions.ItemUsage.ByFunction);
-        usableDeviceDescription.SetChargesCapitalNumber(5);
-        usableDeviceDescription.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        usableDeviceDescription.SetRechargeNumber(0);
-        usableDeviceDescription.SetRechargeDie(RuleDefinitions.DieType.D1);
-        usableDeviceDescription.SetRechargeBonus(5);
-        usableDeviceDescription.SetOutOfChargesConsequence(EquipmentDefinitions.ItemOutOfCharges.Persist);
-        usableDeviceDescription.SetMagicAttackBonus(11);
-        usableDeviceDescription.SetSaveDC(19);
+        usableDeviceDescription.usage = EquipmentDefinitions.ItemUsage.ByFunction;
+        usableDeviceDescription.chargesCapitalNumber = 5;
+        usableDeviceDescription.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        usableDeviceDescription.rechargeNumber = 0;
+        usableDeviceDescription.rechargeDie = RuleDefinitions.DieType.D1;
+        usableDeviceDescription.rechargeBonus = 5;
+        usableDeviceDescription.outOfChargesConsequence = EquipmentDefinitions.ItemOutOfCharges.Persist;
+        usableDeviceDescription.magicAttackBonus = 11;
+        usableDeviceDescription.saveDC = 19;
         usableDeviceDescription.DeviceFunctions.Add(deviceFunctionDescription);
 
         Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
@@ -624,8 +624,8 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Equipment/&ThunderPunchTitle";
         Definition.GuiPresentation.Description = "Equipment/&ThunderPunchDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower
+            .GuiPresentation.SpriteReference;
     }
 
     private static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -647,7 +647,7 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&ThunderShieldTitle";
         Definition.GuiPresentation.Description = "Feat/&ThunderShieldDescription";
-        Definition.GuiPresentation.SetSpriteReference(Shield.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = Shield.GuiPresentation.SpriteReference;
 
         Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
         Definition.costPerUse = 1;
@@ -938,8 +938,8 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Equipment/&LightningSpearTitle";
         Definition.GuiPresentation.Description = "Equipment/&LightningSpearDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring
+            .GuiPresentation.SpriteReference;
 
         Definition.itemPresentation = DatabaseHelper.ItemDefinitions.UnarmedStrikeBase.ItemPresentation;
     }
@@ -1042,8 +1042,8 @@ internal sealed class ImprovedSentinelSuitWeaponBuilder : ItemDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Equipment/&ImprovedThunderPunchTitle";
         Definition.GuiPresentation.Description = "Equipment/&ImprovedThunderPunchDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.ItemDefinitions.GauntletsOfOgrePower
+            .GuiPresentation.SpriteReference;
 
         var grapplefunction = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions
             .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
@@ -1057,7 +1057,7 @@ internal sealed class ImprovedSentinelSuitWeaponBuilder : ItemDefinitionBuilder
         grapplefunction.SetUseAmount(6);
 
         Definition.UsableDeviceDescription.DeviceFunctions.Add(grapplefunction);
-        Definition.UsableDeviceDescription.SetChargesCapitalNumber(10);
+        Definition.UsableDeviceDescription.chargesCapitalNumber = 10;
     }
 
     private static ItemDefinition CreateAndAddToDB(string name, string guid)
@@ -1079,8 +1079,8 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&GauntletsGrappleTitle";
         Definition.GuiPresentation.Description = "Feat/&GauntletsGrappleDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.FeatureDefinitionPowers
-            .PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.FeatureDefinitionPowers
+            .PowerShadowTamerRopeGrapple.GuiPresentation.SpriteReference;
 
         Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
         Definition.costPerUse = 1;
@@ -1163,8 +1163,8 @@ internal sealed class ImprovedScoutSuitWeaponBuilder : ItemDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Equipment/&ImprovedLightningSpearTitle";
         Definition.GuiPresentation.Description = "Equipment/&ImprovedLightningSpearDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.ItemDefinitions.GlovesOfMissileSnaring
+            .GuiPresentation.SpriteReference;
 
         Definition.inDungeonEditor = true;
 

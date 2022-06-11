@@ -124,7 +124,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     {
         Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryGrantTitle";
         Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryGrantDescription";
-        Definition.GuiPresentation.SetHidden(true);
+        Definition.GuiPresentation.hidden = true;
 
         Definition.allowMultipleInstances = false;
         Definition.durationParameter = 0;

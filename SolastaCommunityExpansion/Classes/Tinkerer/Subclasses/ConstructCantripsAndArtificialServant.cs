@@ -120,8 +120,8 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&DismissConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&DismissConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.AnimalFriendship
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.AnimalFriendship
+            .GuiPresentation.SpriteReference;
 
         Definition.spellLevel = 0;
         Definition.requiresConcentration = false;
@@ -330,8 +330,8 @@ internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuild
     {
         Definition.GuiPresentation.Title = "Feat/&CancelFlyingConditionTitle";
         Definition.GuiPresentation.Description = "Feat/&CancelFlyingConditionDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ExpeditiousRetreat
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.ExpeditiousRetreat
+            .GuiPresentation.SpriteReference;
 
         var Condition = new ConditionForm();
         Condition.applyToSelf = false;

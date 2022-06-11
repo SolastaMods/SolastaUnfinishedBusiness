@@ -511,7 +511,7 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&SelfDestructTitle";
         Definition.GuiPresentation.Description = "Feat/&SelfDestructDescription";
-        Definition.GuiPresentation.SetSpriteReference(FlamingSphere.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = FlamingSphere.GuiPresentation.SpriteReference;
         Definition.shortTitleOverride = "Feat/&SelfDestructTitle";
 
         Definition.activationTime = RuleDefinitions.ActivationTime.Action;
@@ -653,7 +653,7 @@ internal sealed class HalfCoverShieldBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&HalfCoverShieldTitle";
         Definition.GuiPresentation.Description = "Feat/&HalfCoverShieldDescription";
-        Definition.GuiPresentation.SetSpriteReference(Shield.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = Shield.GuiPresentation.SpriteReference;
 
         var halfCoverShield = new EffectForm
         {
@@ -767,7 +767,7 @@ internal sealed class SummonArtillerySpellConstructBuilder : SpellDefinitionBuil
     {
         Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_03Title";
         Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(FaerieFire.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = FaerieFire.GuiPresentation.SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -867,7 +867,7 @@ internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : Featu
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-        Definition.GuiPresentation.SetSpriteReference(null);
+        Definition.GuiPresentation.spriteReference = null;
 
         Definition.effectOnConjuredDeath = false;
         Definition.EffectForms.Clear();

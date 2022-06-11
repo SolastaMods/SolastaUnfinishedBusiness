@@ -8,7 +8,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -1245,7 +1244,7 @@ internal static class SpellBoxExtensions
 
         if (gui.SpriteReference == null || gui.SpriteReference == GuiPresentationBuilder.EmptySprite)
         {
-            gui.SetSpriteReference(setPresentation.SpriteReference);
+            gui.spriteReference = setPresentation.SpriteReference;
         }
 
         title.Text = gui.Title;

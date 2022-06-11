@@ -1,5 +1,4 @@
-﻿using SolastaModApi.Extensions;
-using UnityEngine.AddressableAssets;
+﻿using UnityEngine.AddressableAssets;
 using static EquipmentDefinitions;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -19,44 +18,44 @@ public class UsableDeviceDescriptionBuilder
         description.chargesCapitalDie = RuleDefinitions.DieType.D1;
         description.chargesCapitalBonus = 0;
 
-        description.SetRechargeRate(RuleDefinitions.RechargeRate.Dawn);
-        description.SetRechargeNumber(1);
-        description.SetRechargeDie(RuleDefinitions.DieType.D1);
-        description.SetRechargeBonus(0);
+        description.rechargeRate = RuleDefinitions.RechargeRate.Dawn;
+        description.rechargeNumber = 1;
+        description.rechargeDie = RuleDefinitions.DieType.D1;
+        description.rechargeBonus = 0;
 
-        description.SetOutOfChargesConsequence(ItemOutOfCharges.Persist);
-        description.SetMagicAttackBonus(0);
-        description.SetSaveDC(10);
-        description.SetOnUseParticle(new AssetReference());
+        description.outOfChargesConsequence = ItemOutOfCharges.Persist;
+        description.magicAttackBonus = 0;
+        description.saveDC = 10;
+        description.onUseParticle = new AssetReference();
     }
 
     public UsableDeviceDescriptionBuilder SetUsage(ItemUsage usage)
     {
-        description.SetUsage(usage);
+        description.usage = usage;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetOutOfChargesConsequence(ItemOutOfCharges consequence)
     {
-        description.SetOutOfChargesConsequence(consequence);
+        description.outOfChargesConsequence = consequence;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetMagicAttackBonus(int bonus)
     {
-        description.SetMagicAttackBonus(bonus);
+        description.magicAttackBonus = bonus;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetSaveDC(int DC)
     {
-        description.SetSaveDC(DC);
+        description.saveDC = DC;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetOnUseParticle(AssetReference asset)
     {
-        description.SetOnUseParticle(asset);
+        description.onUseParticle = asset;
         return this;
     }
 
@@ -79,34 +78,34 @@ public class UsableDeviceDescriptionBuilder
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
         int bonus = 0)
     {
-        description.SetChargesCapital(capital);
-        description.SetChargesCapitalNumber(number);
-        description.SetChargesCapitalDie(dieType);
-        description.SetChargesCapitalBonus(bonus);
+        description.chargesCapital = capital;
+        description.chargesCapitalNumber = number;
+        description.chargesCapitalDie = dieType;
+        description.chargesCapitalBonus = bonus;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetChargesCapital(ItemChargesCapital capital)
     {
-        description.SetChargesCapital(capital);
+        description.chargesCapital = capital;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetChargesCapitalNumber(int number)
     {
-        description.SetChargesCapitalNumber(number);
+        description.chargesCapitalNumber = number;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetChargesCapitalDie(RuleDefinitions.DieType dieType)
     {
-        description.SetChargesCapitalDie(dieType);
+        description.chargesCapitalDie = dieType;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetChargesCapitalBonus(int bonus)
     {
-        description.SetChargesCapitalBonus(bonus);
+        description.chargesCapitalBonus = bonus;
         return this;
     }
 
@@ -120,34 +119,34 @@ public class UsableDeviceDescriptionBuilder
         RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
         int bonus = 0)
     {
-        description.SetRechargeRate(rate);
-        description.SetRechargeNumber(number);
-        description.SetRechargeDie(dieType);
-        description.SetRechargeBonus(bonus);
+        description.rechargeRate = rate;
+        description.rechargeNumber = number;
+        description.rechargeDie = dieType;
+        description.rechargeBonus = bonus;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetRechargeRate(RuleDefinitions.RechargeRate rate)
     {
-        description.SetRechargeRate(rate);
+        description.rechargeRate = rate;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetRechargeNumber(int number)
     {
-        description.SetRechargeNumber(number);
+        description.rechargeNumber = number;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetRechargeDie(RuleDefinitions.DieType dieType)
     {
-        description.SetRechargeDie(dieType);
+        description.rechargeDie = dieType;
         return this;
     }
 
     public UsableDeviceDescriptionBuilder SetRechargeBonus(int bonus)
     {
-        description.SetRechargeBonus(bonus);
+        description.rechargeBonus = bonus;
         return this;
     }
 

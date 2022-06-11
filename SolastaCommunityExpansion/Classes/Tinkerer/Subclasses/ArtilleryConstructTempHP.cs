@@ -22,8 +22,8 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.Title = "Feature/&TempHPShieldTitle";
         Definition.shortTitleOverride = "Feature/&TempHPShieldTitle";
         Definition.GuiPresentation.Description = "Feat/&TempHPShieldDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
+            .SpriteReference;
 
         Definition.activationTime = RuleDefinitions.ActivationTime.Action;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
@@ -87,8 +87,8 @@ internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&TempHPShieldConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Magic_Mouth.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.Magic_Mouth.GuiPresentation
+            .SpriteReference;
 
         Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
         Definition.MonsterPresentation.SetCanGeneratePortrait(true);
@@ -226,8 +226,8 @@ internal sealed class SummonTempHPShieldSpellConstructBuilder : SpellDefinitionB
     {
         Definition.GuiPresentation.Title = "Feature/&TempHPShieldModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&TempHPShieldModePowerDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
+            .SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;

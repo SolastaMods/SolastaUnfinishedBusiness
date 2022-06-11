@@ -15,7 +15,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 {
     public MonsterDefinitionBuilder SetSpriteReference(AssetReferenceSprite sprite)
     {
-        Definition.GuiPresentation.SetSpriteReference(sprite);
+        Definition.GuiPresentation.spriteReference = sprite;
         return this;
     }
 

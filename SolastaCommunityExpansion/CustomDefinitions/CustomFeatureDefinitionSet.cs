@@ -8,7 +8,6 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
 using SolastaModApi.Diagnostics;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
@@ -228,7 +227,7 @@ public class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeature
     public void SetReplacedFeatureSet(FeatureDefinitionFeatureSetCustom featureSet)
     {
         ReplacedFeatureSet = featureSet;
-        GuiPresentation.SetSpriteReference(featureSet.GuiPresentation.SpriteReference);
+        GuiPresentation.spriteReference = featureSet.GuiPresentation.SpriteReference;
         foreach (var level in featureSet.AllLevels)
         {
             var features = featureSet.GetLevelFeatures(level);

@@ -153,7 +153,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
             .Create(DatabaseHelper.FeatureDefinitionConditionAffinitys.ConditionAffinityRestrainedmmunity,
                 "RiftWalkerMovementAffinityRestrainedImmunity", CENamespaceGuid)
             .AddToDB();
-        RiftCloak.GuiPresentation.SetTitle("Feature/&RiftWalkerRestrainedImmunityTitle");
+        RiftCloak.GuiPresentation.title = "Feature/&RiftWalkerRestrainedImmunityTitle";
     }
 
     public static void AtWillWardingBond()

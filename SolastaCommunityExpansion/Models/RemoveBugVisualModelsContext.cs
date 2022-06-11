@@ -62,7 +62,7 @@ internal static class RemoveBugVisualModelsContext
                 {
                     monster.MonsterPresentation.SetMalePrefabReference(bearPrefab);
                     monster.MonsterPresentation.SetFemalePrefabReference(bearPrefab);
-                    monster.GuiPresentation.SetSpriteReference(brownBear.GuiPresentation.SpriteReference);
+                    monster.GuiPresentation.spriteReference = brownBear.GuiPresentation.SpriteReference;
                     monster.SetBestiarySpriteReference(brownBear.BestiarySpriteReference);
                     monster.MonsterPresentation.SetMonsterPresentationDefinitions(brownBear.MonsterPresentation
                         .MonsterPresentationDefinitions);
@@ -73,7 +73,7 @@ internal static class RemoveBugVisualModelsContext
                 {
                     monster.MonsterPresentation.SetMalePrefabReference(apePrefab);
                     monster.MonsterPresentation.SetFemalePrefabReference(apePrefab);
-                    monster.GuiPresentation.SetSpriteReference(ape.GuiPresentation.SpriteReference);
+                    monster.GuiPresentation.spriteReference = ape.GuiPresentation.SpriteReference;
                     monster.SetBestiarySpriteReference(ape.BestiarySpriteReference);
                     monster.MonsterPresentation.SetMonsterPresentationDefinitions(ape.MonsterPresentation
                         .MonsterPresentationDefinitions);
@@ -84,7 +84,7 @@ internal static class RemoveBugVisualModelsContext
                 {
                     monster.MonsterPresentation.SetMalePrefabReference(wolfPrefab);
                     monster.MonsterPresentation.SetFemalePrefabReference(wolfPrefab);
-                    monster.GuiPresentation.SetSpriteReference(wolf.GuiPresentation.SpriteReference);
+                    monster.GuiPresentation.spriteReference = wolf.GuiPresentation.SpriteReference;
                     monster.SetBestiarySpriteReference(wolf.BestiarySpriteReference);
                     monster.MonsterPresentation.SetMonsterPresentationDefinitions(wolf.MonsterPresentation
                         .MonsterPresentationDefinitions);

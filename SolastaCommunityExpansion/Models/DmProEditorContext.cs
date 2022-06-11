@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ModKit;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Object = UnityEngine.Object;
@@ -56,14 +55,14 @@ internal static class DmProEditorContext
             {
                 title = environmentEffectDefinition.name.Replace("_", " ");
 
-                environmentEffectDefinition.GuiPresentation.SetTitle(title);
+                environmentEffectDefinition.GuiPresentation.title = title;
             }
 
             if (description == "")
             {
                 description = environmentEffectDefinition.name.Replace("_", " ");
 
-                environmentEffectDefinition.GuiPresentation.SetDescription(description);
+                environmentEffectDefinition.GuiPresentation.description = description;
             }
 
             environmentEffectDefinition.inDungeonEditor = true;
@@ -163,9 +162,9 @@ internal static class DmProEditorContext
 
             flatRoom.name = $"Flat{multiplier:D2}Room";
             flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();
-            flatRoom.GuiPresentation.Title = "Flat".yellow() + " Room";
-            flatRoom.GuiPresentation.SetSortOrder(multiplier);
-            flatRoom.GuiPresentation.SetHidden(true);
+            flatRoom.GuiPresentation.title = "Flat".yellow() + " Room";
+            flatRoom.GuiPresentation.sortOrder = multiplier;
+            flatRoom.GuiPresentation.hidden = true;
             flatRoom.category = "FlatRooms";
             flatRoom.dimensions = new Vector2Int(flatRoom.Dimensions.x * multiplier,
                 flatRoom.Dimensions.y * multiplier);
@@ -189,9 +188,9 @@ internal static class DmProEditorContext
 
         flatRoom.name = "Flat" + template;
         flatRoom.guid = GuidHelper.Create(GUID, flatRoom.name).ToString();
-        flatRoom.GuiPresentation.Title = "Flat".yellow() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
-        flatRoom.GuiPresentation.SetSortOrder(sortOrder);
-        flatRoom.GuiPresentation.SetHidden(true);
+        flatRoom.GuiPresentation.title = "Flat".yellow() + " " + Gui.Localize(flatRoom.GuiPresentation.Title);
+        flatRoom.GuiPresentation.sortOrder = sortOrder;
+        flatRoom.GuiPresentation.hidden = true;
         flatRoom.category = "FlatRooms";
 
         for (var i = 0; i < flatRoom.CellInfos.Length; i++)
@@ -310,7 +309,7 @@ internal static class DmProEditorContext
                                                          Gui.Localize(prefabEnvironmentDefinition.GuiPresentation
                                                              .Title).yellow();
                 newRoomBlueprint.category = categoryName;
-                newRoomBlueprint.GuiPresentation.SetHidden(false);
+                newRoomBlueprint.GuiPresentation.hidden = false;
                 newRoomBlueprint.PrefabsByEnvironment.Clear();
 
                 foreach (var environmentDefinition in dbEnvironmentDefinition
@@ -347,7 +346,7 @@ internal static class DmProEditorContext
 
         dbGadgetBlueprint
             .Where(x => x.Name.EndsWith("MOD")).ToList()
-            .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
     private static void SetModdedPropsHiddenStatus()
@@ -356,7 +355,7 @@ internal static class DmProEditorContext
 
         dbPropBlueprint
             .Where(x => x.Name.EndsWith("MOD")).ToList()
-            .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
     private static void SetModdedRoomsHiddenStatus()
@@ -365,11 +364,11 @@ internal static class DmProEditorContext
 
         dbRoomBlueprint
             .Where(x => x.Name.EndsWith("MOD")).ToList()
-            .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
 
         dbRoomBlueprint
             .Where(x => x.Name.StartsWith("Flat")).ToList()
-            .ForEach(y => y.GuiPresentation.SetHidden(!Main.Settings.EnableDungeonMakerModdedContent));
+            .ForEach(y => y.GuiPresentation.hidden = !Main.Settings.EnableDungeonMakerModdedContent);
     }
 
     internal enum ExtendedDungeonSize

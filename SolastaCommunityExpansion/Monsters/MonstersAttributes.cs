@@ -1,5 +1,4 @@
 ﻿using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -153,19 +152,19 @@ public class MonstersAttributes
             NewMonsterAttacks.AncientDragon_Claw_Attack);
         DragonClawAttackIteration_2.SetField("number", 1);
 
-        DragonlegendaryActionDescription.SetCost(2);
-        DragonlegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        DragonlegendaryActionDescription.SetCanMove(true);
-        DragonlegendaryActionDescription.SetMoveMode(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6);
-        DragonlegendaryActionDescription.SetFeatureDefinitionPower(NewMonsterPowers.AncientDragon_Wing_Power);
-        DragonlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDragonWingAttack);
+        DragonlegendaryActionDescription.cost = 2;
+        DragonlegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
+        DragonlegendaryActionDescription.canMove = true;
+        DragonlegendaryActionDescription.moveMode = DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6;
+        DragonlegendaryActionDescription.featureDefinitionPower = NewMonsterPowers.AncientDragon_Wing_Power;
+        DragonlegendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDragonWingAttack;
 
-        DragonlegendaryActionDescription_2.SetCost(1);
-        DragonlegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-        DragonlegendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.AncientDragon_Tail_Attack);
-        DragonlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDragonAttack);
+        DragonlegendaryActionDescription_2.cost = 1;
+        DragonlegendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+        DragonlegendaryActionDescription_2.monsterAttackDefinition = NewMonsterAttacks.AncientDragon_Tail_Attack;
+        DragonlegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDragonAttack;
 
         DragonmonsterSkillProficiency_1.SetField("skillName", "Perception");
         DragonmonsterSkillProficiency_1.SetField("bonus", 16);
@@ -253,36 +252,36 @@ public class MonstersAttributes
 
         LichassetReference.SetField("m_AssetGUID", "5bbe5d35725c2cc4492672476f4fc783");
 
-        LichlegendaryActionDescription_0.SetCost(1);
-        LichlegendaryActionDescription_0.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
-        LichlegendaryActionDescription_0.SetSpellDefinition(DatabaseHelper.SpellDefinitions.RayOfFrost);
-        LichlegendaryActionDescription_0.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryLaetharCast_Debuff);
+        LichlegendaryActionDescription_0.cost = 1;
+        LichlegendaryActionDescription_0.subaction = LegendaryActionDescription.SubactionType.Spell;
+        LichlegendaryActionDescription_0.spellDefinition = DatabaseHelper.SpellDefinitions.RayOfFrost;
+        LichlegendaryActionDescription_0.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryLaetharCast_Debuff;
 
-        LichlegendaryActionDescription_4.SetCost(1);
-        LichlegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
-        LichlegendaryActionDescription_4.SetSpellDefinition(DatabaseHelper.SpellDefinitions.ChillTouch);
-        LichlegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryLaetharCast_Debuff);
+        LichlegendaryActionDescription_4.cost = 1;
+        LichlegendaryActionDescription_4.subaction = LegendaryActionDescription.SubactionType.Spell;
+        LichlegendaryActionDescription_4.spellDefinition = DatabaseHelper.SpellDefinitions.ChillTouch;
+        LichlegendaryActionDescription_4.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryLaetharCast_Debuff;
 
-        LichlegendaryActionDescription.SetCost(2);
-        LichlegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        LichlegendaryActionDescription.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers
-            .PowerLaetharParalyzingGaze);
-        LichlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryLaetharCast_Debuff);
+        LichlegendaryActionDescription.cost = 2;
+        LichlegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
+        LichlegendaryActionDescription.featureDefinitionPower = DatabaseHelper.FeatureDefinitionPowers
+            .PowerLaetharParalyzingGaze;
+        LichlegendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryLaetharCast_Debuff;
 
-        LichlegendaryActionDescription_2.SetCost(2);
-        LichlegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-        LichlegendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.Lich_ParalyzingTouch_Attack);
-        LichlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDragonAttack);
+        LichlegendaryActionDescription_2.cost = 2;
+        LichlegendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+        LichlegendaryActionDescription_2.monsterAttackDefinition = NewMonsterAttacks.Lich_ParalyzingTouch_Attack;
+        LichlegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDragonAttack;
 
-        LichlegendaryActionDescription_3.SetCost(3);
-        LichlegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        LichlegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.Lich_DisruptLife_Power);
-        LichlegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryAoE_DpS);
+        LichlegendaryActionDescription_3.cost = 3;
+        LichlegendaryActionDescription_3.subaction = LegendaryActionDescription.SubactionType.Power;
+        LichlegendaryActionDescription_3.featureDefinitionPower = NewMonsterPowers.Lich_DisruptLife_Power;
+        LichlegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryAoE_DpS;
 
         LichmonsterSkillProficiency_1.SetField("skillName", "Arcana");
         LichmonsterSkillProficiency_1.SetField("bonus", 19);
@@ -341,24 +340,24 @@ public class MonstersAttributes
         SolarLongbowAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.RadiantLongbow_Attack);
         SolarLongbowAttackIteration.SetField("number", 2);
 
-        SolarlegendaryActionDescription.SetCost(1);
-        SolarlegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        SolarlegendaryActionDescription.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers
-            .PowerLaetharMistyFormEscape);
-        SolarlegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryLaetharCast_Teleport);
+        SolarlegendaryActionDescription.cost = 1;
+        SolarlegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
+        SolarlegendaryActionDescription.featureDefinitionPower = DatabaseHelper.FeatureDefinitionPowers
+            .PowerLaetharMistyFormEscape;
+        SolarlegendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryLaetharCast_Teleport;
 
-        SolarlegendaryActionDescription_2.SetCost(2);
-        SolarlegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        SolarlegendaryActionDescription_2.SetFeatureDefinitionPower(NewMonsterPowers.SearingBurst_Power);
-        SolarlegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryAoE_DpS);
+        SolarlegendaryActionDescription_2.cost = 2;
+        SolarlegendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.Power;
+        SolarlegendaryActionDescription_2.featureDefinitionPower = NewMonsterPowers.SearingBurst_Power;
+        SolarlegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryAoE_DpS;
 
-        SolarlegendaryActionDescription_3.SetCost(3);
-        SolarlegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        SolarlegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.BlindingGaze_Power);
-        SolarlegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryLaetharCast_Debuff);
+        SolarlegendaryActionDescription_3.cost = 3;
+        SolarlegendaryActionDescription_3.subaction = LegendaryActionDescription.SubactionType.Power;
+        SolarlegendaryActionDescription_3.featureDefinitionPower = NewMonsterPowers.BlindingGaze_Power;
+        SolarlegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryLaetharCast_Debuff;
 
         SolarmonsterSkillProficiency_1.SetField("skillName", "Perception");
         SolarmonsterSkillProficiency_1.SetField("bonus", 14);
@@ -374,29 +373,29 @@ public class MonstersAttributes
         StormGiantmonsterSkillProficiency_3.SetField("skillName", "Perception");
         StormGiantmonsterSkillProficiency_3.SetField("bonus", 9);
 
-        VampirelegendaryActionDescription.SetCost(1);
-        VampirelegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-        VampirelegendaryActionDescription.SetMonsterAttackDefinition(DatabaseHelper.MonsterAttackDefinitions
-            .Attack_Defiler_Bite_Razan);
-        VampirelegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDefilerAttack);
-        VampirelegendaryActionDescription.SetCanMove(true);
-        VampirelegendaryActionDescription.SetMoveMode(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6);
-        VampirelegendaryActionDescription.SetNoOpportunityAttack(true);
+        VampirelegendaryActionDescription.cost = 1;
+        VampirelegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+        VampirelegendaryActionDescription.monsterAttackDefinition = DatabaseHelper.MonsterAttackDefinitions
+            .Attack_Defiler_Bite_Razan;
+        VampirelegendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDefilerAttack;
+        VampirelegendaryActionDescription.canMove = true;
+        VampirelegendaryActionDescription.moveMode = DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6;
+        VampirelegendaryActionDescription.noOpportunityAttack = true;
 
-        VampirelegendaryActionDescription_2.SetCost(1);
-        VampirelegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        VampirelegendaryActionDescription_2.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers
-            .PowerDefilerDarkness);
-        VampirelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDefilerDarkness);
+        VampirelegendaryActionDescription_2.cost = 1;
+        VampirelegendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.Power;
+        VampirelegendaryActionDescription_2.featureDefinitionPower = DatabaseHelper.FeatureDefinitionPowers
+            .PowerDefilerDarkness;
+        VampirelegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDefilerDarkness;
 
 
-        VampirelegendaryActionDescription_3.SetCost(1);
-        VampirelegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-        VampirelegendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.VampireCharmPower);
-        VampirelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryLaetharCast_Debuff);
+        VampirelegendaryActionDescription_3.cost = 1;
+        VampirelegendaryActionDescription_3.subaction = LegendaryActionDescription.SubactionType.Power;
+        VampirelegendaryActionDescription_3.featureDefinitionPower = NewMonsterPowers.VampireCharmPower;
+        VampirelegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryLaetharCast_Debuff;
 
         //VampirelegendaryActionDescription_4.SetCost(3);
         //VampirelegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Power);
@@ -426,25 +425,25 @@ public class MonstersAttributes
         TarrasqueTailAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Tarrasque_Tail_Attack);
         TarrasqueTailAttackIteration.SetField("number", 1);
 
-        TarrasquelegendaryActionDescription.SetCost(2);
-        TarrasquelegendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-        TarrasquelegendaryActionDescription.SetCanMove(true);
-        TarrasquelegendaryActionDescription.SetMoveMode(DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6);
-        TarrasquelegendaryActionDescription.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Bite_Attack);
-        TarrasquelegendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDragonAttack);
+        TarrasquelegendaryActionDescription.cost = 2;
+        TarrasquelegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+        TarrasquelegendaryActionDescription.canMove = true;
+        TarrasquelegendaryActionDescription.moveMode = DatabaseHelper.FeatureDefinitionMoveModes.MoveModeFly6;
+        TarrasquelegendaryActionDescription.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Bite_Attack;
+        TarrasquelegendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDragonAttack;
 
-        TarrasquelegendaryActionDescription_2.SetCost(1);
-        TarrasquelegendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-        TarrasquelegendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Tail_Attack);
-        TarrasquelegendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDragonAttack);
+        TarrasquelegendaryActionDescription_2.cost = 1;
+        TarrasquelegendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+        TarrasquelegendaryActionDescription_2.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Tail_Attack;
+        TarrasquelegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDragonAttack;
 
-        TarrasquelegendaryActionDescription_3.SetCost(1);
-        TarrasquelegendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-        TarrasquelegendaryActionDescription_3.SetMonsterAttackDefinition(NewMonsterAttacks.Tarrasque_Claw_Attack);
-        TarrasquelegendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-            .LegendaryDragonAttack);
+        TarrasquelegendaryActionDescription_3.cost = 1;
+        TarrasquelegendaryActionDescription_3.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+        TarrasquelegendaryActionDescription_3.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Claw_Attack;
+        TarrasquelegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+            .LegendaryDragonAttack;
 
         //   TarrasquelegendaryActionDescription_4.SetCost(2);
         //   TarrasquelegendaryActionDescription_4.SetSubaction(LegendaryActionDescription.SubactionType.Power);

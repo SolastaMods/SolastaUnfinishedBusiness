@@ -4,7 +4,6 @@ using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.ItemCrafting;
 
@@ -121,15 +120,15 @@ internal static class ItemRecipeGenerationHelper
     public static void StockItem(MerchantDefinition merchant, ItemDefinition item)
     {
         var stockUnit = new StockUnitDescription();
-        stockUnit.SetItemDefinition(item);
-        stockUnit.SetInitialAmount(1);
-        stockUnit.SetInitialized(true);
-        stockUnit.SetMaxAmount(2);
-        stockUnit.SetMinAmount(1);
-        stockUnit.SetStackCount(1);
-        stockUnit.SetReassortAmount(1);
-        stockUnit.SetReassortRateValue(1);
-        stockUnit.SetReassortRateType(RuleDefinitions.DurationType.Hour);
+        stockUnit.itemDefinition = item;
+        stockUnit.initialAmount = 1;
+        stockUnit.initialized = true;
+        stockUnit.maxAmount = 2;
+        stockUnit.minAmount = 1;
+        stockUnit.stackCount = 1;
+        stockUnit.reassortAmount = 1;
+        stockUnit.reassortRateValue = 1;
+        stockUnit.reassortRateType = RuleDefinitions.DurationType.Hour;
         merchant.StockUnitDescriptions.Add(stockUnit);
     }
 
