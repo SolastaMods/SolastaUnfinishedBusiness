@@ -10,6 +10,12 @@ internal static class CreditsDisplay
 {
     private static bool displayPatches;
 
+    internal static readonly Dictionary<string, string> ThanksTable = new()
+    {
+        {"Tactical Adventures", "for the great community support"}, {"JetBrains", "rider full development license"},
+        {"Our Patrons", "F. Lorenz, M. Brandmaier, R. Baker, J. Cohen, J. Smedley, E. Antonio, R. Maxim, M. Despard, J. Ball"}
+    };
+    
     internal static readonly Dictionary<string, string> CreditsTable = new()
     {
         {
@@ -34,13 +40,11 @@ internal static class CreditsDisplay
             "ImpPhil",
             "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
         },
-        {"JetBrains", "3 Rider full licenses"},
         {"Lyraele", "Warlock class design, quality assurance"},
         {"Narria", "modKit creator, developer"},
         {"Nd", "Marshal subclass, Opportunist subclass"},
         {"Nyowwww", "Chinese translations"},
         {"PraiseThyBus", "quality assurance"},
-        {"Tactical Adventures", "support to our initiative"},
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
         {
             "SilverGriffon",
@@ -110,6 +114,18 @@ internal static class CreditsDisplay
 
         // credits
         foreach (var kvp in CreditsTable)
+        {
+            using (UI.HorizontalScope())
+            {
+                UI.Label(kvp.Key.orange(), UI.Width(120));
+                UI.Label(kvp.Value, UI.Width(600));
+            }
+        }
+        
+        UI.Label("");
+        
+        // credits
+        foreach (var kvp in ThanksTable)
         {
             using (UI.HorizontalScope())
             {

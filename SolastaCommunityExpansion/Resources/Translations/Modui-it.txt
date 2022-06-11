@@ -188,4 +188,4 @@ ModUi/&Weapon	<color=#FFFF00>Armi</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Consentire alle balestre di beneficiare delle caratteristiche degli archi
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Rimuovere il requisito della concentrazione da qualsiasi incantesimo <b><i><color=#C04040E0>[Richiede Riavvio]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Sovrascrivi la lingua del gioco:</color>
-ModUi/&Campaigns	<color=yellow>Campaigns:</color>
+ModUi/&Campaigns	<color=yellow>Campagne:</color>

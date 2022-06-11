@@ -35,7 +35,7 @@ ModUi/&CraftingHelp	. Pulsa el botón para aprender recetas al instante en la pa
 ModUi/&Credits	Créditos
 ModUi/&CreditsAndDiagnostics	Créditos y diagnósticos
 ModUi/&DisableAutoEquip	Desactivar el auto-equipamiento de objetos en el inventario
-ModUi/&DisableSenseDarkVisionFromAllRaces	Desactivar <color=#FFA500>Visión Oscura</color> de todas las razas <b><color=#C04040E0>[Requiere Reinicio]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces	Desactivar <color=#FFA500>Visión Oscura</color> de todas las razas <b><i><color=#C04040E0>[Requiere Reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Desactivar <color=#FFA500>Visión oscura superior</color> de todas las razas <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp	Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel
 ModUi/&DontFollowCharacterInBattle	La cámara de batalla no sigue cuando el personaje ya está en pantalla
@@ -188,4 +188,4 @@ ModUi/&Weapon	<color=#FFFF00>Armas</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Permitir que las ballestas se beneficien de las características de los arcos
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Eliminar el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Sobrescribir el idioma del juego:</color>
-ModUi/&Campaigns	<color=yellow>Campaigns:</color>
+ModUi/&Campaigns	<color=yellow>Campañas:</color>
