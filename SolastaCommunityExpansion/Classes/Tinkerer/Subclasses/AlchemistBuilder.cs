@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
@@ -205,7 +204,7 @@ public static class AlchemistBuilder
         var alchemicalSavantSpells = BuildMagicAffinityHeightenedList(
             new List<string> {AcidArrow.Name, FlamingSphere.Name}, 2,
             "MagicAffinityArtificerAlchemicalSavantHeightened", alchemicalSavantSpellsGui.Build());
-        alchemicalSavantSpells.forceHalfDamageOnCantrips = (true);
+        alchemicalSavantSpells.forceHalfDamageOnCantrips = true;
 
         var restorativeElixirsPower = new FeatureHelpers.FeatureDefinitionPowerBuilder(
                 "PowerAlchemistRestorativeElixirs", TinkererClass.GuidNamespace,

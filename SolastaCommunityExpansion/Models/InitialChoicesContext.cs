@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
@@ -89,7 +88,7 @@ internal static class InitialChoicesContext
 
         if (Main.Settings.IncreaseSenseNormalVision > HouseFeatureContext.DEFAULT_VISION_RANGE)
         {
-            SenseNormalVision.senseRange = (Main.Settings.IncreaseSenseNormalVision);
+            SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
         }
     }
 
@@ -97,11 +96,11 @@ internal static class InitialChoicesContext
     {
         if (Main.Settings.EnablesAsiAndFeat)
         {
-            FeatureSetAbilityScoreChoice.mode = (FeatureDefinitionFeatureSet.FeatureSetMode.Union);
+            FeatureSetAbilityScoreChoice.mode = FeatureDefinitionFeatureSet.FeatureSetMode.Union;
         }
         else
         {
-            FeatureSetAbilityScoreChoice.mode = (FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion);
+            FeatureSetAbilityScoreChoice.mode = FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion;
         }
     }
 

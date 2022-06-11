@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.MorphotypeElementDefinitions;
@@ -70,14 +69,14 @@ internal static class FaceUnlockContext
 
         if (Main.Settings.AllowUnmarkedSorcerers)
         {
-            SorcerousDraconicBloodline.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default);
-            SorcerousManaPainter.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default);
-            SorcerousChildRift.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default);
-            SorcerousHauntedSoul.morphotypeSubclassFilterTag = (GraphicsDefinitions.MorphotypeSubclassFilterTag
-                .Default);
+            SorcerousDraconicBloodline.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+                .Default;
+            SorcerousManaPainter.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+                .Default;
+            SorcerousChildRift.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+                .Default;
+            SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
+                .Default;
         }
     }
 }

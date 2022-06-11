@@ -149,7 +149,7 @@ public static class Translations
         {
             languageCode = Main.Settings.SelectedOverwriteLanguageCode;
         }
-        
+
         var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
         var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 

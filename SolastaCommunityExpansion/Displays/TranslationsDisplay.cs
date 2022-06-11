@@ -15,7 +15,7 @@ public static class TranslationsDisplay
         int intValue;
 
         UI.Label("");
-        UI.Label("Overwrite game language:".yellow());
+        UI.Label(Gui.Format("ModUi/&OverwriteGameLanguage"));
         UI.Label("");
 
         intValue = Array.IndexOf(UnofficialLanguages, Main.Settings.SelectedOverwriteLanguageCode);
@@ -30,7 +30,7 @@ public static class TranslationsDisplay
         }
 
         UI.Label("");
-        UI.Label("User campaigns translations:".yellow());
+        UI.Label(Gui.Format("Screen/&ContentToggleCampaignTitle"));
         UI.Label("");
 
         var toggle = Main.Settings.EnableOnTheFlyTranslations;

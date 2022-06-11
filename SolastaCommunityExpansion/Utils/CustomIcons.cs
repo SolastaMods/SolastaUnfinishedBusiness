@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Color = System.Drawing.Color;
-using Graphics = System.Drawing.Graphics;
 using UnityGraphics = UnityEngine.Graphics;
 
 namespace SolastaCommunityExpansion.Utils;
@@ -98,6 +94,7 @@ internal static class CustomIcons
     }
 
     #region Helpers
+
 #if false
     internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
     {

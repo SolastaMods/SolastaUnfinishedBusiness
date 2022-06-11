@@ -37,7 +37,7 @@ public static class PickPocketContext
             .SetGuiPresentation("PickPocketFeat", Category.Feat)
             .AddToDB();
 
-        pickpocket_proficiency.proficiencyType = (ProficiencyType.SkillOrExpertise);
+        pickpocket_proficiency.proficiencyType = ProficiencyType.SkillOrExpertise;
         pickpocket_proficiency.Proficiencies.Clear();
         pickpocket_proficiency.Proficiencies.Add(SkillDefinitions.SleightOfHand);
 

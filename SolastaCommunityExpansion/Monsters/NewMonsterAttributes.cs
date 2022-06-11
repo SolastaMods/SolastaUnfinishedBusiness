@@ -317,7 +317,7 @@ public class NewMonsterAttributes
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        Balor_Retaliate_DamageAffinity.retaliatePower = (Balor_Retaliate_Power);
+        Balor_Retaliate_DamageAffinity.retaliatePower = Balor_Retaliate_Power;
     }
 
     public static void BuildNew_Lich_Spelllist()
@@ -1944,7 +1944,7 @@ public class NewMonsterAttributes
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        FireTitan_Retaliate_DamageAffinity.retaliatePower = (FireTitan_Retaliate_Power);
+        FireTitan_Retaliate_DamageAffinity.retaliatePower = FireTitan_Retaliate_Power;
     }
 
 
