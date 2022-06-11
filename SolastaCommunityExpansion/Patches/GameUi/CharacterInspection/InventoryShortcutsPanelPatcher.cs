@@ -13,11 +13,6 @@ internal static class InventoryShortcutsPanel_OnConfigurationSwitched
 
     internal static void Prefix(InventoryShortcutsPanel __instance, int rank)
     {
-        if (Global.IsMultiplayer)
-        {
-            return;
-        }
-
         var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 
         if (!Main.Settings.EnableCtrlClickOnlySwapsMainHand || !isCtrlPressed)

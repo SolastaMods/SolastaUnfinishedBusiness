@@ -10,11 +10,6 @@ internal static class InventoryPanel_OnBeginShow
 {
     internal static void Postfix()
     {
-        if (Global.IsMultiplayer)
-        {
-            return;
-        }
-
         InventoryManagementContext.RefreshControlsVisibility();
 
         if (Main.Settings.EnableInventoryFilteringAndSorting)
@@ -30,11 +25,6 @@ internal static class ContainerPanel_Bind
 {
     internal static void Postfix(InventoryPanel __instance)
     {
-        if (Global.IsMultiplayer)
-        {
-            return;
-        }
-
         // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
         if (Main.Settings.EnableInventoryFilteringAndSorting && __instance.MainContainerPanel)
         {
@@ -49,11 +39,6 @@ internal static class ContainerPanel_Unbind
 {
     internal static void Prefix(InventoryPanel __instance)
     {
-        if (Global.IsMultiplayer)
-        {
-            return;
-        }
-
         if (__instance.MainContainerPanel)
         {
             // NOTE: don't use MainContainerPanel?. which bypasses Unity object lifetime check
