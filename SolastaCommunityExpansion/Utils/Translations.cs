@@ -36,7 +36,7 @@ public static class Translations
         return wc.DownloadString(url);
     }
 
-    public static string GetMd5Hash(string input)
+    private static string GetMd5Hash(string input)
     {
         var builder = new StringBuilder();
         var md5Hash = MD5.Create();
@@ -50,7 +50,7 @@ public static class Translations
         return builder.ToString();
     }
 
-    internal static string TranslateBaidu(string sourceText, string targetCode)
+    private static string TranslateBaidu(string sourceText, string targetCode)
     {
         const string BASE_URL = "http://api.fanyi.baidu.com/api/trans/vip/translate";
 
@@ -80,7 +80,7 @@ public static class Translations
         }
     }
 
-    internal static string TranslateGoogle(string sourceText, string targetCode)
+    private static string TranslateGoogle(string sourceText, string targetCode)
     {
         try
         {
@@ -138,11 +138,18 @@ public static class Translations
         return words;
     }
 
-    public static void LoadTranslations(string category)
+    internal static void LoadTranslations(string category)
     {
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
         var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
+
+        // special case for unofficial languages
+        if (Main.Settings.SelectedOverwriteLanguageCode != "off")
+        {
+            languageCode = Main.Settings.SelectedOverwriteLanguageCode;
+        }
+
         var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
         var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 

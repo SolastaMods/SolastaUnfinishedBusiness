@@ -19,7 +19,7 @@ internal class Arcanist : AbstractSubclass
 {
     private const string RangerArcanistRangerSubclassGuid = "5ABD870D-9ABD-4953-A2EC-E2109324FAB9";
 
-    public static readonly Guid RA_BASE_GUID = new(RangerArcanistRangerSubclassGuid);
+    private static readonly Guid RA_BASE_GUID = new(RangerArcanistRangerSubclassGuid);
 
     private static ConditionDefinition markedByArcanist;
     private CharacterSubclassDefinition Subclass;
@@ -45,7 +45,7 @@ internal class Arcanist : AbstractSubclass
         return Subclass ??= BuildAndAddSubclass();
     }
 
-    public static CharacterSubclassDefinition BuildAndAddSubclass()
+    private static CharacterSubclassDefinition BuildAndAddSubclass()
     {
         var ranger_arcanist_magic = CreateRangerArcanistMagic();
         var arcanist_mark = CreateArcanistMark();

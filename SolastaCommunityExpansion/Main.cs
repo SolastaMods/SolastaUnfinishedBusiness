@@ -9,11 +9,9 @@ using SolastaCommunityExpansion.Utils;
 using UnityModManagerNet;
 using Debug = UnityEngine.Debug;
 
-#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion;
-#pragma warning restore IDE0130 // Namespace does not match folder structure
 
-public static class Main
+internal static class Main
 {
     internal static bool IsDebugBuild = Debug.isDebugBuild;
 
@@ -22,18 +20,15 @@ public static class Main
 
     internal static bool Enabled { get; set; }
 
-    // need to be public for MC sidecar
-    public static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
+    internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
 
-    internal static ModManager<Core, Settings> Mod { get; private set; }
-    internal static MenuManager Menu { get; private set; }
+    private static ModManager<Core, Settings> Mod { get; set; }
+    private static MenuManager Menu { get; set; }
 
-    // need to be public for MC sidecar
-    public static Settings Settings => Mod.Settings;
+    internal static Settings Settings => Mod.Settings;
 
-    // need to be public for MC sidecar
     [Conditional("DEBUG")]
-    public static void Log(string msg, bool console = false)
+    internal static void Log(string msg, bool console = false)
     {
         Logger.Log(msg);
 
@@ -48,21 +43,15 @@ public static class Main
     }
 
     // need to be public for MC sidecar
-    public static void Error(Exception ex)
+    internal static void Error(Exception ex)
     {
         Logger?.Error(ex.ToString());
     }
 
     // need to be public for MC sidecar
-    public static void Error(string msg)
+    internal static void Error(string msg)
     {
         Logger?.Error(msg);
-    }
-
-    // need to be public for MC sidecar
-    public static void Warning(string msg)
-    {
-        Logger?.Warning(msg);
     }
 
     internal static bool Load(UnityModManager.ModEntry modEntry)
@@ -78,6 +67,11 @@ public static class Main
 
             Menu = new MenuManager();
             Menu.Enable(modEntry, assembly);
+
+            if (Settings.SelectedOverwriteLanguageCode != "off")
+            {
+                Translations.LoadTranslations("Game");
+            }
 
             LoadSidecars(assembly.GetName().Name);
         }
@@ -109,10 +103,8 @@ public static class Main
                 continue;
             }
 
-#pragma warning disable S3885 // "Assembly.Load" should be used
             var sidecarAssembly = Assembly.LoadFile(path);
             var harmony = new Harmony(sidecarAssembly.GetName().Name);
-#pragma warning restore S3885 // "Assembly.Load" should be used
 
             harmony.PatchAll(sidecarAssembly);
         }

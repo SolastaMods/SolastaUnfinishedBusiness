@@ -1,7 +1,6 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -80,12 +79,12 @@ internal class MasterManipulator : AbstractSubclass
             Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc + "Description");
     }
 
-    public static void UpdateSpellDCBoost()
+    internal static void UpdateSpellDCBoost()
     {
         if (DcIncreaseAffinity)
         {
-            DcIncreaseAffinity.SetSaveDCModifier(Main.Settings
-                .OverrideWizardMasterManipulatorArcaneManipulationSpellDc);
+            DcIncreaseAffinity.saveDCModifier = Main.Settings
+                .OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
             DcIncreaseAffinity.guiPresentation = GetSpellDCPresentation().Build();
         }
     }

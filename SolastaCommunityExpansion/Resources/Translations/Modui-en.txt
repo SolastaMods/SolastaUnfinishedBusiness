@@ -84,7 +84,7 @@ ModUi/&EnableUnityExplorer	Enable the Unity Explorer UI
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Encounters
-ModUi/&ExecuteBatchTranslations	<color=yellow>Batch translations:</color>\n\n. Campaigns are saved back to pool prefixed by target language
+ModUi/&ExecuteBatchTranslations	. Batch translate instead to create a new campaign prefixed by the target language
 ModUi/&ExpandAll	Expand All
 ModUi/&FactionHelp	<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations	<color=yellow>Faction Relations:</color>
@@ -186,3 +186,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvanta
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Allow crossbows to benefit from bows features
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
+ModUi/&Campaigns	<color=yellow>Campaigns:</color>

@@ -93,13 +93,13 @@ public static class SGSpells
         var movementAffinity = FeatureDefinitionMovementAffinityBuilder
             .Create("MovementAffinityConditionMule", MORWENNA_BASE_GUID)
             .AddToDB();
-        movementAffinity.SetHeavyArmorImmunity(true);
-        movementAffinity.SetEncumbranceImmunity(true);
+        movementAffinity.heavyArmorImmunity = true;
+        movementAffinity.encumbranceImmunity = true;
 
         var equipmentAffinity = FeatureDefinitionEquipmentAffinityBuilder
             .Create("EquipmentAffinityConditionMule", MORWENNA_BASE_GUID)
             .AddToDB();
-        equipmentAffinity.SetAdditionalCarryingCapacity(20);
+        equipmentAffinity.additionalCarryingCapacity = 20;
 
         var effectDescription = EffectDescriptionBuilder
             .Create()

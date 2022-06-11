@@ -84,7 +84,7 @@ ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Rencontres
-ModUi/&ExecuteBatchTranslations	Exécutez des traductions par lots : <i><color=yellow>[les campagnes sont enregistrées dans le pool préfixé par la langue cible]</color></i>
+ModUi/&ExecuteBatchTranslations	. Traduire par lot à la place pour créer un nouveau fichier de campagne traduit\n. Les campagnes sont sauvegardées dans le pool préfixé par la langue cible.
 ModUi/&ExpandAll	Développer tout
 ModUi/&FactionHelp	<color=#C04040E0>Chargez un jeu de campagne officiel pour modifier les relations entre les factions...</color>
 ModUi/&FactionRelations	<color=yellow>Relations entre factions :</color>
@@ -186,3 +186,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'
 ModUi/&Visuals	<color=yellow>Visuels :</color>
 ModUi/&Weapon	<color=yellow>Armes</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Permettre aux arbalètes de bénéficier des fonctionnalités des arcs
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Supprimer l'exigence de concentration de n'importe quel sort <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Écraser la langue du jeu:</color>
+ModUi/&Campaigns	<color=yellow>Campagnes:</color>

@@ -118,7 +118,7 @@ internal class Opportunist : AbstractSubclass
             .AddToDB();
     }
 
-    internal class DebilitatedConditionBuilder : ConditionDefinitionBuilder
+    private class DebilitatedConditionBuilder : ConditionDefinitionBuilder
     {
         private const string Name = "Debilitated";
         private const string TitleString = "Condition/&DebilitatedConditionTitle";
@@ -127,7 +127,7 @@ internal class Opportunist : AbstractSubclass
         internal static readonly ConditionDefinition DebilitatedCondition =
             CreateAndAddToDB(Name, SubclassNamespace.ToString());
 
-        protected DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
+        private DebilitatedConditionBuilder(string name, string guid) : base(ConditionDummy, name, guid)
         {
             Definition.GuiPresentation.Title = TitleString;
             Definition.GuiPresentation.Description = DescriptionString;

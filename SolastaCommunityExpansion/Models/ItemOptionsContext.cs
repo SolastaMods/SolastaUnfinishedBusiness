@@ -71,8 +71,8 @@ internal static class ItemOptionsContext
 
     internal static void SwitchSetBeltOfDwarvenKindBeardChances()
     {
-        CharacterPresentationBeltOfDwarvenKind.SetOccurencePercentage(
-            Main.Settings.SetBeltOfDwarvenKindBeardChances);
+        CharacterPresentationBeltOfDwarvenKind.occurencePercentage =
+            Main.Settings.SetBeltOfDwarvenKindBeardChances;
         CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(
             Gui.Format("Feature/&AlwaysBeardDescription",
                 Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));

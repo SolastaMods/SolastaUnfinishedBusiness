@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaModApi.Diagnostics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Color = System.Drawing.Color;
-using Graphics = System.Drawing.Graphics;
 using UnityGraphics = UnityEngine.Graphics;
 
 namespace SolastaCommunityExpansion.Utils;
@@ -16,7 +12,7 @@ namespace SolastaCommunityExpansion.Utils;
 // Loosely based on https://forum.unity.com/threads/generating-sprites-dynamically-from-png-or-jpeg-files-in-c.343735/
 internal static class CustomIcons
 {
-    internal static readonly Dictionary<string, Sprite> SpritesByGuid = new();
+    private static readonly Dictionary<string, Sprite> SpritesByGuid = new();
 
     /// <summary>
     ///     Convert a bitmap stored as an embedded resource to a Sprite.
@@ -27,7 +23,7 @@ internal static class CustomIcons
         return GetOrCreateSprite(name, bitmap, size, size, throwIfAlreadyExists);
     }
 
-    internal static Sprite GetOrCreateSprite(string name, Byte[] bitmap, int sizex, int sizey,
+    private static Sprite GetOrCreateSprite(string name, Byte[] bitmap, int sizex, int sizey,
         bool throwIfAlreadyExists = false)
     {
         var (id, guid) = GetSpriteIds(name, sizex, sizey);
@@ -99,6 +95,7 @@ internal static class CustomIcons
 
     #region Helpers
 
+#if false
     internal static Sprite ImageToSprite(string filePath, int sizeX, int sizeY)
     {
         var bytes = File.ReadAllBytes(filePath);
@@ -128,8 +125,8 @@ internal static class CustomIcons
 
         return sprite.texture;
     }
-
-    internal static Texture2D DuplicateTexture(Texture2D source)
+    
+    private static Texture2D DuplicateTexture(Texture2D source)
     {
         var renderTex = RenderTexture.GetTemporary(
             source.width,
@@ -245,6 +242,7 @@ internal static class CustomIcons
 
         baseImage.Save(finalImageFilename);
     }
+#endif
 
     #endregion
 }

@@ -11,7 +11,7 @@ internal static class InventorySlotBox_RefreshState
 {
     internal static void Postfix(InventorySlotBox __instance)
     {
-        if (Global.IsMultiplayer || Global.InspectedHero == null)
+        if (Global.InspectedHero == null)
         {
             return;
         }

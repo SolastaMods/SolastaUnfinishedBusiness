@@ -8,7 +8,7 @@ ModUi/&Advanced	<color=yellow>进阶选项：</color>
 ModUi/&AdvancedHelp	. <color=#C04040E0>注意：</color> 此项设置将要求玩家安装此Mod
 ModUi/&Adventure	<color=yellow>冒险：</color>
 ModUi/&AllItemInDm	全部物品加入地城制作
-ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业穿戴精灵护甲或光明使者服饰
+ModUi/&AllowAnyClassToWearSylvanArmor	允许任何职业装备木族护甲或光明使者服饰
 ModUi/&AllowDruidToWearMetalArmor	允许<color=orange>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20	允许自定义地城最大等级达到20级<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	允许在地图上任何地方放置互动物件和装饰物<i><color=yellow>[在放置时按<color=cyan>CTRL</color>跳过任何检定]</color></i>
@@ -17,8 +17,8 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	允许在施放<col
 ModUi/&AllowUnmarkedSorcerers	允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm	所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
-ModUi/&Ammunition	<color=yellow>弹药</color>
-ModUi/&Armor	<color=yellow>护甲</color>
+ModUi/&Ammunition <color=yellow>弹药</color>
+ModUi/&Armor  <color=yellow>护甲</color>
 ModUi/&AutoPauseOnVictory	战斗胜利后暂停游戏
 ModUi/&Basic	<color=yellow>基础：</color>
 ModUi/&Battle	<color=yellow>战斗：</color>
@@ -110,10 +110,10 @@ ModUi/&Interface	界面
 ModUi/&InventoryAndItems	<color=yellow>物品栏和物品：</color>
 ModUi/&InvertAltBehaviorOnTooltips	颠倒<color=cyan>ALT</color>键在工具提示时的效果
 ModUi/&ItemInDm	物品加入地城制作
-ModUi/&Items	<color=yellow>物品：</color>
+ModUi/&Items  <color=yellow>物品：</color>
 ModUi/&ItemsCraftingMerchants	物品，制作和商人
-ModUi/&ItemsHelp1	<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
-ModUi/&ItemsHelp2	. 在检查界面按+将物品添加到地面容器中
+ModUi/&ItemsHelp1 <color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
+ModUi/&ItemsHelp2 . 在检查界面按+将物品添加到地面容器中
 ModUi/&KeyboardMouse	键盘与鼠标
 ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
@@ -181,8 +181,11 @@ ModUi/&UnlockEyeStyles	解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	解锁所有标记和纹身的发光颜色
 ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
-ModUi/&UsableDevice	<color=yellow>可用装置</color>
+ModUi/&UsableDevice <color=yellow>可用装置</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
-ModUi/&Weapon	<color=yellow>武器</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	允许弩从弓相关的特性中受益
+ModUi/&Weapon <color=yellow>武器</color>
+ModUi/&AllowCrossbowsToUseBowFeatures 允许弩从与弓相关的特性中获益
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Overwrite game language:</color>
+ModUi/&Campaigns	<color=yellow>Campaigns:</color>

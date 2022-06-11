@@ -84,7 +84,7 @@ ModUi/&EnableUnityExplorer	Aktivieren Sie die Unity Explorer-Benutzeroberfläche
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Aktiviere unbegrenzte <color=orange>Arkane Wiederherstellung</color> auf <color=orange>Magier</color>-Zaubermeister\n<i><color=yellow>Muss aktiviert werden, wenn die Fähigkeit nutzbar ist oder vor der Charaktererstellung</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Upcast von <color=orange>Elementar beschwören</color>, <color=orange>Feen beschwören</color> aktivieren
 ModUi/&Encounters	Begegnungen
-ModUi/&ExecuteBatchTranslations	Batch-Übersetzungen ausführen: <i><color=yellow>[Kampagnen werden mit Präfix der Zielsprache zurück in den Pool gespeichert]</color></i>
+ModUi/&ExecuteBatchTranslations	. Stapelübersetzung stattdessen, um eine neue übersetzte Kampagnendatei\n zu erstellen. Die Kampagnen werden mit dem Präfix der Zielsprache zurück in den Pool gespeichert.
 ModUi/&ExpandAll	Alle erweitern
 ModUi/&FactionHelp	<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
 ModUi/&FactionRelations	<color=yellow>Fraktionsbeziehungen:</color>
@@ -186,3 +186,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorte
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Waffen</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Ermöglichen Sie Armbrüsten, von den Bogenfunktionen zu profitieren
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Konzentrationsanforderung von allen Zaubern entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Spielsprache überschreiben:</color>
+ModUi/&Campaigns	<color=yellow>Kampagnen:</color>

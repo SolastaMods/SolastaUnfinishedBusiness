@@ -75,7 +75,7 @@ internal class ArcaneFighter : AbstractSubclass
             .AddToDB();
     }
 
-    internal static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
+    private static FeatureDefinitionPower EnchantWeapon => _enchantWeapon ??= BuildEnchantWeapon();
 
     internal override FeatureDefinitionSubclassChoice GetSubclassChoiceList()
     {
@@ -124,7 +124,7 @@ internal class ArcaneFighter : AbstractSubclass
             .AddToDB();
     }
 
-    public static void UpdateEnchantWeapon()
+    internal static void UpdateEnchantWeapon()
     {
         if (Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter)
         {
