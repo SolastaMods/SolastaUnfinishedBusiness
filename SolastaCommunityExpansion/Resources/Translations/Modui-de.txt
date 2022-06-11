@@ -1,189 +1,189 @@
-﻿ModUi/&AddAllToStore	Alle zum Shop hinzufügen
-ModUi/&AddBleedingToLesserRestoration	Fügen Sie den Zustand <color=orange>Bluten</color> zu den Zuständen hinzu, die durch <color=orange>Größere und Geringere Wiederherstellung</color> entfernt wurden
-ModUi/&AddHelpActionToAllRaces	Füge allen Rennen die Aktion <color=orange>Hilfe</color> hinzu
-ModUi/&AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu <i><color=yellow>[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[ Neustart erforderlich]</color></i></b>
-ModUi/&AddPickpocketableLoot	Taschendiebstahl-Beute hinzufügen <i><color=yellow>[empfohlen, wenn <color=orange>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
-ModUi/&AddToStore	Zum Shop hinzufügen
-ModUi/&Advanced	<color=yellow>Erweitert:</color>
-ModUi/&AdvancedHelp	. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellung erfordert, dass der Spieler diesen Mod installiert hat
-ModUi/&Adventure	<color=yellow>Abenteuer:</color>
-ModUi/&AllItemInDm	Alle Artikel in DM
-ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, Waldrüstungen oder Lichtbringerkleidung zu tragen
-ModUi/&AllowDruidToWearMetalArmor	Erlaube dem <color=orange>Druiden</color>, Metallrüstungen zu tragen
-ModUi/&AllowDungeonsMaxLevel20	Verliese mit maximaler Stufe 20 zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Ermöglicht das Platzieren von Gadgets und Requisiten überall auf der Karte <i><color=yellow>[drücken Sie während der Platzierung <color=cyan>STRG</color>, um jede Überprüfung zu umgehen]</color></i>
-ModUi/&AllowStackedMaterialComponent	Gestapelte Materialkomponente zulassen <i><color=yellow>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Zielauswahl beim Wirken des Zaubers <color=orange>Kettenblitz</color> zulassen
-ModUi/&AllowUnmarkedSorcerers	Erlaube unmarkierte <color=orange>Zauberer</color>
+﻿ModUi/&AddAllToStore	Alle zum Lager hinzufügen
+ModUi/&AddBleedingToLesserRestoration	Füge die Bedingung <color=#FFA500>Bluten</color> zu den Bedingungen hinzu, die durch <color=#FFA500>Große und Kleine Wiederherstellung</color> entfernt werden
+ModUi/&AddHelpActionToAllRaces	Hinzufügen der Aktion <color=#FFA500>Hilfe</color> für alle Völker
+ModUi/&AddNewWeaponsAndRecipesToShops	Füge neue Waffen und Rezepte zu Läden hinzu <i><color=#FFFF00>[Handumhänge, Hellebarden, Piken, lange Streitkolben, Handarmbrüste]</color></i> <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&AddPickpocketableLoot	Taschendiebstahlsfähige Beute hinzufügen <i><color=#FFFF00>[empfohlen, wenn <color=#FFA500>Fähigkeit Taschendiebstahl</color> aktiviert ist]</color></i>
+ModUi/&AddToStore	Zum Lager hinzufügen
+ModUi/&Advanced	<color=#FFFF00>Erweitert:</color>
+ModUi/&AdvancedHelp	. <b><color=#C04040E0>ACHTUNG:</color></b> Für diese Einstellung muss der Spieler diese Mod installiert haben.
+ModUi/&Adventure	<color=#FFFF00>Abenteuer:</color>
+ModUi/&AllItemInDm	Alle Gegenstände in DM
+ModUi/&AllowAnyClassToWearSylvanArmor	Erlaube jeder Klasse, sylvanische Rüstung oder Lichtbringer-Kleidung zu tragen
+ModUi/&AllowDruidToWearMetalArmor	Erlaube <color=#FFA500>Druide</color> Metallrüstung zu tragen
+ModUi/&AllowDungeonsMaxLevel20	Erlaube Dungeons mit Maximalstufe 20 <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere	Gadgets und Requisiten können nun überall auf der Karte platziert werden <i><color=#FFFF00>[drücken Sie <color=#00FFFF>CTRL</color> während der Platzierung, um jede Prüfung zu umgehen]</color></i>
+ModUi/&AllowStackedMaterialComponent	Erlaubt gestapelte Materialkomponenten <i><color=#FFFF00>[z.B. 2x500gp Diamant ist gleichwertig mit 1000gp Diamant]</color></i>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Zielauswahl beim Zauber <color=#FFA500>Kettenblitz</color> zulassen
+ModUi/&AllowUnmarkedSorcerers	Erlaubt unmarkierte <color=#FFA500>Zauberer</color>
 ModUi/&AllRecipesInDm	Alle Rezepte in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>-Taste markiert nur Gadgets im Sichtfeld der Gruppe [nur in benutzerdefinierten Dungeons]
-ModUi/&Ammunition	<color=yellow>Munition</color>
-ModUi/&Armor	<color=yellow>Rüstung</color>
-ModUi/&AutoPauseOnVictory	Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
-ModUi/&Basic	<color=yellow>Einfach:</color>
-ModUi/&Battle	<color=yellow>Kampf:</color>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=#00FFFF>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#FFFF00>[nur in benutzerdefinierten Dungeons]</color></i>
+ModUi/&Ammunition	<color=#FFFF00>Munition</color>
+ModUi/&Armor	<color=#FFFF00>Rüstung</color>
+ModUi/&AutoPauseOnVictory	Pausiere das UI, wenn du im Kampf siegreich bist
+ModUi/&Basic	<color=#FFFF00>Basic:</color>
+ModUi/&Battle	<color=#FFFF00>Schlacht:</color>
 ModUi/&Bestiary	Bestiarium
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberplatz gewirkt wird
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Der Zustand <color=orange>Geblendet</color> erlaubt keinen Gelegenheitsangriff
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=#FFA500>Bestow Curse</color> erfordert keine Konzentration mehr, wenn er mit einem L5+ Zauberslot gewirkt wird
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=#FFA500>Blind</color> Zustand erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints	Blaupausen
-ModUi/&CampaignsAndLocations	<color=yellow>Kampagnen und Standorte:</color>
+ModUi/&CampaignsAndLocations	<color=#FFFF00>Kampagnen und Orte:</color>
 ModUi/&Character	Charakter
-ModUi/&CharactersPool	Zeichenpool
-ModUi/&Classes	<color=yellow>Klassen</color>
-ModUi/&Crafting	<color=yellow>Herstellung:</color>
-ModUi/&CraftingHelp	. Drücken Sie die Taste, um Rezepte sofort auf der aktiven Party zu lernen\n. Artikel, die den Geschäften hinzugefügt werden, erfordern möglicherweise, dass die Gruppe den Ort verlässt und zurückkommt
-ModUi/&Credits	Kredite
-ModUi/&CreditsAndDiagnostics	Kredite & Diagnostik
-ModUi/&DisableAutoEquip	Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
-ModUi/&DisableSenseDarkVisionFromAllRaces	Deaktiviere <color=orange>Dunkle Sicht wahrnehmen</color> für alle Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Deaktiviere <color=orange>Superior Sense Dark Vision</color> für alle Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisplayAllKnownSpellsDuringLevelUp	Zeigen Sie während des Levelaufstiegs alle bekannten Zaubersprüche aus anderen Klassen an
-ModUi/&DontFollowCharacterInBattle	Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
-ModUi/&DontFollowMargin	<i><color=white>+ Es sei denn, der Held ist ausgeschaltet oder innerhalb von % des Bildschirmrands</color></i>
-ModUi/&DungeonMaker	<color=yellow>Dungeon Maker:</color>
-ModUi/&DungeonMakerBasicHelp	. Diese Einstellungen erfordern nicht, dass der Spieler diesen Mod installiert hat\n. Sie können beliebige Kampagnenvariablen in Ihre Dialoge, Beschreibungen usw. einbetten.\n. CE ersetzt sie während des Spiels durch ihren Wert <i><color=yellow>[z. B.: Hallo {Salute} Held!]</color></i>
-ModUi/&DungeonMakerMenu	Dungeon-Maker
-ModUi/&EmpressGarbAppearance	Aussehen <color=orange>Kaiserin-Gewand</color>
-ModUi/&EnableAdditionalIconsOnLevelMap	Aktivieren Sie zusätzliche Symbole für Lager, Ausgänge und Teleporter auf der Levelkarte
-ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ Füge neue zu Dungeon Maker hinzu</i>
-ModUi/&EnableAlternateHuman	Aktiviere den alternativen Menschen <i><color=yellow>[+1 Talent / +2 Attributauswahl / +1 Fertigkeit]</color></i>
-ModUI/&EnableBetaContent	Aktiviere Beta-Inhalte <i><color=yellow>[denke daran, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableCancelEditOnRightMouseClick	Aktivieren Sie die Abbruchaktion mit einem Rechtsklick
-ModUi/&EnableCharacterChecker	Aktivieren Sie den Zeichenprüfbildschirm
-ModUi/&EnableCharacterExport	Aktivieren Sie <color=cyan>CTRL-SHIFT-(E</color>)xport-Zeichen <i><color=yellow>[nur auf dem Zeichenprüfbildschirm]</color></i>
-ModUi/&EnableCheatMenu	Aktivieren Sie das Cheat-Menü
-ModUi/&EnableCtrlClickBypassAttackReactionPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Angriffe, um alle Reaktionsfenster zu ignorieren
-ModUi/&EnableCtrlClickBypassMetamagicPanel	Aktivieren Sie <color=cyan>STRG</color>, klicken Sie auf Zaubersprüche, um das metamagische Bedienfeld <color=orange>Zauberer</color> zu ignorieren
-ModUi/&EnableCtrlClickOnlySwapsMainHand	Aktivieren Sie den <color=cyan>CTRL</color>-Klick, um Gegenstände beim Wechseln von getragenen Konfigurationen fernzuhalten
-ModUi/&EnableDungeonMakerModdedContent	Aktivieren Sie Dungeon Maker Pro <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n\nDazu gehören flache Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellose Mischung von Assets aus allen Umgebungen\nSie müssen mindestens einen Raum im Freien haben, wenn Sie sich für eine Umgebung im Freien entscheiden
-ModUi/&EnableEpicPointsAndArray	Aktivieren Sie ein episches 35-Punkte-Kaufsystem und ordnen Sie <i><color=yellow>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0> an [Neustart erforderlich]</color></i></b>
-ModUi/&EnableExtraHighLevelMonsters	Aktiviere zusätzliche hochstufige Monster (+20 CR) für Kampagnen der Stufen 3 und 4 <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels	Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
-ModUi/&EnableFlexibleBackgrounds	Aktivieren Sie flexible Hintergründe <i><color=yellow>[wählen Sie Fertigkeits- und Werkzeugkenntnisse aus Hintergründen aus]</color></i>
-ModUi/&EnableFlexibleRaces	Flexible Rassen aktivieren <i><color=yellow>[Fähigkeitspunktzahl statt der Rassenvorgaben zuweisen]</color></i>
-ModUi/&EnableHotkeyDebugOverlay	Aktivieren Sie <color=cyan>CTRL-SHIFT-(D</color>)ebug-Overlay
-ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
-ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=cyan>CTRL-SHIFT-(C</color>)Systemsteuerung, <color=cyan>CTRL-SHIFT-(L</color>)og, <color=cyan>CTRL-SHIFT-(M</color>)ap und <color=cyan>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
-ModUi/&EnableHotkeyZoomCamera	Aktivieren Sie <color=cyan>STRG-UMSCHALT-(Z</color>)Raumkamera <i><color=yellow>[nützlich beim Aufnehmen von Dungeon-Screenshots zum Veröffentlichen]</color></i>
-ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ nur umgehen, wenn kein kritischer Treffer vorliegt</i>
-ModUi/&EnableInventoryFilteringAndSorting	Inventarfilterung und -sortierung aktivieren
-ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Beflecke alle Gegenstände, mit denen der Held nicht vertraut ist, rot</i>
-ModUi/&EnableInvisibleCrownOfTheMagister	Blende die <color=orange>Krone des Magisters</color> auf der Spieloberfläche aus
-ModUi/&EnableLevel20	Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableLogDialoguesToConsole	Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
-ModUi/&EnableMinInOutAttributes	Erzwingen Sie die minimalen Ein- und Ausstiegsvoraussetzungen für Fähigkeitswerte
-ModUi/&EnableOnTheFlyTranslations	Benutzerdefinierte Inhaltsübersetzungen in Echtzeit aktivieren <i><color=yellow>[erfordert ausgehende Live-Verbindung. zu https://translate.googleapis.com]</color></i>
-ModUi/&EnableRelearnSpells	Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden
-ModUi/&EnableRespec	Aktivieren Sie die Aktionen RESPEC und Level Down nach Ruhe
-ModUi/&EnablesAsiAndFeat	Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=yellow>[statt einer exklusiven Auswahl]</color></i>
-ModUi/&EnableSaveByLocation	Speichern nach Kampagnen/Standorten aktivieren
-ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Aktiviere die kurze Erholungsaufladung der <color=orange>Arkanen Waffe</color> auf dem <color=orange>Magier</color>-Arkankämpfer
-ModUi/&EnableTeleportParty	Aktivieren Sie <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[Sie könnten Quests oder Karten brechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
-ModUi/&EnableTogglesToOverwriteDefaultTestParty	Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
-ModUi/&EnableUnityExplorer	Aktivieren Sie die Unity Explorer-Benutzeroberfläche
-ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Aktiviere unbegrenzte <color=orange>Arkane Wiederherstellung</color> auf <color=orange>Magier</color>-Zaubermeister\n<i><color=yellow>Muss aktiviert werden, wenn die Fähigkeit nutzbar ist oder vor der Charaktererstellung</color></i>
-ModUi/&EnableUpcastConjureElementalAndFey	Upcast von <color=orange>Elementar beschwören</color>, <color=orange>Feen beschwören</color> aktivieren
+ModUi/&CharactersPool	Charaktere Pool
+ModUi/&Classes	<color=#FFFF00>Klassen</color>
+ModUi/&Crafting	<color=#FFFF00>Basteln:</color>
+ModUi/&CraftingHelp	. Drücke die Taste, um Rezepte sofort für die aktive Gruppe zu erlernen\n. Für Gegenstände, die zu den Läden hinzugefügt werden, muss die Gruppe möglicherweise den Ort verlassen und zurückkehren.
+ModUi/&Credits	Credits
+ModUi/&CreditsAndDiagnostics	Credits & Diagnostik
+ModUi/&DisableAutoEquip	Automatisches Ausrüsten von Gegenständen im Inventar deaktivieren
+ModUi/&DisableSenseDarkVisionFromAllRaces	<color=#FFA500>Dunkelsicht</color> für alle Völker deaktivieren <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces	Deaktiviere <color=#FFA500>Superior Sense Dark Vision</color> für alle Völker <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&DisplayAllKnownSpellsDuringLevelUp	Anzeige aller bekannten Zauber von anderen Klassen während des Stufenaufstiegs
+ModUi/&DontFollowCharacterInBattle	Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
+ModUi/&DontFollowMargin	<i><color=#FFFFFF>+ Es sei denn, der Held befindet sich außerhalb oder innerhalb von % des Bildschirmrandes</color></i>
+ModUi/&DungeonMaker	<color=#FFFF00>Dungeon Maker:</color>
+ModUi/&DungeonMakerBasicHelp	. Diese Einstellungen setzen nicht voraus, dass der Spieler diese Mod installiert hat\n. Sie können jede Kampagnenvariable in Ihre Dialoge, Beschreibungen, etc. einbetten\n. CE wird sie während des Spiels durch ihren Wert ersetzen <i><color=#FFFF00>[d.h.: Hallo {Salute} Held!]</color></i>
+ModUi/&DungeonMakerMenu	Dungeon-Macher
+ModUi/&EmpressGarbAppearance	<color=#FFA500>Gewand der Kaiserin</color> Aussehen
+ModUi/&EnableAdditionalIconsOnLevelMap	Aktiviere zusätzliche Icons für Lager, Ausgänge und Teleporter auf der Levelkarte
+ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ Hinzufügen neuer Gegenstände zum Dungeon Maker</i>
+ModUi/&EnableAlternateHuman	Aktiviert den alternativen Menschen <i><color=#FFFF00>[+1 Heldentat / +2 Attributwahlen / +1 Fertigkeit]</color></i>
+ModUI/&EnableBetaContent	Beta-Inhalte aktivieren <i><color=#FFFF00>[bedenke, dass deine Spielstände oder Helden in Zukunft kaputt gehen könnten]</color></i> <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick	Abbrechen mit rechtem Mausklick aktivieren
+ModUi/&EnableCharacterChecker	Aktivieren Sie den Zeichenprüfungsbildschirm
+ModUi/&EnableCharacterExport	<color=#00FFFF>CTRL-SHIFT-(E</color>)xport character <i><color=#FFFF00>[nur im Charakterprüfungsbildschirm]</color></i> aktivieren
+ModUi/&EnableCheatMenu	Aktivieren Sie das Cheats-Menü
+ModUi/&EnableCtrlClickBypassAttackReactionPanel	Aktiviere <color=#00FFFF>CTRL</color> Klick auf Angriffe, um das Reaktionsfeld zu ignorieren
+ModUi/&EnableCtrlClickBypassMetamagicPanel	Aktiviere <color=#00FFFF>CTRL</color> klicke auf Zaubersprüche, um das <color=#FFA500>Sorcerer</color> Metamagie-Panel zu ignorieren
+ModUi/&EnableCtrlClickOnlySwapsMainHand	Aktiviere <color=#00FFFF>CTRL</color>-Klick, um Gegenstände aus der Hand zu behalten, wenn die Handkonfigurationen gewechselt werden
+ModUi/&EnableDungeonMakerModdedContent	Aktiviere Dungeon Maker Pro <b><i><color=#C04040E0>[Erfordert einen Neustart]</color></i></b>\n\nbeinhaltet flache Räume, 150x150 & 200x200 Dungeongrößen und schnörkelloses Mischen von Assets aus allen Umgebungen\ndu musst mindestens einen Außenraum haben, wenn du eine Außenumgebung wählst
+ModUi/&EnableEpicPointsAndArray	Aktiviere ein episches 35-Punkte-Kaufsystem und ein <i><color=#FFFF00>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&EnableExtraHighLevelMonsters	Zusätzliche hochstufige Monster (+20 CR) für Tier 3 und 4 Kampagnen aktivieren <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels	Auswahl von Feats auf den Klassenstufen 2, 6, 10 und 14 ermöglichen
+ModUi/&EnableFlexibleBackgrounds	Flexible Hintergründe aktivieren <i><color=#FFFF00>[Auswahl von Fertigkeits- und Werkzeugkenntnissen aus Hintergründen]</color></i>
+ModUi/&EnableFlexibleRaces	Flexible Rassen einschalten <i><color=#FFFF00>[Zuweisung von Fähigkeitspunkten anstelle der Standardwerte für Rassen]</color></i>
+ModUi/&EnableHotkeyDebugOverlay	<color=#00FFFF>CTRL-SHIFT-(D</color>)ebug-Überlagerung einschalten
+ModUi/&EnableHotkeyToggleHud	Aktivieren Sie <color=#00FFFF>CTRL-SHIFT-(H</color>)ud, um die Sichtbarkeit aller UI-Panels umzuschalten
+ModUi/&EnableHotkeyToggleIndividualHud	Aktivieren Sie <color=#00FFFF>CTRL-SHIFT-(C</color>)ontrol Panel, <color=#00FFFF>CTRL-SHIFT-(L</color>)og, <color=#00FFFF>CTRL-SHIFT-(M</color>)ap und <color=#00FFFF>CTRL-SHIFT-(P</color>)arty, um die Sichtbarkeit der einzelnen UI-Panels umzuschalten
+ModUi/&EnableHotkeyZoomCamera	Aktiviere <color=#00FFFF>CTRL-SHIFT-(Z</color>)oom-Kamera <i><color=#FFFF00>[nützlich, wenn man Dungeon-Screenshots zur Veröffentlichung macht]</color></i>
+ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ wird nur umgangen, wenn es kein kritischer Treffer ist</i>
+ModUi/&EnableInventoryFilteringAndSorting	Filterung und Sortierung des Inventars aktivieren
+ModUi/&EnableInventoryTaintNonProficientItemsRed	<i>+ Färbe alle Gegenstände, die der Held nicht beherrscht, rot</i>
+ModUi/&EnableInvisibleCrownOfTheMagister	Verstecke die <color=#FFA500>Krone des Magisters</color> auf der Spiel-UI
+ModUi/&EnableLevel20	Aktiviere Stufe 20 <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&EnableLogDialoguesToConsole	Aktiviere Log-Dialoge auf der Spielkonsole während narrativer Sequenzen
+ModUi/&EnableMinInOutAttributes	Erzwingen von Mindestvoraussetzungen für Fähigkeitswertungen (in & out)
+ModUi/&EnableOnTheFlyTranslations	Übersetzungen von benutzerdefinierten Inhalten in Echtzeit aktivieren
+ModUi/&EnableRelearnSpells	Kann bereits erlernte Cantrips oder Zauber aus anderen Klassen auswählen
+ModUi/&EnableRespec	Aktivieren der Aktionen RESPEC und Level Down nach Ruhe
+ModUi/&EnablesAsiAndFeat	Ermöglicht sowohl die Erhöhung von Attributswerten als auch die Auswahl von Heldentaten <i><color=#FFFF00>[anstatt einer exklusiven Auswahl]</color></i>
+ModUi/&EnableSaveByLocation	Speichern nach Kampagnen / Orten ermöglichen
+ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Kurze Aufladezeit für <color=#FFA500>Arkane Waffe</color> auf <color=#FFA500>Zauberer</color> Arkaner Kämpfer
+ModUi/&EnableTeleportParty	Aktiviere <color=#00FFFF>CTRL-SHIFT-(T</color>)eleport party <i><color=#FFFF00>[du könntest Quests oder Karten zerstören, wenn du dich an einen unentdeckten Ort teleportierst]</color></i>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty	Aktivieren Sie die Kippschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen.
+ModUi/&EnableUnityExplorer	Aktivieren Sie die Unity Explorer UI
+ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Unbegrenzte <color=#FFA500>Arcane Recovery</color> auf <color=#FFA500>Wizard</color> Spell Master\n<i><color=#FFFF00>Muss aktiviert werden, wenn die Fähigkeit nutzbar ist oder vor der Charaktererstellung</color></i>
+ModUi/&EnableUpcastConjureElementalAndFey	Aktiviert Upcast von <color=#FFA500>Elementar beschwören</color>, <color=#FFA500>Fee beschwören</color>
 ModUi/&Encounters	Begegnungen
-ModUi/&ExecuteBatchTranslations	Batch-Übersetzungen ausführen: <i><color=yellow>[Kampagnen werden mit Präfix der Zielsprache zurück in den Pool gespeichert]</color></i>
+ModUi/&ExecuteBatchTranslations	. Stapelübersetzung stattdessen, um eine neue übersetzte Kampagnendatei\n zu erstellen. Die Kampagnen werden mit dem Präfix der Zielsprache zurück in den Pool gespeichert.
 ModUi/&ExpandAll	Alle erweitern
 ModUi/&FactionHelp	<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
-ModUi/&FactionRelations	<color=yellow>Fraktionsbeziehungen:</color>
-ModUi/&FasterTimeModifier	<color=white>Spielzeitmodifikator beim Drücken der Leertaste</color>
-ModUi/&Feats	<color=yellow>Leistungen</color>
-ModUi/&FeatsFightingStyles	Heldentaten & Kampfstile
-ModUi/&FightingStyles	<color=yellow>Kampfstile</color>
-ModUi/&FixSorcererTwinnedLogic	Repariere <color=orange>Zauberer</color>-Zwillings-Metamagie-Gebrauch <i><color=yellow>[ein Zauber darf nicht in der Lage sein, auf mehr als eine Kreatur auf der aktuellen Stufe des Zaubers zu zielen]</color></i>
-ModUi/&FollowCharactersOnTeleport	Kamera folgt teleportierten Charakteren
-ModUi/&FullyControlConjurations	Volle Kontrolle über Beschwörungen <i><color=yellow>[Tiere, Elementare usw.]</color></i>
-ModUi/&Gameplay	Spielweise
-ModUi/&GameUi	Benutzeroberfläche des Spiels
-ModUi/&General	<color=yellow>Allgemein:</color>
+ModUi/&FactionRelations	<color=#FFFF00>Fraktionsbeziehungen:</color>
+ModUi/&FasterTimeModifier	<color=#FFFFFF>Spielzeitmodifikator beim Drücken der Leertaste</color>
+ModUi/&Feats	<color=#FFFF00>Fähigkeiten</color>
+ModUi/&FeatsFightingStyles	Fähigkeiten & Kampfstile
+ModUi/&FightingStyles	<color=#FFFF00>Kampfstile</color>
+ModUi/&FixSorcererTwinnedLogic	Repariert <color=#FFA500>Zauberer</color> Verwendung von Zwillings-Metamagie <i><color=#FFFF00>[ein Zauber muss auf der aktuellen Stufe des Zaubers nicht mehr als eine Kreatur anvisieren können]</color></i>
+ModUi/&FollowCharactersOnTeleport	Kamera folgt teleportierter Figur(en)
+ModUi/&FullyControlConjurations	Vollständige Kontrolle über Beschwörungen <i><color=#FFFF00>[Tiere, Elementare, etc]</color></i>
+ModUi/&Gameplay	Spielablauf
+ModUi/&GameUi	Spiel-UI
+ModUi/&General	<color=#FFFF00>Allgemein:</color>
 ModUi/&GeneralMenu	Allgemein
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Blenden Sie die visuellen Effekte von Ausgängen und Teleportern aus, wenn sie noch nicht entdeckt wurden
-ModUi/&HideMonsterHitPoints	Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
-ModUi/&HiderArmor	Rüstung verstecken
-ModUi/&House	<color=yellow>Haus:</color>
-ModUi/&IncreaseSenseNormalVision	<color=white>Increase <color=orange>Sense Normal Vision</color> range to enable long range attacks</color> <i><color=yellow>[40 is ideal to avoid enemies joining from too far away]</color></i>
-ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&InitialChoices	<color=yellow>Anfangsauswahl:</color>
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered	Ausgänge und Teleporter mit visuellen Effekten ausblenden, wenn sie noch nicht entdeckt wurden
+ModUi/&HideMonsterHitPoints	Anzeige der Lebenspunkte von Monstern in Schritten von 25% / 50% / 75% / 100% anstelle der genauen Trefferpunkte
+ModUi/&HiderArmor	Rüstung ausblenden
+ModUi/&House	<color=#FFFF00>Haus:</color>
+ModUi/&IncreaseSenseNormalVision	<color=#FFFFFF>Reichweite von <color=#FFA500>Sense Normal Vision</color> erhöhen, um Angriffe aus großer Entfernung zu ermöglichen</color> <i><color=#FFFF00>[40 ist ideal, um zu vermeiden, dass Feinde aus zu großer Entfernung angreifen]</color></i>
+ModUi/&IncreaseSenseNormalVisionHelp	<b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&InitialChoices	<color=#FFFF00>Anfängliche Auswahlmöglichkeiten:</color>
 ModUi/&Interface	Schnittstelle
-ModUi/&InventoryAndItems	<color=yellow>Inventar und Gegenstände:</color>
-ModUi/&InvertAltBehaviorOnTooltips	Kehrt das Verhalten der <color=cyan>ALT</color>-Taste in Tooltips um
-ModUi/&ItemInDm	Artikel in DM
-ModUi/&Items	<color=yellow>Items:</color>
-ModUi/&ItemsCraftingMerchants	Gegenstände, Handwerk & Händler
-ModUi/&ItemsHelp1	<color=#C04040E0>Du musst den Charakter-Überprüfungsbildschirm geöffnet haben, um Gegenstände zu Helden hinzuzufügen ...</color>
-ModUi/&ItemsHelp2	. Drücken Sie +, um Gegenstände zum Bodenbehälter auf dem Inspektionsfeld hinzuzufügen
-ModUi/&KeyboardMouse	Tastatur maus
-ModUi/&MakeAllMagicStaveArcaneFoci	Mache alle magischen Stäbe zu arkanen Brennpunkten <i><color=yellow>[außer <color=orange>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color= #C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
-ModUi/&MaxAllowedClasses	<color=white>Max. zulässige Klassen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&MaxBackupFilesPerLocationCampaign	<color=white>max. Sicherungsdateien pro Standort oder Kampagne</color>
-ModUi/&MaxBackupHelp	. Sicherungsdateien werden unter <i><color=yellow>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i> gespeichert
-ModUi/&MaxSpellLevelsPerLine	<color=white>Maximale Stufen pro Zeile im Zauberfeld</color>
-ModUi/&Merchants	<color=yellow>Händler:</color>
-ModUi/&Monsters	<color=yellow>Monster:</color>
-ModUi/&Multiclass	<color=yellow>Mehrfachklasse:</color>
-ModUi/&MulticlassKeyHelp	<color=cyan>SHIFT</color>-Klick auf einen Zauberspruch verbraucht einen Zauberplatz anstelle des standardmäßigen Paktmagieplatzes
-ModUi/&MultiplyTheExperienceGainedBy	<color=white>Multipliziere die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
-ModUi/&NoExperienceOnLevelUp	Für den Levelaufstieg ist keine Erfahrung erforderlich
-ModUi/&NotAvailable	Für diesen Mod ist noch kein {0} verfügbar ...
-ModUi/&OfferAdditionalLoreFriendlyNames	Bieten Sie zusätzliche Lore-freundliche Namen bei der Charaktererstellung an
-ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Nur die mächtigsten Kreaturen in der Beschwörungsliste anzeigen</i>
-ModUi/&OverrideMinMaxLevel	Überschreiben Sie die erforderlichen Mindest- und Höchststufen, wenn Sie neue Abenteuer beginnen
-ModUi/&OverridePartySize	<color=white>Gruppengröße in benutzerdefinierten Abenteuern überschreiben</color>
-ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Überschreibe <color=orange>Schurke</color> Betrüger <color=orange>Verbesserte Manipulation</color> Zauber-SG</color>
-ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Überschreibe <color=orange>Wizard</color>-Meistermanipulator <color=orange>Arkane Manipulation</color>-Zauber-SG</color>
-ModUi/&Patches	<color=yellow>Aufnäher:</color>
-ModUi/&PrimedItems	Geprimte Gegenstände
-ModUi/&Progression	<color=yellow>Fortschritt:</color>
-ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick Cast Light Cantrip verwendet zuerst am Kopf oder Oberkörper getragene Gegenstände
-ModUi/&Races	<color=yellow>Rennen</color>
+ModUi/&InventoryAndItems	<color=#FFFF00>Inventar und Gegenstände:</color>
+ModUi/&InvertAltBehaviorOnTooltips	Umkehrung des <color=#00FFFF>ALT</color> Tastenverhaltens bei Tooltips
+ModUi/&ItemInDm	Gegenstände im DM
+ModUi/&Items	<color=#FFFF00>Gegenstände:</color>
+ModUi/&ItemsCraftingMerchants	Gegenstände, Crafting & Händler
+ModUi/&ItemsHelp1	<color=#C04040E0>Der Charakterinspektionsbildschirm muss geöffnet sein, um den Helden Gegenstände hinzuzufügen...</color>
+ModUi/&ItemsHelp2	. Drücke +, um Gegenstände in den Bodencontainer auf dem Inspektionsbildschirm zu legen.
+ModUi/&KeyboardMouse	Tastatur & Maus
+ModUi/&MakeAllMagicStaveArcaneFoci	Mach alle magischen Stäbe zu arkanen Fokussen <i><color=#FFFF00>[außer <color=#FFA500>Stab der Heilung</color>, der universell ist]</color></i> <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Markiere auch die Position von unsichtbaren Teleportern auf der Levelkarte nach der Entdeckung</i>
+ModUi/&MaxAllowedClasses	<color=#FFFFFF>Maximal erlaubte Klassen</color> <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&MaxBackupFilesPerLocationCampaign	<color=#FFFFFF>Max. Sicherungsdateien pro Standort oder Kampagne</color>
+ModUi/&MaxBackupHelp	. Sicherungsdateien werden unter <i><color=#FFFF00>GAME_FOLDER/Mods/SolastaCommunityExpansion/DungeonMakerBackups</color></i> gespeichert.
+ModUi/&MaxSpellLevelsPerLine	<color=#FFFFFF>Maximalstufen pro Zeile auf der Zaubertafel</color>
+ModUi/&Merchants	<color=#FFFF00>Merchants:</color>
+ModUi/&Monsters	<color=#FFFF00>Monster:</color>
+ModUi/&Multiclass	<color=#FFFF00>Multiklasse:</color>
+ModUi/&MulticlassKeyHelp	<color=#00FFFF>SHIFT</color> Ein Klick auf einen Zauber verbraucht einen Zauberslot statt des standardmäßigen Paktmagie-Slots
+ModUi/&MultiplyTheExperienceGainedBy	<color=#FFFFFF>Multipliziere die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
+ModUi/&NoExperienceOnLevelUp	Zum Aufleveln wird keine Erfahrung benötigt
+ModUi/&NotAvailable	Noch keine {0} für diesen Mod verfügbar...
+ModUi/&OfferAdditionalLoreFriendlyNames	Zusätzliche überlieferungsfreundliche Namen bei der Charaktererstellung anbieten
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey	<i>+ Zeige nur die mächtigsten Kreaturen in der Beschwörungsliste an</i>
+ModUi/&OverrideMinMaxLevel	Überschreibe die erforderlichen Mindest- und Höchststufen beim Start neuer Abenteuer
+ModUi/&OverridePartySize	<color=#FFFFFF>Die Gruppengröße in benutzerdefinierten Abenteuern außer Kraft setzen</color>
+ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=#FFFFFF>Aufhebung des <color=#FFA500>Rogue</color> Con Artist <color=#FFA500>Verbesserte Manipulation</color>Zauber DC</color>
+ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=#FFFFFF>Override <color=#FFA500>Zauberer</color> Meister der Manipulation <color=#FFA500>Arkane Manipulation</color> Zauber DC</color>
+ModUi/&Patches	<color=#FFFF00>Aufnäher:</color>
+ModUi/&PrimedItems	Grundierte Gegenstände
+ModUi/&Progression	<color=#FFFF00>Progression:</color>
+ModUi/&QuickCastLightCantripOnWornItemsFirst	Der schnell gewirkte Licht-Kantrip verwendet zuerst Gegenstände, die am Kopf oder Rumpf getragen werden.
+ModUi/&Races	<color=#FFFF00>Rassen</color>
 ModUi/&RacesClassesSubclasses	Rassen, Klassen und Unterklassen
-ModUi/&RecipeCost	<color=white>Rezeptkosten</color>
+ModUi/&RecipeCost	<color=#FFFFFF>Kosten des Rezepts</color>
 ModUi/&RecipesInDm	Rezepte in DM
-ModUi/&RelicForgeries	Reliquienfälschungen
-ModUi/&RemoveAttunementRequirements	Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RemoveBugVisualModels	Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RemoveIdentifcationRequirements	Identifizierungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&RestockAntiquarians	Antiquare <i><color=yellow>[Halman Summer]</color></i> auffüllen
-ModUi/&RestockArcaneum	Arkaneum <i><color=yellow>[Heddlon Surespell]</color></i> auffüllen
-ModUi/&RestockCircleOfDanantar	Zirkel von Danantar <i><color=yellow>[Joriel Fuchsauge]</color></i> auffüllen
-ModUi/&RestockHelp	. Überschreiben Sie die Standardeinstellungen, um zu erzwingen, dass der gesamte Lagerbestand eines Händlers im Laufe der Zeit aufgefüllt wird (mit Ausnahme von Handbüchern und Wälzern).\n. Beachten Sie, dass es bei einigen Artikeln bis zu 7 Spieltage dauern kann, bis sie wieder verfügbar sind
-ModUi/&RestockTowerOfKnowledge	Turm des Wissens auffüllen <i><color=yellow>[Maddy Greenisle]</color></i>
+ModUi/&RelicForgeries	Reliktfälschungen
+ModUi/&RemoveAttunementRequirements	Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&RemoveBugVisualModels	Ersetzen von fehlerhaften Modellen durch alternative Darstellungen im Spiel <b><i><color=#C04040E0>[Erfordert einen Neustart]</color></i></b>
+ModUi/&RemoveIdentifcationRequirements	Identifikationsanforderungen entfernen <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
+ModUi/&RestockAntiquarians	Aufstockung der Vorräte für Antiquare <i><color=#FFFF00>[Halman-Sommer]</color></i>
+ModUi/&RestockArcaneum	Arcaneum wieder auffüllen <i><color=#FFFF00>[Heddlon Surespell]</color></i>
+ModUi/&RestockCircleOfDanantar	Vorrat Zirkel von Danantar auffüllen <i><color=#FFFF00>[Joriel Fuchsauge]</color></i>
+ModUi/&RestockHelp	. Überschreibt die Standardeinstellungen, so dass der gesamte Vorrat eines Händlers im Laufe der Zeit wieder aufgefüllt wird (ausgenommen Handbücher und Wälzer)\n. Beachte, dass es bei einigen Gegenständen bis zu 7 Spieltage dauern kann, bis sie wieder aufgefüllt werden
+ModUi/&RestockTowerOfKnowledge	Turm des Wissens aufstocken <i><color=#FFFF00>[Maddy Greenisle]</color></i>
 ModUi/&Rules	Regeln
-ModUi/&ScaleMerchantPricesCorrectly	Händlerpreise richtig / exakt skalieren
-ModUi/&SelectAll	Wählen Sie Alle
-ModUi/&SelectSuggested	Wählen Sie Vorgeschlagen aus
+ModUi/&ScaleMerchantPricesCorrectly	Händlerpreise korrekt / genau skalieren
+ModUi/&SelectAll	Alle auswählen
+ModUi/&SelectSuggested	Vorgeschlagene auswählen
 ModUi/&Services	Dienstleistungen
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>Stellen Sie die Wahrscheinlichkeit ein, dass ein Bart erscheint, während Sie den</color> <color=orange>Gürtel der Zwergenfamilie</color> verwenden
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=#FFFFFF>Einstellen der Wahrscheinlichkeit, dass ein Bart erscheint, wenn man den</color> <color=#FFA500>Gürtel der Zwerge benutzt</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips	Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions	Beschreibungen anzeigen
-ModUi/&SpellInstructions	. Du kannst jeden Zauber einzeln jeder Zauberliste zuordnen oder einfach das vorgeschlagene Set auswählen
-ModUi/&SpellLevelFilter	<b><i><color=white>Zauberstufenfilter</color> <color=yellow>[-1, um alle Zauber anzuzeigen]</color></i></b>
-ModUi/&Spells	<color=yellow>Zauber:</color>
-ModUi/&SpellsMenu	Zauber
-ModUi/&SRD	<color=yellow>SRD:</color>
-ModUi/&StockGorimStoreWithAllNonMagicalClothing	Lagert Gorims Laden mit allen nichtmagischen Kleidungsstücken <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci	Lagert Hugos Laden mit <color=orange>Identifikationsstab</color>, <color=orange>Arkanem Stab</color>, <color=orange>Druidenhals</color>, <color=orange>Stab</color> > und <color=orange>Club</color> als Schwerpunkte gesetzt
-ModUi/&Subclasses	<color=yellow>Unterklassen</color>
-ModUi/&TargetLanguage	<color=yellow>Zielsprache:</color>
-ModUi/&Tools	Werkzeug
-ModUi/&TotalFeatsGrantedFistLevel	<color=white>Auf der ersten Stufe gewährte Talente insgesamt</color>
+ModUi/&SpellInstructions	. Ihr könnt jeden Zauber individuell einer Zauberliste zuordnen oder einfach das vorgeschlagene Set auswählen
+ModUi/&SpellLevelFilter	<b><i><color=#FFFFFF>Zauberstufenfilter</color> <color=#FFFF00>[-1 um alle Zauber anzuzeigen]</color></i></b>
+ModUi/&Spells	<color=#FFFF00>Zaubersprüche:</color>
+ModUi/&SpellsMenu	Zaubersprüche
+ModUi/&SRD	<color=#FFFF00>SRD:</color>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing	Versorgt Gorims Laden mit allen nichtmagischen Kleidungsstücken <b><i><color=#C04040E0>[Benötigt Neustart]</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci	Versorgt Hugos Laden mit <color=#FFA500>Stab der Identifizierung</color>, <color=#FFA500>Arkanstab</color>, <color=#FFA500>Druidenhals</color>, <color=#FFA500>Stab</color> und <color=#FFA500>Klub</color> als Schwerpunktgegenstände
+ModUi/&Subclasses	<color=#FFFF00>Unterklassen</color>
+ModUi/&TargetLanguage	Zielsprache
+ModUi/&Tools	Werkzeuge
+ModUi/&TotalFeatsGrantedFistLevel	<color=#FFFFFF>Gesamtkunststücke auf der ersten Stufe</color>
 ModUi/&Translate	Übersetzen
-ModUi/&TranslateCancel	Stornieren Sie {0} um {1}
-ModUi/&TranslationEngine	<color=yellow>Übersetzungsmaschine:</color>
+ModUi/&TranslateCancel	Abbrechen {0} bei {1}
+ModUi/&TranslationEngine	Übersetzungsmaschine
 ModUi/&Translations	Übersetzungen
-ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NPC-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
-ModUi/&UnleashNpcAsEnemy	Erlaube die Auswahl von NPCs auf Monster-Gadgets <i><color=yellow>[drücke <color=cyan>STRG</color>, während du im Gadget-Feld auf „Auswählen“ klickst]</color></i>
-ModUi/&UnlockAllNpcFaces	Schalte alle NPC-Gesichter frei
-ModUi/&UnlockEyeStyles	Schalte Augenstile frei
-ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
-ModUi/&UnlockGlowingEyeColors	Schalte leuchtende Augenfarben frei
-ModUi/&UnlockMarkAndTatoosForAllCharacters	Schalte Markierungen und Tattoos für alle Charaktere frei
-ModUi/&UsableDevice	<color=yellow>Verwendbares Gerät</color>
-ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
-ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&Weapon	<color=yellow>Waffen</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	Ermöglichen Sie Armbrüsten, von den Bogenfunktionen zu profitieren
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Konzentrationsanforderung von allen Zaubern entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&UnleashEnemyAsNpc	Erlaube die Auswahl von Monstern auf NSC-Gadgets <i><color=#FFFF00>[drücke <color=#00FFFF>CTRL</color>, während du auf dem Gadget-Panel auf Auswählen klickst]</color></i>
+ModUi/&UnleashNpcAsEnemy	NSCs können auf Monster-Gadgets ausgewählt werden <i><color=#FFFF00>[drücken Sie <color=#00FFFF>CTRL</color>, während Sie im Gadget-Panel auf Auswählen klicken]</color></i>
+ModUi/&UnlockAllNpcFaces	Alle NPC-Gesichter freischalten
+ModUi/&UnlockEyeStyles	Augenstile freischalten
+ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Schalte leuchtende Farben für alle Markierungen und Tattoos frei
+ModUi/&UnlockGlowingEyeColors	Glühende Augenfarben freischalten
+ModUi/&UnlockMarkAndTatoosForAllCharacters	Markierungen und Tätowierungen für alle Charaktere freischalten
+ModUi/&UsableDevice	<color=#FFFF00>Nutzbares Gerät</color>
+ModUi/&UseOfficialAdvantageDisadvantageRules	Offizielle Vor-/Nachteil-Regeln verwenden
+ModUi/&Visuals	<color=#FFFF00>Bildmaterial:</color>
+ModUi/&Weapon	<color=#FFFF00>Waffen</color>
+ModUi/&AllowCrossbowsToUseBowFeatures	Erlaube Armbrüsten, von den Bogeneigenschaften zu profitieren
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Entfernen Sie die Konzentrationsanforderung von jedem Zauber <b><i><color=#C04040E0>[Erfordert Neustart]</color></i></b>
