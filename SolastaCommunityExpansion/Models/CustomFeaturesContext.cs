@@ -88,7 +88,7 @@ public static class CustomFeaturesContext
     }
 
     private static void RemoveFeatureDefinitionPointPool(RulesetCharacterHero hero,
-        RulesetSpellRepertoire heroRepertoire, FeatureDefinitionPointPool featureDefinitionPointPool)
+        RulesetSpellRepertoire heroRepertoire, string tag, FeatureDefinitionPointPool featureDefinitionPointPool)
     {
         var poolAmount = featureDefinitionPointPool.PoolAmount;
 
@@ -112,7 +112,13 @@ public static class CustomFeaturesContext
                 break;
 
             case HeroDefinitions.PointsPoolType.Feat:
-                hero.TrainedFeats.RemoveRange(hero.TrainedFeats.Count - poolAmount, poolAmount);
+                for (var i = 0; i < poolAmount; i++)
+                {
+                    var feature = hero.TrainedFeats.Last();
+
+                    RecursiveRemoveCustomFeatures(hero, tag, feature.Features);
+                    hero.TrainedFeats.RemoveAt(hero.TrainedFeats.Count - 1);
+                }
                 break;
 
             case HeroDefinitions.PointsPoolType.Language:
@@ -186,7 +192,7 @@ public static class CustomFeaturesContext
             }
             else if (featureDefinition is FeatureDefinitionPointPool featureDefinitionPointPool)
             {
-                RemoveFeatureDefinitionPointPool(hero, heroRepertoire, featureDefinitionPointPool);
+                RemoveFeatureDefinitionPointPool(hero, heroRepertoire, tag, featureDefinitionPointPool);
             }
             else if (featureDefinition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet &&
                      featureDefinitionFeatureSet.Mode == FeatureDefinitionFeatureSet.FeatureSetMode.Union)

@@ -1,4 +1,15 @@
-﻿- Add a dropdown filter to the crafting panel
-- Add a house rule to ignore spell concentration
+﻿- Add an item category filter to the crafting panel
+- Add a house rule to ignore spells concentration
 - Add game unofficial translations in Spanish and Italian
+- Fix level down not removing fighting styles granted from feats
 - Improve translations
+- Update credits with Patrons list
+
+REQUEST:
+
+- Looking for native ES and IT speakers to improve initial translations from DeepL
+
+PATRONS:
+
+- I'm looking to provide better translations with an official Deepl Pro license
+- Please check Nexus posts for the donation link if you believe you can contribute
