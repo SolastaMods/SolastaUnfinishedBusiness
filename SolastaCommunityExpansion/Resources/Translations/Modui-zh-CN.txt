@@ -84,7 +84,7 @@ ModUi/&EnableUnityExplorer	启用Unity Explorer界面
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
 ModUi/&Encounters	遭遇战
-ModUi/&ExecuteBatchTranslations	<color=yellow>批量翻译：</color>\n\n. 战役将以目标语言进行批量翻译
+ModUi/&ExecuteBatchTranslations	. 批量翻译并创建以目标语言前缀的新战役文件
 ModUi/&ExpandAll	全部展开
 ModUi/&FactionHelp	<color=#C04040E0>加载官方战役修改派系关系……</color>
 ModUi/&FactionRelations	<color=yellow>派系关系：</color>
@@ -186,6 +186,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon <color=yellow>武器</color>
 ModUi/&AllowCrossbowsToUseBowFeatures 允许弩从与弓相关的特性中获益
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Overwrite game language:</color>
-ModUi/&Campaigns	<color=yellow>Campaigns:</color>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&OverwriteGameLanguage  <color=yellow>非官方语言支持：</color>
+ModUi/&Campaigns  <color=yellow>战役：</color>
