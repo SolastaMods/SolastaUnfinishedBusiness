@@ -38,6 +38,7 @@ internal class TitanFighting : AbstractFightingStyle
                 || defender.RulesetCharacter.SizeDefinition == Huge
                 || defender.RulesetCharacter.SizeDefinition == Gargantuan)
             {
+                attackerAttackMode.toHitBonus += 2;
                 attackModifier.AttacktoHitTrends.Add(
                     new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
                         "TitanFighting", this));
