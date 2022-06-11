@@ -33,9 +33,9 @@ public class DeviceFunctionDescriptionBuilder
 
     public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
     {
-        description.SetType(DeviceFunctionDescription.FunctionType.Spell);
-        description.SetSpellDefinition(spell);
-        description.SetCanOverchargeSpell(canOverchargeSpell);
+        description.type = DeviceFunctionDescription.FunctionType.Spell;
+        description.spellDefinition = spell;
+        description.canOverchargeSpell = canOverchargeSpell;
         return this;
     }
 

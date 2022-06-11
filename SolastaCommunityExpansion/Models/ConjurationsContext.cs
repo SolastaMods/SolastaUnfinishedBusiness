@@ -102,8 +102,8 @@ internal static class ConjurationsContext
         static void ConfigureAdvancement(SpellDefinition spell)
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
-            advancement.SetEffectIncrementMethod(EffectIncrementMethod.PerAdditionalSlotLevel);
-            advancement.SetAdditionalSpellLevelPerIncrement(1);
+            advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+            advancement.additionalSpellLevelPerIncrement = 1;
         }
     }
 }

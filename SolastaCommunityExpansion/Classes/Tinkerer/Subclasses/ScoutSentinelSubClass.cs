@@ -1092,8 +1092,8 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
         var motionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
 
         var motion = new MotionForm();
-        motion.SetDistance(6);
-        motion.SetType(MotionForm.MotionType.DragToOrigin);
+        motion.distance = 6;
+        motion.type = MotionForm.MotionType.DragToOrigin;
 
         motionEffect.SetMotionForm(motion);
         motionEffect.SetApplyLevel(EffectForm.LevelApplianceType.MultiplyBonus);

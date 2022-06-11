@@ -46,8 +46,8 @@ public class NewMonsterSpells
         ReverseGravity_Condition.turnOccurence = RuleDefinitions.TurnOccurenceType.StartOfTurn;
 
         MotionForm motionForm = new();
-        motionForm.SetDistance(10);
-        motionForm.SetType(MotionForm.MotionType.Levitate);
+        motionForm.distance = 10;
+        motionForm.type = MotionForm.MotionType.Levitate;
 
         EffectForm FallingEffect = new();
         FallingEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -94,7 +94,7 @@ public class NewMonsterSpells
 
         ReverseGravity_Spell.EffectDescription.EffectForms[0].ConditionForm.applyToSelf = false;
         ReverseGravity_Spell.EffectDescription.EffectForms[0].ConditionForm.forceOnSelf = false;
-        ReverseGravity_Spell.EffectDescription.EffectForms[1].MotionForm.SetDistance(10);
+        ReverseGravity_Spell.EffectDescription.EffectForms[1].MotionForm.distance = 10;
         ReverseGravity_Spell.EffectDescription.EffectForms.RemoveAt(2);
 
         ReverseGravity_Spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);

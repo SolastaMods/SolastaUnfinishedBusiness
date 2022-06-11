@@ -85,9 +85,13 @@ internal static class BazouSpells
             .SetCanBeDispersed(true);
 
         spell.EffectDescription.EffectAdvancement
-            .SetAdditionalDicePerIncrement(1)
-            .SetIncrementMultiplier(5)
-            .SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
+            .additionalDicePerIncrement = 1;
+
+        spell.EffectDescription.EffectAdvancement
+            .incrementMultiplier = 5;
+
+        spell.EffectDescription.EffectAdvancement
+            .effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.CasterLevelTable;
 
         // Changing to a single damage effect with d4, as I am unsure how to implement 2 different effectDescriptions within the same spell
         // First one should be single target attack roll, d8 damage
@@ -266,19 +270,19 @@ internal static class BazouSpells
         spell.EffectDescription.SetHasSavingThrow(true);
         spell.EffectDescription.SetHalfDamageOnAMiss(false);
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-        spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
-        spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
-        spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
-            .CasterLevelTable);
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 5;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+            .CasterLevelTable;
 
         spell.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
         spell.EffectDescription.EffectForms[1]
             .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(1);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeNecrotic);
+        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 1;
+        spell.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D4;
+        spell.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypeNecrotic;
         spell.EffectDescription.EffectForms[1].DamageForm
-            .SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Full);
+            .healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Full;
         spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
@@ -311,17 +315,17 @@ internal static class BazouSpells
         spell.EffectDescription.SetHasSavingThrow(true);
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Strength);
         spell.EffectDescription.SetRecurrentEffect((RuleDefinitions.RecurrentEffect)20);
-        spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(2);
-        spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
-        spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
-            .PerAdditionalSlotLevel);
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+            .PerAdditionalSlotLevel;
 
         spell.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
         spell.EffectDescription.EffectForms[0]
             .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
+        spell.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        spell.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D4;
+        spell.EffectDescription.EffectForms[0].DamageForm.damageType = RuleDefinitions.DamageTypeSlashing;
         spell.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
@@ -372,17 +376,17 @@ internal static class BazouSpells
         spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
             .AbilityScoreAndProficiency);
 
-        spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
-        spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
-        spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
-            .PerAdditionalSlotLevel);
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+            .PerAdditionalSlotLevel;
 
         spell.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
         spell.EffectDescription.EffectForms[1]
             .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(4);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypePsychic);
+        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+        spell.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        spell.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypePsychic;
         spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);

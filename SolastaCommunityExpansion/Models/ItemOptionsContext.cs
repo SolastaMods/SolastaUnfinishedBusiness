@@ -333,7 +333,7 @@ internal static class ItemOptionsContext
         {
             Definition.GuiPresentation.Title = title;
             Definition.GuiPresentation.Description = description;
-            Definition.UsableDeviceDescription.DeviceFunctions[0].SetSpellDefinition(Identify);
+            Definition.UsableDeviceDescription.DeviceFunctions[0].spellDefinition = Identify;
 
             var stockFocus = new StockUnitDescription();
 

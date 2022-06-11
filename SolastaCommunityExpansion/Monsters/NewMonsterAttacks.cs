@@ -205,8 +205,8 @@ public class NewMonsterAttacks
 
 
         MotionForm motionForm = new();
-        motionForm.SetDistance(10);
-        motionForm.SetType(MotionForm.MotionType.Levitate);
+        motionForm.distance = 10;
+        motionForm.type = MotionForm.MotionType.Levitate;
 
         EffectForm FallingEffect = new();
         FallingEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -633,8 +633,8 @@ public class NewMonsterAttacks
             .SetDamageType(RuleDefinitions.DamageTypeThunder);
 
         MotionForm motion = new();
-        motion.SetDistance(2);
-        motion.SetType(MotionForm.MotionType.PushFromOrigin);
+        motion.distance = 2;
+        motion.type = MotionForm.MotionType.PushFromOrigin;
 
         EffectForm motionEffect = new() {FormType = EffectForm.EffectFormType.Motion};
         motionEffect.SetMotionForm(motion);
@@ -1061,8 +1061,8 @@ public class NewMonsterAttacks
         Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
         MotionForm motionForm = new();
-        motionForm.SetDistance(5);
-        motionForm.SetType(MotionForm.MotionType.DragToOrigin);
+        motionForm.distance = 5;
+        motionForm.type = MotionForm.MotionType.DragToOrigin;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -1240,8 +1240,8 @@ public class NewMonsterAttacks
             .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
-        motionForm.SetDistance(4);
+        motionForm.type = MotionForm.MotionType.PushFromOrigin;
+        motionForm.distance = 4;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -1320,8 +1320,8 @@ public class NewMonsterAttacks
         EarthTitan_Boulder_Attack.SetItemDefinitionMainHand(null);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -1463,7 +1463,7 @@ public class NewMonsterAttacks
             .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
+        motionForm.type = MotionForm.MotionType.FallProne;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);

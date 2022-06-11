@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
@@ -37,14 +36,15 @@ internal class Crippling : AbstractFightingStyle
 
             conditionDefinition.allowMultipleInstances = true;
 
-            var conditionOperation = new ConditionOperationDescription();
-            conditionOperation
-                .SetCanSaveToCancel(false)
-                .SetConditionDefinition(conditionDefinition)
-                .SetHasSavingThrow(false)
-                .SetOperation(ConditionOperationDescription.ConditionOperation.Add)
-                .SetSaveAffinity(RuleDefinitions.EffectSavingThrowType.None)
-                .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+            var conditionOperation = new ConditionOperationDescription
+            {
+                canSaveToCancel = false,
+                conditionDefinition = conditionDefinition,
+                hasSavingThrow = false,
+                operation = ConditionOperationDescription.ConditionOperation.Add,
+                saveAffinity = RuleDefinitions.EffectSavingThrowType.None,
+                saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn
+            };
 
             var additionalDamage = FeatureDefinitionAdditionalDamageBuilder
                 .Create(DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamageCircleBalanceColdEmbrace,

@@ -149,13 +149,13 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Damage;
         var damageForm = new DamageForm();
-        damageForm.SetVersatile(versatile);
+        damageForm.versatile = versatile;
         damageForm.VersatileDieType = versatileDieType;
         damageForm.BonusDamage = bonusDamage;
         damageForm.DamageType = damageType;
         damageForm.DiceNumber = diceNumber;
         damageForm.DieType = dieType;
-        damageForm.SetHealFromInflictedDamage(healFromInflictedDamage);
+        damageForm.healFromInflictedDamage = healFromInflictedDamage;
         damageForm.DamageBonusTrends.SetRange(damageBonusTrends);
         effectForm.DamageForm = damageForm;
         return this;
@@ -242,8 +242,8 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Motion;
         var motionForm = new MotionForm();
-        motionForm.SetType(motionType);
-        motionForm.SetDistance(motionDistance);
+        motionForm.type = motionType;
+        motionForm.distance = motionDistance;
         effectForm.SetMotionForm(motionForm);
         return this;
     }

@@ -31,17 +31,19 @@ internal static class EWSpells
 
     private static SpellDefinition BuildSunlightBlade()
     {
-        var highlight = new ConditionOperationDescription()
-            .SetHasSavingThrow(false)
-            .SetOperation(ConditionOperation.Add)
-            .SetConditionDefinition(ConditionDefinitionBuilder
+        var highlight = new ConditionOperationDescription
+        {
+            hasSavingThrow = false,
+            operation = ConditionOperation.Add,
+            conditionDefinition = ConditionDefinitionBuilder
                 .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "EWSunlightBladeHighlighted",
                     DefinitionBuilder.CENamespaceGuid)
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetSpecialDuration(true)
-                .AddToDB());
+                .AddToDB()
+        };
 
         var dimLight = new LightSourceForm()
             .SetBrightRange(0)

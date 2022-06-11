@@ -45,8 +45,8 @@ internal static class KnockDownPowerBuilder
         //Create the prone effect - Weirdly enough the motion form seems to also automatically apply the prone condition
         var proneMotionEffect = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
         var proneMotion = new MotionForm();
-        proneMotion.SetType(MotionForm.MotionType.FallProne);
-        proneMotion.SetDistance(1);
+        proneMotion.type = MotionForm.MotionType.FallProne;
+        proneMotion.distance = 1;
         proneMotionEffect.SetMotionForm(proneMotion);
         proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 

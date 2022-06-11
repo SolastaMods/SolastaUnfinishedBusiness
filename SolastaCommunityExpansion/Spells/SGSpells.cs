@@ -80,8 +80,8 @@ public static class SGSpells
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D1);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
+        spell.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D1;
+        spell.EffectDescription.EffectForms[0].DamageForm.damageType = RuleDefinitions.DamageTypeRadiant;
 
         return spell;
     }

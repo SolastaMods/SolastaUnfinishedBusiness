@@ -774,8 +774,8 @@ public class NewMonsterPowers
         AirTitan_Gale_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(17);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -791,8 +791,8 @@ public class NewMonsterPowers
         AirTitan_Gale_Power.EffectDescription.EffectForms.Add(effectForm);
 
         MotionForm motionForm_2 = new();
-        motionForm_2.SetType(MotionForm.MotionType.PushFromOrigin);
-        motionForm_2.SetDistance(6);
+        motionForm_2.type = MotionForm.MotionType.PushFromOrigin;
+        motionForm_2.distance = 6;
 
         EffectForm effectForm_2 = new();
         effectForm_2.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -1017,8 +1017,8 @@ public class NewMonsterPowers
             .SetDieType(RuleDefinitions.DieType.D10);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -1099,8 +1099,8 @@ public class NewMonsterPowers
             .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
         effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);

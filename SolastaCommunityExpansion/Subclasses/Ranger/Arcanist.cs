@@ -191,7 +191,7 @@ internal class Arcanist : AbstractSubclass
                 DamageType = "DamageForce", DieType = RuleDefinitions.DieType.D8, DiceNumber = 4
             }
         };
-        damage_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
+        damage_effect.DamageForm.healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never;
         damage_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
         var damage_upgrade_effect = new EffectForm
@@ -201,7 +201,7 @@ internal class Arcanist : AbstractSubclass
                 DamageType = "DamageForce", DieType = RuleDefinitions.DieType.D8, DiceNumber = 8
             }
         };
-        damage_upgrade_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
+        damage_upgrade_effect.DamageForm.healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never;
         damage_upgrade_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
         var arcane_pulse_action = CreateArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle",

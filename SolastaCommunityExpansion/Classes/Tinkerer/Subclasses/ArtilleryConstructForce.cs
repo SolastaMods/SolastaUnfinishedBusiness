@@ -294,8 +294,8 @@ Web
         Definition.projectileBone = AnimationDefinitions.BoneType.Chest;
 
         var motionForm = new MotionForm();
-        motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
-        motionForm.SetDistance(1);
+        motionForm.type = MotionForm.MotionType.PushFromOrigin;
+        motionForm.distance = 1;
 
         var effectmotion = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
         effectmotion.SetMotionForm(motionForm);

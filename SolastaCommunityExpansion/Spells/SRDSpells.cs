@@ -716,11 +716,11 @@ public static class SrdSpells
 
         CouatlBite_Attack.SetToHitBonus(7);
         CouatlBite_Attack.EffectDescription.SetRangeParameter(1);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
+        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
+        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 5;
         CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         var conditionForm = new ConditionForm();
         conditionForm.conditionDefinition = ConditionPoisoned;
@@ -956,8 +956,8 @@ public static class SrdSpells
         effectDescription.Copy(DominatePerson.EffectDescription);
         effectDescription.RestrictedCreatureFamilies.Clear();
         effectDescription.SetDuration(RuleDefinitions.DurationType.Hour, 1);
-        effectDescription.EffectAdvancement.SetAlteredDuration(
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster);
+        effectDescription.EffectAdvancement.alteredDuration =
+            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster;
 
         return SpellDefinitionBuilder
             .Create("DHDominateMonsterSpell", DhBaseGuid)

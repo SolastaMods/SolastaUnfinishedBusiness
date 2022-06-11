@@ -38,10 +38,10 @@ internal static class HouseSpellTweaks
         //
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
-        DominateBeast.EffectDescription.EffectAdvancement.SetAlteredDuration(
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast);
-        DominatePerson.EffectDescription.EffectAdvancement.SetAlteredDuration(
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson);
+        DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
+            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateBeast;
+        DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
+            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominatePerson;
 
         // Stops upcasting assigning non-SRD durations
         ClearAlteredDuration(ProtectionFromEnergy);
@@ -54,7 +54,7 @@ internal static class HouseSpellTweaks
 
         static void ClearAlteredDuration(SpellDefinition spell)
         {
-            spell.EffectDescription.EffectAdvancement.SetAlteredDuration(RuleDefinitions.AdvancementDuration.None);
+            spell.EffectDescription.EffectAdvancement.alteredDuration = RuleDefinitions.AdvancementDuration.None;
         }
     }
 
