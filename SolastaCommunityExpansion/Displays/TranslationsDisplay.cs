@@ -8,15 +8,44 @@ namespace SolastaCommunityExpansion.Displays;
 
 public static class TranslationsDisplay
 {
+    internal static string[] UnofficialLanguages = {"off", "es", "it"};
+
     internal static void DisplayTranslations()
     {
+        int intValue;
+
+        UI.Label("");
+        UI.Label("Overwrite game language:".yellow());
+        UI.Label("");
+
+        intValue = Array.IndexOf(UnofficialLanguages, Main.Settings.SelectedOverwriteLanguageCode);
+
+        if (UI.SelectionGrid(
+                ref intValue,
+                UnofficialLanguages,
+                UnofficialLanguages.Length,
+                3, UI.Width(300)))
+        {
+            Main.Settings.SelectedOverwriteLanguageCode = UnofficialLanguages[intValue];
+        }
+
+        UI.Label("");
+        UI.Label("User campaigns translations:".yellow());
+        UI.Label("");
+
+        var toggle = Main.Settings.EnableOnTheFlyTranslations;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableOnTheFlyTranslations"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableOnTheFlyTranslations = toggle;
+        }
+
         UI.Label("");
 
         using (UI.HorizontalScope())
         {
             UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120));
 
-            var intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
+            intValue = Array.IndexOf(Translations.AvailableLanguages, Main.Settings.SelectedLanguageCode);
 
             if (UI.SelectionGrid(
                     ref intValue,
@@ -34,7 +63,7 @@ public static class TranslationsDisplay
         {
             UI.Label(Gui.Localize("ModUi/&TranslationEngine"), UI.Width(120));
 
-            var intValue = (int)Main.Settings.TranslationEngine;
+            intValue = (int)Main.Settings.TranslationEngine;
 
             if (UI.SelectionGrid(
                     ref intValue,
@@ -46,13 +75,6 @@ public static class TranslationsDisplay
             }
         }
 
-        UI.Label("");
-
-        var toggle = Main.Settings.EnableOnTheFlyTranslations;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableOnTheFlyTranslations"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableOnTheFlyTranslations = toggle;
-        }
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&ExecuteBatchTranslations"));

@@ -6,25 +6,25 @@ AttributeModifier/&DHFeeblemindChaSpellTitle	Carisma débil
 AttributeModifier/&DHFeeblemindIntSpellDescription	La puntuación de Inteligencia es igual a 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Inteligencia débil
 BlueprintCategory/&FlatRoomsTitle	Habitaciones planas
-Caption/&GadgetParametersCustomRemoveDescription	Eliminar:\N - 0.
+Caption/&GadgetParametersCustomRemoveDescription	Eliminar:\n{0}.
 Class/&ClassMonkDescription	Los monjes están unidos por su capacidad de aprovechar mágicamente la energía que fluye en sus cuerpos. Ya sea canalizada como una muestra llamativa de destreza en el combate o como un foco más sutil de habilidad defensiva y velocidad, esta energía infunde todo lo que un Monje hace.
 Class/&ClassMonkTitle	Monje
 Class/&ClassWarlockDescription	Los brujos son buscadores del conocimiento que se esconde en el tejido del multiverso. A través de pactos realizados con seres misteriosos de poder sobrenatural, los brujos desbloquean efectos mágicos tanto sutiles como espectaculares.
 Class/&ClassWarlockTitle	Brujo
 Class/&TinkererDescription	Los brujos son inventores, alquimistas y mucho más. Son un puente entre la magia y la tecnología.
-Class/&TinkererTitle	Hechicero
+Class/&TinkererTitle	Tinkerer
 Class/&WitchArmorProficiencyDescription	Armadura ligera.
 Class/&WitchArmorProficiencyTitle	Proficiencias de la armadura de brujo
 Class/&WitchBurnedFireResistanceDescription	Resistencia al fuego quemado.
 Class/&WitchBurnedFireResistanceTitle	Resistencia al fuego
 Class/&WitchBurnedProduceFlameDescription	Quemado Produce poder de llama.
 Class/&WitchBurnedProduceFlameTitle	Producir Llama
-Class/&WitchCacklePowerDescription	Puedes usar tu acción de bonificación para cacarear. La duración de tu cacareo se extiende 1 asalto por cada criatura afectada en un radio de 60 pies de ti.\NNo todas las brujas se ríen maniáticamente cuando cacarean, pero todos los cacareos requieren un componente verbal, como un hechizo. Estos van desde maldiciones e insultos mundanos, hasta el murmullo de lenguas muertas y el hablar al revés.
+Class/&WitchCacklePowerDescription	Puedes usar tu acción de bonificación para cacarear. La duración de tu cacareo se extiende 1 asalto por cada criatura afectada en un radio de 60 pies de ti.\nNo todas las brujas se ríen maníacamente cuando cacarean, pero todos los cacareos requieren un componente verbal, como un hechizo. Estos van desde maldiciones e insultos mundanos, hasta el murmullo de lenguas muertas y hablar al revés.
 Class/&WitchCacklePowerTitle	Cacareo
 Class/&WitchDescription	Afectadas por una siniestra maldición, las brujas pueden convertir la magia oscura en maldiciones, que utilizan para debilitar a los enemigos. También van acompañadas de sus familiares, fieles compañeros mágicos que utilizan para asestar el golpe mortal.
-Class/&WitchFamiliarPowerDescription	Aprendes el hechizo Familiar Brujo, es decir, un hechizo mejorado de Encontrar Familiar, y puedes lanzarlo como un ritual sin componentes materiales. El hechizo no cuenta en tu número de hechizos conocidos. El hechizo mejora Encontrar Familiar de las siguientes maneras:\N- Tu familiar toma su turno inmediatamente antes o después de tu turno cada ronda (a tu elección).\N- Una vez por turno, como una acción o una acción de bonificación, puedes ordenar mentalmente a tu familiar que use su reacción para hacer un ataque. \Cuando lanzas un conjuro, puedes lanzarlo a través de tu familiar como si éste lo hubiera hecho, incluso si el conjuro no tiene un alcance de toque.Tu familiar puede usar tu bonificador de ataque a conjuros para sus tiradas de ataque.Tu familiar añade tu bonificador de competencia a su clase de armadura, tiradas de salvación y tiradas de daño.Añades el doble de tu nivel de brujo a los puntos de golpe máximos de tu familiar.
+Class/&WitchFamiliarPowerDescription	Aprendes el hechizo Familiar Brujo, es decir, un hechizo mejorado de Encontrar Familiar, y puedes lanzarlo como un ritual sin componentes materiales. El hechizo no cuenta en tu número de hechizos conocidos. El hechizo mejora Encontrar Familiar de las siguientes maneras:\n- Tu familiar toma su turno inmediatamente antes o después de tu turno cada ronda (a tu elección).\n- Una vez por turno como una acción o una acción de bonificación, puedes ordenar mentalmente a tu familiar que use su reacción para hacer un ataque. \n- Cuando lanzas un hechizo, puedes lanzarlo a través de tu familiar como si éste lo hubiera hecho, incluso si el hechizo no tiene un alcance de toque. 0]- Tu familiar puede usar tu bonificador de ataque a hechizos para sus tiradas de ataque. 0]- Tu familiar añade tu bonificador de competencia a su clase de armadura, tiradas de salvación y tiradas de daño. 0]- Añades el doble de tu nivel de brujo a los puntos de golpe máximos de tu familiar.
 Class/&WitchFamiliarPowerTitle	Familiar
-Class/&WitchFeatureSetBurnedCurseDescription	Casi todo tu cuerpo ha sido abrasado por las llamas arcanas, dejándote con llamativas cicatrices negras y ascuas de magia que arden bajo la piel. Como resultado, tienes resistencia al daño por fuego, y conoces el cantrip Producir llamas, que no cuenta en tu número total de cantrips conocidos.
+Class/&WitchFeatureSetBurnedCurseDescription	Casi todo tu cuerpo ha sido abrasado por llamas arcanas, dejándote con llamativas cicatrices negras y ascuas de magia que arden bajo la piel. Como resultado, tienes resistencia al daño por fuego, y conoces el cantrip Producir llamas, que no cuenta en tu número total de cantrips conocidos.
 Class/&WitchFeatureSetBurnedCurseTitle	Quemado
 Class/&WitchFeatureSetLovelessCurseDescription	Estás condenado a no encontrar nunca el amor verdadero. Hastiado y desamparado, ni siquiera la magia puede cambiar tu corazón; como resultado, eres inmune a los encantos.
 Class/&WitchFeatureSetLovelessCurseTitle	Sin amor
@@ -48,7 +48,7 @@ Class/&WitchMaledictionObfuscateDescription	Como acción, creas una esfera de ni
 Class/&WitchMaledictionObfuscateTitle	Ofuscar la maldición
 Class/&WitchMaledictionPoxDescription	Como acción, elige una criatura que puedas ver en un radio de 1,5 metros para hacer una tirada de salvación de Constitución. Si fallas la tirada de salvación, la criatura queda envenenada hasta el final de tu siguiente turno.
 Class/&WitchMaledictionPoxTitle	Maldición de la viruela
-Class/&WitchMaledictionRuinDescription	Como acción, elige una criatura que puedas ver en un radio de 60 pies para hacer una tirada de salvación de Constitución. Si fallas la salvación, la clase de armadura de la criatura disminuye en 3, hasta un mínimo de 10, hasta el final de tu siguiente turno.
+Class/&WitchMaledictionRuinDescription	Como acción, elige una criatura que puedas ver en un radio de 60 pies para hacer una tirada de salvación de Constitución. Si fallas la tirada de salvación, la clase de armadura de la criatura disminuye en 3, hasta un mínimo de 10, hasta el final de tu siguiente turno.
 Class/&WitchMaledictionRuinTitle	Maldición de la Ruina
 Class/&WitchRitualCastingMagicAffinityDescription	Afinidad de Lanzamiento Ritual.
 Class/&WitchRitualCastingMagicAffinityTitle	Lanzamiento de Rituales
@@ -148,34 +148,34 @@ Condition/&SwallowingToadConditionDescription	Termina si el Brujo Sapo es golpea
 Condition/&SwallowingToadConditionTitle	Sapo Tragón
 ContentPack/&CommunityExpansionPackDescription	El pack de expansión de la Comunidad añade nuevas clases, subclases, proezas y hechizos. Hay un tope de nivel más alto, multiclase, características QOL, corrección de errores y mucho más. Es un verdadero cuerno de la abundancia (TM)...
 ContentPack/&CommunityExpansionPackTitle	Pack de Expansión de la Comunidad
-CraftyFeats/&ApothecaryIntFeatDescription	#¡ERROR!
+CraftyFeats/&ApothecaryIntFeatDescription	+1 Inteligencia, Proficiencia o Pericia con el Kit de Herboristería y Arcanos.
 CraftyFeats/&ApothecaryIntFeatTitle	Boticario (Inteligencia)
-CraftyFeats/&ApothecaryWisFeatDescription	#¡ERROR!
+CraftyFeats/&ApothecaryWisFeatDescription	+1 Sabiduría, competencia o pericia con el kit de herboristería y medicina.
 CraftyFeats/&ApothecaryWisFeatTitle	Boticario (Sabiduría)
-CraftyFeats/&AttributeDexDescription	#¡RARO!
+CraftyFeats/&AttributeDexDescription	+1 Destreza.
 CraftyFeats/&AttributeDexTitle	Destreza
-CraftyFeats/&AttributeIntDescription	#¡ERROR!
+CraftyFeats/&AttributeIntDescription	+1 Inteligencia.
 CraftyFeats/&AttributeIntTitle	Inteligencia
-CraftyFeats/&AttributeWisDescription	#¡ERROR!
+CraftyFeats/&AttributeWisDescription	+1 Sabiduría.
 CraftyFeats/&AttributeWisTitle	Sabiduría
 CraftyFeats/&CraftyArcanaDescription	Competencia o pericia en Arcanos.
 CraftyFeats/&CraftyBowsDescription	Competencia con todos los arcos y ballestas.
-CraftyFeats/&CraftyBowsTitle	Dominio del arco
-CraftyFeats/&CraftyFletcherFeatDescription	#¡ERROR!
+CraftyFeats/&CraftyBowsTitle	Competencia con el arco
+CraftyFeats/&CraftyFletcherFeatDescription	+1 Destreza, competencia o pericia con herramientas de herrero, competencia con arcos y ballestas.
 CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
 CraftyFeats/&CraftyMedicineDescription	Competencia o pericia en Medicina.
-CraftyFeats/&CraftyNatureDescription	Competencia o pericia en la naturaleza.
-CraftyFeats/&CraftyScribeFeatDescription	#¡ERROR!
-CraftyFeats/&CraftyScribeFeatTitle	Escribano
+CraftyFeats/&CraftyNatureDescription	Competencia o pericia con la naturaleza.
+CraftyFeats/&CraftyScribeFeatDescription	+1 Inteligencia, Competencia o pericia con Kit de Pergaminos y Arcanos, Requiere la habilidad de lanzar hechizos.
+CraftyFeats/&CraftyScribeFeatTitle	Escriba
 CraftyFeats/&CraftySkillsTitle	Habilidades
 CraftyFeats/&CraftyToolsTitle	Herramientas
-CraftyFeats/&ManacalonCrafterFeatDescription	#¡ERROR!
-CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
-CraftyFeats/&ToxicologistIntFeatDescription	#¡RARO!
+CraftyFeats/&ManacalonCrafterFeatDescription	+1 Inteligencia, Dominio o Pericia con Rosario de Manacalon y Arcanos, Requiere la habilidad de lanzar hechizos.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artesano de Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	+1 Inteligencia, Competencia o Pericia con Kit de Envenenador y Naturaleza.
 CraftyFeats/&ToxicologistIntFeatTitle	Toxicólogo (Inteligencia)
-CraftyFeats/&ToxicologistWisFeatDescription	#¡RARO!
+CraftyFeats/&ToxicologistWisFeatDescription	+1 Sabiduría, Dominio o Experiencia con el Kit de Envenenador y Medicina.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxicólogo (Sabiduría)
-DamageAffinity/&DHHolyAuraSpellDescription	Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el aura destella con una luz brillante. El atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que el hechizo termine.
+DamageAffinity/&DHHolyAuraSpellDescription	Cuando un demonio o un no muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el aura destella con una luz brillante. El atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que el hechizo termine.
 DamageAffinity/&DHHolyAuraSpellTitle	Aura sagrada de represalia
 Equipment/&ArcaneStaffDescription	Este báculo lleva inscrita una escritura mágica y puede utilizarse como foco para el lanzamiento de conjuros arcanos.
 Equipment/&ArcaneStaffTitle	Báculo arcano
@@ -185,7 +185,7 @@ Equipment/&CELongMaceTypeTitle	Mazas largas
 Equipment/&CEPikeTypeTitle	Picas
 Equipment/&DruidicAmuletDescription	Este amuleto totémico puede utilizarse como foco para el lanzamiento de hechizos druídicos.
 Equipment/&DruidicAmuletTitle	Amuleto druídico
-Equipment/&Enchanted_Club_Acuteness_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Club_Acuteness_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Club_Acuteness_Title	Garrote de la agudeza
 Equipment/&Enchanted_Club_Bearclaw_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Las afiladas púas de la garra del oso destrozan la armadura para infligir daño adicional. La primera arma de este tipo fue diseñada por Ildurial Stronghand.
 Equipment/&Enchanted_Club_Bearclaw_Title	Garra de oso
@@ -193,7 +193,7 @@ Equipment/&Enchanted_Club_Lightbringer_Description	Esta arma encantada se forjó
 Equipment/&Enchanted_Club_Lightbringer_Title	Garrote de la luz
 Equipment/&Enchanted_Club_Power_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Algunas criaturas sólo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon este garrote para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
 Equipment/&Enchanted_Club_Power_Title	Garrote del Poder
-Equipment/&Enchanted_Club_Punisher_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. La combinación del mejor metal y la piedra eslava otorgó a esta hacha un increíble poder de perforación.
+Equipment/&Enchanted_Club_Punisher_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. La combinación del mejor metal y la piedra eslava dio a esta hacha un increíble poder de perforación.
 Equipment/&Enchanted_Club_Punisher_Title	Garrote castigador
 Equipment/&Enchanted_Dart_Acuteness_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Dart_Acuteness_Title	Dardo de agudeza
@@ -217,7 +217,7 @@ Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Esta arma encantada 
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Ballesta pesada Lightbringer
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. La magia fundió el coral de medusa y la madera dura para crear un arco mortal, favorecido por las partidas de abordaje de los halflings de la isla.
 Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Ballesta pesada de medusa
-Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. Los Coedymwarth preferían enfrentarse a los arqueros de Manacalon de forma física en lugar de mágica. Sus mejores arqueros recibieron ballestas, creación de Defineth Sharpsight.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. Los Coedymwarth preferían enfrentarse a los arqueros de Manacalon físicamente en lugar de mágicamente. Sus mejores arqueros recibieron ballestas, creación de Defineth Sharpsight.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Ballesta pesada de tiro certero
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. Fue diseñada por Galar Stromforge, el primer herrero enano que aprovechó el poder de la tormenta en un arma con un efecto devastador.
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Arco de tormenta pesado
@@ -231,7 +231,7 @@ Equipment/&Enchanted_HideArmor_Robustness_Description	Esta armadura encantada se
 Equipment/&Enchanted_HideArmor_Robustness_Title	Armadura de pieles de robustez
 Equipment/&Enchanted_HideArmor_Sturdiness_Description	Esta armadura encantada se creó utilizando los antiguos conocimientos de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del emperador.
 Equipment/&Enchanted_HideArmor_Sturdiness_Title	Armadura de pieles de robustez
-Equipment/&Enchanted_HideArmor_Survival_Description	Esta armadura encantada se creó utilizando los antiguos conocimientos de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del emperador.
+Equipment/&Enchanted_HideArmor_Survival_Description	Esta armadura encantada se creó utilizando los antiguos conocimientos de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
 Equipment/&Enchanted_HideArmor_Survival_Title	Armadura de piel de supervivencia
 Equipment/&Enchanted_Javelin_Acuteness_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Javelin_Acuteness_Title	Jabalina de la agudeza
@@ -239,7 +239,7 @@ Equipment/&Enchanted_Javelin_Frostburn_Description	Esta arma encantada se creó 
 Equipment/&Enchanted_Javelin_Frostburn_Title	Jabalina de quemadura de escarcha
 Equipment/&Enchanted_Javelin_Sharpness_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Javelin_Sharpness_Title	Jabalina de la agudeza
-Equipment/&Enchanted_Javelin_Souldrinker_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Esta arma, una de las favoritas de los agentes de Silent Whisper, fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Javelin_Souldrinker_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Esta arma, una de las favoritas de los agentes de Silent Whisper, fue diseñada por Cylordir Redblade.
 Equipment/&Enchanted_Javelin_Souldrinker_Title	Jabalina del Cantapiedras
 Equipment/&Enchanted_LeatherDruid_Deflection_Description	Esta armadura encantada fue creada utilizando los antiguos conocimientos de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del emperador.
 Equipment/&Enchanted_LeatherDruid_Deflection_Title	Cuero de druida de la desviación
@@ -253,7 +253,7 @@ Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Esta armadura encantada
 Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Cuero de druida de la robustez
 Equipment/&Enchanted_LeatherDruid_Survival_Description	Esta armadura encantada se creó utilizando los antiguos conocimientos de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del emperador.
 Equipment/&Enchanted_LeatherDruid_Survival_Title	Cuero de druida de la supervivencia
-Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. Su diseño original llevaba el sello de Defineth Sharpsight, un renombrado encantador elfo silvano.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. Su diseño original llevaba el sello de Defineth Sharpsight, un renombrado hechicero elfo selvático.
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Ballesta ligera de precisión
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros arqueros de Colthannin. Fue diseñada por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Ballesta de luz Lightbringer
@@ -269,7 +269,7 @@ Equipment/&Enchanted_Maul_Bearclaw_Description	Esta arma encantada se forjó uti
 Equipment/&Enchanted_Maul_Bearclaw_Title	Mazo de garras de oso
 Equipment/&Enchanted_Maul_Lightbringer_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Colthannin. Fue diseñada por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Mazo de los Portadores de Luz
-Equipment/&Enchanted_Maul_Power_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Algunas criaturas sólo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon este Maul para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
+Equipment/&Enchanted_Maul_Power_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Algunas criaturas sólo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon esta maza para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
 Equipment/&Enchanted_Maul_Power_Title	Maul de poder
 Equipment/&Enchanted_Maul_Punisher_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. La combinación del mejor metal y la piedra eslava proporcionó a esta hacha un increíble poder de perforación.
 Equipment/&Enchanted_Maul_Punisher_Title	Mazo castigador
@@ -317,7 +317,7 @@ Equipment/&Enchanted_Scimitar_Stormblade_Description	Esta arma encantada se forj
 Equipment/&Enchanted_Scimitar_Stormblade_Title	Cimitarra de las Tormentas
 Equipment/&Enchanted_Scimitar_Warden_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Fue diseñada por Ildurial Strongarm, un famoso herrero de Manacalon. La primera hoja de este tipo, la Cimitarra del Guardián de Manacalon, se ofreció al comandante de los Euraidd.
 Equipment/&Enchanted_Scimitar_Warden_Title	Cimitarra del Guardián
-Equipment/&Enchanted_Scimitar_Whiteburn_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. La Quemablanca fue creada por el primer Danantar para luchar contra una invasión de trolls procedente de los pantanos situados al sur de sus dominios, entre el Sioltafin y el Scarafin.
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. La Quemablanca fue creada por el primer Danantar para luchar contra una invasión de trolls procedente de los pantanos al sur de sus dominios, entre el Sioltafin y el Scarafin.
 Equipment/&Enchanted_Scimitar_Whiteburn_Title	Cimitarra Quemiblanca
 Equipment/&Enchanted_Shield_Deflection_Description	Esta armadura encantada fue creada utilizando los antiguos conocimientos de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
 Equipment/&Enchanted_Shield_Deflection_Title	Escudo de desviación
@@ -345,13 +345,13 @@ Equipment/&Enchanted_Shield_Wooden_Survival_Description	Esta armadura encantada 
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Escudo de madera de la supervivencia
 Equipment/&Enchanted_Spear_Acuteness_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Acuteness_Title	Lanza de la agudeza
-Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada se forjó con los antiguos conocimientos de los maestros herreros de Manacalon, utilizando una lanza y el veneno de una araña legendaria de las profundidades de Solasta. El diseñador de la hoja fue Grigg Corazón Negro, un notorio herrero halfling del pantano que trabajaba en las forjas de Aer Elai.
+Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada se forjó con los antiguos conocimientos de los maestros herreros de Manacalon, utilizando una lanza y el veneno de una araña legendaria de las profundidades de Solasta. El diseñador de la hoja fue Grigg Corazón Negro, un notorio herrero halfling de los pantanos que trabajaba en las forjas de Aer Elai.
 Equipment/&Enchanted_Spear_BlackViper_Title	Lanza de la Víbora Negra
 Equipment/&Enchanted_Spear_Doomblade_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Kenaloth Darkmind ideó las Hojas de la Perdición como herramienta de castigo para aquellos que se resistían a la magia del Imperio.
 Equipment/&Enchanted_Spear_Doomblade_Title	Lanza con punta de perdición
 Equipment/&Enchanted_Spear_Lightbringer_Description	Esta arma encantada se forjó utilizando los antiguos conocimientos de los maestros herreros de Colthannin. Fue diseñada por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
 Equipment/&Enchanted_Spear_Lightbringer_Title	Lanza de la luz
-Equipment/&Enchanted_Spear_Sharpness_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Sharpness_Description	Esta arma encantada fue creada utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
 Equipment/&Enchanted_Spear_Sharpness_Title	Lanza de afilado
 Equipment/&Enchanted_Spear_Whiteburn_Description	Esta arma encantada se creó utilizando los antiguos conocimientos de los maestros herreros de Manacalon. Quemablanca fue creada por el primer Danantar para luchar contra una invasión de trolls procedente de los pantanos al sur de sus dominios, entre el Sioltafin y el Scarafin.
 Equipment/&Enchanted_Spear_Whiteburn_Title	Lanza de Quemadura Blanca
@@ -379,7 +379,7 @@ Equipment/&Enchanted_Warhammer_Punisher_Description	Esta arma encantada fue crea
 Equipment/&Enchanted_Warhammer_Punisher_Title	Martillo de guerra castigador
 Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Concede protección contra el ácido durante 1 hora.
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Brebaje de protección contra el ácido
-Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Concede protección contra el rayo durante 1 hora.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Concede protección contra el Rayo durante 1 hora.
 Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brebaje de protección contra el rayo
 Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Concede protección contra el Necrótico durante 1 hora.
 Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Brebaje de Protección Necrótica
@@ -457,10 +457,10 @@ Feat/&ArtilleristProtectorCannonTitle	Escudo Arcano
 Feat/&ArtilleristSubclassSpellsDescription	{0}.
 Feat/&ArtilleristSubclassSpellsTitle	Aprender Hechizos Blaster
 Feat/&ArtilleryConstructDescription	Puede dañar o proteger a los aliados.
-Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Constructora de Reparación, Constructora de Despedida {nivel 1: Resumir Constructora de Artillería.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips:Constructora de Reparación, Constructora de Despedida \nNivel 1: Resumir Constructora de Artillería.
 Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Hechizos de Constructo
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Ganas hechizos extra que se consideran hechizos de Hechicero para ti, siempre están preparados y no cuentan contra el número de hechizos de Hechicero que conoces.
-Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construir Hechizos
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Hechizos de Constructor
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Ganas hechizos de bonificación que se consideran hechizos de Hojalatero para ti, siempre están preparados y no cuentan contra el número de hechizos de Hojalatero que conoces.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construir Hechizos
 Feat/&ArtilleryConstructTitle	Construir Artillería
@@ -486,7 +486,7 @@ Feat/&ChefWisDescription	Ganas +1 a la Sabiduría. Dedica 1 hora a preparar una 
 Feat/&ChefWisTitle	Chef (Sabiduría)
 Feat/&ConstructSelectingPoolDescription	Selecciona el modo para tu Construct.
 Feat/&ConstructSelectingPoolTitle	Modo Artillería
-Feat/&DeadeyeFeatDescription	Has dominado las armas a distancia y puedes hacer disparos que a otros les resultan imposibles.\N-Atacar a larga distancia no impone desventaja en tus tiradas de ataque con armas a distancia.\N-Tus ataques con armas a distancia ignoran la media cobertura y la cobertura de tres cuartos.\N-Puedes elegir tener una penalización de -5 a tu tirada de ataque con armas a distancia. Si el ataque impacta, infliges 10 puntos de daño adicionales del tipo de arma.
+Feat/&DeadeyeFeatDescription	Has dominado las armas a distancia y puedes hacer disparos que a otros les resultan imposibles.\n- Atacar a larga distancia no impone desventaja en tus tiradas de ataque con armas a distancia.\n- Tus ataques con armas a distancia ignoran la media cobertura y la cobertura de tres cuartos.\n- Puedes elegir sufrir una penalización de -5 a tu tirada de ataque con armas a distancia. Si el ataque impacta, infliges 10 puntos de daño adicionales del tipo de arma.
 Feat/&DeadeyeFeatTitle	Ojo avizor
 Feat/&DismissConstructDescription	Desinvoca a tu constructo.
 Feat/&DismissConstructTitle	Desmembrar constructo
@@ -494,114 +494,114 @@ Feat/&DualFlurryDescription	Eres un maestro de la lucha con armas emparejadas. E
 Feat/&DualFlurryTitle	Flurry dual
 Feat/&ExtraInfusionSlotsDescription	Ganas ranuras de infusión extra que deben ser usadas en armaduras/armas.
 Feat/&ExtraInfusionSlotsTitle	Infusiones extra
-Feat/&FeatArcaneDefenseDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20. Mientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Inteligencia.
+Feat/&FeatArcaneDefenseDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nMientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Inteligencia.
 Feat/&FeatArcaneDefenseTitle	Defensa Arcana
 Feat/&FeatArcanePrecisionDescription	Cuando se activa en un arma, sus ataques cuentan como mágicos y utilizas tu Inteligencia para tus tiradas de ataque y daño. Tiene una duración de 1 minuto y puede usarse dos veces por descanso largo.
 Feat/&FeatArcanePrecisionTitle	Precisión arcana
 Feat/&FeatBlindFightingStlyeDescription	Tienes visión ciega con un alcance de 3 metros.
 Feat/&FeatBlindFightingStlyeTitle	Estilo de lucha: Lucha a ciegas
-Feat/&FeatBrutalThugDescription	Ganas competencia con armas simples y marciales y puedes atacar por sorpresa con armas marciales.
-Feat/&FeatBrutalThugTitle	Matón brutal
-Feat/&FeatChaIncrementDescription	#¡ERROR!
+Feat/&FeatBrutalThugDescription	Aportas poderosos golpes en los lugares adecuados.\nObtienes competencias de armas simples y marciales y puedes atacar por sorpresa con armas marciales.
+Feat/&FeatBrutalThugTitle	Matón Brutal
+Feat/&FeatChaIncrementDescription	+1 Carisma.
 Feat/&FeatChaIncrementTitle	Aumento del atributo Carisma
-Feat/&FeatCharismaticDefenseDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Mientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Carisma.
-Feat/&FeatCharismaticDefenseTitle	Defensa carismática
-Feat/&FeatCharismaticPrecisionDescription	Cuando está activa en un arma, sus ataques cuentan como mágicos y utilizas tu Carisma para tus tiradas de ataque y daño. Tiene una duración de 1 minuto y puede usarse dos veces por descanso largo.
+Feat/&FeatCharismaticDefenseDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nMientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Carisma.
+Feat/&FeatCharismaticDefenseTitle	Defensa de Carisma
+Feat/&FeatCharismaticPrecisionDescription	Cuando se activa en un arma, sus ataques cuentan como mágicos y utilizas tu Carisma para tus tiradas de ataque y daño. Tiene una duración de 1 minuto y puede usarse dos veces por descanso largo.
 Feat/&FeatCharismaticPrecisionTitle	Precisión Carismática
-Feat/&FeatChefConIncrementDescription	¡#ERROR!
+Feat/&FeatChefConIncrementDescription	+1 Constitución.
 Feat/&FeatChefConIncrementTitle	Aumento de atributos
-Feat/&FeatChefWisIncrementDescription	#¡ERROR!
+Feat/&FeatChefWisIncrementDescription	+1 Sabiduría.
 Feat/&FeatChefWisIncrementTitle	Aumento de atributos
 Feat/&FeatCripplingDescription	Al impactar con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el inicio de tu siguiente turno.
 Feat/&FeatCripplingTitle	Estilo de lucha: Crippling
-Feat/&FeatDexIncrementDescription	#¡ERROR!
+Feat/&FeatDexIncrementDescription	+1 Destreza.
 Feat/&FeatDexIncrementTitle	Aumento de atributos
 Feat/&FeatDualWeaponDefenseDescription	Obtienes un bonificador +1 a la CA mientras estés blandiendo un arma cuerpo a cuerpo distinta en cada mano.
 Feat/&FeatDualWeaponDefenseTitle	Defensa con dos armas
-Feat/&FeatFastHandsDescription	Obtienes una acción de astucia y puedes usar la acción de bonificación que te otorga para hacer un chequeo de Destreza (Juego de manos), usar tus herramientas de ladrón para desarmar una trampa o abrir una cerradura, o realizar la acción de Usar un objeto.
+Feat/&FeatFastHandsDescription	Obtienes una acción de astucia y puedes usar la acción de bonificación que te otorga para hacer un chequeo de Destreza (Juego de manos), usar tus herramientas de ladrón para Desarmar una trampa o abrir una cerradura, o hacer la acción de Usar un objeto.
 Feat/&FeatFastHandsTitle	Manos rápidas
-Feat/&FeatFeyTeleportationChaDescription	Aumenta el atributo de Carisma en 1. Obtiene la habilidad de Paso Nublado una vez por descanso corto y aprende el hechizo. Gana competencia en Tirmarian.
+Feat/&FeatFeyTeleportationChaDescription	Aumenta el atributo de Carisma en 1. Gana la habilidad de Paso Nublado una vez por descanso corto y aprende el hechizo. Gana competencia en Tirmarian.
 Feat/&FeatFeyTeleportationChaTitle	Teletransporte feérico (Carisma)
 Feat/&FeatFeyTeleportationIntDescription	Incrementa el atributo de Inteligencia en 1. Obtiene la habilidad de Paso Mistoso una vez por descanso corto y aprende el hechizo. Gana competencia en Tirmarian.
 Feat/&FeatFeyTeleportationIntTitle	Teletransporte feérico (Inteligencia)
 Feat/&FeatFeyTeleportationWisDescription	Aumenta el atributo de Sabiduría en 1. Obtiene la habilidad de Paso de la Niebla una vez por descanso corto y aprende el hechizo. Adquiere competencia en tirmariano.
 Feat/&FeatFeyTeleportationWisTitle	Teletransporte feérico (Sabiduría)
-Feat/&FeatFightingSurgeDexterityDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\NEn tu turno, puedes realizar una acción adicional además de tu acción normal y una posible acción de bonificación. Una vez que usas esta característica, debes terminar un descanso largo antes de poder usarla de nuevo.
+Feat/&FeatFightingSurgeDexterityDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nEn tu turno, puedes realizar una acción adicional además de tu acción normal y una posible acción extra. Una vez que usas este rasgo, debes terminar un descanso largo antes de poder usarlo de nuevo.
 Feat/&FeatFightingSurgeDexterityTitle	Aumento de lucha (Destreza)
-Feat/&FeatFightingSurgeStrengthDescription	Aumenta tu fuerza en 1, hasta un máximo de 20. En tu turno, puedes realizar una acción adicional además de tu acción normal y una posible acción adicional. Una vez que usas esta característica, debes terminar un descanso largo antes de poder usarla de nuevo.
+Feat/&FeatFightingSurgeStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nEn tu turno, puedes realizar una acción adicional además de tu acción normal y una posible acción extra. Una vez que usas este rasgo, debes terminar un descanso largo antes de poder usarlo de nuevo.
 Feat/&FeatFightingSurgeStrengthTitle	Oleada de lucha (Fuerza)
 Feat/&FeatHeavyArmorMasterClassDescription	Resistencia al daño contundente, cortante y perforante.
 Feat/&FeatHeavyArmorMasterClassTitle	Dominio de la defensa pesada
 Feat/&FeatImprovedCriticalDescription	Tus ataques son golpes críticos con una tirada de 19 o 20.
 Feat/&FeatImprovedCriticalTitle	Crítico mejorado
-Feat/&FeatIntIncrementDescription	#ERROR
-Feat/&FeatIntIncrementTitle	Aumento del atributo de inteligencia
-Feat/&FeatLightArmorDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20. Ganas competencia con la Armadura Ligera.
+Feat/&FeatIntIncrementDescription	+1 Inteligencia.
+Feat/&FeatIntIncrementTitle	Aumento del Atributo de Inteligencia
+Feat/&FeatLightArmorDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nGanas competencia con la Armadura Ligera.
 Feat/&FeatLightArmorProficiencyDescription	Ganas competencia con la armadura ligera.
 Feat/&FeatLightArmorProficiencyTitle	Armadura Ligera
 Feat/&FeatLightArmorTitle	Armadura ligera
-Feat/&FeatMarksmanDescription	Cuando un oponente que puedes ver te ataca con un arma a distancia o un hechizo y está al menos a 10 pies de ti, puedes usar tu reacción para hacer un ataque con arma a distancia después de que termine el ataque desencadenante.
+Feat/&FeatMarksmanDescription	Cuando un oponente que puedes ver te ataca con un arma a distancia o un hechizo y está al menos a 10 pies de ti, puedes usar tu reacción para hacer un ataque con arma a distancia después de que el ataque desencadenante termine.
 Feat/&FeatMarksmanTitle	Tirador
-Feat/&FeatMediumArmorDexDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\NGanas competencia con Armadura Media y escudos.
+Feat/&FeatMediumArmorDexDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nObtienes competencia con armadura media y escudos.
 Feat/&FeatMediumArmorDexTitle	Armadura media (Destreza)
 Feat/&FeatMediumArmorProficiencyDescription	Ganas competencia con armadura media y escudos.
 Feat/&FeatMediumArmorProficiencyTitle	Armadura media
-Feat/&FeatMediumArmorStrengthDescription	Aumenta tu fuerza en 1, hasta un máximo de 20. Obtienes competencia con armaduras y escudos medianos.
+Feat/&FeatMediumArmorStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con Armadura Media y escudos.
 Feat/&FeatMediumArmorStrengthTitle	Armadura media (Fuerza)
-Feat/&FeatMetamagicAdeptCarefulDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Aprendes la metamagia Cuidado y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptCarefulDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Cuidado y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptCarefulTitle	Metamagia: Cuidado
-Feat/&FeatMetamagicAdeptDistantDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Aprendes la metamagia Distante y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptDistantDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Distante y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptDistantTitle	Metamagia: Distante
-Feat/&FeatMetamagicAdeptEmpoweredDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Aprendes la metamagia Potenciado y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Potenciado y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagia: Potenciado
-Feat/&FeatMetamagicAdeptExtendedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Aprendes la metamagia Extendida y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptExtendedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Extendido y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptExtendedTitle	Metamagia: Extendida
 Feat/&FeatMetamagicAdeptHeightenedDescription	Aprendes la metamagia Intensificada y ganas 4 puntos de hechicería.
 Feat/&FeatMetamagicAdeptHeightenedTitle	Metamagia: Aumentada
-Feat/&FeatMetamagicAdeptQuickenedDescription	Aumentas tu Carisma en 1, hasta un máximo de 20. Aprendes la metamagia Aumentada y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptQuickenedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Acelerado y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagia: Acelerado
-Feat/&FeatMetamagicAdeptTwinnedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Aprendes la metamagia Gemelo y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptTwinnedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Gemelo y ganas 2 puntos de hechicería.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagia: Gemelo
-Feat/&FeatPolearmExpertDescription	Tu entrenamiento experto con armas de asta te otorga estos beneficios:\N-Cuando realizas la acción de Ataque y atacas sólo con un arma de asta, puedes utilizar una acción de bonificación para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque utiliza el mismo modificador de habilidad que el ataque principal. El dado de daño del arma para este ataque es un d4, e inflige daño contundente.\N-Mientras estés blandiendo un arma de asta, otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con esa arma.
+Feat/&FeatPolearmExpertDescription	Tu entrenamiento experto con armas de asta te otorga estos beneficios:\n- Cuando realizas la acción de Ataque y atacas sólo con un arma de asta, puedes utilizar una acción de bonificación para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque utiliza el mismo modificador de habilidad que el ataque principal. El dado de daño del arma para este ataque es un d4, e inflige daño contundente.\n- Mientras estés blandiendo un arma de asta, otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con esa arma.
 Feat/&FeatPolearmExpertTitle	Experto en armas de asta
-Feat/&FeatPrimalConstitutionDescription	Aumenta tu Constitución en 1, hasta un máximo de 20.\NPuedes entrar en cólera como acción adicional, tal y como se define en el rasgo de clase de cólera del bárbaro, con un daño de cólera de +1 que puede acumularse con la cólera del bárbaro. Una vez que hayas montado en cólera de esta manera, debes terminar un descanso largo antes de volver a usar este rasgo.\NMientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
+Feat/&FeatPrimalConstitutionDescription	Aumenta tu Constitución en 1, hasta un máximo de 20.\nPuedes entrar en cólera como acción adicional, tal y como se define en el rasgo de clase de cólera del bárbaro, con un daño de cólera de +1 que puede acumularse con la cólera del bárbaro. Una vez que hayas montado en cólera de esta manera, debes terminar un descanso largo antes de usar esta característica de nuevo.\nMientras no lleves ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
 Feat/&FeatPrimalConstitutionTitle	Furia Primigenia (Constitución)
-Feat/&FeatPrimalStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\NPuedes entrar en cólera como acción de bonificación, tal y como se define en el rasgo de clase de cólera del bárbaro, con un daño de cólera de +1 que puede acumularse con la cólera del bárbaro. Una vez que hayas montado en cólera de esta manera, debes terminar un descanso largo antes de volver a usar este rasgo.\NMientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
+Feat/&FeatPrimalStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nPuedes entrar en una furia como acción de bonificación, tal y como se define en el rasgo de clase de furia del bárbaro, con un daño de furia de +1 que puede acumularse con la furia del bárbaro. Una vez que hayas montado en cólera de esta manera, debes terminar un descanso largo antes de usar este rasgo de nuevo.\nMientras no lleves ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
 Feat/&FeatPrimalStrengthTitle	Furia Primigenia (Fuerza)
-Feat/&FeatPugilistFightingStlyeDescription	Tus golpes sin armas infligen 1d4 de daño contundente adicional y puedes golpear con tu mano libre como acción adicional.
+Feat/&FeatPugilistFightingStlyeDescription	Tus golpes desarmados infligen 1d4 de daño contundente adicional y puedes dar un puñetazo con tu mano libre como acción adicional.\nSi tienes una mano libre, puedes empujar como acción adicional.
 Feat/&FeatPugilistFightingStlyeTitle	Estilo de lucha: Pugilista
-Feat/&FeatRangedExpertDescription	Tu entrenamiento experto con armas a distancia te otorga estos beneficios:\N- Ya no tienes desventaja en los ataques a distancia cuando hay un enemigo a 5 pies de distancia de ti.\N-Si gastas tu acción de ataque puedes usar la acción de bonificación para hacer un ataque con un arma a distancia o arrojada con una mano.
+Feat/&FeatRangedExpertDescription	Tu entrenamiento experto con armas a distancia te otorga estos beneficios:\n- Ya no tienes desventaja en los ataques a distancia cuando hay un enemigo a 5 pies de distancia de ti.\n- Si gastas tu acción de ataque puedes usar la acción de bonificación para hacer un ataque con un arma a distancia o arrojada con una mano.
 Feat/&FeatRangedExpertTitle	Experto a distancia
 Feat/&FeatSavageAttackerDescription	Vuelve a lanzar los dados de daño de armas y hechizos cuando sacan un 1 (no vuelve a lanzar todas las fuentes de daño, por ejemplo excluye Ataque Furtivo y Golpe).
 Feat/&FeatSavageAttackerReroll	Por ser un Atacante Salvaje {0} vuelve a tirar el dado {1} de un {2} a un {3}
 Feat/&FeatSavageAttackerTitle	Atacante Salvaje
-Feat/&FeatSentinelDescription	Has dominado las técnicas para aprovechar cada bajada de guardia de cualquier enemigo, obteniendo los siguientes beneficios:\N-Cuando golpeas a una criatura con un ataque de oportunidad, la velocidad de la criatura pasa a ser 0 durante el resto del turno.\N-Las criaturas provocan ataques de oportunidad tuyos incluso si realizan la acción de Desengancharse antes de salir de tu alcance.\N-Cuando una criatura realiza un ataque contra un objetivo que no seas tú (y ese objetivo no tiene esta hazaña), puedes utilizar tu reacción para realizar un ataque con arma cuerpo a cuerpo contra la criatura atacante.
+Feat/&FeatSentinelDescription	Dominas las técnicas para aprovechar cada bajada de guardia de cualquier enemigo, obteniendo los siguientes beneficios:\n- Cuando golpeas a una criatura con un ataque de oportunidad, la velocidad de la criatura pasa a ser 0 durante el resto del turno.\n- Las criaturas provocan ataques de oportunidad tuyos incluso si realizan la acción de Desenganche antes de salir de tu alcance.\n- Cuando una criatura realiza un ataque contra un objetivo que no seas tú (y ese objetivo no tiene esta hazaña), puedes utilizar tu reacción para realizar un ataque con arma cuerpo a cuerpo contra la criatura atacante.
 Feat/&FeatSentinelTitle	Centinela
-Feat/&FeatShadowTouchedChaDescription	Aumenta tu atributo de Carisma en 1, hasta un máximo de 20.\NGanas la capacidad de lanzar Invisibilidad, Infligir heridas y Vida falsa una vez por descanso largo y aprendes los conjuros.
+Feat/&FeatShadowTouchedChaDescription	Aumenta tu atributo de Carisma en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar Invisibilidad, Infligir heridas y Vida falsa una vez por descanso largo y aprendes los conjuros.
 Feat/&FeatShadowTouchedChaTitle	Tocado por la sombra (Carisma)
-Feat/&FeatShadowTouchedIntDescription	Aumenta tu atributo de Inteligencia en 1, hasta un máximo de 20. Obtienes la habilidad de lanzar Invisibilidad, Infligir heridas y Vida falsa una vez por descanso largo y aprendes los conjuros.
+Feat/&FeatShadowTouchedIntDescription	Aumenta tu atributo de Inteligencia en 1, hasta un máximo de 20.\nObtienes la habilidad de lanzar Invisibilidad, Infligir heridas y Vida falsa una vez por descanso largo y aprendes los conjuros.
 Feat/&FeatShadowTouchedIntTitle	Tocado por la sombra (Inteligencia)
-Feat/&FeatShadowTouchedWisDescription	Aumenta tu atributo de Sabiduría en 1, hasta un máximo de 20. Obtienes la habilidad de lanzar Invisibilidad, Infligir heridas y Vida falsa una vez por descanso largo y aprendes los conjuros.
+Feat/&FeatShadowTouchedWisDescription	Aumenta tu atributo de Sabiduría en 1, hasta un máximo de 20.\nObtienes la habilidad de lanzar Invisibilidad, Infligir heridas y Vida falsa una vez por descanso largo y aprendes los conjuros.
 Feat/&FeatShadowTouchedWisTitle	Tocado por la sombra (Sabiduría)
-Feat/&FeatShadyDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\NUna vez por turno, puedes infligir un daño extra de 1d6 a una criatura a la que golpees con un ataque que cumpla los requisitos del Ataque Furtivo del Pícaro. A 12º nivel, este daño aumenta a 2d6 y a 20º nivel, a 4d6.
+Feat/&FeatShadyDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nUna vez por turno, puedes infligir un daño extra de 1d6 a una criatura que golpees con un ataque que cumpla los requisitos del Ataque Furtivo del Pícaro. A 12º nivel, este daño aumenta a 2d6 y a 20º nivel, a 4d6.
 Feat/&FeatShadyTitle	Sombra
-Feat/&FeatShieldExpertDescription	Te has entrenado en el uso de un escudo como arma. Para ti, se convierte en un arma cuerpo a cuerpo que dominas y que inflige 1d4 de daño contundente.\NGanas ventaja en los intentos de empuje mientras empuñas un escudo.
+Feat/&FeatShieldExpertDescription	Te has entrenado en el uso de un escudo como arma. Para ti, se convierte en un arma cuerpo a cuerpo que dominas y que inflige 1d4 de daño contundente.\nGanas ventaja en los intentos de empuje mientras empuñas un escudo.
 Feat/&FeatShieldExpertTitle	Experto en escudos
-Feat/&FeatStrengthIncrementDescription	#¡ERROR!
+Feat/&FeatStrengthIncrementDescription	+1 Fuerza.
 Feat/&FeatStrengthIncrementTitle	Aumento de atributos
-Feat/&FeatTelekineticChaDescription	Aumenta tu Carisma en 1, hasta un máximo de 20. Como acción adicional, puedes empujar o tirar telequinéticamente de una criatura que puedas ver en un radio de 30 pies. El objetivo debe tener éxito en una tirada de salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Carisma) o ser movido 5 pies.
+Feat/&FeatTelekineticChaDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nComo acción de bonificación, puedes empujar o tirar telequinéticamente de una criatura que puedas ver en un radio de 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Carisma) o ser movido 5 pies.
 Feat/&FeatTelekineticChaPullDescription	Atraer telequinéticamente a una criatura hacia ti.
 Feat/&FeatTelekineticChaPullTitle	Tirar Telequinéticamente
 Feat/&FeatTelekineticChaPushDescription	Empuja telequinéticamente a una criatura lejos de ti.
 Feat/&FeatTelekineticChaPushTitle	Empujar telequinéticamente
 Feat/&FeatTelekineticChaTitle	Telequinético (Carisma)
-Feat/&FeatTelekineticIntDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.Como acción de bonificación, puedes empujar o tirar telequinéticamente de una criatura que puedas ver en un radio de 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Inteligencia) o ser movido 5 pies.
+Feat/&FeatTelekineticIntDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nComo acción de bonificación, puedes empujar o tirar telequinéticamente de una criatura que puedas ver en un radio de 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Inteligencia) o ser movido 5 pies.
 Feat/&FeatTelekineticIntPullDescription	Atrae telequinéticamente a una criatura hacia ti.
 Feat/&FeatTelekineticIntPullTitle	Tirón Telequinético
 Feat/&FeatTelekineticIntPushDescription	Empuja telequinéticamente a una criatura lejos de ti.
 Feat/&FeatTelekineticIntPushTitle	Empujar telequinéticamente
 Feat/&FeatTelekineticIntTitle	Telequinético (Inteligencia)
-Feat/&FeatTelekineticWisDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.Como acción adicional, puedes empujar o tirar telequinéticamente de una criatura que puedas ver en un radio de 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Sabiduría) o ser movido 5 pies.
+Feat/&FeatTelekineticWisDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nComo acción de bonificación, puedes empujar o tirar telequinéticamente de una criatura que puedas ver en un radio de 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Sabiduría) o ser movido 5 pies.
 Feat/&FeatTelekineticWisPullDescription	Tira telecinéticamente de una criatura hacia ti.
 Feat/&FeatTelekineticWisPullTitle	Tirar telequinéticamente
 Feat/&FeatTelekineticWisPushDescription	Empuja telequinéticamente a una criatura lejos de ti.
@@ -611,13 +611,13 @@ Feat/&FeatTitanFightingDescription	Ganas un +2 al impacto contra criaturas de ta
 Feat/&FeatTitanFightingTitle	Estilo de lucha: Lucha de Titanes
 Feat/&FeatToughDescription	Tu máximo de puntos de golpe aumenta en una cantidad igual al doble de tu nivel cuando obtienes esta proeza. Cada vez que ganes un nivel a partir de entonces, tu máximo de puntos de golpe aumenta en 2 puntos de golpe adicionales.
 Feat/&FeatToughTitle	Resistente
-Feat/&FeatWarCasterDescription	Obtienes ventaja en los chequeos para mantener la concentración.\NObtienes la capacidad de realizar el componente somático de los conjuros incluso con las dos manos ocupadas.\NCuando el movimiento de una criatura hostil provoca un ataque de oportunidad por tu parte, puedes utilizar tu reacción para lanzar un cantrip a la criatura, en lugar de realizar un ataque de oportunidad. El cantrip debe tener un tiempo de lanzamiento de 1 acción o acción extra y debe tener como objetivo sólo a esa criatura.
+Feat/&FeatWarCasterDescription	Obtienes ventaja en los chequeos para mantener la concentración.\nObtienes la capacidad de realizar el componente somático de los conjuros incluso con las dos manos ocupadas.\nCuando el movimiento de una criatura hostil provoque un ataque de oportunidad por tu parte, puedes utilizar tu reacción para lanzar un cantrip a la criatura, en lugar de realizar un ataque de oportunidad. El cantrip debe tener un tiempo de lanzamiento de 1 acción o acción extra y debe tener como objetivo sólo a esa criatura.
 Feat/&FeatWarCasterTitle	Lanzador de guerra
-Feat/&FeatWiseDefenseDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20. Mientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Sabiduría.
+Feat/&FeatWiseDefenseDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nMientras no lleves armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Sabiduría.
 Feat/&FeatWiseDefenseTitle	Defensa de Sabiduría
 Feat/&FeatWisePrecisionDescription	Cuando se activa en un arma, sus ataques cuentan como mágicos y utilizas tu Sabiduría para tus tiradas de ataque y daño. Tiene una duración de 1 minuto y puede utilizarse dos veces por descanso largo.
 Feat/&FeatWisePrecisionTitle	Precisión sabia
-Feat/&FeatWisIncrementDescription	¡#ERROR!
+Feat/&FeatWisIncrementDescription	+1 Sabiduría.
 Feat/&FeatWisIncrementTitle	Aumento del atributo de Sabiduría
 Feat/&FeyTeleportationLanguageTirmarianDescription	Gana competencia en Tirmarian.
 Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmariano
@@ -631,7 +631,7 @@ Feat/&FightingStyleGeneralFeatDescription	Puedes seleccionar un estilo de lucha.
 Feat/&FightingStyleGeneralFeatitle	Estilo de lucha
 Feat/&FightingStyleGreatWeaponDescription	Cuando sacas un 1 o un 2 en un dado de daño por un ataque que haces con un arma cuerpo a cuerpo que estás empuñando con dos manos, puedes volver a tirar el dado. Debes usar la nueva tirada, incluso si es un 1 o un 2. El arma debe tener la propiedad de dos manos o versátil para que obtengas este beneficio.
 Feat/&FightingStyleGreatWeaponTitle	Estilo de lucha: Gran Arma
-Feat/&FightingStyleProtectionDescription	Cuando una criatura que puedas ver ataca a un objetivo que no seas tú y que esté a menos de 1,5 metros de ti, puedes usar tu reacción para imponer desventaja en la tirada de ataque. Debes estar blandiendo un escudo.
+Feat/&FightingStyleProtectionDescription	Cuando una criatura que puedes ver ataca a un objetivo que no seas tú y que esté a menos de 1,5 metros de ti, puedes usar tu reacción para imponer desventaja en la tirada de ataque. Debes estar blandiendo un escudo.
 Feat/&FightingStyleProtectionTitle	Estilo de lucha: Protección
 Feat/&FightingStyleTwoWeaponDescription	Cuando participas en un combate con dos armas, puedes añadir tu modificador de habilidad al daño del segundo ataque.
 Feat/&FightingStyleTwoWeaponTitle	Estilo de lucha: Dos Armas
@@ -641,7 +641,7 @@ Feat/&FlameArtilleryConstructDescription	Crea un cono de fuego que inflige 2d8 d
 Feat/&FlameArtilleryConstructDescription_3	Crea un cono de fuego que inflige 3d8 de daño en una salvación fallida.
 Feat/&FlameArtilleryConstructTitle	Construcción de artillería de llamas
 Feat/&FlameArtilleryConstructTitle_3	Construcción de artillería de llamas
-Feat/&FlameArtilleryConstructTitle_5	Construcción de artillería de llamas
+Feat/&FlameArtilleryConstructTitle_5	Constructo de artillería de llamas
 Feat/&FlameArtilleryDescription	2d8 de daño de fuego (Cono).
 Feat/&FlameArtilleryTitle	Artillería de llamas
 Feat/&ForceArtillery_2Description	3d8 de daño de Fuerza y empuja al objetivo 5 pies.
@@ -689,7 +689,7 @@ Feat/&PowerAlchemistHealElixirsDescription	Una vez al día, puedes lanzar Sanaci
 Feat/&PowerAlchemistHealElixirsTitle	Sanar
 Feat/&PowerAlchemistRestorativeElixirsDescription	Puedes lanzar Rotación menor sin gastar una ranura de hechizo. Puedes hacer esto un número de veces por descanso largo igual a tu modificador de Inteligencia.
 Feat/&PowerAlchemistRestorativeElixirsTitle	Elixires reconstituyentes
-Feat/&PowerAttackFeatDescription	Has aprendido a cambiar la precisión por golpes más mortíferos. Cuando atacas con armas cuerpo a cuerpo, puedes elegir tener una penalización de -3 a tu golpe para hacer un daño adicional igual a 3 + tu bonificador de competencia.
+Feat/&PowerAttackFeatDescription	Has aprendido a cambiar la precisión por golpes más mortíferos. Cuando atacas con armas cuerpo a cuerpo, puedes elegir sufrir una penalización de -3 a tu golpe para hacer un daño adicional igual a 3 + tu bonificador de competencia.
 Feat/&PowerAttackFeatTitle	Ataque de poder
 Feat/&PowerFalseLifeFromFeatDescription	Al reforzarte con un facsímil nigromántico de vida, ganas 1d4+4 puntos de golpe temporales durante la duración.
 Feat/&PowerFalseLifeFromFeatTitle	Vida falsa
@@ -713,7 +713,7 @@ Feat/&ProtectorConstructAttackDescription	Melee 1d10 de daño de fuerza del cons
 Feat/&ProtectorConstructAttackTitle	Rendimiento de fuerza
 Feat/&ProtectorConstructDescription	Es amigable contigo y tus compañeros, y obedece tus órdenes.
 Feat/&ProtectorConstructDescription_5	Mejora del constructo protector.
-Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Obtienes hechizos adicionales que se consideran hechizos de Tinker para ti, siempre están preparados y no cuentan contra el número de hechizos de Tinker que conoces.
+Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Ganas hechizos adicionales que se consideran hechizos de Tinker para ti, siempre están preparados y no cuentan contra el número de hechizos de Tinker que conoces.
 Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Hechizos del Constructor Protector
 Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Ganas hechizos de bonificación que se consideran hechizos de Hojalatero para ti, siempre están preparados y no cuentan contra el número de hechizos de Hojalatero que conoces.
 Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Hechizos de Constructor Protector
@@ -727,13 +727,13 @@ Feat/&ResummonArtilleryConstruct_15Title	Invocar construcción de artillería 3
 Feat/&ResummonArtilleryConstructDescription	Este hechizo permite al Hechicero volver a invocar un constructo de artillería en uno de sus múltiples modos después de que expire la invocación inicial. El constructo invocado también dura 1 hora.
 Feat/&RetributionDescription	El constructo hace 1d4 + tu modificador de Inteligencia de daño de fuerza al atacante cuando es golpeado por un ataque.
 Feat/&RetributionTitle	Retribución
-Feat/&ScoutSentinelFeatureSet_level03Description	<tamaño=17><color=#add8e6ff>Múltiples funciones de armadura</color></size>\nPuedes cambiar entre los modos de función una vez al día creando y usando armas temporales</tamaño=17><color=#add8e6ff>Modo centinela</color></size>\nGanas un número limitado de PS temporales según el nivel. Impone desventaja a los enemigos que atacan a los aliados. Obtiene un movimiento incrementado, ventaja de sigilo y un ataque a distancia que inflige un dado extra de daño una vez por turno. \Puedes usar las armas de la armadura como foco de hechizo para tus conjuros. La armadura pesada no tiene un requisito de fuerza.
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Múltiples funciones de armadura</color></size>\nPuedes cambiar entre los modos de función una vez al día creando y usando armas temporales\n\n<size=17><color=#add8e6ff>Modo centinela</color></size>\nGana un número limitado de PS temporales según el nivel. Impone desventaja a los enemigos que atacan a los aliados\n\n<size=17><color=#add8e6ff>Modo Explorador</color></size>\nObtiene mayor movimiento, ventaja de sigilo y un ataque a distancia que inflige un dado extra de daño una vez por turno. \n\n<size=17><color=#add8e6ff>Características</color></size>\nPuedes usar las armas de la armadura como foco de conjuro para tus hechizos\nLa armadura pesada no tiene un requisito de fuerza\nGanas competencia en herramientas de herrero y armadura pesada.
 Feat/&ScoutSentinelFeatureSet_level03Title	Centinela explorador
-Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Ataque extra</color></size> <size>Puedes atacar una vez más, por turno de combate, cuando utilices las acciones de ataque o empuje.
+Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Ataque extra</color></size>\nPuedes atacar una vez más, por turno de combate, cuando uses las acciones de ataque o empuje.
 Feat/&ScoutSentinelFeatureSet_level05Title	Centinela explorador
-Feat/&ScoutSentinelFeatureSet_level09Description	<tamaño=17><color=#add8e6ff>Ranuras de infusión extra</color></tamaño></también ganas ranuras de infusión extra, que debes usar en la armadura.
+Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Ranuras de infusión extra</color></size>\nGanas ranuras de infusión extra, deben usarse en la armadura.
 Feat/&ScoutSentinelFeatureSet_level09Title	Centinela explorador
-Feat/&ScoutSentinelFeatureSet_level15Description	<tamaño=17><color=#add8e6ff>Modo de centinela mejorado</color></size>Ahora puede atraer a los enemigos al rango de cuerpo a cuerpo con una acción de bonificación e infligir 1d8 de daño de trueno mediante el poder de Agarre de guantelete</tamaño=17><color=#add8e6ff>Modo de explorador mejorado</color></size>Ahora puede crear ventaja para los aliados y desventaja para los enemigos con un solo ataque.
+Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Modo de centinela mejorado</color></size>\nAhora puede atraer a los enemigos al rango de cuerpo a cuerpo con una acción de bonificación e infligir 1d8 de daño de trueno mediante el poder de garfio de agarre\n\n<size=17><color=#add8e6ff>Modo de explorador mejorado</color></size>\nAhora puede crear ventaja para los aliados y desventaja para los enemigos con un solo ataque.
 Feat/&ScoutSentinelFeatureSet_level15Title	Centinela explorador
 Feat/&SelfDestructDescription	Se autodestruye y obliga a realizar una tirada de salvación de Destreza a las criaturas en un radio de 3 metros. Si falla, inflige 3d8 de daño de fuerza.
 Feat/&SelfDestructTitle	Autodestrucción
@@ -745,10 +745,10 @@ Feat/&SubclassProficienciesDescription	Ganas competencia en herramientas de herr
 Feat/&SubclassProficienciesTitle	Proficiencias de subclase
 Feat/&SummonArtificialServantDescription	El siervo es amigable contigo y tus compañeros, y obedece tus órdenes.
 Feat/&SummonArtificialServantTitle	Invocar siervo artificial
-Feat/&SummonArtilleryConstructDescription	El Blaster crea y comanda un Constructo de Artillería en uno de sus múltiples modos. Los PS del constructo aumentan con los niveles de su invocador y puede ser invocado gratuitamente durante 1 hora una vez al día. El constructo puede volver a ser invocado mediante un hechizo de primer nivel. Los tres modos son: <color=#add8e6ff>Construcción de cúpula protectora:</color>[n]Otorga 1d8 + 4 PV temporales a los aliados en un radio de 3 metros. <color=#add8e6ff>Construcción de artillería de llamas:</color>[n] Crea un cono de fuego. Las criaturas deben realizar una tirada de salvación de Destreza o recibirán 2d8 de daño.
-Feat/&SummonArtilleryConstructlevel09Description	Se ha añadido una nueva función. El Constructo de Artillería puede destruirse a sí mismo, forzando una salvación de Destreza o infligiendo 3d8 de daño de fuerza en caso de fallo. \Además, las tiradas de daño de la Artillería de Fuego y de Fuerza aumentan en 1d8 hasta un total de 3d8.
+Feat/&SummonArtilleryConstructDescription	El Blaster crea y comanda un Constructo de Artillería en uno de sus múltiples modos. Los PS del constructo aumentan con los niveles de su invocador y puede ser invocado gratuitamente durante 1 hora una vez al día. El constructo puede volver a ser invocado mediante un hechizo de primer nivel. Los tres modos son: \n<color=#add8e6ff>Construcción Cúpula Protectora:</color>\nOtorga 1d8 + 4 PV temporales a los aliados en un radio de 3 metros \n<color=#add8e6ff>Construcción Artillería de Fuego:</color>\nCrea un cono de fuego. Las criaturas deben hacer una tirada de salvación de Destreza o recibirán 2d8 de daño\n<color=#add8e6ff>Construcción de artillería de fuerza:</color>\nInflige 2d8 de daño de fuerza y empuja al enemigo a 5 pies de distancia.
+Feat/&SummonArtilleryConstructlevel09Description	Se ha añadido una nueva función. El Constructo de Artillería puede destruirse a sí mismo, forzando una salvación de Destreza o infligiendo 3d8 de daño de fuerza en caso de fallar. \nAdemás, las tiradas de daño de la Artillería de Llama y de Fuerza aumentan en 1d8 hasta un total de 3d8.
 Feat/&SummonArtilleryConstructlevel09Title	Mejora de la construcción de artillería: autodestrucción
-Feat/&SummonArtilleryConstructlevel15Description	Se ha añadido una nueva función. Ahora el constructo de artillería proporciona media cobertura a los aliados en un radio de 3 metros: Refuerzos</color></size>\NAhora puedes invocar dos Constructos de Artillería. Los constructos pueden ser del mismo modo o de modos diferentes.
+Feat/&SummonArtilleryConstructlevel15Description	Se ha añadido una nueva función. Ahora el Constructo de Artillería proporciona media cobertura a los aliados en un radio de 3 metros \n<size=17><color=#add8e6ff>Actualización del Constructo de Artillería: Refuerzos</color></size>\nAhora puedes invocar dos Constructos de Artillería. Los constructos pueden ser de la misma o diferente modalidad.
 Feat/&SummonArtilleryConstructlevel15Title	Mejora del constructo de artillería: Cúpula de media cobertura
 Feat/&SummonArtilleryConstructTitle	Invoca un constructo de artillería
 Feat/&SummonProtectorConstructDescription	Tu propio compañero de batalla está listo para defenderte y atacar a los enemigos. El Constructora Protectora puede autorrepararse 3 veces al día y puede imponer desventaja en los ataques a los aliados.
@@ -800,9 +800,9 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Hechizos de Soulblade
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Una vez por descanso corto, usas el poder de las almas para defenderte. Usando una acción de bonificación, obtienes una potencia temporal igual a tu nivel + modificador de Carisma.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo del Alma
 Feature/&AlwaysBeardDescription	{0}% de posibilidades de que te crezca una gloriosa barba.
-Feature/&AncientForestExpandedSpelllistAfinityDescription	Eliges entre una lista ampliada de conjuros cuando aprendes un conjuro de Brujo. Los siguientes hechizos se añaden a la lista de hechizos de Brujo para ti: {0}\n\nmás
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Eliges entre una lista ampliada de hechizos cuando aprendes un hechizo de Brujo. Los siguientes hechizos se añaden a la lista de hechizos de Brujo para ti: {0}\n\n
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Hechizos del Bosque Antiguo
-Feature/&AncientForestLightAffinityDescription	Puedes absorber la energía de la luz del sol. Mientras estés bajo la luz directa del sol, ganas 2 HP por asalto.
+Feature/&AncientForestLightAffinityDescription	Puedes absorber energía de la luz del sol. Mientras estés a la luz directa del sol, ganas 2 PV por asalto.
 Feature/&AncientForestLightAffinityTitle	Fotosíntesis
 Feature/&AncientForestRegrowthDescription	Tienes una reserva de poder curativo que se repone cuando haces un descanso largo. Con esa reserva, puedes restaurar un número total de puntos de golpe igual a tu nivel de brujo × 5.
 Feature/&AncientForestRegrowthTitle	Regeneración
@@ -812,7 +812,7 @@ Feature/&ArcaneDetonationUpgradeDescription	A partir del 11º nivel, el daño de
 Feature/&ArcaneDetonationUpgradeTitle	Detonación arcana mayor
 Feature/&ArcanePulseDescription	A partir del 7º nivel, puedes provocar una erupción de energía arcana a un alcance de 30 pies. Las criaturas hostiles en un radio de 15 pies del punto de impacto reciben 4d8 de daño y obtienen una Marca de arcanista. Puedes utilizar esta habilidad un número de veces igual a tu modificador de Sabiduría por descanso largo. A 15º nivel, el daño de tu Pulso Arcano aumenta a 8d8.
 Feature/&ArcanePulseTitle	Pulso Arcano
-Feature/&ArcanistAutoPreparedSpellsDescription	Ganas conjuros adicionales que se consideran conjuros de Ranger para ti, siempre están preparados y no cuentan contra el número de conjuros de Ranger que conoces: \n{0}\n
+Feature/&ArcanistAutoPreparedSpellsDescription	Ganas conjuros adicionales que se consideran conjuros Ranger para ti, siempre están preparados y no cuentan contra el número de conjuros Ranger que conoces: \n{0}\n\n
 Feature/&ArcanistAutoPreparedSpellsTitle	Hechizos de bonificación de Ranger Arcanista
 Feature/&ArcanistMarkDescription	A partir del 3º nivel, imbuyes tus armas con poder arcano. Las criaturas que son golpeadas por tus ataques son afectadas por la Marca del Arcanista.
 Feature/&ArcanistMarkTitle	Marca del Arcanista
@@ -850,15 +850,15 @@ Feature/&ChainsofCarceriDescription	Paraliza a un celestial, demonio o elemental
 Feature/&ChainsofCarceriTitle	Cadenas de Carceri
 Feature/&ClassMonkDeflectMissileDescription	Puedes usar tu reacción para desviar el proyectil cuando te impacte un ataque de arma a distancia. Cuando lo haces, el daño que recibes del ataque se reduce en 1d10 + tu modificador de Destreza + tu nivel de Monje.
 Feature/&ClassMonkDeflectMissileTitle	Desviar misiles
-Feature/&ClassMonkDiamondSoulDescription	Tu dominio del ki te otorga competencia en todas las tiradas de salvación. Además, siempre que hagas una tirada de salvación y falles, puedes gastar 1 punto de ki para repetirla y tomar el segundo resultado.
+Feature/&ClassMonkDiamondSoulDescription	Tu dominio del ki te otorga competencia en todas las tiradas de salvación.\nAdemás, siempre que hagas una tirada de salvación y falles, puedes gastar 1 punto de ki para repetirla y tomar el segundo resultado.
 Feature/&ClassMonkDiamondSoulTitle	Alma de diamante
 Feature/&ClassMonkExtraAttackDescription	Puedes atacar dos veces, en lugar de una, siempre que realices la acción de ataque en tu turno.
 Feature/&ClassMonkExtraAttackTitle	Ataque extra
-Feature/&ClassMonkKiDescription	Tu entrenamiento te permite aprovechar la energía mística del ki. Ganas puntos de ki iguales a tu nivel de Monje. Cuando gastas un punto de ki, no está disponible hasta que terminas un descanso corto o largo, al final del cual recuperas todo el ki gastado. Puedes gastar estos puntos para alimentar varias características de ki. Empiezas conociendo tres de estos rasgos:
+Feature/&ClassMonkKiDescription	Tu entrenamiento te permite aprovechar la energía mística del ki. Ganas puntos de ki iguales a tu nivel de Monje. Cuando gastas un punto de ki, no está disponible hasta que terminas un descanso corto o largo, al final del cual recuperas todo el ki gastado. Puedes gastar estos puntos para alimentar varias características de ki. Empiezas conociendo tres de estas características:
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Tus golpes desarmados cuentan como mágicos a efectos de superar la resistencia e inmunidad a los ataques y daños no mágicos.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Golpes potenciados por el ki
 Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	Obtienes los siguientes beneficios mientras estés desarmado o empuñando sólo armas de Monje y no lleves armadura o empuñes un escudo:\N- Puedes usar Destreza en lugar de Fuerza para las tiradas de ataque y daño de tus golpes desarmados y armas de Monje.\N- Puedes tirar un d4 en lugar del daño normal de tu golpe desarmado o arma de Monje. Este dado cambia a medida que ganas niveles de Monje.\N-Cuando usas la acción de Ataque con un golpe desarmado o un arma de Monje en tu turno, puedes hacer un golpe desarmado como acción de bonificación.
+Feature/&ClassMonkMartialArtsDescription	Obtienes los siguientes beneficios mientras estés desarmado o empuñando sólo armas de Monje y no lleves armadura o empuñes un escudo:\n- Puedes usar Destreza en lugar de Fuerza para las tiradas de ataque y daño de tus golpes desarmados y armas de Monje.\n- Puedes tirar un d4 en lugar del daño normal de tu golpe desarmado o arma de Monje. Este dado cambia a medida que ganas niveles de Monje.\n- Cuando usas la acción de Ataque con un golpe desarmado o un arma de Monje en tu turno, puedes hacer un golpe desarmado como acción extra.
 Feature/&ClassMonkMartialArtsTitle	Artes marciales
 Feature/&ClassMonkMartialDiceProgression00Description	Puedes tirar <color=#57BCF4>d6</color> en lugar del daño normal de tu golpe desarmado o arma de Monje.
 Feature/&ClassMonkMartialDiceProgression00Title	Aumento del dado de las artes marciales (d6)
@@ -866,7 +866,7 @@ Feature/&ClassMonkMartialDiceProgression01Description	Puedes tirar <color=#57BCF
 Feature/&ClassMonkMartialDiceProgression01Title	Aumento del dado de artes marciales (d8)
 Feature/&ClassMonkMartialDiceProgression02Description	Puedes tirar <color=#57BCF4>d10</color> en lugar del daño normal de tu golpe desarmado o arma de Monje.
 Feature/&ClassMonkMartialDiceProgression02Title	Aumento del dado de artes marciales (d10)
-Feature/&ClassMonkPerfectSelfDescription	Cuando empiezas el combate y no te quedan puntos de ki, recuperas 4 puntos de ki.
+Feature/&ClassMonkPerfectSelfDescription	Cuando empiezas un combate y no te quedan puntos de ki, recuperas 4 puntos de ki.
 Feature/&ClassMonkPerfectSelfTitle	Ser perfecto
 Feature/&ClassMonkPurityOfBodyDescription	Tu dominio del ki que fluye a través de ti te hace inmune a las enfermedades y al veneno.
 Feature/&ClassMonkPurityOfBodyTitle	Pureza de cuerpo
@@ -877,26 +877,26 @@ Feature/&ClassMonkUnarmoredDefenseDescription	Mientras no lleves armadura y no e
 Feature/&ClassMonkUnarmoredDefenseTitle	Defensa sin armadura
 Feature/&ClassMonkUnarmoredMovementBonusDescription	La bonificación de movimiento aumenta en 5 pies.
 Feature/&ClassMonkUnarmoredMovementBonusTitle	Mejora de movimiento sin armadura
-Feature/&ClassMonkUnarmoredMovementDescription	Tu velocidad se incrementa en 3 metros mientras no lleves armadura o no lleves escudo. Esta bonificación aumenta cuando alcanzas ciertos niveles de Monje.
+Feature/&ClassMonkUnarmoredMovementDescription	Tu velocidad aumenta en 10 pies mientras no lleves armadura o empuñes un escudo. Esta bonificación aumenta cuando alcanzas ciertos niveles de Monje.
 Feature/&ClassMonkUnarmoredMovementTitle	Movimiento sin armadura
-Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Mientras no lleves armadura y no empuñes un escudo puedes moverte por las paredes como una araña. La habilidad se pierde temporalmente si realizas cualquier acción que no sea movimiento, o cuando no es tu turno en combate.
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Mientras estés sin armadura y no empuñes un escudo puedes moverte por las paredes como una araña. La habilidad se pierde temporalmente si realizas cualquier acción que no sea movimiento, o cuando no es tu turno en combate.
 Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Movimiento sin armadura: Escalar
 Feature/&ClassMonkWeaponProficiencyTitle	Proficiencias de armas del monje
-Feature/&ClassMonkZenArcherCombatDescription	Ganas competencia con arcos y se consideran armas de Monje para ti.\NNo tienes desventaja al hacer un ataque a distancia con un arma de Monje mientras estés a 5 pies de un enemigo, siempre que no lleves armadura o escudo.
-Feature/&ClassMonkZenArcherCombatTitle	Combate a distancia
+Feature/&ClassMonkZenArcherCombatDescription	Ganas competencia con arcos y se consideran armas de Monje para ti.\nNo obtienes desventaja al hacer ataques a distancia con un arma de Monje mientras estés a 5 pies de un enemigo, siempre que no lleves armadura o escudo.
+Feature/&ClassMonkZenArcherCombatTitle	Combate a distancia con la mano
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Tus ataques con arco cuentan como mágicos a efectos de superar la resistencia e inmunidad a los ataques y daños no mágicos.
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Flechas potenciadas por el ki
 Feature/&ClassMonkZenArcherStunningArrowsDescription	Puedes interferir con el flujo de ki en el cuerpo de un oponente. Cuando golpeas a otra criatura que no está aturdida con un ataque de flecha, puedes gastar 1 punto de ki para intentar un golpe de aturdimiento. El objetivo debe tener éxito en una tirada de salvación de Constitución o quedar aturdido hasta el final de tu siguiente turno.
 Feature/&ClassMonkZenArcherStunningArrowsTitle	Flechas aturdidoras
 Feature/&ClassWarlockArmorProficiencyDescription	Armadura ligera.
-Feature/&ClassWarlockArmorProficiencyTitle	Competencias de armadura del brujo
+Feature/&ClassWarlockArmorProficiencyTitle	Competencias de armadura de brujo
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	Selecciona Invocación de Eldritch para reemplazarla.
 Feature/&ClassWarlockEldritchInvocationReplaceTitle	Reemplazar Invocación
 Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Añade una invocación eldritch.
 Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Invocación eldritch
-Feature/&ClassWarlockEldritchMasterDescription	Puedes recurrir a tu reserva interna de poder místico mientras suplicas a tu patrón para recuperar las ranuras de hechizo gastadas. Puedes pasar 1 minuto suplicando ayuda a tu patrón para recuperar todas las ranuras de conjuro gastadas de tu rasgo de magia de pacto. Una vez que recuperas ranuras de conjuro con este rasgo, debes terminar un descanso largo antes de poder hacerlo de nuevo.
+Feature/&ClassWarlockEldritchMasterDescription	Puedes recurrir a tu reserva interna de poder místico mientras suplicas a tu patrón para recuperar las ranuras de hechizo gastadas. Puedes dedicar 1 minuto a suplicar ayuda a tu mecenas para recuperar todas las ranuras de conjuro gastadas de tu rasgo de magia de pacto. Una vez que recuperas ranuras de conjuro con este rasgo, debes terminar un descanso largo antes de poder hacerlo de nuevo.
 Feature/&ClassWarlockEldritchMasterTitle	Maestro eldritch
-Feature/&ClassWarlockMysticArcanumSetDescription	Tu mecenas te otorga un secreto mágico llamado arcano. Puedes lanzar tu hechizo arcano una vez sin gastar una ranura de hechizo. Debes terminar un descanso largo antes de poder hacerlo de nuevo. A niveles más altos, obtienes más conjuros de brujo de tu elección que pueden ser lanzados de esta manera: un conjuro de 6º nivel a 11º nivel, un conjuro de 7º nivel a 13º nivel, un conjuro de 8º nivel a 15º nivel y un conjuro de 9º nivel a 17º nivel.
+Feature/&ClassWarlockMysticArcanumSetDescription	Tu patrón te otorga un secreto mágico llamado arcano. Puedes lanzar tu hechizo arcano una vez sin gastar una ranura de hechizo. Debes terminar un largo descanso antes de poder hacerlo de nuevo. A niveles más altos, obtienes más conjuros de brujo de tu elección que pueden ser lanzados de esta manera: un conjuro de 6º nivel a 11º nivel, un conjuro de 7º nivel a 13º nivel, un conjuro de 8º nivel a 15º nivel y un conjuro de 9º nivel a 17º nivel.
 Feature/&ClassWarlockMysticArcanumSetTitle	Arcano místico
 Feature/&ClassWarlockSavingThrowProficiencyDescription	Sabiduría, Carisma.
 Feature/&ClassWarlockSavingThrowProficiencyTitle	Habilidades de salvación
@@ -967,9 +967,9 @@ Feature/&DruidForestGuardianExtraAttackDescription	A partir del 6º nivel, puede
 Feature/&DruidForestGuardianExtraAttackTitle	Ataque extra
 Feature/&DruidForestGuardianImprovedBarkWardDescription	A tu Bark Ward le crecen ahora espinas que dañan a los atacantes cuerpo a cuerpo. Los enemigos que te golpean con éxito con un ataque cuerpo a cuerpo sufren 2d8 de daño punzante.
 Feature/&DruidForestGuardianImprovedBarkWardTitle	Protección de corteza mejorada
-Feature/&DruidForestGuardianMagicDescription	A partir del 2º nivel, cuando eliges este círculo, obtienes acceso a una lista de hechizos ampliada que siempre está preparada:\N-No te preocupes.
+Feature/&DruidForestGuardianMagicDescription	A partir del 2º nivel cuando eliges este círculo, obtienes acceso a una lista de hechizos ampliada que siempre está preparada:\n{0}\n\n
 Feature/&DruidForestGuardianMagicTitle	Hechizos del círculo
-Feature/&DruidForestGuardianSuperiorBarkWardDescription	Tu habilidad de protección contra el ladrido ahora refleja 3d8 de daño perforante en los atacantes cuerpo a cuerpo. Además, ahora Bark Ward te otorga inmunidad al veneno mientras está activa.
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Tu habilidad de Protección de Corteza ahora refleja 3d8 de daño penetrante en los atacantes cuerpo a cuerpo. Además, ahora Bark Ward te otorga inmunidad al veneno mientras está activa.
 Feature/&DruidForestGuardianSuperiorBarkWardTitle	Protección de corteza superior
 Feature/&DruidForestGuardianSylvanDurabilityDescription	Los Guardianes del Bosque adquieren de forma natural la resistencia de un poderoso roble. A 2º nivel, tu máximo de puntos de golpe aumenta en 2 y se incrementa en 1 cada vez que ganas un nivel en esta clase.
 Feature/&DruidForestGuardianSylvanDurabilityTitle	Durabilidad silvana
@@ -986,7 +986,7 @@ Feature/&EldritchMindTitle	Mente eldritch
 Feature/&EldritchSightTitle	Vista eldríctica
 Feature/&EldritchSmiteDescription	Una vez por turno, cuando golpeas a una criatura con tu arma de pacto, puedes gastar una ranura de hechizo de brujo para infligir 1d8 de daño de fuerza adicional al objetivo, más otros 1d8 por nivel de la ranura de hechizo.
 Feature/&EldritchSmiteTitle	Golpe de los eldritch
-Feature/&ElementalistSpellsMagicAffinityDescription	Puedes elegir entre una lista ampliada de hechizos cuando aprendes un hechizo de Brujo. Los siguientes hechizos se añaden a la lista de hechizos de Brujo para ti: {0}\n\n
+Feature/&ElementalistSpellsMagicAffinityDescription	Eliges entre una lista ampliada de hechizos cuando aprendes un hechizo de Brujo. Los siguientes hechizos se añaden a la lista de hechizos de Brujo para ti: {0}\n\n
 Feature/&ElementalistSpellsMagicAffinityTitle	Hechizos de Elementalista
 Feature/&ElementalPactAirPlane	Plano del Aire
 Feature/&ElementalPactAstralPlane	Plano Astral
@@ -999,7 +999,7 @@ Feature/&ElementalPatronDummyFeatureSetTitle	Elementalista
 Feature/&ElementalPatronElementalConditionFormatDescription	Inflige {1} de daño adicional igual a tu bonificación de competencia en un primer golpe cada ronda.
 Feature/&ElementalPatronElementalConditionFormatTitle	Canalización {0}
 Feature/&ElementalPatronElementalDamageFormatDescription	Cuando canalizas {0}, infliges {1} de daño adicional igual a tu bonificación de competencia en el primer golpe de cada asalto.
-Feature/&ElementalPatronElementalDamageFormatTitle	Daño Elemental: {0}
+Feature/&ElementalPatronElementalDamageFormatTitle	Daño elemental: {0}
 Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Al canalizar el {0}, obtienes Inmunidad a {1} y aplicas el bono de competencia como daño del mismo tipo al primer golpe cada asalto.
 Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canalización: {0}
 Feature/&ElementalPatronElementalFormFormatDescription	Al canalizar el {0}, obtienes Resistencia al daño de {1} y aplicas la bonificación de competencia como daño del mismo tipo al primer golpe cada asalto.
@@ -1010,18 +1010,18 @@ Feature/&EmptyString
 Feature/&EyesoftheRuneKeeperDescription	Puedes leer toda la escritura.
 Feature/&EyesoftheRuneKeeperTitle	Ojos del guardián de las runas
 Feature/&FiendishVigorTitle	Vigor diabólico
-Feature/&FlameArtillery_09ModePowerDescription	Invoca un constructo que dura 1 hora. \Artillería de Fuego: Crea un cono de fuego que inflige 3d8 de daño con una salvación fallida. \Autodestrucción: inflige 3d8 de daño de fuerza con una salvación fallida y destruye la unidad.
+Feature/&FlameArtillery_09ModePowerDescription	Invoca un constructo que dura 1 hora. \nArtillería de llamas: Crea un cono de fuego que inflige 3d8 de daño con una salvación fallida. \nAutodestrucción: Inflige 3d8 de daño de fuerza si se falla la salvación y destruye la unidad.
 Feature/&FlameArtillery_09ModePowerTitle	Invocar constructo de artillería de llamas
-Feature/&FlameArtillery_15ModePowerDescription	Invoca un constructo que dura 1 hora. \Artillería de llamas: Crea un cono de fuego que inflige 3d8 de daño si se falla la salvación. \Autodestrucción: Inflige 3d8 de daño de fuerza con una salvación fallida y destruye la unidad. \Media cúpula de cobertura: proporciona media cobertura a los aliados en un radio de 3 metros.
+Feature/&FlameArtillery_15ModePowerDescription	Invoca un constructo que dura 1 hora. \nArtillería de llamas: Crea un cono de fuego que inflige 3d8 de daño si se falla la salvación. \nAutodestrucción: Inflige 3d8 de daño de fuerza si se falla la salvación y destruye la unidad. \n Cúpula de media cobertura: proporciona media cobertura a los aliados en un radio de 3 metros.
 Feature/&FlameArtillery_15ModePowerTitle	Invocar constructo de artillería de llamas
-Feature/&FlameArtilleryModePowerDescription	Invoca una construcción que dura 1 hora. \Artillería de llamas: Crea un cono de fuego que inflige 2d8 de daño con una salvación fallida.
+Feature/&FlameArtilleryModePowerDescription	Invoca un constructo que dura 1 hora. \nArtillería de llamas: Crea un cono de fuego que inflige 2d8 de daño con una salvación fallida.
 Feature/&FlameArtilleryModePowerTitle	Invocar construcción de artillería de llamas
-Feature/&ForceArtillery_09ModePowerDescription	Invoca una construcción que dura 1 hora. \Artillería de fuerza: Inflige 3d8 de daño de fuerza y aleja al enemigo 1,5 m. \Autodestrucción: inflige 3d8 de daño de fuerza con una salvación fallida y destruye la unidad.
+Feature/&ForceArtillery_09ModePowerDescription	Invoca una construcción que dura 1 hora. \nArtillería de fuerza: Inflige 3d8 de daño de fuerza y aleja al enemigo 1,5 m. \nAutodestrucción: Inflige 3d8 de daño de fuerza si se falla la salvación y destruye la unidad.
 Feature/&ForceArtillery_09ModePowerTitle	Invocar constructo de artillería de fuerza
-Feature/&ForceArtillery_15ModePowerDescription	Invoca un constructo que dura 1 hora. \Artillería de fuerza: Inflige 3d8 de daño de fuerza y aleja al enemigo 1,5 m. \Autodestrucción: inflige 3d8 de daño de fuerza con una salvación fallida y destruye la unidad. \Media cúpula de cobertura: proporciona media cobertura a los aliados en un radio de 3 metros.
+Feature/&ForceArtillery_15ModePowerDescription	Invoca un constructo que dura 1 hora. \nArtillería de fuerza: Inflige 3d8 de daño de fuerza y aleja al enemigo 1,5 m. \nAutodestrucción: Inflige 3d8 de daño de fuerza si se falla la salvación y destruye la unidad. \n Cúpula de media cobertura: proporciona media cobertura a los aliados en un radio de 3 metros.
 Feature/&ForceArtillery_15ModePowerTitle	Invocar construcción de artillería de fuerza
 Feature/&ForceArtilleryAdditionalDamageTitle	Daño mejorado
-Feature/&ForceArtilleryModePowerDescription	Invoca un constructo que dura 1 hora. \Artillería de fuerza: Inflige 2d8 de daño de fuerza y empuja al objetivo a 5 pies de distancia.
+Feature/&ForceArtilleryModePowerDescription	Invoca un constructo que dura 1 hora. \nArtillería de fuerza: Inflige 2d8 de daño de fuerza y empuja al objetivo a 5 pies de distancia.
 Feature/&ForceArtilleryModePowerTitle	Invocar construcción de artillería de fuerza
 Feature/&ForceArtilleryTitle	Artillería de fuerza
 Feature/&GambitResourcePoolAddDescription	Añade un dado de gambito adicional.
@@ -1036,8 +1036,8 @@ Feature/&GnomeCunningFeatureDescription	Tienes ventaja en todas las salvaciones 
 Feature/&GnomeCunningFeatureTitle	Astucia
 Feature/&GnomeNaturalIllusionistDescription	Conoces el cantrip Abeja molesta. La Inteligencia es tu modificador de lanzamiento de hechizos para el mismo.
 Feature/&GnomeNaturalIllusionistTitle	Magia natural
-Feature/&HerbalBrewDescription	Cuando terminas un descanso largo, puedes crear brebajes de hierbas, cada uno de los cuales dura hasta el siguiente descanso largo. Puedes crear un total de brebajes igual a tu bonificación de competencia. Por cada brebaje, elige uno de los siguientes efectos: \Brebaje fortificante</color>: otorga resistencia a diferentes tipos de daño durante 1 hora.Brebaje acelerador</color>: proporciona 2d4 puntos de golpe.Brebaje tóxico</color>: actúa como un veneno que puede aplicarse a un arma y que dura 1 minuto. Si el golpe tiene lugar el objetivo recibe 1d4 de daño por veneno en cada golpe.
-Feature/&HerbalBrewFeatureSetDescription	Ganas competencia con el kit de envenenador o con el de herboristería si no lo tienes ya. \Cuando terminas un descanso largo, puedes crear brebajes de hierbas, cada uno de los cuales dura hasta el siguiente descanso largo. Puedes crear un total de brebajes igual a tu bonificación de competencia. Por cada brebaje, elige uno de los siguientes efectos: \Brebaje fortificante</color>: otorga resistencia a diferentes tipos de daño durante 1 hora.Brebaje acelerador</color>: proporciona 2d4 puntos de golpe.Brebaje tóxico</color>: actúa como un veneno que puede aplicarse a un arma y que dura 1 minuto. Si el golpe tiene lugar, el objetivo recibe 1d4 puntos de daño por veneno en cada golpe.
+Feature/&HerbalBrewDescription	Cuando terminas un descanso largo, puedes crear brebajes de hierbas, cada uno de los cuales dura hasta el siguiente descanso largo. Puedes crear un total de brebajes igual a tu bonificación de competencia. Por cada brebaje, elige uno de los siguientes efectos: \n<color=#add8e6ff>Brebaje fortificante</color>: otorga resistencia a diferentes tipos de daño durante 1 hora.\n<color=#add8e6ff>Brebaje acelerador</color>: proporciona 2d4 puntos de golpe.\n<color=#add8e6ff>Brebaje tóxico</color>: actúa como un veneno que puede aplicarse a un arma y que dura 1 minuto. Si el golpe tiene lugar el objetivo recibe 1d4 de daño por veneno en cada golpe.
+Feature/&HerbalBrewFeatureSetDescription	Ganas competencia con el kit de envenenador o el de herboristería si no lo tienes ya. \nCuando terminas un descanso largo, puedes crear brebajes de hierbas, cada uno de los cuales dura hasta el siguiente descanso largo. Creas un total de brebajes igual a tu bono de competencia. Por cada brebaje, elige uno de los siguientes efectos: \n<color=#add8e6ff>Brebaje fortificante</color>: otorga resistencia a diferentes tipos de daño durante 1 hora.\n<color=#add8e6ff>Brebaje acelerador</color>: proporciona 2d4 puntos de golpe.\n<color=#add8e6ff>Brebaje tóxico</color>: actúa como un veneno que puede aplicarse a un arma y que dura 1 minuto. Si el golpe tiene lugar el objetivo recibe 1d4 puntos de daño por veneno en cada golpe.
 Feature/&HerbalBrewFeatureSetTitle	Elaboración de hierbas
 Feature/&HinderingBlastDescription	Cuando golpeas a una criatura con tu ráfaga de eldritch, puedes reducir la velocidad de esa criatura en 3 metros hasta el final de tu siguiente turno.
 Feature/&HinderingBlastMagicAffinityDescription	Cuando golpeas a una criatura con tu explosión de eldritch, puedes reducir la velocidad de esa criatura en 3 metros hasta el final de tu siguiente turno.
@@ -1049,7 +1049,7 @@ Feature/&ImprovedScoutModePowerDescription	Gana rasgos del modo explorador mejor
 Feature/&ImprovedScoutModePowerTitle	Modo explorador mejorado
 Feature/&ImprovedSentinelModePowerDescription	Gana rasgos del Modo Centinela Mejorado a través del poder de Agarre del Guantelete.
 Feature/&ImprovedSentinelModePowerTitle	Modo centinela mejorado
-Feature/&IndomitableResistanceAddDescription	#¡ERROR!
+Feature/&IndomitableResistanceAddDescription	+1 uso de Resistencia Indomable entre descansos.
 Feature/&IndomitableResistanceAddTitle	Resistencia indomable (aumentada)
 Feature/&IndomitableResistanceTitle	Resistencia indomable
 Feature/&InspirePowerDescription	Gasta un dado de gambito e inspírate a ti mismo o a tu aliado para dar 1d6 + 2 CV temporales.
@@ -1060,12 +1060,12 @@ Feature/&InspiringSurgePowerTitleShort	Oleada de Inspiración
 Feature/&KnockDownPowerDescription	Gasta un dado de gambito y potencia tu ataque para hacer 1d6 + 2 de daño contundente adicional. El objetivo hace una salvación de Fuerza (DC 8 + tu bono de competencia + tu modificador de Fuerza) o queda derribado hasta el comienzo de su siguiente turno.
 Feature/&KnockDownPowerTitle	Derribar
 Feature/&MagicAffinityRangerArcanistDescription	Eres competente en el lanzamiento de conjuros en batalla, y puedes lanzar conjuros que requieran un componente somático incluso si tus dos manos están sujetando un arma o un escudo.
-Feature/&MagicAffinityRangerArcanistTitle	Entrenamiento de combate arcano
+Feature/&MagicAffinityRangerArcanistTitle	Entrenamiento de combate arcano 
 Feature/&MiretheMindTitle	Ensuciar la mente
 Feature/&MoonLitDarknessImmunityDescription	Eres inmune a la condición Oscuridad.
 Feature/&MoonLitDarknessImmunityTitle	Oscuridad iluminada por la luna
 Feature/&MoonLitExpandedSpelllistAfinityDescription	Eliges entre una lista ampliada de hechizos cuando aprendes un hechizo de Brujo. Los siguientes hechizos se añaden a la lista de hechizos de Brujo para ti: {0}\n\n
-Feature/&MoonLitExpandedSpelllistAfinityTitle	Hechizos en la oscuridad de la luna
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Hechizos de Luz de Luna
 Feature/&MoonLitLightAffinityDescription	Si comienzas tu turno en la oscuridad natural, te vuelves invisible. Moverte, atacar o usar cualquier poder o hechizo que no te apunte sólo a ti mismo rompe la invisibilidad.
 Feature/&MoonLitLightAffinityStrongDescription	La Capa Umbral ahora funciona con luz tenue y oscuridad mágica.
 Feature/&MoonLitLightAffinityStrongTitle	Capa Umbral Mejorada
@@ -1097,7 +1097,7 @@ Feature/&ProficiencyBolgrifLanguagesDescription	Común, élfico y gigante.
 Feature/&ProficiencyBolgrifLanguagesTitle	Idioma
 Feature/&ProficiencyGnomishLanguagesDescription	Común, Gnomish.
 Feature/&ProficiencyGnomishLanguagesTitle	Idiomas
-Feature/&ProficiencyRogueBlindSenseDescription	A partir del 14º nivel, si eres capaz de oír, eres consciente de la localización de cualquier criatura oculta o invisible en un radio de 3 metros de ti.
+Feature/&ProficiencyRogueBlindSenseDescription	A partir del 14º nivel, si eres capaz de oír, eres consciente de la ubicación de cualquier criatura oculta o invisible en un radio de 3 metros de ti.
 Feature/&ProficiencyRogueBlindSenseTitle	Sentido de la ceguera
 Feature/&ProficiencyRogueSlipperyMindDescription	A 15º nivel, ha adquirido una mayor fuerza mental. Ganas competencia en las tiradas de salvación de Sabiduría.
 Feature/&ProficiencyRogueSlipperyMindTitle	Mente escurridiza
@@ -1135,14 +1135,14 @@ Feature/&ShroudofShadowTitle	Sudario de sombra
 Feature/&SignofIllOmenTitle	Señal de mal agüero
 Feature/&SpellAsInvocationAtWillDescription	Lanza {0} a voluntad.
 Feature/&SpellAsInvocationOncePerDayDescription	Lanza {0} una vez hasta el descanso largo.
-Feature/&TempHPShield_09ModePowerDescription	Invoca un constructo que dura 1 hora. \Cúpula protectora: Otorga 1d8 + 4 PV temporales a los aliados en un radio de 3 metros. \Autodestrucción: inflige 3d8 de daño de fuerza si se falla la salvación y destruye la unidad.
+Feature/&TempHPShield_09ModePowerDescription	Invoca un constructo que dura 1 hora. \nCúpula protectora: Otorga 1d8 + 4 PV temporales a los aliados en un radio de 3 metros. \nAutodestrucción: Causa 3d8 de daño de fuerza si se falla la salvación y destruye la unidad.
 Feature/&TempHPShield_09ModePowerTitle	Invocar constructo de cúpula protectora
-Feature/&TempHPShield_15ModePowerDescription	Invoca un constructo que dura 1 hora. \Cúpula protectora: Otorga 1d8 + 4 PV temporales a los aliados en un radio de 3 metros. \Autodestrucción: inflige 3d8 de daño de fuerza con una salvación fallida y destruye la unidad. \Cúpula de media cobertura: Proporciona media cobertura a los aliados en un radio de 3 metros.
-Feature/&TempHPShield_15ModePowerTitle	Invocar construcción de cúpula protectora
-Feature/&TempHPShieldModePowerDescription	Invoca una construcción que dura 1 hora. \Cúpula protectora: Otorga 1d8 + 4 PS temporales a los aliados en un radio de 3 metros.
+Feature/&TempHPShield_15ModePowerDescription	Invoca un constructo que dura 1 hora. \nCúpula protectora: Otorga 1d8 + 4 PS temporales a los aliados en un radio de 3 metros. \nAutodestrucción: inflige 3d8 de daño de fuerza si se falla la salvación y destruye la unidad. \n Cúpula de media cobertura: Proporciona media cobertura a los aliados en un radio de 10 pies.
+Feature/&TempHPShield_15ModePowerTitle	Invocar constructo de cúpula protectora
+Feature/&TempHPShieldModePowerDescription	Invoca un constructo que dura 1 hora. \n Cúpula protectora: Otorga 1d8 + 4 PS temporales a los aliados en un radio de 3 metros.
 Feature/&TempHPShieldModePowerTitle	Invocar construcción de cúpula protectora
 Feature/&TempHPShieldTitle	Cúpula protectora
-Feature/&ThiefofFiveFates	Lanzamiento {0} una vez al día
+Feature/&ThiefofFiveFates	Lanza {0} una vez al día
 Feature/&ThiefofFiveFatesTitle	Ladrón de cinco destinos
 Feature/&ThirstingBladeDescription	Puedes atacar con tu arma dos veces, en lugar de una, siempre que realices la acción de Ataque en tu turno.
 Feature/&ThirstingBladeTitle	Hoja sedienta
@@ -1206,7 +1206,7 @@ Feedback/&AdditionalDamagePactMarkedFormat	¡Marca de pacto!
 Feedback/&AdditionalDamagePactMarkedLine	¡La marca del pacto hace daño adicional!
 Feedback/&AdditionalDamagePactSoulTakerFormat	¡Tomador de almas!
 Feedback/&AdditionalDamagePactSoulTakerLine	¡El tomador de almas hace daño adicional!
-Feedback/&AdditionalDamageResonatingStrikeFormat	¡Golpe resonante!
+Feedback/&AdditionalDamageResonatingStrikeFormat	¡Golpe Resonante!
 Feedback/&AdditionalDamageResonatingStrikeLine	¡{0} resuena {1}! (+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	¡Alma potenciada!
 Feedback/&AdditionalDamageSoulEmpoweredLine	¡Alma Potenciada hace daño adicional!
@@ -1230,17 +1230,17 @@ FightingStyle/&BlindFightingDescription	Tienes vista ciega con un alcance de 3 m
 FightingStyle/&BlindFightingTitle	Lucha a ciegas
 FightingStyle/&CripplingDescription	Al impactar con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el inicio de tu siguiente turno.
 FightingStyle/&CripplingTitle	Incapacitante
-FightingStyle/&PugilistFightingDescription	Tus golpes sin armas infligen 1d4 de daño contundente adicional y puedes dar un puñetazo con tu mano libre como acción adicional.\N-Si tienes la mano libre, puedes empujar como acción adicional.
+FightingStyle/&PugilistFightingDescription	Tus golpes desarmados infligen 1d4 de daño contundente adicional y puedes golpear con tu mano libre como acción de bonificación.\nSi tienes la mano libre, puedes empujar como acción de bonificación.
 FightingStyle/&PugilistFightingTitle	Pugilista
 FightingStyle/&TitanFightingDescription	Ganas un +2 al impacto contra criaturas de tamaño Grande o mayor.
 FightingStyle/&TitanFightingTitle	Lucha de Titanes
-FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcanos, Naturaleza y Perspicacia.
+FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsDescription	Arcanos, naturaleza y perspicacia.
 FlexibleBackgrounds/&AcademicBackgroundSuggestedSkillsTitle	Habilidades sugeridas
 FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsDescription	Religión, Naturaleza y Perspicacia.
 FlexibleBackgrounds/&AcolyteBackgroundSuggestedSkillsTitle	Habilidades sugeridas
 FlexibleBackgrounds/&AristocratBackgroundSuggestedSkillsDescription	Historia, Persuasión e Intimidación.
 FlexibleBackgrounds/&AristocratBackgroundSuggestedSkillsTitle	Habilidades sugeridas
-FlexibleBackgrounds/&BackgroundSkillSelect2Description	Selecciona 2 competencias de habilidad.
+FlexibleBackgrounds/&BackgroundSkillSelect2Description	Selecciona 2 habilidades.
 FlexibleBackgrounds/&BackgroundSkillSelect2Title	Habilidades
 FlexibleBackgrounds/&BackgroundSkillSelect3Description	Selecciona 3 habilidades.
 FlexibleBackgrounds/&BackgroundSkillSelect3Title	Habilidades
@@ -1264,14 +1264,14 @@ FlexibleRaces/&PointPoolAbilityScore3Description	Utiliza tres aumentos en las pu
 FlexibleRaces/&PointPoolAbilityScore3Title	Aumento de la puntuación de habilidad
 FlexibleRaces/&PointPoolAbilityScore4Description	Utiliza cuatro aumentos en las puntuaciones de habilidad en cualquier combinación que elijas.
 FlexibleRaces/&PointPoolAbilityScore4Title	Aumento de la puntuación de habilidad
-Format/&LevelAndExperienceFormat	Nivel: {0}nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
-Format/&LevelAndExperienceMaxedFormat	Nivel: {0}nExperiencia: {1}nivel máximo alcanzado
+Format/&LevelAndExperienceFormat	Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
+Format/&LevelAndExperienceMaxedFormat	Nivel: {0}\nExperiencia: {1}\nNivel máximo alcanzado
 Item/&CEHalberd+1Title	Alabarda +1
 Item/&CEHalberd+1UnidentifiedTitle	Alabarda de calidad
 Item/&CEHalberd+2Title	Alabarda +2
-Item/&CEHalberd+2UnidentifiedTitle	Alabarda magnífica
-Item/&CEHalberdLightningTitle	Alabarda del Rayo
-Item/&CEHalberdLightningUnidentifiedTitle	Alabarda magnífica
+Item/&CEHalberd+2UnidentifiedTitle	Alabarda Magnífica
+Item/&CEHalberdLightningTitle	Alabarda del Rayo 
+Item/&CEHalberdLightningUnidentifiedTitle	Alabarda magnífica 
 Item/&CEHalberdPrimedTitle	Alabarda de calidad
 Item/&CEHalberdTitle	Alabarda
 Item/&CEHandXbow+1Title	Ballesta de mano +1
@@ -1286,7 +1286,7 @@ Item/&CELongMace+1Title	Maza larga +1
 Item/&CELongMace+1UnidentifiedTitle	Maza larga de calidad
 Item/&CELongMace+2Title	Maza larga +2
 Item/&CELongMace+2UnidentifiedTitle	Maza larga magnífica
-Item/&CELongMacePrimedTitle	Maza Larga de Primado
+Item/&CELongMacePrimedTitle	Maza Larga Preparada
 Item/&CELongMaceThunderTitle	Maza larga atronadora
 Item/&CELongMaceThunderUnidentifiedTitle	Maza larga magnífica
 Item/&CELongMaceTitle	Maza larga
@@ -1300,7 +1300,7 @@ Item/&CEPikePsychicUnidentifiedTitle	Lucio Magnífico
 Item/&CEPikeTitle	Pike
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Alabarda encantada +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Alabarda encantada +2
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Encantar alabarda de relámpago
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Encantar alabarda de relámpago 
 Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Encantar ballesta de mano +1
 Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Encantar ballesta de mano +2
 Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Encantar Ballesta de mano ácida
@@ -1310,7 +1310,7 @@ Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Encantar Maza larga atro
 Item/&CraftingManualRecipeEnchantCEPike+1Title	Encantar Pica +1
 Item/&CraftingManualRecipeEnchantCEPike+2Title	Encantar pica +2
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Encantar Piqueta Psíquica
-Item/&CraftingManualRecipeEnchantHandwraps+1Description	Encantar Manos +1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	Encantar Cintas de mano +1
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Encantar envoltorios de mano +2.
 Item/&CraftingManualRecipeEnchantHandwraps+2Title	Encantar Pañuelos +2
@@ -1338,19 +1338,19 @@ Language/&GnomishLanguageDescription	Una antigua lengua solastana, conservada po
 Language/&GnomishLanguageTitle	Gnomish
 MainMenu/&ExportPdfDescription	Baja el nivel de este héroe.
 MainMenu/&ExportPdfTitle	Bajar de nivel
-Message/&CharacterExportDuplicateNameErrorDescription	Exportación cancelada:\NUn héroe con este nombre ya existe en el pool.\NPor favor, intenta con otro nombre.
-Message/&CharacterExportEmptyNameErrorDescription	Exportación cancelada:\nPor favor, intente con un nombre no vacío.
-Message/&CharacterExportModalContentDescription	Introduzca el nombre del héroe a exportar:
-Message/&CharacterExportModalTitleDescription	Exportar personaje.
+Message/&CharacterExportDuplicateNameErrorDescription	Exportación cancelada:\n\nYa existe un héroe con este nombre en el pool.\nPor favor, intenta un nombre diferente.
+Message/&CharacterExportEmptyNameErrorDescription	Exportación cancelada:\n\nPor favor, intenta un nombre no vacío.
+Message/&CharacterExportModalContentDescription	Introduce el nombre del héroe a exportar:
+Message/&CharacterExportModalTitleDescription	Exportación de personajes.
 Message/&LevelDownConfirmationDescription	¿Bajar de nivel a este héroe?
 Message/&LevelDownMultiplayerAbortDescription	No se puede bajar de nivel durante una sesión multijugador.
-Message/&MessageModWelcomeDescription	El Mod de Expansión de la Comunidad está repleto de emocionantes características, pero por defecto ninguna está habilitada. Pulsa <color=amarillo>Ctrl-F10</color> para abrir la interfaz de usuario del gestor de mods de Unity [UMM], luego haz clic en el icono de configuración junto a "Community Expansion" para abrir las páginas de configuración.\NExplora las opciones y selecciona las que te gusten. La UMM UI se abrirá ahora.
+Message/&MessageModWelcomeDescription	El Mod de Expansión de la Comunidad está repleto de emocionantes características, pero por defecto ninguna está activada. Pulsa <color=amarillo>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM], luego haz clic en el icono de configuración junto a "Community Expansion" para abrir las páginas de configuración.\n\n Explora las opciones y selecciona las que te gusten. La UMM UI se abrirá ahora.
 Message/&MessageModWelcomeTitle	Mod de Expansión de la Comunidad
 Message/&RespecMultiplayerAbortDescription	No se puede hacer Respec durante una sesión multijugador o en el mapa de exploración.
 Message/&SpawnCustomEncounterDescription	¿Generar encuentros en las coordenadas ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription	No se pueden generar encuentros en una partida multijugador. Sin embargo...
 Message/&SpawnCustomEncounterTitle	Encuentro
-Message/&TeleportPartyDescription	¿Teletransportar al grupo a las coordenadas ({0}, {1})? Podrías romper las misiones o los mapas si te teletransportas a un lugar no descubierto.
+Message/&TeleportPartyDescription	¿Teletransportar grupo a coordenadas ({0}, {1})?\nPodrías romper misiones o mapas si te teletransportas a un lugar no descubierto.
 Message/&TeleportPartyTitle	Teletransporte
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	El arma utiliza el modificador de Carisma para las tiradas de ataque y daño y cuenta como mágica hasta el descanso prolongado.
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Alma Potenciada
@@ -1364,7 +1364,7 @@ Monster/&DHCustomCouatlDescription	Los Couatls son seres serpentinos benévolos 
 Monster/&DHCustomCouatlTitle	Couatl
 Monster/&OwlFamiliarDescription	Familiar de búho.
 Monster/&OwlFamiliarTitle	Búho
-Monster/&PactOfChainCustomImpDescription	Los diablillos se encuentran por todos los Planos Inferiores, ya sea haciendo recados para sus amos infernales, espiando a sus rivales o engañando a los mortales. Un diablillo servirá con orgullo a un amo maligno de cualquier tipo, pero no se puede confiar en que realice sus tareas con rapidez o eficacia.
+Monster/&PactOfChainCustomImpDescription	Los diablillos se encuentran por todos los Planos Inferiores, ya sea haciendo recados para sus amos infernales, espiando a sus rivales o engañando a los mortales. Un diablillo servirá con orgullo a un amo maligno de cualquier tipo, pero no se puede confiar en que lleve a cabo sus tareas con rapidez o eficacia.
 Monster/&PactOfChainCustomImpTitle	Gnomo (Pacto de la Cadena)
 Monster/&PactOfChainCustomPseudodragonDescription	El escurridizo pseudodragón habita en los lugares tranquilos del mundo, haciendo su hogar en los huecos de los árboles y las pequeñas cuevas. Con sus escamas verdes, cuernos y unas fauces llenas de dientes afilados, un pseudodragón se parece a un pequeño dragón verde, pero su disposición es juguetona.
 Monster/&PactOfChainCustomPseudodragonTitle	Pseudodragón
@@ -1401,19 +1401,19 @@ Power/&ClassMonkOpenHandProneDescription	El objetivo debe tener éxito en la tir
 Power/&ClassMonkOpenHandProneTitle	Derribar
 Power/&ClassMonkOpenHandPushDescription	El objetivo debe tener éxito en la tirada de salvación de Fuerza o ser empujado 15 pies lejos de ti.
 Power/&ClassMonkOpenHandPushTitle	Empujar lejos
-Power/&ClassMonkOpenHandTechniqueDescription	Puedes manipular el ki de tu enemigo cuando aprovechas el tuyo. Siempre que golpees a una criatura con uno de los ataques que te otorga tu Ráfaga de golpes, puedes imponer uno de los siguientes efectos a ese objetivo:\N- Debe tener éxito en una tirada de salvación de Destreza o ser derribado.\N- Debe hacer una tirada de salvación de Fuerza. Si falla, puedes empujarlo hasta 15 pies de distancia de ti.\N- No puede tomar reacciones hasta el final de tu siguiente turno.
+Power/&ClassMonkOpenHandTechniqueDescription	 Puedes manipular el ki de tu enemigo cuando aprovechas el tuyo. Siempre que golpees a una criatura con uno de los ataques que te otorga tu Ráfaga de golpes, puedes imponer uno de los siguientes efectos a ese objetivo:\n- Debe tener éxito en una tirada de salvación de Destreza o ser derribado\n- Debe hacer una tirada de salvación de Fuerza. Si falla, puedes empujarlo hasta 15 pies de distancia de ti.\n- No puede tomar reacciones hasta el final de tu siguiente turno.
 Power/&ClassMonkOpenHandTechniqueTitle	Técnica de la mano abierta
 Power/&ClassMonkPatientDefenseDescription	Puedes gastar 1 punto de ki como acción adicional para realizar la acción de esquivar. Sólo está disponible si no llevas armadura o escudo.
 Power/&ClassMonkPatientDefenseTitle	Defensa paciente
 Power/&ClassMonkQuiveringPalmDescription	Cuando golpeas a una criatura con un golpe desarmado, puedes gastar 3 puntos de ki para iniciar vibraciones imperceptibles que obligan a la criatura a realizar una tirada de salvación de Constitución. Si falla, se reduce a 0 puntos de vida. Si tiene éxito, recibe 10d10 de daño necrótico.
 Power/&ClassMonkQuiveringPalmTitle	Palma temblorosa
-Power/&ClassMonkSlowFallDescription	Puedes usar tu reacción cuando caigas para evitar cualquier daño por caída.
+Power/&ClassMonkSlowFallDescription	Puedes usar tu reacción al caer para evitar cualquier daño por caída.
 Power/&ClassMonkSlowFallTitle	Caída lenta
 Power/&ClassMonkStepOfTheWindDescription	Puedes gastar 1 punto de ki para llevar a cabo la acción de Desenganche o de Correr como acción adicional en tu turno, y tu distancia de salto se duplica durante el turno. Sólo está disponible si no llevas armadura o escudo.
 Power/&ClassMonkStepOfTheWindTitle	Paso del viento
 Power/&ClassMonkStunningStrikeDescription	Puedes interferir con el flujo de ki en el cuerpo de un oponente. Cuando golpeas a otra criatura que no está aturdida con un ataque de arma cuerpo a cuerpo, puedes gastar 1 punto de ki para intentar un golpe de aturdimiento. El objetivo debe tener éxito en una tirada de salvación de Constitución o quedar aturdido hasta el final de tu siguiente turno.
 Power/&ClassMonkStunningStrikeTitle	Golpe aturdidor
-Power/&ClassMonkTanquilityDescription	Una vez por descanso corto como acción gratuita puedes entrar en estado de tranquilidad, calmando tus emociones y concentrándote en lo que te rodea. Mientras estés en este estado, ganas ventaja en las tiradas de salvación contra hechizos y los enemigos tienen desventaja al atacarte. La tranquilidad dura hasta el siguiente descanso o hasta que ataques o lances un hechizo.
+Power/&ClassMonkTanquilityDescription	Una vez por descanso corto como acción gratuita puedes entrar en estado de tranquilidad, calmando tus emociones y concentrándote en lo que te rodea. Mientras estés en este estado ganas ventaja en las tiradas de salvación contra hechizos y los enemigos tienen desventaja al atacarte. La tranquilidad dura hasta el siguiente descanso o hasta que ataques o lances un hechizo.
 Power/&ClassMonkTanquilityTitle	Tranquilidad
 Power/&ClassMonkWholenessOfBodyDescription	Como acción, puedes recuperar puntos de golpe iguales a tres veces tu nivel de Monje. Debes terminar un descanso largo antes de poder usar esta característica de nuevo.
 Power/&ClassMonkWholenessOfBodyTitle	Integridad del cuerpo
@@ -1425,7 +1425,7 @@ Power/&ClassMonkZenArrowProneDescription	El objetivo debe tener éxito en la tir
 Power/&ClassMonkZenArrowProneTitle	Derribar
 Power/&ClassMonkZenArrowPushDescription	El objetivo debe tener éxito en la tirada de salvación de Fuerza o ser empujado a 3 metros de ti.
 Power/&ClassMonkZenArrowPushTitle	Empujar lejos
-Power/&ClassMonkZenArrowTechniqueDescription	Puedes manipular el ki de tu enemigo cuando lo golpeas con tus flechas. Siempre que golpees a una criatura con una de tus flechas puedes gastar 1 ki para imponer uno de los siguientes efectos a ese objetivo:\N- Debe tener éxito en una tirada de salvación de Destreza o ser derribado.\N- Debe tener éxito en una tirada de salvación de Fuerza o ser empujado a 3 metros de ti.\N- Debe tener éxito en una tirada de salvación de Sabiduría o tener desventaja en el siguiente ataque hasta el final de su siguiente turno.
+Power/&ClassMonkZenArrowTechniqueDescription	Puedes manipular el ki de tu enemigo cuando lo golpeas con tus flechas. Siempre que golpees a una criatura con una de tus flechas puedes gastar 1 ki para imponer uno de los siguientes efectos a ese objetivo:\n- Debe tener éxito en una tirada de salvación de Destreza o ser derribado.\n- Debe tener éxito en una tirada de salvación de Fuerza o ser empujado a 3 metros de ti.\n- Debe tener éxito en una tirada de salvación de Sabiduría o tener desventaja en el siguiente ataque hasta el final de su siguiente turno. 
 Power/&ClassMonkZenArrowTechniqueShortTitle	Mano Distante
 Power/&ClassMonkZenArrowTechniqueTitle	Técnica de la Mano Distante
 Power/&ClassMonkZenArrowUpgradedDistractDescription	El objetivo debe tener éxito en una tirada de salvación de Sabiduría o tener desventaja en todos los ataques hasta el final de su próximo turno.
@@ -1434,17 +1434,17 @@ Power/&ClassMonkZenArrowUpgradedProneDescription	El objetivo debe tener éxito e
 Power/&ClassMonkZenArrowUpgradedProneTitle	Derribar
 Power/&ClassMonkZenArrowUpgradedPushDescription	El objetivo debe tener éxito en una tirada de salvación de Fuerza o ser empujado a 6 metros de ti.
 Power/&ClassMonkZenArrowUpgradedPushTitle	Empujar lejos
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Mejoras tu capacidad de manipular el ki. Todos los efectos de la Técnica de la Mano Distante son mejorados. Siempre que golpees a una criatura con una de tus flechas puedes gastar 1 ki para imponer uno de los siguientes efectos a ese objetivo:\N- Debe tener éxito en una tirada de salvación de Destreza o ser derribado y tener su movimiento a cero durante un turno.\N- Debe tener éxito en una tirada de salvación de Fuerza o ser empujado 20 pies lejos de ti.\N- Debe tener éxito en una tirada de salvación de Sabiduría o tener desventaja en todos los ataques hasta el final de su próximo turno.
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Mejoras tu capacidad de manipular el ki. Todos los efectos de la Técnica de la Mano Distante son mejorados. Siempre que golpees a una criatura con una de tus flechas puedes gastar 1 ki para imponer uno de los siguientes efectos a ese objetivo:\n- Debe tener éxito en una tirada de salvación de Destreza o ser derribado y tener su movimiento a cero durante un turno.\n- Debe tener éxito en una tirada de salvación de Fuerza o ser empujado 20 pies lejos de ti.\n- Debe tener éxito en una tirada de salvación de Sabiduría o tener desventaja en todos los ataques hasta el final de su próximo turno. 
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Mano Distante
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Técnica de la mano distante mejorada
-Power/&DH_ElementalFormPoolDescription	Puedes cambiar entre formas elementales un número de veces igual a tu bonificación de competencia por descanso largo canalizando energía elemental. Obtienes resistencia al daño correspondiente y, una vez por turno, aplicas tu bonificación de competencia como daño del mismo tipo al primer daño de hechizo realizado ese turno. Las formas duran 1 minuto.
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Técnica de la Mano Distante Mejorada
+Power/&DH_ElementalFormPoolDescription	Puedes cambiar entre formas elementales un número de veces igual a tu bonificación de competencia por descanso largo canalizando energía elemental. Ganas resistencia al daño correspondiente y, una vez por turno, aplicas tu bonificación de competencia como daño del mismo tipo al primer daño de hechizo realizado ese turno. Las formas duran 1 minuto.
 Power/&DH_ElementalFormPoolEnhancedDescription	Puedes cambiar entre formas elementales mejoradas un número de veces igual a tu bonificación de competencia por día canalizando energía elemental. Obtienes inmunidad al daño correspondiente y aplicas el bonificador de competencia como daño del mismo tipo al primer daño de hechizo realizado cada turno. Las formas duran 1 minuto.
 Power/&DH_ElementalFormPoolEnhancedTitle	Formas elementales mejoradas
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Formas elementales
 Power/&DH_ElementalFormPoolTitle	Formas elementales
 Power/&FindFamiliarBundlePowerDescription	Invoca a un familiar en forma de Pseudorgagón, Sprite, diablillo o Quasit.
 Power/&FindFamiliarBundlePowerTitle	Encontrar familiar
-Power/&HelpActionDescription	Puedes ayudar a una criatura amiga a atacar a una criatura que esté a menos de 1,5 metros de ti. Haces una finta, distraes al objetivo o te unes de alguna manera para que el ataque de tu aliado sea más efectivo. Si tu aliado ataca al objetivo antes de tu próximo turno, la primera tirada de ataque se hace con ventaja.
+Power/&HelpActionDescription	Puedes ayudar a una criatura amiga a atacar a una criatura que esté a menos de 1,5 metros de ti. Haces una finta, distraes al objetivo o te unes de alguna manera para que el ataque de tu aliado sea más efectivo. Si tu aliado ataca al objetivo antes de tu siguiente turno, la primera tirada de ataque se hace con ventaja.
 Power/&HelpActionTitle	Ayuda
 Power/&MoonlitDanceoftheNightSkyDescription	Puedes lanzar Volar sobre 4 objetivos una vez al día.
 Power/&MoonlitDanceoftheNightSkyTitle	Danza del cielo nocturno
@@ -1470,7 +1470,7 @@ Power/&ToadKingSwallowDescription	Intenta tragar a un enemigo mediano o más peq
 Power/&ToadKingSwallowTitle	Tragar
 Power/&UrPriestControlUndeadDescription	Como acción, apuntas a una criatura no muerta que puedas ver en un radio de 30 pies de ti. El objetivo debe hacer una tirada de salvación de Sabiduría. Si falla la tirada de salvación, el objetivo debe obedecer tus órdenes.
 Power/&UrPriestControlUndeadTitle	Controlar muertos vivientes
-Power/&UrPriestHalfLifeDescription	Tomas energía necrótica dentro de ti, colgando entre la vida y la muerte y eres poseído temporalmente por tu propio fantasma. Ganas velocidad de vuelo, y las mismas inmunidades de condición y resistencias al daño que otros fantasmas.
+Power/&UrPriestHalfLifeDescription	Tomas energía necrótica dentro de ti, colgando entre la vida y la muerte y eres poseído temporalmente por tu propio fantasma. Obtienes velocidad de vuelo y las mismas inmunidades de condición y resistencias al daño que los demás fantasmas.
 Power/&UrPriestHalfLifeTitle	Media vida
 Power/&UrPriestRadiantWardDescription	Como acción, ganas un número de puntos de golpe temporales igual al doble de tu nivel de Brujo.
 Power/&UrPriestRadiantWardTitle	Guarda Radiante
@@ -1571,7 +1571,7 @@ Reaction/&SubitemSelectWarcasterReactionTitle	Seleccionar acción
 Reaction/&Use{0}Description	Usar {0}
 Reaction/&Use{0}Title	Usar {0}
 Reaction/&UseClassMonkSlowFallDescription	{0} está cayendo y puede usar una reacción para no recibir daño por caída.
-Reaction/&UseClassMonkSlowFallReactDescription	Utiliza la reacción para no recibir daño por caída.
+Reaction/&UseClassMonkSlowFallReactDescription	Utiliza una reacción para no recibir daño por caída.
 Reaction/&UseClassMonkSlowFallReactTitle	Reaccionar
 Reaction/&UseClassMonkSlowFallTitle	Caída lenta
 Reaction/&WarcasterAttackDescription	Ataca al objetivo.
@@ -1584,7 +1584,7 @@ Requirement/&FeatureSelectionRequireCharacterLevel	Nivel {0}
 Requirement/&FeatureSelectionRequireClassLevel	Nivel {0} de {1}
 Requirement/&WarlockMissingEldritchBlast	Cantrip Eldritch Blast
 Requirement/&WarlockRequiresNoMoonLit	Patrón no iluminado por la luna
-Requirement/&WarlockRequiresOneWithShadows	Uno con Sombras Invocación Eldritch
+Requirement/&WarlockRequiresOneWithShadows	Invocación Eldritch "Uno con las Sombras"
 Requirement/&WarlockRequiresPactOfBlade	Pacto de la Espada
 Requirement/&WarlockRequiresPactOfChain	Pacto de las Cadenas
 Requirement/&WarlockRequiresPactOfTome	Pacto del Tomo
@@ -1595,13 +1595,13 @@ RestActivity/&ZSSorcerousRestorationTitle	Restauración Hechicera
 Rules/&AdvantageAttackOnEnemyDescription	Ventaja para atacar al enemigo.
 Rules/&AdvantageAttackOnEnemyTitle	Encendido
 Rules/&CounterFormDismissCreatureFormat	Descartar la construcción de Tinkerer
-Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por la sacudida de un rayo.
+Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por una sacudida de rayo.
 Rules/&DisadvantageOnAttackByEnemyTitle	Sacudido
 Rules/&ExtraDamageOnAttackConditionDescription	Daño extra de Lanza de luz.
 Rules/&ExtraDamageOnAttackConditionTitle	Choque estático
 Rules/&HalfCoverShieldAttributeDescription	Los aliados en un radio de 10 pies ganan +2 CA.
 Rules/&HalfCoverShieldAttributeTitle	Cúpula de media cobertura
-Rules/&HalfCoverShieldConditionDescription	¡#ERROR!
+Rules/&HalfCoverShieldConditionDescription	+2 CA.
 Rules/&HalfCoverShieldConditionTitle	Protegido por Cúpula
 Rules/&LightningSpearPowerDescription	Inflige 2d6 de daño por rayo.
 Rules/&LightningSpearPowerTitle	Lanza de rayos
@@ -1610,7 +1610,7 @@ Rules/&SelfDestructionConditionTitle	Autodestrucción
 Rules/&ThunderStruckBalancingAdvantageDescription	Equilibrio de Golpe de rayo para que sólo funcione con los aliados.
 Rules/&ThunderStruckBalancingAdvantageTitle	Burlado
 Rules/&ThunderStruckDescription	Desventaja al atacar a los aliados del Centinela Explorador.
-Rules/&ThunderStruckTitle	Golpe de trueno (distraído)
+Rules/&ThunderStruckTitle	Golpe de trueno (Distraído)
 Screen/&CovenSpellDescription	Hechizo conocido como parte de un Aquelarre.
 Screen/&CovenSpellHeader	Aquelarre
 Screen/&CovenSpellTitle	Aquelarre
@@ -1632,7 +1632,7 @@ Sorceror/&ZSSorcerousRestorationDescription	Recupera 4 puntos de hechicería dur
 Sorceror/&ZSSorcerousRestorationTitle	Restauración Hechicera
 Spell/&AcidClawsDescription	Realiza un ataque mortal con tus garras afiladas.
 Spell/&AcidClawsTitle	Garras sangrientas
-Spell/&AHHellishRebukeDescription	Apuntas con tu dedo y la criatura que te ha dañado queda momentáneamente rodeada de llamas infernales. La criatura debe hacer una tirada de salvación de Destreza. Recibe 2d10 de daño por fuego si falla la tirada de salvación, o la mitad de daño si tiene éxito.
+Spell/&AHHellishRebukeDescription	Apuntas con tu dedo y la criatura que te ha dañado queda momentáneamente rodeada de llamas infernales. La criatura debe hacer una tirada de salvación de Destreza. Recibe 2d10 de daño por fuego si falla la salvación, o la mitad de daño si tiene éxito.
 Spell/&AHHellishRebukeTitle	Rebelión infernal
 Spell/&AHPactMarkAdditionalDamageDescription	Una criatura marcada por el pacto recibe un daño adicional de 1d6 del mismo tipo cuando es golpeada por un ataque de arma o hechizo del marcador.
 Spell/&AHPactMarkAdditionalDamageTitle	Daño por marca de pacto
@@ -1646,8 +1646,8 @@ Spell/&AirBlastDescription	Dispara una ráfaga de aire concentrado a tu objetivo
 Spell/&AirBlastTitle	Ráfaga de aire
 Spell/&BurstOfRadianceDescription	Crea un destello brillante de luz resplandeciente que daña a todos los enemigos a tu alrededor.
 Spell/&BurstOfRadianceTitle	Ráfaga de resplandor
-Spell/&CJDivineWordDescription	Pronuncias una palabra divina, imbuida del poder que dio forma al mundo en los albores de la creación. Elige cualquier número de criaturas que puedas ver dentro del alcance. Cada criatura que pueda oírte debe hacer una tirada de salvación de Carisma. En caso de fallar la tirada de salvación, la criatura sufre un efecto basado en sus puntos de vida actuales:\n- 50 puntos de vida o menos: ensordecida durante 1 minuto\n- 40 puntos de vida o menos: ensordecida y cegada durante 10 minutos\n- 30 puntos de vida o menos: cegada, ensordecida y aturdida durante 1 hora\n- 20 puntos de vida o menos: Un celestial, un elemental, un fey o un demonio que falle su salvación es forzado a volver a su plano de origen (si no está ya allí) y no puede volver a su plano actual durante 24 horas por ningún medio que no sea un hechizo de deseo. \n
-Spell/&CJDivineWordTitle	Palabra divina
+Spell/&CJDivineWordDescription	Pronuncias una palabra divina, imbuida del poder que dio forma al mundo en los albores de la creación. Elige cualquier número de criaturas que puedas ver dentro del alcance. Cada criatura que pueda oírte debe hacer una tirada de salvación de Carisma. En caso de fallar la tirada de salvación, la criatura sufre un efecto basado en sus puntos de vida actuales:\n- 50 puntos de vida o menos: ensordecida durante 1 minuto\n- 40 puntos de vida o menos: ensordecida y cegada durante 10 minutos\n- 30 puntos de vida o menos: cegada, ensordecida y aturdida durante 1 hora\n- 20 puntos de vida o menos: muere instantáneamente\nIndependientemente de sus puntos de vida actuales, un celestial, un elemental, un fey o un demonio que falle su salvación es forzado a volver a su plano de origen (si no está allí ya) y no puede volver a su plano actual durante 24 horas por cualquier medio que no sea un hechizo de deseo. \n
+Spell/&CJDivineWordTitle	Palabra Divina
 Spell/&DHAnimalShapesSpellDescription	Elige cualquier número de criaturas dispuestas que puedas ver dentro del alcance. Transformas a cada objetivo en la forma de una bestia grande o más pequeña con un índice de desafío de 4 o inferior.
 Spell/&DHAnimalShapesSpellTitle	Formas de animales
 Spell/&DHCastSpellArchMageDescription	Habilidad de lanzamiento del archimago.
@@ -1660,7 +1660,7 @@ Spell/&DHConjureCelestialSpellDescription	Invocas a un celestial de nivel de des
 Spell/&DHConjureCelestialSpellTitle	Conjurar Celestial (Couatl)
 Spell/&DHDominateMonsterSpellDescription	Intentas hechizar a una criatura que puedas ver dentro de tu alcance. Debe tener éxito en una tirada de salvación de Sabiduría o ser encantado por ti mientras dure el hechizo.
 Spell/&DHDominateMonsterSpellTitle	Dominar monstruo
-Spell/&DHFeeblemindSpellDescription	Haces estallar la mente de una criatura que puedas ver dentro de tu alcance, intentando destrozar su intelecto y personalidad. El objetivo recibe 4d6 de daño psíquico y debe realizar una tirada de salvación de Inteligencia. La criatura no puede lanzar hechizos, activar objetos mágicos, entender el lenguaje o comunicarse de forma inteligible.
+Spell/&DHFeeblemindSpellDescription	Golpeas la mente de una criatura que puedas ver dentro de tu alcance, intentando destrozar su intelecto y personalidad. El objetivo recibe 4d6 de daño psíquico y debe realizar una tirada de salvación de Inteligencia. La criatura no puede lanzar hechizos, activar objetos mágicos, entender el lenguaje o comunicarse de forma inteligible.
 Spell/&DHFeeblemindSpellTitle	Mente débil
 Spell/&DHFingerOfDeathSpellDescription	El objetivo debe realizar una tirada de salvación de Constitución. Recibe 7d8 + 30 de daño necrótico si falla la tirada de salvación, o la mitad de daño si tiene éxito.
 Spell/&DHFingerOfDeathSpellTitle	Dedo de la Muerte (Sin Zombie)
@@ -1668,9 +1668,9 @@ Spell/&DHForesightSpellDescription	Tocas a una criatura dispuesta y le otorgas u
 Spell/&DHForesightSpellTitle	Previsión
 Spell/&DHHolyAuraSpellDescription	La luz divina sale de ti y se fusiona en un suave resplandor en un radio de 30 pies a tu alrededor. Las criaturas que elijas en ese radio cuando lanzas este conjuro arrojan una luz tenue en un radio de 5 pies y tienen ventaja en todas las tiradas de salvación, y otras criaturas tienen desventaja en las tiradas de ataque contra ellas hasta que el conjuro termine.
 Spell/&DHHolyAuraSpellTitle	Aura sagrada
-Spell/&DHIncendiaryCloudSpellDescription	Una nube arremolinada de humo atravesada por ascuas blancas aparece en una esfera de 20 pies de radio centrada en un punto dentro del alcance. La nube se extiende por las esquinas y queda muy oscurecida. Dura lo que dura o hasta que un viento de velocidad moderada o mayor (al menos 10 millas por hora) la dispersa.\NCuando la nube aparece, cada criatura en ella debe hacer una tirada de salvación de Destreza. Una criatura recibe 10d8 de daño por fuego si falla la tirada de salvación, o la mitad de daño si tiene éxito. Una criatura también debe hacer esta tirada de salvación cuando entra en el área del hechizo por primera vez en un turno o termina su turno allí.\NLa nube se aleja 10 pies directamente de ti en una dirección que eliges al comienzo de cada uno de tus turnos.
+Spell/&DHIncendiaryCloudSpellDescription	Una nube arremolinada de humo atravesada por ascuas blancas aparece en una esfera de 20 pies de radio centrada en un punto dentro del alcance. La nube se extiende por las esquinas y queda muy oscurecida. Dura lo que dura o hasta que un viento de velocidad moderada o mayor (al menos 10 millas por hora) la dispersa.\nCuando la nube aparece, cada criatura en ella debe hacer una tirada de salvación de Destreza. Una criatura recibe 10d8 de daño por fuego si falla la tirada de salvación, o la mitad de daño si tiene éxito. Una criatura también debe hacer esta tirada de salvación cuando entra en el área del hechizo por primera vez en un turno o termina su turno allí.\nLa nube se aleja 10 pies directamente de ti en una dirección que eliges al comienzo de cada uno de tus turnos.
 Spell/&DHIncendiaryCloudSpellTitle	Nube incendiaria
-Spell/&DHMassHealSpellDescription	Un torrente de energía curativa fluye desde ti hacia las criaturas heridas que te rodean. Restableces hasta 700 puntos de golpe, divididos a tu elección entre cualquier número de criaturas que puedas ver dentro del alcance. Las criaturas curadas por este hechizo también se curan de todas las enfermedades y de cualquier efecto que las deje ciegas o sordas. Este hechizo no tiene efecto sobre muertos vivientes o constructos.
+Spell/&DHMassHealSpellDescription	Un torrente de energía curativa fluye desde ti hacia las criaturas heridas a tu alrededor. Restableces hasta 700 puntos de golpe, divididos a tu elección entre cualquier número de criaturas que puedas ver dentro del alcance. Las criaturas curadas por este hechizo también se curan de todas las enfermedades y de cualquier efecto que las deje ciegas o sordas. Este hechizo no tiene efecto sobre muertos vivientes o constructos.
 Spell/&DHMassHealSpellTitle	Curación en masa
 Spell/&DHMazeSpellDescription	Destierras a una criatura que puedas ver dentro del alcance a un demiplano laberíntico. El objetivo permanece allí mientras dure o hasta que escape del laberinto. /nEl objetivo puede usar su acción para intentar un chequeo de Inteligencia DC 20 para escapar.
 Spell/&DHMazeSpellTitle	Laberinto
@@ -1680,7 +1680,7 @@ Spell/&DHMindBlankSpellDescription	Hasta que el conjuro termine, una criatura di
 Spell/&DHMindBlankSpellTitle	Mente en blanco
 Spell/&DHPowerWordHealSpellDescription	Una ola de energía curativa inunda a la criatura que tocas. El objetivo recupera todos sus puntos de vida. Si la criatura está encantada, asustada, paralizada o aturdida, la condición termina. Si la criatura está tendida, puede usar su reacción para levantarse. Este hechizo no tiene efecto sobre muertos vivientes o constructos.
 Spell/&DHPowerWordHealSpellTitle	Palabra de poder para curar
-Spell/&DHPowerWordKillSpellDescription	Pronuncias una palabra de poder que puede obligar a una criatura que puedas ver dentro del alcance a morir instantáneamente. Si la criatura que eliges tiene 100 puntos de vida o menos, muere. De lo contrario, el hechizo no tiene efecto.
+Spell/&DHPowerWordKillSpellDescription	Pronuncias una palabra de poder que puede obligar a una criatura que puedas ver dentro del alcance a morir instantáneamente. Si la criatura que eliges tiene 100 puntos de vida o menos, muere. En caso contrario, el hechizo no tiene efecto.
 Spell/&DHPowerWordKillSpellTitle	Palabra de Poder Matar
 Spell/&DHPowerWordStunSpellDescription	Pronuncias una palabra de poder que puede abrumar la mente de una criatura que puedas ver dentro del alcance, dejándola aturdida. Si el objetivo tiene 150 puntos de vida o menos, queda aturdido. En caso contrario, el hechizo no tiene efecto.
 Spell/&DHPowerWordStunSpellTitle	Palabra de Poder Aturdir
@@ -1691,22 +1691,22 @@ Spell/&DHShapechangeSpellTitle	Cambio de forma
 Spell/&DHSunBurstSpellDescription	Una luz solar brillante parpadea en un radio de 60 pies centrado en un punto que elijas dentro del alcance. Cada criatura en esa luz debe hacer una tirada de salvación de Constitución. Si falla la salvación, la criatura recibe 12d6 de daño radiante y queda cegada durante 1 minuto. Si la salvación tiene éxito, recibe la mitad de daño y no queda cegada por este hechizo. Una criatura cegada por este hechizo realiza otra tirada de salvación de Constitución al final de cada uno de sus turnos. Este hechizo disipa cualquier oscuridad en su área que haya sido creada por un hechizo.
 Spell/&DHSunBurstSpellTitle	Estallido del Sol
 Spell/&DHTimeStopSpellDescription	Detienes brevemente el flujo del tiempo para todos menos para ti. El tiempo no pasa para otras criaturas, mientras que tú haces 1d4 + 1 turnos seguidos, durante los cuales puedes usar acciones y moverte normalmente.
-Spell/&DHTimeStopSpellTitle	Parada del tiempo
+Spell/&DHTimeStopSpellTitle	Detención del tiempo
 Spell/&DHWeirdSpellDescription	Aprovechando los miedos más profundos de un grupo de criaturas, creas criaturas ilusorias en sus mentes, visibles sólo para ellas. Cada criatura en una esfera de 30 pies de radio centrada en un punto de tu elección dentro del alcance debe hacer una tirada de salvación de Sabiduría. En caso de fallar la tirada de salvación, la criatura se asusta mientras dure el efecto. La ilusión invoca los miedos más profundos de la criatura, manifestando sus peores pesadillas como una amenaza implacable. Al final de cada turno de la criatura asustada, debe tener éxito en una tirada de salvación de Sabiduría o recibir 4d10 de daño psíquico. Si la tirada de salvación tiene éxito, el hechizo termina para esa criatura.
 Spell/&DHWeirdSpellTitle	Extraño
 Spell/&EarthTremorDescription	Golpeas el suelo y desatas un temblor de fuerza sísmica, lanzando tierra, roca y arena.
 Spell/&EarthTremorTitle	Temblor de tierra
-Spell/&EldritchBlastDescription	Un rayo de energía crepitante se dirige a una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. El hechizo crea más de un rayo cuando alcanzas niveles superiores: dos rayos a 5º nivel, tres rayos a 11º nivel y cuatro rayos a 17º nivel. Puedes dirigir los haces al mismo objetivo o a otros diferentes. Haz una tirada de ataque distinta para cada rayo.
-Spell/&EldritchBlastGraspingHandDescription	Un rayo de energía crepitante se dirige a una criatura dentro del alcance. Haz un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 de daño de fuerza. \(Cuando golpeas a una criatura con tu ráfaga de eldritch, puedes mover a esa criatura en línea recta 10 pies más cerca de ti).
+Spell/&EldritchBlastDescription	Un rayo de energía crepitante se dirige a una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 de daño de fuerza.\nEl hechizo crea más de un rayo cuando alcanzas niveles superiores: dos rayos a 5º nivel, tres rayos a 11º nivel y cuatro rayos a 17º nivel. Puedes dirigir los haces al mismo objetivo o a otros diferentes. Haz una tirada de ataque distinta para cada rayo.
+Spell/&EldritchBlastGraspingHandDescription	Un rayo de energía crepitante se dirige a una criatura dentro del alcance. Haz un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 de daño de fuerza. \n(Cuando golpeas a una criatura con tu ráfaga eldritch, puedes mover a esa criatura en línea recta 10 pies más cerca de ti).
 Spell/&EldritchBlastGraspingHandTitle	Ráfaga de eldritch (Agarrar)
-Spell/&EldritchBlastRepellingBlastDescription	Un rayo de energía crepitante se extiende hacia una criatura dentro del alcance. Haz un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 puntos de daño de fuerza.\N(Cuando golpeas a una criatura con la ráfaga eldritch, puedes empujar a la criatura hasta 10 pies de distancia de ti en línea recta).
+Spell/&EldritchBlastRepellingBlastDescription	Un rayo de energía crepitante se extiende hacia una criatura dentro del alcance. Haz un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 de daño de fuerza.\n(Cuando golpeas a una criatura con la ráfaga eldritch, puedes empujar a la criatura hasta 10 pies de distancia de ti en línea recta).
 Spell/&EldritchBlastRepellingBlastTitle	Ráfaga de eldritch (Repelente)
 Spell/&EldritchBlastTitle	Ráfaga de eldritch
 Spell/&EldritchOrbDescription	Lanzas una bola de energía eldritch a una criatura u objeto dentro del alcance e infliges daño de fuerza en un radio pequeño.
 Spell/&EldritchOrbTitle	Orbe de eldritch
-Spell/&EWResonatingStrikeDescription	Selecciona una criatura a tu alcance cuerpo a cuerpo y otra criatura que puedas ver a menos de 1,5 metros del objetivo principal. Haces un ataque cuerpo a cuerpo con el arma actual contra la primera criatura. Si aciertas, el objetivo sufre los efectos normales del ataque con el arma, y el sonido resonante salta al segundo objetivo, infligiendo un daño de trueno igual a tu modificador de habilidad de lanzamiento de conjuros.\NA partir del 5º nivel, el ataque cuerpo a cuerpo inflige 1d8 de daño de trueno adicional al objetivo si aciertas, y el daño de trueno a la segunda criatura aumenta a 1d8 + tu modificador de habilidad de lanzamiento de conjuros. Ambas tiradas de daño aumentan en 1d8 a los niveles 11º y 17º.
+Spell/&EWResonatingStrikeDescription	Selecciona una criatura a tu alcance cuerpo a cuerpo y otra criatura que puedas ver a menos de 1,5 metros del objetivo principal. Haces un ataque cuerpo a cuerpo con el arma actual contra la primera criatura. Si aciertas, el objetivo sufre los efectos normales del ataque con el arma, y el sonido resonante salta al segundo objetivo, infligiendo un daño de trueno igual a tu modificador de habilidad de lanzamiento de conjuros.\nA 5º nivel, el ataque cuerpo a cuerpo inflige 1d8 de daño de trueno adicional al objetivo si aciertas, y el daño de trueno a la segunda criatura aumenta a 1d8 + tu modificador de habilidad de lanzamiento de conjuros. Ambas tiradas de daño aumentan en 1d8 a los niveles 11º y 17º.
 Spell/&EWResonatingStrikeTitle	Golpe Resonante
-Spell/&EWSunlightBladeDescription	Realiza un ataque cuerpo a cuerpo con un arma. Si acierta, el objetivo sufre los efectos normales del ataque y se ve envuelto en una energía radiante que emite una luz tenue durante el turno. El siguiente ataque contra esta criatura mientras esté resaltada se realiza con ventaja.\NA partir del 5º nivel, el ataque cuerpo a cuerpo inflige 1d8 de daño radiante adicional al objetivo. El daño aumenta en otro 1d8 a 11º nivel y 17º nivel.
+Spell/&EWSunlightBladeDescription	Realiza un ataque cuerpo a cuerpo con un arma. Si acierta, el objetivo sufre los efectos normales del ataque y se ve envuelto en una energía radiante que emite una luz tenue durante el turno. El siguiente ataque contra esta criatura mientras esté resaltada se realiza con ventaja.\nA 5º nivel, el ataque cuerpo a cuerpo inflige 1d8 de daño radiante adicional al objetivo. El daño aumenta en otro 1d8 a 11º nivel y 17º nivel.
 Spell/&EWSunlightBladeTitle	Hoja iluminada por el sol
 Spell/&FindFamiliarDescription	Obtienes el servicio de un familiar.
 Spell/&FindFamiliarImpDescription	Invoca a tu familiar en forma de diablillo.
@@ -1720,7 +1720,7 @@ Spell/&FindFamiliarSpriteTitle	Encontrar familiar (Sprite)
 Spell/&FindFamiliarTitle	Encontrar a un familiar
 Spell/&FrenzyDescription	Con un gesto, reduces a una multitud a la base del instinto y la violencia. Elige un punto que puedas ver dentro del alcance. Cada criatura en un radio de 6 metros de ese punto debe hacer una tirada de salvación de Sabiduría. En caso de fallar la tirada de salvación, la criatura queda frenética mientras dure el ataque. Cuando una criatura está frenética, saca un arma cuerpo a cuerpo, si tiene una. Una criatura frenética debe utilizar su acción al principio de su turno para atacar a una criatura que esté a su alcance. Utiliza un arma cuerpo a cuerpo, si tiene una, o un arma improvisada o un golpe desarmado, si no la tiene. Si hay varios objetivos al alcance de la criatura, ésta elige su objetivo al azar. Si no hay ningún objetivo al alcance de la criatura, se ataca a sí misma, contra su propia CA, infligiendo el daño normal en caso de impacto. Al final de su turno, una criatura frenética puede repetir su tirada de salvación, terminando el efecto sobre ella antes de tiempo si tiene éxito.
 Spell/&FrenzyTitle	Frenesí
-Spell/&HinderingBlastDescription	Un rayo de energía crepitante se dirige a una criatura dentro del alcance. Haz un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 puntos de daño de fuerza.n(cuando golpeas a una criatura con tu ráfaga eldritch, puedes reducir la velocidad de esa criatura en 3 metros hasta el final de tu siguiente turno).
+Spell/&HinderingBlastDescription	Un rayo de energía crepitante se dirige a una criatura dentro del alcance. Haz un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo recibe 1d10 puntos de daño de fuerza\n (cuando golpeas a una criatura con tu explosión eldritch, puedes reducir la velocidad de esa criatura en 3 metros hasta el final de tu siguiente turno).
 Spell/&HinderingBlastTitle	Ráfaga de eldritch (Entorpecedor)
 Spell/&IlluminatingSphereDescription	Hace que se iluminen las fuentes de luz, como antorchas y lámparas de maná, en el área de efecto.
 Spell/&IlluminatingSphereTitle	Esfera luminosa
@@ -1735,9 +1735,9 @@ Spell/&PetalStormDescription	Elige un cubo de aire desocupado de 15 pies que pue
 Spell/&PetalStormTitle	Tormenta de pétalos
 Spell/&ProtectThresholdDescription	Trazando sigilos arcanos a lo largo de sus límites, puedes proteger una puerta, ventana u otro portal de la entrada. Mientras dure, una criatura eldritch invisible acecha el portal protegido. Cualquier criatura que intente atravesar el portal debe realizar una tirada de salvación de Sabiduría o recibir 4d6 de daño psíquico, o la mitad si la salvación es exitosa.
 Spell/&ProtectThresholdTitle	Proteger umbral
-Spell/&RadiantMotesDescription	Desata un enjambre de 5 proyectiles radiantes que infligen 2 de daño radiante cada uno, pero nunca fallan. Los objetivos pueden irradiar luz hasta 1 minuto.\NCuando lanzas este hechizo usando una ranura de hechizo de 2º nivel o superior, el hechizo crea 2 proyectiles más por cada ranura superior a la 1ª.
-Spell/&RadiantMotesTitle	Motas radiantes
-Spell/&ThunderStrikeDescription	Crea una ráfaga de sonido atronador, obligando a las criaturas adyacentes a realizar una tirada de salvación de Constitución o a recibir 1d6 de daño por trueno.\NEl daño de este hechizo aumenta en 1d6 cuando alcanzas el 5º nivel (2d6), el 11º nivel (3d6) y el 17º nivel (4d6).
+Spell/&RadiantMotesDescription	Desata un enjambre de 5 proyectiles radiantes que infligen 2 de daño radiante cada uno, pero nunca fallan. Los objetivos pueden irradiar luz hasta 1 minuto.\nCuando lanzas este hechizo usando una ranura de hechizo de 2º nivel o superior, el hechizo crea 2 proyectiles más por cada ranura superior a la 1ª.
+Spell/&RadiantMotesTitle	Motas Radiantes
+Spell/&ThunderStrikeDescription	Crea un estallido de sonido atronador, obligando a las criaturas adyacentes a ti a realizar una tirada de salvación de Constitución o a recibir 1d6 de daño por trueno.\nEl daño de este hechizo aumenta en 1d6 cuando alcanzas el 5º nivel (2d6), el 11º nivel (3d6) y el 17º nivel (4d6).
 Spell/&ThunderStrikeTitle	Ráfaga de sonido
 Spell/&WinterBreathDescription	Crea una ráfaga de viento frío para enfriar a tus enemigos y dejarlos tirados.
 Spell/&WinterBreathTitle	Aliento de invierno
@@ -1756,10 +1756,10 @@ Stage/&SubclassSelectionStageClassMonkTraditionDescription	Esta etapa selecciona
 Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Características de la Tradición Monástica
 Stage/&SubclassSelectionStageClassMonkTraditionHeader	Seleccionar una tradición monástica
 Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Debes seleccionar una tradición monástica.
-Stage/&SubclassSelectionStageClassMonkTraditionTitle	Tradición Monástica
+Stage/&SubclassSelectionStageClassMonkTraditionTitle	Tradición monástica\n-Cuántas veces se ha elegido una tradición monástica.
 Stage/&SubclassSelectionStageCovenDescription	Aquelarre.
 Stage/&SubclassSelectionStageCovenFeaturesDescription	Aquelarre.
-Stage/&SubclassSelectionStageCovenFeaturesHeader	Características de Coven
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Características del Aquelarre
 Stage/&SubclassSelectionStageCovenFeaturesTitle	Aquelarre
 Stage/&SubclassSelectionStageCovenHeader	Seleccione un Coven
 Stage/&SubclassSelectionStageCovenTitle	Aquelarre
@@ -1775,7 +1775,7 @@ Stage/&SubclassSelectionStageSpecialistTitle	Selecciona una especialización
 Subclass/&AbilityAffinityRogueConArtistDescription	Ventaja en los chequeos de habilidad usando Persuasión, Engaño, Actuación y Habilidad de Manipulación.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulador
 Subclass/&AHWarlockSubclassSoulBladePactDescription	Has llegado a un acuerdo con un arma sensible a la que alimentas con almas a cambio de poder.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacto de la hoja del alma
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacto de la cuchilla del alma
 Subclass/&ArcaneFighterAdditionalActionDescription	Puedes lanzar un hechizo tras derrotar a un enemigo con tus ataques de arma.
 Subclass/&ArcaneFighterAdditionalActionTitle	Lucha de hechizos
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Una vez por turno, tus ataques con armas infligen un daño extra de 1d8.
@@ -1817,7 +1817,7 @@ Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Ataque extra
 Subclass/&BarbarianPathOfTheLightDescription	Los bárbaros que siguen la Senda de la Luz iluminan la oscuridad y protegen a sus aliados de los peligros que la acechan.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Siempre estás bajo los efectos de un hechizo Ver Invisibilidad.
 Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Ojos de la Verdad
-Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distraído por Golpe Iluminador.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Distraído por el Golpe Iluminador.
 Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Iluminado
 Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Desventaja en cualquier tirada de ataque que no sea contra el bárbaro de la Senda de la Luz.
 Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	No puede volverse invisible.
@@ -1837,12 +1837,12 @@ Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Puedes perc
 Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Vista de Invisibilidad
 Subclass/&BarbarianPathOfTheLightTitle	Camino de la Luz
 Subclass/&BloodWitchDescription	Prohibida por la mayoría de los aquelarres de brujas, la magia de sangre se centra en el uso de hechizos oscuros y maleficios mortales que extraen de la propia esencia del hechicero. Es fundamentalmente más peligrosa que otros oficios de bruja, pero sus muchos riesgos vienen acompañados de copiosas recompensas.
-Subclass/&BloodWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de Bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n
+Subclass/&BloodWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de Bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}\n\n
 Subclass/&BloodWitchMagicTitle	Magia de sangre
-Subclass/&BloodWitchTitle	Bruja de la Sangre
+Subclass/&BloodWitchTitle	Bruja de Sangre
 Subclass/&CancelCancelElixirFlyDescription	Acaba con la condición de Mosca del Elixir del Hacedor de Pociones.
 Subclass/&CancelCancelElixirFlyTitle	Cancela la mosca
-Subclass/&CancelCancelElixirResilienceDescription	Acaba con la condición de Resistencia del Elixir del Hacedor de Pociones.
+Subclass/&CancelCancelElixirResilienceDescription	Acaba con la condición de resistencia del elixir del fabricante de pociones.
 Subclass/&CancelCancelElixirResilienceTitle	Cancelar Resiliencia
 Subclass/&CancelCancelElixirSwiftnessDescription	Acaba con la condición Rapidez del Elixir del fabricante de pociones.
 Subclass/&CancelCancelElixirSwiftnessTitle	Cancelar Celeridad
@@ -1875,7 +1875,7 @@ Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Saco de arena
 Subclass/&FighterMarshalCoordinatedAttackDescription	Cuando golpeas a un enemigo con un ataque cuerpo a cuerpo, tus aliados pueden usar su reacción para realizar un ataque de oportunidad contra tu objetivo.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Ataque coordinado
 Subclass/&FighterMarshalDescription	Hábiles en el estudio de los puntos débiles de los enemigos y en la coordinación de los ataques de los demás miembros del grupo para explotarlos, los luchadores que se han entrenado en esta parte marcial son famosos organizadores del campo de batalla.
-Subclass/&FighterMarshalEncouragementPowerDescription	El valor del mariscal inspira a los miembros de su grupo. Los aliados a menos de 3 metros de él añaden 1d4 a la tirada de ataque y a la tirada de salvación.
+Subclass/&FighterMarshalEncouragementPowerDescription	El valor del mariscal inspira a los miembros de su grupo. Los aliados a menos de 3 metros de él añaden 1d4 a la tirada de ataque y a la tirada de salvación. 
 Subclass/&FighterMarshalEncouragementPowerTitle	Aliento
 Subclass/&FighterMarshalEternalComradeFeatureSetDescription	El vínculo entre el mariscal y su camarada cruza la frontera entre la vida y la muerte. Como acción de bonificación, el mariscal puede invocar un espíritu de sus camaradas caídos para que le ayude en el combate.
 Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarada eterno
@@ -1885,7 +1885,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Añades tu nivel de c
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Conocer al enemigo
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	Como acción adicional, puedes intentar aumentar tus conocimientos sobre tu objetivo haciendo un chequeo de Supervivencia. Puedes hacer esto dos veces por descanso corto.
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Estudiar a tu enemigo
-Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoca 1 espíritu del camarada caído del mariscal. Cada espíritu tiene 45 + el doble de tu nivel de luchador y su CA es 16 + tu bonificación de competencia. Los espíritus son inmunes a las condiciones de veneno, frío, necrótico, prono, paralizado y restringido. Los espíritus tienen resistencia al fuego, al ácido, al rayo y al trueno y tienen resistencia al daño cortante, contundente y perforante no mágico. En su turno, pueden volar hasta 15 metros y realizar un único ataque con arma cuerpo a cuerpo que inflige 2d6 + 5 de daño cortante mágico con un bonificador de 5 + de proficencia para impactar.
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoca 1 espíritu del camarada caído del mariscal. Cada espíritu tiene 45 + el doble de tu nivel de luchador y su CA es 16 + tu bonificación de competencia. Los espíritus son inmunes a las condiciones de veneno, frío, necrótico, prono, paralizado y restringido. Los espíritus tienen resistencia al fuego, al ácido, al rayo y al trueno y tienen resistencia al daño cortante, contundente y perforante no mágico. En su turno, pueden volar hasta 15 metros y realizar un único ataque con arma cuerpo a cuerpo que inflige 2d6 + 5 de daño cortante mágico con un bonificador de 5 + de proficencia para impactar. 
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocar camarada eterno
 Subclass/&FighterMarshalTitle	Mariscal
 Subclass/&FighterRoyalKnightDescription	Un caballero que inspira grandeza en los demás al cometer actos valientes en la batalla. Un caballero solitario es un guerrero hábil, pero uno que lidere una banda de aliados puede transformar incluso la milicia más pobremente equipada en una feroz banda de guerra.
@@ -1897,7 +1897,7 @@ Subclass/&FighterSpellShieldSpellResistanceDescription	Tu experiencia con los he
 Subclass/&FighterSpellShieldSpellResistanceTitle	Resistencia a los hechizos
 Subclass/&FighterSpellShieldTitle	Escudo de hechizos
 Subclass/&GreenWitchDescription	Las plantas, la naturaleza y las cosas que crecen son el dominio de la magia verde. Normalmente es un tipo de arcanos defendidos por los druidas, pero algunas brujas tienen un estrecho vínculo con los poderes de la magia verde y pueden engatusar a las plantas y los animales para que cumplan sus órdenes.
-Subclass/&GreenWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n{0}\n
+Subclass/&GreenWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n{0}\n\n
 Subclass/&GreenWitchMagicTitle	Magia Verde
 Subclass/&GreenWitchTitle	Bruja Verde
 Subclass/&HArtilleryIncreaseDescription	Aumento del Fondo de Artillería.
@@ -1920,7 +1920,7 @@ Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Puedes recuperar ranura
 Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Preparación Alquímica
 Subclass/&MagicAffinityFighterSpellShieldDescription	Ventaja en los chequeos de concentración, así como la capacidad de realizar los componentes somáticos de los hechizos mientras sostienes objetos.
 Subclass/&MagicAffinityFighterSpellShieldTitle	Lanzamiento en combate
-Subclass/&MagicAffinityLifeTransmuterListDescription	Cuando se lanzan algunos conjuros de Transmutación y Nigromancia se lanzan en una ranura de conjuro 2 niveles superior a la utilizada. Los hechizos mejorados incluyen: Vida falsa, Ceguera, Volar, Otorgar maldición, Toque vampírico, Tizón y Matar nubes. \Nota: La intención es que el Arma Mágica también se beneficie, pero actualmente aumentar el nivel del hechizo de esta manera en el Arma Mágica no tiene efecto.
+Subclass/&MagicAffinityLifeTransmuterListDescription	Cuando se lanzan algunos conjuros de Transmutación y Nigromancia se lanzan en una ranura de conjuro 2 niveles superior a la utilizada. Los hechizos mejorados incluyen: Vida Falsa, Ceguera, Volar, Otorgar Maldición, Toque Vampírico, Tizón y Matar Nube. \n-Nota: La intención es que Arma Mágica también se beneficie, pero actualmente aumentar el nivel de hechizo de esta manera en Arma Mágica no tiene efecto.
 Subclass/&MagicAffinityLifeTransmuterListTitle	Doblar la realidad
 Subclass/&MagicAffinityMasterManipulatorDC0Description	Es más difícil para los oponentes resistir tus hechizos. La DC de salvación aumenta en 0.
 Subclass/&MagicAffinityMasterManipulatorDC1Description	Es más difícil para los oponentes resistir tus hechizos. La CC de salvación aumenta en 1.
@@ -1992,19 +1992,19 @@ Subclass/&PowerTransmuteHealTitle	Curar
 Subclass/&PowerTransmuteReviveDescription	Utiliza tu Fuerza Transmutada para revivir a un personaje (en el plazo de 1 minuto desde que muere).
 Subclass/&PowerTransmuteReviveTitle	Revivir
 Subclass/&PurpleWitchDescription	La magia púrpura domina los dominios de las ilusiones y los encantamientos que se apoderan de las mentes de las personas y de todo lo que no es lo que parece. Los practicantes de esta forma de magia son maestros de las marionetas, moldeando la realidad aparente de los que les rodean en su beneficio.
-Subclass/&PurpleWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n
+Subclass/&PurpleWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}\n\n
 Subclass/&PurpleWitchMagicTitle	Magia Púrpura
 Subclass/&PurpleWitchTitle	Bruja Púrpura
 Subclass/&RangerArcanistRangerSubclassDescription	El Ranger Arcanista combina sus habilidades de Ranger con habilidades arcanas. Sus armas pueden afligir a sus oponentes con la Marca del Arcanista, y han aprendido a lanzar algunos hechizos de Mago como parte de su repertorio de hechizos de Ranger.
 Subclass/&RangerArcanistRangerSubclassTitle	Ranger Arcanista
-Subclass/&RedWitchDescription	La magia arcana ligada a la canalización de los elementos se considera magia roja, y es extremadamente peligrosa cuando se utiliza. Los brujos que se especializan en la magia roja se encuentran entre los hechiceros más mortíferos que existen, canalizando su maldición en una ira arcana sin límites.
-Subclass/&RedWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n
+Subclass/&RedWitchDescription	La magia arcana ligada a la canalización de los elementos se considera magia roja, y es extremadamente peligrosa cuando se utiliza. Los brujos que se especializan en magia roja se encuentran entre los hechiceros más mortíferos que existen, canalizando su maldición en una ira arcana sin límites.
+Subclass/&RedWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}\n\n
 Subclass/&RedWitchMagicTitle	Magia Roja
 Subclass/&RedWitchTitle	Bruja Roja
 Subclass/&RoguishConArtistDescription	Los estafadores son pícaros que se especializan en el engaño y en embaucar a los demás. Utilizan la magia para ayudar a sus habilidades naturales de manipulación.
 Subclass/&RoguishConArtistFeintConditionDescription	Ser engañado otorga ventaja en el siguiente ataque.
 Subclass/&RoguishConArtistFeintConditionTitle	Engañado
-Subclass/&RoguishConArtistFeintDescription	Obtienes la habilidad de fintar en combate como acción adicional. Si el objetivo falla su tirada de salvación, esto concede ventaja en el siguiente ataque contra el objetivo.
+Subclass/&RoguishConArtistFeintDescription	Obtén la habilidad de fintar en combate como acción adicional. Si el objetivo falla su tirada de salvación, esto concede ventaja en el siguiente ataque contra el objetivo.
 Subclass/&RoguishConArtistFeintTitle	Finta
 Subclass/&RoguishConArtistMentalSavingThrowsDescription	Ganas competencia en las tiradas de salvación de Sabiduría y Carisma.
 Subclass/&RoguishConArtistMentalSavingThrowsTitle	Fuerza mental
@@ -2039,7 +2039,7 @@ Subclass/&TraditionSpellMasterPreparedTitle	Estar Preparado
 Subclass/&TraditionSpellMasterSpellResistanceDescription	Tu entrenamiento con la magia te da ventaja en las tiradas de salvación contra los hechizos.
 Subclass/&TraditionSpellMasterSpellResistanceTitle	Resistencia a Hechizos
 Subclass/&TraditionSpellMasterTitle	Maestro de Hechizos
-Subclass/&WarlockAncientForestDescription	Has forjado una relación con una poderosa entidad de la naturaleza: Antiguas dríadas, archidruidas, manifestaciones del Feywild que penetran en el plano material, dioses olvidados de una época primitiva. Tu patrón puede desear que protejas el mundo natural, que viajes a tierras lejanas que él no puede, o puede tener otro motivo que parece inescrutable para los mortales de corta vida.
+Subclass/&WarlockAncientForestDescription	Has forjado una relación con una poderosa entidad de la naturaleza: Antiguas dríadas, archidruidas, manifestaciones del Feywild que penetran en el plano material, dioses olvidados de una época primigenia. Tu patrón puede desear que protejas el mundo natural, que viajes a tierras lejanas que él no puede, o puede tener otro motivo que parece inescrutable para los mortales de corta vida.
 Subclass/&WarlockAncientForestTitle	Pacto del Bosque Antiguo
 Subclass/&WarlockMoonLitDescription	Tu patrón es un espíritu de la luna, una entidad que encarna la naturaleza cíclica de la luz y la oscuridad. Estos espíritus buscan mantener el poder de la luna sobre el cielo nocturno mientras mantienen a raya los poderes profanos que acechan a la oscuridad y encargan a sus hechiceros lo mismo, otorgándoles el mando sobre los poderes de la luna y sus efectos.
 Subclass/&WarlockMoonLitTitle	Pacto de la Luz de la Luna
@@ -2049,15 +2049,15 @@ Subclass/&WarlockUrPriestDescription	Aunque la gran mayoría de los hechiceros d
 Subclass/&WarlockUrPriestTitle	Pacto de UrPriest
 Subclass/&WeaponProfArcaneFighterDescription	La experiencia en el combate ha dado al luchador arcano entrenamiento en armas simples y marciales.
 Subclass/&WeaponProfArcaneFighterTitle	Entrenamiento en Armas
-Subclass/&WeaponProfArtificerBattleSmithDescription	La experiencia en combate le ha dado al Herrero Arcaico entrenamiento en Armas Marciales.
+Subclass/&WeaponProfArtificerBattleSmithDescription	La experiencia en combate ha dado al Herrero de Armas entrenamiento en Armas Marciales.
 Subclass/&WeaponProfArtificerBattleSmithTitle	Entrenamiento con armas
 Subclass/&WhiteWitchDescription	La magia blanca es fundamentalmente buena y benévola para todos los seres vivos. Las brujas que adoptan este oficio, a pesar de la odiosa maldición que las infecta, suelen dedicarse a curar y cuidar, con la intención de mejorar el mundo.
-Subclass/&WhiteWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n
+Subclass/&WhiteWitchMagicDescription	Obtienes los siguientes hechizos. Estos hechizos cuentan como hechizos de bruja para ti y no cuentan contra tu número total de hechizos conocidos:\n {0}\n\n
 Subclass/&WhiteWitchMagicTitle	Magia Blanca
 Subclass/&WhiteWitchTitle	Bruja Blanca
 Subclass/&WitchSubclassPathDescription	Tu conocimiento de la magia ha culminado al unirte a un Aquelarre, un círculo innato de Brujas que profundizan en un camino específico de brujería y maldiciones.
 Subclass/&WitchSubclassPathTitle	Aquelarres de brujas
-ToolTip/&CheckBoxDefaultPartyTitle	Marca esta casilla para establecer tu grupo por defecto cuando comiences nuevas aventuras o pruebes ubicaciones personalizadas. Puedes seleccionar hasta {0} héroes en una base de primera entrada / primera salida
+ToolTip/&CheckBoxDefaultPartyTitle	Marca esta casilla para establecer tu grupo por defecto cuando empieces nuevas aventuras o pruebes ubicaciones personalizadas. Puedes seleccionar hasta {0} héroes en una base de primera entrada / primera salida
 Tooltip/&CustomPortraitPoolClassMonkKiPool	Puedes aprovechar la energía mística del ki. Tu acceso a esta energía está representado por un número de puntos de ki. La cantidad máxima es igual a tu nivel de Monje. Todos los puntos gastados se recuperan en un descanso corto o largo. Puedes gastar estos puntos para alimentar varias características de ki
 Tooltip/&DeadeyeConcentration	Desactivar el ojo muerto.
 Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	No sabe {0}

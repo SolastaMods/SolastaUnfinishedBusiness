@@ -439,12 +439,12 @@
   <data name="HandXbow_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HandXbow+2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Unofficial-it" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations\Unofficial-it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Game-it" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Game-it.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="Unofficial-es" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Translations\Unofficial-es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
+  <data name="Game-es" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Translations\Game-es.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral,
       PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

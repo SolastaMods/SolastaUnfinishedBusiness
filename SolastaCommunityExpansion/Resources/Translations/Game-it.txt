@@ -846,15 +846,15 @@ Class/&FighterTitle	Combattente
 Class/&PaladinDescription	I paladini sono guerrieri d'élite che hanno prestato un giuramento sacro infrangibile per combattere il male. Oltre alle armi e all'armatura, possono esercitare poteri divini e incantesimi clericali.
 Class/&PaladinTitle	Paladino
 Class/&RangerDescription	Vagabondi delle terre selvagge di Solasta, i ranger sono addestrati alla sopravvivenza, feroci in battaglia e cacciatori furtivi. Eccellenti inseguitori e arcieri, hanno anche una certa capacità di incantesimo.
-Class/&RangerTitle	Ranger
-Class/&RogueDescription	I ranger sono innanzitutto versatili. Usano i loro talenti naturali per padroneggiare varie abilità e trovare il proprio modo di prosperare. Generalmente pieni di risorse, sono noti per la loro astuzia e la capacità di sferrare attacchi furtivi mortali.
-Class/&RogueTitle	Stregone
+Class/&RangerTitle	Vagabondi
+Class/&RogueDescription	I rogue sono innanzitutto versatili. Usano i loro talenti naturali per padroneggiare varie abilità e trovare il proprio modo di prosperare. Generalmente pieni di risorse, sono noti per la loro astuzia e la capacità di sferrare attacchi furtivi mortali.
+Class/&RogueTitle	Rogue
 Class/&WizardDescription	I maghi passano la loro vita a studiare la magia, imparando incantesimi sempre più potenti e meravigliosi. Nonostante la loro debolezza nel combattimento fisico, le loro abilità magiche li rendono nemici pericolosi.
-Class/&WizardTitle	Stregone
+Class/&WizardTitle	Maghi
 Class/&SorcererDescription	Gli stregoni hanno la capacità innata di incanalare la magia arcana, di solito attraverso un'origine soprannaturale. Gli stregoni sono anche in grado di alterare il tessuto magico utilizzando i punti stregoneria.
-Class/&SorcererTitle	Stregone
+Class/&SorcererTitle	Stregoni
 Class/&BarbarianDescription	I barbari sono guerrieri feroci provenienti dai margini della civiltà. La loro furia in battaglia li rende combattenti pericolosi.
-Class/&BarbarianTitle	Barbaro
+Class/&BarbarianTitle	Barbari
 Class/&DruidDescription	I druidi fanno parte di un antico ordine dedicato alla natura. I loro poteri e incantesimi sono in sintonia con gli animali, le piante e le forze elementali.
 Class/&DruidTitle	Druido
 Condition/&ChildOfDarkness_Title	Figlio delle Tenebre

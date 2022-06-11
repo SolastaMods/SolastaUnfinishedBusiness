@@ -70,6 +70,11 @@ internal static class Main
             Menu = new MenuManager();
             Menu.Enable(modEntry, assembly);
 
+            if (Main.Settings.SelectedOverwriteLanguageCode != "off")
+            {
+                Translations.LoadTranslations("Game");
+            }
+            
             LoadSidecars(assembly.GetName().Name);
         }
         catch (Exception ex)
