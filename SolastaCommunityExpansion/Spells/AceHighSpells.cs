@@ -107,7 +107,7 @@ internal static class AceHighSpells
                     ConditionDefinition = PactMarkPactMarkConditionBuilder.PactMarkCondition
                 }
             };
-            pactMarkEffectForm.ConditionForm.SetApplyToSelf(true);
+            pactMarkEffectForm.ConditionForm.applyToSelf = true;
             pactMarkEffectForm.SetCreatedByCharacter(true);
 
             var effectDescription = Definition.EffectDescription;

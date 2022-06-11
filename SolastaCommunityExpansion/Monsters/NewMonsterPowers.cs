@@ -177,10 +177,10 @@ public class NewMonsterPowers
             .SetDamageType(RuleDefinitions.DamageTypePiercing);
 
         TarrasqueSwallowPower.EffectDescription.EffectForms[2].ConditionForm
-            .SetConditionDefinition(TarrasqueSwallowedCondition);
+            .conditionDefinition = TarrasqueSwallowedCondition;
 
         TarrasqueSwallowPower.EffectDescription.EffectForms[3].ConditionForm
-            .SetConditionDefinition(TarrasqueSwallowingCondition);
+            .conditionDefinition = TarrasqueSwallowingCondition;
 
         TarrasqueSwallowPower.EffectDescription.EffectForms.RemoveAt(1);
     }
@@ -199,8 +199,8 @@ public class NewMonsterPowers
         );
 
         ErinyesParry_Power.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
-        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.SetApplyToSelf(true);
-        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.SetForceOnSelf(true);
+        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.applyToSelf = true;
+        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.forceOnSelf = true;
     }
 
     public static void BuildNewVampireCharmPower()
@@ -561,7 +561,7 @@ public class NewMonsterPowers
         BlindingGaze_Power.EffectDescription.EffectForms[0].SetCanSaveToCancel(false);
 
         BlindingGaze_Power.EffectDescription.EffectForms[0].ConditionForm
-            .SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionBlinded);
+            .conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionBlinded;
     }
 
     public static void BuildNewAtWillSelfBuff_Invisibility_Power()
@@ -1031,10 +1031,10 @@ public class NewMonsterPowers
         IncreasedGravityZone_Power.EffectDescription.EffectForms.Add(effectForm);
 
         ConditionForm Condition = new();
-        Condition.SetApplyToSelf(false);
-        Condition.SetForceOnSelf(false);
+        Condition.applyToSelf = false;
+        Condition.forceOnSelf = false;
         Condition.Operation = ConditionForm.ConditionOperation.Add;
-        Condition.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionRestrained.Name);
+        Condition.conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionRestrained.Name;
         Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionRestrained;
 
         EffectForm effect = new();

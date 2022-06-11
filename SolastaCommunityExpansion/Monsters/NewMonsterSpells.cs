@@ -92,8 +92,8 @@ public class NewMonsterSpells
 
         ReverseGravity_Spell.EffectDescription.EffectForms.Add(damageEffect);
 
-        ReverseGravity_Spell.EffectDescription.EffectForms[0].ConditionForm.SetApplyToSelf(false);
-        ReverseGravity_Spell.EffectDescription.EffectForms[0].ConditionForm.SetForceOnSelf(false);
+        ReverseGravity_Spell.EffectDescription.EffectForms[0].ConditionForm.applyToSelf = false;
+        ReverseGravity_Spell.EffectDescription.EffectForms[0].ConditionForm.forceOnSelf = false;
         ReverseGravity_Spell.EffectDescription.EffectForms[1].MotionForm.SetDistance(10);
         ReverseGravity_Spell.EffectDescription.EffectForms.RemoveAt(2);
 
@@ -222,10 +222,10 @@ public class NewMonsterSpells
         PowerWordStun_Spell.EffectDescription.EffectForms.Clear();
 
         ConditionForm conditionForm = new();
-        conditionForm.SetApplyToSelf(false);
-        conditionForm.SetForceOnSelf(false);
+        conditionForm.applyToSelf = false;
+        conditionForm.forceOnSelf = false;
         conditionForm.Operation = ConditionForm.ConditionOperation.Add;
-        conditionForm.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionStunned.Name);
+        conditionForm.conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionStunned.Name;
         conditionForm.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionStunned;
 
 
@@ -289,10 +289,10 @@ public class NewMonsterSpells
         TimeStop_Spell.SetSpellLevel(9);
 
         ConditionForm conditionForm = new();
-        conditionForm.SetApplyToSelf(false);
-        conditionForm.SetForceOnSelf(false);
+        conditionForm.applyToSelf = false;
+        conditionForm.forceOnSelf = false;
         conditionForm.Operation = ConditionForm.ConditionOperation.Add;
-        conditionForm.SetConditionDefinitionName(TimeStopped_Condition.Name);
+        conditionForm.conditionDefinitionName = TimeStopped_Condition.Name;
         conditionForm.ConditionDefinition = TimeStopped_Condition;
 
 

@@ -241,7 +241,7 @@ internal static class BazouSpells
         actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
         conditionDefinition.Features.SetRange(actionAffinity);
 
-        spell.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(conditionDefinition);
+        spell.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition = conditionDefinition;
 
         return spell;
     }

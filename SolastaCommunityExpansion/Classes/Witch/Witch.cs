@@ -684,8 +684,9 @@ internal static class Witch
             .AddConditionTags("Malediction")
             .AddToDB();
 
-        var abateConditionForm = new ConditionForm()
-            .SetConditionDefinition(abateConditionDefinition);
+        var abateConditionForm = new ConditionForm();
+
+        abateConditionForm.conditionDefinition = abateConditionDefinition;
 
         var abateEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)
@@ -723,8 +724,9 @@ internal static class Witch
             .AddConditionTags("Malediction")
             .AddToDB();
 
-        var apathyConditionForm = new ConditionForm()
-            .SetConditionDefinition(apathyConditionDefinition);
+        var apathyConditionForm = new ConditionForm();
+
+        apathyConditionForm.conditionDefinition = apathyConditionDefinition;
 
         var apathyEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)
@@ -762,8 +764,9 @@ internal static class Witch
             .AddConditionTags("Malediction")
             .AddToDB();
 
-        var charmConditionForm = new ConditionForm()
-            .SetConditionDefinition(charmConditionDefinition);
+        var charmConditionForm = new ConditionForm();
+
+        charmConditionForm.conditionDefinition = charmConditionDefinition;
 
         var charmEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)
@@ -808,8 +811,9 @@ internal static class Witch
             .SetFeatures(disorientCombatAffinity)
             .AddToDB();
 
-        var disorientConditionForm = new ConditionForm()
-            .SetConditionDefinition(disorientConditionDefinition);
+        var disorientConditionForm = new ConditionForm();
+
+        disorientConditionForm.conditionDefinition = disorientConditionDefinition;
 
         var disorientEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)
@@ -848,8 +852,9 @@ internal static class Witch
             .ClearRecurrentEffectForms()
             .AddToDB();
 
-        var evileyeConditionForm = new ConditionForm()
-            .SetConditionDefinition(evileyeConditionDefinition);
+        var evileyeConditionForm = new ConditionForm();
+
+        evileyeConditionForm.conditionDefinition = evileyeConditionDefinition;
 
         var evileyeEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)
@@ -904,8 +909,9 @@ internal static class Witch
             .ClearRecurrentEffectForms()
             .AddToDB();
 
-        var poxConditionForm = new ConditionForm()
-            .SetConditionDefinition(poxConditionDefinition);
+        var poxConditionForm = new ConditionForm();
+
+        poxConditionForm.conditionDefinition = poxConditionDefinition;
 
         var poxEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)
@@ -950,8 +956,9 @@ internal static class Witch
             .SetFeatures(ruinAttributeModifier)
             .AddToDB();
 
-        var ruinConditionForm = new ConditionForm()
-            .SetConditionDefinition(ruinConditionDefinition);
+        var ruinConditionForm = new ConditionForm();
+
+        ruinConditionForm.conditionDefinition = ruinConditionDefinition;
 
         var ruinEffectForm = new EffectForm()
             .SetFormType(EffectForm.EffectFormType.Condition)

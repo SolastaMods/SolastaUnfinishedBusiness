@@ -385,10 +385,10 @@ public class NewMonsterAttacks
 
 
         ConditionForm TailCondition = new();
-        TailCondition.SetApplyToSelf(false);
-        TailCondition.SetForceOnSelf(false);
+        TailCondition.applyToSelf = false;
+        TailCondition.forceOnSelf = false;
         TailCondition.Operation = ConditionForm.ConditionOperation.Add;
-        TailCondition.SetConditionDefinitionName(BleedingWound_Condition.Name);
+        TailCondition.conditionDefinitionName = BleedingWound_Condition.Name;
         TailCondition.ConditionDefinition = BleedingWound_Condition;
 
         EffectForm TailEffect = new();
@@ -493,11 +493,10 @@ public class NewMonsterAttacks
         extraDamageEffect.SetDamageForm(damageForm);
 
         ConditionForm PoisonLongbowCondition = new();
-        PoisonLongbowCondition.SetApplyToSelf(false);
-        PoisonLongbowCondition.SetForceOnSelf(false);
+        PoisonLongbowCondition.applyToSelf = false;
+        PoisonLongbowCondition.forceOnSelf = false;
         PoisonLongbowCondition.Operation = ConditionForm.ConditionOperation.Add;
-        PoisonLongbowCondition.SetConditionDefinitionName(
-            DatabaseHelper.ConditionDefinitions.ConditionPoisoned.Name);
+        PoisonLongbowCondition.conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionPoisoned.Name;
         PoisonLongbowCondition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionPoisoned;
 
         EffectForm PoisonLongbowEffect = new();
@@ -948,10 +947,10 @@ public class NewMonsterAttacks
         );
 
         ConditionForm PitFiendBiteCondition = new();
-        PitFiendBiteCondition.SetApplyToSelf(false);
-        PitFiendBiteCondition.SetForceOnSelf(false);
+        PitFiendBiteCondition.applyToSelf = false;
+        PitFiendBiteCondition.forceOnSelf = false;
         PitFiendBiteCondition.Operation = ConditionForm.ConditionOperation.Add;
-        PitFiendBiteCondition.SetConditionDefinitionName(PitFiend_Bite_Condition.Name);
+        PitFiendBiteCondition.conditionDefinitionName = PitFiend_Bite_Condition.Name;
         PitFiendBiteCondition.ConditionDefinition = PitFiend_Bite_Condition;
 
         EffectForm PitFiendBiteEffect = new();
@@ -1109,7 +1108,7 @@ public class NewMonsterAttacks
 
         Lich_ParalyzingTouch_Attack.SetToHitBonus(12);
         Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[1].ConditionForm
-            .SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionParalyzed);
+            .conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionParalyzed;
         Lich_ParalyzingTouch_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
             .Constitution.name);
         Lich_ParalyzingTouch_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
@@ -1383,7 +1382,7 @@ public class NewMonsterAttacks
             .SetDamageType(RuleDefinitions.DamageTypePiercing);
 
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].ConditionForm
-            .SetConditionDefinition(TarrasqueGrappledRestrainedCondition);
+            .conditionDefinition = TarrasqueGrappledRestrainedCondition;
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].SetCanSaveToCancel(true);
         Tarrasque_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
 

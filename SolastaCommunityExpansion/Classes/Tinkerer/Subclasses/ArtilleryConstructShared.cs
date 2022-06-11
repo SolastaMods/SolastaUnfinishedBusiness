@@ -527,8 +527,8 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
         SelfDestructConditionEffect.ConditionForm.ConditionDefinition =
             SelfDestructionConditionBuilder.SelfDestructionCondition;
         SelfDestructConditionEffect.HasSavingThrow = false;
-        SelfDestructConditionEffect.ConditionForm.SetApplyToSelf(true);
-        SelfDestructConditionEffect.ConditionForm.SetForceOnSelf(true);
+        SelfDestructConditionEffect.ConditionForm.applyToSelf = true;
+        SelfDestructConditionEffect.ConditionForm.forceOnSelf = true;
         // CounterForm SelfDestruct = new CounterForm();
         //
         // SelfDestruct.SetType (CounterForm.CounterType.DismissCreature);
@@ -660,8 +660,8 @@ internal sealed class HalfCoverShieldBuilder : FeatureDefinitionPowerBuilder
             ConditionForm = new ConditionForm(), FormType = EffectForm.EffectFormType.Condition
         };
         halfCoverShield.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-        halfCoverShield.ConditionForm.SetConditionDefinitionName(HalfCoverShieldConditionBuilder
-            .HalfCoverShieldCondition.Name);
+        halfCoverShield.ConditionForm.conditionDefinitionName = HalfCoverShieldConditionBuilder
+            .HalfCoverShieldCondition.Name;
         halfCoverShield.ConditionForm.ConditionDefinition =
             HalfCoverShieldConditionBuilder.HalfCoverShieldCondition; // DistractingPulseBuilder.DistractingPulse;
 

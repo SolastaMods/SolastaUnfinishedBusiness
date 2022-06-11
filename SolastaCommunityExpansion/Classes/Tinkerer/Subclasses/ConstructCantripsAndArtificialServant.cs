@@ -334,10 +334,10 @@ internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuild
             .GuiPresentation.SpriteReference);
 
         var Condition = new ConditionForm();
-        Condition.SetApplyToSelf(false);
-        Condition.SetForceOnSelf(false);
+        Condition.applyToSelf = false;
+        Condition.forceOnSelf = false;
         Condition.Operation = ConditionForm.ConditionOperation.Remove;
-        Condition.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged.Name);
+        Condition.conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged.Name;
         Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged;
 
         var effect = new EffectForm();

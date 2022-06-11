@@ -723,9 +723,9 @@ public static class SrdSpells
             .SetDamageType(RuleDefinitions.DamageTypePiercing);
 
         var conditionForm = new ConditionForm();
-        conditionForm.SetConditionDefinition(ConditionPoisoned);
-        conditionForm.SetConditionDefinitionName(ConditionPoisoned.name);
-        conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
+        conditionForm.conditionDefinition = ConditionPoisoned;
+        conditionForm.conditionDefinitionName = ConditionPoisoned.name;
+        conditionForm.operation = ConditionForm.ConditionOperation.Add;
 
         var extraPoisonEffect = new EffectForm();
         extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -738,9 +738,9 @@ public static class SrdSpells
         extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
         var sleepForm = new ConditionForm();
-        sleepForm.SetConditionDefinition(ConditionMagicallyAsleep);
-        sleepForm.SetConditionDefinitionName(ConditionAsleep.name);
-        sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
+        sleepForm.conditionDefinition = ConditionMagicallyAsleep;
+        sleepForm.conditionDefinitionName = ConditionAsleep.name;
+        sleepForm.operation = ConditionForm.ConditionOperation.Add;
 
         var extraSleepEffect = new EffectForm();
         extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
@@ -1253,12 +1253,14 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordStun()
     {
-        var conditionForm = new ConditionForm()
-            .SetApplyToSelf(false)
-            .SetForceOnSelf(false)
-            .SetOperation(ConditionForm.ConditionOperation.Add)
-            .SetConditionDefinitionName(ConditionStunned.Name)
-            .SetConditionDefinition(ConditionStunned);
+        var conditionForm = new ConditionForm
+        {
+            applyToSelf = false,
+            forceOnSelf = false,
+            operation = ConditionForm.ConditionOperation.Add,
+            conditionDefinitionName = ConditionStunned.Name,
+            conditionDefinition = ConditionStunned
+        };
 
         var effectForm = new EffectForm()
             .SetApplyLevel(EffectForm.LevelApplianceType.No)

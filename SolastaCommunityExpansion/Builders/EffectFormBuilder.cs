@@ -108,11 +108,11 @@ public class EffectFormBuilder
         var conditionForm = new ConditionForm {Operation = operation, ConditionDefinition = condition};
         if (condition != null)
         {
-            conditionForm.SetConditionDefinitionName(condition.Name);
+            conditionForm.conditionDefinitionName = condition.Name;
         }
 
-        conditionForm.SetApplyToSelf(applyToSelf);
-        conditionForm.SetForceOnSelf(forceOnSelf);
+        conditionForm.applyToSelf = applyToSelf;
+        conditionForm.forceOnSelf = forceOnSelf;
         conditionForm.ConditionsList.SetRange(detrimentalConditions.ToList());
         effectForm.ConditionForm = conditionForm;
         return this;
