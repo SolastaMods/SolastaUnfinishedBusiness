@@ -187,3 +187,4 @@ ModUi/&Visuals	<color=yellow>Visuels :</color>
 ModUi/&Weapon	<color=yellow>Armes</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Permettre aux arbalètes de bénéficier des fonctionnalités des arcs
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Supprimer l'exigence de concentration de n'importe quel sort <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Écraser la langue du jeu:</color>

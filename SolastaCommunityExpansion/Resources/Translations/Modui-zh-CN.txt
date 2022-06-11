@@ -187,3 +187,4 @@ ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon <color=yellow>武器</color>
 ModUi/&AllowCrossbowsToUseBowFeatures 允许弩从与弓相关的特性中获益
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<b><i><color=#C04040E0>[需要重启游戏]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Overwrite game language:</color>

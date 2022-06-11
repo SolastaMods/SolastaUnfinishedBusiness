@@ -187,3 +187,4 @@ ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
 ModUi/&Weapon	<color=yellow>Оружие</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Разрешить арбалетам пользоваться преимуществами луков
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Удалите требование концентрации для любого заклинания <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
+ModUi/&OverwriteGameLanguage	<color=yellow>Перезаписать язык игры:</color>
