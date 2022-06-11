@@ -191,7 +191,7 @@ internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefin
         Definition.overriddenPower = SummonProtectorPowerConstructBuilder.SummonProtectorConstruct;
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
+            .monsterDefinitionName = ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -259,7 +259,7 @@ internal sealed class SummonProtectorSpellConstructUpgradeBuilder : SpellDefinit
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_Upgrade";
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
+            .monsterDefinitionName = ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -351,8 +351,8 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription";
         Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
             .SpriteReference;
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
         Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;
 
         Definition.armorClass = 15;

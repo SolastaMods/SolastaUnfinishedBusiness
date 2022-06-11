@@ -397,7 +397,7 @@ internal static class EternalComradeBuilder
     internal static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
     {
         var summonForm = new SummonForm();
-        summonForm.SetMonsterDefinitionName(EternalComrade.Name);
+        summonForm.monsterDefinitionName = EternalComrade.Name;
 
         var effectForm = new EffectForm();
         effectForm.SetFormType(EffectForm.EffectFormType.Summon);

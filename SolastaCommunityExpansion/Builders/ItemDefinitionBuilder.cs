@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.ItemDefinitions;
 
@@ -178,9 +177,11 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
 
         foreach (var power in functions)
         {
-            var functionDescription =
-                deviceFunction.Copy().SetType(DeviceFunctionDescription.FunctionType.Power)
-                    .SetFeatureDefinitionPower(power);
+            var functionDescription = new DeviceFunctionDescription(deviceFunction)
+            {
+                type = DeviceFunctionDescription.FunctionType.Power, featureDefinitionPower = power
+            };
+
             Definition.UsableDeviceDescription.DeviceFunctions.Add(functionDescription);
         }
 

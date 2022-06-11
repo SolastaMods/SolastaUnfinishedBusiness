@@ -56,7 +56,7 @@ public class NewMonsterSpells
         FallingEffect.SetCreatedByCondition(true);
         FallingEffect.FormType = EffectForm.EffectFormType.Motion;
         FallingEffect.SetMotionForm(motionForm);
-        FallingEffect.SetHasSavingThrow(false);
+        FallingEffect.hasSavingThrow = false;
         FallingEffect.SetCanSaveToCancel(false);
         FallingEffect.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
 
@@ -87,7 +87,7 @@ public class NewMonsterSpells
         damageEffect.SetCreatedByCharacter(true);
         damageEffect.FormType = EffectForm.EffectFormType.Damage;
         damageEffect.SetDamageForm(damageForm);
-        damageEffect.SetHasSavingThrow(false);
+        damageEffect.hasSavingThrow = false;
         damageEffect.SetCanSaveToCancel(false);
 
         ReverseGravity_Spell.EffectDescription.EffectForms.Add(damageEffect);
@@ -97,21 +97,21 @@ public class NewMonsterSpells
         ReverseGravity_Spell.EffectDescription.EffectForms[1].MotionForm.distance = 10;
         ReverseGravity_Spell.EffectDescription.EffectForms.RemoveAt(2);
 
-        ReverseGravity_Spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-        ReverseGravity_Spell.EffectDescription.SetTargetParameter(10);
-        ReverseGravity_Spell.EffectDescription.SetTargetParameter2(10);
+        ReverseGravity_Spell.EffectDescription.targetType = RuleDefinitions.TargetType.Cylinder;
+        ReverseGravity_Spell.EffectDescription.targetParameter = 10;
+        ReverseGravity_Spell.EffectDescription.targetParameter2 = 10;
 
 
         ReverseGravity_Spell.EffectDescription.RestrictedCharacterSizes.Clear();
-        ReverseGravity_Spell.EffectDescription.SetTargetExcludeCaster(true);
-        ReverseGravity_Spell.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Dexterity.Name);
-        ReverseGravity_Spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        ReverseGravity_Spell.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
+        ReverseGravity_Spell.EffectDescription.targetExcludeCaster = true;
+        ReverseGravity_Spell.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Dexterity.Name;
+        ReverseGravity_Spell.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        ReverseGravity_Spell.EffectDescription.fixedSavingThrowDifficultyClass = 20;
 
-        ReverseGravity_Spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Minute);
-        ReverseGravity_Spell.EffectDescription.SetDurationParameter(1);
+        ReverseGravity_Spell.EffectDescription.durationType = RuleDefinitions.DurationType.Minute;
+        ReverseGravity_Spell.EffectDescription.durationParameter = 1;
     }
 
     public static void BuildNewDominateMonster_Spell()
@@ -132,7 +132,7 @@ public class NewMonsterSpells
         DominateMonster_Spell.SetSpellLevel(8);
 
         DominateMonster_Spell.EffectDescription.RestrictedCreatureFamilies.Clear();
-        DominateMonster_Spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
+        DominateMonster_Spell.EffectDescription.durationType = RuleDefinitions.DurationType.Hour;
     }
 
     public static void BuildNewFingerOfDeath_Spell()
@@ -180,7 +180,7 @@ public class NewMonsterSpells
 
 
         PowerWordKill_Spell.SetSomaticComponent(false);
-        PowerWordKill_Spell.EffectDescription.SetHasSavingThrow(false);
+        PowerWordKill_Spell.EffectDescription.hasSavingThrow = false;
         PowerWordKill_Spell.EffectDescription.EffectForms.Clear();
 
         KillForm killForm = new();
@@ -218,7 +218,7 @@ public class NewMonsterSpells
         PowerWordStun_Spell.SetSpellLevel(8);
 
         PowerWordStun_Spell.SetSomaticComponent(false);
-        PowerWordStun_Spell.EffectDescription.SetHasSavingThrow(false);
+        PowerWordStun_Spell.EffectDescription.hasSavingThrow = false;
         PowerWordStun_Spell.EffectDescription.EffectForms.Clear();
 
         ConditionForm conditionForm = new();
@@ -240,17 +240,17 @@ public class NewMonsterSpells
         effectForm.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
 
         PowerWordStun_Spell.EffectDescription.EffectForms.Add(effectForm);
-        PowerWordStun_Spell.EffectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod
-            .CharacterIncreasingHitPointsFromPool);
-        PowerWordStun_Spell.EffectDescription.SetPoolFilterDiceNumber(150);
-        PowerWordStun_Spell.EffectDescription.SetPoolFilterDieType(RuleDefinitions.DieType.D1);
+        PowerWordStun_Spell.EffectDescription.targetFilteringMethod = RuleDefinitions.TargetFilteringMethod
+            .CharacterIncreasingHitPointsFromPool;
+        PowerWordStun_Spell.EffectDescription.poolFilterDiceNumber = 150;
+        PowerWordStun_Spell.EffectDescription.poolFilterDieType = RuleDefinitions.DieType.D1;
 
-        PowerWordStun_Spell.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.name);
-        PowerWordStun_Spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        PowerWordStun_Spell.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
-        PowerWordStun_Spell.EffectDescription.SetHasSavingThrow(true);
+        PowerWordStun_Spell.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.name;
+        PowerWordStun_Spell.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        PowerWordStun_Spell.EffectDescription.fixedSavingThrowDifficultyClass = 20;
+        PowerWordStun_Spell.EffectDescription.hasSavingThrow = true;
 
 
         PowerWordStun_Spell.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Contagion
@@ -305,23 +305,23 @@ public class NewMonsterSpells
         effectForm.SetConditionForm(conditionForm);
         effectForm.SetCanSaveToCancel(false);
 
-        TimeStop_Spell.EffectDescription.SetHasSavingThrow(false);
+        TimeStop_Spell.EffectDescription.hasSavingThrow = false;
         TimeStop_Spell.EffectDescription.EffectForms.Clear();
         TimeStop_Spell.EffectDescription.EffectForms.Add(effectForm);
-        TimeStop_Spell.EffectDescription.SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod
-            .CharacterOnly);
-        TimeStop_Spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Round);
-        TimeStop_Spell.EffectDescription.SetDurationParameter(3);
+        TimeStop_Spell.EffectDescription.targetFilteringMethod = RuleDefinitions.TargetFilteringMethod
+            .CharacterOnly;
+        TimeStop_Spell.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
+        TimeStop_Spell.EffectDescription.durationParameter = 3;
         TimeStop_Spell.EffectDescription.EffectForms.Add(effectForm);
         TimeStop_Spell.SetRequiresConcentration(false);
         TimeStop_Spell.SetRitual(false);
-        TimeStop_Spell.EffectDescription.SetTargetExcludeCaster(true);
-        TimeStop_Spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-        TimeStop_Spell.EffectDescription.SetTargetSide(RuleDefinitions.Side.All);
-        TimeStop_Spell.EffectDescription.SetTargetParameter(20);
-        TimeStop_Spell.EffectDescription.SetTargetParameter2(10);
-        TimeStop_Spell.EffectDescription.SetRangeParameter(0);
-        TimeStop_Spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Self);
+        TimeStop_Spell.EffectDescription.targetExcludeCaster = true;
+        TimeStop_Spell.EffectDescription.targetType = RuleDefinitions.TargetType.Cylinder;
+        TimeStop_Spell.EffectDescription.targetSide = RuleDefinitions.Side.All;
+        TimeStop_Spell.EffectDescription.targetParameter = 20;
+        TimeStop_Spell.EffectDescription.targetParameter2 = 10;
+        TimeStop_Spell.EffectDescription.rangeParameter = 0;
+        TimeStop_Spell.EffectDescription.rangeType = RuleDefinitions.RangeType.Self;
 
         TimeStop_Spell.GuiPresentation.spriteReference = DatabaseHelper.FeatureDefinitionPowers
             .PowerDomainLawWordOfLaw.GuiPresentation.SpriteReference;

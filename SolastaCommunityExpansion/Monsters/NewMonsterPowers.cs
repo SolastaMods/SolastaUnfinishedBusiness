@@ -479,9 +479,9 @@ public class NewMonsterPowers
             SummonCreature_Elemental_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
                 .EffectDescription);
             SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm
-                .SetMonsterDefinitionName(entry.Key.EffectDescription.EffectForms[0].SummonForm
-                    .MonsterDefinitionName);
-            SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(entry.Value);
+                .monsterDefinitionName = entry.Key.EffectDescription.EffectForms[0].SummonForm
+                .MonsterDefinitionName;
+            SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm.number = entry.Value;
 
             SummonCreature_Elemental_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
             SummonCreature_Elemental_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
@@ -686,7 +686,7 @@ public class NewMonsterPowers
         SummonCreature_Erinyes_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
             .EffectDescription);
         SummonCreature_Erinyes_Power.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName("Custom_Erinyes");
+            .monsterDefinitionName = "Custom_Erinyes";
 
         SummonCreature_Erinyes_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
         SummonCreature_Erinyes_Power.SetCostPerUse(1);
@@ -710,8 +710,8 @@ public class NewMonsterPowers
         SummonCreature_Nalfeshnee_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
             .EffectDescription);
         SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName("Custom_Nalfeshnee");
-        SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(2);
+            .monsterDefinitionName = "Custom_Nalfeshnee";
+        SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm.number = 2;
 
         SummonCreature_Nalfeshnee_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
         SummonCreature_Nalfeshnee_Power.SetCostPerUse(1);
@@ -734,8 +734,8 @@ public class NewMonsterPowers
         SummonCreature_Wolves_Power.SetHasCastingFailure(false);
         SummonCreature_Wolves_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
             .EffectDescription);
-        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName("Wolf");
-        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(3);
+        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = "Wolf";
+        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.number = 3;
 
         SummonCreature_Wolves_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
         SummonCreature_Wolves_Power.SetCostPerUse(1);
@@ -1066,8 +1066,8 @@ public class NewMonsterPowers
         SummonCreature_LesserConstruct_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions
             .ConjureGoblinoids.EffectDescription);
         SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName("Magic_Mouth");
-        SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(3);
+            .monsterDefinitionName = "Magic_Mouth";
+        SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm.number = 3;
 
         SummonCreature_LesserConstruct_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
         SummonCreature_LesserConstruct_Power.SetCostPerUse(1);

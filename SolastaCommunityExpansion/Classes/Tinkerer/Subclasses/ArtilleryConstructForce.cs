@@ -30,16 +30,16 @@ internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
         Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
             .SpriteReference;
 
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.MonsterPresentation.SetAttachedParticlesReference(new AssetReference());
-        Definition.MonsterPresentation.SetCustomShaderReference(DatabaseHelper.MonsterDefinitions.FeyGiantApe
-            .MonsterPresentation.CustomShaderReference);
-        Definition.MonsterPresentation.SetOverrideCharacterShaderColors(true);
-        Definition.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyGiantApe
-            .MonsterPresentation.FirstCharacterShaderColor);
-        Definition.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyGiantApe
-            .MonsterPresentation.SecondCharacterShaderColor);
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
+        Definition.MonsterPresentation.attachedParticlesReference = new AssetReference();
+        Definition.MonsterPresentation.customShaderReference = DatabaseHelper.MonsterDefinitions.FeyGiantApe
+            .MonsterPresentation.CustomShaderReference;
+        Definition.MonsterPresentation.overrideCharacterShaderColors = true;
+        Definition.MonsterPresentation.firstCharacterShaderColor = DatabaseHelper.MonsterDefinitions.FeyGiantApe
+            .MonsterPresentation.FirstCharacterShaderColor;
+        Definition.MonsterPresentation.secondCharacterShaderColor = DatabaseHelper.MonsterDefinitions.FeyGiantApe
+            .MonsterPresentation.SecondCharacterShaderColor;
 
         Definition.armorClass = 18;
         Definition.noExperienceGain = true;
@@ -212,7 +212,7 @@ internal sealed class SummonForceArtillerySpellConstruct9Builder : SpellDefiniti
         Definition.GuiPresentation.Description = "Feature/&ForceArtillery_09ModePowerDescription";
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.Name);
+            .monsterDefinitionName = ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -241,7 +241,7 @@ internal sealed class SummonForceArtillerySpellConstruct15Builder : SpellDefinit
         Definition.uniqueInstance = false;
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.Name);
+            .monsterDefinitionName = ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

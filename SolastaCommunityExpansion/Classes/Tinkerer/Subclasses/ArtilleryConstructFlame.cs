@@ -126,9 +126,9 @@ internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
         Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
             .SpriteReference;
 
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.MonsterPresentation.SetAttachedParticlesReference(new AssetReference());
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
+        Definition.MonsterPresentation.attachedParticlesReference = new AssetReference();
 
         Definition.armorClass = 18;
         Definition.noExperienceGain = true;
@@ -289,7 +289,7 @@ internal sealed class SummonFlameArtillerySpellConstruct9Builder : SpellDefiniti
         Definition.GuiPresentation.Title = "Feature/&FlameArtillery_09ModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&FlameArtillery_09ModePowerDescription";
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9.Name);
+            .monsterDefinitionName = FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -317,7 +317,7 @@ internal sealed class SummonFlameArtillerySpellConstruct15Builder : SpellDefinit
         Definition.GuiPresentation.Description = "Feature/&FlameArtillery_15ModePowerDescription";
         Definition.uniqueInstance = false;
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.Name);
+            .monsterDefinitionName = FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

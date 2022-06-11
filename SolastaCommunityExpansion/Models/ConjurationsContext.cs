@@ -82,7 +82,7 @@ internal static class ConjurationsContext
 
             if (summonForm != null)
             {
-                summonForm.SetMonsterDefinitionName(InvisibleStalker.Name);
+                summonForm.monsterDefinitionName = InvisibleStalker.Name;
 
                 ConjureElemental.SubspellsList.Add(definition);
             }

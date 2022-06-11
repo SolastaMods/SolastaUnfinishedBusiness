@@ -184,8 +184,8 @@ internal static class BazouSpells
         spell.EffectDescription.EffectForms.Clear();
 
         var summonForm = new SummonForm();
-        summonForm.SetMonsterDefinitionName(familiarMonster.name);
-        summonForm.SetDecisionPackage(null);
+        summonForm.monsterDefinitionName = familiarMonster.name;
+        summonForm.decisionPackage = null;
 
         var effectForm = new EffectForm();
         effectForm.SetFormType(EffectForm.EffectFormType.Summon);
@@ -344,7 +344,7 @@ internal static class BazouSpells
         effectProxyDefinition.canMoveOnCharacters = true;
         effectProxyDefinition.isEmptyPresentation = false;
 
-        spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
+        spell.EffectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = effectProxyDefinition.Name;
 
         return spell;
     }
@@ -399,7 +399,7 @@ internal static class BazouSpells
             .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
             .AddToDB();
 
-        spell.EffectDescription.EffectForms[0].SummonForm.SetEffectProxyDefinitionName(proxyProtectThreshold);
+        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = proxyProtectThreshold;
 
         return spell;
     }

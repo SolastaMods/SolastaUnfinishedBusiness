@@ -471,13 +471,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetHasPhantomDistortion(bool value)
     {
-        Definition.MonsterPresentation.SetHasPhantomDistortion(value);
+        Definition.MonsterPresentation.hasPhantomDistortion = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetAttachedParticlesReference(AssetReference assetReference)
     {
-        Definition.MonsterPresentation.SetAttachedParticlesReference(assetReference);
+        Definition.MonsterPresentation.attachedParticlesReference = assetReference;
         return this;
     }
 
@@ -523,26 +523,26 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetHasMonsterPortraitBackground(bool value)
     {
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(value);
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetCanGeneratePortrait(bool value)
     {
-        Definition.MonsterPresentation.SetCanGeneratePortrait(value);
+        Definition.MonsterPresentation.canGeneratePortrait = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetCustomShaderReference(AssetReference shaderReference)
     {
-        Definition.MonsterPresentation.SetCustomShaderReference(shaderReference);
+        Definition.MonsterPresentation.customShaderReference = shaderReference;
         return this;
     }
 
     public MonsterDefinitionBuilder SetModelScale(float scale)
     {
-        Definition.MonsterPresentation.SetFemaleModelScale(scale);
-        Definition.MonsterPresentation.SetMaleModelScale(scale);
+        Definition.MonsterPresentation.femaleModelScale = scale;
+        Definition.MonsterPresentation.maleModelScale = scale;
         return this;
     }
 
@@ -560,26 +560,26 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder SetPrefabReference(AssetReference assetReference)
     {
-        Definition.MonsterPresentation.SetMalePrefabReference(assetReference);
-        Definition.MonsterPresentation.SetFemalePrefabReference(assetReference);
+        Definition.MonsterPresentation.malePrefabReference = assetReference;
+        Definition.MonsterPresentation.femalePrefabReference = assetReference;
         return this;
     }
 
     public MonsterDefinitionBuilder SetHasPrefabVariants(bool value)
     {
-        Definition.MonsterPresentation.SetHasPrefabVariants(value);
+        Definition.MonsterPresentation.hasPrefabVariants = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetUseCustomMaterials(bool value)
     {
-        Definition.MonsterPresentation.SetUseCustomMaterials(value);
+        Definition.MonsterPresentation.useCustomMaterials = value;
         return this;
     }
 
     public MonsterDefinitionBuilder SetCustomMaterials(AssetReference[] assetReference)
     {
-        Definition.MonsterPresentation.SetCustomMaterials(assetReference);
+        Definition.MonsterPresentation.customMaterials = assetReference;
         return this;
     }
 

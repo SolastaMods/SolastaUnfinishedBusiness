@@ -215,15 +215,15 @@ public class NewMonsterAttacks
         FallingEffect.SetCreatedByCondition(true);
         FallingEffect.FormType = EffectForm.EffectFormType.Motion;
         FallingEffect.SetMotionForm(motionForm);
-        FallingEffect.SetHasSavingThrow(false);
+        FallingEffect.hasSavingThrow = false;
         FallingEffect.SetCanSaveToCancel(false);
         FallingEffect.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
 
         Roc_Talons_Attack.EffectDescription.EffectForms.Add(FallingEffect);
 
-        Roc_Talons_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(19);
-        Roc_Talons_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Dexterity
-            .Name);
+        Roc_Talons_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 19;
+        Roc_Talons_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions.Dexterity
+            .Name;
     }
 
     public static void BuildNewIce_Bite_Attack()
@@ -263,7 +263,7 @@ public class NewMonsterAttacks
         );
 
         NagaSpit_Attack.SetToHitBonus(8);
-        NagaSpit_Attack.EffectDescription.SetRangeParameter(6);
+        NagaSpit_Attack.EffectDescription.rangeParameter = 6;
         NagaSpit_Attack.SetReachRange(6);
         NagaSpit_Attack.SetMaxRange(6);
         NagaSpit_Attack.SetCloseRange(6);
@@ -271,15 +271,15 @@ public class NewMonsterAttacks
         NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
         NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
-        NagaSpit_Attack.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
+        NagaSpit_Attack.EffectDescription.EffectForms[0].hasSavingThrow = true;
         NagaSpit_Attack.EffectDescription.EffectForms[0]
             .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
-        NagaSpit_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.Name);
-        NagaSpit_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.Name);
-        NagaSpit_Attack.EffectDescription.SetHasSavingThrow(true);
-        NagaSpit_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(15);
+        NagaSpit_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.Name;
+        NagaSpit_Attack.EffectDescription.savingThrowDifficultyAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.Name;
+        NagaSpit_Attack.EffectDescription.hasSavingThrow = true;
+        NagaSpit_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 15;
     }
 
     public static void BuildNewNagaBite_Attack()
@@ -297,7 +297,7 @@ public class NewMonsterAttacks
 
         NagaBite_Attack.SetToHitBonus(7);
         NagaBite_Attack.SetProximity(RuleDefinitions.AttackProximity.Melee);
-        NagaBite_Attack.EffectDescription.SetRangeParameter(2);
+        NagaBite_Attack.EffectDescription.rangeParameter = 2;
         NagaBite_Attack.SetReachRange(2);
         NagaBite_Attack.SetMaxRange(2);
         NagaBite_Attack.SetCloseRange(2);
@@ -322,16 +322,16 @@ public class NewMonsterAttacks
         extraDamageEffect.SetCreatedByCharacter(true);
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
         extraDamageEffect.SetDamageForm(damageForm);
-        extraDamageEffect.SetHasSavingThrow(true);
+        extraDamageEffect.hasSavingThrow = true;
         extraDamageEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
 
         NagaBite_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
-        NagaBite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.Name);
-        NagaBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.Name);
-        NagaBite_Attack.EffectDescription.SetHasSavingThrow(true);
-        NagaBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(15);
+        NagaBite_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.Name;
+        NagaBite_Attack.EffectDescription.savingThrowDifficultyAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.Name;
+        NagaBite_Attack.EffectDescription.hasSavingThrow = true;
+        NagaBite_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 15;
     }
 
     public static void BuildNewFork_Attack()
@@ -398,7 +398,7 @@ public class NewMonsterAttacks
         TailEffect.SetCreatedByCharacter(true);
         TailEffect.FormType = EffectForm.EffectFormType.Condition;
         TailEffect.ConditionForm = TailCondition;
-        TailEffect.SetHasSavingThrow(true);
+        TailEffect.hasSavingThrow = true;
         TailEffect.SetCanSaveToCancel(true);
         TailEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
@@ -412,11 +412,11 @@ public class NewMonsterAttacks
             .SetDamageType(RuleDefinitions.DamageTypePiercing);
 
         HornedDevilTail_Attack.EffectDescription.EffectForms.Add(TailEffect);
-        HornedDevilTail_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Wisdom.name);
-        HornedDevilTail_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        HornedDevilTail_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(12);
+        HornedDevilTail_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Wisdom.name;
+        HornedDevilTail_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        HornedDevilTail_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 12;
     }
 
     public static void BuildNewPoisonLongsword_Attack()
@@ -506,7 +506,7 @@ public class NewMonsterAttacks
         PoisonLongbowEffect.SetCreatedByCharacter(true);
         PoisonLongbowEffect.FormType = EffectForm.EffectFormType.Condition;
         PoisonLongbowEffect.ConditionForm = PoisonLongbowCondition;
-        PoisonLongbowEffect.SetHasSavingThrow(true);
+        PoisonLongbowEffect.hasSavingThrow = true;
         PoisonLongbowEffect.SetCanSaveToCancel(false);
         PoisonLongbowEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
@@ -514,11 +514,11 @@ public class NewMonsterAttacks
         PoisonLongbow_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
         PoisonLongbow_Attack.EffectDescription.EffectForms.Add(PoisonLongbowEffect);
 
-        PoisonLongbow_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.name);
-        PoisonLongbow_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        PoisonLongbow_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(14);
+        PoisonLongbow_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.name;
+        PoisonLongbow_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        PoisonLongbow_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 14;
         PoisonLongbow_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_PoisonousSnake_Bite.EffectDescription.EffectParticleParameters);
     }
@@ -595,19 +595,19 @@ public class NewMonsterAttacks
         killEffect.SetCreatedByCharacter(true);
         killEffect.FormType = EffectForm.EffectFormType.Kill;
         killEffect.SetKillForm(killForm);
-        killEffect.SetHasSavingThrow(true);
+        killEffect.hasSavingThrow = true;
         killEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
         RadiantLongbow_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
 
         RadiantLongbow_Attack.EffectDescription.EffectForms.Add(killEffect);
 
-        RadiantLongbow_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.name);
-        RadiantLongbow_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        RadiantLongbow_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(15);
-        RadiantLongbow_Attack.EffectDescription.SetHasSavingThrow(true);
+        RadiantLongbow_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.name;
+        RadiantLongbow_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        RadiantLongbow_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 15;
+        RadiantLongbow_Attack.EffectDescription.hasSavingThrow = true;
         RadiantLongbow_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_Divine_Avatar.EffectDescription.EffectParticleParameters);
     }
@@ -626,7 +626,7 @@ public class NewMonsterAttacks
         );
 
         AirBlast_Attack.SetToHitBonus(7);
-        AirBlast_Attack.EffectDescription.SetRangeParameter(24);
+        AirBlast_Attack.EffectDescription.rangeParameter = 24;
         AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
         AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm
@@ -659,7 +659,7 @@ public class NewMonsterAttacks
         );
 
         HurlFlame_Attack.SetToHitBonus(7);
-        HurlFlame_Attack.EffectDescription.SetRangeParameter(24);
+        HurlFlame_Attack.EffectDescription.rangeParameter = 24;
         HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
         HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         HurlFlame_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
@@ -886,8 +886,8 @@ public class NewMonsterAttacks
                 .SetDieType(dictionaryofAncientDragonBiteExtraDamageDiceType[entry.Key]);
             Dragon_Bite_Attack.EffectDescription.EffectForms[1].DamageForm
                 .SetDamageType(entry.Value); // ListofDamageTypes_Dragon[i]);
-            Dragon_Bite_Attack.EffectDescription.SetEffectParticleParameters(
-                dictionaryofAncientDragonBiteEffectparticles[entry.Key]);
+            Dragon_Bite_Attack.EffectDescription.effectParticleParameters =
+                dictionaryofAncientDragonBiteEffectparticles[entry.Key];
 
 
             DictionaryOfAncientDragonBites.Add(entry.Key, Dragon_Bite_Attack);
@@ -960,17 +960,17 @@ public class NewMonsterAttacks
         PitFiendBiteEffect.SetCreatedByCharacter(true);
         PitFiendBiteEffect.FormType = EffectForm.EffectFormType.Condition;
         PitFiendBiteEffect.ConditionForm = PitFiendBiteCondition;
-        PitFiendBiteEffect.SetHasSavingThrow(true);
+        PitFiendBiteEffect.hasSavingThrow = true;
         PitFiendBiteEffect.SetCanSaveToCancel(true);
         PitFiendBiteEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
         PitFiend_Bite_Attack.SetReachRange(2);
         PitFiend_Bite_Attack.EffectDescription.EffectForms.Add(PitFiendBiteEffect);
-        PitFiend_Bite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.name);
-        PitFiend_Bite_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        PitFiend_Bite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
+        PitFiend_Bite_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.name;
+        PitFiend_Bite_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        PitFiend_Bite_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 21;
     }
 
 
@@ -1071,17 +1071,17 @@ public class NewMonsterAttacks
         effectForm.SetCreatedByCharacter(true);
         effectForm.FormType = EffectForm.EffectFormType.Motion;
         effectForm.SetMotionForm(motionForm);
-        effectForm.SetHasSavingThrow(true);
+        effectForm.hasSavingThrow = true;
         effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
 
         Balor_Whip_Attack.EffectDescription.EffectForms.Add(effectForm);
-        Balor_Whip_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Strength
-            .Name);
-        Balor_Whip_Attack.EffectDescription.SetHasSavingThrow(true);
-        Balor_Whip_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        Balor_Whip_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
+        Balor_Whip_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions.Strength
+            .Name;
+        Balor_Whip_Attack.EffectDescription.hasSavingThrow = true;
+        Balor_Whip_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        Balor_Whip_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 20;
     }
 
 
@@ -1109,11 +1109,11 @@ public class NewMonsterAttacks
         Lich_ParalyzingTouch_Attack.SetToHitBonus(12);
         Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[1].ConditionForm
             .conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionParalyzed;
-        Lich_ParalyzingTouch_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Constitution.name);
-        Lich_ParalyzingTouch_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        Lich_ParalyzingTouch_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
+        Lich_ParalyzingTouch_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Constitution.name;
+        Lich_ParalyzingTouch_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        Lich_ParalyzingTouch_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 21;
     }
 
 
@@ -1276,7 +1276,7 @@ public class NewMonsterAttacks
         ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDamageType(RuleDefinitions.DamageTypeForce);
         /*
-                    ConstructTitan_ForceCannon_Attack.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
+                    ConstructTitan_ForceCannon_Attack.EffectDescription.effectParticleParameters = (DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
                     MotionForm motionForm = new MotionForm();
                     motionForm.SetType(MotionForm.MotionType.FallProne);
@@ -1367,13 +1367,13 @@ public class NewMonsterAttacks
 
         Tarrasque_Bite_Attack.SetReachRange(2);
         Tarrasque_Bite_Attack.SetToHitBonus(19);
-        Tarrasque_Bite_Attack.EffectDescription.SetHasSavingThrow(true);
+        Tarrasque_Bite_Attack.EffectDescription.hasSavingThrow = true;
         // using dex because dex is generally equivalent to or higher than str for most classes
-        Tarrasque_Bite_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Dexterity.name);
-        Tarrasque_Bite_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        Tarrasque_Bite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
+        Tarrasque_Bite_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Dexterity.name;
+        Tarrasque_Bite_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        Tarrasque_Bite_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 20;
 
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D12);
@@ -1450,11 +1450,11 @@ public class NewMonsterAttacks
         Tarrasque_Tail_Attack.SetToHitBonus(19);
 
 
-        Tarrasque_Tail_Attack.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
-            .Strength.name);
-        Tarrasque_Tail_Attack.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
-            .EffectDifficultyClassComputation.FixedValue);
-        Tarrasque_Tail_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
+        Tarrasque_Tail_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
+            .Strength.name;
+        Tarrasque_Tail_Attack.EffectDescription.difficultyClassComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
+        Tarrasque_Tail_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 20;
 
         Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -1472,7 +1472,7 @@ public class NewMonsterAttacks
         effectForm.SetCreatedByCharacter(true);
         effectForm.FormType = EffectForm.EffectFormType.Motion;
         effectForm.SetMotionForm(motionForm);
-        effectForm.SetHasSavingThrow(true);
+        effectForm.hasSavingThrow = true;
         effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
 
         Tarrasque_Tail_Attack.EffectDescription.EffectForms.Add(effectForm);

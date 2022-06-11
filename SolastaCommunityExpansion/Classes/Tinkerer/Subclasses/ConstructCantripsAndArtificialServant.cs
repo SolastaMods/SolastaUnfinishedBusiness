@@ -193,9 +193,9 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&ArtificialServantTitle";
         Definition.GuiPresentation.Description = "Feat/&ArtificialServantDescription";
-        Definition.MonsterPresentation.SetUniqueNameTitle("Feat/&ArtificialServantTitle");
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
+        Definition.MonsterPresentation.uniqueNameTitle = "Feat/&ArtificialServantTitle";
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
         Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;
 
         Definition.armorClass = 13;
@@ -247,12 +247,10 @@ internal sealed class ArtificialServantBuilder : MonsterDefinitionBuilder
         Definition.AttackIterations.SetRange(
             new MonsterAttackIteration(ArtificialServantAttackBuilder.ArtificialServantAttack, 1));
 
-        Definition.MonsterPresentation.SetMalePrefabReference(
-            new AssetReference("ab0501343e8629149ae0aa4dace755f5"));
-        Definition.MonsterPresentation.SetFemalePrefabReference(
-            new AssetReference("ab0501343e8629149ae0aa4dace755f5"));
-        Definition.MonsterPresentation.SetMaleModelScale(0.2f);
-        Definition.MonsterPresentation.SetFemaleModelScale(0.2f);
+        Definition.MonsterPresentation.malePrefabReference = new AssetReference("ab0501343e8629149ae0aa4dace755f5");
+        Definition.MonsterPresentation.femalePrefabReference = new AssetReference("ab0501343e8629149ae0aa4dace755f5");
+        Definition.MonsterPresentation.maleModelScale = 0.2f;
+        Definition.MonsterPresentation.femaleModelScale = 0.2f;
     }
 
     private static MonsterDefinition CreateAndAddToDB(string name, string guid)

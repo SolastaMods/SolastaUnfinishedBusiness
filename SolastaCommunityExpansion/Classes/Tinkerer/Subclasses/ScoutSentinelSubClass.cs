@@ -52,12 +52,12 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         effectScoutMode.Copy(ProduceFlameHold.EffectDescription);
         effectScoutMode.SlotTypes.Clear();
         effectScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+        effectScoutMode.durationType = RuleDefinitions.DurationType.UntilShortRest;
         effectScoutMode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
-        effectScoutMode.EffectForms[0].SummonForm.SetItemDefinition(ScoutSuitWeaponBuilder.ScoutSuitWeapon);
+        effectScoutMode.EffectForms[0].SummonForm.itemDefinition = ScoutSuitWeaponBuilder.ScoutSuitWeapon;
         effectScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-        effectScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
-        effectScoutMode.EffectForms[0].SummonForm.SetNumber(1);
+        effectScoutMode.EffectForms[0].SummonForm.trackItem = false;
+        effectScoutMode.EffectForms[0].SummonForm.number = 1;
         effectScoutMode.EffectForms.Add(CreateEffectItem());
 
         return new FeatureDefinitionPowerSharedPoolBuilder(
@@ -83,13 +83,13 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         effectsentinelmode.Copy(ProduceFlameHold.EffectDescription);
         effectsentinelmode.SlotTypes.Clear();
         effectsentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectsentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+        effectsentinelmode.durationType = RuleDefinitions.DurationType.UntilShortRest;
         effectsentinelmode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectsentinelmode.EffectForms[0].SummonForm
-            .SetItemDefinition(SentinelSuitWeaponBuilder.SentinelSuitWeapon);
+            .itemDefinition = SentinelSuitWeaponBuilder.SentinelSuitWeapon;
         effectsentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-        effectsentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
-        effectsentinelmode.EffectForms[0].SummonForm.SetNumber(1);
+        effectsentinelmode.EffectForms[0].SummonForm.trackItem = false;
+        effectsentinelmode.EffectForms[0].SummonForm.number = 1;
         effectsentinelmode.EffectForms.Add(CreateEffectItem());
 
         var guiPresentationSentinel = new GuiPresentation();
@@ -256,13 +256,13 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         effectImprovedSentinelmode.Copy(ProduceFlameHold.EffectDescription);
         effectImprovedSentinelmode.SlotTypes.Clear();
         effectImprovedSentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectImprovedSentinelmode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+        effectImprovedSentinelmode.durationType = RuleDefinitions.DurationType.UntilShortRest;
         effectImprovedSentinelmode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectImprovedSentinelmode.EffectForms[0].SummonForm
-            .SetItemDefinition(ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon);
+            .itemDefinition = ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon;
         effectImprovedSentinelmode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-        effectImprovedSentinelmode.EffectForms[0].SummonForm.SetTrackItem(false);
-        effectImprovedSentinelmode.EffectForms[0].SummonForm.SetNumber(1);
+        effectImprovedSentinelmode.EffectForms[0].SummonForm.trackItem = false;
+        effectImprovedSentinelmode.EffectForms[0].SummonForm.number = 1;
         effectImprovedSentinelmode.EffectForms.Add(effectItem);
 
         var Improvedsentinelmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
@@ -294,13 +294,13 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         effectImprovedScoutMode.Copy(ProduceFlameHold.EffectDescription);
         effectImprovedScoutMode.SlotTypes.Clear();
         effectImprovedScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectImprovedScoutMode.SetDurationType(RuleDefinitions.DurationType.UntilShortRest);
+        effectImprovedScoutMode.durationType = RuleDefinitions.DurationType.UntilShortRest;
         effectImprovedScoutMode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectImprovedScoutMode.EffectForms[0].SummonForm
-            .SetItemDefinition(ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon);
+            .itemDefinition = ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon;
         effectImprovedScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
-        effectImprovedScoutMode.EffectForms[0].SummonForm.SetTrackItem(false);
-        effectImprovedScoutMode.EffectForms[0].SummonForm.SetNumber(1);
+        effectImprovedScoutMode.EffectForms[0].SummonForm.trackItem = false;
+        effectImprovedScoutMode.EffectForms[0].SummonForm.number = 1;
         effectImprovedScoutMode.EffectForms.Add(effectItem);
 
         var Improvedscoutmodepowerbuilder = new FeatureDefinitionPowerSharedPoolBuilder
@@ -571,15 +571,15 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
 
         var deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions
             .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
-        deviceFunctionDescription.SetCanOverchargeSpell(false);
-        deviceFunctionDescription.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
-        deviceFunctionDescription.SetFeatureDefinitionPower(ThunderShieldBuilder.ThunderShield);
-        deviceFunctionDescription.SetParentUsage(EquipmentDefinitions.ItemUsage.ByFunction);
-        deviceFunctionDescription.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        deviceFunctionDescription.SetType(DeviceFunctionDescription.FunctionType.Power);
-        deviceFunctionDescription.SetUseAffinity(DeviceFunctionDescription.FunctionUseAffinity
-            .IterationPerRecharge);
-        deviceFunctionDescription.SetUseAmount(6);
+        deviceFunctionDescription.canOverchargeSpell = false;
+        deviceFunctionDescription.durationType = RuleDefinitions.DurationType.UntilLongRest;
+        deviceFunctionDescription.featureDefinitionPower = ThunderShieldBuilder.ThunderShield;
+        deviceFunctionDescription.parentUsage = EquipmentDefinitions.ItemUsage.ByFunction;
+        deviceFunctionDescription.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        deviceFunctionDescription.type = DeviceFunctionDescription.FunctionType.Power;
+        deviceFunctionDescription.useAffinity = DeviceFunctionDescription.FunctionUseAffinity
+            .IterationPerRecharge;
+        deviceFunctionDescription.useAmount = 6;
 
         var usableDeviceDescription = new UsableDeviceDescription();
         usableDeviceDescription.usage = EquipmentDefinitions.ItemUsage.ByFunction;
@@ -1047,14 +1047,14 @@ internal sealed class ImprovedSentinelSuitWeaponBuilder : ItemDefinitionBuilder
 
         var grapplefunction = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions
             .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
-        grapplefunction.SetCanOverchargeSpell(false);
-        grapplefunction.SetDurationType(RuleDefinitions.DurationType.UntilLongRest);
-        grapplefunction.SetFeatureDefinitionPower(GauntletsGrappleBuilder.GauntletsGrapple);
-        grapplefunction.SetParentUsage(EquipmentDefinitions.ItemUsage.ByFunction);
-        grapplefunction.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        grapplefunction.SetType(DeviceFunctionDescription.FunctionType.Power);
-        grapplefunction.SetUseAffinity(DeviceFunctionDescription.FunctionUseAffinity.IterationPerRecharge);
-        grapplefunction.SetUseAmount(6);
+        grapplefunction.canOverchargeSpell = false;
+        grapplefunction.durationType = RuleDefinitions.DurationType.UntilLongRest;
+        grapplefunction.featureDefinitionPower = GauntletsGrappleBuilder.GauntletsGrapple;
+        grapplefunction.parentUsage = EquipmentDefinitions.ItemUsage.ByFunction;
+        grapplefunction.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        grapplefunction.type = DeviceFunctionDescription.FunctionType.Power;
+        grapplefunction.useAffinity = DeviceFunctionDescription.FunctionUseAffinity.IterationPerRecharge;
+        grapplefunction.useAmount = 6;
 
         Definition.UsableDeviceDescription.DeviceFunctions.Add(grapplefunction);
         Definition.UsableDeviceDescription.chargesCapitalNumber = 10;

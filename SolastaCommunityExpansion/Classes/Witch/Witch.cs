@@ -1120,8 +1120,8 @@ internal static class Witch
                 .AddToDB();
 
             var summonForm = new SummonForm();
-            summonForm.SetMonsterDefinitionName(witchFamiliarMonster.name);
-            summonForm.SetDecisionPackage(null);
+            summonForm.monsterDefinitionName = witchFamiliarMonster.name;
+            summonForm.decisionPackage = null;
 
             var effectForm = new EffectForm();
             effectForm.SetFormType(EffectForm.EffectFormType.Summon);

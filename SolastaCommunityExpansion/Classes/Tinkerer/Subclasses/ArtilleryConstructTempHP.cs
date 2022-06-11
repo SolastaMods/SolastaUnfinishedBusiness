@@ -90,15 +90,15 @@ internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
         Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.Magic_Mouth.GuiPresentation
             .SpriteReference;
 
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.MonsterPresentation.SetCustomShaderReference(DatabaseHelper.MonsterDefinitions.KindredSpiritBear
-            .MonsterPresentation.CustomShaderReference);
-        Definition.MonsterPresentation.SetOverrideCharacterShaderColors(true);
-        Definition.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions
-            .KindredSpiritBear.MonsterPresentation.FirstCharacterShaderColor);
-        Definition.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions
-            .KindredSpiritBear.MonsterPresentation.SecondCharacterShaderColor);
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
+        Definition.MonsterPresentation.customShaderReference = DatabaseHelper.MonsterDefinitions.KindredSpiritBear
+            .MonsterPresentation.CustomShaderReference;
+        Definition.MonsterPresentation.overrideCharacterShaderColors = true;
+        Definition.MonsterPresentation.firstCharacterShaderColor = DatabaseHelper.MonsterDefinitions
+            .KindredSpiritBear.MonsterPresentation.FirstCharacterShaderColor;
+        Definition.MonsterPresentation.secondCharacterShaderColor = DatabaseHelper.MonsterDefinitions
+            .KindredSpiritBear.MonsterPresentation.SecondCharacterShaderColor;
 
         Definition.armorClass = 18;
         Definition.noExperienceGain = true;
@@ -263,7 +263,7 @@ internal sealed class SummonTempHPShieldSpellConstruct9Builder : SpellDefinition
         Definition.GuiPresentation.Description = "Feature/&TempHPShield_09ModePowerDescription";
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(TempHPShieldConstruct9Builder.TempHPShieldConstruct9.Name);
+            .monsterDefinitionName = TempHPShieldConstruct9Builder.TempHPShieldConstruct9.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -291,7 +291,7 @@ internal sealed class SummonTempHPShieldSpellConstruct15Builder : SpellDefinitio
         Definition.GuiPresentation.Description = "Feature/&TempHPShield_15ModePowerDescription";
         Definition.uniqueInstance = false;
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(TempHPShieldConstruct15Builder.TempHPShieldConstruct15.Name);
+            .monsterDefinitionName = TempHPShieldConstruct15Builder.TempHPShieldConstruct15.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

@@ -284,14 +284,14 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Summon;
         var summonForm = new SummonForm();
-        summonForm.SetSummonType(summonType);
-        summonForm.SetItemDefinition(item);
-        summonForm.SetNumber(number);
-        summonForm.SetMonsterDefinitionName(monsterDefinitionName);
-        summonForm.SetConditionDefinition(conditionDefinition);
-        summonForm.SetPersistOnConcentrationLoss(persistOnConcentrationLoss);
-        summonForm.SetDecisionPackage(decisionPackage);
-        summonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
+        summonForm.summonType = summonType;
+        summonForm.itemDefinition = item;
+        summonForm.number = number;
+        summonForm.monsterDefinitionName = monsterDefinitionName;
+        summonForm.conditionDefinition = conditionDefinition;
+        summonForm.persistOnConcentrationLoss = persistOnConcentrationLoss;
+        summonForm.decisionPackage = decisionPackage;
+        summonForm.effectProxyDefinitionName = effectProxyDefinition.Name;
         effectForm.SetSummonForm(summonForm);
         return this;
     }
@@ -302,14 +302,14 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Summon;
         var summonForm = new SummonForm();
-        summonForm.SetSummonType(SummonForm.Type.Creature);
-        summonForm.SetItemDefinition(null);
-        summonForm.SetNumber(number);
-        summonForm.SetMonsterDefinitionName(monsterDefinitionName);
-        summonForm.SetConditionDefinition(condition);
-        summonForm.SetPersistOnConcentrationLoss(persistOnConcentrationLoss);
-        summonForm.SetDecisionPackage(decisionPackage);
-        summonForm.SetEffectProxyDefinitionName(null);
+        summonForm.summonType = SummonForm.Type.Creature;
+        summonForm.itemDefinition = null;
+        summonForm.number = number;
+        summonForm.monsterDefinitionName = monsterDefinitionName;
+        summonForm.conditionDefinition = condition;
+        summonForm.persistOnConcentrationLoss = persistOnConcentrationLoss;
+        summonForm.decisionPackage = decisionPackage;
+        summonForm.effectProxyDefinitionName = null;
         effectForm.SetSummonForm(summonForm);
         return this;
     }
@@ -318,14 +318,14 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.Summon;
         var summonForm = new SummonForm();
-        summonForm.SetSummonType(SummonForm.Type.InventoryItem);
-        summonForm.SetItemDefinition(item);
-        summonForm.SetNumber(number);
-        summonForm.SetMonsterDefinitionName(""); //do we even need this?
-        summonForm.SetConditionDefinition(null);
-        summonForm.SetPersistOnConcentrationLoss(true);
-        summonForm.SetDecisionPackage(null);
-        summonForm.SetEffectProxyDefinitionName(null);
+        summonForm.summonType = SummonForm.Type.InventoryItem;
+        summonForm.itemDefinition = item;
+        summonForm.number = number;
+        summonForm.monsterDefinitionName = ""; //do we even need this?
+        summonForm.conditionDefinition = null;
+        summonForm.persistOnConcentrationLoss = true;
+        summonForm.decisionPackage = null;
+        summonForm.effectProxyDefinitionName = null;
         effectForm.SetSummonForm(summonForm);
         return this;
     }
