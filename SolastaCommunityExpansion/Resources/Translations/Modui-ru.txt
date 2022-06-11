@@ -167,12 +167,12 @@ ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Снабдить магазин Горим всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	Снабдить магазин Хьюго <color=orange>Жезлом Опознания</color>, <color=orange>Чародейским посохом</color>, <color=orange>Воротник Друида</color>, <color=orange>Посохом</color> и <color=orange>Дубиной</color> в качестве предметов для фокусировки
 ModUi/&Subclasses	<color=yellow>Подклассы</color>
-ModUi/&TargetLanguage	<color=yellow>Целевой язык:</color>
+ModUi/&TargetLanguage	Целевой язык
 ModUi/&Tools	Инструменты
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Всего бонусных особенностей (черт) на первом уровне</color>
 ModUi/&Translate	Перевести
 ModUi/&TranslateCancel	Отменить {0} в {1}
-ModUi/&TranslationEngine	<color=yellow>Механизм перевода:</color>
+ModUi/&TranslationEngine	Механизм перевода
 ModUi/&Translations	Переводы
 ModUi/&UnleashEnemyAsNpc	Разрешить выбор монстров на гаджетах NPC <i><color=yellow>[зажмите <color=cyan>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>
 ModUi/&UnleashNpcAsEnemy	Разрешить выбор NPC на гаджетах монстров <i><color=yellow>[зажмите <color=cyan>CTRL</color> при нажатии на кнопку «Выбрать» на панели гаджетов]</color></i>

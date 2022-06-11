@@ -167,12 +167,12 @@ ModUi/&SRD	<color=yellow>SRD：</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	在格里姆的商店里销售所有非魔法服装<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&StockHugoStoreWithAdditionalFoci	在雨果的商店里销售<color=orange>鉴定魔杖</color>，<color=orange>奥术法杖</color>，<color=orange>德鲁伊项链</color>，<color=orange>法杖</color>和<color=orange>短棒</color>，并且设置为法器
 ModUi/&Subclasses	<color=yellow>子职</color>
-ModUi/&TargetLanguage	<color=yellow>目标语言：</color>
+ModUi/&TargetLanguage	目标语言
 ModUi/&Tools	工具
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>在第1级时赋予额外专长数量</color>
 ModUi/&Translate	翻译
 ModUi/&TranslateCancel	从{1}取消{0}
-ModUi/&TranslationEngine	<color=yellow>翻译引擎：</color>
+ModUi/&TranslationEngine	翻译引擎
 ModUi/&Translations	翻译
 ModUi/&UnleashEnemyAsNpc	允许在NPC互动物件上选择怪物<i><color=yellow>[在互动物件面板上点击时按<color=cyan>CTRL</color>选择]</color></i>
 ModUi/&UnleashNpcAsEnemy	允许在怪物互动物件上选择NPC<i><color=yellow>[在互动物件面板上点击时按<color=cyan>CTRL</color>选择]</color></i>

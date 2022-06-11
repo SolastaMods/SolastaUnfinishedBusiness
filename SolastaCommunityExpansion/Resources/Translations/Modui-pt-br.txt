@@ -167,12 +167,12 @@ ModUi/&SRD	<color=yellow>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing	Abastece a loja de Gorim com todas as roupas não mágicas <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci	Estoque a loja do Hugo com <color=orange>Wand of Identify</color>, <color=orange>Arcane Staff</color>, <color=orange>Druid Neck</color>, <color=orange>Staf</color> > e <color=orange>Clube</color> definidos como itens de foco
 ModUi/&Subclasses	<color=yellow>Subclasses</color>
-ModUi/&TargetLanguage	<color=yellow>Idioma de destino:</color>
+ModUi/&TargetLanguage	Idioma de destino
 ModUi/&Tools	Ferramentas
 ModUi/&TotalFeatsGrantedFistLevel	<color=white>Total de talentos concedidos no primeiro nível</color>
 ModUi/&Translate	Traduzir
 ModUi/&TranslateCancel	Cancelar {0} em {1}
-ModUi/&TranslationEngine	<color=yellow>Motor de tradução:</color>
+ModUi/&TranslationEngine	Motor de tradução
 ModUi/&Translations	Traduções
 ModUi/&UnleashEnemyAsNpc	Permitir que Monstros sejam selecionados em gadgets NPC <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
 ModUi/&UnleashNpcAsEnemy	Permitir que NPCs sejam selecionados em gadgets de monstros <i><color=yellow>[pressione <color=cyan>CTRL</color> enquanto clica em Selecionar no painel de gadgets]</color></i>
