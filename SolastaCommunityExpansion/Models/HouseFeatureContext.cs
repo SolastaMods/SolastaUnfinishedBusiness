@@ -28,7 +28,7 @@ public static class HouseFeatureContext
         DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
             RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon;
     }
-    
+
     /**
      * Makes Divine Smite use correct number of dice when spending slot level 5+.
      * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.

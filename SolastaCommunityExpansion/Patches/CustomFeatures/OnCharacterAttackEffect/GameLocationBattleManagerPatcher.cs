@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.OnCharacterAttackEffect;
 

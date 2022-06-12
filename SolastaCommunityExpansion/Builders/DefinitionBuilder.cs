@@ -365,7 +365,8 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
         if (!Guid.TryParse(Definition.GUID, out var _))
         {
-            throw new SolastaCommunityExpansionException($"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
+            throw new SolastaCommunityExpansionException(
+                $"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
         }
 
         VerifyGuiPresentation();
@@ -445,7 +446,8 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
                 if (methodInfo == null)
                 {
-                    throw new SolastaCommunityExpansionException($"Could not locate the 'Add' method for {dbType.FullName}.");
+                    throw new SolastaCommunityExpansionException(
+                        $"Could not locate the 'Add' method for {dbType.FullName}.");
                 }
 
                 methodInfo.Invoke(db, new object[] {Definition});
