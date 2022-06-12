@@ -301,28 +301,28 @@ internal static class MonstersHomebrew
             NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.Titan_CombatDecisions);
 
             MonsterSavingThrowProficiency Str_save = new();
-            Str_save.SetField("abilityScoreName", "Strength");
-            Str_save.SetField("bonus", Definitions[i].SavingThrowStrength);
+            Str_save.abilityScoreName = "Strength";
+            Str_save.bonus = Definitions[i].SavingThrowStrength;
 
             MonsterSavingThrowProficiency Dex_save = new();
-            Dex_save.SetField("abilityScoreName", "Dexterity");
-            Dex_save.SetField("bonus", Definitions[i].SavingThrowDexterity);
+            Dex_save.abilityScoreName = "Dexterity";
+            Dex_save.bonus = Definitions[i].SavingThrowDexterity;
 
             MonsterSavingThrowProficiency Con_save = new();
-            Con_save.SetField("abilityScoreName", "Constitution");
-            Con_save.SetField("bonus", Definitions[i].SavingThrowConstitution);
+            Con_save.abilityScoreName = "Constitution";
+            Con_save.bonus = Definitions[i].SavingThrowConstitution;
 
             MonsterSavingThrowProficiency Int_save = new();
-            Int_save.SetField("abilityScoreName", "Intelligence");
-            Int_save.SetField("bonus", Definitions[i].SavingThrowIntelligence);
+            Int_save.abilityScoreName = "Intelligence";
+            Int_save.bonus = Definitions[i].SavingThrowIntelligence;
 
             MonsterSavingThrowProficiency Wis_save = new();
-            Wis_save.SetField("abilityScoreName", "Wisdom");
-            Wis_save.SetField("bonus", Definitions[i].SavingThrowWisdom);
+            Wis_save.abilityScoreName = "Wisdom";
+            Wis_save.bonus = Definitions[i].SavingThrowWisdom;
 
             MonsterSavingThrowProficiency Cha_save = new();
-            Cha_save.SetField("abilityScoreName", "Charisma");
-            Cha_save.SetField("bonus", Definitions[i].SavingThrowCharisma);
+            Cha_save.abilityScoreName = "Charisma";
+            Cha_save.bonus = Definitions[i].SavingThrowCharisma;
 
             NewMonster.ClearSavingThrowScores();
             NewMonster.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>
@@ -358,10 +358,10 @@ internal static class MonstersHomebrew
                 NewMonster.SetSpriteReference(DatabaseHelper.MonsterDefinitions.KindredSpiritEagle.GuiPresentation
                     .SpriteReference);
                 //AssetReference assetReference = new AssetReference();
-                //assetReference.SetField("m_AssetGUID", "3f4ea7931d5f6ba4e96caace01b265b7");
+                //assetReference.m_AssetGUID =  "3f4ea7931d5f6ba4e96caace01b265b7";
                 //NewMonster.SetPrefabReference(assetReference);
                 AssetReference assetReference = new();
-                assetReference.SetField("m_AssetGUID", "b1bd642eab224bd4bbbf5ce48c869a9e");
+                assetReference.SetField("m_assetGUID", "b1bd642eab224bd4bbbf5ce48c869a9e");
                 NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.AddFeatures(new List<FeatureDefinition>
@@ -374,8 +374,8 @@ internal static class MonstersHomebrew
                 });
 
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AirTitan_Slam_Attack);
-                AttackIteration.SetField("number", 2);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.AirTitan_Slam_Attack;
+                AttackIteration.number = 2;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(new List<MonsterAttackIteration> {AttackIteration});
@@ -413,7 +413,7 @@ internal static class MonstersHomebrew
             if (Definitions[i].MonsterName == "Earth Titan")
             {
                 //AssetReference assetReference = new AssetReference();
-                //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
+                //assetReference.m_AssetGUID =  "aad57f1f96869a3409a5c064473c454d";
                 //NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.AddFeatures(new List<FeatureDefinition>
@@ -424,12 +424,12 @@ internal static class MonstersHomebrew
                 });
 
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.EarthTitan_Boulder_Attack);
-                AttackIteration.SetField("number", 2);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.EarthTitan_Boulder_Attack;
+                AttackIteration.number = 2;
 
                 MonsterAttackIteration AttackIteration_2 = new();
-                AttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.EarthTitan_Slam_Attack);
-                AttackIteration_2.SetField("number", 2);
+                AttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.EarthTitan_Slam_Attack;
+                AttackIteration_2.number = 2;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(
@@ -464,7 +464,7 @@ internal static class MonstersHomebrew
                 });
 
                 AssetReference assetReference = new();
-                assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
+                assetReference.SetField("m_assetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                 NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.SetUseCustomMaterials(true);
@@ -477,7 +477,7 @@ internal static class MonstersHomebrew
             if (Definitions[i].MonsterName == "Fire Titan")
             {
                 AssetReference assetReference = new();
-                assetReference.SetField("m_AssetGUID", "0829dcc3d2af9764582f0c4f3b70c914");
+                assetReference.SetField("m_assetGUID", "0829dcc3d2af9764582f0c4f3b70c914");
 
                 NewMonster.SetPrefabReference(assetReference);
 
@@ -490,8 +490,8 @@ internal static class MonstersHomebrew
                 });
 
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.FireTitan_Slam_Attack);
-                AttackIteration.SetField("number", 3);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.FireTitan_Slam_Attack;
+                AttackIteration.number = 3;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(new List<MonsterAttackIteration> {AttackIteration});
@@ -521,13 +521,13 @@ internal static class MonstersHomebrew
             if (Definitions[i].MonsterName == "Construct Titan")
             {
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.ConstructTitan_Slam_Attack);
-                AttackIteration.SetField("number", 1);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.ConstructTitan_Slam_Attack;
+                AttackIteration.number = 1;
 
                 MonsterAttackIteration AttackIteration_2 = new();
-                AttackIteration_2.SetField("monsterAttackDefinition",
-                    NewMonsterAttacks.ConstructTitan_ForceCannon_Attack);
-                AttackIteration_2.SetField("number", 2);
+                AttackIteration_2.monsterAttackDefinition =
+                    NewMonsterAttacks.ConstructTitan_ForceCannon_Attack;
+                AttackIteration_2.number = 2;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(
@@ -561,7 +561,7 @@ internal static class MonstersHomebrew
 
 
                 AssetReference assetReference = new();
-                assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
+                assetReference.SetField("m_assetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                 NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.SetUseCustomMaterials(true);

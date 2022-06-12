@@ -125,32 +125,32 @@ public class MonstersAttributes
 
     public static void EnableInDungeonMaker()
     {
-        BlackDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Black Dragon"]);
-        BlackDragonBiteAttackIteration.SetField("number", 1);
+        BlackDragonBiteAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Black Dragon"];
+        BlackDragonBiteAttackIteration.number = 1;
 
-        BlueDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Blue Dragon"]);
-        BlueDragonBiteAttackIteration.SetField("number", 1);
+        BlueDragonBiteAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Blue Dragon"];
+        BlueDragonBiteAttackIteration.number = 1;
 
-        GreenDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Green Dragon"]);
-        GreenDragonBiteAttackIteration.SetField("number", 1);
+        GreenDragonBiteAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Green Dragon"];
+        GreenDragonBiteAttackIteration.number = 1;
 
-        RedDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Red Dragon"]);
-        RedDragonBiteAttackIteration.SetField("number", 1);
+        RedDragonBiteAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient Red Dragon"];
+        RedDragonBiteAttackIteration.number = 1;
 
-        WhiteDragonBiteAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient White Dragon"]);
-        WhiteDragonBiteAttackIteration.SetField("number", 1);
+        WhiteDragonBiteAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.DictionaryOfAncientDragonBites["Ancient White Dragon"];
+        WhiteDragonBiteAttackIteration.number = 1;
 
-        DragonClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AncientDragon_Claw_Attack);
-        DragonClawAttackIteration.SetField("number", 1);
+        DragonClawAttackIteration.monsterAttackDefinition = NewMonsterAttacks.AncientDragon_Claw_Attack;
+        DragonClawAttackIteration.number = 1;
 
-        DragonClawAttackIteration_2.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.AncientDragon_Claw_Attack);
-        DragonClawAttackIteration_2.SetField("number", 1);
+        DragonClawAttackIteration_2.monsterAttackDefinition =
+            NewMonsterAttacks.AncientDragon_Claw_Attack;
+        DragonClawAttackIteration_2.number = 1;
 
         DragonlegendaryActionDescription.cost = 2;
         DragonlegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
@@ -166,91 +166,91 @@ public class MonstersAttributes
         DragonlegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
             .LegendaryDragonAttack;
 
-        DragonmonsterSkillProficiency_1.SetField("skillName", "Perception");
-        DragonmonsterSkillProficiency_1.SetField("bonus", 16);
-        DragonmonsterSkillProficiency_2.SetField("skillName", "Stealth");
-        DragonmonsterSkillProficiency_2.SetField("bonus", 8);
+        DragonmonsterSkillProficiency_1.skillName = "Perception";
+        DragonmonsterSkillProficiency_1.bonus = 16;
+        DragonmonsterSkillProficiency_2.skillName = "Stealth";
+        DragonmonsterSkillProficiency_2.bonus = 8;
 
-        GreenDragonmonsterSkillProficiency_3.SetField("skillName", "Persuasion");
-        GreenDragonmonsterSkillProficiency_3.SetField("bonus", 11);
-        GreenDragonmonsterSkillProficiency_4.SetField("skillName", "Deception");
-        GreenDragonmonsterSkillProficiency_4.SetField("bonus", 11);
-        GreenDragonmonsterSkillProficiency_5.SetField("skillName", "Insight");
-        GreenDragonmonsterSkillProficiency_5.SetField("bonus", 10);
+        GreenDragonmonsterSkillProficiency_3.skillName = "Persuasion";
+        GreenDragonmonsterSkillProficiency_3.bonus = 11;
+        GreenDragonmonsterSkillProficiency_4.skillName = "Deception";
+        GreenDragonmonsterSkillProficiency_4.bonus = 11;
+        GreenDragonmonsterSkillProficiency_5.skillName = "Insight";
+        GreenDragonmonsterSkillProficiency_5.bonus = 10;
 
-        ArchmagemonsterSkillProficiency_1.SetField("skillName", "Arcana");
-        ArchmagemonsterSkillProficiency_1.SetField("bonus", 13);
+        ArchmagemonsterSkillProficiency_1.skillName = "Arcana";
+        ArchmagemonsterSkillProficiency_1.bonus = 13;
 
-        ArchmagemonsterSkillProficiency_2.SetField("skillName", "History");
-        ArchmagemonsterSkillProficiency_2.SetField("bonus", 13);
+        ArchmagemonsterSkillProficiency_2.skillName = "History";
+        ArchmagemonsterSkillProficiency_2.bonus = 13;
 
-        BalorassetReference.SetField("m_AssetGUID", "5d249b514baa99040874880ba8d35295");
+        BalorassetReference.SetField("m_assetGUID", "5d249b514baa99040874880ba8d35295");
 
-        BalorLongswordAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Balor_Longsword_Attack);
-        BalorLongswordAttackIteration.SetField("number", 1);
+        BalorLongswordAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Balor_Longsword_Attack;
+        BalorLongswordAttackIteration.number = 1;
 
-        BalorWhipAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Balor_Whip_Attack);
-        BalorWhipAttackIteration.SetField("number", 1);
+        BalorWhipAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Balor_Whip_Attack;
+        BalorWhipAttackIteration.number = 1;
 
-        DevamonsterSkillProficiency_1.SetField("skillName", "Insight");
-        DevamonsterSkillProficiency_1.SetField("bonus", 9);
+        DevamonsterSkillProficiency_1.skillName = "Insight";
+        DevamonsterSkillProficiency_1.bonus = 9;
 
-        DevamonsterSkillProficiency_2.SetField("skillName", "Perception");
-        DevamonsterSkillProficiency_2.SetField("bonus", 9);
+        DevamonsterSkillProficiency_2.skillName = "Perception";
+        DevamonsterSkillProficiency_2.bonus = 9;
 
-        DjinniassetReference.SetField("m_AssetGUID", "2a2913c5eec57a24da4af020cf0e0f0f");
+        DjinniassetReference.SetField("m_assetGUID", "2a2913c5eec57a24da4af020cf0e0f0f");
 
-        DjinniAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.LightningScimatar_Attack);
-        DjinniAttackIteration.SetField("number", 3);
+        DjinniAttackIteration.monsterAttackDefinition = NewMonsterAttacks.LightningScimatar_Attack;
+        DjinniAttackIteration.number = 3;
 
-        DjinniAttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.AirBlast_Attack);
-        DjinniAttackIteration_2.SetField("number", 3);
+        DjinniAttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.AirBlast_Attack;
+        DjinniAttackIteration_2.number = 3;
 
-        EfreetiassetReference.SetField("m_AssetGUID", "1a7c8ed60c954dd42bf2beb0fcf894c4");
+        EfreetiassetReference.SetField("m_assetGUID", "1a7c8ed60c954dd42bf2beb0fcf894c4");
 
-        EfreetiAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.FireScimatar_Attack);
-        EfreetiAttackIteration.SetField("number", 2);
+        EfreetiAttackIteration.monsterAttackDefinition = NewMonsterAttacks.FireScimatar_Attack;
+        EfreetiAttackIteration.number = 2;
 
-        EfreetiAttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.HurlFlame_Attack);
-        EfreetiAttackIteration_2.SetField("number", 2);
+        EfreetiAttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.HurlFlame_Attack;
+        EfreetiAttackIteration_2.number = 2;
 
-        ErinyesAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.PoisonLongsword_Attack);
-        ErinyesAttackIteration.SetField("number", 3);
+        ErinyesAttackIteration.monsterAttackDefinition = NewMonsterAttacks.PoisonLongsword_Attack;
+        ErinyesAttackIteration.number = 3;
 
-        ErinyesAttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.PoisonLongbow_Attack);
-        ErinyesAttackIteration_2.SetField("number", 3);
+        ErinyesAttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.PoisonLongbow_Attack;
+        ErinyesAttackIteration_2.number = 3;
 
-        NagaAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.NagaSpit_Attack);
-        NagaAttackIteration.SetField("number", 1);
+        NagaAttackIteration.monsterAttackDefinition = NewMonsterAttacks.NagaSpit_Attack;
+        NagaAttackIteration.number = 1;
 
-        NagaAttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.NagaBite_Attack);
-        NagaAttackIteration_2.SetField("number", 1);
+        NagaAttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.NagaBite_Attack;
+        NagaAttackIteration_2.number = 1;
 
-        HornedDevilForkAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Fork_Attack);
-        HornedDevilForkAttackIteration.SetField("number", 1);
+        HornedDevilForkAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Fork_Attack;
+        HornedDevilForkAttackIteration.number = 1;
 
-        HornedDevilClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.HurlFlame_Attack);
-        HornedDevilClawAttackIteration.SetField("number", 1);
+        HornedDevilClawAttackIteration.monsterAttackDefinition = NewMonsterAttacks.HurlFlame_Attack;
+        HornedDevilClawAttackIteration.number = 1;
 
-        HornedDevilTailAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.HornedDevilTail_Attack);
-        HornedDevilTailAttackIteration.SetField("number", 1);
+        HornedDevilTailAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.HornedDevilTail_Attack;
+        HornedDevilTailAttackIteration.number = 1;
 
-        IceDevilBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Ice_Bite_Attack);
-        IceDevilBiteAttackIteration.SetField("number", 1);
+        IceDevilBiteAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Ice_Bite_Attack;
+        IceDevilBiteAttackIteration.number = 1;
 
-        IceDevilClawAttackIteration.SetField("monsterAttackDefinition",
-            DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw);
-        IceDevilClawAttackIteration.SetField("number", 1);
+        IceDevilClawAttackIteration.monsterAttackDefinition =
+            DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Claw;
+        IceDevilClawAttackIteration.number = 1;
 
-        IceDevilTailAttackIteration.SetField("monsterAttackDefinition",
-            DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail);
-        IceDevilTailAttackIteration.SetField("number", 1);
+        IceDevilTailAttackIteration.monsterAttackDefinition =
+            DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail;
+        IceDevilTailAttackIteration.number = 1;
 
-        LichAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Lich_ParalyzingTouch_Attack);
-        LichAttackIteration.SetField("number", 1);
+        LichAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Lich_ParalyzingTouch_Attack;
+        LichAttackIteration.number = 1;
 
-        LichassetReference.SetField("m_AssetGUID", "5bbe5d35725c2cc4492672476f4fc783");
+        LichassetReference.SetField("m_assetGUID", "5bbe5d35725c2cc4492672476f4fc783");
 
         LichlegendaryActionDescription_0.cost = 1;
         LichlegendaryActionDescription_0.subaction = LegendaryActionDescription.SubactionType.Spell;
@@ -283,62 +283,62 @@ public class MonstersAttributes
         LichlegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
             .LegendaryAoE_DpS;
 
-        LichmonsterSkillProficiency_1.SetField("skillName", "Arcana");
-        LichmonsterSkillProficiency_1.SetField("bonus", 19);
+        LichmonsterSkillProficiency_1.skillName = "Arcana";
+        LichmonsterSkillProficiency_1.bonus = 19;
 
-        LichmonsterSkillProficiency_2.SetField("skillName", "History");
-        LichmonsterSkillProficiency_2.SetField("bonus", 12);
+        LichmonsterSkillProficiency_2.skillName = "History";
+        LichmonsterSkillProficiency_2.bonus = 12;
 
-        LichmonsterSkillProficiency_3.SetField("skillName", "Insight");
-        LichmonsterSkillProficiency_3.SetField("bonus", 9);
+        LichmonsterSkillProficiency_3.skillName = "Insight";
+        LichmonsterSkillProficiency_3.bonus = 9;
 
-        LichmonsterSkillProficiency_4.SetField("skillName", "Perception");
-        LichmonsterSkillProficiency_4.SetField("bonus", 9);
+        LichmonsterSkillProficiency_4.skillName = "Perception";
+        LichmonsterSkillProficiency_4.bonus = 9;
 
-        NalfeshneeBiteAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.Generic_Stronger_Bite_Attack);
-        NalfeshneeBiteAttackIteration.SetField("number", 1);
+        NalfeshneeBiteAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.Generic_Stronger_Bite_Attack;
+        NalfeshneeBiteAttackIteration.number = 1;
 
-        NalfeshneeClawAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.AncientDragon_Claw_Attack);
-        NalfeshneeClawAttackIteration.SetField("number", 1);
+        NalfeshneeClawAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.AncientDragon_Claw_Attack;
+        NalfeshneeClawAttackIteration.number = 1;
 
-        PitFiendBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.PitFiend_Bite_Attack);
-        PitFiendBiteAttackIteration.SetField("number", 1);
+        PitFiendBiteAttackIteration.monsterAttackDefinition = NewMonsterAttacks.PitFiend_Bite_Attack;
+        PitFiendBiteAttackIteration.number = 1;
 
-        PitFiendClawAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.AncientDragon_Claw_Attack);
-        PitFiendClawAttackIteration.SetField("number", 1);
+        PitFiendClawAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.AncientDragon_Claw_Attack;
+        PitFiendClawAttackIteration.number = 1;
 
-        PitFiendTailAttackIteration.SetField("monsterAttackDefinition",
-            DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail);
-        PitFiendTailAttackIteration.SetField("number", 1);
+        PitFiendTailAttackIteration.monsterAttackDefinition =
+            DatabaseHelper.MonsterAttackDefinitions.Attack_Green_Dragon_Tail;
+        PitFiendTailAttackIteration.number = 1;
 
-        PitFiendWeaponAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.PitFiend_Mace_Attack);
-        PitFiendWeaponAttackIteration.SetField("number", 1);
+        PitFiendWeaponAttackIteration.monsterAttackDefinition = NewMonsterAttacks.PitFiend_Mace_Attack;
+        PitFiendWeaponAttackIteration.number = 1;
 
-        PlanetarLongswordAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.RadiantLongsword_Attack);
-        PlanetarLongswordAttackIteration.SetField("number", 2);
+        PlanetarLongswordAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.RadiantLongsword_Attack;
+        PlanetarLongswordAttackIteration.number = 2;
 
-        PlanetarmonsterSkillProficiency_1.SetField("skillName", "Perception");
-        PlanetarmonsterSkillProficiency_1.SetField("bonus", 11);
+        PlanetarmonsterSkillProficiency_1.skillName = "Perception";
+        PlanetarmonsterSkillProficiency_1.bonus = 11;
 
-        RocBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Roc_Beak_Attack);
-        RocBiteAttackIteration.SetField("number", 1);
+        RocBiteAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Roc_Beak_Attack;
+        RocBiteAttackIteration.number = 1;
 
-        RocClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Roc_Talons_Attack);
-        RocClawAttackIteration.SetField("number", 1);
+        RocClawAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Roc_Talons_Attack;
+        RocClawAttackIteration.number = 1;
 
-        RocmonsterSkillProficiency_1.SetField("skillName", "Perception");
-        RocmonsterSkillProficiency_1.SetField("bonus", 4);
+        RocmonsterSkillProficiency_1.skillName = "Perception";
+        RocmonsterSkillProficiency_1.bonus = 4;
 
-        SolarLongswordAttackIteration.SetField("monsterAttackDefinition",
-            NewMonsterAttacks.RadiantLongsword_Attack);
-        SolarLongswordAttackIteration.SetField("number", 2);
+        SolarLongswordAttackIteration.monsterAttackDefinition =
+            NewMonsterAttacks.RadiantLongsword_Attack;
+        SolarLongswordAttackIteration.number = 2;
 
-        SolarLongbowAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.RadiantLongbow_Attack);
-        SolarLongbowAttackIteration.SetField("number", 2);
+        SolarLongbowAttackIteration.monsterAttackDefinition = NewMonsterAttacks.RadiantLongbow_Attack;
+        SolarLongbowAttackIteration.number = 2;
 
         SolarlegendaryActionDescription.cost = 1;
         SolarlegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
@@ -359,19 +359,19 @@ public class MonstersAttributes
         SolarlegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
             .LegendaryLaetharCast_Debuff;
 
-        SolarmonsterSkillProficiency_1.SetField("skillName", "Perception");
-        SolarmonsterSkillProficiency_1.SetField("bonus", 14);
-        StormGiantmonsterSkillProficiency_1.SetField("skillName", "Arcana");
-        StormGiantmonsterSkillProficiency_1.SetField("bonus", 8);
+        SolarmonsterSkillProficiency_1.skillName = "Perception";
+        SolarmonsterSkillProficiency_1.bonus = 14;
+        StormGiantmonsterSkillProficiency_1.skillName = "Arcana";
+        StormGiantmonsterSkillProficiency_1.bonus = 8;
 
-        StormGiantmonsterSkillProficiency_2.SetField("skillName", "Athletics");
-        StormGiantmonsterSkillProficiency_2.SetField("bonus", 14);
+        StormGiantmonsterSkillProficiency_2.skillName = "Athletics";
+        StormGiantmonsterSkillProficiency_2.bonus = 14;
 
-        StormGiantmonsterSkillProficiency_3.SetField("skillName", "History");
-        StormGiantmonsterSkillProficiency_3.SetField("bonus", 8);
+        StormGiantmonsterSkillProficiency_3.skillName = "History";
+        StormGiantmonsterSkillProficiency_3.bonus = 8;
 
-        StormGiantmonsterSkillProficiency_3.SetField("skillName", "Perception");
-        StormGiantmonsterSkillProficiency_3.SetField("bonus", 9);
+        StormGiantmonsterSkillProficiency_3.skillName = "Perception";
+        StormGiantmonsterSkillProficiency_3.bonus = 9;
 
         VampirelegendaryActionDescription.cost = 1;
         VampirelegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
@@ -402,28 +402,28 @@ public class MonstersAttributes
         //VampirelegendaryActionDescription_4.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze);
         //VampirelegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
-        VampiremonsterSkillProficiency_1.SetField("skillName", "Perception");
-        VampiremonsterSkillProficiency_1.SetField("bonus", 7);
+        VampiremonsterSkillProficiency_1.skillName = "Perception";
+        VampiremonsterSkillProficiency_1.bonus = 7;
 
-        VampiremonsterSkillProficiency_2.SetField("skillName", "Stealth");
-        VampiremonsterSkillProficiency_2.SetField("bonus", 9);
+        VampiremonsterSkillProficiency_2.skillName = "Stealth";
+        VampiremonsterSkillProficiency_2.bonus = 9;
 
 
-        EmptyassetReference.SetField("m_AssetGUID", "");
+        EmptyassetReference.SetField("m_assetGUID", "");
         EmptyassetReference.SetField("m_SubObjectName", "");
         EmptyassetReference.SetField("m_SubObjectType", "");
 
-        TarrasqueBiteAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Tarrasque_Bite_Attack);
-        TarrasqueBiteAttackIteration.SetField("number", 1);
+        TarrasqueBiteAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Bite_Attack;
+        TarrasqueBiteAttackIteration.number = 1;
 
-        TarrasqueClawAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Tarrasque_Claw_Attack);
-        TarrasqueClawAttackIteration.SetField("number", 1);
+        TarrasqueClawAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Claw_Attack;
+        TarrasqueClawAttackIteration.number = 1;
 
-        TarrasqueHornAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Tarrasque_Horn_Attack);
-        TarrasqueHornAttackIteration.SetField("number", 1);
+        TarrasqueHornAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Horn_Attack;
+        TarrasqueHornAttackIteration.number = 1;
 
-        TarrasqueTailAttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.Tarrasque_Tail_Attack);
-        TarrasqueTailAttackIteration.SetField("number", 1);
+        TarrasqueTailAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Tarrasque_Tail_Attack;
+        TarrasqueTailAttackIteration.number = 1;
 
         TarrasquelegendaryActionDescription.cost = 2;
         TarrasquelegendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;

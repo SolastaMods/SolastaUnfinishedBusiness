@@ -2,7 +2,6 @@
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaModApi.Infrastructure;
 using TA;
 
 namespace SolastaCommunityExpansion.CustomUI;
@@ -37,7 +36,7 @@ public static class ReachMeleeTargeting
     {
         var reachRange = attackMode.ReachRange;
         var validDestinations =
-            cursor.GetField<List<GameLocationCharacterDefinitions.PathStep>>("validDestinations");
+            cursor.validDestinations;
 
         if (cursor.BattleService.IsWithinXCells(actor, target, reachRange) || validDestinations.Empty())
         {

@@ -1601,28 +1601,28 @@ internal static class MonstersSRD
             NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.Titan_CombatDecisions);
 
             MonsterSavingThrowProficiency Str_save = new();
-            Str_save.SetField("abilityScoreName", "Strength");
-            Str_save.SetField("bonus", Definitions[i].SavingThrowStrength);
+            Str_save.abilityScoreName = "Strength";
+            Str_save.bonus = Definitions[i].SavingThrowStrength;
 
             MonsterSavingThrowProficiency Dex_save = new();
-            Dex_save.SetField("abilityScoreName", "Dexterity");
-            Dex_save.SetField("bonus", Definitions[i].SavingThrowDexterity);
+            Dex_save.abilityScoreName = "Dexterity";
+            Dex_save.bonus = Definitions[i].SavingThrowDexterity;
 
             MonsterSavingThrowProficiency Con_save = new();
-            Con_save.SetField("abilityScoreName", "Constitution");
-            Con_save.SetField("bonus", Definitions[i].SavingThrowConstitution);
+            Con_save.abilityScoreName = "Constitution";
+            Con_save.bonus = Definitions[i].SavingThrowConstitution;
 
             MonsterSavingThrowProficiency Int_save = new();
-            Int_save.SetField("abilityScoreName", "Intelligence");
-            Int_save.SetField("bonus", Definitions[i].SavingThrowIntelligence);
+            Int_save.abilityScoreName = "Intelligence";
+            Int_save.bonus = Definitions[i].SavingThrowIntelligence;
 
             MonsterSavingThrowProficiency Wis_save = new();
-            Wis_save.SetField("abilityScoreName", "Wisdom");
-            Wis_save.SetField("bonus", Definitions[i].SavingThrowWisdom);
+            Wis_save.abilityScoreName = "Wisdom";
+            Wis_save.bonus = Definitions[i].SavingThrowWisdom;
 
             MonsterSavingThrowProficiency Cha_save = new();
-            Cha_save.SetField("abilityScoreName", "Charisma");
-            Cha_save.SetField("bonus", Definitions[i].SavingThrowCharisma);
+            Cha_save.abilityScoreName = "Charisma";
+            Cha_save.bonus = Definitions[i].SavingThrowCharisma;
 
             NewMonster.ClearSavingThrowScores();
             NewMonster.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>
@@ -1698,7 +1698,7 @@ internal static class MonstersSRD
             {
                 // only way to give planetar and solar correct visual sizes as you can't scale up humanoid presentation, need to switch to monster prefab
                 //    AssetReference assetReference = new AssetReference();
-                //    assetReference.SetField("m_AssetGUID", "2351ec8d0f454e04ebcc2826e16f6ed5");
+                //    assetReference.m_AssetGUID =  "2351ec8d0f454e04ebcc2826e16f6ed5";
                 //
                 //    NewMonster.MonsterPresentation.SetMalePrefabReference(assetReference);
                 //    NewMonster.MonsterPresentation.SetFemalePrefabReference(assetReference);
@@ -1722,7 +1722,7 @@ internal static class MonstersSRD
             if (Definitions[i].MonsterName == "Lich")
             {
                 AssetReference assetReference = new();
-                assetReference.SetField("m_AssetGUID", "cab8992a98c1d3749bc0a50d53fcc378");
+                assetReference.SetField("m_assetGUID", "cab8992a98c1d3749bc0a50d53fcc378");
 
 
                 NewMonster.SetPrefabReference(assetReference);
