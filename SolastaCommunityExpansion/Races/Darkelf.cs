@@ -171,10 +171,9 @@ internal static class DarkelfRaceBuilder
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 darkelfDarkMagic,
                 darkelfFaerieFirePower,
+                darkelfDarknessPower,
                 darkelfWeaponTraining,
                 darkelfLightAffinity)
-            //.AddFeatureAtLevel(darkelfFaerieFirePower, 3)
-            .AddFeatureAtLevel(darkelfDarknessPower, 5)
             .AddToDB();
 
         darkelf.subRaces.Clear();
