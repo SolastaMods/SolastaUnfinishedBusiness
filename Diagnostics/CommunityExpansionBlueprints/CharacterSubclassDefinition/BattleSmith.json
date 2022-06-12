@@ -3,11 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModiferArtificerBattleSmithInfusionHealingPool:97e8a72f-7e4e-592b-abd0-8bb58456de9c",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerBattleSmithWeapon:87a49f0c-5774-5a9e-8a8e-251c3f48225d",
       "level": 3
     },
@@ -19,6 +14,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProtectorConstructFeatureSet:9b699719-0d02-4949-ad94-cff6a05f36c7",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModiferArtificerBattleSmithInfusionHealingPool:97e8a72f-7e4e-592b-abd0-8bb58456de9c",
       "level": 3
     },
     {
