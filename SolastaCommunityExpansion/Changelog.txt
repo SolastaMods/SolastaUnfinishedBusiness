@@ -1,6 +1,8 @@
-﻿- Fix to hit bonus on Titan Fighting
-- Optimize code to gain back some FPS
-- Reduce payload size by 40%
+﻿- Fix divine smite with pact magic slots
+- Fix to hit bonus on Titan Fighting
+- Optimize code base to gain back some FPS
+- Reduce DLL payload size by 40%
+- Tweak Mass Heal spell to do up to 120hp @ 6 targets
 
 REQUEST:
 
