@@ -1,4 +1,6 @@
 ﻿- Fix to hit bonus on Titan Fighting
+- Optimize code to gain back some FPS
+- Reduce payload size by 40%
 
 REQUEST:
 

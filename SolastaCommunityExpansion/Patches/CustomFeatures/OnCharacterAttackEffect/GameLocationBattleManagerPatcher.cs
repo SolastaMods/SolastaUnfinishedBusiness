@@ -421,18 +421,7 @@ internal static class GameLocationBattleManager_HandleCharacterAttackDamage
             }
         }
 
-        var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-        var gameLocationBattleManagerType = typeof(GameLocationBattleManager);
-        var digitsToTrim = (char[])gameLocationBattleManagerType
-            .GetField("digitsToTrim", BindingFlags.NonPublic | BindingFlags.Static).GetValue(null);
-        var computeAndNotifyAdditionalDamageMethod =
-            gameLocationBattleManagerType.GetMethod("ComputeAndNotifyAdditionalDamage",
-                BindingFlags.NonPublic | BindingFlags.Instance);
-        var handleReactionToDamageMethod = gameLocationBattleManagerType.GetMethod("HandleReactionToDamage",
-            BindingFlags.NonPublic | BindingFlags.Instance);
-        var waitForReactionsMethod =
-            gameLocationBattleManagerType.GetMethod("WaitForReactions",
-                BindingFlags.NonPublic | BindingFlags.Instance);
+        var digitsToTrim = GameLocationBattleManager.digitsToTrim;
 
         //
         // original game code from here
