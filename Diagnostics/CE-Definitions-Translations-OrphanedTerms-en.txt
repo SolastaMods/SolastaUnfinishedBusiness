@@ -8,6 +8,10 @@ Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself a
 Condition/&HalfLifeConditionTitle	Half Life
 Condition/&RuinedDescription	This creature's defense is reduced.
 Condition/&RuinedTitle	Ruined
+Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage per round. Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
+Condition/&SwallowingToadConditionDescription	Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowingToadConditionTitle	Swallowing Toad
 Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility.
 Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
@@ -95,6 +99,15 @@ Feature/&SignofIllOmenTitle	Sign of Ill Omen
 Feature/&SpellAsInvocationAtWillDescription	Cast {0} at will.
 Feature/&SpellAsInvocationOncePerDayDescription	Cast {0} once until long rest.
 Feature/&ThiefofFiveFates	Cast {0} once per day
+Feature/&ToadKingBasicToxinTitle	Basic Toxin
+Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from a hallucinogenic toxin until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
+Feature/&ToadKingJumpTitle	Jump
+Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
+Feature/&ToadKingPoisonDamageAffinityTitle	Immune to Poison Damage
+Feature/&ToadKingStickyFeetTitle	Webbed Feet
 Feature/&UrPriestDomainTheftDescription	You snatch the secrets that a god grants all of its devout clerics. Choose a Cleric domain: you gain the features that domain grants at 1st level.
 Feature/&UrPriestDomainTheftTitle	Domain Theft
 Feature/&UrPriestExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. Cleric spells are added to the Warlock spell list for you.
@@ -177,6 +190,14 @@ MonsterAttack/&AttackWarlockQuasitStingTitle	Poisonous Sting
 Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
 Power/&DH_ElementalFormPoolEnhancedTitleShort	Elemental Forms
+Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and pushes creatures and objects away.
+Power/&ToadKingCroakTitle	Croak
+Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself.
+Power/&ToadKingGraspingTongueTitle	Grasping Tongue
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
+Power/&ToadKingSwallowDescription	Attempt to swallow a Medium or smaller enemy. On a failed Strength save, the monster is swallowed and receives 3d6 acid damage per round. Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Power/&ToadKingSwallowTitle	Swallow
 Power/&UrPriestControlUndeadDescription	As an action, you target one undead creature you can see within 30 feet of you. The target must make a Wisdom saving throw. On a failed save, the target must obey your commands.
 Power/&UrPriestControlUndeadTitle	Control Undead
 Power/&UrPriestHalfLifeDescription	You take necrotic energy into yourself, hanging between life and death and are temporarily possessed by your own ghost. You gain flying speed, and the same condition immunities and damage resistances as other ghosts.
@@ -350,6 +371,8 @@ Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of ill
 Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
 Subclass/&PurpleWitchMagicTitle	Purple Magic
 Subclass/&PurpleWitchTitle	Purple Witch
+Subclass/&WarlockToadKingDescription	Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
+Subclass/&WarlockToadKingTitle	Toad King Pact
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
 Subclass/&WarlockUrPriestTitle	UrPriest Pact
 ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
