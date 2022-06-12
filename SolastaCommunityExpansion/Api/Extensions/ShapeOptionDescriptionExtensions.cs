@@ -1,28 +1,26 @@
 using System;
 using System.CodeDom.Compiler;
-using SolastaModApi.Infrastructure;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
-/// <summary>
-///     This helper extensions class was automatically generated.
-///     If you find a problem please report at https://github.com/SolastaMods/SolastaModApi/issues.
-/// </summary>
+#if DEBUG
+using SolastaCommunityExpansion.Api.Infrastructure;
 [TargetType(typeof(ShapeOptionDescription))]
+#endif
 [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
 public static class ShapeOptionDescriptionExtensions
 {
     public static T SetRequiredLevel<T>(this T entity, Int32 value)
         where T : ShapeOptionDescription
     {
-        entity.SetField("requiredLevel", value);
+        entity.requiredLevel = value;
         return entity;
     }
 
     public static T SetSubstituteMonster<T>(this T entity, MonsterDefinition value)
         where T : ShapeOptionDescription
     {
-        entity.SetField("substituteMonster", value);
+        entity.substituteMonster = value;
         return entity;
     }
 }

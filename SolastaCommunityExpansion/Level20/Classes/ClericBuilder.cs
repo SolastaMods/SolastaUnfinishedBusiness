@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericDivineInterventionImprovementBuilder;
 using static SolastaCommunityExpansion.Level20.Features.PowerClericTurnUndeadBuilder;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Level20.Classes;
 
@@ -25,7 +24,7 @@ internal static class ClericBuilder
             // Solasta handles divine intervention on the subclasses, added below.
         });
 
-        CastSpellCleric.SetSpellCastingLevel(9);
+        CastSpellCleric.spellCastingLevel = 9;
 
         CastSpellCleric.SlotsPerLevels.SetRange(SpellsHelper.FullCastingSlots);
         CastSpellCleric.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);

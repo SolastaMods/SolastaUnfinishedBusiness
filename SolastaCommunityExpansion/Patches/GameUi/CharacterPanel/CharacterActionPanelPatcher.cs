@@ -10,6 +10,6 @@ internal static class CharacterActionPanel_RefreshActions
 {
     internal static void Postfix(CharacterActionPanel __instance)
     {
-        ExtraAttacksOnActionPanel.AddExtraAttakItems(__instance);
+        ExtraAttacksOnActionPanel.AddExtraAttackItems(__instance);
     }
 }

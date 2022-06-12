@@ -133,16 +133,6 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Destination {
-            get {
-                object obj = ResourceManager.GetObject("Destination", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] EarthTremor {
             get {
                 object obj = ResourceManager.GetObject("EarthTremor", resourceCulture);
@@ -257,34 +247,6 @@ namespace SolastaCommunityExpansion.Properties {
             get {
                 object obj = ResourceManager.GetObject("FlurryOfArrows", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Action/&amp;ActionDisarmDescription	[OBSOLEADO]Haz clic para desarmar esta trampa.
-        ///Action/&amp;ActionManipulateDescription	[OBSOLEADO]Haz clic para interactuar con este objeto.
-        ///Action/&amp;ActionObserveDescription	[OBSOLETE]Haz clic para examinar este objeto.
-        ///Action/&amp;ActionStatusAvailableDescription	Esta acción está disponible para su uso durante el turno de este personaje.
-        ///Action/&amp;ActionStatusCannotPerformDescription	Esta criatura no puede realizar este tipo de acción.
-        ///Action/&amp;ActionStatusEngagedDescription	Acció [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Game_es {
-            get {
-                return ResourceManager.GetString("Game-es", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Action/&amp;ActionDisarmDescription	[OBSOLETE]Fare clic per disattivare questa trappola.
-        ///Action/&amp;ActionManipulateDescription	[OBSOLETE]Fare clic per interagire con questo oggetto.
-        ///Action/&amp;ActionObserveDescription	[OBSOLETE]Fare clic per esaminare questo oggetto.
-        ///Action/&amp;ActionStatusAvailableDescription	Questa azione può essere utilizzata durante il turno di questo personaggio.
-        ///Action/&amp;ActionStatusCannotPerformDescription	Questa creatura non può eseguire questo tipo di azione.
-        ///Action/&amp;ActionStatusEngagedDes [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Game_it {
-            get {
-                return ResourceManager.GetString("Game-it", resourceCulture);
             }
         }
         
@@ -459,106 +421,6 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Alle zum Lager hinzufügen
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Füge die Bedingung &lt;color=#FFA500&gt;Bluten&lt;/color&gt; zu den Bedingungen hinzu, die durch &lt;color=#FFA500&gt;Große und Kleine Wiederherstellung&lt;/color&gt; entfernt werden
-        ///ModUi/&amp;AddHelpActionToAllRaces	Hinzufügen der Aktion &lt;color=#FFA500&gt;Hilfe&lt;/color&gt; für alle Völker
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Füge neue Waffen und Rezepte zu Läden hinzu &lt;i&gt;&lt;color=#FFFF00&gt;[Handumhänge, Hellebarden, Piken, lange Streitkolben, Handarmbrüste [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_de {
-            get {
-                return ResourceManager.GetString("Modui-de", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Add all to store
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=#FFA500&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=#FFA500&gt;Greater and Lesser Restoration&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=#FFA500&gt;Help&lt;/color&gt; action to all races
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops &lt;i&gt;&lt;color=#FFFF00&gt;[hand wraps, halberds, pikes, long maces, hand crossbows]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=#C04040E0&gt;[Requires Restart]&lt;/color&gt;&lt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_en {
-            get {
-                return ResourceManager.GetString("Modui-en", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Añadir todo a la tienda
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Añade la condición &lt;color=#FFA500&gt;Sangrado&lt;/color&gt; a las condiciones eliminadas por &lt;color=#FFA500&gt;Restauración mayor y menor&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Añadir la acción &lt;color=#FFA500&gt;Ayuda&lt;/color&gt; a todas las razas
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Añade nuevas armas y recetas a las tiendas &lt;i&gt;&lt;color=#FFFF00&gt;[envolturas de mano, alabardas, picas, mazas largas, ballestas de mano]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=# [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_es {
-            get {
-                return ResourceManager.GetString("Modui-es", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Ajouter tout au magasin
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Ajouter la condition &lt;color=#FFA500&gt;Saignement&lt;/color&gt; aux conditions supprimées par &lt;color=#FFA500&gt;Grande et petite restauration&lt;/color&gt;.
-        ///ModUi/&amp;AddHelpActionToAllRaces	Ajouter l&apos;action &lt;color=#FFA500&gt;Help&lt;/color&gt; à toutes les races.
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Ajouter de nouvelles armes et recettes aux boutiques &lt;i&gt;&lt;color=#FFFF00&gt;[enveloppes de main, hallebardes, piques, longues masses, arbalètes de main]&lt;/colo [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_fr {
-            get {
-                return ResourceManager.GetString("Modui-fr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Aggiungi tutti al negozio
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Aggiungere la condizione &lt;color=#FFA500&gt;Sanguinamento&lt;/color&gt; alle condizioni rimosse da &lt;color=#FFA500&gt;Restauro maggiore e minore&lt;/color&gt;.
-        ///ModUi/&amp;AddHelpActionToAllRaces	Aggiungere l&apos;azione &lt;color=#FFA500&gt;Aiuto&lt;/color&gt; a tutte le razze
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Aggiungere nuove armi e ricette ai negozi &lt;i&gt;&lt;color=#FFFF00&gt;[fasce a mano, alabarde, picche, mazze lunghe, balestre a mano]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color= [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_it {
-            get {
-                return ResourceManager.GetString("Modui-it", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Acrescentar tudo para armazenar
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Adicionar a &lt;color=#FFA500&gt;Sangria&lt;/cor&gt; condição às condições removidas por &lt;color=#FFA500&gt;Reduração Maior e Menor&lt;/cor&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Adicionar a &lt;color=#FFA500&gt;Ajuda&gt; ação a todas as raças
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Adicionar novas armas e receitas às lojas &lt;i&gt;&lt;color=#FFFFFF00&gt;[hand wraps, halberds, pikes, maças longas, bestas]&lt;/color&gt;&lt;/i&gt;&gt;b&gt;&gt;&gt;i&gt;&lt;color=#C04040E0&gt;[Requires Restart]&lt;/co [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_pt_BR {
-            get {
-                return ResourceManager.GetString("Modui-pt-BR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Добавить все в магазин
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Добавить состояние &lt;color=orange&gt;Кровотечение&lt;/color&gt; к состояниям, снимаемым &lt;color=orange&gt;Большим и Малым восстановлением&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Добавить действие &lt;color=orange&gt;Помощь&lt;/color&gt; всем расам.
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToEditor	&lt;i&gt;+ Также добаить их в Создатель Подземелий&lt;/i&gt;
-        ///ModUi/&amp;AddPickpocketableLoot	Добавить добычу для карманных краж &lt;i&gt;&lt;color=yellow&gt;[рекомендуется, если умение &lt;color= [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_ru {
-            get {
-                return ResourceManager.GetString("Modui-ru", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	全部加入商店
-        ///ModUi/&amp;AddBleedingToLesserRestoration	添加&lt;color=orange&gt;流血&lt;/color&gt;状态至&lt;color=orange&gt;次级/高等复原术&lt;/color&gt;的移除效果范围
-        ///ModUi/&amp;AddHelpActionToAllRaces	添加&lt;color=orange&gt;协助&lt;/color&gt;至全部种族
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	添加新的武器和配方至商店&lt;i&gt;&lt;color=yellow&gt;[裹手，戟，长矛，长钉头锤，手弩]&lt;/color&gt;&lt;/i&gt; &lt;i&gt;&lt;color=#C04040E0&gt;[需要重启游戏]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddPickpocketableLoot	添加可扒窃的战利品 &lt;i&gt;&lt;color=yellow&gt;[建议在&lt;color=orange&gt;扒窃&lt;/color&gt;专长被启用时启用]&lt;/color&gt;&lt;/i&gt;
-        ///ModUi/&amp;AddToStore	加入商店
-        ///ModUi/&amp;Advanced	&lt;color=yellow&gt;进阶选项：&lt;/color&gt; [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Modui_zh_CN {
-            get {
-                return ResourceManager.GetString("Modui-zh-CN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] Monk {
@@ -659,138 +521,6 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Umgekehrte Schwerkraft
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Umgekehrte Schwerkraft
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Eingefroren durch Zeitstopp
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Eingefroren durch Zeitstopp
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Gewitter
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Gewitter
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Beliebiger Feuerball
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Titl [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_de {
-            get {
-                return ResourceManager.GetString("Monsters-de", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Reverse Gravity
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Reverse Gravity
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Frozen by Time Stop
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Frozen by Time Stop
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Lightning Storm
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Lightning Storm
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	At-will Fireball
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Title	Fireball
-        ///Feature/ [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_en {
-            get {
-                return ResourceManager.GetString("Monsters-en", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Gravedad inversa
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Gravedad inversa
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Congelado por el Tiempo Parado
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Congelado por la parada del tiempo
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Tormenta de rayos
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Tormenta de rayos
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Bola de fuego a voluntad
-        ///Feature/&amp;DH_AtWill [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_es {
-            get {
-                return ResourceManager.GetString("Monsters-es", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Gravité inversée
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Gravité inversée
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Gelé par l&apos;arrêt du temps
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Gelé par l&apos;arrêt du temps
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Orage
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Orage
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Boule de feu à volonté
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Title	Boule de feu
-        ///Feat [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_fr {
-            get {
-                return ResourceManager.GetString("Monsters-fr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Gravità inversa
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Gravità inversa
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Congelato da Time Stop
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Congelato dall&apos;arresto del tempo
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Tempesta di fulmini
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Tempesta di fulmini
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Palla di fuoco a volontà
-        ///Feature/&amp;DH_AtWill_Firebal [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_it {
-            get {
-                return ResourceManager.GetString("Monsters-it", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Gravidade reversa
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Gravidade reversa
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Congelado por Parada de Tempo
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Congelado por Parada de Tempo
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Tempestade Relâmpago
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Tempestade Relâmpago
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Bola de fogo à vontade
-        ///Feature/&amp;DH_AtWill [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_pt_BR {
-            get {
-                return ResourceManager.GetString("Monsters-pt-BR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	Обратная гравитация
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	Обратная гравитация
-        ///Condition/&amp;DH_TimeStop_Spell_Description	Застыло на остановке времени
-        ///Condition/&amp;DH_TimeStop_Spell_Title	Застыло на остановке времени
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	Грозовой шторм
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	Грозовой шторм
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
-        ///Feature/&amp;DH_AtWill_Fire [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_ru {
-            get {
-                return ResourceManager.GetString("Monsters-ru", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condition/&amp;DH_ReverseGravity_Spell_Description	反重力
-        ///Condition/&amp;DH_ReverseGravity_Spell_Title	反重力
-        ///Condition/&amp;DH_TimeStop_Spell_Description	因时间停止而冻结
-        ///Condition/&amp;DH_TimeStop_Spell_Title	因时间停止而冻结
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Description	闪电风暴
-        ///Feature/&amp;DH_AirTitan_LightningStorm_Custom_Power_Title	闪电风暴
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Description	任意施放火球术
-        ///Feature/&amp;DH_AtWill_Fireball_Power_Title	火球术
-        ///Feature/&amp;DH_AtWill_HoldMonster_Power_Description	每天3次
-        ///Feature/&amp;DH_AtWill_HoldMonster_Powe [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Monsters_zh_CN {
-            get {
-                return ResourceManager.GetString("Monsters-zh-CN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to DwarfFemale	Abagtha
         ///DwarfFemale	Bera
         ///DwarfFemale	Birsha
@@ -818,9 +548,9 @@ namespace SolastaCommunityExpansion.Properties {
         ///DwarfFemale	Myrnera
         ///DwarfFemale	Na [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Names_en {
+        public static string Names {
             get {
-                return ResourceManager.GetString("Names-en", resourceCulture);
+                return ResourceManager.GetString("Names", resourceCulture);
             }
         }
         
@@ -925,125 +655,12 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Kann keine Zaubersprüche wirken.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC wird auf 16 gesetzt.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Rindenhaut
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma-Wert ist gleich 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Schwaches Charisma
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwert ist gleich 1.
-        ///AttributeModifier/&amp;DHFeeblemindIntSpe [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static string Translations_de {
+        public static byte[] Translations {
             get {
-                return ResourceManager.GetString("Translations-de", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Unable to cast spells.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma score equals 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Feeble Charisma
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligence score equals 1.
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	Feeble Intelligenc [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_en {
-            get {
-                return ResourceManager.GetString("Translations-en", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	No puede lanzar hechizos.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	La CA es de 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Piel de corteza
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	La puntuación de carisma es igual a 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma débil
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	La puntuación de Inteligencia es igual a 1.
-        ///AttributeModifier/&amp;DHFeeble [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_es {
-            get {
-                return ResourceManager.GetString("Translations-es", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	La CA est fixée à 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Peau d&apos;écorce
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de Charisme est égal à 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Charisme faible
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le score d&apos;intelligence est égal à 1.
-        ///AttributeModifier/&amp;DHFeeb [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_fr {
-            get {
-                return ResourceManager.GetString("Translations-fr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossibile lanciare incantesimi.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	La CA è impostata a 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Pelle di corteccia
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Il punteggio di Carisma è uguale a 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma debole
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Il punteggio di Intelligenza è pari a 1.
-        ///AttributeMo [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_it {
-            get {
-                return ResourceManager.GetString("Translations-it", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Incapaz de lançar feitiços.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está ajustado para 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação do carisma é igual a 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação da inteligência é igual a 1.
-        ///AttributeModifier/&amp;DHFeeblem [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_pt_BR {
-            get {
-                return ResourceManager.GetString("Translations-pt-BR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Невозможно читать заклинания.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC настроен на 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Показатель харизмы равен 1.
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Слабая харизма
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Показатель интеллекта равен 1.
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	С [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_ru {
-            get {
-                return ResourceManager.GetString("Translations-ru", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	无法施法
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC设为16
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	树肤术
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	魅力值为1
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	魅力衰减
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	智力值为1
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellTitle	智力衰减
-        ///BlueprintCategory/&amp;FlatRoomsTitle	平房
-        ///Caption/&amp;GadgetParametersCustomRemoveDescription	移除:\n{0}
-        ///C [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Translations_zh_CN {
-            get {
-                return ResourceManager.GetString("Translations-zh-CN", resourceCulture);
+                object obj = ResourceManager.GetObject("Translations", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

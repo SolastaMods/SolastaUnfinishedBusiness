@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Patches.Bugfix;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionCastSpell;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Classes.Witch.Witch;
 using static SolastaCommunityExpansion.Models.SpellsContext;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells;
 
@@ -323,13 +323,15 @@ public static class SrdSpells
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
             .SetSpellCastingLevel(9)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
-            .AddToDB()
-            // TODO: Move these onto builder
-            .SetFocusType(EquipmentDefinitions.FocusType.None)
-            .SetSpellListDefinition(couatlSpellList)
-            .SetStaticToHitValue(8)
-            .SetStaticDCValue(14)
-            .SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
+            .AddToDB();
+        // TODO: Move these onto builder
+
+        castSpellCouatl.focusType = EquipmentDefinitions.FocusType.None;
+        castSpellCouatl.spellListDefinition = couatlSpellList;
+        castSpellCouatl.staticDCValue = 14;
+        castSpellCouatl.staticToHitValue = 8;
+        castSpellCouatl.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
+
 
         int[] castSpellCouatlKnownSpells =
         {
@@ -714,50 +716,50 @@ public static class SrdSpells
             .SetGuiPresentation(Category.MonsterAttack)
             .AddToDB();
 
-        CouatlBite_Attack.SetToHitBonus(7);
+        CouatlBite_Attack.toHitBonus = 7;
         CouatlBite_Attack.EffectDescription.SetRangeParameter(1);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
+        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
+        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 5;
         CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         var conditionForm = new ConditionForm();
-        conditionForm.SetConditionDefinition(ConditionPoisoned);
-        conditionForm.SetConditionDefinitionName(ConditionPoisoned.name);
-        conditionForm.SetOperation(ConditionForm.ConditionOperation.Add);
+        conditionForm.conditionDefinition = ConditionPoisoned;
+        conditionForm.conditionDefinitionName = ConditionPoisoned.name;
+        conditionForm.operation = ConditionForm.ConditionOperation.Add;
 
         var extraPoisonEffect = new EffectForm();
-        extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraPoisonEffect.SetLevelMultiplier(1);
-        extraPoisonEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraPoisonEffect.SetCreatedByCharacter(true);
+        extraPoisonEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraPoisonEffect.levelMultiplier = 1;
+        extraPoisonEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraPoisonEffect.createdByCharacter = true;
         extraPoisonEffect.FormType = EffectForm.EffectFormType.Condition;
-        extraPoisonEffect.SetConditionForm(conditionForm);
-        extraPoisonEffect.SetHasSavingThrow(true);
-        extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        extraPoisonEffect.conditionForm = conditionForm;
+        extraPoisonEffect.hasSavingThrow = true;
+        extraPoisonEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         var sleepForm = new ConditionForm();
-        sleepForm.SetConditionDefinition(ConditionMagicallyAsleep);
-        sleepForm.SetConditionDefinitionName(ConditionAsleep.name);
-        sleepForm.SetOperation(ConditionForm.ConditionOperation.Add);
+        sleepForm.conditionDefinition = ConditionMagicallyAsleep;
+        sleepForm.conditionDefinitionName = ConditionAsleep.name;
+        sleepForm.operation = ConditionForm.ConditionOperation.Add;
 
         var extraSleepEffect = new EffectForm();
-        extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraSleepEffect.SetLevelMultiplier(1);
-        extraSleepEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraSleepEffect.SetCreatedByCharacter(true);
+        extraSleepEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraSleepEffect.levelMultiplier = 1;
+        extraSleepEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraSleepEffect.createdByCharacter = true;
         extraSleepEffect.FormType = EffectForm.EffectFormType.Condition;
-        extraSleepEffect.SetConditionForm(sleepForm);
-        extraSleepEffect.SetHasSavingThrow(true);
-        extraSleepEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        extraSleepEffect.conditionForm = sleepForm;
+        extraSleepEffect.hasSavingThrow = true;
+        extraSleepEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         CouatlBite_Attack.EffectDescription.EffectForms.Add(extraSleepEffect);
         CouatlBite_Attack.EffectDescription.EffectForms.Add(extraPoisonEffect);
         CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Constitution.Name);
         CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(SmartAttributeDefinitions.Constitution
             .Name);
-        CouatlBite_Attack.EffectDescription.SetHasSavingThrow(true);
+        CouatlBite_Attack.EffectDescription.hasSavingThrow = true;
         CouatlBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
         CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
         CouatlBite_Attack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
@@ -904,9 +906,9 @@ public static class SrdSpells
 
                 EffectForm effectForm = new EffectForm();
                 effectForm.SetAddBonusMode(RuleDefinitions.AddBonusMode.None);
-                effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
+                effectForm.applyLevel =(EffectForm.LevelApplianceType.No);
                 effectForm.SetCanSaveToCancel(false);
-                effectForm.SetCreatedByCharacter(true);
+                effectForm.createdByCharacter =(true);
                 effectForm.SetFormType(EffectForm.EffectFormType.ShapeChange);
                 effectForm.SetShapeChangeForm(shapeChangeForm);
 
@@ -956,8 +958,8 @@ public static class SrdSpells
         effectDescription.Copy(DominatePerson.EffectDescription);
         effectDescription.RestrictedCreatureFamilies.Clear();
         effectDescription.SetDuration(RuleDefinitions.DurationType.Hour, 1);
-        effectDescription.EffectAdvancement.SetAlteredDuration(
-            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster);
+        effectDescription.EffectAdvancement.alteredDuration =
+            (RuleDefinitions.AdvancementDuration)AdvancementDurationEx.DominateMonster;
 
         return SpellDefinitionBuilder
             .Create("DHDominateMonsterSpell", DhBaseGuid)
@@ -1147,7 +1149,7 @@ public static class SrdSpells
             .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
             .Build());
 
-        neweffectDescription.SetHasSavingThrow(true);
+        neweffectDescription.hasSavingThrow = true;
         neweffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Dexterity.name);
 
         return SpellDefinitionBuilder
@@ -1253,22 +1255,25 @@ public static class SrdSpells
 
     private static SpellDefinition BuildPowerWordStun()
     {
-        var conditionForm = new ConditionForm()
-            .SetApplyToSelf(false)
-            .SetForceOnSelf(false)
-            .SetOperation(ConditionForm.ConditionOperation.Add)
-            .SetConditionDefinitionName(ConditionStunned.Name)
-            .SetConditionDefinition(ConditionStunned);
+        var conditionForm = new ConditionForm
+        {
+            applyToSelf = false,
+            forceOnSelf = false,
+            operation = ConditionForm.ConditionOperation.Add,
+            conditionDefinitionName = ConditionStunned.Name,
+            conditionDefinition = ConditionStunned
+        };
 
-        var effectForm = new EffectForm()
-            .SetApplyLevel(EffectForm.LevelApplianceType.No)
-            .SetLevelMultiplier(1)
-            .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
-            .SetCreatedByCharacter(true)
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetConditionForm(conditionForm)
-            .SetCanSaveToCancel(true)
-            .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        var effectForm = new EffectForm();
+
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
+        effectForm.formType = EffectForm.EffectFormType.Condition;
+        effectForm.conditionForm = conditionForm;
+        effectForm.canSaveToCancel = true;
+        effectForm.saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1360,13 +1365,13 @@ public static class SrdSpells
         effect.EffectParticleParameters.impactParticleReference =
             new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91");
 
-        var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
-            .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
-            .SetFamily(CharacterFamilyDefinitions.Ooze.name);
+        var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription();
+        SaveAffinityByFamilyDescription.advantageType = RuleDefinitions.AdvantageType.Disadvantage;
+        SaveAffinityByFamilyDescription.family = CharacterFamilyDefinitions.Ooze.name;
 
-        var SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription()
-            .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
-            .SetFamily(CharacterFamilyDefinitions.Undead.name);
+        var SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription();
+        SaveAffinityByFamilyDescriptionUndead.advantageType = RuleDefinitions.AdvantageType.Disadvantage;
+        SaveAffinityByFamilyDescriptionUndead.family = CharacterFamilyDefinitions.Undead.name;
 
         effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription,
             SaveAffinityByFamilyDescriptionUndead);
@@ -1430,11 +1435,11 @@ public static class SrdSpells
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Individuals,
-                14)
+                6)
             .AddEffectForm(new EffectFormBuilder()
                 .SetHealingForm(
                     RuleDefinitions.HealingComputation.Dice,
-                    50,
+                    120,
                     RuleDefinitions.DieType.D1,
                     0,
                     false,
@@ -1579,13 +1584,15 @@ public static class SrdSpells
         killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
         killForm.hitPoints = 100;
 
-        var effectForm = new EffectForm()
-            .SetApplyLevel(EffectForm.LevelApplianceType.No)
-            .SetLevelMultiplier(1)
-            .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
-            .SetCreatedByCharacter(true)
-            .SetFormType(EffectForm.EffectFormType.Kill)
-            .SetKillForm(killForm);
+        var effectForm = new EffectForm();
+
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
+        effectForm.formType = EffectForm.EffectFormType.Kill;
+        effectForm.killForm = killForm;
+        ;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1634,13 +1641,15 @@ public static class SrdSpells
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
         );
 
-        var effectForm = new EffectForm()
-            .SetAddBonusMode(RuleDefinitions.AddBonusMode.None)
-            .SetApplyLevel(EffectForm.LevelApplianceType.No)
-            .SetCanSaveToCancel(false)
-            .SetCreatedByCharacter(true)
-            .SetFormType(EffectForm.EffectFormType.ShapeChange)
-            .SetShapeChangeForm(shapeChangeForm);
+        var effectForm = new EffectForm();
+
+
+        effectForm.addBonusMode = RuleDefinitions.AddBonusMode.None;
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.canSaveToCancel = false;
+        effectForm.createdByCharacter = true;
+        effectForm.formType = EffectForm.EffectFormType.ShapeChange;
+        effectForm.shapeChangeForm = shapeChangeForm;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(

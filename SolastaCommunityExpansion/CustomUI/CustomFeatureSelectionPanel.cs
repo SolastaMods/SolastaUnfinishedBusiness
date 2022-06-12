@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -66,16 +64,16 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
         spellsPanel = spells;
         stageDefinition = spells.StageDefinition;
 
-        spellsByLevelTable = spells.GetField<RectTransform>("spellsByLevelTable");
-        spellsByLevelPrefab = spells.GetField<GameObject>("spellsByLevelPrefab");
-        spellsScrollRect = spells.GetField<ScrollRect>("spellsScrollRect");
-        learnStepsTable = spells.GetField<RectTransform>("learnStepsTable");
-        learnStepPrefab = spells.GetField<GameObject>("learnStepPrefab");
-        backdropReference = spells.GetField<AssetReferenceSprite>("backdropReference");
-        backdrop = spells.GetField<Image>("backdrop");
-        curve = spells.GetField<AnimationCurve>("curve");
-        levelButtonsTable = spells.GetField<RectTransform>("levelButtonsTable");
-        levelButtonPrefab = spells.GetField<GameObject>("levelButtonPrefab");
+        spellsByLevelTable = spells.spellsByLevelTable;
+        spellsByLevelPrefab = spells.spellsByLevelPrefab;
+        spellsScrollRect = spells.spellsScrollRect;
+        learnStepsTable = spells.learnStepsTable;
+        learnStepPrefab = spells.learnStepPrefab;
+        backdropReference = spells.backdropReference;
+        backdrop = spells.backdrop;
+        curve = spells.curve;
+        levelButtonsTable = spells.levelButtonsTable;
+        levelButtonPrefab = spells.levelButtonPrefab;
         stageTitleLabel = spellsPanel.RectTransform.FindChildRecursive("ChoiceTitle").GetComponent<GuiLabel>();
         righrFeaturesLabel =
             spellsPanel.RectTransform.FindChildRecursive("SpellsInfoTitle").GetComponent<GuiLabel>();
@@ -83,7 +81,7 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
             .GetComponent<GuiLabel>();
 
         CharacterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
-        currentHero = spellsPanel.GetField<RulesetCharacterHero>("currentHero");
+        currentHero = spellsPanel.currentHero;
     }
 
     public override void SetScrollSensitivity(float scrollSensitivity)
@@ -914,8 +912,8 @@ internal static class LearnStepItemExtension
         instance.ignoreAvailable = pool.IsReplacer;
         instance.autoLearnAvailable = false;
         var header = pool.FeatureSet.FormatTitle();
-        instance.GetField<GuiLabel>("headerLabelActive").Text = header;
-        instance.GetField<GuiLabel>("headerLabelInactive").Text = header;
+        instance.headerLabelActive.Text = header;
+        instance.headerLabelInactive.Text = header;
         instance.OnBackOneStepActivated = onBackOneStepActivated;
         instance.OnResetActivated = onResetActivated;
         instance.OnAutoSelectActivated = onAutoSelectActivated;
@@ -928,29 +926,28 @@ internal static class LearnStepItemExtension
     {
         var usedPoints = pool.Used;
         var maxPoints = pool.Max;
-        var ignoreAvailable = instance.GetField<bool>("ignoreAvailable");
-        var choiceLabel = instance.GetField<GuiLabel>("choicesLabel");
-        var activeGroup = instance.GetField<RectTransform>("activeGroup");
-        var inactiveGroup = instance.GetField<RectTransform>("inactiveGroup");
-        var autoButton = instance.GetField<Button>("autoButton");
-        var ignoreButton = instance.GetField<Button>("ignoreButton");
-        var resetButton = instance.GetField<Button>("resetButton");
+        var ignoreAvailable = instance.ignoreAvailable;
+        var choiceLabel = instance.choicesLabel;
+        var activeGroup = instance.activeGroup;
+        var inactiveGroup = instance.inactiveGroup;
+        var autoButton = instance.autoButton;
+        var ignoreButton = instance.ignoreButton;
+        var resetButton = instance.resetButton;
 
         activeGroup.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
         inactiveGroup.gameObject.SetActive(status != LearnStepItem.Status.InProgress);
-        instance.GetField<Image>("activeBackground").gameObject.SetActive(status != LearnStepItem.Status.Locked);
-        instance.GetField<Image>("inactiveBackground").gameObject.SetActive(status == LearnStepItem.Status.Locked);
-        instance.GetField<Button>("backOneStepButton").gameObject
-            .SetActive(status == LearnStepItem.Status.Previous);
+        instance.activeBackground.gameObject.SetActive(status != LearnStepItem.Status.Locked);
+        instance.inactiveBackground.gameObject.SetActive(status == LearnStepItem.Status.Locked);
+        instance.backOneStepButton.gameObject.SetActive(status == LearnStepItem.Status.Previous);
         resetButton.gameObject.SetActive(status == LearnStepItem.Status.InProgress);
         autoButton.gameObject.SetActive(false);
         ignoreButton.gameObject.SetActive(ignoreAvailable);
-        instance.GetField<Button>("ignoreButton").gameObject.SetActive(ignoreAvailable);
+        instance.ignoreButton.gameObject.SetActive(ignoreAvailable);
 
         if (status == LearnStepItem.Status.InProgress)
         {
-            instance.GetField<GuiLabel>("pointsLabelActive").Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
-            instance.GetField<Image>("remainingPointsGaugeActive").fillAmount = (float)usedPoints / maxPoints;
+            instance.pointsLabelActive.Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
+            instance.remainingPointsGaugeActive.fillAmount = (float)usedPoints / maxPoints;
             choiceLabel.Text = pool.FeatureSet.FormatDescription();
             LayoutRebuilder.ForceRebuildLayoutImmediate(choiceLabel.RectTransform);
             var sizeDelta = new Vector2(activeGroup.sizeDelta.x,
@@ -963,11 +960,10 @@ internal static class LearnStepItemExtension
         }
         else
         {
-            instance.GetField<GuiLabel>("pointsLabelInactive").Text =
-                Gui.FormatCurrentOverMax(usedPoints, maxPoints);
-            instance.GetField<Image>("remainingPointsGaugeInactive").fillAmount = (float)usedPoints / maxPoints;
+            instance.pointsLabelInactive.Text = Gui.FormatCurrentOverMax(usedPoints, maxPoints);
+            instance.remainingPointsGaugeInactive.fillAmount = (float)usedPoints / maxPoints;
             instance.RectTransform.sizeDelta = inactiveGroup.sizeDelta;
-            instance.GetField<Button>("backOneStepButton").interactable = true;
+            instance.backOneStepButton.interactable = true;
         }
     }
 }
@@ -981,7 +977,7 @@ internal static class SpellLevelButtonExtension
     {
         instance.Level = level;
         instance.LevelSelected = levelSelected;
-        instance.GetField<GuiLabel>("label").Text = $"{level}";
+        instance.label.Text = $"{level}";
     }
 }
 
@@ -989,7 +985,7 @@ internal static class SpellsByLevelGroupExtensions
 {
     public static RectTransform GetSpellsTable(this SpellsByLevelGroup instance)
     {
-        return instance.GetField<RectTransform>("spellsTable");
+        return instance.spellsTable;
     }
 
     public static void CustomFeatureBind(
@@ -1013,7 +1009,7 @@ internal static class SpellsByLevelGroupExtensions
         allFeatures.Sort((a, b) => string.CompareOrdinal(a.FormatTitle(), b.FormatTitle()));
 
         var spellsTable = instance.GetSpellsTable();
-        var spellPrefab = instance.GetField<GameObject>("spellPrefab");
+        var spellPrefab = instance.spellPrefab;
 
         while (spellsTable.childCount < allFeatures.Count)
         {
@@ -1048,8 +1044,7 @@ internal static class SpellsByLevelGroupExtensions
         spellsTable.sizeDelta = new Vector2(x, spellsTable.sizeDelta.y);
         instance.RectTransform.sizeDelta = new Vector2(x, instance.RectTransform.sizeDelta.y);
 
-        instance.GetField<SlotStatusTable>("slotStatusTable")
-            .Bind(null, featureLevel, null, false);
+        instance.slotStatusTable.Bind(null, featureLevel, null, false);
 
         if (unlearn)
         {
@@ -1152,7 +1147,7 @@ internal static class SpellsByLevelGroupExtensions
         }
 
         Gui.ReleaseChildrenToPool(spellsTable);
-        instance.GetField<SlotStatusTable>("slotStatusTable").Unbind();
+        instance.slotStatusTable.Unbind();
     }
 }
 
@@ -1180,10 +1175,10 @@ internal static class SpellBoxExtensions
         instance.ritualSpell = false;
         instance.autoPrepared = false;
         instance.unlearnedSpell = unlearned;
-        instance.GetField<Image>("spellImage").color = Color.white;
+        instance.spellImage.color = Color.white;
         instance.transform.localScale = new Vector3(1f, 1f, 1f);
 
-        var component = instance.GetField<RectTransform>("availableToLearnGroup").GetComponent<GuiModifier>();
+        var component = instance.availableToLearnGroup.GetComponent<GuiModifier>();
 
         component.ForwardStartDelay = Random.Range(0.0f, component.Duration);
 
@@ -1200,21 +1195,21 @@ internal static class SpellBoxExtensions
     public static void CustomRefreshLearningInProgress(this SpellBox instance, bool canLearn, bool selected,
         bool known)
     {
-        var auroPrepard = instance.GetField<bool>("autoPrepared");
+        var autoPrepared = instance.autoPrepared;
 
-        instance.interactive = canLearn && !auroPrepard;
-        instance.canLearn = canLearn && !auroPrepard;
+        instance.interactive = canLearn && !autoPrepared;
+        instance.canLearn = canLearn && !autoPrepared;
         instance.selectedToLearn = selected;
         instance.selectedToLearn = selected;
-        instance.known = known; //TODO: try to experimant with auto prepared tags to signify known features
+        instance.known = known; //TODO: try to experiment with auto prepared tags to signify known features
         instance.Refresh();
     }
 
     public static void SetupUI(this SpellBox instance, GuiPresentation setPresentation, List<string> errors)
     {
-        var title = instance.GetField<GuiLabel>("titleLabel");
-        var image = instance.GetField<Image>("spellImage");
-        var tooltip = instance.GetField<GuiTooltip>("tooltip");
+        var title = instance.titleLabel;
+        var image = instance.spellImage;
+        var tooltip = instance.tooltip;
         var feature = instance.GetFeature();
         var gui = new GuiPresentationBuilder(feature.GuiPresentation).Build();
         var hasErrors = errors != null && !errors.Empty();
@@ -1245,7 +1240,7 @@ internal static class SpellBoxExtensions
 
         if (gui.SpriteReference == null || gui.SpriteReference == GuiPresentationBuilder.EmptySprite)
         {
-            gui.SetSpriteReference(setPresentation.SpriteReference);
+            gui.spriteReference = setPresentation.SpriteReference;
         }
 
         title.Text = gui.Title;

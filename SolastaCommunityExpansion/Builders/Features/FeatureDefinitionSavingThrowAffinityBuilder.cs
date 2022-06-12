@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static FeatureDefinitionSavingThrowAffinity;
-using static SolastaModApi.DatabaseHelper.SchoolOfMagicDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 

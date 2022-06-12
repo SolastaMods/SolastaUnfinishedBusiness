@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
 using UnityEngine;
 
@@ -60,7 +60,7 @@ internal static class CharacterReactionItem_Bind
         }
         else if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
         {
-            instance.BindPowerBunble(bundlePoweRequest, slotLevel, interactable, subitemSelected);
+            instance.BindPowerBundle(bundlePoweRequest, slotLevel, interactable, subitemSelected);
         }
         else
         {

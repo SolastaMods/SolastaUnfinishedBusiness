@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static GuiDropdown;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using Object = UnityEngine.Object;
 
 namespace SolastaCommunityExpansion.Models;

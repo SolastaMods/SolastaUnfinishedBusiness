@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 
@@ -78,7 +78,7 @@ internal static class ItemDefinitionVerification
 
             if (Mode.HasFlag(Verification.Throw))
             {
-                throw new SolastaModApiException(msg);
+                throw new SolastaCommunityExpansionException(msg);
             }
         }
     }

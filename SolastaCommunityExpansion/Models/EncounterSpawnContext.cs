@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TA;
-using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
-using static SolastaModApi.DatabaseHelper.FactionDefinitions;
-using static SolastaModApi.DatabaseHelper.FormationDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.DecisionPackageDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FactionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FormationDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 

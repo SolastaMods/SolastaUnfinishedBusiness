@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi;
 using static EquipmentDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.WarlockFeatures;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.ToolTypeDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ToolTypeDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock;
 
@@ -121,7 +121,6 @@ public static class Warlock
     {
         // DEPRECATED
         _ = DHWarlockSubclassRiftWalkerPatron.Build();
-        _ = DHWarlockSubclassToadKingPatron.Build();
 
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
             .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)

@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomSpells;
 
@@ -46,9 +45,9 @@ internal static class CharacterActionCastSpell_ApplyMagicEffect
         formsParams.FillFromActiveEffect(activeSpell);
         formsParams.FillSpecialParameters(
             rolledSaveThrow,
-            __instance.GetProperty<int>("AddDice"),
-            __instance.GetProperty<int>("AddHP"),
-            __instance.GetProperty<int>("AddTempHP"),
+            __instance.AddDice,
+            __instance.AddHP,
+            __instance.AddTempHP,
             effectLevel,
             actionModifier,
             saveOutcome,
@@ -56,7 +55,7 @@ internal static class CharacterActionCastSpell_ApplyMagicEffect
             outcome == RuleDefinitions.RollOutcome.CriticalSuccess,
             targetIndex,
             targetCount,
-            __instance.GetProperty<RulesetItem>("TargetItem")
+            __instance.TargetItem
         );
         formsParams.effectSourceType = RuleDefinitions.EffectSourceType.Spell;
         formsParams.targetSubstitute = __instance.ActionParams.TargetSubstitute;

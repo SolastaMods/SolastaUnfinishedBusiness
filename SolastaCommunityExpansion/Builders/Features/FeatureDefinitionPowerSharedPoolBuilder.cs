@@ -1,6 +1,6 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 

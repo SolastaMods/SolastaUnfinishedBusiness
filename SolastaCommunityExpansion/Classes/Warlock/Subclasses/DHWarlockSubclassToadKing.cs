@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -43,25 +44,24 @@ public static class DHWarlockSubclassToadKingPatron
             .Create(ConditionAffinityPoisonImmunity, "ToadKingConditionAffinityPoisonImmunity",
                 DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
-        ToadKingConditionAffinityPoisonImmunity.GuiPresentation.SetTitle(
-            "Feature/&ToadKingPoisonConditionAffinityTitle");
+        ToadKingConditionAffinityPoisonImmunity.GuiPresentation.title = "Feature/&ToadKingPoisonConditionAffinityTitle";
 
         var ToadKingMovementAffinityJump = FeatureDefinitionMovementAffinityBuilder
             .Create(MovementAffinityJump, "ToadKingMovementAffinityJump", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
-        ToadKingMovementAffinityJump.GuiPresentation.SetTitle("Feature/&ToadKingJumpTitle");
+        ToadKingMovementAffinityJump.GuiPresentation.title = "Feature/&ToadKingJumpTitle";
 
         var ToadKingMovementAffinitySpiderClimb = FeatureDefinitionMovementAffinityBuilder
             .Create(MovementAffinitySpiderClimb, "ToadKingMovementAffinitySpiderClimb",
                 DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
-        ToadKingMovementAffinitySpiderClimb.GuiPresentation.SetTitle("Feature/&ToadKingStickyFeetTitle");
+        ToadKingMovementAffinitySpiderClimb.GuiPresentation.title = "Feature/&ToadKingStickyFeetTitle";
 
         var ToadKingDamageAffinityPoisonImmunity = FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityPoisonImmunity, "ToadKingDamageAffinityPoisonImmunity",
                 DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
-        ToadKingDamageAffinityPoisonImmunity.GuiPresentation.SetTitle("Feature/&ToadKingPoisonDamageAffinityTitle");
+        ToadKingDamageAffinityPoisonImmunity.GuiPresentation.title = "Feature/&ToadKingPoisonDamageAffinityTitle";
 
 
         var Croak = FeatureDefinitionPowerBuilder
@@ -107,7 +107,7 @@ public static class DHWarlockSubclassToadKingPatron
                 ,
                 true)
             .AddToDB();
-        Croak.GuiPresentation.SetSpriteReference(PowerWindShelteringBreeze.GuiPresentation.SpriteReference);
+        Croak.GuiPresentation.spriteReference = PowerWindShelteringBreeze.GuiPresentation.SpriteReference;
 
         var hallucinogenicToxinPower = FeatureDefinitionPowerBuilder
             .Create("ToadKingHallucinogenicToxinPower", DefinitionBuilder.CENamespaceGuid)
@@ -209,8 +209,8 @@ public static class DHWarlockSubclassToadKingPatron
                 true)
             .AddToDB();
 
-        GraspingTongue.GuiPresentation.SetSpriteReference(PowerShadowTamerRopeGrapple.GuiPresentation
-            .SpriteReference);
+        GraspingTongue.GuiPresentation.spriteReference = PowerShadowTamerRopeGrapple.GuiPresentation
+            .SpriteReference;
 
         var SwallowingToadCondition = ConditionDefinitionBuilder
             .Create(ConditionSwallowingRemorhaz, "SwallowingToadCondition", DefinitionBuilder.CENamespaceGuid)
@@ -241,7 +241,7 @@ public static class DHWarlockSubclassToadKingPatron
         var ApplyPoison = FeatureDefinitionPowerBuilder
             .Create(PowerFunctionApplyPoison_Basic, "ToadKingBasicToxin", DefinitionBuilder.CENamespaceGuid)
             .AddToDB();
-        ApplyPoison.GuiPresentation.SetTitle("Feature/&ToadKingBasicToxinTitle");
+        ApplyPoison.GuiPresentation.title = "Feature/&ToadKingBasicToxinTitle";
 
         var Swallow = FeatureDefinitionPowerBuilder
             .Create("ToadKingSwallow", DefinitionBuilder.CENamespaceGuid)
@@ -304,8 +304,8 @@ public static class DHWarlockSubclassToadKingPatron
         Swallow.EffectDescription.AddRestrictedCharacterSizes(CreatureSize.Tiny);
         Swallow.EffectDescription.AddRestrictedCharacterSizes(CreatureSize.Small);
         Swallow.EffectDescription.AddRestrictedCharacterSizes(CreatureSize.Medium);
-        Swallow.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite
-            .GuiPresentation.SpriteReference);
+        Swallow.GuiPresentation.spriteReference = DatabaseHelper.MonsterAttackDefinitions.Attack_TigerDrake_Bite
+            .GuiPresentation.SpriteReference;
 
         return CharacterSubclassDefinitionBuilder
             .Create("ToadKing", DefinitionBuilder.CENamespaceGuid)
@@ -325,3 +325,4 @@ public static class DHWarlockSubclassToadKingPatron
             .AddToDB();
     }
 }
+#endif

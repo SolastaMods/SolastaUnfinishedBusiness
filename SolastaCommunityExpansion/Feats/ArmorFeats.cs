@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.ArmorCategoryDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ArmorCategoryDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaCommunityExpansion.Feats;
 

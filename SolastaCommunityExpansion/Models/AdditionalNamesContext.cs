@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Properties;
-using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -11,7 +11,7 @@ internal static class AdditionalNamesContext
     {
         if (Main.Settings.OfferAdditionalLoreFriendlyNames)
         {
-            var payload = Resources.Names_en;
+            var payload = Resources.Names;
             var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 
             foreach (var line in lines)

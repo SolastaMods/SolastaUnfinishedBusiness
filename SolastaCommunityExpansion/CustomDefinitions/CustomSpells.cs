@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 

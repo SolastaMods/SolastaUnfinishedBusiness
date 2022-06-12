@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -47,7 +46,7 @@ public static class PowerBundleContext
             subSpells.Add(RegisterPower(subPower));
         }
 
-        masterSpell.AddSubspellsList(subSpells);
+        masterSpell.SubspellsList.AddRange(subSpells);
     }
 
 

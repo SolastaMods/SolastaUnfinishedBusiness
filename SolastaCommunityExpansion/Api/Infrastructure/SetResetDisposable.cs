@@ -1,7 +1,8 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using JetBrains.Annotations;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public class SetResetDisposable : Disposable
 {
@@ -26,3 +27,4 @@ public class SetResetDisposable : Disposable
         }
     }
 }
+#endif

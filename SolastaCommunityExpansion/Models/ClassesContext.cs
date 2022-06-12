@@ -4,7 +4,6 @@ using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
-using SolastaModApi.Extensions;
 
 //using SolastaCommunityExpansion.Classes.Warden;
 
@@ -64,8 +63,8 @@ internal static class ClassesContext
 
     private static void UpdateClassVisibility(CharacterClassDefinition characterClassDefinition)
     {
-        characterClassDefinition.GuiPresentation.SetHidden(
-            !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name));
+        characterClassDefinition.GuiPresentation.hidden =
+            !Main.Settings.ClassEnabled.Contains(characterClassDefinition.Name);
     }
 
     internal static void Switch(CharacterClassDefinition characterClassDefinition, bool active)

@@ -12,7 +12,7 @@ Feature written by ElAntonius for the Ranger
 //using System.Text;
 
 //using SolastaModApi;
-//using SolastaModApi.Extensions;
+//using SolastaCommunityExpansion.Api.Extensions;
 //using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
 //using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 

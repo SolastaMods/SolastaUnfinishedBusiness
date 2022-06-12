@@ -1,10 +1,9 @@
 ﻿using System;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
@@ -195,6 +194,10 @@ internal class LifeTransmuter : AbstractSubclass
             .CreatedByCharacter()
             .Build();
 
+        var effectParticleParameters = new EffectParticleParameters();
+
+        effectParticleParameters.Copy(MagicWeapon.EffectDescription.EffectParticleParameters);
+
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(RuleDefinitions.Side.Ally, rangeType, rangeParameter, targetType, 1, 0,
@@ -203,7 +206,7 @@ internal class LifeTransmuter : AbstractSubclass
             .SetDurationData(durationType, durationParameter, endOfEffect)
             .AddEffectForm(effectForm)
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-            .SetParticleEffectParameters(MagicWeapon.EffectDescription.EffectParticleParameters.Copy())
+            .SetParticleEffectParameters(effectParticleParameters)
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder

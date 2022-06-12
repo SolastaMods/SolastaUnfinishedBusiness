@@ -20,9 +20,7 @@ using static SolastaCommunityExpansion.Displays.TranslationsDisplay;
 using static SolastaCommunityExpansion.Displays.DiagnosticsDisplay;
 #endif
 
-#pragma warning disable IDE0130 // Namespace does not match folder structure
 namespace SolastaCommunityExpansion.Displays
-#pragma warning restore IDE0130 // Namespace does not match folder structure
 {
     public class ModUi : IMenuSelectablePage
     {

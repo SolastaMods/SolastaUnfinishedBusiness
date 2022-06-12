@@ -1,9 +1,8 @@
-﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaCommunityExpansion.Models;
 

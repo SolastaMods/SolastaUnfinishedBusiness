@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using SolastaMonsters.Models;
 using TA.AI;
 using UnityEngine;
@@ -234,40 +233,40 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
-        weightedDecisionDescription_0.SetWeight(5f);
+        weightedDecisionDescription_0.decision = DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash;
+        weightedDecisionDescription_0.weight = 5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
-        weightedDecisionDescription_2.SetWeight(4.5f);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget;
+        weightedDecisionDescription_2.weight = 4.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
-        weightedDecisionDescription_1.SetWeight(4f);
+        weightedDecisionDescription_1.decision = DatabaseHelper.DecisionDefinitions.MeleeAttack_Default;
+        weightedDecisionDescription_1.weight = 4f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_4 = new();
-        weightedDecisionDescription_4.SetDecision(TarrasqueSwallow_Decision);
-        weightedDecisionDescription_4.SetWeight(4.5f);
+        weightedDecisionDescription_4.decision = TarrasqueSwallow_Decision;
+        weightedDecisionDescription_4.weight = 4.5f;
         //
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions
-            .CastMagic_FrightfulPresence_Dragon);
-        weightedDecisionDescription_3.SetWeight(3f);
+        weightedDecisionDescription_3.decision = DatabaseHelper.DecisionDefinitions
+            .CastMagic_FrightfulPresence_Dragon;
+        weightedDecisionDescription_3.weight = 3f;
 
 
         //
         WeightedDecisionDescription weightedDecisionDescription_5 = new();
-        weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Aggressive_Remorhaz);
-        weightedDecisionDescription_5.SetWeight(2.0f);
+        weightedDecisionDescription_5.decision = DatabaseHelper.DecisionDefinitions.Move_Aggressive_Remorhaz;
+        weightedDecisionDescription_5.weight = 2.0f;
 
 
         //
         WeightedDecisionDescription weightedDecisionDescription_7 = new();
-        weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
-        weightedDecisionDescription_7.SetWeight(0.1f);
+        weightedDecisionDescription_7.decision = DatabaseHelper.DecisionDefinitions.Emote_Angry;
+        weightedDecisionDescription_7.weight = 0.1f;
 
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
@@ -297,13 +296,13 @@ public class NewMonsterAttributes
             "MonsterPower/&DH_" + Power_text + "_Description"
         );
 
-        Balor_Retaliate_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
-        Balor_Retaliate_Power.EffectDescription.SetTargetParameter(6);
+        Balor_Retaliate_Power.EffectDescription.targetType = RuleDefinitions.TargetType.Sphere;
+        Balor_Retaliate_Power.EffectDescription.targetParameter = 6;
 
-        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
 
 
         var text = "Balor_Retaliate_DamageAffinity";
@@ -500,18 +499,17 @@ public class NewMonsterAttributes
         );
 
 
-        CastSpell_Lich.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
-        CastSpell_Lich.SetSpellcastingAbility("Intelligence");
-        CastSpell_Lich.SetSpellcastingParametersComputation(
-            RuleDefinitions.SpellcastingParametersComputation.Static);
-        CastSpell_Lich.SetStaticDCValue(20);
-        CastSpell_Lich.SetStaticToHitValue(12);
-        CastSpell_Lich.SetSpellListDefinition(Lich_spelllist);
+        CastSpell_Lich.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
+        CastSpell_Lich.spellcastingAbility = "Intelligence";
+        CastSpell_Lich.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
+        CastSpell_Lich.staticDCValue = 20;
+        CastSpell_Lich.staticToHitValue = 12;
+        CastSpell_Lich.spellListDefinition = Lich_spelllist;
         CastSpell_Lich.RestrictedSchools.Clear();
-        CastSpell_Lich.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList);
-        CastSpell_Lich.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-        CastSpell_Lich.SetSpellCastingLevel(18);
-        CastSpell_Lich.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
+        CastSpell_Lich.spellKnowledge = RuleDefinitions.SpellKnowledge.FixedList;
+        CastSpell_Lich.slotsRecharge = RuleDefinitions.RechargeRate.LongRest;
+        CastSpell_Lich.spellCastingLevel = 18;
+        CastSpell_Lich.spellReadyness = RuleDefinitions.SpellReadyness.AllKnown;
 
         int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
         CastSpell_Lich.KnownCantrips.AddRange(cantrip_arr);
@@ -1030,18 +1028,18 @@ public class NewMonsterAttributes
         );
 
 
-        CastSpell_ArchMage.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
-        CastSpell_ArchMage.SetSpellcastingAbility("Intelligence");
-        CastSpell_ArchMage.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation
-            .Static);
-        CastSpell_ArchMage.SetStaticDCValue(17);
-        CastSpell_ArchMage.SetStaticToHitValue(9);
-        CastSpell_ArchMage.SetSpellListDefinition(Archmage_spelllist);
+        CastSpell_ArchMage.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
+        CastSpell_ArchMage.spellcastingAbility = "Intelligence";
+        CastSpell_ArchMage.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation
+            .Static;
+        CastSpell_ArchMage.staticDCValue = 17;
+        CastSpell_ArchMage.staticToHitValue = 9;
+        CastSpell_ArchMage.spellListDefinition = Archmage_spelllist;
         CastSpell_ArchMage.RestrictedSchools.Clear();
-        CastSpell_ArchMage.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList);
-        CastSpell_ArchMage.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-        CastSpell_ArchMage.SetSpellCastingLevel(18);
-        CastSpell_ArchMage.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
+        CastSpell_ArchMage.spellKnowledge = RuleDefinitions.SpellKnowledge.FixedList;
+        CastSpell_ArchMage.slotsRecharge = RuleDefinitions.RechargeRate.LongRest;
+        CastSpell_ArchMage.spellCastingLevel = 18;
+        CastSpell_ArchMage.spellReadyness = RuleDefinitions.SpellReadyness.AllKnown;
 
         int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
         CastSpell_ArchMage.KnownCantrips.AddRange(cantrip_arr);
@@ -1529,18 +1527,18 @@ public class NewMonsterAttributes
         );
 
 
-        CastSpell_GuardianNaga.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
-        CastSpell_GuardianNaga.SetSpellcastingAbility("Wisdom");
-        CastSpell_GuardianNaga.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation
-            .Static);
-        CastSpell_GuardianNaga.SetStaticDCValue(16);
-        CastSpell_GuardianNaga.SetStaticToHitValue(8);
-        CastSpell_GuardianNaga.SetSpellListDefinition(GuardianNaga_spelllist);
+        CastSpell_GuardianNaga.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
+        CastSpell_GuardianNaga.spellcastingAbility = "Wisdom";
+        CastSpell_GuardianNaga.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation
+            .Static;
+        CastSpell_GuardianNaga.staticDCValue = 16;
+        CastSpell_GuardianNaga.staticToHitValue = 8;
+        CastSpell_GuardianNaga.spellListDefinition = GuardianNaga_spelllist;
         CastSpell_GuardianNaga.RestrictedSchools.Clear();
-        CastSpell_GuardianNaga.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList);
-        CastSpell_GuardianNaga.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-        CastSpell_GuardianNaga.SetSpellCastingLevel(11);
-        //    CastSpell_GuardianNaga.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
+        CastSpell_GuardianNaga.spellKnowledge = RuleDefinitions.SpellKnowledge.FixedList;
+        CastSpell_GuardianNaga.slotsRecharge = RuleDefinitions.RechargeRate.LongRest;
+        CastSpell_GuardianNaga.spellCastingLevel = 11;
+        //    CastSpell_GuardianNaga.spellReadyness =(RuleDefinitions.SpellReadyness.AllKnown);
         //    CastSpell_GuardianNaga.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
 
         int[] cantrip_arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
@@ -1924,13 +1922,13 @@ public class NewMonsterAttributes
         );
 
 
-        FireTitan_Retaliate_Power.EffectDescription.SetTargetParameter(10);
+        FireTitan_Retaliate_Power.EffectDescription.targetParameter = 10;
 
-        FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
+        FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
         FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D6);
+            .dieType = RuleDefinitions.DieType.D6;
         FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
 
 
         var text = "FireTitan_Retaliate_DamageAffinity";
@@ -1963,12 +1961,12 @@ public class NewMonsterAttributes
 
 
         WeightedDecisionDescription weightedDecisionDescription = new();
-        weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
-        weightedDecisionDescription.SetWeight(3);
+        weightedDecisionDescription.decision = DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying;
+        weightedDecisionDescription.weight = 3;
 
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Burrow_Aggressive_Small);
-        weightedDecisionDescription_2.SetWeight(3);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions.Move_Burrow_Aggressive_Small;
+        weightedDecisionDescription_2.weight = 3;
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
         // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
@@ -2090,29 +2088,29 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription = new();
-        weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
-        weightedDecisionDescription.SetWeight(4.5f);
+        weightedDecisionDescription.decision = DatabaseHelper.DecisionDefinitions.RangedAttack_Default;
+        weightedDecisionDescription.weight = 4.5f;
 
 
         //
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
-        weightedDecisionDescription_0.SetWeight(1.5f);
+        weightedDecisionDescription_0.decision = DatabaseHelper.DecisionDefinitions.MeleeAttack_Default;
+        weightedDecisionDescription_0.weight = 1.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(AtWillSelfBuff_Magic_Decision);
-        weightedDecisionDescription_1.SetWeight(2.5f);
+        weightedDecisionDescription_1.decision = AtWillSelfBuff_Magic_Decision;
+        weightedDecisionDescription_1.weight = 2.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
-        weightedDecisionDescription_2.SetWeight(2.5f);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom;
+        weightedDecisionDescription_2.weight = 2.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE);
-        weightedDecisionDescription_3.SetWeight(2.5f);
+        weightedDecisionDescription_3.decision = DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_AoE;
+        weightedDecisionDescription_3.weight = 2.5f;
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
         // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
@@ -2145,28 +2143,28 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(CastMagic_Stoneskin_Decision);
-        weightedDecisionDescription_0.SetWeight(4);
+        weightedDecisionDescription_0.decision = CastMagic_Stoneskin_Decision;
+        weightedDecisionDescription_0.weight = 4;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self);
-        weightedDecisionDescription_1.SetWeight(4);
+        weightedDecisionDescription_1.decision = DatabaseHelper.DecisionDefinitions.CastMagic_Fly_Self;
+        weightedDecisionDescription_1.weight = 4;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom);
-        weightedDecisionDescription_2.SetWeight(4);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff_WithRandom;
+        weightedDecisionDescription_2.weight = 4;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_5 = new();
-        weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
-        weightedDecisionDescription_5.SetWeight(3.0f);
+        weightedDecisionDescription_5.decision = DatabaseHelper.DecisionDefinitions.Move_Ranged;
+        weightedDecisionDescription_5.weight = 3.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_8 = new();
-        weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
-        weightedDecisionDescription_8.SetWeight(1.5f);
+        weightedDecisionDescription_8.decision = DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying;
+        weightedDecisionDescription_8.weight = 1.5f;
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
         // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
@@ -2196,48 +2194,48 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions
-            .LongRangePathToEnemy_DashAvoidLight);
-        weightedDecisionDescription_0.SetWeight(5f);
+        weightedDecisionDescription_0.decision = DatabaseHelper.DecisionDefinitions
+            .LongRangePathToEnemy_DashAvoidLight;
+        weightedDecisionDescription_0.weight = 5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
-        weightedDecisionDescription_1.SetWeight(4f);
+        weightedDecisionDescription_1.decision = DatabaseHelper.DecisionDefinitions.MeleeAttack_Default;
+        weightedDecisionDescription_1.weight = 4f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Darkness);
-        weightedDecisionDescription_2.SetWeight(4f);
-        weightedDecisionDescription_2.SetCooldown(3);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Darkness;
+        weightedDecisionDescription_2.weight = 4f;
+        weightedDecisionDescription_2.cooldown = 3;
 
 
         //
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
-        weightedDecisionDescription_3.SetWeight(4f);
+        weightedDecisionDescription_3.decision = SummonCreature_Magic_Decision;
+        weightedDecisionDescription_3.weight = 4f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_4 = new();
-        weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport);
-        weightedDecisionDescription_4.SetWeight(3.0f);
+        weightedDecisionDescription_4.decision = DatabaseHelper.DecisionDefinitions.CastMagic_Defiler_Teleport;
+        weightedDecisionDescription_4.weight = 3.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_5 = new();
-        weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions
-            .Move_AggressiveLightSensitive_Defiler);
-        weightedDecisionDescription_5.SetWeight(2.0f);
+        weightedDecisionDescription_5.decision = DatabaseHelper.DecisionDefinitions
+            .Move_AggressiveLightSensitive_Defiler;
+        weightedDecisionDescription_5.weight = 2.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_6 = new();
-        weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
-        weightedDecisionDescription_6.SetWeight(1.0f);
+        weightedDecisionDescription_6.decision = DatabaseHelper.DecisionDefinitions.RangedAttack_Default;
+        weightedDecisionDescription_6.weight = 1.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_7 = new();
-        weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions
-            .CastMagic_Defiler_Teleport_Fallback);
-        weightedDecisionDescription_7.SetWeight(0.1f);
+        weightedDecisionDescription_7.decision = DatabaseHelper.DecisionDefinitions
+            .CastMagic_Defiler_Teleport_Fallback;
+        weightedDecisionDescription_7.weight = 0.1f;
 
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
@@ -2276,47 +2274,47 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
-        weightedDecisionDescription_0.SetWeight(5f);
+        weightedDecisionDescription_0.decision = DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash;
+        weightedDecisionDescription_0.weight = 5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(LimitedPerDayAOE_Magic_Decision);
-        weightedDecisionDescription_1.SetWeight(4f);
+        weightedDecisionDescription_1.decision = LimitedPerDayAOE_Magic_Decision;
+        weightedDecisionDescription_1.weight = 4f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(AtWillAOE_Magic_Decision);
-        weightedDecisionDescription_2.SetWeight(3.5f);
+        weightedDecisionDescription_2.decision = AtWillAOE_Magic_Decision;
+        weightedDecisionDescription_2.weight = 3.5f;
 
 
         //
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(SummonCreature_Magic_Decision);
-        weightedDecisionDescription_3.SetWeight(3.5f);
-        weightedDecisionDescription_3.SetDynamicCooldown(true);
-        weightedDecisionDescription_3.SetCooldown(3);
+        weightedDecisionDescription_3.decision = SummonCreature_Magic_Decision;
+        weightedDecisionDescription_3.weight = 3.5f;
+        weightedDecisionDescription_3.dynamicCooldown = true;
+        weightedDecisionDescription_3.cooldown = 3;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_4 = new();
-        weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
-        weightedDecisionDescription_4.SetWeight(3.0f);
+        weightedDecisionDescription_4.decision = DatabaseHelper.DecisionDefinitions.MeleeAttack_Default;
+        weightedDecisionDescription_4.weight = 3.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_5 = new();
-        weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions
-            .Move_AggressiveSingleTargetAndSpread);
-        weightedDecisionDescription_5.SetWeight(2.0f);
+        weightedDecisionDescription_5.decision = DatabaseHelper.DecisionDefinitions
+            .Move_AggressiveSingleTargetAndSpread;
+        weightedDecisionDescription_5.weight = 2.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_6 = new();
-        weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
-        weightedDecisionDescription_6.SetWeight(1.0f);
+        weightedDecisionDescription_6.decision = DatabaseHelper.DecisionDefinitions.RangedAttack_Default;
+        weightedDecisionDescription_6.weight = 1.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_7 = new();
-        weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
-        weightedDecisionDescription_7.SetWeight(1.0f);
+        weightedDecisionDescription_7.decision = DatabaseHelper.DecisionDefinitions.Emote_Angry;
+        weightedDecisionDescription_7.weight = 1.0f;
 
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
@@ -2355,49 +2353,49 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash);
-        weightedDecisionDescription_0.SetWeight(5f);
+        weightedDecisionDescription_0.decision = DatabaseHelper.DecisionDefinitions.LongRangePathToEnemy_Dash;
+        weightedDecisionDescription_0.weight = 5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions
-            .CastMagic_DPS_AoE_DragonBreath);
-        weightedDecisionDescription_1.SetWeight(4f);
+        weightedDecisionDescription_1.decision = DatabaseHelper.DecisionDefinitions
+            .CastMagic_DPS_AoE_DragonBreath;
+        weightedDecisionDescription_1.weight = 4f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions
-            .CastMagic_FrightfulPresence_Dragon);
-        weightedDecisionDescription_2.SetWeight(3.5f);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions
+            .CastMagic_FrightfulPresence_Dragon;
+        weightedDecisionDescription_2.weight = 3.5f;
 
 
         //
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
-        weightedDecisionDescription_3.SetWeight(3.5f);
-        weightedDecisionDescription_3.SetDynamicCooldown(true);
-        weightedDecisionDescription_3.SetCooldown(3);
+        weightedDecisionDescription_3.decision = AtWillAOE_Magic_Decision;
+        weightedDecisionDescription_3.weight = 3.5f;
+        weightedDecisionDescription_3.dynamicCooldown = true;
+        weightedDecisionDescription_3.cooldown = 3;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_4 = new();
-        weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
-        weightedDecisionDescription_4.SetWeight(3.0f);
+        weightedDecisionDescription_4.decision = DatabaseHelper.DecisionDefinitions.MeleeAttack_Default;
+        weightedDecisionDescription_4.weight = 3.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_5 = new();
-        weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions
-            .Move_AggressiveSingleTargetAndSpread);
-        weightedDecisionDescription_5.SetWeight(2.0f);
+        weightedDecisionDescription_5.decision = DatabaseHelper.DecisionDefinitions
+            .Move_AggressiveSingleTargetAndSpread;
+        weightedDecisionDescription_5.weight = 2.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_6 = new();
-        weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
-        weightedDecisionDescription_6.SetWeight(3.0f);
+        weightedDecisionDescription_6.decision = DatabaseHelper.DecisionDefinitions.RangedAttack_Default;
+        weightedDecisionDescription_6.weight = 3.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_7 = new();
-        weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.Emote_Angry);
-        weightedDecisionDescription_7.SetWeight(1.0f);
+        weightedDecisionDescription_7.decision = DatabaseHelper.DecisionDefinitions.Emote_Angry;
+        weightedDecisionDescription_7.weight = 1.0f;
 
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
@@ -2430,43 +2428,43 @@ public class NewMonsterAttributes
 
         //
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(DatabaseHelper.DecisionDefinitions.MeleeAttack_Default);
-        weightedDecisionDescription_1.SetWeight(4.5f);
+        weightedDecisionDescription_1.decision = DatabaseHelper.DecisionDefinitions.MeleeAttack_Default;
+        weightedDecisionDescription_1.weight = 4.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(DatabaseHelper.DecisionDefinitions.RangedAttack_Default);
-        weightedDecisionDescription_2.SetWeight(4.5f);
+        weightedDecisionDescription_2.decision = DatabaseHelper.DecisionDefinitions.RangedAttack_Default;
+        weightedDecisionDescription_2.weight = 4.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_4 = new();
-        weightedDecisionDescription_4.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfHeal);
-        weightedDecisionDescription_4.SetWeight(4.5f);
+        weightedDecisionDescription_4.decision = DatabaseHelper.DecisionDefinitions.CastMagic_SelfHeal;
+        weightedDecisionDescription_4.weight = 4.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff);
-        weightedDecisionDescription_3.SetWeight(3.5f);
+        weightedDecisionDescription_3.decision = DatabaseHelper.DecisionDefinitions.CastMagic_SelfBuff;
+        weightedDecisionDescription_3.weight = 3.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_5 = new();
-        weightedDecisionDescription_5.SetDecision(DatabaseHelper.DecisionDefinitions.Move_Ranged);
-        weightedDecisionDescription_5.SetWeight(3.0f);
+        weightedDecisionDescription_5.decision = DatabaseHelper.DecisionDefinitions.Move_Ranged;
+        weightedDecisionDescription_5.weight = 3.0f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_6 = new();
-        weightedDecisionDescription_6.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget);
-        weightedDecisionDescription_6.SetWeight(2.5f);
+        weightedDecisionDescription_6.decision = DatabaseHelper.DecisionDefinitions.CastMagic_DPS_SingleTarget;
+        weightedDecisionDescription_6.weight = 2.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_7 = new();
-        weightedDecisionDescription_7.SetDecision(DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget);
-        weightedDecisionDescription_7.SetWeight(2.5f);
+        weightedDecisionDescription_7.decision = DatabaseHelper.DecisionDefinitions.CastMagic_Debuff_SingleTarget;
+        weightedDecisionDescription_7.weight = 2.5f;
 
         //
         WeightedDecisionDescription weightedDecisionDescription_8 = new();
-        weightedDecisionDescription_8.SetDecision(DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying);
-        weightedDecisionDescription_8.SetWeight(1.5f);
+        weightedDecisionDescription_8.decision = DatabaseHelper.DecisionDefinitions.Move_SoftRetreat_Flying;
+        weightedDecisionDescription_8.weight = 1.5f;
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
         // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
@@ -2498,30 +2496,30 @@ public class NewMonsterAttributes
 
         // summon creature 1/day
         WeightedDecisionDescription weightedDecisionDescription = new();
-        weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
-        weightedDecisionDescription.SetWeight(4.5f);
+        weightedDecisionDescription.decision = SummonCreature_Magic_Decision;
+        weightedDecisionDescription.weight = 4.5f;
 
 
         // frightful presence roll 5 or 6
         WeightedDecisionDescription weightedDecisionDescription_0 = new();
-        weightedDecisionDescription_0.SetDecision(DatabaseHelper.DecisionDefinitions
-            .CastMagic_FrightfulPresence_Dragon);
-        weightedDecisionDescription_0.SetWeight(4.5f);
+        weightedDecisionDescription_0.decision = DatabaseHelper.DecisionDefinitions
+            .CastMagic_FrightfulPresence_Dragon;
+        weightedDecisionDescription_0.weight = 4.5f;
 
         // wall of fire 3/day
         WeightedDecisionDescription weightedDecisionDescription_1 = new();
-        weightedDecisionDescription_1.SetDecision(LimitedPerDayTargetDebuff_Magic_Decision);
-        weightedDecisionDescription_1.SetWeight(3.0f);
+        weightedDecisionDescription_1.decision = LimitedPerDayTargetDebuff_Magic_Decision;
+        weightedDecisionDescription_1.weight = 3.0f;
 
         // hold person 3/day
         WeightedDecisionDescription weightedDecisionDescription_2 = new();
-        weightedDecisionDescription_2.SetDecision(LimitedPerDayAOE_Magic_Decision);
-        weightedDecisionDescription_2.SetWeight(3.0f);
+        weightedDecisionDescription_2.decision = LimitedPerDayAOE_Magic_Decision;
+        weightedDecisionDescription_2.weight = 3.0f;
 
         // at will fireballs
         WeightedDecisionDescription weightedDecisionDescription_3 = new();
-        weightedDecisionDescription_3.SetDecision(AtWillAOE_Magic_Decision);
-        weightedDecisionDescription_3.SetWeight(3.0f);
+        weightedDecisionDescription_3.decision = AtWillAOE_Magic_Decision;
+        weightedDecisionDescription_3.weight = 3.0f;
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
         // all other DecisionPackageDefinition so it might be necessary. can't hurt to order it
@@ -2556,8 +2554,8 @@ public class NewMonsterAttributes
 
         // summon creature 1/day
         WeightedDecisionDescription weightedDecisionDescription = new();
-        weightedDecisionDescription.SetDecision(SummonCreature_Magic_Decision);
-        weightedDecisionDescription.SetWeight(4.5f);
+        weightedDecisionDescription.decision = SummonCreature_Magic_Decision;
+        weightedDecisionDescription.weight = 4.5f;
 
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in
@@ -2589,9 +2587,9 @@ public class NewMonsterAttributes
 
         // frightful presence roll 5 or 6
         WeightedDecisionDescription weightedDecisionDescription = new();
-        weightedDecisionDescription.SetDecision(DatabaseHelper.DecisionDefinitions
-            .CastMagic_FrightfulPresence_Dragon);
-        weightedDecisionDescription.SetWeight(4.5f);
+        weightedDecisionDescription.decision = DatabaseHelper.DecisionDefinitions
+            .CastMagic_FrightfulPresence_Dragon;
+        weightedDecisionDescription.weight = 4.5f;
 
 
         // don't know if keeping descending weight order is important or not but it matches the preexisting format in

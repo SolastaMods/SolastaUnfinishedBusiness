@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionCharacterPresentations;
-using static SolastaModApi.DatabaseHelper.ItemDefinitions;
-using static SolastaModApi.DatabaseHelper.MerchantDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ItemDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MerchantDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -54,16 +53,16 @@ internal static class ItemOptionsContext
         {
             var stockClothing = new StockUnitDescription();
 
-            stockClothing.SetItemDefinition(item);
-            stockClothing.SetInitialAmount(2);
-            stockClothing.SetInitialized(true);
-            stockClothing.SetFactionStatus("Indifference");
-            stockClothing.SetMaxAmount(4);
-            stockClothing.SetMinAmount(2);
-            stockClothing.SetStackCount(1);
-            stockClothing.SetReassortAmount(1);
-            stockClothing.SetReassortRateValue(1);
-            stockClothing.SetReassortRateType(RuleDefinitions.DurationType.Day);
+            stockClothing.itemDefinition = item;
+            stockClothing.initialAmount = 2;
+            stockClothing.initialized = true;
+            stockClothing.factionStatus = "Indifference";
+            stockClothing.maxAmount = 4;
+            stockClothing.minAmount = 2;
+            stockClothing.stackCount = 1;
+            stockClothing.reassortAmount = 1;
+            stockClothing.reassortRateValue = 1;
+            stockClothing.reassortRateType = RuleDefinitions.DurationType.Day;
 
             Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore.StockUnitDescriptions.Add(stockClothing);
         }
@@ -73,9 +72,9 @@ internal static class ItemOptionsContext
     {
         CharacterPresentationBeltOfDwarvenKind.occurencePercentage =
             Main.Settings.SetBeltOfDwarvenKindBeardChances;
-        CharacterPresentationBeltOfDwarvenKind.GuiPresentation.SetDescription(
-            Gui.Format("Feature/&AlwaysBeardDescription",
-                Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString()));
+        CharacterPresentationBeltOfDwarvenKind.GuiPresentation.description = Gui.Format(
+            "Feature/&AlwaysBeardDescription",
+            Main.Settings.SetBeltOfDwarvenKindBeardChances.ToString());
     }
 
     internal static void SwitchCrownOfTheMagister()
@@ -119,40 +118,40 @@ internal static class ItemOptionsContext
         switch (Main.Settings.EmpressGarbAppearance)
         {
             case "Normal":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 break;
 
             case "Barbarian Clothes":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(BarbarianClothes.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
                 break;
 
             case "Druid Leather":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(LeatherDruid.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
                 break;
 
             case "Elven Chain":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(ElvenChain.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
                 break;
 
             case "Plain Shirt":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
                 break;
 
             case "Studded Leather":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(StuddedLeather.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
                 break;
 
             case "Sylvan Armor":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(GreenmageArmor.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
                 break;
 
             case "Wizard Clothes":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(WizardClothes_Alternate.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
                 break;
 
             case "Sorcerer's Armor":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(SorcererArmor.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
                 break;
         }
     }
@@ -179,24 +178,23 @@ internal static class ItemOptionsContext
             }
         }
 
-        WandIdentifyBuilder.WandIdentify.GuiPresentation.SetHidden(!Main.Settings.StockHugoStoreWithAdditionalFoci);
+        WandIdentifyBuilder.WandIdentify.GuiPresentation.hidden = !Main.Settings.StockHugoStoreWithAdditionalFoci;
 
-        FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.SetHidden(
-            !Main.Settings.StockHugoStoreWithAdditionalFoci);
-        FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.SetHidden(!Main.Settings
-            .StockHugoStoreWithAdditionalFoci);
-        FocusDefinitionBuilder.LivewoodClub.GuiPresentation.SetHidden(!Main.Settings
-            .StockHugoStoreWithAdditionalFoci);
-        FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.SetHidden(!Main.Settings
-            .StockHugoStoreWithAdditionalFoci);
+        FocusDefinitionBuilder.ArcaneStaff.GuiPresentation.hidden = !Main.Settings.StockHugoStoreWithAdditionalFoci;
+        FocusDefinitionBuilder.DruidicAmulet.GuiPresentation.hidden = !Main.Settings
+            .StockHugoStoreWithAdditionalFoci;
+        FocusDefinitionBuilder.LivewoodClub.GuiPresentation.hidden = !Main.Settings
+            .StockHugoStoreWithAdditionalFoci;
+        FocusDefinitionBuilder.LivewoodStaff.GuiPresentation.hidden = !Main.Settings
+            .StockHugoStoreWithAdditionalFoci;
     }
 
     internal static void SwitchFociItemsDungeonMaker()
     {
-        FocusDefinitionBuilder.ArcaneStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
-        FocusDefinitionBuilder.DruidicAmulet.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
-        FocusDefinitionBuilder.LivewoodClub.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
-        FocusDefinitionBuilder.LivewoodStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
+        FocusDefinitionBuilder.ArcaneStaff.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
+        FocusDefinitionBuilder.DruidicAmulet.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
+        FocusDefinitionBuilder.LivewoodClub.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
+        FocusDefinitionBuilder.LivewoodStaff.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
     }
 
     internal static void SwitchMagicStaffFoci()
@@ -224,8 +222,8 @@ internal static class ItemOptionsContext
         foreach (var stock in Store_Merchant_Antiquarians_Halman_Summer.StockUnitDescriptions.Where(
                      x => !x.ItemDefinition.Name.Contains("Manual") && !x.ItemDefinition.Name.Contains("Tome")))
         {
-            stock.SetReassortAmount(1);
-            stock.SetReassortRateValue(7);
+            stock.reassortAmount = 1;
+            stock.reassortRateValue = 7;
         }
     }
 
@@ -238,7 +236,7 @@ internal static class ItemOptionsContext
 
         foreach (var stock in Store_Merchant_Arcaneum_Heddlon_Surespell.StockUnitDescriptions)
         {
-            stock.SetReassortAmount(1);
+            stock.reassortAmount = 1;
         }
     }
 
@@ -251,7 +249,7 @@ internal static class ItemOptionsContext
 
         foreach (var stock in Store_Merchant_CircleOfDanantar_Joriel_Foxeye.StockUnitDescriptions)
         {
-            stock.SetReassortAmount(1);
+            stock.reassortAmount = 1;
         }
     }
 
@@ -264,7 +262,7 @@ internal static class ItemOptionsContext
 
         foreach (var stock in Store_Merchant_TowerOfKnowledge_Maddy_Greenisle.StockUnitDescriptions)
         {
-            stock.SetReassortAmount(1);
+            stock.reassortAmount = 1;
         }
     }
 
@@ -286,7 +284,7 @@ internal static class ItemOptionsContext
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
-                item.SetRequiresIdentification(false);
+                item.requiresIdentification = false;
             }
         }
 
@@ -294,7 +292,7 @@ internal static class ItemOptionsContext
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
-                item.SetRequiresAttunement(false);
+                item.requiresAttunement = false;
             }
         }
     }
@@ -333,20 +331,20 @@ internal static class ItemOptionsContext
         {
             Definition.GuiPresentation.Title = title;
             Definition.GuiPresentation.Description = description;
-            Definition.UsableDeviceDescription.DeviceFunctions[0].SetSpellDefinition(Identify);
+            Definition.UsableDeviceDescription.DeviceFunctions[0].spellDefinition = Identify;
 
             var stockFocus = new StockUnitDescription();
 
-            stockFocus.SetItemDefinition(Definition);
-            stockFocus.SetInitialAmount(1);
-            stockFocus.SetInitialized(true);
-            stockFocus.SetFactionStatus("Indifference");
-            stockFocus.SetMaxAmount(2);
-            stockFocus.SetMinAmount(1);
-            stockFocus.SetStackCount(1);
-            stockFocus.SetReassortAmount(1);
-            stockFocus.SetReassortRateValue(1);
-            stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
+            stockFocus.itemDefinition = Definition;
+            stockFocus.initialAmount = 1;
+            stockFocus.initialized = true;
+            stockFocus.factionStatus = "Indifference";
+            stockFocus.maxAmount = 2;
+            stockFocus.minAmount = 1;
+            stockFocus.stackCount = 1;
+            stockFocus.reassortAmount = 1;
+            stockFocus.reassortRateValue = 1;
+            stockFocus.reassortRateType = RuleDefinitions.DurationType.Day;
 
             StockFocus.Add(stockFocus);
         }
@@ -416,7 +414,7 @@ internal static class ItemOptionsContext
 
             if (assetReferenceSprite != null)
             {
-                Definition.GuiPresentation.SetSpriteReference(assetReferenceSprite);
+                Definition.GuiPresentation.spriteReference = assetReferenceSprite;
             }
 
             Definition.costs = ComponentPouch.Costs;
@@ -430,16 +428,16 @@ internal static class ItemOptionsContext
 
             var stockFocus = new StockUnitDescription();
 
-            stockFocus.SetItemDefinition(Definition);
-            stockFocus.SetInitialAmount(1);
-            stockFocus.SetInitialized(true);
-            stockFocus.SetFactionStatus("Indifference");
-            stockFocus.SetMaxAmount(2);
-            stockFocus.SetMinAmount(1);
-            stockFocus.SetStackCount(1);
-            stockFocus.SetReassortAmount(1);
-            stockFocus.SetReassortRateValue(1);
-            stockFocus.SetReassortRateType(RuleDefinitions.DurationType.Day);
+            stockFocus.itemDefinition = Definition;
+            stockFocus.initialAmount = 1;
+            stockFocus.initialized = true;
+            stockFocus.factionStatus = "Indifference";
+            stockFocus.maxAmount = 2;
+            stockFocus.minAmount = 1;
+            stockFocus.stackCount = 1;
+            stockFocus.reassortAmount = 1;
+            stockFocus.reassortRateValue = 1;
+            stockFocus.reassortRateType = RuleDefinitions.DurationType.Day;
 
             StockFocus.Add(stockFocus);
         }

@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using UnityEngine;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionConditionAffinitys;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
-using static SolastaModApi.DatabaseHelper.MonsterAttackDefinitions;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionMoveModes;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
-using static SolastaModApi.DatabaseHelper.DecisionPackageDefinitions;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterAttackDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionMoveModes;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.DecisionPackageDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
@@ -90,7 +90,7 @@ internal static class KnowYourEnemyBuilder
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();
 
-        additionalDamageRangerFavoredEnemyHumanoid.SetRequiredCharacterFamily(CharacterFamilyDefinitions.Humanoid);
+        additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("KnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
@@ -345,7 +345,7 @@ internal static class EternalComradeBuilder
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
-        eternalComradeAttack.SetMagical(true);
+        eternalComradeAttack.magical = true;
 
         var marshalEternalComradeAttackInteraction = new MonsterAttackIteration(eternalComradeAttack, 1);
 
@@ -397,12 +397,12 @@ internal static class EternalComradeBuilder
     internal static FeatureDefinitionFeatureSet BuildEternalComradeFeatureSet()
     {
         var summonForm = new SummonForm();
-        summonForm.SetMonsterDefinitionName(EternalComrade.Name);
+        summonForm.monsterDefinitionName = EternalComrade.Name;
 
         var effectForm = new EffectForm();
-        effectForm.SetFormType(EffectForm.EffectFormType.Summon);
-        effectForm.SetCreatedByCharacter(true);
-        effectForm.SetSummonForm(summonForm);
+        effectForm.formType = EffectForm.EffectFormType.Summon;
+        effectForm.createdByCharacter = true;
+        effectForm.summonForm = summonForm;
 
         // TODO: make this use concentration and reduce the duration to may be 3 rounds
         // TODO: increase the number of use to 2 and recharge per long rest

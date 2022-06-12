@@ -1,5 +1,4 @@
-﻿using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+﻿using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Level20.SubClasses;
 
@@ -12,7 +11,7 @@ internal static class SpellShieldBuilder
 
         if (featureDefinitionCastSpell != null)
         {
-            featureDefinitionCastSpell.SetSpellCastingLevel(4);
+            featureDefinitionCastSpell.spellCastingLevel = 4;
 
             featureDefinitionCastSpell.SlotsPerLevels.SetRange(SpellsHelper.OneThirdCastingSlots);
 

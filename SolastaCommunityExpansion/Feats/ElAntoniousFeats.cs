@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalActions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
 namespace SolastaCommunityExpansion.Feats;
 
@@ -124,7 +124,7 @@ internal sealed class ConditionDualFlurryGrantBuilder : ConditionDefinitionBuild
     {
         Definition.GuiPresentation.Title = "Condition/&ConditionDualFlurryGrantTitle";
         Definition.GuiPresentation.Description = "Condition/&ConditionDualFlurryGrantDescription";
-        Definition.GuiPresentation.SetHidden(true);
+        Definition.GuiPresentation.hidden = true;
 
         Definition.allowMultipleInstances = false;
         Definition.durationParameter = 0;
@@ -197,7 +197,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
     private static FeatureDefinition BuildFeatureTorchbearer()
     {
         var burn_effect = new EffectForm();
-        burn_effect.SetFormType(EffectForm.EffectFormType.Condition);
+        burn_effect.formType = EffectForm.EffectFormType.Condition;
         burn_effect.ConditionForm = new ConditionForm
         {
             Operation = ConditionForm.ConditionOperation.Add,

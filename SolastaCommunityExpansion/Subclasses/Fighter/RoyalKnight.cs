@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
-using static SolastaModApi.DatabaseHelper.FightingStyleDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FightingStyleDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Fighter;
 
@@ -67,7 +67,15 @@ internal class RoyalKnight : AbstractSubclass
             .SetRangeParameter(20);
 
         inspiringSurgeEffectDescription.EffectForms.SetRange(
-            FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms.Select(ef => ef.Copy()));
+            FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms
+                .Select(x =>
+                {
+                    var ef = new EffectForm();
+
+                    ef.Copy(x);
+
+                    return ef;
+                }));
 
         var inspiringSurgePower = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "InspiringSurgePower",

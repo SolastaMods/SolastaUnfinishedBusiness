@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaMonsters.Models;
 using UnityEngine;
 
@@ -156,7 +156,7 @@ public class NewMonsterPowers
             "MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description"
         );
 
-        TarrasqueSwallowedCondition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(16);
+        TarrasqueSwallowedCondition.RecurrentEffectForms[0].DamageForm.diceNumber = 16;
 
 
         TarrasqueSwallowPower = BuildNewPower(
@@ -170,17 +170,17 @@ public class NewMonsterPowers
         TarrasqueSwallowPower.EffectDescription.SetTargetConditionAsset(NewMonsterAttacks
             .TarrasqueGrappledRestrainedCondition);
 
-        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D12);
-        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
+        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D12;
+        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 10;
         TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         TarrasqueSwallowPower.EffectDescription.EffectForms[2].ConditionForm
-            .SetConditionDefinition(TarrasqueSwallowedCondition);
+            .conditionDefinition = TarrasqueSwallowedCondition;
 
         TarrasqueSwallowPower.EffectDescription.EffectForms[3].ConditionForm
-            .SetConditionDefinition(TarrasqueSwallowingCondition);
+            .conditionDefinition = TarrasqueSwallowingCondition;
 
         TarrasqueSwallowPower.EffectDescription.EffectForms.RemoveAt(1);
     }
@@ -198,9 +198,9 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        ErinyesParry_Power.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
-        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.SetApplyToSelf(true);
-        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.SetForceOnSelf(true);
+        ErinyesParry_Power.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
+        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.applyToSelf = true;
+        ErinyesParry_Power.EffectDescription.EffectForms[0].ConditionForm.forceOnSelf = true;
     }
 
     public static void BuildNewVampireCharmPower()
@@ -225,7 +225,7 @@ public class NewMonsterPowers
             .FixedValue);
         effectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions.Wisdom.Name);
         effectDescription.SetFixedSavingThrowDifficultyClass(17);
-        VampireCharmPower.SetEffectDescription(effectDescription);
+        VampireCharmPower.effectDescription = effectDescription;
     }
 
     public static void BuildNewGeneric_Lightning_Attack()
@@ -262,28 +262,28 @@ public class NewMonsterPowers
         );
 
 
-        Generic_Lightning_Attack_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        Generic_Lightning_Attack_Power.SetFixedUsesPerRecharge(1);
-        Generic_Lightning_Attack_Power.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-        Generic_Lightning_Attack_Power.SetRechargeRate(RuleDefinitions.RechargeRate.D6_56);
-        Generic_Lightning_Attack_Power.SetUsesAbilityScoreName("Charisma");
-        Generic_Lightning_Attack_Power.SetAbilityScore("Charisma");
-        Generic_Lightning_Attack_Power.SetCostPerUse(1);
-        Generic_Lightning_Attack_Power.SetShowCasting(true);
+        Generic_Lightning_Attack_Power.activationTime = RuleDefinitions.ActivationTime.Action;
+        Generic_Lightning_Attack_Power.fixedUsesPerRecharge = 1;
+        Generic_Lightning_Attack_Power.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+        Generic_Lightning_Attack_Power.rechargeRate = RuleDefinitions.RechargeRate.D6_56;
+        Generic_Lightning_Attack_Power.usesAbilityScoreName = "Charisma";
+        Generic_Lightning_Attack_Power.abilityScore = "Charisma";
+        Generic_Lightning_Attack_Power.costPerUse = 1;
+        Generic_Lightning_Attack_Power.showCasting = true;
 
 
         Generic_Lightning_Attack_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
         Generic_Lightning_Attack_Power.EffectDescription.SetTargetParameter(3);
         Generic_Lightning_Attack_Power.EffectDescription.SetTargetParameter(8);
         Generic_Lightning_Attack_Power.EffectDescription.SetRangeParameter(100);
-        Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(12);
+        Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 12;
         Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D8);
+            .dieType = RuleDefinitions.DieType.D8;
 
         Generic_Lightning_Attack_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         Generic_Lightning_Attack_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
             .Dexterity.Name);
         Generic_Lightning_Attack_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(17);
@@ -364,11 +364,11 @@ public class NewMonsterPowers
             Dragon_Breath_Power.EffectDescription.SetTargetParameter(20);
             // generic ancient dragon Breath Power
             Dragon_Breath_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDiceNumber(dictionaryofAncientDragonBreathExtraDamageDiceNumbers[entry.Key]);
+                .diceNumber = dictionaryofAncientDragonBreathExtraDamageDiceNumbers[entry.Key];
             Dragon_Breath_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDieType(dictionaryofAncientDragonBreathExtraDamageDiceType[entry.Key]);
+                .dieType = dictionaryofAncientDragonBreathExtraDamageDiceType[entry.Key];
             Dragon_Breath_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDamageType(entry.Value); // ListofDamageTypes_Dragon[i]);
+                .damageType = entry.Value; // ListofDamageTypes_Dragon[i]);
             Dragon_Breath_Power.EffectDescription.SetEffectParticleParameters(
                 dictionaryofAncientDragonBreathEffectparticles[entry.Key]);
             Dragon_Breath_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(23);
@@ -397,10 +397,10 @@ public class NewMonsterPowers
         Balor_FireAura_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         Balor_FireAura_Power.EffectDescription.SetTargetParameter(4);
 
-        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
     }
 
     public static void BuildNewLich_DisruptLife_Power()
@@ -425,10 +425,10 @@ public class NewMonsterPowers
             .SmartAttributeDefinitions.Constitution.Name);
 
 
-        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
-        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 6;
+        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeNecrotic);
+            .damageType = RuleDefinitions.DamageTypeNecrotic;
     }
 
     public static void BuildNewAncientDragon_Wing_Power()
@@ -444,7 +444,7 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        AncientDragon_Wing_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
+        AncientDragon_Wing_Power.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 9;
         AncientDragon_Wing_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(24);
     }
 
@@ -475,16 +475,16 @@ public class NewMonsterPowers
                 "MonsterPower/&DH_" + text + "_Description"
             );
 
-            SummonCreature_Elemental_Power.SetHasCastingFailure(false);
+            SummonCreature_Elemental_Power.hasCastingFailure = false;
             SummonCreature_Elemental_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
                 .EffectDescription);
             SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm
-                .SetMonsterDefinitionName(entry.Key.EffectDescription.EffectForms[0].SummonForm
-                    .MonsterDefinitionName);
-            SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(entry.Value);
+                .monsterDefinitionName = entry.Key.EffectDescription.EffectForms[0].SummonForm
+                .MonsterDefinitionName;
+            SummonCreature_Elemental_Power.EffectDescription.EffectForms[0].SummonForm.number = entry.Value;
 
-            SummonCreature_Elemental_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-            SummonCreature_Elemental_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+            SummonCreature_Elemental_Power.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+            SummonCreature_Elemental_Power.activationTime = RuleDefinitions.ActivationTime.Action;
 
             Dictionaryof_SummoningElementals.Add(
                 entry.Key.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName,
@@ -506,41 +506,41 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        SearingBurst_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        SearingBurst_Power.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
         SearingBurst_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         SearingBurst_Power.EffectDescription.SetTargetParameter(4);
 
-        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
-        SearingBurst_Power.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
+            .damageType = RuleDefinitions.DamageTypeFire;
+        SearingBurst_Power.EffectDescription.EffectForms[0].hasSavingThrow = true;
         SearingBurst_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(4);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
+        damageForm.diceNumber = 4;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeRadiant;
 
 
         EffectForm extraDamageEffect = new();
-        extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraDamageEffect.SetLevelMultiplier(1);
-        extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraDamageEffect.SetCreatedByCharacter(true);
+        extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraDamageEffect.levelMultiplier = 1;
+        extraDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraDamageEffect.createdByCharacter = true;
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraDamageEffect.SetDamageForm(damageForm);
-        extraDamageEffect.SetHasSavingThrow(true);
-        extraDamageEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+        extraDamageEffect.damageForm = damageForm;
+        extraDamageEffect.hasSavingThrow = true;
+        extraDamageEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
 
         SearingBurst_Power.EffectDescription.EffectForms.Add(extraDamageEffect);
         SearingBurst_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
             .Dexterity.Name);
         SearingBurst_Power.EffectDescription.SetSavingThrowDifficultyAbility(DatabaseHelper.SmartAttributeDefinitions
             .Dexterity.Name);
-        SearingBurst_Power.EffectDescription.SetHasSavingThrow(true);
+        SearingBurst_Power.EffectDescription.hasSavingThrow = true;
         SearingBurst_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(23);
     }
 
@@ -557,11 +557,11 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        BlindingGaze_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-        BlindingGaze_Power.EffectDescription.EffectForms[0].SetCanSaveToCancel(false);
+        BlindingGaze_Power.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+        BlindingGaze_Power.EffectDescription.EffectForms[0].canSaveToCancel = false;
 
         BlindingGaze_Power.EffectDescription.EffectForms[0].ConditionForm
-            .SetConditionDefinition(DatabaseHelper.ConditionDefinitions.ConditionBlinded);
+            .conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionBlinded;
     }
 
     public static void BuildNewAtWillSelfBuff_Invisibility_Power()
@@ -581,8 +581,8 @@ public class NewMonsterPowers
             .GuiPresentation;
         AtWillSelfBuff_Invisibility_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.Invisibility
             .EffectDescription);
-        AtWillSelfBuff_Invisibility_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-        AtWillSelfBuff_Invisibility_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        AtWillSelfBuff_Invisibility_Power.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+        AtWillSelfBuff_Invisibility_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
     public static void BuildNewAtWillAOE_Fireball_Power()
@@ -599,13 +599,13 @@ public class NewMonsterPowers
         );
         AtWillAOE_Fireball_Power.guiPresentation = DatabaseHelper.SpellDefinitions.Fireball.GuiPresentation;
         AtWillAOE_Fireball_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.Fireball.EffectDescription);
-        AtWillAOE_Fireball_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
-        AtWillAOE_Fireball_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        AtWillAOE_Fireball_Power.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+        AtWillAOE_Fireball_Power.activationTime = RuleDefinitions.ActivationTime.Action;
 
         AtWillAOE_Fireball_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         AtWillAOE_Fireball_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         AtWillAOE_Fireball_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
             .Dexterity.Name);
         AtWillAOE_Fireball_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
@@ -624,21 +624,21 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetUniqueInstance(true);
+        LimitedPerDayTargetDebuff_HoldMonster_Power.uniqueInstance = true;
         LimitedPerDayTargetDebuff_HoldMonster_Power.guiPresentation = DatabaseHelper.SpellDefinitions.HoldMonster
             .GuiPresentation;
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetShortTitleOverride(DatabaseHelper.SpellDefinitions
-            .HoldMonster.GuiPresentation.Title);
+        LimitedPerDayTargetDebuff_HoldMonster_Power.shortTitleOverride = DatabaseHelper.SpellDefinitions
+            .HoldMonster.GuiPresentation.Title;
         LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions
             .HoldMonster.EffectDescription);
         LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         LimitedPerDayTargetDebuff_HoldMonster_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
 
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetCostPerUse(1);
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetFixedUsesPerRecharge(3);
-        LimitedPerDayTargetDebuff_HoldMonster_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        LimitedPerDayTargetDebuff_HoldMonster_Power.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        LimitedPerDayTargetDebuff_HoldMonster_Power.costPerUse = 1;
+        LimitedPerDayTargetDebuff_HoldMonster_Power.fixedUsesPerRecharge = 3;
+        LimitedPerDayTargetDebuff_HoldMonster_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
 
@@ -654,7 +654,7 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        LimitedPerDayAOE_WallOfFire_Power.SetUniqueInstance(false);
+        LimitedPerDayAOE_WallOfFire_Power.uniqueInstance = false;
         LimitedPerDayAOE_WallOfFire_Power.guiPresentation = DatabaseHelper.SpellDefinitions.WallOfFire
             .GuiPresentation;
         LimitedPerDayAOE_WallOfFire_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions
@@ -664,10 +664,10 @@ public class NewMonsterPowers
         LimitedPerDayAOE_WallOfFire_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(21);
 
 
-        LimitedPerDayAOE_WallOfFire_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        LimitedPerDayAOE_WallOfFire_Power.SetCostPerUse(1);
-        LimitedPerDayAOE_WallOfFire_Power.SetFixedUsesPerRecharge(3);
-        LimitedPerDayAOE_WallOfFire_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        LimitedPerDayAOE_WallOfFire_Power.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        LimitedPerDayAOE_WallOfFire_Power.costPerUse = 1;
+        LimitedPerDayAOE_WallOfFire_Power.fixedUsesPerRecharge = 3;
+        LimitedPerDayAOE_WallOfFire_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
     public static void BuildNewSummonCreature_Erinyes_Power()
@@ -682,16 +682,16 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        SummonCreature_Erinyes_Power.SetHasCastingFailure(false);
+        SummonCreature_Erinyes_Power.hasCastingFailure = false;
         SummonCreature_Erinyes_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
             .EffectDescription);
         SummonCreature_Erinyes_Power.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName("Custom_Erinyes");
+            .monsterDefinitionName = "Custom_Erinyes";
 
-        SummonCreature_Erinyes_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        SummonCreature_Erinyes_Power.SetCostPerUse(1);
-        SummonCreature_Erinyes_Power.SetFixedUsesPerRecharge(1);
-        SummonCreature_Erinyes_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        SummonCreature_Erinyes_Power.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        SummonCreature_Erinyes_Power.costPerUse = 1;
+        SummonCreature_Erinyes_Power.fixedUsesPerRecharge = 1;
+        SummonCreature_Erinyes_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
     public static void BuildNewSummonCreature_Nalfeshnee_Power()
@@ -706,17 +706,17 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        SummonCreature_Nalfeshnee_Power.SetHasCastingFailure(false);
+        SummonCreature_Nalfeshnee_Power.hasCastingFailure = false;
         SummonCreature_Nalfeshnee_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
             .EffectDescription);
         SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName("Custom_Nalfeshnee");
-        SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(2);
+            .monsterDefinitionName = "Custom_Nalfeshnee";
+        SummonCreature_Nalfeshnee_Power.EffectDescription.EffectForms[0].SummonForm.number = 2;
 
-        SummonCreature_Nalfeshnee_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        SummonCreature_Nalfeshnee_Power.SetCostPerUse(1);
-        SummonCreature_Nalfeshnee_Power.SetFixedUsesPerRecharge(2);
-        SummonCreature_Nalfeshnee_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        SummonCreature_Nalfeshnee_Power.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        SummonCreature_Nalfeshnee_Power.costPerUse = 1;
+        SummonCreature_Nalfeshnee_Power.fixedUsesPerRecharge = 2;
+        SummonCreature_Nalfeshnee_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
     public static void BuildNewSummonCreature_Wolves_Power()
@@ -731,16 +731,16 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        SummonCreature_Wolves_Power.SetHasCastingFailure(false);
+        SummonCreature_Wolves_Power.hasCastingFailure = false;
         SummonCreature_Wolves_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions.ConjureGoblinoids
             .EffectDescription);
-        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.SetMonsterDefinitionName("Wolf");
-        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(3);
+        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.monsterDefinitionName = "Wolf";
+        SummonCreature_Wolves_Power.EffectDescription.EffectForms[0].SummonForm.number = 3;
 
-        SummonCreature_Wolves_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        SummonCreature_Wolves_Power.SetCostPerUse(1);
-        SummonCreature_Wolves_Power.SetFixedUsesPerRecharge(3);
-        SummonCreature_Wolves_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        SummonCreature_Wolves_Power.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        SummonCreature_Wolves_Power.costPerUse = 1;
+        SummonCreature_Wolves_Power.fixedUsesPerRecharge = 3;
+        SummonCreature_Wolves_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
 
@@ -758,15 +758,15 @@ public class NewMonsterPowers
         );
 
         AirTitan_Gale_Power.EffectDescription.SetTargetParameter(10);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D10;
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 0;
         AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeThunder);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
+            .damageType = RuleDefinitions.DamageTypeThunder;
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].hasSavingThrow = true;
         AirTitan_Gale_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        AirTitan_Gale_Power.EffectDescription.SetHasSavingThrow(true);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+        AirTitan_Gale_Power.EffectDescription.hasSavingThrow = true;
         AirTitan_Gale_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
             .Dexterity.Name);
         AirTitan_Gale_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
@@ -774,35 +774,35 @@ public class NewMonsterPowers
         AirTitan_Gale_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(17);
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
-        effectForm.SetHasSavingThrow(true);
-        effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        effectForm.motionForm = motionForm;
+        effectForm.hasSavingThrow = true;
+        effectForm.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
 
         AirTitan_Gale_Power.EffectDescription.EffectForms.Add(effectForm);
 
         MotionForm motionForm_2 = new();
-        motionForm_2.SetType(MotionForm.MotionType.PushFromOrigin);
-        motionForm_2.SetDistance(6);
+        motionForm_2.type = MotionForm.MotionType.PushFromOrigin;
+        motionForm_2.distance = 6;
 
         EffectForm effectForm_2 = new();
-        effectForm_2.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm_2.SetLevelMultiplier(1);
-        effectForm_2.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm_2.SetCreatedByCharacter(true);
+        effectForm_2.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm_2.levelMultiplier = 1;
+        effectForm_2.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm_2.createdByCharacter = true;
         effectForm_2.FormType = EffectForm.EffectFormType.Motion;
-        effectForm_2.SetMotionForm(motionForm_2);
-        effectForm_2.SetHasSavingThrow(true);
-        effectForm_2.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        effectForm_2.motionForm = motionForm_2;
+        effectForm_2.hasSavingThrow = true;
+        effectForm_2.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         AirTitan_Gale_Power.EffectDescription.EffectForms.Add(effectForm_2);
     }
@@ -823,10 +823,10 @@ public class NewMonsterPowers
         FireTitan_Aura_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         FireTitan_Aura_Power.EffectDescription.SetTargetParameter(10);
 
-        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
-        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
+        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
     }
 
 
@@ -843,18 +843,18 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        AirTitan_Lightning_Power.SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+        AirTitan_Lightning_Power.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
 
         AirTitan_Lightning_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
         AirTitan_Lightning_Power.EffectDescription.SetTargetParameter(2);
         AirTitan_Lightning_Power.EffectDescription.SetRangeParameter(100);
-        AirTitan_Lightning_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
+        AirTitan_Lightning_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
         AirTitan_Lightning_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
+            .dieType = RuleDefinitions.DieType.D10;
         AirTitan_Lightning_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         AirTitan_Lightning_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         AirTitan_Lightning_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper.SmartAttributeDefinitions
             .Dexterity.Name);
         AirTitan_Lightning_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
@@ -892,26 +892,26 @@ public class NewMonsterPowers
         );
 
 
-        AirTitan_LightningStorm_Attack_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
-        AirTitan_LightningStorm_Attack_Power.SetFixedUsesPerRecharge(1);
-        AirTitan_LightningStorm_Attack_Power.SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed);
-        AirTitan_LightningStorm_Attack_Power.SetRechargeRate(RuleDefinitions.RechargeRate.D6_56);
-        AirTitan_LightningStorm_Attack_Power.SetUsesAbilityScoreName("Charisma");
-        AirTitan_LightningStorm_Attack_Power.SetAbilityScore("Charisma");
-        AirTitan_LightningStorm_Attack_Power.SetCostPerUse(1);
-        AirTitan_LightningStorm_Attack_Power.SetShowCasting(true);
+        AirTitan_LightningStorm_Attack_Power.activationTime = RuleDefinitions.ActivationTime.Action;
+        AirTitan_LightningStorm_Attack_Power.fixedUsesPerRecharge = 1;
+        AirTitan_LightningStorm_Attack_Power.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+        AirTitan_LightningStorm_Attack_Power.rechargeRate = RuleDefinitions.RechargeRate.D6_56;
+        AirTitan_LightningStorm_Attack_Power.usesAbilityScoreName = "Charisma";
+        AirTitan_LightningStorm_Attack_Power.abilityScore = "Charisma";
+        AirTitan_LightningStorm_Attack_Power.costPerUse = 1;
+        AirTitan_LightningStorm_Attack_Power.showCasting = true;
 
 
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetTargetParameter(24);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetRangeParameter(0);
-        AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
+        AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 6;
         AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D8);
+            .dieType = RuleDefinitions.DieType.D8;
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetSavingThrowAbility(DatabaseHelper
             .SmartAttributeDefinitions.Dexterity.Name);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(20);
@@ -932,14 +932,14 @@ public class NewMonsterPowers
 
         EffectDescription effectDescription = new();
         effectDescription.Copy(DatabaseHelper.SpellDefinitions.FaerieFire.EffectDescription);
-        IlluminatingCrystals_Power.SetEffectDescription(effectDescription);
+        IlluminatingCrystals_Power.effectDescription = effectDescription;
         IlluminatingCrystals_Power.EffectDescription.SetTargetExcludeCaster(true);
         IlluminatingCrystals_Power.EffectDescription.SetTargetParameter(6);
         IlluminatingCrystals_Power.EffectDescription.SetRangeParameter(0);
         IlluminatingCrystals_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
         IlluminatingCrystals_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType
             .PerceivingWithinDistance);
-        IlluminatingCrystals_Power.EffectDescription.SetHasSavingThrow(false);
+        IlluminatingCrystals_Power.EffectDescription.hasSavingThrow = false;
     }
 
     public static void BuildNewDisintegratingBeam_Power()
@@ -957,7 +957,7 @@ public class NewMonsterPowers
 
         EffectDescription effectDescription = new();
         effectDescription.Copy(DatabaseHelper.SpellDefinitions.Disintegrate.EffectDescription);
-        DisintegratingBeam_Power.SetEffectDescription(effectDescription);
+        DisintegratingBeam_Power.effectDescription = effectDescription;
         DisintegratingBeam_Power.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions
             .LightningBolt.EffectDescription.EffectParticleParameters);
 
@@ -965,19 +965,19 @@ public class NewMonsterPowers
         DisintegratingBeam_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         DisintegratingBeam_Power.EffectDescription.SetTargetParameter(30);
-        DisintegratingBeam_Power.EffectDescription.SetTargetParameter2(2);
+        DisintegratingBeam_Power.EffectDescription.targetParameter2 = 2;
         DisintegratingBeam_Power.EffectDescription.SetRangeParameter(30);
         DisintegratingBeam_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
         DisintegratingBeam_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Line);
-        DisintegratingBeam_Power.EffectDescription.SetHasSavingThrow(true);
+        DisintegratingBeam_Power.EffectDescription.hasSavingThrow = true;
 
         DisintegratingBeam_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
-        DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(11);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
+        DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 11;
         DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
+            .dieType = RuleDefinitions.DieType.D10;
         DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeRadiant);
+            .damageType = RuleDefinitions.DamageTypeRadiant;
     }
 
     public static void BuildNewIncreasedGravityZone_Attack()
@@ -995,8 +995,8 @@ public class NewMonsterPowers
 
         EffectDescription effectDescription = new();
         effectDescription.Copy(DatabaseHelper.FeatureDefinitionPowers.PowerFireOspreyBlast.EffectDescription);
-        IncreasedGravityZone_Power.SetEffectDescription(effectDescription);
-        IncreasedGravityZone_Power.SetActivationTime(RuleDefinitions.ActivationTime.BonusAction);
+        IncreasedGravityZone_Power.effectDescription = effectDescription;
+        IncreasedGravityZone_Power.activationTime = RuleDefinitions.ActivationTime.BonusAction;
         IncreasedGravityZone_Power.EffectDescription.SetEffectParticleParameters(DatabaseHelper.SpellDefinitions
             .Entangle.EffectDescription.EffectParticleParameters);
 
@@ -1008,44 +1008,44 @@ public class NewMonsterPowers
         IncreasedGravityZone_Power.EffectDescription.SetRangeParameter(4);
         IncreasedGravityZone_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
         IncreasedGravityZone_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-        IncreasedGravityZone_Power.EffectDescription.SetHasSavingThrow(true);
+        IncreasedGravityZone_Power.EffectDescription.hasSavingThrow = true;
 
         IncreasedGravityZone_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+        IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 6;
         IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
+            .dieType = RuleDefinitions.DieType.D10;
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
+        effectForm.motionForm = motionForm;
 
         IncreasedGravityZone_Power.EffectDescription.EffectForms.Add(effectForm);
 
         ConditionForm Condition = new();
-        Condition.SetApplyToSelf(false);
-        Condition.SetForceOnSelf(false);
+        Condition.applyToSelf = false;
+        Condition.forceOnSelf = false;
         Condition.Operation = ConditionForm.ConditionOperation.Add;
-        Condition.SetConditionDefinitionName(DatabaseHelper.ConditionDefinitions.ConditionRestrained.Name);
+        Condition.conditionDefinitionName = DatabaseHelper.ConditionDefinitions.ConditionRestrained.Name;
         Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionRestrained;
 
         EffectForm effect = new();
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effect.SetCreatedByCharacter(true);
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effect.createdByCharacter = true;
         effect.FormType = EffectForm.EffectFormType.Condition;
         effect.ConditionForm = Condition;
-        effect.SetCanSaveToCancel(true);
-        effect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        effect.canSaveToCancel = true;
+        effect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         IncreasedGravityZone_Power.EffectDescription.EffectForms.Add(effect);
     }
@@ -1062,17 +1062,17 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        SummonCreature_LesserConstruct_Power.SetHasCastingFailure(false);
+        SummonCreature_LesserConstruct_Power.hasCastingFailure = false;
         SummonCreature_LesserConstruct_Power.EffectDescription.Copy(DatabaseHelper.SpellDefinitions
             .ConjureGoblinoids.EffectDescription);
         SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName("Magic_Mouth");
-        SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm.SetNumber(3);
+            .monsterDefinitionName = "Magic_Mouth";
+        SummonCreature_LesserConstruct_Power.EffectDescription.EffectForms[0].SummonForm.number = 3;
 
-        SummonCreature_LesserConstruct_Power.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
-        SummonCreature_LesserConstruct_Power.SetCostPerUse(1);
-        SummonCreature_LesserConstruct_Power.SetFixedUsesPerRecharge(3);
-        SummonCreature_LesserConstruct_Power.SetActivationTime(RuleDefinitions.ActivationTime.Action);
+        SummonCreature_LesserConstruct_Power.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
+        SummonCreature_LesserConstruct_Power.costPerUse = 1;
+        SummonCreature_LesserConstruct_Power.fixedUsesPerRecharge = 3;
+        SummonCreature_LesserConstruct_Power.activationTime = RuleDefinitions.ActivationTime.Action;
     }
 
     public static void BuildNewEarthTitan_Earthquake_Power()
@@ -1089,28 +1089,28 @@ public class NewMonsterPowers
         );
 
         EarthTitan_Earthquake_Power.EffectDescription.SetTargetParameter(20);
-        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
+        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
-        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
+            .dieType = RuleDefinitions.DieType.D10;
+        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 0;
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
 
         MotionForm motionForm = new();
-        motionForm.SetType(MotionForm.MotionType.FallProne);
-        motionForm.SetDistance(6);
+        motionForm.type = MotionForm.MotionType.FallProne;
+        motionForm.distance = 6;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
-        effectForm.SetHasSavingThrow(true);
-        effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        effectForm.motionForm = motionForm;
+        effectForm.hasSavingThrow = true;
+        effectForm.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms.Add(effectForm);
     }

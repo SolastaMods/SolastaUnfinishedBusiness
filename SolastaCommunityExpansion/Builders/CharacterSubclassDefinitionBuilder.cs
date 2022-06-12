@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -14,9 +13,7 @@ public class
     {
         Definition.PersonalityFlagOccurences.Add(
             new PersonalityFlagOccurence(DatabaseHelper.CharacterSubclassDefinitions.MartialChampion
-                    .PersonalityFlagOccurences[0])
-                .SetWeight(weight)
-                .SetPersonalityFlag(personalityType.Name));
+                .PersonalityFlagOccurences[0]) {weight = weight, personalityFlag = personalityType.Name});
         return this;
     }
 

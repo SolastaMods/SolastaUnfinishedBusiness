@@ -7,7 +7,7 @@ using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaCommunityExpansion.Classes.Warlock.Features.EldritchInvocationsBuilder;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features;
 

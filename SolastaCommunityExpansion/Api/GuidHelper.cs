@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace SolastaModApi;
+namespace SolastaCommunityExpansion.Api;
 
 /// <summary>
 ///     Helper methods for working with <see cref="Guid" />.

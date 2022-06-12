@@ -1,6 +1,5 @@
 ﻿using System;
-using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -11,11 +10,11 @@ public class ItemPropertyDescriptionBuilder
     public ItemPropertyDescriptionBuilder()
     {
         property = new ItemPropertyDescription(DatabaseHelper.ItemDefinitions.GreataxePlus1.StaticProperties[0]);
-        property.SetConditionDefinition(null);
-        property.SetFeatureDefinition(null);
-        property.SetType(ItemPropertyDescription.PropertyType.Feature);
-        property.SetAppliesOnItemOnly(true);
-        property.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden);
+        property.conditionDefinition = null;
+        property.featureDefinition = null;
+        property.type = ItemPropertyDescription.PropertyType.Feature;
+        property.appliesOnItemOnly = true;
+        property.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.ActiveAndHidden;
     }
 
     public static ItemPropertyDescriptionBuilder From(FeatureDefinition feature, bool appliesOnItemOnly = true,
@@ -40,27 +39,27 @@ public class ItemPropertyDescriptionBuilder
 
     public ItemPropertyDescriptionBuilder SetConditionDefinition(ConditionDefinition condition)
     {
-        property.SetType(ItemPropertyDescription.PropertyType.Condition);
-        property.SetConditionDefinition(condition);
+        property.type = ItemPropertyDescription.PropertyType.Condition;
+        property.conditionDefinition = condition;
         return this;
     }
 
     public ItemPropertyDescriptionBuilder SetFeatureDefinition(FeatureDefinition feature)
     {
-        property.SetType(ItemPropertyDescription.PropertyType.Feature);
-        property.SetFeatureDefinition(feature);
+        property.type = ItemPropertyDescription.PropertyType.Feature;
+        property.featureDefinition = feature;
         return this;
     }
 
     public ItemPropertyDescriptionBuilder SetAppliesOnItemOnly(bool value)
     {
-        property.SetAppliesOnItemOnly(value);
+        property.appliesOnItemOnly = value;
         return this;
     }
 
     public ItemPropertyDescriptionBuilder SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity value)
     {
-        property.SetKnowledgeAffinity(value);
+        property.knowledgeAffinity = value;
         return this;
     }
 

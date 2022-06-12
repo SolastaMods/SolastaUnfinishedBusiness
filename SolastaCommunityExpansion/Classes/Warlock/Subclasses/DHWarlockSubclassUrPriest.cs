@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SolastaModApi;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;

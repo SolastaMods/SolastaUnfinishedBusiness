@@ -5,11 +5,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Diagnostics;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi;
-using SolastaModApi.Diagnostics;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -64,7 +64,7 @@ public abstract class DefinitionBuilder
                       $"A definition of type '{item.typeName} is already registered using the same name for a {(item.isCeDef ? "CE definition" : "Non-CE definition")}.";
 
 #if DEBUG
-            throw new SolastaModApiException(msg);
+            throw new SolastaCommunityExpansionException(msg);
 #else
             Main.Log(msg);
 #endif
@@ -235,7 +235,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
         {
             if (namespaceGuid == Guid.Empty)
             {
-                throw new SolastaModApiException("The namespace guid supplied is Guid.Empty.");
+                throw new SolastaCommunityExpansionException("The namespace guid supplied is Guid.Empty.");
             }
 
             // create guid from namespace+name
@@ -247,7 +247,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
         {
             if (string.IsNullOrWhiteSpace(definitionGuid))
             {
-                throw new SolastaModApiException("The guid supplied is null or empty.");
+                throw new SolastaCommunityExpansionException("The guid supplied is null or empty.");
             }
 
             // assign guid
@@ -344,7 +344,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     /// </remarks>
     /// <param name="assertIfDuplicate"></param>
     /// <returns></returns>
-    /// <exception cref="SolastaModApiException"></exception>
+    /// <exception cref="SolastaCommunityExpansionException"></exception>
     public TDefinition AddToDB(bool assertIfDuplicate = true)
     {
         return AddToDB(assertIfDuplicate, BaseDefinition.Copyright.UserContent, CeContentPackContext.CeContentPack);
@@ -355,7 +355,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
     /// </summary>
     /// <param name="assertIfDuplicate"></param>
     /// <returns></returns>
-    /// <exception cref="SolastaModApiException"></exception>
+    /// <exception cref="SolastaCommunityExpansionException"></exception>
     public TDefinition AddToDB(bool assertIfDuplicate, BaseDefinition.Copyright? copyright,
         GamingPlatformDefinitions.ContentPack? contentPack)
     {
@@ -365,7 +365,8 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
         if (!Guid.TryParse(Definition.GUID, out var _))
         {
-            throw new SolastaModApiException($"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
+            throw new SolastaCommunityExpansionException(
+                $"The string in Definition.GUID '{Definition.GUID}' is not a GUID.");
         }
 
         VerifyGuiPresentation();
@@ -398,7 +399,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
         if (!addedToAnyDB)
         {
-            throw new SolastaModApiException(
+            throw new SolastaCommunityExpansionException(
                 $"Unable to locate any database(s) matching definition type='{Definition.GetType().FullName}', name='{Definition.name}', guid='{Definition.GUID}'.");
         }
 
@@ -424,13 +425,13 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
             {
                 if (dbHasElement(Definition.name))
                 {
-                    throw new SolastaModApiException(
+                    throw new SolastaCommunityExpansionException(
                         $"The definition with name '{Definition.name}' already exists in database '{type.Name}' by name.");
                 }
 
                 if (dbHasElementByGuid(Definition.GUID))
                 {
-                    throw new SolastaModApiException(
+                    throw new SolastaCommunityExpansionException(
                         $"The definition with name '{Definition.name}' and guid '{Definition.GUID}' already exists in database '{type.Name}' by GUID.");
                 }
             }
@@ -445,7 +446,8 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
                 if (methodInfo == null)
                 {
-                    throw new SolastaModApiException($"Could not locate the 'Add' method for {dbType.FullName}.");
+                    throw new SolastaCommunityExpansionException(
+                        $"Could not locate the 'Add' method for {dbType.FullName}.");
                 }
 
                 methodInfo.Invoke(db, new object[] {Definition});
@@ -457,7 +459,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
                 if (methodInfo == null)
                 {
-                    throw new SolastaModApiException(
+                    throw new SolastaCommunityExpansionException(
                         $"Could not locate the 'HasElement' method for {dbType.FullName}.");
                 }
 
@@ -470,7 +472,7 @@ public abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDefin
 
                 if (methodInfo == null)
                 {
-                    throw new SolastaModApiException(
+                    throw new SolastaCommunityExpansionException(
                         $"Could not locate the 'HasElementByGuid' method for {dbType.FullName}.");
                 }
 
@@ -564,7 +566,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
 
         if (ctor == null)
         {
-            throw new SolastaModApiException(
+            throw new SolastaCommunityExpansionException(
                 $"No constructor found on {typeof(TBuilder).Name} with argument types {string.Join(",", parameterTypes.Select(t => t.Name))}");
         }
 
@@ -572,7 +574,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
 
         if (builder.DisableStandardCreateMethods)
         {
-            throw new SolastaModApiException(
+            throw new SolastaCommunityExpansionException(
                 $"Standard Create methods are disabled for builder {typeof(TBuilder).Name}.  Please use a specialized constructor or Create method.");
         }
 
@@ -638,7 +640,7 @@ public abstract class DefinitionBuilder<TDefinition, TBuilder> : DefinitionBuild
         // TODO: check if this test is of any use
         if (this is not TBuilder)
         {
-            throw new SolastaModApiException(
+            throw new SolastaCommunityExpansionException(
                 $"Error in Configure. TBuilder={typeof(TBuilder).Name}, this={GetType().Name}");
         }
 #pragma warning restore S3060 // "is" should not be used with "this"

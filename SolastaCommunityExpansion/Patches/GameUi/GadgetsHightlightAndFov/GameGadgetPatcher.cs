@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 using TA;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov;

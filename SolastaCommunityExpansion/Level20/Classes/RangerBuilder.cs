@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static SolastaCommunityExpansion.Level20.Features.RangerFeralSensesBuilder;
 using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 //using static SolastaCommunityExpansion.Models.Features.FeatureSetRangerFoeSlayerBuilder;
 
@@ -25,7 +24,7 @@ internal static class RangerBuilder
             //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
         });
 
-        CastSpellRanger.SetSpellCastingLevel(5);
+        CastSpellRanger.spellCastingLevel = 5;
 
         CastSpellRanger.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
         CastSpellRanger.ReplacedSpells.SetRange(SpellsHelper.HalfCasterReplacedSpells);

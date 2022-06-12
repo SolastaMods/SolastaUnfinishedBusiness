@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.Powers;
 

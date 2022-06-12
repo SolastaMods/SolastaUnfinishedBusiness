@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
@@ -27,19 +27,19 @@ internal sealed class ForceArtilleryConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
+            .SpriteReference;
 
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.MonsterPresentation.SetAttachedParticlesReference(new AssetReference());
-        Definition.MonsterPresentation.SetCustomShaderReference(DatabaseHelper.MonsterDefinitions.FeyGiantApe
-            .MonsterPresentation.CustomShaderReference);
-        Definition.MonsterPresentation.SetOverrideCharacterShaderColors(true);
-        Definition.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyGiantApe
-            .MonsterPresentation.FirstCharacterShaderColor);
-        Definition.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions.FeyGiantApe
-            .MonsterPresentation.SecondCharacterShaderColor);
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
+        Definition.MonsterPresentation.attachedParticlesReference = new AssetReference();
+        Definition.MonsterPresentation.customShaderReference = DatabaseHelper.MonsterDefinitions.FeyGiantApe
+            .MonsterPresentation.CustomShaderReference;
+        Definition.MonsterPresentation.overrideCharacterShaderColors = true;
+        Definition.MonsterPresentation.firstCharacterShaderColor = DatabaseHelper.MonsterDefinitions.FeyGiantApe
+            .MonsterPresentation.FirstCharacterShaderColor;
+        Definition.MonsterPresentation.secondCharacterShaderColor = DatabaseHelper.MonsterDefinitions.FeyGiantApe
+            .MonsterPresentation.SecondCharacterShaderColor;
 
         Definition.armorClass = 18;
         Definition.noExperienceGain = true;
@@ -175,8 +175,8 @@ internal sealed class SummonForceArtillerySpellConstructBuilder : SpellDefinitio
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtilleryModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&ForceArtilleryModePowerDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -212,7 +212,7 @@ internal sealed class SummonForceArtillerySpellConstruct9Builder : SpellDefiniti
         Definition.GuiPresentation.Description = "Feature/&ForceArtillery_09ModePowerDescription";
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.Name);
+            .monsterDefinitionName = ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -241,7 +241,7 @@ internal sealed class SummonForceArtillerySpellConstruct15Builder : SpellDefinit
         Definition.uniqueInstance = false;
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.Name);
+            .monsterDefinitionName = ForceArtilleryConstruct15Builder.ForceArtilleryConstruct15.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -263,8 +263,8 @@ internal sealed class ForceArtilleryAttackBuilder : MonsterAttackDefinitionBuild
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtilleryTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         Definition.toHitBonus = 0;
         Definition.actionType = ActionDefinitions.ActionType.Main;
@@ -294,17 +294,17 @@ Web
         Definition.projectileBone = AnimationDefinitions.BoneType.Chest;
 
         var motionForm = new MotionForm();
-        motionForm.SetType(MotionForm.MotionType.PushFromOrigin);
-        motionForm.SetDistance(1);
+        motionForm.type = MotionForm.MotionType.PushFromOrigin;
+        motionForm.distance = 1;
 
         var effectmotion = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
-        effectmotion.SetMotionForm(motionForm);
-        effectmotion.SetCreatedByCharacter(true);
+        effectmotion.motionForm = motionForm;
+        effectmotion.createdByCharacter = true;
         effectmotion.HasSavingThrow = false;
         effectmotion.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effectmotion.SetLevelMultiplier(1);
-        effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effectmotion.levelMultiplier = 1;
+        effectmotion.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effectmotion.applyLevel = EffectForm.LevelApplianceType.No;
 
         var forceArtilleryAttack = new DamageForm
         {
@@ -315,12 +315,12 @@ Web
         };
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = forceArtilleryAttack};
-        effect.SetCreatedByCharacter(true);
-        effect.HasSavingThrow = false;
-        effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effect.createdByCharacter = true;
+        effect.hasSavingThrow = false;
+        effect.addBonusMode = RuleDefinitions.AddBonusMode.None;
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
@@ -361,8 +361,8 @@ internal sealed class ForceArtilleryAdditionalDamageBuilder : FeatureDefinitionA
     {
         Definition.GuiPresentation.Title = "Feature/&ForceArtilleryAdditionalDamageTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryAdditionalDamageDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.SameAsBaseDamage;
         Definition.attackModeOnly = true;
@@ -391,8 +391,8 @@ internal sealed class ForceArtilleryProjectileBuilder : ItemDefinitionBuilder
     {
         Definition.GuiPresentation.Title = "Item/&ForceArtilleryProjectileTitle";
         Definition.GuiPresentation.Description = "Item/&ForceArtilleryProjectileDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.MagicMissile.GuiPresentation
+            .SpriteReference;
 
         var effectParticleParameters = new EffectParticleParameters();
         effectParticleParameters.Copy(DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription

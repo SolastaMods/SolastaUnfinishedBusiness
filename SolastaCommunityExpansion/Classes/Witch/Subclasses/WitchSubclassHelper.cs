@@ -1,7 +1,7 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using UnityEngine.AddressableAssets;
 using static FeatureDefinitionAutoPreparedSpells;
 

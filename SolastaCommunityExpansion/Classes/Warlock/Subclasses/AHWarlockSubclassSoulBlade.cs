@@ -1,11 +1,11 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 

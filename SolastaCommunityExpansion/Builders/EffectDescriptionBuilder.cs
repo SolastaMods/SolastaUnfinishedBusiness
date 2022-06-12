@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -15,7 +15,7 @@ public class EffectDescriptionBuilder
         effect = new EffectDescription();
 
         var effectAdvancement = new EffectAdvancement();
-        effectAdvancement.SetIncrementMultiplier(1);
+        effectAdvancement.incrementMultiplier = 1;
         effect.SetEffectAdvancement(effectAdvancement);
 
         var particleParams = new EffectParticleParameters();
@@ -85,17 +85,17 @@ public class EffectDescriptionBuilder
         RuleDefinitions.AdvancementDuration alteredDuration = RuleDefinitions.AdvancementDuration.None)
     {
         var effectAdvancement = new EffectAdvancement();
-        effectAdvancement.SetEffectIncrementMethod(effectIncrementMethod);
-        effectAdvancement.SetIncrementMultiplier(incrementMultiplier);
-        effectAdvancement.SetAdditionalTargetsPerIncrement(additionalTargetsPerIncrement);
-        effectAdvancement.SetAdditionalDicePerIncrement(additionalDicePerIncrement);
-        effectAdvancement.SetAdditionalSpellLevelPerIncrement(additionalSpellLevelPerIncrement);
-        effectAdvancement.SetAdditionalSummonsPerIncrement(additionalSummonsPerIncrement);
-        effectAdvancement.SetAdditionalHPPerIncrement(additionalHPPerIncrement);
-        effectAdvancement.SetAdditionalTempHPPerIncrement(additionalTempHPPerIncrement);
-        effectAdvancement.SetAdditionalTargetCellsPerIncrement(additionalTargetCellsPerIncrement);
-        effectAdvancement.SetAdditionalItemBonus(additionalItemBonus);
-        effectAdvancement.SetAlteredDuration(alteredDuration);
+        effectAdvancement.effectIncrementMethod = effectIncrementMethod;
+        effectAdvancement.incrementMultiplier = incrementMultiplier;
+        effectAdvancement.additionalTargetsPerIncrement = additionalTargetsPerIncrement;
+        effectAdvancement.additionalDicePerIncrement = additionalDicePerIncrement;
+        effectAdvancement.additionalSpellLevelPerIncrement = additionalSpellLevelPerIncrement;
+        effectAdvancement.additionalSummonsPerIncrement = additionalSummonsPerIncrement;
+        effectAdvancement.additionalHPPerIncrement = additionalHPPerIncrement;
+        effectAdvancement.additionalTempHPPerIncrement = additionalTempHPPerIncrement;
+        effectAdvancement.additionalTargetCellsPerIncrement = additionalTargetCellsPerIncrement;
+        effectAdvancement.additionalItemBonus = additionalItemBonus;
+        effectAdvancement.alteredDuration = alteredDuration;
         effect.SetEffectAdvancement(effectAdvancement);
         return this;
     }
@@ -201,7 +201,7 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder SetTrapRange(RuleDefinitions.TrapRangeType trapRangeType)
     {
-        effect.SetTrapRangeType(trapRangeType);
+        effect.trapRangeType = trapRangeType;
         return this;
     }
 
@@ -282,9 +282,9 @@ public class EffectDescriptionBuilder
     public EffectDescriptionBuilder SetVelocity(int velocityCellsPerRound,
         RuleDefinitions.VelocityType velocityType)
     {
-        effect.SetHasVelocity(true);
-        effect.SetVelocityCellsPerRound(velocityCellsPerRound);
-        effect.SetVelocityType(velocityType);
+        effect.hasVelocity = true;
+        effect.velocityCellsPerRound = velocityCellsPerRound;
+        effect.velocityType = velocityType;
         return this;
     }
 

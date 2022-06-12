@@ -1,10 +1,9 @@
 ﻿#if DEBUG
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using SolastaCommunityExpansion;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
-namespace SolastaModApi.Diagnostics
+namespace SolastaCommunityExpansion.Api.Diagnostics
 {
     /// <summary>
     /// <para>

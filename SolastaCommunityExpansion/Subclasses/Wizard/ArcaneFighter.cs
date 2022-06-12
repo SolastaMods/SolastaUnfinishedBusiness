@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Wizard;
 
@@ -128,11 +127,11 @@ internal class ArcaneFighter : AbstractSubclass
     {
         if (Main.Settings.EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter)
         {
-            EnchantWeapon.SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest);
+            EnchantWeapon.rechargeRate = RuleDefinitions.RechargeRate.ShortRest;
         }
         else
         {
-            EnchantWeapon.SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+            EnchantWeapon.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
         }
     }
 }

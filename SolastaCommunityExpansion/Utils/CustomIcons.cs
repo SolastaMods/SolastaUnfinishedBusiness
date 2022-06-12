@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
-using SolastaModApi.Diagnostics;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityGraphics = UnityEngine.Graphics;
@@ -32,13 +32,13 @@ internal static class CustomIcons
         {
             if (throwIfAlreadyExists)
             {
-                throw new SolastaModApiException(
+                throw new SolastaCommunityExpansionException(
                     $"A sprite with name {name} and size [{sizex},{sizey}] already exists.");
             }
 #if DEBUG
             if (id != sprite.name)
             {
-                throw new SolastaModApiException($"Unexpected: id={id}, sprite.name={sprite.name}.");
+                throw new SolastaCommunityExpansionException($"Unexpected: id={id}, sprite.name={sprite.name}.");
             }
 #endif
             Main.Log($"Returned existing sprite, id={sprite.name}, guid={guid}.");

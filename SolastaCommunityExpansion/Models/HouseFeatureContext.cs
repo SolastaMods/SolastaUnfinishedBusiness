@@ -1,7 +1,7 @@
-﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -13,6 +13,7 @@ public static class HouseFeatureContext
     public static void LateLoad()
     {
         FixDivineSmiteRestrictions();
+        FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttckForReachWeapons();
     }
@@ -23,9 +24,19 @@ public static class HouseFeatureContext
      */
     private static void FixDivineSmiteRestrictions()
     {
-        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite
-            .SetAttackModeOnly(true)
-            .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon);
+        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
+        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
+            RuleDefinitions.AdditionalDamageRequiredProperty.MeleeWeapon;
+    }
+
+    /**
+     * Makes Divine Smite use correct number of dice when spending slot level 5+.
+     * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.
+     */
+    private static void FixDivineSmiteDiceNumberWhenUsingHighLevelSlots()
+    {
+        DatabaseHelper.FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
+            DiceByRankMaker.MakeBySteps();
     }
 
     /**

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Object = UnityEngine.Object;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class ObjectExtensions
 {

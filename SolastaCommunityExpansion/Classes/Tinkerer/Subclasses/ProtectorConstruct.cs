@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
@@ -85,7 +85,7 @@ internal sealed class SummoningAffinityTinkererConstructBuilder : FeatureDefinit
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-        Definition.GuiPresentation.SetSpriteReference(null);
+        Definition.GuiPresentation.spriteReference = null;
 
         Definition.effectOnConjuredDeath = false;
         Definition.EffectForms.Clear();
@@ -142,8 +142,8 @@ internal sealed class SummonProtectorPowerConstructBuilder : FeatureDefinitionPo
     {
         Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
+            .GuiPresentation.SpriteReference;
 
         Definition.activationTime = RuleDefinitions.ActivationTime.NoCost;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
@@ -191,7 +191,7 @@ internal sealed class SummonProtectorPowerConstructUpgradeBuilder : FeatureDefin
         Definition.overriddenPower = SummonProtectorPowerConstructBuilder.SummonProtectorConstruct;
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
+            .monsterDefinitionName = ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name;
     }
 
     private static FeatureDefinitionPower CreateAndAddToDB(string name, string guid)
@@ -217,8 +217,8 @@ internal sealed class SummonProtectorSpellConstructBuilder : SpellDefinitionBuil
     {
         Definition.GuiPresentation.Title = "Feat/&SummonProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
-            .GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.ConjureAnimalsFourBeasts
+            .GuiPresentation.SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -259,7 +259,7 @@ internal sealed class SummonProtectorSpellConstructUpgradeBuilder : SpellDefinit
         Definition.GuiPresentation.Description = "Feat/&SummonProtectorConstructDescription_Upgrade";
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name);
+            .monsterDefinitionName = ProtectorConstructUpgradeBuilder.ProtectorConstructUpgrade.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -349,10 +349,10 @@ internal sealed class ProtectorConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&ProtectorConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ProtectorConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
-            .SpriteReference);
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.Ghost_Wolf.GuiPresentation
+            .SpriteReference;
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
         Definition.bestiaryEntry = BestiaryDefinitions.BestiaryEntry.None;
 
         Definition.armorClass = 15;
@@ -520,8 +520,8 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
-        effect.SetHealingForm(selfrepair);
-        effect.SetCreatedByCharacter(true);
+        effect.healingForm = selfrepair;
+        effect.createdByCharacter = true;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

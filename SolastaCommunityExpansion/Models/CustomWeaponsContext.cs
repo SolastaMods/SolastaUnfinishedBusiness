@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;
 using static RuleDefinitions.ItemRarity;
 
@@ -158,8 +157,8 @@ public static class CustomWeaponsContext
             .Build());
 
         HandwrapsOfPulling = BuildHandwrapsCommon("HandwrapsOfPulling", 2000, true, false, Rare, WeaponPlus1AttackOnly);
-        HandwrapsOfPulling.SetIsUsableDevice(true);
-        HandwrapsOfPulling.SetUsableDeviceDescription(new UsableDeviceDescriptionBuilder()
+        HandwrapsOfPulling.IsUsableDevice = true;
+        HandwrapsOfPulling.usableDeviceDescription = new UsableDeviceDescriptionBuilder()
             .SetRecharge(RuleDefinitions.RechargeRate.AtWill)
             .SetSaveDC(-1)
             .AddFunctions(new DeviceFunctionDescriptionBuilder()
@@ -189,7 +188,7 @@ public static class CustomWeaponsContext
                         .Build())
                     .AddToDB())
                 .Build())
-            .Build());
+            .Build();
 
         ShopItems.Add((BuildManual(BuildRecipe(HandwrapsPlus1, 24, 10, Monk.GUID,
             ItemDefinitions.Ingredient_Enchant_Oil_Of_Acuteness), Monk.GUID), ShopCrafting));
@@ -546,7 +545,7 @@ public static class CustomWeaponsContext
         {
             foreach (var (item, _) in ShopItems)
             {
-                item.SetInDungeonEditor(true);
+                item.inDungeonEditor = true;
             }
         }
     }

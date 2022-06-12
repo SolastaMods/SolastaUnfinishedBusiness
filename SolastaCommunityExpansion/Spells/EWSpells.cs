@@ -1,17 +1,15 @@
-﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static ConditionOperationDescription;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
-using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Spells;
@@ -31,26 +29,29 @@ internal static class EWSpells
 
     private static SpellDefinition BuildSunlightBlade()
     {
-        var highlight = new ConditionOperationDescription()
-            .SetHasSavingThrow(false)
-            .SetOperation(ConditionOperation.Add)
-            .SetConditionDefinition(ConditionDefinitionBuilder
+        var highlight = new ConditionOperationDescription
+        {
+            hasSavingThrow = false,
+            operation = ConditionOperation.Add,
+            conditionDefinition = ConditionDefinitionBuilder
                 .Create(DatabaseHelper.ConditionDefinitions.ConditionHighlighted, "EWSunlightBladeHighlighted",
                     DefinitionBuilder.CENamespaceGuid)
                 .SetSpecialInterruptions(RuleDefinitions.ConditionInterruption.Attacked)
                 .SetDuration(RuleDefinitions.DurationType.Round, 1)
                 .SetTurnOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn)
                 .SetSpecialDuration(true)
-                .AddToDB());
+                .AddToDB()
+        };
 
-        var dimLight = new LightSourceForm()
-            .SetBrightRange(0)
-            .SetDimAdditionalRange(2)
-            .SetLightSourceType(RuleDefinitions.LightSourceType.Basic)
-            .SetColor(new Color(0.9f, 0.8f, 0.4f));
-
-        dimLight.SetGraphicsPrefabReference(DatabaseHelper.FeatureDefinitionAdditionalDamages
-            .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference);
+        var dimLight = new LightSourceForm
+        {
+            brightRange = 0,
+            dimAdditionalRange = 2,
+            lightSourceType = RuleDefinitions.LightSourceType.Basic,
+            color = new Color(0.9f, 0.8f, 0.4f),
+            graphicsPrefabReference = DatabaseHelper.FeatureDefinitionAdditionalDamages
+                .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
+        };
 
         return SpellDefinitionBuilder
             .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)
@@ -291,7 +292,7 @@ internal class ChainSpellEffectOnAttackHit : IChainMagicEffect
         var actionParams = baseEffect.actionParams;
         if (actionParams == null) { return null; }
 
-        if (baseEffect.Countered || baseEffect.GetProperty<bool>("ExecutionFailed"))
+        if (baseEffect.Countered || baseEffect.ExecutionFailed)
         {
             return null;
         }

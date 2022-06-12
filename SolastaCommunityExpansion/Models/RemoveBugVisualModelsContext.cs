@@ -1,6 +1,5 @@
 ﻿using ModKit.Utility;
-using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models;
@@ -60,38 +59,38 @@ internal static class RemoveBugVisualModelsContext
                 if (value.AssetGUID == assetReference_spider_1 || value.AssetGUID == assetReference_spider_2 ||
                     value.AssetGUID == assetReference_spider_3)
                 {
-                    monster.MonsterPresentation.SetMalePrefabReference(bearPrefab);
-                    monster.MonsterPresentation.SetFemalePrefabReference(bearPrefab);
-                    monster.GuiPresentation.SetSpriteReference(brownBear.GuiPresentation.SpriteReference);
-                    monster.SetBestiarySpriteReference(brownBear.BestiarySpriteReference);
-                    monster.MonsterPresentation.SetMonsterPresentationDefinitions(brownBear.MonsterPresentation
-                        .MonsterPresentationDefinitions);
+                    monster.MonsterPresentation.malePrefabReference = bearPrefab;
+                    monster.MonsterPresentation.femalePrefabReference = bearPrefab;
+                    monster.GuiPresentation.spriteReference = brownBear.GuiPresentation.SpriteReference;
+                    monster.bestiarySpriteReference = brownBear.BestiarySpriteReference;
+                    monster.MonsterPresentation.monsterPresentationDefinitions = brownBear.MonsterPresentation
+                        .MonsterPresentationDefinitions;
                 }
 
                 // swap apes for remorhaz
                 if (value.AssetGUID == assetReference_Remorhaz)
                 {
-                    monster.MonsterPresentation.SetMalePrefabReference(apePrefab);
-                    monster.MonsterPresentation.SetFemalePrefabReference(apePrefab);
-                    monster.GuiPresentation.SetSpriteReference(ape.GuiPresentation.SpriteReference);
-                    monster.SetBestiarySpriteReference(ape.BestiarySpriteReference);
-                    monster.MonsterPresentation.SetMonsterPresentationDefinitions(ape.MonsterPresentation
-                        .MonsterPresentationDefinitions);
+                    monster.MonsterPresentation.malePrefabReference = apePrefab;
+                    monster.MonsterPresentation.femalePrefabReference = apePrefab;
+                    monster.GuiPresentation.spriteReference = ape.GuiPresentation.SpriteReference;
+                    monster.bestiarySpriteReference = ape.BestiarySpriteReference;
+                    monster.MonsterPresentation.monsterPresentationDefinitions = ape.MonsterPresentation
+                        .MonsterPresentationDefinitions;
                 }
 
                 // swap wolves for beetles
                 if (value.AssetGUID == assetReference_beetle)
                 {
-                    monster.MonsterPresentation.SetMalePrefabReference(wolfPrefab);
-                    monster.MonsterPresentation.SetFemalePrefabReference(wolfPrefab);
-                    monster.GuiPresentation.SetSpriteReference(wolf.GuiPresentation.SpriteReference);
-                    monster.SetBestiarySpriteReference(wolf.BestiarySpriteReference);
-                    monster.MonsterPresentation.SetMonsterPresentationDefinitions(wolf.MonsterPresentation
-                        .MonsterPresentationDefinitions);
+                    monster.MonsterPresentation.malePrefabReference = wolfPrefab;
+                    monster.MonsterPresentation.femalePrefabReference = wolfPrefab;
+                    monster.GuiPresentation.spriteReference = wolf.GuiPresentation.SpriteReference;
+                    monster.bestiarySpriteReference = wolf.BestiarySpriteReference;
+                    monster.MonsterPresentation.monsterPresentationDefinitions = wolf.MonsterPresentation
+                        .MonsterPresentationDefinitions;
 
                     // changing beetle scale to suit replacement model
-                    monster.MonsterPresentation.SetMaleModelScale(0.655f);
-                    monster.MonsterPresentation.SetMaleModelScale(0.655f);
+                    monster.MonsterPresentation.maleModelScale = 0.655f;
+                    monster.MonsterPresentation.femaleModelScale = 0.655f;
                 }
             }
         }

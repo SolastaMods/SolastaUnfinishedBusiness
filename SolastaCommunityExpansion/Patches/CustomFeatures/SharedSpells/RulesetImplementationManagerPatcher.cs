@@ -2,7 +2,7 @@
 using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.SharedSpells;
 

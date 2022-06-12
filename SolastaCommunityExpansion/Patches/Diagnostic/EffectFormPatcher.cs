@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 using static EffectForm.EffectFormType;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
@@ -79,7 +79,7 @@ internal static class EffectFormVerification
 
         if (Mode.HasFlag(Verification.Throw))
         {
-            throw new SolastaModApiException(msg);
+            throw new SolastaCommunityExpansionException(msg);
         }
     }
 

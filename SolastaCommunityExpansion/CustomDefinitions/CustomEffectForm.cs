@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 

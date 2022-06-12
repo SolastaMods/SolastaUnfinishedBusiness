@@ -1,17 +1,17 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionMagicAffinitys;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Subclasses.Ranger;
 
@@ -191,7 +191,7 @@ internal class Arcanist : AbstractSubclass
                 DamageType = "DamageForce", DieType = RuleDefinitions.DieType.D8, DiceNumber = 4
             }
         };
-        damage_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
+        damage_effect.DamageForm.healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never;
         damage_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
         var damage_upgrade_effect = new EffectForm
@@ -201,7 +201,7 @@ internal class Arcanist : AbstractSubclass
                 DamageType = "DamageForce", DieType = RuleDefinitions.DieType.D8, DiceNumber = 8
             }
         };
-        damage_upgrade_effect.DamageForm.SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Never);
+        damage_upgrade_effect.DamageForm.healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Never;
         damage_upgrade_effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.None;
 
         var arcane_pulse_action = CreateArcanePulse("ArcanePulse", "Feature/&ArcanePulseTitle",
@@ -209,7 +209,7 @@ internal class Arcanist : AbstractSubclass
 
         var arcane_pulse_upgrade_action = CreateArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle",
             "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
-        arcane_pulse_upgrade_action.SetOverriddenPower(arcane_pulse_action);
+        arcane_pulse_upgrade_action.overriddenPower = arcane_pulse_action;
 
         return (arcane_pulse_action, arcane_pulse_upgrade_action);
     }

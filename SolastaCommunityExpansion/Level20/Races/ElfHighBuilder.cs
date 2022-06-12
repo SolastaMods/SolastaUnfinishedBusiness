@@ -1,5 +1,5 @@
-﻿using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionCastSpells;
+﻿using SolastaCommunityExpansion.Api.Infrastructure;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 
 namespace SolastaCommunityExpansion.Level20.Races;
 

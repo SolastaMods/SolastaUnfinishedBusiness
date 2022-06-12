@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using static SolastaModApi.DatabaseHelper.CharacterSizeDefinitions;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSizeDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaCommunityExpansion.FightingStyles;
 
@@ -38,6 +38,7 @@ internal class TitanFighting : AbstractFightingStyle
                 || defender.RulesetCharacter.SizeDefinition == Huge
                 || defender.RulesetCharacter.SizeDefinition == Gargantuan)
             {
+                attackerAttackMode.toHitBonus += 2;
                 attackModifier.AttacktoHitTrends.Add(
                     new RuleDefinitions.TrendInfo(2, RuleDefinitions.FeatureSourceType.FightingStyle,
                         "TitanFighting", this));

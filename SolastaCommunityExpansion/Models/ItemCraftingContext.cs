@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.ItemCrafting;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 using TMPro;
 using UnityEngine;
 #if DEBUG
@@ -102,7 +101,7 @@ internal static class ItemCraftingContext
         {
             foreach (var item in items)
             {
-                item.SetCosts(new[] {0, Main.Settings.RecipeCost, 0, 0, 0});
+                item.costs = new[] {0, Main.Settings.RecipeCost, 0, 0, 0};
             }
         }
     }
@@ -133,7 +132,7 @@ internal static class ItemCraftingContext
         var available = Main.Settings.CraftingItemsInDM.Contains(key);
         foreach (var recipeBookDefinition in RecipeBooks[key])
         {
-            recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.SetInDungeonEditor(available);
+            recipeBookDefinition.DocumentDescription.RecipeDefinition.CraftedItem.inDungeonEditor = available;
         }
     }
 

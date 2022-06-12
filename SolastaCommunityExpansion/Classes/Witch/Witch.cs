@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier;
 using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
 using static SolastaCommunityExpansion.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaCommunityExpansion.Spells.BazouSpells;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Witch;
 
@@ -684,13 +684,15 @@ internal static class Witch
             .AddConditionTags("Malediction")
             .AddToDB();
 
-        var abateConditionForm = new ConditionForm()
-            .SetConditionDefinition(abateConditionDefinition);
+        var abateConditionForm = new ConditionForm();
 
-        var abateEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(abateConditionForm);
+        abateConditionForm.conditionDefinition = abateConditionDefinition;
+
+        var abateEffectForm = new EffectForm();
+
+        abateEffectForm.formType = EffectForm.EffectFormType.Condition;
+        abateEffectForm.createdByCharacter = true;
+        abateEffectForm.conditionForm = abateConditionForm;
 
         var abateEffectDescription = ShockingGrasp.EffectDescription
             .Copy()
@@ -723,13 +725,15 @@ internal static class Witch
             .AddConditionTags("Malediction")
             .AddToDB();
 
-        var apathyConditionForm = new ConditionForm()
-            .SetConditionDefinition(apathyConditionDefinition);
+        var apathyConditionForm = new ConditionForm();
 
-        var apathyEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(apathyConditionForm);
+        apathyConditionForm.conditionDefinition = apathyConditionDefinition;
+
+        var apathyEffectForm = new EffectForm();
+
+        apathyEffectForm.formType = EffectForm.EffectFormType.Condition;
+        apathyEffectForm.createdByCharacter = true;
+        apathyEffectForm.conditionForm = apathyConditionForm;
 
         var apathyEffectDescription = CalmEmotionsOnEnemy.EffectDescription
             .Copy()
@@ -762,13 +766,15 @@ internal static class Witch
             .AddConditionTags("Malediction")
             .AddToDB();
 
-        var charmConditionForm = new ConditionForm()
-            .SetConditionDefinition(charmConditionDefinition);
+        var charmConditionForm = new ConditionForm();
 
-        var charmEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(charmConditionForm);
+        charmConditionForm.conditionDefinition = charmConditionDefinition;
+
+        var charmEffectForm = new EffectForm();
+
+        charmEffectForm.formType = EffectForm.EffectFormType.Condition;
+        charmEffectForm.createdByCharacter = true;
+        charmEffectForm.conditionForm = charmConditionForm;
 
         var charmEffectDescription = CharmPerson.EffectDescription
             .Copy()
@@ -808,13 +814,15 @@ internal static class Witch
             .SetFeatures(disorientCombatAffinity)
             .AddToDB();
 
-        var disorientConditionForm = new ConditionForm()
-            .SetConditionDefinition(disorientConditionDefinition);
+        var disorientConditionForm = new ConditionForm();
 
-        var disorientEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(disorientConditionForm);
+        disorientConditionForm.conditionDefinition = disorientConditionDefinition;
+
+        var disorientEffectForm = new EffectForm();
+
+        disorientEffectForm.formType = EffectForm.EffectFormType.Condition;
+        disorientEffectForm.createdByCharacter = true;
+        disorientEffectForm.conditionForm = disorientConditionForm;
 
         var disorientEffectDescription = Bane.EffectDescription
             .Copy()
@@ -848,13 +856,15 @@ internal static class Witch
             .ClearRecurrentEffectForms()
             .AddToDB();
 
-        var evileyeConditionForm = new ConditionForm()
-            .SetConditionDefinition(evileyeConditionDefinition);
+        var evileyeConditionForm = new ConditionForm();
 
-        var evileyeEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(evileyeConditionForm);
+        evileyeConditionForm.conditionDefinition = evileyeConditionDefinition;
+
+        var evileyeEffectForm = new EffectForm();
+
+        evileyeEffectForm.formType = EffectForm.EffectFormType.Condition;
+        evileyeEffectForm.createdByCharacter = true;
+        evileyeEffectForm.conditionForm = evileyeConditionForm;
 
         var evileyeEffectDescription = Fear.EffectDescription.Copy()
             .SetDuration(DurationType.Round, 1)
@@ -904,13 +914,15 @@ internal static class Witch
             .ClearRecurrentEffectForms()
             .AddToDB();
 
-        var poxConditionForm = new ConditionForm()
-            .SetConditionDefinition(poxConditionDefinition);
+        var poxConditionForm = new ConditionForm();
 
-        var poxEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(poxConditionForm);
+        poxConditionForm.conditionDefinition = poxConditionDefinition;
+
+        var poxEffectForm = new EffectForm();
+
+        poxEffectForm.formType = EffectForm.EffectFormType.Condition;
+        poxEffectForm.createdByCharacter = true;
+        poxEffectForm.conditionForm = poxConditionForm;
 
         var poxEffectDescription = PoisonSpray.EffectDescription
             .Copy()
@@ -950,13 +962,15 @@ internal static class Witch
             .SetFeatures(ruinAttributeModifier)
             .AddToDB();
 
-        var ruinConditionForm = new ConditionForm()
-            .SetConditionDefinition(ruinConditionDefinition);
+        var ruinConditionForm = new ConditionForm();
 
-        var ruinEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(ruinConditionForm);
+        ruinConditionForm.conditionDefinition = ruinConditionDefinition;
+
+        var ruinEffectForm = new EffectForm();
+
+        ruinEffectForm.formType = EffectForm.EffectFormType.Condition;
+        ruinEffectForm.createdByCharacter = true;
+        ruinEffectForm.conditionForm = ruinConditionForm;
 
         var ruinEffectDescription = AcidArrow.EffectDescription
             .Copy()
@@ -1044,10 +1058,12 @@ internal static class Witch
             // We remove the inherent bonus as we will be using the Witch's spell attack bonus
             witchFamiliarAttackIteration.MonsterAttackDefinition.toHitBonus = 0;
 
-            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm
-                .SetDiceNumber(1)
-                .SetDieType(DieType.D1)
-                .SetBonusDamage(0);
+            var damageForm = witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0]
+                .DamageForm;
+
+            damageForm.diceNumber = 1;
+            damageForm.dieType = DieType.D1;
+            damageForm.bonusDamage = 0;
 
             var witchFamiliarMonsterBuilder = MonsterDefinitionBuilder
                 .Create(Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)
@@ -1113,13 +1129,13 @@ internal static class Witch
                 .AddToDB();
 
             var summonForm = new SummonForm();
-            summonForm.SetMonsterDefinitionName(witchFamiliarMonster.name);
-            summonForm.SetDecisionPackage(null);
+            summonForm.monsterDefinitionName = witchFamiliarMonster.name;
+            summonForm.decisionPackage = null;
 
             var effectForm = new EffectForm();
-            effectForm.SetFormType(EffectForm.EffectFormType.Summon);
-            effectForm.SetCreatedByCharacter(true);
-            effectForm.SetSummonForm(summonForm);
+            effectForm.formType = EffectForm.EffectFormType.Summon;
+            effectForm.createdByCharacter = true;
+            effectForm.summonForm = summonForm;
 
             spell.EffectDescription.SetEffectForms(effectForm);
             GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);

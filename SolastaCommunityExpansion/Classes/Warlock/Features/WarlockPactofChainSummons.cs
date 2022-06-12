@@ -1,7 +1,6 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features;
@@ -242,13 +241,13 @@ internal static class WarlockPactOfTheChainSummons
             .AddToDB();
 
 
-        monster.MonsterPresentation.SetHasPrefabVariants(false);
+        monster.MonsterPresentation.hasPrefabVariants = false;
         monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-        monster.MonsterPresentation.SetUseCustomMaterials(true);
-        monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
-            .Young_Green_Dragon_Presentation.CustomMaterials);
-        monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        monster.MonsterPresentation.SetCanGeneratePortrait(true);
+        monster.MonsterPresentation.useCustomMaterials = true;
+        monster.MonsterPresentation.customMaterials = DatabaseHelper.MonsterPresentationDefinitions
+            .Young_Green_Dragon_Presentation.CustomMaterials;
+        monster.MonsterPresentation.hasMonsterPortraitBackground = true;
+        monster.MonsterPresentation.canGeneratePortrait = true;
 
         if (Help) { monster.Features.Add(Help); }
 
@@ -347,13 +346,13 @@ internal static class WarlockPactOfTheChainSummons
             .AddToDB();
 
 
-        monster.MonsterPresentation.SetHasPrefabVariants(false);
+        monster.MonsterPresentation.hasPrefabVariants = false;
         monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-        monster.MonsterPresentation.SetUseCustomMaterials(true);
-        // monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
+        monster.MonsterPresentation.useCustomMaterials = true;
+        // monster.MonsterPresentation.customMaterials = (DatabaseHelper.MonsterPresentationDefinitions
         //     .Young_Green_Dragon_Presentation.CustomMaterials);
-        monster.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        monster.MonsterPresentation.SetCanGeneratePortrait(true);
+        monster.MonsterPresentation.hasMonsterPortraitBackground = true;
+        monster.MonsterPresentation.canGeneratePortrait = true;
 
         if (Help) { monster.Features.Add(Help); }
 
@@ -363,14 +362,14 @@ internal static class WarlockPactOfTheChainSummons
         //
         // // monster.CreatureTags.Clear();
         // monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-        // monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
-        // monster.MonsterPresentation.SetUseCustomMaterials(true);
-        // // //  monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.customMaterials);
+        // monster.MonsterPresentation.monsterPresentationDefinitions = (DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.MonsterPresentationDefinitions);
+        // monster.MonsterPresentation.useCustomMaterials = (true);
+        // // //  monster.MonsterPresentation.customMaterials = (DatabaseHelper.MonsterPresentationDefinitions.Silver_Dragon_Presentation.customMaterials);
         // //
-        // monster.MonsterPresentation.SetMaleModelScale(0.4f);
-        // monster.MonsterPresentation.SetFemaleModelScale(0.4f);
-        // monster.MonsterPresentation.SetMalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
-        // monster.MonsterPresentation.SetFemalePrefabReference(DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
+        // monster.MonsterPresentation.maleModelScale = (0.4f);
+        // monster.MonsterPresentation.femaleModelScale = (0.4f);
+        // monster.MonsterPresentation.malePrefabReference = (DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
+        // monster.MonsterPresentation.femalePrefabReference = (DatabaseHelper.MonsterDefinitions.Dryad.MonsterPresentation.malePrefabReference);
 
         return monster;
     }
@@ -462,20 +461,20 @@ internal static class WarlockPactOfTheChainSummons
             .AddToDB();
 
         monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-        monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin
-            .MonsterPresentation.MonsterPresentationDefinitions);
-        monster.MonsterPresentation.SetUseCustomMaterials(true);
-        monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
-            .Orc_Female_Archer_RedScar.CustomMaterials);
+        monster.MonsterPresentation.monsterPresentationDefinitions = DatabaseHelper.MonsterDefinitions.Goblin
+            .MonsterPresentation.MonsterPresentationDefinitions;
+        monster.MonsterPresentation.useCustomMaterials = true;
+        monster.MonsterPresentation.customMaterials = DatabaseHelper.MonsterPresentationDefinitions
+            .Orc_Female_Archer_RedScar.CustomMaterials;
 
-        monster.MonsterPresentation.SetMaleModelScale(0.4f);
-        monster.MonsterPresentation.SetFemaleModelScale(0.4f);
-        monster.MonsterPresentation.SetMalePrefabReference(
-            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
-        monster.MonsterPresentation.SetFemalePrefabReference(
-            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.femalePrefabReference);
+        monster.MonsterPresentation.maleModelScale = 0.4f;
+        monster.MonsterPresentation.femaleModelScale = 0.4f;
+        monster.MonsterPresentation.malePrefabReference =
+            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference;
+        monster.MonsterPresentation.femalePrefabReference =
+            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.femalePrefabReference;
 
-        monster.MonsterPresentation.SetHasPrefabVariants(false);
+        monster.MonsterPresentation.hasPrefabVariants = false;
 
         if (Help) { monster.Features.Add(Help); }
 
@@ -570,21 +569,21 @@ internal static class WarlockPactOfTheChainSummons
             .SetGroupAttacks(false)
             .AddToDB();
 
-        monster.MonsterPresentation.SetHasPrefabVariants(false);
+        monster.MonsterPresentation.hasPrefabVariants = false;
 
         monster.MonsterPresentation.MonsterPresentationDefinitions.Empty();
-        monster.MonsterPresentation.SetMonsterPresentationDefinitions(DatabaseHelper.MonsterDefinitions.Goblin
-            .MonsterPresentation.MonsterPresentationDefinitions);
-        monster.MonsterPresentation.SetUseCustomMaterials(true);
-        monster.MonsterPresentation.SetCustomMaterials(DatabaseHelper.MonsterPresentationDefinitions
-            .Orc_Male_Chieftain_BladeFang.CustomMaterials);
+        monster.MonsterPresentation.monsterPresentationDefinitions = DatabaseHelper.MonsterDefinitions.Goblin
+            .MonsterPresentation.MonsterPresentationDefinitions;
+        monster.MonsterPresentation.useCustomMaterials = true;
+        monster.MonsterPresentation.customMaterials = DatabaseHelper.MonsterPresentationDefinitions
+            .Orc_Male_Chieftain_BladeFang.CustomMaterials;
 
-        monster.MonsterPresentation.SetMaleModelScale(0.55f);
-        monster.MonsterPresentation.SetFemaleModelScale(0.55f);
-        monster.MonsterPresentation.SetMalePrefabReference(
-            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
-        monster.MonsterPresentation.SetFemalePrefabReference(
-            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference);
+        monster.MonsterPresentation.maleModelScale = 0.55f;
+        monster.MonsterPresentation.femaleModelScale = 0.55f;
+        monster.MonsterPresentation.malePrefabReference =
+            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference;
+        monster.MonsterPresentation.femalePrefabReference =
+            DatabaseHelper.MonsterDefinitions.Goblin.MonsterPresentation.malePrefabReference;
 
         if (Help) { monster.Features.Add(Help); }
 

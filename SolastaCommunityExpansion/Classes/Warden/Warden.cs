@@ -10,7 +10,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warden.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaModApi.Infrastructure;
 using static CharacterClassDefinition;
 using static SolastaModApi.DatabaseHelper;

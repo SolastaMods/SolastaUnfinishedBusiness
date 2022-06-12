@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Displays;
@@ -219,7 +219,7 @@ internal static class ToolsDisplay
 
         var items = DatabaseRepository.GetDatabase<ItemDefinition>()
             .Where(x => !x.guiPresentation.Hidden)
-            .Where(x => x.GetField<ItemDefinition, bool>($"is{group}"))
+            .Where(x => x.GetField<bool>($"is{group}"))
             .OrderBy(x => x.FormatTitle());
 
         using var scrollView =

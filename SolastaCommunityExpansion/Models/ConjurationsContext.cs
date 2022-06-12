@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -56,7 +55,7 @@ internal static class ConjurationsContext
 
         foreach (var conjuredMonster in ConjuredMonsters)
         {
-            conjuredMonster.SetFullyControlledWhenAllied(controlled);
+            conjuredMonster.fullyControlledWhenAllied = controlled;
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)
@@ -82,7 +81,7 @@ internal static class ConjurationsContext
 
             if (summonForm != null)
             {
-                summonForm.SetMonsterDefinitionName(InvisibleStalker.Name);
+                summonForm.monsterDefinitionName = InvisibleStalker.Name;
 
                 ConjureElemental.SubspellsList.Add(definition);
             }
@@ -102,8 +101,8 @@ internal static class ConjurationsContext
         static void ConfigureAdvancement(SpellDefinition spell)
         {
             var advancement = spell.EffectDescription.EffectAdvancement;
-            advancement.SetEffectIncrementMethod(EffectIncrementMethod.PerAdditionalSlotLevel);
-            advancement.SetAdditionalSpellLevelPerIncrement(1);
+            advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
+            advancement.additionalSpellLevelPerIncrement = 1;
         }
     }
 }

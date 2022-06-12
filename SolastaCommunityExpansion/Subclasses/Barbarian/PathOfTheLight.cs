@@ -5,12 +5,11 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Subclasses.Barbarian;
 
@@ -391,19 +390,18 @@ internal class PathOfTheLight : AbstractSubclass
         private IlluminatingStrikeFeatureBuilder(string name, Guid guidNamespace,
             ConditionDefinition illuminatedCondition) : base(name, guidNamespace)
         {
-            Definition
-                .SetAdditionalDamageType(RuleDefinitions.AdditionalDamageType.Specific)
-                .SetSpecificDamageType("DamageRadiant")
-                .SetTriggerCondition(RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive)
-                .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.Die)
-                .SetDamageDiceNumber(1)
-                .SetDamageDieType(RuleDefinitions.DieType.D6)
-                .SetDamageSaveAffinity(RuleDefinitions.EffectSavingThrowType.None)
-                .SetLimitedUsage(RuleDefinitions.FeatureLimitedUsage.OnceInMyturn)
-                .SetNotificationTag("BarbarianPathOfTheLightIlluminatingStrike")
-                .SetRequiredProperty(RuleDefinitions.AdditionalDamageRequiredProperty.None)
-                .SetAddLightSource(true)
-                .SetLightSourceForm(CreateIlluminatedLightSource());
+            Definition.additionalDamageType = RuleDefinitions.AdditionalDamageType.Specific;
+            Definition.specificDamageType = "DamageRadiant";
+            Definition.triggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
+            Definition.damageValueDetermination = RuleDefinitions.AdditionalDamageValueDetermination.Die;
+            Definition.damageDiceNumber = 1;
+            Definition.damageDieType = RuleDefinitions.DieType.D6;
+            Definition.damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.None;
+            Definition.limitedUsage = RuleDefinitions.FeatureLimitedUsage.OnceInMyturn;
+            Definition.notificationTag = "BarbarianPathOfTheLightIlluminatingStrike";
+            Definition.requiredProperty = RuleDefinitions.AdditionalDamageRequiredProperty.None;
+            Definition.addLightSource = true;
+            Definition.lightSourceForm = CreateIlluminatedLightSource();
 
             SetAdvancement(
                 RuleDefinitions.AdditionalDamageAdvancement.ClassLevel,
@@ -458,11 +456,10 @@ internal class PathOfTheLight : AbstractSubclass
                     .LightSource);
 
             var lightSourceForm = new LightSourceForm();
-            lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
 
-            lightSourceForm
-                .SetBrightRange(4)
-                .SetDimAdditionalRange(4);
+            lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
+            lightSourceForm.brightRange = 4;
+            lightSourceForm.dimAdditionalRange = 4;
 
             return lightSourceForm;
         }
@@ -476,11 +473,10 @@ internal class PathOfTheLight : AbstractSubclass
         private IlluminatingStrikeInitiatorBuilder(string name, Guid guidNamespace,
             ConditionDefinition illuminatedCondition) : base(name, guidNamespace)
         {
-            Definition
-                .SetActivationTime(RuleDefinitions.ActivationTime.OnRageStartAutomatic)
-                .SetEffectDescription(CreatePowerEffect(illuminatedCondition))
-                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                .SetShowCasting(false);
+            Definition.activationTime = RuleDefinitions.ActivationTime.OnRageStartAutomatic;
+            Definition.effectDescription = CreatePowerEffect(illuminatedCondition);
+            Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+            Definition.showCasting = false;
         }
 
         public static IlluminatingStrikeInitiatorBuilder Create(string name, Guid guidNamespace,
@@ -541,17 +537,14 @@ internal class PathOfTheLight : AbstractSubclass
             ConditionDefinition illuminatedCondition, ConditionDefinition illuminatingBurstSuppressedCondition) :
             base(name, guidNamespace)
         {
-            Definition
-                .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
-                .SetEffectDescription(CreatePowerEffect(illuminatedCondition))
-                .SetRechargeRate(RuleDefinitions.RechargeRate
-                    .OneMinute) // Actually recharges at the start of your turn, using IStartOfTurnRecharge
-                .SetFixedUsesPerRecharge(1)
-                .SetUsesDetermination(RuleDefinitions.UsesDetermination.Fixed)
-                .SetCostPerUse(1)
-                .SetShowCasting(false)
-                .SetDisableIfConditionIsOwned(
-                    illuminatingBurstSuppressedCondition); // Only enabled on the turn you enter a rage
+            Definition.activationTime = RuleDefinitions.ActivationTime.NoCost;
+            Definition.effectDescription = CreatePowerEffect(illuminatedCondition);
+            Definition.rechargeRate = RuleDefinitions.RechargeRate.OneMinute;
+            Definition.fixedUsesPerRecharge = 1;
+            Definition.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
+            Definition.costPerUse = 1;
+            Definition.showCasting = false;
+            Definition.disableIfConditionIsOwned = illuminatingBurstSuppressedCondition;
         }
 
         public static PowerIlluminatingBurstBuilder Create(string name, Guid guidNamespace,
@@ -604,10 +597,11 @@ internal class PathOfTheLight : AbstractSubclass
                 SpellDefinitions.FaerieFire.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType
                     .LightSource);
 
-            var lightSourceForm = faerieFireLightSource.LightSourceForm
-                .Copy()
-                .SetBrightRange(4)
-                .SetDimAdditionalRange(4);
+            var lightSourceForm = new LightSourceForm();
+
+            lightSourceForm.Copy(faerieFireLightSource.LightSourceForm);
+            lightSourceForm.brightRange = 4;
+            lightSourceForm.dimAdditionalRange = 4;
 
             var addLightSource = new EffectForm
             {
@@ -615,7 +609,7 @@ internal class PathOfTheLight : AbstractSubclass
                 SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
             };
 
-            addLightSource.SetLightSourceForm(lightSourceForm);
+            addLightSource.lightSourceForm = lightSourceForm;
 
             effectDescriptionBuilder
                 .SetSavingThrowData(
@@ -661,11 +655,10 @@ internal class PathOfTheLight : AbstractSubclass
         private IlluminatingBurstInitiatorBuilder(string name, Guid guidNamespace,
             ConditionDefinition illuminatingBurstSuppressedCondition) : base(name, guidNamespace)
         {
-            Definition
-                .SetActivationTime(RuleDefinitions.ActivationTime.OnRageStartAutomatic)
-                .SetEffectDescription(CreatePowerEffect(illuminatingBurstSuppressedCondition))
-                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
-                .SetShowCasting(false);
+            Definition.activationTime = RuleDefinitions.ActivationTime.OnRageStartAutomatic;
+            Definition.effectDescription = CreatePowerEffect(illuminatingBurstSuppressedCondition);
+            Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
+            Definition.showCasting = false;
         }
 
         public static IlluminatingBurstInitiatorBuilder Create(string name, Guid guidNamespace,

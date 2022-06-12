@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Diagnostics;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi;
-using SolastaModApi.Diagnostics;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
@@ -184,7 +183,7 @@ public class FeatureDefinitionRemoverBuilder
                 return remover;
             }
         }
-        catch (SolastaModApiException)
+        catch (SolastaCommunityExpansionException)
         {
         }
 
@@ -228,7 +227,7 @@ public class FeatureDefinitionFeatureSetReplaceCustom : FeatureDefinitionFeature
     public void SetReplacedFeatureSet(FeatureDefinitionFeatureSetCustom featureSet)
     {
         ReplacedFeatureSet = featureSet;
-        GuiPresentation.SetSpriteReference(featureSet.GuiPresentation.SpriteReference);
+        GuiPresentation.spriteReference = featureSet.GuiPresentation.SpriteReference;
         foreach (var level in featureSet.AllLevels)
         {
             var features = featureSet.GetLevelFeatures(level);

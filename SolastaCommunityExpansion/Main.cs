@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
@@ -73,7 +72,7 @@ internal static class Main
                 Translations.LoadTranslations("Game");
             }
 
-            LoadSidecars(assembly.GetName().Name);
+            //LoadSidecars(assembly.GetName().Name);
         }
         catch (Exception ex)
         {
@@ -84,7 +83,7 @@ internal static class Main
         return true;
     }
 
-    internal static void OnShowGui(UnityModManager.ModEntry modEntry)
+    private static void OnShowGui(UnityModManager.ModEntry modEntry)
     {
         if (Settings.EnableHeroesControlledByComputer)
         {
@@ -92,21 +91,21 @@ internal static class Main
         }
     }
 
-    internal static void LoadSidecars(string currentAssemblyName)
-    {
-        foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
-        {
-            var filename = Path.GetFileName(path);
-
-            if (filename.StartsWith(currentAssemblyName))
-            {
-                continue;
-            }
-
-            var sidecarAssembly = Assembly.LoadFile(path);
-            var harmony = new Harmony(sidecarAssembly.GetName().Name);
-
-            harmony.PatchAll(sidecarAssembly);
-        }
-    }
+    // internal static void LoadSidecars(string currentAssemblyName)
+    // {
+    //     foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
+    //     {
+    //         var filename = Path.GetFileName(path);
+    //
+    //         if (filename.StartsWith(currentAssemblyName))
+    //         {
+    //             continue;
+    //         }
+    //
+    //         var sidecarAssembly = Assembly.LoadFile(path);
+    //         var harmony = new Harmony(sidecarAssembly.GetName().Name);
+    //
+    //         harmony.PatchAll(sidecarAssembly);
+    //     }
+    // }
 }

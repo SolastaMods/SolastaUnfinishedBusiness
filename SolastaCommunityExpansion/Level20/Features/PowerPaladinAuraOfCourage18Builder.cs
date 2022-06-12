@@ -1,6 +1,6 @@
-﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
+﻿using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Builders.Features;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaCommunityExpansion.Level20.Features;
 

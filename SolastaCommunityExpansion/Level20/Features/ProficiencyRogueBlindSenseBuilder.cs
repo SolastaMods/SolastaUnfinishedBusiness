@@ -1,6 +1,5 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi.Extensions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Level20.Features;
 
@@ -18,7 +17,7 @@ internal sealed class
     {
         Definition.GuiPresentation.Title = "Feature/&ProficiencyRogueBlindSenseTitle";
         Definition.GuiPresentation.Description = "Feature/&ProficiencyRogueBlindSenseDescription";
-        Definition.GuiPresentation.SetHidden(false);
+        Definition.GuiPresentation.hidden = false;
     }
 
     private static FeatureDefinitionSense CreateAndAddToDB(string name, string guid)

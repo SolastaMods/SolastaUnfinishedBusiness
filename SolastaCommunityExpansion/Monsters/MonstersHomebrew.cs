@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using SolastaMonsters.Models;
 using UnityEngine.AddressableAssets;
 
@@ -302,28 +301,28 @@ internal static class MonstersHomebrew
             NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.Titan_CombatDecisions);
 
             MonsterSavingThrowProficiency Str_save = new();
-            Str_save.SetField("abilityScoreName", "Strength");
-            Str_save.SetField("bonus", Definitions[i].SavingThrowStrength);
+            Str_save.abilityScoreName = "Strength";
+            Str_save.bonus = Definitions[i].SavingThrowStrength;
 
             MonsterSavingThrowProficiency Dex_save = new();
-            Dex_save.SetField("abilityScoreName", "Dexterity");
-            Dex_save.SetField("bonus", Definitions[i].SavingThrowDexterity);
+            Dex_save.abilityScoreName = "Dexterity";
+            Dex_save.bonus = Definitions[i].SavingThrowDexterity;
 
             MonsterSavingThrowProficiency Con_save = new();
-            Con_save.SetField("abilityScoreName", "Constitution");
-            Con_save.SetField("bonus", Definitions[i].SavingThrowConstitution);
+            Con_save.abilityScoreName = "Constitution";
+            Con_save.bonus = Definitions[i].SavingThrowConstitution;
 
             MonsterSavingThrowProficiency Int_save = new();
-            Int_save.SetField("abilityScoreName", "Intelligence");
-            Int_save.SetField("bonus", Definitions[i].SavingThrowIntelligence);
+            Int_save.abilityScoreName = "Intelligence";
+            Int_save.bonus = Definitions[i].SavingThrowIntelligence;
 
             MonsterSavingThrowProficiency Wis_save = new();
-            Wis_save.SetField("abilityScoreName", "Wisdom");
-            Wis_save.SetField("bonus", Definitions[i].SavingThrowWisdom);
+            Wis_save.abilityScoreName = "Wisdom";
+            Wis_save.bonus = Definitions[i].SavingThrowWisdom;
 
             MonsterSavingThrowProficiency Cha_save = new();
-            Cha_save.SetField("abilityScoreName", "Charisma");
-            Cha_save.SetField("bonus", Definitions[i].SavingThrowCharisma);
+            Cha_save.abilityScoreName = "Charisma";
+            Cha_save.bonus = Definitions[i].SavingThrowCharisma;
 
             NewMonster.ClearSavingThrowScores();
             NewMonster.AddSavingThrowScores(new List<MonsterSavingThrowProficiency>
@@ -359,7 +358,7 @@ internal static class MonstersHomebrew
                 NewMonster.SetSpriteReference(DatabaseHelper.MonsterDefinitions.KindredSpiritEagle.GuiPresentation
                     .SpriteReference);
                 //AssetReference assetReference = new AssetReference();
-                //assetReference.SetField("m_AssetGUID", "3f4ea7931d5f6ba4e96caace01b265b7");
+                //assetReference.m_AssetGUID =  "3f4ea7931d5f6ba4e96caace01b265b7";
                 //NewMonster.SetPrefabReference(assetReference);
                 AssetReference assetReference = new();
                 assetReference.SetField("m_AssetGUID", "b1bd642eab224bd4bbbf5ce48c869a9e");
@@ -375,32 +374,32 @@ internal static class MonstersHomebrew
                 });
 
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.AirTitan_Slam_Attack);
-                AttackIteration.SetField("number", 2);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.AirTitan_Slam_Attack;
+                AttackIteration.number = 2;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(new List<MonsterAttackIteration> {AttackIteration});
 
                 LegendaryActionDescription legendaryActionDescription = new();
-                legendaryActionDescription.SetCost(1);
-                legendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-                legendaryActionDescription.SetFeatureDefinitionPower(NewMonsterPowers.AirTitan_Lightning_Power);
-                legendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryDragonAttack);
+                legendaryActionDescription.cost = 1;
+                legendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
+                legendaryActionDescription.featureDefinitionPower = NewMonsterPowers.AirTitan_Lightning_Power;
+                legendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryDragonAttack;
 
                 LegendaryActionDescription legendaryActionDescription_2 = new();
-                legendaryActionDescription_2.SetCost(1);
-                legendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
-                legendaryActionDescription_2.SetSpellDefinition(DatabaseHelper.SpellDefinitions.SleetStorm);
-                legendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryAoE_Debuff);
+                legendaryActionDescription_2.cost = 1;
+                legendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.Spell;
+                legendaryActionDescription_2.spellDefinition = DatabaseHelper.SpellDefinitions.SleetStorm;
+                legendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryAoE_Debuff;
 
                 LegendaryActionDescription legendaryActionDescription_3 = new();
-                legendaryActionDescription_3.SetCost(2);
-                legendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-                legendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers.AirTitan_Gale_Power);
-                legendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryDragonWingAttack);
+                legendaryActionDescription_3.cost = 2;
+                legendaryActionDescription_3.subaction = LegendaryActionDescription.SubactionType.Power;
+                legendaryActionDescription_3.featureDefinitionPower = NewMonsterPowers.AirTitan_Gale_Power;
+                legendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryDragonWingAttack;
 
                 NewMonster.ClearLegendaryActionOptions();
                 NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription>
@@ -414,7 +413,7 @@ internal static class MonstersHomebrew
             if (Definitions[i].MonsterName == "Earth Titan")
             {
                 //AssetReference assetReference = new AssetReference();
-                //assetReference.SetField("m_AssetGUID", "aad57f1f96869a3409a5c064473c454d");
+                //assetReference.m_AssetGUID =  "aad57f1f96869a3409a5c064473c454d";
                 //NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.AddFeatures(new List<FeatureDefinition>
@@ -425,39 +424,39 @@ internal static class MonstersHomebrew
                 });
 
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.EarthTitan_Boulder_Attack);
-                AttackIteration.SetField("number", 2);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.EarthTitan_Boulder_Attack;
+                AttackIteration.number = 2;
 
                 MonsterAttackIteration AttackIteration_2 = new();
-                AttackIteration_2.SetField("monsterAttackDefinition", NewMonsterAttacks.EarthTitan_Slam_Attack);
-                AttackIteration_2.SetField("number", 2);
+                AttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.EarthTitan_Slam_Attack;
+                AttackIteration_2.number = 2;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(
                     new List<MonsterAttackIteration> {AttackIteration, AttackIteration_2});
 
                 LegendaryActionDescription legendaryActionDescription_1 = new();
-                legendaryActionDescription_1.SetCost(1);
-                legendaryActionDescription_1.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-                legendaryActionDescription_1.SetFeatureDefinitionPower(NewMonsterPowers.IlluminatingCrystals_Power);
-                legendaryActionDescription_1.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryAoE_Debuff);
+                legendaryActionDescription_1.cost = 1;
+                legendaryActionDescription_1.subaction = LegendaryActionDescription.SubactionType.Power;
+                legendaryActionDescription_1.featureDefinitionPower = NewMonsterPowers.IlluminatingCrystals_Power;
+                legendaryActionDescription_1.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryAoE_Debuff;
 
                 LegendaryActionDescription legendaryActionDescription_2 = new();
-                legendaryActionDescription_2.SetCost(1);
-                legendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-                legendaryActionDescription_2.SetMonsterAttackDefinition(NewMonsterAttacks
-                    .EarthTitan_Boulder_Attack);
-                legendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryDragonAttack);
+                legendaryActionDescription_2.cost = 1;
+                legendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+                legendaryActionDescription_2.monsterAttackDefinition = NewMonsterAttacks
+                    .EarthTitan_Boulder_Attack;
+                legendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryDragonAttack;
 
                 LegendaryActionDescription legendaryActionDescription_3 = new();
-                legendaryActionDescription_3.SetCost(2);
-                legendaryActionDescription_3.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-                legendaryActionDescription_3.SetFeatureDefinitionPower(NewMonsterPowers
-                    .EarthTitan_Earthquake_Power);
-                legendaryActionDescription_3.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryAoE_DpS);
+                legendaryActionDescription_3.cost = 2;
+                legendaryActionDescription_3.subaction = LegendaryActionDescription.SubactionType.Power;
+                legendaryActionDescription_3.featureDefinitionPower = NewMonsterPowers
+                    .EarthTitan_Earthquake_Power;
+                legendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryAoE_DpS;
 
                 NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription>
                 {
@@ -491,26 +490,25 @@ internal static class MonstersHomebrew
                 });
 
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.FireTitan_Slam_Attack);
-                AttackIteration.SetField("number", 3);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.FireTitan_Slam_Attack;
+                AttackIteration.number = 3;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(new List<MonsterAttackIteration> {AttackIteration});
 
                 LegendaryActionDescription legendaryActionDescription_2 = new();
-                legendaryActionDescription_2.SetCost(1);
-                legendaryActionDescription_2.SetSubaction(LegendaryActionDescription.SubactionType.Spell);
-                legendaryActionDescription_2.SetSpellDefinition(
-                    DatabaseHelper.SpellDefinitions.WallOfFireRing_Outer);
-                legendaryActionDescription_2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryAoE_DpS);
+                legendaryActionDescription_2.cost = 1;
+                legendaryActionDescription_2.subaction = LegendaryActionDescription.SubactionType.Spell;
+                legendaryActionDescription_2.spellDefinition = DatabaseHelper.SpellDefinitions.WallOfFireRing_Outer;
+                legendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryAoE_DpS;
 
                 LegendaryActionDescription legendaryActionDescription = new();
-                legendaryActionDescription.SetCost(1);
-                legendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-                legendaryActionDescription.SetFeatureDefinitionPower(NewMonsterPowers.AtWillAOE_Fireball_Power);
-                legendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryDefilerAoE_DpS);
+                legendaryActionDescription.cost = 1;
+                legendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.Power;
+                legendaryActionDescription.featureDefinitionPower = NewMonsterPowers.AtWillAOE_Fireball_Power;
+                legendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryDefilerAoE_DpS;
 
                 NewMonster.AddLegendaryActionOptions(new List<LegendaryActionDescription>
                 {
@@ -523,13 +521,13 @@ internal static class MonstersHomebrew
             if (Definitions[i].MonsterName == "Construct Titan")
             {
                 MonsterAttackIteration AttackIteration = new();
-                AttackIteration.SetField("monsterAttackDefinition", NewMonsterAttacks.ConstructTitan_Slam_Attack);
-                AttackIteration.SetField("number", 1);
+                AttackIteration.monsterAttackDefinition = NewMonsterAttacks.ConstructTitan_Slam_Attack;
+                AttackIteration.number = 1;
 
                 MonsterAttackIteration AttackIteration_2 = new();
-                AttackIteration_2.SetField("monsterAttackDefinition",
-                    NewMonsterAttacks.ConstructTitan_ForceCannon_Attack);
-                AttackIteration_2.SetField("number", 2);
+                AttackIteration_2.monsterAttackDefinition =
+                    NewMonsterAttacks.ConstructTitan_ForceCannon_Attack;
+                AttackIteration_2.number = 2;
 
                 NewMonster.ClearAttackIterations();
                 NewMonster.AddAttackIterations(
@@ -538,19 +536,19 @@ internal static class MonstersHomebrew
                 NewMonster.ClearLegendaryActionOptions();
 
                 LegendaryActionDescription legendaryActionDescription = new();
-                legendaryActionDescription.SetCost(1);
-                legendaryActionDescription.SetSubaction(LegendaryActionDescription.SubactionType.MonsterAttack);
-                legendaryActionDescription.SetMonsterAttackDefinition(NewMonsterAttacks
-                    .ConstructTitan_ForceCannon_Attack);
-                legendaryActionDescription.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryMummyLordAttack_Default);
+                legendaryActionDescription.cost = 1;
+                legendaryActionDescription.subaction = LegendaryActionDescription.SubactionType.MonsterAttack;
+                legendaryActionDescription.monsterAttackDefinition = NewMonsterAttacks
+                    .ConstructTitan_ForceCannon_Attack;
+                legendaryActionDescription.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryMummyLordAttack_Default;
 
                 LegendaryActionDescription legendaryActionDescription2 = new();
-                legendaryActionDescription2.SetCost(2);
-                legendaryActionDescription2.SetSubaction(LegendaryActionDescription.SubactionType.Power);
-                legendaryActionDescription2.SetFeatureDefinitionPower(NewMonsterPowers.DisintegratingBeam_Power);
-                legendaryActionDescription2.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions
-                    .LegendaryLaetharCast_Debuff);
+                legendaryActionDescription2.cost = 2;
+                legendaryActionDescription2.subaction = LegendaryActionDescription.SubactionType.Power;
+                legendaryActionDescription2.featureDefinitionPower = NewMonsterPowers.DisintegratingBeam_Power;
+                legendaryActionDescription2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
+                    .LegendaryLaetharCast_Debuff;
 
                 NewMonster.AddLegendaryActionOptions(
                     new List<LegendaryActionDescription> {legendaryActionDescription, legendaryActionDescription2});

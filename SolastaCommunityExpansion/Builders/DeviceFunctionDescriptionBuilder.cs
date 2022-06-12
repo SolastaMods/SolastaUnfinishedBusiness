@@ -1,6 +1,5 @@
 ﻿using System;
-using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -13,29 +12,29 @@ public class DeviceFunctionDescriptionBuilder
         description = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions.BeltOfRegeneration
             .UsableDeviceDescription.DeviceFunctions[0]);
 
-        description.SetParentUsage(EquipmentDefinitions.ItemUsage.ByFunction);
-        description.SetUseAffinity(DeviceFunctionDescription.FunctionUseAffinity.AtWill);
-        description.SetUseAmount(1);
-        description.SetRechargeRate(RuleDefinitions.RechargeRate.Dawn);
-        description.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
-        description.SetCanOverchargeSpell(false);
-        description.SetType(DeviceFunctionDescription.FunctionType.Power);
-        description.SetSpellDefinition(null);
-        description.SetFeatureDefinitionPower(null);
+        description.parentUsage = EquipmentDefinitions.ItemUsage.ByFunction;
+        description.useAffinity = DeviceFunctionDescription.FunctionUseAffinity.AtWill;
+        description.useAmount = 1;
+        description.rechargeRate = RuleDefinitions.RechargeRate.Dawn;
+        description.durationType = RuleDefinitions.DurationType.Instantaneous;
+        description.canOverchargeSpell = false;
+        description.type = DeviceFunctionDescription.FunctionType.Power;
+        description.spellDefinition = null;
+        description.featureDefinitionPower = null;
     }
 
     public DeviceFunctionDescriptionBuilder SetPower(FeatureDefinitionPower power)
     {
-        description.SetType(DeviceFunctionDescription.FunctionType.Power);
-        description.SetFeatureDefinitionPower(power);
+        description.type = DeviceFunctionDescription.FunctionType.Power;
+        description.featureDefinitionPower = power;
         return this;
     }
 
     public DeviceFunctionDescriptionBuilder SetSpell(SpellDefinition spell, bool canOverchargeSpell = false)
     {
-        description.SetType(DeviceFunctionDescription.FunctionType.Spell);
-        description.SetSpellDefinition(spell);
-        description.SetCanOverchargeSpell(canOverchargeSpell);
+        description.type = DeviceFunctionDescription.FunctionType.Spell;
+        description.spellDefinition = spell;
+        description.canOverchargeSpell = canOverchargeSpell;
         return this;
     }
 

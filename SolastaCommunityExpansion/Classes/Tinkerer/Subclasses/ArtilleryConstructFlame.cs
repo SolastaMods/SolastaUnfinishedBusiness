@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
@@ -23,8 +23,8 @@ internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&FlameArtilleryTitle";
         Definition.GuiPresentation.Description = "Feat/&FlameArtilleryDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
+            .SpriteReference;
 
         Definition.activationTime = RuleDefinitions.ActivationTime.Action;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
@@ -41,13 +41,13 @@ internal sealed class FlameArtilleryBuilder : FeatureDefinitionPowerBuilder
         //alterationForm.SetAlterationType (AlterationForm.Type.LightUp);
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = flameArtillery};
-        effect.SetCreatedByCharacter(true);
+        effect.createdByCharacter = true;
         effect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         effect.HasSavingThrow = true;
         effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
@@ -90,8 +90,8 @@ internal sealed class FlameArtillery2Builder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&FlameArtillery_2Title";
         Definition.GuiPresentation.Description = "Feat/&FlameArtillery_2Description";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
+            .SpriteReference;
 
         Definition.EffectDescription.EffectForms[0].DamageForm.DiceNumber = 3;
         Definition.overriddenPower = FlameArtilleryBuilder.FlameArtillery;
@@ -123,12 +123,12 @@ internal sealed class FlameArtilleryConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&FlameArtilleryConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.CubeOfLight.GuiPresentation
+            .SpriteReference;
 
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.MonsterPresentation.SetAttachedParticlesReference(new AssetReference());
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
+        Definition.MonsterPresentation.attachedParticlesReference = new AssetReference();
 
         Definition.armorClass = 18;
         Definition.noExperienceGain = true;
@@ -253,8 +253,8 @@ internal sealed class SummonFlameArtillerySpellConstructBuilder : SpellDefinitio
     {
         Definition.GuiPresentation.Title = "Feature/&FlameArtilleryModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&FlameArtilleryModePowerDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.BurningHands.GuiPresentation
+            .SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -289,7 +289,7 @@ internal sealed class SummonFlameArtillerySpellConstruct9Builder : SpellDefiniti
         Definition.GuiPresentation.Title = "Feature/&FlameArtillery_09ModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&FlameArtillery_09ModePowerDescription";
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9.Name);
+            .monsterDefinitionName = FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -317,7 +317,7 @@ internal sealed class SummonFlameArtillerySpellConstruct15Builder : SpellDefinit
         Definition.GuiPresentation.Description = "Feature/&FlameArtillery_15ModePowerDescription";
         Definition.uniqueInstance = false;
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.Name);
+            .monsterDefinitionName = FlameArtilleryConstruct15Builder.FlameArtilleryConstruct15.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

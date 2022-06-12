@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Warlock.Subclasses;
@@ -8,10 +10,8 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features;
 
@@ -292,7 +292,7 @@ internal static class EldritchInvocationsBuilder
             }
 
             var effectAdvancement = new EffectAdvancement();
-            effectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.None);
+            effectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.None;
             cantripEffect.SetEffectAdvancement(effectAdvancement);
 
             EldritchInvocations.Add(invocationName, EIPower);

@@ -1,10 +1,10 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Models.SpellsContext;
 
@@ -97,7 +97,7 @@ internal static class AceHighSpells
                     ConditionDefinition = PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition
                 }
             };
-            markedByPactEffectForm.SetCreatedByCharacter(true);
+            markedByPactEffectForm.createdByCharacter = true;
 
             var pactMarkEffectForm = new EffectForm
             {
@@ -107,8 +107,8 @@ internal static class AceHighSpells
                     ConditionDefinition = PactMarkPactMarkConditionBuilder.PactMarkCondition
                 }
             };
-            pactMarkEffectForm.ConditionForm.SetApplyToSelf(true);
-            pactMarkEffectForm.SetCreatedByCharacter(true);
+            pactMarkEffectForm.ConditionForm.applyToSelf = true;
+            pactMarkEffectForm.createdByCharacter = true;
 
             var effectDescription = Definition.EffectDescription;
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);

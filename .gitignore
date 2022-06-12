@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+/SolastaCommunityExpansion/Resources/Translations.zip
+
 # publicise files
 Assembly-CSharp_public.dll
 Assembly-CSharp_public.hash

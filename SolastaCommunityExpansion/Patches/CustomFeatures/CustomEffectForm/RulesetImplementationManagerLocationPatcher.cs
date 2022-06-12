@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomEffectForm;
 

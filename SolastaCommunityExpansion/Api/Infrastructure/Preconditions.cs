@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using JetBrains.Annotations;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 // TODO: rename IsNotNull -> ArgumentIsNotNull etc
 // TODO: remove Assert.IsNotNull which duplicates Preconditions.IsNotNull
@@ -69,7 +69,7 @@ public static class Preconditions
     {
         if (!left.Equals(right))
         {
-            throw new SolastaModApiException(message);
+            throw new SolastaCommunityExpansionException(message);
         }
     }
 }

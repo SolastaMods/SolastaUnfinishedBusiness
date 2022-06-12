@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;

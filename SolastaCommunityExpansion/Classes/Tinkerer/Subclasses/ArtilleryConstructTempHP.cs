@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 //*****************************************************************************************************************************************
@@ -22,8 +22,8 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
         Definition.GuiPresentation.Title = "Feature/&TempHPShieldTitle";
         Definition.shortTitleOverride = "Feature/&TempHPShieldTitle";
         Definition.GuiPresentation.Description = "Feat/&TempHPShieldDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
+            .SpriteReference;
 
         Definition.activationTime = RuleDefinitions.ActivationTime.Action;
         Definition.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
@@ -37,13 +37,13 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
         };
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
-        effect.SetTemporaryHitPointsForm(tempHPShield);
-        effect.SetCreatedByCharacter(true);
+        effect.temporaryHitPointsForm = tempHPShield;
+        effect.createdByCharacter = true;
 
         effect.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
@@ -87,18 +87,18 @@ internal sealed class TempHPShieldConstructBuilder : MonsterDefinitionBuilder
 
         Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&TempHPShieldConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.MonsterDefinitions.Magic_Mouth.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.MonsterDefinitions.Magic_Mouth.GuiPresentation
+            .SpriteReference;
 
-        Definition.MonsterPresentation.SetHasMonsterPortraitBackground(true);
-        Definition.MonsterPresentation.SetCanGeneratePortrait(true);
-        Definition.MonsterPresentation.SetCustomShaderReference(DatabaseHelper.MonsterDefinitions.KindredSpiritBear
-            .MonsterPresentation.CustomShaderReference);
-        Definition.MonsterPresentation.SetOverrideCharacterShaderColors(true);
-        Definition.MonsterPresentation.SetFirstCharacterShaderColor(DatabaseHelper.MonsterDefinitions
-            .KindredSpiritBear.MonsterPresentation.FirstCharacterShaderColor);
-        Definition.MonsterPresentation.SetSecondCharacterShaderColor(DatabaseHelper.MonsterDefinitions
-            .KindredSpiritBear.MonsterPresentation.SecondCharacterShaderColor);
+        Definition.MonsterPresentation.hasMonsterPortraitBackground = true;
+        Definition.MonsterPresentation.canGeneratePortrait = true;
+        Definition.MonsterPresentation.customShaderReference = DatabaseHelper.MonsterDefinitions.KindredSpiritBear
+            .MonsterPresentation.CustomShaderReference;
+        Definition.MonsterPresentation.overrideCharacterShaderColors = true;
+        Definition.MonsterPresentation.firstCharacterShaderColor = DatabaseHelper.MonsterDefinitions
+            .KindredSpiritBear.MonsterPresentation.FirstCharacterShaderColor;
+        Definition.MonsterPresentation.secondCharacterShaderColor = DatabaseHelper.MonsterDefinitions
+            .KindredSpiritBear.MonsterPresentation.SecondCharacterShaderColor;
 
         Definition.armorClass = 18;
         Definition.noExperienceGain = true;
@@ -226,8 +226,8 @@ internal sealed class SummonTempHPShieldSpellConstructBuilder : SpellDefinitionB
     {
         Definition.GuiPresentation.Title = "Feature/&TempHPShieldModePowerTitle";
         Definition.GuiPresentation.Description = "Feature/&TempHPShieldModePowerDescription";
-        Definition.GuiPresentation.SetSpriteReference(DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
-            .SpriteReference);
+        Definition.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.Aid.GuiPresentation
+            .SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -263,7 +263,7 @@ internal sealed class SummonTempHPShieldSpellConstruct9Builder : SpellDefinition
         Definition.GuiPresentation.Description = "Feature/&TempHPShield_09ModePowerDescription";
 
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(TempHPShieldConstruct9Builder.TempHPShieldConstruct9.Name);
+            .monsterDefinitionName = TempHPShieldConstruct9Builder.TempHPShieldConstruct9.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)
@@ -291,7 +291,7 @@ internal sealed class SummonTempHPShieldSpellConstruct15Builder : SpellDefinitio
         Definition.GuiPresentation.Description = "Feature/&TempHPShield_15ModePowerDescription";
         Definition.uniqueInstance = false;
         Definition.EffectDescription.EffectForms[0].SummonForm
-            .SetMonsterDefinitionName(TempHPShieldConstruct15Builder.TempHPShieldConstruct15.Name);
+            .monsterDefinitionName = TempHPShieldConstruct15Builder.TempHPShieldConstruct15.Name;
     }
 
     private static SpellDefinition CreateAndAddToDB(string name, string guid)

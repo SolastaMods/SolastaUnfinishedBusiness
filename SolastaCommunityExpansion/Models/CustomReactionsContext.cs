@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.CustomUI;
 using SolastaCommunityExpansion.Feats;
-using SolastaModApi;
 using static ActionDefinitions;
 using static ActionDefinitions.ActionStatus;
 

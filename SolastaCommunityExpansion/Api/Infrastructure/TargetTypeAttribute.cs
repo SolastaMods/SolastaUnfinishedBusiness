@@ -1,6 +1,7 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 /// <summary>
 ///     Attribute to support testing
@@ -15,3 +16,4 @@ public sealed class TargetTypeAttribute : Attribute
 
     public Type TargetType { get; }
 }
+#endif

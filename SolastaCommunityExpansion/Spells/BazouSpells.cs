@@ -1,19 +1,19 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
 using static SolastaCommunityExpansion.Classes.Witch.Witch;
 using static SolastaCommunityExpansion.Models.SpellsContext;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellListDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaCommunityExpansion.Spells;
 
@@ -85,27 +85,33 @@ internal static class BazouSpells
             .SetCanBeDispersed(true);
 
         spell.EffectDescription.EffectAdvancement
-            .SetAdditionalDicePerIncrement(1)
-            .SetIncrementMultiplier(5)
-            .SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod.CasterLevelTable);
+            .additionalDicePerIncrement = 1;
+
+        spell.EffectDescription.EffectAdvancement
+            .incrementMultiplier = 5;
+
+        spell.EffectDescription.EffectAdvancement
+            .effectIncrementMethod = RuleDefinitions.EffectIncrementMethod.CasterLevelTable;
 
         // Changing to a single damage effect with d4, as I am unsure how to implement 2 different effectDescriptions within the same spell
         // First one should be single target attack roll, d8 damage
         // Second one should be adjacent aoe to first target, half of damage of first effect, no damage on saving throw negates
         var effectForm = spell.EffectDescription.EffectForms[0];
-        effectForm.SetHasSavingThrow(false).SetLevelMultiplier(1);
+        effectForm.hasSavingThrow = false;
+        effectForm.levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
-        effectForm.DamageForm.SetDiceNumber(1).SetDieType(RuleDefinitions.DieType.D4)
-            .SetDamageType(RuleDefinitions.DamageTypeForce);
+        effectForm.DamageForm.diceNumber = 1;
+        effectForm.DamageForm.dieType = RuleDefinitions.DieType.D4;
+        effectForm.DamageForm.damageType = RuleDefinitions.DamageTypeForce;
 
         // Not sure if I prefer copying and editing existing effect forms
         // or creating one from scratch through API
         //            var effectForm = new EffectFormBuilder().Build();
 
         //            effectForm.Copy(spell.EffectDescription.EffectForms[0]);
-        //            effectForm.SetHasSavingThrow(true);
-        //            effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        //            effectForm.hasSavingThrow =(true);
+        //            effectForm.savingThrowAffinity =(RuleDefinitions.EffectSavingThrowType.Negates);
         //            effectForm.DamageForm.SetDieType(RuleDefinitions.DieType.D4);
 
         //            spell.EffectDescription.EffectForms.Add(effectForm);
@@ -170,7 +176,7 @@ internal static class BazouSpells
             .SetRitualCasting(RuleDefinitions.ActivationTime.Minute10)
             .AddToDB();
 
-        spell.SetUniqueInstance(true);
+        spell.uniqueInstance = true;
 
         spell.EffectDescription.Copy(ConjureAnimalsOneBeast.EffectDescription);
         spell.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
@@ -180,13 +186,13 @@ internal static class BazouSpells
         spell.EffectDescription.EffectForms.Clear();
 
         var summonForm = new SummonForm();
-        summonForm.SetMonsterDefinitionName(familiarMonster.name);
-        summonForm.SetDecisionPackage(null);
+        summonForm.monsterDefinitionName = familiarMonster.name;
+        summonForm.decisionPackage = null;
 
         var effectForm = new EffectForm();
-        effectForm.SetFormType(EffectForm.EffectFormType.Summon);
-        effectForm.SetCreatedByCharacter(true);
-        effectForm.SetSummonForm(summonForm);
+        effectForm.formType = EffectForm.EffectFormType.Summon;
+        effectForm.createdByCharacter = true;
+        effectForm.summonForm = summonForm;
 
         spell.EffectDescription.EffectForms.Add(effectForm);
 
@@ -216,7 +222,7 @@ internal static class BazouSpells
         spell.EffectDescription.SetDurationParameter(1);
         spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         spell.EffectDescription.SetTargetParameter(4);
-        spell.EffectDescription.SetHasSavingThrow(true);
+        spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
 
         var conditionDefinition = ConditionDefinitionBuilder
@@ -241,7 +247,7 @@ internal static class BazouSpells
         actionAffinity.RandomBehaviourOptions.Add(behaviorMode);
         conditionDefinition.Features.SetRange(actionAffinity);
 
-        spell.EffectDescription.EffectForms[0].ConditionForm.SetConditionDefinition(conditionDefinition);
+        spell.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition = conditionDefinition;
 
         return spell;
     }
@@ -263,23 +269,23 @@ internal static class BazouSpells
         spell.EffectDescription.SetRangeParameter(12);
         spell.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Instantaneous);
         spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Individuals);
-        spell.EffectDescription.SetHasSavingThrow(true);
+        spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetHalfDamageOnAMiss(false);
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Constitution);
-        spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
-        spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(5);
-        spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
-            .CasterLevelTable);
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 5;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+            .CasterLevelTable;
 
-        spell.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
+        spell.EffectDescription.EffectForms[1].hasSavingThrow = true;
         spell.EffectDescription.EffectForms[1]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(1);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeNecrotic);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 1;
+        spell.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D4;
+        spell.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypeNecrotic;
         spell.EffectDescription.EffectForms[1].DamageForm
-            .SetHealFromInflictedDamage(RuleDefinitions.HealFromInflictedDamage.Full);
-        spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
+            .healFromInflictedDamage = RuleDefinitions.HealFromInflictedDamage.Full;
+        spell.EffectDescription.EffectForms[1].levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
@@ -308,21 +314,21 @@ internal static class BazouSpells
         spell.EffectDescription.SetDurationParameter(1);
         spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cube);
         spell.EffectDescription.SetTargetParameter(3);
-        spell.EffectDescription.SetHasSavingThrow(true);
+        spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Strength);
         spell.EffectDescription.SetRecurrentEffect((RuleDefinitions.RecurrentEffect)20);
-        spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(2);
-        spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
-        spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
-            .PerAdditionalSlotLevel);
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+            .PerAdditionalSlotLevel;
 
-        spell.EffectDescription.EffectForms[0].SetHasSavingThrow(true);
+        spell.EffectDescription.EffectForms[0].hasSavingThrow = true;
         spell.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D4);
-        spell.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypeSlashing);
-        spell.EffectDescription.EffectForms[0].SetLevelMultiplier(1);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
+        spell.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        spell.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D4;
+        spell.EffectDescription.EffectForms[0].DamageForm.damageType = RuleDefinitions.DamageTypeSlashing;
+        spell.EffectDescription.EffectForms[0].levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetMaximumIncrease(2);
         //spell.EffectDescription.EffectForms[0].AlterationForm.SetValueIncrease(2);
@@ -340,7 +346,7 @@ internal static class BazouSpells
         effectProxyDefinition.canMoveOnCharacters = true;
         effectProxyDefinition.isEmptyPresentation = false;
 
-        spell.EffectDescription.EffectForms[2].SummonForm.SetEffectProxyDefinitionName(effectProxyDefinition.Name);
+        spell.EffectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = effectProxyDefinition.Name;
 
         return spell;
     }
@@ -366,24 +372,24 @@ internal static class BazouSpells
         spell.EffectDescription.SetDurationParameter(10);
         spell.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         spell.EffectDescription.SetTargetParameter(0);
-        spell.EffectDescription.SetHasSavingThrow(true);
+        spell.EffectDescription.hasSavingThrow = true;
         spell.EffectDescription.SetSavingThrowAbility(AttributeDefinitions.Wisdom);
         spell.EffectDescription.SetRecurrentEffect(RuleDefinitions.RecurrentEffect.OnEnter);
         spell.EffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
             .AbilityScoreAndProficiency);
 
-        spell.EffectDescription.EffectAdvancement.SetAdditionalDicePerIncrement(1);
-        spell.EffectDescription.EffectAdvancement.SetIncrementMultiplier(1);
-        spell.EffectDescription.EffectAdvancement.SetEffectIncrementMethod(RuleDefinitions.EffectIncrementMethod
-            .PerAdditionalSlotLevel);
+        spell.EffectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
+        spell.EffectDescription.EffectAdvancement.incrementMultiplier = 1;
+        spell.EffectDescription.EffectAdvancement.effectIncrementMethod = RuleDefinitions.EffectIncrementMethod
+            .PerAdditionalSlotLevel;
 
-        spell.EffectDescription.EffectForms[1].SetHasSavingThrow(true);
+        spell.EffectDescription.EffectForms[1].hasSavingThrow = true;
         spell.EffectDescription.EffectForms[1]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(4);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        spell.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypePsychic);
-        spell.EffectDescription.EffectForms[1].SetLevelMultiplier(1);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
+        spell.EffectDescription.EffectForms[1].DamageForm.diceNumber = 4;
+        spell.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        spell.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypePsychic;
+        spell.EffectDescription.EffectForms[1].levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetMaximumIncrease(2);
         //spell.EffectDescription.EffectForms[1].AlterationForm.SetValueIncrease(2);
@@ -395,7 +401,7 @@ internal static class BazouSpells
             .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
             .AddToDB();
 
-        spell.EffectDescription.EffectForms[0].SummonForm.SetEffectProxyDefinitionName(proxyProtectThreshold);
+        spell.EffectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = proxyProtectThreshold;
 
         return spell;
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
@@ -7,10 +8,9 @@ using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Monk.Subclasses;
 

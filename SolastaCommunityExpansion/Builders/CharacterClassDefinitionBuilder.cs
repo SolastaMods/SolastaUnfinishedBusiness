@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
 using static CharacterClassDefinition;
@@ -30,9 +29,10 @@ public class
     {
         Definition.PersonalityFlagOccurences.Add(
             new PersonalityFlagOccurence(
-                    DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
-                .SetWeight(weight)
-                .SetPersonalityFlag(personalityType.Name));
+                DatabaseHelper.CharacterClassDefinitions.Fighter.PersonalityFlagOccurences[0])
+            {
+                weight = weight, personalityFlag = personalityType.Name
+            });
 
         Definition.PersonalityFlagOccurences.Sort((x, y) => x.PersonalityFlag.CompareTo(y.PersonalityFlag));
 

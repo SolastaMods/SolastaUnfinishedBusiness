@@ -3,7 +3,7 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Models;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Monk.Subclasses;
 

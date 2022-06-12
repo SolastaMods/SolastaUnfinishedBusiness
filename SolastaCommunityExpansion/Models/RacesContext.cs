@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Races;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Models;
 
@@ -59,8 +58,8 @@ internal static class RacesContext
 
     private static void UpdateRaceVisibility(CharacterRaceDefinition characterRaceDefinition)
     {
-        characterRaceDefinition.GuiPresentation.SetHidden(
-            !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
+        characterRaceDefinition.GuiPresentation.hidden =
+            !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name);
     }
 
     internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)

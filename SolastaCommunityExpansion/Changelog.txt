@@ -1,16 +1,15 @@
-﻿- Add an item category filter to the crafting panel
-- Add a house rule to ignore spells concentration
-- Add game unofficial translations in Spanish and Italian
-- Fix level down not removing fighting styles granted from feats
-- Improve translations
-- Update credits with Patrons list
+﻿- Fix divine smite with pact magic slots
+- Fix to hit bonus on Titan Fighting
+- Optimize code base to gain back some FPS
+- Reduce DLL payload size by 40%
+- Remove Toad King from payload [you need to respec any TK hero before update]
+- Tweak Mass Heal spell to do up to 120hp @ 6 targets
 
 REQUEST:
 
 - Looking for native ES and IT speakers to improve initial translations from DeepL
 - Contact Zappastuff at Official Tactical Adventures Discord to learn how to help
 
-PATRONS:
+PATRONAGE:
 
-- I'm looking to provide better translations with an official Deepl Pro license
-- Please check Nexus posts for the donation link if you believe you can contribute
+- Check the stick post on Nexus if you believe you can contribute towards translations

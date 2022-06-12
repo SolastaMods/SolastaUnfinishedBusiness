@@ -2,12 +2,11 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using SolastaCommunityExpansion;
-using SolastaModApi.Diagnostics;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Diagnostics;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 
-namespace SolastaModApi.Testing
+namespace SolastaCommunityExpansion.Api.Testing
 {
     public static class Tests
     {
@@ -20,8 +19,8 @@ namespace SolastaModApi.Testing
                 var dbHelperTypes = Assembly
                     .GetExecutingAssembly()
                     .GetTypes()
-                    .Where(t => t.Namespace == "SolastaModApi")
-                    .Where(t => t.FullName.StartsWith("SolastaModApi.DatabaseHelper"))
+                    .Where(t => t.Namespace == "SolastaCommunityExpansion")
+                    .Where(t => t.FullName.StartsWith("SolastaCommunityExpansion.Api.DatabaseHelper"))
                     .Where(t => t.MemberType == MemberTypes.NestedType)
                     .OrderBy(t => t.Name);
 
@@ -379,7 +378,7 @@ namespace SolastaModApi.Testing
                 TestProp = testValue;
             }
 
-            internal string TestProp { get; set; }
+            internal string TestProp { get; }
         }
     }
 }

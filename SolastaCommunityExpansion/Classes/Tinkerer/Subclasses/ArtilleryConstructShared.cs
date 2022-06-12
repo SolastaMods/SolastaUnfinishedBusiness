@@ -1,11 +1,11 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
-using SolastaModApi.Extensions;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 //*****************************************************************************************************************************************
@@ -244,7 +244,7 @@ internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower);
+        power.overriddenPower = ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower;
 
         return power;
     }
@@ -282,7 +282,7 @@ internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower);
+        power.overriddenPower = ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower;
 
         return power;
     }
@@ -319,7 +319,7 @@ internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower);
+        power.overriddenPower = ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower;
 
         return power;
     }
@@ -410,7 +410,7 @@ internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.FlameArtillery_09modepower);
+        power.overriddenPower = ArtilleryConstructlevel09FeatureSetBuilder.FlameArtillery_09modepower;
         return power;
     }
 
@@ -447,7 +447,7 @@ internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.ForceArtillery_09modepower);
+        power.overriddenPower = ArtilleryConstructlevel09FeatureSetBuilder.ForceArtillery_09modepower;
 
         return power;
     }
@@ -485,7 +485,7 @@ internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.TempHPShield_09modepower);
+        power.overriddenPower = ArtilleryConstructlevel09FeatureSetBuilder.TempHPShield_09modepower;
         return power;
     }
 
@@ -511,7 +511,7 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&SelfDestructTitle";
         Definition.GuiPresentation.Description = "Feat/&SelfDestructDescription";
-        Definition.GuiPresentation.SetSpriteReference(FlamingSphere.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = FlamingSphere.GuiPresentation.SpriteReference;
         Definition.shortTitleOverride = "Feat/&SelfDestructTitle";
 
         Definition.activationTime = RuleDefinitions.ActivationTime.Action;
@@ -527,8 +527,8 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
         SelfDestructConditionEffect.ConditionForm.ConditionDefinition =
             SelfDestructionConditionBuilder.SelfDestructionCondition;
         SelfDestructConditionEffect.HasSavingThrow = false;
-        SelfDestructConditionEffect.ConditionForm.SetApplyToSelf(true);
-        SelfDestructConditionEffect.ConditionForm.SetForceOnSelf(true);
+        SelfDestructConditionEffect.ConditionForm.applyToSelf = true;
+        SelfDestructConditionEffect.ConditionForm.forceOnSelf = true;
         // CounterForm SelfDestruct = new CounterForm();
         //
         // SelfDestruct.SetType (CounterForm.CounterType.DismissCreature);
@@ -545,13 +545,13 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
         {
             FormType = EffectForm.EffectFormType.Damage, DamageForm = ExplosionDamage
         };
-        ExplosionEffect.SetCreatedByCharacter(true);
+        ExplosionEffect.createdByCharacter = true;
         ExplosionEffect.HasSavingThrow = true;
         ExplosionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         ExplosionEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        ExplosionEffect.SetLevelMultiplier(1);
-        ExplosionEffect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        ExplosionEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        ExplosionEffect.levelMultiplier = 1;
+        ExplosionEffect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        ExplosionEffect.applyLevel = EffectForm.LevelApplianceType.No;
 
         var newEffectDescription = new EffectDescription();
         newEffectDescription.Copy(Definition.EffectDescription);
@@ -614,12 +614,12 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
         SelfDestruct.killCondition = RuleDefinitions.KillCondition.Always;
 
         var KillEffect = new EffectForm {FormType = EffectForm.EffectFormType.Kill};
-        KillEffect.SetKillForm(SelfDestruct);
-        KillEffect.SetCreatedByCharacter(true);
+        KillEffect.killForm = SelfDestruct;
+        KillEffect.createdByCharacter = true;
         KillEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        KillEffect.SetLevelMultiplier(1);
-        KillEffect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        KillEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        KillEffect.levelMultiplier = 1;
+        KillEffect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        KillEffect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.RecurrentEffectForms.Add(KillEffect);
 
@@ -653,24 +653,24 @@ internal sealed class HalfCoverShieldBuilder : FeatureDefinitionPowerBuilder
     {
         Definition.GuiPresentation.Title = "Feat/&HalfCoverShieldTitle";
         Definition.GuiPresentation.Description = "Feat/&HalfCoverShieldDescription";
-        Definition.GuiPresentation.SetSpriteReference(Shield.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = Shield.GuiPresentation.SpriteReference;
 
         var halfCoverShield = new EffectForm
         {
             ConditionForm = new ConditionForm(), FormType = EffectForm.EffectFormType.Condition
         };
         halfCoverShield.ConditionForm.Operation = ConditionForm.ConditionOperation.Add;
-        halfCoverShield.ConditionForm.SetConditionDefinitionName(HalfCoverShieldConditionBuilder
-            .HalfCoverShieldCondition.Name);
+        halfCoverShield.ConditionForm.conditionDefinitionName = HalfCoverShieldConditionBuilder
+            .HalfCoverShieldCondition.Name;
         halfCoverShield.ConditionForm.ConditionDefinition =
             HalfCoverShieldConditionBuilder.HalfCoverShieldCondition; // DistractingPulseBuilder.DistractingPulse;
 
-        halfCoverShield.SetCreatedByCharacter(true);
+        halfCoverShield.createdByCharacter = true;
 
         halfCoverShield.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
-        halfCoverShield.SetLevelMultiplier(1);
-        halfCoverShield.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        halfCoverShield.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        halfCoverShield.levelMultiplier = 1;
+        halfCoverShield.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        halfCoverShield.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();
@@ -767,7 +767,7 @@ internal sealed class SummonArtillerySpellConstructBuilder : SpellDefinitionBuil
     {
         Definition.GuiPresentation.Title = "Feat/&ResummonArtilleryConstruct_03Title";
         Definition.GuiPresentation.Description = "Feat/&ResummonArtilleryConstructDescription";
-        Definition.GuiPresentation.SetSpriteReference(FaerieFire.GuiPresentation.SpriteReference);
+        Definition.GuiPresentation.spriteReference = FaerieFire.GuiPresentation.SpriteReference;
 
         Definition.spellLevel = 1;
         Definition.requiresConcentration = false;
@@ -867,7 +867,7 @@ internal sealed class SummoningAffinityTinkererArtilleryConstructBuilder : Featu
     {
         Definition.GuiPresentation.Title = "Feature/&NoContentTitle";
         Definition.GuiPresentation.Description = "Feature/&NoContentTitle";
-        Definition.GuiPresentation.SetSpriteReference(null);
+        Definition.GuiPresentation.spriteReference = null;
 
         Definition.effectOnConjuredDeath = false;
         Definition.EffectForms.Clear();
