@@ -1,4 +1,4 @@
-﻿Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
+Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
 Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
 Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop
 Condition/&DH_TimeStop_Spell_Title	Frozen by Time Stop

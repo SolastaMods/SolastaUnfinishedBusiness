@@ -1,4 +1,4 @@
-﻿ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells.
+ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells.
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1.
@@ -22,7 +22,7 @@ Class/&WitchBurnedProduceFlameTitle	Produce Flame
 Class/&WitchCacklePowerDescription	You can use your bonus action to cackle. The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you.\nNot all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
 Class/&WitchCacklePowerTitle	Cackle
 Class/&WitchDescription	Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
-Class/&WitchFamiliarPowerDescription	You learn the Witch Familiar spell, i.e. an improved Find Familiar spell, and can cast it as a ritual without material components. The spell doesn't count against your number of spells known. The spell improves Find Familiar in the following ways:\nâ€¢ Your familiar takes its turn immediately before or after your turn each round (your choice).\nâ€¢ Once per turn as an action or a bonus action, you can mentally command your familiar to use its reaction to make one attack.\nâ€¢ When you cast a spell, you can deliver it through your familiar as if it had cast the spell, even if the spell doesn't have a range of touch.\nâ€¢ Your familiar can use your spell attack bonus for its attack rolls.\nâ€¢ Your familiar adds your proficiency bonus to its Armor Class, saving throws, and damage rolls.\nâ€¢ You add twice your Witch level to your familiar's maximum hit points.
+Class/&WitchFamiliarPowerDescription	You learn the Witch Familiar spell, i.e. an improved Find Familiar spell, and can cast it as a ritual without material components. The spell doesn't count against your number of spells known. The spell improves Find Familiar in the following ways:\n• Your familiar takes its turn immediately before or after your turn each round (your choice).\n• Once per turn as an action or a bonus action, you can mentally command your familiar to use its reaction to make one attack.\n• When you cast a spell, you can deliver it through your familiar as if it had cast the spell, even if the spell doesn't have a range of touch.\n• Your familiar can use your spell attack bonus for its attack rolls.\n• Your familiar adds your proficiency bonus to its Armor Class, saving throws, and damage rolls.\n• You add twice your Witch level to your familiar's maximum hit points.
 Class/&WitchFamiliarPowerTitle	Familiar
 Class/&WitchFeatureSetBurnedCurseDescription	Almost all of your body has been scorched by arcane flames, leaving you with striking black scars and embers of magic that burn under the skin. As a result, you have resistance to fire damage, and you know the cantrip Produce Flame, which does not count against your total number of cantrips known.
 Class/&WitchFeatureSetBurnedCurseTitle	Burned
@@ -486,7 +486,7 @@ Feat/&ChefWisDescription	You gain +1 to Wisdom. Spend 1 hour to cook a meal to h
 Feat/&ChefWisTitle	Chef (Wisdom)
 Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct.
 Feat/&ConstructSelectingPoolTitle	Artillery Mode
-Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible.\nâ€¢ Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\nâ€¢ Your ranged weapon attacks ignore half cover and three-quarters cover.\nâ€¢ You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
+Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible.\n• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n• Your ranged weapon attacks ignore half cover and three-quarters cover.\n• You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
 Feat/&DeadeyeFeatTitle	Deadeye
 Feat/&DismissConstructDescription	Unsummon your construct.
 Feat/&DismissConstructTitle	Dismiss Construct
@@ -562,7 +562,7 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a m
 Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagic: Quickened
 Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points.
 Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
-Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\nâ€¢ When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\nâ€¢ While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
 Feat/&FeatPolearmExpertTitle	Polearm Expert
 Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
 Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
@@ -570,12 +570,12 @@ Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of
 Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
 Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
 Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
-Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\nâ€¢ You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.\nâ€¢ If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
+Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy in 5ft range of you.\n• If you spend you action attacking you can use Bonus action to make an attack with one handed ranged or thrown weapon.
 Feat/&FeatRangedExpertTitle	Ranged Expert
 Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when they roll a 1 (does not reroll all damage sources, for example excludes Sneak Attack and Smite).
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackerTitle	Savage Attacker
-Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\nâ€¢ When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\nâ€¢ Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\nâ€¢ When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
+Feat/&FeatSentinelDescription	You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:\n• When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.\n• Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.\n• When a creature makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature.
 Feat/&FeatSentinelTitle	Sentinel
 Feat/&FeatShadowTouchedChaDescription	Increase your Charisma attribute by 1, to a maximum of 20.\nYou gain the ability to cast Invisibility, Inflict Wounds, and False Life once per long rest and learn the spells.
 Feat/&FeatShadowTouchedChaTitle	Shadow Touched (Charisma)
@@ -804,7 +804,7 @@ Feature/&AncientForestExpandedSpelllistAfinityDescription	You choose from an exp
 Feature/&AncientForestExpandedSpelllistAfinityTitle	Ancient Forest Spells
 Feature/&AncientForestLightAffinityDescription	You can absorb energy from sunlight. While you are in direct bright light, you gain 2 HP per round.
 Feature/&AncientForestLightAffinityTitle	Photosynthesis
-Feature/&AncientForestRegrowthDescription	You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Warlock level Ã— 5.
+Feature/&AncientForestRegrowthDescription	You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Warlock level × 5.
 Feature/&AncientForestRegrowthTitle	Regrowth
 Feature/&ArcaneDetonationDescription	When you hit a creature that has your Arcanist's Mark with a weapon attack, the mark detonates, dealing 1d6 force damage and destroying the mark.
 Feature/&ArcaneDetonationTitle	Arcane Detonation
@@ -858,7 +858,7 @@ Feature/&ClassMonkKiDescription	Your training allows you to harness the mystic e
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-Empowered Strikes
 Feature/&ClassMonkKiTitle	Ki
-Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only Monk weapons and you aren't wearing armor or wielding a shield:\nâ€¢ You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and Monk weapons.\nâ€¢ You can roll a d4 in place of the normal damage of your unarmed strike or Monk weapon. This die changes as you gain Monk levels.\nâ€¢ When you use the Attack action with an unarmed strike or a Monk weapon on your turn, you can make one unarmed strike as a bonus action.
+Feature/&ClassMonkMartialArtsDescription	You gain the following benefits while you are unarmed or wielding only Monk weapons and you aren't wearing armor or wielding a shield:\n• You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and Monk weapons.\n• You can roll a d4 in place of the normal damage of your unarmed strike or Monk weapon. This die changes as you gain Monk levels.\n• When you use the Attack action with an unarmed strike or a Monk weapon on your turn, you can make one unarmed strike as a bonus action.
 Feature/&ClassMonkMartialArtsTitle	Martial Arts
 Feature/&ClassMonkMartialDiceProgression00Description	You can roll <color=#57BCF4>d6</color> in place of the normal damage of your unarmed strike or Monk weapon.
 Feature/&ClassMonkMartialDiceProgression00Title	Martial Arts Die Increase (d6)
@@ -1401,7 +1401,7 @@ Power/&ClassMonkOpenHandProneDescription	Target must succeed Dexterity saving th
 Power/&ClassMonkOpenHandProneTitle	Knock Down
 Power/&ClassMonkOpenHandPushDescription	Target must succeed Strength saving throw or be pushed 15 feet away from you.
 Power/&ClassMonkOpenHandPushTitle	Push Away
-Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\nâ€¢ It must succeed on a Dexterity saving throw or be knocked prone.\nâ€¢ It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\nâ€¢ It can't take reactions until the end of your next turn.
+Power/&ClassMonkOpenHandTechniqueDescription	 You can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target:\n• It must succeed on a Dexterity saving throw or be knocked prone.\n• It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you.\n• It can't take reactions until the end of your next turn.
 Power/&ClassMonkOpenHandTechniqueTitle	Open Hand Technique
 Power/&ClassMonkPatientDefenseDescription	You can spend 1 ki point as a bonus action to take the Dodge action. Only available if you are not wearing armor or shield.
 Power/&ClassMonkPatientDefenseTitle	Patient Defense
@@ -1425,7 +1425,7 @@ Power/&ClassMonkZenArrowProneDescription	Target must succeed Dexterity saving th
 Power/&ClassMonkZenArrowProneTitle	Knock Down
 Power/&ClassMonkZenArrowPushDescription	Target must succeed Strength saving throw or be pushed 10 feet away from you.
 Power/&ClassMonkZenArrowPushTitle	Push Away
-Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\nâ€¢ It must succeed on a Dexterity saving throw or be knocked prone.\nâ€¢ It must succeed Strength saving throw or be pushed 10 feet away from you.\nâ€¢ It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn. 
+Power/&ClassMonkZenArrowTechniqueDescription	You can manipulate your enemy's ki when you strike it with your arrows. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n• It must succeed on a Dexterity saving throw or be knocked prone.\n• It must succeed Strength saving throw or be pushed 10 feet away from you.\n• It must succeed on a Wisdom saving throw or have disadvantage on next attack until end of its next turn. 
 Power/&ClassMonkZenArrowTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowTechniqueTitle	Distant Hand Technique
 Power/&ClassMonkZenArrowUpgradedDistractDescription	Target must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn.
@@ -1434,7 +1434,7 @@ Power/&ClassMonkZenArrowUpgradedProneDescription	Target must succeed on a Dexter
 Power/&ClassMonkZenArrowUpgradedProneTitle	Knock Down
 Power/&ClassMonkZenArrowUpgradedPushDescription	Target must succeed on a Strength saving throw or be pushed 20 feet away from you.
 Power/&ClassMonkZenArrowUpgradedPushTitle	Push Away
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki. All effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\nâ€¢ It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\nâ€¢ It must succeed Strength saving throw or be pushed 20 feet away from you.\nâ€¢ It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn. 
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	You improve on your ability to manipulate ki. All effects of Distant Hand Technique are improved. Whenever you hit a creature with one of your arrows you can spend 1 ki to impose one of the following effects on that target:\n• It must succeed on a Dexterity saving throw or be knocked prone and have its movement set to zero for a turn.\n• It must succeed Strength saving throw or be pushed 20 feet away from you.\n• It must succeed on a Wisdom saving throw or have disadvantage on all attacks until end of its next turn. 
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Distant Hand
 Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Improved Distant Hand Technique
 Power/&DH_ElementalFormPoolDescription	You can switch between elemental forms a number of times equal to your proficiency bonus per long rest by channeling elemental energy. You gain resistance to the relevant damage and once per turn, apply your proficiency bonus as damage of the same type to first spell damage done that turn. The forms last for 1 minute.
@@ -1646,7 +1646,7 @@ Spell/&AirBlastDescription	Fire a blast of focused air at your target.
 Spell/&AirBlastTitle	Air Blast
 Spell/&BurstOfRadianceDescription	Create a brilliant flash of shimmering light, damaging all enemies around you.
 Spell/&BurstOfRadianceTitle	Burst of Radiance
-Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\nâ€¢ 50 hit points or fewer: deafened for 1 minute\nâ€¢ 40 hit points or fewer: deafened and blinded for 10 minutes\nâ€¢ 30 hit points or fewer: blinded, deafened, and stunned for 1 hour\nâ€¢ 20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n
+Spell/&CJDivineWordDescription	You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n• 50 hit points or fewer: deafened for 1 minute\n• 40 hit points or fewer: deafened and blinded for 10 minutes\n• 30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n• 20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a wish spell.\n
 Spell/&CJDivineWordTitle	Divine Word
 Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
 Spell/&DHAnimalShapesSpellTitle	Animal shapes
@@ -1737,7 +1737,7 @@ Spell/&ProtectThresholdDescription	Tracing arcane sigils along its boundary, you
 Spell/&ProtectThresholdTitle	Protect Threshold
 Spell/&RadiantMotesDescription	Unleashes a swarm of 5 radiant projectiles that deal 2 radiant damage each, but never miss. Targets may radiate light for up to 1 minute.\nWhen you cast this spell using a spell slot of 2nd level or higher, the spell creates 2 more projectiles for each slot above 1st.
 Spell/&RadiantMotesTitle	Radiant Motes
-Spell/&ThunderStrikeDescription	Create a burst of thundering sound, forcing creatures adjacent to you to make a Constituion saving throw or take 1d6 thunder damage.\nThis spellâ€™s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+Spell/&ThunderStrikeDescription	Create a burst of thundering sound, forcing creatures adjacent to you to make a Constituion saving throw or take 1d6 thunder damage.\nThis spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
 Spell/&ThunderStrikeTitle	Sound Burst
 Spell/&WinterBreathDescription	Create a blast of cold wind to chill your enemies and knock them prone.
 Spell/&WinterBreathTitle	Winter's Breath

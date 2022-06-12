@@ -1,244 +1,244 @@
-﻿Condition/&DH_ReverseGravity_Spell_Description	åé‡åŠ›
-Condition/&DH_ReverseGravity_Spell_Title	åé‡åŠ›
-Condition/&DH_TimeStop_Spell_Description	å› æ—¶é—´åœæ­¢è€Œå†»ç»“
-Condition/&DH_TimeStop_Spell_Title	å› æ—¶é—´åœæ­¢è€Œå†»ç»“
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	é—ªç”µé£Žæš´
-Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	é—ªç”µé£Žæš´
-Feature/&DH_AtWill_Fireball_Power_Description	ä»»æ„æ–½æ”¾ç«çƒæœ¯
-Feature/&DH_AtWill_Fireball_Power_Title	ç«çƒæœ¯
-Feature/&DH_AtWill_HoldMonster_Power_Description	æ¯å¤©3æ¬¡
-Feature/&DH_AtWill_HoldMonster_Power_Title	æ€ªç‰©å®šèº«æœ¯
-Feature/&DH_AtWill_Invisibility_Power_Description	ä»»æ„æ–½æ”¾éšèº«æœ¯
-Feature/&DH_AtWill_Invisibility_Power_Title	éšèº«æœ¯
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	é—ªç”µä¸€å‡»
-Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	é—ªç”µä¸€å‡»
-Monster/&DH_Custom_AirTitan_Description	å½“è¢«å¬å”¤æ—¶ï¼Œè¿™äº›å¹´é•¿çš„å…ƒç´ èšçŽ°ä¸ºå…·æœ‰ç­ä¸–èƒ½åŠ›çš„ç”Ÿç‰©ï¼Œå®ƒä»¬çš„å­˜åœ¨å°±ä¼šå¸¦æ¥æ¯ç­
-Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>åŽŸåˆç©ºæ°”æ³°å¦</color>
-Monster/&DH_Custom_AncientBlackDragon_Description	ä½œä¸ºè‰²å½©é¾™ä¸­æœ€æš´èºå‘åŠ£çš„ç§ç±»ï¼Œé»‘é¾™ä¼šå°†å€’æ¯™è€…çš„æ®‹éª¸è¿žåŒå…¶è´¢å®ä¸€åŒæ”¶é›†èµ·æ¥ã€‚é»‘é¾™ä»¬åŽŒæ¶çœ¼è§å¼±è€…çš„å…´ç››ï¼Œå¹¶ä¹è§ç±»äººç”Ÿç‰©çŽ‹å›½å´©æºƒã€‚æ¶è‡­çš„æ²¼æ³½ï¼Œä»¥åŠè¦†äº¡çŽ‹å›½æ›¾ç»è€¸ç«‹çš„åºŸå¢Ÿç“¦ç ¾ä¼šæ˜¯ä»–ä»¬ç†æƒ³çš„å®¶å›­
-Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>è¿œå¤é»‘é¾™</color>
-Monster/&DH_Custom_AncientBlueDragon_Description	è‡ªè´Ÿä¸”æžå…·é¢†åœŸæ„è¯†çš„è“é¾™ç¿±ç¿”äºŽæ²™æ¼ çš„å¤©ç©ºä¹‹ä¸Šï¼Œæ—¶å¸¸æ•é£Ÿå•†é˜Ÿå¹¶åœ¨æ²™æ¼ è¾¹é™…çš„æ—·é‡Žç‹©çŒŽç•œç¾¤å’Œå®šå±…è€…ã€‚è¿™ç§é¾™ä¹Ÿä¼šå‡ºçŽ°åœ¨å¹²ç‡¥çš„è‰åŽŸï¼Œç¼çƒ­çš„è’æ¼ ä»¥åŠå¤šå²©çš„æµ·å²¸ï¼Œä»–ä»¬ä¼šå®ˆå«è‡ªå·±çš„é¢†åœ°è€Œå¯¹æŠ—æ‰€æœ‰æ½œåœ¨çš„å¯¹æ‰‹ï¼Œç‰¹åˆ«æ˜¯é»„é“œé¾™
-Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>è¿œå¤è“é¾™</color>
-Monster/&DH_Custom_AncientGreenDragon_Description	ä½œä¸ºæœ€ç‹¡è¯ˆå›é€†çš„çœŸé¾™ï¼Œç»¿é¾™æ—¶å¸¸ä»¥è¯¯å¯¼å’Œè¯¡è¯ˆæ‰‹æ®µè®©è‡ªå·±åœ¨æ•Œäººé¢å‰å–å¾—å…ˆæ‰‹ã€‚å®ƒä»¬è„¾æ°”æš´èºä¸”æžåº¦é‚ªæ¶ï¼Œç‰¹åˆ«å–œæ¬¢é¢ è¦†è…åŒ–å–„è‰¯ä¹‹å¿ƒã€‚ç»¿é¾™æ¼«æ¸¸äºŽè¿œå¤æ£®æž—ï¼Œå®ƒä»¬ä¸ºäº‰å¤ºé¢†åœ°è€Œå¼•èµ·äº‰ç«¯ï¼Œæ›´æ˜¯å¸¸å¸¸å› äº‰æƒå¤ºåˆ©è€Œé”±é“¢å¿…è¾ƒ
-Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>è¿œå¤ç»¿é¾™</color>
-Monster/&DH_Custom_AncientRedDragon_Description	ä½œä¸ºæœ€è´ªå©ªçš„çœŸé¾™ï¼Œçº¢é¾™ä»¬ä¸çŸ¥ç–²å€¦çš„è®¾æ³•ä¸ºå…¶å®åº“å¢žåŠ è—å“ã€‚å“ªæ€•ä»¥é¾™ç±»çš„æ ‡å‡†è¡¡é‡ï¼Œå®ƒä»¬ä¹Ÿé«˜å‚²å¾—ç‰¹åˆ«çªå‡ºã€‚å…¶ä¸»è¦è¡¨çŽ°åˆ™æ˜¯å…¶å‚²æ…¢çš„ä¸¾æ­¢ï¼Œä»¥åŠå¯¹å…¶ä»–ç”Ÿç‰©çš„è”‘è§†
-Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>è¿œå¤çº¢é¾™</color>
-Monster/&DH_Custom_AncientWhiteDragon_Description	ç™½é¾™æ˜¯æœ€å°ï¼Œæœ€ä¸èªæ˜Žï¼Œæœ€é‡Žæ€§çš„è‰²å½©é¾™ï¼Œå®ƒä»¬å±…ä½åœ¨å¯’å†·æ°”å€™å¸¦ï¼Œæˆ–æ˜¯é è¿‘æžåœ°åœ°åŒºå’Œå†°å°çš„å±±è„‰ä¸­ã€‚å®ƒä»¬æ˜¯å—é¥¥é¥¿ä¸Žè´ªå©ªæ‰€é©±åŠ¨ï¼Œæ®‹å¿è€Œç‹ æ¯’çš„çˆ¬è¡ŒåŠ¨ç‰©
-Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>è¿œå¤ç™½é¾™</color>
-Monster/&DH_Custom_Archmage_Description	å¤§æ³•å¸ˆè‡´åŠ›äºŽå¥¥ç§˜æŠ€æœ¯çš„ç ”ç©¶ï¼Œä»–ä»¬æ˜¯å¼ºå¤§çš„ï¼ˆé€šå¸¸ä¹Ÿæ˜¯ç›¸å½“å¤è€çš„ï¼‰æ–½æ³•è€…ã€‚å¤§æ³•å¸ˆé‡Œæœ‰è¾…åŠ©å›½å›çš„ä»ä¹‰é¡¾é—®ï¼Œä¹Ÿæœ‰ç»Ÿæ²»ä¸€æ–¹å¹¶è¿½æ±‚å·«å¦–ä¹‹é“çš„é‚ªæ¶æš´å›ã€‚é‚£äº›ä¸å€¾å‘ä»»ä½•å–„æ¶é˜µè¥çš„å¤§æ³•å¸ˆåˆ™æŠŠè‡ªå·±éš”ç»åœ¨é¥è¿œçš„å¡”æ¥¼é‡Œï¼Œä¸“æ³¨äºŽè‡ªå·±çš„é­”æ³•ç ”ç©¶
-Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>å¤§æ³•å¸ˆ</color>
-Monster/&DH_Custom_Balor_Description	å·´æ´›ç‚Žé­”ä½œä¸ºå¤è€è€Œææ€–çš„é‚ªæ¶ä»£è¡¨ï¼Œç»Ÿé¢†ç€æ¶é­”çš„å†›é˜Ÿã€‚å®ƒä»¬æ¸´æœ›ç€åŠ›é‡ï¼Œå¹¶æ‘§æ¯ä¸€åˆ‡é˜»æŒ¡äºŽå…¶é¢å‰çš„ç”Ÿç‰©
-Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>å·´æ´›ç‚Žé­”</color>
-Monster/&DH_Custom_ConstructTitan_Description	ä¸ºæˆ˜äº‰è€Œå»ºé€ çš„ç”±é‡é‡‘å±žé”»é€ è€Œæˆçš„å·¨å¤§æž„è£…ä½“ã€‚å®ƒæ˜¯ä¸€ä¸ªä¸å¯é˜»æŒ¡çš„å·¨æ— éœ¸ï¼Œå®ƒçš„å­˜åœ¨æ˜¯ä¸ºäº†éµå¾ªå…¶åˆ›é€ è€…çš„å‘½ä»¤ï¼Œå¹¶æŒ‰ç…§åˆ›é€ è€…çš„è¦æ±‚è¿›è¡Œä¿æŠ¤æˆ–æ”»å‡»
-Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>æœºæ¢°æž„è£…æ³°å¦</color>
-Monster/&DH_Custom_Deva_Description	æ¨Šå¤©ç¥žä¾æ˜¯å……å½“ç¥žæ˜Žä¿¡ä½¿æˆ–ä»£ç†äººçš„å¤©ä½¿ï¼Œå®ƒä»¬è¢«æ´¾å¾€ä¸»ç‰©è´¨ä½é¢ã€å •å½±å†¥ç•Œã€å¦–ç²¾è’é‡Žç­‰ä»»ä½•é€‚åˆå…¶ä»Žäº‹å·¥ä½œçš„å›½åº¦
-Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>æ¨Šå¤©ç¥žä¾</color>
-Monster/&DH_Custom_Djinni_Description	æ°”å…ƒç´ ä½é¢ä¸€ç§é«˜å‚²æ•é”çš„ç”Ÿç‰©ï¼Œèº«ä¸ºæ°”ä¹‹å¤§å¸ˆçš„æ°”å·¨çµåä¸‹æ˜¯ä¸€ç§è‡ªå·±èƒ½éšå¿ƒæ‰€æ¬²çš„åˆ›é€ å’Œå¼•å¯¼çš„å¼ºå¤§æ—‹é£Žï¼Œæœ‰æ—¶ç”šè‡³èƒ½ä»¥æ­¤æ­è½½ä¹˜å®¢
-Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>æ°”å·¨çµ</color>
-Monster/&DH_Custom_EarthTitan_Description	å½“è¢«å¬å”¤æ—¶ï¼Œè¿™äº›å¹´é•¿çš„å…ƒç´ èšçŽ°ä¸ºå…·æœ‰ç­ä¸–èƒ½åŠ›çš„ç”Ÿç‰©ï¼Œå®ƒä»¬çš„å­˜åœ¨å°±ä¼šå¸¦æ¥æ¯ç­
-Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>åŽŸåˆå¤§åœ°æ³°å¦</color>
-Monster/&DH_Custom_Efreeti_Description	ç«å…ƒç´ ä½é¢çš„é­æ¢§å·¨çµï¼Œç«å·¨çµæ˜¯çƒˆç„°ä¹‹ä¸»ï¼Œå®ƒä»¬ä¸å—ç«ç„°çš„å½±å“ï¼Œè€Œä¸”èƒ½éšå¿ƒæ‰€æ¬²åœ°åˆ›é€ ç«ç„°
-Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>ç«å·¨çµ</color>
-Monster/&DH_Custom_Erinyes_Description	æ¬²é­”æ˜¯æœ€å‡¶çŒ›ä¸Žè‡ªå¾‹çš„å‹‡å£«ã€‚å®ƒä»¬ä»Žç©ºä¸­æ‰«è¡è€Œæ¥ï¼Œè¿…é€Ÿç»“æžœé‚£äº›å†’çŠ¯å…¶ä¸»äººçš„ç”Ÿç‰©
-Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>æ¬²é­”</color>
-Monster/&DH_Custom_FireTitan_Description	å½“è¢«å¬å”¤æ—¶ï¼Œè¿™äº›å¹´é•¿çš„å…ƒç´ èšçŽ°ä¸ºå…·æœ‰ç­ä¸–èƒ½åŠ›çš„ç”Ÿç‰©ï¼Œå®ƒä»¬çš„å­˜åœ¨å°±ä¼šå¸¦æ¥æ¯ç­
-Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>åŽŸåˆç«ç„°æ³°å¦</color>
-Monster/&DH_Custom_GuardianNaga_Description	å·¡å®ˆçº³åŠ ä½œä¸ºç¿æ™ºå–„è‰¯çš„ç¾Žä¸½å®ˆæŠ¤è€…ä¿æŠ¤ç€å¸¦æœ‰é­”æ³•åŠ›é‡çš„åœ£åœ°ä¸Žç‰©å“ï¼Œä»¥å…è½å…¥é‚ªæ¶ä¹‹æ‰‹ã€‚å®ƒä»¬åœ¨å…¶éšç§˜çš„æ£±å ¡ä¸­ç ”ç©¶æ³•æœ¯ï¼Œå¹¶ç­–åˆ’å‡ºå¤æ‚çš„è®¡è°‹ç±³æŒ«è´¥æ•Œäººçš„é‚ªæ¶ç›˜ç®—
-Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>å·¡å®ˆçº³åŠ </color>
-Monster/&DH_Custom_HornedDevil_Description	 ä½œä¸ºåœ°ç‹±å†›å›¢çš„é£žè¡Œæ­¥å…µï¼Œè§’é­”ä»¬ä¼šä¸€ä¸ä¸è‹Ÿçš„æŒ‰å‘½ä»¤è¡Œäº‹
-Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>è§’é­”</color>
-Monster/&DH_Custom_IceDevil_Description	å†°é­”è´ªæ±‚å…¶æ·±ç‹±ç‚¼é­”é•¿å®˜çš„åŠ›é‡å¹¶å› æ­¤ä»¥æ™‹å‡ä¸ºç›®æ ‡ä¸æ–­åŠªåŠ›ã€‚å®ƒä»¬ä¸æ–­å± æ€ä¹ç‹±çš„æ•Œäººï¼Œå¹¶åŠªåŠ›èŽ·å–æ›´å¤šçš„çµé­‚è¿›çŒ®ç»™å…¶å¤§é­”é¬¼ä¸»å­
-Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>å†°é­”</color>
-Monster/&DH_Custom_Lich_Description	æŸäº›å¼ºå¤§çš„æ³•å¸ˆä¸ºäº†èƒ½é•¿å­˜äºŽä¸–ï¼Œä¼šæŠ›å¼ƒç”Ÿå‘½è€ŒæŠ•å‘ä¸æ­»ä¹‹é“æˆä¸ºå·«å¦–ã€‚å·«å¦–ä»¬ä¸è®¡ä»£ä»·åœ°è¿½æ±‚åŠ›é‡ï¼Œé™¤éžç‰µæ¶‰è‡ªèº«ï¼Œå¦åˆ™å®ƒä»¬å¯¹ç”Ÿçµæ´»ç‰©çš„äº‹æƒ…æ¼ ä¸å…³å¿ƒã€‚é˜´é™©åˆç™«ç‹‚çš„å·«å¦–æ¸´æ±‚ç€æµå¤±äºŽæ—¶é—´é•¿æ²³ä¸­çš„ä½šé—»å­¦è¯†ä¸Žä»¤äººèƒ†å¯’çš„ç§˜å¯†
-Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>å·«å¦–</color>
-Monster/&DH_Custom_Nalfeshnee_Description	åˆ¤é­‚é­”æ˜¯æœ€ä¸‘é™‹çš„æ¶é­”ä¸€ä¸€å®ƒä»¬èº«é«˜ä¸ºäººç±»çš„ä¸¤å€ï¼Œå¹¶é•¿æˆä¸€å‰¯è‚¥èƒ–æ»‘ç¨½çš„ä½“æ€ï¼Œèº«ä½“ç»†èŠ‚åˆ™æœ‰ç€çŒ¿ç±»ä¸Žé‡ŽçŒªæ··åˆçš„ç‰¹å¾ï¼Œå…¶è‡ƒè‚¿èº«èº¯èƒŒåŽè¿˜é•¿ç€ä¸€å¯¹æ˜¾å¾—è¿‡åˆ†ç»†å°çš„ç¾½ç¿¼ã€‚ç„¶è€Œï¼Œè¿™äº›æ„šé’çš„å¤–è²Œç‰¹å¾æ­£å¥½æŽ©é¥°äº†å…¶éžå‡¡çš„æ™ºæ…§ä¸Žç‹¡çŒ¾
-Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>åˆ¤é­‚é­”</color>
-Monster/&DH_Custom_PitFiend_Description	èº«ä¸ºå¤§å¤šæ•°é­”é¬¼ä¸­æ¯‹åº¸ç½®ç–‘çš„éœ¸ä¸»ï¼Œæ·±ç‹±ç‚¼é­”è·Ÿéšåœ¨å¤§å…¬ä¸Žå¥³å¤§å…¬ä»¬éžå‰é©¬åŽä¸ºå…¶æ•ˆåŠ›ã€‚è¿™äº›å¼ºå¤§çš„é­”é¬¼æ˜¯ä¹ç‹±ä¸­çš„å°†å†›ï¼Œå¸¦é¢†ç€åœ°ç‹±å†›å›¢æŠ•èº«æˆ˜åœº
-Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>æ·±ç‹±ç‚¼é­”</color>
-Monster/&DH_Custom_Planetar_Description	 å¼‚ç•Œç¥žä¾æ˜¯å®ƒæ‰€æœä¾ä¹‹ç¥žçš„æ­¦å™¨ï¼Œæ˜¯ç¥žä¹‹æƒå¨çš„å…·è±¡åŒ–ä½“çŽ°
-Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>å¼‚ç•Œç¥žä¾</color>
-Monster/&DH_Custom_Roc_Description	é¹é¸Ÿæ˜¯ä¸€ç§å¯¿å‘½é•¿è¾¾å‡ ä¸ªä¸–çºªçš„ç‹¬å±…åŠ¨ç‰©ã€‚å®ƒä»¬å››å¤„å¸¦æ¥æ ‘æœ¨ã€å¸ç¯·ã€ç ´èˆ¹å’Œå•†é˜Ÿæ®‹éª¸äº’ç›¸çº ç»“æˆå·¨å¤§é¸Ÿå·¢ï¼Œå¹¶è®¾ç½®åœ¨å±±å´–ä¸Šä½Žç­‰ç”Ÿç‰©éš¾ä»¥è§¦åŠçš„è£‚ç¼ä¹‹ä¸­
-Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>é¹é¸Ÿ</color>
-Monster/&DH_Custom_Solar_Description	åœ¨æˆ˜åœºä¸Šï¼Œç‚½å¤©ç¥žä¾çš„å‰‘æ— éœ€åŒæ‰‹æ“æŽ§ä¾¿å¯è‡ªç”±é£žèˆžï¼Œç‚½å¤©ç¥žä¾å°„å‡ºçš„æ¯æ”¯ç®­çŸ¢éƒ½æœ‰ç€è‡´äººäºŽæ­»å‘½çš„å¨åŠ›ã€‚ç‚½å¤©ç¥žä¾æ¼‚ç„¶å®ä¼Ÿçš„å¤©ç•Œä¹‹å¨ï¼Œç”šè‡³è¶³ä»¥ä»¤æ¶é­”ä¸»å›æ„Ÿåˆ°ææƒ§ç•ç¼©
-Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>ç‚½å¤©ç¥žä¾</color>
-Monster/&DH_Custom_StormGiant_Description	é£Žæš´å·¨äººç”Ÿæ´»åœ¨è¿œç¦»å‡¡äººçš„ä¸–ç•Œè§’è½ï¼Œæ˜¯å–„äºŽæ·±æ€ç†Ÿè™‘çš„éšä¸–å…ˆçŸ¥ã€‚å®ƒä»¬å¤§å¤šé•¿ç€ç´«ç°è‰²çš„çš®è‚¤ä¸Žå‘è‰²ï¼Œä»¥åŠé—ªè€€ç€ç¥–æ¯ç»¿è‰²çš„çœ¼ç›
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>é£Žæš´å·¨äºº</color>
-Monster/&DH_Custom_Tarrasque_Description	ä¼ è¯´ä¸­çš„æ³°æ‹‰æ–¯å¥Žå·¨å…½å¯èƒ½æ˜¯ç‰©è´¨ä½é¢ä¸­æœ€å¯æ€•çš„æ€ªç‰©ã€‚äººä»¬æ™®éè®¤ä¸ºï¼Œåªæœ‰ä¸€åªè¿™æ ·çš„æ³°æ‹‰æ–¯å¥Žå­˜åœ¨ï¼Œå°½ç®¡æ²¡æœ‰äººèƒ½é¢„æµ‹å®ƒå°†åœ¨ä½•æ—¶ä½•åœ°å‘åŠ¨è¢­å‡»ã€‚æ³°æ‹‰æ–¯å¥Žèº«ä¸Šé•¿ç€é³žç”²ï¼Œé«˜50è‹±å°ºï¼Œé•¿70è‹±å°ºï¼Œé‡è¾¾æ•°ç™¾å¨
-Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>æ³°æ‹‰æ–¯å¥Ž</color>
-Monster/&DH_Custom_Vampire_Description	ä»Žæ— å°½æš—å¤œä¸­è§‰é†’çš„å¸è¡€é¬¼æ¸´æ±‚ç€è‡ªå·±å¤±åŽ»çš„ç”Ÿå‘½ï¼Œå¹¶ä»¥ç”Ÿè€…çš„é²œè¡€å¡«è¡¥å…¶é¥¥æ¸´ã€‚å¸è¡€é¬¼å¯¹é˜³å…‰æ·±æ¶ç—›ç»ï¼Œä»…æŽ¥è§¦é˜³å…‰ä¾¿è¶³ä»¥ä½¿å…¶ç‡ƒçƒ§ã€‚å¸è¡€é¬¼ä»¬ä¸ä¼šç•™ä¸‹å½±å­æˆ–å€’å½±ï¼Œå› æ­¤å®ƒä»¬ä¼šå°½é‡åœ¨ç”Ÿè€…é—´ä¿æŒä½Žè°ƒï¼Œåœç•™åœ¨è¿œç¦»å…‰æ´è¡¨é¢çš„é˜´æš—å¤„
-Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>å¸è¡€é¬¼</color>
-Monster/&DHCustomCouatlDescription	ç¾½è›‡æ·±é‚ƒè€Œç¿æ™ºï¼Œæ˜¯ä¸€ç§çš„å–„è‰¯è›‡å½¢ç”Ÿç‰©ã€‚å®ƒä»¬äº”å½©ç¼¤çº·çš„ç¾½ç¿¼ä¸Žæ¸©æ–‡å°”é›…çš„ä¸¾æ­¢å°½æ˜¾å‡ºå…¶ä¸Žå¤©ç•Œçš„æ¸Šæº
-Monster/&DHCustomCouatlTitle	ç¾½è›‡
-Monster/&OwlFamiliarDescription	çŒ«å¤´é¹°é­”å® 
-Monster/&OwlFamiliarTitle	çŒ«å¤´é¹°
-Monster/&WitchOwlFamiliarDescription	çŒ«å¤´é¹°é­”å® 
-Monster/&WitchOwlFamiliarTitle	çŒ«å¤´é¹°
-MonsterAttack/&DH_AirBlast_Attack_Description	5d6éŸ³æ³¢ä¼¤å®³å¹¶å‡»é€€ç›®æ ‡2æ ¼
-MonsterAttack/&DH_AirBlast_Attack_Title	ç©ºæ°”éœ‡çˆ†
-MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6é’å‡»ä¼¤å®³ & 4d6éŸ³æ³¢ä¼¤å®³
-MonsterAttack/&DH_AirTitan_Slam_Attack_Title	é›·é¸£æŒ¥å‡»
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8é’å‡»ä¼¤å®³
-MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	å°¾å‡»
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8æŒ¥ç ä¼¤å®³ & 3D8é—ªç”µä¼¤å®³
-MonsterAttack/&DH_Balor_Longsword_Attack_Title	é•¿å‰‘æ”»å‡»
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8æŒ¥ç ä¼¤å®³ & 3D6ç«ç„°ä¼¤å®³
-MonsterAttack/&DH_Balor_Whip_Attack_Title	éž­æ”»å‡»
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8åŠ›åœºä¼¤å®³å¹¶å‡»å€’ç›®æ ‡
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	åŠ›åœºå¤§ç‚®
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8é’å‡»ä¼¤å®³å¹¶å‡»é€€ç›®æ ‡20è‹±å°º
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	æŒ¥å‡»
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	æ— æ³•æ‰§è¡ŒåŠ¨ä½œå¹¶æ¯å›žåˆå—åˆ°16d6å¼ºé…¸ä¼¤å®³ã€‚ä¸€æ¬¡ä¸ä½ŽäºŽ60ä¼¤å®³çš„æ”»å‡»ä¼šä½¿è¢«åžå’½è€…è¢«åå‡º
-MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	åžå’½
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	 ä¸€æ¬¡ä¸ä½ŽäºŽ60ä¼¤å®³çš„æ”»å‡»ä¼šä½¿è¢«åžå’½è€…è¢«åå‡º
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	è¢«åžå’½ç”Ÿç‰©
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9ç©¿åˆºä¼¤å®³ & 2D8å¼ºé…¸ä¼¤å®³
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	å¼ºé…¸å•ƒå’¬
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9ç©¿åˆºä¼¤å®³ & 2D8å†·å†»ä¼¤å®³
-MonsterAttack/&DH_DamageCold_Bite_Attack_Title	å¯’å†°å•ƒå’¬
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9ç©¿åˆºä¼¤å®³ & 4D6ç«ç„°ä¼¤å®³
-MonsterAttack/&DH_DamageFire_Bite_Attack_Title	ç«ç„°å•ƒå’¬
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9ç©¿åˆºä¼¤å®³ & 2D10é—ªç”µä¼¤å®³
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	é—ªç”µå•ƒå’¬
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9ç©¿åˆºä¼¤å®³ & 3D6æ¯’ç´ ä¼¤å®³
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	æ¯’ç´ å•ƒå’¬
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8é’å‡»ä¼¤å®³
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	å·¨çŸ³
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8é’å‡»ä¼¤å®³
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	åœ°é¢æŒ¥å‡»
-MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6æŒ¥ç ä¼¤å®³ & 2d6ç«ç„°ä¼¤å®³
-MonsterAttack/&DH_FireScimatar_Attack_Title	å¼¯åˆ€
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5é’å‡»ä¼¤å®³ + 10d6ç«ç„°ä¼¤å®³
-MonsterAttack/&DH_FireTitan_Slam_Attack_Title	ç¼çƒ­æŒ¥å‡»
-MonsterAttack/&DH_Fork_Attack_Description	2D8 +6ç©¿åˆºä¼¤å®³
-MonsterAttack/&DH_Fork_Attack_Title	å‰åˆºæ”»å‡»
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10+6ç©¿åˆºä¼¤å®³
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	å•ƒå’¬æ”»å‡»
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6+9æŒ¥ç ä¼¤å®³
-MonsterAttack/&DH_Generic_Claw_Attack_Title	çˆªå‡»
+Condition/&DH_ReverseGravity_Spell_Description	反重力
+Condition/&DH_ReverseGravity_Spell_Title	反重力
+Condition/&DH_TimeStop_Spell_Description	因时间停止而冻结
+Condition/&DH_TimeStop_Spell_Title	因时间停止而冻结
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Description	闪电风暴
+Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	闪电风暴
+Feature/&DH_AtWill_Fireball_Power_Description	任意施放火球术
+Feature/&DH_AtWill_Fireball_Power_Title	火球术
+Feature/&DH_AtWill_HoldMonster_Power_Description	每天3次
+Feature/&DH_AtWill_HoldMonster_Power_Title	怪物定身术
+Feature/&DH_AtWill_Invisibility_Power_Description	任意施放隐身术
+Feature/&DH_AtWill_Invisibility_Power_Title	隐身术
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	闪电一击
+Feature/&DH_Generic_Lightning_Attack_Custom_Power_Title	闪电一击
+Monster/&DH_Custom_AirTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
+Monster/&DH_Custom_AirTitan_Title	<color=#ff0000ff>原初空气泰坦</color>
+Monster/&DH_Custom_AncientBlackDragon_Description	作为色彩龙中最暴躁卑劣的种类，黑龙会将倒毙者的残骸连同其财宝一同收集起来。黑龙们厌恶眼见弱者的兴盛，并乐见类人生物王国崩溃。恶臭的沼泽，以及覆亡王国曾经耸立的废墟瓦砾会是他们理想的家园
+Monster/&DH_Custom_AncientBlackDragon_Title	<color=#ff0000ff>远古黑龙</color>
+Monster/&DH_Custom_AncientBlueDragon_Description	自负且极具领土意识的蓝龙翱翔于沙漠的天空之上，时常捕食商队并在沙漠边际的旷野狩猎畜群和定居者。这种龙也会出现在干燥的草原，灼热的荒漠以及多岩的海岸，他们会守卫自己的领地而对抗所有潜在的对手，特别是黄铜龙
+Monster/&DH_Custom_AncientBlueDragon_Title	<color=#ff0000ff>远古蓝龙</color>
+Monster/&DH_Custom_AncientGreenDragon_Description	作为最狡诈叛逆的真龙，绿龙时常以误导和诡诈手段让自己在敌人面前取得先手。它们脾气暴躁且极度邪恶，特别喜欢颠覆腐化善良之心。绿龙漫游于远古森林，它们为争夺领地而引起争端，更是常常因争权夺利而锱铢必较
+Monster/&DH_Custom_AncientGreenDragon_Title	<color=#ff0000ff>远古绿龙</color>
+Monster/&DH_Custom_AncientRedDragon_Description	作为最贪婪的真龙，红龙们不知疲倦的设法为其宝库增加藏品。哪怕以龙类的标准衡量，它们也高傲得特别突出。其主要表现则是其傲慢的举止，以及对其他生物的蔑视
+Monster/&DH_Custom_AncientRedDragon_Title	<color=#ff0000ff>远古红龙</color>
+Monster/&DH_Custom_AncientWhiteDragon_Description	白龙是最小，最不聪明，最野性的色彩龙，它们居住在寒冷气候带，或是靠近极地地区和冰封的山脉中。它们是受饥饿与贪婪所驱动，残忍而狠毒的爬行动物
+Monster/&DH_Custom_AncientWhiteDragon_Title	<color=#ff0000ff>远古白龙</color>
+Monster/&DH_Custom_Archmage_Description	大法师致力于奥秘技术的研究，他们是强大的（通常也是相当古老的）施法者。大法师里有辅助国君的仁义顾问，也有统治一方并追求巫妖之道的邪恶暴君。那些不倾向任何善恶阵营的大法师则把自己隔绝在遥远的塔楼里，专注于自己的魔法研究
+Monster/&DH_Custom_Archmage_Title	<color=#ff0000ff>大法师</color>
+Monster/&DH_Custom_Balor_Description	巴洛炎魔作为古老而恐怖的邪恶代表，统领着恶魔的军队。它们渴望着力量，并摧毁一切阻挡于其面前的生物
+Monster/&DH_Custom_Balor_Title	<color=#ff0000ff>巴洛炎魔</color>
+Monster/&DH_Custom_ConstructTitan_Description	为战争而建造的由重金属锻造而成的巨大构装体。它是一个不可阻挡的巨无霸，它的存在是为了遵循其创造者的命令，并按照创造者的要求进行保护或攻击
+Monster/&DH_Custom_ConstructTitan_Title	<color=#ff0000ff>机械构装泰坦</color>
+Monster/&DH_Custom_Deva_Description	樊天神侍是充当神明信使或代理人的天使，它们被派往主物质位面、堕影冥界、妖精荒野等任何适合其从事工作的国度
+Monster/&DH_Custom_Deva_Title	<color=#ff0000ff>樊天神侍</color>
+Monster/&DH_Custom_Djinni_Description	气元素位面一种高傲敏锐的生物，身为气之大师的气巨灵坐下是一种自己能随心所欲的创造和引导的强大旋风，有时甚至能以此搭载乘客
+Monster/&DH_Custom_Djinni_Title	<color=#ff0000ff>气巨灵</color>
+Monster/&DH_Custom_EarthTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
+Monster/&DH_Custom_EarthTitan_Title	<color=#ff0000ff>原初大地泰坦</color>
+Monster/&DH_Custom_Efreeti_Description	火元素位面的魁梧巨灵，火巨灵是烈焰之主，它们不受火焰的影响，而且能随心所欲地创造火焰
+Monster/&DH_Custom_Efreeti_Title	<color=#ff0000ff>火巨灵</color>
+Monster/&DH_Custom_Erinyes_Description	欲魔是最凶猛与自律的勇士。它们从空中扫荡而来，迅速结果那些冒犯其主人的生物
+Monster/&DH_Custom_Erinyes_Title	<color=#ff0000ff>欲魔</color>
+Monster/&DH_Custom_FireTitan_Description	当被召唤时，这些年长的元素聚现为具有灭世能力的生物，它们的存在就会带来毁灭
+Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>原初火焰泰坦</color>
+Monster/&DH_Custom_GuardianNaga_Description	巡守纳加作为睿智善良的美丽守护者保护着带有魔法力量的圣地与物品，以免落入邪恶之手。它们在其隐秘的棱堡中研究法术，并策划出复杂的计谋米挫败敌人的邪恶盘算
+Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>巡守纳加</color>
+Monster/&DH_Custom_HornedDevil_Description	 作为地狱军团的飞行步兵，角魔们会一丝不苟的按命令行事
+Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>角魔</color>
+Monster/&DH_Custom_IceDevil_Description	冰魔贪求其深狱炼魔长官的力量并因此以晋升为目标不断努力。它们不断屠杀九狱的敌人，并努力获取更多的灵魂进献给其大魔鬼主子
+Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>冰魔</color>
+Monster/&DH_Custom_Lich_Description	某些强大的法师为了能长存于世，会抛弃生命而投向不死之道成为巫妖。巫妖们不计代价地追求力量，除非牵涉自身，否则它们对生灵活物的事情漠不关心。阴险又癫狂的巫妖渴求着流失于时间长河中的佚闻学识与令人胆寒的秘密
+Monster/&DH_Custom_Lich_Title	<color=#ff0000ff>巫妖</color>
+Monster/&DH_Custom_Nalfeshnee_Description	判魂魔是最丑陋的恶魔一一它们身高为人类的两倍，并长成一副肥胖滑稽的体态，身体细节则有着猿类与野猪混合的特征，其臃肿身躯背后还长着一对显得过分细小的羽翼。然而，这些愚钝的外貌特征正好掩饰了其非凡的智慧与狡猾
+Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>判魂魔</color>
+Monster/&DH_Custom_PitFiend_Description	身为大多数魔鬼中毋庸置疑的霸主，深狱炼魔跟随在大公与女大公们鞍前马后为其效力。这些强大的魔鬼是九狱中的将军，带领着地狱军团投身战场
+Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>深狱炼魔</color>
+Monster/&DH_Custom_Planetar_Description	 异界神侍是它所服侍之神的武器，是神之权威的具象化体现
+Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>异界神侍</color>
+Monster/&DH_Custom_Roc_Description	鹏鸟是一种寿命长达几个世纪的独居动物。它们四处带来树木、帐篷、破船和商队残骸互相纠结成巨大鸟巢，并设置在山崖上低等生物难以触及的裂缝之中
+Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>鹏鸟</color>
+Monster/&DH_Custom_Solar_Description	在战场上，炽天神侍的剑无需双手操控便可自由飞舞，炽天神侍射出的每支箭矢都有着致人于死命的威力。炽天神侍漂然宏伟的天界之威，甚至足以令恶魔主君感到恐惧畏缩
+Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>炽天神侍</color>
+Monster/&DH_Custom_StormGiant_Description	风暴巨人生活在远离凡人的世界角落，是善于深思熟虑的隐世先知。它们大多长着紫灰色的皮肤与发色，以及闪耀着祖母绿色的眼睛
+Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>风暴巨人</color>
+Monster/&DH_Custom_Tarrasque_Description	传说中的泰拉斯奎巨兽可能是物质位面中最可怕的怪物。人们普遍认为，只有一只这样的泰拉斯奎存在，尽管没有人能预测它将在何时何地发动袭击。泰拉斯奎身上长着鳞甲，高50英尺，长70英尺，重达数百吨
+Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>泰拉斯奎</color>
+Monster/&DH_Custom_Vampire_Description	从无尽暗夜中觉醒的吸血鬼渴求着自己失去的生命，并以生者的鲜血填补其饥渴。吸血鬼对阳光深恶痛绝，仅接触阳光便足以使其燃烧。吸血鬼们不会留下影子或倒影，因此它们会尽量在生者间保持低调，停留在远离光洁表面的阴暗处
+Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>吸血鬼</color>
+Monster/&DHCustomCouatlDescription	羽蛇深邃而睿智，是一种的善良蛇形生物。它们五彩缤纷的羽翼与温文尔雅的举止尽显出其与天界的渊源
+Monster/&DHCustomCouatlTitle	羽蛇
+Monster/&OwlFamiliarDescription	猫头鹰魔宠
+Monster/&OwlFamiliarTitle	猫头鹰
+Monster/&WitchOwlFamiliarDescription	猫头鹰魔宠
+Monster/&WitchOwlFamiliarTitle	猫头鹰
+MonsterAttack/&DH_AirBlast_Attack_Description	5d6音波伤害并击退目标2格
+MonsterAttack/&DH_AirBlast_Attack_Title	空气震爆
+MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6钝击伤害 & 4d6音波伤害
+MonsterAttack/&DH_AirTitan_Slam_Attack_Title	雷鸣挥击
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8钝击伤害
+MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	尾击
+MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8挥砍伤害 & 3D8闪电伤害
+MonsterAttack/&DH_Balor_Longsword_Attack_Title	长剑攻击
+MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8挥砍伤害 & 3D6火焰伤害
+MonsterAttack/&DH_Balor_Whip_Attack_Title	鞭攻击
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8力场伤害并击倒目标
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	力场大炮
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8钝击伤害并击退目标20英尺
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	挥击
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	无法执行动作并每回合受到16d6强酸伤害。一次不低于60伤害的攻击会使被吞咽者被吐出
+MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	吞咽
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	 一次不低于60伤害的攻击会使被吞咽者被吐出
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	被吞咽生物
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9穿刺伤害 & 2D8强酸伤害
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	强酸啃咬
+MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9穿刺伤害 & 2D8冷冻伤害
+MonsterAttack/&DH_DamageCold_Bite_Attack_Title	寒冰啃咬
+MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9穿刺伤害 & 4D6火焰伤害
+MonsterAttack/&DH_DamageFire_Bite_Attack_Title	火焰啃咬
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9穿刺伤害 & 2D10闪电伤害
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	闪电啃咬
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9穿刺伤害 & 3D6毒素伤害
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	毒素啃咬
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8钝击伤害
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	巨石
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8钝击伤害
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	地面挥击
+MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6挥砍伤害 & 2d6火焰伤害
+MonsterAttack/&DH_FireScimatar_Attack_Title	弯刀
+MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5钝击伤害 + 10d6火焰伤害
+MonsterAttack/&DH_FireTitan_Slam_Attack_Title	灼热挥击
+MonsterAttack/&DH_Fork_Attack_Description	2D8 +6穿刺伤害
+MonsterAttack/&DH_Fork_Attack_Title	叉刺攻击
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10+6穿刺伤害
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	啃咬攻击
+MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6+9挥砍伤害
+MonsterAttack/&DH_Generic_Claw_Attack_Title	爪击
 MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2D10+9
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	å•ƒå’¬æ”»å‡»
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8+6ç©¿åˆºä¼¤å®³ï¼Œé€ æˆæµè¡€çŠ¶æ€
-MonsterAttack/&DH_HornedDevilTail_Attack_Title	å°¾å‡»
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6é»¯èš€ä¼¤å®³ï¼Œè±å…æˆåŠŸå…ç–«
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	æµè¡€ä¼¤å£
-MonsterAttack/&DH_HurlFlame_Attack_Description	5d6ç«ç„°ä¼¤å®³
-MonsterAttack/&DH_HurlFlame_Attack_Title	æŠ•æŽ·ç«ç„°
-MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5ç©¿åˆºä¼¤å®³ & 3d6å†·å†»ä¼¤å®³
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	啃咬攻击
+MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8+6穿刺伤害，造成流血状态
+MonsterAttack/&DH_HornedDevilTail_Attack_Title	尾击
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6黯蚀伤害，豁免成功免疫
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	流血伤口
+MonsterAttack/&DH_HurlFlame_Attack_Description	5d6火焰伤害
+MonsterAttack/&DH_HurlFlame_Attack_Title	投掷火焰
+MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5穿刺伤害 & 3d6冷冻伤害
 MonsterAttack/&DH_Ice_Bite_Attack_Title	Ice Bite
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6å†·å†»ä¼¤å®³å¹¶é€ æˆéº»ç—¹çŠ¶æ€
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	éº»ç—¹ä¹‹è§¦
-MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5æŒ¥ç ä¼¤å®³ & 2d6é—ªç”µä¼¤å®³
-MonsterAttack/&DH_LightningScimatar_Attack_Title	å¼¯åˆ€
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4ç©¿åˆºä¼¤å®³ &  DCä¸º15çš„ä½“è´¨è±å…ä»¥å‡åŠ10d8æ¯’ç´ ä¼¤å®³
-MonsterAttack/&DH_NagaBite_Attack_Title	æ¯’ç´ å•ƒå’¬
-MonsterAttack/&DH_NagaSpit_Attack_Description	DCä¸º15çš„ä½“è´¨è±å…ä»¥å‡åŠ10d8æ¯’ç´ ä¼¤å®³
-MonsterAttack/&DH_NagaSpit_Attack_Title	å–·æ¯’
-MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7æ¯’ç´ ä¼¤å®³ï¼Œé€ æˆä¸­æ¯’çŠ¶æ€
-MonsterAttack/&DH_PitFiend_Bite_Attack_Title	å•ƒå’¬
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6æŒç»­æ¯’ç´ ä¼¤å®³
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	ä¸­æ¯’
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8é’å‡»ä¼¤å®³ & 6D6ç«ç„°ä¼¤å®³
-MonsterAttack/&DH_PitFiend_Mace_Attack_Title	ç¡¬å¤´é”¤æ”»å‡»
-MonsterAttack/&DH_PoisonLongbow_Attack_Description	é•¿å¼“åŠ ä¸Šæ·¬æ¯’ç®­çŸ¢
-MonsterAttack/&DH_PoisonLongbow_Attack_Title	æ·¬æ¯’é•¿å¼“
-MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4æŒ¥ç ä¼¤å®³ & 3d8æ¯’ç´ ä¼¤å®³
-MonsterAttack/&DH_PoisonLongsword_Attack_Title	æ·¬æ¯’é•¿å‰‘
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8ç©¿åˆºä¼¤å®³ & 6D8å…‰è€€ä¼¤å®³
-MonsterAttack/&DH_RadiantLongbow_Attack_Title	æ€æˆ®é•¿å¼“
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8æŒ¥ç ä¼¤å®³ & 6D8å…‰è€€ä¼¤å®³
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	å…‰è€€å·¨å‰‘
-MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9ç©¿åˆºä¼¤å®³
-MonsterAttack/&DH_Roc_Beak_Attack_Title	å–™å•„
-MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9æŒ¥ç ä¼¤å®³ï¼Œç›®æ ‡è¢«é¹é¸Ÿæ“’æŠ±å’ŒæŸç¼š
-MonsterAttack/&DH_Roc_Talons_Attack_Title	ç¦½çˆª
-MonsterAttack/&DH_Tarrasque_Bite_Description	4d12+10ç©¿åˆºä¼¤å®³ï¼Œç›®æ ‡å¿…é¡»é€šè¿‡ä¸€æ¬¡æ•æ·è±å…(DC20)å¦åˆ™è¢«æ“’æŠ±
-MonsterAttack/&DH_Tarrasque_Bite_Title	å•ƒå’¬
-MonsterAttack/&DH_Tarrasque_BiteCondition_Description	ç›´è‡³æ“’æŠ±ç»“æŸï¼Œç›®æ ‡è¢«æŸç¼š
-MonsterAttack/&DH_Tarrasque_BiteCondition_Title	è¢«æ³°æ‹‰æ–¯å¥ŽæŠ“ä½
-MonsterAttack/&DH_Tarrasque_Claw_Description	4d8+10æŒ¥ç ä¼¤å®³
-MonsterAttack/&DH_Tarrasque_Claw_Title	çˆªå‡»
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10+10ç©¿åˆºä¼¤å®³
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6冷冻伤害并造成麻痹状态
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	麻痹之触
+MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5挥砍伤害 & 2d6闪电伤害
+MonsterAttack/&DH_LightningScimatar_Attack_Title	弯刀
+MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4穿刺伤害 &  DC为15的体质豁免以减半10d8毒素伤害
+MonsterAttack/&DH_NagaBite_Attack_Title	毒素啃咬
+MonsterAttack/&DH_NagaSpit_Attack_Description	DC为15的体质豁免以减半10d8毒素伤害
+MonsterAttack/&DH_NagaSpit_Attack_Title	喷毒
+MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7毒素伤害，造成中毒状态
+MonsterAttack/&DH_PitFiend_Bite_Attack_Title	啃咬
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6持续毒素伤害
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	中毒
+MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8钝击伤害 & 6D6火焰伤害
+MonsterAttack/&DH_PitFiend_Mace_Attack_Title	硬头锤攻击
+MonsterAttack/&DH_PoisonLongbow_Attack_Description	长弓加上淬毒箭矢
+MonsterAttack/&DH_PoisonLongbow_Attack_Title	淬毒长弓
+MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4挥砍伤害 & 3d8毒素伤害
+MonsterAttack/&DH_PoisonLongsword_Attack_Title	淬毒长剑
+MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8穿刺伤害 & 6D8光耀伤害
+MonsterAttack/&DH_RadiantLongbow_Attack_Title	杀戮长弓
+MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8挥砍伤害 & 6D8光耀伤害
+MonsterAttack/&DH_RadiantLongsword_Attack_Title	光耀巨剑
+MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9穿刺伤害
+MonsterAttack/&DH_Roc_Beak_Attack_Title	喙啄
+MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9挥砍伤害，目标被鹏鸟擒抱和束缚
+MonsterAttack/&DH_Roc_Talons_Attack_Title	禽爪
+MonsterAttack/&DH_Tarrasque_Bite_Description	4d12+10穿刺伤害，目标必须通过一次敏捷豁免(DC20)否则被擒抱
+MonsterAttack/&DH_Tarrasque_Bite_Title	啃咬
+MonsterAttack/&DH_Tarrasque_BiteCondition_Description	直至擒抱结束，目标被束缚
+MonsterAttack/&DH_Tarrasque_BiteCondition_Title	被泰拉斯奎抓住
+MonsterAttack/&DH_Tarrasque_Claw_Description	4d8+10挥砍伤害
+MonsterAttack/&DH_Tarrasque_Claw_Title	爪击
+MonsterAttack/&DH_Tarrasque_Horn_Description	4d10+10穿刺伤害
 MonsterAttack/&DH_Tarrasque_Horn_Title	Horn
-MonsterAttack/&DH_Tarrasque_Tail_Description	4d6+10é’å‡»ä¼¤å®³ã€‚è‹¥ç›®æ ‡ä¸ºç”Ÿç‰©ï¼Œå…¶å¿…é¡»é€šè¿‡ä¸€æ¬¡åŠ›é‡è±å…(DC20)å¦åˆ™è¢«å‡»å€’
-MonsterAttack/&DH_Tarrasque_Tail_Title	å°¾å‡»
-MonsterAttack/&DHCouatlBiteAttackDescription	ç©¿åˆºä¼¤å®³ï¼Œç›®æ ‡å¿…é¡»é€šè¿‡ä¸€æ¬¡ä½“è´¨è±å…(DC13)å¦åˆ™é™·å…¥24å°æ—¶çš„ä¸­æ¯’çŠ¶æ€ã€‚ç›´è‡³ä¸­æ¯’è§£é™¤ä¸ºæ­¢ï¼Œç›®æ ‡é™·å…¥æ˜è¿·
-MonsterAttack/&DHCouatlBiteAttackTitle	å•ƒå’¬
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10é›·é¸£ä¼¤å®³å¹¶åœ¨ç›®æ ‡è±å…å¤±è´¥æ—¶å‡»é€€
-MonsterPower/&DH_AirTitan_Gale_Power_Title	å°–å•¸ç–¾é£Ž
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	èŒƒå›´å†…3D10é—ªç”µä¼¤å®³
-MonsterPower/&DH_AirTitan_Lightning_Power_Title	é—ªç”µä¸€å‡»
-MonsterPower/&DH_AncientDragon_Wing_Power_Description	é¾™èƒ½æ‰‡åŠ¨ç¿…è†€ï¼Œäº§ç”Ÿé£“é£Žå°†å¤§å¤šæ•°ç±»äººç”Ÿç‰©æŽ¨å¼€å¹¶å‡»å€’
-MonsterPower/&DH_AncientDragon_Wing_Power_Title	æŒ¯ç¿…æ”»å‡»
-MonsterPower/&DH_Balor_FireAura_Power_Description	3D6ç«ç„°ä¼¤å®³
-MonsterPower/&DH_Balor_FireAura_Power_Title	ç«ç„°çµå…‰
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	å·´æ´›ç‚Žé­”åå‡»
-MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	å·´æ´›ç‚Žé­”åå‡»
-MonsterPower/&DH_Balor_Retaliate_Power_Description	å·´æ´›ç‚Žé­”åå‡»
-MonsterPower/&DH_Balor_Retaliate_Power_Title	å·´æ´›ç‚Žé­”åå‡»
-MonsterPower/&DH_BlindingGaze_Power_Description	å¿…é¡»é€šè¿‡ä½“è´¨è±å…(DC15)å¦åˆ™è¢«ç›®ç›²
-MonsterPower/&DH_BlindingGaze_Power_Title	ç›®ç›²å‡è§†
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8å¼ºé…¸ä¼¤å®³
-MonsterPower/&DH_DamageAcid_Breath_Power_Title	å¼ºé…¸åæ¯
-MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8å†·å†»ä¼¤å®³
-MonsterPower/&DH_DamageCold_Breath_Power_Title	å¯’å†°åæ¯
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6ç«ç„°ä¼¤å®³
-MonsterPower/&DH_DamageFire_Breath_Power_Title	ç«ç„°åæ¯
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10é—ªç”µä¼¤å®³
-MonsterPower/&DH_DamageLightning_Breath_Power_Title	é—ªç”µåæ¯
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6æ¯’ç´ ä¼¤å®³
-MonsterPower/&DH_DamagePoison_Breath_Power_Title	æ¯’ç´ åæ¯
-MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10å…‰è€€ä¼¤å®³å¹¶ä¸”ç›®æ ‡å°†åœ¨ç”Ÿå‘½å€¼ä¸º0æ—¶è¢«ç“¦è§£
-MonsterPower/&DH_DisintegratingBeam_Power_Title	 ç“¦è§£å°„çº¿
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10é’å‡»ä¼¤å®³
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	åœ°éœ‡
+MonsterAttack/&DH_Tarrasque_Tail_Description	4d6+10钝击伤害。若目标为生物，其必须通过一次力量豁免(DC20)否则被击倒
+MonsterAttack/&DH_Tarrasque_Tail_Title	尾击
+MonsterAttack/&DHCouatlBiteAttackDescription	穿刺伤害，目标必须通过一次体质豁免(DC13)否则陷入24小时的中毒状态。直至中毒解除为止，目标陷入昏迷
+MonsterAttack/&DHCouatlBiteAttackTitle	啃咬
+MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10雷鸣伤害并在目标豁免失败时击退
+MonsterPower/&DH_AirTitan_Gale_Power_Title	尖啸疾风
+MonsterPower/&DH_AirTitan_Lightning_Power_Description	范围内3D10闪电伤害
+MonsterPower/&DH_AirTitan_Lightning_Power_Title	闪电一击
+MonsterPower/&DH_AncientDragon_Wing_Power_Description	龙能扇动翅膀，产生飓风将大多数类人生物推开并击倒
+MonsterPower/&DH_AncientDragon_Wing_Power_Title	振翅攻击
+MonsterPower/&DH_Balor_FireAura_Power_Description	3D6火焰伤害
+MonsterPower/&DH_Balor_FireAura_Power_Title	火焰灵光
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	巴洛炎魔反击
+MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	巴洛炎魔反击
+MonsterPower/&DH_Balor_Retaliate_Power_Description	巴洛炎魔反击
+MonsterPower/&DH_Balor_Retaliate_Power_Title	巴洛炎魔反击
+MonsterPower/&DH_BlindingGaze_Power_Description	必须通过体质豁免(DC15)否则被目盲
+MonsterPower/&DH_BlindingGaze_Power_Title	目盲凝视
+MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8强酸伤害
+MonsterPower/&DH_DamageAcid_Breath_Power_Title	强酸吐息
+MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8冷冻伤害
+MonsterPower/&DH_DamageCold_Breath_Power_Title	寒冰吐息
+MonsterPower/&DH_DamageFire_Breath_Power_Description	26D6火焰伤害
+MonsterPower/&DH_DamageFire_Breath_Power_Title	火焰吐息
+MonsterPower/&DH_DamageLightning_Breath_Power_Description	16D10闪电伤害
+MonsterPower/&DH_DamageLightning_Breath_Power_Title	闪电吐息
+MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6毒素伤害
+MonsterPower/&DH_DamagePoison_Breath_Power_Title	毒素吐息
+MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10光耀伤害并且目标将在生命值为0时被瓦解
+MonsterPower/&DH_DisintegratingBeam_Power_Title	 瓦解射线
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10钝击伤害
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	地震
 MonsterPower/&DH_ErinyesParry_Power_Description	+3AC
-MonsterPower/&DH_ErinyesParry_Power_Title	æ‹›æž¶
-MonsterPower/&DH_FireTitan_Aura_Power_Description	30è‹±å°ºå†…çš„æ‰€æœ‰ç”Ÿç‰©éƒ½ä¼šå—åˆ°35(10d6)ç«ç„°ä¼¤å®³ï¼Œåœ¨çµå…‰ä¸­æ²¡æœ‰è¢«ç©¿æˆ´æˆ–æºå¸¦çš„æ˜“ç‡ƒç‰©ä¼šè¢«ç‚¹ç‡ƒ
-MonsterPower/&DH_FireTitan_Aura_Power_Title	ç«ç„°æ³°å¦çµå…‰
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	åœ¨10è‹±å°ºå†…ï¼Œä»»ä½•æŽ¥è§¦Maegeraæˆ–ç”¨è¿‘æˆ˜æ”»å‡»å‡»ä¸­å®ƒçš„ç”Ÿç‰©ä¼šå—åˆ°35(10d6)ç«ç„°ä¼¤å®³
-MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	ç«ç„°æ³°å¦åå‡»
-MonsterPower/&DH_FireTitan_Retaliate_Power_Description	åœ¨10è‹±å°ºå†…ï¼Œä»»ä½•æŽ¥è§¦Maegeraæˆ–ç”¨è¿‘æˆ˜æ”»å‡»å‡»ä¸­å®ƒçš„ç”Ÿç‰©ä¼šå—åˆ°35(10d6)ç«ç„°ä¼¤å®³
-MonsterPower/&DH_FireTitan_Retaliate_Power_Title	ç«ç„°æ³°å¦åå‡»
-MonsterPower/&DH_IlluminatingCrystals_Power_Description	æ–½æ³•æ—¶è¯¥åŒºåŸŸå†…çš„ä»»ä½•ç”Ÿç‰©éƒ½ä¼šè¢«å…‰ç¬¼ç½©ã€‚åœ¨æŒç»­æ—¶é—´å†…ï¼Œç‰©ä½“å’Œå—å½±å“çš„ç”Ÿç‰©ä¼šåœ¨10è‹±å°ºå†…å‘å‡ºæ˜æš—å…‰ç…§
-MonsterPower/&DH_IlluminatingCrystals_Power_Title	ç…§æ˜Žæ°´æ™¶
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	 æ³°å¦èšç„¦å…¶å‘¨å›´20è‹±å°ºçš„åŒºåŸŸã€‚ä»¥æ­¤ç‚¹ä¸ºä¸­å¿ƒçš„20è‹±å°ºåŠå¾„ã€20è‹±å°ºé«˜çš„åœ†æŸ±ä½“ä¸­çš„ä»»ä½•ç”Ÿç‰©éƒ½å¿…é¡»é€šè¿‡æ•æ·è±å…(DC26)ï¼Œå¦åˆ™ä¼šå—åˆ°33(6d10)é’å‡»ä¼¤å®³å¹¶è¢«å‡»å€’å’ŒæŸç¼šä¸€å›žåˆ
-MonsterPower/&DH_IncreasedGravityZone_Attack_Title	å¼ºé‡åŠ›åŒºåŸŸ
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6é»¯èš€ä¼¤å®³
-MonsterPower/&DH_Lich_DisruptLife_Power_Title	æ‰°ä¹±ç”Ÿå‘½
-MonsterPower/&DH_SearingBurst_Power_Description	4D6ç«ç„°ä¼¤å®³ & 4D6å…‰è€€ä¼¤å®³
-MonsterPower/&DH_SearingBurst_Power_Title	ç¼çƒ­çˆ†è£‚
-MonsterPower/&DH_SleetStorm_Immunity_Description	é›ªé›¨æš´å…ç–«
-MonsterPower/&DH_SleetStorm_Immunity_Title	é›ªé›¨æš´å…ç–«
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	å¬å”¤1åªæ°”å…ƒç´ 
-MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	å¬å”¤é«˜çº§å…ƒç´ 
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	å¬å”¤1åªåœŸå…ƒç´ 
-MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	å¬å”¤é«˜çº§å…ƒç´ 
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	1åªæ¬²é­”è¢«å¬å”¤ä½œæˆ˜
-MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	å¬å”¤éšä»Žï¼šæ¬²é­”
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	å¬å”¤1åªç«å…ƒç´ 
-MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	å¬å”¤é«˜çº§å…ƒç´ 
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	å¬å”¤2åªç«ç„°å°ä¸‘
-MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	å¬å”¤æ¬¡çº§å…ƒç´ ç¾¤
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	å¬å”¤æ¬¡çº§æž„è£…ä½“
-MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	å¬å”¤æ¬¡çº§æž„è£…ä½“
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	1åªåˆ¤é­‚é­”è¢«å¬å”¤ä½œæˆ˜
-MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	å¬å”¤éšä»Žï¼šåˆ¤é­‚é­”
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	å¬å”¤1åªæ–¯å¡æ©é£Ÿå°¸é¬¼
-MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	å¬å”¤æ¬¡çº§å…ƒç´ 
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	å¬å”¤4åªé£Žè›‡
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	 å¬å”¤æ¬¡çº§å…ƒç´ ç¾¤
-MonsterPower/&DH_SummonCreature_Wolves_Power_Description	å¸è¡€é¬¼ç”¨é­”æ³•å¬å”¤å‡º3D6åªç‹¼
-MonsterPower/&DH_SummonCreature_Wolves_Power_Title	æš—å¤œä¹‹å­
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	æ³°æ‹‰æ–¯å¥Žè¢«æŒ‡å®šä¸ºæ³•æœ¯é­”æ³•é£žå¼¹çš„ç›®æ ‡ï¼Œä»¥åŠä½œä¸ºçº¿çŠ¶åŒºåŸŸæ³•æœ¯æˆ–éœ€è¦è¿›è¡Œè¿œç¨‹æ”»å‡»æ£€å®šæ³•æœ¯çš„ç›®æ ‡æ—¶ï¼Œæ³°æ‹‰æ–¯å¥Žä¸å—å½±å“
-MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	åå¼¹ç”²å£³
-MonsterPower/&DH_TarrasqueSwallowPower_Description	æ³°æ‹‰æ–¯å¥Žå¯¹æ­£è¢«å®ƒæ“’æŠ±çš„å¤§åž‹æˆ–æ›´å°ä½“åž‹ç”Ÿç‰©å‘åŠ¨ä¸€æ¬¡å•ƒå’¬æ”»å‡»ã€‚è‹¥è¯¥æ”»å‡»å‘½ä¸­ï¼Œåˆ™ç›®æ ‡è¢«åžä¸‹å¹¶ç»ˆæ­¢å…¶æ“’æŠ±çŠ¶æ€
-MonsterPower/&DH_TarrasqueSwallowPower_Title	åžå’½
-MonsterPower/&DH_VampireCharmPower_Description	å¸è¡€é¬¼æŒ‡å®šå…¶å‘¨è¾¹30è‹±å°ºä¸€ä¸ªå®ƒèƒ½çœ‹è§çš„ç±»äººç”Ÿç‰©ï¼Œå…¶å¿…é¡»é€šè¿‡ä¸€æ¬¡æ„ŸçŸ¥è±å…(DC17)å¦è¢«é­…æƒ‘
-MonsterPower/&DH_VampireCharmPower_Title	é­…æƒ‘
-MonsterPower/&DHAirTitanLightningStormPowerDescription	å¤§èŒƒå›´å†…6d8é—ªç”µä¼¤å®³
-MonsterPower/&DHAirTitanLightningStormPowerTitle	é—ªç”µé£Žæš´
-MonsterPower/&DHGenericLightningAttackPowerDescription	12D8ä¼¤å®³
-MonsterPower/&DHGenericLightningAttackPowerTitle	é—ªç”µä¸€å‡»
-Spell/&DHAnimalShapesSpellDescription	æŒ‡å®šæ–½æ³•è·ç¦»å†…ä»»æ„æ•°é‡çš„è‡ªæ„¿ç”Ÿç‰©ï¼Œå¹¶ä½¿æ¯ä¸ªç›®æ ‡å˜å½¢ä¸ºä¸€åªæŒ‘æˆ˜ç­‰çº§ä¸è¶…è¿‡4ï¼Œä½“åž‹ä¸å¤§äºŽå¤§åž‹çš„é‡Žå…½
-Spell/&DHAnimalShapesSpellTitle	åŠ¨ç‰©å½¢æ€
-Spell/&DHTimeStop_SpellDescription	ä½ ä½¿æ—¶é—´åœ¨é™¤ä½ ä¹‹å¤–æ‰€æœ‰ç”Ÿç‰©çš„ä¸–ç•Œä¸­æš‚æ—¶åœæ­¢æµåŠ¨ã€‚ä½ ä¸€æ¬¡æ€§è¿›è¡Œ1d4+1ä¸ªå›žåˆï¼Œåœ¨è¿™æ®µè¿‡ç¨‹å†…æ—¶é—´å¯¹äºŽå…¶ä»–ç”Ÿç‰©æ˜¯é™æ­¢çš„ï¼Œä½†ä½ èƒ½åƒæ­£å¸¸ä¸€æ ·ç§»åŠ¨å’Œä½¿ç”¨åŠ¨ä½œ
-Spell/&DHTimeStop_SpellTitle	æ—¶é—´åœæ­¢
+MonsterPower/&DH_ErinyesParry_Power_Title	招架
+MonsterPower/&DH_FireTitan_Aura_Power_Description	30英尺内的所有生物都会受到35(10d6)火焰伤害，在灵光中没有被穿戴或携带的易燃物会被点燃
+MonsterPower/&DH_FireTitan_Aura_Power_Title	火焰泰坦灵光
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description	在10英尺内，任何接触Maegera或用近战攻击击中它的生物会受到35(10d6)火焰伤害
+MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title	火焰泰坦反击
+MonsterPower/&DH_FireTitan_Retaliate_Power_Description	在10英尺内，任何接触Maegera或用近战攻击击中它的生物会受到35(10d6)火焰伤害
+MonsterPower/&DH_FireTitan_Retaliate_Power_Title	火焰泰坦反击
+MonsterPower/&DH_IlluminatingCrystals_Power_Description	施法时该区域内的任何生物都会被光笼罩。在持续时间内，物体和受影响的生物会在10英尺内发出昏暗光照
+MonsterPower/&DH_IlluminatingCrystals_Power_Title	照明水晶
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description	 泰坦聚焦其周围20英尺的区域。以此点为中心的20英尺半径、20英尺高的圆柱体中的任何生物都必须通过敏捷豁免(DC26)，否则会受到33(6d10)钝击伤害并被击倒和束缚一回合
+MonsterPower/&DH_IncreasedGravityZone_Attack_Title	强重力区域
+MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6黯蚀伤害
+MonsterPower/&DH_Lich_DisruptLife_Power_Title	扰乱生命
+MonsterPower/&DH_SearingBurst_Power_Description	4D6火焰伤害 & 4D6光耀伤害
+MonsterPower/&DH_SearingBurst_Power_Title	灼热爆裂
+MonsterPower/&DH_SleetStorm_Immunity_Description	雪雨暴免疫
+MonsterPower/&DH_SleetStorm_Immunity_Title	雪雨暴免疫
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Description	召唤1只气元素
+MonsterPower/&DH_SummonCreature_Air_Elemental_Power_Title	召唤高级元素
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Description	召唤1只土元素
+MonsterPower/&DH_SummonCreature_Earth_Elemental_Power_Title	召唤高级元素
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Description	1只欲魔被召唤作战
+MonsterPower/&DH_SummonCreature_Erinyes_Power_Title	召唤随从：欲魔
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Description	召唤1只火元素
+MonsterPower/&DH_SummonCreature_Fire_Elemental_Power_Title	召唤高级元素
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Description	召唤2只火焰小丑
+MonsterPower/&DH_SummonCreature_Fire_Jester_Power_Title	召唤次级元素群
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Description	召唤次级构装体
+MonsterPower/&DH_SummonCreature_LesserConstruct_Power_Title	召唤次级构装体
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Description	1只判魂魔被召唤作战
+MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	召唤随从：判魂魔
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	召唤1只斯卡恩食尸鬼
+MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	召唤次级元素
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	召唤4只风蛇
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	 召唤次级元素群
+MonsterPower/&DH_SummonCreature_Wolves_Power_Description	吸血鬼用魔法召唤出3D6只狼
+MonsterPower/&DH_SummonCreature_Wolves_Power_Title	暗夜之子
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	泰拉斯奎被指定为法术魔法飞弹的目标，以及作为线状区域法术或需要进行远程攻击检定法术的目标时，泰拉斯奎不受影响
+MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Title	反弹甲壳
+MonsterPower/&DH_TarrasqueSwallowPower_Description	泰拉斯奎对正被它擒抱的大型或更小体型生物发动一次啃咬攻击。若该攻击命中，则目标被吞下并终止其擒抱状态
+MonsterPower/&DH_TarrasqueSwallowPower_Title	吞咽
+MonsterPower/&DH_VampireCharmPower_Description	吸血鬼指定其周边30英尺一个它能看见的类人生物，其必须通过一次感知豁免(DC17)否被魅惑
+MonsterPower/&DH_VampireCharmPower_Title	魅惑
+MonsterPower/&DHAirTitanLightningStormPowerDescription	大范围内6d8闪电伤害
+MonsterPower/&DHAirTitanLightningStormPowerTitle	闪电风暴
+MonsterPower/&DHGenericLightningAttackPowerDescription	12D8伤害
+MonsterPower/&DHGenericLightningAttackPowerTitle	闪电一击
+Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
+Spell/&DHAnimalShapesSpellTitle	动物形态
+Spell/&DHTimeStop_SpellDescription	你使时间在除你之外所有生物的世界中暂时停止流动。你一次性进行1d4+1个回合，在这段过程内时间对于其他生物是静止的，但你能像正常一样移动和使用动作
+Spell/&DHTimeStop_SpellTitle	时间停止
