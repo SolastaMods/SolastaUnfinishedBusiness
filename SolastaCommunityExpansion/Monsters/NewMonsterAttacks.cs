@@ -212,12 +212,12 @@ public class NewMonsterAttacks
         FallingEffect.applyLevel = EffectForm.LevelApplianceType.No;
         FallingEffect.levelMultiplier = 1;
         FallingEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
-        FallingEffect.SetCreatedByCondition(true);
+        FallingEffect.createdByCondition = true;
         FallingEffect.FormType = EffectForm.EffectFormType.Motion;
         FallingEffect.motionForm = motionForm;
         FallingEffect.hasSavingThrow = false;
-        FallingEffect.SetCanSaveToCancel(false);
-        FallingEffect.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+        FallingEffect.canSaveToCancel = false;
+        FallingEffect.saveOccurence = RuleDefinitions.TurnOccurenceType.StartOfTurn;
 
         Roc_Talons_Attack.EffectDescription.EffectForms.Add(FallingEffect);
 
@@ -399,7 +399,7 @@ public class NewMonsterAttacks
         TailEffect.FormType = EffectForm.EffectFormType.Condition;
         TailEffect.ConditionForm = TailCondition;
         TailEffect.hasSavingThrow = true;
-        TailEffect.SetCanSaveToCancel(true);
+        TailEffect.canSaveToCancel = true;
         TailEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
 
@@ -507,7 +507,7 @@ public class NewMonsterAttacks
         PoisonLongbowEffect.FormType = EffectForm.EffectFormType.Condition;
         PoisonLongbowEffect.ConditionForm = PoisonLongbowCondition;
         PoisonLongbowEffect.hasSavingThrow = true;
-        PoisonLongbowEffect.SetCanSaveToCancel(false);
+        PoisonLongbowEffect.canSaveToCancel = false;
         PoisonLongbowEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
 
@@ -593,8 +593,8 @@ public class NewMonsterAttacks
         killEffect.levelMultiplier = 1;
         killEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
         killEffect.createdByCharacter = true;
-        killEffect.FormType = EffectForm.EffectFormType.Kill;
-        killEffect.SetKillForm(killForm);
+        killEffect.formType = EffectForm.EffectFormType.Kill;
+        killEffect.killForm = killForm;
         killEffect.hasSavingThrow = true;
         killEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
@@ -961,7 +961,7 @@ public class NewMonsterAttacks
         PitFiendBiteEffect.FormType = EffectForm.EffectFormType.Condition;
         PitFiendBiteEffect.ConditionForm = PitFiendBiteCondition;
         PitFiendBiteEffect.hasSavingThrow = true;
-        PitFiendBiteEffect.SetCanSaveToCancel(true);
+        PitFiendBiteEffect.canSaveToCancel = true;
         PitFiendBiteEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         PitFiend_Bite_Attack.reachRange = 2;
@@ -1383,7 +1383,7 @@ public class NewMonsterAttacks
 
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].ConditionForm
             .conditionDefinition = TarrasqueGrappledRestrainedCondition;
-        Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].SetCanSaveToCancel(true);
+        Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].canSaveToCancel = true;
         Tarrasque_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
 
 

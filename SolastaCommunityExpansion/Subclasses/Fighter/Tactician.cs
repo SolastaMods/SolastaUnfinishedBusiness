@@ -47,7 +47,7 @@ internal static class KnockDownPowerBuilder
         var proneMotion = new MotionForm();
         proneMotion.type = MotionForm.MotionType.FallProne;
         proneMotion.distance = 1;
-        proneMotionEffect.SetMotionForm(proneMotion);
+        proneMotionEffect.motionForm = proneMotion;
         proneMotionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         //Add to our new effect
@@ -91,7 +91,7 @@ internal static class InspirePowerBuilder
         {
             DiceNumber = 1, DieType = RuleDefinitions.DieType.D6, BonusHitPoints = 2
         };
-        healingEffect.SetTemporaryHitPointsForm(tempHPForm);
+        healingEffect.temporaryHitPointsForm = tempHPForm;
 
         //Create the bless effect - A fun test, unfortunately the two effects can't have varying durations AFAIK so a bless or similar effect might be overpowered (was thinking a bless for 1 round).  Alternatively both could last 1 minute instead and be intended for in battle.
         //EffectForm blessEffect = new EffectForm();

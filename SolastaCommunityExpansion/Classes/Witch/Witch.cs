@@ -688,10 +688,11 @@ internal static class Witch
 
         abateConditionForm.conditionDefinition = abateConditionDefinition;
 
-        var abateEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(abateConditionForm);
+        var abateEffectForm = new EffectForm();
+
+        abateEffectForm.formType = EffectForm.EffectFormType.Condition;
+        abateEffectForm.createdByCharacter = true;
+        abateEffectForm.conditionForm = abateConditionForm;
 
         var abateEffectDescription = ShockingGrasp.EffectDescription
             .Copy()
@@ -728,10 +729,11 @@ internal static class Witch
 
         apathyConditionForm.conditionDefinition = apathyConditionDefinition;
 
-        var apathyEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(apathyConditionForm);
+        var apathyEffectForm = new EffectForm();
+
+        apathyEffectForm.formType = EffectForm.EffectFormType.Condition;
+        apathyEffectForm.createdByCharacter = true;
+        apathyEffectForm.conditionForm = apathyConditionForm;
 
         var apathyEffectDescription = CalmEmotionsOnEnemy.EffectDescription
             .Copy()
@@ -768,10 +770,11 @@ internal static class Witch
 
         charmConditionForm.conditionDefinition = charmConditionDefinition;
 
-        var charmEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(charmConditionForm);
+        var charmEffectForm = new EffectForm();
+
+        charmEffectForm.formType = EffectForm.EffectFormType.Condition;
+        charmEffectForm.createdByCharacter = true;
+        charmEffectForm.conditionForm = charmConditionForm;
 
         var charmEffectDescription = CharmPerson.EffectDescription
             .Copy()
@@ -815,10 +818,11 @@ internal static class Witch
 
         disorientConditionForm.conditionDefinition = disorientConditionDefinition;
 
-        var disorientEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(disorientConditionForm);
+        var disorientEffectForm = new EffectForm();
+
+        disorientEffectForm.formType = EffectForm.EffectFormType.Condition;
+        disorientEffectForm.createdByCharacter = true;
+        disorientEffectForm.conditionForm = disorientConditionForm;
 
         var disorientEffectDescription = Bane.EffectDescription
             .Copy()
@@ -856,10 +860,11 @@ internal static class Witch
 
         evileyeConditionForm.conditionDefinition = evileyeConditionDefinition;
 
-        var evileyeEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(evileyeConditionForm);
+        var evileyeEffectForm = new EffectForm();
+
+        evileyeEffectForm.formType = EffectForm.EffectFormType.Condition;
+        evileyeEffectForm.createdByCharacter = true;
+        evileyeEffectForm.conditionForm = evileyeConditionForm;
 
         var evileyeEffectDescription = Fear.EffectDescription.Copy()
             .SetDuration(DurationType.Round, 1)
@@ -913,10 +918,11 @@ internal static class Witch
 
         poxConditionForm.conditionDefinition = poxConditionDefinition;
 
-        var poxEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(poxConditionForm);
+        var poxEffectForm = new EffectForm();
+
+        poxEffectForm.formType = EffectForm.EffectFormType.Condition;
+        poxEffectForm.createdByCharacter = true;
+        poxEffectForm.conditionForm = poxConditionForm;
 
         var poxEffectDescription = PoisonSpray.EffectDescription
             .Copy()
@@ -960,10 +966,11 @@ internal static class Witch
 
         ruinConditionForm.conditionDefinition = ruinConditionDefinition;
 
-        var ruinEffectForm = new EffectForm()
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetCreatedByCharacter(true)
-            .SetConditionForm(ruinConditionForm);
+        var ruinEffectForm = new EffectForm();
+
+        ruinEffectForm.formType = EffectForm.EffectFormType.Condition;
+        ruinEffectForm.createdByCharacter = true;
+        ruinEffectForm.conditionForm = ruinConditionForm;
 
         var ruinEffectDescription = AcidArrow.EffectDescription
             .Copy()
@@ -1124,9 +1131,9 @@ internal static class Witch
             summonForm.decisionPackage = null;
 
             var effectForm = new EffectForm();
-            effectForm.SetFormType(EffectForm.EffectFormType.Summon);
-            effectForm.SetCreatedByCharacter(true);
-            effectForm.SetSummonForm(summonForm);
+            effectForm.formType = EffectForm.EffectFormType.Summon;
+            effectForm.createdByCharacter = true;
+            effectForm.summonForm = summonForm;
 
             spell.EffectDescription.SetEffectForms(effectForm);
             GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);

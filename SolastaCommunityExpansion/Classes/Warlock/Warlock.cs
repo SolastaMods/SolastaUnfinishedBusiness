@@ -121,7 +121,6 @@ public static class Warlock
     {
         // DEPRECATED
         _ = DHWarlockSubclassRiftWalkerPatron.Build();
-        _ = DHWarlockSubclassToadKingPatron.Build();
 
         var subclassChoices = FeatureDefinitionSubclassChoiceBuilder
             .Create("ClassWarlockSubclassChoice", DefinitionBuilder.CENamespaceGuid)

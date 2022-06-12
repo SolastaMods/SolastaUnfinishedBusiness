@@ -197,7 +197,7 @@ internal sealed class TorchbearerFeatBuilder : FeatDefinitionBuilder
     private static FeatureDefinition BuildFeatureTorchbearer()
     {
         var burn_effect = new EffectForm();
-        burn_effect.SetFormType(EffectForm.EffectFormType.Condition);
+        burn_effect.formType = EffectForm.EffectFormType.Condition;
         burn_effect.ConditionForm = new ConditionForm
         {
             Operation = ConditionForm.ConditionOperation.Add,

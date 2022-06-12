@@ -67,7 +67,15 @@ internal class RoyalKnight : AbstractSubclass
             .SetRangeParameter(20);
 
         inspiringSurgeEffectDescription.EffectForms.SetRange(
-            FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms.Select(ef => ef.Copy()));
+            FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.EffectForms
+                .Select(x =>
+                {
+                    var ef = new EffectForm();
+
+                    ef.Copy(x);
+
+                    return ef;
+                }));
 
         var inspiringSurgePower = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "InspiringSurgePower",

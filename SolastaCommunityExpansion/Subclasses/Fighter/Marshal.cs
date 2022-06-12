@@ -400,9 +400,9 @@ internal static class EternalComradeBuilder
         summonForm.monsterDefinitionName = EternalComrade.Name;
 
         var effectForm = new EffectForm();
-        effectForm.SetFormType(EffectForm.EffectFormType.Summon);
-        effectForm.SetCreatedByCharacter(true);
-        effectForm.SetSummonForm(summonForm);
+        effectForm.formType = EffectForm.EffectFormType.Summon;
+        effectForm.createdByCharacter = true;
+        effectForm.summonForm = summonForm;
 
         // TODO: make this use concentration and reduce the duration to may be 3 rounds
         // TODO: increase the number of use to 2 and recharge per long rest

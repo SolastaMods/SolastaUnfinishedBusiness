@@ -520,8 +520,8 @@ internal sealed class SelfRepairBuilder : FeatureDefinitionPowerBuilder
         var selfrepair = new HealingForm {BonusHealing = 4, DieType = RuleDefinitions.DieType.D8, DiceNumber = 2};
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
-        effect.SetHealingForm(selfrepair);
-        effect.SetCreatedByCharacter(true);
+        effect.healingForm = selfrepair;
+        effect.createdByCharacter = true;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

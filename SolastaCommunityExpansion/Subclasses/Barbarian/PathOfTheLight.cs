@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
@@ -610,7 +609,7 @@ internal class PathOfTheLight : AbstractSubclass
                 SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates
             };
 
-            addLightSource.SetLightSourceForm(lightSourceForm);
+            addLightSource.lightSourceForm = lightSourceForm;
 
             effectDescriptionBuilder
                 .SetSavingThrowData(

@@ -545,13 +545,13 @@ internal sealed class SelfDestructBuilder : FeatureDefinitionPowerBuilder
         {
             FormType = EffectForm.EffectFormType.Damage, DamageForm = ExplosionDamage
         };
-        ExplosionEffect.SetCreatedByCharacter(true);
+        ExplosionEffect.createdByCharacter = true;
         ExplosionEffect.HasSavingThrow = true;
         ExplosionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         ExplosionEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        ExplosionEffect.SetLevelMultiplier(1);
-        ExplosionEffect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        ExplosionEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        ExplosionEffect.levelMultiplier = 1;
+        ExplosionEffect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        ExplosionEffect.applyLevel = EffectForm.LevelApplianceType.No;
 
         var newEffectDescription = new EffectDescription();
         newEffectDescription.Copy(Definition.EffectDescription);
@@ -614,12 +614,12 @@ internal sealed class SelfDestructionConditionBuilder : ConditionDefinitionBuild
         SelfDestruct.killCondition = RuleDefinitions.KillCondition.Always;
 
         var KillEffect = new EffectForm {FormType = EffectForm.EffectFormType.Kill};
-        KillEffect.SetKillForm(SelfDestruct);
-        KillEffect.SetCreatedByCharacter(true);
+        KillEffect.killForm = SelfDestruct;
+        KillEffect.createdByCharacter = true;
         KillEffect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        KillEffect.SetLevelMultiplier(1);
-        KillEffect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        KillEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        KillEffect.levelMultiplier = 1;
+        KillEffect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        KillEffect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.RecurrentEffectForms.Add(KillEffect);
 
@@ -665,12 +665,12 @@ internal sealed class HalfCoverShieldBuilder : FeatureDefinitionPowerBuilder
         halfCoverShield.ConditionForm.ConditionDefinition =
             HalfCoverShieldConditionBuilder.HalfCoverShieldCondition; // DistractingPulseBuilder.DistractingPulse;
 
-        halfCoverShield.SetCreatedByCharacter(true);
+        halfCoverShield.createdByCharacter = true;
 
         halfCoverShield.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
-        halfCoverShield.SetLevelMultiplier(1);
-        halfCoverShield.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        halfCoverShield.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        halfCoverShield.levelMultiplier = 1;
+        halfCoverShield.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        halfCoverShield.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

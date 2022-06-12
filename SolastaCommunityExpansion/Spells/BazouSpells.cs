@@ -189,9 +189,9 @@ internal static class BazouSpells
         summonForm.decisionPackage = null;
 
         var effectForm = new EffectForm();
-        effectForm.SetFormType(EffectForm.EffectFormType.Summon);
-        effectForm.SetCreatedByCharacter(true);
-        effectForm.SetSummonForm(summonForm);
+        effectForm.formType = EffectForm.EffectFormType.Summon;
+        effectForm.createdByCharacter = true;
+        effectForm.summonForm = summonForm;
 
         spell.EffectDescription.EffectForms.Add(effectForm);
 

@@ -97,7 +97,7 @@ internal static class AceHighSpells
                     ConditionDefinition = PactMarkMarkedByPactConditionBuilder.MarkedByPactCondition
                 }
             };
-            markedByPactEffectForm.SetCreatedByCharacter(true);
+            markedByPactEffectForm.createdByCharacter = true;
 
             var pactMarkEffectForm = new EffectForm
             {
@@ -108,7 +108,7 @@ internal static class AceHighSpells
                 }
             };
             pactMarkEffectForm.ConditionForm.applyToSelf = true;
-            pactMarkEffectForm.SetCreatedByCharacter(true);
+            pactMarkEffectForm.createdByCharacter = true;
 
             var effectDescription = Definition.EffectDescription;
             effectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);

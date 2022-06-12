@@ -298,13 +298,13 @@ Web
         motionForm.distance = 1;
 
         var effectmotion = new EffectForm {FormType = EffectForm.EffectFormType.Motion};
-        effectmotion.SetMotionForm(motionForm);
-        effectmotion.SetCreatedByCharacter(true);
+        effectmotion.motionForm = motionForm;
+        effectmotion.createdByCharacter = true;
         effectmotion.HasSavingThrow = false;
         effectmotion.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effectmotion.SetLevelMultiplier(1);
-        effectmotion.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effectmotion.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effectmotion.levelMultiplier = 1;
+        effectmotion.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effectmotion.applyLevel = EffectForm.LevelApplianceType.No;
 
         var forceArtilleryAttack = new DamageForm
         {
@@ -315,12 +315,12 @@ Web
         };
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Damage, DamageForm = forceArtilleryAttack};
-        effect.SetCreatedByCharacter(true);
-        effect.HasSavingThrow = false;
-        effect.AddBonusMode = RuleDefinitions.AddBonusMode.None;
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effect.createdByCharacter = true;
+        effect.hasSavingThrow = false;
+        effect.addBonusMode = RuleDefinitions.AddBonusMode.None;
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

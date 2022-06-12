@@ -84,8 +84,8 @@ internal sealed class MendingConstructBuilder : SpellDefinitionBuilder
             new HealingForm {BonusHealing = 0, DieType = RuleDefinitions.DieType.D6, DiceNumber = 2};
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Healing};
-        effect.SetHealingForm(mendingconstruct);
-        effect.SetCreatedByCharacter(true);
+        effect.healingForm = mendingconstruct;
+        effect.createdByCharacter = true;
 
         Definition.ritual = false;
         Definition.spellLevel = 0;
@@ -134,9 +134,9 @@ internal sealed class DismissConstructBuilder : SpellDefinitionBuilder
         dismissConstruct.type = CounterForm.CounterType.DismissCreature;
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.Counter};
-        effect.SetCounterForm(dismissConstruct);
+        effect.counterForm = dismissConstruct;
         effect.HasSavingThrow = false;
-        effect.SetCreatedByCharacter(true);
+        effect.createdByCharacter = true;
 
         var effectDescription = new EffectDescription();
         effectDescription.Copy(Definition.EffectDescription);
@@ -339,13 +339,13 @@ internal sealed class CancelFlyingConditionBuilder : FeatureDefinitionPowerBuild
         Condition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionFlyingBootsWinged;
 
         var effect = new EffectForm();
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.None);
-        effect.SetCreatedByCharacter(true);
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.None;
+        effect.createdByCharacter = true;
         effect.FormType = EffectForm.EffectFormType.Condition;
         effect.ConditionForm = Condition;
-        effect.SetCanSaveToCancel(false);
+        effect.canSaveToCancel = false;
 
         var effectDescription = new EffectDescription();
         effectDescription.Copy(Definition.EffectDescription);

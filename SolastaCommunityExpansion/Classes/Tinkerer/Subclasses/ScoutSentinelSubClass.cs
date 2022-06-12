@@ -36,7 +36,7 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         itemPropertyForm.FeatureBySlotLevel.Add(
             new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
         var effectItem = new EffectForm {FormType = EffectForm.EffectFormType.ItemProperty};
-        effectItem.SetItemPropertyForm(itemPropertyForm);
+        effectItem.itemPropertyForm = itemPropertyForm;
         return effectItem;
     }
 
@@ -250,7 +250,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         itemPropertyForm.FeatureBySlotLevel.Add(
             new FeatureUnlockByLevel(IntToAttackAndDamageBuilder.IntToAttackAndDamage, 0));
         var effectItem = new EffectForm {FormType = EffectForm.EffectFormType.ItemProperty};
-        effectItem.SetItemPropertyForm(itemPropertyForm);
+        effectItem.itemPropertyForm = itemPropertyForm;
 
         var effectImprovedSentinelmode = new EffectDescription();
         effectImprovedSentinelmode.Copy(ProduceFlameHold.EffectDescription);
@@ -662,10 +662,10 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
             DiceNumber = 1, DieType = RuleDefinitions.DieType.D1, BonusHitPoints = 0
         };
 
-        healingEffect.SetTemporaryHitPointsForm(tempHPForm);
+        healingEffect.temporaryHitPointsForm = tempHPForm;
         healingEffect.applyLevel = EffectForm.LevelApplianceType.MultiplyBonus;
-        healingEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
-        healingEffect.SetLevelMultiplier(1);
+        healingEffect.levelType = RuleDefinitions.LevelSourceType.CharacterLevel;
+        healingEffect.levelMultiplier = 1;
 
         //Add to our new effect
         var newEffectDescription = new EffectDescription();
@@ -1096,8 +1096,8 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
 
         motionEffect.motionForm = motion;
         motionEffect.applyLevel = EffectForm.LevelApplianceType.MultiplyBonus;
-        motionEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
-        motionEffect.SetLevelMultiplier(1);
+        motionEffect.levelType = RuleDefinitions.LevelSourceType.CharacterLevel;
+        motionEffect.levelMultiplier = 1;
         motionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         var damageEffect = new EffectForm
@@ -1199,12 +1199,12 @@ internal sealed class ImprovedScoutSuitWeaponBuilder : ItemDefinitionBuilder
         lightSourceForm.Copy(Shine.EffectDescription.EffectForms[0].LightSourceForm);
 
         var MagicalLightSourceEffect = new EffectForm();
-        MagicalLightSourceEffect.SetLevelMultiplier(1);
-        MagicalLightSourceEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
+        MagicalLightSourceEffect.levelMultiplier = 1;
+        MagicalLightSourceEffect.levelType = RuleDefinitions.LevelSourceType.CharacterLevel;
         MagicalLightSourceEffect.HasSavingThrow = false;
-        MagicalLightSourceEffect.SetCreatedByCharacter(true);
+        MagicalLightSourceEffect.createdByCharacter = true;
         MagicalLightSourceEffect.FormType = EffectForm.EffectFormType.LightSource;
-        MagicalLightSourceEffect.SetLightSourceForm(lightSourceForm);
+        MagicalLightSourceEffect.lightSourceForm = lightSourceForm;
 
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(EnemyAttackDisadvantageEffect);
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(ExtraAttackEffect);

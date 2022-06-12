@@ -37,13 +37,13 @@ internal sealed class TempHPShieldBuilder : FeatureDefinitionPowerBuilder
         };
 
         var effect = new EffectForm {FormType = EffectForm.EffectFormType.TemporaryHitPoints};
-        effect.SetTemporaryHitPointsForm(tempHPShield);
-        effect.SetCreatedByCharacter(true);
+        effect.temporaryHitPointsForm = tempHPShield;
+        effect.createdByCharacter = true;
 
         effect.AddBonusMode = RuleDefinitions.AddBonusMode.AbilityBonus;
-        effect.SetLevelMultiplier(1);
-        effect.SetLevelType(RuleDefinitions.LevelSourceType.EffectLevel);
-        effect.SetApplyLevel(EffectForm.LevelApplianceType.No);
+        effect.levelMultiplier = 1;
+        effect.levelType = RuleDefinitions.LevelSourceType.EffectLevel;
+        effect.applyLevel = EffectForm.LevelApplianceType.No;
 
         Definition.EffectDescription.EffectAdvancement.Clear();
         Definition.EffectDescription.EffectForms.Clear();

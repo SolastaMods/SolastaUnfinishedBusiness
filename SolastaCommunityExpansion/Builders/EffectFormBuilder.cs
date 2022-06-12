@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using TA.AI;
 using UnityEngine;
@@ -40,13 +39,13 @@ public class EffectFormBuilder
 
     public EffectFormBuilder CreatedByCharacter()
     {
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.createdByCharacter = true;
         return this;
     }
 
     public EffectFormBuilder CreatedByCondition()
     {
-        effectForm.SetCreatedByCondition(true);
+        effectForm.createdByCondition = true;
         return this;
     }
 
@@ -59,9 +58,9 @@ public class EffectFormBuilder
     public EffectFormBuilder SetLevelAdvancement(EffectForm.LevelApplianceType applyLevel,
         LevelSourceType levelType, int levelMultiplier = 1)
     {
-        effectForm.SetApplyLevel(applyLevel);
-        effectForm.SetLevelType(levelType);
-        effectForm.SetLevelMultiplier(levelMultiplier);
+        effectForm.applyLevel = applyLevel;
+        effectForm.levelType = levelType;
+        effectForm.levelMultiplier = levelMultiplier;
         return this;
     }
 
@@ -70,7 +69,7 @@ public class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Alteration;
         var alterationForm = new AlterationForm();
         alterationForm.alterationType = alterationType;
-        effectForm.SetAlterationForm(alterationForm);
+        effectForm.alterationForm = alterationForm;
         return this;
     }
 
@@ -82,7 +81,7 @@ public class EffectFormBuilder
         alterationForm.abilityScore = abilityScore;
         alterationForm.valueIncrease = valueIncrease;
         alterationForm.maximumIncrease = maximumIncrease;
-        effectForm.SetAlterationForm(alterationForm);
+        effectForm.alterationForm = alterationForm;
         return this;
     }
 
@@ -128,7 +127,7 @@ public class EffectFormBuilder
         counterForm.checkBaseDC = checkBaseDC;
         counterForm.addSpellCastingAbility = addSpellCastingAbility;
         counterForm.addProficiencyBonus = addProficiencyBonus;
-        effectForm.SetCounterForm(counterForm);
+        effectForm.counterForm = counterForm;
         return this;
     }
 
@@ -168,7 +167,7 @@ public class EffectFormBuilder
         killForm.killCondition = condition;
         killForm.challengeRating = challengeRating;
         killForm.hitPoints = hitPoints;
-        effectForm.SetKillForm(killForm);
+        effectForm.killForm = killForm;
         return this;
     }
 
@@ -182,7 +181,7 @@ public class EffectFormBuilder
         divinationForm.CreatureFamilies.SetRange(creatureFamilies);
         divinationForm.RevealedTags.SetRange(revealedTags);
         divinationForm.rangeCells = rangeCells;
-        effectForm.SetDivinationForm(divinationForm);
+        effectForm.divinationForm = divinationForm;
         return this;
     }
 
@@ -201,7 +200,7 @@ public class EffectFormBuilder
             VariablePool = variablePool,
             HealingCap = healingCap
         };
-        effectForm.SetHealingForm(healingForm);
+        effectForm.healingForm = healingForm;
         return this;
     }
 
@@ -219,7 +218,7 @@ public class EffectFormBuilder
         itemForm.usageLimitation = usageLimitation;
         itemForm.useAmount = useAmount;
         itemForm.FeatureBySlotLevel.SetRange(featureBySlotLevel);
-        effectForm.SetItemPropertyForm(itemForm);
+        effectForm.itemPropertyForm = itemForm;
         return this;
     }
 
@@ -234,7 +233,7 @@ public class EffectFormBuilder
         lightSourceForm.dimAdditionalRange = dimAdditionalRange;
         lightSourceForm.color = color;
         lightSourceForm.graphicsPrefabReference = graphicsPrefabReference;
-        effectForm.SetLightSourceForm(lightSourceForm);
+        effectForm.lightSourceForm = lightSourceForm;
         return this;
     }
 
@@ -244,7 +243,7 @@ public class EffectFormBuilder
         var motionForm = new MotionForm();
         motionForm.type = motionType;
         motionForm.distance = motionDistance;
-        effectForm.SetMotionForm(motionForm);
+        effectForm.motionForm = motionForm;
         return this;
     }
 
@@ -263,7 +262,7 @@ public class EffectFormBuilder
         reviveForm.reviveHitPoints = reviveHitPoints;
         reviveForm.RemovedConditions.SetRange(removedConditions);
 
-        effectForm.SetReviveForm(reviveForm);
+        effectForm.reviveForm = reviveForm;
         return this;
     }
 
@@ -273,7 +272,7 @@ public class EffectFormBuilder
         var spellSlotsForm = new SpellSlotsForm();
         spellSlotsForm.type = SpellSlotsForm.EffectType.RecoverHalfLevelUp;
         spellSlotsForm.maxSlotLevel = maxSlotLevel;
-        effectForm.SetSpellSlotsForm(spellSlotsForm);
+        effectForm.spellSlotsForm = spellSlotsForm;
         return this;
     }
 
@@ -292,7 +291,7 @@ public class EffectFormBuilder
         summonForm.persistOnConcentrationLoss = persistOnConcentrationLoss;
         summonForm.decisionPackage = decisionPackage;
         summonForm.effectProxyDefinitionName = effectProxyDefinition.Name;
-        effectForm.SetSummonForm(summonForm);
+        effectForm.summonForm = summonForm;
         return this;
     }
 
@@ -310,7 +309,7 @@ public class EffectFormBuilder
         summonForm.persistOnConcentrationLoss = persistOnConcentrationLoss;
         summonForm.decisionPackage = decisionPackage;
         summonForm.effectProxyDefinitionName = null;
-        effectForm.SetSummonForm(summonForm);
+        effectForm.summonForm = summonForm;
         return this;
     }
 
@@ -326,7 +325,7 @@ public class EffectFormBuilder
         summonForm.persistOnConcentrationLoss = true;
         summonForm.decisionPackage = null;
         summonForm.effectProxyDefinitionName = null;
-        effectForm.SetSummonForm(summonForm);
+        effectForm.summonForm = summonForm;
         return this;
     }
 
@@ -337,7 +336,7 @@ public class EffectFormBuilder
         {
             BonusHitPoints = bonusHitPoints, DieType = dieType, DiceNumber = diceNumber
         };
-        effectForm.SetTemporaryHitPointsForm(tempHPForm);
+        effectForm.temporaryHitPointsForm = tempHPForm;
         return this;
     }
 
@@ -347,7 +346,7 @@ public class EffectFormBuilder
         var topologyForm = new TopologyForm();
         topologyForm.changeType = changeType;
         topologyForm.impactsFlyingCharacters = impactsFlyingCharacters;
-        effectForm.SetTopologyForm(topologyForm);
+        effectForm.topologyForm = topologyForm;
         return this;
     }
 

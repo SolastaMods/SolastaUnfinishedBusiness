@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
@@ -324,3 +325,4 @@ public static class DHWarlockSubclassToadKingPatron
             .AddToDB();
     }
 }
+#endif

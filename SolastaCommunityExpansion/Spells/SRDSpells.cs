@@ -730,14 +730,14 @@ public static class SrdSpells
         conditionForm.operation = ConditionForm.ConditionOperation.Add;
 
         var extraPoisonEffect = new EffectForm();
-        extraPoisonEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraPoisonEffect.SetLevelMultiplier(1);
-        extraPoisonEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraPoisonEffect.SetCreatedByCharacter(true);
+        extraPoisonEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraPoisonEffect.levelMultiplier = 1;
+        extraPoisonEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraPoisonEffect.createdByCharacter = true;
         extraPoisonEffect.FormType = EffectForm.EffectFormType.Condition;
-        extraPoisonEffect.SetConditionForm(conditionForm);
-        extraPoisonEffect.SetHasSavingThrow(true);
-        extraPoisonEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        extraPoisonEffect.conditionForm = conditionForm;
+        extraPoisonEffect.hasSavingThrow = true;
+        extraPoisonEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         var sleepForm = new ConditionForm();
         sleepForm.conditionDefinition = ConditionMagicallyAsleep;
@@ -745,21 +745,21 @@ public static class SrdSpells
         sleepForm.operation = ConditionForm.ConditionOperation.Add;
 
         var extraSleepEffect = new EffectForm();
-        extraSleepEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraSleepEffect.SetLevelMultiplier(1);
-        extraSleepEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraSleepEffect.SetCreatedByCharacter(true);
+        extraSleepEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraSleepEffect.levelMultiplier = 1;
+        extraSleepEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraSleepEffect.createdByCharacter = true;
         extraSleepEffect.FormType = EffectForm.EffectFormType.Condition;
-        extraSleepEffect.SetConditionForm(sleepForm);
-        extraSleepEffect.SetHasSavingThrow(true);
-        extraSleepEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        extraSleepEffect.conditionForm = sleepForm;
+        extraSleepEffect.hasSavingThrow = true;
+        extraSleepEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         CouatlBite_Attack.EffectDescription.EffectForms.Add(extraSleepEffect);
         CouatlBite_Attack.EffectDescription.EffectForms.Add(extraPoisonEffect);
         CouatlBite_Attack.EffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Constitution.Name);
         CouatlBite_Attack.EffectDescription.SetSavingThrowDifficultyAbility(SmartAttributeDefinitions.Constitution
             .Name);
-        CouatlBite_Attack.EffectDescription.SetHasSavingThrow(true);
+        CouatlBite_Attack.EffectDescription.hasSavingThrow = true;
         CouatlBite_Attack.EffectDescription.SetFixedSavingThrowDifficultyClass(13);
         CouatlBite_Attack.EffectDescription.SetDurationParameter(24);
         CouatlBite_Attack.EffectDescription.SetDurationType(RuleDefinitions.DurationType.Hour);
@@ -906,9 +906,9 @@ public static class SrdSpells
 
                 EffectForm effectForm = new EffectForm();
                 effectForm.SetAddBonusMode(RuleDefinitions.AddBonusMode.None);
-                effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
+                effectForm.applyLevel =(EffectForm.LevelApplianceType.No);
                 effectForm.SetCanSaveToCancel(false);
-                effectForm.SetCreatedByCharacter(true);
+                effectForm.createdByCharacter =(true);
                 effectForm.SetFormType(EffectForm.EffectFormType.ShapeChange);
                 effectForm.SetShapeChangeForm(shapeChangeForm);
 
@@ -1149,7 +1149,7 @@ public static class SrdSpells
             .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.HalfDamage)
             .Build());
 
-        neweffectDescription.SetHasSavingThrow(true);
+        neweffectDescription.hasSavingThrow = true;
         neweffectDescription.SetSavingThrowAbility(SmartAttributeDefinitions.Dexterity.name);
 
         return SpellDefinitionBuilder
@@ -1264,15 +1264,16 @@ public static class SrdSpells
             conditionDefinition = ConditionStunned
         };
 
-        var effectForm = new EffectForm()
-            .SetApplyLevel(EffectForm.LevelApplianceType.No)
-            .SetLevelMultiplier(1)
-            .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
-            .SetCreatedByCharacter(true)
-            .SetFormType(EffectForm.EffectFormType.Condition)
-            .SetConditionForm(conditionForm)
-            .SetCanSaveToCancel(true)
-            .SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        var effectForm = new EffectForm();
+
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
+        effectForm.formType = EffectForm.EffectFormType.Condition;
+        effectForm.conditionForm = conditionForm;
+        effectForm.canSaveToCancel = true;
+        effectForm.saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1583,13 +1584,15 @@ public static class SrdSpells
         killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
         killForm.hitPoints = 100;
 
-        var effectForm = new EffectForm()
-            .SetApplyLevel(EffectForm.LevelApplianceType.No)
-            .SetLevelMultiplier(1)
-            .SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel)
-            .SetCreatedByCharacter(true)
-            .SetFormType(EffectForm.EffectFormType.Kill)
-            .SetKillForm(killForm);
+        var effectForm = new EffectForm();
+
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
+        effectForm.formType = EffectForm.EffectFormType.Kill;
+        effectForm.killForm = killForm;
+        ;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
@@ -1638,13 +1641,15 @@ public static class SrdSpells
             new ShapeOptionDescription().SetRequiredLevel(1).SetSubstituteMonster(Sorr_Akkath_Shikkath)
         );
 
-        var effectForm = new EffectForm()
-            .SetAddBonusMode(RuleDefinitions.AddBonusMode.None)
-            .SetApplyLevel(EffectForm.LevelApplianceType.No)
-            .SetCanSaveToCancel(false)
-            .SetCreatedByCharacter(true)
-            .SetFormType(EffectForm.EffectFormType.ShapeChange)
-            .SetShapeChangeForm(shapeChangeForm);
+        var effectForm = new EffectForm();
+
+
+        effectForm.addBonusMode = RuleDefinitions.AddBonusMode.None;
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.canSaveToCancel = false;
+        effectForm.createdByCharacter = true;
+        effectForm.formType = EffectForm.EffectFormType.ShapeChange;
+        effectForm.shapeChangeForm = shapeChangeForm;
 
         var effectDescription = new EffectDescriptionBuilder()
             .SetDurationData(
