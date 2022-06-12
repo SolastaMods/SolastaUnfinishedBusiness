@@ -249,14 +249,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Remove="Api\Extensions\SpellDefinitionExtensions.cs" />
-    <Compile Remove="Api\Extensions\RulesetUsablePowerExtensions.cs" />
-    <Compile Remove="Api\Extensions\FeatureDefinitionCastSpellExtensions.cs" />
-    <Compile Remove="Api\AdditionalExtensions\**" />
-    <Compile Remove="Api\Extensions\EffectParticleParametersExtensions.cs" />
-    <Compile Remove="Api\Extensions\DamageFormExtensions.cs" />
-    <Compile Remove="Api\Extensions\SaveAffinityByFamilyDescriptionExtensions.cs" />
-    <Compile Remove="Api\Infrastructure\StringUtils.cs" />
   </ItemGroup>
 
   <ItemGroup>

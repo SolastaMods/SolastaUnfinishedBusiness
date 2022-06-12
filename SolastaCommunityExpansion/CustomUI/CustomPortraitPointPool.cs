@@ -38,25 +38,25 @@ public class CustomPortraitPoolPower : ICusomPortraitPointPoolProvider
     }
 }
 
-public class CusomPortraitPointPool : MonoBehaviour
+public class CustomPortraitPointPool : MonoBehaviour
 {
-    public static CusomPortraitPointPool Setup(ICusomPortraitPointPoolProvider provider, RulesetCharacter character,
+    public static CustomPortraitPointPool Setup(ICusomPortraitPointPoolProvider provider, RulesetCharacter character,
         GameObject prefab, Transform parent)
     {
-        CusomPortraitPointPool pool;
+        CustomPortraitPointPool pool;
 
         var name = $"CustomPool({provider.Name})";
         var child = parent.Find(name);
 
         if (child != null)
         {
-            pool = child.GetComponent<CusomPortraitPointPool>();
+            pool = child.GetComponent<CustomPortraitPointPool>();
         }
         else
         {
             var obj = Instantiate(prefab, parent, false);
             obj.name = name;
-            pool = obj.AddComponent<CusomPortraitPointPool>();
+            pool = obj.AddComponent<CustomPortraitPointPool>();
 
             pool.Setup(provider, character);
         }

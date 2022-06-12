@@ -35,7 +35,7 @@ internal static class ActiveCharacterPanel_Refresh
         var pools = character.GetSubFeaturesByType<ICusomPortraitPointPoolProvider>();
         foreach (var provider in pools)
         {
-            CusomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
+            CustomPortraitPointPool.Setup(provider, character, poolPrefab, layout);
         }
 
         var concentrations = character.GetSubFeaturesByType<ICusomConcentrationProvider>();

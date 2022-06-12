@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 
@@ -25,16 +24,43 @@ public abstract class ConditionDefinitionBuilder<TDefinition, TBuilder> : Defini
     where TDefinition : ConditionDefinition
     where TBuilder : ConditionDefinitionBuilder<TDefinition, TBuilder>
 {
+    private static ConditionDefinition SetEmptyParticleReferencesWhereNull(ConditionDefinition definition)
+    {
+        var assetReference = new AssetReference();
+
+        if (definition.conditionStartParticleReference == null)
+        {
+            definition.conditionStartParticleReference = assetReference;
+        }
+
+        if (definition.conditionParticleReference == null)
+        {
+            definition.conditionParticleReference = assetReference;
+        }
+
+        if (definition.conditionEndParticleReference == null)
+        {
+            definition.conditionEndParticleReference = assetReference;
+        }
+
+        if (definition.characterShaderReference == null)
+        {
+            definition.characterShaderReference = assetReference;
+        }
+
+        return definition;
+    }
+
     protected override void Initialise()
     {
         base.Initialise();
 
-        SetEmptyParticleReferencesWhereNull();
+        SetEmptyParticleReferencesWhereNull(Definition);
     }
 
     private void SetEmptyParticleReferencesWhereNull()
     {
-        Definition.SetEmptyParticleReferencesWhereNull();
+        SetEmptyParticleReferencesWhereNull(Definition);
     }
 
     // Setters delegating to Definition
