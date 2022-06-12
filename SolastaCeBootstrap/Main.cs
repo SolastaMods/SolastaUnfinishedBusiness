@@ -99,10 +99,10 @@ namespace SolastaCeBootstrap
             }
             else
             {
-                if (GUILayout.Button("dump extensions and helpers"))
+                if (GUILayout.Button("dump database helpers"))
                 {
                     DatabaseHelpersExporter.Dump();
-                    ExtensionsExporter.Dump();
+                    //ExtensionsExporter.Dump();
                 }
             }
 
@@ -219,7 +219,7 @@ namespace SolastaCeBootstrap
             File.WriteAllText(Path.Combine(OutputPath, "DatabaseHelper.cs"), sb.ToString());
         }
     }
-
+#if false
     internal static class ExtensionsExporter
     {
         private const string pattern = @"^(\<(?<name>.*)\>k__BackingField)|(m_(?<name>.*))$";
@@ -839,4 +839,5 @@ namespace SolastaCeBootstrap
             }
         }
     }
+#endif
 }
