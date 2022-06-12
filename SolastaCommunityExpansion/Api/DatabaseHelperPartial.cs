@@ -1,6 +1,6 @@
 ﻿using SolastaCommunityExpansion.Api.Diagnostics;
 
-namespace SolastaModApi;
+namespace SolastaCommunityExpansion.Api;
 
 public static partial class DatabaseHelper
 {

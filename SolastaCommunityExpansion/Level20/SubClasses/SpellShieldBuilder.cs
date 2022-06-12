@@ -1,4 +1,4 @@
-﻿using SolastaModApi.Infrastructure;
+﻿using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Level20.SubClasses;
 

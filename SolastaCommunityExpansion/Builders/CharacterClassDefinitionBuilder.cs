@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
 using static CharacterClassDefinition;

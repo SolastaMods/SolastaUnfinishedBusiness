@@ -1,5 +1,5 @@
 ﻿using ModKit.Utility;
-using SolastaModApi;
+using SolastaCommunityExpansion.Api;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models;

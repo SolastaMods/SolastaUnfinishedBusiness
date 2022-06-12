@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.ItemCrafting;
-using SolastaModApi;
 using TMPro;
 using UnityEngine;
 #if DEBUG

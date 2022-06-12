@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
 using static CharacterClassDefinition;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Tinkerer;
 

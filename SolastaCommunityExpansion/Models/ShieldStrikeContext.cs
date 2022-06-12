@@ -1,5 +1,5 @@
 ﻿using SolastaCommunityExpansion.Builders;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models;
 

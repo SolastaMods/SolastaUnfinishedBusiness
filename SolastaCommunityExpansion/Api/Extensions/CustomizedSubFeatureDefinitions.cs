@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
@@ -31,7 +31,7 @@ internal static class CustomizedSubFeatureDefinitions
     internal static T SetCustomSubFeatures<T>(this T definition, params object[] subFeatures) where T : BaseDefinition
     {
         GetOrCreateForKey(definition).SetRange(subFeatures);
-        
+
         return definition;
     }
 
@@ -50,7 +50,7 @@ internal static class CustomizedSubFeatureDefinitions
         }
 
         var subFeatures = GetForKey(definition)?.OfType<T>();
-        
+
         if (subFeatures != null)
         {
             results.AddRange(subFeatures);

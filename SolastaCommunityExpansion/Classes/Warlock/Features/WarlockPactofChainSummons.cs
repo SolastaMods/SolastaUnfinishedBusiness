@@ -1,6 +1,6 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Features;

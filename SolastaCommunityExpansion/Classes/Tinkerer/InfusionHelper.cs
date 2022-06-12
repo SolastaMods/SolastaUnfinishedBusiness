@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Tinkerer.Subclasses;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
 using UnityEngine;
 using static SolastaCommunityExpansion.Classes.Tinkerer.FeatureHelpers;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using FeatureDefinitionMagicAffinityBuilder =
     SolastaCommunityExpansion.Builders.Features.FeatureDefinitionMagicAffinityBuilder;
 

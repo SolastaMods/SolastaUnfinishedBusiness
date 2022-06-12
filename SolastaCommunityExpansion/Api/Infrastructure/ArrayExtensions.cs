@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class ArrayExtensions
 {

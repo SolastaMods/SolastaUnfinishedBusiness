@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using SolastaModApi;
+using SolastaCommunityExpansion.Api;
 
 namespace SolastaCommunityExpansion.Patches.Bugfix;
 

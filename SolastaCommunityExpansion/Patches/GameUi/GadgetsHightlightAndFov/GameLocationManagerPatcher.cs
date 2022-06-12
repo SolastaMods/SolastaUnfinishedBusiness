@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.GadgetBlueprints;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.GadgetsHightlightAndFov;
 

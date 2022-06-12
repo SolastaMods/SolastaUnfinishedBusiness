@@ -1,8 +1,8 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static EquipmentDefinitions;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttackModifiers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 
 namespace SolastaCommunityExpansion.Models;
 

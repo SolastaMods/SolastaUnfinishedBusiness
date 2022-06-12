@@ -1,6 +1,6 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
 using SolastaMonsters.Models;
 using UnityEngine;
 

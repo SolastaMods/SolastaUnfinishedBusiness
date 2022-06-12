@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
-using SolastaModApi;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.CustomUI;

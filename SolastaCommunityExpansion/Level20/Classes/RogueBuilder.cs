@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using static SolastaCommunityExpansion.Level20.Features.ProficiencyRogueBlindSenseBuilder;
 using static SolastaCommunityExpansion.Level20.Features.ProficiencyRogueSlipperyMindBuilder;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Level20.Classes;
 

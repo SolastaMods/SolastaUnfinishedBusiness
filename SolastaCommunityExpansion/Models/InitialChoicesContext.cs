@@ -1,10 +1,10 @@
 ﻿using System.Linq;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionSenses;
 
 namespace SolastaCommunityExpansion.Models;
 

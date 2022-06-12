@@ -3,7 +3,7 @@ using System.Diagnostics;
 using JetBrains.Annotations;
 using SolastaCommunityExpansion.Api.Diagnostics;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 // TODO: rename IsNotNull -> ArgumentIsNotNull etc
 // TODO: remove Assert.IsNotNull which duplicates Preconditions.IsNotNull

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
-using static SolastaModApi.DatabaseHelper.ItemDefinitions;
+using SolastaCommunityExpansion.Api.Infrastructure;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ItemDefinitions;
 
 namespace SolastaCommunityExpansion.Builders;
 

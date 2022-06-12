@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Patches.Tools.DefaultParty;
-using SolastaModApi;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

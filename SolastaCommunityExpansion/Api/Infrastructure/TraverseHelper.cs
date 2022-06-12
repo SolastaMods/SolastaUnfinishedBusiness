@@ -1,7 +1,7 @@
 ﻿using System;
 using HarmonyLib;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public static class TraverseHelper
 {

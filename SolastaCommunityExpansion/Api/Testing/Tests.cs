@@ -2,9 +2,8 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Api.Diagnostics;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Api.Testing
@@ -20,8 +19,8 @@ namespace SolastaCommunityExpansion.Api.Testing
                 var dbHelperTypes = Assembly
                     .GetExecutingAssembly()
                     .GetTypes()
-                    .Where(t => t.Namespace == "SolastaModApi")
-                    .Where(t => t.FullName.StartsWith("SolastaModApi.DatabaseHelper"))
+                    .Where(t => t.Namespace == "SolastaCommunityExpansion")
+                    .Where(t => t.FullName.StartsWith("SolastaCommunityExpansion.Api.DatabaseHelper"))
                     .Where(t => t.MemberType == MemberTypes.NestedType)
                     .OrderBy(t => t.Name);
 
@@ -379,7 +378,7 @@ namespace SolastaCommunityExpansion.Api.Testing
                 TestProp = testValue;
             }
 
-            internal string TestProp { get; set; }
+            internal string TestProp { get; }
         }
     }
 }

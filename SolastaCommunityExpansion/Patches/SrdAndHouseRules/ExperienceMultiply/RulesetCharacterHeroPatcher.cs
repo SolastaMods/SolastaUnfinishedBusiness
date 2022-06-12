@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
-using static SolastaModApi.DatabaseHelper.QuestTreeDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.QuestTreeDefinitions;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.ExperienceMultiply;
 

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.LootPackDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.LootPackDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 

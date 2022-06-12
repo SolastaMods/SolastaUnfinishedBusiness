@@ -1,6 +1,6 @@
-﻿using SolastaCommunityExpansion.Api.Extensions;
+﻿using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi;
 
 namespace SolastaCommunityExpansion.Models;
 
