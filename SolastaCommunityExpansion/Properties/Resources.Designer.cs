@@ -133,16 +133,6 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Destination {
-            get {
-                object obj = ResourceManager.GetObject("Destination", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] EarthTremor {
             get {
                 object obj = ResourceManager.GetObject("EarthTremor", resourceCulture);
@@ -459,10 +449,10 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Alle zum Lager hinzufügen
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Füge die Bedingung &lt;color=#FFA500&gt;Bluten&lt;/color&gt; zu den Bedingungen hinzu, die durch &lt;color=#FFA500&gt;Große und Kleine Wiederherstellung&lt;/color&gt; entfernt werden
-        ///ModUi/&amp;AddHelpActionToAllRaces	Hinzufügen der Aktion &lt;color=#FFA500&gt;Hilfe&lt;/color&gt; für alle Völker
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Füge neue Waffen und Rezepte zu Läden hinzu &lt;i&gt;&lt;color=#FFFF00&gt;[Handumhänge, Hellebarden, Piken, lange Streitkolben, Handarmbrüste [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Alle zum Shop hinzufügen
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Fügen Sie den Zustand &lt;color=orange&gt;Bluten&lt;/color&gt; zu den Zuständen hinzu, die durch &lt;color=orange&gt;Größere und Geringere Wiederherstellung&lt;/color&gt; entfernt wurden
+        ///ModUi/&amp;AddHelpActionToAllRaces	Füge allen Rennen die Aktion &lt;color=orange&gt;Hilfe&lt;/color&gt; hinzu
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Füge den Läden neue Waffen und Rezepte hinzu &lt;i&gt;&lt;color=yellow&gt;[Handbandagen, Hellebarden, Hechte, lange Keulen, Handarmbrüste]&lt;/co [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_de {
             get {
@@ -472,9 +462,9 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Add all to store
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=#FFA500&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=#FFA500&gt;Greater and Lesser Restoration&lt;/color&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=#FFA500&gt;Help&lt;/color&gt; action to all races
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops &lt;i&gt;&lt;color=#FFFF00&gt;[hand wraps, halberds, pikes, long maces, hand crossbows]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=#C04040E0&gt;[Requires Restart]&lt;/color&gt;&lt; [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Add the &lt;color=orange&gt;Bleeding&lt;/color&gt; condition to the conditions removed by &lt;color=orange&gt;Greater and Lesser Restoration&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Add the &lt;color=orange&gt;Help&lt;/color&gt; action to all races
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Add new weapons and recipes to shops &lt;i&gt;&lt;color=yellow&gt;[hand wraps, halberds, pikes, long maces, hand crossbows]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=#C04040E0&gt;[Requires Restart]&lt;/color&gt;&lt;/i&gt;&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_en {
             get {
@@ -496,9 +486,9 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Ajouter tout au magasin
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Ajouter la condition &lt;color=#FFA500&gt;Saignement&lt;/color&gt; aux conditions supprimées par &lt;color=#FFA500&gt;Grande et petite restauration&lt;/color&gt;.
-        ///ModUi/&amp;AddHelpActionToAllRaces	Ajouter l&apos;action &lt;color=#FFA500&gt;Help&lt;/color&gt; à toutes les races.
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Ajouter de nouvelles armes et recettes aux boutiques &lt;i&gt;&lt;color=#FFFF00&gt;[enveloppes de main, hallebardes, piques, longues masses, arbalètes de main]&lt;/colo [rest of string was truncated]&quot;;.
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Ajoutez la condition &lt;color=orange&gt;Saignement&lt;/color&gt; aux conditions supprimées par &lt;color=orange&gt;Grande et Petite Restauration&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Ajouter l&apos;action &lt;color=orange&gt;Aide&lt;/color&gt; à toutes les courses
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Ajouter de nouvelles armes et recettes aux boutiques &lt;i&gt;&lt;color=yellow&gt;[bandages à main, hallebardes, piques, masses longues, arbalètes à main]&lt;/color&gt;&lt;/i&gt; &lt; [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_fr {
             get {
@@ -519,10 +509,10 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Acrescentar tudo para armazenar
-        ///ModUi/&amp;AddBleedingToLesserRestoration	Adicionar a &lt;color=#FFA500&gt;Sangria&lt;/cor&gt; condição às condições removidas por &lt;color=#FFA500&gt;Reduração Maior e Menor&lt;/cor&gt;
-        ///ModUi/&amp;AddHelpActionToAllRaces	Adicionar a &lt;color=#FFA500&gt;Ajuda&gt; ação a todas as raças
-        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Adicionar novas armas e receitas às lojas &lt;i&gt;&lt;color=#FFFFFF00&gt;[hand wraps, halberds, pikes, maças longas, bestas]&lt;/color&gt;&lt;/i&gt;&gt;b&gt;&gt;&gt;i&gt;&lt;color=#C04040E0&gt;[Requires Restart]&lt;/co [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to ModUi/&amp;AddAllToStore	Adicionar tudo à loja
+        ///ModUi/&amp;AddBleedingToLesserRestoration	Adicione a condição &lt;color=orange&gt;Sangramento&lt;/color&gt; às condições removidas pela &lt;color=orange&gt;Restauração Maior e Menor&lt;/color&gt;
+        ///ModUi/&amp;AddHelpActionToAllRaces	Adicione a ação &lt;color=orange&gt;Ajuda&lt;/color&gt; a todas as corridas
+        ///ModUi/&amp;AddNewWeaponsAndRecipesToShops	Adicione novas armas e receitas às lojas &lt;i&gt;&lt;color=yellow&gt;[bandeiras de mão, alabardas, lanças, maças longas, bestas de mão]&lt;/color&gt;&lt;/i&gt; &lt;b&gt;&lt;i&gt;&lt;color=#C04040E0&gt;[ Req [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Modui_pt_BR {
             get {
@@ -925,13 +915,13 @@ namespace SolastaCommunityExpansion.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Kann keine Zaubersprüche wirken.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC wird auf 16 gesetzt.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Rindenhaut
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charisma-Wert ist gleich 1.
+        ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Kann keine Zauber wirken.
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC ist auf 16 eingestellt.
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Rindenleder
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Charismawert ist gleich 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Schwaches Charisma
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Intelligenzwert ist gleich 1.
-        ///AttributeModifier/&amp;DHFeeblemindIntSpe [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellTi [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_de {
             get {
@@ -971,12 +961,12 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Impossible de lancer des sorts.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	La CA est fixée à 16.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Peau d&apos;écorce
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	CA est réglé sur 16.
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Écorce
         ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	Le score de Charisme est égal à 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Charisme faible
         ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	Le score d&apos;intelligence est égal à 1.
-        ///AttributeModifier/&amp;DHFeeb [rest of string was truncated]&quot;;.
+        ///AttributeModifier/&amp;DHFeeblemindIn [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_fr {
             get {
@@ -1001,11 +991,11 @@ namespace SolastaCommunityExpansion.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ActionAffinity/&amp;DHFeeblemindSpellDescription	Incapaz de lançar feitiços.
-        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está ajustado para 16.
+        ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinDescription	AC está definido para 16.
         ///AttributeModifier/&amp;AncientForestAttributeModifierBarkskinTitle	Barkskin
-        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação do carisma é igual a 1.
+        ///AttributeModifier/&amp;DHFeeblemindChaSpellDescription	A pontuação de Carisma é igual a 1.
         ///AttributeModifier/&amp;DHFeeblemindChaSpellTitle	Carisma fraco
-        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação da inteligência é igual a 1.
+        ///AttributeModifier/&amp;DHFeeblemindIntSpellDescription	A pontuação de inteligência é igual a 1.
         ///AttributeModifier/&amp;DHFeeblem [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Translations_pt_BR {

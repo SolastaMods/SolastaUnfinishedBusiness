@@ -13,7 +13,6 @@ internal static class CharacterReactionSubitemExtension
         CharacterReactionSubitem.SubitemSelectedHandler subitemSelected)
     {
         var spellRepertoire = reactionRequest.ReactionParams.SpellRepertoire;
-
         var label = instance.label;
         var toggle = instance.toggle;
         var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
@@ -44,14 +43,15 @@ internal static class CharacterReactionSubitemExtension
         label.Text = title;
         toggle.interactable = interactable;
         instance.canvasGroup.interactable = interactable;
-
         instance.SubitemSelected = subitemSelected;
 
         var rectTransform = toggle.GetComponent<RectTransform>();
+        
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
         // Hide all slots
         var slotStatusTable = instance.slotStatusTable;
+        
         for (var index = 0; index < slotStatusTable.childCount; ++index)
         {
             slotStatusTable.GetChild(index).gameObject.SetActive(false);
@@ -65,11 +65,9 @@ internal static class CharacterReactionSubitemExtension
         CharacterReactionSubitem.SubitemSelectedHandler subitemSelected)
     {
         var spellRepertoire = reactionRequest.ReactionParams.SpellRepertoire;
-
         var label = instance.label;
         var toggle = instance.toggle;
         var tooltip = GetOrMakeBackgroundTooltip(toggle.transform);
-
         var spell = spellRepertoire.KnownSpells[slotLevel];
         var power = PowerBundleContext.GetPower(spell);
 
@@ -84,14 +82,15 @@ internal static class CharacterReactionSubitemExtension
         label.Text = power.GuiPresentation.Title;
         toggle.interactable = interactable;
         instance.canvasGroup.interactable = interactable;
-
         instance.SubitemSelected = subitemSelected;
 
         var rectTransform = toggle.GetComponent<RectTransform>();
+        
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
         // Hide all slots
         var slotStatusTable = instance.slotStatusTable;
+        
         for (var index = 0; index < slotStatusTable.childCount; ++index)
         {
             slotStatusTable.GetChild(index).gameObject.SetActive(false);
@@ -101,17 +100,18 @@ internal static class CharacterReactionSubitemExtension
     private static GuiTooltip GetOrMakeBackgroundTooltip(Transform root)
     {
         var background = root.FindChildRecursive("Background");
-        if (background != null)
+        
+        if (background == null)
         {
-            if (!background.TryGetComponent<GuiTooltip>(out var tooltip))
-            {
-                tooltip = background.gameObject.AddComponent<GuiTooltip>();
-                tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
-            }
-
-            return tooltip;
+            return null;
         }
 
-        return null;
+        if (!background.TryGetComponent<GuiTooltip>(out var tooltip))
+        {
+            tooltip = background.gameObject.AddComponent<GuiTooltip>();
+            tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
+        }
+
+        return tooltip;
     }
 }

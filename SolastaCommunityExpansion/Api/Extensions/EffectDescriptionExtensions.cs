@@ -31,6 +31,7 @@ public static class EffectDescriptionExtensions
 
                 entity.SetDurationParameter(duration.Value);
                 break;
+            
             default:
                 if (duration != null)
                 {
@@ -61,9 +62,11 @@ public static class EffectDescriptionExtensions
 
                 entity.SetRangeParameter(range.Value);
                 break;
+            
             case RangeType.Touch:
                 entity.SetRangeParameter(range ?? 0);
                 break;
+            
             default: // Self, MeleeHit
                 if (range != null)
                 {
@@ -103,6 +106,7 @@ public static class EffectDescriptionExtensions
     public static EffectDescription Copy(this EffectDescription entity)
     {
         var copy = new EffectDescription();
+        
         copy.Copy(entity);
         return copy;
     }

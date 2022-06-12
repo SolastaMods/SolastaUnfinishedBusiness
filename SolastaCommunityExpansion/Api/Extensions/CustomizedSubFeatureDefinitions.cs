@@ -31,12 +31,16 @@ internal static class CustomizedSubFeatureDefinitions
     internal static T SetCustomSubFeatures<T>(this T definition, params object[] subFeatures) where T : BaseDefinition
     {
         GetOrCreateForKey(definition).SetRange(subFeatures);
+        
         return definition;
     }
 
     internal static List<T> GetAllSubFeaturesOfType<T>(this BaseDefinition definition) where T : class
     {
-        if (definition == null) { return null; }
+        if (definition == null)
+        {
+            return null;
+        }
 
         var results = new List<T>();
 
@@ -46,6 +50,7 @@ internal static class CustomizedSubFeatureDefinitions
         }
 
         var subFeatures = GetForKey(definition)?.OfType<T>();
+        
         if (subFeatures != null)
         {
             results.AddRange(subFeatures);
@@ -56,7 +61,10 @@ internal static class CustomizedSubFeatureDefinitions
 
     internal static T GetFirstSubFeatureOfType<T>(this BaseDefinition definition) where T : class
     {
-        if (definition == null) { return null; }
+        if (definition == null)
+        {
+            return null;
+        }
 
         if (definition is T custom)
         {

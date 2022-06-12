@@ -42,6 +42,7 @@ public static class RulesetActorExtensions
         return FeaturesByType<T>(actor);
     }
 
+#if false
     public static List<T> GetFeaturesByTypeAndTag<T>(this RulesetCharacterHero hero, string tag) where T : class
     {
         return hero.ActiveFeatures
@@ -51,14 +52,15 @@ public static class RulesetActorExtensions
             .OfType<T>()
             .ToList();
     }
-
+    
     private static IEnumerable<FeatureDefinition> Unfold(FeatureDefinition feature)
     {
         return feature is FeatureDefinitionFeatureSet {Mode: FeatureSetMode.Union} set
             ? set.FeatureSet.SelectMany(Unfold)
             : new[] {feature};
     }
-
+#endif
+    
     public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
     {
         return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);
