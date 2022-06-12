@@ -2,6 +2,7 @@
 - Fix to hit bonus on Titan Fighting
 - Optimize code base to gain back some FPS
 - Reduce DLL payload size by 40%
+- Remove Toad King from payload [you need to respec any TK hero before update]
 - Tweak Mass Heal spell to do up to 120hp @ 6 targets
 
 REQUEST:
