@@ -1,4 +1,4 @@
-DwarfFemale	Abagtha
+﻿DwarfFemale	Abagtha
 DwarfFemale	Bera
 DwarfFemale	Birsha
 DwarfFemale	Brallesyl

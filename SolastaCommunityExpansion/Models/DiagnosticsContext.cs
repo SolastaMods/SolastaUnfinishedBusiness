@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 using I2.Loc;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.DataMiner;
-using SolastaCommunityExpansion.Properties;
+using SolastaCommunityExpansion.Utils;
 #endif
 
 namespace SolastaCommunityExpansion.Models;
@@ -205,10 +205,8 @@ internal static class DiagnosticsContext
     internal static void CheckOrphanedTerms(string outputFile)
     {
         var terms = new Dictionary<string, string>();
-        var payload = Resources.Translations_en;
-        var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
 
-        foreach (var line in lines)
+        foreach (var line in Translations.GetFileContent("Translations", "en"))
         {
             try
             {

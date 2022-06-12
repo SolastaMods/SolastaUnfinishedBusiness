@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
@@ -138,6 +139,19 @@ public static class Translations
         return words;
     }
 
+    internal static IEnumerable<string> GetFileContent(string category, string languageCode)
+    {
+        using var stream = new MemoryStream(Resources.Translations);
+        using var zip = new ZipArchive(stream, ZipArchiveMode.Read);
+        var dataStream = zip.GetEntry($"{category}-{languageCode}.txt").Open();
+        var reader = new StreamReader(dataStream);
+
+        while (!reader.EndOfStream)
+        {
+            yield return reader.ReadLine();
+        }
+    }
+
     internal static void LoadTranslations(string category)
     {
         var languageSourceData = LocalizationManager.Sources[0];
@@ -150,10 +164,7 @@ public static class Translations
             languageCode = Main.Settings.SelectedOverwriteLanguageCode;
         }
 
-        var payload = (string)typeof(Resources).GetProperty(category + '_' + languageCode).GetValue(null);
-        var lines = new List<string>(payload.Split(new[] {Environment.NewLine}, StringSplitOptions.None));
-
-        foreach (var line in lines)
+        foreach (var line in GetFileContent(category, languageCode))
         {
             string term;
             string text;
