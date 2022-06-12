@@ -1435,11 +1435,11 @@ public static class SrdSpells
                 RuleDefinitions.RangeType.Distance,
                 12,
                 RuleDefinitions.TargetType.Individuals,
-                14)
+                6)
             .AddEffectForm(new EffectFormBuilder()
                 .SetHealingForm(
                     RuleDefinitions.HealingComputation.Dice,
-                    50,
+                    120,
                     RuleDefinitions.DieType.D1,
                     0,
                     false,
