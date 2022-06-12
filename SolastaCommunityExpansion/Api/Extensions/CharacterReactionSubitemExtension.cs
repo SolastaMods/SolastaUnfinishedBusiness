@@ -2,7 +2,7 @@
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class CharacterReactionSubitemExtension
 {

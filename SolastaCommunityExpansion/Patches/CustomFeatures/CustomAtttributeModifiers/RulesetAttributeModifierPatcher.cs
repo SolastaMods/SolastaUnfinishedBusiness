@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.CustomAtttributeModifiers;

@@ -2,9 +2,8 @@
 using System.Linq;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Extensions;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 internal static class RulesetCharacterExension
 {

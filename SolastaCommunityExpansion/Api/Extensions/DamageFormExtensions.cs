@@ -5,7 +5,7 @@ using System.Linq;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 /// <summary>
 ///     This helper extensions class was automatically generated.

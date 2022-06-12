@@ -252,6 +252,7 @@
     <Compile Remove="Api\Extensions\SpellDefinitionExtensions.cs" />
     <Compile Remove="Api\Extensions\RulesetUsablePowerExtensions.cs" />
     <Compile Remove="Api\Extensions\FeatureDefinitionCastSpellExtensions.cs" />
+    <Compile Remove="Api\AdditionalExtensions\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -259,6 +260,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Remove="Api\AdditionalExtensions\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -266,5 +268,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Remove="Repository.json" />
+    <None Remove="Api\AdditionalExtensions\**" />
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaModApi;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;

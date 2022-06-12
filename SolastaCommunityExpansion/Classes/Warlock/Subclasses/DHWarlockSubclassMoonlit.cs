@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;

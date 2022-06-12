@@ -3,7 +3,7 @@ using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 /// <summary>
 ///     This helper extensions class was automatically generated.
@@ -13,13 +13,6 @@ namespace SolastaModApi.Extensions;
 [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
 public static class SaveAffinityByFamilyDescriptionExtensions
 {
-    public static SaveAffinityByFamilyDescription Copy(this SaveAffinityByFamilyDescription entity)
-    {
-        var copy = new SaveAffinityByFamilyDescription();
-        copy.Copy(entity);
-        return copy;
-    }
-
     public static T SetAdvantageType<T>(this T entity, AdvantageType value)
         where T : SaveAffinityByFamilyDescription
     {

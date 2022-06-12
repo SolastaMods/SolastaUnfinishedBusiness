@@ -1,6 +1,6 @@
 ﻿using UnityEngine.AddressableAssets;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class ConditionDefinitionExtensions
 {

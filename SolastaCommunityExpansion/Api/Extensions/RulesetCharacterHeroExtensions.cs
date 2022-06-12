@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class RulesetCharacterHeroExtensions
 {

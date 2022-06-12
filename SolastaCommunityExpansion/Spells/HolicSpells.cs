@@ -1,8 +1,8 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static EffectForm;
 using static RuleDefinitions;

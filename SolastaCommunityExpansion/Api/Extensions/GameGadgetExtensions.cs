@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
-using SolastaCommunityExpansion;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 internal static class GameGadgetExtensions
 {

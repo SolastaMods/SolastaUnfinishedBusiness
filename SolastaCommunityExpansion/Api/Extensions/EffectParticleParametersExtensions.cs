@@ -1,7 +1,7 @@
 using System.CodeDom.Compiler;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 /// <summary>
 ///     This helper extensions class was automatically generated.

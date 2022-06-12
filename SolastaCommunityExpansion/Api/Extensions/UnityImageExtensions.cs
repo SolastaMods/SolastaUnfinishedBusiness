@@ -2,7 +2,7 @@
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class UnityImageExtensions
 {

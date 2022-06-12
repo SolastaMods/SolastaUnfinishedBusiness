@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Witch.Subclasses;
@@ -8,7 +9,6 @@ using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using static FeatureDefinitionAttributeModifier;
 using static FeatureDefinitionCastSpell;
 using static RuleDefinitions;

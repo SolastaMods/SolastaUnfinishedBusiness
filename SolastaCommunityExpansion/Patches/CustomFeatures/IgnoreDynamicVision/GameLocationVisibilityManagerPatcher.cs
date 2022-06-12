@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
-using SolastaModApi.Extensions;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Patches.CustomFeatures.IgnoreDynamicVision;

@@ -1,4 +1,4 @@
-﻿using SolastaCommunityExpansion.Api.AdditionalExtensions;
+﻿using SolastaCommunityExpansion.Api.Extensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;

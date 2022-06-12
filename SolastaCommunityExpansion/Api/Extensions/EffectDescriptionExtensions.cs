@@ -2,10 +2,11 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaModApi.Diagnostics;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 /// <summary>
 ///     This helper extensions class was automatically generated.
@@ -13,8 +14,73 @@ namespace SolastaModApi.Extensions;
 /// </summary>
 [TargetType(typeof(EffectDescription))]
 [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
-public static partial class EffectDescriptionExtensions
+public static class EffectDescriptionExtensions
 {
+    public static T SetDuration<T>(this T entity, DurationType type, int? duration = null)
+        where T : EffectDescription
+    {
+        switch (type)
+        {
+            case DurationType.Round:
+            case DurationType.Minute:
+            case DurationType.Hour:
+            case DurationType.Day:
+                if (duration == null)
+                {
+                    throw new ArgumentNullException(nameof(duration),
+                        $"A duration value is required for duration type {type}.");
+                }
+
+                entity.SetDurationParameter(duration.Value);
+                break;
+            default:
+                if (duration != null)
+                {
+                    throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                }
+
+                entity.SetDurationParameter(0);
+                break;
+        }
+
+        entity.SetDurationType(type);
+
+        return entity;
+    }
+
+    public static T SetRange<T>(this T entity, RangeType type, int? range = null)
+        where T : EffectDescription
+    {
+        switch (type)
+        {
+            case RangeType.RangeHit:
+            case RangeType.Distance:
+                if (range == null)
+                {
+                    throw new ArgumentNullException(nameof(range),
+                        $"A range value is required for range type {type}.");
+                }
+
+                entity.SetRangeParameter(range.Value);
+                break;
+            case RangeType.Touch:
+                entity.SetRangeParameter(range ?? 0);
+                break;
+            default: // Self, MeleeHit
+                if (range != null)
+                {
+                    throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                }
+
+                entity.SetRangeParameter(0);
+                break;
+        }
+
+        entity.SetRangeType(type);
+
+        return entity;
+    }
+
     public static T AddEffectFormFilters<T>(this T entity, params EffectFormFilter[] value)
         where T : EffectDescription
     {

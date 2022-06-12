@@ -2,7 +2,7 @@
 using System.Linq;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaCommunityExpansion.Api.AdditionalExtensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class CustomizedSubFeatureDefinitions
 {

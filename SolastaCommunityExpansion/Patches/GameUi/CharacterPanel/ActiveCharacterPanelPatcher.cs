@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomUI;
-using SolastaModApi.Extensions;
 
 namespace SolastaCommunityExpansion.Patches.GameUi.CharacterPanel;
 

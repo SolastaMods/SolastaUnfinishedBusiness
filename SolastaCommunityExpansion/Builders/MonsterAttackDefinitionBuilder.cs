@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaModApi.Extensions;
+using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Builders;
 

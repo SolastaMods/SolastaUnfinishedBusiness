@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
 using static FeatureDefinitionFeatureSet;
 
-namespace SolastaModApi.Extensions;
+namespace SolastaCommunityExpansion.Api.Extensions;
 
 public static class RulesetActorExtensions
 {

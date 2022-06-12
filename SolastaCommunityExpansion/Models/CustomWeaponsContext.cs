@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api.AdditionalExtensions;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.ItemCrafting;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper;
 using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;

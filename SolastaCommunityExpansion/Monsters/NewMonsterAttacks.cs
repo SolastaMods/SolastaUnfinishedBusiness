@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaMonsters.Models;
 using UnityEngine;
 
