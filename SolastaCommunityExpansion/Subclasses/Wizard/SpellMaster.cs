@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaModApi.DatabaseHelper;
@@ -64,14 +63,17 @@ internal class SpellMaster : AbstractSubclass
             )
             .AddToDB();
 
+        var effectParticleParameters = new EffectParticleParameters();
+
+        effectParticleParameters.Copy(PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters);
+
         var bonusRecoveryEffectDescription = EffectDescriptionBuilder
             .Create()
             .SetTargetingData(RuleDefinitions.Side.All, RuleDefinitions.RangeType.Self, 0, 0, 0, 0)
             .SetCreatedByCharacter()
             .AddEffectForm(EffectFormBuilder.Create().SetSpellForm(9).Build())
             .SetEffectAdvancement(RuleDefinitions.EffectIncrementMethod.None)
-            .SetParticleEffectParameters(
-                PowerWizardArcaneRecovery.EffectDescription.EffectParticleParameters.Copy())
+            .SetParticleEffectParameters(effectParticleParameters)
             .Build();
 
         BonusRecovery = FeatureDefinitionPowerBuilder.Create("PowerSpellMasterBonusRecovery", SubclassNamespace)

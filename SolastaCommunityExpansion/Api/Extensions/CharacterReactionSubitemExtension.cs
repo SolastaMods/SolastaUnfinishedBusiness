@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
-public static class CharacterReactionSubitemExtension
+internal static class CharacterReactionSubitemExtension
 {
-    public static void BindWarcaster(this CharacterReactionSubitem instance,
+    internal static void BindWarcaster(this CharacterReactionSubitem instance,
         ReactionRequestWarcaster reactionRequest,
         int slotLevel,
         bool interactable,
@@ -58,7 +58,7 @@ public static class CharacterReactionSubitemExtension
         }
     }
 
-    public static void BindPowerBundle(this CharacterReactionSubitem instance,
+    internal static void BindPowerBundle(this CharacterReactionSubitem instance,
         ReactionRequestSpendBundlePower reactionRequest,
         int slotLevel,
         bool interactable,

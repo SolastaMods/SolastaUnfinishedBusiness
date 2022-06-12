@@ -4,7 +4,7 @@ using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
-public static class CustomizedSubFeatureDefinitions
+internal static class CustomizedSubFeatureDefinitions
 {
     private static readonly Dictionary<BaseDefinition, List<object>> CustomSubFeatures = new();
 
@@ -28,13 +28,13 @@ public static class CustomizedSubFeatureDefinitions
         return CustomSubFeatures[definition];
     }
 
-    public static T SetCustomSubFeatures<T>(this T definition, params object[] subFeatures) where T : BaseDefinition
+    internal static T SetCustomSubFeatures<T>(this T definition, params object[] subFeatures) where T : BaseDefinition
     {
         GetOrCreateForKey(definition).SetRange(subFeatures);
         return definition;
     }
 
-    public static List<T> GetAllSubFeaturesOfType<T>(this BaseDefinition definition) where T : class
+    internal static List<T> GetAllSubFeaturesOfType<T>(this BaseDefinition definition) where T : class
     {
         if (definition == null) { return null; }
 
@@ -54,7 +54,7 @@ public static class CustomizedSubFeatureDefinitions
         return results;
     }
 
-    public static T GetFirstSubFeatureOfType<T>(this BaseDefinition definition) where T : class
+    internal static T GetFirstSubFeatureOfType<T>(this BaseDefinition definition) where T : class
     {
         if (definition == null) { return null; }
 
@@ -66,7 +66,7 @@ public static class CustomizedSubFeatureDefinitions
         return GetForKey(definition)?.OfType<T>().FirstOrDefault();
     }
 
-    public static bool HasSubFeatureOfType<T>(this BaseDefinition definition) where T : class
+    internal static bool HasSubFeatureOfType<T>(this BaseDefinition definition) where T : class
     {
         return definition.GetFirstSubFeatureOfType<T>() != null;
     }

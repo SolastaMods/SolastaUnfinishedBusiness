@@ -18,7 +18,7 @@ public static class ConditionDefinitionExtensions
         }
 #endif
 
-    public static ConditionDefinition SetEmptyParticleReferencesWhereNull(this ConditionDefinition definition)
+    internal static ConditionDefinition SetEmptyParticleReferencesWhereNull(this ConditionDefinition definition)
     {
         var assetReference = new AssetReference();
 

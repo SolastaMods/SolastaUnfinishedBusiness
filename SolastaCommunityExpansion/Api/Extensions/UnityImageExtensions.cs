@@ -7,7 +7,7 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 public static class UnityImageExtensions
 {
     public static void SetupSprite(this Image imageComponent, GuiPresentation presentation,
-        bool changeActiveStatus = false)
+        bool _ = false)
     {
         SetupSprite(imageComponent, presentation.SpriteReference);
     }

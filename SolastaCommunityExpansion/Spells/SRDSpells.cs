@@ -1365,13 +1365,13 @@ public static class SrdSpells
         effect.EffectParticleParameters.impactParticleReference =
             new AssetReference("96018e15e8eba4b40a9a5bd637d7ae91");
 
-        var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription()
-            .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
-            .SetFamily(CharacterFamilyDefinitions.Ooze.name);
+        var SaveAffinityByFamilyDescription = new SaveAffinityByFamilyDescription();
+        SaveAffinityByFamilyDescription.advantageType = RuleDefinitions.AdvantageType.Disadvantage;
+        SaveAffinityByFamilyDescription.family = CharacterFamilyDefinitions.Ooze.name;
 
-        var SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription()
-            .SetAdvantageType(RuleDefinitions.AdvantageType.Disadvantage)
-            .SetFamily(CharacterFamilyDefinitions.Undead.name);
+        var SaveAffinityByFamilyDescriptionUndead = new SaveAffinityByFamilyDescription();
+        SaveAffinityByFamilyDescriptionUndead.advantageType = RuleDefinitions.AdvantageType.Disadvantage;
+        SaveAffinityByFamilyDescriptionUndead.family = CharacterFamilyDefinitions.Undead.name;
 
         effect.SavingThrowAffinitiesByFamily.AddRange(SaveAffinityByFamilyDescription,
             SaveAffinityByFamilyDescriptionUndead);

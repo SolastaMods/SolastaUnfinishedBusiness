@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaMonsters.Models;
@@ -75,10 +74,10 @@ public class NewMonsterSpells
 
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(6);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeForce);
+        damageForm.diceNumber = 6;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeForce;
 
         EffectForm damageEffect = new();
         damageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -150,14 +149,14 @@ public class NewMonsterSpells
 
         FingerOfDeath_Spell.spellLevel = 7;
 
-        FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(7);
-        FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(30);
+        FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.diceNumber = 7;
+        FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 30;
         FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(DatabaseHelper.DamageDefinitions.DamageNecrotic.Name);
+            .damageType = DatabaseHelper.DamageDefinitions.DamageNecrotic.Name;
 
         FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm
-            .SetSpecialDeathCondition(DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster);
+            .specialDeathCondition = DatabaseHelper.ConditionDefinitions.ConditionMindControlledByCaster;
 
         FingerOfDeath_Spell.GuiPresentation.spriteReference = DatabaseHelper.SpellDefinitions.RayOfEnfeeblement
             .GuiPresentation.SpriteReference;

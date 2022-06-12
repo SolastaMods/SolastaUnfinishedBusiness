@@ -16,14 +16,14 @@ public static class SaveAffinityByFamilyDescriptionExtensions
     public static T SetAdvantageType<T>(this T entity, AdvantageType value)
         where T : SaveAffinityByFamilyDescription
     {
-        entity.SetField("advantageType", value);
+        entity.advantageType = value;
         return entity;
     }
 
     public static T SetFamily<T>(this T entity, String value)
         where T : SaveAffinityByFamilyDescription
     {
-        entity.SetField("family", value);
+        entity.family = value;
         return entity;
     }
 }

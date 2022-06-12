@@ -156,7 +156,7 @@ public class NewMonsterPowers
             "MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description"
         );
 
-        TarrasqueSwallowedCondition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(16);
+        TarrasqueSwallowedCondition.RecurrentEffectForms[0].DamageForm.diceNumber = 16;
 
 
         TarrasqueSwallowPower = BuildNewPower(
@@ -170,11 +170,11 @@ public class NewMonsterPowers
         TarrasqueSwallowPower.EffectDescription.SetTargetConditionAsset(NewMonsterAttacks
             .TarrasqueGrappledRestrainedCondition);
 
-        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D12);
-        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
+        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D12;
+        TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 10;
         TarrasqueSwallowPower.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         TarrasqueSwallowPower.EffectDescription.EffectForms[2].ConditionForm
             .conditionDefinition = TarrasqueSwallowedCondition;
@@ -276,9 +276,9 @@ public class NewMonsterPowers
         Generic_Lightning_Attack_Power.EffectDescription.SetTargetParameter(3);
         Generic_Lightning_Attack_Power.EffectDescription.SetTargetParameter(8);
         Generic_Lightning_Attack_Power.EffectDescription.SetRangeParameter(100);
-        Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(12);
+        Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 12;
         Generic_Lightning_Attack_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D8);
+            .dieType = RuleDefinitions.DieType.D8;
 
         Generic_Lightning_Attack_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
@@ -364,11 +364,11 @@ public class NewMonsterPowers
             Dragon_Breath_Power.EffectDescription.SetTargetParameter(20);
             // generic ancient dragon Breath Power
             Dragon_Breath_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDiceNumber(dictionaryofAncientDragonBreathExtraDamageDiceNumbers[entry.Key]);
+                .diceNumber = dictionaryofAncientDragonBreathExtraDamageDiceNumbers[entry.Key];
             Dragon_Breath_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDieType(dictionaryofAncientDragonBreathExtraDamageDiceType[entry.Key]);
+                .dieType = dictionaryofAncientDragonBreathExtraDamageDiceType[entry.Key];
             Dragon_Breath_Power.EffectDescription.EffectForms[0].DamageForm
-                .SetDamageType(entry.Value); // ListofDamageTypes_Dragon[i]);
+                .damageType = entry.Value; // ListofDamageTypes_Dragon[i]);
             Dragon_Breath_Power.EffectDescription.SetEffectParticleParameters(
                 dictionaryofAncientDragonBreathEffectparticles[entry.Key]);
             Dragon_Breath_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(23);
@@ -397,10 +397,10 @@ public class NewMonsterPowers
         Balor_FireAura_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         Balor_FireAura_Power.EffectDescription.SetTargetParameter(4);
 
-        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         Balor_FireAura_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
     }
 
     public static void BuildNewLich_DisruptLife_Power()
@@ -425,10 +425,10 @@ public class NewMonsterPowers
             .SmartAttributeDefinitions.Constitution.Name);
 
 
-        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
-        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 6;
+        Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         Lich_DisruptLife_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeNecrotic);
+            .damageType = RuleDefinitions.DamageTypeNecrotic;
     }
 
     public static void BuildNewAncientDragon_Wing_Power()
@@ -444,7 +444,7 @@ public class NewMonsterPowers
             "MonsterPower/&DH_" + text + "_Description"
         );
 
-        AncientDragon_Wing_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
+        AncientDragon_Wing_Power.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 9;
         AncientDragon_Wing_Power.EffectDescription.SetFixedSavingThrowDifficultyClass(24);
     }
 
@@ -510,19 +510,19 @@ public class NewMonsterPowers
         SearingBurst_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         SearingBurst_Power.EffectDescription.SetTargetParameter(4);
 
-        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         SearingBurst_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
         SearingBurst_Power.EffectDescription.EffectForms[0].hasSavingThrow = true;
         SearingBurst_Power.EffectDescription.EffectForms[0]
             .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(4);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
+        damageForm.diceNumber = 4;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeRadiant;
 
 
         EffectForm extraDamageEffect = new();
@@ -758,11 +758,11 @@ public class NewMonsterPowers
         );
 
         AirTitan_Gale_Power.EffectDescription.SetTargetParameter(10);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
-        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D10;
+        AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 0;
         AirTitan_Gale_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeThunder);
+            .damageType = RuleDefinitions.DamageTypeThunder;
         AirTitan_Gale_Power.EffectDescription.EffectForms[0].hasSavingThrow = true;
         AirTitan_Gale_Power.EffectDescription.EffectForms[0]
             .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
@@ -823,10 +823,10 @@ public class NewMonsterPowers
         FireTitan_Aura_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
         FireTitan_Aura_Power.EffectDescription.SetTargetParameter(10);
 
-        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
-        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
+        FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         FireTitan_Aura_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
     }
 
 
@@ -848,9 +848,9 @@ public class NewMonsterPowers
         AirTitan_Lightning_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
         AirTitan_Lightning_Power.EffectDescription.SetTargetParameter(2);
         AirTitan_Lightning_Power.EffectDescription.SetRangeParameter(100);
-        AirTitan_Lightning_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
+        AirTitan_Lightning_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
         AirTitan_Lightning_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
+            .dieType = RuleDefinitions.DieType.D10;
         AirTitan_Lightning_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         AirTitan_Lightning_Power.EffectDescription.EffectForms[0]
@@ -905,9 +905,9 @@ public class NewMonsterPowers
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Cylinder);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetTargetParameter(24);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetRangeParameter(0);
-        AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
+        AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 6;
         AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D8);
+            .dieType = RuleDefinitions.DieType.D8;
         AirTitan_LightningStorm_Attack_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         AirTitan_LightningStorm_Attack_Power.EffectDescription.EffectForms[0]
@@ -965,7 +965,7 @@ public class NewMonsterPowers
         DisintegratingBeam_Power.EffectDescription.SetDifficultyClassComputation(RuleDefinitions
             .EffectDifficultyClassComputation.FixedValue);
         DisintegratingBeam_Power.EffectDescription.SetTargetParameter(30);
-        DisintegratingBeam_Power.EffectDescription.SetTargetParameter2(2);
+        DisintegratingBeam_Power.EffectDescription.targetParameter2 = 2;
         DisintegratingBeam_Power.EffectDescription.SetRangeParameter(30);
         DisintegratingBeam_Power.EffectDescription.SetRangeType(RuleDefinitions.RangeType.Distance);
         DisintegratingBeam_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Line);
@@ -973,11 +973,11 @@ public class NewMonsterPowers
 
         DisintegratingBeam_Power.EffectDescription.EffectForms[0]
             .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
-        DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(11);
+        DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 11;
         DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
+            .dieType = RuleDefinitions.DieType.D10;
         DisintegratingBeam_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeRadiant);
+            .damageType = RuleDefinitions.DamageTypeRadiant;
     }
 
     public static void BuildNewIncreasedGravityZone_Attack()
@@ -1012,9 +1012,9 @@ public class NewMonsterPowers
 
         IncreasedGravityZone_Power.EffectDescription.EffectForms[0]
             .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
-        IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(6);
+        IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 6;
         IncreasedGravityZone_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
+            .dieType = RuleDefinitions.DieType.D10;
 
         MotionForm motionForm = new();
         motionForm.type = MotionForm.MotionType.FallProne;
@@ -1089,12 +1089,12 @@ public class NewMonsterPowers
         );
 
         EarthTitan_Earthquake_Power.EffectDescription.SetTargetParameter(20);
-        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
+        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
-        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
+            .dieType = RuleDefinitions.DieType.D10;
+        EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 0;
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
         EarthTitan_Earthquake_Power.EffectDescription.EffectForms[0]
             .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
 

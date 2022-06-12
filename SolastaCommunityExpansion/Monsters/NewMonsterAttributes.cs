@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
@@ -297,13 +296,13 @@ public class NewMonsterAttributes
             "MonsterPower/&DH_" + Power_text + "_Description"
         );
 
-        Balor_Retaliate_Power.EffectDescription.SetTargetType(RuleDefinitions.TargetType.Sphere);
-        Balor_Retaliate_Power.EffectDescription.SetTargetParameter(6);
+        Balor_Retaliate_Power.EffectDescription.targetType = RuleDefinitions.TargetType.Sphere;
+        Balor_Retaliate_Power.EffectDescription.targetParameter = 6;
 
-        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         Balor_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
 
 
         var text = "Balor_Retaliate_DamageAffinity";
@@ -1923,13 +1922,13 @@ public class NewMonsterAttributes
         );
 
 
-        FireTitan_Retaliate_Power.EffectDescription.SetTargetParameter(10);
+        FireTitan_Retaliate_Power.EffectDescription.targetParameter = 10;
 
-        FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
+        FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
         FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D6);
+            .dieType = RuleDefinitions.DieType.D6;
         FireTitan_Retaliate_Power.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeFire);
+            .damageType = RuleDefinitions.DamageTypeFire;
 
 
         var text = "FireTitan_Retaliate_DamageAffinity";

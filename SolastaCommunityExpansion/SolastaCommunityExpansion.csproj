@@ -253,6 +253,9 @@
     <Compile Remove="Api\Extensions\RulesetUsablePowerExtensions.cs" />
     <Compile Remove="Api\Extensions\FeatureDefinitionCastSpellExtensions.cs" />
     <Compile Remove="Api\AdditionalExtensions\**" />
+    <Compile Remove="Api\Extensions\EffectParticleParametersExtensions.cs" />
+    <Compile Remove="Api\Extensions\DamageFormExtensions.cs" />
+    <Compile Remove="Api\Extensions\SaveAffinityByFamilyDescriptionExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup>

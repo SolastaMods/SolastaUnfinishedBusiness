@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
 using SolastaMonsters.Models;
@@ -175,11 +174,11 @@ public class NewMonsterAttacks
 
         Roc_Beak_Attack.toHitBonus = 13;
         Roc_Beak_Attack.reachRange = 2;
-        Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
+        Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 9;
         Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
     }
 
     public static void BuildNewRoc_Talons_Attack()
@@ -197,11 +196,11 @@ public class NewMonsterAttacks
 
         Roc_Talons_Attack.toHitBonus = 13;
         Roc_Talons_Attack.reachRange = 1;
-        Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
+        Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 9;
         Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeSlashing);
+            .damageType = RuleDefinitions.DamageTypeSlashing;
 
 
         MotionForm motionForm = new();
@@ -240,10 +239,10 @@ public class NewMonsterAttacks
         );
 
         Ice_Bite_Attack.reachRange = 1;
-        Ice_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        Ice_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
 
-        Ice_Bite_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(3);
-        Ice_Bite_Attack.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeCold);
+        Ice_Bite_Attack.EffectDescription.EffectForms[1].DamageForm.diceNumber = 3;
+        Ice_Bite_Attack.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypeCold;
 
         Ice_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_Orc_Grimblade_IceDagger.EffectDescription.EffectParticleParameters);
@@ -268,9 +267,9 @@ public class NewMonsterAttacks
         NagaSpit_Attack.maxRange = 6;
         NagaSpit_Attack.closeRange = 6;
         NagaSpit_Attack.maxUses = -1;
-        NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
-        NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
+        NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 10;
+        NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.damageType = RuleDefinitions.DamageTypePoison;
         NagaSpit_Attack.EffectDescription.EffectForms[0].hasSavingThrow = true;
         NagaSpit_Attack.EffectDescription.EffectForms[0]
             .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
@@ -302,17 +301,17 @@ public class NewMonsterAttacks
         NagaBite_Attack.maxRange = 2;
         NagaBite_Attack.closeRange = 2;
         NagaBite_Attack.maxUses = -1;
-        NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-        NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(4);
+        NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
+        NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 4;
         NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(10);
-        damageForm.SetDieType(RuleDefinitions.DieType.D8);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
+        damageForm.diceNumber = 10;
+        damageForm.dieType = RuleDefinitions.DieType.D8;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypePoison;
 
 
         EffectForm extraDamageEffect = new();
@@ -352,10 +351,10 @@ public class NewMonsterAttacks
         Fork_Attack.maxRange = 3;
         Fork_Attack.closeRange = 2;
         Fork_Attack.proximity = RuleDefinitions.AttackProximity.Melee;
-        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
-        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePiercing);
+        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 6;
+        Fork_Attack.EffectDescription.EffectForms[0].DamageForm.damageType = RuleDefinitions.DamageTypePiercing;
     }
 
     public static void BuildNewHornedDevilTail_Attack()
@@ -371,8 +370,8 @@ public class NewMonsterAttacks
         );
 
         BleedingWound_Condition.allowMultipleInstances = true;
-        BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(3);
-        BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.diceNumber = 3;
+        BleedingWound_Condition.RecurrentEffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
 
 
         HornedDevilTail_Attack = BuildNewAttack(
@@ -405,11 +404,11 @@ public class NewMonsterAttacks
 
         HornedDevilTail_Attack.toHitBonus = 10;
         HornedDevilTail_Attack.reachRange = 2;
-        HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
+        HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 6;
         HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         HornedDevilTail_Attack.EffectDescription.EffectForms.Add(TailEffect);
         HornedDevilTail_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
@@ -433,17 +432,17 @@ public class NewMonsterAttacks
         );
 
         PoisonLongsword_Attack.toHitBonus = 8;
-        PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-        PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
-        PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(4);
+        PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
+        PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D10;
+        PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 4;
         PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeSlashing);
+            .damageType = RuleDefinitions.DamageTypeSlashing;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(3);
-        damageForm.SetDieType(RuleDefinitions.DieType.D8);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
+        damageForm.diceNumber = 3;
+        damageForm.dieType = RuleDefinitions.DieType.D8;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypePoison;
 
         EffectForm extraDamageEffect = new();
         extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -472,17 +471,17 @@ public class NewMonsterAttacks
         );
 
         PoisonLongbow_Attack.toHitBonus = 7;
-        PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
-        PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(3);
+        PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
+        PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 3;
         PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(3);
-        damageForm.SetDieType(RuleDefinitions.DieType.D8);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
+        damageForm.diceNumber = 3;
+        damageForm.dieType = RuleDefinitions.DieType.D8;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypePoison;
 
         EffectForm extraDamageEffect = new();
         extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -537,14 +536,14 @@ public class NewMonsterAttacks
         );
 
         RadiantLongsword_Attack.toHitBonus = 15;
-        RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+        RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeSlashing);
+            .damageType = RuleDefinitions.DamageTypeSlashing;
 
-        RadiantLongsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(6);
-        RadiantLongsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
+        RadiantLongsword_Attack.EffectDescription.EffectForms[1].DamageForm.diceNumber = 6;
+        RadiantLongsword_Attack.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D8;
 
         RadiantLongsword_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_Divine_Avatar.EffectDescription.EffectParticleParameters);
@@ -564,17 +563,17 @@ public class NewMonsterAttacks
         );
 
         RadiantLongbow_Attack.toHitBonus = 13;
-        RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+        RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(6);
-        damageForm.SetDieType(RuleDefinitions.DieType.D8);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
+        damageForm.diceNumber = 6;
+        damageForm.dieType = RuleDefinitions.DieType.D8;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeRadiant;
 
         EffectForm extraDamageEffect = new();
         extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -627,10 +626,10 @@ public class NewMonsterAttacks
 
         AirBlast_Attack.toHitBonus = 7;
         AirBlast_Attack.EffectDescription.rangeParameter = 24;
-        AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
-        AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
+        AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeThunder);
+            .damageType = RuleDefinitions.DamageTypeThunder;
 
         MotionForm motion = new();
         motion.distance = 2;
@@ -660,8 +659,8 @@ public class NewMonsterAttacks
 
         HurlFlame_Attack.toHitBonus = 7;
         HurlFlame_Attack.EffectDescription.rangeParameter = 24;
-        HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
-        HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
+        HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
         HurlFlame_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_FireOsprey_Touch.EffectDescription.EffectParticleParameters);
     }
@@ -680,15 +679,15 @@ public class NewMonsterAttacks
         );
 
         FireScimatar_Attack.toHitBonus = 10;
-        FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
-        FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 6;
+        FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(2);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
+        damageForm.diceNumber = 2;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeFire;
 
         EffectForm extraFireDamageEffect = new();
         extraFireDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -717,15 +716,15 @@ public class NewMonsterAttacks
         );
 
         LightningScimatar_Attack.toHitBonus = 10;
-        LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
-        LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 6;
+        LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(2);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeLightning);
+        damageForm.diceNumber = 2;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeLightning;
 
         EffectForm extraFireDamageEffect = new();
         extraFireDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -776,10 +775,10 @@ public class NewMonsterAttacks
 
 
         Generic_Stronger_Bite_Attack.toHitBonus = 15;
-        Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
+        Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 5;
         Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
-        Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
+            .dieType = RuleDefinitions.DieType.D10;
+        Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 5;
         Generic_Stronger_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper
             .MonsterAttackDefinitions.Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
 
@@ -803,10 +802,10 @@ public class NewMonsterAttacks
 
         // generic ancient dragon Claw attack
         AncientDragon_Claw_Attack.toHitBonus = 15;
-        AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
+        AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
         AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D6);
-        AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
+            .dieType = RuleDefinitions.DieType.D6;
+        AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 9;
     }
 
 
@@ -875,17 +874,17 @@ public class NewMonsterAttacks
 
             Dragon_Bite_Attack.reachRange = 3;
             Dragon_Bite_Attack.toHitBonus = 15;
-            Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-            Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
-            Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
+            Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+            Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D10;
+            Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 9;
 
             // extra damage
             Dragon_Bite_Attack.EffectDescription.EffectForms[1].DamageForm
-                .SetDiceNumber(dictionaryofAncientDragonBiteExtraDamageDiceNumbers[entry.Key]);
+                .diceNumber = dictionaryofAncientDragonBiteExtraDamageDiceNumbers[entry.Key];
             Dragon_Bite_Attack.EffectDescription.EffectForms[1].DamageForm
-                .SetDieType(dictionaryofAncientDragonBiteExtraDamageDiceType[entry.Key]);
+                .dieType = dictionaryofAncientDragonBiteExtraDamageDiceType[entry.Key];
             Dragon_Bite_Attack.EffectDescription.EffectForms[1].DamageForm
-                .SetDamageType(entry.Value); // ListofDamageTypes_Dragon[i]);
+                .damageType = entry.Value; // ListofDamageTypes_Dragon[i]);
             Dragon_Bite_Attack.EffectDescription.effectParticleParameters =
                 dictionaryofAncientDragonBiteEffectparticles[entry.Key];
 
@@ -915,10 +914,10 @@ public class NewMonsterAttacks
         // generic ancient dragon Tail attack
         AncientDragon_Tail_Attack.reachRange = 4;
         AncientDragon_Tail_Attack.toHitBonus = 15;
-        AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
+        AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
         AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D8);
-        AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+            .dieType = RuleDefinitions.DieType.D8;
+        AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
     }
 
 
@@ -934,8 +933,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "condition" + "_Description"
         );
 
-        PitFiend_Bite_Condition.RecurrentEffectForms[0].DamageForm.SetDiceNumber(6);
-        PitFiend_Bite_Condition.RecurrentEffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        PitFiend_Bite_Condition.RecurrentEffectForms[0].DamageForm.diceNumber = 6;
+        PitFiend_Bite_Condition.RecurrentEffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
 
 
         PitFiend_Bite_Attack = BuildNewAttack(
@@ -990,15 +989,15 @@ public class NewMonsterAttacks
 
         PitFiend_Mace_Attack.reachRange = 2;
         PitFiend_Mace_Attack.toHitBonus = 14;
-        PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+        PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
 
         // extra damage
-        PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(6);
-        PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
+        PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.diceNumber = 6;
+        PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D6;
         PitFiend_Mace_Attack.EffectDescription.EffectForms[1].DamageForm
-            .SetDamageType("DamageFire"); // ListofDamageTypes_Dragon[i]);
+            .damageType = "DamageFire"; // ListofDamageTypes_Dragon[i]);
     }
 
     public static void BuildNewBalor_Longsword_Attack()
@@ -1016,18 +1015,18 @@ public class NewMonsterAttacks
 
         Balor_Longsword_Attack.reachRange = 2;
         Balor_Longsword_Attack.toHitBonus = 14;
-        Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+        Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeSlashing);
+            .damageType = RuleDefinitions.DamageTypeSlashing;
 
 
-        Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(3);
-        Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.SetBonusDamage(0);
+        Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.diceNumber = 3;
+        Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm.bonusDamage = 0;
         Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeLightning);
+            .damageType = RuleDefinitions.DamageTypeLightning;
 
         Balor_Longsword_Attack.itemDefinitionMainHand = DatabaseHelper.ItemDefinitions
             .Enchanted_Greataxe_Stormblade;
@@ -1049,16 +1048,16 @@ public class NewMonsterAttacks
         Balor_Whip_Attack.reachRange = 6;
         Balor_Whip_Attack.maxRange = 6;
         Balor_Whip_Attack.toHitBonus = 14;
-        Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
-        Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+        Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 2;
+        Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeSlashing);
+            .damageType = RuleDefinitions.DamageTypeSlashing;
 
-        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(3);
-        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetBonusDamage(0);
-        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
+        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.diceNumber = 3;
+        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.bonusDamage = 0;
+        Balor_Whip_Attack.EffectDescription.EffectForms[1].DamageForm.damageType = RuleDefinitions.DamageTypeFire;
 
         MotionForm motionForm = new();
         motionForm.distance = 5;
@@ -1098,12 +1097,12 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
+        Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
         Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D6);
-        Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(0);
+            .dieType = RuleDefinitions.DieType.D6;
+        Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 0;
         Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeCold);
+            .damageType = RuleDefinitions.DamageTypeCold;
 
 
         Lich_ParalyzingTouch_Attack.toHitBonus = 12;
@@ -1132,17 +1131,17 @@ public class NewMonsterAttacks
 
         FireTitan_Slam_Attack.toHitBonus = 12;
         FireTitan_Slam_Attack.reachRange = 3;
-        FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
-        FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
+        FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
+        FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 5;
         FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(10);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
+        damageForm.diceNumber = 10;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeFire;
 
         EffectForm extraFireDamageEffect = new();
         extraFireDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -1171,17 +1170,17 @@ public class NewMonsterAttacks
 
         AirTitan_Slam_Attack.toHitBonus = 16;
         AirTitan_Slam_Attack.reachRange = 4;
-        AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
+        AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 6;
         AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
 
         DamageForm damageForm = new();
-        damageForm.SetDiceNumber(4);
-        damageForm.SetDieType(RuleDefinitions.DieType.D6);
-        damageForm.SetBonusDamage(0);
-        damageForm.SetDamageType(RuleDefinitions.DamageTypeThunder);
+        damageForm.diceNumber = 4;
+        damageForm.dieType = RuleDefinitions.DieType.D6;
+        damageForm.bonusDamage = 0;
+        damageForm.damageType = RuleDefinitions.DamageTypeThunder;
 
         EffectForm extraDamageEffect = new();
         extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
@@ -1210,11 +1209,11 @@ public class NewMonsterAttacks
 
         EarthTitan_Slam_Attack.toHitBonus = 16;
         EarthTitan_Slam_Attack.reachRange = 4;
-        EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
-        EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+        EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D10;
+        EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
     }
 
     public static void BuildNewConstructTitan_Slam_Attack()
@@ -1232,12 +1231,12 @@ public class NewMonsterAttacks
 
         ConstructTitan_Slam_Attack.toHitBonus = 18;
         ConstructTitan_Slam_Attack.reachRange = 4;
-        ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
+        ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 3;
         ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D12);
-        ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+            .dieType = RuleDefinitions.DieType.D12;
+        ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
 
         MotionForm motionForm = new();
         motionForm.type = MotionForm.MotionType.PushFromOrigin;
@@ -1269,12 +1268,12 @@ public class NewMonsterAttacks
 
         ConstructTitan_ForceCannon_Attack.toHitBonus = 18;
         ConstructTitan_ForceCannon_Attack.reachRange = 60;
-        ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
+        ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
         ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D8);
+            .dieType = RuleDefinitions.DieType.D8;
 
         ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeForce);
+            .damageType = RuleDefinitions.DamageTypeForce;
         /*
                     ConstructTitan_ForceCannon_Attack.EffectDescription.effectParticleParameters = (DatabaseHelper.SpellDefinitions.MagicMissile.EffectDescription.EffectParticleParameters);
 
@@ -1310,12 +1309,12 @@ public class NewMonsterAttacks
 
         EarthTitan_Boulder_Attack.toHitBonus = 6;
         EarthTitan_Boulder_Attack.reachRange = 50;
-        EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(7);
+        EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 7;
         EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDieType(RuleDefinitions.DieType.D10);
-        EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
+            .dieType = RuleDefinitions.DieType.D10;
+        EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 8;
         EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
 
         EarthTitan_Boulder_Attack.itemDefinitionMainHand = null;
 
@@ -1375,11 +1374,11 @@ public class NewMonsterAttacks
             RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
         Tarrasque_Bite_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 20;
 
-        Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D12);
-        Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
+        Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D12;
+        Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 10;
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         Tarrasque_Bite_Attack.EffectDescription.EffectForms[2].ConditionForm
             .conditionDefinition = TarrasqueGrappledRestrainedCondition;
@@ -1414,11 +1413,11 @@ public class NewMonsterAttacks
         Tarrasque_Claw_Attack.reachRange = 3;
         Tarrasque_Claw_Attack.toHitBonus = 19;
 
-        Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
-        Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
+        Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D8;
+        Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 10;
         Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeSlashing);
+            .damageType = RuleDefinitions.DamageTypeSlashing;
 
         Tarrasque_Claw_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_Green_Dragon_Claw.EffectDescription.EffectParticleParameters);
@@ -1456,11 +1455,11 @@ public class NewMonsterAttacks
             RuleDefinitions.EffectDifficultyClassComputation.FixedValue;
         Tarrasque_Tail_Attack.EffectDescription.fixedSavingThrowDifficultyClass = 20;
 
-        Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
-        Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
+        Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;
+        Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 10;
         Tarrasque_Tail_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
+            .damageType = RuleDefinitions.DamageTypeBludgeoning;
 
         MotionForm motionForm = new();
         motionForm.type = MotionForm.MotionType.FallProne;
@@ -1506,11 +1505,11 @@ public class NewMonsterAttacks
         Tarrasque_Horn_Attack.reachRange = 2;
         Tarrasque_Horn_Attack.toHitBonus = 19;
 
-        Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
-        Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
-        Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(10);
+        Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 4;
+        Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D10;
+        Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.bonusDamage = 10;
         Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm
-            .SetDamageType(RuleDefinitions.DamageTypePiercing);
+            .damageType = RuleDefinitions.DamageTypePiercing;
 
         Tarrasque_Horn_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_Green_Dragon_Bite.EffectDescription.EffectParticleParameters);

@@ -101,8 +101,9 @@ internal static class BazouSpells
         effectForm.levelMultiplier = 1;
         // Bazou to rework - can't have DamageForm and AlterationForm on the same EffectForm
         //effectForm.AlterationForm.SetMaximumIncrease(2).SetValueIncrease(2);
-        effectForm.DamageForm.SetDiceNumber(1).SetDieType(RuleDefinitions.DieType.D4)
-            .SetDamageType(RuleDefinitions.DamageTypeForce);
+        effectForm.DamageForm.diceNumber = 1;
+        effectForm.DamageForm.dieType = RuleDefinitions.DieType.D4;
+        effectForm.DamageForm.damageType = RuleDefinitions.DamageTypeForce;
 
         // Not sure if I prefer copying and editing existing effect forms
         // or creating one from scratch through API

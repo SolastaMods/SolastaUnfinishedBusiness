@@ -201,7 +201,7 @@ public class EffectDescriptionBuilder
 
     public EffectDescriptionBuilder SetTrapRange(RuleDefinitions.TrapRangeType trapRangeType)
     {
-        effect.SetTrapRangeType(trapRangeType);
+        effect.trapRangeType = trapRangeType;
         return this;
     }
 
@@ -282,9 +282,9 @@ public class EffectDescriptionBuilder
     public EffectDescriptionBuilder SetVelocity(int velocityCellsPerRound,
         RuleDefinitions.VelocityType velocityType)
     {
-        effect.SetHasVelocity(true);
-        effect.SetVelocityCellsPerRound(velocityCellsPerRound);
-        effect.SetVelocityType(velocityType);
+        effect.hasVelocity = true;
+        effect.velocityCellsPerRound = velocityCellsPerRound;
+        effect.velocityType = velocityType;
         return this;
     }
 

@@ -59,11 +59,7 @@ internal static class RulesetCharacterExension
         }
 
         var inventorySlot = instance.CharacterInventory.InventorySlotsByName[slot];
-        if (inventorySlot == null)
-        {
-            return null;
-        }
 
-        return inventorySlot.EquipedItem;
+        return inventorySlot?.EquipedItem;
     }
 }

@@ -1058,10 +1058,12 @@ internal static class Witch
             // We remove the inherent bonus as we will be using the Witch's spell attack bonus
             witchFamiliarAttackIteration.MonsterAttackDefinition.toHitBonus = 0;
 
-            witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0].DamageForm
-                .SetDiceNumber(1)
-                .SetDieType(DieType.D1)
-                .SetBonusDamage(0);
+            var damageForm = witchFamiliarAttackIteration.MonsterAttackDefinition.EffectDescription.EffectForms[0]
+                .DamageForm;
+
+            damageForm.diceNumber = 1;
+            damageForm.dieType = DieType.D1;
+            damageForm.bonusDamage = 0;
 
             var witchFamiliarMonsterBuilder = MonsterDefinitionBuilder
                 .Create(Eagle_Matriarch, "WitchOwl", WITCH_BASE_GUID)

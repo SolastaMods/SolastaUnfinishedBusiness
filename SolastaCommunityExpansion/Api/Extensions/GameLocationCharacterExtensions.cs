@@ -6,7 +6,6 @@ public static class GameLocationCharacterExtensions
 {
     private static readonly Dictionary<string, int> SkipAttackModes = new();
 
-
     private static string Key(GameLocationCharacter instance)
     {
         return $"{instance.Name}:{instance.Guid}";

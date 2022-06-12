@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Reflection;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
@@ -10,11 +9,6 @@ internal static class GameGadgetExtensions
     public const string RemoteEnabled = "RemoteEnabled";
     public const string ParamEnabled = "Param_Enabled";
     public const string Invisible = "Invisible";
-
-    private static readonly MethodInfo CheckConditionNameMethod
-#pragma warning disable S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
-        = typeof(GameGadget).GetMethod("CheckConditionName", BindingFlags.Instance | BindingFlags.NonPublic);
-#pragma warning restore S3011 // Reflection should not be used to increase accessibility of classes, methods, or fields
 
     /// <summary>
     ///     Returns state of Invisible parameter, or false if not present
@@ -43,11 +37,6 @@ internal static class GameGadgetExtensions
             $"{gadget.UniqueNameId}, Enabled={enabled}, ParamEnabled={paramEnabled}");
 
         return enabled || paramEnabled;
-    }
-
-    public static bool CheckConditionName(this GameGadget gadget, string name, bool value, bool valueIfMissing)
-    {
-        return gadget.CheckConditionName(name, value, valueIfMissing);
     }
 }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Builders;
 
@@ -9,13 +8,6 @@ public abstract class
     where TBuilder : MonsterAttackDefinitionBuilder<TDefinition, TBuilder>
 
 {
-    public TBuilder SetDamageBonusOfFirstDamageForm(int value)
-    {
-        var form = Definition.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage);
-        form?.DamageForm.SetBonusDamage(value);
-        return This();
-    }
-
     public TBuilder SetActionType(ActionDefinitions.ActionType value)
     {
         Definition.actionType = value;
