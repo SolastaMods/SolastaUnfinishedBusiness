@@ -266,7 +266,7 @@ public static class CustomFeaturesContext
             {
                 var poolSize = GetMaxUsesForPool(poolPower, character);
 
-                poolPower.SetRemainingUses(poolSize);
+                poolPower.remainingUses = poolSize;
 
                 AssignUsesToSharedPowersForPool(character, poolPower, poolSize, poolSize);
             }
@@ -285,8 +285,8 @@ public static class CustomFeaturesContext
 
                 if (pointPoolPower == poolPower.PowerDefinition)
                 {
-                    usablePower.SetMaxUses(totalUses / usablePower.PowerDefinition.CostPerUse);
-                    usablePower.SetRemainingUses(remainingUses / usablePower.PowerDefinition.CostPerUse);
+                    usablePower.maxUses = totalUses / usablePower.PowerDefinition.CostPerUse;
+                    usablePower.remainingUses = remainingUses / usablePower.PowerDefinition.CostPerUse;
                 }
             }
         }
@@ -335,7 +335,7 @@ public static class CustomFeaturesContext
                 var maxUses = GetMaxUsesForPool(poolPower, character);
                 var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
 
-                poolPower.SetRemainingUses(remainingUses);
+                poolPower.remainingUses = remainingUses;
                 AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
 
                 return;
@@ -360,7 +360,7 @@ public static class CustomFeaturesContext
                 var maxUses = GetMaxUsesForPool(poolPower, character);
                 var remainingUses = Mathf.Clamp(poolPower.RemainingUses - poolUsage, 0, maxUses);
 
-                poolPower.SetRemainingUses(remainingUses);
+                poolPower.remainingUses = remainingUses;
                 AssignUsesToSharedPowersForPool(character, poolPower, remainingUses, maxUses);
 
                 // refresh character control panel after power pool usage is updated

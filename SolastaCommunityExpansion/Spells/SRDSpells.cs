@@ -323,13 +323,15 @@ public static class SrdSpells
             .SetSlotsRecharge(RuleDefinitions.RechargeRate.ShortRest)
             .SetSpellCastingLevel(9)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
-            .AddToDB()
-            // TODO: Move these onto builder
-            .SetFocusType(EquipmentDefinitions.FocusType.None)
-            .SetSpellListDefinition(couatlSpellList)
-            .SetStaticToHitValue(8)
-            .SetStaticDCValue(14)
-            .SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation.Static);
+            .AddToDB();
+        // TODO: Move these onto builder
+
+        castSpellCouatl.focusType = EquipmentDefinitions.FocusType.None;
+        castSpellCouatl.spellListDefinition = couatlSpellList;
+        castSpellCouatl.staticDCValue = 14;
+        castSpellCouatl.staticToHitValue = 8;
+        castSpellCouatl.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
+
 
         int[] castSpellCouatlKnownSpells =
         {
@@ -714,7 +716,7 @@ public static class SrdSpells
             .SetGuiPresentation(Category.MonsterAttack)
             .AddToDB();
 
-        CouatlBite_Attack.SetToHitBonus(7);
+        CouatlBite_Attack.toHitBonus = 7;
         CouatlBite_Attack.EffectDescription.SetRangeParameter(1);
         CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.diceNumber = 1;
         CouatlBite_Attack.EffectDescription.EffectForms[0].DamageForm.dieType = RuleDefinitions.DieType.D6;

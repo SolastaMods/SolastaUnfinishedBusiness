@@ -90,7 +90,7 @@ internal static class KnowYourEnemyBuilder
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .AddToDB();
 
-        additionalDamageRangerFavoredEnemyHumanoid.SetRequiredCharacterFamily(CharacterFamilyDefinitions.Humanoid);
+        additionalDamageRangerFavoredEnemyHumanoid.requiredCharacterFamily = CharacterFamilyDefinitions.Humanoid;
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("KnowYourEnemy", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
@@ -345,7 +345,7 @@ internal static class EternalComradeBuilder
             .SetEffectDescription(effectDescription)
             .AddToDB();
 
-        eternalComradeAttack.SetMagical(true);
+        eternalComradeAttack.magical = true;
 
         var marshalEternalComradeAttackInteraction = new MonsterAttackIteration(eternalComradeAttack, 1);
 

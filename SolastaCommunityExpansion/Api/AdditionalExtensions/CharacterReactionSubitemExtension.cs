@@ -58,7 +58,7 @@ public static class CharacterReactionSubitemExtension
         }
     }
 
-    public static void BindPowerBunble(this CharacterReactionSubitem instance,
+    public static void BindPowerBundle(this CharacterReactionSubitem instance,
         ReactionRequestSpendBundlePower reactionRequest,
         int slotLevel,
         bool interactable,

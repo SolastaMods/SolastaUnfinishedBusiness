@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
@@ -354,10 +353,10 @@ Different Archfey, e.g. Winter-themed
             .SetGold(0)
             .AddToDB();
         brewItem.guiPresentation = guiPresentation;
-        brewItem.SetIsFood(true);
-        brewItem.SetFoodDescription(food);
-        brewItem.SetIsUsableDevice(true);
-        brewItem.SetUsableDeviceDescription(baseItem.UsableDeviceDescription);
+        brewItem.isFood = true;
+        brewItem.foodDescription = food;
+        brewItem.IsUsableDevice = true;
+        brewItem.usableDeviceDescription = baseItem.UsableDeviceDescription;
 
         var brewForm = new EffectFormBuilder()
             .SetSummonItemForm(brewItem, 1)
@@ -460,12 +459,12 @@ Different Archfey, e.g. Winter-themed
             .AddToDB();
         var description = brewItem.UsableDeviceDescription;
         brewItem.guiPresentation = guiPresentation;
-        brewItem.SetIsFood(true);
-        brewItem.SetItemRarity(ItemRarity.Common);
-        brewItem.SetFoodDescription(food);
-        brewItem.SetIsUsableDevice(true);
-        brewItem.SetRequiresIdentification(false);
-        brewItem.SetUsableDeviceDescription(description);
+        brewItem.isFood = true;
+        brewItem.itemRarity = ItemRarity.Common;
+        brewItem.foodDescription = food;
+        brewItem.IsUsableDevice = true;
+        brewItem.requiresIdentification = false;
+        brewItem.usableDeviceDescription = description;
 
         var brewForm = new EffectFormBuilder()
             .SetSummonItemForm(brewItem, 1)

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
@@ -53,8 +52,8 @@ public static class UsablePowersProvider
 
         var powerCost = usablePower.PowerDefinition.CostPerUse;
         var maxUsesForPool = CustomFeaturesContext.GetMaxUsesForPool(pool, character);
-        usablePower.SetMaxUses(maxUsesForPool / powerCost);
-        usablePower.SetRemainingUses(pool.RemainingUses / powerCost);
+        usablePower.maxUses = maxUsesForPool / powerCost;
+        usablePower.remainingUses = pool.RemainingUses / powerCost;
     }
 
     public static void UpdateSaveDC(RulesetCharacter actor, RulesetUsablePower usablePower)

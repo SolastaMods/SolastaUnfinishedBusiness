@@ -244,7 +244,7 @@ internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower);
+        power.overriddenPower = ArtilleryConstructlevel03FeatureSetBuilder.FlameArtillery_03modepower;
 
         return power;
     }
@@ -282,7 +282,7 @@ internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower);
+        power.overriddenPower = ArtilleryConstructlevel03FeatureSetBuilder.ForceArtillery_03modepower;
 
         return power;
     }
@@ -319,7 +319,7 @@ internal sealed class ArtilleryConstructlevel09FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower);
+        power.overriddenPower = ArtilleryConstructlevel03FeatureSetBuilder.TempHPShield_03modepower;
 
         return power;
     }
@@ -410,7 +410,7 @@ internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.FlameArtillery_09modepower);
+        power.overriddenPower = ArtilleryConstructlevel09FeatureSetBuilder.FlameArtillery_09modepower;
         return power;
     }
 
@@ -447,7 +447,7 @@ internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.ForceArtillery_09modepower);
+        power.overriddenPower = ArtilleryConstructlevel09FeatureSetBuilder.ForceArtillery_09modepower;
 
         return power;
     }
@@ -485,7 +485,7 @@ internal sealed class ArtilleryConstructlevel15FeatureSetBuilder : FeatureDefini
             , true // bool uniqueInstanc
         ).AddToDB();
 
-        power.SetOverriddenPower(ArtilleryConstructlevel09FeatureSetBuilder.TempHPShield_09modepower);
+        power.overriddenPower = ArtilleryConstructlevel09FeatureSetBuilder.TempHPShield_09modepower;
         return power;
     }
 

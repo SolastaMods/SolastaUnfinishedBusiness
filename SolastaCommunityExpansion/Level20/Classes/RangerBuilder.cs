@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Level20.Features.RangerFeralSensesBuilder;
 using static SolastaCommunityExpansion.Level20.Features.RangerVanishActionBuilder;
@@ -25,7 +24,7 @@ internal static class RangerBuilder
             //new FeatureUnlockByLevel(FeatureSetRangerFoeSlayer, 20)
         });
 
-        CastSpellRanger.SetSpellCastingLevel(5);
+        CastSpellRanger.spellCastingLevel = 5;
 
         CastSpellRanger.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
         CastSpellRanger.ReplacedSpells.SetRange(SpellsHelper.HalfCasterReplacedSpells);

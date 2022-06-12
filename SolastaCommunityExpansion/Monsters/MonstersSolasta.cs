@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE
@@ -36,15 +35,15 @@ internal static class MonstersSolasta
             {
                 if (monster.DungeonMakerPresence == MonsterDefinition.DungeonMaker.None)
                 {
-                    monster.SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.Monster);
+                    monster.dungeonMakerPresence = MonsterDefinition.DungeonMaker.Monster;
                 }
 
                 if (monster == DatabaseHelper.MonsterDefinitions.SilverDragon_Princess)
                 {
                     // silver dragon is half finished so it needs to reuse other dragon attributes,
                     // TA uses green dragon attacks for silver dragon so the trend is continued here
-                    monster.SetGroupAttacks(true);
-                    monster.SetLegendaryCreature(true);
+                    monster.groupAttacks = true;
+                    monster.legendaryCreature = true;
                     monster.AttackIterations.Clear();
                     monster.AttackIterations.AddRange(DatabaseHelper.MonsterDefinitions
                         .GreenDragon_MasterOfConjuration.AttackIterations);
@@ -53,10 +52,10 @@ internal static class MonstersSolasta
                         .Features);
                     monster.LegendaryActionOptions.AddRange(DatabaseHelper.MonsterDefinitions
                         .GreenDragon_MasterOfConjuration.LegendaryActionOptions);
-                    monster.SetDefaultBattleDecisionPackage(DatabaseHelper.MonsterDefinitions
-                        .GreenDragon_MasterOfConjuration.DefaultBattleDecisionPackage);
-                    monster.SetThreatEvaluatorDefinition(DatabaseHelper.MonsterDefinitions
-                        .GreenDragon_MasterOfConjuration.ThreatEvaluatorDefinition);
+                    monster.defaultBattleDecisionPackage = DatabaseHelper.MonsterDefinitions
+                        .GreenDragon_MasterOfConjuration.DefaultBattleDecisionPackage;
+                    monster.threatEvaluatorDefinition = DatabaseHelper.MonsterDefinitions
+                        .GreenDragon_MasterOfConjuration.ThreatEvaluatorDefinition;
                     // guipresentation title is mislabeled as a green dragon
                     monster.GuiPresentation.title = monster.Name;
                 }

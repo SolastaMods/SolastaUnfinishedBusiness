@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Patches.Bugfix;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper.ConditionDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
 
@@ -31,7 +30,7 @@ internal static class HouseSpellTweaks
     internal static void MinorFixes()
     {
         // Shows Concentration tag in UI
-        BladeBarrier.SetRequiresConcentration(true);
+        BladeBarrier.requiresConcentration = true;
 
         //
         // BUGFIX: spells durations

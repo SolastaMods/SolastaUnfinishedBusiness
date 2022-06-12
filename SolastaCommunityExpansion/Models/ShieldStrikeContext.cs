@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
 using static SolastaModApi.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Models;
@@ -56,7 +55,7 @@ public static class ShieldStrikeContext
     private static WeaponDescription BuildShieldWeaponDescription()
     {
         var description = new WeaponDescription(ItemDefinitions.UnarmedStrikeBase.WeaponDescription);
-        description.SetWeaponType(ShieldWeaponType.Name);
+        description.weaponType = ShieldWeaponType.Name;
 
         var damage = description.EffectDescription.FindFirstDamageForm();
         damage.DieType = RuleDefinitions.DieType.D4;

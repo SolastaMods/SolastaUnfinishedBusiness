@@ -50,15 +50,15 @@ public class NewMonsterSpells
         motionForm.type = MotionForm.MotionType.Levitate;
 
         EffectForm FallingEffect = new();
-        FallingEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        FallingEffect.SetLevelMultiplier(1);
-        FallingEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        FallingEffect.SetCreatedByCondition(true);
+        FallingEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        FallingEffect.levelMultiplier = 1;
+        FallingEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        FallingEffect.createdByCondition = true;
         FallingEffect.FormType = EffectForm.EffectFormType.Motion;
-        FallingEffect.SetMotionForm(motionForm);
+        FallingEffect.motionForm = motionForm;
         FallingEffect.hasSavingThrow = false;
-        FallingEffect.SetCanSaveToCancel(false);
-        FallingEffect.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
+        FallingEffect.canSaveToCancel = false;
+        FallingEffect.saveOccurence = RuleDefinitions.TurnOccurenceType.StartOfTurn;
 
         ReverseGravity_Condition.RecurrentEffectForms.Add(FallingEffect);
 
@@ -71,7 +71,7 @@ public class NewMonsterSpells
             "Spell/&DH_" + text + "_Description"
         );
 
-        ReverseGravity_Spell.SetSpellLevel(7);
+        ReverseGravity_Spell.spellLevel = 7;
 
 
         DamageForm damageForm = new();
@@ -81,14 +81,14 @@ public class NewMonsterSpells
         damageForm.SetDamageType(RuleDefinitions.DamageTypeForce);
 
         EffectForm damageEffect = new();
-        damageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        damageEffect.SetLevelMultiplier(1);
-        damageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        damageEffect.SetCreatedByCharacter(true);
+        damageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        damageEffect.levelMultiplier = 1;
+        damageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        damageEffect.createdByCharacter = true;
         damageEffect.FormType = EffectForm.EffectFormType.Damage;
-        damageEffect.SetDamageForm(damageForm);
+        damageEffect.damageForm = damageForm;
         damageEffect.hasSavingThrow = false;
-        damageEffect.SetCanSaveToCancel(false);
+        damageEffect.canSaveToCancel = false;
 
         ReverseGravity_Spell.EffectDescription.EffectForms.Add(damageEffect);
 
@@ -129,7 +129,7 @@ public class NewMonsterSpells
         );
 
 
-        DominateMonster_Spell.SetSpellLevel(8);
+        DominateMonster_Spell.spellLevel = 8;
 
         DominateMonster_Spell.EffectDescription.RestrictedCreatureFamilies.Clear();
         DominateMonster_Spell.EffectDescription.durationType = RuleDefinitions.DurationType.Hour;
@@ -148,7 +148,7 @@ public class NewMonsterSpells
             "Spell/&DH_" + text + "_Description"
         );
 
-        FingerOfDeath_Spell.SetSpellLevel(7);
+        FingerOfDeath_Spell.spellLevel = 7;
 
         FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(7);
         FingerOfDeath_Spell.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
@@ -176,10 +176,10 @@ public class NewMonsterSpells
             "Spell/&DH_" + text + "_Description"
         );
 
-        PowerWordKill_Spell.SetSpellLevel(9);
+        PowerWordKill_Spell.spellLevel = 9;
 
 
-        PowerWordKill_Spell.SetSomaticComponent(false);
+        PowerWordKill_Spell.somaticComponent = false;
         PowerWordKill_Spell.EffectDescription.hasSavingThrow = false;
         PowerWordKill_Spell.EffectDescription.EffectForms.Clear();
 
@@ -188,12 +188,12 @@ public class NewMonsterSpells
         killForm.hitPoints = 100;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Kill;
-        effectForm.SetKillForm(killForm);
+        effectForm.killForm = killForm;
 
 
         PowerWordKill_Spell.EffectDescription.EffectForms.Add(effectForm);
@@ -215,9 +215,9 @@ public class NewMonsterSpells
             "Spell/&DH_" + text + "_Description"
         );
 
-        PowerWordStun_Spell.SetSpellLevel(8);
+        PowerWordStun_Spell.spellLevel = 8;
 
-        PowerWordStun_Spell.SetSomaticComponent(false);
+        PowerWordStun_Spell.somaticComponent = false;
         PowerWordStun_Spell.EffectDescription.hasSavingThrow = false;
         PowerWordStun_Spell.EffectDescription.EffectForms.Clear();
 
@@ -230,14 +230,14 @@ public class NewMonsterSpells
 
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Condition;
-        effectForm.SetConditionForm(conditionForm);
-        effectForm.SetCanSaveToCancel(true);
-        effectForm.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.EndOfTurn);
+        effectForm.conditionForm = conditionForm;
+        effectForm.canSaveToCancel = true;
+        effectForm.saveOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn;
 
         PowerWordStun_Spell.EffectDescription.EffectForms.Add(effectForm);
         PowerWordStun_Spell.EffectDescription.targetFilteringMethod = RuleDefinitions.TargetFilteringMethod
@@ -286,7 +286,7 @@ public class NewMonsterSpells
             "Spell/&DH_" + text + "_Description"
         );
 
-        TimeStop_Spell.SetSpellLevel(9);
+        TimeStop_Spell.spellLevel = 9;
 
         ConditionForm conditionForm = new();
         conditionForm.applyToSelf = false;
@@ -297,13 +297,13 @@ public class NewMonsterSpells
 
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Condition;
-        effectForm.SetConditionForm(conditionForm);
-        effectForm.SetCanSaveToCancel(false);
+        effectForm.conditionForm = conditionForm;
+        effectForm.canSaveToCancel = false;
 
         TimeStop_Spell.EffectDescription.hasSavingThrow = false;
         TimeStop_Spell.EffectDescription.EffectForms.Clear();
@@ -313,8 +313,8 @@ public class NewMonsterSpells
         TimeStop_Spell.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
         TimeStop_Spell.EffectDescription.durationParameter = 3;
         TimeStop_Spell.EffectDescription.EffectForms.Add(effectForm);
-        TimeStop_Spell.SetRequiresConcentration(false);
-        TimeStop_Spell.SetRitual(false);
+        TimeStop_Spell.requiresConcentration = false;
+        TimeStop_Spell.ritual = false;
         TimeStop_Spell.EffectDescription.targetExcludeCaster = true;
         TimeStop_Spell.EffectDescription.targetType = RuleDefinitions.TargetType.Cylinder;
         TimeStop_Spell.EffectDescription.targetSide = RuleDefinitions.Side.All;

@@ -1,7 +1,6 @@
 ﻿using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -97,7 +96,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
         RiftStrike.EffectDescription.DurationType = RuleDefinitions.DurationType.Round;
         RiftStrike.EffectDescription.EndOfEffect = RuleDefinitions.TurnOccurenceType.StartOfTurn;
         RiftStrike.EffectDescription.HasSavingThrow = false;
-        RiftStrike.SetReactionContext(RuleDefinitions.ReactionTriggerContext.HitByMelee);
+        RiftStrike.reactionContext = RuleDefinitions.ReactionTriggerContext.HitByMelee;
     }
 
     public static void RiftJumpBuilder()

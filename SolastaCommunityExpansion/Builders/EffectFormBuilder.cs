@@ -229,11 +229,11 @@ public class EffectFormBuilder
     {
         effectForm.FormType = EffectForm.EffectFormType.LightSource;
         var lightSourceForm = new LightSourceForm();
-        lightSourceForm.SetLightSourceType(lightSourceType);
-        lightSourceForm.SetBrightRange(brightRange);
-        lightSourceForm.SetDimAdditionalRange(dimAdditionalRange);
-        lightSourceForm.SetColor(color);
-        lightSourceForm.SetGraphicsPrefabReference(graphicsPrefabReference);
+        lightSourceForm.lightSourceType = lightSourceType;
+        lightSourceForm.brightRange = brightRange;
+        lightSourceForm.dimAdditionalRange = dimAdditionalRange;
+        lightSourceForm.color = color;
+        lightSourceForm.graphicsPrefabReference = graphicsPrefabReference;
         effectForm.SetLightSourceForm(lightSourceForm);
         return this;
     }

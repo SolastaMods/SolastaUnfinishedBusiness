@@ -500,18 +500,17 @@ public class NewMonsterAttributes
         );
 
 
-        CastSpell_Lich.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
-        CastSpell_Lich.SetSpellcastingAbility("Intelligence");
-        CastSpell_Lich.SetSpellcastingParametersComputation(
-            RuleDefinitions.SpellcastingParametersComputation.Static);
-        CastSpell_Lich.SetStaticDCValue(20);
-        CastSpell_Lich.SetStaticToHitValue(12);
-        CastSpell_Lich.SetSpellListDefinition(Lich_spelllist);
+        CastSpell_Lich.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
+        CastSpell_Lich.spellcastingAbility = "Intelligence";
+        CastSpell_Lich.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
+        CastSpell_Lich.staticDCValue = 20;
+        CastSpell_Lich.staticToHitValue = 12;
+        CastSpell_Lich.spellListDefinition = Lich_spelllist;
         CastSpell_Lich.RestrictedSchools.Clear();
-        CastSpell_Lich.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList);
-        CastSpell_Lich.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-        CastSpell_Lich.SetSpellCastingLevel(18);
-        CastSpell_Lich.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
+        CastSpell_Lich.spellKnowledge = RuleDefinitions.SpellKnowledge.FixedList;
+        CastSpell_Lich.slotsRecharge = RuleDefinitions.RechargeRate.LongRest;
+        CastSpell_Lich.spellCastingLevel = 18;
+        CastSpell_Lich.spellReadyness = RuleDefinitions.SpellReadyness.AllKnown;
 
         int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
         CastSpell_Lich.KnownCantrips.AddRange(cantrip_arr);
@@ -1030,18 +1029,18 @@ public class NewMonsterAttributes
         );
 
 
-        CastSpell_ArchMage.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
-        CastSpell_ArchMage.SetSpellcastingAbility("Intelligence");
-        CastSpell_ArchMage.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation
-            .Static);
-        CastSpell_ArchMage.SetStaticDCValue(17);
-        CastSpell_ArchMage.SetStaticToHitValue(9);
-        CastSpell_ArchMage.SetSpellListDefinition(Archmage_spelllist);
+        CastSpell_ArchMage.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
+        CastSpell_ArchMage.spellcastingAbility = "Intelligence";
+        CastSpell_ArchMage.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation
+            .Static;
+        CastSpell_ArchMage.staticDCValue = 17;
+        CastSpell_ArchMage.staticToHitValue = 9;
+        CastSpell_ArchMage.spellListDefinition = Archmage_spelllist;
         CastSpell_ArchMage.RestrictedSchools.Clear();
-        CastSpell_ArchMage.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList);
-        CastSpell_ArchMage.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-        CastSpell_ArchMage.SetSpellCastingLevel(18);
-        CastSpell_ArchMage.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
+        CastSpell_ArchMage.spellKnowledge = RuleDefinitions.SpellKnowledge.FixedList;
+        CastSpell_ArchMage.slotsRecharge = RuleDefinitions.RechargeRate.LongRest;
+        CastSpell_ArchMage.spellCastingLevel = 18;
+        CastSpell_ArchMage.spellReadyness = RuleDefinitions.SpellReadyness.AllKnown;
 
         int[] cantrip_arr = {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
         CastSpell_ArchMage.KnownCantrips.AddRange(cantrip_arr);
@@ -1529,18 +1528,18 @@ public class NewMonsterAttributes
         );
 
 
-        CastSpell_GuardianNaga.SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Monster);
-        CastSpell_GuardianNaga.SetSpellcastingAbility("Wisdom");
-        CastSpell_GuardianNaga.SetSpellcastingParametersComputation(RuleDefinitions.SpellcastingParametersComputation
-            .Static);
-        CastSpell_GuardianNaga.SetStaticDCValue(16);
-        CastSpell_GuardianNaga.SetStaticToHitValue(8);
-        CastSpell_GuardianNaga.SetSpellListDefinition(GuardianNaga_spelllist);
+        CastSpell_GuardianNaga.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
+        CastSpell_GuardianNaga.spellcastingAbility = "Wisdom";
+        CastSpell_GuardianNaga.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation
+            .Static;
+        CastSpell_GuardianNaga.staticDCValue = 16;
+        CastSpell_GuardianNaga.staticToHitValue = 8;
+        CastSpell_GuardianNaga.spellListDefinition = GuardianNaga_spelllist;
         CastSpell_GuardianNaga.RestrictedSchools.Clear();
-        CastSpell_GuardianNaga.SetSpellKnowledge(RuleDefinitions.SpellKnowledge.FixedList);
-        CastSpell_GuardianNaga.SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest);
-        CastSpell_GuardianNaga.SetSpellCastingLevel(11);
-        //    CastSpell_GuardianNaga.SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown);
+        CastSpell_GuardianNaga.spellKnowledge = RuleDefinitions.SpellKnowledge.FixedList;
+        CastSpell_GuardianNaga.slotsRecharge = RuleDefinitions.RechargeRate.LongRest;
+        CastSpell_GuardianNaga.spellCastingLevel = 11;
+        //    CastSpell_GuardianNaga.spellReadyness =(RuleDefinitions.SpellReadyness.AllKnown);
         //    CastSpell_GuardianNaga.SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusLevel);
 
         int[] cantrip_arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};

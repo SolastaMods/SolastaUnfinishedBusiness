@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static ConditionOperationDescription;
@@ -45,14 +44,15 @@ internal static class EWSpells
                 .AddToDB()
         };
 
-        var dimLight = new LightSourceForm()
-            .SetBrightRange(0)
-            .SetDimAdditionalRange(2)
-            .SetLightSourceType(RuleDefinitions.LightSourceType.Basic)
-            .SetColor(new Color(0.9f, 0.8f, 0.4f));
-
-        dimLight.SetGraphicsPrefabReference(DatabaseHelper.FeatureDefinitionAdditionalDamages
-            .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference);
+        var dimLight = new LightSourceForm
+        {
+            brightRange = 0,
+            dimAdditionalRange = 2,
+            lightSourceType = RuleDefinitions.LightSourceType.Basic,
+            color = new Color(0.9f, 0.8f, 0.4f),
+            graphicsPrefabReference = DatabaseHelper.FeatureDefinitionAdditionalDamages
+                .AdditionalDamageBrandingSmite.LightSourceForm.graphicsPrefabReference
+        };
 
         return SpellDefinitionBuilder
             .Create("EWSunlightBlade", DefinitionBuilder.CENamespaceGuid)

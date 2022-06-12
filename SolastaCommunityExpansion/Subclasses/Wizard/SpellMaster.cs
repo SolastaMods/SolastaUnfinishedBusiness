@@ -127,17 +127,15 @@ internal class SpellMaster : AbstractSubclass
         {
             BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecoveryUnlimited",
                 Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            BonusRecovery
-                .SetCostPerUse(0)
-                .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill);
+            BonusRecovery.costPerUse = 0;
+            BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.AtWill;
         }
         else
         {
             BonusRecovery.guiPresentation = GuiPresentationBuilder.Build("MagicAffinitySpellMasterRecovery",
                 Category.Subclass, PowerWizardArcaneRecovery.GuiPresentation.SpriteReference);
-            BonusRecovery
-                .SetCostPerUse(1)
-                .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest);
+            BonusRecovery.costPerUse = 1;
+            BonusRecovery.rechargeRate = RuleDefinitions.RechargeRate.LongRest;
         }
     }
 }

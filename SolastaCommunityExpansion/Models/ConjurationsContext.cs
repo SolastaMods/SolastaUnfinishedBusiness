@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi.Extensions;
 using static RuleDefinitions;
 using static SolastaModApi.DatabaseHelper.MonsterDefinitions;
 using static SolastaModApi.DatabaseHelper.SpellDefinitions;
@@ -56,7 +55,7 @@ internal static class ConjurationsContext
 
         foreach (var conjuredMonster in ConjuredMonsters)
         {
-            conjuredMonster.SetFullyControlledWhenAllied(controlled);
+            conjuredMonster.fullyControlledWhenAllied = controlled;
         }
 
         if (Main.Settings.EnableUpcastConjureElementalAndFey)

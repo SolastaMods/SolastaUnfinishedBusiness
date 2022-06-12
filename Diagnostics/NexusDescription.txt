@@ -18,13 +18,11 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Esker[/b]: Warlock class design, quality assurance
 [*][b]Holic75[/b]: SolastaModHelpers and SolastaExtraContent
 [*][b]ImpPhil[/b]: adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map
-[*][b]JetBrains[/b]: 3 Rider full licenses
 [*][b]Lyraele[/b]: Warlock class design, quality assurance
 [*][b]Narria[/b]: modKit creator, developer
 [*][b]Nd[/b]: Marshal subclass, Opportunist subclass
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
-[*][b]Tactical Adventures[/b]: support to our initiative
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone

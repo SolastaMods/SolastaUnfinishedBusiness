@@ -1,6 +1,5 @@
 ﻿using ModKit.Utility;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaCommunityExpansion.Models;
@@ -63,7 +62,7 @@ internal static class RemoveBugVisualModelsContext
                     monster.MonsterPresentation.malePrefabReference = bearPrefab;
                     monster.MonsterPresentation.femalePrefabReference = bearPrefab;
                     monster.GuiPresentation.spriteReference = brownBear.GuiPresentation.SpriteReference;
-                    monster.SetBestiarySpriteReference(brownBear.BestiarySpriteReference);
+                    monster.bestiarySpriteReference = brownBear.BestiarySpriteReference;
                     monster.MonsterPresentation.monsterPresentationDefinitions = brownBear.MonsterPresentation
                         .MonsterPresentationDefinitions;
                 }
@@ -74,7 +73,7 @@ internal static class RemoveBugVisualModelsContext
                     monster.MonsterPresentation.malePrefabReference = apePrefab;
                     monster.MonsterPresentation.femalePrefabReference = apePrefab;
                     monster.GuiPresentation.spriteReference = ape.GuiPresentation.SpriteReference;
-                    monster.SetBestiarySpriteReference(ape.BestiarySpriteReference);
+                    monster.bestiarySpriteReference = ape.BestiarySpriteReference;
                     monster.MonsterPresentation.monsterPresentationDefinitions = ape.MonsterPresentation
                         .MonsterPresentationDefinitions;
                 }
@@ -85,7 +84,7 @@ internal static class RemoveBugVisualModelsContext
                     monster.MonsterPresentation.malePrefabReference = wolfPrefab;
                     monster.MonsterPresentation.femalePrefabReference = wolfPrefab;
                     monster.GuiPresentation.spriteReference = wolf.GuiPresentation.SpriteReference;
-                    monster.SetBestiarySpriteReference(wolf.BestiarySpriteReference);
+                    monster.bestiarySpriteReference = wolf.BestiarySpriteReference;
                     monster.MonsterPresentation.monsterPresentationDefinitions = wolf.MonsterPresentation
                         .MonsterPresentationDefinitions;
 

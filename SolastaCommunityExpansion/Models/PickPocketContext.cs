@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static FeatureDefinitionAbilityCheckAffinity;
 using static RuleDefinitions;
@@ -205,38 +204,38 @@ public static class PickPocketContext
             if (monster.CharacterFamily == "Humanoid" &&
                 monster.DefaultFaction == "HostileMonsters")
             {
-                monster.SetStealableLootDefinition(pick_pocket_loot);
+                monster.stealableLootDefinition = pick_pocket_loot;
             }
         }
 
         var adam_12 = DatabaseHelper.MonsterDefinitions.Adam_The_Twelth;
-        adam_12.SetStealableLootDefinition(pick_pocket_loot);
+        adam_12.stealableLootDefinition = pick_pocket_loot;
 
         var brood_of_blood = DatabaseHelper.MonsterDefinitions.Brood_of_blood;
-        brood_of_blood.SetStealableLootDefinition(pick_pocket_loot);
+        brood_of_blood.stealableLootDefinition = pick_pocket_loot;
 
         var brood_of_dread = DatabaseHelper.MonsterDefinitions.Brood_of_dread;
-        brood_of_dread.SetStealableLootDefinition(pick_pocket_loot);
+        brood_of_dread.stealableLootDefinition = pick_pocket_loot;
 
         var brood_of_flesh = DatabaseHelper.MonsterDefinitions.Brood_of_flesh;
-        brood_of_flesh.SetStealableLootDefinition(pick_pocket_loot);
+        brood_of_flesh.stealableLootDefinition = pick_pocket_loot;
 
         var skeleton_basic = DatabaseHelper.MonsterDefinitions.Skeleton;
-        skeleton_basic.SetStealableLootDefinition(pick_pocket_undead);
+        skeleton_basic.stealableLootDefinition = pick_pocket_undead;
 
         var skeleton_archer = DatabaseHelper.MonsterDefinitions.Skeleton_Archer;
-        skeleton_archer.SetStealableLootDefinition(pick_pocket_undead);
+        skeleton_archer.stealableLootDefinition = pick_pocket_undead;
 
         var skeleton_enforcer = DatabaseHelper.MonsterDefinitions.Skeleton_Enforcer;
-        skeleton_enforcer.SetStealableLootDefinition(pick_pocket_undead);
+        skeleton_enforcer.stealableLootDefinition = pick_pocket_undead;
 
         var skeleton_knight = DatabaseHelper.MonsterDefinitions.Skeleton_Knight;
-        skeleton_knight.SetStealableLootDefinition(pick_pocket_undead);
+        skeleton_knight.stealableLootDefinition = pick_pocket_undead;
 
         var skeleton_marksman = DatabaseHelper.MonsterDefinitions.Skeleton_Marksman;
-        skeleton_marksman.SetStealableLootDefinition(pick_pocket_undead);
+        skeleton_marksman.stealableLootDefinition = pick_pocket_undead;
 
         var skeleton_sorcerer = DatabaseHelper.MonsterDefinitions.Skeleton_Sorcerer;
-        skeleton_sorcerer.SetStealableLootDefinition(pick_pocket_undead);
+        skeleton_sorcerer.stealableLootDefinition = pick_pocket_undead;
     }
 }

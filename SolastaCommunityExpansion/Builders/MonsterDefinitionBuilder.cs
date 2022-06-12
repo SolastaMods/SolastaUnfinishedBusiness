@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
@@ -438,7 +437,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder ClearLegendaryActionOptions()
     {
-        Definition.ClearLegendaryActionOptions();
+        Definition.LegendaryActionOptions.Clear();
         return this;
     }
 
@@ -489,7 +488,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
 
     public MonsterDefinitionBuilder ClearCreatureTags()
     {
-        Definition.ClearCreatureTags();
+        Definition.CreatureTags.Clear();
         return this;
     }
 

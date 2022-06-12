@@ -173,8 +173,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Roc_Beak_Attack.SetToHitBonus(13);
-        Roc_Beak_Attack.SetReachRange(2);
+        Roc_Beak_Attack.toHitBonus = 13;
+        Roc_Beak_Attack.reachRange = 2;
         Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         Roc_Beak_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
@@ -195,8 +195,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Roc_Talons_Attack.SetToHitBonus(13);
-        Roc_Talons_Attack.SetReachRange(1);
+        Roc_Talons_Attack.toHitBonus = 13;
+        Roc_Talons_Attack.reachRange = 1;
         Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         Roc_Talons_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
@@ -209,12 +209,12 @@ public class NewMonsterAttacks
         motionForm.type = MotionForm.MotionType.Levitate;
 
         EffectForm FallingEffect = new();
-        FallingEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        FallingEffect.SetLevelMultiplier(1);
-        FallingEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
+        FallingEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        FallingEffect.levelMultiplier = 1;
+        FallingEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
         FallingEffect.SetCreatedByCondition(true);
         FallingEffect.FormType = EffectForm.EffectFormType.Motion;
-        FallingEffect.SetMotionForm(motionForm);
+        FallingEffect.motionForm = motionForm;
         FallingEffect.hasSavingThrow = false;
         FallingEffect.SetCanSaveToCancel(false);
         FallingEffect.SetSaveOccurence(RuleDefinitions.TurnOccurenceType.StartOfTurn);
@@ -239,7 +239,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Ice_Bite_Attack.SetReachRange(1);
+        Ice_Bite_Attack.reachRange = 1;
         Ice_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
 
         Ice_Bite_Attack.EffectDescription.EffectForms[1].DamageForm.SetDiceNumber(3);
@@ -262,18 +262,18 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        NagaSpit_Attack.SetToHitBonus(8);
+        NagaSpit_Attack.toHitBonus = 8;
         NagaSpit_Attack.EffectDescription.rangeParameter = 6;
-        NagaSpit_Attack.SetReachRange(6);
-        NagaSpit_Attack.SetMaxRange(6);
-        NagaSpit_Attack.SetCloseRange(6);
-        NagaSpit_Attack.SetMaxUses(-1);
+        NagaSpit_Attack.reachRange = 6;
+        NagaSpit_Attack.maxRange = 6;
+        NagaSpit_Attack.closeRange = 6;
+        NagaSpit_Attack.maxUses = -1;
         NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(10);
         NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         NagaSpit_Attack.EffectDescription.EffectForms[0].DamageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
         NagaSpit_Attack.EffectDescription.EffectForms[0].hasSavingThrow = true;
         NagaSpit_Attack.EffectDescription.EffectForms[0]
-            .SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+            .savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
         NagaSpit_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
             .Constitution.Name;
         NagaSpit_Attack.EffectDescription.savingThrowDifficultyAbility = DatabaseHelper.SmartAttributeDefinitions
@@ -295,13 +295,13 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        NagaBite_Attack.SetToHitBonus(7);
-        NagaBite_Attack.SetProximity(RuleDefinitions.AttackProximity.Melee);
+        NagaBite_Attack.toHitBonus = 7;
+        NagaBite_Attack.proximity = RuleDefinitions.AttackProximity.Melee;
         NagaBite_Attack.EffectDescription.rangeParameter = 2;
-        NagaBite_Attack.SetReachRange(2);
-        NagaBite_Attack.SetMaxRange(2);
-        NagaBite_Attack.SetCloseRange(2);
-        NagaBite_Attack.SetMaxUses(-1);
+        NagaBite_Attack.reachRange = 2;
+        NagaBite_Attack.maxRange = 2;
+        NagaBite_Attack.closeRange = 2;
+        NagaBite_Attack.maxUses = -1;
         NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
         NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         NagaBite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(4);
@@ -316,14 +316,14 @@ public class NewMonsterAttacks
 
 
         EffectForm extraDamageEffect = new();
-        extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraDamageEffect.SetLevelMultiplier(1);
-        extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraDamageEffect.SetCreatedByCharacter(true);
+        extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraDamageEffect.levelMultiplier = 1;
+        extraDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraDamageEffect.createdByCharacter = true;
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraDamageEffect.SetDamageForm(damageForm);
+        extraDamageEffect.damageForm = damageForm;
         extraDamageEffect.hasSavingThrow = true;
-        extraDamageEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.HalfDamage);
+        extraDamageEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.HalfDamage;
 
         NagaBite_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
         NagaBite_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
@@ -347,11 +347,11 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Fork_Attack.SetToHitBonus(10);
-        Fork_Attack.SetReachRange(2);
-        Fork_Attack.SetMaxRange(3);
-        Fork_Attack.SetCloseRange(2);
-        Fork_Attack.SetProximity(RuleDefinitions.AttackProximity.Melee);
+        Fork_Attack.toHitBonus = 10;
+        Fork_Attack.reachRange = 2;
+        Fork_Attack.maxRange = 3;
+        Fork_Attack.closeRange = 2;
+        Fork_Attack.proximity = RuleDefinitions.AttackProximity.Melee;
         Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         Fork_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
@@ -392,19 +392,19 @@ public class NewMonsterAttacks
         TailCondition.ConditionDefinition = BleedingWound_Condition;
 
         EffectForm TailEffect = new();
-        TailEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        TailEffect.SetLevelMultiplier(1);
-        TailEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        TailEffect.SetCreatedByCharacter(true);
+        TailEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        TailEffect.levelMultiplier = 1;
+        TailEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        TailEffect.createdByCharacter = true;
         TailEffect.FormType = EffectForm.EffectFormType.Condition;
         TailEffect.ConditionForm = TailCondition;
         TailEffect.hasSavingThrow = true;
         TailEffect.SetCanSaveToCancel(true);
-        TailEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        TailEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
 
-        HornedDevilTail_Attack.SetToHitBonus(10);
-        HornedDevilTail_Attack.SetReachRange(2);
+        HornedDevilTail_Attack.toHitBonus = 10;
+        HornedDevilTail_Attack.reachRange = 2;
         HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         HornedDevilTail_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
@@ -432,7 +432,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        PoisonLongsword_Attack.SetToHitBonus(8);
+        PoisonLongsword_Attack.toHitBonus = 8;
         PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
         PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
         PoisonLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(4);
@@ -446,12 +446,12 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
 
         EffectForm extraDamageEffect = new();
-        extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraDamageEffect.SetLevelMultiplier(1);
-        extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraDamageEffect.SetCreatedByCharacter(true);
+        extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraDamageEffect.levelMultiplier = 1;
+        extraDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraDamageEffect.createdByCharacter = true;
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraDamageEffect.SetDamageForm(damageForm);
+        extraDamageEffect.damageForm = damageForm;
 
         PoisonLongsword_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
         PoisonLongsword_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
@@ -471,7 +471,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        PoisonLongbow_Attack.SetToHitBonus(7);
+        PoisonLongbow_Attack.toHitBonus = 7;
         PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(1);
         PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         PoisonLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(3);
@@ -485,12 +485,12 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypePoison);
 
         EffectForm extraDamageEffect = new();
-        extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraDamageEffect.SetLevelMultiplier(1);
-        extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraDamageEffect.SetCreatedByCharacter(true);
+        extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraDamageEffect.levelMultiplier = 1;
+        extraDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraDamageEffect.createdByCharacter = true;
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraDamageEffect.SetDamageForm(damageForm);
+        extraDamageEffect.damageForm = damageForm;
 
         ConditionForm PoisonLongbowCondition = new();
         PoisonLongbowCondition.applyToSelf = false;
@@ -500,15 +500,15 @@ public class NewMonsterAttacks
         PoisonLongbowCondition.ConditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionPoisoned;
 
         EffectForm PoisonLongbowEffect = new();
-        PoisonLongbowEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        PoisonLongbowEffect.SetLevelMultiplier(1);
-        PoisonLongbowEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        PoisonLongbowEffect.SetCreatedByCharacter(true);
+        PoisonLongbowEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        PoisonLongbowEffect.levelMultiplier = 1;
+        PoisonLongbowEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        PoisonLongbowEffect.createdByCharacter = true;
         PoisonLongbowEffect.FormType = EffectForm.EffectFormType.Condition;
         PoisonLongbowEffect.ConditionForm = PoisonLongbowCondition;
         PoisonLongbowEffect.hasSavingThrow = true;
         PoisonLongbowEffect.SetCanSaveToCancel(false);
-        PoisonLongbowEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        PoisonLongbowEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
 
         PoisonLongbow_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
@@ -536,7 +536,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        RadiantLongsword_Attack.SetToHitBonus(15);
+        RadiantLongsword_Attack.toHitBonus = 15;
         RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         RadiantLongsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
@@ -563,7 +563,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        RadiantLongbow_Attack.SetToHitBonus(13);
+        RadiantLongbow_Attack.toHitBonus = 13;
         RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         RadiantLongbow_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
@@ -577,26 +577,26 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypeRadiant);
 
         EffectForm extraDamageEffect = new();
-        extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraDamageEffect.SetLevelMultiplier(1);
-        extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraDamageEffect.SetCreatedByCharacter(true);
+        extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraDamageEffect.levelMultiplier = 1;
+        extraDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraDamageEffect.createdByCharacter = true;
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraDamageEffect.SetDamageForm(damageForm);
+        extraDamageEffect.damageForm = damageForm;
 
         KillForm killForm = new();
         killForm.killCondition = RuleDefinitions.KillCondition.UnderHitPoints;
         killForm.hitPoints = 100;
 
         EffectForm killEffect = new();
-        killEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        killEffect.SetLevelMultiplier(1);
-        killEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        killEffect.SetCreatedByCharacter(true);
+        killEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        killEffect.levelMultiplier = 1;
+        killEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        killEffect.createdByCharacter = true;
         killEffect.FormType = EffectForm.EffectFormType.Kill;
         killEffect.SetKillForm(killForm);
         killEffect.hasSavingThrow = true;
-        killEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        killEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         RadiantLongbow_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
 
@@ -625,7 +625,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        AirBlast_Attack.SetToHitBonus(7);
+        AirBlast_Attack.toHitBonus = 7;
         AirBlast_Attack.EffectDescription.rangeParameter = 24;
         AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
         AirBlast_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -637,10 +637,10 @@ public class NewMonsterAttacks
         motion.type = MotionForm.MotionType.PushFromOrigin;
 
         EffectForm motionEffect = new() {FormType = EffectForm.EffectFormType.Motion};
-        motionEffect.SetMotionForm(motion);
-        motionEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        motionEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
-        motionEffect.SetLevelMultiplier(1);
+        motionEffect.motionForm = motion;
+        motionEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        motionEffect.levelType = RuleDefinitions.LevelSourceType.CharacterLevel;
+        motionEffect.levelMultiplier = 1;
 
         AirBlast_Attack.EffectDescription.EffectForms.Add(motionEffect);
     }
@@ -658,7 +658,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        HurlFlame_Attack.SetToHitBonus(7);
+        HurlFlame_Attack.toHitBonus = 7;
         HurlFlame_Attack.EffectDescription.rangeParameter = 24;
         HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
         HurlFlame_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -679,7 +679,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        FireScimatar_Attack.SetToHitBonus(10);
+        FireScimatar_Attack.toHitBonus = 10;
         FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
         FireScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -691,12 +691,12 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
         EffectForm extraFireDamageEffect = new();
-        extraFireDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraFireDamageEffect.SetLevelMultiplier(1);
-        extraFireDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraFireDamageEffect.SetCreatedByCharacter(true);
+        extraFireDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraFireDamageEffect.levelMultiplier = 1;
+        extraFireDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraFireDamageEffect.createdByCharacter = true;
         extraFireDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraFireDamageEffect.SetDamageForm(damageForm);
+        extraFireDamageEffect.damageForm = damageForm;
 
         FireScimatar_Attack.EffectDescription.EffectForms.Add(extraFireDamageEffect);
         FireScimatar_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
@@ -716,7 +716,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        LightningScimatar_Attack.SetToHitBonus(10);
+        LightningScimatar_Attack.toHitBonus = 10;
         LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
         LightningScimatar_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
@@ -728,12 +728,12 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypeLightning);
 
         EffectForm extraFireDamageEffect = new();
-        extraFireDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraFireDamageEffect.SetLevelMultiplier(1);
-        extraFireDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraFireDamageEffect.SetCreatedByCharacter(true);
+        extraFireDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraFireDamageEffect.levelMultiplier = 1;
+        extraFireDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraFireDamageEffect.createdByCharacter = true;
         extraFireDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraFireDamageEffect.SetDamageForm(damageForm);
+        extraFireDamageEffect.damageForm = damageForm;
 
         LightningScimatar_Attack.EffectDescription.EffectForms.Add(extraFireDamageEffect);
         LightningScimatar_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
@@ -754,7 +754,7 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Generic_Bite_Attack.SetReachRange(1);
+        Generic_Bite_Attack.reachRange = 1;
         Generic_Bite_Attack.EffectDescription.EffectForms.RemoveAt(1);
         Generic_Bite_Attack.EffectDescription.EffectParticleParameters.Copy(DatabaseHelper.MonsterAttackDefinitions
             .Attack_BrownBear_Bite.EffectDescription.EffectParticleParameters);
@@ -775,7 +775,7 @@ public class NewMonsterAttacks
         );
 
 
-        Generic_Stronger_Bite_Attack.SetToHitBonus(15);
+        Generic_Stronger_Bite_Attack.toHitBonus = 15;
         Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(5);
         Generic_Stronger_Bite_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDieType(RuleDefinitions.DieType.D10);
@@ -802,7 +802,7 @@ public class NewMonsterAttacks
         );
 
         // generic ancient dragon Claw attack
-        AncientDragon_Claw_Attack.SetToHitBonus(15);
+        AncientDragon_Claw_Attack.toHitBonus = 15;
         AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
         AncientDragon_Claw_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDieType(RuleDefinitions.DieType.D6);
@@ -873,8 +873,8 @@ public class NewMonsterAttacks
                 "MonsterAttack/&DH_" + text + "_Description"
             );
 
-            Dragon_Bite_Attack.SetReachRange(3);
-            Dragon_Bite_Attack.SetToHitBonus(15);
+            Dragon_Bite_Attack.reachRange = 3;
+            Dragon_Bite_Attack.toHitBonus = 15;
             Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
             Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
             Dragon_Bite_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(9);
@@ -913,8 +913,8 @@ public class NewMonsterAttacks
         );
 
         // generic ancient dragon Tail attack
-        AncientDragon_Tail_Attack.SetReachRange(4);
-        AncientDragon_Tail_Attack.SetToHitBonus(15);
+        AncientDragon_Tail_Attack.reachRange = 4;
+        AncientDragon_Tail_Attack.toHitBonus = 15;
         AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         AncientDragon_Tail_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDieType(RuleDefinitions.DieType.D8);
@@ -954,17 +954,17 @@ public class NewMonsterAttacks
         PitFiendBiteCondition.ConditionDefinition = PitFiend_Bite_Condition;
 
         EffectForm PitFiendBiteEffect = new();
-        PitFiendBiteEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        PitFiendBiteEffect.SetLevelMultiplier(1);
-        PitFiendBiteEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        PitFiendBiteEffect.SetCreatedByCharacter(true);
+        PitFiendBiteEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        PitFiendBiteEffect.levelMultiplier = 1;
+        PitFiendBiteEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        PitFiendBiteEffect.createdByCharacter = true;
         PitFiendBiteEffect.FormType = EffectForm.EffectFormType.Condition;
         PitFiendBiteEffect.ConditionForm = PitFiendBiteCondition;
         PitFiendBiteEffect.hasSavingThrow = true;
         PitFiendBiteEffect.SetCanSaveToCancel(true);
-        PitFiendBiteEffect.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        PitFiendBiteEffect.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
-        PitFiend_Bite_Attack.SetReachRange(2);
+        PitFiend_Bite_Attack.reachRange = 2;
         PitFiend_Bite_Attack.EffectDescription.EffectForms.Add(PitFiendBiteEffect);
         PitFiend_Bite_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
             .Constitution.name;
@@ -988,8 +988,8 @@ public class NewMonsterAttacks
         );
 
 
-        PitFiend_Mace_Attack.SetReachRange(2);
-        PitFiend_Mace_Attack.SetToHitBonus(14);
+        PitFiend_Mace_Attack.reachRange = 2;
+        PitFiend_Mace_Attack.toHitBonus = 14;
         PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         PitFiend_Mace_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
@@ -1014,8 +1014,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Balor_Longsword_Attack.SetReachRange(2);
-        Balor_Longsword_Attack.SetToHitBonus(14);
+        Balor_Longsword_Attack.reachRange = 2;
+        Balor_Longsword_Attack.toHitBonus = 14;
         Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
         Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
         Balor_Longsword_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
@@ -1029,8 +1029,8 @@ public class NewMonsterAttacks
         Balor_Longsword_Attack.EffectDescription.EffectForms[1].DamageForm
             .SetDamageType(RuleDefinitions.DamageTypeLightning);
 
-        Balor_Longsword_Attack.SetItemDefinitionMainHand(DatabaseHelper.ItemDefinitions
-            .Enchanted_Greataxe_Stormblade);
+        Balor_Longsword_Attack.itemDefinitionMainHand = DatabaseHelper.ItemDefinitions
+            .Enchanted_Greataxe_Stormblade;
     }
 
     public static void BuildNewBalor_Whip_Attack()
@@ -1046,9 +1046,9 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Balor_Whip_Attack.SetReachRange(6);
-        Balor_Whip_Attack.SetMaxRange(6);
-        Balor_Whip_Attack.SetToHitBonus(14);
+        Balor_Whip_Attack.reachRange = 6;
+        Balor_Whip_Attack.maxRange = 6;
+        Balor_Whip_Attack.toHitBonus = 14;
         Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(2);
         Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         Balor_Whip_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
@@ -1065,14 +1065,14 @@ public class NewMonsterAttacks
         motionForm.type = MotionForm.MotionType.DragToOrigin;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
+        effectForm.motionForm = motionForm;
         effectForm.hasSavingThrow = true;
-        effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        effectForm.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
 
         Balor_Whip_Attack.EffectDescription.EffectForms.Add(effectForm);
@@ -1106,7 +1106,7 @@ public class NewMonsterAttacks
             .SetDamageType(RuleDefinitions.DamageTypeCold);
 
 
-        Lich_ParalyzingTouch_Attack.SetToHitBonus(12);
+        Lich_ParalyzingTouch_Attack.toHitBonus = 12;
         Lich_ParalyzingTouch_Attack.EffectDescription.EffectForms[1].ConditionForm
             .conditionDefinition = DatabaseHelper.ConditionDefinitions.ConditionParalyzed;
         Lich_ParalyzingTouch_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
@@ -1130,8 +1130,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        FireTitan_Slam_Attack.SetToHitBonus(12);
-        FireTitan_Slam_Attack.SetReachRange(3);
+        FireTitan_Slam_Attack.toHitBonus = 12;
+        FireTitan_Slam_Attack.reachRange = 3;
         FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
         FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         FireTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(5);
@@ -1145,12 +1145,12 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypeFire);
 
         EffectForm extraFireDamageEffect = new();
-        extraFireDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraFireDamageEffect.SetLevelMultiplier(1);
-        extraFireDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraFireDamageEffect.SetCreatedByCharacter(true);
+        extraFireDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraFireDamageEffect.levelMultiplier = 1;
+        extraFireDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraFireDamageEffect.createdByCharacter = true;
         extraFireDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraFireDamageEffect.SetDamageForm(damageForm);
+        extraFireDamageEffect.damageForm = damageForm;
 
         FireTitan_Slam_Attack.EffectDescription.EffectForms.Add(extraFireDamageEffect);
     }
@@ -1169,8 +1169,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        AirTitan_Slam_Attack.SetToHitBonus(16);
-        AirTitan_Slam_Attack.SetReachRange(4);
+        AirTitan_Slam_Attack.toHitBonus = 16;
+        AirTitan_Slam_Attack.reachRange = 4;
         AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D6);
         AirTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(6);
@@ -1184,12 +1184,12 @@ public class NewMonsterAttacks
         damageForm.SetDamageType(RuleDefinitions.DamageTypeThunder);
 
         EffectForm extraDamageEffect = new();
-        extraDamageEffect.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        extraDamageEffect.SetLevelMultiplier(1);
-        extraDamageEffect.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        extraDamageEffect.SetCreatedByCharacter(true);
+        extraDamageEffect.applyLevel = EffectForm.LevelApplianceType.No;
+        extraDamageEffect.levelMultiplier = 1;
+        extraDamageEffect.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        extraDamageEffect.createdByCharacter = true;
         extraDamageEffect.FormType = EffectForm.EffectFormType.Damage;
-        extraDamageEffect.SetDamageForm(damageForm);
+        extraDamageEffect.damageForm = damageForm;
 
         AirTitan_Slam_Attack.EffectDescription.EffectForms.Add(extraDamageEffect);
     }
@@ -1208,8 +1208,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        EarthTitan_Slam_Attack.SetToHitBonus(16);
-        EarthTitan_Slam_Attack.SetReachRange(4);
+        EarthTitan_Slam_Attack.toHitBonus = 16;
+        EarthTitan_Slam_Attack.reachRange = 4;
         EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);
         EarthTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetBonusDamage(8);
@@ -1230,8 +1230,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        ConstructTitan_Slam_Attack.SetToHitBonus(18);
-        ConstructTitan_Slam_Attack.SetReachRange(4);
+        ConstructTitan_Slam_Attack.toHitBonus = 18;
+        ConstructTitan_Slam_Attack.reachRange = 4;
         ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(3);
         ConstructTitan_Slam_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDieType(RuleDefinitions.DieType.D12);
@@ -1244,12 +1244,12 @@ public class NewMonsterAttacks
         motionForm.distance = 4;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
+        effectForm.motionForm = motionForm;
 
         ConstructTitan_Slam_Attack.EffectDescription.EffectForms.Add(effectForm);
     }
@@ -1267,8 +1267,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        ConstructTitan_ForceCannon_Attack.SetToHitBonus(18);
-        ConstructTitan_ForceCannon_Attack.SetReachRange(60);
+        ConstructTitan_ForceCannon_Attack.toHitBonus = 18;
+        ConstructTitan_ForceCannon_Attack.reachRange = 60;
         ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDieType(RuleDefinitions.DieType.D8);
@@ -1283,12 +1283,12 @@ public class NewMonsterAttacks
                     motionForm.SetDistance(6);
 
                     EffectForm effectForm = new EffectForm();
-                    effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-                    effectForm.SetLevelMultiplier(1);
-                    effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-                    effectForm.SetCreatedByCharacter(true);
+                    effectForm.applyLevel =(EffectForm.LevelApplianceType.No);
+                    effectForm.levelMultiplier =(1);
+                    effectForm.levelType =(RuleDefinitions.LevelSourceType.ClassLevel);
+                    effectForm.createdByCharacter =(true);
                     effectForm.FormType = EffectForm.EffectFormType.Motion;
-                    effectForm.SetMotionForm(motionForm);
+                    effectForm.motionForm =(motionForm);
 
                     ConstructTitan_ForceCannon_Attack.EffectDescription.EffectForms.Add(effectForm);
         */
@@ -1308,8 +1308,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        EarthTitan_Boulder_Attack.SetToHitBonus(6);
-        EarthTitan_Boulder_Attack.SetReachRange(50);
+        EarthTitan_Boulder_Attack.toHitBonus = 6;
+        EarthTitan_Boulder_Attack.reachRange = 50;
         EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(7);
         EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDieType(RuleDefinitions.DieType.D10);
@@ -1317,19 +1317,19 @@ public class NewMonsterAttacks
         EarthTitan_Boulder_Attack.EffectDescription.EffectForms[0].DamageForm
             .SetDamageType(RuleDefinitions.DamageTypeBludgeoning);
 
-        EarthTitan_Boulder_Attack.SetItemDefinitionMainHand(null);
+        EarthTitan_Boulder_Attack.itemDefinitionMainHand = null;
 
         MotionForm motionForm = new();
         motionForm.type = MotionForm.MotionType.FallProne;
         motionForm.distance = 6;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
+        effectForm.motionForm = motionForm;
 
         EarthTitan_Boulder_Attack.EffectDescription.EffectForms.Add(effectForm);
     }
@@ -1365,8 +1365,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Tarrasque_Bite_Attack.SetReachRange(2);
-        Tarrasque_Bite_Attack.SetToHitBonus(19);
+        Tarrasque_Bite_Attack.reachRange = 2;
+        Tarrasque_Bite_Attack.toHitBonus = 19;
         Tarrasque_Bite_Attack.EffectDescription.hasSavingThrow = true;
         // using dex because dex is generally equivalent to or higher than str for most classes
         Tarrasque_Bite_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
@@ -1411,8 +1411,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Tarrasque_Claw_Attack.SetReachRange(3);
-        Tarrasque_Claw_Attack.SetToHitBonus(19);
+        Tarrasque_Claw_Attack.reachRange = 3;
+        Tarrasque_Claw_Attack.toHitBonus = 19;
 
         Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         Tarrasque_Claw_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D8);
@@ -1446,8 +1446,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Tarrasque_Tail_Attack.SetReachRange(4);
-        Tarrasque_Tail_Attack.SetToHitBonus(19);
+        Tarrasque_Tail_Attack.reachRange = 4;
+        Tarrasque_Tail_Attack.toHitBonus = 19;
 
 
         Tarrasque_Tail_Attack.EffectDescription.savingThrowAbility = DatabaseHelper.SmartAttributeDefinitions
@@ -1466,14 +1466,14 @@ public class NewMonsterAttacks
         motionForm.type = MotionForm.MotionType.FallProne;
 
         EffectForm effectForm = new();
-        effectForm.SetApplyLevel(EffectForm.LevelApplianceType.No);
-        effectForm.SetLevelMultiplier(1);
-        effectForm.SetLevelType(RuleDefinitions.LevelSourceType.ClassLevel);
-        effectForm.SetCreatedByCharacter(true);
+        effectForm.applyLevel = EffectForm.LevelApplianceType.No;
+        effectForm.levelMultiplier = 1;
+        effectForm.levelType = RuleDefinitions.LevelSourceType.ClassLevel;
+        effectForm.createdByCharacter = true;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
-        effectForm.SetMotionForm(motionForm);
+        effectForm.motionForm = motionForm;
         effectForm.hasSavingThrow = true;
-        effectForm.SetSavingThrowAffinity(RuleDefinitions.EffectSavingThrowType.Negates);
+        effectForm.savingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;
 
         Tarrasque_Tail_Attack.EffectDescription.EffectForms.Add(effectForm);
 
@@ -1503,8 +1503,8 @@ public class NewMonsterAttacks
             "MonsterAttack/&DH_" + text + "_Description"
         );
 
-        Tarrasque_Horn_Attack.SetReachRange(2);
-        Tarrasque_Horn_Attack.SetToHitBonus(19);
+        Tarrasque_Horn_Attack.reachRange = 2;
+        Tarrasque_Horn_Attack.toHitBonus = 19;
 
         Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetDiceNumber(4);
         Tarrasque_Horn_Attack.EffectDescription.EffectForms[0].DamageForm.SetDieType(RuleDefinitions.DieType.D10);

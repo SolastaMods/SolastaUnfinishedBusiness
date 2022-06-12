@@ -282,7 +282,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         );
         var Improvedsentinelmodepower = Improvedsentinelmodepowerbuilder.AddToDB();
 
-        Improvedsentinelmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.SentinelModePower);
+        Improvedsentinelmodepower.overriddenPower = ScoutSentinelTinkererSubclassBuilder.SentinelModePower;
 
         var guiPresentationImprovedScout = new GuiPresentation();
         guiPresentationImprovedScout.description = "Feature/&ImprovedScoutModePowerDescription";
@@ -320,7 +320,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         );
         var Improvedscoutmodepower = Improvedscoutmodepowerbuilder.AddToDB();
 
-        Improvedscoutmodepower.SetOverriddenPower(ScoutSentinelTinkererSubclassBuilder.ScoutModePower);
+        Improvedscoutmodepower.overriddenPower = ScoutSentinelTinkererSubclassBuilder.ScoutModePower;
 
         Definition.FeatureSet.Add(Improvedscoutmodepower);
         Definition.FeatureSet.Add(Improvedsentinelmodepower);
@@ -555,19 +555,19 @@ internal sealed class SentinelSuitWeaponBuilder : ItemDefinitionBuilder
         newEffectDescription.SetEffectParticleParameters(Shatter.EffectDescription.EffectParticleParameters);
 
         var ThunderPunch = new WeaponDescription();
-        ThunderPunch.SetWeaponType("UnarmedStrikeType");
-        ThunderPunch.SetReachRange(1);
-        ThunderPunch.SetMaxRange(1);
-        ThunderPunch.SetCloseRange(1);
-        ThunderPunch.SetAmmunitionType("");
-        ThunderPunch.SetEffectDescription(newEffectDescription);
+        ThunderPunch.weaponType = "UnarmedStrikeType";
+        ThunderPunch.reachRange = 1;
+        ThunderPunch.maxRange = 1;
+        ThunderPunch.closeRange = 1;
+        ThunderPunch.ammunitionType = "";
+        ThunderPunch.effectDescription = newEffectDescription;
         ThunderPunch.WeaponTags.Add("ScoutSentinelWeapon");
 
         var usingBonusActionItemPower =
             (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
-        usingBonusActionItemPower.SetFeatureDefinition(UsingitemPowerBuilder.UsingitemPower);
-        usingBonusActionItemPower.SetType(ItemPropertyDescription.PropertyType.Feature);
-        usingBonusActionItemPower.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
+        usingBonusActionItemPower.featureDefinition = UsingitemPowerBuilder.UsingitemPower;
+        usingBonusActionItemPower.type = ItemPropertyDescription.PropertyType.Feature;
+        usingBonusActionItemPower.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden;
 
         var deviceFunctionDescription = new DeviceFunctionDescription(DatabaseHelper.ItemDefinitions
             .PotionOfComprehendLanguages.UsableDeviceDescription.DeviceFunctions[0]);
@@ -663,7 +663,7 @@ internal sealed class ThunderShieldBuilder : FeatureDefinitionPowerBuilder
         };
 
         healingEffect.SetTemporaryHitPointsForm(tempHPForm);
-        healingEffect.SetApplyLevel(EffectForm.LevelApplianceType.MultiplyBonus);
+        healingEffect.applyLevel = EffectForm.LevelApplianceType.MultiplyBonus;
         healingEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
         healingEffect.SetLevelMultiplier(1);
 
@@ -877,35 +877,34 @@ internal sealed class ScoutSuitWeaponBuilder : ItemDefinitionBuilder
         newEffectDescription.SetEffectParticleParameters(LightningBolt.EffectDescription.EffectParticleParameters);
 
         var LightningSpear = new WeaponDescription();
-        LightningSpear.SetWeaponType("DartType");
-        LightningSpear.SetReachRange(1);
-        LightningSpear.SetMaxRange(60);
-        LightningSpear.SetCloseRange(18);
-        LightningSpear.SetAmmunitionType("");
-        LightningSpear.SetEffectDescription(newEffectDescription);
+        LightningSpear.weaponType = "DartType";
+        LightningSpear.reachRange = 1;
+        LightningSpear.maxRange = 60;
+        LightningSpear.closeRange = 18;
+        LightningSpear.ammunitionType = "";
+        LightningSpear.effectDescription = newEffectDescription;
         LightningSpear.WeaponTags.Add("ScoutSentinelWeapon");
 
         var LightningSpearAdditionalDamage =
             (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
-        LightningSpearAdditionalDamage.SetFeatureDefinition(LightningSpearAdditionalDamageBuilder
-            .LightningSpearAdditionalDamage);
-        LightningSpearAdditionalDamage.SetType(ItemPropertyDescription.PropertyType.Feature);
-        LightningSpearAdditionalDamage.SetKnowledgeAffinity(
-            EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
+        LightningSpearAdditionalDamage.featureDefinition = LightningSpearAdditionalDamageBuilder
+            .LightningSpearAdditionalDamage;
+        LightningSpearAdditionalDamage.type = ItemPropertyDescription.PropertyType.Feature;
+        LightningSpearAdditionalDamage.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden;
 
         var LightningCloakStealth =
             (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
-        LightningCloakStealth.SetFeatureDefinition(LightningCloakAbilityCheckAffinityBuilder
-            .LightningCloakAbilityCheckAffinity);
-        LightningCloakStealth.SetType(ItemPropertyDescription.PropertyType.Feature);
-        LightningCloakStealth.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
+        LightningCloakStealth.featureDefinition = LightningCloakAbilityCheckAffinityBuilder
+            .LightningCloakAbilityCheckAffinity;
+        LightningCloakStealth.type = ItemPropertyDescription.PropertyType.Feature;
+        LightningCloakStealth.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden;
 
         var LightningCloakMovement =
             (ItemPropertyDescription)FormatterServices.GetUninitializedObject(typeof(ItemPropertyDescription));
-        LightningCloakMovement.SetFeatureDefinition(LightningCloakMovementAffinitiesBuilder
-            .LightningCloakMovementAffinities);
-        LightningCloakMovement.SetType(ItemPropertyDescription.PropertyType.Feature);
-        LightningCloakMovement.SetKnowledgeAffinity(EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden);
+        LightningCloakMovement.featureDefinition = LightningCloakMovementAffinitiesBuilder
+            .LightningCloakMovementAffinities;
+        LightningCloakMovement.type = ItemPropertyDescription.PropertyType.Feature;
+        LightningCloakMovement.knowledgeAffinity = EquipmentDefinitions.KnowledgeAffinity.InactiveAndHidden;
 
         Definition.SlotTypes.AddRange(new List<string> {"MainHandSlot", "OffHandSlot", "GlovesSlot", "UtilitySlot"});
         Definition.SlotsWhereActive.AddRange(new List<string>
@@ -1095,8 +1094,8 @@ internal sealed class GauntletsGrappleBuilder : FeatureDefinitionPowerBuilder
         motion.distance = 6;
         motion.type = MotionForm.MotionType.DragToOrigin;
 
-        motionEffect.SetMotionForm(motion);
-        motionEffect.SetApplyLevel(EffectForm.LevelApplianceType.MultiplyBonus);
+        motionEffect.motionForm = motion;
+        motionEffect.applyLevel = EffectForm.LevelApplianceType.MultiplyBonus;
         motionEffect.SetLevelType(RuleDefinitions.LevelSourceType.CharacterLevel);
         motionEffect.SetLevelMultiplier(1);
         motionEffect.SavingThrowAffinity = RuleDefinitions.EffectSavingThrowType.Negates;

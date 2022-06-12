@@ -60,7 +60,7 @@ internal static class CharacterReactionItem_Bind
         }
         else if (reactionRequest is ReactionRequestSpendBundlePower bundlePoweRequest)
         {
-            instance.BindPowerBunble(bundlePoweRequest, slotLevel, interactable, subitemSelected);
+            instance.BindPowerBundle(bundlePoweRequest, slotLevel, interactable, subitemSelected);
         }
         else
         {

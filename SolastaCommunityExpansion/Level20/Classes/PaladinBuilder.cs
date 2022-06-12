@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion.Level20.Features;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaModApi.DatabaseHelper.FeatureDefinitionAutoPreparedSpellss;
@@ -71,7 +70,7 @@ internal static class PaladinBuilder
                 ClassLevel = 17, SpellsList = new List<SpellDefinition> {WallOfForce, HoldMonster}
             });
 
-        CastSpellPaladin.SetSpellCastingLevel(5);
+        CastSpellPaladin.spellCastingLevel = 5;
 
         CastSpellPaladin.SlotsPerLevels.SetRange(SpellsHelper.HalfCastingSlots);
         CastSpellPaladin.ReplacedSpells.SetRange(SpellsHelper.EmptyReplacedSpells);

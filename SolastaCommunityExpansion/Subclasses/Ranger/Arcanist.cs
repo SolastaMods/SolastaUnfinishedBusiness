@@ -209,7 +209,7 @@ internal class Arcanist : AbstractSubclass
 
         var arcane_pulse_upgrade_action = CreateArcanePulse("ArcanePulseUpgrade", "Feature/&ArcanePulseTitle",
             "Feature/&ArcanePulseDescription", marked_effect, damage_upgrade_effect);
-        arcane_pulse_upgrade_action.SetOverriddenPower(arcane_pulse_action);
+        arcane_pulse_upgrade_action.overriddenPower = arcane_pulse_action;
 
         return (arcane_pulse_action, arcane_pulse_upgrade_action);
     }

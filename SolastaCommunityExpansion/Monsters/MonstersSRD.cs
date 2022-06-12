@@ -2,7 +2,6 @@
 using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using SolastaMonsters.Models;
 using UnityEngine.AddressableAssets;
@@ -1686,7 +1685,7 @@ internal static class MonstersSRD
 
             if (Definitions[i].MonsterName == "Ancient Green Dragon")
             {
-                DatabaseHelper.MonsterPresentationDefinitions.Green_Dragon_Presentation.SetModelScale(0.75f);
+                DatabaseHelper.MonsterPresentationDefinitions.Green_Dragon_Presentation.modelScale = 0.75f;
             }
 
             if (Definitions[i].MonsterName == "Ancient Blue Dragon")

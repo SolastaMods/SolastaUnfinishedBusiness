@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Extensions;
 using static CharacterClassDefinition;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -12,7 +11,7 @@ public static class EquipmentOptionsBuilder
         var itemOption = new HeroEquipmentOption();
         itemOption.number = number;
         itemOption.optionType = optionType;
-        itemOption.SetItemDefinition(itemType);
+        itemOption.itemReference = itemType;
         return itemOption;
     }
 

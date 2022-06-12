@@ -2,7 +2,6 @@
 using System.Linq;
 using SolastaCommunityExpansion.Builders;
 using SolastaModApi;
-using SolastaModApi.Extensions;
 using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
 using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
@@ -119,40 +118,40 @@ internal static class ItemOptionsContext
         switch (Main.Settings.EmpressGarbAppearance)
         {
             case "Normal":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 break;
 
             case "Barbarian Clothes":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(BarbarianClothes.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = BarbarianClothes.ItemPresentation;
                 break;
 
             case "Druid Leather":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(LeatherDruid.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
                 break;
 
             case "Elven Chain":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(ElvenChain.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ElvenChain.ItemPresentation;
                 break;
 
             case "Plain Shirt":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(EmpressGarbOriginalItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = EmpressGarbOriginalItemPresentation;
                 Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useCustomArmorMaterial = false;
                 break;
 
             case "Studded Leather":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(StuddedLeather.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = StuddedLeather.ItemPresentation;
                 break;
 
             case "Sylvan Armor":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(GreenmageArmor.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = GreenmageArmor.ItemPresentation;
                 break;
 
             case "Wizard Clothes":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(WizardClothes_Alternate.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
                 break;
 
             case "Sorcerer's Armor":
-                Enchanted_ChainShirt_Empress_war_garb.SetItemPresentation(SorcererArmor.ItemPresentation);
+                Enchanted_ChainShirt_Empress_war_garb.itemPresentation = SorcererArmor.ItemPresentation;
                 break;
         }
     }
@@ -192,10 +191,10 @@ internal static class ItemOptionsContext
 
     internal static void SwitchFociItemsDungeonMaker()
     {
-        FocusDefinitionBuilder.ArcaneStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
-        FocusDefinitionBuilder.DruidicAmulet.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
-        FocusDefinitionBuilder.LivewoodClub.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
-        FocusDefinitionBuilder.LivewoodStaff.SetInDungeonEditor(Main.Settings.EnableAdditionalFociInDungeonMaker);
+        FocusDefinitionBuilder.ArcaneStaff.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
+        FocusDefinitionBuilder.DruidicAmulet.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
+        FocusDefinitionBuilder.LivewoodClub.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
+        FocusDefinitionBuilder.LivewoodStaff.inDungeonEditor = Main.Settings.EnableAdditionalFociInDungeonMaker;
     }
 
     internal static void SwitchMagicStaffFoci()
@@ -285,7 +284,7 @@ internal static class ItemOptionsContext
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
-                item.SetRequiresIdentification(false);
+                item.requiresIdentification = false;
             }
         }
 
@@ -293,7 +292,7 @@ internal static class ItemOptionsContext
         {
             foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>())
             {
-                item.SetRequiresAttunement(false);
+                item.requiresAttunement = false;
             }
         }
     }

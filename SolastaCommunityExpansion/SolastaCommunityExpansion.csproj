@@ -249,6 +249,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Remove="Api\Extensions\SpellDefinitionExtensions.cs" />
+    <Compile Remove="Api\Extensions\RulesetUsablePowerExtensions.cs" />
+    <Compile Remove="Api\Extensions\FeatureDefinitionCastSpellExtensions.cs" />
   </ItemGroup>
 
   <ItemGroup>
