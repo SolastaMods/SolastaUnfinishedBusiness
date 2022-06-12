@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using SolastaModApi;
+using SolastaCommunityExpansion.Api;
 
 namespace SolastaCommunityExpansion.Patches.SrdAndHouseRules.SorcererTwinnedLogic;
 

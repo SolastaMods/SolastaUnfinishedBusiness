@@ -1,5 +1,5 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Level20.Features;
 

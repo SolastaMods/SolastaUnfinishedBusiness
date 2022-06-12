@@ -2,7 +2,7 @@
 
 using TA.AI;
 
-namespace SolastaModApi;
+namespace SolastaCommunityExpansion.Api;
 
 public static partial class DatabaseHelper
 {

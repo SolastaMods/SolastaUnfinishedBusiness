@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using ModKit;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 

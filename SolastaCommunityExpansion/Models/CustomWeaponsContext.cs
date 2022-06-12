@@ -8,7 +8,7 @@ using SolastaCommunityExpansion.ItemCrafting;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Models.ItemPropertyDescriptions;
 using static RuleDefinitions.ItemRarity;
 

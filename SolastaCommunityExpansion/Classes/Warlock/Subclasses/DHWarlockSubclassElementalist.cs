@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
-using SolastaModApi;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper.DamageDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.DamageDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Warlock.Subclasses;
 

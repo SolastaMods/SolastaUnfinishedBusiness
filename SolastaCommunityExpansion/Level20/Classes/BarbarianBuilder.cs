@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using static SolastaCommunityExpansion.Level20.Features.FeatureDefinitionIndomitableMightBuilder;
 using static SolastaCommunityExpansion.Level20.Features.FeatureDefinitionPrimalChampionBuilder;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 
 namespace SolastaCommunityExpansion.Level20.Classes;
 

@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.CustomInterfaces;
-using SolastaModApi.Infrastructure;
 using static SolastaCommunityExpansion.Feats.FeatsValidations;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
-using static SolastaModApi.DatabaseHelper.MetamagicOptionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MetamagicOptionDefinitions;
 
 namespace SolastaCommunityExpansion.Feats;
 

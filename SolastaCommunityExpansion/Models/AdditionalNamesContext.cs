@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Properties;
-using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 

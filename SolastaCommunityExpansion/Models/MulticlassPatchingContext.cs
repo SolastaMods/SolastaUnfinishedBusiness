@@ -4,9 +4,9 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using static SolastaCommunityExpansion.Models.IntegrationContext;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionPointPools;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models;
 

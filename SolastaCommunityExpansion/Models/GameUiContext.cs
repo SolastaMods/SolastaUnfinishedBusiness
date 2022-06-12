@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using SolastaCommunityExpansion.Utils;
 using TA;
 using UnityEngine;
-using static SolastaModApi.DatabaseHelper.GadgetBlueprints;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.GadgetBlueprints;
 
 namespace SolastaCommunityExpansion.Models;
 

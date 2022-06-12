@@ -5,11 +5,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using Object = UnityEngine.Object;
 

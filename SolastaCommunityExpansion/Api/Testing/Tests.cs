@@ -2,9 +2,8 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using SolastaCommunityExpansion;
 using SolastaCommunityExpansion.Api.Diagnostics;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.Api.Testing
@@ -379,7 +378,7 @@ namespace SolastaCommunityExpansion.Api.Testing
                 TestProp = testValue;
             }
 
-            internal string TestProp { get; set; }
+            internal string TestProp { get; }
         }
     }
 }

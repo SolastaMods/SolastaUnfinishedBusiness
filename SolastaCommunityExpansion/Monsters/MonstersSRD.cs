@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using SolastaMonsters.Models;
 using UnityEngine.AddressableAssets;
 

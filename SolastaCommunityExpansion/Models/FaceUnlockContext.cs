@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaModApi.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaModApi.DatabaseHelper.MorphotypeElementDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MorphotypeElementDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 

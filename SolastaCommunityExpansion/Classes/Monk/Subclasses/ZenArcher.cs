@@ -10,7 +10,7 @@ using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
-using static SolastaModApi.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
 
 namespace SolastaCommunityExpansion.Classes.Monk.Subclasses;
 

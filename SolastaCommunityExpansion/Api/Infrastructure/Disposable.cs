@@ -1,7 +1,7 @@
 ﻿#if DEBUG
 using System;
 
-namespace SolastaModApi.Infrastructure;
+namespace SolastaCommunityExpansion.Api.Infrastructure;
 
 public abstract class Disposable : IDisposable
 {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using SolastaModApi;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionAdditionalActions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 
 namespace SolastaCommunityExpansion.Feats;
 

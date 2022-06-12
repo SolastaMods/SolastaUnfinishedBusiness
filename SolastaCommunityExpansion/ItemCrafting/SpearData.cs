@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaModApi;
+using SolastaCommunityExpansion.Api;
 using static SolastaCommunityExpansion.ItemCrafting.ItemCollection;
 
 namespace SolastaCommunityExpansion.ItemCrafting;

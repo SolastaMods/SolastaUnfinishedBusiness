@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
-using static SolastaModApi.DatabaseHelper.CharacterBackgroundDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionProficiencys;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterBackgroundDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Models;
 

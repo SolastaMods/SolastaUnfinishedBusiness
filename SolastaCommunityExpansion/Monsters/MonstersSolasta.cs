@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion;
-using SolastaModApi;
+using SolastaCommunityExpansion.Api;
 
 //******************************************************************************************
 // BY DEFINITION, REFACTORING REQUIRES CONFIRMING EXTERNAL BEHAVIOUR DOES NOT CHANGE

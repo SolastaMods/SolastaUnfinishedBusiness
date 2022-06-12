@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using UnityEngine.AddressableAssets;
-using static SolastaModApi.DatabaseHelper.CharacterClassDefinitions;
-using static SolastaModApi.DatabaseHelper.FeatureDefinitionCharacterPresentations;
-using static SolastaModApi.DatabaseHelper.ItemDefinitions;
-using static SolastaModApi.DatabaseHelper.MerchantDefinitions;
-using static SolastaModApi.DatabaseHelper.SpellDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCharacterPresentations;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ItemDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MerchantDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaCommunityExpansion.Models;
 

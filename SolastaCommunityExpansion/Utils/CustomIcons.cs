@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaCommunityExpansion.Builders;
-using SolastaModApi;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityGraphics = UnityEngine.Graphics;

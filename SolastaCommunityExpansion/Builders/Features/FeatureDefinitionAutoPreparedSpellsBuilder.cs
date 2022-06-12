@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using static FeatureDefinitionAutoPreparedSpells;
 
 namespace SolastaCommunityExpansion.Builders.Features;
