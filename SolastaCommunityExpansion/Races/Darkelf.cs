@@ -80,6 +80,9 @@ internal static class DarkelfRaceBuilder
             .SetShowCasting(true)
             .AddToDB();
 
+        darkelfFaerieFirePower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
+        darkelfFaerieFirePower.EffectDescription.durationParameter = 3;
+
         var darkelfDarknessPower = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness", "0c413f86-2fa8-4f3d-999a-89e6c7b5b14d")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
@@ -90,6 +93,9 @@ internal static class DarkelfRaceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
+
+        darkelfDarknessPower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
+        darkelfDarknessPower.EffectDescription.durationParameter = 3;
 
         var darkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
             .Create("DarkelfWeaponTraining", "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea")
@@ -164,9 +170,10 @@ internal static class DarkelfRaceBuilder
                 darkelfAbilityScoreModifierCharisma,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 darkelfDarkMagic,
+                darkelfFaerieFirePower,
                 darkelfWeaponTraining,
                 darkelfLightAffinity)
-            .AddFeatureAtLevel(darkelfFaerieFirePower, 3)
+            //.AddFeatureAtLevel(darkelfFaerieFirePower, 3)
             .AddFeatureAtLevel(darkelfDarknessPower, 5)
             .AddToDB();
 
