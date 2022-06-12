@@ -19,8 +19,8 @@ namespace SolastaCommunityExpansion.Api.Testing
                 var dbHelperTypes = Assembly
                     .GetExecutingAssembly()
                     .GetTypes()
-                    .Where(t => t.Namespace == "SolastaModApi")
-                    .Where(t => t.FullName.StartsWith("SolastaModApi.DatabaseHelper"))
+                    .Where(t => t.Namespace == "SolastaCommunityExpansion")
+                    .Where(t => t.FullName.StartsWith("SolastaCommunityExpansion.Api.DatabaseHelper"))
                     .Where(t => t.MemberType == MemberTypes.NestedType)
                     .OrderBy(t => t.Name);
 

@@ -13,9 +13,6 @@
         Target = "~N:ModKit")]
 [assembly:
     SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants",
-        Target = "~N:SolastaModApi")]
-[assembly:
-    SuppressMessage("", "IDE0130", Justification = "3rd party source", Scope = "namespaceanddescendants",
         Target = "~N:SolastaMonsters")]
 
 // modkit
@@ -176,10 +173,6 @@
     SuppressMessage("", "IDE1006", Justification = "3rd party source", Scope = "namespaceanddescendants",
         Target = "~N:ModKit")]
 
-[assembly:
-    SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Leaving for backward compatibility",
-        Scope = "member", Target = "~T:SolastaModApi.DatabaseHelper.CreditsGroupDefinitions")]
-
 [assembly: SuppressMessage("Roslynator", "ROS0003")]
 
 [assembly:
@@ -273,9 +266,6 @@
     SuppressMessage("", "RCS1238", Justification = "3rd party source", Scope = "namespaceanddescendants",
         Target = "~N:ModKit")]
 
-[assembly:
-    SuppressMessage("Roslynator", "RCS1112:Combine 'Enumerable.Where' method chain.", Justification = "<Pending>",
-        Scope = "namespaceanddescendants", Target = "~N:SolastaModApi")]
 [assembly: SuppressMessage("Major Code Smell",
     "S3011:Reflection should not be used to increase accessibility of classes, methods, or fields",
     Justification = "Reflection is required", Scope = "namespaceanddescendants",
