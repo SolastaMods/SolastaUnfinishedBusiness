@@ -184,7 +184,7 @@ public class MonstersAttributes
         ArchmagemonsterSkillProficiency_2.skillName = "History";
         ArchmagemonsterSkillProficiency_2.bonus = 13;
 
-        BalorassetReference.SetField("m_assetGUID", "5d249b514baa99040874880ba8d35295");
+        BalorassetReference.SetField("m_AssetGUID", "5d249b514baa99040874880ba8d35295");
 
         BalorLongswordAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Balor_Longsword_Attack;
         BalorLongswordAttackIteration.number = 1;
@@ -198,7 +198,7 @@ public class MonstersAttributes
         DevamonsterSkillProficiency_2.skillName = "Perception";
         DevamonsterSkillProficiency_2.bonus = 9;
 
-        DjinniassetReference.SetField("m_assetGUID", "2a2913c5eec57a24da4af020cf0e0f0f");
+        DjinniassetReference.SetField("m_AssetGUID", "2a2913c5eec57a24da4af020cf0e0f0f");
 
         DjinniAttackIteration.monsterAttackDefinition = NewMonsterAttacks.LightningScimatar_Attack;
         DjinniAttackIteration.number = 3;
@@ -206,7 +206,7 @@ public class MonstersAttributes
         DjinniAttackIteration_2.monsterAttackDefinition = NewMonsterAttacks.AirBlast_Attack;
         DjinniAttackIteration_2.number = 3;
 
-        EfreetiassetReference.SetField("m_assetGUID", "1a7c8ed60c954dd42bf2beb0fcf894c4");
+        EfreetiassetReference.SetField("m_AssetGUID", "1a7c8ed60c954dd42bf2beb0fcf894c4");
 
         EfreetiAttackIteration.monsterAttackDefinition = NewMonsterAttacks.FireScimatar_Attack;
         EfreetiAttackIteration.number = 2;
@@ -250,7 +250,7 @@ public class MonstersAttributes
         LichAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Lich_ParalyzingTouch_Attack;
         LichAttackIteration.number = 1;
 
-        LichassetReference.SetField("m_assetGUID", "5bbe5d35725c2cc4492672476f4fc783");
+        LichassetReference.SetField("m_AssetGUID", "5bbe5d35725c2cc4492672476f4fc783");
 
         LichlegendaryActionDescription_0.cost = 1;
         LichlegendaryActionDescription_0.subaction = LegendaryActionDescription.SubactionType.Spell;
@@ -409,7 +409,7 @@ public class MonstersAttributes
         VampiremonsterSkillProficiency_2.bonus = 9;
 
 
-        EmptyassetReference.SetField("m_assetGUID", "");
+        EmptyassetReference.SetField("m_AssetGUID", "");
         EmptyassetReference.SetField("m_SubObjectName", "");
         EmptyassetReference.SetField("m_SubObjectType", "");
 

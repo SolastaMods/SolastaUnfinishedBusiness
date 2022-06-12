@@ -1722,7 +1722,7 @@ internal static class MonstersSRD
             if (Definitions[i].MonsterName == "Lich")
             {
                 AssetReference assetReference = new();
-                assetReference.SetField("m_assetGUID", "cab8992a98c1d3749bc0a50d53fcc378");
+                assetReference.SetField("m_AssetGUID", "cab8992a98c1d3749bc0a50d53fcc378");
 
 
                 NewMonster.SetPrefabReference(assetReference);

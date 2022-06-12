@@ -4,6 +4,7 @@ using System.CodeDom.Compiler;
 namespace SolastaCommunityExpansion.Api.Extensions;
 
 #if DEBUG
+using SolastaModApi.Infrastructure;
 [TargetType(typeof(ShapeOptionDescription))]
 #endif
 [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]

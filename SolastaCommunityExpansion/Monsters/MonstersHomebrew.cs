@@ -361,7 +361,7 @@ internal static class MonstersHomebrew
                 //assetReference.m_AssetGUID =  "3f4ea7931d5f6ba4e96caace01b265b7";
                 //NewMonster.SetPrefabReference(assetReference);
                 AssetReference assetReference = new();
-                assetReference.SetField("m_assetGUID", "b1bd642eab224bd4bbbf5ce48c869a9e");
+                assetReference.SetField("m_AssetGUID", "b1bd642eab224bd4bbbf5ce48c869a9e");
                 NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.AddFeatures(new List<FeatureDefinition>
@@ -464,7 +464,7 @@ internal static class MonstersHomebrew
                 });
 
                 AssetReference assetReference = new();
-                assetReference.SetField("m_assetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
+                assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                 NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.SetUseCustomMaterials(true);
@@ -477,7 +477,7 @@ internal static class MonstersHomebrew
             if (Definitions[i].MonsterName == "Fire Titan")
             {
                 AssetReference assetReference = new();
-                assetReference.SetField("m_assetGUID", "0829dcc3d2af9764582f0c4f3b70c914");
+                assetReference.SetField("m_AssetGUID", "0829dcc3d2af9764582f0c4f3b70c914");
 
                 NewMonster.SetPrefabReference(assetReference);
 
@@ -561,7 +561,7 @@ internal static class MonstersHomebrew
 
 
                 AssetReference assetReference = new();
-                assetReference.SetField("m_assetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
+                assetReference.SetField("m_AssetGUID", "0ff0b1c4180816e468ec3dcab4b18c35");
                 NewMonster.SetPrefabReference(assetReference);
 
                 NewMonster.SetUseCustomMaterials(true);
