@@ -78,7 +78,7 @@ internal static class ItemDefinitionVerification
 
             if (Mode.HasFlag(Verification.Throw))
             {
-                throw new SolastaModApiException(msg);
+                throw new SolastaCommunityExpansionException(msg);
             }
         }
     }

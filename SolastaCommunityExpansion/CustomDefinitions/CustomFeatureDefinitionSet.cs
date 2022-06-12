@@ -183,7 +183,7 @@ public class FeatureDefinitionRemoverBuilder
                 return remover;
             }
         }
-        catch (SolastaModApiException)
+        catch (SolastaCommunityExpansionException)
         {
         }
 

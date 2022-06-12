@@ -35,7 +35,7 @@ public static class EffectDescriptionExtensions
             default:
                 if (duration != null)
                 {
-                    throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                    throw new SolastaCommunityExpansionException($"A duration value is not expected for duration type {type}");
                 }
 
                 entity.SetDurationParameter(0);
@@ -70,7 +70,7 @@ public static class EffectDescriptionExtensions
             default: // Self, MeleeHit
                 if (range != null)
                 {
-                    throw new SolastaModApiException($"A duration value is not expected for duration type {type}");
+                    throw new SolastaCommunityExpansionException($"A duration value is not expected for duration type {type}");
                 }
 
                 entity.SetRangeParameter(0);
