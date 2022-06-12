@@ -5,11 +5,11 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Infrastructure;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using TA;
-using static SolastaModApi.DatabaseHelper;
-using static SolastaModApi.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaModApi.DatabaseHelper.MorphotypeElementDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.MorphotypeElementDefinitions;
 
 namespace SolastaCommunityExpansion.Races;
 
