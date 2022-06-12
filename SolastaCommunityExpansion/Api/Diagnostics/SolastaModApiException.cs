@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace SolastaModApi.Diagnostics;
+namespace SolastaCommunityExpansion.Api.Diagnostics;
 
 [Serializable]
 public class SolastaModApiException : Exception

@@ -3,11 +3,11 @@ using System;
 using System.Linq;
 using System.Reflection;
 using SolastaCommunityExpansion;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaModApi.Infrastructure;
 using UnityEngine;
 
-namespace SolastaModApi.Testing
+namespace SolastaCommunityExpansion.Api.Testing
 {
     public static class Tests
     {

@@ -1,4 +1,4 @@
-﻿using SolastaModApi.Diagnostics;
+﻿using SolastaCommunityExpansion.Api.Diagnostics;
 
 namespace SolastaModApi;
 

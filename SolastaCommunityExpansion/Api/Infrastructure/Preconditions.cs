@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using JetBrains.Annotations;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 
 namespace SolastaModApi.Infrastructure;
 

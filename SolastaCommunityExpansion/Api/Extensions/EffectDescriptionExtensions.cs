@@ -2,13 +2,15 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 using SolastaModApi.Infrastructure;
 using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
+#if DEBUG
 [TargetType(typeof(EffectDescription))]
+#endif
 [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]
 public static class EffectDescriptionExtensions
 {

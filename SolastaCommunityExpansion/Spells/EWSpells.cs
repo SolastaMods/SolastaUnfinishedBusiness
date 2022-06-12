@@ -5,7 +5,6 @@ using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
 using SolastaCommunityExpansion.Utils;
 using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 using static ConditionOperationDescription;
 using static SolastaCommunityExpansion.Classes.Warlock.WarlockSpells;
@@ -293,7 +292,7 @@ internal class ChainSpellEffectOnAttackHit : IChainMagicEffect
         var actionParams = baseEffect.actionParams;
         if (actionParams == null) { return null; }
 
-        if (baseEffect.Countered || baseEffect.GetProperty<bool>("ExecutionFailed"))
+        if (baseEffect.Countered || baseEffect.ExecutionFailed)
         {
             return null;
         }

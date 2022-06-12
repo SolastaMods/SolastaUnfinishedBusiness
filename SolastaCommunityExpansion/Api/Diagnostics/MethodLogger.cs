@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using SolastaCommunityExpansion;
 using SolastaModApi.Infrastructure;
 
-namespace SolastaModApi.Diagnostics
+namespace SolastaCommunityExpansion.Api.Diagnostics
 {
     /// <summary>
     /// <para>

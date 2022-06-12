@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 
 namespace SolastaModApi.Infrastructure;
 
@@ -43,3 +44,4 @@ public abstract class Disposable : IDisposable
 
     #endregion
 }
+#endif

@@ -256,6 +256,7 @@
     <Compile Remove="Api\Extensions\EffectParticleParametersExtensions.cs" />
     <Compile Remove="Api\Extensions\DamageFormExtensions.cs" />
     <Compile Remove="Api\Extensions\SaveAffinityByFamilyDescriptionExtensions.cs" />
+    <Compile Remove="Api\Infrastructure\StringUtils.cs" />
   </ItemGroup>
 
   <ItemGroup>

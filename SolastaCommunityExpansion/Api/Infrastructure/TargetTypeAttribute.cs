@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 
 namespace SolastaModApi.Infrastructure;
 
@@ -15,3 +16,4 @@ public sealed class TargetTypeAttribute : Attribute
 
     public Type TargetType { get; }
 }
+#endif

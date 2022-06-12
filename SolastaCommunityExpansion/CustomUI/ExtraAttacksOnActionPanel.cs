@@ -4,7 +4,6 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaModApi;
-using SolastaModApi.Infrastructure;
 using UnityEngine;
 
 namespace SolastaCommunityExpansion.CustomUI;
@@ -43,13 +42,13 @@ public static class ExtraAttacksOnActionPanel
     }
 
     // Adds extra items to the action panel if character has more than 1 attack mode available for action type of this panel
-    public static void AddExtraAttakItems(CharacterActionPanel panel)
+    public static void AddExtraAttackItems(CharacterActionPanel panel)
     {
         var actionsTable = panel.characterActionsTable;
         var itemPrefab = panel.actionItemPrefab;
         var filteredActions = panel.filteredActions;
         var startIndex = filteredActions.Count;
-        var guiCharacter = panel.GetProperty<GuiCharacter>("GuiCharacter");
+        var guiCharacter = panel.GuiCharacter;
         var character = guiCharacter.RulesetCharacter;
         var actionItems = panel.actionItems;
 

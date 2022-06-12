@@ -5,7 +5,7 @@ namespace SolastaModApi.Infrastructure;
 
 public static class TraverseHelper
 {
-    public static bool FailOnMissingMember { get; set; } = true;
+    private static bool FailOnMissingMember { get; } = true;
 
     /// <summary>
     ///     Usage
@@ -23,7 +23,7 @@ public static class TraverseHelper
     ///     Traverse will happily continue without error if you supply a field name that doesn't exist.
     ///     SetField will throw an appropriate exception.
     /// </remarks>
-    public static void SetField<T, V>(this T instance, string fieldName, V value) where T : class
+    internal static void SetField<T, V>(this T instance, string fieldName, V value) where T : class
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
@@ -42,7 +42,7 @@ public static class TraverseHelper
         // AccessTools.FieldRefAccess<T, V>(instance, fieldName) = value;
     }
 
-    public static V GetField<T, V>(this T instance, string fieldName) where T : class
+    internal static V GetField<T, V>(this T instance, string fieldName) where T : class
     {
         Preconditions.IsNotNull(instance, nameof(instance));
         Preconditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
@@ -62,6 +62,7 @@ public static class TraverseHelper
         return instance.GetField<object, V>(fieldName);
     }
 
+#if DEBUG
     public static V GetProperty<V>(this object instance, string propertyName)
     {
         Preconditions.IsNotNull(instance, nameof(instance));
@@ -91,4 +92,5 @@ public static class TraverseHelper
 
         t.Property<V>(propertyName).Value = value;
     }
+#endif
 }

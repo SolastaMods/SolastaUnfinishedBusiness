@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
 using SolastaCommunityExpansion.Models;
-using SolastaModApi.Diagnostics;
+using SolastaCommunityExpansion.Api.Diagnostics;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;
 
