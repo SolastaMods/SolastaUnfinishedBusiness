@@ -113,6 +113,16 @@ namespace SolastaCommunityExpansion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Darkelf {
+            get {
+                object obj = ResourceManager.GetObject("Darkelf", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] DeadeyeConcentrationIcon {
             get {
                 object obj = ResourceManager.GetObject("DeadeyeConcentrationIcon", resourceCulture);

@@ -82,9 +82,15 @@ internal static class BolgrifRaceBuilder
                 "Language_Elvish")
             .AddToDB();
 
+        var bolgrifSkin1 = MorphotypeElementDefinitionBuilder
+            .Create(MorphotypeElementDefinitions.FaceAndSkin_01, "BolgrifSkin1", "f312031f-59b7-4df3-934f-66ce47ee250b")
+            .SetMainColor(MorphotypeElementDefinitions.BodyDecorationColor_Default_10.MainColor)
+            .SetSortOrder(46)
+            .AddToDB();
+
         var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
 
-        bolgrifRacePresentation.preferedSkinColors = new RangedInt(45, 48);
+        bolgrifRacePresentation.preferedSkinColors = new RangedInt(45, 46);
         bolgrifRacePresentation.preferedHairColors = new RangedInt(16, 32);
         bolgrifRacePresentation.needBeard = false;
         bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);

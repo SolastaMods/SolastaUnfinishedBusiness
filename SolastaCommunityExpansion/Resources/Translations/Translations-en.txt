@@ -829,6 +829,8 @@ Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Strengt
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attribute Increase
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Wisdom +2.
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	Attribute Increase
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Ability Score Increase
 Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dexterity +1.
 Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Forest Gnome Attribute Increase
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2.
@@ -912,6 +914,10 @@ Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Relentless Endurance
+Feature/&DarkelfMagicDescription	You know the Dancing Lights cantrip.
+Feature/&DarkelfMagicTitle	Darkelf Magic
+Feature/&DarkelfWeaponTrainingDescription	You have proficiency with rapiers, shortswords, and hand crossbows.
+Feature/&DarkelfWeaponTrainingTitle	Darkelf Weapon Training
 Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 bonus damage.
 Feature/&DeadeyeTitle	Deadeye
 Feature/&DevilsSightDescription	You can see normally in Darkness, both magical and non-magical, to a distance of 120 feet.
@@ -1059,6 +1065,8 @@ Feature/&InspiringSurgePowerTitle	Inspiring Surge
 Feature/&InspiringSurgePowerTitleShort	Inspiring Surge
 Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
 Feature/&KnockDownPowerTitle	Knock down
+Feature/&LightAffinityDarkelfLightSensitivityDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sunlight Sensitivity
 Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
 Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
 Feature/&MiretheMindTitle	Mire the Mind
@@ -1085,6 +1093,10 @@ Feature/&OpportunistQuickStrikeTitle	Quick Strike
 Feature/&OtherworldlyLeapTitle	Otherworldly Leap
 Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
 Feature/&PowerAttackTitle	Power attack
+Feature/&PowerDarkelfDarknessDescription	When you reach 5th level, you can cast the Darkness spell once per long rest.
+Feature/&PowerDarkelfDarknessTitle	Darkelf Magic (Darkness)
+Feature/&PowerDarkelfFaerieFireDescription	When you reach 3rd level, you can cast the Faerie Fire spell once per long rest.
+Feature/&PowerDarkelfFaerieFireTitle	Darkelf Magic (Faerie Fire)
 Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies within 30ft.
 Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
 Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
@@ -1478,6 +1490,8 @@ Power/&UrPriestSpellSiphonDescription	you learn how to tap into a greater source
 Power/&UrPriestSpellSiphonTitle	Spell Siphon
 Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 Race/&BolgrifRaceTitle	Bolgrif
+Race/&DarkelfRaceDescription	Darkelves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Darkelves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+Race/&DarkelfRaceTitle	Darkelf
 Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 Race/&GnomeRaceTitle	Gnome
 Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
