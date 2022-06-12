@@ -28,7 +28,7 @@
   </Target>
 
   <Target Name="ZipTranslations" BeforeTargets="Compile">
-      <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip"/>
+      <ZipDirectory Overwrite="true" SourceDirectory="$(ProjectDir)/Translations/" DestinationFile="$(ProjectDir)/Resources/Translations.zip" />
   </Target>
 
   <ItemGroup>
@@ -259,7 +259,5 @@
     <None Update="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Remove="Repository.json" />
-    <None Remove="Api\AdditionalExtensions\**" />
   </ItemGroup>
 </Project>
