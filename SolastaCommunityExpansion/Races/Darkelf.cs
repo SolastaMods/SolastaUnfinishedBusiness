@@ -36,7 +36,7 @@ internal static class DarkelfRaceBuilder
                 RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
-        darkElfPerception.AffinityGroups[0].SetField("lightingContext", RuleDefinitions.LightingContext.BrightLight);
+        darkElfPerception.AffinityGroups[0].lightingContext = RuleDefinitions.LightingContext.BrightLight;
 
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive", "8c7cb851-6810-4101-8a6a-e932e9cc3896")
