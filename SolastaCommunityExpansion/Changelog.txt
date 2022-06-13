@@ -1,7 +1,6 @@
 ﻿CHANGES:
 
 - Make some higher level spells standard on official classes
-- Merge alpha Magus class codebase
 - Rework War Caster feat not applying bonuses
 
 PATRONS:
