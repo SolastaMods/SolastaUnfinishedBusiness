@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using static FeatureDefinitionFeatureSet;
 
 namespace SolastaCommunityExpansion.Api.Extensions;
 
@@ -60,7 +59,7 @@ public static class RulesetActorExtensions
             : new[] {feature};
     }
 #endif
-    
+
     public static bool HasAnyFeature(this RulesetActor actor, params FeatureDefinition[] features)
     {
         return FeaturesByType<FeatureDefinition>(actor).Any(features.Contains);

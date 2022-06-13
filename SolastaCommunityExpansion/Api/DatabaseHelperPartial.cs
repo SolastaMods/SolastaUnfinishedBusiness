@@ -10,14 +10,14 @@ public static partial class DatabaseHelper
 
         if (db == null)
         {
-            throw new SolastaModApiException($"Database of type {typeof(T).Name} not found.");
+            throw new SolastaCommunityExpansionException($"Database of type {typeof(T).Name} not found.");
         }
 
         var definition = db.TryGetElement(key, guid);
 
         if (definition == null)
         {
-            throw new SolastaModApiException(
+            throw new SolastaCommunityExpansionException(
                 $"Definition with name={key} or guid={guid} not found in database {typeof(T).Name}");
         }
 

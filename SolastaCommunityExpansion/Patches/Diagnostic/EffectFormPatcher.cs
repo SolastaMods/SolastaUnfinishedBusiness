@@ -79,7 +79,7 @@ internal static class EffectFormVerification
 
         if (Mode.HasFlag(Verification.Throw))
         {
-            throw new SolastaModApiException(msg);
+            throw new SolastaCommunityExpansionException(msg);
         }
     }
 

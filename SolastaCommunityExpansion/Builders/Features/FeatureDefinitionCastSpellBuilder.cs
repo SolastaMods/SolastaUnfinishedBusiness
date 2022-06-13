@@ -398,7 +398,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
 
                 break;
             default:
-                throw new SolastaModApiException($"Unknown CasterProgression: {progression}");
+                throw new SolastaCommunityExpansionException($"Unknown CasterProgression: {progression}");
         }
 
         return this;
@@ -492,7 +492,7 @@ public class FeatureDefinitionCastSpellBuilder : FeatureDefinitionBuilder<Featur
 
                 break;
             default:
-                throw new SolastaModApiException($"Unknown CasterProgression: {progression}");
+                throw new SolastaCommunityExpansionException($"Unknown CasterProgression: {progression}");
         }
 
         return this;
