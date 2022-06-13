@@ -80,7 +80,6 @@ ModUi/&EnableSaveByLocation	Enable save by campaigns / locations
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Enable short rest recharge of <color=orange>Arcane Weapon</color> on <color=orange>Wizard</color> Arcane Fighter
 ModUi/&EnableTeleportParty	Enable <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[you might break quests or maps if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Enable toggles on character pool to set your default play and test party
-ModUi/&EnableUnityExplorer	Enable the Unity Explorer UI
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Enable unlimited <color=orange>Arcane Recovery</color> on <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Must be enabled when the ability has available uses or before character creation</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Enable upcast of <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Encounters

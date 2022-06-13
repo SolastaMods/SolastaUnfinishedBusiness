@@ -80,7 +80,6 @@ ModUi/&EnableSaveByLocation	启用分战役/地点存档
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	启用<color=orange>法师</color>奥法战士子职的<color=orange>奥法武器</color>能力在短休时恢复
 ModUi/&EnableTeleportParty	启用<color=cyan>CTRL-SHIFT-T</color>传送队伍<i><color=yellow>[如果你传送到一个未发现的地点，你可能会破坏任务或地图]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	启用角色池切换键设置你的默认的游戏/测试队伍
-ModUi/&EnableUnityExplorer	启用Unity Explorer界面
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	启用<color=orange>法师</color>法术大师子职的<color=orange>深层奥术</color>能力可无限恢复\n<i><color=yellow>必须在该能力有可用次数时或在创建角色前启用</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	启用<color=orange>召唤元素</color>，<color=orange>召唤精类生物</color>的升环施法
 ModUi/&Encounters	遭遇战
