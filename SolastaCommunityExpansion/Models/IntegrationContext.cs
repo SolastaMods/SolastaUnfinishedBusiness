@@ -9,6 +9,7 @@ public static class IntegrationContext
     public const string CLASS_WARDEN = "ClassWarden";
     public const string CLASS_WARLOCK = "ClassWarlock";
     public const string CLASS_WITCH = "ClassWitch";
+    public const string CLASS_MAGUS = "ClassMagus";
     public const string SUBCLASS_CONARTIST = "RoguishConArtist";
     public const string SUBCLASS_SPELLSHIELD = "FighterSpellShield";
 
@@ -25,6 +26,7 @@ public static class IntegrationContext
     public static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
     public static CharacterClassDefinition WarlockClass { get; private set; } = DummyClass;
     public static CharacterClassDefinition WitchClass { get; private set; } = DummyClass;
+    public static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
     public static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
     public static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
 
@@ -38,6 +40,7 @@ public static class IntegrationContext
         dbCharacterClassDefinition.TryGetElement(CLASS_WARDEN, out var unofficialWarden);
         dbCharacterClassDefinition.TryGetElement(CLASS_WARLOCK, out var unofficialWarlock);
         dbCharacterClassDefinition.TryGetElement(CLASS_WITCH, out var unofficialWitch);
+        dbCharacterClassDefinition.TryGetElement(CLASS_MAGUS, out var unofficialMagus);
         dbCharacterSubclassDefinition.TryGetElement(SUBCLASS_CONARTIST, out var unofficialConArtist);
         dbCharacterSubclassDefinition.TryGetElement(SUBCLASS_SPELLSHIELD, out var unofficialSpellShield);
 
@@ -48,6 +51,7 @@ public static class IntegrationContext
         WardenClass = unofficialWarden ? unofficialWarden : DummyClass;
         WitchClass = unofficialWitch ? unofficialWitch : DummyClass;
         WarlockClass = unofficialWarlock ? unofficialWarlock : DummyClass;
+        MagusClass = unofficialMagus ? unofficialMagus : DummyClass;
         ConArtistSubclass = unofficialConArtist ? unofficialConArtist : DummySubclass;
         SpellShieldSubclass = unofficialSpellShield ? unofficialSpellShield : DummySubclass;
     }

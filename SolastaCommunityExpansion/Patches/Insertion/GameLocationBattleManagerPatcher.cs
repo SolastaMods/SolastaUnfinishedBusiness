@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomDefinitions;
 using TA;
 
@@ -69,6 +70,42 @@ internal static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleCharacterMoveEnd
     {
+        internal static void Prefix(GameLocationCharacter mover)
+        {
+            var matchingOccurenceConditions = new List<RulesetCondition>();
+            foreach (KeyValuePair<string, List<RulesetCondition>> item in mover.RulesetCharacter.ConditionsByCategory)
+            {
+                foreach (RulesetCondition item2 in item.Value)
+                {
+                    switch (item2.endOccurence)
+                    {
+                        case (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd:
+                            matchingOccurenceConditions.Add(item2);
+                            break;
+                    }
+                }
+            }
+
+            foreach (RulesetCondition condition in matchingOccurenceConditions)
+            {
+                mover.RulesetActor.ExecuteRecurrentForms(condition);
+                if (condition.HasFinished && !condition.IsDurationDefinedByEffect())
+                {
+                    mover.RulesetActor.RemoveCondition(condition);
+                    mover.RulesetActor.ProcessConditionDurationEnded(condition);
+                }
+                else if (condition.CanSaveToCancel && condition.HasSaveOverride)
+                {
+                    mover.RulesetActor.SaveToCancelCondition(condition);
+                }
+                else
+                {
+                    mover.RulesetActor.ConditionOccurenceReached?.Invoke(mover.RulesetActor, condition);
+                }
+            }
+        }
+
+
         internal static IEnumerator Postfix(
             IEnumerator __result,
             GameLocationBattleManager __instance,
