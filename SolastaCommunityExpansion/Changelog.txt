@@ -1,6 +1,8 @@
-﻿- Fix War Caster feat incorrectly calculating to hit bonus
+﻿CHANGES:
 
-PATRONAGE:
+- Fix War Caster feat not applying caster bonuses
 
-- Check the stick post on Nexus if you can financially contribute
-- Money is being spent on software subscriptions like DeepL, etc.
+PATRONS:
+
+- Use *Mod UI > Credits > Donations* if you can financially support
+- Money to be spent on DeepL Pro, GitHub Personal, JetBrains, etc.
