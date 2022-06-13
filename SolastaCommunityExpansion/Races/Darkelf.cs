@@ -79,6 +79,7 @@ internal static class DarkelfRaceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
+        darkelfFaerieFirePower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
         //Alter duration to account for granting at 1st level with no concentration or components required
         darkelfFaerieFirePower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
         darkelfFaerieFirePower.EffectDescription.durationParameter = 3;
@@ -93,6 +94,7 @@ internal static class DarkelfRaceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
+        darkelfDarknessPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
         //Alter duration to account for granting at 1st level with no concentration or components required
         darkelfDarknessPower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
         darkelfDarknessPower.EffectDescription.durationParameter = 3;
