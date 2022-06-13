@@ -1,7 +1,8 @@
 ﻿CHANGES:
 
+- Add Wiki and Donations buttons under "Credits & Diagnostics"
 - Make some higher level spells standard on official classes
-- Rework War Caster feat not applying bonuses
+- Rework War Caster fix on previous version
 
 PATRONS:
 
