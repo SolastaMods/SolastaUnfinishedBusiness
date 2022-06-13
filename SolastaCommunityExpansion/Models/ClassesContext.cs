@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;
@@ -39,6 +40,11 @@ internal static class ClassesContext
         LoadClass(TinkererClass.BuildTinkererClass());
         LoadClass(Warlock.BuildWarlockClass());
         LoadClass(Witch.Instance);
+
+        //
+        // DISABLE THIS BEFORE RELEASE (IT'S BETA)
+        //
+        // LoadClass(Magus.BuildMagusClass());
 
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
     }

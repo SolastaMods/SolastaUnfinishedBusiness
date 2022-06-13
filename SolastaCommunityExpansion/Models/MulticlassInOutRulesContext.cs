@@ -163,6 +163,9 @@ public static class MulticlassInOutRulesContext
             case IntegrationContext.CLASS_TINKERER:
                 return intelligence >= 13;
 
+            case IntegrationContext.CLASS_MAGUS:
+                return intelligence >= 13 && (strength >= 13 || dexterity >= 13);
+
             default:
                 return false;
         }
