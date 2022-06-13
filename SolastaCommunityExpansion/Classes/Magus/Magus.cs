@@ -26,7 +26,7 @@ public static class Magus
     private static FeatureDefinitionPointPool FeatureDefinitionSkillPoints { get; set; }
 
     private static FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell { get; set; }
-    
+
     public static FeatureDefinitionPower ArcaneFocus { get; private set; }
 
     private static void BuildEquipment(CharacterClassDefinitionBuilder classMagusBuilder)
@@ -109,12 +109,13 @@ public static class Magus
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel)
             .SetKnownCantrips(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            .SetKnownSpells(0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
             .SetSlotsPerLevel(2, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
             .SetSpellList(MagusSpells.MagusSpellList)
             .AddToDB();
     }
-    
+
     private static void BuildArcaneArt()
     {
         ArcaneFocus = FeatureDefinitionPowerBuilder
@@ -127,7 +128,7 @@ public static class Magus
             .AddToDB();
 
         var rupture = BuildRupture(ArcaneFocus);
-        
+
         // lurking death
         // broken courage
         // menace present
@@ -138,7 +139,7 @@ public static class Magus
 
         PowerBundleContext.RegisterPowerBundle(ArcaneFocus, true, rupture);
     }
-    
+
     private static FeatureDefinitionPower BuildRupture(FeatureDefinitionPower sharedPool)
     {
         var condition = ConditionDefinitionBuilder
@@ -146,20 +147,20 @@ public static class Magus
             .Configure(RuleDefinitions.DurationType.Round, 1, true)
             .SetSpecialDuration(true)
             .AddToDB();
-        
+
         condition.durationParameterDie = RuleDefinitions.DieType.D4;
         condition.turnOccurence = (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd;
-        condition.RecurrentEffectForms.Add(new EffectForm()
+        condition.RecurrentEffectForms.Add(new EffectForm
         {
             formType = EffectForm.EffectFormType.Damage,
-            damageForm =  new DamageForm()
+            damageForm = new DamageForm
             {
                 damageType = RuleDefinitions.DamageTypePsychic,
                 diceNumber = 2,
-                dieType = RuleDefinitions.DieType.D8,
+                dieType = RuleDefinitions.DieType.D8
             }
         });
-        
+
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtRupture", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtRupture")
@@ -168,17 +169,18 @@ public static class Magus
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 24, RuleDefinitions.TargetType.Individuals)
+                    .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 24,
+                        RuleDefinitions.TargetType.Individuals)
                     .SetSavingThrowData(
-                        true, 
+                        true,
                         false,
                         AttributeDefinitions.Constitution,
-                        false, 
+                        false,
                         RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
                         AttributeDefinitions.Intelligence)
                     .SetEffectForms(
                         EffectFormBuilder
-                            .Create() 
+                            .Create()
                             .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build()
@@ -186,7 +188,7 @@ public static class Magus
                     .Build())
             .AddToDB();
     }
-    
+
     private static void BuildProgression(CharacterClassDefinitionBuilder classMagusBuilder)
     {
         // No subclass for now
@@ -211,7 +213,7 @@ public static class Magus
                 FeatureDefinitionProficiencyTool,
                 FeatureDefinitionSkillPoints
             )
-            .AddFeaturesAtLevel(2, 
+            .AddFeaturesAtLevel(1,
                 FeatureDefinitionClassMagusCastSpell,
                 ArcaneFocus);
     }
@@ -224,7 +226,8 @@ public static class Magus
         var classMagusBuilder = CharacterClassDefinitionBuilder
             .Create("ClassMagus", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Class, warlockSpriteReference, 1)
-            .AddFeatPreferences(DatabaseHelper.FeatDefinitions.PowerfulCantrip, DatabaseHelper.FeatDefinitions.FlawlessConcentration,
+            .AddFeatPreferences(DatabaseHelper.FeatDefinitions.PowerfulCantrip,
+                DatabaseHelper.FeatDefinitions.FlawlessConcentration,
                 DatabaseHelper.FeatDefinitions.Robust)
             .AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.Violence, 3)
             .AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.Self_Preservation, 3)
@@ -243,7 +246,7 @@ public static class Magus
                 DatabaseHelper.SkillDefinitions.Nature,
                 DatabaseHelper.SkillDefinitions.Religion)
             .AddToolPreferences(
-                DatabaseHelper.ToolTypeDefinitions.EnchantingToolType, 
+                DatabaseHelper.ToolTypeDefinitions.EnchantingToolType,
                 DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
             .SetAbilityScorePriorities(
                 AttributeDefinitions.Dexterity,
@@ -257,7 +260,7 @@ public static class Magus
             .SetHitDice(RuleDefinitions.DieType.D8)
             .SetIngredientGatheringOdds(DatabaseHelper.CharacterClassDefinitions.Sorcerer.IngredientGatheringOdds)
             .SetPictogram(DatabaseHelper.CharacterClassDefinitions.Wizard.ClassPictogramReference);
-        
+
         BuildEquipment(classMagusBuilder);
         BuildProficiencies();
         BuildSpells();

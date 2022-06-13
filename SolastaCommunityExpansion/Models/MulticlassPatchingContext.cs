@@ -116,7 +116,7 @@ internal static class MulticlassPatchingContext
                 dbFeatureDefinitionProficiency.GetElement("ClassWarlockWeaponProficiency"),
                 dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
             });
-        
+
         FeaturesToExclude.Add(MagusClass,
             new List<FeatureDefinition>
             {

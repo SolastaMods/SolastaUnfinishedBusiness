@@ -33,7 +33,7 @@ internal static class RulesetCharacterExension
         return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
             .All(v => v.CanUsePower(instance));
     }
-    
+
     public static bool CanCastCantrip(
         this RulesetCharacter character,
         SpellDefinition spellDefinition,

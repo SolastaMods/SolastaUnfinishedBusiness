@@ -40,8 +40,12 @@ internal static class ClassesContext
         LoadClass(TinkererClass.BuildTinkererClass());
         LoadClass(Warlock.BuildWarlockClass());
         LoadClass(Witch.Instance);
-        LoadClass(Magus.BuildMagusClass());
-        
+
+        //
+        // DISABLE THIS BEFORE RELEASE (IT'S BETA)
+        //
+        // LoadClass(Magus.BuildMagusClass());
+
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();
     }
 

@@ -73,9 +73,9 @@ internal static class GameLocationBattleManagerPatcher
         internal static void Prefix(GameLocationCharacter mover)
         {
             var matchingOccurenceConditions = new List<RulesetCondition>();
-            foreach (KeyValuePair<string, List<RulesetCondition>> item in mover.RulesetCharacter.ConditionsByCategory)
+            foreach (var item in mover.RulesetCharacter.ConditionsByCategory)
             {
-                foreach (RulesetCondition item2 in item.Value)
+                foreach (var item2 in item.Value)
                 {
                     switch (item2.endOccurence)
                     {
@@ -86,7 +86,7 @@ internal static class GameLocationBattleManagerPatcher
                 }
             }
 
-            foreach (RulesetCondition condition in matchingOccurenceConditions)
+            foreach (var condition in matchingOccurenceConditions)
             {
                 mover.RulesetActor.ExecuteRecurrentForms(condition);
                 if (condition.HasFinished && !condition.IsDurationDefinedByEffect())
