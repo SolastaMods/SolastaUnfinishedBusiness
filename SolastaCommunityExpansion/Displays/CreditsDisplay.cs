@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 using ModKit;
 using UnityExplorer;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
@@ -12,20 +14,19 @@ internal static class CreditsDisplay
 
     internal static readonly Dictionary<string, string> ThanksTable = new()
     {
-        {"Tactical Adventures", "for the great community support"},
-        {"JetBrains", "rider full development license"},
-        {
-            "Our Patrons",
-            "F. Lorenz, M. Brandmaier, R. Baker, J. Cohen, J. Smedley, E. Antonio, R. Maxim, M. Despard, J. Ball"
-        }
+        {"Tactical Adventures", "early access to DLC builds and community support"},
+        {"JetBrains", "one year Rider IDE subscription for 3 developers"},
+        {"", ""},
+        {"D20 Patrons", "<b>J. Cohen</b>"},
+        {"D12 Patrons", "L. Goldiner, E. Antonio"},
+        {"  D8 Patrons", "R. Baker, R. Maxim"},
+        {"  D6 Patrons", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen"}
     };
 
     internal static readonly Dictionary<string, string> CreditsTable = new()
     {
-        {
-            "AceHigh", "SoulBlade subclass, Tactician subclass, Power Attack and Reckless Fury feats, no identification"
-        },
-        {"Bazou", "Witch class, Fighting Styles"},
+        {"AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"},
+        {"Bazou", "Witch class, fighting styles"},
         {"Boofat", "alwaysAlt"},
         {"Burtsev-Alexey", "deep copy algorithm"},
         {
@@ -35,36 +36,36 @@ internal static class CreditsDisplay
         {"Dreadmaker", "Forest Guardian subclass"},
         {
             "DubhHerder",
-            "7th, 8th and 9th level spells, Crafty Feats migration, bug models replacement, additional high level monsters, Warlock class and subclasses"
+            "high level spells, feats migration, bug models replacement, high level monsters, Warlock class and subclasses"
         },
-        {"ElAntonious", "Arcanist subclass, Torchbearer and Dual Flurry feats"},
+        {"ElAntonious", "Arcanist subclass, feats"},
         {"Esker", "Warlock class design, quality assurance"},
-        {"Holic75", "SolastaModHelpers and SolastaExtraContent"},
+        {"Holic75", "SolastaModHelpers, SolastaExtraContent"},
         {
             "ImpPhil",
             "adv/dis rules, conjurations control, auto-equip, monster's health, pause UI, sorting, stocks prices, no attunement, xp scaling, character export, save by location, combat camera, diagnostics, custom icons, refactor, screen map"
         },
         {"Lyraele", "Warlock class design, quality assurance"},
         {"Narria", "modKit creator, developer"},
-        {"Nd", "Marshal subclass, Opportunist subclass"},
+        {"Nd", "Marshal and Opportunist subclasses"},
         {"Nyowwww", "Chinese translations"},
         {"PraiseThyBus", "quality assurance"},
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
         {
             "SilverGriffon",
-            "PickPocket, lore friendly names, crafty feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells"
+            "PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells"
         },
         {"Sinai-dev", "Unity Explorer UI standalone"},
         {"Spacehamster", "dataminer"},
         {
             "TPABOBAP",
-            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, Level Up improvements, Feats, Spells, infrastructure patches, Holic75's code integration"
+            "Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration"
         },
         {"View619", "Darkvision, Superior Dark Vision"},
-        {"Vylantze", "English terms review"},
+        {"Vylantze", "English terms review, tweaks"},
         {
             "Zappastuff",
-            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, Infrastructure and QoL patches, Holic75's code integration"
+            "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Holic75's code integration"
         }
     };
 
@@ -74,27 +75,67 @@ internal static class CreditsDisplay
 
     private static bool IsUnityExplorerEnabled { get; set; }
 
+    private static void OpenUrl(string url)
+    {
+        try
+        {
+            Process.Start(url);
+        }
+        catch
+        {
+            // hack because of this: https://github.com/dotnet/corefx/issues/10361
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                url = url.Replace("&", "^&");
+                Process.Start(new ProcessStartInfo(url) {UseShellExecute = true});
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Process.Start("xdg-open", url);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Process.Start("open", url);
+            }
+            else
+            {
+                throw;
+            }
+        }
+    }
+
     internal static void DisplayCredits()
     {
-        if (IsUnityExplorerInstalled)
-        {
-            UI.Label("");
-            UI.ActionButton(Gui.Localize("ModUi/&EnableUnityExplorer"), () =>
-            {
-                if (!IsUnityExplorerEnabled)
-                {
-                    IsUnityExplorerEnabled = true;
+        UI.Label("");
 
-                    try
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("Donations".bold().orange(), () =>
+            {
+                OpenUrl(
+                    "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
+            }, UI.Width(120));
+
+            if (IsUnityExplorerInstalled)
+            {
+                UI.ActionButton(Gui.Localize("ModUi/&EnableUnityExplorer"), () =>
+                {
+                    if (!IsUnityExplorerEnabled)
                     {
-                        ExplorerStandalone.CreateInstance();
+                        IsUnityExplorerEnabled = true;
+
+                        try
+                        {
+                            ExplorerStandalone.CreateInstance();
+                        }
+                        catch
+                        {
+                        }
                     }
-                    catch
-                    {
-                    }
-                }
-            }, UI.AutoWidth());
+                }, UI.AutoWidth());
+            }
         }
+
 
 #if false
             UI.Label("");
