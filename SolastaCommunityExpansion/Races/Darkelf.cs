@@ -133,6 +133,7 @@ internal static class DarkelfRaceBuilder
             .AddToDB();
         
         //move existing skin at targeted sort order
+        //this only moves the color in the selection screen and should have no effect on existing characters
         FaceAndSkin_20.GuiPresentation.sortOrder = 16;
 
         //doing a deep copy of Elf did not allow me to set prefered skin colors, neither did creating Darkelf as a subrace of Elf
