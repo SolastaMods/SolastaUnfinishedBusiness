@@ -1,11 +1,5 @@
 ﻿CHANGES:
 
-- Add Wiki and Donations buttons under "Credits & Diagnostics"
-- Fix game not booting in Chinese or Portuguese
-- Improve Russian and Chinese translations
-- Make some higher level spells standard on Clerics and Druids
-- Rework War Caster fix released on previous version
-
 PATRONS:
 
 - Use *Mod UI > Credits > Donations* if you can financially support
