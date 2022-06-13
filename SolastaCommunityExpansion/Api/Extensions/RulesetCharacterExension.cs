@@ -33,6 +33,24 @@ internal static class RulesetCharacterExension
         return power.GetAllSubFeaturesOfType<IPowerUseValidity>()
             .All(v => v.CanUsePower(instance));
     }
+    
+    public static bool CanCastCantrip(
+        this RulesetCharacter character,
+        SpellDefinition spellDefinition,
+        out RulesetSpellRepertoire spellRepertoire)
+    {
+        spellRepertoire = null;
+        foreach (var reperoire in character.spellRepertoires)
+        {
+            if (reperoire.HasKnowledgeOfSpell(spellDefinition))
+            {
+                spellRepertoire = reperoire;
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     public static List<RulesetAttackMode> GetAttackModesByActionType(this RulesetCharacter instance,
         ActionDefinitions.ActionType actionType)
