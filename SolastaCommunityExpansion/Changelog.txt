@@ -1,8 +1,9 @@
 ﻿CHANGES:
 
 - Add Wiki and Donations buttons under "Credits & Diagnostics"
-- Make some higher level spells standard on official classes
-- Rework War Caster fix on previous version
+- Improve Russian and Chinese translations
+- Make some higher level spells standard on Clerics and Druids
+- Rework War Caster fix released on previous version
 
 PATRONS:
 
