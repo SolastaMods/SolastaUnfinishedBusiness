@@ -97,3 +97,12 @@ public enum ExtraAttributeModifierOperation
     SurroundingEnemies = 8,
     AdditiveAtEnd = 9000
 }
+
+public enum ExtraTurnOccurenceType
+{
+    StartOfTurn = RuleDefinitions.TurnOccurenceType.StartOfTurn,
+    EndOfTurn = RuleDefinitions.TurnOccurenceType.EndOfTurn,
+    EndOfTurnNoPerceptionOfSource = RuleDefinitions.TurnOccurenceType.EndOfTurnNoPerceptionOfSource,
+    StartOfTurnWithPerceptionOfSource = 9000,
+    OnMoveEnd = 9001
+}

@@ -73,7 +73,7 @@ public static class SrdSpells
 
     internal static void Register()
     {
-        // cantrip 
+        // cantrips
         RegisterSpell(EldritchBlast, 1, WarlockSpellList);
 
         // 7th level
@@ -84,22 +84,22 @@ public static class SrdSpells
 
         // 8th level
         RegisterSpell(DominateMonster, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
-        RegisterSpell(Feeblemind, 1, WarlockSpellList, SpellListWizard, SpellListDruid, WitchSpellList);
-        RegisterSpell(HolyAura, 0, SpellListCleric);
+        RegisterSpell(Feeblemind, 2, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
+        RegisterSpell(HolyAura, 1, SpellListCleric);
         RegisterSpell(IncendiaryCloud, 0, SpellListWizard, SpellListSorcerer);
         RegisterSpell(Maze, 0, SpellListWizard);
         RegisterSpell(MindBlank, 0, SpellListWizard, WitchSpellList);
         RegisterSpell(PowerWordStun, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer, WitchSpellList);
-        RegisterSpell(SunBurst, 0, SpellListDruid, SpellListWizard, SpellListSorcerer);
+        RegisterSpell(SunBurst, 1, SpellListDruid, SpellListWizard, SpellListSorcerer);
 
         // 9th level
-        RegisterSpell(Foresight, 1, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
-        RegisterSpell(MassHeal, 0, SpellListCleric);
+        RegisterSpell(Foresight, 2, WarlockSpellList, SpellListDruid, SpellListWizard, WitchSpellList);
+        RegisterSpell(MassHeal, 1, SpellListCleric);
         RegisterSpell(MeteorSwarmSingleTarget, 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(PowerWordHeal, 0, SpellListCleric);
+        RegisterSpell(PowerWordHeal, 1, SpellListCleric);
         RegisterSpell(PowerWordKill, 1, WarlockSpellList, SpellListWizard, SpellListSorcerer);
         RegisterSpell(TimeStop, 0, SpellListWizard, SpellListSorcerer);
-        RegisterSpell(Shapechange, 0, SpellListDruid, SpellListWizard);
+        RegisterSpell(Shapechange, 1, SpellListDruid, SpellListWizard);
         RegisterSpell(Weird, 1, WarlockSpellList, SpellListWizard, WitchSpellList);
     }
 

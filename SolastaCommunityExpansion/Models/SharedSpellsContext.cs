@@ -246,6 +246,7 @@ public static class SharedSpellsContext
     {
         ClassCasterType.Add(TinkererClass, CasterType.HalfRoundUp);
         ClassCasterType.Add(WitchClass, CasterType.Full);
+        ClassCasterType.Add(MagusClass, CasterType.Half);
         SubclassCasterType.Add(ConArtistSubclass, CasterType.OneThird);
         SubclassCasterType.Add(SpellShieldSubclass, CasterType.OneThird);
         RecoverySlots.Add("TinkererSpellStoringItem", TinkererClass);

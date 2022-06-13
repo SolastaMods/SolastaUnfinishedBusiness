@@ -80,7 +80,6 @@ ModUi/&EnableSaveByLocation	Abilitare il salvataggio per campagne/luoghi
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Abilita la ricarica di un breve riposo di <color=#FFA500>Arma Arcana</color> su <color=#FFA500>Mago</color> Combattente Arcano
 ModUi/&EnableTeleportParty	Abilita <color=#00FFFF>CTRL-SHIFT-(T</color>)eleport party <i><color=#FFFF00>[potresti interrompere le missioni o le mappe se ti teletrasporti in un luogo sconosciuto]</color></i>.
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Abilita i toggle sul pool di personaggi per impostare il party di gioco e di prova predefinito
-ModUi/&EnableUnityExplorer	Abilita l'interfaccia utente di Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Abilita il recupero illimitato di <color=#FFA500>Arcano</color> su <color=#FFA500>Maestro degli incantesimi</color>\n<i><color=#FF00>Deve essere abilitato quando l'abilità ha usi disponibili o prima della creazione del personaggio</color></i>.
 ModUi/&EnableUpcastConjureElementalAndFey	Abilita l'upcast di <color=#FFA500>Invocare Elementale</color>, <color=#FFA500>Invocare Fey</color>.
 ModUi/&Encounters	Incontri

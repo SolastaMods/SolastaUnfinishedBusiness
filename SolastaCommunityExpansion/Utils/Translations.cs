@@ -26,6 +26,8 @@ public static class Translations
 
     internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
 
+    private static Dictionary<string, string> Glossary = GetWordsDictionary();
+
     private static string GetPayload(string url)
     {
         using var wc = new WebClient();
@@ -156,36 +158,25 @@ public static class Translations
     {
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-        var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
-
-        // special case for unofficial languages
-        if (Main.Settings.SelectedOverwriteLanguageCode != "off")
-        {
-            languageCode = Main.Settings.SelectedOverwriteLanguageCode;
-        }
+        var languageCode = Main.Settings.SelectedOverwriteLanguageCode == "off"
+            ? LocalizationManager.CurrentLanguageCode
+            : Main.Settings.SelectedOverwriteLanguageCode;
 
         foreach (var line in GetFileContent(category, languageCode))
         {
-            string term;
-            string text;
+            var split = line.Split(new[] {'\t'}, 2);
 
-            try
+            if (split.Length != 2)
             {
-                var splitted = line.Split(new[] {'\t', ' '}, 2);
-
-                term = splitted[0];
-                text = splitted[1];
-
-                foreach (var kvp in GetWordsDictionary())
-                {
-                    text = text.Replace(kvp.Key, kvp.Value);
-                }
-            }
-            catch
-            {
-                Main.Error($"invalid translation line \"{line}\".");
-
                 continue;
+            }
+
+            var term = split[0];
+            var text = split[1];
+
+            foreach (var kvp in Glossary)
+            {
+                text = text.Replace(kvp.Key, kvp.Value);
             }
 
             var termData = languageSourceData.GetTermData(term);

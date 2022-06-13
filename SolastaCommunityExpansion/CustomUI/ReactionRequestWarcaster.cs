@@ -167,7 +167,7 @@ public class ReactionRequestWarcaster : ReactionRequest
             var rulesService =
                 ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
-            rulesetCharacter.CanCastSpell(spell, true, out var spellRepertoire);
+            rulesetCharacter.CanCastCantrip(spell, out var spellRepertoire);
             var spellEffect = rulesService.InstantiateEffectSpell(rulesetCharacter, spellRepertoire,
                 spell, spell.SpellLevel, false);
             ReactionParams.RulesetEffect = spellEffect;
