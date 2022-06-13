@@ -79,7 +79,7 @@ internal static class DarkelfRaceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
-
+        //Alter duration to account for granting at 1st level with no concentration or components required
         darkelfFaerieFirePower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
         darkelfFaerieFirePower.EffectDescription.durationParameter = 3;
 
@@ -93,7 +93,7 @@ internal static class DarkelfRaceBuilder
             .SetCostPerUse(1)
             .SetShowCasting(true)
             .AddToDB();
-
+        //Alter duration to account for granting at 1st level with no concentration or components required
         darkelfDarknessPower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
         darkelfDarknessPower.EffectDescription.durationParameter = 3;
 
@@ -118,8 +118,8 @@ internal static class DarkelfRaceBuilder
             .SetSortOrder(47)
             .AddToDB();
 
-        var darkelfSkin5 = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin5", "cb364149-007a-4b0a-8e4e-40797510343b")
+        var darkelfSkin3 = MorphotypeElementDefinitionBuilder
+            .Create(FaceAndSkin_01, "DarkelfSkin3", "cb364149-007a-4b0a-8e4e-40797510343b")
             .SetMainColor(HairColor_40.MainColor)
             .SetSortOrder(47)
             .AddToDB();
