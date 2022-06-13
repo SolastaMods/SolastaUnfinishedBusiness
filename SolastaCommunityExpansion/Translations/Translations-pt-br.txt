@@ -1775,7 +1775,7 @@ Stage/&SubclassSelectionStageSpecialistTitle	Selecionar especialização
 Subclass/&AbilityAffinityRogueConArtistDescription	Vantagem em testes de habilidade usando Persuasão, Enganação, Performance e Prestidigitação.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativo
 Subclass/&AHWarlockSubclassSoulBladePactDescription	Você fez uma barganha com uma arma senciente com a qual você alimenta almas em troca de poder.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacto SoulBlade
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacto Soulblade
 Subclass/&ArcaneFighterAdditionalActionDescription	Você pode lançar um feitiço depois de derrotar um inimigo com seus ataques de arma.
 Subclass/&ArcaneFighterAdditionalActionTitle	Combate a Feitiços
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Uma vez por turno, seus ataques com arma causam 1d8 de dano extra.
@@ -2042,7 +2042,7 @@ Subclass/&TraditionSpellMasterTitle	Mestre de Feitiços
 Subclass/&WarlockAncientForestDescription	Você forjou um relacionamento com uma poderosa entidade da natureza: Dríades Antigas, Arquidruidas, Manifestações da Faéria sangrando no plano material, deuses esquecidos de uma era primitiva. Seu patrono pode desejar que você proteja o mundo natural, viaje para terras distantes que ele não pode, ou pode ter outro motivo que parece inescrutável para mortais de vida curta.
 Subclass/&WarlockAncientForestTitle	Pacto da Floresta Antiga
 Subclass/&WarlockMoonLitDescription	Seu patrono é um espírito da lua, uma entidade que incorpora a natureza cíclica da luz e da escuridão. Esses espíritos procuram manter o poder da lua sobre o céu noturno enquanto mantêm os poderes profanos que perseguem a escuridão à distância e encarregam seus feiticeiros do mesmo, concedendo-lhes o comando sobre os poderes da lua e seus efeitos.
-Subclass/&WarlockMoonLitTitle	Pacto MoonLit
+Subclass/&WarlockMoonLitTitle	Pacto Moonlit
 Subclass/&WarlockToadKingDescription	Fey, demônio ou aberração causada pelo Cataclismo, a verdadeira natureza do Toad King não é conhecida, mas sabe-se que o Toad King governa uma grande área de pântanos e pântanos dentro das Badlands e oferece poder para aqueles dispostos a servir.
 Subclass/&WarlockToadKingTitle	Pacto Rei Sapo
 Subclass/&WarlockUrPriestDescription	Enquanto a grande maioria dos conjuradores divinos obtêm seus poderes de uma divindade, há aqueles que desprezam os deuses. Aqueles que se chamam Ur-sacerdotes aprenderam a sugar as energias divinas concedidas pelos deuses aos seus conjuradores divinos, usando-as para suas próprias necessidades sem dar nem mesmo palavrões a nenhum deus. Como um Ur-sacerdote, você difere da maioria dos feiticeiros, sem um patrono que lhe conceda seu poder. Invocações sobrenaturais que você descobre são formas distorcidas de magia que os deuses podem conceder a seus patronos, enquanto as Dádivas do Pacto são provavelmente artefatos divinos que você conseguiu roubar.

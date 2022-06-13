@@ -1775,7 +1775,7 @@ Stage/&SubclassSelectionStageSpecialistTitle	Sélectionnez la spécialisation
 Subclass/&AbilityAffinityRogueConArtistDescription	Avantage aux tests de capacité utilisant Persuasion, Tromperie, Performance et Tour de passe-passe.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulateur
 Subclass/&AHWarlockSubclassSoulBladePactDescription	Vous avez conclu un marché avec une arme sensible que vous nourrissez des âmes en échange de pouvoir.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacte SoulBlade
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacte Soulblade
 Subclass/&ArcaneFighterAdditionalActionDescription	Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
 Subclass/&ArcaneFighterAdditionalActionTitle	Combat de sorts
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Une fois par tour, vos attaques avec une arme infligent 1d8 dégâts supplémentaires.

@@ -1063,9 +1063,9 @@ Feature/&MagicAffinityRangerArcanistDescription	You are proficient at casting sp
 Feature/&MagicAffinityRangerArcanistTitle	Arcane Combat Training 
 Feature/&MiretheMindTitle	Mire the Mind
 Feature/&MoonLitDarknessImmunityDescription	You are Immune to the Darkness condition.
-Feature/&MoonLitDarknessImmunityTitle	MoonLit Darkness
+Feature/&MoonLitDarknessImmunityTitle	Moonlit Darkness
 Feature/&MoonLitExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
-Feature/&MoonLitExpandedSpelllistAfinityTitle	MoonLit Spells
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Moonlit Spells
 Feature/&MoonLitLightAffinityDescription	If you start your turn in natural darkness, you become invisibility. Moving, attacking or using any power or spell that does not only target yourself breaks the invisibility.
 Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak now works in dim light and magical darkness.
 Feature/&MoonLitLightAffinityStrongTitle	Improved Umbral Cloak
@@ -1775,7 +1775,7 @@ Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
 Subclass/&AbilityAffinityRogueConArtistDescription	Advantage on ability checks using Persuasion, Deception, Performance, and Sleight of Hand.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulative
 Subclass/&AHWarlockSubclassSoulBladePactDescription	You have struck a bargain with a sentient weapon that you feed souls to in return for power.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade Pact
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Soulblade Pact
 Subclass/&ArcaneFighterAdditionalActionDescription	You can cast a spell after defeating an enemy with your weapon attacks.
 Subclass/&ArcaneFighterAdditionalActionTitle	Spell Fighting
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Once per turn, your weapon attacks deal an extra 1d8 damage.
@@ -2042,7 +2042,7 @@ Subclass/&TraditionSpellMasterTitle	Spell Master
 Subclass/&WarlockAncientForestDescription	You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
 Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
-Subclass/&WarlockMoonLitTitle	MoonLit Pact
+Subclass/&WarlockMoonLitTitle	Moonlit Pact
 Subclass/&WarlockToadKingDescription	Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
 Subclass/&WarlockToadKingTitle	Toad King Pact
 Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
