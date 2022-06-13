@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 using ModKit;
 using UnityExplorer;
 using static SolastaCommunityExpansion.Displays.PatchesDisplay;
@@ -23,9 +25,7 @@ internal static class CreditsDisplay
 
     internal static readonly Dictionary<string, string> CreditsTable = new()
     {
-        {
-            "AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"
-        },
+        {"AceHigh", "SoulBlade subclass, Tactician subclass, feats, no identification"},
         {"Bazou", "Witch class, fighting styles"},
         {"Boofat", "alwaysAlt"},
         {"Burtsev-Alexey", "deep copy algorithm"},
@@ -75,27 +75,67 @@ internal static class CreditsDisplay
 
     private static bool IsUnityExplorerEnabled { get; set; }
 
+    private static void OpenUrl(string url)
+    {
+        try
+        {
+            Process.Start(url);
+        }
+        catch
+        {
+            // hack because of this: https://github.com/dotnet/corefx/issues/10361
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                url = url.Replace("&", "^&");
+                Process.Start(new ProcessStartInfo(url) {UseShellExecute = true});
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                Process.Start("xdg-open", url);
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                Process.Start("open", url);
+            }
+            else
+            {
+                throw;
+            }
+        }
+    }
+
     internal static void DisplayCredits()
     {
-        if (IsUnityExplorerInstalled)
-        {
-            UI.Label("");
-            UI.ActionButton(Gui.Localize("ModUi/&EnableUnityExplorer"), () =>
-            {
-                if (!IsUnityExplorerEnabled)
-                {
-                    IsUnityExplorerEnabled = true;
+        UI.Label("");
 
-                    try
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("Donations".bold().orange(), () =>
+            {
+                OpenUrl(
+                    "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
+            }, UI.Width(120));
+
+            if (IsUnityExplorerInstalled)
+            {
+                UI.ActionButton(Gui.Localize("ModUi/&EnableUnityExplorer"), () =>
+                {
+                    if (!IsUnityExplorerEnabled)
                     {
-                        ExplorerStandalone.CreateInstance();
+                        IsUnityExplorerEnabled = true;
+
+                        try
+                        {
+                            ExplorerStandalone.CreateInstance();
+                        }
+                        catch
+                        {
+                        }
                     }
-                    catch
-                    {
-                    }
-                }
-            }, UI.AutoWidth());
+                }, UI.AutoWidth());
+            }
         }
+
 
 #if false
             UI.Label("");
