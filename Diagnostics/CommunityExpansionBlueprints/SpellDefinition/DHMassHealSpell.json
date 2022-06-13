@@ -18,7 +18,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
     "itemSelectionType": "None",
-    "targetParameter": 14,
+    "targetParameter": 6,
     "targetParameter2": 1,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -87,7 +87,7 @@
           "healingComputation": "Dice",
           "diceNumber": 0,
           "dieType": "D1",
-          "bonusHealing": 50,
+          "bonusHealing": 120,
           "variablePool": false,
           "healingCap": "MaximumHitPoints"
         },

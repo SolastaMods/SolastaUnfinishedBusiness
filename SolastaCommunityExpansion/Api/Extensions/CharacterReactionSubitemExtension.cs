@@ -46,12 +46,12 @@ internal static class CharacterReactionSubitemExtension
         instance.SubitemSelected = subitemSelected;
 
         var rectTransform = toggle.GetComponent<RectTransform>();
-        
+
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
         // Hide all slots
         var slotStatusTable = instance.slotStatusTable;
-        
+
         for (var index = 0; index < slotStatusTable.childCount; ++index)
         {
             slotStatusTable.GetChild(index).gameObject.SetActive(false);
@@ -85,12 +85,12 @@ internal static class CharacterReactionSubitemExtension
         instance.SubitemSelected = subitemSelected;
 
         var rectTransform = toggle.GetComponent<RectTransform>();
-        
+
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 250);
 
         // Hide all slots
         var slotStatusTable = instance.slotStatusTable;
-        
+
         for (var index = 0; index < slotStatusTable.childCount; ++index)
         {
             slotStatusTable.GetChild(index).gameObject.SetActive(false);
@@ -100,7 +100,7 @@ internal static class CharacterReactionSubitemExtension
     private static GuiTooltip GetOrMakeBackgroundTooltip(Transform root)
     {
         var background = root.FindChildRecursive("Background");
-        
+
         if (background == null)
         {
             return null;

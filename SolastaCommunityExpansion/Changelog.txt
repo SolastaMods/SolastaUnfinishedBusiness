@@ -1,10 +1,6 @@
-﻿- Fix to hit bonus on Titan Fighting
-
-REQUEST:
-
-- Looking for native ES and IT speakers to improve initial translations from DeepL
-- Contact Zappastuff at Official Tactical Adventures Discord to learn how to help
+﻿- Fix War Caster feat incorrectly calculating to hit bonus
 
 PATRONAGE:
 
-- Check the stick post on Nexus if you believe you can contribute towards translations
+- Check the stick post on Nexus if you can financially contribute
+- Money is being spent on software subscriptions like DeepL, etc.

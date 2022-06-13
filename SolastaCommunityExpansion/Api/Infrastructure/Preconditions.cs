@@ -69,7 +69,7 @@ public static class Preconditions
     {
         if (!left.Equals(right))
         {
-            throw new SolastaModApiException(message);
+            throw new SolastaCommunityExpansionException(message);
         }
     }
 }
