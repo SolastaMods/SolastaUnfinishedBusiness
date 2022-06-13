@@ -166,26 +166,19 @@ public static class Translations
 
         foreach (var line in GetFileContent(category, languageCode))
         {
-            string term;
-            string text;
+            var splitted = line.Split(new[] {'\t'}, 2);
 
-            try
+            if (splitted.Length != 2)
             {
-                var splitted = line.Split(new[] {'\t', ' '}, 2);
-
-                term = splitted[0];
-                text = splitted[1];
-
-                foreach (var kvp in GetWordsDictionary())
-                {
-                    text = text.Replace(kvp.Key, kvp.Value);
-                }
-            }
-            catch
-            {
-                Main.Error($"invalid translation line \"{line}\".");
-
                 continue;
+            }
+
+            var term = splitted[0];
+            var text = splitted[1];
+
+            foreach (var kvp in GetWordsDictionary())
+            {
+                text = text.Replace(kvp.Key, kvp.Value);
             }
 
             var termData = languageSourceData.GetTermData(term);
