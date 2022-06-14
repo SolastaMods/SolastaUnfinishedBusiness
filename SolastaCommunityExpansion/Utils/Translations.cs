@@ -143,19 +143,19 @@ public static class Translations
 
     internal static IEnumerable<string> GetTranslations(string languageCode)
     {
-        using var stream = new MemoryStream(Resources.Translations);
-        using var zip = new ZipArchive(stream, ZipArchiveMode.Read);
+        using var zipStream = new MemoryStream(Resources.Translations);
+        using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         foreach (var entry in zip.Entries
                      .Where(x => x.FullName.StartsWith(languageCode))
                      .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
         {
-            var dataStream = entry.Open();
-            var reader = new StreamReader(dataStream);
+            using var dataStream = entry.Open();
+            using var data = new StreamReader(dataStream);
 
-            while (!reader.EndOfStream)
+            while (!data.EndOfStream)
             {
-                yield return reader.ReadLine();
+                yield return data.ReadLine();
             }
         }
     }
