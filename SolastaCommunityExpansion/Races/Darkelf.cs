@@ -80,9 +80,6 @@ internal static class DarkelfRaceBuilder
             .SetShowCasting(true)
             .AddToDB();
         darkelfFaerieFirePower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
-        //Alter duration to account for granting at 1st level with no concentration or components required
-        darkelfFaerieFirePower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
-        darkelfFaerieFirePower.EffectDescription.durationParameter = 3;
 
         var darkelfDarknessPower = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness", "0c413f86-2fa8-4f3d-999a-89e6c7b5b14d")
@@ -96,8 +93,7 @@ internal static class DarkelfRaceBuilder
             .AddToDB();
         darkelfDarknessPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
         //Alter duration to account for granting at 1st level with no concentration or components required
-        darkelfDarknessPower.EffectDescription.durationType = RuleDefinitions.DurationType.Round;
-        darkelfDarknessPower.EffectDescription.durationParameter = 3;
+        darkelfDarknessPower.EffectDescription.durationParameter = 1;
 
         var darkelfWeaponTraining = FeatureDefinitionProficiencyBuilder
             .Create("DarkelfWeaponTraining", "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea")
@@ -109,32 +105,16 @@ internal static class DarkelfRaceBuilder
             .AddToDB();
 
         var darkelfSkin1 = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin1", "92a6831a-883b-4251-b768-5fd368554006")
-            .SetMainColor(HairColorBlack.MainColor)
-            .SetSortOrder(47)
-            .AddToDB();
-
-        var darkelfSkin2 = MorphotypeElementDefinitionBuilder
             .Create(FaceAndSkin_01, "DarkelfSkin2", "d26c8ce0-884f-4abd-90fd-dc961802c48d")
             .SetMainColor(BodyDecorationColor_Default_00.MainColor)
-            .SetSortOrder(47)
-            .AddToDB();
-
-        var darkelfSkin3 = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin3", "cb364149-007a-4b0a-8e4e-40797510343b")
-            .SetMainColor(HairColor_40.MainColor)
-            .SetSortOrder(47)
+            .SetSortOrder(48)
             .AddToDB();
 
         var darkelfHairColor1 = MorphotypeElementDefinitionBuilder
             .Create(HairColorSilver, "DarkelfHair1", "7dd1a932-69d3-4d51-b9c6-eccaaed90007")
             .SetMainColor(FaceAndSkin_Neutral.MainColor)
             .SetSortOrder(1)
-            .AddToDB();
-        
-        //move existing skin at targeted sort order
-        //this only moves the color in the selection screen and should have no effect on existing characters
-        FaceAndSkin_20.GuiPresentation.sortOrder = 16;
+            .AddToDB();      
 
         //doing a deep copy of Elf did not allow me to set prefered skin colors, neither did creating Darkelf as a subrace of Elf
         var darkelfRacePresentation = new RacePresentation();
@@ -154,7 +134,7 @@ internal static class DarkelfRaceBuilder
         darkelfRacePresentation.maleVoiceDefinition = Elf.RacePresentation.MaleVoiceDefinition;
         darkelfRacePresentation.femaleVoiceDefinition = Elf.RacePresentation.FemaleVoiceDefinition;
         darkelfRacePresentation.portraitShieldOffset = Elf.RacePresentation.PortraitShieldOffset;
-        darkelfRacePresentation.preferedSkinColors = new RangedInt(47, 48);
+        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 48);
         darkelfRacePresentation.preferedHairColors = new RangedInt(0, 2);
 
         var darkelf = CharacterRaceDefinitionBuilder
