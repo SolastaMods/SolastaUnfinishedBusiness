@@ -1,9 +1,9 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells.
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
-AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score equals 1.
+AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score is set to 1.
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
-AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score equals 1.
+AttributeModifier/&DHFeeblemindIntSpellDescription	Charisma score is set to 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble Intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
@@ -15,10 +15,10 @@ Class/&TinkererDescription	Tinkerers are inventors, alchemists, and more. They b
 Class/&TinkererTitle	Tinkerer
 Class/&WitchArmorProficiencyDescription	Light Armor.
 Class/&WitchArmorProficiencyTitle	Witch Armor Proficiencies
-Class/&WitchBurnedFireResistanceDescription	Burned Fire resistance.
-Class/&WitchBurnedFireResistanceTitle	Fire Resistance
-Class/&WitchBurnedProduceFlameDescription	Burned Produce Flame power.
-Class/&WitchBurnedProduceFlameTitle	Produce Flame
+Class/&WitchBurnedFireResistanceDescription	You have resistance to fire damage.
+Class/&WitchBurnedFireResistanceTitle	Burned: Fire Resistance
+Class/&WitchBurnedProduceFlameDescription	You know the cantrip Produce Flame, which does not count against your total number of cantrips known.
+Class/&WitchBurnedProduceFlameTitle	Burned: Produce Flame
 Class/&WitchCacklePowerDescription	You can use your bonus action to cackle. The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you.\nNot all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
 Class/&WitchCacklePowerTitle	Cackle
 Class/&WitchDescription	Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
@@ -29,11 +29,11 @@ Class/&WitchFeatureSetBurnedCurseTitle	Burned
 Class/&WitchFeatureSetLovelessCurseDescription	You are cursed to never find true love. Jaded and disaffected, not even magic can turn your heart; as a result, you are immune to being charmed.
 Class/&WitchFeatureSetLovelessCurseTitle	Loveless
 Class/&WitchFeatureSetRitualCastingDescription	You can cast any Witch spell you know as a ritual if that spell has the ritual tag.
-Class/&WitchFeatureSetRitualCastingTitle	Witch Ritual Casting
+Class/&WitchFeatureSetRitualCastingTitle	Witch: Ritual Casting
 Class/&WitchFeatureSetVisionsCurseDescription	You are cursed to have terrible visions of the future, presaging the death of your friends, family, and yourself. However many of these visions are cruel deceptions, they are sometimes grimly accurate. You can add your Charisma modifier, in addition to your Dexterity modifier, to your initiative rolls.
 Class/&WitchFeatureSetVisionsCurseTitle	Visions
-Class/&WitchLovelessCharmImmunityDescription	Loveless Charm immunity.
-Class/&WitchLovelessCharmImmunityTitle	Charm Immunity
+Class/&WitchLovelessCharmImmunityDescription	You are immune to being charmed.
+Class/&WitchLovelessCharmImmunityTitle	Loveless: Charm Immunity
 Class/&WitchMaledictionAbateDescription	As an action, choose one creature you can see within 60 feet of you to make a Charisma saving throw. On a failed save, the creature can't take reactions until the end of your next turn.
 Class/&WitchMaledictionAbateTitle	Abate Malediction
 Class/&WitchMaledictionApathyDescription	As an action, choose one creature you can see within 60 feet of you to make a Charisma saving throw. On a failed save, until the end of your next turn, the creature becomes indifferent toward one creature of your choice that it is hostile towards. This indifference ends if the target is attacked or harmed by a spell by the creature to which it is indifferent.
@@ -50,31 +50,31 @@ Class/&WitchMaledictionPoxDescription	As an action, choose one creature you can 
 Class/&WitchMaledictionPoxTitle	Pox Malediction
 Class/&WitchMaledictionRuinDescription	As an action, choose one creature you can see within 60 feet to make a Constitution saving throw. On a failed save, the creature's Armor Class decreases by 3, to a minimum of 10, until the end of your next turn.
 Class/&WitchMaledictionRuinTitle	Ruin Malediction
-Class/&WitchRitualCastingMagicAffinityDescription	Ritual Casting affinity.
+Class/&WitchRitualCastingMagicAffinityDescription	You can cast a witch spell as a ritual if that spell has the ritual tag and you have the spell prepared.
 Class/&WitchRitualCastingMagicAffinityTitle	Ritual Casting
 Class/&WitchSavingthrowProficiencyDescription	Wisdom, Charisma.
 Class/&WitchSavingthrowProficiencyTitle	Witch Saving Throw Proficiencies
 Class/&WitchSkillProficiencyDescription	Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, Nature, and Religion.
 Class/&WitchSkillProficiencyTitle	Witch Skills
-Class/&WitchSpellcastingDescription	Can cast spells from the Witch spell list.
+Class/&WitchSpellcastingDescription	You are a witch who is capable of casting spells from the witch spell list.
 Class/&WitchSpellcastingTitle	Witch Spellcasting
 Class/&WitchTitle	Witch
 Class/&WitchToolProficiencyDescription	Choose one from Herbalist Kit and Poisoner's Kit.
 Class/&WitchToolProficiencyTitle	Witch Tool Proficiencies
-Class/&WitchVisionsInitiativeDescription	Visions Initiative.
+Class/&WitchVisionsInitiativeDescription	You add your Charisma modifier to your initiative rolls.
 Class/&WitchVisionsInitiativeTitle	Visions Initiative
 Class/&WitchWeaponProficiencyDescription	Simple Weapons.
 Class/&WitchWeaponProficiencyTitle	Witch Weapon Proficiencies
-Condition/&AbateDescription	Abate condition.
+Condition/&AbateDescription	Cannot use reactions.
 Condition/&AbateTitle	Abate
 Condition/&AncientForestPhotosynthesisDescription	You can absorb energy from sunlight. While you are in direct bright light, you regain 2 HP at the start of your turn.
 Condition/&AncientForestPhotosynthesisTitle	Photosynthesis
 Condition/&AncientForestRootedConditionDescription	Arboreal tendrils grow from your feet and dig into the ground. You can cast entangle at will. Your speed becomes 0 and you gain advantage on any saving throws to push you, pull you, or knock you prone.
 Condition/&AncientForestRootedConditionTitle	Rooted
-Condition/&ApathyDescription	Apathy condition.
+Condition/&ApathyDescription	Indifferent to target creature that it is hostile towards. This indifference ends if the target is attacked or harmed by a spell by the targeted creature.
 Condition/&ApathyTitle	Apathy
-Condition/&CharmDescription	Charm condition.
-Condition/&CharmTitle	Charm
+Condition/&CharmDescription	Considers the caster an ally.
+Condition/&CharmTitle	Charmed
 Condition/&ClassMonkEmptyBodyConditionDescription	You have resistance to all damage but force.
 Condition/&ClassMonkEmptyBodyConditionTitle	Empty Body
 Condition/&ClassMonkOpenHandDistractConditionDescription	Cannot use reactions.
