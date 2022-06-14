@@ -1,0 +1,110 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "LightUp",
+  "searchKey": "Light_Up",
+  "eventProbability": 0.3,
+  "selfProbability": 1.0,
+  "playbackDelay": 0.5,
+  "canUseWhileCautious": false,
+  "eventVariants": [
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Light_up_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Light_up_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical3_Light_up_Self",
+      "list": "Cynical",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Light_up_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Light_up_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious3_Light_up_Self",
+      "list": "Serious",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Light_up_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Light_up_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic3_Light_up_Self",
+      "list": "Heroic",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Light_up_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Light_up_Self",
+      "list": "Formal",
+      "mode": "Self"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal3_Light_up_Self",
+      "list": "Formal",
+      "mode": "Self"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "284e63716561a424da509e713aea8e5f",
+  "contentPack": "BaseGame",
+  "name": "BanterEventLightUp"
+}

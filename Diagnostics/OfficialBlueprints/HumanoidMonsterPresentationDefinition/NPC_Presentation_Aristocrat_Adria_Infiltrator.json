@@ -1,0 +1,81 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:HalfElf:bf7685e7b813d8c46a7d903080d23541",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinObsidian",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 100.0,
+  "faceShapeMorphotype": "FaceShape_HalfElf_F",
+  "hairShapeMorphotype": "HairShape_L",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorInfiltrator",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "armorDefinition": "ClothesNoble",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.243137211,
+    "g": 0.3960784,
+    "b": 0.68235296,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.6698113,
+    "g": 0.6698113,
+    "b": 0.6698113,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_Adria_Title",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "53bdc5b10374fc84dbda22e2afc0fcef",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Aristocrat_Adria_Infiltrator",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "95bc196555c9d6946903d2df4493f4a6",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_Aristocrat_Adria_Infiltrator"
+}

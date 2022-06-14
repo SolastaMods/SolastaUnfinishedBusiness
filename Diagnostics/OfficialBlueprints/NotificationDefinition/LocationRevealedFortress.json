@@ -1,0 +1,36 @@
+{
+  "$type": "NotificationDefinition, Assembly-CSharp",
+  "displayType": "None",
+  "contextualImageSize": {
+    "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+    "x": 78.0,
+    "y": 78.0
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Notification/&LocationRevealedTitle",
+    "description": "Notification/&LocationRevealedDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cd3bd189c76e926439b605e7f1bf8e2b",
+      "m_SubObjectName": "LocationTypeFortress",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.9607844,
+      "g": 0.7058824,
+      "b": 0.5254902,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ff402e6b960dec84d90787e657cb5c3f",
+  "contentPack": "BaseGame",
+  "name": "LocationRevealedFortress"
+}

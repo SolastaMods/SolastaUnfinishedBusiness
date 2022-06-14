@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionDieRollModifier, Assembly-CSharp",
+  "minRollValue": 0,
+  "maxRollValue": 8,
+  "minRerollValue": 0,
+  "rerollCount": 1,
+  "rerollLocalizationKey": "",
+  "forcedMinimalHalfDamageOnDice": false,
+  "validityContext": "SavingThrow, AttackRoll",
+  "requireProficiency": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "474bf6afc5d2be046a0156354e72156b",
+  "contentPack": "BaseGame",
+  "name": "DieRollModifierTutorialWolfSavingThrowAndAttackRollPenalty"
+}

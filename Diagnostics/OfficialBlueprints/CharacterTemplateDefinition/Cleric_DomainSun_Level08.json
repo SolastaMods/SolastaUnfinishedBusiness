@@ -1,0 +1,162 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": true,
+  "firstName": "Sun",
+  "surName": "Cleric",
+  "abilityScores": [
+    13,
+    9,
+    13,
+    10,
+    18,
+    10
+  ],
+  "automateAbilityScoreIncreases": true,
+  "mainRace": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRace": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "mainClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
+  "subClass": "Definition:DomainSun:d9a0a0fa09fd2974a9760c7e070a2c20",
+  "deity": "Definition:Arun:9fe6be99f689cc94683098b128c799d8",
+  "background": "Definition:KS_VigdisKaikonnen:82e1753ab9429a84689ae3ed4caf7cec",
+  "backgroundPersonalityFlag1": "",
+  "backgroundPersonalityFlag2": "",
+  "alignment": "LawfulGood",
+  "alignmentPersonalityFlag1": "Authority",
+  "alignmentPersonalityFlag2": "Lawfulness",
+  "fightingStyle": null,
+  "equipment": [
+    "Definition:Backpack:9548f1e58e784c34aaee1a179c7ff3d5",
+    "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+    "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:ScaleMail:c0c731016e162ca449b006881935a1cf",
+    "Definition:HolySymbolAmulet:8c3c56e926a899447abdff0c6fee3ff3",
+    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+    "Definition:Candle:f32994a2227137f4684c54cb148faff5",
+    "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:ScrollRevivify:67a2c72f62b599946923a0a95a85e45c",
+    "Definition:ScrollRaiseDead:c1d6f26b1782eed42aee7f4168d2c73e"
+  ],
+  "startingMoney": [
+    0,
+    98,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Insight",
+    "Religion"
+  ],
+  "toolsOverride": [
+    "GamingSetDiceType"
+  ],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 8,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [
+    "Definition:Guidance:94ed96edd24acbe4f87e72375221868a",
+    "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+    "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
+    "Definition:SacredFlame:e49182bcdd6632e428a185bd55ef8355",
+    "Definition:SpareTheDying:4f1e3d9c88278a94fbc457664ab8d6bf"
+  ],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [
+    "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+    "Definition:Bless:c2c3de28b2c1e294f9a604cdf03b9fd8",
+    "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+    "Definition:GuidingBolt:97277a5063bcd6d48af24984618dc218",
+    "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+    "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
+    "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
+    "Definition:ShieldOfFaith:eb2cf2e67b1a4fb458de58dcee2bd309",
+    "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+    "Definition:Aid:d2af062b671377f449bad1b3f920d331",
+    "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+    "Definition:EnhanceAbility:08840275ddebe7f40abaa4bc145ee9f8",
+    "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+    "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+    "Definition:PrayerOfHealing:f560b05d2587f5e4894220356a589968",
+    "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af",
+    "Definition:RaiseDead:d35f9eee1baf295468f1dd7c696a15ba",
+    "Definition:SpiritualWeapon:2a304c1b2bfa7be4c9cf7c7e08268fd7",
+    "Definition:BeaconOfHope:5252b1be2462c8140ada004d265e277b",
+    "Definition:CreateFood:ec735d1c4c89e0a4eb77dd6422948d3b",
+    "Definition:Daylight:73762817061cfec47b824d2f3a9fc3f6",
+    "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+    "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
+    "Definition:RemoveCurse:ecabaf5104767c04b9a6549866fccfa0",
+    "Definition:SpiritGuardians:e44bc16c38bca35458599d87cf6def2d"
+  ],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 47,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Mace:639725eb1a28ef242851668eb3d5b2e7",
+      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "eb2fd33061188314c9c381f302e75e80",
+      "m_SubObjectName": "Cleric_DomainSun_Level08",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9fec9c8df27465747a660134eb57232a",
+  "contentPack": "BaseGame",
+  "name": "Cleric_DomainSun_Level08"
+}

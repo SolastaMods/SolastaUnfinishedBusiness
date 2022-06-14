@@ -1,0 +1,81 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Dwarf:2e3395f10bfa00e4487d852ec3b20154",
+  "subRaceDefinition": "Definition:DwarfSnow:a826525c554ef754ca0e841c8d072749",
+  "sex": "Male",
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinCopperish",
+  "musculatureMorphotypeValue": 0.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_A",
+  "hairShapeMorphotype": "HairShape_B",
+  "hairColorMorphotype": "HairColorBlond",
+  "beardShapeMorphotype": "BeardShape_B",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorInfiltrator",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "",
+  "armorDefinition": "ChainMail",
+  "helmetDefinition": "",
+  "tabardDefinition": "ClothesTabard",
+  "showHelmet": false,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.294976056,
+    "g": 0.5849056,
+    "b": 0.2896938,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.5188679,
+    "g": 0.129716977,
+    "b": 0.161267653,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.14778392,
+    "g": 0.386792481,
+    "b": 0.173682272,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.521568656,
+    "g": 0.13333334,
+    "b": 0.164705887,
+    "a": 0.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_CoparannGuardSorakAgentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a771297dcb2964c44aebaf22a2dfc5a8",
+      "m_SubObjectName": "CustomPortrait_NPC_Presentation_Generic_Coparann_Guard_SorakAgent",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "aef212d3e5aa9b44097e1caa00fa635c",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_Generic_Coparann_Guard_SorakAgent"
+}

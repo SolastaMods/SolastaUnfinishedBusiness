@@ -1,0 +1,43 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:CAERLEM_TirmarianHolySymbol:78fdea671943ffc4b87a535a9bb46210",
+  "stackCount": 1,
+  "craftingHours": 16,
+  "craftingDC": 16,
+  "toolTypeDefinition": "Definition:ArtisanToolSmithToolsType:b28d62b91f1361f4f8b0d45fc28dbd14",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Art_Item_50_GP_JadePendant:b65b0cc716ebd5044a00a54574f08cab"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&CaerLem_TirmarianSymbol_Title",
+    "description": "Equipment/&CaerLem_TirmarianSymbol_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4479733322e23c940bf882a5d103de87",
+      "m_SubObjectName": "CAERLEM_TirmarianHolySymbol",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5fa86c8e-700e-574e-a4a7-2be9c4d85ccc",
+  "contentPack": 9999,
+  "name": "RecipeForgeryCAERLEM_TirmarianHolySymbol"
+}

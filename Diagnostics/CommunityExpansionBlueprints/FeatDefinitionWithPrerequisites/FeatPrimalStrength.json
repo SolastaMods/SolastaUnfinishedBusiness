@@ -1,0 +1,48 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:ActionAffinityBarbarianRage:5ad2d2b8a7e2501409720849c9f886c3",
+    "Definition:AttributeModifierBarbarianRageDamageAdd:9125b022f68e4fd47a784a3c77f7eb3e",
+    "Definition:AttributeModifierBarbarianRageDamageAdd:9125b022f68e4fd47a784a3c77f7eb3e",
+    "Definition:AttributeModifierBarbarianRagePointsAdd:a972ffba165be34418cd0a6fa8b85f10",
+    "Definition:AttributeModifierBarbarianUnarmoredDefense:4a68fe3fbe3d0434cb517af7e7535d5c",
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e",
+    "Definition:PowerBarbarianRageStart:e7a28acc3db191643891258016ef8779"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatPrimalStrengthTitle",
+    "description": "Feat/&FeatPrimalStrengthDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "166370bc-51cb-5639-9929-06d1d121ea0e",
+  "contentPack": 9999,
+  "name": "FeatPrimalStrength"
+}

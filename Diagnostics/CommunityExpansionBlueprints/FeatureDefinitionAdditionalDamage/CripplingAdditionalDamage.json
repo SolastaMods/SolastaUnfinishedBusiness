@@ -1,0 +1,125 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "CripplingFightingStyle",
+  "limitedUsage": "None",
+  "triggerCondition": "AlwaysActive",
+  "requiredProperty": "MeleeWeapon",
+  "attackModeOnly": false,
+  "requiredTargetCondition": null,
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "damageValueDetermination": "Die",
+  "damageDieType": "D1",
+  "damageDiceNumber": 0,
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "Radiant",
+  "damageAdvancement": "ClassLevel",
+  "diceByRankTable": [],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "damageSaveAffinity": "None",
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:CripplingConditionDefinition:61599007-57a3-5686-810d-58ca00bbe671",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
+  "addLightSource": false,
+  "lightSourceForm": {
+    "$type": "LightSourceForm, Assembly-CSharp",
+    "lightSourceType": "Basic",
+    "brightRange": 4,
+    "dimAdditionalRange": 4,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "graphicsPrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "applyToSelf": false
+  },
+  "impactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "particlesBasedOnAncestryDamageType": false,
+  "acidImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "coldImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "fireImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "lightningImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "poisonImpactParticleReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "computeDescription": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Modifier/&CripplingAdditionalDamageTitle",
+    "description": "Modifier/&CripplingAdditionalDamageDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "93583bcb-0031-5240-abbf-2c25297ba4ad",
+  "contentPack": 9999,
+  "name": "CripplingAdditionalDamage"
+}

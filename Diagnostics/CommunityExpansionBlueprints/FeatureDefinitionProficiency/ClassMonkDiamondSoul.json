@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "SavingThrow",
+  "proficiencies": [
+    "Charisma",
+    "Constitution",
+    "Dexterity",
+    "Intelligence",
+    "Strength",
+    "Wisdom"
+  ],
+  "forbiddenItemTags": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassMonkDiamondSoulTitle",
+    "description": "Feature/&ClassMonkDiamondSoulDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c4fb60a3-74a2-574b-be2c-c4c054dff8f6",
+  "contentPack": 9999,
+  "name": "ClassMonkDiamondSoul"
+}

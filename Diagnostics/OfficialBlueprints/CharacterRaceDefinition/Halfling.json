@@ -1,0 +1,237 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
+  "defaultAlignement": "LawfulGood",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 150,
+  "baseHeight": 0,
+  "baseWeight": 0,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierHalflingAbilityScoreIncrease:572006887bc6cc94e982dc0ed8e5d903",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ConditionAffinityHalflingBrave:fe7490b0a47723c4998036a8c2dc5cce",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DieRollModifierHalfingLucky:8b06899d2a893244fabe45430b25530d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveThroughEnemyModifierHalflingNimbleness:6ae832e9873b6e94289d046c87ea2e0f",
+      "level": 1
+    }
+  ],
+  "subRaces": [
+    "Definition:HalflingMarsh:7d54ea787abc11642a15214c750157f3",
+    "Definition:HalflingIsland:487b212a28e81714198a6acc3472e018"
+  ],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "HalflingFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Elvish",
+    "Language_Goblin",
+    "Language_Orc",
+    "Language_Terran"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 5.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Halfling",
+    "morphotypeAssetPrefix": "Halfling",
+    "maleNameOptions": [
+      "Race/&HalflingMaleName1Title",
+      "Race/&HalflingMaleName2Title",
+      "Race/&HalflingMaleName3Title",
+      "Race/&HalflingMaleName4Title",
+      "Race/&HalflingMaleName5Title",
+      "Race/&HalflingMaleName6Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&HalflingFemaleName1Title",
+      "Race/&HalflingFemaleName2Title",
+      "Race/&HalflingFemaleName3Title",
+      "Race/&HalflingFemaleName4Title",
+      "Race/&HalflingFemaleName5Title",
+      "Race/&HalflingFemaleName6Title",
+      "Race/&HalflingFemaleName7Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&HalflingSurNameTitle",
+    "surNameOptions": [
+      "Race/&HalflingSurName1Title",
+      "Race/&HalflingSurName2Title",
+      "Race/&HalflingSurName3Title",
+      "Race/&HalflingSurName4Title",
+      "Race/&HalflingSurName5Title",
+      "Race/&HalflingSurName6Title"
+    ],
+    "needBeard": false,
+    "canModifyMusculature": false,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Priest_of_Maraike",
+      "FaceShape_NPC_Wilf_Warmhearth",
+      "FaceShape_NPC_Renno_Highwater",
+      "FaceShape_NPC_Hanno_Mudstrider",
+      "FaceShape_NPC_Krim_Sunsail"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_D",
+      "FaceShape_E",
+      "FaceShape_F",
+      "FaceShape_A",
+      "FaceShape_B",
+      "FaceShape_C",
+      "FaceShape_NPC_Annie_Bagmordah",
+      "FaceShape_NPC_Mildred_Warmhearth",
+      "FaceShape_NPC_Maddy_Greenisle",
+      "FaceShape_NPC_Rose_Fairwind"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_C",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P"
+    ],
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "NEUTRAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.08,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&HalflingTitle",
+    "description": "Race/&HalflingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "12c20f39d1b9b7a46954c61b0d16412f",
+      "m_SubObjectName": "IslandHalfling",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "d6a9a559998c0974abd8077d7012ef84",
+  "contentPack": "BaseGame",
+  "name": "Halfling"
+}

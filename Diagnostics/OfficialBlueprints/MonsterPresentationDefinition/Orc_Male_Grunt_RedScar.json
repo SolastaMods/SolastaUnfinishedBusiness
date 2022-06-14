@@ -1,0 +1,53 @@
+{
+  "$type": "MonsterPresentationDefinition, Assembly-CSharp",
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "190c5890818bb754fa701852cfc8777a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "sex": "Male",
+  "modelScale": 0.656168,
+  "useCustomMaterials": true,
+  "customMaterials": [
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "f427e578ee4c56d4782cefeb7a638206",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "e54578ff147049540adc897db01b7a5d",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "5c1670cc8763c2b44a5fc670b42844af",
+  "contentPack": "BaseGame",
+  "name": "Orc_Male_Grunt_RedScar"
+}

@@ -1,0 +1,39 @@
+{
+  "$type": "SlotTypeDefinition, Assembly-CSharp",
+  "canStack": false,
+  "canDisplayArmor": false,
+  "canDisplayArmorForPhoto": false,
+  "displayArmorSortingIndex": 0,
+  "canDisplayLight": false,
+  "bodySlot": true,
+  "alwaysLocked": false,
+  "lockedInBattle": false,
+  "hasDefaultVisual": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SlotType/&ShouldersSlotTitle",
+    "description": "SlotType/&ShouldersSlotDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0929460cc3091f44bb32911c3e02cb61",
+      "m_SubObjectName": "ShouldersSlot",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 9,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "76f6bc005aedb04408c953e1d2a71232",
+  "contentPack": "BaseGame",
+  "name": "ShouldersSlot"
+}

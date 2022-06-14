@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:SummoningAffinityTinkererConstruct:0dbd3d80-96ce-4cf9-8ffa-597f1ea84c3b",
+    "Definition:SummonProtectorConstruct:20b5ab3e-5124-4d08-9907-347f2f1284d4",
+    "Definition:ProtectorConstructLevel3AutopreparedSpells:25403813-58eb-47f4-b5ee-b7956cc02ccf"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&SummonProtectorConstructTitle",
+    "description": "Feat/&SummonProtectorConstructDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9b699719-0d02-4949-ad94-cff6a05f36c7",
+  "contentPack": 9999,
+  "name": "ProtectorConstructFeatureSet"
+}

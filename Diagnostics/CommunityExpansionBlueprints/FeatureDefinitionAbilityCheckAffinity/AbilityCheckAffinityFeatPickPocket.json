@@ -1,0 +1,45 @@
+{
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "proficiencyName": "SleightOfHand",
+      "affinity": "Advantage",
+      "abilityCheckModifierDiceNumber": 0,
+      "abilityCheckModifierDieType": "D1",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PickPocketFeatTitle",
+    "description": "Feat/&PickPocketFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "30b1492a-053f-412e-b247-798fbc255038",
+  "contentPack": 9999,
+  "name": "AbilityCheckAffinityFeatPickPocket"
+}

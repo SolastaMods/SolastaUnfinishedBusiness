@@ -1,0 +1,74 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainOblivion:70aea612117a3094ea3ff754b4b6eea8",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainOblivionGateKeeper:d7abae5d0628c524f80e9f92bbbb50b9",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripsDomainOblivion:fc1c3d6a25c595345b526755aa21d799",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainOblivionHeraldOfPain:f8aaf821dddaa354b855ca88ec5bdf51",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CampAffinityDomainOblivionPeacefulRest:82674c4f25c7fdb4a901085c44341f0a",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainOblivionStrikeOblivion:5622197f02fde8d4790874d64946d86d",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainOblivionMarkOfFate:a70f0bb11c6979747ae1716b47af653b",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionCleric:c774c974d5902a640a1e82a7608e8051",
+      "level": 10
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainOblivionTitle",
+    "description": "Subclass/&DomainOblivionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "d0fa8f67d77d2bc4cbd5a1640f642db2",
+      "m_SubObjectName": "Cleric_Dark",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0f18dc91d3884e847a25e375dc8a588c",
+  "contentPack": "BaseGame",
+  "name": "DomainOblivion"
+}

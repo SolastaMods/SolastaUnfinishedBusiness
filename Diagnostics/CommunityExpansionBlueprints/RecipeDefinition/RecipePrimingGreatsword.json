@@ -1,0 +1,43 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Primed Greatsword:95fd3320cac9907409e3b52ac4b2e0c7",
+  "stackCount": 1,
+  "craftingHours": 8,
+  "craftingDC": 15,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Greatsword:f8a7ceac8de8c1a4497b55c8b8bd1de6"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Ingredient_Primed_Greatsword_Title",
+    "description": "Equipment/&Ingredient_Primed_Greatsword_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2b73ecf5f5ed7d3439f85fd35afffe17",
+      "m_SubObjectName": "Primed_Greatsword",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0ee945bf-a1fb-53d5-83d1-7ecec61f8272",
+  "contentPack": 9999,
+  "name": "RecipePrimingGreatsword"
+}

@@ -1,0 +1,63 @@
+{
+  "$type": "MorphotypeElementDefinition, Assembly-CSharp",
+  "playerSelectable": false,
+  "category": "EyeColor",
+  "mainColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 255.999969,
+    "g": 4.02094173,
+    "b": 0.0,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "replaceEyeColorMask": false,
+  "bodyDecorationType": "Tattoo",
+  "bodyDecorationBlendFactor": 1.0,
+  "minMaxValue": {
+    "$type": "TA.RangedFloat, Assembly-CSharp",
+    "minValue": 0.0,
+    "maxValue": 100.0
+  },
+  "originAllowed": [],
+  "subClassFilterMask": "All",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "BodyColor/&EyesDefilerTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 100,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "b906fce8b5fccd24a83b6420f80bbb80",
+  "contentPack": "BaseGame",
+  "name": "EyeColorDefiler"
+}

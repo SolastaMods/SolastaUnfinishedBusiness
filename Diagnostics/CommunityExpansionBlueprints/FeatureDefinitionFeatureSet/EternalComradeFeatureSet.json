@@ -1,0 +1,39 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:SummoningAffinityMarshalEternalComrade:df5b9a5b-1c1b-5fa5-a16e-540efccb4f5a",
+    "Definition:SummonEternalComrade:7edb6d41-2e6a-5f78-94d5-bb496dc5d2c8"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&FighterMarshalEternalComradeFeatureSetTitle",
+    "description": "Subclass/&FighterMarshalEternalComradeFeatureSetDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "050d3c24-b64f-55bb-be95-f4698da5c9c2",
+  "contentPack": 9999,
+  "name": "EternalComradeFeatureSet"
+}

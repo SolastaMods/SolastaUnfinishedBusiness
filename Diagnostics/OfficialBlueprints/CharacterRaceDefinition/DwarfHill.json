@@ -1,0 +1,107 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "LawfulGood",
+  "dualSex": true,
+  "minimalAge": 0,
+  "maximalAge": 0,
+  "baseHeight": 55,
+  "baseWeight": 115,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDwarfHillAbilityScoreIncrease:9a0a7079762266c4886d1bb26ca96a59",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDwarfHillToughness:2a08e960f59c12d43bc6ec15d4a18f36",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": null,
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 2.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "",
+    "morphotypeAssetPrefix": "",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": false,
+    "surNameTitle": "",
+    "surNameOptions": [],
+    "needBeard": true,
+    "canModifyMusculature": false,
+    "originOptions": [],
+    "maleFaceShapeOptions": [],
+    "femaleFaceShapeOptions": [],
+    "maleHairShapeOptions": [],
+    "femaleHairShapeOptions": [],
+    "maleBeardShapeOptions": [],
+    "equipmentLayoutPath": "",
+    "maleVoiceDefinition": "MAL2",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&DwarfHillTitle",
+    "description": "Race/&DwarfHillDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "addfbe4efa4f44e4ba1b07d397b00a92",
+      "m_SubObjectName": "HillDwarf",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "451ad40e6513f2d46a8afef7c7345175",
+  "contentPack": "BaseGame",
+  "name": "DwarfHill"
+}

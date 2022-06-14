@@ -1,0 +1,84 @@
+{
+  "$type": "TA.AI.DecisionPackageDefinition, Assembly-CSharp",
+  "package": {
+    "$type": "TA.AI.DecisionPackageDescription, Assembly-CSharp",
+    "weightedDecisions": [
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:LongRangePathToEnemy_Dash:4e5f0f365b7acb54d81b527719d373d1",
+        "weight": 5.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:DisengageAfterAttack:dc8c7953c6e1c96489374784dacb3b32",
+        "weight": 4.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:ShoveDown_Weak:9f9efce642a2ba04289230f9eb4aa502",
+        "weight": 4.0,
+        "cooldown": 3,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:MeleeAttack_Default:c7500087a5f8b764e9bc131a06fbdd3e",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_SoftDisengage_IfCondition:53903c7db75e6134dabd33f52e2a3578",
+        "weight": 3.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:Move_AggressiveSingleTargetAndGrouped:0e70e4e02c301834b898720f4f2324fe",
+        "weight": 2.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      },
+      {
+        "$type": "TA.AI.WeightedDecisionDescription, Assembly-CSharp",
+        "decision": "Definition:RangedAttack_Default:a96934f6775237944a7beb403b13c731",
+        "weight": 2.0,
+        "cooldown": 0,
+        "dynamicCooldown": false
+      }
+    ]
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "c261d934de0fe154d8205afceb17ed6b",
+  "contentPack": "BaseGame",
+  "name": "RogueCombatDecisions"
+}

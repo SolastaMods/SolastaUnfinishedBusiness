@@ -1,0 +1,112 @@
+{
+  "$type": "CharacterBackgroundDefinition, Assembly-CSharp",
+  "requiresDeity": false,
+  "hasSubtype": false,
+  "banterList": "Serious",
+  "subTypeName": "History",
+  "backgroudSubtypes": [
+    ""
+  ],
+  "features": [
+    "Definition:ProficiencyLowlifeSkills:3f9e0c8f9ca51d846876fe469c4f740d",
+    "Definition:ProficiencyLowLifeSkillsTools:0203469e084a8574c873a7d0cc0e3791"
+  ],
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesCommon:2d37f478395d1014ebcb56b9f4fb3003",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Tool",
+              "itemReference": "Definition:ThievesTool:91bc47b45dfb1f540a7c0672d95af251",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "staticPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Bg_Mean"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "Slang"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 5,
+      "personalityFlag": "Normal"
+    }
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Greed"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 8,
+      "personalityFlag": "Friendliness"
+    }
+  ],
+  "defaultOptionalPersonalityFlags": [
+    "Greed",
+    "Self-Preservation"
+  ],
+  "forbiddenAlignments": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Background/&LowLifeTitle",
+    "description": "Background/&LowlifeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "fb6650d9f2c03d1479d0878d9a618e7b",
+      "m_SubObjectName": "Urchin",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "05f5b783f6a05a74a90f0aa645d10aab",
+  "contentPack": "BaseGame",
+  "name": "Lowlife"
+}

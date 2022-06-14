@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:WitchLovelessCharmImmunity:1cf5a377-af27-579b-9112-d617a682e2cd"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&WitchFeatureSetLovelessCurseTitle",
+    "description": "Class/&WitchFeatureSetLovelessCurseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "958131f7100a1fa46b0e3cf34c2c686a",
+      "m_SubObjectName": "CharmPerson",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "fad735f1-4e69-521d-8c8d-288a4835dcf4",
+  "contentPack": 9999,
+  "name": "WitchFeatureSetLovelessCurse"
+}

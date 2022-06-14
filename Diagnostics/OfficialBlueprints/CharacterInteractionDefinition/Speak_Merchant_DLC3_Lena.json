@@ -1,0 +1,33 @@
+{
+  "$type": "CharacterInteractionDefinition, Assembly-CSharp",
+  "actionId": "Manipulate",
+  "cursorType": "Parley",
+  "animation": "NoAnimation",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle",
+    "description": "CharacterInteraction/&NpcInteractionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "63a13f380b629dd4e9e5b2e8a6df17b5",
+      "m_SubObjectName": "MerchantGeneral",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "75829dc676e2b914cb00317719fa0af0",
+  "contentPack": "BaseGame",
+  "name": "Speak_Merchant_DLC3_Lena"
+}

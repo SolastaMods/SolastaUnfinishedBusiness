@@ -1,0 +1,108 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 5,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f",
+        "Definition:HeatMetal:79c46ad5f66e0a34e8ec9ed3f08933fa",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3",
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837",
+        "Definition:WallOfFire:c44e8ec6d1e888e47bbd40981b7a605d"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643",
+        "Definition:FlameStrike:e165a70c93c4985449e51d32117c2ddf"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&ElementalistSpellsListTitle",
+    "description": "SpellList/&ElementalistSpellsListDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "bf646de5-3d7b-53e5-93d4-4e70bd24501b",
+  "contentPack": 9999,
+  "name": "ElementalistSpellsList"
+}

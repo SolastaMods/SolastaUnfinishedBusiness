@@ -1,0 +1,122 @@
+{
+  "$type": "CharacterTemplateDefinition, Assembly-CSharp",
+  "editorOnly": false,
+  "firstName": "Race/&HalfElfFemaleName1Title",
+  "surName": "Race/&HalfElfSurName2Title",
+  "abilityScores": [
+    18,
+    13,
+    16,
+    10,
+    10,
+    10
+  ],
+  "automateAbilityScoreIncreases": false,
+  "mainRace": "Definition:HalfElf:bf7685e7b813d8c46a7d903080d23541",
+  "subRace": null,
+  "originMorphotype": "Origin_NonHuman",
+  "skinMorphotype": "FaceAndSkinFair",
+  "musculatureMorphotypeValue": 100.0,
+  "ageMorphotypeValue": 0.0,
+  "faceShapeMorphotype": "FaceShape_HalfElf_B",
+  "hairShapeMorphotype": "HairShape_C",
+  "hairColorMorphotype": "HairColorBlack",
+  "beardShapeMorphotype": "",
+  "eyeColorMorphotype": "EyeColorBlack",
+  "eyeMorphotype": "Eye_Default",
+  "bodyDecorationMorphotype": "BodyDecoration_None",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
+  "subClass": null,
+  "deity": null,
+  "background": "Definition:SellSword:ba16530ecc32e924b8b14e4a50ea265b",
+  "backgroundPersonalityFlag1": "Violence",
+  "backgroundPersonalityFlag2": "Cynicism",
+  "alignment": "Neutral",
+  "alignmentPersonalityFlag1": "Self-Preservation",
+  "alignmentPersonalityFlag2": "Pragmatism",
+  "fightingStyle": "Definition:Protection:4635efbbee6b09047ad0d19c8366be64",
+  "equipment": [
+    "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+    "Definition:Battleaxe:40695efa6b4f77e47beab08ec4cbef91",
+    "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+    "Definition:ChainMail:80f0c1abf6973fe4fa5e2fc9ecb26ff0",
+    "Definition:Bolt:ad0fe02755fdb754193b60214585d74e",
+    "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+  ],
+  "startingMoney": [
+    0,
+    10,
+    0,
+    0,
+    0
+  ],
+  "skillsOverride": [
+    "Survival",
+    "Perception"
+  ],
+  "toolsOverride": [],
+  "featsOverride": [],
+  "expertisesOverride": [],
+  "languagesOverride": [],
+  "metamagicOverride": [],
+  "characterLevel": 1,
+  "knownRaceCantrips": [],
+  "knownClassCantrips": [],
+  "knownSubclassCantrips": [],
+  "knownRaceSpells": [],
+  "knownClassSpells": [],
+  "knownSubclassSpells": [],
+  "preparedClassSpells": [],
+  "preparedSubclassSpells": [],
+  "sex": "Female",
+  "pronoun": "Female",
+  "age": 25,
+  "facePath": "",
+  "wieldedItemsConfigurations": [
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:Battleaxe:40695efa6b4f77e47beab08ec4cbef91",
+      "offHandItemDefinition": "Definition:Shield:28e1f623fc28c7242a89072ee116a1dc"
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": "Definition:LightCrossbow:84f6376eb9753124298bb9cceafe3da7",
+      "offHandItemDefinition": null
+    },
+    {
+      "$type": "WieldedItemsConfiguration, Assembly-CSharp",
+      "mainHandItemDefinition": null,
+      "offHandItemDefinition": "Definition:Torch:ad7795cea7a7fe44ebdb9b577c137994"
+    }
+  ],
+  "voiceId": "FEM1",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterTemplate/&GarradTitle",
+    "description": "CharacterTemplate/&GarradDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "81a3641fa3eff6841919137af92c2a60",
+      "m_SubObjectName": "Level1_Fighter_Maiwen_Olfsborn",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "e33949a908777e44d92d2465ecb09b46",
+  "contentPack": "BaseGame",
+  "name": "Level1_Fighter_Maiwen_Olfsborn"
+}

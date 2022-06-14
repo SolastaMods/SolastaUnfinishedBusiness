@@ -1,0 +1,29 @@
+{
+  "$type": "FeatureDefinitionEquipmentAffinity, Assembly-CSharp",
+  "carryingCapacityMultiplier": 1.0,
+  "additionalCarryingCapacity": 20.0,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": null,
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "43780a70-d817-5f16-bfb0-f8a9939dcfcf",
+  "contentPack": 9999,
+  "name": "EquipmentAffinityConditionMule"
+}

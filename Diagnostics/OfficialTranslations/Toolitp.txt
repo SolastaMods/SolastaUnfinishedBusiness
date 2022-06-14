@@ -1,0 +1,1 @@
+Toolitp/&MultiplayerSessionSavedDescription	This multiplayer game resumes a saved game.

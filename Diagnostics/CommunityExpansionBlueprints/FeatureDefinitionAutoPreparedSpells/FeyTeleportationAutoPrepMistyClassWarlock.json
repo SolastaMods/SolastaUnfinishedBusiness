@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "FeyTeleport",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 0,
+      "spellsList": [
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:ClassWarlock:22677dd9-ffe8-58ad-8dd2-bacb9dd9da2e",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PowerMistyStepFromFeatTitle",
+    "description": "Feat/&PowerMistyStepFromFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "66d409a0-4428-5b16-9f5a-31ee2b0ba874",
+  "contentPack": 9999,
+  "name": "FeyTeleportationAutoPrepMistyClassWarlock"
+}

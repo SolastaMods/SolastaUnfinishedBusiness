@@ -1,0 +1,51 @@
+{
+  "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
+  "ancestryDefinesDamageType": false,
+  "damageType": "DamageFire",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "damageAffinityType": "Immunity",
+  "tagsIgnoringAffinity": [],
+  "situationalContext": "None",
+  "healsBack": false,
+  "healBackCap": 10,
+  "retaliateWhenHit": true,
+  "retaliateProximity": "Melee",
+  "retaliateRangeCells": 1,
+  "retaliatePower": "Definition:DH_Custom_FireTitan_Retaliate_Power:d484c279-766f-5beb-9865-00c6af123cae",
+  "knockOutAffinity": "None",
+  "knockOutOccurencesNumber": 1,
+  "knockOutRequiredCondition": null,
+  "knockOutDCAttribute": "RelentlessRageDC",
+  "knockOutAddDC": 5,
+  "instantDeathImmunity": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Title",
+    "description": "MonsterPower/&DH_FireTitan_Retaliate_DamageAffinity_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "24b8802d-3189-5b91-9f96-55a1678f2ae2",
+  "contentPack": 9999,
+  "name": "DH_Custom_FireTitan_Retaliate_DamageAffinity"
+}

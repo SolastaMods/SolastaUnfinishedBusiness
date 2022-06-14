@@ -1,0 +1,51 @@
+{
+  "$type": "FeatureDefinitionDamageAffinity, Assembly-CSharp",
+  "ancestryDefinesDamageType": false,
+  "damageType": "DamagePoison",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "damageAffinityType": "None",
+  "tagsIgnoringAffinity": [],
+  "situationalContext": "None",
+  "healsBack": false,
+  "healBackCap": 0,
+  "retaliateWhenHit": true,
+  "retaliateProximity": "Melee",
+  "retaliateRangeCells": 1,
+  "retaliatePower": "Definition:DHHolyAuraSpellBlindingPower:40366ca2-00a0-471a-b370-8c81f6283ce1",
+  "knockOutAffinity": "None",
+  "knockOutOccurencesNumber": 1,
+  "knockOutRequiredCondition": null,
+  "knockOutDCAttribute": "RelentlessRageDC",
+  "knockOutAddDC": 5,
+  "instantDeathImmunity": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "DamageAffinity/&DHHolyAuraSpellTitle",
+    "description": "DamageAffinity/&DHHolyAuraSpellDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c83aceae-e4c4-4a9c-a83d-58ffebe92007",
+  "contentPack": 9999,
+  "name": "DHHolyAuraSpellDamageAffinity"
+}

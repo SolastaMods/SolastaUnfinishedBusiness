@@ -1,0 +1,43 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Primed_Longsword:fedb8a0303ddee5418483cd9eaa8fb3f",
+  "stackCount": 1,
+  "craftingHours": 8,
+  "craftingDC": 15,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Longsword:3f0e49932d0ebf444a5039c5df05a02d"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Ingredient_Primed_Longsword_Title",
+    "description": "Equipment/&Ingredient_Primed_Longsword_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2858dc0c3f145b94b97112d1e08838e1",
+      "m_SubObjectName": "Primed_Longsword",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "cb613301-b10c-549c-8b26-0ec95f6178f4",
+  "contentPack": 9999,
+  "name": "RecipePrimingLongsword"
+}

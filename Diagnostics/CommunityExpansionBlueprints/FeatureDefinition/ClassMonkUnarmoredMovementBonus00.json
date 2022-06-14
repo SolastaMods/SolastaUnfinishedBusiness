@@ -1,0 +1,30 @@
+{
+  "$type": "FeatureDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassMonkUnarmoredMovementBonusTitle",
+    "description": "Feature/&ClassMonkUnarmoredMovementBonusDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "8809ed02-b7a0-5e3a-81bc-c0b8ad655ff8",
+  "contentPack": 9999,
+  "name": "ClassMonkUnarmoredMovementBonus00"
+}

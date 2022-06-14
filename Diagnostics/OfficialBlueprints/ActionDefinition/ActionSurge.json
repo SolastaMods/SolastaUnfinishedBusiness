@@ -1,0 +1,70 @@
+{
+  "$type": "ActionDefinition, Assembly-CSharp",
+  "id": "ActionSurge",
+  "actionType": "NoCost",
+  "actionScope": "Battle",
+  "pairedActionId": "NoAction",
+  "usesPerTurn": -1,
+  "classNameOverride": "",
+  "requiresAuthorization": false,
+  "stealthBreakerBehavior": "None",
+  "feedbackOnHoverType": "None",
+  "iterativeTargeting": false,
+  "canTriggerBattle": false,
+  "parameter": "ActivatePower",
+  "formType": "Large",
+  "focusCameraOnAction": false,
+  "addedConditionName": "",
+  "removedConditionName": "",
+  "preventsSerialization": false,
+  "activatedPower": "Definition:PowerFighterActionSurge:f0303fb750e20564ebea8c51e8f20394",
+  "displayPowerTooltip": false,
+  "dieType": "D10",
+  "abilityScore": "Dexterity",
+  "maxCells": 1,
+  "targetType": "Sphere",
+  "targetParameter": 1,
+  "matchingCondition": "",
+  "particlePrefab": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEvent": {
+    "$type": "AK.Wwise.Event, AK.Wwise.Unity.API.WwiseTypes",
+    "WwiseObjectReference": null,
+    "idInternal": 0,
+    "valueGuidInternal": {
+      "$type": "System.Byte[], mscorlib",
+      "$value": ""
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FighterActionSurgeTitle",
+    "description": "Feature/&FighterActionSurgeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a50a0206778e56b4391fa5bcab6b2507",
+      "m_SubObjectName": "ActionSurgeAction",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 28,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "eb25cf66be5d2a041a0c079be4a2befc",
+  "contentPack": "BaseGame",
+  "name": "ActionSurge"
+}

@@ -1,0 +1,63 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:CraftingManualPotionOfGreaterHealing:a31ae8afa0d48a5448115c293bdaab25",
+      "treasureTableDefinition": "Definition:RandomTreasureTableA_Gem:404fbb8642486c14e9477073f95471f2"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "Explicit",
+      "itemDefinition": "Definition:PotionOfGreaterHealing:cf9b569943609d048a6a0d1843e861d0",
+      "treasureTableDefinition": "Definition:RandomTreasureTableE_Ingredients:7860a20c7bce99f45b3e1b9bb96a653e"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:Art_Item_25_GP_BronzeStatuette:af02ae2a4b9317b459d2db55c1335c0f",
+      "treasureTableDefinition": "Definition:RandomTreasureTableG_25_GP_Art_Items:606081fa26ba52b48a571a57e96611f2"
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "c933372f985228848a37f2713e5786a5",
+  "contentPack": "BaseGame",
+  "name": "Aer_Elai_Final_AcidLake_Loot_JuteSack_Closed"
+}

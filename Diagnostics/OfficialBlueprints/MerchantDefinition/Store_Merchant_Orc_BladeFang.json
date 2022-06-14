@@ -1,0 +1,97 @@
+{
+  "$type": "MerchantDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "overchargePercent": 10,
+  "buyBackPercent": 1,
+  "factionAffinity": "Evocation_Suncloud_Clan",
+  "exposeFaction": false,
+  "canDetectMagic": false,
+  "detectMagicCostGp": 100,
+  "canIdentify": false,
+  "identifyCostGp": 100,
+  "stockUnitDescriptions": [
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
+      "stackCount": 1,
+      "initialAmount": 3,
+      "minAmount": 0,
+      "maxAmount": 5,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Battleaxe:40695efa6b4f77e47beab08ec4cbef91",
+      "stackCount": 1,
+      "initialAmount": 3,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:Greataxe:f5f24f61e9777684d8507f438660300a",
+      "stackCount": 1,
+      "initialAmount": 3,
+      "minAmount": 0,
+      "maxAmount": 10,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 1,
+      "requiredFaction": "",
+      "factionStatus": "Alliance"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&OrcMerchantTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b0ec298f0fb75e84d8f00f29eb55bb85",
+      "m_SubObjectName": "Merchant_BladeFang",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c390fc5e6c58ae3429e1807e0b060559",
+  "contentPack": "BaseGame",
+  "name": "Store_Merchant_Orc_BladeFang"
+}

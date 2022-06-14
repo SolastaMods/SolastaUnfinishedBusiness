@@ -1,0 +1,61 @@
+{
+  "$type": "TravelEventDefinition, Assembly-CSharp",
+  "eventType": "CampNarrative",
+  "eventPeriodicity": "CooldownHours",
+  "cooldownValue": 2,
+  "recordedInAdventureLog": true,
+  "dumpsAdventureLog": false,
+  "successLogEntries": [
+    "Travel/&StandardCampActivity01Title",
+    "Travel/&StandardCampActivity02Title",
+    "Travel/&StandardCampActivity03Title",
+    "Travel/&StandardCampActivity04Title",
+    "Travel/&StandardCampActivity05Title",
+    "Travel/&StandardCampActivity06Title",
+    "Travel/&StandardCampActivity07Title",
+    "Travel/&StandardCampActivity08Title",
+    "Travel/&StandardCampActivity09Title",
+    "Travel/&StandardCampActivity10Title",
+    "Travel/&StandardCampActivity11Title",
+    "Travel/&StandardCampActivity12Title",
+    "Travel/&StandardCampActivity13Title",
+    "Travel/&StandardCampActivity14Title",
+    "Travel/&StandardCampActivity15Title",
+    "Travel/&StandardCampActivity16Title",
+    "Travel/&StandardCampActivity17Title",
+    "Travel/&StandardCampActivity18Title",
+    "Travel/&StandardCampActivity19Title",
+    "Travel/&StandardCampActivity20Title",
+    "Travel/&StandardCampActivity21Title"
+  ],
+  "failureLogEntries": [],
+  "otherLogEntries": [],
+  "ingredientGatheringProficiencies": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "879840824f3300f4d93f13dc592ff172",
+      "m_SubObjectName": "Narrative",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "906f5c7e7d18f2d4ab9e59937c08b0a5",
+  "contentPack": "BaseGame",
+  "name": "TravelEventCampActivityNarrative"
+}

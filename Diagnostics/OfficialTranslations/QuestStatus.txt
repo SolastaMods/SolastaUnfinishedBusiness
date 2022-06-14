@@ -1,0 +1,3 @@
+QuestStatus/&HeaderQuestCompletedTitle	Quest Completed
+QuestStatus/&HeaderQuestFailedTitle	Quest Failed!
+QuestStatus/&HeaderQuestNewTitle	New Quest Started

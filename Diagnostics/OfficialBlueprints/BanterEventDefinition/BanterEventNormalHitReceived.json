@@ -1,0 +1,86 @@
+{
+  "$type": "BanterEventDefinition, Assembly-CSharp",
+  "eventTrigger": "NormalHitReceived",
+  "searchKey": "Normal_Hit_Received",
+  "eventProbability": 0.3,
+  "selfProbability": 0.0,
+  "playbackDelay": 1.0,
+  "canUseWhileCautious": false,
+  "eventVariants": [
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical1_Normal_Hit_Received_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Cynical2_Normal_Hit_Received_Other",
+      "list": "Cynical",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious1_Normal_Hit_Received_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Serious2_Normal_Hit_Received_Other",
+      "list": "Serious",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic1_Normal_Hit_Received_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Heroic2_Normal_Hit_Received_Other",
+      "list": "Heroic",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal1_Normal_Hit_Received_Other",
+      "list": "Formal",
+      "mode": "Other"
+    },
+    {
+      "$type": "BanterDefinitions+EventVariant, Assembly-CSharp",
+      "localizationKey": "PartyBanter/&Formal2_Normal_Hit_Received_Other",
+      "list": "Formal",
+      "mode": "Other"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "c9e760137370a1a46bff5bd39d17a60c",
+  "contentPack": "BaseGame",
+  "name": "BanterEventNormalHitReceived"
+}

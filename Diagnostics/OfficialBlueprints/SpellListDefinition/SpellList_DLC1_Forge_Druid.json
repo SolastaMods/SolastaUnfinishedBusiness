@@ -1,0 +1,73 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 4,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:VenomousSpike:804bffd98d2384c4b9c01ebb30f3cbee",
+        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
+        "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:GiantInsect:752353d60e1c84c4cb0955798995a954"
+      ]
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&SpellListDruidTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "7298740ff49100f43b3279cc44c77f06",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC1_Forge_Druid"
+}

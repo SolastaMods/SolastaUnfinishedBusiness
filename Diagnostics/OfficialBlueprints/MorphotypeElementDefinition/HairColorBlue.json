@@ -1,0 +1,63 @@
+{
+  "$type": "MorphotypeElementDefinition, Assembly-CSharp",
+  "playerSelectable": true,
+  "category": "HairColor",
+  "mainColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.2743414,
+    "g": 0.367878854,
+    "b": 0.4245283,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.200649709,
+    "g": 0.236694574,
+    "b": 0.254717,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.200000018,
+    "g": 0.235294133,
+    "b": 0.254901975,
+    "a": 1.0
+  },
+  "replaceEyeColorMask": false,
+  "bodyDecorationType": "Tattoo",
+  "bodyDecorationBlendFactor": 1.0,
+  "minMaxValue": {
+    "$type": "TA.RangedFloat, Assembly-CSharp",
+    "minValue": 0.0,
+    "maxValue": 100.0
+  },
+  "originAllowed": [],
+  "subClassFilterMask": "All",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "BodyColor/&HairBlueTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 39,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "52b145c3f9cdef04b88cc5defd01bb2d",
+  "contentPack": "BaseGame",
+  "name": "HairColorBlue"
+}

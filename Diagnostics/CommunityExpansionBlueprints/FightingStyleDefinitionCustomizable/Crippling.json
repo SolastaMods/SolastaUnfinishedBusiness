@@ -1,0 +1,34 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FightingStyleDefinitionCustomizable, SolastaCommunityExpansion",
+  "features": [
+    "Definition:CripplingAdditionalDamage:93583bcb-0031-5240-abbf-2c25297ba4ad"
+  ],
+  "condition": "RangedWeaponAttack",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "FightingStyle/&CripplingTitle",
+    "description": "FightingStyle/&CripplingDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
+      "m_SubObjectName": "Ranger_Shadow_Tamer",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b570d166-c65c-4a68-ab78-aeb16d491fce",
+  "contentPack": 9999,
+  "name": "Crippling"
+}

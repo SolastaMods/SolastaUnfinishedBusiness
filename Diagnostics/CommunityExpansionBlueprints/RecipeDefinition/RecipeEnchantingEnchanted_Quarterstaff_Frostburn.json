@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Enchanted_Quarterstaff_Frostburn:6472ff2a-420b-5f2a-b782-36544ef23f5f",
+  "stackCount": 1,
+  "craftingHours": 24,
+  "craftingDC": 12,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Quarterstaff:e02fa6fe6682b034ea74a6c48c9ee134"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Crystal_Of_Winter:349532dfea26d5a42b43427baab99160"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Enchanted_Quarterstaff_Frostburn_Title",
+    "description": "Equipment/&Enchanted_Quarterstaff_Frostburn_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b5eda306c433b36418c6dfad754d9f72",
+      "m_SubObjectName": "StandardQuarterstaff",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f5ffcda3-1892-5706-a1d8-0655be2ec387",
+  "contentPack": 9999,
+  "name": "RecipeEnchantingEnchanted_Quarterstaff_Frostburn"
+}

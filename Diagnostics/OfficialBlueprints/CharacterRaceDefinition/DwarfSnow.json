@@ -1,0 +1,112 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "LawfulGood",
+  "dualSex": true,
+  "minimalAge": 0,
+  "maximalAge": 0,
+  "baseHeight": 55,
+  "baseWeight": 130,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierDwarfSnowAbilityScoreIncrease:1c5c13b0b90a0604dae6ee9bbcd80025",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDwarfSnowWeaponTraining:5863c46d2b53b994d926862cf805e307",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDwarfLanguages:bc18fab78e7b7414590755243ca5b6d3",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinitySnowDwarfEndurance:1c2193d0dfb68564b8862bdc84c6df9f",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": null,
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 2.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "",
+    "morphotypeAssetPrefix": "",
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
+    "hasSurName": false,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [],
+    "needBeard": true,
+    "canModifyMusculature": false,
+    "originOptions": [],
+    "maleFaceShapeOptions": [],
+    "femaleFaceShapeOptions": [],
+    "maleHairShapeOptions": [],
+    "femaleHairShapeOptions": [],
+    "maleBeardShapeOptions": [],
+    "equipmentLayoutPath": "",
+    "maleVoiceDefinition": "MAL2",
+    "femaleVoiceDefinition": "FEM1",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Race/&DwarfSnowTitle",
+    "description": "Race/&DwarfSnowDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "63eeeea254c8b8b4d8355358a01c0cb8",
+      "m_SubObjectName": "SnowDwarf",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "a826525c554ef754ca0e841c8d072749",
+  "contentPack": "BaseGame",
+  "name": "DwarfSnow"
+}

@@ -1,0 +1,36 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Expertise",
+  "poolAmount": 2,
+  "restrictedChoices": [
+    "ThievesToolsType"
+  ],
+  "uniqueChoices": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RogueExpertiseTitle",
+    "description": "Feature/&RogueExpertiseDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2fbf34296f44187429597f8574ddc2b1",
+  "contentPack": "BaseGame",
+  "name": "PointPoolRogueExpertise"
+}

@@ -1,0 +1,33 @@
+{
+  "$type": "ReactionDefinition, Assembly-CSharp",
+  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
+  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
+  "validationDismissesSimilarReactions": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Reaction/&SpendPowerBundleTitle",
+    "description": "Reaction/&SpendPowerBundleDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1a878824-bc28-5d2f-9987-bac4db4beaa9",
+  "contentPack": 9999,
+  "name": "SpendPowerBundle"
+}

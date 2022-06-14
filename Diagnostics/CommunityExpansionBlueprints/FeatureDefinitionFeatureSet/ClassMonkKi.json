@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ClassMonkFlurryOfBlows:b860cc3a-edcd-565b-b8cb-77d6155e4bdf",
+    "Definition:ClassMonkKiPool:68692e2a-1cc3-5b99-9740-14466a16fe2d",
+    "Definition:ClassMonkPatientDefense:e12b7595-b170-5ea1-9a5a-c4bfca7a1b7d",
+    "Definition:ClassMonkStepOfTheWind:689d3656-6fa3-508a-8fe5-ca4ab261cea3"
+  ],
+  "mode": "Union",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ClassMonkKiTitle",
+    "description": "Feature/&ClassMonkKiDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5f827d76-2fd0-5850-b4e4-cdba113467af",
+  "contentPack": 9999,
+  "name": "ClassMonkKi"
+}

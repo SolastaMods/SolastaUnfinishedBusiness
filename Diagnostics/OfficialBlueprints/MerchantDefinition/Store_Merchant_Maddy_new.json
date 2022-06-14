@@ -1,0 +1,69 @@
+{
+  "$type": "MerchantDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "overchargePercent": 10,
+  "buyBackPercent": 1,
+  "factionAffinity": "TowerOfKnowledge",
+  "exposeFaction": true,
+  "canDetectMagic": false,
+  "detectMagicCostGp": 25,
+  "canIdentify": true,
+  "identifyCostGp": 50,
+  "stockUnitDescriptions": [
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:PotionRemedy:1ac685f6f87c5c247ad4332f6b4d08b7",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "TowerOfKnowledge",
+      "factionStatus": "Indifference"
+    },
+    {
+      "$type": "StockUnitDescription, Assembly-CSharp",
+      "initialized": true,
+      "itemDefinition": "Definition:PotionOfHealing:5afaa2c317ec2374fab78be504014255",
+      "stackCount": 1,
+      "initialAmount": 2,
+      "minAmount": 0,
+      "maxAmount": 2,
+      "reassortAmount": 1,
+      "reassortRateType": "Day",
+      "reassortRateValue": 7,
+      "requiredFaction": "TowerOfKnowledge",
+      "factionStatus": "Sympathy"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Merchant/&CaerCyflen_Maddy_Greenisle_Store_ToKTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f83876fd2e2f0ff44ba0eb63de8445ea",
+      "m_SubObjectName": "Dalon_Lark_MerchantPhoto",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "9db8d2c6d30dcbf49801e11bcbe4823e",
+  "contentPack": "BaseGame",
+  "name": "Store_Merchant_Maddy_new"
+}

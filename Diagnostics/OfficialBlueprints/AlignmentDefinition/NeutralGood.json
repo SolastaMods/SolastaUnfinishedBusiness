@@ -1,0 +1,58 @@
+{
+  "$type": "AlignmentDefinition, Assembly-CSharp",
+  "lawAxis": 0,
+  "goodnessAxis": 1,
+  "defaultPersonalityFlags": [
+    "Pragmatism",
+    "Helpfulness"
+  ],
+  "optionalPersonalityFlags": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Self-Preservation"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Helpfulness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 10,
+      "personalityFlag": "Friendliness"
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Alignment/&NeutralGoodTitle",
+    "description": "Alignment/&NeutralGoodDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 1,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cc1a07d26874b7a48a9e0b6b7f92ed5c",
+  "contentPack": "BaseGame",
+  "name": "NeutralGood"
+}

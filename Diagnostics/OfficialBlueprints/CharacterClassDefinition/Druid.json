@@ -1,0 +1,267 @@
+{
+  "$type": "CharacterClassDefinition, Assembly-CSharp",
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:Shield_Wooden:3630e54c4b26db945a804382ea120406",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": null,
+              "defaultChoice": "Quarterstaff",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Scimitar:12289d60dd3a4144fa8308ffc2a6e80d",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleMeleeChoice",
+              "itemReference": null,
+              "defaultChoice": "Quarterstaff",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:LeatherDruid:35cc1b0e7bc264d42a1ab5eb4329166a",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+              "defaultChoice": "",
+              "number": 1
+            },
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Focus",
+              "itemReference": "Definition:DruidicFocus:518483ab9093af04d97387aefd0bad2a",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "hitDice": "D8",
+  "requiresDeity": false,
+  "abilityScoresPriority": [
+    "Wisdom",
+    "Constitution",
+    "Dexterity",
+    "Intelligence",
+    "Strength",
+    "Charisma"
+  ],
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDruidSavingThrow:767234f7d5f79054bb941960f304108d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDruidWeapon:feaeb6e5b71abce44a8b106116356e32",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDruidArmor:a42d9252dcdb2aa4b91f39e839f90240",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolDruidSkillPoints:19e6b56cbea23144daba63c85ad5bc0f",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyDruidLanguage:b11e2d649629dba48afc166b30601be7",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellDruid:117201265b662d349b3b7c7f67e15ef6",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDruidRitualCasting:16a0bc81771c47447ba8f59113b082eb",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDruidWildShape:5b4f6371d0bdffb4194ab22c82ff17a3",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SubclassChoiceDruidCircle:7ab4232a7f4caed43b9a2ec805ca5579",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
+    }
+  ],
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Normal"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Selfishness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Friendliness"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 4,
+      "personalityFlag": "GpSpellcaster"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 1,
+      "personalityFlag": "GpExplorer"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 1,
+      "personalityFlag": "GpStealth"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ClassDruidFlag"
+    }
+  ],
+  "skillAutolearnPreference": [
+    "Nature",
+    "Survival",
+    "Perception",
+    "Religion",
+    "Insight"
+  ],
+  "toolAutolearnPreference": [
+    "HerbalismKitType",
+    "ScrollKitType",
+    "PoisonersKitType"
+  ],
+  "expertiseAutolearnPreference": [],
+  "featAutolearnPreference": [
+    "PowerfulCantrip",
+    "FlawlessConcentration",
+    "Enduring_Body"
+  ],
+  "metamagicAutolearnPreference": [],
+  "ingredientGatheringOdds": 10,
+  "classPictogramReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "f4c4169c434b2d64a9dbaba1bbf82d87",
+    "m_SubObjectName": "class_druid",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "defaultBattleDecisions": "Definition:ClericCombatDecisions:d5ceea03da8e7be4c86e2c1e37dda354",
+  "classAnimationId": "Cleric",
+  "vocalSpellSemeClass": "Natura",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&DruidTitle",
+    "description": "Class/&DruidDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4d49d18da4e36344b9c76da7f4d3f47e",
+      "m_SubObjectName": "Druid",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 3,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "df2da915a153d7a48a896041cf318953",
+  "contentPack": "PrimalCalling",
+  "name": "Druid"
+}

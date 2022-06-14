@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifierType2": "Additive",
+  "modifiedAttribute": "Initiative",
+  "modifierValue": 3,
+  "modifierAbilityScore": "Charisma",
+  "situationalContext": "None",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Class/&WitchVisionsInitiativeTitle",
+    "description": "Class/&WitchVisionsInitiativeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "cb1d3f52-bfa7-5c7c-a094-46e17979b40e",
+  "contentPack": 9999,
+  "name": "WitchVisionsInitiative"
+}

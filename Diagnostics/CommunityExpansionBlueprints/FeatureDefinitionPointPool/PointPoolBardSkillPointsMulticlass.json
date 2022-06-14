@@ -1,0 +1,53 @@
+{
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Skill",
+  "poolAmount": 1,
+  "restrictedChoices": [
+    "Acrobatics",
+    "AnimalHandling",
+    "Arcana",
+    "Athletics",
+    "Deception",
+    "History",
+    "Insight",
+    "Intimidation",
+    "Investigation",
+    "Medecine",
+    "Nature",
+    "Perception",
+    "Performance",
+    "Persuasion",
+    "Religion",
+    "SleightOfHand",
+    "Stealth",
+    "Survival"
+  ],
+  "uniqueChoices": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BardSkillsTitle",
+    "description": "Feature/&SkillGainChoicesPluralDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a69b2527569b4893abe57ad1f80e97ed",
+  "contentPack": 9999,
+  "name": "PointPoolBardSkillPointsMulticlass"
+}

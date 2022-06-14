@@ -1,0 +1,446 @@
+{
+  "$type": "CharacterClassDefinition, Assembly-CSharp",
+  "equipmentRows": [
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "WeaponSimpleChoice",
+              "itemReference": "Definition:Shortsword:5d0f8d61d53786448920cad0485b77b7",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesCommon_Valley:8febe037ee268e041a4c9068d564aef0",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Armor",
+              "itemReference": "Definition:ClothesScavenger_A:cbdd4b9a409ea354686ade751008416e",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:DungeoneerPack:6286cf8295c47af42bca166999993f2b",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "StarterPack",
+              "itemReference": "Definition:ExplorerPack:03fbaf29ed08637449084486fe78a3c8",
+              "defaultChoice": "",
+              "number": 1
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    },
+    {
+      "$type": "CharacterClassDefinition+HeroEquipmentRow, Assembly-CSharp",
+      "equipmentColumns": [
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Dart:4fd5b12327964f74eae8cd62910dd518",
+              "defaultChoice": "",
+              "number": 10
+            }
+          ]
+        },
+        {
+          "$type": "CharacterClassDefinition+HeroEquipmentColumn, Assembly-CSharp",
+          "equipmentOptions": [
+            {
+              "$type": "CharacterClassDefinition+HeroEquipmentOption, Assembly-CSharp",
+              "optionType": "Weapon",
+              "itemReference": "Definition:Javelin:b4580025f1f488a489f151cc9ae45118",
+              "defaultChoice": "",
+              "number": 5
+            }
+          ]
+        }
+      ],
+      "defaultColumn": 0
+    }
+  ],
+  "hitDice": "D8",
+  "requiresDeity": false,
+  "abilityScoresPriority": [
+    "Wisdom",
+    "Dexterity",
+    "Constitution",
+    "Strength",
+    "Charisma",
+    "Intelligence"
+  ],
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkMartialArts:fd415cbe-8af1-537c-90f3-b0010f499762",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkSkillProficiency:532783fa-78b3-54ae-8a87-5083d6776a31",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkWeaponProficiency:40d8ad91-9775-5891-87c4-ed9141633730",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkSavingThrowProficiency:ec3627f4-5cc8-53e4-bf70-13403ab1ddce",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredDefense:164e4032-2125-5039-baae-8acee20595a9",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredMovement:c11639f9-cca7-5ccb-9e2a-92929df85810",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKi:5f827d76-2fd0-5850-b4e4-cdba113467af",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkDeflectMissile:f8b37f2b-7bd0-5b31-8eed-28ac0b7370e0",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkSubclassChoice:8a44e685-f083-5ce9-ad06-7464f20005c9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease00:c45609ea-a6eb-5683-b736-338a4f1e391f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease01:eb248512-33c3-54aa-ab92-f6fc8e5a9819",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkSlowFall:d8a0546c-cb6b-56b4-92fd-2a75180da74d",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkExtraAttack:ccc0d6ea-54c7-537b-ae7c-33753fd8ab7a",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkMartialDiceProgression00:6f779794-0b8a-5441-a5f6-fd9c05fcf817",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease02:3ed29f39-7ab0-5c68-a621-e29104e2bf41",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkStunningStrike:63909b5f-4c26-599e-8cd9-84e3daa5b673",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiEmpoweredStrikes:084bbbbb-3d2d-5ae0-92a3-c70b4f5ab54d",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease03:28544a14-f08e-5a76-bf60-4f34e3327892",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredMovementBonus00:8809ed02-b7a0-5e3a-81bc-c0b8ad655ff8",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityRogueEvasion:5850df08bedec91459b38baa0cd3ff6f",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease04:9096cfeb-d1dd-5bd6-b0b2-2aa75e922de0",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiStillnessOfMind:29390b64-48f2-5ec0-9e85-1892555275a5",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease05:0a32dc36-15de-5123-8db5-1f9818f28196",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease06:f82e9021-cb4c-5580-9267-afe5548b37b7",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredMovementVerticalSurface:864a5bfa-3c13-5e65-8382-4a0e858d2598",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease07:12b4212c-8c39-52a8-8aa5-6d4e7258b55b",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkPurityOfBody:aed3f94c-303f-58c5-b739-2fc62fce75d2",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredMovementBonus01:287d0b38-3770-5076-811d-483c200bdb95",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkMartialDiceProgression01:e187d156-1d5e-5a3a-8a5a-b42c74c57ddf",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease08:95e0213a-b92f-58a9-81e4-7ae5a2d8484d",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease09:f1f5767f-73d6-50b8-80a4-002664c14ad6",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease10:67fc5f66-48b7-55e8-8be2-acb2cba8bf19",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkTongueOfSunAndMoon:d5698c22-d805-5fae-9280-184ce673b74a",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkDiamondSoul:c4fb60a3-74a2-574b-be2c-c4c054dff8f6",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease11:123a5f27-ba7c-5c4b-904d-4b1addefd178",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredMovementBonus02:af88ed12-9fb7-57a7-aeec-efb659dd1a89",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease12:501f07c0-0914-5407-80b9-de4ae8e73560",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease13:277ddb39-ef8f-5341-b01c-31c0f6902a67",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkMartialDiceProgression02:92fc3068-6c2e-5276-911d-55901c6f0bf3",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease14:b205c1cb-42c9-570d-b63c-886e0480b01e",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkEmptyBody:8ad1c0d2-55f9-5f6d-9d5d-d95e4a3d4f08",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease15:8f381a09-558c-5060-9742-cc828c007e94",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkUnarmoredMovementBonus03:90ccd4ec-b24c-5504-b2ec-b7b89917fb26",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease16:534d2305-e7ac-5dfd-9841-6aca791b6377",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkKiPoolIncrease17:eeebf765-1a97-5656-a563-bc9903889f32",
+      "level": 20
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkPerfectSelf:34cb60a0-a31e-5a66-b0f4-2afce060a90b",
+      "level": 20
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "skillAutolearnPreference": [
+    "Athletics",
+    "History",
+    "Insight",
+    "Perception",
+    "Religion",
+    "Stealth",
+    "Survival"
+  ],
+  "toolAutolearnPreference": [
+    "ArtisanToolSmithToolsType",
+    "HerbalismKitType"
+  ],
+  "expertiseAutolearnPreference": [],
+  "featAutolearnPreference": [],
+  "metamagicAutolearnPreference": [],
+  "ingredientGatheringOdds": 7,
+  "classPictogramReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "9645477af25550e9a12e015506bcf9a4",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
+  },
+  "defaultBattleDecisions": "Definition:DefaultMeleeWithBackupRangeDecisions:36bb3688d84582249bf0f1c85064ad10",
+  "classAnimationId": "Fighter",
+  "vocalSpellSemeClass": "None",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Class/&ClassMonkTitle",
+    "description": "Class/&ClassMonkDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "763c0d2de5515e01865a7dafe33bccd7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b843a539-0063-5b6d-9db9-862800add5aa",
+  "contentPack": 9999,
+  "name": "ClassMonk"
+}

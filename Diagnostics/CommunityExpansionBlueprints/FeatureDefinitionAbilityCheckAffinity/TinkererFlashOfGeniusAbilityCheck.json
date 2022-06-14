@@ -1,0 +1,95 @@
+{
+  "$type": "FeatureDefinitionAbilityCheckAffinity, Assembly-CSharp",
+  "useControllerAbilityChecks": false,
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "proficiencyName": null,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 1,
+      "abilityCheckModifierDieType": "D4",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "proficiencyName": null,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 1,
+      "abilityCheckModifierDieType": "D4",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "proficiencyName": null,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 1,
+      "abilityCheckModifierDieType": "D4",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "proficiencyName": null,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 1,
+      "abilityCheckModifierDieType": "D4",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "proficiencyName": null,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 1,
+      "abilityCheckModifierDieType": "D4",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    },
+    {
+      "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "proficiencyName": null,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": 1,
+      "abilityCheckModifierDieType": "D4",
+      "abilityCheckContext": "None",
+      "lightingContext": "Irrelevant"
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2c99bcc0-4fc4-5138-a61f-9cfbee82cb27",
+  "contentPack": 9999,
+  "name": "TinkererFlashOfGeniusAbilityCheck"
+}

@@ -1,0 +1,43 @@
+{
+  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaCommunityExpansion",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Dexterity",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:ActionAffinityRogueCunningAction:1db5972af0c18804882b2f8de86e9b1a",
+    "Definition:ActionAffinityThiefFastHands:ef18115a49a7aa04f847b06f11cf5da4"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatFastHandsTitle",
+    "description": "Feat/&FeatFastHandsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5d6a5123-7335-5c8c-8e17-76c2d7efc9e2",
+  "contentPack": 9999,
+  "name": "FeatFastHands"
+}

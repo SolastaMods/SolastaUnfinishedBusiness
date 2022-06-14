@@ -1,0 +1,53 @@
+{
+  "$type": "MonsterPresentationDefinition, Assembly-CSharp",
+  "prefabReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "5452896007bc29e478e998d46d72337c",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "sex": "Female",
+  "modelScale": 0.655,
+  "useCustomMaterials": true,
+  "customMaterials": [
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "90d5e27a1575313468d13b801e4067e7",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "5dbba555048bf5b46ba6b97e88454026",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "",
+    "description": "",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "ba4032c964a837b4893069f42f88e548",
+  "contentPack": "BaseGame",
+  "name": "Hag_Night_Presentation"
+}

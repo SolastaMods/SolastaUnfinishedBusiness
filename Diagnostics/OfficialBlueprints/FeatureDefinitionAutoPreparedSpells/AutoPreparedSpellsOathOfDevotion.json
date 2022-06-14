@@ -1,0 +1,59 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Oath",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+        "Definition:Aid:d2af062b671377f449bad1b3f920d331"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Revivify:16e7fb95186cf9b41806d15fbacd81af"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AutoPreparedSpellsOathOfDevotionTitle",
+    "description": "Feature/&DomainSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "373823dbc1c894149871f2efb16a827d",
+  "contentPack": "BaseGame",
+  "name": "AutoPreparedSpellsOathOfDevotion"
+}

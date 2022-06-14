@@ -1,0 +1,38 @@
+{
+  "$type": "FeatureDefinitionConditionAffinity, Assembly-CSharp",
+  "conditionType": "ConditionDiseased",
+  "savingThrowAdvantageType": "None",
+  "savingThrowModifier": 0,
+  "conditionAffinityType": "Immunity",
+  "rerollSaveWhenGained": false,
+  "rerollAdvantageType": "None",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "1913ab33c64e94f4b88b23ce63268cb1",
+  "contentPack": "BaseGame",
+  "name": "ConditionAffinityDiseaseImmunity"
+}

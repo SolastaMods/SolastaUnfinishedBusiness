@@ -1,0 +1,44 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": true,
+  "armorProficiencyCategory": "MediumArmorCategory",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierMightOfTheIronLegion:1dcfd0bdcf4ac594a9ecc969e1e0845e",
+    "Definition:ProficiencyMightOfTheIronLegionArmor:9117a4cd230576442a39d519a8298c8f",
+    "Definition:ProficiencyMightOfTheIronLegion:9e31cba61f8d27d4c8e909a6b330f68b"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&MightOfTheIronLegionTitle",
+    "description": "Feat/&MightOfTheIronLegionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "7c645a5768100354f8c3384511cef368",
+  "contentPack": "BaseGame",
+  "name": "MightOfTheIronLegion"
+}

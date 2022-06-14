@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerForest:105c7b19608adaa4ba65f0e7f2914b07",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerMountain:e3f80e8f642548846b8cb1b3eac2887c",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerSwamp:eeb7ef2e3cdb032408343e48ce4740ed",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerGrassland:4b09a2e7b325d184dab3c6581386a1a2",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerDesert:1abddd96b95466545b9ca5e5cf0be0f8",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerArctic:5edf9710b4c795c4090893efa887cdc9",
+    "Definition:TerrainTypeAffinityRangerNaturalExplorerCoast:1f6018fd973b91c4d9d1b89e364a7ea4"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&RangerNaturalExplorerTitle",
+    "description": "Feature/&RangerNaturalExplorerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "221976147ed339d489923450eb6c21ad",
+  "contentPack": "BaseGame",
+  "name": "TerrainTypeAffinityRangerNaturalExplorerChoice"
+}

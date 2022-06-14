@@ -1,0 +1,30 @@
+{
+  "$type": "CurrencyDefinition, Assembly-CSharp",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Equipment/&CurrencyElectrumTitle",
+    "description": "Equipment/&CurrencyElectrumDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "52aad08dc37ab6a4a9d08af7d8cf5feb",
+      "m_SubObjectName": "CurrencyElectrum",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.839215755,
+      "g": 0.839215755,
+      "b": 0.698039234,
+      "a": 1.0
+    },
+    "symbolChar": "25EC",
+    "sortOrder": 2,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "a0da0153d6b574a439c8b797292b02b8",
+  "contentPack": "BaseGame",
+  "name": "CurrencyElectrum"
+}

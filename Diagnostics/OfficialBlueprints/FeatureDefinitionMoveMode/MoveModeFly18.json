@@ -1,0 +1,32 @@
+{
+  "$type": "FeatureDefinitionMoveMode, Assembly-CSharp",
+  "moveMode": "Fly",
+  "speed": 18,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&MoveTitle",
+    "description": "Feature/&MoveFlyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "fef1de01000295f44b2b19afaae97a69",
+  "contentPack": "BaseGame",
+  "name": "MoveModeFly18"
+}

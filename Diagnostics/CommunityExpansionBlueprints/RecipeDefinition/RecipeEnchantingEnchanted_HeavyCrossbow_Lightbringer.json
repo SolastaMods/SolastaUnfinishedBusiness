@@ -1,0 +1,48 @@
+{
+  "$type": "RecipeDefinition, Assembly-CSharp",
+  "craftedItem": "Definition:Enchanted_HeavyCrossbow_Lightbringer:0a4e5f79-789a-5ece-b9c8-0aef0edd3546",
+  "stackCount": 1,
+  "craftingHours": 24,
+  "craftingDC": 10,
+  "toolTypeDefinition": "Definition:EnchantingToolType:9565acf734ebd0d4e90a6ba75091887d",
+  "ingredients": [
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:HeavyCrossbow:8de3995cbb4970243bee6a479f8d67cd"
+    },
+    {
+      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
+      "amount": 1,
+      "itemDefinition": "Definition:Ingredient_Enchant_Stardust:663984af5fefd934c990dd856d28fda2"
+    }
+  ],
+  "spellDefinition": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title",
+    "description": "Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a5d7ccd2eae6b7346b595a27d5a2a441",
+      "m_SubObjectName": "StandardHeavyCrossbow",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2f71e683-9e60-5172-98ec-ef30158698e4",
+  "contentPack": 9999,
+  "name": "RecipeEnchantingEnchanted_HeavyCrossbow_Lightbringer"
+}

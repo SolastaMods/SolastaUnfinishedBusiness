@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AdditionalDamageHunterColossusSlayer:bc95ea1bf4cec0b4aad97f4086c37f1b",
+    "Definition:ActionAffinityHunterGiantKiller:8ef5dd7f692e2bb4a8ee162f8dbac44a",
+    "Definition:AdditionalActionHunterHordeBreaker:d8dd24bc7c35a1641bd6d90cc4088be5"
+  ],
+  "mode": "Exclusion",
+  "defaultSelection": 0,
+  "uniqueChoices": true,
+  "enumerateInDescription": true,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetHunterHuntersPreyTitle",
+    "description": "Feature/&FeatureSetHunterHuntersPreyDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3ea5b9dedb33e7f44939a9e8692cecb4",
+  "contentPack": "BaseGame",
+  "name": "FeatureSetHunterHuntersPrey"
+}

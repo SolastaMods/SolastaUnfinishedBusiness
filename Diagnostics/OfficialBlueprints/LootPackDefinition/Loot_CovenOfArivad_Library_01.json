@@ -1,0 +1,72 @@
+{
+  "$type": "LootPackDefinition, Assembly-CSharp",
+  "inDungeonEditor": false,
+  "lootSpawnMode": "ItemList",
+  "itemOccurencesList": [
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 2,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:CraftingManualScrollOfAcidArrow:87032b30c51fdf64e9c2c061f31575e2",
+      "treasureTableDefinition": "Definition:RandomTreasureTableB_Consumables:bcfabde319a2a4442818ccdf89636537"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 2,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:CraftingManualScrollOfBless:1896e4709e6be564a881cf9eb936b863",
+      "treasureTableDefinition": "Definition:RandomTreasureTableK_Recipe_Manuals:54c572835a8874c48a72b95d6d226a5d"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D1",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:GemOfSeeing:ecfe9a823c1f93b40ad9246d83f92f70",
+      "treasureTableDefinition": "Definition:RandomTreasureTableC_MagicWeapons_01:899f27adade34fa4292b5be64d74f2e2"
+    },
+    {
+      "$type": "ItemOccurence, Assembly-CSharp",
+      "diceNumber": 1,
+      "diceType": "D6",
+      "additiveModifier": 0,
+      "itemMode": "TreasureTable",
+      "itemDefinition": "Definition:GemOfSeeing:ecfe9a823c1f93b40ad9246d83f92f70",
+      "treasureTableDefinition": "Definition:RandomTreasureTableI2_PoisonedProjectiles:3e0b4ec21fd5d874da7c579d7650a8b2"
+    }
+  ],
+  "lootMagnitudeMode": "Individual",
+  "lootChallengeMode": "ByPartyLevel",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "6d00afda812f1bc4a98efd591df585c2",
+  "contentPack": "BaseGame",
+  "name": "Loot_CovenOfArivad_Library_01"
+}

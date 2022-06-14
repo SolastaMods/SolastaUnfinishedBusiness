@@ -1,0 +1,81 @@
+{
+  "$type": "HumanoidMonsterPresentationDefinition, Assembly-CSharp",
+  "raceDefinition": "Definition:Human:d844f80cc9ab3cb4d95630e35163eedd",
+  "subRaceDefinition": null,
+  "sex": "Female",
+  "originMorphotype": "Origin_CA",
+  "skinMorphotype": "FaceAndSkinPale",
+  "musculatureMorphotypeValue": 29.2605667,
+  "ageMorphotypeValue": 33.0119247,
+  "faceShapeMorphotype": "FaceShape_NPC_Atima_Bladeburn",
+  "hairShapeMorphotype": "HairShape_E",
+  "hairColorMorphotype": "HairColor_21",
+  "beardShapeMorphotype": "",
+  "eyeMorphotype": "Eye_Default",
+  "eyeColorMorphotype": "EyeColorBrown",
+  "bodyDecorationMorphotype": "BodyDecoration_Tattoo_07",
+  "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
+  "scarsMorphotype": "Scars_None",
+  "armorDefinition": "Enchanted_LeatherArmorOfSurvival",
+  "helmetDefinition": "",
+  "tabardDefinition": "",
+  "showHelmet": true,
+  "firstColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.7120178,
+    "b": 0.523584843,
+    "a": 1.0
+  },
+  "secondColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.8556785,
+    "b": 0.797169864,
+    "a": 1.0
+  },
+  "thirdColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.8867924,
+    "g": 0.6144802,
+    "b": 0.447579145,
+    "a": 1.0
+  },
+  "fourthColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 1.0,
+    "g": 0.7868782,
+    "b": 0.6650944,
+    "a": 1.0
+  },
+  "overrideWieldedItems": false,
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "NPC/&NPC_DLC3_Lena_Title",
+    "description": "NPC/&NPC_DLC3_Rhuad_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c9d16de6044d320409a94c7d5e2a999b",
+      "m_SubObjectName": "CustomPortrait_DLC3_LenaSwifthand",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContentHidden",
+  "guid": "207e2de02c0d7bd4f8438892c0f0e4b1",
+  "contentPack": "BaseGame",
+  "name": "NPC_Presentation_DLC3_Lena"
+}

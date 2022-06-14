@@ -1,0 +1,54 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkOpenHandTechnique:431f69a7-9f6e-5691-9b36-e89a0771e5f4",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkWholenessOfBody:807788ec-efe1-5907-a54b-632aca5acda8",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkTanquility:af6f4829-2484-55e5-8293-50411bed5ef9",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkQuiveringPalm:1f0cfba8-1b27-5675-9890-e10952c392de",
+      "level": 17
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle",
+    "description": "Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f13740c3947aa0f49a79fa8da3a44eba",
+      "m_SubObjectName": "DomainLife",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "260d02e3-d2f1-5ee0-9822-7a065ec7aa2d",
+  "contentPack": 9999,
+  "name": "ClassMonkTraditionWayOfTheOpenHand"
+}

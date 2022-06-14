@@ -1,0 +1,56 @@
+{
+  "$type": "DeityDefinition, Assembly-CSharp",
+  "alignment": "Neutral",
+  "subclasses": [
+    "DomainElementalFire",
+    "DomainElementalCold",
+    "DomainElementalLighting",
+    "DomainSun"
+  ],
+  "selectableByPlayer": true,
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 30,
+      "personalityFlag": "ReligionArun"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Pragmatism"
+    },
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 3,
+      "personalityFlag": "Self-Preservation"
+    }
+  ],
+  "vocalSpellSemeClass": "Arun",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Deity/&ArunTitle",
+    "description": "Deity/&ArunDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8f556cfbee1e99047b274bcb7f629220",
+      "m_SubObjectName": "DeityArun",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "9fe6be99f689cc94683098b128c799d8",
+  "contentPack": "BaseGame",
+  "name": "Arun"
+}

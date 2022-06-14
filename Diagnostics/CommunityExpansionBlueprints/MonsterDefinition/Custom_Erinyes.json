@@ -1,0 +1,395 @@
+{
+  "$type": "MonsterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": "Monster",
+  "overrideSpawnDecision": null,
+  "characterFamily": "Fiend",
+  "creatureTags": [],
+  "defaultFaction": "CaerLem_Guards",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "LawfulEvil",
+  "armorClass": 18,
+  "armor": "",
+  "hitDice": 18,
+  "hitDiceType": "D8",
+  "hitPointsBonus": 72,
+  "standardHitPoints": 153,
+  "abilityScores": [
+    18,
+    16,
+    18,
+    14,
+    14,
+    18
+  ],
+  "savingThrowScores": [
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "bonus": 8
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "bonus": 7
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "bonus": 0
+    },
+    {
+      "$type": "MonsterSavingThrowProficiency, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "bonus": 6
+    }
+  ],
+  "skillScores": [],
+  "legendaryCreature": false,
+  "maxLegendaryResistances": 3,
+  "maxLegendaryActionPoints": 3,
+  "differentActionEachTurn": false,
+  "legendaryActionOptions": [
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "MonsterAttack",
+      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Razan:3eba1b928665fd94c84a6ce3f6fda83a",
+      "featureDefinitionPower": null,
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": true,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryDefilerAttack:6dbbf7b9171790744a64102f7ed7de29"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Razan:3eba1b928665fd94c84a6ce3f6fda83a",
+      "featureDefinitionPower": "Definition:PowerDefilerDarkness:fd6fb44696a51b24e907474087d41bd7",
+      "spellDefinition": null,
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryDefilerDarkness:e06c0164fc6c0dc4a9f673aef9760576"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 2,
+      "subaction": "Spell",
+      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Razan:3eba1b928665fd94c84a6ce3f6fda83a",
+      "featureDefinitionPower": "Definition:PowerDefilerDarkness:fd6fb44696a51b24e907474087d41bd7",
+      "spellDefinition": "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryDefilerAoE_Debuff:bed9249b951bd2a4f83e2c41ba402f8d"
+    },
+    {
+      "$type": "LegendaryActionDescription, Assembly-CSharp",
+      "cost": 1,
+      "subaction": "Power",
+      "monsterAttackDefinition": "Definition:Attack_Defiler_Bite_Razan:3eba1b928665fd94c84a6ce3f6fda83a",
+      "featureDefinitionPower": "Definition:PowerDefilerEatFriends:741a5c664fb45ae45a361ff8274f4c68",
+      "spellDefinition": "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+      "magicAttackBonus": 0,
+      "saveDC": 0,
+      "magicAbilityBonus": 0,
+      "canMove": false,
+      "moveMode": "Definition:MoveModeFly6:017c6a5ac95be2841bea36b7dac041fe",
+      "noOpportunityAttack": true,
+      "decisionPackage": "Definition:LegendaryDefilerLifeLeechAlly:e23d59ae2e216024889a22afc5991067"
+    }
+  ],
+  "defaultBattleDecisionPackage": "Definition:DefaultRangeWithBackupMeleeDecisions:a938084b17b2aad46bffadc07456119a",
+  "threatEvaluatorDefinition": {
+    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
+    "threatEvaluator": {
+      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
+      "hateResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "woundRatioResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "maxHPResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "attackersCountResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "meleeVsRangedResponse": {
+        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
+      },
+      "previousTargetRelatedMalus": 0.1
+    },
+    "name": "PrioritizeNoone"
+  },
+  "languages": [
+    "Language_Common",
+    "Language_Elvish"
+  ],
+  "audioSwitches": [
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_VoiceBarks",
+          "id": 2399735075,
+          "guid": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8",
+          "name": "DE1F7659-53C9-4C44-B92C-831E6C72E0E8"
+        },
+        "objectName": "NPC_F_Aksha",
+        "id": 2592397722,
+        "guid": "3A720477-A9E3-49EC-87C8-D9E453B20975",
+        "name": "3A720477-A9E3-49EC-87C8-D9E453B20975"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    },
+    {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Armor",
+          "id": 71308029,
+          "guid": "FC976271-2B39-44EB-B359-06F67CBF04CC",
+          "name": "FC976271-2B39-44EB-B359-06F67CBF04CC"
+        },
+        "objectName": "Clothes",
+        "id": 2231306511,
+        "guid": "5AD84947-62F9-45E2-BF16-96064AFDBF3C",
+        "name": "5AD84947-62F9-45E2-BF16-96064AFDBF3C"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  ],
+  "audioSwitchesOnHands": [],
+  "audioRaceRTPCValue": 4.0,
+  "challengeRating": 12.0,
+  "noExperienceGain": false,
+  "droppedLootDefinition": "Definition:Estalla_loot_drop:4e667886e14be33489f4087fdff0a0f6",
+  "stealableLootDefinition": null,
+  "bestiaryLootOptions": [],
+  "features": [
+    "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+    "Definition:MoveModeFly12:5e70172c8e2a40146b375001ab656a44",
+    "Definition:SenseTruesight16:ea70a5054de732f4f8112f2ffca185a6",
+    "Definition:DamageAffinityPoisonImmunity:7f47b64e57ec7b247acaa220a510b131",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429",
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:DamageAffinitySlashingResistanceExceptSilver:225f3571dfe75434e9db0b3fe2088d18",
+    "Definition:DamageAffinityPiercingResistanceExceptSilver:fa71e37e58fbd56409bc84a157812537",
+    "Definition:DamageAffinityBludgeoningResistanceExceptSilver:66a78867749d2a04a842e246d3c0fcdd",
+    "Definition:SavingThrowAffinitySpellResistance:d6341ebb2cb967949b4426e31e993b86",
+    "Definition:AttackModifierMartialSpellBladeMagicWeapon:9de1d9539d9b72048acf914d292e95ad",
+    "Definition:AdditionalDamagePoison_QueenSpidersBlood:8bc779f47d5a08949909c8074d24e2c8",
+    "Definition:DH_Custom_ErinyesParry_Power:9ba868b0-f008-5363-ac04-4842d8e1f7f6"
+  ],
+  "attackIterations": [
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 3,
+      "monsterAttackDefinition": "Definition:DH_Custom_PoisonLongbow_Attack:80be699b-35ec-5d91-a54a-a06592177628"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 3,
+      "monsterAttackDefinition": "Definition:DH_Custom_PoisonLongsword_Attack:4396a7e0-98ba-5b0a-b03d-31bc5ff80eb4"
+    }
+  ],
+  "sneakStance": "Stealth",
+  "patrolStance": "SlowWalk",
+  "interceptStance": "Run",
+  "dualSex": false,
+  "minimalAge": 80,
+  "maximalAge": 60,
+  "height": 5,
+  "weight": 190,
+  "isHusk": false,
+  "isPet": false,
+  "forbidFastTravel": false,
+  "forceHasComplexActions": false,
+  "forcePersistentBody": false,
+  "bestiaryEntry": "None",
+  "bestiaryReference": null,
+  "bestiaryCameraOffset": {
+    "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+    "x": 0.0,
+    "y": 7.0,
+    "z": -35.0
+  },
+  "alwaysHideStats": false,
+  "bestiarySpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "monsterPresentation": {
+    "$type": "MonsterPresentation, Assembly-CSharp",
+    "hasUniqueName": false,
+    "uniqueNameTitle": "",
+    "humanoidMonsterPresentationDefinitions": [
+      "Definition:NPC_Presentation_Estalla:1d054fb2d2cb51a46a6d3fec23d62644"
+    ],
+    "useCustomMaterials": false,
+    "customMaterials": [],
+    "customShaderReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "mutantFleshDirection": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -1.0,
+      "z": 0.0
+    },
+    "overrideCharacterShaderColors": false,
+    "firstCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "secondCharacterShaderColor": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    "hasPhantomDistortion": true,
+    "attachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "bestiaryAttachedParticlesReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "hasPrefabVariants": false,
+    "monsterPresentationDefinitions": [],
+    "malePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "d87d7b85f0eaa1d44a82d38236f9e830",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "maleModelScale": 0.5891955,
+    "femalePrefabReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+      "m_AssetGUID": "d87d7b85f0eaa1d44a82d38236f9e830",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "femaleModelScale": 0.5891955,
+    "wieldedItemsScale": 1.0,
+    "hideWieldedItemsWhenPassive": false,
+    "hideDuringCutscene": false,
+    "hasLightingCutscene": true,
+    "canGeneratePortrait": true,
+    "needMerchantPortrait": false,
+    "hasMonsterPortraitBackground": true,
+    "portraitCameraFollowOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": -0.5,
+      "z": -5.0
+    },
+    "portraitCameraLookAtScreenOffset": {
+      "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
+      "x": 0.5,
+      "y": 0.4
+    },
+    "portraitCameraFOV": 40.0,
+    "portraitCameraLightingOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    }
+  },
+  "forceCombatStartsAnimation": false,
+  "hasLookAt": false,
+  "forceNoFlyAnimation": false,
+  "followFloorAngle": false,
+  "groupAttacks": false,
+  "isUnique": false,
+  "uniqueNameId": "",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Monster/&DH_Custom_Erinyes_Title",
+    "description": "Monster/&DH_Custom_Erinyes_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "84c63b46-82cc-534b-9fa7-2e870aaea625",
+  "contentPack": 9999,
+  "name": "Custom_Erinyes"
+}

@@ -1,0 +1,33 @@
+{
+  "$type": "SkillDefinition, Assembly-CSharp",
+  "abilityScore": "Dexterity",
+  "personalityFlag": false,
+  "personalityAdditiveBase": 10,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Skill/&AcrobaticsTitle",
+    "description": "Skill/&AcrobaticsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContentModified",
+  "guid": "a5e8cf519276005458599ed561c67d12",
+  "contentPack": "BaseGame",
+  "name": "Acrobatics"
+}

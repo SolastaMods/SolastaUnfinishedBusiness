@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkZenArcherCombat:2337b7e9-fd95-5acd-b638-e50827476c1d",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkZenArrowTechnique:2e47b4df-12d0-52d8-accf-5390eb006dae",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkZenArcherFlurryOfArrows:aa34394d-c3fd-5b3a-84df-2b65673e1329",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkZenArcherKiPoweredArows:0de8ca22-385c-51e4-8431-b488b50013e3",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkZenArrowUpgradedTechnique:784ed7b1-6ba6-5ce0-bb85-7af6f4f0f1cd",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassMonkZenArcherStunningArrows:77aff6b4-c3c5-5da6-a1b4-52081284765d",
+      "level": 11
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&ClassMonkTraditionZenArcherTitle",
+    "description": "Subclass/&ClassMonkTraditionZenArcherDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "0e810a0878ef5974dbfcad056a7c0fa1",
+      "m_SubObjectName": "Ranger_Marksman",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "09018036-caf4-50de-8f1e-9cce2723c7eb",
+  "contentPack": 9999,
+  "name": "ClassMonkTraditionZenArcher"
+}

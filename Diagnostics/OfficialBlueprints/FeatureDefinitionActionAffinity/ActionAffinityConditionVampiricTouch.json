@@ -1,0 +1,49 @@
+{
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [],
+  "authorizedActions": [
+    "VampiricTouch"
+  ],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "2e8a9afb4086d7241827ce1c58f57ff3",
+  "contentPack": "BaseGame",
+  "name": "ActionAffinityConditionVampiricTouch"
+}

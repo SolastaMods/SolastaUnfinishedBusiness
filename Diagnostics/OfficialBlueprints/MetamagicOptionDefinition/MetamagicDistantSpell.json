@@ -1,0 +1,36 @@
+{
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "FixedValue",
+  "sorceryPointsCost": 1,
+  "metamagicType": "DistantSpell",
+  "parameterMethod": "FixedValue",
+  "parameterValue": 6,
+  "boundFeature": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Rules/&MetamagicOptionDistantSpellTitle",
+    "description": "Rules/&MetamagicOptionDistantSpellDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "cfca33a87cfd1d54d91bfe722958bebe",
+  "contentPack": "BaseGame",
+  "name": "MetamagicDistantSpell"
+}
