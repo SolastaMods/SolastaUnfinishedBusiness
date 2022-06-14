@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using I2.Loc;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
 using SolastaMonsters.Models;
@@ -22,9 +23,13 @@ internal static class GameManager_BindPostDatabase
         ItemDefinitionVerification.Load();
         EffectFormVerification.Load();
 #endif
+
         // Translations must load first
-        Translations.LoadTranslations("Modui");
-        Translations.LoadTranslations("Translations");
+        var languageCode = Main.Settings.SelectedOverwriteLanguageCode == "off"
+            ? LocalizationManager.CurrentLanguageCode
+            : Main.Settings.SelectedOverwriteLanguageCode;
+
+        Translations.LoadTranslations(languageCode);
 
         // Resources must load second
         ResourceLocatorContext.Load();
