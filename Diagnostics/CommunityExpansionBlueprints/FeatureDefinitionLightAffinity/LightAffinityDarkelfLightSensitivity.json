@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Bright",
+      "condition": "Definition:ConditionLightSensitive:ca49770be06152b44aca3d6df2678a81",
+      "effect": null
+    },
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Bright",
+      "condition": "Definition:ConditionDarkelfLightSensitive:8c7cb851-6810-4101-8a6a-e932e9cc3896",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&LightAffinityDarkelfLightSensitivityTitle",
+    "description": "Feature/&LightAffinityDarkelfLightSensitivityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "707231ea-e34d-4e26-9af8-4e52c0cb85c3",
+  "contentPack": 9999,
+  "name": "LightAffinityDarkelfLightSensitivity"
+}

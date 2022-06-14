@@ -1,10 +1,10 @@
 ﻿CHANGES:
 
-- Add Wiki and Donations buttons under "Credits & Diagnostics"
-- Fix game not booting in Chinese or Portuguese
-- Improve Russian and Chinese translations
-- Make some higher level spells standard on Clerics and Druids
-- Rework War Caster fix released on previous version
+- Add Darkelf race [SilverGriffon]
+- Fix Deadeye and Power Attack to not remove concentration from heroes
+- Fix Hand Crossbows to leverage Archery fighting style
+- Fix Scout Sentinel to remove summoned weapons on long rest
+- Fix War Caster to account for bundled cantrips (i.e.: Produce Flame)
 
 PATRONS:
 

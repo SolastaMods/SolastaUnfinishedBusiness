@@ -1,0 +1,173 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 6,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+        "Definition:BurningHands_B:ba16d3435466af74abdaa2a3ecaf934b",
+        "Definition:CharmPerson:9c98e5cba0f8b1649b3217a97cbc111b",
+        "Definition:ColorSpray:72939f681f479494e97e0025f67726fe",
+        "Definition:ComprehendLanguages:78c2b416e515641468aa1c384db23535",
+        "Definition:DetectMagic:a00ea7ca05339cb42a49056d722b6680",
+        "Definition:ExpeditiousRetreat:3713ff85f9f53f2459ae8d7a976a24b8",
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+        "Definition:FeatherFall:4e3a52bac403e3246bb7c4c12f520245",
+        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+        "Definition:Grease:31f056cc8a643054ba1e59be0d224482",
+        "Definition:HideousLaughter:8773ef52f0dd71e4a8dbe8a2814b3cf4",
+        "Definition:Identify:e398d34493329f147bae4902122057c2",
+        "Definition:Jump:f9b46eef2189b8342a4943588e2f947c",
+        "Definition:Longstrider:79bd842bd1a7d65499d148a671f7ce83",
+        "Definition:MageArmor:4772a21b455a76149adcc38d58267a10",
+        "Definition:MagicMissile:2b2b43fb6eeb735479a21209286db382",
+        "Definition:ProtectionFromEvilGood:b8a59d1a01529b04893e0c440cecee39",
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+        "Definition:Sleep:9bfc9d5dc54cc2c4ab7e4baade97bf64",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:AcidArrow:f37e9c53e7ea033458b5eba667a67f84",
+        "Definition:Blindness:3470e52d7a8b472498ee397e2532db04",
+        "Definition:Blur:277b11af157a3c84292024790e6173b3",
+        "Definition:Darkness:b8d5ac9f43f55be479da08cd37744584",
+        "Definition:Darkvision:346361c8cc5708f4fb70d42c31fe4823",
+        "Definition:FlamingSphere:3b54dc222148dc8499eb981f7383c71f",
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:Knock:7b59b8af31053a843a006d0e375dbd89",
+        "Definition:Levitate:ad416e5b882b3974c929eb75863f0e84",
+        "Definition:MagicWeapon:c9c2c6779e83836468fb6f4ab562897f",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+        "Definition:RayOfEnfeeblement:b617f68e7f041b74bb018ce5bf9a1c5c",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+        "Definition:SeeInvisibility:10c15ca8321632e42825254149dfb885",
+        "Definition:SpiderClimb:1ba4092482a450c4da60e17cbe4577df",
+        "Definition:Shatter:acb96b651384a47428da7c0c32ab359e"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:BestowCurse:c7af146d2e243eb42910adbddec1d7d3",
+        "Definition:Counterspell:699759f98dacad84fb2d7323e0788179",
+        "Definition:DispelMagic:296e789b353c0324b804bee2c16a419a",
+        "Definition:Fear:cff391ef9dd8106448ed464270dcc9c4",
+        "Definition:Fireball:3f88bf59a445ce64aa23dfb935750535",
+        "Definition:Fly:6c13f5461f5047645a8c165cc0f43f83",
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:HypnoticPattern:363c0134112bc864b871f0fef729be6b",
+        "Definition:LightningBolt:f6e4a759d9257fe429523d7f3e8d9eb3",
+        "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90",
+        "Definition:RemoveCurse:ecabaf5104767c04b9a6549866fccfa0",
+        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4",
+        "Definition:StinkingCloud:b62f452e6a757124da5eef6ca9fd46e9",
+        "Definition:Tongues:fa71b90885b308f4b8998d433c9e41e8",
+        "Definition:VampiricTouch:149a2d0a835fda54b99a710e0dabfd53",
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:IdentifyCreatures:8cf2f383cc3d0704e860b4fd6fc7659f",
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a",
+        "Definition:Blight:bd131ed580e31734abb8189ab7e17a10",
+        "Definition:Confusion:206eb2e0497fe014595e99aa7d4fae5e",
+        "Definition:ConjureMinorElementals:d90fff57665a51c4faf587eb54f3e001",
+        "Definition:DimensionDoor:c85120485a4cc914eb81b7b75e9e7bbc",
+        "Definition:FireShield:bd4acac8d77f8e6459eaf8d5eebae6f3",
+        "Definition:GreaterInvisibility:463d00efd5590394ab707875f866dfe7",
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837",
+        "Definition:WallOfFire:c44e8ec6d1e888e47bbd40981b7a605d"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:CloudKill:264bc71496ff9db4682be867a130a0a4",
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643",
+        "Definition:DominatePerson:89e34ee9a6361c040abb36971b697031",
+        "Definition:HoldMonster:1c8a63324f25814408ca250ba5ec2d16",
+        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:CircleOfDeath:0fd4c89f6c07713499242fe6529aa816",
+        "Definition:ChainLightning:1f64e610644230f4fa5054960f9eda8c",
+        "Definition:Disintegrate:d57e7732a47d3fa4791776a5b99733a1",
+        "Definition:FreezingSphere:981aa235259bf274da28bd3e913902ad",
+        "Definition:GlobeOfInvulnerability:eb567aec38beff84d87040cb9a006177",
+        "Definition:Sunbeam:ec547e11445032d4f9519982399724a6",
+        "Definition:TrueSeeing:16c9f67d4a89cbf47baad67ecadafaa5",
+        "Definition:Eyebite:ea9050011d6bef2419be7b2d59750659"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 7,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 8,
+      "spells": []
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 9,
+      "spells": []
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7e84092e-8b26-4870-8244-ce435a95b67f",
+  "contentPack": 9999,
+  "name": "DarkelfMagicSpellList"
+}

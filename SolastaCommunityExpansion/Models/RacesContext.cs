@@ -34,6 +34,7 @@ internal static class RacesContext
     {
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
         LoadRace(GnomeRaceBuilder.GnomeRace);
+        LoadRace(DarkelfRaceBuilder.DarkelfRace);
 
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -44,6 +45,7 @@ internal static class RacesContext
 
         RaceScaleMap[BolgrifRaceBuilder.BolgrifRace] = 8.8f / 6.4f;
         RaceScaleMap[GnomeRaceBuilder.GnomeRace] = -0.04f / -0.06f;
+       
     }
 
     private static void LoadRace(CharacterRaceDefinition characterRaceDefinition)

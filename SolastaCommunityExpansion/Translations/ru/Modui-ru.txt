@@ -184,7 +184,6 @@ ModUi/&UsableDevice	<color=yellow>Используемое устройство<
 ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
 ModUi/&Weapon	<color=yellow>Оружие</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	Разрешить арбалетам получать бонусы для луков
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Убрать требование концентрации для любых заклинаний <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Выбрать неофициально поддерживаемый язык:</color>
 ModUi/&Campaigns	<color=yellow>Кампании:</color>

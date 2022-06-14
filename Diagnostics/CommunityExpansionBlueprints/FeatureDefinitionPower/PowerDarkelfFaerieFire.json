@@ -1,29 +1,26 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "FreeSlot",
-    "itemSelectionType": "Weapon",
-    "targetParameter": 1,
+    "targetType": "Cube",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 4,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
-    "slotTypes": [
-      "MainHandSlot",
-      "OffHandSlot"
-    ],
+    "slotTypes": [],
     "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
@@ -32,11 +29,11 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "UntilAnyRest",
-    "durationParameter": 10,
+    "targetSide": "All",
+    "durationType": "Minute",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
@@ -44,7 +41,7 @@
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
+    "savingThrowDifficultyAbility": "Charisma",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -63,58 +60,63 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Summon",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "StartOfTurn",
-        "summonForm": {
-          "$type": "SummonForm, Assembly-CSharp",
-          "summonType": "InventoryItem",
-          "itemDefinition": "Definition:ScoutSuitWeapon:21f90fad-b039-4efe-bee8-5afd44453664",
-          "trackItem": false,
-          "monsterDefinitionName": "Adam_The_Twelth",
-          "number": 1,
-          "conditionDefinition": null,
-          "persistOnConcentrationLoss": false,
-          "decisionPackage": null,
-          "effectProxyDefinitionName": ""
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionHighlighted",
+          "conditionDefinition": "Definition:ConditionHighlighted:e656433f63f7c1e499a77c59ebc7ac84",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
       },
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ItemProperty",
+        "formType": "LightSource",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "itemPropertyForm": {
-          "$type": "ItemPropertyForm, Assembly-CSharp",
-          "featureBySlotLevel": [
-            {
-              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:IntToAttackAndDamage:ebb243f7-382c-4caf-9d7f-40c80dab4623",
-              "level": 0
-            }
-          ],
-          "usageLimitation": "Unlimited",
-          "useAmount": 3
+        "saveOccurence": "StartOfTurn",
+        "lightSourceForm": {
+          "$type": "LightSourceForm, Assembly-CSharp",
+          "lightSourceType": "Basic",
+          "brightRange": 0,
+          "dimAdditionalRange": 2,
+          "color": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 0.9778601,
+            "b": 0.78039217,
+            "a": 1.0
+          },
+          "graphicsPrefabReference": {
+            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
+            "m_SubObjectName": "",
+            "m_SubObjectType": ""
+          },
+          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -146,7 +148,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
+        "m_AssetGUID": "3cff2b6f11a2cd649b3fb3fb2c402351",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -158,7 +160,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "68726c9b0b4ffc7499d07d4b4c4f4ec1",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -182,7 +184,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6937e1207989e6644ad591240a0bb88c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -194,7 +196,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "dc52f8444fa49f24ca22b361d63dbb15",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -278,19 +280,19 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a9d1125f03ed66a4482a3dc3be9308fc",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "13002582a0306fe44915c63f57e4ea59",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "e3712590851cdf84ba480fad91059b34",
+        "m_AssetGUID": "0c47cc2ece484284eb5eec49a38a2cae",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -307,24 +309,24 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.0,
+      "aoeScoreMultiplier": 1.5,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 0,
-      "dynamicCooldown": false
+      "cooldownForBattle": 2,
+      "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0"
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "Action",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -336,7 +338,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -345,12 +347,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ScoutModePowerTitle",
-    "description": "Feature/&ScoutModePowerDescription",
+    "title": "Feature/&PowerDarkelfFaerieFireTitle",
+    "description": "Feature/&PowerDarkelfFaerieFireDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "61f256de90bb700489301488b09f1fa8",
-      "m_SubObjectName": "ShadowArmor",
+      "m_AssetGUID": "9ca4f4b1dea3dbe41a40bf189c91bbd3",
+      "m_SubObjectName": "FaerieFire",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -361,12 +363,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 1,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ff6b9eb1-01ad-4100-ab12-7d6dc38ccc70",
+  "guid": "68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
   "contentPack": 9999,
-  "name": "ScoutModePower"
+  "name": "PowerDarkelfFaerieFire"
 }

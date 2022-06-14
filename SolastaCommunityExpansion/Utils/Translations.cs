@@ -26,7 +26,7 @@ public static class Translations
 
     internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
 
-    private static Dictionary<string, string> Glossary = GetWordsDictionary();
+    private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
     private static string GetPayload(string url)
     {
@@ -141,28 +141,31 @@ public static class Translations
         return words;
     }
 
-    internal static IEnumerable<string> GetFileContent(string category, string languageCode)
+    internal static IEnumerable<string> GetTranslations(string languageCode)
     {
-        using var stream = new MemoryStream(Resources.Translations);
-        using var zip = new ZipArchive(stream, ZipArchiveMode.Read);
-        var dataStream = zip.GetEntry($"{category}-{languageCode}.txt").Open();
-        var reader = new StreamReader(dataStream);
+        using var zipStream = new MemoryStream(Resources.Translations);
+        using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
-        while (!reader.EndOfStream)
+        foreach (var entry in zip.Entries
+                     .Where(x => x.FullName.StartsWith(languageCode))
+                     .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
         {
-            yield return reader.ReadLine();
+            using var dataStream = entry.Open();
+            using var data = new StreamReader(dataStream);
+
+            while (!data.EndOfStream)
+            {
+                yield return data.ReadLine();
+            }
         }
     }
 
-    internal static void LoadTranslations(string category)
+    internal static void LoadTranslations(string languageCode)
     {
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-        var languageCode = Main.Settings.SelectedOverwriteLanguageCode == "off"
-            ? LocalizationManager.CurrentLanguageCode
-            : Main.Settings.SelectedOverwriteLanguageCode;
 
-        foreach (var line in GetFileContent(category, languageCode))
+        foreach (var line in GetTranslations(languageCode))
         {
             var split = line.Split(new[] {'\t'}, 2);
 

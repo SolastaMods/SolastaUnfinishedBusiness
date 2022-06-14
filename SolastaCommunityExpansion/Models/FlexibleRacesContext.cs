@@ -31,6 +31,7 @@ internal static class FlexibleRacesContext
         {"HalfOrc", attributeChoiceThree},
         // unofficial races
         {"BolgrifRace", attributeChoiceThree},
+        {"DarkelfRace", attributeChoiceThree},
         {"GnomeRace", attributeChoiceThree}
     };
 
@@ -54,6 +55,13 @@ internal static class FlexibleRacesContext
             {
                 "AttributeModifierBolgrifStrengthAbilityScoreIncrease",
                 "AttributeModifierBolgrifWisdomAbilityScoreIncrease"
+            }
+        },
+        {
+            "DarkelfRace",
+            new List<string>
+            {
+                "AttributeModifierElfAbilityScoreIncrease", "AttributeModifierDarkelfCharismaAbilityScoreIncrease"
             }
         },
         {

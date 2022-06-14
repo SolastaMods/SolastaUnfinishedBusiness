@@ -84,7 +84,7 @@ internal static class BolgrifRaceBuilder
 
         var bolgrifRacePresentation = CharacterRaceDefinitions.Dwarf.RacePresentation.DeepCopy();
 
-        bolgrifRacePresentation.preferedSkinColors = new RangedInt(45, 48);
+        bolgrifRacePresentation.preferedSkinColors = new RangedInt(45, 47);
         bolgrifRacePresentation.preferedHairColors = new RangedInt(16, 32);
         bolgrifRacePresentation.needBeard = false;
         bolgrifRacePresentation.MaleBeardShapeOptions.Add(MorphotypeElementDefinitions.BeardShape_None.Name);
