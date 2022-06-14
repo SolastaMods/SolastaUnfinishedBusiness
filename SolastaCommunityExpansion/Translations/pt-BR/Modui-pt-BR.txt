@@ -184,7 +184,6 @@ ModUi/&UsableDevice	<color=yellow>Dispositivos</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals	<color=yellow>Visual:</color>
 ModUi/&Weapon	<color=yellow>Armas</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	Permitir que as bestas se beneficiem dos recursos dos arcos
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remova o requisito de concentração de qualquer feitiço <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Substituir o idioma do jogo:</color>
 ModUi/&Campaigns	<color=yellow>Campanhas:</color>

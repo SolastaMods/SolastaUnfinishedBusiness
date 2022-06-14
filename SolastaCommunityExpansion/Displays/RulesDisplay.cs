@@ -23,14 +23,6 @@ internal static class RulesDisplay
 
         UI.Label("");
 
-        toggle = Main.Settings.AllowCrossbowsToUseBowFeatures;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowCrossbowsToUseBowFeatures"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowCrossbowsToUseBowFeatures = toggle;
-        }
-
-        UI.Label("");
-
         toggle = Main.Settings.AddBleedingToLesserRestoration;
         if (UI.Toggle(Gui.Localize("ModUi/&AddBleedingToLesserRestoration"), ref toggle, UI.AutoWidth()))
         {

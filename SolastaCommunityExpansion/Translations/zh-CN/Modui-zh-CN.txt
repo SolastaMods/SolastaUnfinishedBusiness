@@ -184,7 +184,6 @@ ModUi/&UsableDevice	<color=yellow>可用装置</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon	<color=yellow>武器</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	允许弩从与弓相关的特性中获益
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&OverwriteGameLanguage	<color=yellow>非官方语言支持：</color>
 ModUi/&Campaigns	<color=yellow>战役：</color>
