@@ -147,7 +147,8 @@ public static class Translations
         using var zip = new ZipArchive(stream, ZipArchiveMode.Read);
 
         foreach (var entry in zip.Entries
-                     .Where(x => x.FullName.StartsWith(languageCode)))
+                     .Where(x => x.FullName.StartsWith(languageCode))
+                     .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
         {
             var dataStream = entry.Open();
             var reader = new StreamReader(dataStream);
