@@ -1,6 +1,8 @@
 ﻿CHANGES:
 
+- Fix Deadeye and Power Attack removing concentration from heroes
 - Fix Scout Sentinel summoned weapons no disappearing on long rest
+- Fix War Caster to account for bundled cantrips (i.e.: Produce Flame)
 
 PATRONS:
 
