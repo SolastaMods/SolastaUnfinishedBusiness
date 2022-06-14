@@ -89,39 +89,39 @@ Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Has disadvantag
 Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Distracted
 Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Movement is set to 0.
 Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Pinned
-Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest.
+Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest. Gain 4 temp HP for each level of Druid, lasting 10 minutes.
 Condition/&ConditionBarkWardTitle	Bark Ward
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
 Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
 Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
-Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest deal 2d8 piercing damage to melee attackers.
+Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest deal 2d8 piercing damage to creatures that hit with a melee attack.
 Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
-Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark.
+Condition/&ConditionMarkedByArcanistDescription	Afflicted by Arcanist's Mark. When hit by the caster with a weapon attack, the mark detonates, dealing 1d6 force damage to the afflicted and destroying the mark.
 Condition/&ConditionMarkedByArcanistTitle	Arcanist's Mark
 Condition/&ConditionMuleDescription	Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
 Condition/&ConditionMuleTitle	Mule
-Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant you poison immunity, and deal 3d8 piercing damage to melee attackers.
+Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant poison immunity, and deal 3d8 piercing damage to creatures that hit with a melee attack.
 Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
-Condition/&DebilitatedConditionDescription	Debilitated condition.
+Condition/&DebilitatedConditionDescription	Suffer from one of following conditions: blinded, bane, bleeding or stunned.
 Condition/&DebilitatedConditionTitle	Debilitated
 Condition/&DHFeeblemindSpellDescription	The creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way.
 Condition/&DHFeeblemindSpellTitle	Feeblemind
-Condition/&DHForesightSpellDescription	You have advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against you.
+Condition/&DHForesightSpellDescription	Advantage on all attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls.
 Condition/&DHForesightSpellTitle	Foresight
-Condition/&DHHolyAuraSpellDescription	When you cast this spell, allies within range shed dim light in a 5-foot radius, have advantage on all saving throws, and other creatures have disadvantage on attack rolls against them until the spell ends. In addition, when a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+Condition/&DHHolyAuraSpellDescription	Advantage on all saving throws. Other creatures have disadvantage on attack rolls. When a fiend or an undead hits an affected creature with a melee attack, the attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
 Condition/&DHHolyAuraSpellTitle	Protected by Holy Aura
 Condition/&DHMindBlankSpellDescription	Immune to psychic damage and the charmed condition.
 Condition/&DHMindBlankSpellTitle	Mind Blank
 Condition/&DHReverseGravitySpellDescription	Can't move.
 Condition/&DHReverseGravitySpellTitle	Caught by reverse gravity
-Condition/&DHTimeStopSpellDescription	Frozen by Time Stop.
-Condition/&DHTimeStopSpellTitle	Frozen by Time Stop
-Condition/&DHWeirdSpellDescription	The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
+Condition/&DHTimeStopSpellDescription	Time is frozen for the affected creature.
+Condition/&DHTimeStopSpellTitle	Time Stopped
+Condition/&DHWeirdSpellDescription	Frightened. At the end of each turn, make a Wisdom saving throw. On a failure, take 4d10 psychic damage. On a success, this condition ends.
 Condition/&DHWeirdSpellTitle	Weirded
-Condition/&DisorientDescription	This creature's accuracy is reduced.
+Condition/&DisorientDescription	-1d6 to attack rolls.
 Condition/&DisorientTitle	Disoriented
-Condition/&EvilEyeDescription	Evil eye condition.
+Condition/&EvilEyeDescription	Frightened. Unable to approach the source of fear, disadvantage on attack rolls and ability checks while source of fear is in sight.
 Condition/&EvilEyeTitle	Evil Eye
 Condition/&EWResonatingStrikeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
 Condition/&EWResonatingStrikeDamageTitle	Resonance
@@ -137,14 +137,15 @@ Condition/&MoonTouchedConditionDescription	Your gravity is negated.
 Condition/&MoonTouchedConditionTitle	Moon Touched
 Condition/&PoxDescription	Pox condition.
 Condition/&PoxTitle	Pox
-Condition/&RuinDescription	Ruin condition.
-Condition/&RuinedDescription	This creature's defense is reduced.
+Condition/&RuinDescription	-3 AC penalty, up to a maximum of -10 AC.
+Condition/&RuinedDescription	-3 AC penalty, up to a maximum of -10 AC.
 Condition/&RuinedTitle	Ruined
 Condition/&RuinTitle	Ruin
+Condition/&SentinelStopMovementConditionDescription	Unable to move. Speed set to 0.
 Condition/&SentinelStopMovementConditionTitle	Stopped
-Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage per round. Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage every turn. Ends if the caster takes 15 damage or more in a single attack.
 Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
-Condition/&SwallowingToadConditionDescription	Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowingToadConditionDescription	Ends if 15 damage or more is taken in a single attack.
 Condition/&SwallowingToadConditionTitle	Swallowing Toad
 ContentPack/&CommunityExpansionPackDescription	The Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
 ContentPack/&CommunityExpansionPackTitle	Community Expansion Pack
