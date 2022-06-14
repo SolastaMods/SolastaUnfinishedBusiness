@@ -52,7 +52,7 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         effectScoutMode.Copy(ProduceFlameHold.EffectDescription);
         effectScoutMode.SlotTypes.Clear();
         effectScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectScoutMode.durationType = RuleDefinitions.DurationType.UntilShortRest;
+        effectScoutMode.durationType = RuleDefinitions.DurationType.UntilAnyRest;
         effectScoutMode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectScoutMode.EffectForms[0].SummonForm.itemDefinition = ScoutSuitWeaponBuilder.ScoutSuitWeapon;
         effectScoutMode.SetItemSelectionType(ActionDefinitions.ItemSelectionType.Weapon);
@@ -83,7 +83,7 @@ internal static class ScoutSentinelTinkererSubclassBuilder
         effectsentinelmode.Copy(ProduceFlameHold.EffectDescription);
         effectsentinelmode.SlotTypes.Clear();
         effectsentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectsentinelmode.durationType = RuleDefinitions.DurationType.UntilShortRest;
+        effectsentinelmode.durationType = RuleDefinitions.DurationType.UntilAnyRest;
         effectsentinelmode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectsentinelmode.EffectForms[0].SummonForm
             .itemDefinition = SentinelSuitWeaponBuilder.SentinelSuitWeapon;
@@ -256,7 +256,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         effectImprovedSentinelmode.Copy(ProduceFlameHold.EffectDescription);
         effectImprovedSentinelmode.SlotTypes.Clear();
         effectImprovedSentinelmode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectImprovedSentinelmode.durationType = RuleDefinitions.DurationType.UntilShortRest;
+        effectImprovedSentinelmode.durationType = RuleDefinitions.DurationType.UntilAnyRest;
         effectImprovedSentinelmode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectImprovedSentinelmode.EffectForms[0].SummonForm
             .itemDefinition = ImprovedSentinelSuitWeaponBuilder.ImprovedSentinelSuitWeapon;
@@ -294,7 +294,7 @@ internal sealed class ScoutSentinelFeatureSet15Builder : FeatureDefinitionFeatur
         effectImprovedScoutMode.Copy(ProduceFlameHold.EffectDescription);
         effectImprovedScoutMode.SlotTypes.Clear();
         effectImprovedScoutMode.SlotTypes.AddRange("MainHandSlot", "OffHandSlot");
-        effectImprovedScoutMode.durationType = RuleDefinitions.DurationType.UntilShortRest;
+        effectImprovedScoutMode.durationType = RuleDefinitions.DurationType.UntilAnyRest;
         effectImprovedScoutMode.SetEffectParticleParameters(Shield.EffectDescription.EffectParticleParameters);
         effectImprovedScoutMode.EffectForms[0].SummonForm
             .itemDefinition = ImprovedScoutSuitWeaponBuilder.ImprovedScoutSuitWeapon;
