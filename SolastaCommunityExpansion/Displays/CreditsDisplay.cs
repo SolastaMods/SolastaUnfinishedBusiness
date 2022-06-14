@@ -53,7 +53,7 @@ internal static class CreditsDisplay
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
         {
             "SilverGriffon",
-            "PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells"
+            "PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race"
         },
         {"Sinai-dev", "Unity Explorer UI standalone"},
         {"Spacehamster", "dataminer"},
@@ -62,7 +62,7 @@ internal static class CreditsDisplay
             "Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration"
         },
         {"View619", "Darkvision, Superior Dark Vision"},
-        {"Vylantze", "English terms review, tweaks"},
+        {"Vylantze", "English terms review, tweaks, bug fixes"},
         {
             "Zappastuff",
             "repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Holic75's code integration"
