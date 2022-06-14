@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
+- Fix Scout Sentinel summoned weapons no disappearing on long rest
+
 PATRONS:
 
 - Use *Mod UI > Credits > Donations* if you can financially support
