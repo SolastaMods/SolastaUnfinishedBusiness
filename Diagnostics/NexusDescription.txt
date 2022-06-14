@@ -24,12 +24,12 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]SilverGriffon[/b]: PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
+[*][b]SilverGriffon[/b]: PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
 [*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Vylantze[/b]: English terms review, tweaks
+[*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Holic75's code integration
 [/list]
 
