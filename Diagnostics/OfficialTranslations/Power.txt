@@ -1,4 +1,0 @@
-Power/&PowerStoneGolemSlow_Title	Slow
-Power/&PowerStoneGolemSlow_Description	Stone golems can slow nearby enemies.
-Power/&WightLifeDrain_Description	The Wight can drain your life on a successful melee hit.
-Power/&WightLordCircleofDeath_Description	The Wight Lord can drain life from surrounding enemies.
