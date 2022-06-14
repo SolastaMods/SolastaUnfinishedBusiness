@@ -1775,7 +1775,7 @@ Stage/&SubclassSelectionStageSpecialistTitle	Spezialisierung auswählen
 Subclass/&AbilityAffinityRogueConArtistDescription	Vorteil bei Fähigkeitsprüfungen mit Überzeugung, Täuschung, Leistung und Fingerfertigkeit.
 Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativ
 Subclass/&AHWarlockSubclassSoulBladePactDescription	Du hast einen Handel mit einer empfindungsfähigen Waffe abgeschlossen, die du im Gegenzug für Macht mit Seelen fütterst.
-Subclass/&AHWarlockSubclassSoulBladePactTitle	SoulBlade-Pakt
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Soulblade-Pakt
 Subclass/&ArcaneFighterAdditionalActionDescription	Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
 Subclass/&ArcaneFighterAdditionalActionTitle	Zauberkampf
 Subclass/&ArcaneFighterBonusWeaponDamageDescription	Einmal pro Runde verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
@@ -2042,7 +2042,7 @@ Subclass/&TraditionSpellMasterTitle	Zaubermeister
 Subclass/&WarlockAncientForestDescription	Du hast eine Beziehung zu einer mächtigen Naturentität geschmiedet: Uralte Dryaden, Erzdruiden, Manifestationen der Feywild, die in die materielle Ebene eindringen, Vergessene Götter aus einem Urzeitalter. Ihr Gönner möchte vielleicht, dass Sie die Natur schützen, in ferne Länder reisen, die er nicht kann, oder er hat vielleicht ein anderes Motiv, das kurzlebigen Sterblichen unergründlich erscheint.
 Subclass/&WarlockAncientForestTitle	Urwaldpakt
 Subclass/&WarlockMoonLitDescription	Ihr Patron ist ein Geist des Mondes, ein Wesen, das die zyklische Natur von Licht und Dunkelheit verkörpert. Diese Geister versuchen, die Macht des Mondes über dem Nachthimmel aufrechtzuerhalten, während sie profane Mächte, die die Dunkelheit heimsuchen, in Schach halten und ihre Hexenmeister damit beauftragen, indem sie ihnen das Kommando über die Mächte des Mondes und seine Auswirkungen verleihen.
-Subclass/&WarlockMoonLitTitle	MoonLit-Pakt
+Subclass/&WarlockMoonLitTitle	Moonlit-Pakt
 Subclass/&WarlockToadKingDescription	Fey, Dämon oder Verirrung, verursacht durch die Katastrophe, die wahre Natur des Krötenkönigs ist nicht bekannt, aber es ist bekannt, dass der Krötenkönig ein großes Gebiet von Sümpfen und Sümpfen in den Badlands beherrscht und denen, die bereit sind zu dienen, Macht verleiht.
 Subclass/&WarlockToadKingTitle	Pakt des Krötenkönigs
 Subclass/&WarlockUrPriestDescription	Während die überwiegende Mehrheit der göttlichen Zauberkundigen ihre Kräfte von einer Gottheit bezieht, gibt es diejenigen, die die Götter verachten. Diejenigen, die sich selbst Urpriester nennen, haben gelernt, die göttlichen Energien abzuschöpfen, die die Götter ihren göttlichen Zauberkundigen gewährt haben, und sie für ihre eigenen Bedürfnisse zu nutzen, ohne auch nur ein Lippenbekenntnis zu irgendeinem Gott abzugeben. Als Urpriester unterscheiden Sie sich von den meisten Hexenmeistern, denn es fehlt Ihnen ein Gönner, der Ihnen Ihre Macht verleiht. Eldritch Invocations, die Sie entdecken, sind verzerrte Formen der Magie, die die Götter ihren Gönnern gewähren könnten, während Pact Boons wahrscheinlich göttliche Artefakte sind, die Sie stehlen konnten.

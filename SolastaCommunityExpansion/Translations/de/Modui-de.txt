@@ -80,7 +80,6 @@ ModUi/&EnableSaveByLocation	Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Aktiviere die kurze Erholungsaufladung der <color=orange>Arkanen Waffe</color> auf dem <color=orange>Magier</color>-Arkankämpfer
 ModUi/&EnableTeleportParty	Aktivieren Sie <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[Sie könnten Quests oder Karten brechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
-ModUi/&EnableUnityExplorer	Aktivieren Sie die Unity Explorer-Benutzeroberfläche
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Aktiviere unbegrenzte <color=orange>Arkane Wiederherstellung</color> auf <color=orange>Magier</color>-Zaubermeister\n<i><color=yellow>Muss aktiviert werden, wenn die Fähigkeit nutzbar ist oder vor der Charaktererstellung</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Upcast von <color=orange>Elementar beschwören</color>, <color=orange>Feen beschwören</color> aktivieren
 ModUi/&Encounters	Begegnungen

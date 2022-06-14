@@ -110,15 +110,21 @@ internal static class CreditsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donations".bold().orange(), () =>
+            UI.ActionButton("Donations".bold().yellow(), () =>
             {
                 OpenUrl(
                     "https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion");
-            }, UI.Width(120));
+            }, UI.Width(150));
+
+            UI.ActionButton("Wiki".bold().yellow(), () =>
+            {
+                OpenUrl(
+                    "https://github.com/SolastaMods/SolastaCommunityExpansion/wiki");
+            }, UI.Width(150));
 
             if (IsUnityExplorerInstalled)
             {
-                UI.ActionButton(Gui.Localize("ModUi/&EnableUnityExplorer"), () =>
+                UI.ActionButton("Unity Explorer UI".bold().yellow(), () =>
                 {
                     if (!IsUnityExplorerEnabled)
                     {
@@ -132,7 +138,7 @@ internal static class CreditsDisplay
                         {
                         }
                     }
-                }, UI.AutoWidth());
+                }, UI.Width(150));
             }
         }
 
@@ -162,7 +168,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(kvp.Key.orange(), UI.Width(120));
+                UI.Label(kvp.Key.orange(), UI.Width(150));
                 UI.Label(kvp.Value, UI.Width(600));
             }
         }

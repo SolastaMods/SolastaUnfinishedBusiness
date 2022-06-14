@@ -73,6 +73,15 @@ internal static class Main
                 Translations.LoadTranslations("Game");
             }
 
+            // Users still have SolastaMulticlass.dll
+            var multiclassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
+
+            if (File.Exists(multiclassFilename))
+            {
+                File.Delete(multiclassFilename);
+            }
+
+            // side cars allow us to load any other DLL outside CE
             LoadSidecars(assembly.GetName().Name);
         }
         catch (Exception ex)

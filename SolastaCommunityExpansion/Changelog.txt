@@ -1,6 +1,6 @@
 ﻿CHANGES:
 
-- Fix War Caster feat not applying caster bonuses
+- Fix Scout Sentinel summoned weapons no disappearing on long rest
 
 PATRONS:
 

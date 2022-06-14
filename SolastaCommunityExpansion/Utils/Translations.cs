@@ -26,6 +26,8 @@ public static class Translations
 
     internal static string[] AvailableEngines = Enum.GetNames(typeof(Engine));
 
+    private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
+
     private static string GetPayload(string url)
     {
         using var wc = new WebClient();
@@ -139,53 +141,45 @@ public static class Translations
         return words;
     }
 
-    internal static IEnumerable<string> GetFileContent(string category, string languageCode)
+    internal static IEnumerable<string> GetTranslations(string languageCode)
     {
-        using var stream = new MemoryStream(Resources.Translations);
-        using var zip = new ZipArchive(stream, ZipArchiveMode.Read);
-        var dataStream = zip.GetEntry($"{category}-{languageCode}.txt").Open();
-        var reader = new StreamReader(dataStream);
+        using var zipStream = new MemoryStream(Resources.Translations);
+        using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
-        while (!reader.EndOfStream)
+        foreach (var entry in zip.Entries
+                     .Where(x => x.FullName.StartsWith(languageCode))
+                     .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
         {
-            yield return reader.ReadLine();
+            using var dataStream = entry.Open();
+            using var data = new StreamReader(dataStream);
+
+            while (!data.EndOfStream)
+            {
+                yield return data.ReadLine();
+            }
         }
     }
 
-    internal static void LoadTranslations(string category)
+    internal static void LoadTranslations(string languageCode)
     {
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-        var languageCode = LocalizationManager.CurrentLanguageCode.Replace("-", "_");
 
-        // special case for unofficial languages
-        if (Main.Settings.SelectedOverwriteLanguageCode != "off")
+        foreach (var line in GetTranslations(languageCode))
         {
-            languageCode = Main.Settings.SelectedOverwriteLanguageCode;
-        }
+            var split = line.Split(new[] {'\t'}, 2);
 
-        foreach (var line in GetFileContent(category, languageCode))
-        {
-            string term;
-            string text;
-
-            try
+            if (split.Length != 2)
             {
-                var splitted = line.Split(new[] {'\t', ' '}, 2);
-
-                term = splitted[0];
-                text = splitted[1];
-
-                foreach (var kvp in GetWordsDictionary())
-                {
-                    text = text.Replace(kvp.Key, kvp.Value);
-                }
-            }
-            catch
-            {
-                Main.Error($"invalid translation line \"{line}\".");
-
                 continue;
+            }
+
+            var term = split[0];
+            var text = split[1];
+
+            foreach (var kvp in Glossary)
+            {
+                text = text.Replace(kvp.Key, kvp.Value);
             }
 
             var termData = languageSourceData.GetTermData(term);

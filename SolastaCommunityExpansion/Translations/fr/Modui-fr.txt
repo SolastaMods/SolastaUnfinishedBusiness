@@ -80,7 +80,6 @@ ModUi/&EnableSaveByLocation	Activer l'enregistrement par campagnes/emplacements
 ModUi/&EnableShortRestRechargeOfArcaneWeaponOnWizardArcaneFighter	Activer la recharge de repos court de <color=orange>Arcane Weapon</color> sur <color=orange>Wizard</color> Arcane Fighter
 ModUi/&EnableTeleportParty	Activer <color=cyan>CTRL-SHIFT-(T</color>)eleport party <i><color=yellow>[vous pourriez casser des quêtes ou des cartes si vous vous téléportez vers un lieu inconnu]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty	Activez les bascules sur le groupe de personnages pour définir votre partie de jeu et de test par défaut
-ModUi/&EnableUnityExplorer	Activer l'interface utilisateur Unity Explorer
 ModUi/&EnableUnlimitedArcaneRecoveryOnWizardSpellMaster	Activez la <color=orange>récupération arcanique</color> illimitée sur <color=orange>Wizard</color> Spell Master\n<i><color=yellow>Doit être activé lorsque la capacité a des utilisations disponibles ou avant la création du personnage</color></i>
 ModUi/&EnableUpcastConjureElementalAndFey	Activer l'upcast de <color=orange>Conjure Elemental</color>, <color=orange>Conjure Fey</color>
 ModUi/&Encounters	Rencontres
