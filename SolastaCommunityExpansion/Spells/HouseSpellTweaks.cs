@@ -12,6 +12,8 @@ internal static class HouseSpellTweaks
         //UseHeightOneCylinderEffect();
         MinorFixes();
         RemoveConcentrationRequirementsFromAnySpell();
+        RemoveHumanoidFilterOnHideousLaughter();
+        RemoveRecurringEffectOnEntangle();
     }
 
     internal static void RemoveConcentrationRequirementsFromAnySpell()
@@ -26,6 +28,31 @@ internal static class HouseSpellTweaks
             spell.requiresConcentration = false;
         }
     }
+
+    internal static void RemoveHumanoidFilterOnHideousLaughter()
+    {
+        if (!Main.Settings.RemoveHumanoidFilterOnHideousLaughter)
+        {
+            return;
+        }
+
+        // Remove Humanoid only filter on Hideous Laughter (as per SRD, any creature can be targeted)
+        HideousLaughter.effectDescription.restrictedCreatureFamilies.Clear();
+
+    }
+
+    internal static void RemoveRecurringEffectOnEntangle()
+    {
+        if (!Main.Settings.RemoveRecurringEffectOnEntangle)
+        {
+            return;
+        }
+
+        // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
+        Entangle.effectDescription.recurrentEffect = RuleDefinitions.RecurrentEffect.OnActivation;
+
+    }
+
 
     internal static void MinorFixes()
     {

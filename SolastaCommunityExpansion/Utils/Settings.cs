@@ -154,6 +154,8 @@ public class Settings : UnityModManager.ModSettings
 
     // House
     public bool RemoveConcentrationRequirementsFromAnySpell { get; set; }
+    public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
+    public bool RemoveRecurringEffectOnEntangle { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
     public bool DisableAutoEquip { get; set; }

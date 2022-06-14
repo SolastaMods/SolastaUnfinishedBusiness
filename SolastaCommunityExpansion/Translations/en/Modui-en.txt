@@ -186,5 +186,7 @@ ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>
 ModUi/&AllowCrossbowsToUseBowFeatures	Allow crossbows to benefit from bows features
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remove humanoid filter on Hideous Laughter <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Only apply Entangle's effect at casting time (i.e. no recurring effect) <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
 ModUi/&Campaigns	<color=yellow>Campaigns:</color>
