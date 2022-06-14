@@ -123,6 +123,14 @@ internal static class DarkelfRaceBuilder
         darkelfRacePresentation.morphotypeAssetPrefix = Elf.RacePresentation.MorphotypeAssetPrefix;
         darkelfRacePresentation.hasSurName = true;
         darkelfRacePresentation.surNameTitle = Elf.RacePresentation.SurNameTitle;
+        darkelfRacePresentation.surNameOptions = new List<string> {
+            "Race/&DarkelfSurName1Title",
+            "Race/&DarkelfSurName2Title", 
+            "Race/&DarkelfSurName3Title", 
+            "Race/&DarkelfSurName4Title",  
+            "Race/&DarkelfSurName5Title" };
+        darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
+        darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
         darkelfRacePresentation.needBeard = false;
         darkelfRacePresentation.canModifyMusculature = true;
         darkelfRacePresentation.originOptions = Elf.RacePresentation.OriginOptions;

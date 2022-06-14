@@ -1492,6 +1492,11 @@ Race/&BolgrifRaceDescription	Bolgrifs are half-giants living in the frozen highl
 Race/&BolgrifRaceTitle	Bolgrif
 Race/&DarkelfRaceDescription	Darkelves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Darkelves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 Race/&DarkelfRaceTitle	Darkelf
+Race/&DarkelfSurName1Title	Za'Moryra
+Race/&DarkelfSurName2Title	DhalNeridthas
+Race/&DarkelfSurName3Title	DhalNerwenys
+Race/&DarkelfSurName4Title	Zo'Sonta
+Race/&DarkelfSurName5Title	Zo'Remon
 Race/&GnomeRaceDescription	A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 Race/&GnomeRaceTitle	Gnome
 Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
