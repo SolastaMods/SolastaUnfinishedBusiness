@@ -1,0 +1,19 @@
+﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento del punteggio di abilità
+Feature/&DarkelfMagicDescription	Conosci il trucchetto di Dancing Lights.
+Feature/&DarkelfMagicTitle	Magia degli Elfi Oscuri
+Feature/&DarkelfWeaponTrainingDescription	Hai competenza con stocchi, spade corte e balestre a mano.
+Feature/&DarkelfWeaponTrainingTitle	Addestramento alle armi degli Elfi Oscuri
+Feature/&LightAffinityDarkelfLightSensitivityDescription	Hai svantaggio ai tiri per colpire e alle prove di Saggezza (Percezione) in piena luce.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilità alla luce solare
+Feature/&PowerDarkelfDarknessDescription	Crea un'area di oscurità magica. Utilizzabile una volta per riposo lungo.
+Feature/&PowerDarkelfDarknessTitle	Feyshadow
+Feature/&PowerDarkelfFaerieFireDescription	Evidenzia le creature per dare vantaggio a chiunque le attacchi. Utilizzabile una volta per riposo lungo.
+Feature/&PowerDarkelfFaerieFireTitle	Feyfire
+Race/&DarkelfRaceDescription	Gli elfi oscuri sono discendenti di elfi che sono stati cambiati nel tempo vivendo nelle inospitali Badlands. Gli elfi oscuri sono in gran parte notturni e si sono adattati a vivere nelle antiche rovine di Badlands, in particolare nelle rovine sotterranee sepolte. Tendono ad avere la pelle scura e i capelli chiari.
+Race/&DarkelfRaceTitle	Elfo Oscuro
+Race/&DarkelfSurName1Title	Za'Moryra
+Race/&DarkelfSurName2Title	Dhal Neridthas
+Race/&DarkelfSurName3Title	DhalNerwenys
+Race/&DarkelfSurName4Title	Zo'Sonta
+Race/&DarkelfSurName5Title	Zo'Remon
