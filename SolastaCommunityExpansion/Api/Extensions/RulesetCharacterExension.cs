@@ -36,16 +36,20 @@ internal static class RulesetCharacterExension
 
     public static bool CanCastCantrip(
         this RulesetCharacter character,
-        SpellDefinition spellDefinition,
+        SpellDefinition cantrip,
         out RulesetSpellRepertoire spellRepertoire)
     {
         spellRepertoire = null;
         foreach (var reperoire in character.spellRepertoires)
         {
-            if (reperoire.HasKnowledgeOfSpell(spellDefinition))
+            foreach (var knownCantrip in reperoire.KnownCantrips)
             {
-                spellRepertoire = reperoire;
-                return true;
+                if (knownCantrip == cantrip
+                    || (knownCantrip.SpellsBundle && knownCantrip.SubspellsList.Contains(cantrip)))
+                {
+                    spellRepertoire = reperoire;
+                    return true;
+                }
             }
         }
 

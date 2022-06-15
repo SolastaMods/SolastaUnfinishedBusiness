@@ -1,6 +1,7 @@
 ﻿CHANGES:
 
-PATRONS:
-
-- Use *Mod UI > Credits > Donations* if you can financially support
-- Money to be spent on DeepL Pro, GitHub Personal, JetBrains, etc.
+- Add support for races to grant features at levels > 1
+- Improve DarkElf to grant features at levels 3 and 5
+- Fix Chinese translations
+- Fix DarkElf incorrectly changing other game blueprints
+- Fix Shield Expert to benefit from Two Weapon fighting style

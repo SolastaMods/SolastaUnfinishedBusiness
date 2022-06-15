@@ -1,0 +1,19 @@
+﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Erhöhung des Fähigkeitswerts
+Feature/&DarkelfMagicDescription	Du kennst den Cantrip von Dancing Lights.
+Feature/&DarkelfMagicTitle	Magie der Dunkelelfen
+Feature/&DarkelfWeaponTrainingDescription	Sie beherrschen den Umgang mit Degen, Kurzschwertern und Handarmbrüsten.
+Feature/&DarkelfWeaponTrainingTitle	Waffentraining der Dunkelelfen
+Feature/&LightAffinityDarkelfLightSensitivityDescription	Du bist bei Angriffswürfen und Weisheitswürfen (Wahrnehmung) bei hellem Licht im Nachteil.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sonnenlichtempfindlichkeit
+Feature/&PowerDarkelfDarknessDescription	Erschaffe einen Bereich magischer Dunkelheit. Einmal pro langer Pause verwendbar.
+Feature/&PowerDarkelfDarknessTitle	Feenschatten
+Feature/&PowerDarkelfFaerieFireDescription	Markieren Sie Kreaturen, um jedem, der sie angreift, einen Vorteil zu verschaffen. Einmal pro langer Pause verwendbar.
+Feature/&PowerDarkelfFaerieFireTitle	Feenfeuer
+Race/&DarkelfRaceDescription	Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind weitgehend nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
+Race/&DarkelfRaceTitle	DarkElf
+Race/&DarkelfSurName1Title	Za'Moryra
+Race/&DarkelfSurName2Title	Dhal Neridthas
+Race/&DarkelfSurName3Title	DhalNerwenys
+Race/&DarkelfSurName4Title	Zo'Sonta
+Race/&DarkelfSurName5Title	Zo’Remon

@@ -22,7 +22,7 @@ Class/&WitchBurnedProduceFlameTitle	燃火术
 Class/&WitchCacklePowerDescription	你能使用你的附赠动作进行狂笑。60英尺内每有一个受到影响的生物,持续时间增加一轮\n不是所有的巫师讥笑的时候都会疯狂地大笑，但所有的讥笑都需要一个语言成分，比如一句话语。这些话语能是寻常的诅咒和侮辱，也能是咕哝已死之语或者倒着说话
 Class/&WitchCacklePowerTitle	讥笑
 Class/&WitchDescription	受到邪恶诅咒的折磨，巫师能将魔力转化为诅咒削弱敌人。他们也有他们的熟悉而忠诚的魔宠相伴，为他们抵挡致命的攻击
-Class/&WitchFamiliarPowerDescription 你学会了召唤巫师魔宠，例如一个进阶的魔宠咒语,在没有施法材料的情况下也能作为仪式法术施展。这个法术不会消耗你的法术位。这个法术在以下方面提升了召唤魔宠的能力：\n• 你的魔宠将在每轮你的回合前或之后立即进行其回合（由你选择）\n• 每回合一次，以一个动作或附赠动作，你能以心灵感应命令你的魔宠使用其反应进行一次攻击\n• 当你施展法术时，你能通过你的魔宠传递，就像它施展了法术一样，即使此法术范围并非触碰\n• 你的魔宠能附加你的法术攻击加值于其攻击骰\n• 你的魔宠将你的熟练加值加至其护甲等级、豁免检定和伤害骰上\n•	你的魔宠的最大生命值获得两倍于你的巫师等级的加值
+Class/&WitchFamiliarPowerDescription	你学会了召唤巫师魔宠，例如一个进阶的魔宠咒语,在没有施法材料的情况下也能作为仪式法术施展。这个法术不会消耗你的法术位。这个法术在以下方面提升了召唤魔宠的能力：\n• 你的魔宠将在每轮你的回合前或之后立即进行其回合（由你选择）\n• 每回合一次，以一个动作或附赠动作，你能以心灵感应命令你的魔宠使用其反应进行一次攻击\n• 当你施展法术时，你能通过你的魔宠传递，就像它施展了法术一样，即使此法术范围并非触碰\n• 你的魔宠能附加你的法术攻击加值于其攻击骰\n• 你的魔宠将你的熟练加值加至其护甲等级、豁免检定和伤害骰上\n•	你的魔宠的最大生命值获得两倍于你的巫师等级的加值
 Class/&WitchFamiliarPowerTitle	魔宠
 Class/&WitchFeatureSetBurnedCurseDescription	你的身体几乎都被奥术火焰烧焦了，留下了醒目的黑色疤痕和皮肤下燃烧的魔法余烬。因此，你对火焰伤害有抗性，你习得"燃火术"法术，它不计入你已知的戏法总数
 Class/&WitchFeatureSetBurnedCurseTitle	烧伤诅咒
@@ -486,7 +486,7 @@ Feat/&ChefWisDescription	感知+1。花1小时准备一顿有助于治疗你和�
 Feat/&ChefWisTitle	厨师（感知）
 Feat/&ConstructSelectingPoolDescription	选择你的构装体的模式
 Feat/&ConstructSelectingPoolTitle	炮击模式
-Feat/&DeadeyeFeatDescription 你熟练掌握远程武器，看似不可能的射击都能成功命中\n• 攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势\n• 你的远程武器攻击忽视半身掩护和四分之三掩护状态\n•	你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
+Feat/&DeadeyeFeatDescription	你熟练掌握远程武器，看似不可能的射击都能成功命中\n• 攻击最大射程内的敌人时，你的远程武器攻击检定不因超过常规射程而具有劣势\n• 你的远程武器攻击忽视半身掩护和四分之三掩护状态\n•	你以具有熟练项的远程武器发动攻击前，能选择使此攻击的攻击检定承受-5减值，若此攻击命中，其伤害骰获得+10熟练加值
 Feat/&DeadeyeFeatTitle	神射手
 Feat/&DismissConstructDescription	解散你的构装体
 Feat/&DismissConstructTitle	解散构装体
@@ -562,7 +562,7 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	魅力+1，最高20点\n你习得�
 Feat/&FeatMetamagicAdeptQuickenedTitle	超魔：瞬发
 Feat/&FeatMetamagicAdeptTwinnedDescription	魅力+1，最高20点\n你习得孪生超魔，并获得2点术法点
 Feat/&FeatMetamagicAdeptTwinnedTitle	超魔：孪生
-Feat/&FeatPolearmExpertDescription 你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n•	当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
+Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
 Feat/&FeatPolearmExpertTitle	长柄武器大师
 Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
@@ -570,12 +570,12 @@ Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动�
 Feat/&FeatPrimalStrengthTitle	原初狂怒（力量）
 Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，并且你能以附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
-Feat/&FeatRangedExpertDescription 你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n•	若你使用动作进行攻击，你能使用附赠行动以单手的远程或投掷武器进行一次攻击
+Feat/&FeatRangedExpertDescription	你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n• 若你使用动作进行攻击，你能使用附赠行动以单手的远程或投掷武器进行一次攻击
 Feat/&FeatRangedExpertTitle	远程武器大师
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
-Feat/&FeatSavageAttackerReroll 因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为	{3}
+Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为	{3}
 Feat/&FeatSavageAttackerTitle	野性袭击者
-Feat/&FeatSentinelDescription 你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•	处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
+Feat/&FeatSentinelDescription	你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•	处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
 Feat/&FeatSentinelTitle	哨兵
 Feat/&FeatShadowTouchedChaDescription	魅力+1，最高20点\n你获得施放隐形术，致伤术和虚假生命的能力，每长休1次。同时学会这些法术
 Feat/&FeatShadowTouchedChaTitle	暗影亲和（魅力）
@@ -625,7 +625,7 @@ Feat/&FightingStyleArcheryDescription	你在使用远程武器的攻击骰上获
 Feat/&FightingStyleArcheryTitle	战斗风格：箭术
 Feat/&FightingStyleDefenseDescription	当你穿着盔甲时，你的AC获得+1加值
 Feat/&FightingStyleDefenseTitle	战斗风格：防御
-Feat/&FightingStyleDuelingDescription 单手持用一把近战武器，且并未同时持用其他武器时，你以此武器攻击的伤害掷骰获得	+2加值
+Feat/&FightingStyleDuelingDescription	单手持用一把近战武器，且并未同时持用其他武器时，你以此武器攻击的伤害掷骰获得	+2加值
 Feat/&FightingStyleDuelingTitle	战斗风格：决斗
 Feat/&FightingStyleGeneralFeatDescription	你能选择一个战斗风格
 Feat/&FightingStyleGeneralFeatitle	战斗风格
@@ -642,7 +642,7 @@ Feat/&FlameArtilleryConstructDescription_3	喷射锥形火焰，若豁免失败�
 Feat/&FlameArtilleryConstructTitle	火焰魔炮
 Feat/&FlameArtilleryConstructTitle_3	火焰魔炮
 Feat/&FlameArtilleryConstructTitle_5	火焰魔炮
-Feat/&FlameArtilleryDescription 2d8点火焰伤害	(锥形)
+Feat/&FlameArtilleryDescription	2d8点火焰伤害	(锥形)
 Feat/&FlameArtilleryTitle	火焰魔炮
 Feat/&ForceArtillery_2Description	3d8点力场伤害并推离5英尺
 Feat/&ForceArtillery_2Title	力场魔炮（精通）
@@ -654,7 +654,7 @@ Feat/&ForceArtilleryConstructTitle_3	力场魔炮
 Feat/&ForceArtilleryConstructTitle_5	力场魔炮
 Feat/&ForceArtilleryDescription	2d8点力场伤害并推离5英尺
 Feat/&ForceStrikePowerDescription	你可靠的伙伴以远程攻击造成了1d6点力场伤害
-Feat/&ForceStrikePowerTitle 力场投射	(构装体)
+Feat/&ForceStrikePowerTitle	力场投射	(构装体)
 Feat/&GauntletsGrappleDescription	现在能以附赠动作将敌人拉入近战范围并造成1d8点雷鸣伤害
 Feat/&GauntletsGrappleTitle	铁手擒拿
 Feat/&HalfCoverShieldDescription	赋予10英尺内AC+2
@@ -721,9 +721,9 @@ Feat/&ProtectorConstructTitle	防御者
 Feat/&ProtectorConstructTitle_5	防御者升级
 Feat/&RecklessFuryFeatDescription	你将获得每天1次进入一分钟狂怒的能力(无护甲限制)，获得近战攻击的优势，同时给予攻击者优势直到下一回合
 Feat/&RecklessFuryFeatTitle	鲁莽狂怒
-Feat/&ResummonArtilleryConstruct_03Title 重配置魔炮	1
-Feat/&ResummonArtilleryConstruct_09Title 重配置魔炮	2
-Feat/&ResummonArtilleryConstruct_15Title 重配置魔炮	3
+Feat/&ResummonArtilleryConstruct_03Title	重配置魔炮	1
+Feat/&ResummonArtilleryConstruct_09Title	重配置魔炮	2
+Feat/&ResummonArtilleryConstruct_15Title	重配置魔炮	3
 Feat/&ResummonArtilleryConstructDescription	这个法术允许奇械师在初始的召唤失效后以多种模式之一重新召唤一个魔炮。重新召唤的魔炮也持续1小时
 Feat/&RetributionDescription	被攻击击中时，防御者对攻击者造成1d4+智力调整值点力场伤害
 Feat/&RetributionTitle	报偿
@@ -799,7 +799,7 @@ Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	你在学习邪术�
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	灵魂之刃法术
 Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	每短休1次，你能使用魂能保护自己。以一个附赠动作，你获得等同于等级+魅力调整值的临时生命值
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	灵魂护盾
-Feature/&AlwaysBeardDescription {0}%	概率长出光荣的胡须
+Feature/&AlwaysBeardDescription	{0}%	概率长出光荣的胡须
 Feature/&AncientForestExpandedSpelllistAfinityDescription	你在学习邪术师法术时从额外法术列表中选择。以下法术会被添加到邪术师法术列表中：\n{0}\n\n
 Feature/&AncientForestExpandedSpelllistAfinityTitle	远古森林法术
 Feature/&AncientForestLightAffinityDescription	你能从阳光中汲取能量。你在明亮光照下每回合获得2点生命值
@@ -858,14 +858,14 @@ Feature/&ClassMonkKiDescription	你掌握一股名为气的神秘能量。此后
 Feature/&ClassMonkKiEmpoweredStrikesDescription	攻击对非魔法攻击或伤害具有抗性或免疫的目标时，你的徒手打击视为魔法攻击
 Feature/&ClassMonkKiEmpoweredStrikesTitle	真气驻拳
 Feature/&ClassMonkKiTitle	气
-Feature/&ClassMonkMartialArtsDescription 未装备任何护甲也未持用盾牌时，若你徒手或只持用武僧武器，则你拥有以下增益：\n• 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n• 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。此骰子将随武僧职业等级的提升而增大\n•	你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
+Feature/&ClassMonkMartialArtsDescription	未装备任何护甲也未持用盾牌时，若你徒手或只持用武僧武器，则你拥有以下增益：\n• 你使用徒手打击或武僧武器进行攻击时，能用敏捷值代替力量值进行攻击检定和伤害掷骰\n• 你使用徒手打击或武僧武器进行攻击时，能选择用d4骰代替原本的伤害掷骰。此骰子将随武僧职业等级的提升而增大\n•	你使用徒手打击或武僧武器执行攻击动作时，能在自己回合内以附赠动作发动一次徒手打击
 Feature/&ClassMonkMartialArtsTitle	武艺
 Feature/&ClassMonkMartialDiceProgression00Description	你能骰<color=#57BCF4>d6</color>代替你徒手打击或武僧武器的伤害
-Feature/&ClassMonkMartialDiceProgression00Title 武艺骰提升	(d6)
+Feature/&ClassMonkMartialDiceProgression00Title	武艺骰提升	(d6)
 Feature/&ClassMonkMartialDiceProgression01Description	你能骰<color=#57BCF4>d8</color>代替你徒手打击或武僧武器的伤害
-Feature/&ClassMonkMartialDiceProgression01Title 武艺骰提升	(d8)
+Feature/&ClassMonkMartialDiceProgression01Title	武艺骰提升	(d8)
 Feature/&ClassMonkMartialDiceProgression02Description	你能骰<color=#57BCF4>d10</color>代替你徒手打击或武僧武器的伤害
-Feature/&ClassMonkMartialDiceProgression02Title 武艺骰提升	(d10)
+Feature/&ClassMonkMartialDiceProgression02Title	武艺骰提升	(d10)
 Feature/&ClassMonkPerfectSelfDescription	若你骰先攻时身上未储备气，则你获得4点气
 Feature/&ClassMonkPerfectSelfTitle	超凡入圣
 Feature/&ClassMonkPurityOfBodyDescription	你浑身的气流动使你免疫疾病和毒素
@@ -887,7 +887,7 @@ Feature/&ClassMonkZenArcherCombatTitle	延臂战法
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	在克服对非魔法攻击和伤害的抗性和免疫时，你的弓箭攻击视为魔法
 Feature/&ClassMonkZenArcherKiPoweredArowsTitle	凝气箭
 Feature/&ClassMonkZenArcherStunningArrowsDescription	你能够阻碍敌人体内气的流动。当你的弓箭攻击命中一个未震慑的目标时，你能消耗1点气尝试发动震慑箭。其必须成功通过一次体质豁免，否则受到震慑至你的下回合结束
-Feature/&ClassMonkZenArcherStunningArrowsTitle 	震慑箭
+Feature/&ClassMonkZenArcherStunningArrowsTitle	震慑箭
 Feature/&ClassWarlockArmorProficiencyDescription	轻甲
 Feature/&ClassWarlockArmorProficiencyTitle	邪术师防具擅长
 Feature/&ClassWarlockEldritchInvocationReplaceDescription	选择一个魔能祈唤进行替换
@@ -934,7 +934,7 @@ Feature/&DHConjureMinorElementalsBonusCantripDescription	你对元素能量的�
 Feature/&DHConjureMinorElementalsBonusCantripTitle	元素仆从
 Feature/&DHHolyAuraBlindingPowerDescription	当一个邪魔或不死生物以近战攻击命中受术生物时，其灵光将产生耀眼的爆发，而攻击者必须进行一次体质豁免，豁免失败者将陷入目盲直至法术终止
 Feature/&DHHolyAuraBlindingPowerTitle	圣洁灵光报偿
-Feature/&DHPactOfTheTomeFeatureSetDescription 你的宗主给予你唤为 "阴影之书	"的魔法书。当你获得这个特性时，能从任何职业的法术列表中选择3个戏法。这些戏法不需要来自同一个法术列表。当此书在你身上时，你能随意施放这些戏法。它们不计入你已知的戏法数量。你用这个特性施放的任何戏法都被认为是你的邪术师法术
+Feature/&DHPactOfTheTomeFeatureSetDescription	你的宗主给予你唤为"阴影之书"的魔法书。当你获得这个特性时，能从任何职业的法术列表中选择3个戏法。这些戏法不需要来自同一个法术列表。当此书在你身上时，你能随意施放这些戏法。它们不计入你已知的戏法数量。你用这个特性施放的任何戏法都被认为是你的邪术师法术
 Feature/&DHPactOfTheTomeFeatureSetTitle	书之契约
 Feature/&DHWardingBondBonusCantripDescription	你对裂隙传送的控制已提升到能给予他人裂隙保护的程度。你能随意施放法术守护结界(无需分担伤害)
 Feature/&DHWardingBondBonusCantripTitle	裂隙斗篷
@@ -1006,7 +1006,7 @@ Feature/&ElementalPatronElementalFormFormatDescription	当引导{0}时，你对{
 Feature/&ElementalPatronElementalFormFormatTitle	{0}
 Feature/&ElementalPatronFeatureSet_Level06Description	你对元素的了解提升到使你对元素的能力检定中获得优势，并对元素造成相当于你学识等级的额外伤害。你不再被元素魅惑或恐惧
 Feature/&ElementalPatronFeatureSet_Level06Title	元素学识
-Feature/&EmptyString	
+Feature/&EmptyString
 Feature/&EyesoftheRuneKeeperDescription	你能阅读所有文字
 Feature/&EyesoftheRuneKeeperTitle	符文卫士之眼
 Feature/&FiendishVigorTitle	邪魔活力
@@ -1056,7 +1056,7 @@ Feature/&InspirePowerDescription	消耗1个赌注骰激励自己或盟友，获�
 Feature/&InspirePowerTitle	激励
 Feature/&InspiringSurgePowerDescription	赋予盟友一个额外的主要动作，持续1回合。不与“动作如潮”叠加
 Feature/&InspiringSurgePowerTitle	激励如潮
-Feature/&InspiringSurgePowerTitleShort 	激励如潮
+Feature/&InspiringSurgePowerTitleShort	激励如潮
 Feature/&KnockDownPowerDescription	消耗1个赌注骰，赋予你的攻击额外的1d6+2点钝击伤害，若目标未成功通过一次力量豁免（DC=8+熟练度加值+力量调整值)，其被击倒直到其下一回合开始
 Feature/&KnockDownPowerTitle	击倒
 Feature/&MagicAffinityRangerArcanistDescription	你精通在战斗中施展法术，即使你的双手都拿着武器或盾牌，也能施展需要姿势成分的法术
@@ -1113,8 +1113,8 @@ Feature/&RagePowerDescription	以一个附赠动作，你进入狂暴并获得�
 Feature/&RagePowerTitle	狂暴
 Feature/&RageStrengthSavingThrowAffinityDescription	你在狂暴时获得力量豁免的优势
 Feature/&RageStrengthSavingThrowAffinityTitle	狂暴力量豁免优势
-Feature/&RallyingCryPowerDescription 	以新的能力取代“回气”，当你使用时为6格内的一位或多位盟友恢复4倍于战士等级的生命值，最高至其生命值上限
-Feature/&RallyingCryPowerTitle 	集结战吼
+Feature/&RallyingCryPowerDescription	以新的能力取代“回气”，当你使用时为6格内的一位或多位盟友恢复4倍于战士等级的生命值，最高至其生命值上限
+Feature/&RallyingCryPowerTitle	集结战吼
 Feature/&RallyingCryPowerTitleShort	集结战吼
 Feature/&RangerFeralSensesDescription	你获得超自然的感官帮助你对抗看不见的生物。此后，你攻击一个你看不见的生物时不会因此承受劣势
 Feature/&RangerFeralSensesTitle	野性感官
@@ -1197,7 +1197,7 @@ Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	光耀�
 Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	致盲武器
 Feedback/&AdditionalDamageBlindingWeaponStrikeLine	致盲武器造成额外伤害并尝试致盲
 Feedback/&AdditionalDamageEldritchSmiteFormat	魔能斩！
-Feedback/&AdditionalDamageEldritchSmiteLine {0}魔能斩{1}！	(+{2})
+Feedback/&AdditionalDamageEldritchSmiteLine	{0}魔能斩{1}！	(+{2})
 Feedback/&AdditionalDamageElementalDamageFormat	元素伤害
 Feedback/&AdditionalDamageElementalDamageLine	元素形态给予额外伤害
 Feedback/&AdditionalDamageLightningSpearFormat	电光之矛！
@@ -1207,11 +1207,11 @@ Feedback/&AdditionalDamagePactMarkedLine	契约印记造成额外伤害
 Feedback/&AdditionalDamagePactSoulTakerFormat	灵魂夺取
 Feedback/&AdditionalDamagePactSoulTakerLine	灵魂夺取造成额外伤害
 Feedback/&AdditionalDamageResonatingStrikeFormat	共鸣斩！
-Feedback/&AdditionalDamageResonatingStrikeLine {0}共鸣斩{1}！	(+{2})
+Feedback/&AdditionalDamageResonatingStrikeLine	{0}共鸣斩{1}！	(+{2})
 Feedback/&AdditionalDamageSoulEmpoweredFormat	魂力赋能
 Feedback/&AdditionalDamageSoulEmpoweredLine	魂力赋能造成额外伤害
 Feedback/&AdditionalDamageSunlightBladeFormat	炙阳之锋！
-Feedback/&AdditionalDamageSunlightBladeLine {0}以炙阳之锋灼烧{1}！	(+{2})
+Feedback/&AdditionalDamageSunlightBladeLine	{0}以炙阳之锋灼烧{1}！	(+{2})
 Feedback/&AdditionalDamageUpgradedConstructFormat	升级伤害
 Feedback/&AdditionalDamageUpgradedConstructLine	升级后的构装体每次攻击造成额外1d8点伤害
 Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0}创造了{1}
@@ -1344,13 +1344,13 @@ Message/&CharacterExportModalContentDescription	输入要导出的角色名称�
 Message/&CharacterExportModalTitleDescription	角色导出
 Message/&LevelDownConfirmationDescription	是否降级此角色？
 Message/&LevelDownMultiplayerAbortDescription	无法在多人游戏中降级角色
-Message/&MessageModWelcomeDescription 社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=yellow>Ctrl-F10</color>打开Unity Mod	Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
+Message/&MessageModWelcomeDescription	社区扩展包引入了大量令人惊喜的功能，但是默认未启用。点击<color=yellow>Ctrl-F10</color>打开Unity Mod	Manager的操作界面[UMM]，然后点击“社区扩展包”旁边的设置图标，打开设置页面\n\n探索这些选项并选择你喜欢的。UMM操作界面将开启
 Message/&MessageModWelcomeTitle	社区扩展包
 Message/&RespecMultiplayerAbortDescription	无法在多人游戏或冒险地图中重置角色
-Message/&SpawnCustomEncounterDescription 在坐标({0},	{1})处制造一场遭遇战？
+Message/&SpawnCustomEncounterDescription	在坐标({0},	{1})处制造一场遭遇战？
 Message/&SpawnCustomEncounterErrorDescription	目前暂时无法在联机游戏上制造遭遇战
 Message/&SpawnCustomEncounterTitle	遭遇战
-Message/&TeleportPartyDescription 将队伍传送到({0},	{1})么？\n若你传送到一个未发现的地方，你可能会破坏任务或地图
+Message/&TeleportPartyDescription	将队伍传送到({0},	{1})么？\n若你传送到一个未发现的地方，你可能会破坏任务或地图
 Message/&TeleportPartyTitle	传送
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	武器在攻击和伤害骰上使用魅力调整值并视为魔法武器，直至下一次长休
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	魂力赋能
@@ -1401,7 +1401,7 @@ Power/&ClassMonkOpenHandProneDescription	目标必须进行一次敏捷豁免，
 Power/&ClassMonkOpenHandProneTitle	击倒
 Power/&ClassMonkOpenHandPushDescription	目标必须进行一次力量豁免，豁免失败则被往远离你的方向推离15英尺
 Power/&ClassMonkOpenHandPushTitle	击退
-Power/&ClassMonkOpenHandTechniqueDescription  你能在击中敌人时操作其体内的气。当你用疾风连击特性的攻击击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须进行一次敏捷豁免，豁免失败则应击倒地\n• 目标必须进行一次力量豁免，豁免失败则被往远离你的方向推离15英尺\n•	目标直到你的下一回合结束前，无法执行反应
+Power/&ClassMonkOpenHandTechniqueDescription	你能在击中敌人时操作其体内的气。当你用疾风连击特性的攻击击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须进行一次敏捷豁免，豁免失败则应击倒地\n• 目标必须进行一次力量豁免，豁免失败则被往远离你的方向推离15英尺\n•	目标直到你的下一回合结束前，无法执行反应
 Power/&ClassMonkOpenHandTechniqueTitle	散打技巧
 Power/&ClassMonkPatientDefenseDescription	当未穿着任何护甲也没持用盾牌时，你在自己回合内，能以一个附赠动作消耗1点气执行回避动作
 Power/&ClassMonkPatientDefenseTitle	耐心防御
@@ -1425,7 +1425,7 @@ Power/&ClassMonkZenArrowProneDescription	目标必须成功通过一次敏捷豁
 Power/&ClassMonkZenArrowProneTitle	击倒
 Power/&ClassMonkZenArrowPushDescription	目标必须通过一次力量豁免，否则被推离你10英尺远
 Power/&ClassMonkZenArrowPushTitle	推离
-Power/&ClassMonkZenArrowTechniqueDescription 你能在用箭击中敌人时操作其体内的气。当你用箭击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须成功通过一次敏捷豁免，否则被击倒\n• 目标必须通过一次力量豁免，否则被推离你10英尺远\n•	目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowTechniqueDescription	你能在用箭击中敌人时操作其体内的气。当你用箭击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须成功通过一次敏捷豁免，否则被击倒\n• 目标必须通过一次力量豁免，否则被推离你10英尺远\n•	目标必须成功通过一次感知豁免，否则其下一次攻击时会具有劣势，直到下回合结束
 Power/&ClassMonkZenArrowTechniqueShortTitle	延臂
 Power/&ClassMonkZenArrowTechniqueTitle	延臂技巧
 Power/&ClassMonkZenArrowUpgradedDistractDescription	目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
@@ -1434,7 +1434,7 @@ Power/&ClassMonkZenArrowUpgradedProneDescription	目标必须成功通过一次�
 Power/&ClassMonkZenArrowUpgradedProneTitle	击倒
 Power/&ClassMonkZenArrowUpgradedPushDescription	目标必须通过一次力量豁免，否则被推离你20英尺远
 Power/&ClassMonkZenArrowUpgradedPushTitle	推离
-Power/&ClassMonkZenArrowUpgradedTechniqueDescription 你掌控气的能力提升了，所有延臂技巧都得到了提高。当你用箭击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须成功通过一次敏捷豁免，否则被击倒并且其速度在一回合内设为0\n• 目标必须通过一次力量豁免，否则被推离你20英尺远\n•	目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	你掌控气的能力提升了，所有延臂技巧都得到了提高。当你用箭击中敌人时，你能令此目标承受以下效应之一：\n• 目标必须成功通过一次敏捷豁免，否则被击倒并且其速度在一回合内设为0\n• 目标必须通过一次力量豁免，否则被推离你20英尺远\n•	目标必须成功通过一次感知豁免，否则其所有攻击时会具有劣势，直到下回合结束
 Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	延臂
 Power/&ClassMonkZenArrowUpgradedTechniqueTitle	精通延臂技巧
 Power/&DH_ElementalFormPoolDescription	通过引导元素能量，你每天能在元素形态之间切换等同于熟练度加值次数。你获得对相关伤害的抗力，并且你能将熟练度加值作为同类型的伤害应用于每回合的第一次法术伤害。这些形态持续1分钟
@@ -1481,33 +1481,33 @@ Race/&BolgrifRaceTitle	博格里夫
 Race/&GnomeRaceDescription	在侏儒们的紧密群落里，忙碌工作产生的噪音周而复始的弥漫在拥挤的公寓社区及其周边。一些更响亮的声音时不时插进这些杂音中：这边传来齿轮吱嘎作响的研磨声，那边响起轻微的爆炸声，还有因喜悦或惊讶而发起的尖叫，以及时刻迸发的笑声。各种声音交织在一起，正是侏儒们愉快的生活，他们享受着发明、探索、研究、创造以及玩乐的每个时刻
 Race/&GnomeRaceTitle	侏儒
 Race/&PointPoolSelect10FeatsDescription	为你的角色选择10个额外专长
-Race/&PointPoolSelect10FeatsTitle 10	额外专长
+Race/&PointPoolSelect10FeatsTitle	10额外专长
 Race/&PointPoolSelect11FeatsDescription	为你的角色选择11个额外专长
-Race/&PointPoolSelect11FeatsTitle 11	额外专长
+Race/&PointPoolSelect11FeatsTitle	11额外专长
 Race/&PointPoolSelect2FeatsDescription	为你的角色选择2个额外专长
-Race/&PointPoolSelect2FeatsTitle 2	额外专长
+Race/&PointPoolSelect2FeatsTitle	2额外专长
 Race/&PointPoolSelect3FeatsDescription	为你的角色选择3个额外专长
-Race/&PointPoolSelect3FeatsTitle 3	额外专长
+Race/&PointPoolSelect3FeatsTitle	3额外专长
 Race/&PointPoolSelect4FeatsDescription	为你的角色选择4个额外专长
-Race/&PointPoolSelect4FeatsTitle 4	额外专长
+Race/&PointPoolSelect4FeatsTitle	4额外专长
 Race/&PointPoolSelect5FeatsDescription	为你的角色选择5个额外专长
-Race/&PointPoolSelect5FeatsTitle 5	额外专长
+Race/&PointPoolSelect5FeatsTitle	5额外专长
 Race/&PointPoolSelect6FeatsDescription	为你的角色选择6个额外专长
-Race/&PointPoolSelect6FeatsTitle 6	额外专长
+Race/&PointPoolSelect6FeatsTitle	6额外专长
 Race/&PointPoolSelect7FeatsDescription	为你的角色选择7个额外专长
-Race/&PointPoolSelect7FeatsTitle 7	额外专长
+Race/&PointPoolSelect7FeatsTitle	7额外专长
 Race/&PointPoolSelect8FeatsDescription	为你的角色选择8个额外专长
-Race/&PointPoolSelect8FeatsTitle 8	额外专长
+Race/&PointPoolSelect8FeatsTitle	8额外专长
 Race/&PointPoolSelect9FeatsDescription	为你的角色选择9个额外专长
-Race/&PointPoolSelect9FeatsTitle 9	额外专长
+Race/&PointPoolSelect9FeatsTitle	9额外专长
 Reaction/&CastSpellInRetributionDescription	{0}在攻击{1}！你能以反应施放{2}！
 Reaction/&CastSpellInRetributionReactDescription	点击施放{0}
 Reaction/&CastSpellInRetributionReactTitle	施放法术
 Reaction/&CastSpellInRetributionTitle	以反应施放法术
-Reaction/&CoordinatedAttackDescription 	{0}受到协同攻击，一些角色能使用其反应来加入此攻击
+Reaction/&CoordinatedAttackDescription	{0}受到协同攻击，一些角色能使用其反应来加入此攻击
 Reaction/&CoordinatedAttackReactDescription	使用反应攻击目标
 Reaction/&CoordinatedAttackReactTitle	攻击
-Reaction/&CoordinatedAttackTitle 	协同攻击
+Reaction/&CoordinatedAttackTitle	协同攻击
 Reaction/&CustomDeflectMissileMonkTitle	{0}在攻击{1}，其能以反应降低即将受到的1d10+敏捷调整值+武僧等级点伤害
 Reaction/&ReactionAttackFeatSentinelDescription	{0}攻击了你的盟友，你能以反应攻击
 Reaction/&ReactionAttackFeatSentinelReactDescription	以反应攻击
@@ -1543,7 +1543,7 @@ Reaction/&SpendPowerCounterStrikePowerReactTitle	反击
 Reaction/&SpendPowerCounterStrikePowerTitle	反击
 Reaction/&SpendPowerDH_RiftStrikeDescription	每长休1次，当你在近战中受到伤害时，你能用你的反应创造一个裂隙传送，将攻击者从你存在的位面驱逐1轮
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	裂隙反击
-Reaction/&SpendPowerDH_RiftStrikeTitle 	裂隙反击
+Reaction/&SpendPowerDH_RiftStrikeTitle	裂隙反击
 Reaction/&SpendPowerDiamondSoulDescription	{0}豁免失败，能消耗1点气重骰
 Reaction/&SpendPowerDiamondSoulReactDescription	消耗气重骰豁免
 Reaction/&SpendPowerDiamondSoulReactTitle	重骰
@@ -1646,7 +1646,7 @@ Spell/&AirBlastDescription	向你的目标发射一股集中的空气
 Spell/&AirBlastTitle	空气震爆
 Spell/&BurstOfRadianceDescription	创造一个闪亮的闪光，伤害你周围的所有敌人
 Spell/&BurstOfRadianceTitle	光耀爆发
-Spell/&CJDivineWordDescription 你吟诵一句神圣的箴言，其中充盈了创世黎明的力量。在施法距离内指定任意数量的你能看见的生物，并迫使每个能够听到圣言的生物进行一次魅力豁免。豁免失败者基于其当前生命值承受以下效应：\n• 生命值为50或更少：耳聋1分钟\n• 生命值为40或更少：耳聋并目盲10分钟\n• 生命值为30或更少：耳聋、目盲并被震慑1小时\n• 生命值为20或更少：即死\n•	对于受术的天界生物、元素生物、精类生物或邪魔，其豁免失败时不需考虑其当前生命值，并直接将其遣返回其原属位面（若已处于原属位面则无效）。在随后24小时内，此生物不能通过任何方式回到当前位面，除非使用祈愿术的效应\n
+Spell/&CJDivineWordDescription	你吟诵一句神圣的箴言，其中充盈了创世黎明的力量。在施法距离内指定任意数量的你能看见的生物，并迫使每个能够听到圣言的生物进行一次魅力豁免。豁免失败者基于其当前生命值承受以下效应：\n• 生命值为50或更少：耳聋1分钟\n• 生命值为40或更少：耳聋并目盲10分钟\n• 生命值为30或更少：耳聋、目盲并被震慑1小时\n• 生命值为20或更少：即死\n• 对于受术的天界生物、元素生物、精类生物或邪魔，其豁免失败时不需考虑其当前生命值，并直接将其遣返回其原属位面（若已处于原属位面则无效）。在随后24小时内，此生物不能通过任何方式回到当前位面，除非使用祈愿术的效应
 Spell/&CJDivineWordTitle	圣言术
 Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
 Spell/&DHAnimalShapesSpellTitle	动物形态
@@ -1885,7 +1885,7 @@ Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	你将你对当前目
 Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	知己知彼
 Subclass/&FighterMarshalStudyYourEnemyPowerDescription	你能以附赠动作尝试通过一次生存检定提高对于目标的了解。每短休2次。
 Subclass/&FighterMarshalStudyYourEnemyPowerTitle	研究敌人
-Subclass/&FighterMarshalSummonEternalComradePowerDescription   	召唤统帅一位牺牲的战友的灵魂。灵魂具有45+2倍战士职业等级的生命值并且其AC为16+熟练加值。此外，灵魂对毒素、冷冻、黯蚀、倒地、麻痹、束缚免疫，并且对火焰、强酸、闪电、雷鸣伤害有抗力。同时，其对非魔法的挥砍、钝击和穿刺伤害也有抗力。在其回合内，其能飞行最多50英尺并进行一次攻击加值为5+熟练加值的的魔法攻击，造成2d6+5挥砍伤害。
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	召唤统帅一位牺牲的战友的灵魂。灵魂具有45+2倍战士职业等级的生命值并且其AC为16+熟练加值。此外，灵魂对毒素、冷冻、黯蚀、倒地、麻痹、束缚免疫，并且对火焰、强酸、闪电、雷鸣伤害有抗力。同时，其对非魔法的挥砍、钝击和穿刺伤害也有抗力。在其回合内，其能飞行最多50英尺并进行一次攻击加值为5+熟练加值的的魔法攻击，造成2d6+5挥砍伤害。
 Subclass/&FighterMarshalSummonEternalComradePowerTitle	召唤永恒战友
 Subclass/&FighterMarshalTitle	统帅
 Subclass/&FighterRoyalKnightDescription	一位通过战斗中的英勇行径激励他人的伟大骑士。一位落单的骑士仅仅是个熟练的战士，但一位带领着盟友的骑士能将最羸弱民兵变成凶猛的战队

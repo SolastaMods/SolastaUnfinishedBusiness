@@ -33,7 +33,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "UntilShortRest",
+    "durationType": "UntilAnyRest",
     "durationParameter": 10,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,

@@ -50,6 +50,8 @@ public class CustomConcentrationControl : MonoBehaviour
             image.sprite = null;
             image.SetupSprite(provider.Icon);
         }
+
+        GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
     }
 
     private void UpdateState(ICusomConcentrationProvider provider, RulesetCharacter character)

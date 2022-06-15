@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Api;
-using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Builders.DefinitionBuilder;
@@ -89,7 +88,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                Banishment.EffectDescription.DeepCopy(),
+                Banishment.EffectDescription,
                 true)
             .AddToDB();
 
@@ -136,7 +135,7 @@ public static class DHWarlockSubclassRiftWalkerPatron
                 false,
                 false,
                 AttributeDefinitions.Charisma,
-                Banishment.EffectDescription.DeepCopy(),
+                Banishment.EffectDescription,
                 true)
             .AddToDB();
 

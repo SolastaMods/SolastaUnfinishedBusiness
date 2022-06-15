@@ -3,54 +3,24 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
+    "Definition:CombatAffinitySensitiveToLight:ef8dfb6a21935c1438c5f5c8a5c238cb"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
+  "specialDuration": false,
+  "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
-  "turnOccurence": 9001,
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,
   "conditionTags": [],
-  "recurrentEffectForms": [
-    {
-      "$type": "EffectForm, Assembly-CSharp",
-      "formType": "Damage",
-      "addBonusMode": "None",
-      "applyLevel": "No",
-      "levelType": "ClassLevel",
-      "levelMultiplier": 1,
-      "createdByCharacter": false,
-      "createdByCondition": false,
-      "hasSavingThrow": false,
-      "savingThrowAffinity": "None",
-      "dcModifier": 0,
-      "canSaveToCancel": false,
-      "saveOccurence": "EndOfTurn",
-      "damageForm": {
-        "$type": "DamageForm, Assembly-CSharp",
-        "versatile": false,
-        "diceNumber": 2,
-        "dieType": "D8",
-        "versatileDieType": "D10",
-        "bonusDamage": 0,
-        "damageType": "DamagePsychic",
-        "healFromInflictedDamage": "Never",
-        "hitPointsFloor": 0,
-        "forceKillOnZeroHp": false,
-        "specialDeathCondition": null,
-        "ignoreFlyingCharacters": false,
-        "ignoreCriticalDoubleDice": false
-      },
-      "hasFilterId": false,
-      "filterId": 0
-    }
-  ],
+  "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageType": "",
@@ -149,9 +119,14 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
-    "spriteReference": null,
+    "title": "Condition/&ConditionDarkelfLightSensitiveTitle",
+    "description": "Condition/&ConditionDarkelfLightSensitiveDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,
@@ -165,7 +140,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1a49e40d-10b1-5a8e-8a42-2483f8702bc5",
+  "guid": "8c7cb851-6810-4101-8a6a-e932e9cc3896",
   "contentPack": 9999,
-  "name": "ClassMagusConditionRupture"
+  "name": "ConditionDarkelfLightSensitive"
 }

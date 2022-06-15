@@ -39,6 +39,7 @@ ItemDefinition
 LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition
+MorphotypeElementDefinition
 ReactionDefinition
 RecipeDefinition
 RestActivityDefinition

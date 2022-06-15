@@ -1,0 +1,19 @@
+﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Ability Score Increase
+Feature/&DarkelfMagicDescription	You know the Dancing Lights cantrip.
+Feature/&DarkelfMagicTitle	DarkElf Magic
+Feature/&DarkelfWeaponTrainingDescription	You have proficiency with rapiers, shortswords, and hand crossbows.
+Feature/&DarkelfWeaponTrainingTitle	DarkElf Weapon Training
+Feature/&LightAffinityDarkelfLightSensitivityDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sunlight Sensitivity
+Feature/&PowerDarkelfDarknessDescription	Create an area of magical darkness. Usable once per long rest.
+Feature/&PowerDarkelfDarknessTitle	Feyshadow
+Feature/&PowerDarkelfFaerieFireDescription	Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
+Feature/&PowerDarkelfFaerieFireTitle	Feyfire
+Race/&DarkelfRaceDescription	Darkelves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Darkelves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+Race/&DarkelfRaceTitle	DarkElf
+Race/&DarkelfSurName1Title	Za'Moryra
+Race/&DarkelfSurName2Title	DhalNeridthas
+Race/&DarkelfSurName3Title	DhalNerwenys
+Race/&DarkelfSurName4Title	Zo'Sonta
+Race/&DarkelfSurName5Title	Zo'Remon

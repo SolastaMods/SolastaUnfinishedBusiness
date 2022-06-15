@@ -184,7 +184,6 @@ ModUi/&UsableDevice	<color=#FFFF00>Dispositivo utilizable</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utilizar las reglas oficiales de ventaja / desventaja
 ModUi/&Visuals	<color=#FFFF00>Visuales:</color>
 ModUi/&Weapon	<color=#FFFF00>Armas</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	Permitir que las ballestas se beneficien de las características de los arcos
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Eliminar el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Sobrescribir el idioma del juego:</color>
 ModUi/&Campaigns	<color=yellow>Campañas:</color>

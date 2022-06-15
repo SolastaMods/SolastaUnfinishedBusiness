@@ -1,0 +1,19 @@
+﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de pontuação de habilidade
+Feature/&DarkelfMagicDescription	Você conhece o truque das Luzes Dançantes.
+Feature/&DarkelfMagicTitle	Magia dos Elfos Negros
+Feature/&DarkelfWeaponTrainingDescription	Você tem proficiência com rapieiras, espadas curtas e bestas de mão.
+Feature/&DarkelfWeaponTrainingTitle	Treinamento de Arma Darkelf
+Feature/&LightAffinityDarkelfLightSensitivityDescription	Você tem desvantagem em jogadas de ataque e testes de Sabedoria (Percepção) sob luz forte.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilidade à luz solar
+Feature/&PowerDarkelfDarknessDescription	Crie uma área de escuridão mágica. Utilizável uma vez por descanso longo.
+Feature/&PowerDarkelfDarknessTitle	Feyshadow
+Feature/&PowerDarkelfFaerieFireDescription	Destaque as criaturas para dar vantagem a qualquer um que as ataque. Utilizável uma vez por descanso longo.
+Feature/&PowerDarkelfFaerieFireTitle	Feyfire
+Race/&DarkelfRaceDescription	Darkelves são descendentes de elfos que foram alterados ao longo do tempo por viver nas inóspitas Badlands. Darkelves são em grande parte noturnos e se adaptaram a viver em antigas ruínas de Badlands, especialmente ruínas subterrâneas enterradas. Eles tendem a ter pele escura e cabelos claros.
+Race/&DarkelfRaceTitle	elfo negro
+Race/&DarkelfSurName1Title	Za'Moryra
+Race/&DarkelfSurName2Title	Dhal Neridthas
+Race/&DarkelfSurName3Title	Dhal Nerwenys
+Race/&DarkelfSurName4Title	Zo'Sonta
+Race/&DarkelfSurName5Title	Zo'Remon

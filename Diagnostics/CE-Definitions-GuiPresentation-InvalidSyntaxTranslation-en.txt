@@ -1,4 +1,3 @@
-ClassMagusArcaneArtRupture	Description='ClassMagusArcaneArtRupture'.
 DH_ElementalForm_Air	Title='Air Plane'.
 DH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
 DH_ElementalForm_AirAdditionalDamage	Title='Elemental Damage: Air Plane'.
@@ -61,7 +60,6 @@ EldritchInvocationMageArmor	Description='Cast Mage Armor at will.'.
 EldritchInvocationMageArmorRemover	Description='Cast Mage Armor at will.'.
 EldritchInvocationSlow	Description='Cast Slow once until long rest.'.
 EldritchInvocationSlowRemover	Description='Cast Slow once until long rest.'.
-SpellClassMagusArcaneArtRupture	Description='ClassMagusArcaneArtRupture'.
 SpellDH_ElementalForm_Air	Title='Air Plane'.
 SpellDH_ElementalForm_Air	Description='When channeling the Air Plane, you gain Resistance to Thunder damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
 SpellDH_ElementalForm_Earth	Title='Earth Plane'.

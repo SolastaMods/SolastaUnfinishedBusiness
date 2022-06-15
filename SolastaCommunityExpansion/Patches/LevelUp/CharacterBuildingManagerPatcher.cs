@@ -102,6 +102,34 @@ internal static class CharacterBuildingManager_LevelUpCharacter
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class CharacterBuildingManager_FinalizeCharacter
 {
+    // original game code doesn't grant Race features above level 1
+    internal static void Prefix(CharacterBuildingManager __instance, RulesetCharacterHero hero)
+    {
+        var characterLevelAttribute = hero.GetAttribute("CharacterLevel");
+
+        characterLevelAttribute.Refresh();
+
+        var characterLevel = characterLevelAttribute.CurrentValue;
+
+        if (characterLevel == 1)
+        {
+            return;
+        }
+
+        var raceDefinition = hero.RaceDefinition;
+        var grantedFeatures = new List<FeatureDefinition>();
+
+        for (var index = 0; index < raceDefinition.FeatureUnlocks.Count; ++index)
+        {
+            if (characterLevel == raceDefinition.FeatureUnlocks[index].Level)
+            {
+                grantedFeatures.Add(raceDefinition.FeatureUnlocks[index].FeatureDefinition);
+            }
+        }
+
+        __instance.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);
+    }
+
     internal static void Postfix(RulesetCharacterHero hero)
     {
         //

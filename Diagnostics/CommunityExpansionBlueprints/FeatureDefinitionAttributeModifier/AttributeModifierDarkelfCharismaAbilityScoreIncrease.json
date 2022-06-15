@@ -1,25 +1,15 @@
 {
-  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
-  "poolType": "Skill",
-  "poolAmount": 4,
-  "restrictedChoices": [
-    "Acrobatics",
-    "Arcana",
-    "Athletics",
-    "Deception",
-    "History",
-    "Intimidation",
-    "Nature",
-    "Perception",
-    "Persuasion",
-    "Religion"
-  ],
-  "uniqueChoices": true,
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifierType2": "Additive",
+  "modifiedAttribute": "Charisma",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ClassMagusSkillProficiencyTitle",
-    "description": "Feature/&ClassMagusSkillProficiencyDescription",
+    "title": "Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle",
+    "description": "Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +29,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e96e965-8fe8-5958-9296-4fbcd0a2ff85",
+  "guid": "21fbf034-47bd-436b-b92d-95883549a6d8",
   "contentPack": 9999,
-  "name": "ClassMagusSkillProficiency"
+  "name": "AttributeModifierDarkelfCharismaAbilityScoreIncrease"
 }

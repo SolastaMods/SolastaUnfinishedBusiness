@@ -39,7 +39,7 @@ internal static class LevelDownContext
         }
     }
 
-    internal static void LevelDown(RulesetCharacterHero hero)
+    private static void LevelDown(RulesetCharacterHero hero)
     {
         var indexLevel = hero.ClassesHistory.Count - 1;
         var characterClassDefinition = hero.ClassesHistory.Last();
@@ -64,6 +64,10 @@ internal static class LevelDownContext
         LevelUpContext.RegisterHero(hero, characterClassDefinition, characterSubclassDefinition);
 
         UnlearnSpells(hero, indexLevel);
+
+        var raceTag = $"02Race{indexLevel + 1}";
+
+        hero.ActiveFeatures.Remove(raceTag);
 
         if (subclassTag != classTag)
         {
@@ -190,7 +194,7 @@ internal static class LevelDownContext
         }
     }
 
-    public class FunctorLevelDown : Functor
+    private class FunctorLevelDown : Functor
     {
         public override IEnumerator Execute(
             FunctorParametersDescription functorParameters,

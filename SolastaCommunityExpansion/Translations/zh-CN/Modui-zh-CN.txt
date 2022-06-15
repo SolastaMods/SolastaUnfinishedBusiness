@@ -46,7 +46,7 @@ ModUi/&DungeonMakerMenu	地城制作
 ModUi/&EmpressGarbAppearance	<color=orange>女皇服饰链甲衫</color>外形
 ModUi/&EnableAdditionalIconsOnLevelMap	在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ 添加新的法器至地城制作</i>
-ModUi/&EnableAlternateHuman	启用变种人类<i><color=yellow>[+1专长 / +2属性值选择 / +1 技能]</color></i>
+ModUi/&EnableAlternateHuman	启用变种人类<i><color=yellow>[+1专长/+2属性值选择/+1技能]</color></i>
 ModUI/&EnableBetaContent	启用Beta内容<i><color=yellow>[牢记你的存档或英雄在未来有崩溃风险]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&EnableCancelEditOnRightMouseClick	启用右键取消动作
 ModUi/&EnableCharacterChecker	启用角色验证界面
@@ -63,7 +63,7 @@ ModUi/&EnableFlexibleBackgrounds	启用灵活背景<i><color=yellow>[从背景�
 ModUi/&EnableFlexibleRaces	启用灵活种族<i><color=yellow>[自由配置属性值而非使用种族的默认加值]</color></i>
 ModUi/&EnableHotkeyDebugOverlay	启用<color=cyan>CTRL-SHIFT-D</color>开启Debug界面
 ModUi/&EnableHotkeyToggleHud	启用<color=cyan>CTRL-SHIFT-H</color>控制所有UI界面的显示
-ModUi/&EnableHotkeyToggleIndividualHud	启用<color=cyan>CTRL-SHIFT-C</color>控制面板，<color=cyan>CTRL-SHIFT-L</color>日志，<color=cyan>CTRL-SHIFT-M</color>地图，<color=cyan>CTRL-SHIFT-P</color>队伍 控制面板的开关显示
+ModUi/&EnableHotkeyToggleIndividualHud	启用<color=cyan>CTRL-SHIFT-C</color>控制面板，<color=cyan>CTRL-SHIFT-L</color>日志，<color=cyan>CTRL-SHIFT-M</color>地图，<color=cyan>CTRL-SHIFT-P</color>队伍控制面板的开关显示
 ModUi/&EnableHotkeyZoomCamera	启用<color=cyan>CTRL-SHIFT-Z</color>拉伸镜头<i><color=yellow>[在拍摄地城截图用以发布时很有用]</color></i>
 ModUi/&EnableIgnoreCtrlClickOnCriticalHit	<i>+ 仅在非重击时才略过</i>
 ModUi/&EnableInventoryFilteringAndSorting	启用物品栏筛选和排序功能
@@ -145,17 +145,17 @@ ModUi/&RelicForgeries	遗物赝品
 ModUi/&RemoveAttunementRequirements	移除同调的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveBugVisualModels	将虫类模型以类似模型替代<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveIdentifcationRequirements	移除检定的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RestockAntiquarians	古文物研究者 补货<i><color=yellow>[哈尔曼·夏日]</color></i>
-ModUi/&RestockArcaneum	奥术协会 补货<i><color=yellow>[赫德伦·确法]</color></i>
-ModUi/&RestockCircleOfDanantar	丹南塔尔之环 补货<i><color=yellow>[乔瑞尔·狐眼]</color></i>
+ModUi/&RestockAntiquarians	古文物研究者补货<i><color=yellow>[哈尔曼·夏日]</color></i>
+ModUi/&RestockArcaneum	奥术协会补货<i><color=yellow>[赫德伦·确法]</color></i>
+ModUi/&RestockCircleOfDanantar	丹南塔尔之环补货<i><color=yellow>[乔瑞尔·狐眼]</color></i>
 ModUi/&RestockHelp	. 覆盖默认，强制所有商人的库存在一段时间内重新补货（不包括手册和书卷）\n. 注意，一些商品可能需要长达7个游戏日的时间来补货
-ModUi/&RestockTowerOfKnowledge	知识之塔 补货<i><color=yellow>[麦迪·绿岛]</color></i>
+ModUi/&RestockTowerOfKnowledge	知识之塔补货<i><color=yellow>[麦迪·绿岛]</color></i>
 ModUi/&Rules	规则
 ModUi/&ScaleMerchantPricesCorrectly	正确排列商人的价格
 ModUi/&SelectAll	选择全部
 ModUi/&SelectSuggested	选择推荐
 ModUi/&Services	服务
-ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>设置使用<color=orange>矮人腰带</color>时长出胡子的概率</color> 
+ModUi/&SetBeltOfDwarvenKindBeardChances	<color=white>设置使用<color=orange>矮人腰带</color>时长出胡子的概率</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips	在详细工具提示中显示制作配方
 ModUi/&ShowDescriptions	显示说明
 ModUi/&SpellInstructions	. 你能将每个法术单独分配到任何法术列表中，或者简单地选择建议的配置
@@ -184,7 +184,6 @@ ModUi/&UsableDevice	<color=yellow>可用装置</color>
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon	<color=yellow>武器</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	允许弩从与弓相关的特性中获益
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&OverwriteGameLanguage	<color=yellow>非官方语言支持：</color>
 ModUi/&Campaigns	<color=yellow>战役：</color>
