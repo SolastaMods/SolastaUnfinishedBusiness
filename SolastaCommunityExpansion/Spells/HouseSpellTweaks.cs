@@ -6,7 +6,7 @@ namespace SolastaCommunityExpansion.Spells;
 
 internal static class HouseSpellTweaks
 {
-    public static void Register()
+    internal static void Register()
     {
         AddBleedingToRestoration();
         //UseHeightOneCylinderEffect();
@@ -16,7 +16,7 @@ internal static class HouseSpellTweaks
         RemoveRecurringEffectOnEntangle();
     }
 
-    internal static void RemoveConcentrationRequirementsFromAnySpell()
+    private static void RemoveConcentrationRequirementsFromAnySpell()
     {
         if (!Main.Settings.RemoveConcentrationRequirementsFromAnySpell)
         {
@@ -29,7 +29,7 @@ internal static class HouseSpellTweaks
         }
     }
 
-    internal static void RemoveHumanoidFilterOnHideousLaughter()
+    private static void RemoveHumanoidFilterOnHideousLaughter()
     {
         if (!Main.Settings.RemoveHumanoidFilterOnHideousLaughter)
         {
@@ -38,10 +38,9 @@ internal static class HouseSpellTweaks
 
         // Remove Humanoid only filter on Hideous Laughter (as per SRD, any creature can be targeted)
         HideousLaughter.effectDescription.restrictedCreatureFamilies.Clear();
-
     }
 
-    internal static void RemoveRecurringEffectOnEntangle()
+    private static void RemoveRecurringEffectOnEntangle()
     {
         if (!Main.Settings.RemoveRecurringEffectOnEntangle)
         {
@@ -50,11 +49,10 @@ internal static class HouseSpellTweaks
 
         // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
         Entangle.effectDescription.recurrentEffect = RuleDefinitions.RecurrentEffect.OnActivation;
-
     }
 
 
-    internal static void MinorFixes()
+    private static void MinorFixes()
     {
         // Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;
@@ -155,7 +153,7 @@ internal static class HouseSpellTweaks
         }
 #endif
 
-    public static void AddBleedingToRestoration()
+    internal static void AddBleedingToRestoration()
     {
         var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 

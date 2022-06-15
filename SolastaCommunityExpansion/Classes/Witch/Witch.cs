@@ -1247,7 +1247,7 @@ internal static class Witch
             classBuilder.AddFeaturesAtLevel(3,
                 WitchMaledictionReplacer);
 
-            classBuilder.AddFeaturesAtLevel(4, 
+            classBuilder.AddFeaturesAtLevel(4,
                 WitchMaledictionReplacer,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
@@ -1402,5 +1402,5 @@ internal static class Witch
             .SetReplacedFeatureSet(FeatureDefinitionFeatureSetMaledictions)
             .AddToDB();
 
-    #endregion    
+    #endregion
 }
