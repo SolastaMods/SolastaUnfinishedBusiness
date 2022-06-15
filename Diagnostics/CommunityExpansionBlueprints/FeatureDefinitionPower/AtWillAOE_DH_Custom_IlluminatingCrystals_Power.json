@@ -41,7 +41,7 @@
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Charisma",
+    "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],

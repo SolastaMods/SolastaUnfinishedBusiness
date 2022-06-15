@@ -11,7 +11,7 @@ Feature/&PowerDarkelfDarknessTitle	Feenschatten
 Feature/&PowerDarkelfFaerieFireDescription	Markieren Sie Kreaturen, um jedem, der sie angreift, einen Vorteil zu verschaffen. Einmal pro langer Pause verwendbar.
 Feature/&PowerDarkelfFaerieFireTitle	Feenfeuer
 Race/&DarkelfRaceDescription	Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind weitgehend nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
-Race/&DarkelfRaceTitle	Darkelf
+Race/&DarkelfRaceTitle	DarkElf
 Race/&DarkelfSurName1Title	Za'Moryra
 Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	DhalNerwenys

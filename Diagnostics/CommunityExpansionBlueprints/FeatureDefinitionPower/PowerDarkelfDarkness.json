@@ -31,7 +31,7 @@
     "targetConditionAsset": null,
     "targetSide": "All",
     "durationType": "Minute",
-    "durationParameter": 1,
+    "durationParameter": 10,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,

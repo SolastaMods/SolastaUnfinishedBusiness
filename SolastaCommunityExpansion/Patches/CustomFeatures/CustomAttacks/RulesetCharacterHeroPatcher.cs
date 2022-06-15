@@ -100,7 +100,6 @@ internal static class RulesetCharacterHero_RefreshAll
     }
 }
 
-// Make hand crossbows benefit from Archery Fighting Style
 [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
 internal static class RulesetCharacterHero_RefreshActiveFightingStyles
@@ -110,14 +109,48 @@ internal static class RulesetCharacterHero_RefreshActiveFightingStyles
         foreach (var trainedFightingStyle in __instance.trainedFightingStyles
                      .Where(x => x.Condition == FightingStyleDefinition.TriggerCondition.RangedWeaponAttack))
         {
-            var rulesetInventorySlot =
-                __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
-
-            if (rulesetInventorySlot.EquipedItem != null
-                && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
-                && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType == "CEHandXbowType")
+            switch (trainedFightingStyle.Condition)
             {
-                __instance.ActiveFightingStyles.Add(trainedFightingStyle);
+                // Make hand crossbows benefit from Archery Fighting Style
+                case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
+                    var rulesetInventorySlot =
+                        __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+
+                    if (rulesetInventorySlot.EquipedItem != null
+                        && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
+                        && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
+                        "CEHandXbowType")
+                    {
+                        __instance.ActiveFightingStyles.Add(trainedFightingStyle);
+                    }
+
+                    break;
+
+                // Make Shield Expert benefit from Two Weapon Fighting Style
+                case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
+                    var hasShieldExpert = __instance.TrainedFeats.Any(x => x.Name == "FeatShieldExpert");
+                    var mainHandSlot =
+                        __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+                    var offHandSlot =
+                        __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
+
+                    if (hasShieldExpert
+                        && mainHandSlot.EquipedItem != null
+                        && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
+                    {
+                        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>();
+                        var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
+
+                        if (dbWeaponTypeDefinition.GetElement(weaponType).WeaponProximity ==
+                            RuleDefinitions.AttackProximity.Melee
+                            && offHandSlot.EquipedItem != null
+                            && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
+                        {
+                            __instance.ActiveFightingStyles.Add(trainedFightingStyle);
+                        }
+                    }
+
+                    break;
             }
         }
     }
