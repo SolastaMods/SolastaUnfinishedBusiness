@@ -1,7 +1,16 @@
 ﻿CHANGES:
 
-- Add support for races to grant features at levels > 1
-- Improve DarkElf to grant features at levels 3 and 5
-- Fix Chinese translations
-- Fix DarkElf incorrectly changing other game blueprints
-- Fix Shield Expert to benefit from Two Weapon fighting style
+- Allow Witch to replace maledictions on level up
+- Improve English translations
+- Make Dark Elf a sub race
+
+PATRONS:
+
+- Thanks to the 11 users who donated so far...
+- We could do much more if every user donates a coffee a month:
+
+** Pay for better services from DeepL, GitHub and others
+** Hire freelancer artists for better animations, bitmaps, etc
+** Invest on game development learning
+
+- Donation button Under Mod UI > Credits
