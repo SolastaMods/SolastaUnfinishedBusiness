@@ -149,34 +149,34 @@ Condition/&SwallowingToadConditionDescription	Ends if 15 damage or more is taken
 Condition/&SwallowingToadConditionTitle	Swallowing Toad
 ContentPack/&CommunityExpansionPackDescription	The Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
 ContentPack/&CommunityExpansionPackTitle	Community Expansion Pack
-CraftyFeats/&ApothecaryIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Herbalism Kit and Arcana.
+CraftyFeats/&ApothecaryIntFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
-CraftyFeats/&ApothecaryWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Herbalism Kit and Medicine.
+CraftyFeats/&ApothecaryWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 CraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
-CraftyFeats/&AttributeDexDescription	+1 Dexterity.
+CraftyFeats/&AttributeDexDescription	+1 DEX to a maximum of 20
 CraftyFeats/&AttributeDexTitle	Dexterity
-CraftyFeats/&AttributeIntDescription	+1 Intelligence.
+CraftyFeats/&AttributeIntDescription	+1 INT to a maximum of 20
 CraftyFeats/&AttributeIntTitle	Intelligence
-CraftyFeats/&AttributeWisDescription	+1 Wisdom.
+CraftyFeats/&AttributeWisDescription	+1 WIS to a maximum of 20
 CraftyFeats/&AttributeWisTitle	Wisdom
-CraftyFeats/&CraftyArcanaDescription	Arcana proficiency or expertise.
-CraftyFeats/&CraftyBowsDescription	Proficiency with all bows and crossbows.
+CraftyFeats/&CraftyArcanaDescription	You gain proficiency/expertise in Arcana.
+CraftyFeats/&CraftyBowsDescription	You gain proficiency with all bows and crossbows.
 CraftyFeats/&CraftyBowsTitle	Bow Proficiency
-CraftyFeats/&CraftyFletcherFeatDescription	+1 Dexterity, Proficiency or Expertise with Smith's Tools, Proficiency with bows and crossbows.
+CraftyFeats/&CraftyFletcherFeatDescription	Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with smith's tools, or expertise if you are already proficient.\n You gain proficiency with all bows and crossbows.
 CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
-CraftyFeats/&CraftyMedicineDescription	Medicine proficiency or expertise.
-CraftyFeats/&CraftyNatureDescription	Nature proficiency or expertise.
-CraftyFeats/&CraftyScribeFeatDescription	+1 Intelligence, Proficiency or Expertise with Scroll Kit and Arcana, Requires the ability to cast spells.
+CraftyFeats/&CraftyMedicineDescription	You gain proficiency/expertise in Medicine.
+CraftyFeats/&CraftyNatureDescription	You gain proficiency/expertise in Nature.
+CraftyFeats/&CraftyScribeFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with scroll kit and Arcana, or expertise if already proficient.\nRequires the ability to cast spells.
 CraftyFeats/&CraftyScribeFeatTitle	Scribe
 CraftyFeats/&CraftySkillsTitle	Skills
 CraftyFeats/&CraftyToolsTitle	Tools
-CraftyFeats/&ManacalonCrafterFeatDescription	+1 Intelligence, Proficiency or Expertise with Manacalon Rosary and Arcana, Requires the ability to cast spells.
+CraftyFeats/&ManacalonCrafterFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with manacolon rosary and Arcana, or expertise if already proficient.\nRequires the ability to cast spells.
 CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
-CraftyFeats/&ToxicologistIntFeatDescription	+1 Intelligence, Proficiency or Expertise with Poisoner's Kit and Nature.
+CraftyFeats/&ToxicologistIntFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
 CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
-CraftyFeats/&ToxicologistWisFeatDescription	+1 Wisdom, Proficiency or Expertise with Poisoner's Kit and Medicine.
+CraftyFeats/&ToxicologistWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
-DamageAffinity/&DHHolyAuraSpellDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+DamageAffinity/&DHHolyAuraSpellDescription	When a fiend or an undead hits with a melee attack, the aura flashes with brilliant light and the attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
 DamageAffinity/&DHHolyAuraSpellTitle	Holy Aura Retaliation
 Equipment/&ArcaneStaffDescription	This staff is inscribed with magical writing and can be used as a focus for Arcane spell casting.
 Equipment/&ArcaneStaffTitle	Arcane Staff
