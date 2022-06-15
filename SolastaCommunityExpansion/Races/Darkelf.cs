@@ -135,19 +135,15 @@ internal static class DarkelfRaceBuilder
         darkelfRacePresentation.preferedHairColors = new RangedInt(0, 2);
 
         var darkelf = CharacterRaceDefinitionBuilder
-            .Create(ElfHigh, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
+            .Create(Elf, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
+            .SetBaseHeight(ElfHigh.BaseHeight)
+            .SetBaseWeight(ElfHigh.BaseWeight)
             .AddFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionAttributeModifiers.AttributeModifierElfAbilityScoreIncrease,
-                FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry,
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseDarkvision,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                FeatureDefinitionProficiencys.ProficiencyElfKeenSenses,
-                FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
-                FeatureDefinitionProficiencys.ProficiencyElfStaticLanguages,
+                FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
                 darkelfAbilityScoreModifierCharisma,
                 darkelfDarkMagic,
                 darkelfWeaponTraining,
@@ -157,10 +153,7 @@ internal static class DarkelfRaceBuilder
             .AddToDB();
 
         darkelf.subRaces.Clear();
-        darkelf.inventoryDefinition = InventoryDefinitions.HumanoidInventory;
-        darkelf.personalityFlagOccurences = Elf.PersonalityFlagOccurences;
-        darkelf.languageAutolearnPreference = Elf.LanguageAutolearnPreference;
-        darkelf.audioRaceRTPCValue = Elf.AudioRaceRTPCValue;
+
 
         return darkelf;
     }
