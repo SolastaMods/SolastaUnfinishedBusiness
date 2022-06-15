@@ -44,7 +44,7 @@ Monster/&DH_Custom_FireTitan_Description	当被召唤时，这些年长的元素
 Monster/&DH_Custom_FireTitan_Title	<color=#ff0000ff>原初火焰泰坦</color>
 Monster/&DH_Custom_GuardianNaga_Description	巡守纳加作为睿智善良的美丽守护者保护着带有魔法力量的圣地与物品，以免落入邪恶之手。它们在其隐秘的棱堡中研究法术，并策划出复杂的计谋米挫败敌人的邪恶盘算
 Monster/&DH_Custom_GuardianNaga_Title	<color=#ff0000ff>巡守纳加</color>
-Monster/&DH_Custom_HornedDevil_Description	 作为地狱军团的飞行步兵，角魔们会一丝不苟的按命令行事
+Monster/&DH_Custom_HornedDevil_Description	作为地狱军团的飞行步兵，角魔们会一丝不苟的按命令行事
 Monster/&DH_Custom_HornedDevil_Title	<color=#ff0000ff>角魔</color>
 Monster/&DH_Custom_IceDevil_Description	冰魔贪求其深狱炼魔长官的力量并因此以晋升为目标不断努力。它们不断屠杀九狱的敌人，并努力获取更多的灵魂进献给其大魔鬼主子
 Monster/&DH_Custom_IceDevil_Title	<color=#ff0000ff>冰魔</color>
@@ -54,7 +54,7 @@ Monster/&DH_Custom_Nalfeshnee_Description	判魂魔是最丑陋的恶魔一一�
 Monster/&DH_Custom_Nalfeshnee_Title	<color=#ff0000ff>判魂魔</color>
 Monster/&DH_Custom_PitFiend_Description	身为大多数魔鬼中毋庸置疑的霸主，深狱炼魔跟随在大公与女大公们鞍前马后为其效力。这些强大的魔鬼是九狱中的将军，带领着地狱军团投身战场
 Monster/&DH_Custom_PitFiend_Title	<color=#ff0000ff>深狱炼魔</color>
-Monster/&DH_Custom_Planetar_Description	 异界神侍是它所服侍之神的武器，是神之权威的具象化体现
+Monster/&DH_Custom_Planetar_Description	异界神侍是它所服侍之神的武器，是神之权威的具象化体现
 Monster/&DH_Custom_Planetar_Title	<color=#ff0000ff>异界神侍</color>
 Monster/&DH_Custom_Roc_Description	鹏鸟是一种寿命长达几个世纪的独居动物。它们四处带来树木、帐篷、破船和商队残骸互相纠结成巨大鸟巢，并设置在山崖上低等生物难以触及的裂缝之中
 Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>鹏鸟</color>
@@ -88,7 +88,7 @@ MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8钝击伤害并�
 MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	挥击
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	无法执行动作并每回合受到16d6强酸伤害。一次不低于60伤害的攻击会使被吞咽者被吐出
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	吞咽
-MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	 一次不低于60伤害的攻击会使被吞咽者被吐出
+MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	一次不低于60伤害的攻击会使被吞咽者被吐出
 MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	被吞咽生物
 MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9穿刺伤害 & 2D8强酸伤害
 MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	强酸啃咬
@@ -106,9 +106,9 @@ MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8钝击伤害
 MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	地面挥击
 MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6挥砍伤害 & 2d6火焰伤害
 MonsterAttack/&DH_FireScimatar_Attack_Title	弯刀
-MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5钝击伤害 + 10d6火焰伤害
+MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5钝击伤害+10d6火焰伤害
 MonsterAttack/&DH_FireTitan_Slam_Attack_Title	灼热挥击
-MonsterAttack/&DH_Fork_Attack_Description	2D8 +6穿刺伤害
+MonsterAttack/&DH_Fork_Attack_Description	2D8+6穿刺伤害
 MonsterAttack/&DH_Fork_Attack_Title	叉刺攻击
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10+6穿刺伤害
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	啃咬攻击
@@ -123,12 +123,12 @@ MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	流血伤口
 MonsterAttack/&DH_HurlFlame_Attack_Description	5d6火焰伤害
 MonsterAttack/&DH_HurlFlame_Attack_Title	投掷火焰
 MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5穿刺伤害 & 3d6冷冻伤害
-MonsterAttack/&DH_Ice_Bite_Attack_Title	Ice Bite
+MonsterAttack/&DH_Ice_Bite_Attack_Title	寒冰啃咬
 MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6冷冻伤害并造成麻痹状态
 MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	麻痹之触
 MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5挥砍伤害 & 2d6闪电伤害
 MonsterAttack/&DH_LightningScimatar_Attack_Title	弯刀
-MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4穿刺伤害 &  DC为15的体质豁免以减半10d8毒素伤害
+MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4穿刺伤害 & DC为15的体质豁免以减半10d8毒素伤害
 MonsterAttack/&DH_NagaBite_Attack_Title	毒素啃咬
 MonsterAttack/&DH_NagaSpit_Attack_Description	DC为15的体质豁免以减半10d8毒素伤害
 MonsterAttack/&DH_NagaSpit_Attack_Title	喷毒
@@ -187,7 +187,7 @@ MonsterPower/&DH_DamageLightning_Breath_Power_Title	闪电吐息
 MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6毒素伤害
 MonsterPower/&DH_DamagePoison_Breath_Power_Title	毒素吐息
 MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10光耀伤害并且目标将在生命值为0时被瓦解
-MonsterPower/&DH_DisintegratingBeam_Power_Title	 瓦解射线
+MonsterPower/&DH_DisintegratingBeam_Power_Title	瓦解射线
 MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10钝击伤害
 MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	地震
 MonsterPower/&DH_ErinyesParry_Power_Description	+3AC
@@ -200,7 +200,7 @@ MonsterPower/&DH_FireTitan_Retaliate_Power_Description	在10英尺内，任何�
 MonsterPower/&DH_FireTitan_Retaliate_Power_Title	火焰泰坦反击
 MonsterPower/&DH_IlluminatingCrystals_Power_Description	施法时该区域内的任何生物都会被光笼罩。在持续时间内，物体和受影响的生物会在10英尺内发出昏暗光照
 MonsterPower/&DH_IlluminatingCrystals_Power_Title	照明水晶
-MonsterPower/&DH_IncreasedGravityZone_Attack_Description	 泰坦聚焦其周围20英尺的区域。以此点为中心的20英尺半径、20英尺高的圆柱体中的任何生物都必须通过敏捷豁免(DC26)，否则会受到33(6d10)钝击伤害并被击倒和束缚一回合
+MonsterPower/&DH_IncreasedGravityZone_Attack_Description	泰坦聚焦其周围20英尺的区域。以此点为中心的20英尺半径、20英尺高的圆柱体中的任何生物都必须通过敏捷豁免(DC26)，否则会受到33(6d10)钝击伤害并被击倒和束缚一回合
 MonsterPower/&DH_IncreasedGravityZone_Attack_Title	强重力区域
 MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6黯蚀伤害
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	扰乱生命
@@ -225,7 +225,7 @@ MonsterPower/&DH_SummonCreature_Nalfeshnee_Power_Title	召唤随从：判魂魔
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Description	召唤1只斯卡恩食尸鬼
 MonsterPower/&DH_SummonCreature_SkarnGhoul_Power_Title	召唤次级元素
 MonsterPower/&DH_SummonCreature_WindSnake_Power_Description	召唤4只风蛇
-MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	 召唤次级元素群
+MonsterPower/&DH_SummonCreature_WindSnake_Power_Title	召唤次级元素群
 MonsterPower/&DH_SummonCreature_Wolves_Power_Description	吸血鬼用魔法召唤出3D6只狼
 MonsterPower/&DH_SummonCreature_Wolves_Power_Title	暗夜之子
 MonsterPower/&DH_TarrasqueReflectiveCarapace_Immunity_Description	泰拉斯奎被指定为法术魔法飞弹的目标，以及作为线状区域法术或需要进行远程攻击检定法术的目标时，泰拉斯奎不受影响
