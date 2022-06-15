@@ -24,12 +24,12 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
-[*][b]SilverGriffon[/b]: PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells
+[*][b]SilverGriffon[/b]: PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
 [*][b]Spacehamster[/b]: dataminer
 [*][b]TPABOBAP[/b]: Monk class and subclasses, Warlock improvements, Tinkerer improvements, custom level up, feats, spells, infrastructure patches, Holic75's code integration
 [*][b]View619[/b]: Darkvision, Superior Dark Vision
-[*][b]Vylantze[/b]: English terms review, tweaks
+[*][b]Vylantze[/b]: English terms review, tweaks, bug fixes
 [*][b]Zappastuff[/b]: repository maintenance, translations, multiclass, level 20, respec, level down, default party, encounters, dungeon maker pro, party size, screen gadgets highlights, inventory sorting, epic points, teleport, mod UI, diagnostics, feats, pact magic, infrastructure patches, Holic75's code integration
 [/list]
 
@@ -110,6 +110,7 @@ All settings start disabled by default. On first start the mod will display an w
 [list=1]
 
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+[*][b]DarkElf[/b]: Darkelves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Darkelves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 [*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
 [/list]
 
@@ -117,7 +118,6 @@ All settings start disabled by default. On first start the mod will display an w
 
 [list=1]
 
-[*][b]Class/&ClassMagusTitle[/b]: Class/&ClassMagusDescription
 [*][b]Monk[/b]: Monks are united in their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a Monk does.
 [*][b]Tinkerer[/b]: Tinkerers are inventors, alchemists, and more. They bridge the space between magic and technology.
 [*][b]Warlock[/b]: Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular.
@@ -138,10 +138,10 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Weapon Smith[/b]: You specialize in using magical weapons in combat.
 [*][b]Scout Sentinel[/b]: A Scout Sentinel Tinkerer modifies armor to enhance it's function, providing enhanced protection and mobility.
 [*][b]Rift Walker Pact[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
-[*][b]SoulBlade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
+[*][b]Soulblade Pact[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
 [*][b]Ancient Forest Pact[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. Your patron may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Elementalist Pact[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
-[*][b]MoonLit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
+[*][b]Moonlit Pact[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 [/list]
 
 [size=3][b]Official Classes Subclasses[/b][/size]

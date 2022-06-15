@@ -1,0 +1,19 @@
+﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisme +1.
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Augmentation du score de capacité
+Feature/&DarkelfMagicDescription	Vous connaissez le sort mineur Dancing Lights.
+Feature/&DarkelfMagicTitle	Magie des elfes noirs
+Feature/&DarkelfWeaponTrainingDescription	Vous maîtrisez les rapières, les épées courtes et les arbalètes à main.
+Feature/&DarkelfWeaponTrainingTitle	Entraînement aux armes des elfes noirs
+Feature/&LightAffinityDarkelfLightSensitivityDescription	Vous avez un désavantage aux jets d'attaque et aux tests de Sagesse (Perception) en pleine lumière.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilité à la lumière du soleil
+Feature/&PowerDarkelfDarknessDescription	Créez une zone d'obscurité magique. Utilisable une fois par repos long.
+Feature/&PowerDarkelfDarknessTitle	Féeombre
+Feature/&PowerDarkelfFaerieFireDescription	Mettez en surbrillance les créatures pour donner l'avantage à quiconque les attaque. Utilisable une fois par repos long.
+Feature/&PowerDarkelfFaerieFireTitle	Feyfeu
+Race/&DarkelfRaceDescription	Les elfes noirs sont des descendants d'elfes qui ont été transformés au fil du temps en vivant dans les Badlands inhospitalières. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les anciennes ruines des Badlands, en particulier les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
+Race/&DarkelfRaceTitle	elfe noir
+Race/&DarkelfSurName1Title	Za'Moryra
+Race/&DarkelfSurName2Title	DhalNeridthas
+Race/&DarkelfSurName3Title	DhalNerwenys
+Race/&DarkelfSurName4Title	Zo'Sonta
+Race/&DarkelfSurName5Title	Zo'Remon

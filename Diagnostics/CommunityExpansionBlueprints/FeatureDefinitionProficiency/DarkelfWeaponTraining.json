@@ -2,14 +2,16 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "Weapon",
   "proficiencies": [
-    "MartialWeaponCategory"
+    "CEHandXbowType",
+    "RapierType",
+    "ShortswordType"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ClassMagusWeaponProficiencyTitle",
-    "description": "Feature/&ClassMagusWeaponProficiencyDescription",
+    "title": "Feature/&DarkelfWeaponTrainingTitle",
+    "description": "Feature/&DarkelfWeaponTrainingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ec723019-70ac-50d1-ad24-c3ea1a9704f6",
+  "guid": "ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
   "contentPack": 9999,
-  "name": "ClassMagusWeaponProficiency"
+  "name": "DarkelfWeaponTraining"
 }

@@ -323,7 +323,7 @@ internal static class EldritchInvocationsBuilder
                     false,
                     false,
                     AttributeDefinitions.Charisma,
-                    entry.Value.EffectDescription.DeepCopy(), // need to copy to avoid issues with the source spells
+                    entry.Value.EffectDescription,
                     true)
                 .AddToDB();
 

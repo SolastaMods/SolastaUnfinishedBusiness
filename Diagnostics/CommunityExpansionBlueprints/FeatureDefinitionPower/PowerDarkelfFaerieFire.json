@@ -1,19 +1,19 @@
 {
-  "$type": "SolastaCommunityExpansion.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaCommunityExpansion",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
-    "rangeParameter": 24,
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
-    "itemSelectionType": "None",
-    "targetParameter": 1,
-    "targetParameter2": 1,
+    "targetType": "Cube",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 4,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -29,20 +29,20 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Instantaneous",
+    "targetSide": "All",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Constitution",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
+    "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Intelligence",
-    "fixedSavingThrowDifficultyClass": 10,
+    "savingThrowDifficultyAbility": "Charisma",
+    "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -65,23 +65,58 @@
         "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": true,
         "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ClassMagusConditionRupture",
-          "conditionDefinition": "Definition:ClassMagusConditionRupture:1a49e40d-10b1-5a8e-8a42-2483f8702bc5",
+          "conditionDefinitionName": "ConditionHighlighted",
+          "conditionDefinition": "Definition:ConditionHighlighted:e656433f63f7c1e499a77c59ebc7ac84",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ClassMagusConditionRupture:1a49e40d-10b1-5a8e-8a42-2483f8702bc5"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "LightSource",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "createdByCharacter": true,
+        "createdByCondition": false,
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "StartOfTurn",
+        "lightSourceForm": {
+          "$type": "LightSourceForm, Assembly-CSharp",
+          "lightSourceType": "Basic",
+          "brightRange": 0,
+          "dimAdditionalRange": 2,
+          "color": {
+            "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+            "r": 1.0,
+            "g": 0.9778601,
+            "b": 0.78039217,
+            "a": 1.0
+          },
+          "graphicsPrefabReference": {
+            "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+            "m_AssetGUID": "3e4cdebecc6e0db469720619529e3dc2",
+            "m_SubObjectName": "",
+            "m_SubObjectType": ""
+          },
+          "applyToSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -113,7 +148,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "3cff2b6f11a2cd649b3fb3fb2c402351",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -149,18 +184,28 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "6937e1207989e6644ad591240a0bb88c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": null,
-      "impactParticleReference": {
+      "beforeImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": null,
+      "impactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "dc52f8444fa49f24ca22b361d63dbb15",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
+      "activeEffectImpactParticleReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -241,13 +286,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "13002582a0306fe44915c63f57e4ea59",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "0c47cc2ece484284eb5eec49a38a2cae",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -264,24 +309,24 @@
     },
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
-      "aoeScoreMultiplier": 1.0,
+      "aoeScoreMultiplier": 1.5,
       "cooldownForCaster": 0,
-      "cooldownForBattle": 0,
-      "dynamicCooldown": false
+      "cooldownForBattle": 2,
+      "dynamicCooldown": true
     },
     "animationMagicEffect": "Animation0"
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "NoCost",
+  "activationTime": "Action",
   "reactionContext": "None",
   "reactionName": "",
   "hasCastingFailure": false,
   "castingSuccessComputation": "CasterLevel",
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -302,13 +347,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&ClassMagusArcaneArtRuptureTitle",
-    "description": "ClassMagusArcaneArtRupture",
+    "title": "Feature/&PowerDarkelfFaerieFireTitle",
+    "description": "Feature/&PowerDarkelfFaerieFireDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "9ca4f4b1dea3dbe41a40bf189c91bbd3",
+      "m_SubObjectName": "FaerieFire",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -323,7 +368,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2e65dba9-ac84-5d81-9076-addc04f8fd39",
+  "guid": "68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
   "contentPack": 9999,
-  "name": "ClassMagusArcaneArtRupture"
+  "name": "PowerDarkelfFaerieFire"
 }

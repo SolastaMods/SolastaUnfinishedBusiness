@@ -95,6 +95,7 @@ internal static class MulticlassPatchingContext
                 dbFeatureDefinitionProficiency.GetElement("ProficiencyTinkererSavingThrow")
             });
 
+        // TODO: Uncomment this when class is ready
         //FeaturesToExclude.Add(WardenClass, new()
         //{
         //    dbFeatureDefinitionPointPool.GetElement("PointPoolWardenSkillPoints"),
@@ -117,13 +118,14 @@ internal static class MulticlassPatchingContext
                 dbFeatureDefinitionProficiency.GetElement("ClassWarlockSavingThrowProficiency")
             });
 
-        FeaturesToExclude.Add(MagusClass,
-            new List<FeatureDefinition>
-            {
-                dbFeatureDefinitionPointPool.GetElement("ClassMagusSkillProficiency"),
-                dbFeatureDefinitionProficiency.GetElement("ClassMagusWeaponProficiency"),
-                dbFeatureDefinitionProficiency.GetElement("ClassMagusSavingThrowProficiency")
-            });
+        // TODO: Uncomment this when class is ready
+        // FeaturesToExclude.Add(MagusClass,
+        //     new List<FeatureDefinition>
+        //     {
+        //         dbFeatureDefinitionPointPool.GetElement("ClassMagusSkillProficiency"),
+        //         dbFeatureDefinitionProficiency.GetElement("ClassMagusWeaponProficiency"),
+        //         dbFeatureDefinitionProficiency.GetElement("ClassMagusSavingThrowProficiency")
+        //     });
     }
 
     //

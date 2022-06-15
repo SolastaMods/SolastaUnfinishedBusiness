@@ -10,7 +10,7 @@ internal static class RacesContext
 
     internal static HashSet<CharacterRaceDefinition> Races { get; private set; } = new();
 
-    internal static void SortRacesFeatures()
+    private static void SortRacesFeatures()
     {
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
 
@@ -34,6 +34,7 @@ internal static class RacesContext
     {
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
         LoadRace(GnomeRaceBuilder.GnomeRace);
+        LoadRace(DarkelfRaceBuilder.DarkelfRace);
 
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 

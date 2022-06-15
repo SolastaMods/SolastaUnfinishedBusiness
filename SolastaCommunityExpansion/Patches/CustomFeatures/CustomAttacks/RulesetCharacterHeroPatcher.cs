@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
@@ -99,26 +100,58 @@ internal static class RulesetCharacterHero_RefreshAll
     }
 }
 
-// Make crossbows and hand crossbows benefit from anything that grants benefits on using bows
-[HarmonyPatch(typeof(RulesetCharacterHero), "IsWieldingBow")]
+[HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-internal static class RulesetCharacterHero_IsWieldingBow
+internal static class RulesetCharacterHero_RefreshActiveFightingStyles
 {
-    internal static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
+    internal static void Postfix(RulesetCharacterHero __instance)
     {
-        if (!Main.Settings.AllowCrossbowsToUseBowFeatures)
+        foreach (var trainedFightingStyle in __instance.trainedFightingStyles
+                     .Where(x => x.Condition == FightingStyleDefinition.TriggerCondition.RangedWeaponAttack))
         {
-            return true;
+            switch (trainedFightingStyle.Condition)
+            {
+                // Make hand crossbows benefit from Archery Fighting Style
+                case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
+                    var rulesetInventorySlot =
+                        __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+
+                    if (rulesetInventorySlot.EquipedItem != null
+                        && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
+                        && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
+                        "CEHandXbowType")
+                    {
+                        __instance.ActiveFightingStyles.Add(trainedFightingStyle);
+                    }
+
+                    break;
+
+                // Make Shield Expert benefit from Two Weapon Fighting Style
+                case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
+                    var hasShieldExpert = __instance.TrainedFeats.Any(x => x.Name == "FeatShieldExpert");
+                    var mainHandSlot =
+                        __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
+                    var offHandSlot =
+                        __instance.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
+
+                    if (hasShieldExpert
+                        && mainHandSlot.EquipedItem != null
+                        && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
+                    {
+                        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>();
+                        var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
+
+                        if (dbWeaponTypeDefinition.GetElement(weaponType).WeaponProximity ==
+                            RuleDefinitions.AttackProximity.Melee
+                            && offHandSlot.EquipedItem != null
+                            && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
+                        {
+                            __instance.ActiveFightingStyles.Add(trainedFightingStyle);
+                        }
+                    }
+
+                    break;
+            }
         }
-
-        var equipedItem = __instance.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
-
-        // TODO: might be better to keep the original code and leverage tags here. for now this works
-        __result = equipedItem != null
-                   && equipedItem.ItemDefinition.IsWeapon && DatabaseRepository
-                       .GetDatabase<WeaponTypeDefinition>().Name.ToLower().Contains("bow");
-
-        return false;
     }
 }
