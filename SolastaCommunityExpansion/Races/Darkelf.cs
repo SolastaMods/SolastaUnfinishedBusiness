@@ -133,21 +133,19 @@ internal static class DarkelfRaceBuilder
         darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
         darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 48);
-        darkelfRacePresentation.preferedHairColors = new RangedInt(0, 2);
+        darkelfRacePresentation.preferedHairColors = new RangedInt(1, 1);
 
         var darkelf = CharacterRaceDefinitionBuilder
-            .Create(Elf, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
+            .Create(ElfHigh, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
-            .SetBaseHeight(ElfHigh.BaseHeight)
-            .SetBaseWeight(ElfHigh.BaseWeight)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
                 FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
                 darkelfAbilityScoreModifierCharisma,
-                darkelfDarkMagic,
                 darkelfWeaponTraining,
+                darkelfDarkMagic,
                 darkelfLightAffinity)
             .AddFeaturesAtLevel(3, darkelfFaerieFirePower)
             .AddFeaturesAtLevel(5, darkelfDarknessPower)
