@@ -562,7 +562,7 @@ Feat/&FeatMetamagicAdeptQuickenedDescription	魅力+1，最高20点\n你习得�
 Feat/&FeatMetamagicAdeptQuickenedTitle	超魔：瞬发
 Feat/&FeatMetamagicAdeptTwinnedDescription	魅力+1，最高20点\n你习得孪生超魔，并获得2点术法点
 Feat/&FeatMetamagicAdeptTwinnedTitle	超魔：孪生
-Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n•	当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
+Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
 Feat/&FeatPolearmExpertTitle	长柄武器大师
 Feat/&FeatPrimalConstitutionDescription	体质+1，最高20点\n你能以附赠动作进入类似于野蛮人的狂暴状态，能与野蛮人的狂暴叠加并使其伤害+1。每长休1次\n当你未穿戴盔甲时，你的AC等于10+敏捷修正值+体质修正值
 Feat/&FeatPrimalConstitutionTitle	原初狂怒（体质）
@@ -570,12 +570,12 @@ Feat/&FeatPrimalStrengthDescription	力量+1，最高20点\n你能以附赠动�
 Feat/&FeatPrimalStrengthTitle	原初狂怒（力量）
 Feat/&FeatPugilistFightingStlyeDescription	你的徒手攻击造成额外的1d4点伤害，并且你能以附赠动作进行副手攻击\n若你有一只手为空，你能以附赠动作进行推撞
 Feat/&FeatPugilistFightingStlyeTitle	战斗风格：搏击
-Feat/&FeatRangedExpertDescription	你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n•	若你使用动作进行攻击，你能使用附赠行动以单手的远程或投掷武器进行一次攻击
+Feat/&FeatRangedExpertDescription	你擅于使用远程武器，获得以下增益：\n• 当有敌人在你5英尺内时，你的远程攻击不再具有劣势\n• 若你使用动作进行攻击，你能使用附赠行动以单手的远程或投掷武器进行一次攻击
 Feat/&FeatRangedExpertTitle	远程武器大师
 Feat/&FeatSavageAttackerDescription	当投出1时重投武器和法术的伤害骰(不重投所有伤害源，例如偷袭和重击)
 Feat/&FeatSavageAttackerReroll	因为野性袭击者的效果 {0} 重投 {1} 伤害骰，数值由 {2} 变为	{3}
 Feat/&FeatSavageAttackerTitle	野性袭击者
-Feat/&FeatSentinelDescription 你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•	处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
+Feat/&FeatSentinelDescription	你掌握的技术使你在击破敌人防御时占尽优势，获得以下增益：\n• 当你借机攻击命中一个生物时，其在本回合剩余时间内移动速度降至0\n• 生物即使执行撤离动作离开你的触及范围也会引发你的借机攻击\n•	处于你触及范围内的生物（其无本专长）对除你外的目标发动攻击后，你能以反应对此攻击者发动一次近战攻击
 Feat/&FeatSentinelTitle	哨兵
 Feat/&FeatShadowTouchedChaDescription	魅力+1，最高20点\n你获得施放隐形术，致伤术和虚假生命的能力，每长休1次。同时学会这些法术
 Feat/&FeatShadowTouchedChaTitle	暗影亲和（魅力）
@@ -1646,7 +1646,7 @@ Spell/&AirBlastDescription	向你的目标发射一股集中的空气
 Spell/&AirBlastTitle	空气震爆
 Spell/&BurstOfRadianceDescription	创造一个闪亮的闪光，伤害你周围的所有敌人
 Spell/&BurstOfRadianceTitle	光耀爆发
-Spell/&CJDivineWordDescription	你吟诵一句神圣的箴言，其中充盈了创世黎明的力量。在施法距离内指定任意数量的你能看见的生物，并迫使每个能够听到圣言的生物进行一次魅力豁免。豁免失败者基于其当前生命值承受以下效应：\n• 生命值为50或更少：耳聋1分钟\n• 生命值为40或更少：耳聋并目盲10分钟\n• 生命值为30或更少：耳聋、目盲并被震慑1小时\n• 生命值为20或更少：即死\n•	对于受术的天界生物、元素生物、精类生物或邪魔，其豁免失败时不需考虑其当前生命值，并直接将其遣返回其原属位面（若已处于原属位面则无效）。在随后24小时内，此生物不能通过任何方式回到当前位面，除非使用祈愿术的效应\n
+Spell/&CJDivineWordDescription	你吟诵一句神圣的箴言，其中充盈了创世黎明的力量。在施法距离内指定任意数量的你能看见的生物，并迫使每个能够听到圣言的生物进行一次魅力豁免。豁免失败者基于其当前生命值承受以下效应：\n• 生命值为50或更少：耳聋1分钟\n• 生命值为40或更少：耳聋并目盲10分钟\n• 生命值为30或更少：耳聋、目盲并被震慑1小时\n• 生命值为20或更少：即死\n• 对于受术的天界生物、元素生物、精类生物或邪魔，其豁免失败时不需考虑其当前生命值，并直接将其遣返回其原属位面（若已处于原属位面则无效）。在随后24小时内，此生物不能通过任何方式回到当前位面，除非使用祈愿术的效应
 Spell/&CJDivineWordTitle	圣言术
 Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
 Spell/&DHAnimalShapesSpellTitle	动物形态
