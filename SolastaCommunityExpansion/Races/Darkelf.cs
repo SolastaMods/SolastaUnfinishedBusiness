@@ -118,8 +118,7 @@ internal static class DarkelfRaceBuilder
             .SetSortOrder(1)
             .AddToDB();
 
-        //doing a deep copy of Elf did not allow me to set prefered skin colors, neither did creating Darkelf as a subrace of Elf
-        var darkelfRacePresentation = Elf.RacePresentation.DeepCopy(); //new RacePresentation();
+        var darkelfRacePresentation = Elf.RacePresentation.DeepCopy();
 
         darkelfRacePresentation.surNameOptions = new List<string>
         {
