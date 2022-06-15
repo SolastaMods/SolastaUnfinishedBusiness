@@ -65,6 +65,10 @@ internal static class LevelDownContext
 
         UnlearnSpells(hero, indexLevel);
 
+        var raceTag = $"02Race{indexLevel+1}";
+
+        hero.ActiveFeatures.Remove(raceTag);
+
         if (subclassTag != classTag)
         {
             RemoveFeaturesByTag(hero, characterClassDefinition, subclassTag);
