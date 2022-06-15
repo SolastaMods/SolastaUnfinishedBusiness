@@ -137,7 +137,7 @@ ModUi/&Patches	<color=#FFFF00>Tappe:</color>
 ModUi/&PrimedItems	Oggetti innescati
 ModUi/&Progression	<color=#FFFF00>Progressione:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Il cantrip leggero a lancio rapido utilizza prima gli oggetti indossati dalla testa o dal busto
-ModUi/&Races	<color=#FFFF00>Razze</color>
+ModUi/&Races	<color=#FFFF00>Razze e Sottorazze</color>
 ModUi/&RacesClassesSubclasses	Razze, classi e sottoclassi
 ModUi/&RecipeCost	<color=#FFFFFF>Costo della ricetta</color>
 ModUi/&RecipesInDm	Ricette in DM

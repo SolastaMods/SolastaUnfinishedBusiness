@@ -137,7 +137,7 @@ ModUi/&Patches	<color=yellow>Écussons :</color>
 ModUi/&PrimedItems	Articles apprêtés
 ModUi/&Progression	<color=yellow>Progression :</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Le cantrip léger à lancer rapide utilise d'abord les objets portés sur la tête ou le torse
-ModUi/&Races	<color=yellow>Courses</color>
+ModUi/&Races	<color=yellow>Courses et Sous-courses</color>
 ModUi/&RacesClassesSubclasses	Races, classes et sous-classes
 ModUi/&RecipeCost	<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm	Recettes en DM

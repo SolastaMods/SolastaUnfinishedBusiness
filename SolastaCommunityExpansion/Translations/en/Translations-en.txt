@@ -2101,3 +2101,8 @@ UI/&CustomFeatureSelectionTooltipTypePower	Power
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
 UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
+Feature/&ClassWitchMaledictionReplaceTitle	Replace Malediction
+Feature/&ClassWitchMaledictionReplaceDescription	Select Malediction to replace.
+ActionAffinity/&DHFeeblemindSpellTitle	Feeblemind
+Reaction/&SpendPowerBundleTitle	Spend Power
+Reaction/&SpendPowerBundleDescription	Spend Power.

@@ -137,7 +137,7 @@ ModUi/&Patches	<color=yellow>Patches:</color>
 ModUi/&PrimedItems	Primed Items
 ModUi/&Progression	<color=yellow>Progression:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick cast light cantrip uses head or torso worn items first
-ModUi/&Races	<color=yellow>Races</color>
+ModUi/&Races	<color=yellow>Races & Subraces</color>
 ModUi/&RacesClassesSubclasses	Races, Classes & Subclasses
 ModUi/&RecipeCost	<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm	Recipes in DM

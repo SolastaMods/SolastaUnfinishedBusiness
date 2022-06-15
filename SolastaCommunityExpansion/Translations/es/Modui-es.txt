@@ -137,7 +137,7 @@ ModUi/&Patches	<color=#FFFF00>Parches:</color>
 ModUi/&PrimedItems	Objetos preparados
 ModUi/&Progression	<color=#FFFF00>Progresión:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	El cantrip de luz de lanzamiento rápido utiliza primero los objetos que se llevan en la cabeza o en el torso
-ModUi/&Races	<color=#FFFF00>Razas</color>
+ModUi/&Races	<color=#FFFF00>Razas y Subrazas</color>
 ModUi/&RacesClassesSubclasses	Razas, clases y subclases
 ModUi/&RecipeCost	<color=#FFFFFF>Coste de la receta</color>
 ModUi/&RecipesInDm	Recetas en DM
