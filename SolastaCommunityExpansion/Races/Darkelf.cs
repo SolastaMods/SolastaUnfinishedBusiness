@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -153,7 +154,7 @@ internal static class DarkelfRaceBuilder
             .AddToDB();
 
         darkelf.subRaces.Clear();
-
+        Elf.SubRaces.Add(darkelf);
 
         return darkelf;
     }

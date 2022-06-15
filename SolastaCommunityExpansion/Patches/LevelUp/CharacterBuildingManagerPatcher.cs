@@ -4,6 +4,7 @@ using System.Linq;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -694,5 +695,122 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             .Sum(x => x.BonusCantrips.Count);
 
         heroBuildingData.TempAcquiredCantripsNumber += bonusPools + bonusCantrips;
+    }
+}
+
+// fix a TA bug that not consider subclass morphotype preferences
+[HarmonyPatch(typeof(CharacterBuildingManager), "AssignDefaultMorphotypes")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal class CharacterBuildingManager_AssignDefaultMorphotypes
+{
+    internal static bool Prefix(
+        CharacterBuildingManager __instance,
+        CharacterHeroBuildingData heroBuildingData,
+        bool randomizeMorphotypes)
+    {
+        var elementCategoryList = new List<MorphotypeElementDefinition.ElementCategory>();
+        var raceDefinition = heroBuildingData.HeroCharacter.RaceDefinition;
+        var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
+        CharacterSubclassDefinition subClass = null;
+
+        __instance.GetLastAssignedClassAndLevel(heroBuildingData.HeroCharacter, out var lastClassDefinition,
+            out var level);
+
+        if (lastClassDefinition != null)
+        {
+            heroBuildingData.HeroCharacter.ClassesAndSubclasses.TryGetValue(lastClassDefinition, out subClass);
+        }
+
+        heroBuildingData.HeroCharacter.MorphotypeElements.Clear();
+
+        elementCategoryList.Add(MorphotypeElementDefinition.ElementCategory.Skin);
+        elementCategoryList.Add(MorphotypeElementDefinition.ElementCategory.FaceShape);
+        elementCategoryList.Add(MorphotypeElementDefinition.ElementCategory.HairShape);
+        elementCategoryList.Add(MorphotypeElementDefinition.ElementCategory.HairColor);
+        elementCategoryList.Add(MorphotypeElementDefinition.ElementCategory.Eye);
+        elementCategoryList.Add(MorphotypeElementDefinition.ElementCategory.EyeColor);
+
+        var origin = raceDefinition.Name == "Human" ? "Origin_AF" : "Origin_NonHuman";
+        var stringList1 = __instance.BuildMorphotypeOptionsList(MorphotypeElementDefinition.ElementCategory.Origin,
+            heroBuildingData.HeroCharacter.Sex, raceDefinition, subRaceDefinition, string.Empty, subClass, true);
+
+        if (stringList1.Count > 0)
+        {
+            var index = randomizeMorphotypes ? Random.Range(0, stringList1.Count) : 0;
+            origin = stringList1[index];
+        }
+
+        heroBuildingData.HeroCharacter.MorphotypeElements.AddOrReplace(
+            MorphotypeElementDefinition.ElementCategory.Origin, origin);
+
+        foreach (var elementCategory in elementCategoryList)
+        {
+            var stringList2 = __instance.BuildMorphotypeOptionsList(elementCategory, heroBuildingData.HeroCharacter.Sex,
+                raceDefinition, subRaceDefinition, origin, subClass, true);
+
+            int index;
+
+            if (randomizeMorphotypes)
+            {
+                switch (elementCategory)
+                {
+                    case MorphotypeElementDefinition.ElementCategory.Skin:
+                        var minValue = subRaceDefinition != null
+                            ? subRaceDefinition.RacePresentation.PreferedSkinColors.minValue
+                            : raceDefinition.RacePresentation.PreferedSkinColors.minValue;
+                        var maxValue = subRaceDefinition != null
+                            ? subRaceDefinition.RacePresentation.PreferedSkinColors.maxValue
+                            : raceDefinition.RacePresentation.PreferedSkinColors.maxValue;
+
+                        index = Random.Range(
+                            Mathf.Min(minValue, stringList2.Count),
+                            Mathf.Min(maxValue, stringList2.Count));
+                        break;
+                    case MorphotypeElementDefinition.ElementCategory.HairColor:
+                        var minValue1 = subRaceDefinition != null
+                            ? subRaceDefinition.RacePresentation.PreferedSkinColors.minValue
+                            : raceDefinition.RacePresentation.PreferedSkinColors.minValue;
+                        var maxValue1 = subRaceDefinition != null
+                            ? subRaceDefinition.RacePresentation.PreferedSkinColors.maxValue
+                            : raceDefinition.RacePresentation.PreferedSkinColors.maxValue;
+
+                        index = Random.Range(
+                            Mathf.Min(minValue1, stringList2.Count),
+                            Mathf.Min(maxValue1, stringList2.Count));
+                        break;
+                    default:
+                        index = Random.Range(0, stringList2.Count);
+                        break;
+                }
+            }
+            else
+            {
+                index = 0;
+            }
+
+            heroBuildingData.HeroCharacter.MorphotypeElements.AddOrReplace(elementCategory, stringList2[index]);
+        }
+
+        if (heroBuildingData.HeroCharacter.Sex == RuleDefinitions.CreatureSex.Male)
+        {
+            var elementCategory = MorphotypeElementDefinition.ElementCategory.BeardShape;
+            var stringList3 = __instance.BuildMorphotypeOptionsList(elementCategory, heroBuildingData.HeroCharacter.Sex,
+                raceDefinition, subRaceDefinition, origin, subClass, true);
+
+            if (stringList3.Count > 0)
+            {
+                var index = randomizeMorphotypes ? Random.Range(0, stringList3.Count) : 0;
+                heroBuildingData.HeroCharacter.MorphotypeElements.AddOrReplace(elementCategory, stringList3[index]);
+            }
+        }
+
+        heroBuildingData.HeroCharacter.MorphotypeElementAdditionalValues.Clear();
+
+        foreach (var commonCategory in MorphotypeElementDefinition.CommonCategories)
+        {
+            heroBuildingData.HeroCharacter.MorphotypeElementAdditionalValues.Add(commonCategory, 0.0f);
+        }
+
+        return false;
     }
 }
