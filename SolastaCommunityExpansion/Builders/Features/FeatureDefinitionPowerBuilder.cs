@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -43,6 +44,10 @@ public abstract class
             // The game throws an exception if there is no effect description.
             Definition.effectDescription = new EffectDescription();
         }
+        else
+        {
+            Definition.effectDescription = Definition.effectDescription.DeepCopy();
+        }
     }
 
     public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,
@@ -60,7 +65,7 @@ public abstract class
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
         Definition.abilityScore = abilityScore;
-        Definition.effectDescription = effectDescription;
+        Definition.effectDescription = effectDescription.DeepCopy();
 
         return This();
     }
@@ -95,7 +100,7 @@ public abstract class
 
     public TBuilder SetEffectDescription(EffectDescription effect)
     {
-        Definition.effectDescription = effect;
+        Definition.effectDescription = effect.DeepCopy();
         return This();
     }
 
