@@ -68,21 +68,8 @@ internal static class Main
             Menu = new MenuManager();
             Menu.Enable(modEntry, assembly);
 
-            if (Settings.SelectedOverwriteLanguageCode != "off")
-            {
-                Translations.LoadTranslations("Game");
-            }
-
-            // Users still have SolastaMulticlass.dll
-            var multiclassFilename = Path.Combine(MOD_FOLDER, "SolastaMulticlass.dll");
-
-            if (File.Exists(multiclassFilename))
-            {
-                File.Delete(multiclassFilename);
-            }
-
             // side cars allow us to load any other DLL outside CE
-            LoadSidecars(assembly.GetName().Name);
+            //LoadSidecars(assembly.GetName().Name);
         }
         catch (Exception ex)
         {
@@ -101,6 +88,7 @@ internal static class Main
         }
     }
 
+#if false
     internal static void LoadSidecars(string currentAssemblyName)
     {
         foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
@@ -118,4 +106,5 @@ internal static class Main
             harmony.PatchAll(sidecarAssembly);
         }
     }
+#endif
 }
