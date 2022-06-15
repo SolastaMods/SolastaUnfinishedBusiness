@@ -378,21 +378,21 @@ Equipment/&Enchanted_Warhammer_Power_Description	This enchanted weapon was forge
 Equipment/&Enchanted_Warhammer_Power_Title	Warhammer of Power
 Equipment/&Enchanted_Warhammer_Punisher_Description	This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 Equipment/&Enchanted_Warhammer_Punisher_Title	Punisher Warhammer
-Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Grants protection to Acid for 1 hour.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Gain resistance to acid damage for 1 hour.
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Brew of Acid Protection
-Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Grants protection to Lightning for 1 hour.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Gain resistance to lightning damage for 1 hour.
 Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brew of Lightning Protection
-Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Grants protection to Necrotic for 1 hour.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Gain resistance to necrotic damage for 1 hour.
 Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Brew of Necrotic Protection
-Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Grants protection to Poison for 1 hour.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Gain resistance to poison damage for 1 hour.
 Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Brew of Poison Protection
-Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Grants protection to Radiant for 1 hour.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Gain resistance to radiant damage for 1 hour.
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Brew of Radiant Protection
 Equipment/&HerbalBrewHealingTitle	Brew of Quickening
 Equipment/&HerbalBrewToxifyingTitle	Brew of Toxifying
-Equipment/&ImprovedLightningSpearDescription	Can now create advantage for allies and disadvantage for enemies with a single attack.
+Equipment/&ImprovedLightningSpearDescription	Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.\nCan create advantage for allies and disadvantage for enemies with a single attack.
 Equipment/&ImprovedLightningSpearTitle	Improved Lightning Spear
-Equipment/&ImprovedThunderPunchDescription	Can now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage.
+Equipment/&ImprovedThunderPunchDescription	Deals 1d8 thunder damage on hit and imposes disadvantage on attack rolls against allies.\nPull enemies up to 30 feet with a bonus action, then deal 1d8 thunder damage.
 Equipment/&ImprovedThunderPunchTitle	Improved Thunder Punch
 Equipment/&LightningSpearDescription	Deal 1d6 lightning damage with an additional 1d6 lightning damage once per turn.
 Equipment/&LightningSpearTitle	Lightning Spear
@@ -400,7 +400,7 @@ Equipment/&LivewoodClubDescription	This club is composed of living wood complete
 Equipment/&LivewoodClubTitle	Livewood Club
 Equipment/&LivewoodStaffDescription	This staff is composed of living wood complete with sprouting leaves and perhaps seasonal blooms. It can be used as a focus for Druidic spell casting.
 Equipment/&LivewoodStaffTitle	Livewood Staff
-Equipment/&ThunderPunchDescription	1d8 thunder damage and imposes disadvantage on attack rolls against allies.
+Equipment/&ThunderPunchDescription	Deals 1d8 thunder damage on hit and imposes disadvantage on attack rolls against allies.
 Equipment/&ThunderPunchTitle	Thunder Punch
 Equipment/&WandIdentifyDescription	Casts the spell Identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Wand of Identify
