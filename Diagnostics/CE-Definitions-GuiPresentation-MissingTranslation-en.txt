@@ -1,5 +1,7 @@
 AbilityCheckAffinityDarkelfLightSensitivity	Title='Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle'.
 AbilityCheckAffinityDarkelfLightSensitivity	Description='Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription'.
+ClassWitchMaledictionReplace	Title='Feature/&ClassWitchMaledictionReplaceTitle'.
+ClassWitchMaledictionReplace	Description='Feature/&ClassWitchMaledictionReplaceDescription'.
 ConditionDarkelfLightSensitive	Title='Condition/&ConditionDarkelfLightSensitiveTitle'.
 ConditionDarkelfLightSensitive	Description='Condition/&ConditionDarkelfLightSensitiveDescription'.
 CraftingManualRecipeEnchantCEHalberd+1	Description='Item/&CraftingManualRecipeEnchantCEHalberd+1Description'.

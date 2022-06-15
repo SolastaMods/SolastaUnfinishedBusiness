@@ -190,6 +190,8 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvanta
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remove humanoid filter on Hideous Laughter <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Only apply Entangle's effect at casting time (i.e. no recurring effect) <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
 ModUi/&Campaigns	<color=yellow>Campaigns:</color>
 Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
@@ -230,11 +232,12 @@ Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistances as other ghosts.
 Condition/&HalfLifeConditionTitle	Half Life
-Condition/&RuinedDescription	This creature's defense is reduced.
+Condition/&RuinedDescription	-3 AC penalty, up to a maximum of -10 AC.
 Condition/&RuinedTitle	Ruined
-Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage per round. Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SentinelStopMovementConditionDescription	Unable to move. Speed set to 0.
+Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage every turn. Ends if the caster takes 15 damage or more in a single attack.
 Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
-Condition/&SwallowingToadConditionDescription	Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowingToadConditionDescription	Ends if 15 damage or more is taken in a single attack.
 Condition/&SwallowingToadConditionTitle	Swallowing Toad
 Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility.
@@ -251,15 +254,15 @@ Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1
 Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style.
 Feat/&FightingStyleGeneralFeatitle	Fighting Style
 Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3d8 damage on a failed save.
-Feat/&ForceArtillery_2Description	3d8 Force damage and push target 5ft.
+Feat/&ForceArtillery_2Description	3d8 force damage and push target 5 ft.
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
 Feat/&ForceStrikePowerTitle	Force Sling (Artificial Servant)
 Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Constructs. The constructs can be of the same or different modes.
 Feat/&IncreaseConstructSelectingTitle	Reinforcements
-Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons.
+Feat/&ModeSwitchingPoolDescription	You can switch between modes once per short rest by creating and using temporary weapons.
 Feat/&ModeSwitchingPoolTitle	Armor Mode
-Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
+Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day without any armor restrictions.\nYou can attack recklessly, gaining advantage on your melee attacks while giving advantage to your attackers until the start of your next turn.
 Feat/&RecklessFuryFeatTitle	Reckless Fury
 Feat/&TinkererConstructFamilyDescription	Created by Tinkerer.
 Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
