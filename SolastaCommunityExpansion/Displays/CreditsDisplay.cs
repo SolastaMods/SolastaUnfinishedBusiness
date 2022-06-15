@@ -180,7 +180,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(kvp.Key.orange(), UI.Width(120));
+                UI.Label(kvp.Key.orange(), UI.Width(150));
                 UI.Label(kvp.Value, UI.Width(600));
             }
         }
