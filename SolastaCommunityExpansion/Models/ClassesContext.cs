@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaCommunityExpansion.Classes.Magus;
 using SolastaCommunityExpansion.Classes.Monk;
 using SolastaCommunityExpansion.Classes.Tinkerer;
 using SolastaCommunityExpansion.Classes.Warlock;
 using SolastaCommunityExpansion.Classes.Witch;
 
+//using SolastaCommunityExpansion.Classes.Magus;
 //using SolastaCommunityExpansion.Classes.Warden;
 
 namespace SolastaCommunityExpansion.Models;
@@ -14,7 +14,7 @@ internal static class ClassesContext
 {
     internal static HashSet<CharacterClassDefinition> Classes { get; private set; } = new();
 
-    internal static void SortClassesFeatures()
+    private static void SortClassesFeatures()
     {
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
 
