@@ -61,7 +61,7 @@ internal static class FlexibleRacesContext
             "DarkelfRace",
             new List<string>
             {
-                "AttributeModifierElfAbilityScoreIncrease", "AttributeModifierDarkelfCharismaAbilityScoreIncrease"
+                "AttributeModifierDarkelfCharismaAbilityScoreIncrease"
             }
         },
         {
