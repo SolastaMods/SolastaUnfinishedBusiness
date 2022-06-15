@@ -17,3 +17,7 @@ Race/&DarkelfSurName2Title	DhalNeridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
+Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
+CCondition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.

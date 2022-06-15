@@ -1310,6 +1310,7 @@ Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden la
 Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
 Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Verzaubere Hellseher
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Handwickel +1 verzaubern.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Handwickel +1 verzaubern
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Handwickel +2 verzaubern.
@@ -1322,6 +1323,22 @@ Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
 Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
 Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
 Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Hellebarde +1 verzaubern
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Hellebarde +2 verzaubern
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Verzaubere Blitzhellebarde
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Verzaubert Handarmbrust +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Verzaubert Handarmbrust +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Verzaubert saure Handarmbrust
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Verzaubert langen Streitkolben +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Verzaubert langen Streitkolben +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Verzaubert Donnernden langen Streitkolben
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Hecht +1 verzaubern
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Hecht +2 verzaubern
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Verzaubere Hellseher
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Prime Hellebarde
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Erstklassige Armbrust
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Erstklassiger langer Streitkolben
+Item/&CraftingManualRecipePrimingCEPikeDescription	Erster Hecht
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwickel +1

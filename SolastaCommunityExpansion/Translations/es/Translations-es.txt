@@ -1298,6 +1298,22 @@ Item/&CEPikePrimedTitle	Piquete de Primado
 Item/&CEPikePsychicTitle	Piqueta Psíquica
 Item/&CEPikePsychicUnidentifiedTitle	Lucio Magnífico
 Item/&CEPikeTitle	Pike
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Alabarda encantada +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Alabarda encantada +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Encantar alabarda de relámpago 
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Encantar ballesta de mano +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Encantar ballesta de mano +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Encantar Ballesta de mano ácida
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Encantar Maza larga +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Encantar Maza larga +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Encantar Maza larga atronadora
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Encantar Pica +1
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Encantar pica +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Encantar Piqueta Psíquica
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Alabarda de primera
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Ballesta de mano de primera calidad
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Maza larga de primera
+Item/&CraftingManualRecipePrimingCEPikeDescription	Pica de primera
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Alabarda encantada +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Alabarda encantada +2
 Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Encantar alabarda de relámpago 
@@ -1310,6 +1326,7 @@ Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Encantar Maza larga atro
 Item/&CraftingManualRecipeEnchantCEPike+1Title	Encantar Pica +1
 Item/&CraftingManualRecipeEnchantCEPike+2Title	Encantar pica +2
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Encantar Piqueta Psíquica
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Encantar Piqueta Psíquica
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Encantar Cintas de mano +1
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Encantar envoltorios de mano +2.

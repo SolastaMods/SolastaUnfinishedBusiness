@@ -1310,7 +1310,19 @@ Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
 Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
 Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
 Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Enchant Halberd +1.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Enchant Halberd +2.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Enchant Lightning Halberd.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Enchant Hand Crossbow +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Enchant Hand Crossbow +2.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Enchant Acidic Hand Crossbow.
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Enchant Long Mace +1.
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Enchant Long Mace +2.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Enchant Thundering Long Mace.
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Enchant Pike +1.
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Enchant Pike +2.
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Enchant Psychic Pike.
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchant Handwraps +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchant Handwraps +2.
@@ -1323,6 +1335,10 @@ Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Halberd
 Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
 Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
 Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Prime Halberd.
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Prime Hand Crossbow.
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Prime Long Mace.
+Item/&CraftingManualRecipePrimingCEPikeDescription	Prime Pike.
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwraps +1

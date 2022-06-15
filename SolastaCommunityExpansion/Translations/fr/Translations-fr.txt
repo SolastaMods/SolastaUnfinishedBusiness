@@ -1309,7 +1309,23 @@ Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchantement longue masse +2
 Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchantement de longue masse fulminante
 Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchantement de brochet +1
 Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchantement de brochet +2
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Première hallebarde
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Arbalète de premier ordre
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Première longue masse
+Item/&CraftingManualRecipePrimingCEPikeTitle	Premier brochet
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchantement hallebarde +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchantement hallebarde +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchantement de hallebarde de foudre
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchantement d'arbalète de poing +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchantement d'arbalète de poing +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchantement d'arbalète à main acide
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchantement longue masse +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchantement longue masse +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchantement de longue masse fulminante
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchantement de brochet +1
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchantement de brochet +2
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchantement de pique psychique
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Enchantement de pique psychique
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchantement de bandages +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchantement de bandages +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Enchantement de bandages +2.
