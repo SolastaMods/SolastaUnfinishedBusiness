@@ -139,7 +139,7 @@ ModUi/&Patches	<color=yellow>补丁：</color>
 ModUi/&PrimedItems	制备好的物品
 ModUi/&Progression	<color=yellow>进展：</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	快速施放光亮术戏法时优先使用头部或躯干上佩戴的物品
-ModUi/&Races	<color=yellow>种族</color>
+ModUi/&Races	<color=yellow>种族&亚种</color>
 ModUi/&RacesClassesSubclasses	种族，职业与子职
 ModUi/&RecipeCost	<color=white>配方消耗</color>
 ModUi/&RecipesInDm	配方加入地城制作
@@ -147,9 +147,9 @@ ModUi/&RelicForgeries	遗物赝品
 ModUi/&RemoveAttunementRequirements	移除同调的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveBugVisualModels	将虫类模型以类似模型替代<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remove humanoid filter on <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	移除<color=orange>塔莎狂笑术</color>的类人生物的要求 <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveIdentifcationRequirements	移除检定的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&RemoveRecurringEffectOnEntangle	Only apply Entangle's effect at casting time <i><color=yellow>[i.e. no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	仅在施法时应用<color=orange>纠缠术</color>法术效果 <i><color=yellow>[不会反复生效]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RestockAntiquarians	古文物研究者补货<i><color=yellow>[哈尔曼·夏日]</color></i>
 ModUi/&RestockArcaneum	奥术协会补货<i><color=yellow>[赫德伦·确法]</color></i>
 ModUi/&RestockCircleOfDanantar	丹南塔尔之环补货<i><color=yellow>[乔瑞尔·狐眼]</color></i>
@@ -186,7 +186,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	解锁所有标记和纹身的发
 ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
 ModUi/&UsableDevice	<color=yellow>可用装置</color>
-ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square), <color=orange>Spike Growth</color> (round)
+ModUi/&UseHeightOneCylinderEffect	施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon	<color=yellow>武器</color>
