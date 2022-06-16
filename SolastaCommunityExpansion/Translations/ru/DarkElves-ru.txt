@@ -1,4 +1,8 @@
-﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Харизма +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Харизма +1.
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Увеличение показателя способности
 Feature/&DarkelfMagicDescription	Вы знаете заклинание Танцующие огни.
 Feature/&DarkelfMagicTitle	Магия темных эльфов

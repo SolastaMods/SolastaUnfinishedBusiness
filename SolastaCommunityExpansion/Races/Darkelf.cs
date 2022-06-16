@@ -107,15 +107,75 @@ internal static class DarkelfRaceBuilder
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin2", "d26c8ce0-884f-4abd-90fd-dc961802c48d")
+            .Create(FaceAndSkin_01, "DarkelfSkin1", "d26c8ce0-884f-4abd-90fd-dc961802c48a")
             .SetMainColor(BodyDecorationColor_Default_00.MainColor)
             .SetSortOrder(48)
             .AddToDB();
 
         _ = MorphotypeElementDefinitionBuilder
+            .Create(FaceAndSkin_01, "DarkelfSkin2", "d26c8ce0-884f-4abd-90fd-dc961802c48b")
+            .SetMainColor(HairColorBlack.MainColor)
+            .SetSortOrder(49)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(FaceAndSkin_01, "DarkelfSkin3", "d26c8ce0-884f-4abd-90fd-dc961802c48c")
+            .SetMainColor(HairColor_43.MainColor)
+            .SetSortOrder(50)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(FaceAndSkin_01, "DarkelfSkin4", "d26c8ce0-884f-4abd-90fd-dc961802c48d")
+            .SetMainColor(BodyDecorationColor_Default_00.SecondColor)
+            .SetSortOrder(51)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(FaceAndSkin_01, "DarkelfSkin5", "d26c8ce0-884f-4abd-90fd-dc961802c48e")
+            .SetMainColor(HairColorBlack.SecondColor)
+            .SetSortOrder(52)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(FaceAndSkin_01, "DarkelfSkin6", "d26c8ce0-884f-4abd-90fd-dc961802c48f")
+            .SetMainColor(HairColor_43.SecondColor)
+            .SetSortOrder(53)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
             .Create(HairColorSilver, "DarkelfHair1", "7dd1a932-69d3-4d51-b9c6-eccaaed90007")
             .SetMainColor(FaceAndSkin_Neutral.MainColor)
-            .SetSortOrder(1)
+            .SetSortOrder(48)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(HairColorSilver, "DarkelfHair2", "7dd1a932-69d3-4d51-b9c6-eccaaed90008")
+            .SetMainColor(FaceAndSkin_Neutral.SecondColor)
+            .SetSortOrder(49)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(HairColorSilver, "DarkelfHair3", "7dd1a932-69d3-4d51-b9c6-eccaaed90009")
+            .SetMainColor(HairColorBlue.MainColor)
+            .SetSortOrder(50)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(HairColorSilver, "DarkelfHair4", "7dd1a932-69d3-4d51-b9c6-eccaaed90010")
+            .SetMainColor(HairColorBlue.SecondColor)
+            .SetSortOrder(51)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(HairColorSilver, "DarkelfHair5", "7dd1a932-69d3-4d51-b9c6-eccaaed90011")
+            .SetMainColor(HairColorSilver.MainColor)
+            .SetSortOrder(52)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(HairColorSilver, "DarkelfHair6", "7dd1a932-69d3-4d51-b9c6-eccaaed90012")
+            .SetMainColor(HairColorSilver.SecondColor)
+            .SetSortOrder(53)
             .AddToDB();
 
         var darkelfRacePresentation = Elf.RacePresentation.DeepCopy();
@@ -131,36 +191,27 @@ internal static class DarkelfRaceBuilder
 
         darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
-        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 48);
-        darkelfRacePresentation.preferedHairColors = new RangedInt(0, 2);
+        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
+        darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
 
         var darkelf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionAttributeModifiers.AttributeModifierElfAbilityScoreIncrease,
-                FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry,
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseDarkvision,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                FeatureDefinitionProficiencys.ProficiencyElfKeenSenses,
-                FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
-                FeatureDefinitionProficiencys.ProficiencyElfStaticLanguages,
+                FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
                 darkelfAbilityScoreModifierCharisma,
-                darkelfDarkMagic,
                 darkelfWeaponTraining,
+                darkelfDarkMagic,
                 darkelfLightAffinity)
             .AddFeaturesAtLevel(3, darkelfFaerieFirePower)
             .AddFeaturesAtLevel(5, darkelfDarknessPower)
             .AddToDB();
 
         darkelf.subRaces.Clear();
-        darkelf.inventoryDefinition = InventoryDefinitions.HumanoidInventory;
-        darkelf.personalityFlagOccurences = Elf.PersonalityFlagOccurences;
-        darkelf.languageAutolearnPreference = Elf.LanguageAutolearnPreference;
-        darkelf.audioRaceRTPCValue = Elf.AudioRaceRTPCValue;
+        Elf.SubRaces.Add(darkelf);
 
         return darkelf;
     }

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Models;
+using TA;
 using static FeatureDefinitionCastSpell;
 
 namespace SolastaCommunityExpansion.Patches.LevelUp;
@@ -694,5 +696,59 @@ internal static class CharacterBuildingManager_ApplyFeatureCastSpell
             .Sum(x => x.BonusCantrips.Count);
 
         heroBuildingData.TempAcquiredCantripsNumber += bonusPools + bonusCantrips;
+    }
+}
+
+// fix a TA issue that not consider subclass morphotype preferences
+[HarmonyPatch(typeof(CharacterBuildingManager), "AssignDefaultMorphotypes")]
+[SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+internal class CharacterBuildingManager_AssignDefaultMorphotypes
+{
+    public static RangedInt PreferedSkinColors(RacePresentation racePresentation,
+        CharacterHeroBuildingData heroBuildingData)
+    {
+        var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
+
+        return subRaceDefinition != null
+            ? subRaceDefinition.RacePresentation.PreferedSkinColors
+            : racePresentation.PreferedSkinColors;
+    }
+
+    public static RangedInt PreferedHairColors(RacePresentation racePresentation,
+        CharacterHeroBuildingData heroBuildingData)
+    {
+        var subRaceDefinition = heroBuildingData.HeroCharacter.SubRaceDefinition;
+
+        return subRaceDefinition != null
+            ? subRaceDefinition.RacePresentation.PreferedHairColors
+            : racePresentation.PreferedHairColors;
+    }
+
+    internal static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        var preferedSkinColorsMethod = typeof(RacePresentation).GetMethod("get_PreferedSkinColors");
+        var preferedHairColorsColorsMethod = typeof(RacePresentation).GetMethod("get_PreferedHairColors");
+        var myPreferedSkinColorsMethod =
+            typeof(CharacterBuildingManager_AssignDefaultMorphotypes).GetMethod("PreferedSkinColors");
+        var myPreferedHairColorsColorsMethod =
+            typeof(CharacterBuildingManager_AssignDefaultMorphotypes).GetMethod("PreferedHairColors");
+
+        foreach (var instruction in instructions)
+        {
+            if (instruction.Calls(preferedSkinColorsMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg, 1); // heroBuildingData
+                yield return new CodeInstruction(OpCodes.Call, myPreferedSkinColorsMethod);
+            }
+            else if (instruction.Calls(preferedHairColorsColorsMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Ldarg, 1); // heroBuildingData
+                yield return new CodeInstruction(OpCodes.Call, myPreferedHairColorsColorsMethod);
+            }
+            else
+            {
+                yield return instruction;
+            }
+        }
     }
 }

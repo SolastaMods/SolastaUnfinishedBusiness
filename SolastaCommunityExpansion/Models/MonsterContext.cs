@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using SolastaCommunityExpansion;
-using SolastaCommunityExpansion.Utils;
 using SolastaMonsters.Monsters;
 using TA.AI;
 using UnityEngine.AddressableAssets;
@@ -17,8 +16,6 @@ internal static class MonsterContext
         {
             return;
         }
-
-        Translations.LoadTranslations("Monsters");
 
         //following order of new blueprint creation should be maintained
         NewMonsterAttributes.Create();

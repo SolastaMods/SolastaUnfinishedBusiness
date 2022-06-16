@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaCommunityExpansion.Api;
@@ -1241,18 +1241,71 @@ internal static class Witch
             classBuilder.AddFeaturesAtLevel(2,
                 FeatureDefinitionPowerCackle,
                 FeatureDefinitionFeatureSetWitchFamiliar,
+                WitchMaledictionReplacer,
                 FeatureDefinitionFeatureSetMaledictions);
 
-            classBuilder
-                .AddFeatureAtLevel(4, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(5, FeatureDefinitionFeatureSetMaledictions)
-                .AddFeatureAtLevel(8, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(9, FeatureDefinitionFeatureSetMaledictions)
-                .AddFeatureAtLevel(12, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(13, FeatureDefinitionFeatureSetMaledictions)
-                .AddFeatureAtLevel(16, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
-                .AddFeatureAtLevel(17, FeatureDefinitionFeatureSetMaledictions)
-                .AddFeatureAtLevel(19, FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+            classBuilder.AddFeaturesAtLevel(3,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(4,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+
+            classBuilder.AddFeaturesAtLevel(5,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSetMaledictions);
+
+            classBuilder.AddFeaturesAtLevel(6,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(7,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(8,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+
+            classBuilder.AddFeaturesAtLevel(9,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSetMaledictions);
+
+            classBuilder.AddFeaturesAtLevel(10,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(11,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(12,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+
+            classBuilder.AddFeaturesAtLevel(13,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSetMaledictions);
+
+            classBuilder.AddFeaturesAtLevel(14,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(15,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(16,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+
+            classBuilder.AddFeaturesAtLevel(17,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSetMaledictions);
+
+            classBuilder.AddFeaturesAtLevel(18,
+                WitchMaledictionReplacer);
+
+            classBuilder.AddFeaturesAtLevel(19,
+                WitchMaledictionReplacer,
+                FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
+
+            classBuilder.AddFeaturesAtLevel(20,
+                WitchMaledictionReplacer);
 
             // TODO: Maledictions should now apply a debuff for disadvantage on saving throw like Force Of Law
             //            witch.AddFeatureAtLevel(InsidiousSpell,5);
@@ -1337,4 +1390,17 @@ internal static class Witch
                 effectDefinitionName, 0, sourceAbilityBonus);
         }
     }
+
+    #region WitchMaledictionReplacer
+
+    private static FeatureDefinitionFeatureSetReplaceCustom witchMaledictionReplacer;
+
+    public static FeatureDefinitionFeatureSetReplaceCustom WitchMaledictionReplacer =>
+        witchMaledictionReplacer ??= FeatureDefinitionFeatureSetReplaceCustomBuilder
+            .Create("ClassWitchMaledictionReplace", WITCH_BASE_GUID)
+            .SetGuiPresentation(Category.Feature)
+            .SetReplacedFeatureSet(FeatureDefinitionFeatureSetMaledictions)
+            .AddToDB();
+
+    #endregion
 }

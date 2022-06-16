@@ -1,6 +1,6 @@
 ﻿ModUi/&AddAllToStore	Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration	Adicione a condição <color=orange>Sangramento</color> às condições removidas pela <color=orange>Restauração Maior e Menor</color>
-ModUi/&AddHelpActionToAllRaces	Adicione a ação <color=orange>Ajuda</color> a todas as corridas
+ModUi/&AddHelpActionToAllRaces	Adicione a ação <color=orange>Ajuda</color> a todas as raças
 ModUi/&AddNewWeaponsAndRecipesToShops	Adicione novas armas e receitas às lojas <i><color=yellow>[bandeiras de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0>[ Requer Reiniciar]</color></i></b>
 ModUi/&AddPickpocketableLoot	Adicionar espólios de carteirista <i><color=yellow>[sugerido se o recurso <color=orange>Pocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore	Adicionar à loja
@@ -26,6 +26,7 @@ ModUi/&Bestiary	Bestiário
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Conceder Maldição</color> não requer concentração quando lançado com espaço de feitiço L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	A condição <color=orange>Cego</color> não permite ataque de oportunidade
 ModUi/&Blueprints	Plantas
+ModUi/&Campaigns	<color=yellow>Campanhas:</color>
 ModUi/&CampaignsAndLocations	<color=yellow>Campanhas e locais:</color>
 ModUi/&Character	Personagem
 ModUi/&CharactersPool	Pool de personagens
@@ -133,18 +134,22 @@ ModUi/&OverrideMinMaxLevel	Substitua os níveis mínimo e máximo necessários a
 ModUi/&OverridePartySize	<color=white>Substituir o tamanho do grupo em aventuras personalizadas</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Substituir <color=orange>Ladino</color> Vigarista <color=orange>Manipulação Aprimorada</color> DC de Feitiços</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Substituir <color=orange>Assistente</color> Manipulador Mestre <color=orange>Manipulação Arcana</color> DC de Feitiços</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Substituir o idioma do jogo:</color>
 ModUi/&Patches	<color=yellow>Remendos:</color>
 ModUi/&PrimedItems	Itens preparados
 ModUi/&Progression	<color=yellow>Progressão:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	O truque de luz de lançamento rápido usa itens usados ​​​​na cabeça ou no torso primeiro
-ModUi/&Races	<color=yellow>Corridas</color>
+ModUi/&Races	<color=yellow>Raças e Subraças</color>
 ModUi/&RacesClassesSubclasses	Raças, Classes e Subclasses
 ModUi/&RecipeCost	<color=white>Custo da Receita</color>
 ModUi/&RecipesInDm	Receitas no DM
 ModUi/&RelicForgeries	Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements	Remova os requisitos de sintonização <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
 ModUi/&RemoveBugVisualModels	Substitua modelos semelhantes a bugs por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remova o requisito de concentração de qualquer feitiço <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remova o filtro humanóide em <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Remova os requisitos de identificação <b><i><color=#C04040E0>[Requer Reiniciar]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Aplique o efeito <color=orange>Entangle</color> apenas no momento da conjuração <i><color=yellow>[i.e.: sem efeito recorrente]</color></i> <b><i><color=#C04040E0 >[Requer reinicialização]</color></i></b>
 ModUi/&RestockAntiquarians	Reabastecer Antiquários <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum	Reabastecer Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Reabastecer Círculo de Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -181,9 +186,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Desbloqueie cores brilhantes para
 ModUi/&UnlockGlowingEyeColors	Desbloqueie cores de olhos brilhantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Desbloqueie marcações e tatuagens para todos os personagens
 ModUi/&UsableDevice	<color=yellow>Dispositivos</color>
+ModUi/&UseHeightOneCylinderEffect	Exibe um efeito de cilindro de altura 1 ao lançar <color=orange>Black Tentacles, Entangle, Grease</color> (quadrado) e <color=orange>Spike Growth</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals	<color=yellow>Visual:</color>
 ModUi/&Weapon	<color=yellow>Armas</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remova o requisito de concentração de qualquer feitiço <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Substituir o idioma do jogo:</color>
-ModUi/&Campaigns	<color=yellow>Campanhas:</color>

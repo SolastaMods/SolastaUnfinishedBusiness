@@ -15,47 +15,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierElfAbilityScoreIncrease:122e862ec1d88c649b2d784db05233cd",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierElfHighAbilityScoreIncrease:73c548582398b1f4cba312925b63348b",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DarkelfMagic:0271c652-b4aa-4346-806d-9711e634271b",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DarkelfWeaponTraining:ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyElfWeaponTraining:d834d84ae89d67846af1a9262e0f62ff",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetElfFeyAncestry:c123d2bc2667e7641a5b5bc9fdd94512",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellElfHigh:af29de11ba0046743bc46559b557e32a",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyElfKeenSenses:531f0b2fe59517a45a4c0cd65cd7acda",
       "level": 1
     },
     {
@@ -70,32 +35,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyElfStaticLanguages:29e56f27ba2f91848b052476f1b12901",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:707231ea-e34d-4e26-9af8-4e52c0cb85c3",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CampAffinityElfTrance:02e0f7bc4afeb2b43ab60ec0a048f5ae",
       "level": 1
     },
     {
@@ -110,21 +55,15 @@
     }
   ],
   "subRaces": [],
-  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "inventoryDefinition": null,
   "personalityFlagOccurences": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
-      "weight": 30,
-      "personalityFlag": "ElfFlag"
+      "weight": 2,
+      "personalityFlag": "GpSpellcaster"
     }
   ],
-  "languageAutolearnPreference": [
-    "Language_Dwarvish",
-    "Language_Halfling",
-    "Language_Orc",
-    "Language_Goblin",
-    "Language_Goblin"
-  ],
+  "languageAutolearnPreference": [],
   "audioSwitches": [],
   "audioRaceRTPCValue": 3.0,
   "racePresentation": {
@@ -284,17 +223,17 @@
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
       "minValue": 48,
-      "maxValue": 48
+      "maxValue": 53
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 0,
-      "maxValue": 2
+      "minValue": 48,
+      "maxValue": 53
     }
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Race/&DarkelfRaceTitle",
     "description": "Race/&DarkelfRaceDescription",
     "spriteReference": {

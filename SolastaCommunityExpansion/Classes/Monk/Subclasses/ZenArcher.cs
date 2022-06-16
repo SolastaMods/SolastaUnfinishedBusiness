@@ -102,7 +102,7 @@ public static class ZenArcher
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCostPerUse(1)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _, _) => mode.AttackTags.Contains(ZenArrowTag)
+                (mode, _, _, _) => mode != null && mode.AttackTags.Contains(ZenArrowTag)
             ))
             .AddToDB();
 
@@ -291,7 +291,7 @@ public static class ZenArcher
             .SetCostPerUse(1)
             .SetOverriddenPower(DistantHandTechnique)
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _, _) => mode.AttackTags.Contains(ZenArrowTag)
+                (mode, _, _, _) => mode != null && mode.AttackTags.Contains(ZenArrowTag)
             ))
             .AddToDB();
 

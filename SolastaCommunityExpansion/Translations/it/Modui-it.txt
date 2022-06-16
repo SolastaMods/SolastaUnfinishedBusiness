@@ -26,6 +26,7 @@ ModUi/&Bestiary	Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=#FFA500>La maledizione di Bestow</color> non richiede concentrazione quando viene lanciata con uno slot incantesimi L5+.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	La condizione <color=#FFA500>Accecato</color> non consente l'attacco di opportunità.
 ModUi/&Blueprints	Impronte blu
+ModUi/&Campaigns	<color=yellow>Campagne:</color>
 ModUi/&CampaignsAndLocations	<color=#FFFF00>Campagne e luoghi:</color>
 ModUi/&Character	Personaggi
 ModUi/&CharactersPool	Pool di personaggi
@@ -133,18 +134,22 @@ ModUi/&OverrideMinMaxLevel	Sovrascrivere i livelli minimi e massimi richiesti qu
 ModUi/&OverridePartySize	<color=#FFFF>Sovrascrivere le dimensioni del gruppo nelle avventure personalizzate</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=#FFFFFF>Sovrascrivere <color=#FFA500>Rogue</color> Artista dei Con <color=#FFA500>Manipolazione migliorata</color> DC incantesimi</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=#FFFF>Override <color=#FFA500>Maestro Manipolatore</color> <color=#FFA500>Manipolazione Arcana</color> DC Incantesimi</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Sovrascrivi la lingua del gioco:</color>
 ModUi/&Patches	<color=#FFFF00>Tappe:</color>
 ModUi/&PrimedItems	Oggetti innescati
 ModUi/&Progression	<color=#FFFF00>Progressione:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Il cantrip leggero a lancio rapido utilizza prima gli oggetti indossati dalla testa o dal busto
-ModUi/&Races	<color=#FFFF00>Razze</color>
+ModUi/&Races	<color=#FFFF00>Razze e Sottorazze</color>
 ModUi/&RacesClassesSubclasses	Razze, classi e sottoclassi
 ModUi/&RecipeCost	<color=#FFFFFF>Costo della ricetta</color>
 ModUi/&RecipesInDm	Ricette in DM
 ModUi/&RelicForgeries	Falsificazione di reliquie
 ModUi/&RemoveAttunementRequirements	Rimuovere i requisiti di sintonia <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveBugVisualModels	Sostituire i modelli con bug con immagini alternative nel gioco <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Rimuovere il requisito della concentrazione da qualsiasi incantesimo <b><i><color=#C04040E0>[Richiede Riavvio]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Rimuovi il filtro umanoide su <color=orange>Risate orribili</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Rimuovere i requisiti di identificazione <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Applica l'effetto <color=orange>Intrappola</color> solo al momento del lancio <i><color=yellow>[i.e.: nessun effetto ricorrente]</color></i> <b><i><color=#C04040E0 >[Richiede il riavvio]</color></i></b>
 ModUi/&RestockAntiquarians	Ripristinare gli Antiquari <i><color=#FFFF00>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum	Ripristinare l'Arcaneum <i><color=#FFFF00>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Ripristinare il Circolo di Danantar <i><color=#FFFF00>[Joriel Foxeye]</color></i>.
@@ -181,9 +186,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Sblocca i colori luminosi per tut
 ModUi/&UnlockGlowingEyeColors	Sblocca i colori degli occhi luminosi
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Sblocca marcature e tatuaggi per tutti i personaggi
 ModUi/&UsableDevice	<color=#FFFF00>Dispositivo utilizzabile</color>
+ModUi/&UseHeightOneCylinderEffect	Mostra un effetto cilindro di altezza 1 quando lanci <color=orange>Black Tentacles, Entangle, Grease</color> (quadrato) e <color=orange>Spike Growth</color> (tondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals	<color=#FFFF00>Visuali:</color>
 ModUi/&Weapon	<color=#FFFF00>Armi</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Rimuovere il requisito della concentrazione da qualsiasi incantesimo <b><i><color=#C04040E0>[Richiede Riavvio]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Sovrascrivi la lingua del gioco:</color>
-ModUi/&Campaigns	<color=yellow>Campagne:</color>

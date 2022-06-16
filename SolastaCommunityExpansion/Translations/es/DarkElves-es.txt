@@ -1,4 +1,8 @@
-﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1.
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de puntuación de habilidad
 Feature/&DarkelfMagicDescription	Conoces el cantrip Luces Danzantes.
 Feature/&DarkelfMagicTitle	Magia de los Elfos Oscuros

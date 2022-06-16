@@ -26,6 +26,7 @@ ModUi/&Bestiary	Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=#FFA500>Bestow Curse</color> no requiere concentración cuando se lanza con una ranura de hechizo L5+.
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=#FFA500>La condición Cegado</color> no permite el ataque de oportunidad
 ModUi/&Blueprints	Planos
+ModUi/&Campaigns	<color=yellow>Campañas:</color>
 ModUi/&CampaignsAndLocations	<color=#FFFF00>Campañas y localizaciones:</color>
 ModUi/&Character	Personaje
 ModUi/&CharactersPool	Fondo de personajes
@@ -133,18 +134,22 @@ ModUi/&OverrideMinMaxLevel	Anular los niveles mínimos y máximos requeridos al 
 ModUi/&OverridePartySize	<color=#FFFFFF>Anular el tamaño del grupo en las aventuras personalizadas</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=#FFFFFF>Suprimir <color=#FFA500>Conspirador</color> <color=#FFA500>Manipulación mejorada</color> DC de hechizos</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=#FFFFFF>Suprimir <color=#FFA500>Mago</color> Maestro Manipulador <color=#FFA500>Manipulación de Arcanos</color> Hechizo DC</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Sobrescribir el idioma del juego:</color>
 ModUi/&Patches	<color=#FFFF00>Parches:</color>
 ModUi/&PrimedItems	Objetos preparados
 ModUi/&Progression	<color=#FFFF00>Progresión:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	El cantrip de luz de lanzamiento rápido utiliza primero los objetos que se llevan en la cabeza o en el torso
-ModUi/&Races	<color=#FFFF00>Razas</color>
+ModUi/&Races	<color=#FFFF00>Razas y Subrazas</color>
 ModUi/&RacesClassesSubclasses	Razas, clases y subclases
 ModUi/&RecipeCost	<color=#FFFFFF>Coste de la receta</color>
 ModUi/&RecipesInDm	Recetas en DM
 ModUi/&RelicForgeries	Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements	Eliminar los requisitos de sintonización <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveBugVisualModels	Reemplazar los modelos con errores por visuales alternativos en el juego <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Eliminar el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Eliminar el filtro humanoide en <color=orange>Hideous Risa</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Eliminar los requisitos de identificación <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Solo aplica el efecto <color=orange>Enredar</color> en el momento del lanzamiento <i><color=yellow>[es decir, sin efecto recurrente]</color></i> <b><i><color=#C04040E0 >[Requiere reinicio]</color></i></b>
 ModUi/&RestockAntiquarians	Reabastecer a los anticuarios <i><color=#FFFF00>[Verano de Halman]</color></i>
 ModUi/&RestockArcaneum	Reabastecer Arcaneum <i><color=#FFFF00>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Reabastecer Círculo de Danantar <i><color=#FFFF00>[Joriel Foxeye]</color></i>
@@ -181,9 +186,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Desbloquear colores brillantes pa
 ModUi/&UnlockGlowingEyeColors	Desbloquear colores de ojos brillantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Desbloquear marcas y tatuajes para todos los personajes
 ModUi/&UsableDevice	<color=#FFFF00>Dispositivo utilizable</color>
+ModUi/&UseHeightOneCylinderEffect	Muestra un efecto de cilindro de altura 1 al lanzar <color=orange>Black Tentacles, Entangle, Grease</color> (cuadrado) y <color=orange>Spike Growth</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utilizar las reglas oficiales de ventaja / desventaja
 ModUi/&Visuals	<color=#FFFF00>Visuales:</color>
 ModUi/&Weapon	<color=#FFFF00>Armas</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Eliminar el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Sobrescribir el idioma del juego:</color>
-ModUi/&Campaigns	<color=yellow>Campañas:</color>

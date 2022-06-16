@@ -66,12 +66,6 @@ Monster/&DH_Custom_Tarrasque_Description	La tarasque légendaire est peut-être 
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasque</color>
 Monster/&DH_Custom_Vampire_Description	Réveillés par une nuit sans fin, les vampires ont soif de la vie qu'ils ont perdue et apaisent cette soif en buvant le sang des vivants. Les vampires détestent la lumière du soleil, car son contact les brûle. Ils ne projettent jamais d'ombres ou de reflets, et tout vampire souhaitant se déplacer inaperçu parmi les vivants reste dans l'obscurité et loin des surfaces réfléchissantes.
 Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampire</color>
-Monster/&DHCustomCouatlDescription	Les Couatls sont des êtres serpentins bienveillants d'une grande intelligence et perspicacité. Leurs ailes brillamment colorées et leurs manières douces témoignent de leurs origines célestes.
-Monster/&DHCustomCouatlTitle	Couatl
-Monster/&OwlFamiliarDescription	Hibou familier
-Monster/&OwlFamiliarTitle	Chouette
-Monster/&WitchOwlFamiliarDescription	Hibou familier
-Monster/&WitchOwlFamiliarTitle	Chouette
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6 tonnerre et pousser 2 cellules
 MonsterAttack/&DH_AirBlast_Attack_Title	Jet d'air
 MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 contondant & 4d6 tonnerre
@@ -238,7 +232,5 @@ MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Foudre dans une zone 
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Orage
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Coup de foudre
-Spell/&DHAnimalShapesSpellDescription	Choisissez n'importe quel nombre de créatures consentantes que vous pouvez voir à portée. Vous transformez chaque cible en une bête de grande taille ou plus petite avec un niveau de défi de 4 ou moins.
-Spell/&DHAnimalShapesSpellTitle	Formes d'animaux
 Spell/&DHTimeStop_SpellDescription	Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous-même. Aucun temps ne passe pour les autres créatures, pendant que vous effectuez 1d4 + 1 tours d'affilée, durant lesquels vous pouvez utiliser des actions et vous déplacer normalement.
 Spell/&DHTimeStop_SpellTitle	Arrêt du temps

@@ -26,6 +26,7 @@ ModUi/&Bestiary	Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> does not require concentration when cast with L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints	Blueprints
+ModUi/&Campaigns	<color=yellow>Campaigns:</color>
 ModUi/&CampaignsAndLocations	<color=yellow>Campaigns and locations:</color>
 ModUi/&Character	Character
 ModUi/&CharactersPool	Characters Pool
@@ -133,18 +134,22 @@ ModUi/&OverrideMinMaxLevel	Override the required min and max levels when startin
 ModUi/&OverridePartySize	<color=white>Override the party size in custom adventures</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Override <color=orange>Rogue</color> Con Artist <color=orange>Improved Manipulation</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Override <color=orange>Wizard</color> Master Manipulator <color=orange>Arcane Manipulation</color> Spell DC</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
 ModUi/&Patches	<color=yellow>Patches:</color>
 ModUi/&PrimedItems	Primed Items
 ModUi/&Progression	<color=yellow>Progression:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick cast light cantrip uses head or torso worn items first
-ModUi/&Races	<color=yellow>Races</color>
+ModUi/&Races	<color=yellow>Races & Subraces</color>
 ModUi/&RacesClassesSubclasses	Races, Classes & Subclasses
 ModUi/&RecipeCost	<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm	Recipes in DM
 ModUi/&RelicForgeries	Relic Forgeries
 ModUi/&RemoveAttunementRequirements	Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels	Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remove humanoid filter on <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Only apply <color=orange>Entangle</color> effect at casting time <i><color=yellow>[i.e.: no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RestockAntiquarians	Restock Antiquarians <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum	Restock Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Restock Circle of Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -181,9 +186,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all mar
 ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
 ModUi/&UsableDevice	<color=yellow>Usable Device</color>
+ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
-ModUi/&Campaigns	<color=yellow>Campaigns:</color>

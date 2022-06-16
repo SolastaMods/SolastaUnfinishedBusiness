@@ -57,13 +57,7 @@ internal static class FlexibleRacesContext
                 "AttributeModifierBolgrifWisdomAbilityScoreIncrease"
             }
         },
-        {
-            "DarkelfRace",
-            new List<string>
-            {
-                "AttributeModifierElfAbilityScoreIncrease", "AttributeModifierDarkelfCharismaAbilityScoreIncrease"
-            }
-        },
+        {"DarkelfRace", new List<string> {"AttributeModifierDarkelfCharismaAbilityScoreIncrease"}},
         {
             "GnomeRace",
             new List<string>

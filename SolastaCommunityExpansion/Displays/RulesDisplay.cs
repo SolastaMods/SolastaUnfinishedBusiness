@@ -90,10 +90,29 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
+        toggle = Main.Settings.UseHeightOneCylinderEffect;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseHeightOneCylinderEffect = toggle;
+            HouseSpellTweaks.UseHeightOneCylinderEffect();
+        }
+
         toggle = Main.Settings.RemoveConcentrationRequirementsFromAnySpell;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveConcentrationRequirementsFromAnySpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveConcentrationRequirementsFromAnySpell = toggle;
+        }
+
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+        }
+
+        toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.RemoveRecurringEffectOnEntangle = toggle;
         }
 
         UI.Label("");

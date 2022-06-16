@@ -26,6 +26,7 @@ ModUi/&Bestiary	Bestiarium
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Fluch verleihen</color> erfordert keine Konzentration, wenn es mit einem L5+-Zauberplatz gewirkt wird
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	Der Zustand <color=orange>Geblendet</color> erlaubt keinen Gelegenheitsangriff
 ModUi/&Blueprints	Blaupausen
+ModUi/&Campaigns	<color=yellow>Kampagnen:</color>
 ModUi/&CampaignsAndLocations	<color=yellow>Kampagnen und Standorte:</color>
 ModUi/&Character	Charakter
 ModUi/&CharactersPool	Zeichenpool
@@ -133,18 +134,22 @@ ModUi/&OverrideMinMaxLevel	Überschreiben Sie die erforderlichen Mindest- und H�
 ModUi/&OverridePartySize	<color=white>Gruppengröße in benutzerdefinierten Abenteuern überschreiben</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Überschreibe <color=orange>Schurke</color> Betrüger <color=orange>Verbesserte Manipulation</color> Zauber-SG</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Überschreibe <color=orange>Wizard</color>-Meistermanipulator <color=orange>Arkane Manipulation</color>-Zauber-SG</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Spielsprache überschreiben:</color>
 ModUi/&Patches	<color=yellow>Aufnäher:</color>
 ModUi/&PrimedItems	Geprimte Gegenstände
 ModUi/&Progression	<color=yellow>Fortschritt:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick Cast Light Cantrip verwendet zuerst am Kopf oder Oberkörper getragene Gegenstände
-ModUi/&Races	<color=yellow>Rennen</color>
+ModUi/&Races	<color=yellow>Rennen & Unterrennen</color>
 ModUi/&RacesClassesSubclasses	Rassen, Klassen und Unterklassen
 ModUi/&RecipeCost	<color=white>Rezeptkosten</color>
 ModUi/&RecipesInDm	Rezepte in DM
 ModUi/&RelicForgeries	Reliquienfälschungen
 ModUi/&RemoveAttunementRequirements	Einstimmungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveBugVisualModels	Ersetzen Sie fehlerähnliche Modelle durch alternative Grafiken im Spiel <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Konzentrationsanforderung von allen Zaubern entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Entfernen Sie den Humanoidenfilter von <color=orange>Schreckliches Gelächter</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Identifizierungsanforderungen entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Wende den Effekt <color=orange>Verstricken</color> nur zum Zauberzeitpunkt an <i><color=yellow>[d. h.: kein wiederkehrender Effekt]</color></i> <b><i><color=#C04040E0 >[Neustart erforderlich]</color></i></b>
 ModUi/&RestockAntiquarians	Antiquare <i><color=yellow>[Halman Summer]</color></i> auffüllen
 ModUi/&RestockArcaneum	Arkaneum <i><color=yellow>[Heddlon Surespell]</color></i> auffüllen
 ModUi/&RestockCircleOfDanantar	Zirkel von Danantar <i><color=yellow>[Joriel Fuchsauge]</color></i> auffüllen
@@ -181,10 +186,7 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Schalten Sie leuchtende Farben f�
 ModUi/&UnlockGlowingEyeColors	Schalte leuchtende Augenfarben frei
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Schalte Markierungen und Tattoos für alle Charaktere frei
 ModUi/&UsableDevice	<color=yellow>Verwendbares Gerät</color>
+ModUi/&UseHeightOneCylinderEffect	Zeigen Sie einen Zylindereffekt der Höhe 1 an, wenn Sie <color=orange>Schwarze Tentakel, Verstricken, Fett</color> (quadratisch) und <color=orange>Stachelwachstum</color> (rund) wirken.
 ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Waffen</color>
-ModUi/&AllowCrossbowsToUseBowFeatures	Ermöglichen Sie Armbrüsten, von den Bogenfunktionen zu profitieren
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Konzentrationsanforderung von allen Zaubern entfernen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Spielsprache überschreiben:</color>
-ModUi/&Campaigns	<color=yellow>Kampagnen:</color>

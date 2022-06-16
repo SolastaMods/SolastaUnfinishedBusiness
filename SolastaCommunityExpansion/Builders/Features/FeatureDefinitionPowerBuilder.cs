@@ -44,10 +44,6 @@ public abstract class
             // The game throws an exception if there is no effect description.
             Definition.effectDescription = new EffectDescription();
         }
-        else
-        {
-            Definition.effectDescription = Definition.effectDescription.DeepCopy();
-        }
     }
 
     public TBuilder Configure(int usesPerRecharge, RuleDefinitions.UsesDetermination usesDetermination,

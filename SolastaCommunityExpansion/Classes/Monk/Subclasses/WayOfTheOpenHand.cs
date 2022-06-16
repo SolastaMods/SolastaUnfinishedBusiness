@@ -30,8 +30,9 @@ public static class WayOfTheOpenHand
             .SetActivationTime(ActivationTime.OnAttackHit)
             .SetRechargeRate(RechargeRate.AtWill)
             .SetUsesFixed(1)
+            // need to check for mode == null otherwise it breaks cantrips like Hurl Flame
             .SetCustomSubFeatures(new ReactionAttackModeRestriction(
-                (mode, _, _, _) => mode.AttackTags.Contains(Monk.FlurryTag)
+                (mode, _, _, _) => mode != null && mode.AttackTags.Contains(Monk.FlurryTag)
             ))
             .AddToDB();
 
@@ -179,7 +180,8 @@ public static class WayOfTheOpenHand
             .SetFixedUsesPerRecharge(3)
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetCustomSubFeatures(
-                new ReactionAttackModeRestriction((mode, _, _, _) => WeaponValidators.IsUnarmedWeapon(mode)))
+                new ReactionAttackModeRestriction((mode, _, _, _) =>
+                    mode != null && WeaponValidators.IsUnarmedWeapon(mode)))
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Instantaneous)

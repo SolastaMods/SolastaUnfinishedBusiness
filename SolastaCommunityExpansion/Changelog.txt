@@ -1,7 +1,21 @@
-﻿CHANGES:
+﻿PATRONS:
 
-- Add support for races to grant features at levels > 1
-- Improve DarkElf to grant features at levels 3 and 5
-- Fix Chinese translations
-- Fix DarkElf incorrectly changing other game blueprints
-- Fix Shield Expert to benefit from Two Weapon fighting style
+- Thanks to the 11 individuals who contributed so far...
+- We could do much more if everyone donates a coffee [$5]
+
+** Pay for better services from DeepL, GitHub and others
+** Hire freelancer artists for better animations, bitmaps, etc
+** Invest on game development learning
+
+- The [donation] button is under Mod UI > Credits
+- It opens a browser page with a paypal support link
+
+CHANGES:
+
+- Add a setting to enforce an 1 cell height on certain spells
+- Add a setting to only apply Entangle effects at casting time
+- Add a setting to remove humanoid filter from Hideous Laughter
+- Add more color choices to Dark Elves and make them a sub race
+- Fix an Unity crash on game exit caused by a memory leak
+- Fix a game exception with Monks casting damage spells
+- Improve Witch progression with maledictions replacements
