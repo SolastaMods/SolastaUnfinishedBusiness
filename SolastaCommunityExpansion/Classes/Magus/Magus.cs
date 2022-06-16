@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
+using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
@@ -28,6 +31,8 @@ public static class Magus
     private static FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell { get; set; }
 
     public static FeatureDefinitionPower ArcaneFocus { get; private set; }
+    
+    public static FeatureDefinitionFeatureSetCustom ArcaneArt { get; private set; }
 
     private static void BuildEquipment(CharacterClassDefinitionBuilder classMagusBuilder)
     {
@@ -101,18 +106,18 @@ public static class Magus
     {
         FeatureDefinitionClassMagusCastSpell = FeatureDefinitionCastSpellBuilder
             .Create("ClassMagusCastSpell", DefinitionBuilder.CENamespaceGuid)
-            .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
             .SetGuiPresentation("ClassMagusSpellcasting", Category.Class)
+            .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
+            .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15)
+            .SetSlotsPerLevel(MagusSpells.MagusCastingSlot)
+            .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
             .SetSpellCastingLevel(9)
             .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
             .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
-            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-            .SetSpellPreparationCount(RuleDefinitions.SpellPreparationCount.AbilityBonusPlusHalfLevel)
-            .SetKnownCantrips(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-            .SetKnownSpells(0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)
-            .SetSlotsPerLevel(2, FeatureDefinitionCastSpellBuilder.CasterProgression.HALF_CASTER)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
             .SetSpellList(MagusSpells.MagusSpellList)
+            .SetReplacedSpells(SpellsHelper.FullCasterReplacedSpells)
             .AddToDB();
     }
 
@@ -121,12 +126,14 @@ public static class Magus
         ArcaneFocus = FeatureDefinitionPowerBuilder
             .Create("ClassMagusArcaneFocus", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power)
-            .SetFixedUsesPerRecharge(20)
+            .SetFixedUsesPerRecharge(4)
             .SetActivationTime(RuleDefinitions.ActivationTime.OnAttackHit)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.AtWill)
+            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
             .SetUsesFixed(1)
             .AddToDB();
 
+        // rupture: damage on moving
+        // TODO: add vfx to indicate the damage
         var rupture = BuildRupture(ArcaneFocus);
 
         // lurking death
@@ -138,6 +145,14 @@ public static class Magus
         // soul drinker: regain an arcana focus
 
         PowerBundleContext.RegisterPowerBundle(ArcaneFocus, true, rupture);
+
+        ArcaneArt = FeatureDefinitionFeatureSetCustomBuilder
+            .Create("ClassMagusArcaneArtSetLevel", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Feature,
+                CustomIcons.CreateAssetReferenceSprite("ArcaneArt", Resources.EldritchInvocation, 128, 128))
+            .SetRequireClassLevels(true)
+            .SetLevelFeatures(3, rupture)
+            .AddToDB();
     }
 
     private static FeatureDefinitionPower BuildRupture(FeatureDefinitionPower sharedPool)
@@ -145,6 +160,7 @@ public static class Magus
         var condition = ConditionDefinitionBuilder
             .Create("ClassMagusConditionRupture", DefinitionBuilder.CENamespaceGuid)
             .Configure(RuleDefinitions.DurationType.Round, 1, true)
+            .SetGuiPresentation(Category.Class, "ClassMagusConditionRupture", DatabaseHelper.ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
             .SetSpecialDuration(true)
             .AddToDB();
 
@@ -155,9 +171,9 @@ public static class Magus
             formType = EffectForm.EffectFormType.Damage,
             damageForm = new DamageForm
             {
-                damageType = RuleDefinitions.DamageTypePsychic,
-                diceNumber = 2,
-                dieType = RuleDefinitions.DieType.D8
+                damageType = RuleDefinitions.DamageTypeNecrotic,
+                diceNumber = 1,
+                dieType = RuleDefinitions.DieType.D4
             }
         });
 
@@ -185,6 +201,7 @@ public static class Magus
                             .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                             .Build()
                     )
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
                     .Build())
             .AddToDB();
     }
@@ -213,9 +230,12 @@ public static class Magus
                 FeatureDefinitionProficiencyTool,
                 FeatureDefinitionSkillPoints
             )
-            .AddFeaturesAtLevel(1,
+            .AddFeaturesAtLevel(2,
                 FeatureDefinitionClassMagusCastSpell,
-                ArcaneFocus);
+                ArcaneFocus)
+            .AddFeatureAtLevel(4, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+            .AddFeatureAtLevel(8, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+            .AddFeatureAtLevel(12, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
     }
 
     internal static CharacterClassDefinition BuildMagusClass()
@@ -268,20 +288,7 @@ public static class Magus
         BuildProgression(classMagusBuilder);
 
         ClassMagus = classMagusBuilder.AddToDB();
-
-        var itemlist = new List<ItemDefinition>
-        {
-            DatabaseHelper.ItemDefinitions.WandOfLightningBolts,
-            DatabaseHelper.ItemDefinitions.StaffOfFire,
-            DatabaseHelper.ItemDefinitions.ArcaneShieldstaff,
-            DatabaseHelper.ItemDefinitions.WizardClothes_Alternate
-        };
-
-        foreach (var item in itemlist)
-        {
-            item.RequiredAttunementClasses.Add(ClassMagus);
-        }
-
+        
         return ClassMagus;
     }
 }
