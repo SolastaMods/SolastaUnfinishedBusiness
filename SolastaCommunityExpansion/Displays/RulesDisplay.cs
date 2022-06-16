@@ -96,15 +96,11 @@ internal static class RulesDisplay
             Main.Settings.RemoveConcentrationRequirementsFromAnySpell = toggle;
         }
 
-        UI.Label("");
-
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
         }
-
-        UI.Label("");
 
         toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
