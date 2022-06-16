@@ -1,4 +1,8 @@
-﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	魅力+1
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	魅力+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	属性提升
 Feature/&DarkelfMagicDescription	你会学了舞光术戏法
 Feature/&DarkelfMagicTitle	黑暗精灵魔法
@@ -17,7 +21,3 @@ Race/&DarkelfSurName2Title	DhalNeridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.

@@ -1,4 +1,5 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Невозможно читать заклинания.
+ActionAffinity/&DHFeeblemindSpellTitle	Слабоумие
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC настроен на 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
 AttributeModifier/&DHFeeblemindChaSpellDescription	Показатель харизмы установлен на 1.
@@ -909,6 +910,8 @@ Feature/&ClassWarlockToolsProficiencyDescription	Вас научили вари�
 Feature/&ClassWarlockToolsProficiencyTitle	Магическое ремесло чернокнижника
 Feature/&ClassWarlockWeaponProficiencyDescription	Простое оружие.
 Feature/&ClassWarlockWeaponProficiencyTitle	Мастерство оружия чернокнижника
+Feature/&ClassWitchMaledictionReplaceDescription	Выберите Проклятие для замены.
+Feature/&ClassWitchMaledictionReplaceTitle	Заменить проклятие
 Feature/&CounterStrikePowerDescription	Потратьте кубик гамбита и нанесите контрудар по врагу, если вы попали, нанесите дополнительный дробящий урон 1d6+2.
 Feature/&CounterStrikePowerTitle	Ответный удар
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Когда ваше здоровье снижается до 0, но вы не убиты, вместо этого вы можете упасть до 1 HP.
@@ -1299,30 +1302,30 @@ Item/&CEPikePrimedTitle	Грунтованная щука
 Item/&CEPikePsychicTitle	Психическая щука
 Item/&CEPikePsychicUnidentifiedTitle	Великолепная щука
 Item/&CEPikeTitle	Щука
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Чары для алебарды +1
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Чары для алебарды +2
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Чары для алебарды молнии
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Чары для ручного арбалета +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Чары для ручного арбалета +2
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Чары для кислотного арбалета
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Чары для длинной булавы +1
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Чары для длинной булавы +2
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Чары для гремучей длинной булавы
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Чары для щуки +1
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Чары для щуки +2
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Чары для алебарды +1.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Чары для алебарды +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Чары для алебарды +2.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Чары для алебарды +2
 Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Зачаровать алебарду молнии.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Чары для алебарды молнии
 Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Чары для ручного арбалета +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Чары для ручного арбалета +1
 Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Чары для ручного арбалета +2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Чары для ручного арбалета +2
 Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Зачаровать кислотный ручной арбалет.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Чары для кислотного арбалета
 Item/&CraftingManualRecipeEnchantCELongMace+1Description	Чары для длинной булавы +1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Чары для длинной булавы +1
 Item/&CraftingManualRecipeEnchantCELongMace+2Description	Чары для длинной булавы +2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Чары для длинной булавы +2
 Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Зачаровать гремущую длинную булаву.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Чары для гремучей длинной булавы
 Item/&CraftingManualRecipeEnchantCEPike+1Description	Зачаровать Пику +1.
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Чары для щуки +1
 Item/&CraftingManualRecipeEnchantCEPike+2Description	Зачаровать Пику +2.
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Чары для психической пики
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Чары для щуки +2
 Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Зачаровать психическую пику.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Чары для психической пики
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Чары для повязок +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Чары для повязок +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Чары для повязок +2.
@@ -1331,14 +1334,14 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Зачароват�
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Зачаровать силовые повязки
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Зачаровать повязки притяжения.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Чары для повязок притяжения
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Прайм Алебарда
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Арбалет Prime Hand
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Первоклассная длинная булава
-Item/&CraftingManualRecipePrimingCEPikeTitle	Прайм Пайк
 Item/&CraftingManualRecipePrimingCEHalberdDescription	Прайм Алебарда.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Прайм Алебарда
 Item/&CraftingManualRecipePrimingCEHandXbowDescription	Арбалет Prime Hand.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Арбалет Prime Hand
 Item/&CraftingManualRecipePrimingCELongMaceDescription	Прайм Длинная булава.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Первоклассная длинная булава
 Item/&CraftingManualRecipePrimingCEPikeDescription	Прайм Пайк.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Прайм Пайк
 Item/&ForceArtilleryProjectileDescription	СилаАртиллерияСнаряд.
 Item/&ForceArtilleryProjectileTitle	СилаАртиллерияСнаряд
 Item/&Handwraps+1Title	Повязки +1
@@ -1546,6 +1549,8 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} по
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Применить выбранную технику.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Подать заявление
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Техника дистанционной руки
+Reaction/&SpendPowerBundleDescription	Тратить энергию.
+Reaction/&SpendPowerBundleTitle	Тратить энергию
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} поразил противника безоружной атакой и может потратить 3 очка ци, чтобы попытаться убить его.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Потратьте ки, чтобы попытаться убить противника.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Проведите ки
@@ -2101,8 +2106,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Сила
 UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
 UI/&ForcePreferredCantripDescription	Если этот переключатель включен, сработает только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый действительный заговор, независимо от этого переключателя.
 UI/&ForcePreferredCantripTitle	Force Preferred Cantrip
-Feature/&ClassWitchMaledictionReplaceTitle	Заменить проклятие
-Feature/&ClassWitchMaledictionReplaceDescription	Выберите Проклятие для замены.
-ActionAffinity/&DHFeeblemindSpellTitle	Слабоумие
-Reaction/&SpendPowerBundleTitle	Тратить энергию
-Reaction/&SpendPowerBundleDescription	Тратить энергию.

@@ -1,4 +1,5 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Kann keine Zauber wirken.
+ActionAffinity/&DHFeeblemindSpellTitle	Schwachsinn
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC ist auf 16 eingestellt.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Rindenleder
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charismawert wird auf 1 gesetzt.
@@ -909,6 +910,8 @@ Feature/&ClassWarlockToolsProficiencyDescription	Du wurdest darin ausgebildet, K
 Feature/&ClassWarlockToolsProficiencyTitle	Hexenmeister magisches Handwerk
 Feature/&ClassWarlockWeaponProficiencyDescription	Einfache Waffen.
 Feature/&ClassWarlockWeaponProficiencyTitle	Hexenmeister-Waffenfertigkeiten
+Feature/&ClassWitchMaledictionReplaceDescription	Wähle Malediction zum Ersetzen aus.
+Feature/&ClassWitchMaledictionReplaceTitle	Fluch ersetzen
 Feature/&CounterStrikePowerDescription	Gib einen Gambit-Würfel aus und kontere den Feind, wenn du triffst, füge zusätzlich 1W6+2 Knüppelschaden zu.
 Feature/&CounterStrikePowerTitle	Gegenschlag
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Wenn Sie auf 0 HP reduziert, aber nicht getötet werden, können Sie stattdessen auf 1 HP fallen.
@@ -1299,30 +1302,30 @@ Item/&CEPikePrimedTitle	Grundierter Hecht
 Item/&CEPikePsychicTitle	Hellseher Pike
 Item/&CEPikePsychicUnidentifiedTitle	Prächtiger Hecht
 Item/&CEPikeTitle	Pike
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Hellebarde +2 verzaubern
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Verzaubere Blitzhellebarde
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Verzaubert Handarmbrust +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Verzaubert Handarmbrust +2
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Verzaubert saure Handarmbrust
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Verzaubert langen Streitkolben +1
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Verzaubert langen Streitkolben +2
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden langen Streitkolben
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Hellebarde +1 verzaubern.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Hellebarde +1 verzaubern
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Hellebarde +2 verzaubern.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Hellebarde +2 verzaubern
 Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Verzaubere Blitzhellebarde.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Verzaubere Blitzhellebarde
 Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Verzaubert Handarmbrust +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Verzaubert Handarmbrust +1
 Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Verzaubert Handarmbrust +2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Verzaubert Handarmbrust +2
 Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Verzaubert saure Handarmbrust.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Verzaubert saure Handarmbrust
 Item/&CraftingManualRecipeEnchantCELongMace+1Description	Verzaubert langen Streitkolben +1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Verzaubert langen Streitkolben +1
 Item/&CraftingManualRecipeEnchantCELongMace+2Description	Verzaubert langen Streitkolben +2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Verzaubert langen Streitkolben +2
 Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Verzaubert Donnernden langen Streitkolben.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Verzaubert Donnernden langen Streitkolben
 Item/&CraftingManualRecipeEnchantCEPike+1Description	Hecht +1 verzaubern.
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Hecht +1 verzaubern
 Item/&CraftingManualRecipeEnchantCEPike+2Description	Hecht +2 verzaubern.
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Hecht +2 verzaubern
 Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Verzaubere Hellseher.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Verzaubere Hellseher
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Handwickel +1 verzaubern.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Handwickel +1 verzaubern
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Handwickel +2 verzaubern.
@@ -1331,14 +1334,14 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Verzaubere kraftvol
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Verzaubere kraftvolle Handwickel
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Verzaubern Sie Handbandagen des Ziehens.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Verzaubern Sie Handbandagen des Ziehens
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
-Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
 Item/&CraftingManualRecipePrimingCEHalberdDescription	Prime Hellebarde.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Hellebarde
 Item/&CraftingManualRecipePrimingCEHandXbowDescription	Erstklassige Armbrust.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Erstklassige Armbrust
 Item/&CraftingManualRecipePrimingCELongMaceDescription	Erstklassiger langer Streitkolben.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Erstklassiger langer Streitkolben
 Item/&CraftingManualRecipePrimingCEPikeDescription	Erster Hecht.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Erster Hecht
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
 Item/&Handwraps+1Title	Handwickel +1
@@ -1546,6 +1549,8 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} trif
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Ausgewählte Technik anwenden.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Sich bewerben
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Fernhand-Technik
+Reaction/&SpendPowerBundleDescription	Macht ausgeben.
+Reaction/&SpendPowerBundleTitle	Macht ausgeben
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} hat einen Gegner mit einem unbewaffneten Angriff getroffen und kann 3 Ki-Punkte ausgeben, um zu versuchen, ihn zu töten.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Geben Sie Ki aus, um zu versuchen, den Gegner zu töten.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Ki ausgeben
@@ -2101,8 +2106,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Leistung
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
 UI/&ForcePreferredCantripDescription	Wenn dieser Schalter auf ON steht, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
 UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen
-Feature/&ClassWitchMaledictionReplaceTitle	Fluch ersetzen
-Feature/&ClassWitchMaledictionReplaceDescription	Wähle Malediction zum Ersetzen aus.
-ActionAffinity/&DHFeeblemindSpellTitle	Schwachsinn
-Reaction/&SpendPowerBundleTitle	Macht ausgeben
-Reaction/&SpendPowerBundleDescription	Macht ausgeben.

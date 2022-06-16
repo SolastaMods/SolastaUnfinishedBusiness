@@ -1,4 +1,5 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Impossibile lanciare incantesimi.
+ActionAffinity/&DHFeeblemindSpellTitle	Mente debole
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC è impostato su 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Pelle di corteccia
 AttributeModifier/&DHFeeblemindChaSpellDescription	Il punteggio di Carisma è impostato su 1.
@@ -909,6 +910,8 @@ Feature/&ClassWarlockToolsProficiencyDescription	Sei stato addestrato a preparar
 Feature/&ClassWarlockToolsProficiencyTitle	Creazione magica degli stregoni
 Feature/&ClassWarlockWeaponProficiencyDescription	Armi semplici.
 Feature/&ClassWarlockWeaponProficiencyTitle	Competenze nelle armi da stregone
+Feature/&ClassWitchMaledictionReplaceDescription	Seleziona Maledizione da sostituire.
+Feature/&ClassWitchMaledictionReplaceTitle	Sostituisci Maledizione
 Feature/&CounterStrikePowerDescription	Spendi un dado di mossa e Contrattacca il nemico, se colpisci infliggi 1d6+2 danni contundenti aggiuntivi.
 Feature/&CounterStrikePowerTitle	Contrattacco
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Quando sei ridotto a 0 HP ma non ucciso, puoi invece scendere a 1 HP.
@@ -1299,30 +1302,30 @@ Item/&CEPikePrimedTitle	Luccio innescato
 Item/&CEPikePsychicTitle	Luccio psichico
 Item/&CEPikePsychicUnidentifiedTitle	Magnifico luccio
 Item/&CEPikeTitle	Luccio
-Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Incanta Alabarda +1
-Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Incanta Alabarda +2
-Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Incanta l'alabarda del fulmine
-Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Incanta balestra a mano +1
-Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Incanta balestra a mano +2
-Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Incanta la balestra a mano acida
-Item/&CraftingManualRecipeEnchantCELongMace+1Title	Incanta Mazza Lunga +1
-Item/&CraftingManualRecipeEnchantCELongMace+2Title	Incanta Mazza Lunga +2
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Incanta la Mazza Lunga Tonante
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Incanta Picca +1
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Incanta Picca +2
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Incanta Alabarda +1.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Incanta Alabarda +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Incanta Alabarda +2.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Incanta Alabarda +2
 Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Incanta l'alabarda del fulmine.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Incanta l'alabarda del fulmine
 Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Incanta balestra a mano +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Incanta balestra a mano +1
 Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Incanta balestra a mano +2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Incanta balestra a mano +2
 Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Incanta la balestra a mano acida.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Incanta la balestra a mano acida
 Item/&CraftingManualRecipeEnchantCELongMace+1Description	Incanta Mazza Lunga +1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Incanta Mazza Lunga +1
 Item/&CraftingManualRecipeEnchantCELongMace+2Description	Incanta Mazza Lunga +2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Incanta Mazza Lunga +2
 Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Incanta la Mazza Lunga Tonante.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Incanta la Mazza Lunga Tonante
 Item/&CraftingManualRecipeEnchantCEPike+1Description	Incanta Picca +1.
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Incanta Picca +1
 Item/&CraftingManualRecipeEnchantCEPike+2Description	Incanta Picca +2.
-Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Incanta luccio psichico
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Incanta Picca +2
 Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Incanta luccio psichico.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Incanta luccio psichico
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Incanta Fasce +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Incanta Fasce +1
 Item/&CraftingManualRecipeEnchantHandwraps+2Description	Incanta Fasce +2.
@@ -1331,14 +1334,14 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Incanta manopole po
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Incanta manopole potenti
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Incanta le mani di tirare.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Incanta le mani di tirare
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Primo Alabarda
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime balestra a mano
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Mazza Lunga Prime
-Item/&CraftingManualRecipePrimingCEPikeTitle	Primo Luccio
 Item/&CraftingManualRecipePrimingCEHalberdDescription	Primo Alabarda.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Primo Alabarda
 Item/&CraftingManualRecipePrimingCEHandXbowDescription	Prime balestra a mano.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime balestra a mano
 Item/&CraftingManualRecipePrimingCELongMaceDescription	Mazza Lunga Prime.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Mazza Lunga Prime
 Item/&CraftingManualRecipePrimingCEPikeDescription	Primo Luccio.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Primo Luccio
 Item/&ForceArtilleryProjectileDescription	ForceArtiglieriaProiettile.
 Item/&ForceArtilleryProjectileTitle	ForceArtiglieriaProiettile
 Item/&Handwraps+1Title	Fasce +1
@@ -1546,6 +1549,8 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} colp
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Applicare la tecnica selezionata.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Applicare
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Tecnica della mano a distanza
+Reaction/&SpendPowerBundleDescription	Spendi potere.
+Reaction/&SpendPowerBundleTitle	Spendi potere
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} ha colpito l'avversario con un attacco senz'armi e può spendere 3 punti ki per tentare di ucciderlo.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spendi ki per tentare di uccidere l'avversario.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spendi ki
@@ -2101,8 +2106,3 @@ UI/&CustomFeatureSelectionTooltipTypePower	Potenza
 UI/&CustomFeatureSelectionTooltipTypeProficiency	Competenza
 UI/&ForcePreferredCantripDescription	Se questa opzione è attivata, può essere attivato solo il trucchetto preferito. Se il trucchetto preferito non è selezionato, verrà attivato il primo trucchetto valido, indipendentemente da questo interruttore.
 UI/&ForcePreferredCantripTitle	Trucchetto preferito dalla forza
-Feature/&ClassWitchMaledictionReplaceTitle	Sostituisci Maledizione
-Feature/&ClassWitchMaledictionReplaceDescription	Seleziona Maledizione da sostituire.
-ActionAffinity/&DHFeeblemindSpellTitle	Mente debole
-Reaction/&SpendPowerBundleTitle	Spendi potere
-Reaction/&SpendPowerBundleDescription	Spendi potere.

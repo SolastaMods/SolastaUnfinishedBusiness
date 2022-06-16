@@ -1,4 +1,8 @@
-﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1.
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de pontuação de habilidade
 Feature/&DarkelfMagicDescription	Você conhece o truque das Luzes Dançantes.
 Feature/&DarkelfMagicTitle	Magia dos Elfos Negros
@@ -17,7 +21,3 @@ Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	Dhal Nerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.

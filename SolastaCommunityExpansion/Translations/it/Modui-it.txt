@@ -187,3 +187,5 @@ ModUi/&Weapon	<color=#FFFF00>Armi</color>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Rimuovere il requisito della concentrazione da qualsiasi incantesimo <b><i><color=#C04040E0>[Richiede Riavvio]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Sovrascrivi la lingua del gioco:</color>
 ModUi/&Campaigns	<color=yellow>Campagne:</color>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Rimuovi il filtro umanoide su <color=orange>Risate orribili</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Applica l'effetto <color=orange>Intrappola</color> solo al momento del lancio <i><color=yellow>[i.e.: nessun effetto ricorrente]</color></i> <b><i><color=#C04040E0 >[Richiede il riavvio]</color></i></b>

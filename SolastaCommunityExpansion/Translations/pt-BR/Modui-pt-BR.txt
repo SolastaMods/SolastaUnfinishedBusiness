@@ -187,3 +187,5 @@ ModUi/&Weapon	<color=yellow>Armas</color>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remova o requisito de concentração de qualquer feitiço <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Substituir o idioma do jogo:</color>
 ModUi/&Campaigns	<color=yellow>Campanhas:</color>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remova o filtro humanóide em <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Aplique o efeito <color=orange>Entangle</color> apenas no momento da conjuração <i><color=yellow>[i.e.: sem efeito recorrente]</color></i> <b><i><color=#C04040E0 >[Requer reinicialização]</color></i></b>

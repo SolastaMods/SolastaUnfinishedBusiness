@@ -187,3 +187,5 @@ ModUi/&Weapon	<color=yellow>Оружие</color>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Убрать требование концентрации для любых заклинаний <b><i><color=#C04040E0>[Требуется перезапуск]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Выбрать неофициально поддерживаемый язык:</color>
 ModUi/&Campaigns	<color=yellow>Кампании:</color>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Удалите гуманоидный фильтр на <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Эффект <color=orange>Запутывание</color> применяется только во время применения <i><color=yellow>[т.е. нет повторяющегося эффекта]</color></i> <b><i><color=#C04040E0 >[Требуется перезагрузка]</color></i></b>

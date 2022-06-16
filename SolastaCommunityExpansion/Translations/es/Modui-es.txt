@@ -187,3 +187,5 @@ ModUi/&Weapon	<color=#FFFF00>Armas</color>
 ModUi/&RemoveConcentrationRequirementsFromAnySpell	Eliminar el requisito de concentración de cualquier hechizo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&OverwriteGameLanguage	<color=yellow>Sobrescribir el idioma del juego:</color>
 ModUi/&Campaigns	<color=yellow>Campañas:</color>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Eliminar el filtro humanoide en <color=orange>Hideous Risa</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Solo aplica el efecto <color=orange>Enredar</color> en el momento del lanzamiento <i><color=yellow>[es decir, sin efecto recurrente]</color></i> <b><i><color=#C04040E0 >[Requiere reinicio]</color></i></b>

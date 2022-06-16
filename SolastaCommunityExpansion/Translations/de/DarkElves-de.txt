@@ -1,4 +1,8 @@
-﻿Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
+Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1.
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Erhöhung des Fähigkeitswerts
 Feature/&DarkelfMagicDescription	Du kennst den Cantrip von Dancing Lights.
 Feature/&DarkelfMagicTitle	Magie der Dunkelelfen
@@ -17,7 +21,3 @@ Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo’Remon
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
