@@ -90,6 +90,13 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
+        toggle = Main.Settings.UseHeightOneCylinderEffect;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseHeightOneCylinderEffect = toggle;
+            HouseSpellTweaks.UseHeightOneCylinderEffect();
+        }
+
         toggle = Main.Settings.RemoveConcentrationRequirementsFromAnySpell;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveConcentrationRequirementsFromAnySpell"), ref toggle, UI.AutoWidth()))
         {

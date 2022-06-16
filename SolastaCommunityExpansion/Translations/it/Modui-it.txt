@@ -189,3 +189,4 @@ ModUi/&OverwriteGameLanguage	<color=yellow>Sovrascrivi la lingua del gioco:</col
 ModUi/&Campaigns	<color=yellow>Campagne:</color>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter	Rimuovi il filtro umanoide su <color=orange>Risate orribili</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle	Applica l'effetto <color=orange>Intrappola</color> solo al momento del lancio <i><color=yellow>[i.e.: nessun effetto ricorrente]</color></i> <b><i><color=#C04040E0 >[Richiede il riavvio]</color></i></b>
+ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square), <color=orange>Spike Growth</color> (round)

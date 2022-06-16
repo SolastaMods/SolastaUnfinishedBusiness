@@ -189,3 +189,4 @@ ModUi/&OverwriteGameLanguage	<color=yellow>非官方语言支持：</color>
 ModUi/&Campaigns	<color=yellow>战役：</color>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remove humanoid filter on <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveRecurringEffectOnEntangle	Only apply Entangle's effect at casting time <i><color=yellow>[i.e. no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square), <color=orange>Spike Growth</color> (round)

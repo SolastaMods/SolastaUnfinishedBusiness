@@ -153,6 +153,7 @@ public class Settings : UnityModManager.ModSettings
     public bool FullyControlConjurations { get; set; }
 
     // House
+    public bool UseHeightOneCylinderEffect { get; set; }
     public bool RemoveConcentrationRequirementsFromAnySpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool RemoveRecurringEffectOnEntangle { get; set; }
