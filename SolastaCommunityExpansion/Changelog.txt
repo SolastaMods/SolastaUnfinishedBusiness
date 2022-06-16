@@ -11,5 +11,4 @@
 
 CHANGES:
 
-- Add a setting to reduce total crafting time by a %
-- Improve Dark Elves skins and hairs colors offering
+- Fix reduce total crafting time formula
