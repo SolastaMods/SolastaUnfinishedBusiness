@@ -93,12 +93,14 @@ internal static class HouseSpellTweaks
         {
             // Set to Cylinder radius 4, height 1
             sleetStormEffect.targetType = RuleDefinitions.TargetType.Cube;
+            sleetStormEffect.targetParameter = 6;
             sleetStormEffect.targetParameter2 = 0;
         }
         else
         {
             // Restore Sleet Storm defaults
             sleetStormEffect.targetType = RuleDefinitions.TargetType.Cylinder;
+            sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
         }
     }
