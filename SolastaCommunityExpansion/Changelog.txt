@@ -1,19 +1,21 @@
-﻿CHANGES:
+﻿PATRONS:
 
-- Add setting to remove humanoid filter from Hideous Laughter
-- Add setting to only apply Entangle effects at casting time
-- Fix a crash on game exit
-- Improve Witch progression with maledictions replacement
-- Improve English translations
-- Make Dark Elf a sub race
-
-PATRONS:
-
-- Thanks to the 11 individuals who donated so far...
-- We could do much more if everyone donates a coffee ($1-$5) a month:
+- Thanks to the 11 individuals who contributed so far...
+- We could do much more if everyone donates a coffee [$5]
 
 ** Pay for better services from DeepL, GitHub and others
 ** Hire freelancer artists for better animations, bitmaps, etc
 ** Invest on game development learning
 
-- Donation button Under Mod UI > Credits
+- The [donation] button is under Mod UI > Credits
+- It opens a browser page with a paypal support link
+
+CHANGES:
+
+- Add a setting to enforce an 1 cell height on certain spells
+- Add a setting to only apply Entangle effects at casting time
+- Add a setting to remove humanoid filter from Hideous Laughter
+- Add more color choices to Dark Elves and make them a sub race
+- Fix an Unity crash on game exit caused by a memory leak
+- Fix a game exception with Monks casting damage spells
+- Improve Witch progression with maledictions replacements
