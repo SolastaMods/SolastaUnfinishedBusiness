@@ -191,3 +191,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Utilizar las reglas oficiales de ve
 ModUi/&Visuals	<color=#FFFF00>Visuales:</color>
 ModUi/&Weapon	<color=#FFFF00>Armas</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Reducir el tiempo de elaboración por</color>
+ModUi/&ChangeSleetStormToCube	Cambia <color=orange>Sleet Storm</color> para usar un cubo en lugar de un cilindro

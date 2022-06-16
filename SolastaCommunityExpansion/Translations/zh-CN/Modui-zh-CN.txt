@@ -191,3 +191,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon	<color=yellow>武器</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>制作耗时降低倍率</color>
+ModUi/&ChangeSleetStormToCube	Change <color=orange>Sleet Storm</color> to use a cube instead of a cylinder

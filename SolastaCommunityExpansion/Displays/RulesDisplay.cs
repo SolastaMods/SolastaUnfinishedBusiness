@@ -90,6 +90,13 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle("Change Sleet Storm to use a cube instead of a cylinder", ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            HouseSpellTweaks.UseCubeOnSleetStorm();
+        }
+
         toggle = Main.Settings.UseHeightOneCylinderEffect;
         if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
         {

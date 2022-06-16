@@ -191,3 +191,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать офици
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
 ModUi/&Weapon	<color=yellow>Оружие</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Сокращение времени изготовления на</color>
+ModUi/&ChangeSleetStormToCube	Измените <color=orange>Sleet Storm</color>, чтобы использовать куб вместо цилиндра.
