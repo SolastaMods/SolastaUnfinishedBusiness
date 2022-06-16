@@ -13,3 +13,4 @@ CHANGES:
 
 - Add a setting to change Sleet Storm to a cube effect
 - Fix "reduce total crafting time" formula
+- Fix sub races not getting features at higher levels
