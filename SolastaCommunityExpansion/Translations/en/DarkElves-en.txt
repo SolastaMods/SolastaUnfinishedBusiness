@@ -11,9 +11,9 @@ Feature/&DarkelfWeaponTrainingTitle	Dark Elf Weapon Training
 Feature/&LightAffinityDarkelfLightSensitivityDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
 Feature/&LightAffinityDarkelfLightSensitivityTitle	Sunlight Sensitivity
 Feature/&PowerDarkelfDarknessDescription	Create an area of magical darkness. Usable once per long rest.
-Feature/&PowerDarkelfDarknessTitle	Feyshadow
+Feature/&PowerDarkelfDarknessTitle	Darkness
 Feature/&PowerDarkelfFaerieFireDescription	Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
-Feature/&PowerDarkelfFaerieFireTitle	Feyfire
+Feature/&PowerDarkelfFaerieFireTitle	Faerie Fire
 Race/&DarkelfRaceDescription	Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 Race/&DarkelfRaceTitle	Dark Elf
 Race/&DarkelfSurName1Title	Za'Moryra

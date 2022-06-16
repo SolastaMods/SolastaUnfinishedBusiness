@@ -190,3 +190,4 @@ ModUi/&UseHeightOneCylinderEffect	Exibe um efeito de cilindro de altura 1 ao lan
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals	<color=yellow>Visual:</color>
 ModUi/&Weapon	<color=yellow>Armas</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>Reduza o tempo de criação em</color>

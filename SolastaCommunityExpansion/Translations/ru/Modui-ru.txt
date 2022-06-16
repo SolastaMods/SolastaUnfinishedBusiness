@@ -190,3 +190,4 @@ ModUi/&UseHeightOneCylinderEffect	Отображать эффект цилинд
 ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
 ModUi/&Weapon	<color=yellow>Оружие</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>Сокращение времени изготовления на</color>

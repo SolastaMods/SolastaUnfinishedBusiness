@@ -190,3 +190,4 @@ ModUi/&UseHeightOneCylinderEffect	施放<color=orange>艾伐黑触手、纠缠�
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&Weapon	<color=yellow>武器</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>制作耗时降低倍率</color>
