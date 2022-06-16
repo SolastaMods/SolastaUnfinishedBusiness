@@ -91,7 +91,7 @@ internal static class RulesDisplay
         UI.Label("");
 
         toggle = Main.Settings.ChangeSleetStormToCube;
-        if (UI.Toggle("Change Sleet Storm to use a cube instead of a cylinder", ref toggle, UI.AutoWidth()))
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
             HouseSpellTweaks.UseCubeOnSleetStorm();
