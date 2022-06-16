@@ -216,12 +216,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 2
     },
     {
@@ -246,12 +246,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 5
     },
     {
@@ -276,12 +276,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 9
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 9
     },
     {
@@ -306,12 +306,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 13
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 13
     },
     {
@@ -336,12 +336,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 17
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 17
     },
     {

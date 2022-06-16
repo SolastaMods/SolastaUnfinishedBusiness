@@ -1,26 +1,26 @@
 {
   "$type": "MorphotypeElementDefinition, Assembly-CSharp",
   "playerSelectable": true,
-  "category": "HairColor",
+  "category": "Skin",
   "mainColor": {
+    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+    "r": 0.02121901,
+    "g": 0.02415763,
+    "b": 0.0331047736,
+    "a": 1.0
+  },
+  "secondColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 1.0,
     "g": 1.0,
     "b": 1.0,
     "a": 1.0
   },
-  "secondColor": {
-    "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.188234255,
-    "g": 0.265957624,
-    "b": 0.2830189,
-    "a": 1.0
-  },
   "thirdColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.188235313,
-    "g": 0.266666681,
-    "b": 0.282352954,
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
     "a": 1.0
   },
   "replaceEyeColorMask": false,
@@ -36,7 +36,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "BodyColor/&HairSilverTitle",
+    "title": "BodyColor/&SkinTanTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
@@ -46,18 +46,18 @@
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 1.0,
-      "g": 1.0,
-      "b": 1.0,
+      "r": 0.866666734,
+      "g": 0.509803951,
+      "b": 0.619607866,
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 48,
+    "sortOrder": 50,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7dd1a932-69d3-4d51-b9c6-eccaaed90007",
+  "guid": "d26c8ce0-884f-4abd-90fd-dc961802c48c",
   "contentPack": 9999,
-  "name": "DarkelfHair1"
+  "name": "DarkelfSkin3"
 }

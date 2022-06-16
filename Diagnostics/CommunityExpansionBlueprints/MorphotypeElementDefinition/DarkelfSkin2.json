@@ -4,9 +4,9 @@
   "category": "Skin",
   "mainColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.0,
-    "g": 0.0,
-    "b": 0.0,
+    "r": 0.23,
+    "g": 0.23,
+    "b": 0.23,
     "a": 1.0
   },
   "secondColor": {
@@ -52,12 +52,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 48,
+    "sortOrder": 49,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d26c8ce0-884f-4abd-90fd-dc961802c48d",
+  "guid": "d26c8ce0-884f-4abd-90fd-dc961802c48b",
   "contentPack": 9999,
   "name": "DarkelfSkin2"
 }

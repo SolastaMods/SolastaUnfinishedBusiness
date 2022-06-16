@@ -4,9 +4,9 @@
   "category": "HairColor",
   "mainColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 1.0,
-    "g": 1.0,
-    "b": 1.0,
+    "r": 0.2743414,
+    "g": 0.367878854,
+    "b": 0.4245283,
     "a": 1.0
   },
   "secondColor": {
@@ -52,12 +52,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 48,
+    "sortOrder": 50,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7dd1a932-69d3-4d51-b9c6-eccaaed90007",
+  "guid": "7dd1a932-69d3-4d51-b9c6-eccaaed90009",
   "contentPack": 9999,
-  "name": "DarkelfHair1"
+  "name": "DarkelfHair3"
 }
