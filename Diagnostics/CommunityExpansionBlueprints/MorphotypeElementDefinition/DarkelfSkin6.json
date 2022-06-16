@@ -4,9 +4,9 @@
   "category": "Skin",
   "mainColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.215686291,
-    "g": 0.235294133,
-    "b": 0.266666681,
+    "r": 0.05490196,
+    "g": 0.007843137,
+    "b": 0.0156862736,
     "a": 1.0
   },
   "secondColor": {

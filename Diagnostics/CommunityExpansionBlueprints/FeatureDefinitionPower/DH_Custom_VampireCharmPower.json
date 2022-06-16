@@ -9,7 +9,7 @@
     "targetType": "Individuals",
     "itemSelectionType": "Equiped",
     "targetParameter": 1,
-    "targetParameter2": 2,
+    "targetParameter2": 0,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,

@@ -233,7 +233,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Race/&DarkelfRaceTitle",
     "description": "Race/&DarkelfRaceDescription",
     "spriteReference": {

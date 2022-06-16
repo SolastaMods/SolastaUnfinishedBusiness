@@ -4,9 +4,9 @@
   "category": "HairColor",
   "mainColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 0.188234255,
-    "g": 0.265957624,
-    "b": 0.2830189,
+    "r": 0.996078432,
+    "g": 0.9137255,
+    "b": 0.9137255,
     "a": 1.0
   },
   "secondColor": {
