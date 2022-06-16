@@ -91,14 +91,14 @@ internal static class HouseSpellTweaks
 
         if (Main.Settings.ChangeSleetStormToCube)
         {
-            // Set to Cylinder radius 4, height 1
+            // Set to Cube side 8, default height
             sleetStormEffect.targetType = RuleDefinitions.TargetType.Cube;
-            sleetStormEffect.targetParameter = 6;
+            sleetStormEffect.targetParameter = 8;
             sleetStormEffect.targetParameter2 = 0;
         }
         else
         {
-            // Restore Sleet Storm defaults
+            // Restore to cylinder radius 4, height 3
             sleetStormEffect.targetType = RuleDefinitions.TargetType.Cylinder;
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
