@@ -38,6 +38,7 @@ internal class RoyalKnight : AbstractSubclass
         var effectDescription = FeatureDefinitionPowers.PowerDomainLifePreserveLife.EffectDescription.Copy();
         effectDescription.EffectForms[0].HealingForm.HealingCap = RuleDefinitions.HealingCap.MaximumHitPoints;
         effectDescription.EffectForms[0].HealingForm.DiceNumber = 4;
+        effectDescription.targetFilteringTag = RuleDefinitions.TargetFilteringTag.No;
 
         var rallyingCryPower = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDomainLifePreserveLife, "RallyingCryPower",
