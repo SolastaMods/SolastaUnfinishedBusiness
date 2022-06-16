@@ -9,6 +9,6 @@ internal static class RulesetCharacterHero_GComputeCraftingDurationHours
 {
     internal static void Postfix(ref int __result)
     {
-        __result = (int)((100f - Main.Settings.TotalCraftingTimeModifier) * __result);
+        __result = (int)((100f - Main.Settings.TotalCraftingTimeModifier) / 100 * __result);
     }
 }
