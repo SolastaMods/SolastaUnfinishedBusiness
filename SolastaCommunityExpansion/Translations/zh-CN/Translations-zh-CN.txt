@@ -1,4 +1,5 @@
 ActionAffinity/&DHFeeblemindSpellDescription	无法施法
+ActionAffinity/&DHFeeblemindSpellTitle	Feeblemind
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC设为16
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	树肤术
 AttributeModifier/&DHFeeblemindChaSpellDescription	魅力值为1
@@ -141,6 +142,7 @@ Condition/&RuinDescription	处于毁灭状态
 Condition/&RuinedDescription	此生物防御降低
 Condition/&RuinedTitle	毁灭
 Condition/&RuinTitle	毁灭
+Condition/&SentinelStopMovementConditionDescription	Unable to move. Speed set to 0.
 Condition/&SentinelStopMovementConditionTitle	停止
 Condition/&SwallowedByToadConditionDescription	每回合受到3D6酸性伤害。若蛙王邪术师在单次攻击被15或更高点的伤害击中，此效果结束
 Condition/&SwallowedByToadConditionTitle	巨蛙吞食
@@ -908,6 +910,8 @@ Feature/&ClassWarlockToolsProficiencyDescription	你获得了草药工具和附�
 Feature/&ClassWarlockToolsProficiencyTitle	邪术师魔法工艺
 Feature/&ClassWarlockWeaponProficiencyDescription	简易武器
 Feature/&ClassWarlockWeaponProficiencyTitle	邪术师武器熟练项
+Feature/&ClassWitchMaledictionReplaceDescription	Select Malediction to replace.
+Feature/&ClassWitchMaledictionReplaceTitle	Replace Malediction
 Feature/&CounterStrikePowerDescription	消耗1个赌注骰反击敌人，若你击中，造成额外1d6+2点钝击伤害
 Feature/&CounterStrikePowerTitle	反击
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	当你生命值降至0而没有立即死亡时，能改为使生命值降至1
@@ -1321,7 +1325,6 @@ Item/&CraftingManualRecipeEnchantCEPike+1Title	附魔长矛+1
 Item/&CraftingManualRecipeEnchantCEPike+2Description	附魔长矛+2
 Item/&CraftingManualRecipeEnchantCEPike+2Title	附魔长矛+2
 Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	附魔心灵之长矛
-Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	附魔心灵之长矛
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	附魔心灵之长矛
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	附魔裹手+1
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	附魔裹手+1
@@ -1546,6 +1549,8 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0}以�
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	应用选定技巧
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	应用
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	延臂技巧
+Reaction/&SpendPowerBundleDescription	Spend Power.
+Reaction/&SpendPowerBundleTitle	Spend Power
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0}用徒手打击命中目标，能消耗3点气尝试击杀对方
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	消耗气尝试击杀对方
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	消耗气
