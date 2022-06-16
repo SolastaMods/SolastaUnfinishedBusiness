@@ -20,7 +20,7 @@ internal static class CreditsDisplay
         {"D20 Patrons", "<b>J. Cohen</b>"},
         {"D12 Patrons", "L. Goldiner, E. Antonio"},
         {"  D8 Patrons", "R. Baker, R. Maxim"},
-        {"  D6 Patrons", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen"}
+        {"  D6 Patrons", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, D. Fenter, J. Bendoski, M. Oliveira, B. Lane"}
     };
 
     internal static readonly Dictionary<string, string> CreditsTable = new()
