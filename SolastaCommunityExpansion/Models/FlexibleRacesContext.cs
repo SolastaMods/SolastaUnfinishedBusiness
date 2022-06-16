@@ -31,7 +31,6 @@ internal static class FlexibleRacesContext
         {"HalfOrc", attributeChoiceThree},
         // unofficial races
         {"BolgrifRace", attributeChoiceThree},
-        {"DarkelfRace", attributeChoiceThree},
         {"GnomeRace", attributeChoiceThree}
     };
 
