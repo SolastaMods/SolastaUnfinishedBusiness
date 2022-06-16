@@ -11,4 +11,5 @@
 
 CHANGES:
 
-- Fix reduce total crafting time formula
+- Add a setting to change Sleet Storm to a cube effect
+- Fix "reduce total crafting time" formula
