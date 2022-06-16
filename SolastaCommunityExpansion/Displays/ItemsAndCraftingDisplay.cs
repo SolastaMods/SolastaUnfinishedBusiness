@@ -113,6 +113,14 @@ internal static class ItemsAndCraftingDisplay
 
         UI.Label("");
 
+        intValue = Main.Settings.TotalCraftingTimeModifier;
+        if (UI.Slider(Gui.Localize("ModUi/&TotalCraftingTimeModifier"), ref intValue, 0, 100, 0, "%", UI.AutoWidth()))
+        {
+            Main.Settings.TotalCraftingTimeModifier = intValue;
+        }
+
+        UI.Label("");
+
         toggle = Main.Settings.ShowCraftingRecipeInDetailedTooltips;
         if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftingRecipeInDetailedTooltips"), ref toggle, UI.AutoWidth()))
         {

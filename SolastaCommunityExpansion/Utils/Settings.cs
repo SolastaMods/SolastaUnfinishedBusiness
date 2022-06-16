@@ -185,6 +185,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentifcationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 

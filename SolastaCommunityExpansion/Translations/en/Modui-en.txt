@@ -190,3 +190,4 @@ ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when castin
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&Weapon	<color=yellow>Weapons</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>Reduce crafting time by</color>

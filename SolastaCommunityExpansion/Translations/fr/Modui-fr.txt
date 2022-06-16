@@ -190,3 +190,4 @@ ModUi/&UseHeightOneCylinderEffect	Affiche un effet de cylindre de hauteur 1 lors
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals	<color=yellow>Visuels :</color>
 ModUi/&Weapon	<color=yellow>Armes</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>Réduisez le temps de fabrication en</color>
