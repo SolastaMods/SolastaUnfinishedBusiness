@@ -103,7 +103,7 @@ internal static class CursorLocationGeometricShape_UpdateGeometricShape
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class GeometricShape_UpdateCylinderPosition
     {
-        public static void Postfix(MeshRenderer __instance.cylinderRenderer, Vector3 origin)
+        public static void Postfix(GeometricShape __instance, Vector3 origin)
         {
             var transform = __instance.cylinderRenderer.transform;
             var p = transform.position;
