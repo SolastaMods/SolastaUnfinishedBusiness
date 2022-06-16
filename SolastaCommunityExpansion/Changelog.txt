@@ -1,13 +1,16 @@
 ﻿CHANGES:
 
-- Allow Witch to replace maledictions on level up
+- Add setting to remove humanoid filter from Hideous Laughter
+- Add setting to only apply Entangle effects at casting time
+- Fix a crash on game exit
+- Improve Witch progression with maledictions replacement
 - Improve English translations
 - Make Dark Elf a sub race
 
 PATRONS:
 
-- Thanks to the 11 users who donated so far...
-- We could do much more if every user donates a coffee a month:
+- Thanks to the 11 individuals who donated so far...
+- We could do much more if everyone donates a coffee ($1-$5) a month:
 
 ** Pay for better services from DeepL, GitHub and others
 ** Hire freelancer artists for better animations, bitmaps, etc
