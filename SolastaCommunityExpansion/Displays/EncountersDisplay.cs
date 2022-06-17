@@ -55,10 +55,10 @@ public static class EncountersDisplay
 
             if (showStats)
             {
-                UI.Label($"AC: {hero.GetAttribute("ArmorClass").CurrentValue:0#}".white(), UI.Width(48));
+                UI.Label($"AC: {hero.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue:0#}".white(), UI.Width(48));
                 UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".yellow(), UI.Width(72));
-                UI.Label($"XP: {hero.GetAttribute("Experience").CurrentValue}".white(), UI.Width(72));
-                UI.Label($"LV: {hero.GetAttribute("CharacterLevel").CurrentValue:0#}".white(), UI.Width(48));
+                UI.Label($"XP: {hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue}".white(), UI.Width(72));
+                UI.Label($"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".white(), UI.Width(48));
             }
 
             currentItemsHeroes.TryGetValue(hero, out flip);
@@ -219,7 +219,7 @@ public static class EncountersDisplay
 
                         if (attackIteration.MonsterAttackDefinition.Magical)
                         {
-                            UI.Label("MAGICAL".green(), UI.Width(108));
+                            UI.Label(TagsDefinitions.Magical.green(), UI.Width(108));
                         }
                     }
                 }

@@ -300,7 +300,7 @@ internal class FeatureDefinitionMoonlitInvisibility : FeatureDefinition, ICustom
         var hero = characterAction.ActingCharacter.RulesetCharacter;
         var action = characterAction.ActionDefinition;
 
-        if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith("Power"))
+        if (action.Name.StartsWith("Attack") || action.Name.StartsWith("Cast") || action.Name.StartsWith(TagsDefinitions.Power))
         {
             var ruleEffect = characterAction.ActionParams.RulesetEffect;
             if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))

@@ -495,7 +495,7 @@ internal static class InfusionHelpers
         itemEffect.AddEffectForm(new EffectFormBuilder().SetConditionForm(itemCondition,
             ConditionForm.ConditionOperation.Add, false, false, new List<ConditionDefinition>()).Build());
 
-        return BuildBasicInfusionPower("Power" + name, itemEffect.Build())
+        return BuildBasicInfusionPower(TagsDefinitions.Power + name, itemEffect.Build())
             .SetGuiPresentation(item.GuiPresentation)
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();

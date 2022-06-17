@@ -87,7 +87,7 @@ public static class BattleSmithBuilder
             AttackModifierMethod.None, 0,
             AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence,
             false,
-            "Magical", joltAttackGui.Build());
+            TagsDefinitions.Magical, joltAttackGui.Build());
         battleSmith.AddFeatureAtLevel(joltAttack, 9);
 
         var improvedInfuseWeaponGui = new GuiPresentationBuilder(
@@ -110,7 +110,7 @@ public static class BattleSmithBuilder
             AttackModifierMethod.None, 0,
             AttributeDefinitions.Intelligence, AttackModifierMethod.FlatValue, 3, AttributeDefinitions.Intelligence,
             false,
-            "Magical", jolt2AttackGui.Build());
+            TagsDefinitions.Magical, jolt2AttackGui.Build());
         battleSmith.AddFeatureAtLevel(jolt2Attack, 15);
         battleSmith.AddFeatureAtLevel(
             ProtectorConstructUpgradeFeatureSetBuilder.ProtectorConstructUpgradeFeatureSet, 15);
