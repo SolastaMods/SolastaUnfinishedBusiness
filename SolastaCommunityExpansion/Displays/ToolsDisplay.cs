@@ -44,7 +44,8 @@ internal static class ToolsDisplay
                 (Gui.Localize($"Tooltip/&Tag{x}Title"),
                     a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains(x)))
             .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), x => true))
-            .AddItem((Gui.Localize("Tooltip/&TagRangeTitle"), a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
+            .AddItem((Gui.Localize("Tooltip/&TagRangeTitle"),
+                a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
             .OrderBy(x => x.Item1)
             .ToArray();
 

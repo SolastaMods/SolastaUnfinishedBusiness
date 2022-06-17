@@ -105,7 +105,8 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             {
                 // game code doesn't consider heroes in wildshape form
                 //damageForm.BonusDamage += (attacker.RulesetCharacter as RulesetCharacterHero).GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-                damageForm.BonusDamage += attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+                damageForm.BonusDamage += attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus)
+                    .CurrentValue;
             }
 
             if (provider.DamageValueDetermination ==
@@ -148,7 +149,8 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
 
             if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.RageDamage)
             {
-                damageForm.BonusDamage = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
+                damageForm.BonusDamage =
+                    attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.RageDamage);
             }
         }
         else if (provider.DamageValueDetermination ==
@@ -184,7 +186,8 @@ internal static class GameLocationBattleManager_ComputeAndNotifyAdditionalDamage
             var flag = attackMode != null && attackMode.UseVersatileDamage;
             var firstDamageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             damageForm.DieType = flag ? firstDamageForm.VersatileDieType : firstDamageForm.DieType;
-            damageForm.DiceNumber = attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.BrutalCriticalDice);
+            damageForm.DiceNumber =
+                attacker.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.BrutalCriticalDice);
             damageForm.BonusDamage = 0;
         }
         else if (provider.DamageValueDetermination ==

@@ -95,7 +95,7 @@ public static class WeaponValidators
         item?.FillTags(tagsMap, null, true);
         return tagsMap.Keys.Any(tags.Contains);
     }
-    
+
     public static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)
     {
         return item != null && HasAnyWeaponTag(item.ItemDefinition, tags);

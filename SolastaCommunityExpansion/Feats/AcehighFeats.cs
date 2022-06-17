@@ -533,7 +533,8 @@ internal static class AcehighFeats
             Definition.AffinityGroups.Add(
                 new SavingThrowAffinityGroup
                 {
-                    affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage, abilityScoreName = AttributeDefinitions.Strength
+                    affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
+                    abilityScoreName = AttributeDefinitions.Strength
                 });
         }
 
