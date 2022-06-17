@@ -361,8 +361,18 @@ public class CustomFeatureSelectionPanel : CharacterStagePanel
         {
             CommonData.AbilityScoresListingPanel.RefreshNow();
             CommonData.CharacterStatsPanel.RefreshNow();
-            CommonData.AttackModesPanel?.RefreshNow();
-            CommonData.PersonalityMapPanel?.RefreshNow();
+
+            // don't use ? on Unity Objects
+            if (CommonData.AttackModesPanel != null)
+            {
+                CommonData.AttackModesPanel.RefreshNow();
+            }
+
+            // don't use ? on Unity Objects
+            if (CommonData.PersonalityMapPanel != null)
+            {
+                CommonData.PersonalityMapPanel.RefreshNow();
+            }
 
             OnPreRefresh();
             RefreshNow();

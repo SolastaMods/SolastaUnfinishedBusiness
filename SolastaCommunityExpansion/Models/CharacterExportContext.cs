@@ -20,19 +20,20 @@ internal static class CharacterExportContext
     {
         var messageModal = Gui.GuiService.GetScreen<MessageModal>();
         var contentText = messageModal.transform.FindChildRecursive("Content").GetComponent<TMP_Text>();
+        var contentTextParent = contentText.transform.parent;
 
         var characterCreationScreen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
         var firstNameInputField = characterCreationScreen.transform.FindChildRecursive("FirstNameInputField")
             .GetComponent<TMP_InputField>();
 
-        InputField = Object.Instantiate(firstNameInputField, contentText.transform.parent.parent);
+        InputField = Object.Instantiate(firstNameInputField, contentTextParent.parent);
 
         InputField.characterLimit = 20;
         InputField.onValueChanged = null;
         InputField.fontAsset = contentText.font;
         InputField.pointSize = contentText.fontSize;
         InputField.transform.localPosition = new Vector3(-50,
-            contentText.transform.parent.localPosition.y - contentText.fontSize, 0);
+            contentTextParent.localPosition.y - contentText.fontSize, 0);
     }
 
     private static string ParseText(string text)
