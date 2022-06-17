@@ -142,22 +142,6 @@ internal static class InitialChoicesContext
                     }
                 }
             }
-            if (Main.Settings.EnableFeatsAtEvenLevels)
-            {
-                foreach (var level in levels)
-                {
-                    characterClassDefinition.FeatureUnlocks.TryAdd(
-                        new FeatureUnlockByLevel(PointPoolBonusFeat, level));
-                }
-            }
-            else
-            {
-                foreach (var level in levels)
-                {
-                    characterClassDefinition.FeatureUnlocks.Remove(
-                        new FeatureUnlockByLevel(PointPoolBonusFeat, level));
-                }
-            }
         }
     }
 

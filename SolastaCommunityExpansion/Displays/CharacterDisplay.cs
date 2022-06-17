@@ -121,7 +121,7 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFeatsAtEvenLevels"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableFeatsAtEvenLevels = toggle;
-            InitialChoicesContext.SwitchEvenLevelFeats();
+            //InitialChoicesContext.SwitchEvenLevelFeats();
         }
 
         toggle = Main.Settings.EnableLevel20;
