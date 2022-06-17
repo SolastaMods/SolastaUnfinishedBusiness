@@ -380,7 +380,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not {Ranged: false, Thrown: false})
+            if (!WeaponValidators.IsMelee(weapon) || attackMode.AbilityScore != AttributeDefinitions.Strength)
             {
                 return;
             }
