@@ -11,3 +11,4 @@
 
 CHANGES:
 
+- Improve Power Attack feat to work with spears and javelins
