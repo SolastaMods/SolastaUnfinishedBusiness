@@ -79,5 +79,140 @@ internal static class Morphotypes
             .SetMainColor(new Color {r = 0.996078431f, g = 0.913725490f, b = 0.913725490f, a = 1.0f})
             .SetSortOrder(53)
             .AddToDB();
+
+        //FaceUnlock
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_00, "CEGlowingEyeColor_00", "0736115f-5f15-4a01-abd1-7fa069b6278a")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(40)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_01, "CEGlowingEyeColor_01", "0736115f-5f15-4a01-abd1-7fa069b6278b")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(41)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_02, "CEGlowingEyeColor_02", "0736115f-5f15-4a01-abd1-7fa069b6278c")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(42)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_03, "CEGlowingEyeColor_03", "0736115f-5f15-4a01-abd1-7fa069b6278d")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(43)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_04, "CEGlowingEyeColor_04", "0736115f-5f15-4a01-abd1-7fa069b6278e")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(44)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_05, "CEGlowingEyeColor_05", "0736115f-5f15-4a01-abd1-7fa069b6278f")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(45)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_06, "CEGlowingEyeColor_06", "0736115f-5f15-4a01-abd1-7fa069b62780")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(46)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_07, "CEGlowingEyeColor_07", "0736115f-5f15-4a01-abd1-7fa069b62782")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(47)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_08, "CEGlowingEyeColor_08", "0736115f-5f15-4a01-abd1-7fa069b62783")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(48)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_09, "CEGlowingEyeColor_09", "0736115f-5f15-4a01-abd1-7fa069b62784")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(49)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_10, "CEGlowingEyeColor_10", "0736115f-5f15-4a01-abd1-7fa069b62785")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(50)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_11, "CEGlowingEyeColor_11", "0736115f-5f15-4a01-abd1-7fa069b62786")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(51)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_12, "CEGlowingEyeColor_12", "0736115f-5f15-4a01-abd1-7fa069b62787")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(52)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_13, "CEGlowingEyeColor_13", "0736115f-5f15-4a01-abd1-7fa069b62788")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(53)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_14, "CEGlowingEyeColor_14", "0736115f-5f15-4a01-abd1-7fa069b62789")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(54)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_15, "CEGlowingEyeColor_15", "aaa4520d-c7c8-4d8c-b1e5-add88efe7eca")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(55)
+            .AddToDB();
+
+        _ = MorphotypeElementDefinitionBuilder
+            .Create(BodyDecorationColor_SorcererManaPainter_00, "CEGlowingEyeColor_16", "aaa4520d-c7c8-4d8c-b1e5-add88efe7ecb")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetMainColor(new UnityEngine.Color()
+            {
+                r = BodyDecorationColor_SorcererManaPainter_00.MainColor.r * 4,
+                g = BodyDecorationColor_SorcererManaPainter_00.MainColor.g * 4,
+                b = BodyDecorationColor_SorcererManaPainter_00.MainColor.b * 4,
+                a = 1.0f,
+            })
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.Default)
+            .SetSortOrder(56)
+            .AddToDB()
+            .GuiPresentation.color = new UnityEngine.Color()
+            {
+                r = BodyDecorationColor_SorcererManaPainter_00.GuiPresentation.Color.r * 4,
+                g = BodyDecorationColor_SorcererManaPainter_00.GuiPresentation.Color.g * 4,
+                b = BodyDecorationColor_SorcererManaPainter_00.GuiPresentation.Color.b * 4,
+                a = 1.0f,
+            };
+        
     }
 }
