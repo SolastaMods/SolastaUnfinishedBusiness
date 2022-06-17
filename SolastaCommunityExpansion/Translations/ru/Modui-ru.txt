@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Разрешить 
 ModUi/&AllowUnmarkedSorcerers	Разрешить неотмеченных <color=orange>Заклинателей</color>
 ModUi/&AllRecipesInDm	Все рецепты в Создателе Подземелий
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	Клавиша <color=cyan>ALT</color> выделяет гаджеты только в поле зрения группы [только в пользовательских подземельях]
-ModUi/&Ammunition	<color=yellow>Боеприпасы</color>
-ModUi/&Armor	<color=yellow>Доспехи</color>
 ModUi/&AutoPauseOnVictory	Ставить паузу после победы в бою
 ModUi/&Basic	<color=yellow>Основное:</color>
 ModUi/&Battle	<color=yellow>Битва:</color>
@@ -185,10 +183,8 @@ ModUi/&UnlockEyeStyles	Разблокировать стили глаз
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Разблокировать светящиеся цвета для всех отметин и татуировок
 ModUi/&UnlockGlowingEyeColors	Разблокировать светящиеся цвета глаз
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Разблокировать отметины и татуировки для всех персонажей
-ModUi/&UsableDevice	<color=yellow>Используемое устройство</color>
 ModUi/&UseHeightOneCylinderEffect	Отображать эффект цилиндра высотой 1 при использовании <color=orange>Черных щупалец, Опутывания, Жира</color> (квадрат) и <color=orange>Шип роста</color> (круглый)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Использовать официальные правила преимущества/помехи
 ModUi/&Visuals	<color=yellow>Визуальные эффекты:</color>
-ModUi/&Weapon	<color=yellow>Оружие</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Сокращение времени изготовления на</color>
 ModUi/&ChangeSleetStormToCube	Измените <color=orange>Sleet Storm</color>, чтобы использовать куб вместо цилиндра.

@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Permitir la selecci
 ModUi/&AllowUnmarkedSorcerers	Permitir que los <color=#FFA500>Hechiceros</color> no estén marcados
 ModUi/&AllRecipesInDm	Todas las recetas en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=#00FFFF>ALT</color> tecla sólo resaltar los artilugios en el campo de visión del grupo <i><color=#FFFF00>[sólo en mazmorras personalizadas]</color></i>
-ModUi/&Ammunition	<color=#FFFF00>Munición</color>
-ModUi/&Armor	<color=#FFFF00>Armadura</color>
 ModUi/&AutoPauseOnVictory	Poner en pausa la interfaz de usuario cuando se sale victorioso de una batalla
 ModUi/&Basic	<color=#FFFF00>Básico:</color>
 ModUi/&Battle	<color=#FFFF00>Batalla:</color>
@@ -185,10 +183,8 @@ ModUi/&UnlockEyeStyles	Desbloquear los estilos de ojos
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Desbloquear colores brillantes para todas las marcas y tatuajes
 ModUi/&UnlockGlowingEyeColors	Desbloquear colores de ojos brillantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Desbloquear marcas y tatuajes para todos los personajes
-ModUi/&UsableDevice	<color=#FFFF00>Dispositivo utilizable</color>
 ModUi/&UseHeightOneCylinderEffect	Muestra un efecto de cilindro de altura 1 al lanzar <color=orange>Black Tentacles, Entangle, Grease</color> (cuadrado) y <color=orange>Spike Growth</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utilizar las reglas oficiales de ventaja / desventaja
 ModUi/&Visuals	<color=#FFFF00>Visuales:</color>
-ModUi/&Weapon	<color=#FFFF00>Armas</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Reducir el tiempo de elaboración por</color>
 ModUi/&ChangeSleetStormToCube	Cambia <color=orange>Sleet Storm</color> para usar un cubo en lugar de un cilindro

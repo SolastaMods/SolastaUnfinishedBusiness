@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	允许在施放<col
 ModUi/&AllowUnmarkedSorcerers	允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm	所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
-ModUi/&Ammunition	<color=yellow>弹药</color>
-ModUi/&Armor	<color=yellow>护甲</color>
 ModUi/&AutoPauseOnVictory	战斗胜利后暂停游戏
 ModUi/&Basic	<color=yellow>基础：</color>
 ModUi/&Battle	<color=yellow>战斗：</color>
@@ -185,10 +183,8 @@ ModUi/&UnlockEyeStyles	解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	解锁所有标记和纹身的发光颜色
 ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
-ModUi/&UsableDevice	<color=yellow>可用装置</color>
 ModUi/&UseHeightOneCylinderEffect	施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
-ModUi/&Weapon	<color=yellow>武器</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>制作耗时降低倍率</color>
 ModUi/&ChangeSleetStormToCube	将<color=orange>雪风暴</color>范围从圆柱体替换为立方体

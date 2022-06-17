@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using HarmonyLib;
 using ModKit;
-using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Models;
 using UnityEngine;
 
@@ -8,16 +9,56 @@ namespace SolastaCommunityExpansion.Displays;
 
 internal static class ToolsDisplay
 {
-    private static bool displayArmor;
-    private static bool displayWeapons;
-    private static bool displayAmmunition;
-    private static bool displayUsableDevices;
-    private static Vector2 armorScrollPosition = Vector2.zero;
-    private static Vector2 weaponsScrollPosition = Vector2.zero;
-    private static Vector2 ammunitionScrollPosition = Vector2.zero;
-    private static Vector2 usableDevicesScrollPosition = Vector2.zero;
+    private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
+    {
+        (Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), a => true),
+        (Gui.Localize("Equipment/&ItemTypeAmmunitionTitle"), a => a.IsAmmunition),
+        (Gui.Localize("MerchantCategory/&ArmorTitle"), a => a.IsArmor),
+        (Gui.Localize("MerchantCategory/&DocumentTitle"), a => a.IsDocument),
+        (Gui.Localize("Equipment/&ItemTypeSpellFocusTitle"), a => a.IsFocusItem),
+        (Gui.Localize("Screen/&TravelFoodTitle"), a => a.IsFood),
+        (Gui.Localize("Equipment/&ItemTypeLightSourceTitle"), a => a.IsLightSourceItem),
+        (Gui.Localize("Equipment/&SpellbookTitle"), a => a.IsSpellbook),
+        (Gui.Localize("Equipment/&ItemTypeStarterPackTitle"), a => a.IsStarterPack),
+        (Gui.Localize("Screen/&ProficiencyToggleToolTitle"), a => a.IsTool),
+        (Gui.Localize("Merchant/&DungeonMakerMagicalDevicesTitle"), a => a.IsUsableDevice),
+        (Gui.Localize("MerchantCategory/&WeaponTitle"), a => a.IsWeapon),
+        (Gui.Localize("Tooltip/&TagFactionRelicTitle"), a => a.IsFactionRelic)
+    };
 
-    internal static void SetFactionRelation(string name, int value)
+    private static readonly string[] ItemsFiltersLabels = ItemsFilters.Select(x => x.Item1).ToArray();
+
+    private static readonly (string, Func<ItemDefinition, bool>)[] ItemsItemTagsFilters =
+        TagsDefinitions.AllItemTags
+            .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
+                (Gui.Localize($"Tooltip/&Tag{x}Title"), a => a.ItemTags.Contains(x)))
+            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), x => true))
+            .OrderBy(x => x.Item1)
+            .ToArray();
+
+    private static readonly string[] ItemsItemTagsFiltersLabels = ItemsItemTagsFilters.Select(x => x.Item1).ToArray();
+
+    private static readonly (string, Func<ItemDefinition, bool>)[] ItemsWeaponTagsFilters =
+        TagsDefinitions.AllWeaponTags
+            .Select<string, (string, Func<ItemDefinition, bool>)>(x =>
+                (Gui.Localize($"Tooltip/&Tag{x}Title"),
+                    a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains(x)))
+            .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), x => true))
+            .OrderBy(x => x.Item1)
+            .ToArray();
+
+    private static readonly string[] ItemsWeaponTagsFiltersLabels =
+        ItemsWeaponTagsFilters.Select(x => x.Item1).ToArray();
+
+    private static Vector2 ItemPosition { get; set; } = Vector2.zero;
+
+    private static int CurrentItemsFilterIndex { get; set; }
+
+    private static int CurrentItemsItemTagsFilterIndex { get; set; }
+
+    private static int CurrentItemsWeaponTagsFilterIndex { get; set; }
+
+    private static void SetFactionRelation(string name, int value)
     {
         var service = ServiceRepository.GetService<IGameFactionService>();
         if (service != null)
@@ -195,37 +236,63 @@ internal static class ToolsDisplay
 
         UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
 
-        DisplayItemGroup("Armor", Gui.Localize("ModUi/&Armor"), ref displayArmor, ref armorScrollPosition);
-        DisplayItemGroup("Weapon", Gui.Localize("ModUi/&Weapon"), ref displayWeapons, ref weaponsScrollPosition);
-        DisplayItemGroup("Ammunition", Gui.Localize("ModUi/&Ammunition"), ref displayAmmunition,
-            ref ammunitionScrollPosition);
-        DisplayItemGroup("UsableDevice", Gui.Localize("ModUi/&UsableDevice"), ref displayUsableDevices,
-            ref usableDevicesScrollPosition);
+        UI.Label("");
+
+        int intValue;
+
+        using (UI.HorizontalScope(UI.Width(800), UI.Height(400)))
+        {
+            intValue = CurrentItemsFilterIndex;
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    ItemsFiltersLabels,
+                    ItemsFiltersLabels.Length,
+                    1, UI.Width(140)))
+            {
+                CurrentItemsFilterIndex = intValue;
+            }
+
+            intValue = CurrentItemsWeaponTagsFilterIndex;
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    ItemsWeaponTagsFiltersLabels,
+                    ItemsWeaponTagsFiltersLabels.Length,
+                    1, UI.Width(140)))
+            {
+                CurrentItemsWeaponTagsFilterIndex = intValue;
+            }
+
+            intValue = CurrentItemsItemTagsFilterIndex;
+            if (UI.SelectionGrid(
+                    ref intValue,
+                    ItemsItemTagsFiltersLabels,
+                    ItemsItemTagsFiltersLabels.Length,
+                    1, UI.Width(140)))
+            {
+                CurrentItemsItemTagsFilterIndex = intValue;
+            }
+
+            DisplayItemsBox();
+        }
     }
 
-    private static void DisplayItemGroup(string group, string title, ref bool displayGroup, ref Vector2 scrollPosition)
+    private static void DisplayItemsBox()
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var rulesetItemFactoryService = ServiceRepository.GetService<IRulesetItemFactoryService>();
         var characterName = characterInspectionScreen.InspectedCharacter.Name;
 
-        UI.Label("");
-        UI.DisclosureToggle(title.yellow(), ref displayGroup, 200);
-
-        if (!displayGroup)
-        {
-            return;
-        }
-
         var items = DatabaseRepository.GetDatabase<ItemDefinition>()
             .Where(x => !x.guiPresentation.Hidden)
-            .Where(x => x.GetField<bool>($"is{group}"))
+            .Where(x => ItemsFilters[CurrentItemsFilterIndex].Item2(x))
+            .Where(x => ItemsItemTagsFilters[CurrentItemsItemTagsFilterIndex].Item2(x))
+            .Where(x => ItemsWeaponTagsFilters[CurrentItemsWeaponTagsFilterIndex].Item2(x))
             .OrderBy(x => x.FormatTitle());
 
         using var scrollView =
-            new GUILayout.ScrollViewScope(scrollPosition, GUILayout.Width(350), GUILayout.Height(300));
+            new GUILayout.ScrollViewScope(ItemPosition, UI.AutoWidth(), UI.AutoHeight());
 
-        scrollPosition = scrollView.scrollPosition;
+        ItemPosition = scrollView.scrollPosition;
 
         foreach (var item in items)
         {
@@ -238,7 +305,7 @@ internal static class ToolsDisplay
                         characterInspectionScreen.externalContainer.AddSubItem(rulesetItem);
                     },
                     UI.Width(30));
-                UI.Label(item.FormatTitle(), UI.Width(300));
+                UI.Label(item.FormatTitle(), UI.AutoWidth());
             }
         }
     }

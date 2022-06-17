@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Zielauswahl beim Wi
 ModUi/&AllowUnmarkedSorcerers	Erlaube unmarkierte <color=orange>Zauberer</color>
 ModUi/&AllRecipesInDm	Alle Rezepte in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>-Taste markiert nur Gadgets im Sichtfeld der Gruppe [nur in benutzerdefinierten Dungeons]
-ModUi/&Ammunition	<color=yellow>Munition</color>
-ModUi/&Armor	<color=yellow>Rüstung</color>
 ModUi/&AutoPauseOnVictory	Pausiere die Benutzeroberfläche, wenn du im Kampf siegst
 ModUi/&Basic	<color=yellow>Einfach:</color>
 ModUi/&Battle	<color=yellow>Kampf:</color>
@@ -185,10 +183,8 @@ ModUi/&UnlockEyeStyles	Schalte Augenstile frei
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Schalten Sie leuchtende Farben für alle Markierungen und Tätowierungen frei
 ModUi/&UnlockGlowingEyeColors	Schalte leuchtende Augenfarben frei
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Schalte Markierungen und Tattoos für alle Charaktere frei
-ModUi/&UsableDevice	<color=yellow>Verwendbares Gerät</color>
 ModUi/&UseHeightOneCylinderEffect	Zeigen Sie einen Zylindereffekt der Höhe 1 an, wenn Sie <color=orange>Schwarze Tentakel, Verstricken, Fett</color> (quadratisch) und <color=orange>Stachelwachstum</color> (rund) wirken.
 ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&Weapon	<color=yellow>Waffen</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Bastelzeit verkürzen um</color>
 ModUi/&ChangeSleetStormToCube	Ändern Sie <color=orange>Schneeregen</color>, um einen Würfel anstelle eines Zylinders zu verwenden

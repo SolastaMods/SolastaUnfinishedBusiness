@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Permitir a seleçã
 ModUi/&AllowUnmarkedSorcerers	Permitir <color=orange>Feiticeiros</color> desmarcados
 ModUi/&AllRecipesInDm	Todas as receitas em DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	A tecla <color=cyan>ALT</color> apenas destaca os gadgets no campo de visão do grupo [somente em masmorras personalizadas]
-ModUi/&Ammunition	<color=yellow>Munição</color>
-ModUi/&Armor	<color=yellow>Armadura</color>
 ModUi/&AutoPauseOnVictory	Pause a interface do usuário quando for vitorioso na batalha
 ModUi/&Basic	<color=yellow>Básico:</color>
 ModUi/&Battle	<color=yellow>Batalha:</color>
@@ -185,10 +183,8 @@ ModUi/&UnlockEyeStyles	Desbloqueie estilos de olhos
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Desbloqueie cores brilhantes para todas as marcações e tatuagens
 ModUi/&UnlockGlowingEyeColors	Desbloqueie cores de olhos brilhantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Desbloqueie marcações e tatuagens para todos os personagens
-ModUi/&UsableDevice	<color=yellow>Dispositivos</color>
 ModUi/&UseHeightOneCylinderEffect	Exibe um efeito de cilindro de altura 1 ao lançar <color=orange>Black Tentacles, Entangle, Grease</color> (quadrado) e <color=orange>Spike Growth</color> (redondo)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use regras oficiais de vantagem/desvantagem
 ModUi/&Visuals	<color=yellow>Visual:</color>
-ModUi/&Weapon	<color=yellow>Armas</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Reduza o tempo de criação em</color>
 ModUi/&ChangeSleetStormToCube	Altere <color=orange>Sleet Storm</color> para usar um cubo em vez de um cilindro
