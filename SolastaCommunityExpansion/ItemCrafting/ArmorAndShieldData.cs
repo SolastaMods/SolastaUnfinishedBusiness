@@ -37,7 +37,7 @@ internal static class ArmorAndShieldData
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_HalfplateOfSturdiness),
                 new("Robustness", DatabaseHelper.ItemDefinitions.Enchanted_HalfPlateOfRobustness,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_HalfplateOfRobustness),
-                new("Survival", DatabaseHelper.ItemDefinitions.Enchanted_LeatherArmorOfSurvival,
+                new(SkillDefinitions.Survival, DatabaseHelper.ItemDefinitions.Enchanted_LeatherArmorOfSurvival,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LeatherArmorOfSurvival),
                 new("FlameDancing", DatabaseHelper.ItemDefinitions.Enchanted_LeatherArmorOfFlameDancing,
                     DatabaseHelper.RecipeDefinitions.Recipe_Enchantment_LeatherArmorOfFlameDancing),

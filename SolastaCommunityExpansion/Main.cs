@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using HarmonyLib;
 using ModKit;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Utils;
@@ -68,7 +69,7 @@ internal static class Main
             Menu.Enable(modEntry, assembly);
 
             // side cars allow us to load any other DLL outside CE
-            //LoadSidecars(assembly.GetName().Name);
+            LoadSidecars(assembly.GetName().Name);
         }
         catch (Exception ex)
         {
@@ -87,8 +88,7 @@ internal static class Main
         }
     }
 
-#if false
-    internal static void LoadSidecars(string currentAssemblyName)
+    private static void LoadSidecars(string currentAssemblyName)
     {
         foreach (var path in Directory.EnumerateFiles(MOD_FOLDER, "Solasta*.dll"))
         {
@@ -105,5 +105,4 @@ internal static class Main
             harmony.PatchAll(sidecarAssembly);
         }
     }
-#endif
 }

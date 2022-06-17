@@ -11,6 +11,7 @@ internal static class HouseSpellTweaks
     internal static void Register()
     {
         AddBleedingToRestoration();
+        UseCubeOnSleetStorm();
         UseHeightOneCylinderEffect();
         MinorFixes();
         RemoveConcentrationRequirementsFromAnySpell();
@@ -81,6 +82,26 @@ internal static class HouseSpellTweaks
         static void ClearAlteredDuration(SpellDefinition spell)
         {
             spell.EffectDescription.EffectAdvancement.alteredDuration = RuleDefinitions.AdvancementDuration.None;
+        }
+    }
+
+    internal static void UseCubeOnSleetStorm()
+    {
+        var sleetStormEffect = SleetStorm.EffectDescription;
+
+        if (Main.Settings.ChangeSleetStormToCube)
+        {
+            // Set to Cube side 8, default height
+            sleetStormEffect.targetType = RuleDefinitions.TargetType.Cube;
+            sleetStormEffect.targetParameter = 8;
+            sleetStormEffect.targetParameter2 = 0;
+        }
+        else
+        {
+            // Restore to cylinder radius 4, height 3
+            sleetStormEffect.targetType = RuleDefinitions.TargetType.Cylinder;
+            sleetStormEffect.targetParameter = 4;
+            sleetStormEffect.targetParameter2 = 3;
         }
     }
 

@@ -615,10 +615,10 @@ internal class PathOfTheLight : AbstractSubclass
                 .SetSavingThrowData(
                     true,
                     false,
-                    "Constitution",
+                    AttributeDefinitions.Constitution,
                     false,
                     RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    "Constitution",
+                    AttributeDefinitions.Constitution,
                     10,
                     false,
                     new List<SaveAffinityBySenseDescription>())

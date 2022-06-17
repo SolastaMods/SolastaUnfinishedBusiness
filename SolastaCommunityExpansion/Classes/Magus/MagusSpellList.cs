@@ -1,4 +1,5 @@
-﻿using SolastaCommunityExpansion.Builders;
+﻿#if false
+using SolastaCommunityExpansion.Builders;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaCommunityExpansion.Spells.AceHighSpells;
 
@@ -21,3 +22,4 @@ public static class MagusSpells
         .FinalizeSpells()
         .AddToDB();
 }
+#endif

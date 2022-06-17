@@ -32,6 +32,7 @@ internal static class RacesContext
 
     internal static void Load()
     {
+        Morphotypes.Load();
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
         LoadRace(GnomeRaceBuilder.GnomeRace);
         LoadRace(DarkelfRaceBuilder.DarkelfRace);

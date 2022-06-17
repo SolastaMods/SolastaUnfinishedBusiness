@@ -166,22 +166,22 @@ public class MonstersAttributes
         DragonlegendaryActionDescription_2.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
             .LegendaryDragonAttack;
 
-        DragonmonsterSkillProficiency_1.skillName = "Perception";
+        DragonmonsterSkillProficiency_1.skillName = SkillDefinitions.Perception;
         DragonmonsterSkillProficiency_1.bonus = 16;
-        DragonmonsterSkillProficiency_2.skillName = "Stealth";
+        DragonmonsterSkillProficiency_2.skillName = SkillDefinitions.Stealth;
         DragonmonsterSkillProficiency_2.bonus = 8;
 
-        GreenDragonmonsterSkillProficiency_3.skillName = "Persuasion";
+        GreenDragonmonsterSkillProficiency_3.skillName = SkillDefinitions.Persuasion;
         GreenDragonmonsterSkillProficiency_3.bonus = 11;
-        GreenDragonmonsterSkillProficiency_4.skillName = "Deception";
+        GreenDragonmonsterSkillProficiency_4.skillName = SkillDefinitions.Deception;
         GreenDragonmonsterSkillProficiency_4.bonus = 11;
-        GreenDragonmonsterSkillProficiency_5.skillName = "Insight";
+        GreenDragonmonsterSkillProficiency_5.skillName = SkillDefinitions.Insight;
         GreenDragonmonsterSkillProficiency_5.bonus = 10;
 
-        ArchmagemonsterSkillProficiency_1.skillName = "Arcana";
+        ArchmagemonsterSkillProficiency_1.skillName = SkillDefinitions.Arcana;
         ArchmagemonsterSkillProficiency_1.bonus = 13;
 
-        ArchmagemonsterSkillProficiency_2.skillName = "History";
+        ArchmagemonsterSkillProficiency_2.skillName = SkillDefinitions.History;
         ArchmagemonsterSkillProficiency_2.bonus = 13;
 
         BalorassetReference.SetField("m_AssetGUID", "5d249b514baa99040874880ba8d35295");
@@ -192,10 +192,10 @@ public class MonstersAttributes
         BalorWhipAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Balor_Whip_Attack;
         BalorWhipAttackIteration.number = 1;
 
-        DevamonsterSkillProficiency_1.skillName = "Insight";
+        DevamonsterSkillProficiency_1.skillName = SkillDefinitions.Insight;
         DevamonsterSkillProficiency_1.bonus = 9;
 
-        DevamonsterSkillProficiency_2.skillName = "Perception";
+        DevamonsterSkillProficiency_2.skillName = SkillDefinitions.Perception;
         DevamonsterSkillProficiency_2.bonus = 9;
 
         DjinniassetReference.SetField("m_AssetGUID", "2a2913c5eec57a24da4af020cf0e0f0f");
@@ -283,16 +283,16 @@ public class MonstersAttributes
         LichlegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
             .LegendaryAoE_DpS;
 
-        LichmonsterSkillProficiency_1.skillName = "Arcana";
+        LichmonsterSkillProficiency_1.skillName = SkillDefinitions.Arcana;
         LichmonsterSkillProficiency_1.bonus = 19;
 
-        LichmonsterSkillProficiency_2.skillName = "History";
+        LichmonsterSkillProficiency_2.skillName = SkillDefinitions.History;
         LichmonsterSkillProficiency_2.bonus = 12;
 
-        LichmonsterSkillProficiency_3.skillName = "Insight";
+        LichmonsterSkillProficiency_3.skillName = SkillDefinitions.Insight;
         LichmonsterSkillProficiency_3.bonus = 9;
 
-        LichmonsterSkillProficiency_4.skillName = "Perception";
+        LichmonsterSkillProficiency_4.skillName = SkillDefinitions.Perception;
         LichmonsterSkillProficiency_4.bonus = 9;
 
         NalfeshneeBiteAttackIteration.monsterAttackDefinition =
@@ -321,7 +321,7 @@ public class MonstersAttributes
             NewMonsterAttacks.RadiantLongsword_Attack;
         PlanetarLongswordAttackIteration.number = 2;
 
-        PlanetarmonsterSkillProficiency_1.skillName = "Perception";
+        PlanetarmonsterSkillProficiency_1.skillName = SkillDefinitions.Perception;
         PlanetarmonsterSkillProficiency_1.bonus = 11;
 
         RocBiteAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Roc_Beak_Attack;
@@ -330,7 +330,7 @@ public class MonstersAttributes
         RocClawAttackIteration.monsterAttackDefinition = NewMonsterAttacks.Roc_Talons_Attack;
         RocClawAttackIteration.number = 1;
 
-        RocmonsterSkillProficiency_1.skillName = "Perception";
+        RocmonsterSkillProficiency_1.skillName = SkillDefinitions.Perception;
         RocmonsterSkillProficiency_1.bonus = 4;
 
         SolarLongswordAttackIteration.monsterAttackDefinition =
@@ -359,18 +359,18 @@ public class MonstersAttributes
         SolarlegendaryActionDescription_3.decisionPackage = DatabaseHelper.DecisionPackageDefinitions
             .LegendaryLaetharCast_Debuff;
 
-        SolarmonsterSkillProficiency_1.skillName = "Perception";
+        SolarmonsterSkillProficiency_1.skillName = SkillDefinitions.Perception;
         SolarmonsterSkillProficiency_1.bonus = 14;
-        StormGiantmonsterSkillProficiency_1.skillName = "Arcana";
+        StormGiantmonsterSkillProficiency_1.skillName = SkillDefinitions.Arcana;
         StormGiantmonsterSkillProficiency_1.bonus = 8;
 
-        StormGiantmonsterSkillProficiency_2.skillName = "Athletics";
+        StormGiantmonsterSkillProficiency_2.skillName = SkillDefinitions.Athletics;
         StormGiantmonsterSkillProficiency_2.bonus = 14;
 
-        StormGiantmonsterSkillProficiency_3.skillName = "History";
+        StormGiantmonsterSkillProficiency_3.skillName = SkillDefinitions.History;
         StormGiantmonsterSkillProficiency_3.bonus = 8;
 
-        StormGiantmonsterSkillProficiency_3.skillName = "Perception";
+        StormGiantmonsterSkillProficiency_3.skillName = SkillDefinitions.Perception;
         StormGiantmonsterSkillProficiency_3.bonus = 9;
 
         VampirelegendaryActionDescription.cost = 1;
@@ -402,10 +402,10 @@ public class MonstersAttributes
         //VampirelegendaryActionDescription_4.SetFeatureDefinitionPower(DatabaseHelper.FeatureDefinitionPowers.PowerLaetharParalyzingGaze);
         //VampirelegendaryActionDescription_4.SetDecisionPackage(DatabaseHelper.DecisionPackageDefinitions.LegendaryLaetharCast_Debuff);
 
-        VampiremonsterSkillProficiency_1.skillName = "Perception";
+        VampiremonsterSkillProficiency_1.skillName = SkillDefinitions.Perception;
         VampiremonsterSkillProficiency_1.bonus = 7;
 
-        VampiremonsterSkillProficiency_2.skillName = "Stealth";
+        VampiremonsterSkillProficiency_2.skillName = SkillDefinitions.Stealth;
         VampiremonsterSkillProficiency_2.bonus = 9;
 
 

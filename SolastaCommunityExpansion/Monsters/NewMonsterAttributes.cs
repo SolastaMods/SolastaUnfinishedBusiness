@@ -500,7 +500,7 @@ public class NewMonsterAttributes
 
 
         CastSpell_Lich.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
-        CastSpell_Lich.spellcastingAbility = "Intelligence";
+        CastSpell_Lich.spellcastingAbility = AttributeDefinitions.Intelligence;
         CastSpell_Lich.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation.Static;
         CastSpell_Lich.staticDCValue = 20;
         CastSpell_Lich.staticToHitValue = 12;
@@ -1029,7 +1029,7 @@ public class NewMonsterAttributes
 
 
         CastSpell_ArchMage.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
-        CastSpell_ArchMage.spellcastingAbility = "Intelligence";
+        CastSpell_ArchMage.spellcastingAbility = AttributeDefinitions.Intelligence;
         CastSpell_ArchMage.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation
             .Static;
         CastSpell_ArchMage.staticDCValue = 17;
@@ -1528,7 +1528,7 @@ public class NewMonsterAttributes
 
 
         CastSpell_GuardianNaga.spellCastingOrigin = FeatureDefinitionCastSpell.CastingOrigin.Monster;
-        CastSpell_GuardianNaga.spellcastingAbility = "Wisdom";
+        CastSpell_GuardianNaga.spellcastingAbility = AttributeDefinitions.Wisdom;
         CastSpell_GuardianNaga.spellcastingParametersComputation = RuleDefinitions.SpellcastingParametersComputation
             .Static;
         CastSpell_GuardianNaga.staticDCValue = 16;

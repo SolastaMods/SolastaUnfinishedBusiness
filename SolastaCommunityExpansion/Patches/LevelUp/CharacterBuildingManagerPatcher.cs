@@ -119,14 +119,18 @@ internal static class CharacterBuildingManager_FinalizeCharacter
         }
 
         var raceDefinition = hero.RaceDefinition;
+        var subRaceDefinition = hero.SubRaceDefinition;
         var grantedFeatures = new List<FeatureDefinition>();
 
-        for (var index = 0; index < raceDefinition.FeatureUnlocks.Count; ++index)
+        raceDefinition.FeatureUnlocks
+            .Where(x => x.Level == characterLevel)
+            .Do(x => grantedFeatures.Add(x.FeatureDefinition));
+
+        if (subRaceDefinition != null)
         {
-            if (characterLevel == raceDefinition.FeatureUnlocks[index].Level)
-            {
-                grantedFeatures.Add(raceDefinition.FeatureUnlocks[index].FeatureDefinition);
-            }
+            subRaceDefinition.FeatureUnlocks
+                .Where(x => x.Level == characterLevel)
+                .Do(x => grantedFeatures.Add(x.FeatureDefinition));
         }
 
         __instance.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);

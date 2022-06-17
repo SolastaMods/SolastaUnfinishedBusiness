@@ -22,8 +22,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target select
 ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
 ModUi/&AllRecipesInDm	All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
-ModUi/&Ammunition	<color=yellow>Ammunition</color>
-ModUi/&Armor	<color=yellow>Armor</color>
 ModUi/&AutoPauseOnVictory	Pause the UI when victorious in battle
 ModUi/&Basic	<color=yellow>Basic:</color>
 ModUi/&Battle	<color=yellow>Battle:</color>
@@ -190,12 +188,11 @@ ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
 ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
-ModUi/&UsableDevice	<color=yellow>Usable Device</color>
 ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&Weapon	<color=yellow>Weapons</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Reduce crafting time by</color>
+ModUi/&ChangeSleetStormToCube	Change <color=orange>Sleet Storm</color> to use a cube instead of a cylinder
 Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
 Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
 Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop

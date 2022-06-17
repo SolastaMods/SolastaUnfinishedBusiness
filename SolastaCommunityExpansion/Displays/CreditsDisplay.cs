@@ -17,10 +17,14 @@ internal static class CreditsDisplay
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
-        {"D20 Patrons", "<b>J. Cohen</b>"},
-        {"D12 Patrons", "L. Goldiner, E. Antonio"},
-        {"  D8 Patrons", "R. Baker, R. Maxim"},
-        {"  D6 Patrons", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen"}
+        {"Critical Hit", "<b>J. Cohen</b>"},
+        {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
+        {"D12", "L. Goldiner, E. Antonio"},
+        {"D8", "R. Baker, R. Maxim, D. Boggs"},
+        {
+            "D6",
+            "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira, M. Harck"
+        }
     };
 
     internal static readonly Dictionary<string, string> CreditsTable = new()

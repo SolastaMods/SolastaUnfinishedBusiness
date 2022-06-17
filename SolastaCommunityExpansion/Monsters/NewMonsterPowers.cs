@@ -246,8 +246,8 @@ public class NewMonsterPowers
                            1,
                            RuleDefinitions.UsesDetermination.Fixed,
                            RuleDefinitions.RechargeRate.D6_56,
-                           "Charisma",
-                           "Charisma",
+                           AttributeDefinitions.Charisma,
+                           AttributeDefinitions.Charisma,
                            1,
                            true
                            );
@@ -266,8 +266,8 @@ public class NewMonsterPowers
         Generic_Lightning_Attack_Power.fixedUsesPerRecharge = 1;
         Generic_Lightning_Attack_Power.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
         Generic_Lightning_Attack_Power.rechargeRate = RuleDefinitions.RechargeRate.D6_56;
-        Generic_Lightning_Attack_Power.usesAbilityScoreName = "Charisma";
-        Generic_Lightning_Attack_Power.abilityScore = "Charisma";
+        Generic_Lightning_Attack_Power.usesAbilityScoreName = AttributeDefinitions.Charisma;
+        Generic_Lightning_Attack_Power.abilityScore = AttributeDefinitions.Charisma;
         Generic_Lightning_Attack_Power.costPerUse = 1;
         Generic_Lightning_Attack_Power.showCasting = true;
 
@@ -877,8 +877,8 @@ public class NewMonsterPowers
                            1,
                            RuleDefinitions.UsesDetermination.Fixed,
                            RuleDefinitions.RechargeRate.D6_56,
-                           "Charisma",
-                           "Charisma",
+                           AttributeDefinitions.Charisma,
+                           AttributeDefinitions.Charisma,
                            1,
                            true
                            );
@@ -896,8 +896,8 @@ public class NewMonsterPowers
         AirTitan_LightningStorm_Attack_Power.fixedUsesPerRecharge = 1;
         AirTitan_LightningStorm_Attack_Power.usesDetermination = RuleDefinitions.UsesDetermination.Fixed;
         AirTitan_LightningStorm_Attack_Power.rechargeRate = RuleDefinitions.RechargeRate.D6_56;
-        AirTitan_LightningStorm_Attack_Power.usesAbilityScoreName = "Charisma";
-        AirTitan_LightningStorm_Attack_Power.abilityScore = "Charisma";
+        AirTitan_LightningStorm_Attack_Power.usesAbilityScoreName = AttributeDefinitions.Charisma;
+        AirTitan_LightningStorm_Attack_Power.abilityScore = AttributeDefinitions.Charisma;
         AirTitan_LightningStorm_Attack_Power.costPerUse = 1;
         AirTitan_LightningStorm_Attack_Power.showCasting = true;
 

@@ -1010,8 +1010,8 @@ internal sealed class LightningCloakAbilityCheckAffinityBuilder : FeatureDefinit
     {
         var DampeningField = new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
         {
-            abilityScoreName = "Dexterity",
-            proficiencyName = "Stealth",
+            abilityScoreName = AttributeDefinitions.Dexterity,
+            proficiencyName = SkillDefinitions.Stealth,
             affinity = RuleDefinitions.CharacterAbilityCheckAffinity.Advantage
         };
         Definition.AffinityGroups.Add(DampeningField);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if false
+using System.Collections.Generic;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Builders;
@@ -285,3 +286,4 @@ public static class Magus
         return ClassMagus;
     }
 }
+#endif
