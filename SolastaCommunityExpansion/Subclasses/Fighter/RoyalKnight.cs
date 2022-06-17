@@ -22,7 +22,7 @@ internal class RoyalKnight : AbstractSubclass
                 "b16f8b68-0dab-49e5-b1a2-6fdfd8836849")
             .SetAffinityGroups(new FeatureDefinitionAbilityCheckAffinity.AbilityCheckAffinityGroup
             {
-                abilityScoreName = "Charisma",
+                abilityScoreName = AttributeDefinitions.Charisma,
                 affinity = RuleDefinitions.CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient
             })
             .AddToDB();
@@ -48,8 +48,8 @@ internal class RoyalKnight : AbstractSubclass
             .SetOverriddenPower(FeatureDefinitionPowers.PowerFighterSecondWind)
             .SetActivationTime(RuleDefinitions.ActivationTime.BonusAction)
             .SetRechargeRate(RuleDefinitions.RechargeRate.ShortRest)
-            .SetAbilityScore("Charisma")
-            .SetUsesAbilityScoreName("Charisma")
+            .SetAbilityScore(AttributeDefinitions.Charisma)
+            .SetUsesAbilityScoreName(AttributeDefinitions.Charisma)
             .SetEffectDescription(effectDescription)
             .AddToDB();
 

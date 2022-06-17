@@ -54,10 +54,10 @@ internal static class KnockDownPowerBuilder
         var newEffectDescription =
             FeatureDefinitionPowers.PowerFighterActionSurge.EffectDescription.Copy();
         newEffectDescription.SetEffectForms(damageEffect, proneMotionEffect);
-        newEffectDescription.SetSavingThrowDifficultyAbility("Strength");
+        newEffectDescription.SetSavingThrowDifficultyAbility(AttributeDefinitions.Strength);
         newEffectDescription.SetDifficultyClassComputation(RuleDefinitions.EffectDifficultyClassComputation
             .AbilityScoreAndProficiency);
-        newEffectDescription.SavingThrowAbility = "Strength";
+        newEffectDescription.SavingThrowAbility = AttributeDefinitions.Strength;
         newEffectDescription.HasSavingThrow = true;
         newEffectDescription.DurationType = RuleDefinitions.DurationType.Round;
 

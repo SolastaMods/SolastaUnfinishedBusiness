@@ -301,27 +301,27 @@ internal static class MonstersHomebrew
             NewMonster.SetDefaultBattleDecisionPackage(NewMonsterAttributes.Titan_CombatDecisions);
 
             MonsterSavingThrowProficiency Str_save = new();
-            Str_save.abilityScoreName = "Strength";
+            Str_save.abilityScoreName = AttributeDefinitions.Strength;
             Str_save.bonus = Definitions[i].SavingThrowStrength;
 
             MonsterSavingThrowProficiency Dex_save = new();
-            Dex_save.abilityScoreName = "Dexterity";
+            Dex_save.abilityScoreName = AttributeDefinitions.Dexterity;
             Dex_save.bonus = Definitions[i].SavingThrowDexterity;
 
             MonsterSavingThrowProficiency Con_save = new();
-            Con_save.abilityScoreName = "Constitution";
+            Con_save.abilityScoreName = AttributeDefinitions.Constitution;
             Con_save.bonus = Definitions[i].SavingThrowConstitution;
 
             MonsterSavingThrowProficiency Int_save = new();
-            Int_save.abilityScoreName = "Intelligence";
+            Int_save.abilityScoreName = AttributeDefinitions.Intelligence;
             Int_save.bonus = Definitions[i].SavingThrowIntelligence;
 
             MonsterSavingThrowProficiency Wis_save = new();
-            Wis_save.abilityScoreName = "Wisdom";
+            Wis_save.abilityScoreName = AttributeDefinitions.Wisdom;
             Wis_save.bonus = Definitions[i].SavingThrowWisdom;
 
             MonsterSavingThrowProficiency Cha_save = new();
-            Cha_save.abilityScoreName = "Charisma";
+            Cha_save.abilityScoreName = AttributeDefinitions.Charisma;
             Cha_save.bonus = Definitions[i].SavingThrowCharisma;
 
             NewMonster.ClearSavingThrowScores();
