@@ -5,6 +5,7 @@
 // Assembly location: C:\Users\paulo\Downloads\OathOfRetribution.dll
 
 using HarmonyLib;
+using SolastaCommunityExpansion.Api;
 using UnityEngine;
 
 namespace SolastaOathOfRetribution
@@ -23,14 +24,6 @@ namespace SolastaOathOfRetribution
     }
 
     public void SetGuiPresentation(GuiPresentation gui) => Traverse.Create((object) this.MyClass).Field("guiPresentation").SetValue((object) gui);
-
-    // public void AddPersonality(PersonalityFlagDefinition personalityType, int weight)
-    // {
-    //   PersonalityFlagOccurence root = new PersonalityFlagOccurence(DatabaseHelper.PersonalityFlagDefinitions.Normal);
-    //   Traverse.Create((object) root).Field(nameof (weight)).SetValue((object) weight);
-    //   Traverse.Create((object) root).Field("personalityFlag").SetValue((object) personalityType.Name);
-    //   this.MyClass.PersonalityFlagOccurences.Add(root);
-    // }
 
     public void AddFeatureAtLevel(FeatureDefinition feature, int level) => this.MyClass.FeatureUnlocks.Add(new FeatureUnlockByLevel(feature, level));
 

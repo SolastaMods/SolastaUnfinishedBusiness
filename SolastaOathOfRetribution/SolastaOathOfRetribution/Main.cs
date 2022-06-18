@@ -6,6 +6,8 @@
 
 using System;
 using System.Collections.Generic;
+using SolastaCommunityExpansion.Api;
+using SolastaCommunityExpansion.Builders;
 using UnityModManagerNet;
 
 namespace SolastaOathOfRetribution
