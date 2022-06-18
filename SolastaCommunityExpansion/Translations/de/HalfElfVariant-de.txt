@@ -2,8 +2,7 @@
 Race/&HalfElfDarkElfRaceTitle	Halber Dunkelelf
 Race/&HalfElfHighElfRaceDescription	<#B5D3DE>Halbhochelfen</color> werden sehr früh darin geschult, Magie einzusetzen.
 Race/&HalfElfHighElfRaceTitle	Halbhochelfe
-Race/&HalfElfSylvanElfRaceDescription <#B5D3DE>Half-Sylvan-Elves</color> are trained to survive in the wilds and are particularly apt to survival. As their high elf heritage, they are trained to fight with swords and bows since childhood.
-	LEER
+Race/&HalfElfSylvanElfRaceDescription	<#B5D3DE>Halb-Sylvan-Elfen</color> sind darauf trainiert, in der Wildnis zu überleben und sind besonders überlebensfähig. Als Erbe der Hochelfen werden sie seit ihrer Kindheit darin trainiert, mit Schwertern und Bögen zu kämpfen.
 Race/&HalfElfSylvanElfRaceTitle	Halb Sylvan Elf
 Race/&HalfElfVariantDescription	Nachkommen der menschlichen Flüchtlinge aus Tirmar und der Solastan-Elfen, <#B5D3DE>Halbelfen</color>, haben die Stärke ihrer Eltern. Vielseitig, charismatisch und mit Darkvision und Fey-Abstammung begabt, sind sie immer zwischen zwei Kulturen hin- und hergerissen.
 Race/&HalfElfVariantTitle	Halbelf

@@ -2,8 +2,7 @@
 Race/&HalfElfDarkElfRaceTitle	Mezzo Elfo Oscuro
 Race/&HalfElfHighElfRaceDescription	<#B5D3DE>Gli Elfi Mezzo-Alti</color> sono addestrati a usare la magia molto presto.
 Race/&HalfElfHighElfRaceTitle	Mezzo elfo alto
-Race/&HalfElfSylvanElfRaceDescription <#B5D3DE>Half-Sylvan-Elves</color> are trained to survive in the wilds and are particularly apt to survival. As their high elf heritage, they are trained to fight with swords and bows since childhood.
-	VUOTO
+Race/&HalfElfSylvanElfRaceDescription	<#B5D3DE>Mezzi-Elfi Silvani</color> sono addestrati per sopravvivere nelle terre selvagge e sono particolarmente adatti alla sopravvivenza. Come loro eredità di alti elfi, sono addestrati a combattere con spade e archi fin dall'infanzia.
 Race/&HalfElfSylvanElfRaceTitle	Mezzo Elfo Silvano
 Race/&HalfElfVariantDescription	Figli dei profughi umani di Tirmar e degli elfi di Solastan, i <#B5D3DE>mezzelfi</color> hanno la forza dei loro genitori. Versatili, carismatici e dotati di Scurovisione e discendenza da fata, sono sempre combattuti tra due culture.
 Race/&HalfElfVariantTitle	Mezzelfo
