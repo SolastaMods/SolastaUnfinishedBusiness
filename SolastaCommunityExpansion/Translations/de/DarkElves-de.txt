@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo’Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 Malus auf Geschwindigkeit
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Malus von -2 auf Weisheit

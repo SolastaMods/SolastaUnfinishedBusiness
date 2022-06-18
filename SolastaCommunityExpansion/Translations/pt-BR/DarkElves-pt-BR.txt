@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	Dhal Nerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 penalidade na velocidade
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 de penalidade em Sabedoria

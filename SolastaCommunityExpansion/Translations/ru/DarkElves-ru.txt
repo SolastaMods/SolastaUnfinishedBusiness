@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	ДхалНеридтас
 Race/&DarkelfSurName3Title	ДхалНервенис
 Race/&DarkelfSurName4Title	Зо'Сонта
 Race/&DarkelfSurName5Title	Зо'Ремон
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 штраф на скорость
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 штраф к Мудрости

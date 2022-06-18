@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	DhalNeridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 malus sur la vitesse
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 malus en Sagesse
