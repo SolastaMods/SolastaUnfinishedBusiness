@@ -1,0 +1,214 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" InitialTargets="CheckEnvironmentVars">
+
+  <PropertyGroup>
+    <LangVersion>10</LangVersion>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyVersion>1.3.57.3</AssemblyVersion>
+    <FileVersion>1.3.57.3</FileVersion>
+    <Description></Description>
+    <PackageProjectUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SolastaMods/SolastaCommunityExpansion</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Configurations>Debug;Release;Debug Install;Release Install</Configurations>
+    <Authors>SolastaMods</Authors>
+    <Company />
+    <Product />
+    <Copyright>Copyright 2022</Copyright>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>1.3.57.3</Version>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <Target Name="CheckEnvironmentVars">
+    <Error Text="Please set the SolastaInstallDir environment variable." Condition="'$(SolastaInstallDir)' == ''" ContinueOnError="false" />
+  </Target>
+
+  <Target Name="Publicise" AfterTargets="Clean">
+    <ItemGroup>
+      <PubliciseInputAssemblies Include="$(SolastaInstallDir)\Solasta_Data\Managed\Assembly-CSharp.dll" />
+    </ItemGroup>
+    <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="Aze.Publicise.MSBuild.Task" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Install|AnyCPU' Or '$(Configuration)|$(Platform)' == 'Release Install|AnyCPU'">
+    <OutputPath>$(SolastaInstallDir)\Mods\SolastaOathOfRetribution\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Install|AnyCPU'">
+    <Optimize>false</Optimize>
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>true</Optimize>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
+    <Optimize>true</Optimize>
+    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>ROS0003</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Install|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>ROS0003</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Install|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>ROS0003</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(SolutionDir)lib\Assembly-CSharp_public.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.Addressables.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Unity.ResourceManager">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.ResourceManager.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.Timeline.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Ak.Wwise.Api.WAAPI.dll">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Ak.Wwise.Api.WAAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.API.dll">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\AK.Wwise.Unity.API.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.API.WwiseTypes.dll">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\AK.Wwise.Unity.API.WwiseTypes.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.MonoBehaviour.dll">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\AK.Wwise.Unity.MonoBehaviour.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.Timeline.dll">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\AK.Wwise.Unity.Timeline.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Aura2_Core.dll">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\Aura2_Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AwesomeTechnologies.VegetationStudioPro.Runtime">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\AwesomeTechnologies.VegetationStudioPro.Runtime.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="I2">
+      <HintPath>$(SolastaInstallDir)\Solasta_Data\Managed\I2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Info.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

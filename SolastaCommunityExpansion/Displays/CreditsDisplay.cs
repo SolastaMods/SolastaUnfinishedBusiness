@@ -24,7 +24,7 @@ internal static class CreditsDisplay
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
                   "M. Harck, D. Schoop, K. Cooper, M. Thompson, L.Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
-                  "R. Garcia"
+                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux"
         }
     };
 
@@ -55,7 +55,7 @@ internal static class CreditsDisplay
         {"Nd", "Marshal and Opportunist subclasses"},
         {"Nyowwww", "Chinese translations"},
         {"PraiseThyBus", "quality assurance"},
-        {"PrimeMax", "Russian translations"},
+        {"Prioritizer", "Russian translations"},
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
         {
             "SilverGriffon",

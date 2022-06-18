@@ -11,7 +11,4 @@
 
 CHANGES:
 
-- Add Half-Elf variant subraces
-- Change Dark-Elf bright sensitivity detrimental condition
-- Fix the character inspection screen not displaying acquired features
-- Improve Chinese and Russian translations
+- Improve Russian translations [Prioritizer]
