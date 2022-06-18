@@ -1,23 +1,25 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisme +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	Vous avez un malus de -2 aux tests de Sagesse (Perception) en pleine lumière. De plus, votre vitesse est réduite de 1 en pleine lumière.
+Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilité à la lumière vive
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Vous avez un malus de -2 en Sagesse (Perception).
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisme +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Augmentation du score de capacité
-Feature/&DarkelfMagicDescription	Vous connaissez le sort mineur Dancing Lights.
-Feature/&DarkelfMagicTitle	Magie des elfes noirs
+Feature/&DarkelfMagicDescription	Vous connaissez le sort mineur Dancing Lights. Au niveau 3, vous apprenez le feu féerique et au niveau 5, les ténèbres. Les deux peuvent être utilisés une fois par repos long.
+Feature/&DarkelfMagicTitle	Magie des Elfes Noirs
 Feature/&DarkelfWeaponTrainingDescription	Vous maîtrisez les rapières, les épées courtes et les arbalètes à main.
 Feature/&DarkelfWeaponTrainingTitle	Entraînement aux armes des elfes noirs
-Feature/&LightAffinityDarkelfLightSensitivityDescription	Vous avez un désavantage aux jets d'attaque et aux tests de Sagesse (Perception) en pleine lumière.
-Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilité à la lumière du soleil
+Feature/&LightAffinityDarkelfLightSensitivityDescription	Vous avez un malus de -2 aux tests de Sagesse (Perception) en pleine lumière. De plus, votre vitesse est réduite de 1 en pleine lumière.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilité à la lumière vive
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Votre vitesse est réduite de 1.
 Feature/&PowerDarkelfDarknessDescription	Créez une zone d'obscurité magique. Utilisable une fois par repos long.
-Feature/&PowerDarkelfDarknessTitle	Féeombre
+Feature/&PowerDarkelfDarknessTitle	Ténèbres
 Feature/&PowerDarkelfFaerieFireDescription	Mettez en surbrillance les créatures pour donner l'avantage à quiconque les attaque. Utilisable une fois par repos long.
-Feature/&PowerDarkelfFaerieFireTitle	Feyfeu
-Race/&DarkelfRaceDescription	Les elfes noirs sont des descendants d'elfes qui ont été transformés au fil du temps en vivant dans les Badlands inhospitalières. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les anciennes ruines des Badlands, en particulier les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
-Race/&DarkelfRaceTitle	elfe noir
+Feature/&PowerDarkelfFaerieFireTitle	Feu féerique
+Race/&DarkelfRaceDescription	Les elfes noirs sont des descendants d'elfes qui ont changé au fil du temps en vivant dans les Badlands inhospitalières. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les anciennes ruines des Badlands, en particulier les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
+Race/&DarkelfRaceTitle	Elfe noir
 Race/&DarkelfSurName1Title	Za'Moryra
 Race/&DarkelfSurName2Title	DhalNeridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 malus sur la vitesse
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 malus en Sagesse

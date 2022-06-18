@@ -10,48 +10,13 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierDarkelfCharismaAbilityScoreIncrease:21fbf034-47bd-436b-b92d-95883549a6d8",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityDarkelfLightSensitivity:707231ea-e34d-4e26-9af8-4e52c0cb85c3",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DarkelfMagic:0271c652-b4aa-4346-806d-9711e634271b",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DarkelfWeaponTraining:ec6e4a4a-5635-4378-a370-5a5ab7dab2ea",
+      "featureDefinition": "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
       "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetElfHighLanguages:752c07b8faab19c43af3b28543d9f15d",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDarkelfFaerieFire:68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDarkelfDarkness:0c413f86-2fa8-4f3d-999a-89e6c7b5b14d",
-      "level": 5
     }
   ],
   "subRaces": [],
@@ -233,9 +198,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Race/&DarkelfRaceTitle",
-    "description": "Race/&DarkelfRaceDescription",
+    "hidden": true,
+    "title": "Race/&HalfElfDarkElfRaceTitle",
+    "description": "Race/&HalfElfDarkElfRaceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "881f7262bbde5680a12517b92a886088",
@@ -255,7 +220,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f44816c-d076-4513-bf8f-22dc6582f7d5",
+  "guid": "56db8fa8-38f7-5f7f-8d80-e76b2b95f617",
   "contentPack": 9999,
-  "name": "DarkelfRace"
+  "name": "HalfElfDarkElfRace"
 }

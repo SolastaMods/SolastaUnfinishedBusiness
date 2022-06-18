@@ -33,9 +33,15 @@ internal static class RacesContext
     internal static void Load()
     {
         Morphotypes.Load();
+
+        //
+        // TODO: Add this to a setting on UI
+        //
+        _ = DarkelfSubraceBuilder.DarkelfSubrace;
+
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
         LoadRace(GnomeRaceBuilder.GnomeRace);
-        LoadRace(DarkelfRaceBuilder.DarkelfRace);
+        LoadRace(HalfElfVariantRaceBuilder.HalfElfVariantRace); // depends on DarkElf subrace
 
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -60,6 +66,8 @@ internal static class RacesContext
 
     private static void UpdateRaceVisibility(CharacterRaceDefinition characterRaceDefinition)
     {
+        characterRaceDefinition.SubRaces.ForEach(x =>
+            x.GuiPresentation.hidden = !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
         characterRaceDefinition.GuiPresentation.hidden =
             !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name);
     }

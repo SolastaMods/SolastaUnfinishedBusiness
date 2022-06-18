@@ -1,0 +1,125 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "ChaoticGood",
+  "dualSex": true,
+  "minimalAge": 0,
+  "maximalAge": 0,
+  "baseHeight": 63,
+  "baseWeight": 100,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyElfWeaponTraining:d834d84ae89d67846af1a9262e0f62ff",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": null,
+  "personalityFlagOccurences": [],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 3.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "",
+    "morphotypeAssetPrefix": "",
+    "maleNameOptions": [
+      "Race/&SylvanElfMaleName1Title",
+      "Race/&SylvanElfMaleName2Title",
+      "Race/&SylvanElfMaleName3Title",
+      "Race/&SylvanElfMaleName4Title",
+      "Race/&SylvanElfMaleName5Title",
+      "Race/&SylvanElfMaleName6Title",
+      "Race/&SylvanElfMaleName7Title",
+      "Race/&SylvanElfMaleName8Title",
+      "Race/&SylvanElfMaleName9Title",
+      "Race/&SylvanElfMaleName10Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&SylvanElfFemaleName1Title",
+      "Race/&SylvanElfFemaleName2Title",
+      "Race/&SylvanElfFemaleName3Title",
+      "Race/&SylvanElfFemaleName4Title",
+      "Race/&SylvanElfFemaleName5Title",
+      "Race/&SylvanElfFemaleName6Title",
+      "Race/&SylvanElfFemaleName7Title",
+      "Race/&SylvanElfFemaleName8Title",
+      "Race/&SylvanElfFemaleName9Title",
+      "Race/&SylvanElfFemaleName10Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [
+      "Race/&SylvanElfSurName1Title",
+      "Race/&SylvanElfSurName2Title",
+      "Race/&SylvanElfSurName3Title",
+      "Race/&SylvanElfSurName4Title",
+      "Race/&SylvanElfSurName5Title",
+      "Race/&SylvanElfSurName6Title",
+      "Race/&SylvanElfSurName7Title",
+      "Race/&SylvanElfSurName8Title",
+      "Race/&SylvanElfSurName9Title",
+      "Race/&SylvanElfSurName10Title"
+    ],
+    "needBeard": false,
+    "canModifyMusculature": true,
+    "originOptions": [],
+    "maleFaceShapeOptions": [],
+    "femaleFaceShapeOptions": [],
+    "maleHairShapeOptions": [],
+    "femaleHairShapeOptions": [],
+    "maleBeardShapeOptions": [],
+    "equipmentLayoutPath": "",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&HalfElfSylvanElfRaceTitle",
+    "description": "Race/&HalfElfSylvanElfRaceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "4b4b5a8a740fc404db0aeb46ed1b1300",
+      "m_SubObjectName": "SylvanElf",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0eea567d-bb92-51b7-9386-85cf963d73ce",
+  "contentPack": 9999,
+  "name": "HalfElfSylvanElfRace"
+}

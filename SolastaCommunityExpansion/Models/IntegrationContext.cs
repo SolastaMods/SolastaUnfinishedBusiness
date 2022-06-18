@@ -17,12 +17,12 @@ internal static class IntegrationContext
 
     private static CharacterClassDefinition DummyClass { get; } = CharacterClassDefinitionBuilder
         .Create("DummyClass", "d223ce4c8ee34c59a04e38cb5d668b0d")
-        .SetGuiPresentationNoContent(hidden: true)
+        .SetGuiPresentationNoContent(true)
         .AddToDB();
 
     private static CharacterSubclassDefinition DummySubclass { get; } = CharacterSubclassDefinitionBuilder
         .Create("DummySubClass", "97425bff55404677a24fe6a4fe137aa2")
-        .SetGuiPresentationNoContent(hidden: true)
+        .SetGuiPresentationNoContent(true)
         .AddToDB();
 
     internal static CharacterClassDefinition MonkClass { get; private set; } = DummyClass;

@@ -1,0 +1,8 @@
+﻿Race/&HalfElfDarkElfRaceDescription	<#B5D3DE>半黑暗精灵</color>是精灵的后裔，由于生活在荒芜的荒原，随着时间的推移而发生了改变。他们人类的血统使其能适应明亮的光照
+Race/&HalfElfDarkElfRaceTitle	半黑暗精灵
+Race/&HalfElfHighElfRaceDescription	<#B5D3DE>半高等精灵</color>很早就接受了使用魔法的训练
+Race/&HalfElfHighElfRaceTitle	半高等精灵
+Race/&HalfElfSylvanElfRaceDescription	<#B5D3DE>半木精灵</color>被训练成在荒野中生存的人，也特别善于生存。由于他们的木血统，他们从小就被训练用剑和弓作战
+Race/&HalfElfSylvanElfRaceTitle	半木精灵
+Race/&HalfElfVariantDescription	来自特玛尔的人类难民和索拉斯塔精灵的后代，半精灵同时拥有他们父母的力量。他们多才多艺且富有魅力，具有黑暗视觉和精灵血统的天赋，他们总是在两种文化之间挣扎
+Race/&HalfElfVariantTitle	半精灵

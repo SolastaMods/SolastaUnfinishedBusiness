@@ -1,0 +1,145 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "ChaoticGood",
+  "dualSex": true,
+  "minimalAge": 0,
+  "maximalAge": 0,
+  "baseHeight": 63,
+  "baseWeight": 90,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellElfHigh:af29de11ba0046743bc46559b557e32a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "level": 1
+    }
+  ],
+  "subRaces": [],
+  "inventoryDefinition": null,
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 2,
+      "personalityFlag": "GpSpellcaster"
+    }
+  ],
+  "languageAutolearnPreference": [],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 3.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "",
+    "morphotypeAssetPrefix": "",
+    "maleNameOptions": [
+      "Race/&ElfMaleName1Title",
+      "Race/&ElfMaleName2Title",
+      "Race/&ElfMaleName3Title",
+      "Race/&ElfMaleName4Title",
+      "Race/&ElfMaleName5Title",
+      "Race/&ElfMaleName6Title",
+      "Race/&ElfMaleName7Title",
+      "Race/&ElfMaleName8Title",
+      "Race/&ElfMaleName9Title",
+      "Race/&ElfMaleName10Title",
+      "Race/&ElfMaleName11Title",
+      "Race/&ElfMaleName12Title",
+      "Race/&ElfMaleName13Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&ElfFemaleName1Title",
+      "Race/&ElfFemaleName2Title",
+      "Race/&ElfFemaleName3Title",
+      "Race/&ElfFemaleName4Title",
+      "Race/&ElfFemaleName5Title",
+      "Race/&ElfFemaleName6Title",
+      "Race/&ElfFemaleName7Title",
+      "Race/&ElfFemaleName8Title",
+      "Race/&ElfFemaleName9Title",
+      "Race/&ElfFemaleName10Title",
+      "Race/&ElfFemaleName11Title",
+      "Race/&ElfFemaleName12Title",
+      "Race/&ElfFemaleName13Title",
+      "Race/&ElfFemaleName14Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&ElfSurNameTitle",
+    "surNameOptions": [
+      "Race/&ElfSurName1Title",
+      "Race/&ElfSurName2Title",
+      "Race/&ElfSurName3Title",
+      "Race/&ElfSurName4Title",
+      "Race/&ElfSurName5Title",
+      "Race/&ElfSurName6Title",
+      "Race/&ElfSurName7Title",
+      "Race/&ElfSurName8Title",
+      "Race/&ElfSurName9Title",
+      "Race/&ElfSurName10Title",
+      "Race/&ElfSurName11Title",
+      "Race/&ElfSurName12Title",
+      "Race/&ElfSurName13Title",
+      "Race/&ElfSurName14Title",
+      "Race/&ElfSurName15Title",
+      "Race/&ElfSurName16Title",
+      "Race/&ElfSurName17Title"
+    ],
+    "needBeard": false,
+    "canModifyMusculature": true,
+    "originOptions": [],
+    "maleFaceShapeOptions": [],
+    "femaleFaceShapeOptions": [],
+    "maleHairShapeOptions": [],
+    "femaleHairShapeOptions": [],
+    "maleBeardShapeOptions": [],
+    "equipmentLayoutPath": "",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&HalfElfHighElfRaceTitle",
+    "description": "Race/&HalfElfHighElfRaceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "366bd85cddeb50740858c0b15593b4cd",
+      "m_SubObjectName": "HighElf",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6826a724-625a-5ce5-9821-4f62485effe1",
+  "contentPack": 9999,
+  "name": "HalfElfHighElfRace"
+}

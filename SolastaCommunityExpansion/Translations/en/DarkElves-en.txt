@@ -1,15 +1,15 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have a -2 penalty on Wisdom (Perception) checks in bright light. In addition, your speed is reduced by 1 in bright light.
+Condition/&ConditionDarkelfLightSensitiveTitle	Bright Light Sensitivity
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	You have a -2 penalty on Wisdom (Perception).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Ability Score Increase
 Feature/&DarkelfMagicDescription	You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
 Feature/&DarkelfMagicTitle	Dark Elf Magic
 Feature/&DarkelfWeaponTrainingDescription	You have proficiency with rapiers, shortswords, and hand crossbows.
 Feature/&DarkelfWeaponTrainingTitle	Dark Elf Weapon Training
-Feature/&LightAffinityDarkelfLightSensitivityDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
-Feature/&LightAffinityDarkelfLightSensitivityTitle	Sunlight Sensitivity
+Feature/&LightAffinityDarkelfLightSensitivityDescription	You have a -2 penalty on Wisdom (Perception) checks in bright light. In addition, your speed is reduced by 1 in bright light.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Bright Light Sensitivity
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Your speed is reduced by 1.
 Feature/&PowerDarkelfDarknessDescription	Create an area of magical darkness. Usable once per long rest.
 Feature/&PowerDarkelfDarknessTitle	Darkness
 Feature/&PowerDarkelfFaerieFireDescription	Highlight creatures to give advantage to anyone attacking them. Usable once per long rest.
@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	DhalNeridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 penalty on speed
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 penalty on Wisdom

@@ -1,23 +1,25 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Харизма +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	У вас есть штраф -2 к проверкам Мудрости (Восприятие) при ярком свете. Кроме того, ваша скорость снижается на 1 при ярком свете.
+Condition/&ConditionDarkelfLightSensitiveTitle	Чувствительность к яркому свету
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	У вас есть штраф -2 к Мудрости (Восприятие).
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Харизма +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Увеличение показателя способности
-Feature/&DarkelfMagicDescription	Вы знаете заклинание Танцующие огни.
+Feature/&DarkelfMagicDescription	Вы знаете заклинание Танцующие огни. На 3-м уровне вы изучаете волшебный огонь, а на 5-м уровне — тьму. Оба можно использовать один раз за продолжительный отдых.
 Feature/&DarkelfMagicTitle	Магия темных эльфов
 Feature/&DarkelfWeaponTrainingDescription	Вы владеете рапирами, короткими мечами и ручными арбалетами.
-Feature/&DarkelfWeaponTrainingTitle	Обучение обращению с оружием темных эльфов
-Feature/&LightAffinityDarkelfLightSensitivityDescription	Вы совершаете с помехой броски атаки и проверки Мудрости (Внимательность) при ярком свете.
-Feature/&LightAffinityDarkelfLightSensitivityTitle	Чувствительность к солнечному свету
+Feature/&DarkelfWeaponTrainingTitle	Тренировка с оружием темных эльфов
+Feature/&LightAffinityDarkelfLightSensitivityDescription	У вас есть штраф -2 к проверкам Мудрости (Восприятие) при ярком свете. Кроме того, ваша скорость снижается на 1 при ярком свете.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Чувствительность к яркому свету
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Ваша скорость уменьшается на 1.
 Feature/&PowerDarkelfDarknessDescription	Создайте область магической тьмы. Можно использовать один раз за продолжительный отдых.
-Feature/&PowerDarkelfDarknessTitle	Тень Фей
+Feature/&PowerDarkelfDarknessTitle	Тьма
 Feature/&PowerDarkelfFaerieFireDescription	Подсвечивайте существ, чтобы дать преимущество любому, кто их атакует. Можно использовать один раз за продолжительный отдых.
-Feature/&PowerDarkelfFaerieFireTitle	Фейфайр
-Race/&DarkelfRaceDescription	Темные эльфы — потомки эльфов, которые со временем изменились, живя в негостеприимных Бесплодных землях. Темные эльфы в основном ведут ночной образ жизни и приспособились к жизни в древних руинах Бесплодных земель, особенно в погребенных под землей руинах. У них, как правило, темная кожа и светлые волосы.
-Race/&DarkelfRaceTitle	темный эльф
+Feature/&PowerDarkelfFaerieFireTitle	Волшебный огонь
+Race/&DarkelfRaceDescription	Темные эльфы — потомки эльфов, которые со временем изменились, живя в негостеприимных бесплодных землях. Темные эльфы в основном ведут ночной образ жизни и приспособились к жизни в древних руинах Бесплодных земель, особенно в погребенных под землей руинах. У них, как правило, темная кожа и светлые волосы.
+Race/&DarkelfRaceTitle	Темный эльф
 Race/&DarkelfSurName1Title	За'Морира
 Race/&DarkelfSurName2Title	ДхалНеридтас
 Race/&DarkelfSurName3Title	ДхалНервенис
 Race/&DarkelfSurName4Title	Зо'Сонта
 Race/&DarkelfSurName5Title	Зо'Ремон
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 штраф на скорость
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 штраф к Мудрости

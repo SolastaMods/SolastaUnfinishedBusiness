@@ -1,0 +1,8 @@
+﻿Race/&HalfElfDarkElfRaceDescription	Les <#B5D3DE>Demi-Elfes Noirs</color> sont des descendants d'elfes qui ont été modifiés au fil du temps en vivant dans les Badlands inhospitalières. Leur héritage humain les rendait adaptables à la lumière vive.
+Race/&HalfElfDarkElfRaceTitle	Demi elfe noir
+Race/&HalfElfHighElfRaceDescription	Les <#B5D3DE>demi-hauts-elfes</color> sont entraînés à utiliser la magie très tôt.
+Race/&HalfElfHighElfRaceTitle	Demi Haut Elfe
+Race/&HalfElfSylvanElfRaceDescription	Les <#B5D3DE>demi-elfes sylvestres</color> sont entraînés pour survivre dans la nature et sont particulièrement aptes à survivre. Comme leur héritage elfe sylvestre, ils sont entraînés à se battre avec des épées et des arcs depuis l'enfance.
+Race/&HalfElfSylvanElfRaceTitle	Demi elfe sylvestre
+Race/&HalfElfVariantDescription	Descendants des réfugiés humains de Tirmar et des elfes de Solastan, les <#B5D3DE>demi-elfes</color> ont la force de leurs parents. Polyvalents, charismatiques et doués de vision dans le noir et d'ascendance féerique, ils sont toujours déchirés entre deux cultures.
+Race/&HalfElfVariantTitle	Demi-elfe

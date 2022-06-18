@@ -5,11 +5,11 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
-    "Definition:CombatAffinitySensitiveToLight:ef8dfb6a21935c1438c5f5c8a5c238cb"
+    "Definition:MovementAffinityDarkelfLightSensitivity:17c4b5a2-ae5e-4565-a399-73beaaa09431"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -79,7 +79,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -123,9 +123,9 @@
     "description": "Condition/&ConditionDarkelfLightSensitiveDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "0af77d521f0cb8a4381f7316dc2e50e0",
+      "m_SubObjectName": "ConditionLightSensitive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

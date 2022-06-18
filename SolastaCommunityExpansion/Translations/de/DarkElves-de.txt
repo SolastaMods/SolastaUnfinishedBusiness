@@ -1,23 +1,25 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	You have disadvantage on attack rolls and Wisdom (Perception) checks in bright light.
-Condition/&ConditionDarkelfLightSensitiveTitle	Light Sensitivity
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Light Sensitivity disadvantage.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Light Sensitivity
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1.
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	Du hast einen Malus von -2 auf Weisheitswürfe (Wahrnehmung) bei hellem Licht. Außerdem wird deine Geschwindigkeit bei hellem Licht um 1 reduziert.
+Condition/&ConditionDarkelfLightSensitiveTitle	Helle Lichtempfindlichkeit
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Du hast einen Malus von -2 auf Weisheit (Wahrnehmung).
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Erhöhung des Fähigkeitswerts
-Feature/&DarkelfMagicDescription	Du kennst den Cantrip von Dancing Lights.
+Feature/&DarkelfMagicDescription	Du kennst den Cantrip von Dancing Lights. Auf der 3. Stufe lernst du Feenfeuer und auf der 5. Stufe Dunkelheit. Beide können einmal pro langer Pause verwendet werden.
 Feature/&DarkelfMagicTitle	Magie der Dunkelelfen
 Feature/&DarkelfWeaponTrainingDescription	Sie beherrschen den Umgang mit Degen, Kurzschwertern und Handarmbrüsten.
 Feature/&DarkelfWeaponTrainingTitle	Waffentraining der Dunkelelfen
-Feature/&LightAffinityDarkelfLightSensitivityDescription	Du bist bei Angriffswürfen und Weisheitswürfen (Wahrnehmung) bei hellem Licht im Nachteil.
-Feature/&LightAffinityDarkelfLightSensitivityTitle	Sonnenlichtempfindlichkeit
+Feature/&LightAffinityDarkelfLightSensitivityDescription	Du hast einen Malus von -2 auf Weisheitswürfe (Wahrnehmung) bei hellem Licht. Außerdem wird deine Geschwindigkeit bei hellem Licht um 1 reduziert.
+Feature/&LightAffinityDarkelfLightSensitivityTitle	Helle Lichtempfindlichkeit
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Deine Geschwindigkeit wird um 1 verringert.
 Feature/&PowerDarkelfDarknessDescription	Erschaffe einen Bereich magischer Dunkelheit. Einmal pro langer Pause verwendbar.
-Feature/&PowerDarkelfDarknessTitle	Feenschatten
+Feature/&PowerDarkelfDarknessTitle	Dunkelheit
 Feature/&PowerDarkelfFaerieFireDescription	Markieren Sie Kreaturen, um jedem, der sie angreift, einen Vorteil zu verschaffen. Einmal pro langer Pause verwendbar.
 Feature/&PowerDarkelfFaerieFireTitle	Feenfeuer
-Race/&DarkelfRaceDescription	Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind weitgehend nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
-Race/&DarkelfRaceTitle	DarkElf
+Race/&DarkelfRaceDescription	Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind größtenteils nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
+Race/&DarkelfRaceTitle	Dunkelelf
 Race/&DarkelfSurName1Title	Za'Moryra
 Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo’Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 Malus auf Geschwindigkeit
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Malus von -2 auf Weisheit

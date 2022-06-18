@@ -1,0 +1,8 @@
+﻿Race/&HalfElfDarkElfRaceDescription	Los <#B5D3DE>Half-Dark-Elves</color> son descendientes de elfos que han cambiado con el tiempo al vivir en las inhóspitas Badlands. Su herencia humana los hizo adaptables a la luz brillante.
+Race/&HalfElfDarkElfRaceTitle	Elfo medio oscuro
+Race/&HalfElfHighElfRaceDescription	Los <#B5D3DE>Los semialtos elfos</color> están entrenados para usar la magia desde muy temprano.
+Race/&HalfElfHighElfRaceTitle	Medio alto elfo
+Race/&HalfElfSylvanElfRaceDescription	Los <#B5D3DE>Half-Sylvan-Elves</color> están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
+Race/&HalfElfSylvanElfRaceTitle	Medio elfo silvano
+Race/&HalfElfVariantDescription	Hijos de los refugiados humanos de Tirmar y los elfos de Solastan, los <#B5D3DE>semielfos</color> tienen la fuerza de sus padres. Versátiles, carismáticos y dotados de visión en la oscuridad y ascendencia feérica, siempre se debaten entre dos culturas.
+Race/&HalfElfVariantTitle	semielfo
