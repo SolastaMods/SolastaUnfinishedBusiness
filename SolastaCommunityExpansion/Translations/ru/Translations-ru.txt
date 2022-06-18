@@ -1,6 +1,6 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Невозможно читать заклинания.
 ActionAffinity/&DHFeeblemindSpellTitle	Слабоумие
-AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC настроен на 16.
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	КД устанавливается на 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Дубовая кожа
 AttributeModifier/&DHFeeblemindChaSpellDescription	Показатель харизмы установлен на 1.
 AttributeModifier/&DHFeeblemindChaSpellTitle	Слабая харизма
@@ -15,7 +15,7 @@ Class/&ClassWarlockTitle	Чернокнижник
 Class/&TinkererDescription	Тинкереры — изобретатели, алхимики и многие другие. Они соединяют пространство между магией и технологиями.
 Class/&TinkererTitle	мышление
 Class/&WitchArmorProficiencyDescription	Легкая броня.
-Class/&WitchArmorProficiencyTitle	Навыки доспехов ведьмы
+Class/&WitchArmorProficiencyTitle	Навыки доспехов Ведьмы
 Class/&WitchBurnedFireResistanceDescription	У вас есть сопротивление урону от огня.
 Class/&WitchBurnedFireResistanceTitle	Сожжено: сопротивление огню
 Class/&WitchBurnedProduceFlameDescription	Вы знаете колдовство «Производить пламя», которое не учитывается при подсчете общего количества известных вам колдовств.
@@ -30,7 +30,7 @@ Class/&WitchFeatureSetBurnedCurseTitle	Сгорел
 Class/&WitchFeatureSetLovelessCurseDescription	Ты обречен никогда не найти настоящую любовь. Измученное и недовольное, даже магия не может повернуть ваше сердце; в результате вы невосприимчивы к очарованию.
 Class/&WitchFeatureSetLovelessCurseTitle	нелюбимый
 Class/&WitchFeatureSetRitualCastingDescription	Вы можете разыграть любое известное вам заклинание Ведьмы как ритуал, если у этого заклинания есть пометка «Ритуал».
-Class/&WitchFeatureSetRitualCastingTitle	Ведьма: ритуальный кастинг
+Class/&WitchFeatureSetRitualCastingTitle	Ведьма: проведение ритуала
 Class/&WitchFeatureSetVisionsCurseDescription	Вы обречены на ужасные видения будущего, предвещающие смерть ваших друзей, семьи и вас самих. Хотя многие из этих видений являются жестоким обманом, иногда они мрачно точны. Вы можете добавить модификатор Харизмы в дополнение к модификатору Ловкости к броскам инициативы.
 Class/&WitchFeatureSetVisionsCurseTitle	Видения
 Class/&WitchLovelessCharmImmunityDescription	Вы невосприимчивы к очарованию.
@@ -44,7 +44,7 @@ Class/&WitchMaledictionCharmTitle	Очарование Проклятие
 Class/&WitchMaledictionDisorientDescription	В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов, чтобы совершить спасбросок Телосложения. При провале всякий раз, когда эта цель совершает бросок атаки до конца вашего следующего хода, она должна бросить d6 и вычесть выпавшее число из броска атаки.
 Class/&WitchMaledictionDisorientTitle	Дезориентирующее проклятие
 Class/&WitchMaledictionEvilEyeDescription	В качестве действия выберите одно видимое вам существо, которое может видеть вас в пределах 60 футов, чтобы совершить спасбросок Мудрости. При провале существо боится вас до конца вашего следующего хода.
-Class/&WitchMaledictionEvilEyeTitle	Проклятие сглаза
+Class/&WitchMaledictionEvilEyeTitle	Проклятие Сглаз
 Class/&WitchMaledictionObfuscateDescription	Вы действием создаете туманную сферу радиусом 20 футов с центром на себе. Сфера распространяется по углам, и ее площадь сильно затемнена. Этот эффект длится до конца вашего следующего хода или до тех пор, пока ветер средней или большей скорости (по крайней мере, 10 миль в час) не рассеет его.
 Class/&WitchMaledictionObfuscateTitle	Затемнение проклятия
 Class/&WitchMaledictionPoxDescription	В качестве действия выберите одно существо, которое вы можете видеть в пределах 5 футов, чтобы совершить спасбросок Телосложения. При провале существо становится отравленным до конца вашего следующего хода.
@@ -52,20 +52,20 @@ Class/&WitchMaledictionPoxTitle	Оспа Проклятие
 Class/&WitchMaledictionRuinDescription	В качестве действия выберите одно существо, которое вы можете видеть в пределах 60 футов, чтобы совершить спасбросок Телосложения. При провале Класс Защиты существа уменьшается на 3, минимум до 10, до конца вашего следующего хода.
 Class/&WitchMaledictionRuinTitle	Проклятие руин
 Class/&WitchRitualCastingMagicAffinityDescription	Вы можете сотворить заклинание ведьмы как ритуал, если у этого заклинания есть тег ритуала, и у вас есть подготовленное заклинание.
-Class/&WitchRitualCastingMagicAffinityTitle	ритуальное литье
+Class/&WitchRitualCastingMagicAffinityTitle	Подготовка ритуала
 Class/&WitchSavingthrowProficiencyDescription	Мудрость, Харизма.
 Class/&WitchSavingthrowProficiencyTitle	Навыки спасброска ведьмы
-Class/&WitchSkillProficiencyDescription	Выберите два из Тайн, Обмана, Проницательности, Запугивания, Убеждения, Природы и Религии.
+Class/&WitchSkillProficiencyDescription	Выберите два из: Аркана, Обман, Проницательность, Запугивание, Убеждение, Природа и Религия.
 Class/&WitchSkillProficiencyTitle	Навыки Ведьмы
 Class/&WitchSpellcastingDescription	Вы ведьма, способная произносить заклинания из списка ведьмовских заклинаний.
 Class/&WitchSpellcastingTitle	Колдовство Ведьмы
 Class/&WitchTitle	Ведьма
-Class/&WitchToolProficiencyDescription	Выберите один из наборов травника и набора отравителя.
+Class/&WitchToolProficiencyDescription	Выберите один из: набор травника или набора отравителя.
 Class/&WitchToolProficiencyTitle	Владение ведьмовскими инструментами
 Class/&WitchVisionsInitiativeDescription	Вы добавляете свой модификатор Харизмы к своим броскам инициативы.
 Class/&WitchVisionsInitiativeTitle	Инициатива Видения
 Class/&WitchWeaponProficiencyDescription	Простое оружие.
-Class/&WitchWeaponProficiencyTitle	Мастерство оружия ведьмы
+Class/&WitchWeaponProficiencyTitle	Мастерство оружия Ведьмы
 Condition/&AbateDescription	Нельзя использовать реакции.
 Condition/&AbateTitle	Убавлять
 Condition/&AncientForestPhotosynthesisDescription	Вы можете поглощать энергию солнечного света. Пока вы находитесь под прямым ярким светом, вы восстанавливаете 2 HP в начале своего хода.
@@ -90,20 +90,20 @@ Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Имеет по
 Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Несосредоточенный
 Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Движение установлено на 0.
 Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Закреплено
-Condition/&ConditionBarkWardDescription	Под защитой духов леса. Получите 4 временных HP за каждый уровень друида на 10 минут.
-Condition/&ConditionBarkWardTitle	Барк Уорд
+Condition/&ConditionBarkWardDescription	Под защитой Дубового Стража. Получите 4 временных HP за каждый уровень друида на 10 минут.
+Condition/&ConditionBarkWardTitle	Дубовый Страж
 Condition/&ConditionDualFlurryApplyDescription	Вы набираете обороты...
 Condition/&ConditionDualFlurryApplyTitle	Двойной шквал!
 Condition/&ConditionDualFlurryGrantDescription	Твои враги шатаются!
 Condition/&ConditionDualFlurryGrantTitle	Двойной шквал!
 Condition/&ConditionImprovedBarkWardDescription	Духи леса наносят 2d8 колющего урона существам, попавшим в рукопашную атаку.
-Condition/&ConditionImprovedBarkWardTitle	Улучшенная защита от коры
+Condition/&ConditionImprovedBarkWardTitle	Усиленный Дубовый Страж
 Condition/&ConditionMarkedByArcanistDescription	Поражена Меткой чародея. При попадании заклинателем атакой оружием метка взрывается, нанося 1d6 силового урона пораженным и уничтожая метку.
-Condition/&ConditionMarkedByArcanistTitle	Знак чародея
+Condition/&ConditionMarkedByArcanistTitle	Метка чародея
 Condition/&ConditionMuleDescription	Ваша скорость не снижается из-за нагрузки или тяжелой брони. Вы можете нести 20 дополнительных фунтов.
 Condition/&ConditionMuleTitle	Мул
-Condition/&ConditionSuperiorBarkWardDescription	Духи леса дают невосприимчивость к яду и наносят 3d8 колющего урона существам, попавшим в рукопашную атаку.
-Condition/&ConditionSuperiorBarkWardTitle	Улучшенный Барк Уорд
+Condition/&ConditionSuperiorBarkWardDescription	Дубовый Страж дает невосприимчивость к яду и наносит 3d8 колющего урона существам, попавшим в рукопашную атаку.
+Condition/&ConditionSuperiorBarkWardTitle	Улучшенный Дубовый Страж
 Condition/&DebilitatedConditionDescription	Страдать от одного из следующих состояний: ослепление, проклятие, кровотечение или оглушение.
 Condition/&DebilitatedConditionTitle	Ослабленный
 Condition/&DHFeeblemindSpellDescription	Показатели Интеллекта и Харизмы существа становятся равными 1. Существо не может читать заклинания, активировать магические предметы, понимать язык или общаться каким-либо внятным образом.
@@ -111,7 +111,7 @@ Condition/&DHFeeblemindSpellTitle	Слабоумие
 Condition/&DHForesightSpellDescription	Преимущество во всех бросках атаки, проверках характеристик и спасбросках. Другие существа совершают броски атаки с помехой.
 Condition/&DHForesightSpellTitle	предвидение
 Condition/&DHHolyAuraSpellDescription	Преимущество во всех спасбросках. Другие существа совершают броски атаки с помехой. Когда демон или нежить поражает пораженное существо рукопашной атакой, атакующий должен преуспеть в спасброске Телосложения, иначе он будет ослеплен до окончания действия заклинания.
-Condition/&DHHolyAuraSpellTitle	Под защитой святой ауры
+Condition/&DHHolyAuraSpellTitle	Под защитой Святой ауры
 Condition/&DHMindBlankSpellDescription	Иммунитет к психическим повреждениям и очарованию.
 Condition/&DHMindBlankSpellTitle	Пустой разум
 Condition/&DHReverseGravitySpellDescription	Не могу двигаться.
@@ -134,8 +134,8 @@ Condition/&HalfLifeConditionDescription	Вы вбираете в себя нек
 Condition/&HalfLifeConditionTitle	Период полураспада
 Condition/&HelpActionDescription	Это существо было отвлечено.
 Condition/&HelpActionTitle	Несосредоточенный
-Condition/&MoonTouchedConditionDescription	Ваша гравитация отрицается.
-Condition/&MoonTouchedConditionTitle	Луна коснулась
+Condition/&MoonTouchedConditionDescription	Отсутствие гравитации.
+Condition/&MoonTouchedConditionTitle	Касание Луны
 Condition/&PoxDescription	Состояние оспы.
 Condition/&PoxTitle	Оспа
 Condition/&RuinDescription	Штраф -3 КД, максимум до -10 КД.
@@ -145,7 +145,7 @@ Condition/&RuinTitle	Разорение
 Condition/&SentinelStopMovementConditionDescription	Не в состоянии двигаться. Скорость установлена ​​на 0.
 Condition/&SentinelStopMovementConditionTitle	Остановлено
 Condition/&SwallowedByToadConditionDescription	Получает 3d6 урона кислотой каждый ход. Заканчивается, если заклинатель получает 15 единиц урона или более за одну атаку.
-Condition/&SwallowedByToadConditionTitle	Проглотил жаба
+Condition/&SwallowedByToadConditionTitle	Проглочен жабой
 Condition/&SwallowingToadConditionDescription	Заканчивается, если за одну атаку получено 15 или более единиц урона.
 Condition/&SwallowingToadConditionTitle	Глотающая жаба
 ContentPack/&CommunityExpansionPackDescription	Пакет Community Expansion добавляет новые классы, подклассы, умения и заклинания. Есть более высокий предел уровня, мультикласс, функции QOL, исправления ошибок и многое другое. Это настоящий Рог Изобилия (ТМ)...
@@ -154,13 +154,13 @@ CraftyFeats/&ApothecaryIntFeatDescription	Увеличьте свой Интел
 CraftyFeats/&ApothecaryIntFeatTitle	Аптекарь (Интеллект)
 CraftyFeats/&ApothecaryWisFeatDescription	Увеличьте свою Мудрость на 1, максимум до 20.\nВы приобретаете мастерство в использовании набора для травничества и Арканы или опыта, если уже владеете им.
 CraftyFeats/&ApothecaryWisFeatTitle	Аптекарь (Мудрость)
-CraftyFeats/&AttributeDexDescription	+1 DEX до максимум 20
+CraftyFeats/&AttributeDexDescription	+1 ЛОВ до максимум 20
 CraftyFeats/&AttributeDexTitle	Ловкость
-CraftyFeats/&AttributeIntDescription	+1 INT до максимум 20
+CraftyFeats/&AttributeIntDescription	+1 ИНТ до максимум 20
 CraftyFeats/&AttributeIntTitle	Интеллект
-CraftyFeats/&AttributeWisDescription	+1 WIS до максимум 20
+CraftyFeats/&AttributeWisDescription	+1 МУД до максимум 20
 CraftyFeats/&AttributeWisTitle	Мудрость
-CraftyFeats/&CraftyArcanaDescription	Вы получаете мастерство/опыт в Arcana.
+CraftyFeats/&CraftyArcanaDescription	Вы получаете мастерство/опыт в Аркана.
 CraftyFeats/&CraftyBowsDescription	Вы получаете владение всеми луками и арбалетами.
 CraftyFeats/&CraftyBowsTitle	Владение луком
 CraftyFeats/&CraftyFletcherFeatDescription	Увеличьте свою Ловкость на 1, максимум до 20.\nВы получаете владение кузнечными инструментами или опыт, если вы уже владеете им.\n Вы получаете владение всеми луками и арбалетами.
@@ -184,35 +184,35 @@ Equipment/&ArcaneStaffTitle	Чародейский посох
 Equipment/&CEHalberdTypeTitle	алебарды
 Equipment/&CEHandXbowTypeTitle	Ручные арбалеты
 Equipment/&CELongMaceTypeTitle	Длинные булавы
-Equipment/&CEPikeTypeTitle	Щуки
+Equipment/&CEPikeTypeTitle	Пики
 Equipment/&DruidicAmuletDescription	Этот тотемный амулет можно использовать в качестве фокуса для произнесения заклинаний друидов.
 Equipment/&DruidicAmuletTitle	Друидский амулет
 Equipment/&Enchanted_Club_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Club_Acuteness_Title	Клуб остроты
+Equipment/&Enchanted_Club_Acuteness_Title	Острая Дубина
 Equipment/&Enchanted_Club_Bearclaw_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Острые шипы когтей медведя разрывают броню, нанося дополнительный урон. Первое оружие такого рода было разработано Ильдуриалом Стронгхендом.
-Equipment/&Enchanted_Club_Bearclaw_Title	Клуб Медвежьего Когтя
+Equipment/&Enchanted_Club_Bearclaw_Title	Дубина Медвежьего Когтя
 Equipment/&Enchanted_Club_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
-Equipment/&Enchanted_Club_Lightbringer_Title	Клуб Светоносных
+Equipment/&Enchanted_Club_Lightbringer_Title	Дубина Светоносного
 Equipment/&Enchanted_Club_Power_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Маги манакалона создали этот клуб, чтобы дать чемпионам Железных легионов силу, которой не могли дать их эльфийские тела.
-Equipment/&Enchanted_Club_Power_Title	Клуб силы
+Equipment/&Enchanted_Club_Power_Title	Дубина Мощи
 Equipment/&Enchanted_Club_Punisher_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Сочетание лучшего металла и рабского камня придало этому топору невероятную пробивную силу.
-Equipment/&Enchanted_Club_Punisher_Title	Каратель Клуб
+Equipment/&Enchanted_Club_Punisher_Title	Дубина Карателя
 Equipment/&Enchanted_Dart_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Dart_Acuteness_Title	Дротик остроты
+Equipment/&Enchanted_Dart_Acuteness_Title	Острый Дротик
 Equipment/&Enchanted_Dart_Frostburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло наперекосяк.
 Equipment/&Enchanted_Dart_Frostburn_Title	Ледяной дротик
 Equipment/&Enchanted_Dart_Sharpness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Dart_Sharpness_Title	Дротик остроты
+Equipment/&Enchanted_Dart_Sharpness_Title	Заточенный Дротик
 Equipment/&Enchanted_Dart_Souldrinker_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir Redblade.
 Equipment/&Enchanted_Dart_Souldrinker_Title	Дротик Пожирателя душ
 Equipment/&Enchanted_Handaxe_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Handaxe_Acuteness_Title	Ручной топор остроты
+Equipment/&Enchanted_Handaxe_Acuteness_Title	Острый топорик
 Equipment/&Enchanted_Handaxe_Frostburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло наперекосяк.
-Equipment/&Enchanted_Handaxe_Frostburn_Title	Обмороженный ручной топор
+Equipment/&Enchanted_Handaxe_Frostburn_Title	Ледяной топорик
 Equipment/&Enchanted_Handaxe_Sharpness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Handaxe_Sharpness_Title	Ручной топор остроты
+Equipment/&Enchanted_Handaxe_Sharpness_Title	Заточенный Топорик
 Equipment/&Enchanted_Handaxe_Souldrinker_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir Redblade.
-Equipment/&Enchanted_Handaxe_Souldrinker_Title	Ручной топор пожирателя душ
+Equipment/&Enchanted_Handaxe_Souldrinker_Title	Топорик Пожирателя душ
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Его первоначальный дизайн носил печать Дефинет Острый Взгляд, известного заклинателя лесных эльфов.
 Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Тяжелый арбалет меткости
 Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
@@ -222,65 +222,65 @@ Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Тяжелый арбалет «
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Коэдимварт предпочитал иметь дело с чародеями Манакалона физически, а не магически. Его лучшие лучники получили арбалеты, созданные Дефинетом Острым Взглядом.
 Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Тяжелый арбалет меткой стрельбы
 Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного эффекта!
-Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Тяжелый штормовой арбалет
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Тяжелый арбалет «Гроза»
 Equipment/&Enchanted_HideArmor_Deflection_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_HideArmor_Deflection_Title	Скрыть доспех отражения
+Equipment/&Enchanted_HideArmor_Deflection_Title	Клёпаный доспех отражения
 Equipment/&Enchanted_HideArmor_FlameDancing_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_HideArmor_FlameDancing_Title	Hide Armor of Flame Dancing
+Equipment/&Enchanted_HideArmor_FlameDancing_Title	Hide Клёпаный доспех Танца Пламени
 Equipment/&Enchanted_HideArmor_FrostWalking_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_HideArmor_FrostWalking_Title	Hide Armor of Frost Walking
+Equipment/&Enchanted_HideArmor_FrostWalking_Title	Клёпаный доспех Ледяной поступи
 Equipment/&Enchanted_HideArmor_Robustness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_HideArmor_Robustness_Title	Скрыть броню прочности
+Equipment/&Enchanted_HideArmor_Robustness_Title Крепкий Клёпаный доспех
 Equipment/&Enchanted_HideArmor_Sturdiness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_HideArmor_Sturdiness_Title	Скрыть броню прочности
+Equipment/&Enchanted_HideArmor_Sturdiness_Title	Клёпаный доспех Прочности
 Equipment/&Enchanted_HideArmor_Survival_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_HideArmor_Survival_Title	Скрыть броню выживания
+Equipment/&Enchanted_HideArmor_Survival_Title	Клёпаный доспех Выживания
 Equipment/&Enchanted_Javelin_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Javelin_Acuteness_Title	Копье остроты
+Equipment/&Enchanted_Javelin_Acuteness_Title	Острое Копье
 Equipment/&Enchanted_Javelin_Frostburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло наперекосяк.
 Equipment/&Enchanted_Javelin_Frostburn_Title	Ледяное копье
 Equipment/&Enchanted_Javelin_Sharpness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Javelin_Sharpness_Title	Копье остроты
+Equipment/&Enchanted_Javelin_Sharpness_Title	Заточенное Копье
 Equipment/&Enchanted_Javelin_Souldrinker_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir Redblade.
-Equipment/&Enchanted_Javelin_Souldrinker_Title	Копье Испивающего Души
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Копье Пожирателя душ
 Equipment/&Enchanted_LeatherDruid_Deflection_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_LeatherDruid_Deflection_Title	Друид Кожа Отклонения
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Доспех Друид Отклонения
 Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Друид Танец Кожи Пламени
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Доспех Друида Танец Пламени
 Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Друид Кожа ледяной походки
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Доспех Друида Ледяной поступи
 Equipment/&Enchanted_LeatherDruid_Robustness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_LeatherDruid_Robustness_Title	Прочная кожа друидов
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Крепкий доспех друидов
 Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Прочная кожа друидов
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Прочный доспех друидов
 Equipment/&Enchanted_LeatherDruid_Survival_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_LeatherDruid_Survival_Title	Кожа выживания друида
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Доспех друида Выживания
 Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Его первоначальный дизайн носил печать Дефинет Острый Взгляд, известного заклинателя лесных эльфов.
 Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Легкий арбалет меткости
 Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
-Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Светоносный легкий арбалет
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Легкий арбалет Светоносного
 Equipment/&Enchanted_LightCrossbow_Medusa_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Магия соединила коралл медузы и твердую древесину, чтобы создать смертоносный лук, любимый абордажными отрядами островных халфлингов.
 Equipment/&Enchanted_LightCrossbow_Medusa_Title	Легкий арбалет «Медуза»
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Коэдимварт предпочитал иметь дело с чародеями Манакалона физически, а не магически. Его лучшие лучники получили арбалеты, созданные Дефинетом Острым Взглядом.
 Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Легкий стрелковый арбалет
 Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-лучников Колтаннина. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного эффекта!
-Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Легкий штормовой арбалет
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Легкий арбалет «Гроза»
 Equipment/&Enchanted_Maul_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Maul_Acuteness_Title	Кувалда остроты
+Equipment/&Enchanted_Maul_Acuteness_Title	Острая Кувалда
 Equipment/&Enchanted_Maul_Bearclaw_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Острые шипы когтей медведя разрывают броню, нанося дополнительный урон. Первое оружие такого рода было разработано Ильдуриалом Стронгхендом.
 Equipment/&Enchanted_Maul_Bearclaw_Title	Кувалда медвежьего когтя
 Equipment/&Enchanted_Maul_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
 Equipment/&Enchanted_Maul_Lightbringer_Title	Кувалда Светоносного
 Equipment/&Enchanted_Maul_Power_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Чародеи-манакалоны создали этот Молот, чтобы дать чемпионам Железных Легионов силу, которой не могли дать их эльфийские тела.
-Equipment/&Enchanted_Maul_Power_Title	Кувалда силы
+Equipment/&Enchanted_Maul_Power_Title	Кувалда мощи
 Equipment/&Enchanted_Maul_Punisher_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Сочетание лучшего металла и рабского камня придало этому топору невероятную пробивную силу.
-Equipment/&Enchanted_Maul_Punisher_Title	Каратель Мол
+Equipment/&Enchanted_Maul_Punisher_Title	Кувалда Карателя
 Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Боевой посох остроты
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Острый Боевой посох
 Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Лесторетом Стилармом для сражения на замерзшем севере Империи.
 Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Боевой посох драконьего клинка
 Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло наперекосяк.
-Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Боевой посох Frostburn
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Боевой посох Мороза
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
 Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Боевой посох Светоносного
 Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir Redblade.
@@ -288,47 +288,47 @@ Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Боевой посох Ис
 Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного эффекта!
 Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Боевой посох клинка бури
 Equipment/&Enchanted_Quarterstaff_Warden_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Илдуриалом Стронгармом, известным мастером клинков из Манакалона. Первый такой клинок, Manacalon Warden, был предложен командиру «Еврайдда».
-Equipment/&Enchanted_Quarterstaff_Warden_Title	Боевой посох надзирателя
+Equipment/&Enchanted_Quarterstaff_Warden_Title	Боевой посох Надзирателя
 Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и скарафинами.
-Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Посох Уайтберна
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Посох Белосвет
 Equipment/&Enchanted_Rapier_Dragonblade_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Лесторетом Стальной Армой для сражения на замерзшем севере Империи.
 Equipment/&Enchanted_Rapier_Dragonblade_Title	Рапира драконьего клинка
 Equipment/&Enchanted_Rapier_Frostburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло наперекосяк.
 Equipment/&Enchanted_Rapier_Frostburn_Title	Ледяная рапира
 Equipment/&Enchanted_Rapier_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
-Equipment/&Enchanted_Rapier_Lightbringer_Title	Светоносная рапира
+Equipment/&Enchanted_Rapier_Lightbringer_Title	Рапира Светоносного
 Equipment/&Enchanted_Rapier_Power_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Чародеи-манакалоны создали эту Рапиру, чтобы дать чемпионам Железных Легионов силу, которой не могли дать их эльфийские тела.
-Equipment/&Enchanted_Rapier_Power_Title	Рапира силы
+Equipment/&Enchanted_Rapier_Power_Title	Рапира мощи
 Equipment/&Enchanted_Rapier_Souldrinker_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir Redblade.
-Equipment/&Enchanted_Rapier_Souldrinker_Title	Рапира пожирателя душ
+Equipment/&Enchanted_Rapier_Souldrinker_Title	Рапира Пожирателя душ
 Equipment/&Enchanted_Rapier_Stormblade_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного эффекта!
-Equipment/&Enchanted_Rapier_Stormblade_Title	Рапира клинка бури
+Equipment/&Enchanted_Rapier_Stormblade_Title	Грозовая Рапира
 Equipment/&Enchanted_Rapier_Warden_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Илдуриалом Стронгармом, известным мастером клинков из Манакалона. Первый такой клинок, Manacalon Warden, был предложен командиру «Еврайда».
-Equipment/&Enchanted_Rapier_Warden_Title	Рапира надзирателя
+Equipment/&Enchanted_Rapier_Warden_Title	Рапира Надзирателя
 Equipment/&Enchanted_Rapier_Whiteburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и скарафинами.
-Equipment/&Enchanted_Rapier_Whiteburn_Title	Уайтберн Рапира
+Equipment/&Enchanted_Rapier_Whiteburn_Title	Рапира Белосвет
 Equipment/&Enchanted_Scimitar_Dragonblade_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Лесторетом Стилармом для сражения на замерзшем севере Империи.
-Equipment/&Enchanted_Scimitar_Dragonblade_Title	Ятаган драконьего клинка
+Equipment/&Enchanted_Scimitar_Dragonblade_Title	Скимитар драконьего клинка
 Equipment/&Enchanted_Scimitar_Frostburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Оно было разработано Келиандиром Пламенным Сердцем, который выковал это оружие для борьбы с саламандрами после того, как исследование стихийных планов пошло наперекосяк.
-Equipment/&Enchanted_Scimitar_Frostburn_Title	Ледяной ятаган
+Equipment/&Enchanted_Scimitar_Frostburn_Title	Ледяной скимитар
 Equipment/&Enchanted_Scimitar_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
-Equipment/&Enchanted_Scimitar_Lightbringer_Title	Светоносный ятаган
+Equipment/&Enchanted_Scimitar_Lightbringer_Title	Скимитар Светоносного
 Equipment/&Enchanted_Scimitar_Souldrinker_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Любимец агентов Silent Whisper, это оружие было разработано Cylordir Redblade.
 Equipment/&Enchanted_Scimitar_Souldrinker_Title	Скимитар Пожирателя душ
 Equipment/&Enchanted_Scimitar_Stormblade_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Галаром Стромфорджем, первым дварфским кузнецом, который использовал силу бури в оружии для разрушительного эффекта!
-Equipment/&Enchanted_Scimitar_Stormblade_Title	Скимитар клинка бури
+Equipment/&Enchanted_Scimitar_Stormblade_Title	Грозовой Скимитар
 Equipment/&Enchanted_Scimitar_Warden_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Он был разработан Илдуриалом Стронгармом, известным мастером клинков из Манакалона. Первый такой клинок, Manacalon Warden, был предложен командиру «Еврайда».
-Equipment/&Enchanted_Scimitar_Warden_Title	Страж Ятаган
+Equipment/&Enchanted_Scimitar_Warden_Title	Скимитар Стража
 Equipment/&Enchanted_Scimitar_Whiteburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и скарафинами.
-Equipment/&Enchanted_Scimitar_Whiteburn_Title	Уайтберн Ятаган
+Equipment/&Enchanted_Scimitar_Whiteburn_Title	Скимитар Белосвет
 Equipment/&Enchanted_Shield_Deflection_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_Shield_Deflection_Title	Щит Отражения
 Equipment/&Enchanted_Shield_FlameDancing_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_Shield_FlameDancing_Title	Танцующий щит пламени
+Equipment/&Enchanted_Shield_FlameDancing_Title	Щит Танцующего пламени
 Equipment/&Enchanted_Shield_FrostWalking_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_Shield_FrostWalking_Title	Щит мороза
 Equipment/&Enchanted_Shield_Robustness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_Shield_Robustness_Title	Щит прочности
+Equipment/&Enchanted_Shield_Robustness_Title	Крепкий Щит
 Equipment/&Enchanted_Shield_Sturdiness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_Shield_Sturdiness_Title	Щит прочности
 Equipment/&Enchanted_Shield_Survival_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
@@ -336,9 +336,9 @@ Equipment/&Enchanted_Shield_Survival_Title	Щит выживания
 Equipment/&Enchanted_Shield_Wooden_Deflection_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_Shield_Wooden_Deflection_Title	Деревянный щит отражения
 Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Танцующий деревянный щит пламени
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Деревянный щит Танцующего пламени
 Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Деревянный щит ледяной ходьбы
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Деревянный щит ледяной поступи
 Equipment/&Enchanted_Shield_Wooden_Robustness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Деревянный щит стойкости
 Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
@@ -346,39 +346,39 @@ Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Деревянный щит 
 Equipment/&Enchanted_Shield_Wooden_Survival_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_Shield_Wooden_Survival_Title	Деревянный щит выживания
 Equipment/&Enchanted_Spear_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Spear_Acuteness_Title	Копье остроты
+Equipment/&Enchanted_Spear_Acuteness_Title	Острое Копье
 Equipment/&Enchanted_Spear_BlackViper_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона, с использованием копья и яда легендарного паука из глубин Соласты. Создателем клинка был Григг Блэкхарт, печально известный болотный халфлинг-кузнец, работавший в кузницах Аэр Элаи.
-Equipment/&Enchanted_Spear_BlackViper_Title	Копье черной гадюки
+Equipment/&Enchanted_Spear_BlackViper_Title	Копье Черная Гадюка
 Equipment/&Enchanted_Spear_Doomblade_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Кеналот Даркмайнд изобрел Роковые клинки как инструмент наказания тех, кто сопротивлялся магии Империи.
-Equipment/&Enchanted_Spear_Doomblade_Title	Копье с наконечником рока
+Equipment/&Enchanted_Spear_Doomblade_Title	Копье Рока
 Equipment/&Enchanted_Spear_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
 Equipment/&Enchanted_Spear_Lightbringer_Title	Копье Светоносного
 Equipment/&Enchanted_Spear_Sharpness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Spear_Sharpness_Title	Копье остроты
+Equipment/&Enchanted_Spear_Sharpness_Title	Заточенное Копье
 Equipment/&Enchanted_Spear_Whiteburn_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Вайтберн был создан первым данантаром для борьбы с вторжением троллей, пришедшим из болот к югу от его владений между сиолтафинами и скарафинами.
-Equipment/&Enchanted_Spear_Whiteburn_Title	Уайтберн Копье
+Equipment/&Enchanted_Spear_Whiteburn_Title	Копье Белосвет
 Equipment/&Enchanted_StuddedLeather_Deflection_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_StuddedLeather_Deflection_Title	Шипованная кожа отклонения
 Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Шипованная кожа огненного танца
 Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Шипованная кожа ледяной походки
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Шипованная кожа ледяной поступи
 Equipment/&Enchanted_StuddedLeather_Robustness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
-Equipment/&Enchanted_StuddedLeather_Robustness_Title	Шипованная кожа прочности
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Крепкая Шипованная кожа
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Шипованная кожа прочности
 Equipment/&Enchanted_StuddedLeather_Survival_Description	Эта зачарованная броня была создана с использованием древних знаний мастеров-оружейников Манакалона. Илдуриал Стронгхэнд выковал первый из этих доспехов для личной охраны Императора.
 Equipment/&Enchanted_StuddedLeather_Survival_Title	Шипованная кожа выживания
 Equipment/&Enchanted_Warhammer_Acuteness_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Его дизайн был одной из первых работ Эльгадора Кинспирита, мага-кузнеца Арканеума.
-Equipment/&Enchanted_Warhammer_Acuteness_Title	Боевой молот остроты
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Острый Боевой молот
 Equipment/&Enchanted_Warhammer_Bearclaw_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Острые шипы когтей медведя разрывают броню, нанося дополнительный урон. Первое оружие такого рода было разработано Ильдуриалом Стронгхендом.
 Equipment/&Enchanted_Warhammer_Bearclaw_Title	Боевой молот медвежьего когтя
 Equipment/&Enchanted_Warhammer_Lightbringer_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Колтаннина. Он был разработан Эльгадором Кинспиритом, магом-кузнецом Арканеума, для поддержки борьбы с нежитью.
-Equipment/&Enchanted_Warhammer_Lightbringer_Title	Светоносный боевой молот
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Боевой молот Светоносного
 Equipment/&Enchanted_Warhammer_Power_Description	Это зачарованное оружие было выковано с использованием древних знаний мастеров-кузнецов Манакалона. Некоторые существа уважают только физическую силу. Арканисты манакалона создали этот боевой молот, чтобы дать чемпионам Железных легионов силу, которую их эльфийские тела не давали.
-Equipment/&Enchanted_Warhammer_Power_Title	Боевой молот силы
+Equipment/&Enchanted_Warhammer_Power_Title	Боевой молот мощи
 Equipment/&Enchanted_Warhammer_Punisher_Description	Это зачарованное оружие было создано с использованием древних знаний мастеров-кузнецов Манакалона. Сочетание лучшего металла и рабского камня придало этому топору невероятную пробивную силу.
-Equipment/&Enchanted_Warhammer_Punisher_Title	Каратель Вархаммер
+Equipment/&Enchanted_Warhammer_Punisher_Title	Боевой молот Карателя
 Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Получите сопротивление кислотному урону на 1 час.
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Отвар кислотной защиты
 Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Получите сопротивление урону от молнии на 1 час.
@@ -395,12 +395,12 @@ Equipment/&ImprovedLightningSpearDescription	Наносит 1к6 урона от
 Equipment/&ImprovedLightningSpearTitle	Улучшенное копье молнии
 Equipment/&ImprovedThunderPunchDescription	Наносит 1d8 урона громом при попадании и накладывает помеху на броски атаки против союзников.\nБонусным действием притяните врагов на 30 футов, затем нанесите урон громом 1d8.
 Equipment/&ImprovedThunderPunchTitle	Улучшенный громовой удар
-Equipment/&LightningSpearDescription	Наносит 1к6 урона от молнии с дополнительным уроном от молнии 1к6 один раз за ход.
-Equipment/&LightningSpearTitle	Молниеносное копье
-Equipment/&LivewoodClubDescription	Этот клуб состоит из живого дерева с прорастающими листьями и, возможно, сезонными цветами. Его можно использовать в качестве фокуса для произнесения заклинаний друидов.
-Equipment/&LivewoodClubTitle	Клуб Ливвуд
+Equipment/&LightningSpearDescription	Наносит 1d6 урона от молнии с дополнительным уроном от молнии 1d6 один раз за ход.
+Equipment/&LightningSpearTitle	Копье Молнии
+Equipment/&LivewoodClubDescription	Эта Дубина состоит из живого дерева с прорастающими листьями и, возможно, сезонными цветами. Его можно использовать в качестве фокуса для произнесения заклинаний друидов.
+Equipment/&LivewoodClubTitle	Дубина Древа
 Equipment/&LivewoodStaffDescription	Этот посох состоит из живой древесины с прорастающими листьями и, возможно, сезонными цветами. Его можно использовать в качестве фокуса для произнесения заклинаний друидов.
-Equipment/&LivewoodStaffTitle	Посох Ливвуда
+Equipment/&LivewoodStaffTitle	Посох Древа
 Equipment/&ThunderPunchDescription	Наносит 1d8 урона громом при попадании и накладывает помеху на броски атаки против союзников.
 Equipment/&ThunderPunchTitle	Громовой удар
 Equipment/&WandIdentifyDescription	Применяет заклинание Идентификация, расходуя один заряд. Жезл имеет 3 заряда и восстанавливает 1d3 заряда каждый рассвет.
@@ -434,7 +434,7 @@ Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Вы получае�
 Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Детонация устройства
 Feat/&ArtificerArtillerstImprovedCannonsDescription	Эффект от ваших пушек увеличивается. Дополнительный урон от огня, дополнительная цель от силы и дополнительные временные ХП от щита.
 Feat/&ArtificerArtillerstImprovedCannonsTitle	Улучшенные пушки
-Feat/&ArtificialServantAttackDescription	Атака дальнего боя 1к6 силового урона от вашего верного помощника.
+Feat/&ArtificialServantAttackDescription	Атака дальнего боя 1d6 силового урона от вашего верного помощника.
 Feat/&ArtificialServantAttackTitle	Силовая праща
 Feat/&ArtificialServantDescription	Слуга дружелюбен к вам и вашим спутникам и подчиняется вашим командам.
 Feat/&ArtificialServantTitle	Искусственный слуга
@@ -497,9 +497,9 @@ Feat/&DualFlurryTitle	Двойной шквал
 Feat/&ExtraInfusionSlotsDescription	Вы получаете дополнительные слоты для инфузий, которые необходимо использовать для доспехов/оружия.
 Feat/&ExtraInfusionSlotsTitle	Дополнительные инфузии
 Feat/&FeatArcaneDefenseDescription	Увеличьте свой Интеллект на 1, максимум до 20.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор Интеллекта.
-Feat/&FeatArcaneDefenseTitle	Тайная защита
+Feat/&FeatArcaneDefenseTitle	Защита Арканы
 Feat/&FeatArcanePrecisionDescription	Вы можете использовать бонусное действие для выбора оружия. Его атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и урона в течение 1 минуты. Эту функцию можно использовать дважды за продолжительный отдых.
-Feat/&FeatArcanePrecisionTitle	Тайная точность
+Feat/&FeatArcanePrecisionTitle	Точность Арканы
 Feat/&FeatBlindFightingStlyeDescription	У вас есть слепое зрение с диапазоном 10 футов.
 Feat/&FeatBlindFightingStlyeTitle	Боевой стиль: Бой вслепую
 Feat/&FeatBrutalThugDescription	Вы наносите мощные удары в нужных местах.\nВы получаете навыки простого и боевого оружия.\nВы можете атаковать скрытно, используя боевое оружие.
@@ -586,7 +586,7 @@ Feat/&FeatShadowTouchedIntTitle	Прикосновение тени (Интел�
 Feat/&FeatShadowTouchedWisDescription	Увеличьте свой атрибут Мудрости на 1, максимум до 20.\nВы получаете способность накладывать заклинания невидимости, нанесения ран и ложных жизней один раз за продолжительный отдых, и вы можете накладывать эти заклинания с помощью своих ячеек заклинаний.
 Feat/&FeatShadowTouchedWisTitle	Прикосновение тени (Мудрость)
 Feat/&FeatShadyDescription	Увеличьте свою Ловкость на 1, максимум до 20.\nОдин раз за ход вы можете нанести дополнительный урон 1d6 одному существу, по которому вы попали атакой, соответствующей требованиям Скрытой атаки Разбойника. На 12 уровне этот урон увеличивается до 2d6, а на 20 уровне до 4d6.
-Feat/&FeatShadyTitle	Шейди
+Feat/&FeatShadyTitle Теневой
 Feat/&FeatShieldExpertDescription	Вы научились использовать щит в качестве оружия. Для вас это становится оружием ближнего боя, которым вы владеете и которое наносит дробящий урон 1d4.\nВы получаете преимущество при попытках толчка со щитом.
 Feat/&FeatShieldExpertTitle	Эксперт по щитам
 Feat/&FeatStrengthIncrementDescription	Увеличьте свою Силу на 1, максимум до 20.
@@ -611,8 +611,8 @@ Feat/&FeatTelekineticWisPushTitle	Телекинетический толчок
 Feat/&FeatTelekineticWisTitle	Телекинетик (Мудрость)
 Feat/&FeatTitanFightingDescription	Вы получаете +2 к попаданию по существам Большого размера или больше.
 Feat/&FeatTitanFightingTitle	Боевой стиль: Битва титанов
-Feat/&FeatToughDescription	Максимум ваших хитов увеличивается на величину, равную удвоенному вашему уровню, когда вы получаете этот навык. Всякий раз, когда вы получаете уровень после этого, ваш максимум хитов увеличивается еще на 2 хита.
-Feat/&FeatToughTitle	Жесткий
+Feat/&FeatToughDescription	Максимум ваших HP увеличивается на величину, равную удвоенному вашему уровню, когда вы получаете этот навык. Всякий раз, когда вы получаете уровень после этого, ваш максимум HP увеличивается еще на 2 HP.
+Feat/&FeatToughTitle	Крепкий
 Feat/&FeatWarCasterDescription	Вы получаете преимущество на проверки для сохранения концентрации.\nВы получаете возможность выполнять соматический компонент заклинаний даже с занятыми обеими руками.\nКогда движение враждебного существа вызывает у вас провоцированную атаку, вы можете реакцией наложить колдовство на это существо, вместо того чтобы проводить провоцированную атаку. Время сотворения колдовства должно быть равно 1 действию или бонусному действию, и оно должно быть нацелено только на это существо.
 Feat/&FeatWarCasterTitle	Заклинатель войны
 Feat/&FeatWiseDefenseDescription	Увеличьте свою Мудрость на 1, максимум до 20.\nПока вы не носите никаких доспехов, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор Мудрости.
@@ -628,7 +628,7 @@ Feat/&FightingStyleArcheryTitle	Боевой стиль: Стрельба из �
 Feat/&FightingStyleDefenseDescription	Пока вы носите доспехи, вы получаете бонус +1 к КД.
 Feat/&FightingStyleDefenseTitle	Боевой стиль: Защита
 Feat/&FightingStyleDuelingDescription	Когда вы держите в одной руке оружие ближнего боя и никакого другого оружия, вы получаете бонус +2 к броскам урона этим оружием.
-Feat/&FightingStyleDuelingTitle	Боевой стиль: дуэльный
+Feat/&FightingStyleDuelingTitle	Боевой стиль: Дуэлянт
 Feat/&FightingStyleGeneralFeatDescription	Вы можете выбрать стиль боя.
 Feat/&FightingStyleGeneralFeatitle	Боевой стиль
 Feat/&FightingStyleGreatWeaponDescription	Когда вы выбрасываете 1 или 2 на кубике урона за атаку, которую вы совершаете оружием ближнего боя, которое вы держите двумя руками, вы можете перебросить кубик. Вы должны использовать новый бросок, даже если это 1 или 2. Оружие должно быть двуручным или универсальным, чтобы вы могли получить это преимущество.
@@ -637,7 +637,7 @@ Feat/&FightingStyleProtectionDescription	Когда существо, котор
 Feat/&FightingStyleProtectionTitle	Боевой стиль: Защита
 Feat/&FightingStyleTwoWeaponDescription	Когда вы участвуете в бою с двумя оружиями, вы можете добавить свой модификатор способности к урону от второй атаки.
 Feat/&FightingStyleTwoWeaponTitle	Боевой стиль: два оружия
-Feat/&FlameArtillery_2Description	урон огнём 3к8 (Конус).
+Feat/&FlameArtillery_2Description	урон огнём 3d8 (Конус).
 Feat/&FlameArtillery_2Title	Огненная артиллерия (улучшенная)
 Feat/&FlameArtilleryConstructDescription	Создает огненный конус, наносящий 2d8 урона при провале.
 Feat/&FlameArtilleryConstructDescription_3	Создает огненный конус, наносящий 3d8 урона при провале.
@@ -646,7 +646,7 @@ Feat/&FlameArtilleryConstructTitle_3	Огнеметная артиллерийс
 Feat/&FlameArtilleryConstructTitle_5	Огнеметная артиллерийская конструкция
 Feat/&FlameArtilleryDescription	2к8 урона огнём (Конус).
 Feat/&FlameArtilleryTitle	Огненная артиллерия
-Feat/&ForceArtillery_2Description	Силовой урон 3к8 и толкание цели на 5 фт.
+Feat/&ForceArtillery_2Description	Силовой урон 3d8 и толкание цели на 5 фт.
 Feat/&ForceArtillery_2Title	Силовая артиллерия (улучшенная)
 Feat/&ForceArtilleryAdditionalDamageDescription	Модернизированная конструкция наносит на 1к8 больше урона за удар.
 Feat/&ForceArtilleryConstructDescription	Наносит силовой урон 2к8 и отталкивает цель на 5 футов от Конструкта.
@@ -659,15 +659,15 @@ Feat/&ForceStrikePowerDescription	Атака дальнего боя 1к6 сил
 Feat/&ForceStrikePowerTitle	Force Sling (Искусственный слуга)
 Feat/&GauntletsGrappleDescription	Теперь может притягивать врагов в рукопашную с помощью бонусного действия и наносить урон громом 1d8.
 Feat/&GauntletsGrappleTitle	Перчаточный захват
-Feat/&HalfCoverShieldDescription	Союзники в пределах 10 футов получают +2 AC.
+Feat/&HalfCoverShieldDescription	Союзники в пределах 10 футов получают +2 КД.
 Feat/&HalfCoverShieldTitle	Половинный купол
-Feat/&HealerDescription	Вы получаете умение или опыт в проверках Медицины. Вы получаете возможность стабилизировать умирающее существо, а также воскрешать существо, умершее в течение последних 12 секунд, один раз за продолжительный отдых. Вы можете действием восстановить 1d6 + 4 + уровень жизни персонажа количество раз за короткий отдых, равное вашему модификатору Мудрости.
+Feat/&HealerDescription	Вы получаете умение или опыт в проверках Медицины. Вы получаете возможность стабилизировать умирающее существо, а также воскрешать существо, умершее в течение последних 12 секунд, один раз за продолжительный отдых. Вы можете действием восстановить 1d6 + 4 + уровень жизни персонажа, количество раз за короткий отдых равное вашему модификатору Мудрости.
 Feat/&HealerResuscitateDescription	Используйте действие, чтобы оживить существо, которое умерло в течение последних 15 секунд.
 Feat/&HealerResuscitateTitle	Реанимировать
 Feat/&HealerStabilizeDescription	Используйте действие, чтобы стабилизировать умирающее существо.
 Feat/&HealerStabilizeTitle	стабилизировать
 Feat/&HealerTitle	Целитель
-Feat/&HealerUseMedicineDescription	Вы можете действием восстановить 1d6 + 4 + уровень жизни персонажа количество раз за короткий отдых, равное вашему модификатору Мудрости.
+Feat/&HealerUseMedicineDescription	Вы можете действием восстановить 1d6 + 4 + уровень жизни персонажа, количество раз за короткий отдых равное вашему модификатору Мудрости.
 Feat/&HealerUseMedicineTitle	Используйте лекарство
 Feat/&IncreaseConstructSelectingDescription	Теперь вы можете призвать две артиллерийские конструкции. Конструкции могут быть одинаковыми или разными модусами.
 Feat/&IncreaseConstructSelectingTitle	Подкрепления
@@ -680,7 +680,7 @@ Feat/&MendingConstructTitle	Исправление конструкции
 Feat/&ModeSwitchingPoolDescription	Вы можете переключаться между режимами один раз за короткий отдых, создавая и используя временное оружие.
 Feat/&ModeSwitchingPoolTitle	Режим брони
 Feat/&MoonlitBonusCantripsDescription	Ваш контроль над лунным светом поднялся на новый уровень. Вы можете накладывать заклинания лунного луча и волшебного огня по желанию.
-Feat/&MoonlitBonusCantripsTitle	Управление светом
+Feat/&MoonlitBonusCantripsTitle	Управление лунным светом
 Feat/&PickPocketFeatDescription	Вы получаете владение Ловкостью рук или опыт, если уже владеете им. Вы также совершаете с преимуществом проверки Ловкости рук.
 Feat/&PickPocketFeatTitle	Карманник
 Feat/&PowerAlchemistEmboldeningShotsDescription	Вы получаете возможность применять эликсир, который ободряет ваших союзников, давая им 4d6 + модификатор Интеллекта временных очков жизни.
@@ -695,23 +695,23 @@ Feat/&PowerAttackFeatDescription	Вы научились обменивать т
 Feat/&PowerAttackFeatTitle	Силовая атака
 Feat/&PowerFalseLifeFromFeatDescription	Подкрепляя себя некромантической копией жизни, вы получаете 1d4 + 4 Временных хита на время действия.
 Feat/&PowerFalseLifeFromFeatTitle	Ложная жизнь
-Feat/&PowerInflictWoundsFromFeatDescription	Совершите рукопашную атаку заклинанием против существа в пределах вашей досягаемости. При попадании цель получает урон некротической энергией 3к10.
+Feat/&PowerInflictWoundsFromFeatDescription	Совершите рукопашную атаку заклинанием против существа в пределах вашей досягаемости. При попадании цель получает урон некротической энергией 3d10.
 Feat/&PowerInflictWoundsFromFeatTitle	Наносить раны
 Feat/&PowerInvisibilityFromFeatDescription	Существо, к которому вы прикасаетесь, становится невидимым до окончания действия заклинания. Все, что носит или носит цель, невидимо, пока оно находится на ее теле. Заклинание оканчивается для цели, которая атакует или накладывает заклинание.
 Feat/&PowerInvisibilityFromFeatTitle	Невидимость
 Feat/&PowerMistyStepFromFeatDescription	Ненадолго окруженный серебристым туманом, вы телепортируетесь на расстояние до 30 футов в незанятое пространство, которое можете видеть.
 Feat/&PowerMistyStepFromFeatTitle	Туманный шаг
 Feat/&PowerShadowTouchedFromFeatDescription	Научитесь колдовать невидимость, ложную жизнь и наносить раны.
-Feat/&PowerShadowTouchedFromFeatTitle	Тень коснулась
-Feat/&ProfChefTreatActionDescription	Бонусным действием съешьте лакомство и получите 5 временных хитов.
+Feat/&PowerShadowTouchedFromFeatTitle	Касание тени
+Feat/&ProfChefTreatActionDescription	Бонусным действием съешьте лакомство и получите 5 временных очков жизни.
 Feat/&ProfChefTreatActionTitle	Съесть угощение шеф-повара
 Feat/&ProfChefTreatCookDescription	Потратьте один час на приготовление угощений, которые при употреблении дают 5 временных очков жизни.
 Feat/&ProfChefTreatCookTitle	Угощение шеф-повара
-Feat/&ProfChefTreatDescription	Съешьте в качестве бонусного действия и получите 5 временных хитов.
+Feat/&ProfChefTreatDescription	Съешьте в качестве бонусного действия и получите 5 временных очков жизни.
 Feat/&ProfChefTreatTitle	Угощение шеф-повара
 Feat/&ProfHealerMedicineDescription	Вы получаете мастерство в медицине или опыт, если вы уже владеете ею.
 Feat/&ProfHealerMedicineTitle	Медицинские знания
-Feat/&ProtectorConstructAttackDescription	Конструкция защитника совершает атаку, наносящую силовой урон 1к10.
+Feat/&ProtectorConstructAttackDescription	Конструкция защитника совершает атаку, наносящую силовой урон 1d10.
 Feat/&ProtectorConstructAttackTitle	Разрыв Силы
 Feat/&ProtectorConstructDescription	Он дружелюбен к вам и вашим спутникам и подчиняется вашим командам.
 Feat/&ProtectorConstructDescription_5	Улучшение конструкции Защитника.
@@ -779,10 +779,10 @@ Feature/&AdditionalActionDualFlurryTitle	Двойной шквал!
 Feature/&AdditionalDamageAgonizingBlastDescription	Вы добавляете свой модификатор Харизмы к первому броску урона при атаке сверхъестественным взрывом.
 Feature/&AdditionalDamageAgonizingBlastTitle	Мучительный взрыв
 Feature/&AdditionalDamageFeatShadySneakAttackDescription	Один раз за ход вы можете нанести дополнительный урон 1к6 одному существу, по которому вы попали атакой, соответствующей скрытой атаке Разбойника. На 7 уровне этот урон увеличивается до 2d6, а на 14 уровне до 3d6. Это может сочетаться с скрытой атакой разбойника.
-Feature/&AdditionalDamageFeatShadySneakAttackTitle	Теневая скрытая атака
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Теневая подлая атака
 Feature/&AdditionalDamageHinderingBlastDescription	Когда вы поражаете существо своим сверхъестественным взрывом, вы можете уменьшить скорость этого существа на 10 футов до конца своего следующего хода.
 Feature/&AdditionalDamageHinderingBlastTitle	Сдерживающий взрыв
-Feature/&AgonizingBlastDescription	Добавьте свой модификатор Харизмы к урону Жутких мочалок.
+Feature/&AgonizingBlastDescription	Добавьте свой модификатор Харизмы к урону Мучительный взрыв.
 Feature/&AgonizingBlastTitle	Мучительный взрыв
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	Вы наделены силой и наносите бонус к урону, равный вашему мастерству, во всех ваших атаках.
 Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Вы наделены силой и наносите бонус к урону, равный вашему мастерству, во всех ваших атаках.
@@ -799,7 +799,7 @@ Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Один раз з�
 Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Сила души
 Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	Лезвие души позволяет вам выбирать из расширенного списка заклинаний, когда вы изучаете заклинание чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника: {0}
 Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Заклинания клинка души
-Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Один раз за короткий отдых вы используете силу душ, чтобы защитить себя. Используя бонусное действие, вы получаете временные ОЗ, равные вашему уровню + модификатор Харизмы.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Один раз за короткий отдых вы используете силу душ, чтобы защитить себя. Используя бонусное действие, вы получаете временные очки здоровья, равные вашему уровню + модификатор Харизмы.
 Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Щит души
 Feature/&AlwaysBeardDescription	{0}% шансов отрастить великолепную бороду!
 Feature/&AncientForestExpandedSpelllistAfinityDescription	Вы выбираете из расширенного списка заклинаний, когда изучаете заклинание Чернокнижника. Следующие заклинания добавлены для вас в список заклинаний Чернокнижника: {0}
@@ -817,7 +817,7 @@ Feature/&ArcanePulseTitle	Чародейский импульс
 Feature/&ArcanistAutoPreparedSpellsDescription	Вы получаете бонусные заклинания, которые считаются для вас заклинаниями рейнджеров, они всегда подготовлены и не учитываются в количестве известных вам заклинаний рейнджеров:\n{0}
 Feature/&ArcanistAutoPreparedSpellsTitle	Бонусные заклинания рейнджера-арканиста
 Feature/&ArcanistMarkDescription	Начиная с 3-го уровня, вы наполняете свое оружие силой тайной магии. Существа, пораженные вашими атаками, поражаются Меткой чародея.
-Feature/&ArcanistMarkTitle	Знак чародея
+Feature/&ArcanistMarkTitle	Метка чародея
 Feature/&ArmorofShadowsTitle	Броня теней
 Feature/&ArtificerInfusionCastingDescription	Вы можете выполнять соматические компоненты заклинаний, держа в руках оружие и щиты.
 Feature/&ArtificerInfusionCastingTitle	Инфузионное литье
@@ -841,7 +841,7 @@ Feature/&BardSkillsTitle	Навыки барда
 Feature/&BeguilingInfluenceDescription	Вы получаете владение навыками Обмана и Убеждения.
 Feature/&BeguilingInfluenceTitle	Обманчивое влияние
 Feature/&BolgrifDruidicMagicDescription	Вы знаете одно заклинание на ваш выбор из списка заклинаний друида. Мудрость — это ваша колдовская способность.
-Feature/&BolgrifDruidicMagicTitle	Друидская Магия
+Feature/&BolgrifDruidicMagicTitle	Магия Друидов
 Feature/&BolgrifInvisibilityPowerDescription	В качестве бонусного действия вы можете магическим образом стать невидимым на 1 раунд. Эта невидимость прерывается, если вы предпринимаете какие-либо наступательные действия. После того, как вы использовали эту способность, вы не можете использовать ее снова, пока не закончите короткий или продолжительный отдых.
 Feature/&BolgrifInvisibilityPowerTitle	исчезнуть
 Feature/&BolgrifPowerfulBuildDescription	Вы считаете свой размер Большим при определении грузоподъемности.
@@ -856,10 +856,10 @@ Feature/&ClassMonkDiamondSoulDescription	Ваше мастерство ки да
 Feature/&ClassMonkDiamondSoulTitle	Алмазная душа
 Feature/&ClassMonkExtraAttackDescription	Вы можете атаковать дважды, а не один раз, всякий раз, когда в свой ход совершаете действие Атака.
 Feature/&ClassMonkExtraAttackTitle	Дополнительная атака
-Feature/&ClassMonkKiDescription	Ваша подготовка позволяет вам использовать мистическую энергию ки. Вы получаете очки ки, равные вашему уровню монаха. Когда вы тратите очко ки, оно становится недоступным до тех пор, пока вы не закончите короткий или продолжительный отдых, в конце которого вы втянете всю израсходованную ци обратно в себя. Вы можете потратить эти очки на подпитку различных функций ки. Вы начинаете узнавать три такие особенности:
+Feature/&ClassMonkKiDescription	Ваша подготовка позволяет вам использовать мистическую энергию Ци. Вы получаете очки Ци, равные вашему уровню монаха. Когда вы тратите очко Ци, оно становится недоступным до тех пор, пока вы не закончите короткий или продолжительный отдых, в конце которого вы втянете всю израсходованную Ци обратно в себя. Вы можете потратить эти очки на подпитку различных функций Ци. Вы начинаете узнавать три такие особенности:
 Feature/&ClassMonkKiEmpoweredStrikesDescription	Ваши удары без оружия считаются магическими с точки зрения преодоления сопротивления и невосприимчивости к немагическим атакам и повреждениям.
-Feature/&ClassMonkKiEmpoweredStrikesTitle	Усиленные Ки удары
-Feature/&ClassMonkKiTitle	Ки
+Feature/&ClassMonkKiEmpoweredStrikesTitle	Усиленные Ци удары
+Feature/&ClassMonkKiTitle	Ци
 Feature/&ClassMonkMartialArtsDescription	Вы получаете следующие преимущества, когда вы безоружны или вооружены только оружием Монаха и не носите доспехов или щита:\n• Вы можете использовать Ловкость вместо Силы для бросков атаки и урона безоружных ударов и оружия Монаха.\n• Вы можете бросить d4 вместо обычного урона от удара без оружия или оружия Монаха. Этот кубик меняется по мере того, как вы получаете уровни Монаха.\n• Когда вы используете действие Атака с ударом без оружия или оружием Монаха в свой ход, вы можете совершить один удар без оружия в качестве бонусного действия.
 Feature/&ClassMonkMartialArtsTitle	Боевые искусства
 Feature/&ClassMonkMartialDiceProgression00Description	Вы можете бросить <color=#57BCF4>d6</color> вместо обычного урона от удара без оружия или оружия Монаха.
@@ -868,9 +868,9 @@ Feature/&ClassMonkMartialDiceProgression01Description	Вы можете брос
 Feature/&ClassMonkMartialDiceProgression01Title	Увеличение кубиков боевых искусств (d8)
 Feature/&ClassMonkMartialDiceProgression02Description	Вы можете бросить <color=#57BCF4>d10</color> вместо обычного урона от удара без оружия или оружия Монаха.
 Feature/&ClassMonkMartialDiceProgression02Title	Увеличение кубика боевых искусств (d10)
-Feature/&ClassMonkPerfectSelfDescription	Когда вы начинаете битву и у вас не осталось очков ци, вы восстанавливаете 4 очка ци.
+Feature/&ClassMonkPerfectSelfDescription	Когда вы начинаете битву и у вас не осталось очков Ци, вы восстанавливаете 4 очка Ци.
 Feature/&ClassMonkPerfectSelfTitle	Идеальное Я
-Feature/&ClassMonkPurityOfBodyDescription	Ваше владение ки, протекающей через вас, делает вас невосприимчивым к болезням и ядам.
+Feature/&ClassMonkPurityOfBodyDescription	Ваше владение Ци, протекающей через вас, делает вас невосприимчивым к болезням и ядам.
 Feature/&ClassMonkPurityOfBodyTitle	Чистота тела
 Feature/&ClassMonkSkillProficiencyTitle	Навыки монаха
 Feature/&ClassMonkTongueOfSunAndMoonDescription	Вы учитесь прикасаться к ки других умов, чтобы понимать все разговорные языки. Более того, любое существо, понимающее язык, может понять и то, что вы говорите.
@@ -887,8 +887,8 @@ Feature/&ClassMonkWeaponProficiencyTitle	Навыки владения оруж�
 Feature/&ClassMonkZenArcherCombatDescription	Научитесь обращаться с луками, и они станут для вас оружием монахов.\nВы не получаете помехи при дальней атаке оружием Монаха, находясь в 5 футах от врага, при условии, что вы не носите броню или щит.
 Feature/&ClassMonkZenArcherCombatTitle	Дистанционный рукопашный бой
 Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ваши атаки луком считаются магическими с точки зрения преодоления сопротивления и иммунитета к немагическим атакам и повреждениям.
-Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ки-усиленные стрелы
-Feature/&ClassMonkZenArcherStunningArrowsDescription	Вы можете препятствовать потоку ки в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ци-усиленные стрелы
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Вы можете препятствовать потоку Ци в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко Ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
 Feature/&ClassMonkZenArcherStunningArrowsTitle	Потрясающие стрелы
 Feature/&ClassWarlockArmorProficiencyDescription	Легкая броня.
 Feature/&ClassWarlockArmorProficiencyTitle	Навыки доспехов чернокнижника
@@ -922,14 +922,14 @@ Feature/&DevilsSightDescription	Вы можете нормально видет�
 Feature/&DevilsSightTitle	Дьявольский взгляд
 Feature/&DH_BlinkDescription	В качестве бонусного действия вы исчезаете со своего текущего плана существования, предотвращая все повреждения. В начале вашего следующего хода вы возвращаетесь в клетку, из которой исчезли.
 Feature/&DH_BlinkTitle	мигать
-Feature/&DH_FadeIntoTheVoidDescription	Когда ваши хиты опускаются до 0, но не убиваются сразу, вместо этого ваши хиты падают до 1, когда вы ненадолго исчезаете в пустоте, чтобы уменьшить урон. Вы не можете использовать эту способность снова, пока не закончите продолжительный отдых.
+Feature/&DH_FadeIntoTheVoidDescription	Когда ваши очки здоровья не опускаются ниже 0, вместо этого ваши ОЗ падают до 1, вы ненадолго исчезаете в пустоте, чтобы уменьшить урон. Вы не можете использовать эту способность снова, пока не закончите продолжительный отдых.
 Feature/&DH_FadeIntoTheVoidTitle	Исчезать в пустоте
 Feature/&DH_RiftCloakDescription	Ваш контроль над порталами разлома увеличился до такой степени, что теперь вы можете предоставить защиту разлома другим. Вы можете использовать оберегающие узы по желанию (без разделения урона).
 Feature/&DH_RiftCloakTitle	Плащ Разлома
 Feature/&DH_RiftControlDescription	Ненадолго окруженный энергией разлома, вы телепортируетесь в незанятое пространство. Теперь вы можете взять с собой союзника при телепортации, и радиус действия значительно увеличился.
 Feature/&DH_RiftControlTitle	Портал Разлома
 Feature/&DH_RiftStrikeDescription	Раз в день при получении урона в ближнем бою вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана существования.
-Feature/&DH_RiftStrikeTitle	Разломный удар
+Feature/&DH_RiftStrikeTitle	Удар Разлома
 Feature/&DH_RiftWalkDescription	Ненадолго окруженный энергией пустоты между мирами, вы телепортируетесь на расстояние до 30 футов в незанятое пространство, которое можете видеть.
 Feature/&DH_RiftWalkTitle	Шаг Разлома
 Feature/&DHAncientForestBonusCantripDescription	Ваш покровитель делится секретами природы того, как связаны природная магия и жизненная энергия. Вы изучаете Shillelagh и Chill Touch.
@@ -966,15 +966,15 @@ Feature/&DomainSunDomainlevel1FeaturesDescription	Вы изучаете функ
 Feature/&DomainSunDomainlevel1FeaturesTitle	Домен Солнца
 Feature/&DreadfulWordTitle	Ужасное слово
 Feature/&DruidForestGuardianBarkWardDescription	Вы получаете возможность призывать Bark Ward для своей защиты. В качестве бонусного действия вы можете потратить использование своей дикой формы, чтобы получить 4 временных очка здоровья за каждый уровень, который у вас есть в этом классе. Эти временные хиты сохраняются в течение 10 минут или до тех пор, пока вы снова не воспользуетесь дикой формой.
-Feature/&DruidForestGuardianBarkWardTitle	Барк Уорд
+Feature/&DruidForestGuardianBarkWardTitle	Лесной Страж
 Feature/&DruidForestGuardianExtraAttackDescription	Начиная с 6-го уровня, вы можете атаковать дважды, а не один раз, когда в свой ход совершаете действие Атака.
 Feature/&DruidForestGuardianExtraAttackTitle	Дополнительная атака
-Feature/&DruidForestGuardianImprovedBarkWardDescription	Теперь у вашего Bark Ward растут шипы, которые наносят урон атакующим в ближнем бою. Враги, успешно поразившие вас рукопашной атакой, получают колющий урон 2d8.
-Feature/&DruidForestGuardianImprovedBarkWardTitle	Улучшенная защита от коры
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Теперь у вашего Лесного Стража растут шипы, которые наносят урон атакующим в ближнем бою. Враги, успешно поразившие вас рукопашной атакой, получают колющий урон 2d8.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Улучшенный Лесной Страж
 Feature/&DruidForestGuardianMagicDescription	Начиная со 2-го уровня при выборе этого круга вы получаете доступ к расширенному списку заклинаний, который всегда готов:\n{0}
 Feature/&DruidForestGuardianMagicTitle	Круговые заклинания
-Feature/&DruidForestGuardianSuperiorBarkWardDescription	Ваша способность Bark Ward теперь отражает колющий урон 3d8 атакующим в ближнем бою. Кроме того, Bark Ward теперь дает вам иммунитет к яду, пока он активен.
-Feature/&DruidForestGuardianSuperiorBarkWardTitle	Улучшенный Барк Уорд
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Ваша способность Дубовый Страж теперь отражает колющий урон 3d8 атакующим в ближнем бою. Кроме того, Дубовый Страж теперь дает вам иммунитет к яду, пока он активен.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Улучшенный Дубовый Страж
 Feature/&DruidForestGuardianSylvanDurabilityDescription	Стражи леса естественным образом приобретают устойчивость могучего дуба. На 2-м уровне максимум ваших очков жизни увеличивается на 2 и увеличивается на 1 всякий раз, когда вы получаете уровень в этом классе.
 Feature/&DruidForestGuardianSylvanDurabilityTitle	Сильван Прочность
 Feature/&DruidForestGuardianSylvanWarMagicDescription	Вы привыкли владеть магией друидов в гармонии с боевой доблестью. На 2-м уровне вы можете читать заклинания, требующие соматического компонента, даже если обе ваши руки держат оружие или щит.
@@ -1016,13 +1016,13 @@ Feature/&EyesoftheRuneKeeperTitle	Глаза хранителя рун
 Feature/&FiendishVigorTitle	Дьявольская энергия
 Feature/&FlameArtillery_09ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 3d8 урона при провале.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.
 Feature/&FlameArtillery_09ModePowerTitle	Призвать пламенную артиллерийскую конструкцию
-Feature/&FlameArtillery_15ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 3d8 урона при провале.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.\n Half Cover Dome: обеспечивает половинное укрытие союзникам в пределах 10 футов.
+Feature/&FlameArtillery_15ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 3d8 урона при провале.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает отряд.\n Half Cover Dome: обеспечивает половинное укрытие союзникам в пределах 10 футов.
 Feature/&FlameArtillery_15ModePowerTitle	Призвать пламенную артиллерийскую конструкцию
 Feature/&FlameArtilleryModePowerDescription	Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 2d8 урона при провале.
 Feature/&FlameArtilleryModePowerTitle	Призвать пламенную артиллерийскую конструкцию
-Feature/&ForceArtillery_09ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 3к8 силового урона и отталкивает врага на 5 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.
+Feature/&ForceArtillery_09ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 3d8 силового урона и отталкивает врага на 5 футов.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает отряд.
 Feature/&ForceArtillery_09ModePowerTitle	Призвать артиллерийскую конструкцию Force
-Feature/&ForceArtillery_15ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 3к8 силового урона и отталкивает врага на 5 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.\n Half Cover Dome: обеспечивает половинное укрытие союзникам в пределах 10 футов.
+Feature/&ForceArtillery_15ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 3к8 силового урона и отталкивает врага на 5 футов.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает отряд.\n Half Cover Dome: обеспечивает половинное укрытие союзникам в пределах 10 футов.
 Feature/&ForceArtillery_15ModePowerTitle	Призвать артиллерийскую конструкцию Force
 Feature/&ForceArtilleryAdditionalDamageTitle	Модернизированный урон
 Feature/&ForceArtilleryModePowerDescription	Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 2к8 силового урона и отталкивает цель на 5 футов.
@@ -1034,7 +1034,7 @@ Feature/&GambitResourcePoolDescription	Пул гамбитных костей, �
 Feature/&GambitResourcePoolTitle	Гамбитный пул костей
 Feature/&GiftoftheEverLivingOnesDescription	Восстанавливает максимально возможное количество хитов от любого исцеления.
 Feature/&GiftoftheEverLivingOnesTitle	Дар вечноживущих
-Feature/&GiftoftheProtectorsDescription	Когда ваши хиты опускаются до 0, но не убиваются сразу, существо вместо этого магическим образом опускается до 1 хитов. Как только эта магия сработает, вы не сможете извлечь из нее пользу, пока не закончите продолжительный отдых.
+Feature/&GiftoftheProtectorsDescription	Когда Ваши очки здоровья опускаются до 0, существо вместо этого магическим образом сохраняет до 1 ОЗ. Как только эта магия сработает, вы не сможете извлечь из нее пользу, пока не закончите продолжительный отдых.
 Feature/&GiftoftheProtectorsTitle	Дар защитников
 Feature/&GnomeCunningFeatureDescription	Вы совершаете с преимуществом все спасброски Интеллекта, Мудрости и Харизмы против магии.
 Feature/&GnomeCunningFeatureTitle	Хитрость
@@ -1133,15 +1133,15 @@ Feature/&SavingThrowTinkererProficiencyDescription	Владение спасбр
 Feature/&SavingThrowTinkererProficiencyTitle	Мастерство спасброска
 Feature/&ScoutModePowerDescription	Получите увеличенное движение, преимущество в проверках Скрытности и один раз за ход ваши атаки оружием дальнего боя наносят дополнительный кубик урона.
 Feature/&ScoutModePowerTitle	Режим разведки
-Feature/&SentinelModePowerDescription	Получите Temp HP, равный уровню. Накладывает Недостаток на врагов, атакующих союзников.
+Feature/&SentinelModePowerDescription	Получите временные ОЗ, равный уровню. Накладывает Штраф на врагов, атакующих союзников.
 Feature/&SentinelModePowerTitle	Режим стража
 Feature/&ShroudofShadowTitle	Покров тени
 Feature/&SignofIllOmenTitle	Знак дурного предзнаменования
 Feature/&SpellAsInvocationAtWillDescription	Произнесите {0} по желанию.
 Feature/&SpellAsInvocationOncePerDayDescription	Примените {0} один раз до продолжительного отдыха.
-Feature/&TempHPShield_09ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дарует 1d8 + 4 временных HP союзникам в пределах 10 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.
+Feature/&TempHPShield_09ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дарует 1d8 + 4 временных ОЗ союзникам в пределах 10 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.
 Feature/&TempHPShield_09ModePowerTitle	Вызов защитного купола
-Feature/&TempHPShield_15ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дарует 1d8 + 4 временных HP союзникам в пределах 10 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.\n Half Cover Dome: Обеспечивает половинное укрытие союзникам в пределах 10 футов.
+Feature/&TempHPShield_15ModePowerDescription	Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дарует 1d8 + 4 временных ОЗ союзникам в пределах 10 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.\n Half Cover Dome: Обеспечивает половинное укрытие союзникам в пределах 10 футов.
 Feature/&TempHPShield_15ModePowerTitle	Вызов защитного купола
 Feature/&TempHPShieldModePowerDescription	Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дает 1d8 + 4 временных HP союзникам в пределах 10 футов.
 Feature/&TempHPShieldModePowerTitle	Вызов защитного купола
@@ -1225,7 +1225,7 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} создает {1}
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} создает {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} создает {1}
-Feedback/&ExtraDamageDescription	Дополнительный урон от Lighting Spear.
+Feedback/&ExtraDamageDescription	Дополнительный урон от Копья молний.
 Feedback/&ExtraDamageTitle	Дополнительный урон копья молний
 Feedback/&LightningSpearAdditionalDamageDescription	Наносит дополнительный урон электричеством 1к6 один раз за ход.
 Feedback/&LightningSpearAdditionalDamageTitle	Дополнительный урон копья молний
@@ -1276,7 +1276,7 @@ Item/&CEHalberd+2Title	Алебарда +2
 Item/&CEHalberd+2UnidentifiedTitle	Великолепная алебарда
 Item/&CEHalberdLightningTitle	Молниеносная алебарда
 Item/&CEHalberdLightningUnidentifiedTitle	Великолепная алебарда
-Item/&CEHalberdPrimedTitle	Загрунтованная алебарда
+Item/&CEHalberdPrimedTitle	Подготовленная алебарда
 Item/&CEHalberdTitle	алебарда
 Item/&CEHandXbow+1Title	Ручной арбалет +1
 Item/&CEHandXbow+1UnidentifiedTitle	Качественный ручной арбалет
@@ -1284,24 +1284,24 @@ Item/&CEHandXbow+2Title	Ручной арбалет +2
 Item/&CEHandXbow+2UnidentifiedTitle	Великолепный ручной арбалет
 Item/&CEHandXbowAcidTitle	Кислотный ручной арбалет
 Item/&CEHandXbowAcidUnidentifiedTitle	Великолепный ручной арбалет
-Item/&CEHandXbowPrimedTitle	Загрунтованный ручной арбалет
+Item/&CEHandXbowPrimedTitle	Подготовленный ручной арбалет
 Item/&CEHandXbowTitle	Ручной арбалет
 Item/&CELongMace+1Title	Длинная булава +1
 Item/&CELongMace+1UnidentifiedTitle	Качественная длинная булава
 Item/&CELongMace+2Title	Длинная булава +2
 Item/&CELongMace+2UnidentifiedTitle	Великолепная длинная булава
-Item/&CELongMacePrimedTitle	Загрунтованная длинная булава
-Item/&CELongMaceThunderTitle	Гремящая длинная булава
+Item/&CELongMacePrimedTitle	Подготовленная длинная булава
+Item/&CELongMaceThunderTitle	Длинная булава Грома
 Item/&CELongMaceThunderUnidentifiedTitle	Великолепная длинная булава
 Item/&CELongMaceTitle	Длинная булава
-Item/&CEPike+1Title	Щука +1
-Item/&CEPike+1UnidentifiedTitle	Качественная щука
-Item/&CEPike+2Title	Щука +2
-Item/&CEPike+2UnidentifiedTitle	Великолепная щука
-Item/&CEPikePrimedTitle	Грунтованная щука
-Item/&CEPikePsychicTitle	Психическая щука
-Item/&CEPikePsychicUnidentifiedTitle	Великолепная щука
-Item/&CEPikeTitle	Щука
+Item/&CEPike+1Title	Пика +1
+Item/&CEPike+1UnidentifiedTitle	Качественная пика
+Item/&CEPike+2Title	Пика +2
+Item/&CEPike+2UnidentifiedTitle	Великолепная пика
+Item/&CEPikePrimedTitle	Подготовленная пика
+Item/&CEPikePsychicTitle	Психическая пика
+Item/&CEPikePsychicUnidentifiedTitle	Великолепная пика
+Item/&CEPikeTitle	Пика
 Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Чары для алебарды +1.
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Чары для алебарды +1
 Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Чары для алебарды +2.
@@ -1318,12 +1318,12 @@ Item/&CraftingManualRecipeEnchantCELongMace+1Description	Чары для дли�
 Item/&CraftingManualRecipeEnchantCELongMace+1Title	Чары для длинной булавы +1
 Item/&CraftingManualRecipeEnchantCELongMace+2Description	Чары для длинной булавы +2.
 Item/&CraftingManualRecipeEnchantCELongMace+2Title	Чары для длинной булавы +2
-Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Зачаровать гремущую длинную булаву.
-Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Чары для гремучей длинной булавы
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Зачаровать длинную булаву Грома.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Чары длинной булавы грома
 Item/&CraftingManualRecipeEnchantCEPike+1Description	Зачаровать Пику +1.
-Item/&CraftingManualRecipeEnchantCEPike+1Title	Чары для щуки +1
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Чары для пики +1
 Item/&CraftingManualRecipeEnchantCEPike+2Description	Зачаровать Пику +2.
-Item/&CraftingManualRecipeEnchantCEPike+2Title	Чары для щуки +2
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Чары для пики +2
 Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Зачаровать психическую пику.
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Чары для психической пики
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Чары для повязок +1.
@@ -1334,14 +1334,14 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Зачароват�
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Зачаровать силовые повязки
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Зачаровать повязки притяжения.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Чары для повязок притяжения
-Item/&CraftingManualRecipePrimingCEHalberdDescription	Прайм Алебарда.
-Item/&CraftingManualRecipePrimingCEHalberdTitle	Прайм Алебарда
-Item/&CraftingManualRecipePrimingCEHandXbowDescription	Арбалет Prime Hand.
-Item/&CraftingManualRecipePrimingCEHandXbowTitle	Арбалет Prime Hand
-Item/&CraftingManualRecipePrimingCELongMaceDescription	Прайм Длинная булава.
-Item/&CraftingManualRecipePrimingCELongMaceTitle	Первоклассная длинная булава
-Item/&CraftingManualRecipePrimingCEPikeDescription	Прайм Пайк.
-Item/&CraftingManualRecipePrimingCEPikeTitle	Прайм Пайк
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Подготовленная Алебарда.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Подготовленная Алебарда
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Подготовленный ручной арбалет.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Подготовленный ручной арбалет
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Подготовленная Длинная булава.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Подготовленная длинная булава
+Item/&CraftingManualRecipePrimingCEPikeDescription	Подготовленная пика.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Подготовленная пика
 Item/&ForceArtilleryProjectileDescription	СилаАртиллерияСнаряд.
 Item/&ForceArtilleryProjectileTitle	СилаАртиллерияСнаряд
 Item/&Handwraps+1Title	Повязки +1
@@ -1355,7 +1355,7 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Великолепные повязк�
 Language/&AbyssalDescription	Бездонный язык был формой изначального языка, который был окутан и искажен злом бездны.
 Language/&AbyssalTitle	Глубинный
 Language/&GnomishLanguageDescription	Старый соласанский язык, сохраненный гномами, живущими в дремучих лесах Соласты, пережил Катаклизм.
-Language/&GnomishLanguageTitle	гномский
+Language/&GnomishLanguageTitle	гномий
 MainMenu/&ExportPdfDescription	Понизьте уровень этого Героя.
 MainMenu/&ExportPdfTitle	Уровень вниз
 Message/&CharacterExportDuplicateNameErrorDescription	Экспорт отменен:\n\nГерой с таким именем уже есть в пуле.\nПожалуйста, попробуйте другое имя.
@@ -1374,7 +1374,7 @@ Message/&TeleportPartyDescription	Телепортировать группу п
 Message/&TeleportPartyTitle	Телепорт
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	Оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим до длительного отдыха.
 Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Сила души
-Modifier/&AttributeModifierRuinDescription	-3 к классу брони.
+Modifier/&AttributeModifierRuinDescription	-3 к классу доспеха.
 Modifier/&AttributeModifierRuinTitle	Разрушенный
 Modifier/&CripplingAdditionalDamageDescription	Калечащий урон.
 Modifier/&CripplingAdditionalDamageTitle	Калечащий
@@ -1394,25 +1394,25 @@ Monster/&PactOfChainCustomSpriteDescription	В отличие от пикси, �
 Monster/&PactOfChainCustomSpriteTitle	Спрайт (Пакт Цепи)
 Monster/&WitchOwlFamiliarDescription	Знакомая сова.
 Monster/&WitchOwlFamiliarTitle	Сова
-MonsterAttack/&AttackWarlockDragonStingDescription	1к4 колющего урона и цель должна преуспеть в спасброске Телосложения со Сл 11, иначе станет отравленной.
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 колющего урона и цель должна преуспеть в спасброске Телосложения со Сл 11, иначе станет отравленной.
 MonsterAttack/&AttackWarlockDragonStingTitle	Ядовитое жало
 MonsterAttack/&AttackWarlockImpStingDescription	Ядовитый укус чертенка.
 MonsterAttack/&AttackWarlockImpStingTitle	Ядовитое жало
 MonsterAttack/&AttackWarlockQuasitStingTitle	Ядовитое жало
 MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Колющий урон, и цель должна преуспеть в спасброске Телосложения со Сл 13, иначе будет отравлена ​​на 24 часа. Пока этот яд не закончится, цель будет без сознания.
 MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Кусать
-Power/&AncientForestLifeSapDescription	Когда вы наносите урон врагу заклинанием, вы восстанавливаете здоровье, равное половине вашего уровня, один раз за ход. Если у вас меньше половины HP, вместо этого вы восстанавливаете HP, равный вашему уровню, но только до половины вашего максимального HP.
+Power/&AncientForestLifeSapDescription	Когда вы наносите урон врагу заклинанием, вы восстанавливаете здоровье, равное половине вашего уровня, один раз за ход. Если у вас меньше половины HP, вместо этого вы восстанавливаете ОЗ, равный вашему уровню, но только до половины ваших максимальных ОЗ.
 Power/&AncientForestLifeSapTitle	Сок жизни
 Power/&AncientForestRootedPowerDescription	Древесные усики растут из ваших ног и впиваются в землю. Ваша скорость становится равной 0, и вы получаете преимущество в любых спасбросках, которые отталкивают вас, притягивают или сбивают с ног. Вы можете наложить опутывание по своему желанию.
 Power/&AncientForestRootedPowerTitle	Укорененный
-Power/&ClassMonkDiamondSoulPowerDescription	Всякий раз, когда вы совершаете спасбросок и терпите неудачу, вы можете потратить 1 очко ци, чтобы перебросить его и получить второй результат.
+Power/&ClassMonkDiamondSoulPowerDescription	Всякий раз, когда вы совершаете спасбросок и терпите неудачу, вы можете потратить 1 очко Ци, чтобы перебросить его и получить второй результат.
 Power/&ClassMonkDiamondSoulPowerTitle	Алмазная душа
-Power/&ClassMonkEmptyBodyDescription	Вы можете действием потратить 4 очка ци, чтобы стать невидимым на 1 минуту. В течение этого времени у вас также есть сопротивление ко всем видам урона, кроме силового.
+Power/&ClassMonkEmptyBodyDescription	Вы можете действием потратить 4 очка Ци, чтобы стать невидимым на 1 минуту. В течение этого времени у вас также есть сопротивление ко всем видам урона, кроме силового.
 Power/&ClassMonkEmptyBodyTitle	Пустое тело
-Power/&ClassMonkFlurryOfBlowsDescription	Потратив действие на атаку оружием Монаха, вы можете потратить 1 очко ци в качестве бонусного действия, чтобы нанести 2 удара без оружия. Доступно только в том случае, если вы не носите броню или щит.
+Power/&ClassMonkFlurryOfBlowsDescription	Потратив действие на атаку оружием Монаха, вы можете потратить 1 очко Ци в качестве бонусного действия, чтобы нанести 2 удара без оружия. Доступно только в том случае, если вы не носите броню и щит.
 Power/&ClassMonkFlurryOfBlowsTitle	Шквал ударов
-Power/&ClassMonkKiPoolDescription	Вы можете использовать мистическую энергию ки. Ваш доступ к этой энергии представлен количеством точек ки. Максимальная сумма равна вашему уровню монаха. Все потраченные очки восстанавливаются при коротком или продолжительном отдыхе. Вы можете потратить эти очки, чтобы подпитывать различные функции ки.
-Power/&ClassMonkKiPoolTitle	Ки-очки
+Power/&ClassMonkKiPoolDescription	Вы можете использовать мистическую энергию Ци. Ваш доступ к этой энергии представлен количеством точек Ци. Максимальная сумма равна вашему уровню монаха. Все потраченные очки восстанавливаются при коротком или продолжительном отдыхе. Вы можете потратить эти очки, чтобы подпитывать различные функции Ци.
+Power/&ClassMonkKiPoolTitle	Ци-очки
 Power/&ClassMonkKiStillnessOfMindDescription	Вы можете действием снять с себя один эффект, вызывающий у вас очарование или страх.
 Power/&ClassMonkKiStillnessOfMindTitle	Безмолвие разума
 Power/&ClassMonkOpenHandDistractDescription	Цель не может совершать реакции до конца вашего следующего хода.
@@ -1423,21 +1423,21 @@ Power/&ClassMonkOpenHandPushDescription	Цель должна пройти сп�
 Power/&ClassMonkOpenHandPushTitle	Отталкивать
 Power/&ClassMonkOpenHandTechniqueDescription	Вы можете манипулировать ки врага, используя свою собственную. Всякий раз, когда вы поражаете существо одной из атак, предоставленных вашим Шквалом ударов, вы можете наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе будет сбит с ног.\n• Он должен совершить спасбросок Силы. В случае неудачи вы можете оттолкнуть его на расстояние до 15 футов от себя.\n• Он не может совершать реакции до конца вашего следующего хода.
 Power/&ClassMonkOpenHandTechniqueTitle	Техника открытых рук
-Power/&ClassMonkPatientDefenseDescription	Вы можете потратить 1 очко ки в качестве бонусного действия, чтобы совершить действие Уклонение. Доступно только если вы не носите броню или щит.
+Power/&ClassMonkPatientDefenseDescription	Вы можете потратить 1 очко Ци в качестве бонусного действия, чтобы совершить действие Уклонение. Доступно только если вы не носите броню или щит.
 Power/&ClassMonkPatientDefenseTitle	Защита пациента
-Power/&ClassMonkQuiveringPalmDescription	Когда вы попадаете по существу безоружным ударом, вы можете потратить 3 очка ци, чтобы вызвать незаметные вибрации, заставляющие существо совершить спасбросок Телосложения. В случае неудачи его хиты уменьшаются до 0. В случае успеха он получает урон некротической энергией 10d10.
+Power/&ClassMonkQuiveringPalmDescription	Когда вы попадаете по существу безоружным ударом, вы можете потратить 3 очка Ци, чтобы вызвать незаметные вибрации, заставляющие существо совершить спасбросок Телосложения. В случае неудачи его хиты уменьшаются до 0. В случае успеха он получает урон некротической энергией 10d10.
 Power/&ClassMonkQuiveringPalmTitle	Дрожащая ладонь
 Power/&ClassMonkSlowFallDescription	Вы можете использовать свою реакцию, когда падаете, чтобы предотвратить любой урон от падения.
 Power/&ClassMonkSlowFallTitle	Медленное падение
-Power/&ClassMonkStepOfTheWindDescription	Вы можете потратить 1 очко ци, чтобы совершить действие «Отход» или «Рывок» в качестве бонусного действия в свой ход, а расстояние вашего прыжка за ход удваивается. Доступно только если вы не носите броню или щит.
+Power/&ClassMonkStepOfTheWindDescription	Вы можете потратить 1 очко Ци, чтобы совершить действие «Отход» или «Рывок» в качестве бонусного действия в свой ход, а расстояние вашего прыжка за ход удваивается. Доступно только если вы не носите броню или щит.
 Power/&ClassMonkStepOfTheWindTitle	Шаг Ветра
-Power/&ClassMonkStunningStrikeDescription	Вы можете препятствовать потоку ки в теле противника. Когда вы поражаете другое существо, не оглушенное рукопашной атакой, вы можете потратить 1 очко ци, чтобы попытаться нанести ошеломляющий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
-Power/&ClassMonkStunningStrikeTitle	Потрясающий удар
+Power/&ClassMonkStunningStrikeDescription	Вы можете препятствовать потоку Ци в теле противника. Когда вы поражаете другое существо, не оглушенное рукопашной атакой, вы можете потратить 1 очко Ци, чтобы попытаться нанести оглушающий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего хода.
+Power/&ClassMonkStunningStrikeTitle	Оглушающий удар
 Power/&ClassMonkTanquilityDescription	Один раз за короткий отдых в качестве свободного действия вы можете войти в состояние спокойствия, успокоив свои эмоции и сосредоточившись на том, что вас окружает. В этом состоянии вы получаете преимущество в спасбросках от заклинаний, а враги получают помеху, атакуя вас. Спокойствие длится до следующего отдыха или до тех пор, пока вы не атакуете или не произнесете заклинание.
 Power/&ClassMonkTanquilityTitle	Спокойствие
 Power/&ClassMonkWholenessOfBodyDescription	В качестве действия вы можете восстановить хиты, равные трем вашим уровням Монаха. Вы должны закончить продолжительный отдых, прежде чем снова сможете использовать эту способность.
 Power/&ClassMonkWholenessOfBodyTitle	Целостность тела
-Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Потратив действие на атаку оружием монаха, вы можете потратить 2 очка ци в качестве бонусного действия, чтобы совершить 2 атаки оружием дальнего боя из лука. Доступно только если вы не носите броню или щит.
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Потратив действие на атаку оружием монаха, вы можете потратить 2 очка Ци в качестве бонусного действия, чтобы совершить 2 атаки оружием дальнего боя из лука. Доступно только если вы не носите броню или щит.
 Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Шквал стрел
 Power/&ClassMonkZenArrowDistractDescription	Цель должна преуспеть в спасброске Мудрости или получить помеху при следующей атаке до конца своего следующего хода.
 Power/&ClassMonkZenArrowDistractTitle	Отвлекать
@@ -1445,9 +1445,9 @@ Power/&ClassMonkZenArrowProneDescription	Цель должна преуспет�
 Power/&ClassMonkZenArrowProneTitle	Сбить
 Power/&ClassMonkZenArrowPushDescription	Цель должна пройти спасбросок Силы, иначе ее оттолкнет от вас на 10 футов.
 Power/&ClassMonkZenArrowPushTitle	Отталкивать
-Power/&ClassMonkZenArrowTechniqueDescription	Вы можете манипулировать ки вашего врага, когда вы поражаете его своими стрелами. Всякий раз, когда вы попадаете в существо одной из своих стрел, вы можете потратить 1 ки, чтобы наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе будет сбит с ног.\n• Он должен преуспеть в спасброске Силы, иначе его оттолкнут на 10 футов от вас.\n• Он должен преуспеть в спасброске Мудрости или получить помеху при следующей атаке до конца своего следующего хода.
-Power/&ClassMonkZenArrowTechniqueShortTitle	Дальняя рука
-Power/&ClassMonkZenArrowTechniqueTitle	Техника дистанционной руки
+Power/&ClassMonkZenArrowTechniqueDescription	Вы можете манипулировать Ци вашего врага, когда вы поражаете его своими стрелами. Всякий раз, когда вы попадаете в существо одной из своих стрел, вы можете потратить 1 Ци, чтобы наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе будет сбит с ног.\n• Он должен преуспеть в спасброске Силы, иначе его оттолкнут на 10 футов от вас.\n• Он должен преуспеть в спасброске Мудрости или получить помеху при следующей атаке до конца своего следующего хода.
+Power/&ClassMonkZenArrowTechniqueShortTitle	Стрела Дзен
+Power/&ClassMonkZenArrowTechniqueTitle	Техника Стрелы Дзен
 Power/&ClassMonkZenArrowUpgradedDistractDescription	Цель должна преуспеть в спасброске Мудрости, иначе она получит помеху на все атаки до конца своего следующего хода.
 Power/&ClassMonkZenArrowUpgradedDistractTitle	Отвлекать
 Power/&ClassMonkZenArrowUpgradedProneDescription	Цель должна преуспеть в спасброске Ловкости, иначе она будет сбита с ног и ее движение будет равно нулю на один ход.
@@ -1455,13 +1455,13 @@ Power/&ClassMonkZenArrowUpgradedProneTitle	Сбить
 Power/&ClassMonkZenArrowUpgradedPushDescription	Цель должна преуспеть в спасброске Силы, иначе ее оттолкнет от вас на 20 футов.
 Power/&ClassMonkZenArrowUpgradedPushTitle	Отталкивать
 Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Вы улучшаете свою способность манипулировать ки. Все эффекты Техники Отдаленной Руки улучшены. Всякий раз, когда вы попадаете в существо одной из своих стрел, вы можете потратить 1 ки, чтобы наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе он будет сбит с ног и его движение будет равно нулю на один ход.\n• Он должен преуспеть в спасброске Силы, иначе его оттолкнет от вас на 20 футов.\n• Он должен преуспеть в спасброске Мудрости, иначе он получит помеху на все атаки до конца своего следующего хода.
-Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Дальняя рука
-Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Улучшенная дальнобойная техника
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Улучшенная Стрела Дзен
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Улучшенная Стрела Дзен
 Power/&DH_ElementalFormPoolDescription	Вы можете переключаться между формами элементалей количество раз, равное вашему бонусу мастерства за продолжительный отдых, направляя энергию элементаля. Вы получаете сопротивление соответствующему урону и один раз за ход применяете свой бонус мастерства в виде урона того же типа к первому урону от заклинаний, нанесенному в этом ходу. Формы длятся 1 минуту.
 Power/&DH_ElementalFormPoolEnhancedDescription	Вы можете переключаться между улучшенными формами элементалей количество раз, равное вашему бонусу мастерства в день, направляя энергию элементаля. Вы получаете иммунитет к соответствующему урону и применяете бонус мастерства в виде урона того же типа к первому урону от заклинаний в каждом раунде. Формы длятся 1 минуту.
 Power/&DH_ElementalFormPoolEnhancedTitle	Улучшенные формы элементалей
-Power/&DH_ElementalFormPoolEnhancedTitleShort	Элементарные формы
-Power/&DH_ElementalFormPoolTitle	Элементарные формы
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Элементальные формы
+Power/&DH_ElementalFormPoolTitle	Элементальные формы
 Power/&FindFamiliarBundlePowerDescription	Призовите фамильяра в форме Псевдоррагона, Спрайта, Импа или Квазита.
 Power/&FindFamiliarBundlePowerTitle	Найти знакомых
 Power/&HelpActionDescription	Вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас. Вы делаете финт, отвлекаете цель или каким-то другим образом объединяетесь, чтобы сделать атаку вашего союзника более эффективной. Если ваш союзник атакует цель до вашего следующего хода, первый бросок атаки делается с преимуществом.
@@ -1479,7 +1479,7 @@ Power/&PactofChainFamiliarInvisibilityPowerTitle	Невидимость
 Power/&PactofChainFamiliarScarePowerDescription	Одно существо по вашему выбору в пределах 20 футов от него должно преуспеть в спасброске Мудрости со Сл 10, иначе оно будет испугано на 1 минуту. Цель может повторять спасбросок в конце каждого своего хода, оканчивая эффект на себе в случае успеха.
 Power/&PactofChainFamiliarScarePowerTitle	Напугать
 Power/&PowerFunctionHandwrapsOfPullingDescription	Бонусным действием вы можете притянуть к себе существо в пределах 15 футов.
-Power/&PowerFunctionHandwrapsOfPullingTitle	Катушка в
+Power/&PowerFunctionHandwrapsOfPullingTitle	Катушка
 Power/&ToadKingCroakDescription	Издавать звуковую волну, которая наносит урон и отталкивает существ и предметы.
 Power/&ToadKingCroakTitle	Квакать
 Power/&ToadKingGraspingTongueDescription	Притяните врагов к себе.
@@ -1544,21 +1544,21 @@ Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Техника отк�
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} поражает существо стрелой и может наложить на эту цель один из следующих эффектов:
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Применить выбранную технику.
 Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Подать заявление
-Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Техника дистанционной руки
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Техника Стрела Дзен
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} поражает существо стрелой и может наложить на эту цель один из следующих эффектов:
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Применить выбранную технику.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Подать заявление
-Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Техника дистанционной руки
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Улучшенная Техника Стрела Дзен
 Reaction/&SpendPowerBundleDescription	Тратить энергию.
 Reaction/&SpendPowerBundleTitle	Тратить энергию
-Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} поразил противника безоружной атакой и может потратить 3 очка ци, чтобы попытаться убить его.
-Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Потратьте ки, чтобы попытаться убить противника.
-Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Проведите ки
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} поразил противника безоружной атакой и может потратить 3 очка Ци, чтобы попытаться убить его.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Потратьте Ци, чтобы попытаться убить противника.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Проведите Ци
 Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Дрожащая ладонь
-Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} ударил противника и может потратить 1 очко ци, чтобы попытаться оглушить его.
-Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Потратьте ки, чтобы попытаться оглушить противника.
-Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Проведите ки
-Reaction/&SpendPowerClassMonkStunningStrikeTitle	Потрясающий удар
+Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} ударил противника и может потратить 1 очко Ци, чтобы попытаться оглушить его.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Потратьте Ци, чтобы попытаться оглушить противника.
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Проведите Ци
+Reaction/&SpendPowerClassMonkStunningStrikeTitle	Оглушающий удар
 Reaction/&SpendPowerCounterStrikePowerDescription	Потратьте кубик гамбита и нанесите контрудар по врагу, если вы попали, нанесите дополнительный дробящий урон 1d6+2.
 Reaction/&SpendPowerCounterStrikePowerReactDescription	Потратьте кубик гамбита и нанесите контрудар по врагу, если вы попали, нанесите дополнительный дробящий урон 1d6+2.
 Reaction/&SpendPowerCounterStrikePowerReactTitle	Ответный удар
@@ -1566,11 +1566,11 @@ Reaction/&SpendPowerCounterStrikePowerTitle	Ответный удар
 Reaction/&SpendPowerDH_RiftStrikeDescription	Один раз за продолжительный отдых, получив урон от атаки в ближнем бою, вы можете реакцией создать портал, изгоняющий атакующего на 1 раунд из вашего плана существования.
 Reaction/&SpendPowerDH_RiftStrikeReactTitle	Разломный удар
 Reaction/&SpendPowerDH_RiftStrikeTitle	Разломный удар
-Reaction/&SpendPowerDiamondSoulDescription	{0} не смог сохраниться и может потратить 1 ки, чтобы перебросить его.
+Reaction/&SpendPowerDiamondSoulDescription	{0} не смог сохраниться и может потратить 1 Ци, чтобы перебросить его.
 Reaction/&SpendPowerDiamondSoulReactDescription	Потратьте ки, чтобы перебросить неудачное сохранение.
 Reaction/&SpendPowerDiamondSoulReactTitle	Реролл
 Reaction/&SpendPowerDiamondSoulTitle	Алмазная душа
-Reaction/&SpendPowerInspirePowerDescription	Потратьте кубик гамбита и воодушевите союзника, дав ему 1d6 + 2 временных HP.
+Reaction/&SpendPowerInspirePowerDescription	Потратьте кубик гамбита и воодушевите союзника, дав ему 1d6 + 2 временных ОЗ.
 Reaction/&SpendPowerInspirePowerTitle	Вдохновлять
 Reaction/&SpendPowerKnockDownPowerDescription	Потратьте кубик гамбита и усилите свою атаку, чтобы нанести дополнительный дробящий урон 1d6 + 2. Цель совершает спасбросок Силы (КС 8 + ваш бонус мастерства + ваш модификатор Силы) или сбивается с ног до начала своего следующего хода.
 Reaction/&SpendPowerKnockDownPowerReactDescription	Потратьте кубик гамбита и усилите свою атаку, чтобы нанести дополнительный дробящий урон 1d6 + 2. Цель совершает спасбросок Силы (КС 8 + ваш бонус мастерства + ваш модификатор Силы) или сбивается с ног до начала своего следующего хода.
@@ -1623,7 +1623,7 @@ Rules/&ExtraDamageOnAttackConditionDescription	Дополнительный ур
 Rules/&ExtraDamageOnAttackConditionTitle	Статический шок
 Rules/&HalfCoverShieldAttributeDescription	Союзники в пределах 10 футов получают +2 КД.
 Rules/&HalfCoverShieldAttributeTitle	Половинный купол
-Rules/&HalfCoverShieldConditionDescription	+2 AC.
+Rules/&HalfCoverShieldConditionDescription	+2 КД.
 Rules/&HalfCoverShieldConditionTitle	Под защитой купола
 Rules/&LightningSpearPowerDescription	Нанесите 2d6 урона электричеством.
 Rules/&LightningSpearPowerTitle	Молниеносное копье
@@ -1831,7 +1831,7 @@ Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Улучшенно�
 Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	Вы наполняете свое оружие силой. Ваши атаки считаются магическими, и вы добавляете +7 к броскам атаки и урона.
 Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Улучшенное наполняющее оружие
 Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Когда активна на оружии, его атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и урона.
-Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Тайное оружие
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Магическое Оружие
 Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	Вы получаете дополнительную атаку.
 Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Дополнительная атака
 Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Вы получаете дополнительную атаку.
@@ -1872,8 +1872,8 @@ Subclass/&ClassMonkTraditionDescription	На 3 уровне вы выбирае�
 Subclass/&ClassMonkTraditionTitle	Монастырские традиции
 Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Монахи Пути Открытой Руки — непревзойденные мастера боевых искусств, вооруженные или невооруженные. Они изучают техники толкания и спотыкания своих противников, манипулируют ки, чтобы исцелять повреждения своего тела, и практикуют продвинутую медитацию, которая может защитить их от вреда.
 Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Путь открытой ладони
-Subclass/&ClassMonkTraditionZenArcherDescription	Практикующие Путь Дальней Руки тренируются делать стрелы продолжением своих рук. Они умеют обращаться с луками и наносить эффекты, усиленные ки, с помощью стрел.
-Subclass/&ClassMonkTraditionZenArcherTitle	Путь далекой руки
+Subclass/&ClassMonkTraditionZenArcherDescription	Практикующие Путь Стрелы Дзен тренируются делать стрелы продолжением своих рук. Они умеют обращаться с луками и наносить эффекты, усиленные Ци, с помощью стрел.
+Subclass/&ClassMonkTraditionZenArcherTitle	Путь Стрелы Дзен
 Subclass/&ClassWarlockPatronDescription	Чернокнижник определяется договором с потусторонним существом. Иногда отношения между Чернокнижником и покровителем подобны отношениям Клерика и божества, хотя существа, служащие покровителями, не являются богами.
 Subclass/&ClassWarlockPatronTitle	Потусторонний покровитель
 Subclass/&ConditionResistantArmorTitle	Прочная броня
@@ -1881,7 +1881,7 @@ Subclass/&ConditionResistnatArmorDescription	Ваша броня устойчи�
 Subclass/&ConditionSpellShieldArcaneDeflectionDescription	В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя. Это дает вам +3 к КД до вашего следующего хода.
 Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Чародейское отклонение
 Subclass/&ConditionTransmuteConstitutionSaveDescription	Временное Телосложение, за исключением умения, дарованного силой Преобразования Силы.
-Subclass/&ConditionTransmuteConstitutionSaveTitle	Конституция спасает
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Телосложение спасает
 Subclass/&ConditionTransmutePoisonDescription	Временное сопротивление кислоте, холоду, огню, молнии, некрозу, яду и грому, даруемое силой Transmute Force.
 Subclass/&ConditionTransmutePoisonTitle	Сопротивление стихиям
 Subclass/&CraftingTinkererMagicItemAdeptDescription	Вы умеете создавать магические предметы. На изготовление предметов у вас уходит в четыре раза меньше времени, и вы применяете удвоенный бонус мастерства при изготовлении.
@@ -1889,11 +1889,11 @@ Subclass/&CraftingTinkererMagicItemAdeptTitle	Адепт магических п
 Subclass/&DHWarlockSubclassElementalPatronDescription	Вы заключили договор и были изменены первородными, обитающими в стихийных бесплодных землях. Стихийный хаос покровителя наполнил вашу душу, позволив вам использовать силу разных стихийных типов.
 Subclass/&DHWarlockSubclassElementalPatronTitle	Пакт элементалиста
 Subclass/&DHWarlockSubclassRiftWalkerDescription	Ваш покровитель — одно из редких существ, называющих пустоту между мирами своим домом. Они легко скользят между планами, и знания, которые вы получили от взаимодействия с ними, позволяют вам использовать затянувшиеся энергии разлома в свою пользу в соласте. Иногда вас может наполнять тоска по далекому царству вашего покровителя, желание бродить между измерениями до конца своих дней или высматривать признаки другого события Разлома, чтобы предотвратить или поощрить его.
-Subclass/&DHWarlockSubclassRiftWalkerTitle	Пакт Уокера Рифта
+Subclass/&DHWarlockSubclassRiftWalkerTitle	Пакт Путника Разлома
 Subclass/&DruidForestGuardianDruidSubclassDescription	Круг друидов-хранителей леса поклялся защищать леса и все, что в них обитает. Члены этого круга друидов, обладающие навыками использования магии Отречения и боевых искусств, представляют собой грозных противников на поле боя.
 Subclass/&DruidForestGuardianDruidSubclassTitle	Круг хранителя леса
 Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Прикоснитесь к сумке и создайте дополнительное пространственное пространство, чтобы она могла удерживать больший вес, не обременяя вас. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит первый.
-Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Сумка Холдинга
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Сумка Владельца
 Subclass/&FighterMarshalCoordinatedAttackDescription	Когда вы поражаете врага атакой в ​​ближнем бою, ваши союзники могут использовать свою реакцию, чтобы провести провоцированную атаку против вашей цели.
 Subclass/&FighterMarshalCoordinatedAttackTitle	Скоординированная атака
 Subclass/&FighterMarshalDescription	Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными очестраторами на поле боя.
@@ -1952,7 +1952,7 @@ Subclass/&MagicAffinityMasterManipulatorDC4Description	Противникам с
 Subclass/&MagicAffinityMasterManipulatorDC5Description	Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 5.
 Subclass/&MagicAffinityMasterManipulatorDCDescription	Противникам сложнее противостоять вашим заклинаниям. DC спасброска увеличивается на 3.
 Subclass/&MagicAffinityMasterManipulatorDCTitle	Тайная сила
-Subclass/&MagicAffinityMasterManipulatorListDescription	При использовании некоторых заклинаний Очарования, Отречения и Иллюзии они применяются в ячейке заклинания на 1 уровень выше используемого. Улучшенные заклинания включают в себя: «Очарование человека», «Сон», «Цветной спрей», «Удержание человека», «Невидимость», «Контрзаклинание», «Рассеивание магии», «Изгнание», «Замешательство», «Призрачный убийца», «Доминирование над человеком» и «Удержание монстра».
+Subclass/&MagicAffinityMasterManipulatorListDescription	При использовании некоторых заклинаний Очарования, Отречения и Иллюзии они применяются в ячейке заклинания на 1 уровень выше используемого. Улучшенные заклинания включают в себя: «Очарование», «Сон», «Цветной спрей», «Удержание», «Невидимость», «Контрзаклинание», «Рассеивание магии», «Изгнание», «Замешательство», «Призрачный убийца», «Доминирование» и «Удержание монстра».
 Subclass/&MagicAffinityMasterManipulatorListTitle	Тайная манипуляция
 Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Благодаря опыту в хаосе боя получите преимущество в проверках концентрации.
 Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Улучшенная концентрация
