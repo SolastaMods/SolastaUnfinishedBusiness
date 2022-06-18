@@ -5,7 +5,7 @@
   "conditionType": "Beneficial",
   "features": [
     "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
-    "Definition:CombatAffinitySensitiveToLight:ef8dfb6a21935c1438c5f5c8a5c238cb"
+    "Definition:MovementAffinityDarkelfLightSensitivity:17c4b5a2-ae5e-4565-a399-73beaaa09431"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
