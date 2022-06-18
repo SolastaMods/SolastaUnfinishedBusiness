@@ -188,3 +188,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Verwenden Sie die offiziellen Vorte
 ModUi/&Visuals	<color=yellow>Visuals:</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Bastelzeit verkürzen um</color>
 ModUi/&ChangeSleetStormToCube	Ändern Sie <color=orange>Schneeregen</color>, um einen Würfel anstelle eines Zylinders zu verwenden
+ModUi/&Category	Category
+ModUi/&WeaponTag	Weapon Tag
+ModUi/&ItemTag	Item Tag

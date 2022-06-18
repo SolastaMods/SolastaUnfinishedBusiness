@@ -188,3 +188,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'
 ModUi/&Visuals	<color=yellow>Visuels :</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>Réduisez le temps de fabrication en</color>
 ModUi/&ChangeSleetStormToCube	Changer <color=orange>Sleet Storm</color> pour utiliser un cube au lieu d'un cylindre
+ModUi/&Category	Category
+ModUi/&WeaponTag	Weapon Tag
+ModUi/&ItemTag	Item Tag

@@ -244,7 +244,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4))
+                //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Metamagic Adept (Distant)
@@ -259,7 +259,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4))
+                //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Metamagic Adept (Empowered)
@@ -274,7 +274,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4))
+                //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Metamagic Adept (Extended)
@@ -289,7 +289,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4))
+                //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Metamagic Adept (Heightened)
@@ -304,7 +304,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(8))
+                .SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Metamagic Adept (Quickened)
@@ -319,7 +319,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4))
+                //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Metamagic Adept (Twinned)
@@ -334,7 +334,7 @@ internal static class ZappaFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .SetGuiPresentation(Category.Feat)
-                .SetValidators(ValidateMinCharLevel(4))
+                //.SetValidators(ValidateMinCharLevel(4))
                 .AddToDB();
 
         // Primal (Constitution)

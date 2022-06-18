@@ -76,7 +76,7 @@ internal sealed class DualFlurryFeatBuilder : FeatDefinitionBuilder
             RuleDefinitions.TurnOccurenceType.EndOfTurn,
             attacker.RulesetCharacter.Guid,
             attacker.RulesetCharacter.CurrentFaction.Name);
-        attacker.RulesetCharacter.AddConditionOfCategory("10Combat", active_condition);
+        attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, active_condition);
     }
 }
 

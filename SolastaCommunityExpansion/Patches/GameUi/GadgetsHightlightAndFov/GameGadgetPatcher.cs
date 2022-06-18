@@ -89,7 +89,7 @@ internal static class GameGadget_SetCondition
 #endif
 
             if ((param == GameGadgetExtensions.Enabled || param == GameGadgetExtensions.ParamEnabled)
-                && __instance.UniqueNameId.StartsWith("Teleport"))
+                && __instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
             {
                 var service = ServiceRepository.GetService<IGameLocationService>();
 

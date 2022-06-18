@@ -17,13 +17,13 @@ internal static class CreditsDisplay
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
-        {"Critical Hit", "<b>J. Cohen</b>"},
+        {"Critical Hit", "<b>J. Cohen</b>, <b>L. Goldiner</b>"},
         {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
-        {"D12", "L. Goldiner, E. Antonio"},
+        {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
         {"D8", "R. Baker, R. Maxim, D. Boggs"},
         {
-            "D6",
-            "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira, M. Harck"
+            "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
+                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L.Johnson, M. Piotrowski"
         }
     };
 

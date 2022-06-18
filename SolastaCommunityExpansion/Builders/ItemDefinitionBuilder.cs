@@ -59,7 +59,7 @@ public class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDefin
 
     public ItemDefinitionBuilder MakeMagical()
     {
-        Definition.ItemTags.Remove("Standard");
+        Definition.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
         Definition.magical = true;
         return this;
     }

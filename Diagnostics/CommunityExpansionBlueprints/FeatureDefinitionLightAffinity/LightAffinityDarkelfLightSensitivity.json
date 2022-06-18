@@ -4,12 +4,6 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Bright",
-      "condition": "Definition:ConditionLightSensitive:ca49770be06152b44aca3d6df2678a81",
-      "effect": null
-    },
-    {
-      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
-      "lightingState": "Bright",
       "condition": "Definition:ConditionDarkelfLightSensitive:8c7cb851-6810-4101-8a6a-e932e9cc3896",
       "effect": null
     }

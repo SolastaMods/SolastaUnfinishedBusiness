@@ -107,7 +107,7 @@ internal static class CharacterBuildingManager_FinalizeCharacter
     // original game code doesn't grant Race features above level 1
     internal static void Prefix(CharacterBuildingManager __instance, RulesetCharacterHero hero)
     {
-        var characterLevelAttribute = hero.GetAttribute("CharacterLevel");
+        var characterLevelAttribute = hero.GetAttribute(AttributeDefinitions.CharacterLevel);
 
         characterLevelAttribute.Refresh();
 

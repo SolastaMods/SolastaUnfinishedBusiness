@@ -11,8 +11,6 @@
 
 CHANGES:
 
-- Add a setting to change Sleet Storm to a cube effect
-- Fix the crafting time reducer formula
-- Fix Royal Knight Rallying Cry power target selection
-- Fix sub races not getting features at higher levels
-- Improve the Item Picker UI under Gameplay > Tools
+- Improve item picker UI
+- Improve Power Attack feat to work with spears and javelins
+- Remove level pre-requisites from Metamagic feats

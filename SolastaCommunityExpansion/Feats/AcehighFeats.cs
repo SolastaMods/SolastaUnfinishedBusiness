@@ -380,7 +380,7 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (attackMode is not {Ranged: false, Thrown: false})
+            if (!WeaponValidators.IsMelee(weapon) || attackMode.AbilityScore != AttributeDefinitions.Strength)
             {
                 return;
             }
@@ -533,7 +533,8 @@ internal static class AcehighFeats
             Definition.AffinityGroups.Add(
                 new SavingThrowAffinityGroup
                 {
-                    affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage, abilityScoreName = AttributeDefinitions.Strength
+                    affinity = RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
+                    abilityScoreName = AttributeDefinitions.Strength
                 });
         }
 

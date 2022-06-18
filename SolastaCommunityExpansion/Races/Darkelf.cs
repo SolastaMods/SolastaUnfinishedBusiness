@@ -3,12 +3,11 @@ using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.Models;
+using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using TA;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
-
-using Resources = SolastaCommunityExpansion.Properties.Resources;
 
 namespace SolastaCommunityExpansion.Races;
 
@@ -49,8 +48,7 @@ internal static class DarkelfRaceBuilder
         };
 
         var darkelfLightAffinity = FeatureDefinitionLightAffinityBuilder
-            .Create(FeatureDefinitionLightAffinitys.LightAffinityLightSensitivity,
-                "LightAffinityDarkelfLightSensitivity", "707231ea-e34d-4e26-9af8-4e52c0cb85c3")
+            .Create("LightAffinityDarkelfLightSensitivity", "707231ea-e34d-4e26-9af8-4e52c0cb85c3")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(darkelfLightingEffectAndCondition)
             .AddToDB();
