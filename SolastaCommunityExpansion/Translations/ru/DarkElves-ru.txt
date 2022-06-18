@@ -1,7 +1,6 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Вы совершаете с помехой броски атаки и проверки Мудрости (Внимательность) при ярком свете.
-Condition/&ConditionDarkelfLightSensitiveTitle	Светочувствительность
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Недостаток светочувствительности.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Светочувствительность
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	У вас есть штраф -2 к проверкам Мудрости (Восприятие) при ярком свете. Кроме того, ваша скорость снижается на 1 при ярком свете.
+Condition/&ConditionDarkelfLightSensitiveTitle	Чувствительность к яркому свету
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	У вас есть штраф -2 к Мудрости (Восприятие).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Харизма +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Увеличение показателя способности
 Feature/&DarkelfMagicDescription	Вы знаете заклинание Танцующие огни. На 3-м уровне вы изучаете волшебный огонь, а на 5-м уровне — тьму. Оба можно использовать один раз за продолжительный отдых.
@@ -10,6 +9,7 @@ Feature/&DarkelfWeaponTrainingDescription	Вы владеете рапирами
 Feature/&DarkelfWeaponTrainingTitle	Тренировка с оружием темных эльфов
 Feature/&LightAffinityDarkelfLightSensitivityDescription	У вас есть штраф -2 к проверкам Мудрости (Восприятие) при ярком свете. Кроме того, ваша скорость снижается на 1 при ярком свете.
 Feature/&LightAffinityDarkelfLightSensitivityTitle	Чувствительность к яркому свету
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Ваша скорость уменьшается на 1.
 Feature/&PowerDarkelfDarknessDescription	Создайте область магической тьмы. Можно использовать один раз за продолжительный отдых.
 Feature/&PowerDarkelfDarknessTitle	Тьма
 Feature/&PowerDarkelfFaerieFireDescription	Подсвечивайте существ, чтобы дать преимущество любому, кто их атакует. Можно использовать один раз за продолжительный отдых.
