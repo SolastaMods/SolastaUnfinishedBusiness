@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
-using SolastaCommunityExpansion.Properties;
-using SolastaCommunityExpansion.Utils;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Races;
 
@@ -19,33 +18,30 @@ internal static class HalfElfVariantRaceBuilder
 
     private static CharacterRaceDefinition BuildHalfElfVariant()
     {
-        var darkElfRace = DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-            .GetElement("DarkelfRace");
         var darkelfDarkMagic = DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
             .GetElement("DarkelfMagic");
-        var darkelfSpriteReference =
-            CustomIcons.CreateAssetReferenceSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var halfElfDarkElf = CharacterRaceDefinitionBuilder
-            .Create(darkElfRace, "HalfElfDarkElfRace", RaceNamespace)
-            .SetGuiPresentation(Category.Race, darkelfSpriteReference)
+            .Create(DarkelfSubraceBuilder.DarkelfSubrace, "HalfElfDarkElfRace", RaceNamespace)
+            .SetGuiPresentation(Category.Race, DarkelfSubraceBuilder.DarkelfSubrace.GuiPresentation.SpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
-                MoveModeMove6)
+                MoveModeMove5)
             .AddToDB();
 
         var halfElfHighElf = CharacterRaceDefinitionBuilder
-            .Create(HalfElf, "HalfElfHighElfRace", RaceNamespace)
-            .SetGuiPresentation(Category.Race, HalfElf.guiPresentation.SpriteReference)
+            .Create(ElfHigh, "HalfElfHighElfRace", RaceNamespace)
+            .SetGuiPresentation(Category.Race, ElfHigh.guiPresentation.SpriteReference)
             .SetFeaturesAtLevel(1,
                 CastSpellElfHigh,
                 MoveModeMove6)
             .AddToDB();
 
         var halfElfSylvanElf = CharacterRaceDefinitionBuilder
-            .Create(HalfElf, "HalfElfSylvanElfRace", RaceNamespace)
-            .SetGuiPresentation(Category.Race, HalfElf.guiPresentation.SpriteReference)
+            .Create(ElfSylvan, "HalfElfSylvanElfRace", RaceNamespace)
+            .SetGuiPresentation(Category.Race, ElfSylvan.guiPresentation.SpriteReference)
             .SetFeaturesAtLevel(1,
+                ProficiencyElfWeaponTraining,
                 MoveModeMove7)
             .AddToDB();
 
