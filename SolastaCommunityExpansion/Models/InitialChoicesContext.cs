@@ -108,23 +108,38 @@ internal static class InitialChoicesContext
     {
         var levels = new[] {2, 6, 10, 14};
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
+        var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
+        var pointPool2BonusFeats = dbFeatureDefinitionPointPool.GetElement("PointPool2BonusFeats");
 
         foreach (var characterClassDefinition in dbCharacterClassDefinition)
         {
-            if (Main.Settings.EnableFeatsAtEvenLevels)
+            foreach (var level in levels)
             {
-                foreach (var level in levels)
+                var featureUnlockPointPool1 = new FeatureUnlockByLevel(PointPoolBonusFeat, level);
+                var featureUnlockPointPool2 = new FeatureUnlockByLevel(pointPool2BonusFeats, level);
+
+                if (Main.Settings.EnableFeatsAtEvenLevels)
                 {
-                    characterClassDefinition.FeatureUnlocks.TryAdd(
-                        new FeatureUnlockByLevel(PointPoolBonusFeat, level));
+                    if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool1))
+                    {
+                        characterClassDefinition.FeatureUnlocks.Remove(featureUnlockPointPool1);
+                        characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool2);
+                    }
+                    else
+                    {
+                        characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool1);
+                    }
                 }
-            }
-            else
-            {
-                foreach (var level in levels)
+                else
                 {
-                    characterClassDefinition.FeatureUnlocks.Remove(
-                        new FeatureUnlockByLevel(PointPoolBonusFeat, level));
+                    if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool2))
+                    {
+                        characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool1);
+                    }
+                    else if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool1))
+                    {
+                        characterClassDefinition.FeatureUnlocks.Remove(featureUnlockPointPool1);
+                    }
                 }
             }
         }

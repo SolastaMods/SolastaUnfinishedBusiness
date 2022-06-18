@@ -11,4 +11,6 @@
 
 CHANGES:
 
+- Improve item picker UI
 - Improve Power Attack feat to work with spears and javelins
+- Remove level pre-requisites from Metamagic feats

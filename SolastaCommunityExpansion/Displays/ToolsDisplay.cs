@@ -44,6 +44,8 @@ internal static class ToolsDisplay
                 (Gui.Localize($"Tooltip/&Tag{x}Title"),
                     a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains(x)))
             .AddItem((Gui.Localize("MainMenu/&CharacterSourceToggleAllTitle"), x => true))
+            .AddItem((Gui.Localize("Tooltip/&TagRangeTitle"),
+                a => a.IsWeapon && a.WeaponDescription.WeaponTags.Contains("Range")))
             .OrderBy(x => x.Item1)
             .ToArray();
 
@@ -61,15 +63,20 @@ internal static class ToolsDisplay
     private static void SetFactionRelation(string name, int value)
     {
         var service = ServiceRepository.GetService<IGameFactionService>();
-        if (service != null)
-        {
-            service.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
-                value - service.FactionRelations[name], "",
-                null /* this string and monster doesn't matter if we're using "SetValue" */);
-        }
+
+        service?.ExecuteFactionOperation(name, FactionDefinition.FactionOperation.Increase,
+            value - service.FactionRelations[name], "",
+            null /* this string and monster doesn't matter if we're using "SetValue" */);
     }
 
     internal static void DisplayTools()
+    {
+        DisplayGeneral();
+        DisplayItems();
+        DisplayFactionRelations();
+    }
+
+    private static void DisplayGeneral()
     {
         bool toggle;
         int intValue;
@@ -154,9 +161,6 @@ internal static class ToolsDisplay
 
         UI.Label("");
         UI.Label(Gui.Localize("ModUi/&MaxBackupHelp"));
-
-        DisplayItems();
-        DisplayFactionRelations();
     }
 
     private static void DisplayFactionRelations()
@@ -234,9 +238,23 @@ internal static class ToolsDisplay
             return;
         }
 
-        UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
+        using (UI.HorizontalScope())
+        {
+            UI.Space(40f);
+            UI.Label("Category".bold(), UI.Width(100));
 
-        UI.Label("");
+            if (CurrentItemsFilterIndex == 11 /* Weapons */)
+            {
+                UI.Space(40f);
+                UI.Label("Weapon Tag".bold(), UI.Width(100));
+            }
+
+            UI.Space(40f);
+            UI.Label("Item Tag".bold(), UI.Width(100));
+
+            UI.Space(40f);
+            UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
+        }
 
         int intValue;
 
@@ -250,16 +268,24 @@ internal static class ToolsDisplay
                     1, UI.Width(140)))
             {
                 CurrentItemsFilterIndex = intValue;
+
+                if (CurrentItemsFilterIndex != 11 /* Weapons */)
+                {
+                    CurrentItemsWeaponTagsFilterIndex = 0;
+                }
             }
 
-            intValue = CurrentItemsWeaponTagsFilterIndex;
-            if (UI.SelectionGrid(
-                    ref intValue,
-                    ItemsWeaponTagsFiltersLabels,
-                    ItemsWeaponTagsFiltersLabels.Length,
-                    1, UI.Width(140)))
+            if (CurrentItemsFilterIndex == 11 /* Weapons */)
             {
-                CurrentItemsWeaponTagsFilterIndex = intValue;
+                intValue = CurrentItemsWeaponTagsFilterIndex;
+                if (UI.SelectionGrid(
+                        ref intValue,
+                        ItemsWeaponTagsFiltersLabels,
+                        ItemsWeaponTagsFiltersLabels.Length,
+                        1, UI.Width(140)))
+                {
+                    CurrentItemsWeaponTagsFilterIndex = intValue;
+                }
             }
 
             intValue = CurrentItemsItemTagsFilterIndex;

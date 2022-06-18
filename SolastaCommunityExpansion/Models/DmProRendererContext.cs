@@ -168,7 +168,7 @@ internal static class DmProRendererContext
             var position = roomTransform.position;
             var moveBy = (multiplier - 1) * FLAT_ROOM_SIZE / 2;
             var newPosition = new Vector3(position.x - moveBy, 0, position.z - moveBy);
-            
+
             roomTransform.position = newPosition;
 
             for (var x = 0; x < multiplier; x++)

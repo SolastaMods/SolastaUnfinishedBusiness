@@ -188,3 +188,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
 ModUi/&TotalCraftingTimeModifier	<color=white>制作耗时降低倍率</color>
 ModUi/&ChangeSleetStormToCube	将<color=orange>雪风暴</color>范围从圆柱体替换为立方体
+ModUi/&Category	Category
+ModUi/&WeaponTag	Weapon Tag
+ModUi/&ItemTag	Item Tag

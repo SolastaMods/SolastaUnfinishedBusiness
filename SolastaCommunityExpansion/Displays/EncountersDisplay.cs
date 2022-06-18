@@ -41,12 +41,18 @@ public static class EncountersDisplay
 
             if (showAttributes)
             {
-                UI.Label($"Str: {hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue:0#}".white(), UI.Width(48));
-                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".yellow(), UI.Width(48));
-                UI.Label($"Dex: {hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue:0#}".white(), UI.Width(48));
-                UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".yellow(), UI.Width(48));
-                UI.Label($"Wis: {hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue:0#}".white(), UI.Width(48));
-                UI.Label($"Cha: {hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue:0#}".yellow(), UI.Width(48));
+                UI.Label($"Str: {hero.GetAttribute(AttributeDefinitions.Strength).CurrentValue:0#}".white(),
+                    UI.Width(48));
+                UI.Label($"Con: {hero.GetAttribute(AttributeDefinitions.Constitution).CurrentValue:0#}".yellow(),
+                    UI.Width(48));
+                UI.Label($"Dex: {hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue:0#}".white(),
+                    UI.Width(48));
+                UI.Label($"Int: {hero.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue:0#}".yellow(),
+                    UI.Width(48));
+                UI.Label($"Wis: {hero.GetAttribute(AttributeDefinitions.Wisdom).CurrentValue:0#}".white(),
+                    UI.Width(48));
+                UI.Label($"Cha: {hero.GetAttribute(AttributeDefinitions.Charisma).CurrentValue:0#}".yellow(),
+                    UI.Width(48));
             }
 
             var statsLabel = showStats ? "" : "Stats";
@@ -55,10 +61,13 @@ public static class EncountersDisplay
 
             if (showStats)
             {
-                UI.Label($"AC: {hero.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue:0#}".white(), UI.Width(48));
+                UI.Label($"AC: {hero.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue:0#}".white(),
+                    UI.Width(48));
                 UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".yellow(), UI.Width(72));
-                UI.Label($"XP: {hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue}".white(), UI.Width(72));
-                UI.Label($"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".white(), UI.Width(48));
+                UI.Label($"XP: {hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue}".white(),
+                    UI.Width(72));
+                UI.Label($"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".white(),
+                    UI.Width(48));
             }
 
             currentItemsHeroes.TryGetValue(hero, out flip);

@@ -178,7 +178,7 @@ internal static class CharacterInformationPanel_Bind
             if (child != null)
             {
                 var sizeDelta = child.sizeDelta;
-                
+
                 child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
                 child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
                 child.sizeDelta = new Vector2(sizeDelta.x, sizeDelta.y - 100);

@@ -186,7 +186,7 @@ public static class Translations
 
             if (termData != null && termData.Languages[languageIndex] != null)
             {
-                Main.Logger.Log($"term {term} overwritten with text {text}");
+                Main.Log($"term {term} overwritten with text {text}");
 
                 termData.Languages[languageIndex] = text;
             }
