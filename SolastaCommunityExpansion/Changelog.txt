@@ -12,3 +12,4 @@
 CHANGES:
 
 - Improve Russian translations [Prioritizer]
+- Fix Power Attack to consider unarmed

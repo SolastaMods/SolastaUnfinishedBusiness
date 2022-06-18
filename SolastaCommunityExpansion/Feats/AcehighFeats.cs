@@ -380,7 +380,8 @@ internal static class AcehighFeats
                 return;
             }
 
-            if (!WeaponValidators.IsMelee(weapon) || attackMode.AbilityScore != AttributeDefinitions.Strength)
+            if (!(WeaponValidators.IsMelee(weapon) || WeaponValidators.IsUnarmedWeapon(weapon))
+                || attackMode.AbilityScore != AttributeDefinitions.Strength)
             {
                 return;
             }
