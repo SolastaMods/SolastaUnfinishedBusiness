@@ -19,11 +19,11 @@ internal static class CreditsDisplay
         {"", ""},
         {"Critical Hit", "<b>J. Cohen</b>, <b>L. Goldiner</b>"},
         {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
-        {"D12", "E. Antonio, C. Aardappel"},
+        {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
         {"D8", "R. Baker, R. Maxim, D. Boggs"},
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
-                  "M. Harck, D. Schoop, K. Cooper, M. Thompson"
+                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L.Johnson, M. Piotrowski"
         }
     };
 
