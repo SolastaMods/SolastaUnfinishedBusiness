@@ -86,7 +86,7 @@ internal static class BootContext
 
             if (Directory.Exists(fullZipFolder))
             {
-                Directory.Delete(fullZipFolder);
+                Directory.Delete(fullZipFolder, true);
             }
 
             ZipFile.ExtractToDirectory(fullZipFile, Main.MOD_FOLDER);
@@ -102,7 +102,7 @@ internal static class BootContext
                     fullDestFile);
             }
 
-            Directory.Delete(fullZipFolder);
+            Directory.Delete(fullZipFolder, true);
 
             message = "Update successful. Please restart.";
         }
