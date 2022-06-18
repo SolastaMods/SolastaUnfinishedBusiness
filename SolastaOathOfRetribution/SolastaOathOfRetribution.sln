@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolastaOathOfRetribution", "SolastaOathOfRetribution\SolastaOathOfRetribution.csproj", "{2CAEA425-CE96-4E2A-8248-FD55675B20F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Install|Any CPU = Debug Install|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release Install|Any CPU = Release Install|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Debug Install|Any CPU.ActiveCfg = Debug Install|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Debug Install|Any CPU.Build.0 = Debug Install|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Release Install|Any CPU.ActiveCfg = Release Install|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Release Install|Any CPU.Build.0 = Release Install|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CAEA425-CE96-4E2A-8248-FD55675B20F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {72A74A8E-D4AB-4C28-B389-AD1BA031A590}
+	EndGlobalSection
+EndGlobal
