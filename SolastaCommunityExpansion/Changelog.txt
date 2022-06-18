@@ -11,5 +11,5 @@
 
 CHANGES:
 
-- Add Half-Elf subclasses
-- Change Dark-Elf sub light sensitivity detrimental condition
+- Add Half-Elf variant subclasses
+- Change Dark-Elf bright sensitivity detrimental condition

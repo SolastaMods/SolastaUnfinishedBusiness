@@ -1,7 +1,4 @@
 FeatureSetGreenWitchMagic	Title='Subclass/&GreenWitchMagic'.
 FeatureSetRedWitchMagic	Title='Subclass/&RedWitchMagic'.
 FeatureSetWhiteWitchMagic	Title='Subclass/&WhiteWitchMagic'.
-HalfElfSylvanElfRace	Description='Race/&HalfElfSylvanElfRaceDescription'.
-MovementAffinityDarkelfLightSensitivity	Title='Feature/&MovementAffinityDarkelfLightSensitivityTitle'.
-MovementAffinityDarkelfLightSensitivity	Description='Feature/&MovementAffinityDarkelfLightSensitivityDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.
