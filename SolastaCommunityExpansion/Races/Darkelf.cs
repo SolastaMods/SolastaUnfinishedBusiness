@@ -31,15 +31,21 @@ internal static class DarkelfRaceBuilder
             .Create("AbilityCheckAffinityDarkelfLightSensitivity", "a4f82743-0d75-4178-ba25-b3707420e17e")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
-                RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
+                RuleDefinitions.CharacterAbilityCheckAffinity.None, RuleDefinitions.DieType.D1, -2,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
         darkElfPerception.AffinityGroups[0].lightingContext = RuleDefinitions.LightingContext.BrightLight;
 
+        var darkelfMovementAffinty = FeatureDefinitionMovementAffinityBuilder
+            .Create(FeatureDefinitionMovementAffinitys.MovementAffinityHeavyArmorOverload, "MovementAffinityDarkelfLightSensitivity", "17c4b5a2-ae5e-4565-a399-73beaaa09431")
+            .SetGuiPresentation(Category.Feature)
+            .SetBaseSpeedAdditiveModifier(-1)
+            .AddToDB();          
+
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive", "8c7cb851-6810-4101-8a6a-e932e9cc3896")
             .SetGuiPresentation(Category.Condition)
-            .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight, darkElfPerception)
+            .SetFeatures(darkElfPerception, darkelfMovementAffinty)
             .AddToDB();
 
         var darkelfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
