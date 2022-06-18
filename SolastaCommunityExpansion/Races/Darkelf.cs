@@ -11,9 +11,9 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitio
 
 namespace SolastaCommunityExpansion.Races;
 
-internal static class DarkelfRaceBuilder
+internal static class DarkelfSubraceBuilder
 {
-    internal static CharacterRaceDefinition DarkelfRace { get; } = BuildDarkelf();
+    internal static CharacterRaceDefinition DarkelfSubrace { get; } = BuildDarkelf();
 
     private static CharacterRaceDefinition BuildDarkelf()
     {
@@ -37,10 +37,11 @@ internal static class DarkelfRaceBuilder
         darkElfPerception.AffinityGroups[0].lightingContext = RuleDefinitions.LightingContext.BrightLight;
 
         var darkelfMovementAffinty = FeatureDefinitionMovementAffinityBuilder
-            .Create(FeatureDefinitionMovementAffinitys.MovementAffinityHeavyArmorOverload, "MovementAffinityDarkelfLightSensitivity", "17c4b5a2-ae5e-4565-a399-73beaaa09431")
+            .Create(FeatureDefinitionMovementAffinitys.MovementAffinityHeavyArmorOverload,
+                "MovementAffinityDarkelfLightSensitivity", "17c4b5a2-ae5e-4565-a399-73beaaa09431")
             .SetGuiPresentation(Category.Feature)
             .SetBaseSpeedAdditiveModifier(-1)
-            .AddToDB();          
+            .AddToDB();
 
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive", "8c7cb851-6810-4101-8a6a-e932e9cc3896")
