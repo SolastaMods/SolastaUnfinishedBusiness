@@ -1,0 +1,242 @@
+{
+  "$type": "CharacterRaceDefinition, Assembly-CSharp",
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "defaultAlignement": "ChaoticGood",
+  "dualSex": true,
+  "minimalAge": 20,
+  "maximalAge": 180,
+  "baseHeight": 72,
+  "baseWeight": 110,
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetHalfElfAbilityScoreIncrease:38424c7fca90b024cb6fb8355d62b61d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetElfFeyAncestry:c123d2bc2667e7641a5b5bc9fdd94512",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetHalfElfLanguages:3219c863ddf6e214dafa891d17e97375",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    }
+  ],
+  "subRaces": [
+    "Definition:HalfElfDarkElfRace:56db8fa8-38f7-5f7f-8d80-e76b2b95f617",
+    "Definition:HalfElfHighElfRace:6826a724-625a-5ce5-9821-4f62485effe1",
+    "Definition:HalfElfSylvanElfRace:0eea567d-bb92-51b7-9386-85cf963d73ce"
+  ],
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
+  "personalityFlagOccurences": [
+    {
+      "$type": "PersonalityFlagOccurence, Assembly-CSharp",
+      "weight": 15,
+      "personalityFlag": "ElfFlag"
+    }
+  ],
+  "languageAutolearnPreference": [
+    "Language_Dwarvish",
+    "Language_Halfling",
+    "Language_Orc",
+    "Language_Tirmarian"
+  ],
+  "audioSwitches": [],
+  "audioRaceRTPCValue": 4.0,
+  "racePresentation": {
+    "$type": "RacePresentation, Assembly-CSharp",
+    "bodyAssetPrefix": "Elf",
+    "morphotypeAssetPrefix": "Elf",
+    "maleNameOptions": [
+      "Race/&HalfElfMaleName1Title",
+      "Race/&HalfElfMaleName2Title",
+      "Race/&HalfElfMaleName3Title",
+      "Race/&HalfElfMaleName4Title",
+      "Race/&HalfElfMaleName5Title",
+      "Race/&HalfElfMaleName6Title",
+      "Race/&HalfElfMaleName7Title",
+      "Race/&HalfElfMaleName8Title",
+      "Race/&HalfElfMaleName9Title",
+      "Race/&HalfElfMaleName10Title"
+    ],
+    "femaleNameOptions": [
+      "Race/&HalfElfFemaleName1Title",
+      "Race/&HalfElfFemaleName2Title",
+      "Race/&HalfElfFemaleName3Title",
+      "Race/&HalfElfFemaleName4Title",
+      "Race/&HalfElfFemaleName5Title"
+    ],
+    "hasSurName": true,
+    "surNameTitle": "Race/&HalfElfSurNameTitle",
+    "surNameOptions": [
+      "Race/&HalfElfSurName1Title",
+      "Race/&HalfElfSurName2Title",
+      "Race/&HalfElfSurName3Title",
+      "Race/&HalfElfSurName4Title",
+      "Race/&HalfElfSurName5Title",
+      "Race/&HalfElfSurName6Title",
+      "Race/&HalfElfSurName7Title",
+      "Race/&HalfElfSurName8Title",
+      "Race/&HalfElfSurName9Title",
+      "Race/&HalfElfSurName10Title",
+      "Race/&HalfElfSurName11Title",
+      "Race/&HalfElfSurName12Title",
+      "Race/&HalfElfSurName13Title"
+    ],
+    "needBeard": false,
+    "canModifyMusculature": true,
+    "originOptions": [
+      "Origin_NonHuman"
+    ],
+    "maleFaceShapeOptions": [
+      "FaceShape_HalfElf_D",
+      "FaceShape_HalfElf_E",
+      "FaceShape_HalfElf_F",
+      "FaceShape_HalfElf_A",
+      "FaceShape_HalfElf_B",
+      "FaceShape_HalfElf_C",
+      "FaceShape_HalfElf_NPC_Edvan_Danantar",
+      "FaceShape_HalfElf_NPC_Dek",
+      "FaceShape_HalfElf_NPC_Hugo_Requer",
+      "FaceShape_HalfElf_NPC_Carran_Rightower",
+      "FaceShape_HalfElf_NPC_Karel_Martel",
+      "FaceShape_HalfElf_NPC_Zhoron",
+      "FaceShape_HalfElf_NPC_Hasdrubal_Swiftmind"
+    ],
+    "femaleFaceShapeOptions": [
+      "FaceShape_HalfElf_D",
+      "FaceShape_HalfElf_E",
+      "FaceShape_HalfElf_F",
+      "FaceShape_HalfElf_A",
+      "FaceShape_HalfElf_B",
+      "FaceShape_HalfElf_C",
+      "FaceShape_HalfElf_NPC_Alena",
+      "FaceShape_HalfElf_NPC_Verissa_Ironshell"
+    ],
+    "maleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_E",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_P",
+      "HairShape_O",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_X",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_F",
+      "HairShape_G",
+      "HairShape_AA",
+      "HairShape_None"
+    ],
+    "femaleHairShapeOptions": [
+      "HairShape_A",
+      "HairShape_B",
+      "HairShape_C",
+      "HairShape_D",
+      "HairShape_E",
+      "HairShape_F",
+      "HairShape_K",
+      "HairShape_L",
+      "HairShape_M",
+      "HairShape_H",
+      "HairShape_I",
+      "HairShape_J",
+      "HairShape_N",
+      "HairShape_O",
+      "HairShape_P",
+      "HairShape_Q",
+      "HairShape_R",
+      "HairShape_S",
+      "HairShape_U",
+      "HairShape_V",
+      "HairShape_W",
+      "HairShape_Y",
+      "HairShape_Z",
+      "HairShape_AA",
+      "HairShape_G",
+      "HairShape_None"
+    ],
+    "maleBeardShapeOptions": [
+      "BeardShape_None",
+      "BeardShape_H",
+      "BeardShape_I",
+      "BeardShape_J",
+      "BeardShape_K",
+      "BeardShape_L",
+      "BeardShape_O",
+      "BeardShape_P",
+      "BeardShape_C"
+    ],
+    "equipmentLayoutPath": "Gui/Prefabs/Equipment/MediumHeroEquipmentLayout",
+    "maleVoiceDefinition": "MAL1",
+    "femaleVoiceDefinition": "FEM2",
+    "portraitShieldOffset": {
+      "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
+      "x": 0.02,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "preferedSkinColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 1,
+      "maxValue": 15
+    },
+    "preferedHairColors": {
+      "$type": "TA.RangedInt, Assembly-CSharp",
+      "minValue": 0,
+      "maxValue": 24
+    }
+  },
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Race/&HalfElfVariantTitle",
+    "description": "Race/&HalfElfVariantDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "f6ed8390cddc06c44a89163464942fe1",
+      "m_SubObjectName": "HalfElf",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "0dce0c96-bad4-544b-a3b7-6ad414df4ed4",
+  "contentPack": 9999,
+  "name": "HalfElfVariant"
+}

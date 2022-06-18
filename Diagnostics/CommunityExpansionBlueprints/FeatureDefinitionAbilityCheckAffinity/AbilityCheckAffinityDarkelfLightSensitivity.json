@@ -6,8 +6,8 @@
       "$type": "FeatureDefinitionAbilityCheckAffinity+AbilityCheckAffinityGroup, Assembly-CSharp",
       "abilityScoreName": "Wisdom",
       "proficiencyName": "Perception",
-      "affinity": "Disadvantage",
-      "abilityCheckModifierDiceNumber": 0,
+      "affinity": "None",
+      "abilityCheckModifierDiceNumber": -2,
       "abilityCheckModifierDieType": "D1",
       "abilityCheckContext": "None",
       "lightingContext": "BrightLight"
