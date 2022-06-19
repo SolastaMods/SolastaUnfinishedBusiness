@@ -24,7 +24,7 @@ internal static class CreditsDisplay
         {
             "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
                   "M. Harck, D. Schoop, K. Cooper, M. Thompson, L.Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
-                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden"
+                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden, E. Gilbert"
         }
     };
 
@@ -44,6 +44,7 @@ internal static class CreditsDisplay
             "high level spells, feats migration, bug models replacement, high level monsters, Warlock class and subclasses"
         },
         {"ElAntonious", "Arcanist subclass, feats"},
+        {"exsonics01", "Oath of Retribution subclass"},
         {"Esker", "Warlock class design, quality assurance"},
         {"Holic75", "SolastaModHelpers, SolastaExtraContent"},
         {
