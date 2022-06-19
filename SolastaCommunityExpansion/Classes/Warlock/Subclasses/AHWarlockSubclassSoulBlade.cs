@@ -76,7 +76,7 @@ public static class AHWarlockSubclassSoulBladePact
             .SetRechargeRate(RechargeRate.LongRest)
             .SetFixedUsesPerRecharge(1)
             .SetCostPerUse(1)
-            .SetActivationTime(ActivationTime.Action)
+            .SetActivationTime(ActivationTime.NoCost)
             .SetAttackModifierAbility(true, true, AttributeDefinitions.Charisma)
             .SetEffectDescription(new EffectDescriptionBuilder()
                 .SetDurationData(DurationType.UntilLongRest)
