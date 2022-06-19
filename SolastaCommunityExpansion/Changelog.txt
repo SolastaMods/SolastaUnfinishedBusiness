@@ -11,5 +11,6 @@
 
 CHANGES:
 
-- Improve Russian translations [Prioritizer]
-- Fix Power Attack to consider unarmed
+- Add Paladin Oath of Retribution subclass
+- Improve Russian translation terms
+- Fix Power Attack feat not working with unarmed attacks
