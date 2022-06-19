@@ -53,7 +53,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 RuleDefinitions.RechargeRate.ChannelDivinity,
                 false,
                 false,
-                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Charisma,
                 new EffectDescription
                 {
                     targetSide = RuleDefinitions.Side.Enemy,
@@ -132,7 +132,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 RuleDefinitions.RechargeRate.ChannelDivinity,
                 false,
                 false,
-                AttributeDefinitions.Intelligence,
+                AttributeDefinitions.Charisma,
                 new EffectDescription
                 {
                     targetSide = RuleDefinitions.Side.Enemy,

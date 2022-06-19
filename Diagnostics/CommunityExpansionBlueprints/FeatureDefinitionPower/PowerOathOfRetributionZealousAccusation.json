@@ -307,7 +307,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Wisdom",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
