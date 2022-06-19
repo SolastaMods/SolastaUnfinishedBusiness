@@ -90,21 +90,31 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label("");
 
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            HouseSpellTweaks.UseCubeOnSleetStorm();
+        }
+
+        toggle = Main.Settings.UseHeightOneCylinderEffect;
+        if (UI.Toggle(Gui.Localize("ModUi/&UseHeightOneCylinderEffect"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UseHeightOneCylinderEffect = toggle;
+            HouseSpellTweaks.UseHeightOneCylinderEffect();
+        }
+
         toggle = Main.Settings.RemoveConcentrationRequirementsFromAnySpell;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveConcentrationRequirementsFromAnySpell"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveConcentrationRequirementsFromAnySpell = toggle;
         }
 
-        UI.Label("");
-
         toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
         }
-
-        UI.Label("");
 
         toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))

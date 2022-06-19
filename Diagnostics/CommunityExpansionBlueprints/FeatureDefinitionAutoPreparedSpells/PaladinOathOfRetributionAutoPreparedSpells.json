@@ -1,0 +1,59 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "Domain",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 3,
+      "spellsList": [
+        "Definition:Bane:2e60d6f650100a84f917bd5d0e69b356",
+        "Definition:HuntersMark:a4976a0eae64c43478a3711dc064fb8b"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 5,
+      "spellsList": [
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:MistyStep:f4619f117544fe148aae6952202da5e3"
+      ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 9,
+      "spellsList": [
+        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
+        "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle",
+    "description": "Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "cfa18d85-fd06-5051-a295-c37cf4dcbd84",
+  "contentPack": 9999,
+  "name": "PaladinOathOfRetributionAutoPreparedSpells"
+}

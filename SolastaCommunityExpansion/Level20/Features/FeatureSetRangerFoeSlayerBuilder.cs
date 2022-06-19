@@ -319,7 +319,7 @@ Feature written by ElAntonius for the Ranger
 //                                                                                           condition, RuleDefinitions.DurationType.Turn, 1, RuleDefinitions.TurnOccurenceType.EndOfTurn,
 //                                                                                           attacker.RulesetCharacter.Guid,
 //                                                                                           attacker.RulesetCharacter.CurrentFaction.Name);
-//                attacker.RulesetCharacter.AddConditionOfCategory("10Combat", active_condition, true);
+//                attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, active_condition, true);
 //            }
 //        }
 //    }

@@ -176,11 +176,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:WitchFeatureSetRitualCasting:ac0f43fd-914a-507e-8048-59a63a1f913e",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyWitchSavingthrow:92e3de37-3ad5-564b-9a89-471aa66a0e20",
       "level": 1
     },
@@ -206,6 +201,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:WitchFeatureSetRitualCasting:ac0f43fd-914a-507e-8048-59a63a1f913e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:WitchCacklePower:3f26a5fd-b743-58c0-ad61-73573d9b9cdd",
       "level": 2
     },
@@ -221,6 +221,16 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SubclassChoiceWitchCovens:7bf15fce-aef1-5eaa-af76-6b99c7e0aef5",
       "level": 3
     },
@@ -231,12 +241,37 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 4
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:WitchMaledictionChoice:5a533036-e190-51c9-a2f6-41a98ec542d7",
       "level": 5
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 8
     },
     {
@@ -246,7 +281,27 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 12
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 12
     },
     {
@@ -256,7 +311,27 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
+      "level": 16
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
       "level": 16
     },
     {
@@ -266,8 +341,28 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 17
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 18
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetAbilityScoreChoice:0f791ae5a6ffdc742be023184a115e1d",
       "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 19
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ClassWitchMaledictionReplace:985cd311-859f-5af2-9573-27642fd3adc6",
+      "level": 20
     }
   ],
   "personalityFlagOccurences": [],

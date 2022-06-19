@@ -66,12 +66,6 @@ Monster/&DH_Custom_Tarrasque_Description	Il leggendario tarrasque è forse il mo
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasque</color>
 Monster/&DH_Custom_Vampire_Description	Svegliatisi in una notte senza fine, i vampiri hanno fame della vita che hanno perso e la saziano bevendo il sangue dei vivi. I vampiri aborrono la luce del sole, perché il suo tocco li brucia. Non proiettano mai ombre o riflessi, e qualsiasi vampiro che voglia muoversi inosservato tra i vivi si tiene nell'oscurità e lontano dalle superfici riflettenti.
 Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampiro</color>
-Monster/&DHCustomCouatlDescription	I Couatl sono esseri serpentini benevoli di grande intelletto e intuizione. Le loro ali dai colori brillanti e i loro modi gentili testimoniano le loro origini celestiali.
-Monster/&DHCustomCouatlTitle	Couatl
-Monster/&OwlFamiliarDescription	Familiare del gufo
-Monster/&OwlFamiliarTitle	Gufo
-Monster/&WitchOwlFamiliarDescription	Gufo familiare
-Monster/&WitchOwlFamiliarTitle	Gufo
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6 tuono e spinge 2 celle
 MonsterAttack/&DH_AirBlast_Attack_Title	Esplosione d'aria
 MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 randellate e 4d6 tuono
@@ -238,7 +232,5 @@ MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Fulmini ad ampio ragg
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Tempesta di fulmini
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Colpo di fulmine
-Spell/&DHAnimalShapesSpellDescription	Scegli un numero qualsiasi di creature consenzienti che puoi vedere nel raggio d'azione. Ogni bersaglio viene trasformato nella forma di una bestia grande o piccola con un punteggio di sfida pari o inferiore a 4.
-Spell/&DHAnimalShapesSpellTitle	Forme animali
 Spell/&DHTimeStop_SpellDescription	Fermate brevemente il flusso del tempo per tutti tranne che per voi stessi. Il tempo non passa per le altre creature, mentre voi prendete 1d4 + 1 turni di fila, durante i quali potete usare azioni e muovervi normalmente.
 Spell/&DHTimeStop_SpellTitle	Arresto del tempo

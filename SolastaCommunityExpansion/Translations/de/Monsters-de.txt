@@ -66,12 +66,6 @@ Monster/&DH_Custom_Tarrasque_Description	Die legendäre Tarrasque ist möglicher
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasque</color>
 Monster/&DH_Custom_Vampire_Description	Zu einer endlosen Nacht erwacht, hungern Vampire nach dem Leben, das sie verloren haben, und stillen diesen Hunger, indem sie das Blut der Lebenden trinken. Vampire verabscheuen Sonnenlicht, denn seine Berührung verbrennt sie. Sie werfen niemals Schatten oder Reflexionen, und jeder Vampir, der sich unbemerkt zwischen den Lebenden bewegen möchte, hält sich in der Dunkelheit und weit entfernt von reflektierenden Oberflächen auf.
 Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampir</color>
-Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von großem Intellekt und Einsicht. Ihre leuchtend gefärbten Flügel und ihre sanfte Art sprechen für ihre himmlische Herkunft.
-Monster/&DHCustomCouatlTitle	Couatl
-Monster/&OwlFamiliarDescription	Eule vertraut
-Monster/&OwlFamiliarTitle	Eule
-Monster/&WitchOwlFamiliarDescription	Eule vertraut
-Monster/&WitchOwlFamiliarTitle	Eule
 MonsterAttack/&DH_AirBlast_Attack_Description	5W6 Donner und schiebt 2 Zellen
 MonsterAttack/&DH_AirBlast_Attack_Title	Luftstoß
 MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4W6+6 Knüppeln & 4W6 Donner
@@ -238,7 +232,5 @@ MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Blitz im weiten Berei
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Gewitter
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Blitzschlag
-Spell/&DHAnimalShapesSpellDescription	Wähle eine beliebige Anzahl williger Kreaturen, die du in Reichweite sehen kannst. Du verwandelst jedes Ziel in die Form einer großen oder kleineren Bestie mit einem Herausforderungswert von 4 oder niedriger.
-Spell/&DHAnimalShapesSpellTitle	Tierische Formen
 Spell/&DHTimeStop_SpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
 Spell/&DHTimeStop_SpellTitle	Zeitstopp

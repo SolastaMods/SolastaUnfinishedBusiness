@@ -16,7 +16,7 @@ internal sealed class ProficiencyRogueSlipperyMindBuilder : FeatureDefinitionPro
     {
         Definition.GuiPresentation.Title = "Feature/&ProficiencyRogueSlipperyMindTitle";
         Definition.GuiPresentation.Description = "Feature/&ProficiencyRogueSlipperyMindDescription";
-        Definition.Proficiencies.Add("Wisdom");
+        Definition.Proficiencies.Add(AttributeDefinitions.Wisdom);
     }
 
     private static FeatureDefinitionProficiency CreateAndAddToDB(string name, string guid)

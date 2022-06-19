@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	允许在施放<col
 ModUi/&AllowUnmarkedSorcerers	允许<color=orange>术士</color>没有脸部印记
 ModUi/&AllRecipesInDm	所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color>键只高亮队伍可见视野范围内的互动物件[仅限自定义地牢]
-ModUi/&Ammunition	<color=yellow>弹药</color>
-ModUi/&Armor	<color=yellow>护甲</color>
 ModUi/&AutoPauseOnVictory	战斗胜利后暂停游戏
 ModUi/&Basic	<color=yellow>基础：</color>
 ModUi/&Battle	<color=yellow>战斗：</color>
@@ -26,6 +24,7 @@ ModUi/&Bestiary	生物手册
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>降咒</color>在以5环或更高法术位施放时无需专注
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>目盲</color>状态禁止借机攻击 
 ModUi/&Blueprints	蓝图
+ModUi/&Campaigns	<color=yellow>战役：</color>
 ModUi/&CampaignsAndLocations	<color=yellow>战役和地点：</color>
 ModUi/&Character	角色
 ModUi/&CharactersPool	角色池
@@ -43,7 +42,7 @@ ModUi/&DontFollowMargin	<i><color=white>+ 除非角色靠近于%的屏幕边缘<
 ModUi/&DungeonMaker	<color=yellow>地城制作：</color>
 ModUi/&DungeonMakerBasicHelp	. 这些设置不要求玩家安装此Mod\n. 你能在你的对话、描述等内嵌入任何战役变量\n. 社区Mod将在游戏过程中进行替换<i><color=yellow>[例如：你好英雄{Salute}！]</color></i>
 ModUi/&DungeonMakerMenu	地城制作
-ModUi/&EmpressGarbAppearance	<color=orange>女皇服饰链甲衫</color>外形
+ModUi/&EmpressGarbAppearance	<color=orange>女帝装束链甲衫</color>外形
 ModUi/&EnableAdditionalIconsOnLevelMap	在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker	<i>+ 添加新的法器至地城制作</i>
 ModUi/&EnableAlternateHuman	启用变种人类<i><color=yellow>[+1专长/+2属性值选择/+1技能]</color></i>
@@ -112,7 +111,7 @@ ModUi/&ItemInDm	物品加入地城制作
 ModUi/&Items	<color=yellow>物品：</color>
 ModUi/&ItemsCraftingMerchants	物品，制作和商人
 ModUi/&ItemsHelp1	<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
-ModUi/&ItemsHelp2	. 在检查界面按+将物品添加到地面容器中
+ModUi/&ItemsHelp2	<b>按+将物品添加至地面容器</b>
 ModUi/&KeyboardMouse	键盘与鼠标
 ModUi/&MakeAllMagicStaveArcaneFoci	使所有魔杖视为奥术法器<i><color=yellow>[全职业通用的<color=orange>治疗法杖</color>除外]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
@@ -133,18 +132,22 @@ ModUi/&OverrideMinMaxLevel	在开启新的冒险时覆盖其最低/最高等级
 ModUi/&OverridePartySize	<color=white>覆盖自定义冒险的队伍大小</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>覆盖<color=orange>游荡者</color>诡徒子职的<color=orange>精通操纵</color>能力的法术DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>覆盖<color=orange>法师</color>控心大师子职的<color=orange>奥术之力</color>能力的法术DC</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>非官方语言支持：</color>
 ModUi/&Patches	<color=yellow>补丁：</color>
 ModUi/&PrimedItems	制备好的物品
 ModUi/&Progression	<color=yellow>进展：</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	快速施放光亮术戏法时优先使用头部或躯干上佩戴的物品
-ModUi/&Races	<color=yellow>种族</color>
+ModUi/&Races	<color=yellow>种族&亚种</color>
 ModUi/&RacesClassesSubclasses	种族，职业与子职
 ModUi/&RecipeCost	<color=white>配方消耗</color>
 ModUi/&RecipesInDm	配方加入地城制作
 ModUi/&RelicForgeries	遗物赝品
 ModUi/&RemoveAttunementRequirements	移除同调的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveBugVisualModels	将虫类模型以类似模型替代<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	移除<color=orange>塔莎狂笑术</color>的类人生物的要求 <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RemoveIdentifcationRequirements	移除检定的先决条件<i><color=#C04040E0>[需要重启游戏]</color></i>
+ModUi/&RemoveRecurringEffectOnEntangle	仅在施法时应用<color=orange>纠缠术</color>法术效果 <i><color=yellow>[不会反复生效]</color></i> <i><color=#C04040E0>[需要重启游戏]</color></i>
 ModUi/&RestockAntiquarians	古文物研究者补货<i><color=yellow>[哈尔曼·夏日]</color></i>
 ModUi/&RestockArcaneum	奥术协会补货<i><color=yellow>[赫德伦·确法]</color></i>
 ModUi/&RestockCircleOfDanantar	丹南塔尔之环补货<i><color=yellow>[乔瑞尔·狐眼]</color></i>
@@ -180,10 +183,12 @@ ModUi/&UnlockEyeStyles	解锁眼部样式
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	解锁所有标记和纹身的发光颜色
 ModUi/&UnlockGlowingEyeColors	解锁眼睛发光颜色
 ModUi/&UnlockMarkAndTatoosForAllCharacters	解锁全部角色的标记和纹身
-ModUi/&UsableDevice	<color=yellow>可用装置</color>
+ModUi/&UseHeightOneCylinderEffect	施放<color=orange>艾伐黑触手、纠缠术、油腻术</color>(方形)和<color=orange>荆棘丛生</color>(圆形)时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules	应用官方的优势/劣势规则
 ModUi/&Visuals	<color=yellow>视效：</color>
-ModUi/&Weapon	<color=yellow>武器</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	移除任何法术的专注要求<i><color=#C04040E0>[需要重启游戏]</color></i>
-ModUi/&OverwriteGameLanguage	<color=yellow>非官方语言支持：</color>
-ModUi/&Campaigns	<color=yellow>战役：</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>制作耗时降低倍率</color>
+ModUi/&ChangeSleetStormToCube	将<color=orange>雪风暴</color>范围从圆柱体替换为立方体
+ModUi/&Category	类别
+ModUi/&WeaponTag	武器标签
+ModUi/&ItemTag	物品标签
+ModUi/&EnableAdditionalBackstoryDisplay	在后台检查中启用额外的背景故事显示

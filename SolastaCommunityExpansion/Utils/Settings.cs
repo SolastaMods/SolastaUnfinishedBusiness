@@ -153,6 +153,8 @@ public class Settings : UnityModManager.ModSettings
     public bool FullyControlConjurations { get; set; }
 
     // House
+    public bool ChangeSleetStormToCube { get; set; }
+    public bool UseHeightOneCylinderEffect { get; set; }
     public bool RemoveConcentrationRequirementsFromAnySpell { get; set; }
     public bool RemoveHumanoidFilterOnHideousLaughter { get; set; }
     public bool RemoveRecurringEffectOnEntangle { get; set; }
@@ -184,6 +186,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentifcationRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
+    public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;
     public int SetBeltOfDwarvenKindBeardChances { get; set; } = 50;
 
@@ -255,6 +258,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Campaigns and Locations
     public bool FollowCharactersOnTeleport { get; set; }
+    public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

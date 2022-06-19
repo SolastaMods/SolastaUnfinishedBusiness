@@ -1,7 +1,17 @@
-﻿CHANGES:
+﻿PATRONS:
 
-- Add support for races to grant features at levels > 1
-- Improve DarkElf to grant features at levels 3 and 5
-- Fix Chinese translations
-- Fix DarkElf incorrectly changing other game blueprints
-- Fix Shield Expert to benefit from Two Weapon fighting style
+- Thanks to all individuals who contributed so far...
+- We could do much more if everyone donates $1-$5
+
+** Pay for better services from DeepL, GitHub and others
+** Hire freelancer artists for better animations, bitmaps, etc
+
+- The [donation] button is under Mod UI > Credits
+- It opens a browser page with a paypal support link
+
+CHANGES:
+
+- Add a setting to display back stories on inspection panel
+- Add the Paladin Oath of Retribution subclass
+- Improve some Russian translation terms
+- Fix the Power Attack feat not working with unarmed attacks

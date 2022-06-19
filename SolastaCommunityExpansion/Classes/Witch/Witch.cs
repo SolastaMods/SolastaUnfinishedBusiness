@@ -1247,7 +1247,7 @@ internal static class Witch
             classBuilder.AddFeaturesAtLevel(3,
                 WitchMaledictionReplacer);
 
-            classBuilder.AddFeaturesAtLevel(4, 
+            classBuilder.AddFeaturesAtLevel(4,
                 WitchMaledictionReplacer,
                 FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
 
@@ -1386,7 +1386,8 @@ internal static class Witch
                 formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
 
             formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
-                TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction, formsParams.effectLevel,
+                TurnOccurenceType.EndOfTurn, AttributeDefinitions.TagEffect, sourceGuid, sourceFaction,
+                formsParams.effectLevel,
                 effectDefinitionName, 0, sourceAbilityBonus);
         }
     }
@@ -1402,5 +1403,5 @@ internal static class Witch
             .SetReplacedFeatureSet(FeatureDefinitionFeatureSetMaledictions)
             .AddToDB();
 
-    #endregion    
+    #endregion
 }

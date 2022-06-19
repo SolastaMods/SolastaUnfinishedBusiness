@@ -93,12 +93,14 @@ internal static class PowerSelectionPanelPatcher
         private static void MovePowersToRow(RectTransform powersTable, RectTransform newRow, int toStayCount,
             int yOffset)
         {
+            var position = powersTable.transform.position;
+
             newRow.gameObject.SetActive(true);
             newRow.DetachChildren();
             newRow.SetParent(powersTable.parent.transform, true);
             newRow.localScale = powersTable.localScale;
-            newRow.transform.position = new Vector3(powersTable.transform.position.x,
-                powersTable.transform.position.y + yOffset, powersTable.transform.position.z);
+            newRow.transform.position = new Vector3(position.x, position.y + yOffset, position.z);
+
             for (var i = powersTable.childCount - 1; i > toStayCount; i--)
             {
                 var child = powersTable.GetChild(i);

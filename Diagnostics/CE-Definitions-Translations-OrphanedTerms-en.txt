@@ -22,8 +22,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Allow target select
 ModUi/&AllowUnmarkedSorcerers	Allow unmarked <color=orange>Sorcerers</color>
 ModUi/&AllRecipesInDm	All recipes in DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	<color=cyan>ALT</color> key only highlight gadgets in party field of view [only in custom dungeons]
-ModUi/&Ammunition	<color=yellow>Ammunition</color>
-ModUi/&Armor	<color=yellow>Armor</color>
 ModUi/&AutoPauseOnVictory	Pause the UI when victorious in battle
 ModUi/&Basic	<color=yellow>Basic:</color>
 ModUi/&Battle	<color=yellow>Battle:</color>
@@ -31,6 +29,7 @@ ModUi/&Bestiary	Bestiary
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> does not require concentration when cast with L5+ spell slot
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	<color=orange>Blinded</color> condition doesn't allow attack of opportunity
 ModUi/&Blueprints	Blueprints
+ModUi/&Campaigns	<color=yellow>Campaigns:</color>
 ModUi/&CampaignsAndLocations	<color=yellow>Campaigns and locations:</color>
 ModUi/&Character	Character
 ModUi/&CharactersPool	Characters Pool
@@ -117,7 +116,7 @@ ModUi/&ItemInDm	Items in DM
 ModUi/&Items	<color=yellow>Items:</color>
 ModUi/&ItemsCraftingMerchants	Items, Crafting & Merchants
 ModUi/&ItemsHelp1	<color=#C04040E0>You must have the character inspection screen open to add items to heroes...</color>
-ModUi/&ItemsHelp2	. Press + to add items to the ground container on inspection panel
+ModUi/&ItemsHelp2	<b>Press + to add items to the ground container</b>
 ModUi/&KeyboardMouse	Keyboard & Mouse
 ModUi/&MakeAllMagicStaveArcaneFoci	Make all magic staves arcane foci <i><color=yellow>[except for <color=orange>Staff of Healing</color> which is Universal]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&MarkInvisibleTeleportersOnLevelMap	<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
@@ -138,18 +137,22 @@ ModUi/&OverrideMinMaxLevel	Override the required min and max levels when startin
 ModUi/&OverridePartySize	<color=white>Override the party size in custom adventures</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Override <color=orange>Rogue</color> Con Artist <color=orange>Improved Manipulation</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Override <color=orange>Wizard</color> Master Manipulator <color=orange>Arcane Manipulation</color> Spell DC</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
 ModUi/&Patches	<color=yellow>Patches:</color>
 ModUi/&PrimedItems	Primed Items
 ModUi/&Progression	<color=yellow>Progression:</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Quick cast light cantrip uses head or torso worn items first
-ModUi/&Races	<color=yellow>Races</color>
+ModUi/&Races	<color=yellow>Races & Subraces</color>
 ModUi/&RacesClassesSubclasses	Races, Classes & Subclasses
 ModUi/&RecipeCost	<color=white>Recipe's Cost</color>
 ModUi/&RecipesInDm	Recipes in DM
 ModUi/&RelicForgeries	Relic Forgeries
 ModUi/&RemoveAttunementRequirements	Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveBugVisualModels	Replace bug-like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Remove humanoid filter on <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	Only apply <color=orange>Entangle</color> effect at casting time <i><color=yellow>[i.e.: no recurring effect]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&RestockAntiquarians	Restock Antiquarians <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum	Restock Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Restock Circle of Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -185,13 +188,15 @@ ModUi/&UnlockEyeStyles	Unlock eye styles
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Unlock glowing colors for all markings and tattoos
 ModUi/&UnlockGlowingEyeColors	Unlock glowing eye colors
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Unlock markings and tattoos for all characters
-ModUi/&UsableDevice	<color=yellow>Usable Device</color>
+ModUi/&UseHeightOneCylinderEffect	Display a height 1 cylinder effect when casting <color=orange>Black Tentacles, Entangle, Grease</color> (square) and <color=orange>Spike Growth</color> (round)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Use official advantage / disadvantage rules
 ModUi/&Visuals	<color=yellow>Visuals:</color>
-ModUi/&Weapon	<color=yellow>Weapons</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Remove concentration requirement from any spell <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Unofficial language support:</color>
-ModUi/&Campaigns	<color=yellow>Campaigns:</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>Reduce crafting time by</color>
+ModUi/&ChangeSleetStormToCube	Change <color=orange>Sleet Storm</color> to use a cube instead of a cylinder
+ModUi/&Category	Category
+ModUi/&WeaponTag	Weapon Tag
+ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Enable additional backstory display on background inspection
 Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
 Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
 Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop
@@ -218,10 +223,12 @@ MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Lightning in wide are
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Lightning Storm
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Lightning Strike
-Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
-Spell/&DHAnimalShapesSpellTitle	Animal shapes
 Spell/&DHTimeStop_SpellDescription	You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 Spell/&DHTimeStop_SpellTitle	Time Stop
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can earn dash bonus action move by striking this enemy using this power.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
@@ -230,11 +237,12 @@ Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
 Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
 Condition/&HalfLifeConditionDescription	You take necrotic energy into yourself and hang between life and death and are temporarily possessed by your own ghost, gaining flying, and the same condition immunities and damage resistances as other ghosts.
 Condition/&HalfLifeConditionTitle	Half Life
-Condition/&RuinedDescription	This creature's defense is reduced.
+Condition/&RuinedDescription	-3 AC penalty, up to a maximum of -10 AC.
 Condition/&RuinedTitle	Ruined
-Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage per round. Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SentinelStopMovementConditionDescription	Unable to move. Speed set to 0.
+Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage every turn. Ends if the caster takes 15 damage or more in a single attack.
 Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
-Condition/&SwallowingToadConditionDescription	Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Condition/&SwallowingToadConditionDescription	Ends if 15 damage or more is taken in a single attack.
 Condition/&SwallowingToadConditionTitle	Swallowing Toad
 Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility.
@@ -251,15 +259,15 @@ Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1
 Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style.
 Feat/&FightingStyleGeneralFeatitle	Fighting Style
 Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3d8 damage on a failed save.
-Feat/&ForceArtillery_2Description	3d8 Force damage and push target 5ft.
+Feat/&ForceArtillery_2Description	3d8 force damage and push target 5 ft.
 Feat/&ForceArtillery_2Title	Force Artillery (Improved)
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
 Feat/&ForceStrikePowerTitle	Force Sling (Artificial Servant)
 Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Constructs. The constructs can be of the same or different modes.
 Feat/&IncreaseConstructSelectingTitle	Reinforcements
-Feat/&ModeSwitchingPoolDescription	You can switch between modes once per day by creating and using temporary weapons.
+Feat/&ModeSwitchingPoolDescription	You can switch between modes once per short rest by creating and using temporary weapons.
 Feat/&ModeSwitchingPoolTitle	Armor Mode
-Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day (note no armor restriction), and you can attack recklessly gaining advantage on your melee attacks while giving advantage to your attackers until your next turn.
+Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day without any armor restrictions.\nYou can attack recklessly, gaining advantage on your melee attacks while giving advantage to your attackers until the start of your next turn.
 Feat/&RecklessFuryFeatTitle	Reckless Fury
 Feat/&TinkererConstructFamilyDescription	Created by Tinkerer.
 Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
@@ -534,6 +542,8 @@ Screen/&SpellSlotsUsedShortLongDescription	You have expended {0} pact magic slot
 Screen/&WitchSpellDescription	Spells known as a Witch.
 Screen/&WitchSpellHeader	Witch
 Screen/&WitchSpellTitle	Witch
+Spell/&DHAnimalShapesSpellDescription	Choose any number of willing creatures that you can see within range. You transform each target into the form of a Large or smaller beast with a challenge rating of 4 or lower.
+Spell/&DHAnimalShapesSpellTitle	Animal shapes
 Spell/&DHCastSpellArchMageDescription	Archmage Casting Ability.
 Spell/&DHCastSpellArchMageTitle	Archmage Casting Ability
 Spell/&DHCastSpellGuardianNagaDescription	Archmage Casting Ability.

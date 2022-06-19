@@ -31,7 +31,7 @@ public static class WeaponValidators
 
     public static bool IsMelee(RulesetItem weapon)
     {
-        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
+        return HasAnyTag(weapon, TagsDefinitions.WeaponTagMelee);
     }
 
     public static bool IsRanged(RulesetItem weapon)
@@ -87,6 +87,13 @@ public static class WeaponValidators
         RulesetCharacter character)
     {
         return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
+    }
+
+    public static bool HasAnyTag(RulesetItem item, params string[] tags)
+    {
+        var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
+        item?.FillTags(tagsMap, null, true);
+        return tagsMap.Keys.Any(tags.Contains);
     }
 
     public static bool HasAnyWeaponTag(RulesetItem item, params string[] tags)

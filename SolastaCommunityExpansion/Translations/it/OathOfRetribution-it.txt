@@ -1,0 +1,20 @@
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Incantesimi di Giuramento di Retribuzione
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Quando colpisci con successo l'attacco in mischia, questo potere ti garantirà una mossa di scatto come azione bonus per un singolo turno, 5 volte per riposo lungo. Questo movimento non provoca attacchi di opportunità.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenace inseguimento
+Power/&PowerOathOfRetributionZealousAccusationDescription	Incanalare Divinità per designare una creatura entro 12 tessere e costringere il bersaglio a un tiro salvezza di Saggezza. Demoni e non morti hanno uno svantaggio in questo tiro salvezza.\nSe fallisce il tiro salvezza, il bersaglio non può muoversi ed è spaventato per un minuto o finché non subisce danni.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: accusa zelante
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Incanala Divinità per ottenere un vantaggio sul tuo attacco contro il bersaglio designato entro 2 tessere come azione bonus. Il potere dura 1 minuto o finché il bersaglio non è morto o privo di sensi.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Condanna zelante
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} può guadagnare mossa azione bonus scatto colpendo questo nemico usando questo potere.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenace inseguimento
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Attiva l'azione bonus trattino.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Perseguire
+Condition/&ConditionBonusRushTenaciousPursuitDescription	La benedizione ti garantisce il potere di inseguire e vendicare il nemico.\nIl trattino bonus è abilitato per un singolo turno. Questo movimento non provoca attacchi di opportunità.
+Condition/&ConditionBonusRushTenaciousPursuitTitle	Inseguendo
+Condition/&ConditionFrightenedZealousAccusationDescription	Assolutamente sopraffatto dal potere della santità.\nNon può muoversi e spaventarsi per 1 minuto o fino a quando non subisce danni.
+Condition/&ConditionFrightenedZealousAccusationTitle	Terrorizzato
+Condition/&ConditionTrueStrikeZealousCondemnationDescription	Segnato da gloriosa determinazione.\nGli attacchi a questo bersaglio riceveranno un vantaggio per 1 minuto o finché il bersaglio non sarà morto o privo di sensi.
+Condition/&ConditionTrueStrikeZealousCondemnationTitle	Stigmatizzato
+Subclass/&PaladinOathOfRetributionDescription	I paladini che prestano giuramento di punizione si impegnano pienamente a porre fine all'empietà e all'ingiustizia con estremo pregiudizio. Per questi paladini, il dovere di vendicare i peccati e le corruzioni pesa più dei loro stessi valori.
+Subclass/&PaladinOathOfRetributionTitle	Giuramento di retribuzione

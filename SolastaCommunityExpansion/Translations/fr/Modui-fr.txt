@@ -17,8 +17,6 @@ ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell	Autoriser la sélec
 ModUi/&AllowUnmarkedSorcerers	Autoriser les <color=orange>sorciers</color> non marqués
 ModUi/&AllRecipesInDm	Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView	La touche <color=cyan>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe [uniquement dans les donjons personnalisés]
-ModUi/&Ammunition	<color=yellow>Munition</color>
-ModUi/&Armor	<color=yellow>Armure</color>
 ModUi/&AutoPauseOnVictory	Pause de l'interface utilisateur en cas de victoire au combat
 ModUi/&Basic	<color=yellow>Basique :</color>
 ModUi/&Battle	<color=yellow>Bataille :</color>
@@ -26,6 +24,7 @@ ModUi/&Bestiary	Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove	<color=orange>Bestow Curse</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+
 ModUi/&BlindedConditionDontAllowAttackOfOpportunity	La condition <color=orange>Aveuglé</color> ne permet pas l'attaque d'opportunité
 ModUi/&Blueprints	Plans
+ModUi/&Campaigns	<color=yellow>Campagnes:</color>
 ModUi/&CampaignsAndLocations	<color=yellow>Campagnes et emplacements :</color>
 ModUi/&Character	Personnage
 ModUi/&CharactersPool	Piscine de personnages
@@ -133,18 +132,22 @@ ModUi/&OverrideMinMaxLevel	Remplacer les niveaux minimum et maximum requis lors 
 ModUi/&OverridePartySize	<color=white>Remplacer la taille du groupe dans les aventures personnalisées</color>
 ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc	<color=white>Remplacer <color=orange>Rogue</color> Con Artist <color=orange>Manipulation améliorée</color> Spell DC</color>
 ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc	<color=white>Remplacer <color=orange>Magicien</color> Maître Manipulateur <color=orange>Manipulation des Arcanes</color> Spell DC</color>
+ModUi/&OverwriteGameLanguage	<color=yellow>Écraser la langue du jeu:</color>
 ModUi/&Patches	<color=yellow>Écussons :</color>
 ModUi/&PrimedItems	Articles apprêtés
 ModUi/&Progression	<color=yellow>Progression :</color>
 ModUi/&QuickCastLightCantripOnWornItemsFirst	Le cantrip léger à lancer rapide utilise d'abord les objets portés sur la tête ou le torse
-ModUi/&Races	<color=yellow>Courses</color>
+ModUi/&Races	<color=yellow>Courses et Sous-courses</color>
 ModUi/&RacesClassesSubclasses	Races, classes et sous-classes
 ModUi/&RecipeCost	<color=white>Coût de la recette</color>
 ModUi/&RecipesInDm	Recettes en DM
 ModUi/&RelicForgeries	Contrefaçons de reliques
 ModUi/&RemoveAttunementRequirements	Supprimer les exigences d'harmonisation <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveBugVisualModels	Remplacez les modèles ressemblant à des bugs par des visuels alternatifs dans le jeu <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveConcentrationRequirementsFromAnySpell	Supprimer l'exigence de concentration de n'importe quel sort <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter	Supprimer le filtre humanoïde sur <color=orange>Hideous Laughter</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&RemoveIdentifcationRequirements	Supprimer les exigences d'identification <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle	N'appliquez l'effet <color=orange>Enchevêtrement</color> qu'au moment de l'incantation <i><color=yellow>[c'est-à-dire : aucun effet récurrent]</color></i> <b><i><color=#C04040E0 >[Nécessite un redémarrage]</color></i></b>
 ModUi/&RestockAntiquarians	Réapprovisionner les antiquaires <i><color=yellow>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum	Réapprovisionner Arcaneum <i><color=yellow>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar	Réapprovisionner le Cercle de Danantar <i><color=yellow>[Joriel Foxeye]</color></i>
@@ -180,10 +183,12 @@ ModUi/&UnlockEyeStyles	Déverrouiller les styles d'yeux
 ModUi/&UnlockGlowingColorsForAllMarksAndTatoos	Débloquez des couleurs éclatantes pour tous les marquages ​​et tatouages
 ModUi/&UnlockGlowingEyeColors	Débloquez des couleurs d'yeux éclatantes
 ModUi/&UnlockMarkAndTatoosForAllCharacters	Débloquez des marquages ​​et des tatouages ​​pour tous les personnages
-ModUi/&UsableDevice	<color=yellow>Appareil utilisable</color>
+ModUi/&UseHeightOneCylinderEffect	Affiche un effet de cylindre de hauteur 1 lors du lancement de <color=orange>Tentacules noirs, Enchevêtrement, Graisse</color> (carré) et <color=orange>Épique de croissance</color> (rond)
 ModUi/&UseOfficialAdvantageDisadvantageRules	Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals	<color=yellow>Visuels :</color>
-ModUi/&Weapon	<color=yellow>Armes</color>
-ModUi/&RemoveConcentrationRequirementsFromAnySpell	Supprimer l'exigence de concentration de n'importe quel sort <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&OverwriteGameLanguage	<color=yellow>Écraser la langue du jeu:</color>
-ModUi/&Campaigns	<color=yellow>Campagnes:</color>
+ModUi/&TotalCraftingTimeModifier	<color=white>Réduisez le temps de fabrication en</color>
+ModUi/&ChangeSleetStormToCube	Changer <color=orange>Sleet Storm</color> pour utiliser un cube au lieu d'un cylindre
+ModUi/&Category	Category
+ModUi/&WeaponTag	Weapon Tag
+ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Activer l'affichage de l'arrière-plan supplémentaire lors de l'inspection en arrière-plan

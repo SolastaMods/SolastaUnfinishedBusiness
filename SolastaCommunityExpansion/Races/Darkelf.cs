@@ -8,13 +8,12 @@ using SolastaCommunityExpansion.Utils;
 using TA;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitions;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.MorphotypeElementDefinitions;
 
 namespace SolastaCommunityExpansion.Races;
 
-internal static class DarkelfRaceBuilder
+internal static class DarkelfSubraceBuilder
 {
-    internal static CharacterRaceDefinition DarkelfRace { get; } = BuildDarkelf();
+    internal static CharacterRaceDefinition DarkelfSubrace { get; } = BuildDarkelf();
 
     private static CharacterRaceDefinition BuildDarkelf()
     {
@@ -32,15 +31,25 @@ internal static class DarkelfRaceBuilder
             .Create("AbilityCheckAffinityDarkelfLightSensitivity", "a4f82743-0d75-4178-ba25-b3707420e17e")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(
-                RuleDefinitions.CharacterAbilityCheckAffinity.Disadvantage, RuleDefinitions.DieType.D1, 0,
+                RuleDefinitions.CharacterAbilityCheckAffinity.None, RuleDefinitions.DieType.D1, -2,
                 (AttributeDefinitions.Wisdom, SkillDefinitions.Perception))
             .AddToDB();
         darkElfPerception.AffinityGroups[0].lightingContext = RuleDefinitions.LightingContext.BrightLight;
 
+        var darkelfMovementAffinty = FeatureDefinitionMovementAffinityBuilder
+            .Create(FeatureDefinitionMovementAffinitys.MovementAffinityHeavyArmorOverload,
+                "MovementAffinityDarkelfLightSensitivity", "17c4b5a2-ae5e-4565-a399-73beaaa09431")
+            .SetGuiPresentation(Category.Feature)
+            .SetBaseSpeedAdditiveModifier(-1)
+            .AddToDB();
+
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive", "8c7cb851-6810-4101-8a6a-e932e9cc3896")
-            .SetGuiPresentation(Category.Condition)
-            .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinitySensitiveToLight, darkElfPerception)
+            .SetGuiPresentation(Category.Condition,
+                ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetPossessive(true)
+            .SetFeatures(darkElfPerception, darkelfMovementAffinty)
             .AddToDB();
 
         var darkelfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
@@ -49,8 +58,7 @@ internal static class DarkelfRaceBuilder
         };
 
         var darkelfLightAffinity = FeatureDefinitionLightAffinityBuilder
-            .Create(FeatureDefinitionLightAffinitys.LightAffinityLightSensitivity,
-                "LightAffinityDarkelfLightSensitivity", "707231ea-e34d-4e26-9af8-4e52c0cb85c3")
+            .Create("LightAffinityDarkelfLightSensitivity", "707231ea-e34d-4e26-9af8-4e52c0cb85c3")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(darkelfLightingEffectAndCondition)
             .AddToDB();
@@ -106,18 +114,6 @@ internal static class DarkelfRaceBuilder
                 WeaponTypeDefinitions.ShortswordType.Name)
             .AddToDB();
 
-        _ = MorphotypeElementDefinitionBuilder
-            .Create(FaceAndSkin_01, "DarkelfSkin2", "d26c8ce0-884f-4abd-90fd-dc961802c48d")
-            .SetMainColor(BodyDecorationColor_Default_00.MainColor)
-            .SetSortOrder(48)
-            .AddToDB();
-
-        _ = MorphotypeElementDefinitionBuilder
-            .Create(HairColorSilver, "DarkelfHair1", "7dd1a932-69d3-4d51-b9c6-eccaaed90007")
-            .SetMainColor(FaceAndSkin_Neutral.MainColor)
-            .SetSortOrder(1)
-            .AddToDB();
-
         var darkelfRacePresentation = Elf.RacePresentation.DeepCopy();
 
         darkelfRacePresentation.surNameOptions = new List<string>
@@ -131,36 +127,27 @@ internal static class DarkelfRaceBuilder
 
         darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
-        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 48);
-        darkelfRacePresentation.preferedHairColors = new RangedInt(0, 2);
+        darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
+        darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
 
         var darkelf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "DarkelfRace", "7f44816c-d076-4513-bf8f-22dc6582f7d5")
             .SetGuiPresentation(Category.Race, darkelfSpriteReference)
             .SetRacePresentation(darkelfRacePresentation)
-            .AddFeaturesAtLevel(1,
+            .SetFeaturesAtLevel(1,
                 FeatureDefinitionMoveModes.MoveModeMove6,
-                FeatureDefinitionAttributeModifiers.AttributeModifierElfAbilityScoreIncrease,
-                FeatureDefinitionFeatureSets.FeatureSetElfFeyAncestry,
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseDarkvision,
                 FeatureDefinitionSenses.SenseSuperiorDarkvision,
-                FeatureDefinitionProficiencys.ProficiencyElfKeenSenses,
-                FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
-                FeatureDefinitionProficiencys.ProficiencyElfStaticLanguages,
+                FeatureDefinitionFeatureSets.FeatureSetElfHighLanguages,
                 darkelfAbilityScoreModifierCharisma,
-                darkelfDarkMagic,
                 darkelfWeaponTraining,
+                darkelfDarkMagic,
                 darkelfLightAffinity)
             .AddFeaturesAtLevel(3, darkelfFaerieFirePower)
             .AddFeaturesAtLevel(5, darkelfDarknessPower)
             .AddToDB();
 
         darkelf.subRaces.Clear();
-        darkelf.inventoryDefinition = InventoryDefinitions.HumanoidInventory;
-        darkelf.personalityFlagOccurences = Elf.PersonalityFlagOccurences;
-        darkelf.languageAutolearnPreference = Elf.LanguageAutolearnPreference;
-        darkelf.audioRaceRTPCValue = Elf.AudioRaceRTPCValue;
+        Elf.SubRaces.Add(darkelf);
 
         return darkelf;
     }

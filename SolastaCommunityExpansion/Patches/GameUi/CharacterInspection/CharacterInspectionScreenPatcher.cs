@@ -14,10 +14,10 @@ internal static class CharacterInspectionScreen_Bind
     {
         Global.InspectedHero = heroCharacter;
 
+        var transform = __instance.toggleGroup.transform;
+
         // get more real state for the toggles on top (required for MC)
-        __instance.toggleGroup.transform.position =
-            new Vector3(__instance.characterPlate.transform.position.x / 2f,
-                __instance.toggleGroup.transform.position.y, 0);
+        transform.position = new Vector3(__instance.characterPlate.transform.position.x / 2f, transform.position.y, 0);
     }
 }
 

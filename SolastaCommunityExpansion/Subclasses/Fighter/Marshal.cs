@@ -176,7 +176,7 @@ internal static class StudyYourEnemyBuilder
             var checkModifier = new ActionModifier();
             var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
 
-            roller.RollAbilityCheck("Wisdom", "Survival",
+            roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
                 10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
                 false, -1, out var outcome, true);
 

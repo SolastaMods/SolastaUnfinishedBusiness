@@ -122,10 +122,11 @@ internal static class SpellSelectionPanelPatcher
                 if (lineIndex > 0)
                 {
                     // instantiate new table
-                    spellRepertoireLinesTable = Object.Instantiate(spellRepertoireLinesTable);
+                    spellRepertoireLinesTable =
+                        Object.Instantiate(spellRepertoireLinesTable, previousTable.parent.transform);
                     // clear it of children
                     spellRepertoireLinesTable.DetachChildren();
-                    spellRepertoireLinesTable.SetParent(previousTable.parent.transform, true);
+                    //spellRepertoireLinesTable.SetParent(previousTable.parent.transform, true);
                     spellRepertoireLinesTable.localScale = previousTable.localScale;
                     spellRepertoireLinesTable.transform.SetAsFirstSibling();
                     spellLineTables.Add(spellRepertoireLinesTable);

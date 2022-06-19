@@ -66,12 +66,6 @@ Monster/&DH_Custom_Tarrasque_Description	El legendario tarrasque es posiblemente
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Tarrasca</color>
 Monster/&DH_Custom_Vampire_Description	Despertados en una noche interminable, los vampiros tienen hambre de la vida que han perdido y la sacian bebiendo la sangre de los vivos. Los vampiros aborrecen la luz del sol, pues su contacto les quema. Nunca proyectan sombras ni reflejos, y cualquier vampiro que desee pasar desapercibido entre los vivos se mantiene en la oscuridad y lejos de las superficies reflectantes.
 Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>Vampiro</color>
-Monster/&DHCustomCouatlDescription	Los Couatls son seres serpentinos benévolos de gran intelecto y perspicacia. Sus alas de colores brillantes y sus maneras amables hablan de sus orígenes celestiales.
-Monster/&DHCustomCouatlTitle	Couatl
-Monster/&OwlFamiliarDescription	Familiar búho
-Monster/&OwlFamiliarTitle	Búho
-Monster/&WitchOwlFamiliarDescription	Búho familiar
-Monster/&WitchOwlFamiliarTitle	Búho
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6 truenos y empuja 2 casillas
 MonsterAttack/&DH_AirBlast_Attack_Title	Ráfaga de aire
 MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 Bludgeoning y 4d6 Thunder
@@ -238,7 +232,5 @@ MonsterPower/&DHAirTitanLightningStormPowerDescription	6d8 Rayo en área amplia
 MonsterPower/&DHAirTitanLightningStormPowerTitle	Tormenta de rayos
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Golpe de rayo
-Spell/&DHAnimalShapesSpellDescription	Elige cualquier número de criaturas dispuestas que puedas ver dentro del alcance. Transformas a cada objetivo en la forma de una bestia grande o más pequeña con un índice de desafío de 4 o inferior.
-Spell/&DHAnimalShapesSpellTitle	Formas de animales
 Spell/&DHTimeStop_SpellDescription	Detienes brevemente el flujo del tiempo para todos menos para ti. El tiempo no pasa para otras criaturas, mientras que tú haces 1d4 + 1 turnos seguidos, durante los cuales puedes usar acciones y moverte normalmente.
 Spell/&DHTimeStop_SpellTitle	Parada del tiempo

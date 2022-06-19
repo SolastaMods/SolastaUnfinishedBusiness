@@ -1,4 +1,6 @@
-﻿using SolastaCommunityExpansion.Patches.Bugfix;
+﻿using System.Linq;
+using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Patches.Bugfix;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.SpellDefinitions;
 
@@ -6,17 +8,18 @@ namespace SolastaCommunityExpansion.Spells;
 
 internal static class HouseSpellTweaks
 {
-    public static void Register()
+    internal static void Register()
     {
         AddBleedingToRestoration();
-        //UseHeightOneCylinderEffect();
+        UseCubeOnSleetStorm();
+        UseHeightOneCylinderEffect();
         MinorFixes();
         RemoveConcentrationRequirementsFromAnySpell();
         RemoveHumanoidFilterOnHideousLaughter();
         RemoveRecurringEffectOnEntangle();
     }
 
-    internal static void RemoveConcentrationRequirementsFromAnySpell()
+    private static void RemoveConcentrationRequirementsFromAnySpell()
     {
         if (!Main.Settings.RemoveConcentrationRequirementsFromAnySpell)
         {
@@ -29,7 +32,7 @@ internal static class HouseSpellTweaks
         }
     }
 
-    internal static void RemoveHumanoidFilterOnHideousLaughter()
+    private static void RemoveHumanoidFilterOnHideousLaughter()
     {
         if (!Main.Settings.RemoveHumanoidFilterOnHideousLaughter)
         {
@@ -38,10 +41,9 @@ internal static class HouseSpellTweaks
 
         // Remove Humanoid only filter on Hideous Laughter (as per SRD, any creature can be targeted)
         HideousLaughter.effectDescription.restrictedCreatureFamilies.Clear();
-
     }
 
-    internal static void RemoveRecurringEffectOnEntangle()
+    private static void RemoveRecurringEffectOnEntangle()
     {
         if (!Main.Settings.RemoveRecurringEffectOnEntangle)
         {
@@ -50,11 +52,10 @@ internal static class HouseSpellTweaks
 
         // Remove recurring effect on Entangle (as per SRD, any creature is only affected at cast time)
         Entangle.effectDescription.recurrentEffect = RuleDefinitions.RecurrentEffect.OnActivation;
-
     }
 
 
-    internal static void MinorFixes()
+    private static void MinorFixes()
     {
         // Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;
@@ -84,78 +85,99 @@ internal static class HouseSpellTweaks
         }
     }
 
-#if false
-        internal static void UseHeightOneCylinderEffect()
+    internal static void UseCubeOnSleetStorm()
+    {
+        var sleetStormEffect = SleetStorm.EffectDescription;
+
+        if (Main.Settings.ChangeSleetStormToCube)
         {
-            // always applicable
-            ClearTargetParameter2ForTargetTypeCube();
+            // Set to Cube side 8, default height
+            sleetStormEffect.targetType = RuleDefinitions.TargetType.Cube;
+            sleetStormEffect.targetParameter = 8;
+            sleetStormEffect.targetParameter2 = 0;
+        }
+        else
+        {
+            // Restore to cylinder radius 4, height 3
+            sleetStormEffect.targetType = RuleDefinitions.TargetType.Cylinder;
+            sleetStormEffect.targetParameter = 4;
+            sleetStormEffect.targetParameter2 = 3;
+        }
+    }
 
-            ///////////////////////////////////////////////////////////
-            // Change SpikeGrowth to be height 1 round cylinder/sphere
-            var spikeGrowthEffect = SpikeGrowth.EffectDescription;
-            spikeGrowthEffect.SetTargetParameter(4);
+    internal static void UseHeightOneCylinderEffect()
+    {
+        // always applicable
+        ClearTargetParameter2ForTargetTypeCube();
 
-            if (Main.Settings.UseHeightOneCylinderEffect)
-            {
-                // Set to Cylinder radius 4, height 1
-                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Cylinder);
-                spikeGrowthEffect.SetTargetParameter2(1);
-            }
-            else
-            {
-                // Restore default of Sphere radius 4
-                spikeGrowthEffect.SetTargetType(RuleDefinitions.TargetType.Sphere);
-                spikeGrowthEffect.SetTargetParameter2(0);
-            }
+        ///////////////////////////////////////////////////////////
+        // Change SpikeGrowth to be height 1 round cylinder/sphere
+        var spikeGrowthEffect = SpikeGrowth.EffectDescription;
+        spikeGrowthEffect.targetParameter = 4;
 
-            // Spells with TargetType.Cube and defaults values of (tp, tp2)
-            // Note that tp2 should be 0 for Cube and is ignored in game.
-            // BlackTentacles: (4, 2)
-            // Entangle: (4, 1)
-            // FaerieFire: (4, 2)
-            // FlamingSphere: (3, 2) <- a flaming sphere is a cube?
-            // Grease: (2, 2)
-            // HypnoticPattern: (6, 2)
-            // PetalStorm: (3, 2)
-            // Slow: (8, 2)
+        if (Main.Settings.UseHeightOneCylinderEffect)
+        {
+            // Set to Cylinder radius 4, height 1
+            spikeGrowthEffect.targetType = RuleDefinitions.TargetType.Cylinder;
+            spikeGrowthEffect.targetParameter2 = 1;
+        }
+        else
+        {
+            // Restore default of Sphere radius 4
+            spikeGrowthEffect.targetType = RuleDefinitions.TargetType.Sphere;
+            spikeGrowthEffect.targetParameter2 = 0;
+        }
 
-            ///////////////////////////////////////////////////////////
-            // Change Black Tentacles, Entangle, Grease to be height 1 square cylinder/cube
-            if (Main.Settings.UseHeightOneCylinderEffect)
-            {
-                // Setting height switches to square cylinder (if originally cube)
-                SetHeight(BlackTentacles, 1);
-                SetHeight(Entangle, 1);
-                SetHeight(Grease, 1);
-            }
-            else
-            {
-                // Setting height to 0 restores original behaviour
-                SetHeight(BlackTentacles, 0);
-                SetHeight(Entangle, 0);
-                SetHeight(Grease, 0);
-            }
+        // Spells with TargetType.Cube and defaults values of (tp, tp2)
+        // Note that tp2 should be 0 for Cube and is ignored in game.
+        // BlackTentacles: (4, 2)
+        // Entangle: (4, 1)
+        // FaerieFire: (4, 2)
+        // FlamingSphere: (3, 2) <- a flaming sphere is a cube?
+        // Grease: (2, 2)
+        // HypnoticPattern: (6, 2)
+        // Slow: (8, 2)
+        // Thunderwave: (3, 2)
 
-            static void SetHeight(SpellDefinition sd, int height)
-            {
-                sd.EffectDescription.SetTargetParameter2(height);
-            }
 
-            static void ClearTargetParameter2ForTargetTypeCube()
+        ///////////////////////////////////////////////////////////
+        // Change Black Tentacles, Entangle, Grease to be height 1 square cylinder/cube
+        if (Main.Settings.UseHeightOneCylinderEffect)
+        {
+            // Setting height switches to square cylinder (if originally cube)
+            SetHeight(BlackTentacles, 1);
+            SetHeight(Entangle, 1);
+            SetHeight(Grease, 1);
+        }
+        else
+        {
+            // Setting height to 0 restores original behaviour
+            SetHeight(BlackTentacles, 0);
+            SetHeight(Entangle, 0);
+            SetHeight(Grease, 0);
+        }
+
+        static void SetHeight(SpellDefinition sd, int height)
+        {
+            sd.EffectDescription.targetParameter2 = height;
+        }
+
+        static void ClearTargetParameter2ForTargetTypeCube()
+        {
+            foreach (var sd in DatabaseRepository
+                         .GetDatabase<SpellDefinition>()
+                         .Where(sd =>
+                             sd.EffectDescription.TargetType == RuleDefinitions.TargetType.Cube
+                             || sd.EffectDescription.TargetType == RuleDefinitions.TargetType.CubeWithOffset))
             {
-                foreach (var sd in DatabaseRepository
-                    .GetDatabase<SpellDefinition>()
-                    .Where(sd => sd.EffectDescription.TargetType == RuleDefinitions.TargetType.Cube))
-                {
-                    // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
-                    // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
-                    sd.EffectDescription.SetTargetParameter2(0);
-                }
+                // TargetParameter2 is not used by TargetType.Cube but has random values assigned.
+                // We are going to use it to create a square cylinder with height so set to zero for all spells with TargetType.Cube.
+                sd.EffectDescription.SetTargetParameter2(0);
             }
         }
-#endif
+    }
 
-    public static void AddBleedingToRestoration()
+    internal static void AddBleedingToRestoration()
     {
         var cf = LesserRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 

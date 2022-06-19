@@ -1854,7 +1854,7 @@ public static class SrdSpells
                 formsParams.activeEffect?.ComputeSourceAbilityBonus(formsParams.sourceCharacter) ?? 0;
 
             formsParams.targetCharacter.InflictCondition(condition.Name, durationType, durationParam,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, "11Effect", sourceGuid, sourceFaction,
+                RuleDefinitions.TurnOccurenceType.EndOfTurn, AttributeDefinitions.TagEffect, sourceGuid, sourceFaction,
                 formsParams.effectLevel, effectDefinitionName, 0, sourceAbilityBonus);
         }
     }

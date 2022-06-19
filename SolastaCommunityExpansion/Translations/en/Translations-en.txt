@@ -1,4 +1,5 @@
 ActionAffinity/&DHFeeblemindSpellDescription	Unable to cast spells.
+ActionAffinity/&DHFeeblemindSpellTitle	Feeblemind
 AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set to 16.
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score is set to 1.
@@ -826,13 +827,13 @@ Feature/&AscendantStepTitle	Ascendant Step
 Feature/&AspectoftheMoonDescription	You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Feature/&AspectoftheMoonTitle	Aspect of the Moon
 Feature/&AttributeModifier{0}Description	{0}
-Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Strength +1.
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Strength +1
 Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attribute Increase
-Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Wisdom +2.
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Wisdom +2
 Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	Attribute Increase
-Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dexterity +1.
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dexterity +1
 Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Forest Gnome Attribute Increase
-Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2.
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2
 Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Gnome Attribute Increase
 Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
 Feature/&BarbarianIndomitableMightTitle	Indomitable Might
@@ -909,6 +910,8 @@ Feature/&ClassWarlockToolsProficiencyDescription	You have been trained to brew h
 Feature/&ClassWarlockToolsProficiencyTitle	Warlock Magical Crafting
 Feature/&ClassWarlockWeaponProficiencyDescription	Simple Weapons.
 Feature/&ClassWarlockWeaponProficiencyTitle	Warlock Weapon Proficiencies
+Feature/&ClassWitchMaledictionReplaceDescription	Select Malediction to replace.
+Feature/&ClassWitchMaledictionReplaceTitle	Replace Malediction
 Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
 Feature/&CounterStrikePowerTitle	Counter Strike
 Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
@@ -1299,17 +1302,29 @@ Item/&CEPikePrimedTitle	Primed Pike
 Item/&CEPikePsychicTitle	Psychic Pike
 Item/&CEPikePsychicUnidentifiedTitle	Magnificent Pike
 Item/&CEPikeTitle	Pike
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Enchant Halberd +1.
 Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Enchant Halberd +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Enchant Halberd +2.
 Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Enchant Halberd +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Enchant Lightning Halberd.
 Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Enchant Lightning Halberd 
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Enchant Hand Crossbow +1.
 Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Enchant Hand Crossbow +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Enchant Hand Crossbow +2.
 Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Enchant Hand Crossbow +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Enchant Acidic Hand Crossbow.
 Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Enchant Acidic Hand Crossbow
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Enchant Long Mace +1.
 Item/&CraftingManualRecipeEnchantCELongMace+1Title	Enchant Long Mace +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Enchant Long Mace +2.
 Item/&CraftingManualRecipeEnchantCELongMace+2Title	Enchant Long Mace +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Enchant Thundering Long Mace.
 Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Enchant Thundering Long Mace
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Enchant Pike +1.
 Item/&CraftingManualRecipeEnchantCEPike+1Title	Enchant Pike +1
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Enchant Pike +2.
 Item/&CraftingManualRecipeEnchantCEPike+2Title	Enchant Pike +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Enchant Psychic Pike.
 Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Enchant Psychic Pike
 Item/&CraftingManualRecipeEnchantHandwraps+1Description	Enchant Handwraps +1.
 Item/&CraftingManualRecipeEnchantHandwraps+1Title	Enchant Handwraps +1
@@ -1319,9 +1334,13 @@ Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Enchant Forceful Ha
 Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Enchant Forceful Handwraps
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Enchant Handwraps Of Pulling.
 Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Enchant Handwraps Of Pulling
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Prime Halberd.
 Item/&CraftingManualRecipePrimingCEHalberdTitle	Prime Halberd
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Prime Hand Crossbow.
 Item/&CraftingManualRecipePrimingCEHandXbowTitle	Prime Hand Crossbow
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Prime Long Mace.
 Item/&CraftingManualRecipePrimingCELongMaceTitle	Prime Long Mace
+Item/&CraftingManualRecipePrimingCEPikeDescription	Prime Pike.
 Item/&CraftingManualRecipePrimingCEPikeTitle	Prime Pike
 Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
 Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
@@ -1530,6 +1549,8 @@ Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} hit 
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Apply selected technique.
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Apply
 Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Distant Hand Technique
+Reaction/&SpendPowerBundleDescription	Spend Power.
+Reaction/&SpendPowerBundleTitle	Spend Power
 Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} has hit opponent with unarmed attack and can spend 3 ki point to attempt to kill it.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Spend ki to attempt to kill opponent.
 Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Spend ki

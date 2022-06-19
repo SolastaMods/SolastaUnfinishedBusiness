@@ -96,11 +96,14 @@ internal static class DmProRendererContext
 
         // adjusts terrain to new settings
         masterTerrain.terrainData = TerrainDataCloner.Clone(masterTerrain.terrainData);
-        masterTerrain.terrainData.size =
+
+        var transformPosition = masterTerrain.transform.position;
+        var terrainData = masterTerrain.terrainData;
+
+        terrainData.size =
             new Vector3(locationSize + (MARGIN * 2f), 5f, locationSize + (MARGIN * 2f));
-        masterTerrain.terrainData.SetHeights(0, 0, heights);
-        masterTerrain.transform.position = new Vector3(masterTerrain.transform.position.x, -5.01f,
-            masterTerrain.transform.position.z);
+        terrainData.SetHeights(0, 0, heights);
+        masterTerrain.transform.position = new Vector3(transformPosition.x, -5.01f, transformPosition.z);
 
         worldLocation.duplicatedTerrainData
             .Add(masterTerrain.terrainData);
@@ -162,9 +165,11 @@ internal static class DmProRendererContext
         if (int.TryParse(userRoom.RoomBlueprint.name.Substring(FLAT_ROOM_TAG.Length, 2), out var multiplier))
         {
             var rnd = new Random();
+            var position = roomTransform.position;
+            var moveBy = (multiplier - 1) * FLAT_ROOM_SIZE / 2;
+            var newPosition = new Vector3(position.x - moveBy, 0, position.z - moveBy);
 
-            roomTransform.position = new Vector3(roomTransform.position.x - ((multiplier - 1) * FLAT_ROOM_SIZE / 2),
-                0, roomTransform.position.z - ((multiplier - 1) * FLAT_ROOM_SIZE / 2));
+            roomTransform.position = newPosition;
 
             for (var x = 0; x < multiplier; x++)
             {
@@ -176,8 +181,8 @@ internal static class DmProRendererContext
                         var angle = LocationDefinitions.OrientationToAngle(
                             (LocationDefinitions.Orientation)rnd.Next(0, 3));
                         var newRoom = Object.Instantiate(roomTransform.gameObject,
-                            new Vector3(roomTransform.position.x + (FLAT_ROOM_SIZE * x), 0,
-                                roomTransform.position.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity,
+                            new Vector3(newPosition.x + (FLAT_ROOM_SIZE * x), 0,
+                                newPosition.z + (FLAT_ROOM_SIZE * z)), Quaternion.identity,
                             roomTransform.parent);
 
                         newRoom.transform.rotation = Quaternion.Euler(0, angle, 0);
@@ -232,8 +237,9 @@ internal static class DmProRendererContext
         foreach (var reflectionProbe in reflectionProbes.Where(x =>
                      x.transform.parent.name.StartsWith(FLAT_ROOM_TAG)))
         {
-            reflectionProbe.transform.position = new Vector3(reflectionProbe.size.x / 2f, reflectionProbe.size.y,
-                reflectionProbe.size.z / 2f);
+            var size = reflectionProbe.size;
+
+            reflectionProbe.transform.position = new Vector3(size.x / 2f, size.y, size.z / 2f);
         }
     }
 }

@@ -66,12 +66,6 @@ Monster/&DH_Custom_Tarrasque_Description	传说中的泰拉斯奎巨兽可能是
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>泰拉斯奎</color>
 Monster/&DH_Custom_Vampire_Description	从无尽暗夜中觉醒的吸血鬼渴求着自己失去的生命，并以生者的鲜血填补其饥渴。吸血鬼对阳光深恶痛绝，仅接触阳光便足以使其燃烧。吸血鬼们不会留下影子或倒影，因此它们会尽量在生者间保持低调，停留在远离光洁表面的阴暗处
 Monster/&DH_Custom_Vampire_Title	<color=#ff0000ff>吸血鬼</color>
-Monster/&DHCustomCouatlDescription	羽蛇深邃而睿智，是一种的善良蛇形生物。它们五彩缤纷的羽翼与温文尔雅的举止尽显出其与天界的渊源
-Monster/&DHCustomCouatlTitle	羽蛇
-Monster/&OwlFamiliarDescription	猫头鹰魔宠
-Monster/&OwlFamiliarTitle	猫头鹰
-Monster/&WitchOwlFamiliarDescription	猫头鹰魔宠
-Monster/&WitchOwlFamiliarTitle	猫头鹰
 MonsterAttack/&DH_AirBlast_Attack_Description	5d6音波伤害并击退目标2格
 MonsterAttack/&DH_AirBlast_Attack_Title	空气震爆
 MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6钝击伤害 & 4d6音波伤害
@@ -238,7 +232,5 @@ MonsterPower/&DHAirTitanLightningStormPowerDescription	大范围内6d8闪电伤�
 MonsterPower/&DHAirTitanLightningStormPowerTitle	闪电风暴
 MonsterPower/&DHGenericLightningAttackPowerDescription	12D8伤害
 MonsterPower/&DHGenericLightningAttackPowerTitle	闪电一击
-Spell/&DHAnimalShapesSpellDescription	指定施法距离内任意数量的自愿生物，并使每个目标变形为一只挑战等级不超过4，体型不大于大型的野兽
-Spell/&DHAnimalShapesSpellTitle	动物形态
 Spell/&DHTimeStop_SpellDescription	你使时间在除你之外所有生物的世界中暂时停止流动。你一次性进行1d4+1个回合，在这段过程内时间对于其他生物是静止的，但你能像正常一样移动和使用动作
 Spell/&DHTimeStop_SpellTitle	时间停止

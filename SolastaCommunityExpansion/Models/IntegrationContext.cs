@@ -1,36 +1,40 @@
-﻿using UnityEngine;
+﻿using SolastaCommunityExpansion.Builders;
 
 namespace SolastaCommunityExpansion.Models;
 
-public static class IntegrationContext
+internal static class IntegrationContext
 {
-    public const string CLASS_MONK = "ClassMonk";
-    public const string CLASS_TINKERER = "ClassTinkerer";
-    public const string CLASS_WARDEN = "ClassWarden";
-    public const string CLASS_WARLOCK = "ClassWarlock";
-    public const string CLASS_WITCH = "ClassWitch";
-    public const string CLASS_MAGUS = "ClassMagus";
-    public const string SUBCLASS_CONARTIST = "RoguishConArtist";
-    public const string SUBCLASS_SPELLSHIELD = "FighterSpellShield";
+    internal const string CLASS_MONK = "ClassMonk";
+    internal const string CLASS_TINKERER = "ClassTinkerer";
+    internal const string CLASS_WARDEN = "ClassWarden";
+    internal const string CLASS_WARLOCK = "ClassWarlock";
+    internal const string CLASS_WITCH = "ClassWitch";
+    internal const string CLASS_MAGUS = "ClassMagus";
+    internal const string SUBCLASS_CONARTIST = "RoguishConArtist";
+    internal const string SUBCLASS_SPELLSHIELD = "FighterSpellShield";
 
     // Sentinel blueprints to avoid a bunch of null check in code
 
-    public static CharacterClassDefinition DummyClass { get; } =
-        (CharacterClassDefinition)ScriptableObject.CreateInstance("CharacterClassDefinition");
+    private static CharacterClassDefinition DummyClass { get; } = CharacterClassDefinitionBuilder
+        .Create("DummyClass", "d223ce4c8ee34c59a04e38cb5d668b0d")
+        .SetGuiPresentationNoContent(true)
+        .AddToDB();
 
-    public static CharacterSubclassDefinition DummySubclass { get; } =
-        (CharacterSubclassDefinition)ScriptableObject.CreateInstance("CharacterSubclassDefinition");
+    private static CharacterSubclassDefinition DummySubclass { get; } = CharacterSubclassDefinitionBuilder
+        .Create("DummySubClass", "97425bff55404677a24fe6a4fe137aa2")
+        .SetGuiPresentationNoContent(true)
+        .AddToDB();
 
-    public static CharacterClassDefinition MonkClass { get; private set; } = DummyClass;
-    public static CharacterClassDefinition TinkererClass { get; private set; } = DummyClass;
-    public static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
-    public static CharacterClassDefinition WarlockClass { get; private set; } = DummyClass;
-    public static CharacterClassDefinition WitchClass { get; private set; } = DummyClass;
-    public static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
-    public static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
-    public static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
+    internal static CharacterClassDefinition MonkClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition TinkererClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition WardenClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition WarlockClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition WitchClass { get; private set; } = DummyClass;
+    internal static CharacterClassDefinition MagusClass { get; private set; } = DummyClass;
+    internal static CharacterSubclassDefinition ConArtistSubclass { get; private set; } = DummySubclass;
+    internal static CharacterSubclassDefinition SpellShieldSubclass { get; private set; } = DummySubclass;
 
-    public static void LateLoad()
+    internal static void LateLoad()
     {
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();

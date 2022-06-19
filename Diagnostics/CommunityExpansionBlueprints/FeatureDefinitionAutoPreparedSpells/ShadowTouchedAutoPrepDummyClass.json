@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
+  "autopreparedTag": "ShadowTouched",
+  "autoPreparedSpellsGroups": [
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 0,
+      "spellsList": [
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+        "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49"
+      ]
+    }
+  ],
+  "spellcastingClass": "Definition:DummyClass:d223ce4c8ee34c59a04e38cb5d668b0d",
+  "affinityRace": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feat/&PowerShadowTouchedFromFeatTitle",
+    "description": "Feat/&PowerShadowTouchedFromFeatDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9a27782b-8461-5dc2-8b5e-8ea73938db20",
+  "contentPack": 9999,
+  "name": "ShadowTouchedAutoPrepDummyClass"
+}

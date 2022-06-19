@@ -52,7 +52,7 @@ internal static class FeatsValidations
 
         hero.EnumerateFeaturesToBrowse<FeatureDefinitionAdditionalDamage>(features);
 
-        var hasStealthAttack = features.Any(x => x.Name.Contains("SneakAttack"));
+        var hasStealthAttack = features.Any(x => x.Name.Contains(TagsDefinitions.AdditionalDamageSneakAttackTag));
 
         if (hasStealthAttack)
         {

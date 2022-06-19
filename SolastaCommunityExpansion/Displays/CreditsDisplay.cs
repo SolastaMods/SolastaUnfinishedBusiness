@@ -17,10 +17,15 @@ internal static class CreditsDisplay
         {"Tactical Adventures", "early access to DLC builds and community support"},
         {"JetBrains", "one year Rider IDE subscription for 3 developers"},
         {"", ""},
-        {"D20 Patrons", "<b>J. Cohen</b>"},
-        {"D12 Patrons", "L. Goldiner, E. Antonio"},
-        {"  D8 Patrons", "R. Baker, R. Maxim"},
-        {"  D6 Patrons", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen"}
+        {"Critical Hit", "<b>J. Cohen</b>, <b>L. Goldiner</b>"},
+        {"D20", "D. Fenter, B. Lane, J. Loustaunau"},
+        {"D12", "E. Antonio, C. Aardappel, M. Klepac"},
+        {"D8", "R. Baker, R. Maxim, D. Boggs"},
+        {
+            "D6", "M. Brandmaier, F. Lorenz, M. Despard, J. Ball, J. Smedley, B. Amorsen, J. Bendoski, M. Oliveira,\n" +
+                  "M. Harck, D. Schoop, K. Cooper, M. Thompson, L.Johnson, M. Piotrowski, E. Meyers, C. Alvarez\n" +
+                  "R. Garcia, R. Name, G. Ruiz, A. Badeaux, S. Braden"
+        }
     };
 
     internal static readonly Dictionary<string, string> CreditsTable = new()
@@ -50,6 +55,7 @@ internal static class CreditsDisplay
         {"Nd", "Marshal and Opportunist subclasses"},
         {"Nyowwww", "Chinese translations"},
         {"PraiseThyBus", "quality assurance"},
+        {"Prioritizer", "Russian translations"},
         {"RedOrca", "Path of the Light subclass, Indomitable Might"},
         {
             "SilverGriffon",
@@ -180,7 +186,7 @@ internal static class CreditsDisplay
         {
             using (UI.HorizontalScope())
             {
-                UI.Label(kvp.Key.orange(), UI.Width(120));
+                UI.Label(kvp.Key.orange(), UI.Width(150));
                 UI.Label(kvp.Value, UI.Width(600));
             }
         }

@@ -179,7 +179,10 @@ internal static class CharacterInformationPanel_Bind
             {
                 child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 20, 642);
                 child.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 260, 590);
-                child.sizeDelta = new Vector2(child.sizeDelta.x, child.sizeDelta.y - 100);
+
+                var sizeDelta = child.sizeDelta;
+
+                child.sizeDelta = new Vector2(sizeDelta.x, sizeDelta.y - 100);
             }
 
             child = classGroup.Find("ClassDescriptionGroup")?.GetComponent<RectTransform>();
