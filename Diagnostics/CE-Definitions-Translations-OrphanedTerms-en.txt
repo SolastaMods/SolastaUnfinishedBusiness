@@ -226,7 +226,7 @@ Spell/&DHTimeStop_SpellDescription	You briefly stop the flow of time for everyon
 Spell/&DHTimeStop_SpellTitle	Time Stop
 Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Tenacious Pursuit 
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can earn dash bonus action move by striking this enemy using this power.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dashbonus action.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms

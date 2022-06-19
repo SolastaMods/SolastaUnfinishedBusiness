@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
     "Definition:ActionAffinityExpeditiousRetreat:d3040d2bad478b841b17284377634d16",
@@ -122,12 +122,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionBonusRushTenaciousPursuitTitle",
-    "description": "Rules/&ConditionBonusRushTenaciousPursuitDescription",
+    "title": "Condition/&ConditionBonusRushTenaciousPursuitTitle",
+    "description": "Condition/&ConditionBonusRushTenaciousPursuitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
-      "m_SubObjectName": "ConditionDisengaging",
+      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
+      "m_SubObjectName": "ConditionGuided",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -142,8 +142,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "OpenGameContent",
-  "guid": "3dd261e8-77a5-52e9-a795-7159b10a5d1f",
-  "contentPack": "BaseGame",
-  "name": "ConditionBonusRushTenaciousPursuitGui"
+  "contentCopyright": "UserContent",
+  "guid": "3e7d818a-73c5-5823-8357-e356348127f8",
+  "contentPack": 9999,
+  "name": "ConditionBonusRushTenaciousPursuit"
 }

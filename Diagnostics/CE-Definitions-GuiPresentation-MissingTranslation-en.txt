@@ -1,5 +1,3 @@
-ConditionFrightenedZealousAccusation	Title='Rules/&ConditionFrightenedZealousAccusationTitle'.
-ConditionFrightenedZealousAccusation	Description='Rules/&ConditionFrightenedZealousAccusationDescription'.
 FeatureSetGreenWitchMagic	Title='Subclass/&GreenWitchMagic'.
 FeatureSetRedWitchMagic	Title='Subclass/&RedWitchMagic'.
 FeatureSetWhiteWitchMagic	Title='Subclass/&WhiteWitchMagic'.

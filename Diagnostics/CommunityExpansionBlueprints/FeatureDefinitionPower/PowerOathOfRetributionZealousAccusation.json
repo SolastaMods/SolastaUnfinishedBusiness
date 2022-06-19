@@ -86,7 +86,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionFrightenedZealousAccusation",
-          "conditionDefinition": "Definition:ConditionFrightenedZealousAccusation:000bb4c6-25e1-5915-ac1c-0094a490cc5c",
+          "conditionDefinition": "Definition:ConditionFrightenedZealousAccusation:ae1f4de5-dd91-5235-b758-914d83ab3998",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -332,7 +332,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "e51129db-c552-5427-98d0-91cbddd2852b",
+  "guid": "861bc3f3-e9d1-5abc-b556-d4d2f9b2094f",
   "contentPack": "BaseGame",
   "name": "PowerOathOfRetributionZealousAccusation"
 }

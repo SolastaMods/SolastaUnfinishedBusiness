@@ -74,8 +74,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBonusRushTenaciousPursuitGui",
-          "conditionDefinition": "Definition:ConditionBonusRushTenaciousPursuitGui:3dd261e8-77a5-52e9-a795-7159b10a5d1f",
+          "conditionDefinitionName": "ConditionBonusRushTenaciousPursuit",
+          "conditionDefinition": "Definition:ConditionBonusRushTenaciousPursuit:3e7d818a-73c5-5823-8357-e356348127f8",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -321,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "669c5b80-093b-58d6-b74d-eb286f5e3fb4",
+  "guid": "2df527ac-1b8f-5602-bda6-0584158dbc70",
   "contentPack": "BaseGame",
   "name": "PowerOathOfRetributionTenaciousPursuit"
 }

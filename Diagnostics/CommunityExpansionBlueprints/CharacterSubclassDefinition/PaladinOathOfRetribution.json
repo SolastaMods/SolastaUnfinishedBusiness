@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfRetributionZealousAccusation:e51129db-c552-5427-98d0-91cbddd2852b",
+      "featureDefinition": "Definition:PowerOathOfRetributionZealousAccusation:861bc3f3-e9d1-5abc-b556-d4d2f9b2094f",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfRetributionZealousCondemnation:8059eb96-6b1d-5b85-a1ee-de8c49aa2f00",
+      "featureDefinition": "Definition:PowerOathOfRetributionZealousCondemnation:f7dcac15-bc87-5464-87ea-2538c4735c9a",
       "level": 3
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerOathOfRetributionTenaciousPursuit:669c5b80-093b-58d6-b74d-eb286f5e3fb4",
+      "featureDefinition": "Definition:PowerOathOfRetributionTenaciousPursuit:2df527ac-1b8f-5602-bda6-0584158dbc70",
       "level": 7
     }
   ],

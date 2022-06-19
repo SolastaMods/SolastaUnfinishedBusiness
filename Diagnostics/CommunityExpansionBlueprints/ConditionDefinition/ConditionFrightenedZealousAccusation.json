@@ -122,8 +122,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionFrightenedZealousAccusationTitle",
-    "description": "Rules/&ConditionFrightenedZealousAccusationDescription",
+    "title": "Condition/&ConditionFrightenedZealousAccusationTitle",
+    "description": "Condition/&ConditionFrightenedZealousAccusationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",
@@ -142,8 +142,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "OpenGameContent",
-  "guid": "000bb4c6-25e1-5915-ac1c-0094a490cc5c",
-  "contentPack": "BaseGame",
+  "contentCopyright": "UserContent",
+  "guid": "ae1f4de5-dd91-5235-b758-914d83ab3998",
+  "contentPack": 9999,
   "name": "ConditionFrightenedZealousAccusation"
 }

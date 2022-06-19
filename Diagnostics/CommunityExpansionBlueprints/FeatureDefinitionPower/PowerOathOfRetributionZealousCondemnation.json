@@ -75,7 +75,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionTrueStrikeZealousCondemnation",
-          "conditionDefinition": "Definition:ConditionTrueStrikeZealousCondemnation:3636af24-3e3b-511c-af6e-0c514ed162a1",
+          "conditionDefinition": "Definition:ConditionTrueStrikeZealousCondemnation:fa622d99-ddfd-5e75-8056-eec43682285f",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -321,7 +321,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "8059eb96-6b1d-5b85-a1ee-de8c49aa2f00",
+  "guid": "f7dcac15-bc87-5464-87ea-2538c4735c9a",
   "contentPack": "BaseGame",
   "name": "PowerOathOfRetributionZealousCondemnation"
 }

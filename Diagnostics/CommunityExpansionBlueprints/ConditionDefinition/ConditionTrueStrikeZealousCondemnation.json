@@ -120,8 +120,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionTSZealousCondemnationTitle",
-    "description": "Rules/&ConditionTSZealousCondemnationDescription",
+    "title": "Condition/&ConditionTrueStrikeZealousCondemnationTitle",
+    "description": "Condition/&ConditionTrueStrikeZealousCondemnationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
@@ -140,8 +140,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "OpenGameContent",
-  "guid": "3636af24-3e3b-511c-af6e-0c514ed162a1",
-  "contentPack": "BaseGame",
+  "contentCopyright": "UserContent",
+  "guid": "fa622d99-ddfd-5e75-8056-eec43682285f",
+  "contentPack": 9999,
   "name": "ConditionTrueStrikeZealousCondemnation"
 }
