@@ -49,6 +49,7 @@ internal static class DarkelfSubraceBuilder
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive(true)
+            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
             .SetFeatures(darkElfPerception, darkelfMovementAffinty)
             .AddToDB();
 

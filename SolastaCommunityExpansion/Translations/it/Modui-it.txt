@@ -191,3 +191,4 @@ ModUi/&ChangeSleetStormToCube	Cambia <color=orange>Sleet Storm</color> per usare
 ModUi/&Category	Category
 ModUi/&WeaponTag	Weapon Tag
 ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background

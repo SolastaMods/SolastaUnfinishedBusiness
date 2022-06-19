@@ -196,6 +196,7 @@ ModUi/&ChangeSleetStormToCube	Change <color=orange>Sleet Storm</color> to use a 
 ModUi/&Category	Category
 ModUi/&WeaponTag	Weapon Tag
 ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Enable additional backstory display on background inspection
 Condition/&DH_ReverseGravity_Spell_Description	Reverse Gravity
 Condition/&DH_ReverseGravity_Spell_Title	Reverse Gravity
 Condition/&DH_TimeStop_Spell_Description	Frozen by Time Stop
@@ -224,6 +225,10 @@ MonsterPower/&DHGenericLightningAttackPowerDescription	12D8
 MonsterPower/&DHGenericLightningAttackPowerTitle	Lightning Strike
 Spell/&DHTimeStop_SpellDescription	You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
 Spell/&DHTimeStop_SpellTitle	Time Stop
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can earn dash bonus action move by striking this enemy using this power.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...

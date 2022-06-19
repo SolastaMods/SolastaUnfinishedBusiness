@@ -18,15 +18,15 @@ public class EffectDescriptionBuilder
         effectAdvancement.incrementMultiplier = 1;
         effect.SetEffectAdvancement(effectAdvancement);
 
-        var particleParams = new EffectParticleParameters();
-        particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
+        var particleParams = DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters
+            .DeepCopy();
 
         effect.SetEffectParticleParameters(particleParams);
     }
 
     public EffectDescriptionBuilder(EffectDescription effect)
     {
-        this.effect = effect.Copy();
+        this.effect = effect.DeepCopy();
     }
 
     public static EffectDescriptionBuilder Create()

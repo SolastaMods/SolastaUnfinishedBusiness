@@ -1,0 +1,20 @@
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Заклинания клятвы возмездия
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Когда вы успешно проводите атаку в ближнем бою, эта способность дает вам рывок в качестве бонусного действия на один ход, 5 раз за продолжительный отдых. Это движение не провоцирует атаки по возможности.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Настойчивое преследование
+Power/&PowerOathOfRetributionZealousAccusationDescription	Направьте Божественность, чтобы указать существо в пределах 12 клеток и заставить цель совершить спасбросок Мудрости. Изверги и нежить имеют недостаток в этом спасброске.\nПри провале цель не может двигаться и испугана в течение одной минуты или до тех пор, пока не получит какой-либо урон.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Ревностное обвинение
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Направьте Божественность, чтобы получить преимущество в атаке против указанной цели в пределах 2 клеток в качестве бонусного действия. Способность действует 1 минуту или до тех пор, пока цель не умрет или не потеряет сознание.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Ревностное осуждение
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} может заработать бонусное действие рывка, нанося удар этому врагу с помощью этого умения.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Настойчивое преследование
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Активировать бонусное действие рывка.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Преследовать
+Condition/&ConditionBonusRushTenaciousPursuitDescription	Благословение дает вам силу преследовать врага и мстить ему.\nБонусный рывок активируется на один ход. Это движение не провоцирует атаки по возможности.
+Condition/&ConditionBonusRushTenaciousPursuitTitle	Погоня
+Condition/&ConditionFrightenedZealousAccusationDescription	Абсолютно поражен силой святости.\nНе может двигаться и напуган в течение 1 минуты или до тех пор, пока не получит урон.
+Condition/&ConditionFrightenedZealousAccusationTitle	Испуганный
+Condition/&ConditionTrueStrikeZealousCondemnationDescription	Отмеченный славной решимостью.\nАтаки по этой цели получат преимущество на 1 минуту или до тех пор, пока цель не будет мертва или потеряет сознание.
+Condition/&ConditionTrueStrikeZealousCondemnationTitle	стигматизированный
+Subclass/&PaladinOathOfRetributionDescription	Паладины, приносящие Клятву возмездия, полностью обязуются покончить с нечестием и несправедливостью с крайним предубеждением. Для этих паладинов обязанность отомстить за грехи и порчу значит больше, чем их собственные ценности.
+Subclass/&PaladinOathOfRetributionTitle	Клятва возмездия

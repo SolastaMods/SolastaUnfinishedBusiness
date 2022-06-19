@@ -327,9 +327,23 @@ All settings start disabled by default. On first start the mod will display an w
                     .Append(kvp.Value);
             }
 
+            var racesAndSubs = new List<CharacterRaceDefinition>();
+
+            foreach (var characterRaceDefinition in RacesContext.Races)
+            {
+                if (characterRaceDefinition.SubRaces.Count == 0)
+                {
+                    racesAndSubs.Add(characterRaceDefinition);
+                }
+                else
+                {
+                    racesAndSubs.AddRange(characterRaceDefinition.SubRaces);
+                }
+            }
+
             var descriptionData = string.Format(ModDescription,
                 collectedCredits,
-                GenerateDescription(RacesContext.Races),
+                GenerateDescription(racesAndSubs),
                 GenerateDescription(ClassesContext.Classes),
                 GenerateDescription(DatabaseRepository.GetDatabase<CharacterSubclassDefinition>()
                     .Where(x => !SubclassesContext.Subclasses.Contains(x))

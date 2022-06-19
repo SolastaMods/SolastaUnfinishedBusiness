@@ -3,15 +3,14 @@
 - Thanks to all individuals who contributed so far...
 - We could do much more if everyone donates $1-$5
 
-** Pay for better services from DeepL, GitHub and others
-** Hire freelancer artists for better animations, bitmaps, etc
-
 - The [donation] button is under Mod UI > Credits
 - It opens a browser page with a paypal support link
 
 CHANGES:
 
-- Add Half-Elf variant subraces
-- Change Dark-Elf bright sensitivity detrimental condition
-- Fix the character inspection screen not displaying acquired features
-- Improve Chinese and Russian translations
+- Add a setting to display back stories on the inspection panel
+- Add the Paladin Oath of Retribution subclass
+- Improve the races and sub races mod selection logic
+- Improve some Russian translation terms
+- Fix Chain Lightning upcasting with individual targets setting
+- Fix the Power Attack feat not working in certain scenarios

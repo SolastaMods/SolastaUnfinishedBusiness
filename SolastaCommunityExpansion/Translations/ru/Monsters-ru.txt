@@ -7,7 +7,7 @@ Feature/&DH_AirTitan_LightningStorm_Custom_Power_Title	Грозовой штор
 Feature/&DH_AtWill_Fireball_Power_Description	Неограниченный огненный шар
 Feature/&DH_AtWill_Fireball_Power_Title	Огненный шар
 Feature/&DH_AtWill_HoldMonster_Power_Description	3 использования в день
-Feature/&DH_AtWill_HoldMonster_Power_Title	Держи монстра
+Feature/&DH_AtWill_HoldMonster_Power_Title	Удержать монстра
 Feature/&DH_AtWill_Invisibility_Power_Description	Неограниченная невидимость
 Feature/&DH_AtWill_Invisibility_Power_Title	Невидимость
 Feature/&DH_Generic_Lightning_Attack_Custom_Power_Description	Молниеносная атака
@@ -61,7 +61,7 @@ Monster/&DH_Custom_Roc_Title	<color=#ff0000ff>Рок</color>
 Monster/&DH_Custom_Solar_Description	На поле боя меч соляра летит в бой сам по себе, и единственная стрела из лука соляра может поразить цель при контакте. Столь велика небесная мощь соляра, что даже князья демонов дрожат от его звучных команд.
 Monster/&DH_Custom_Solar_Title	<color=#ff0000ff>Солнечная энергия</color>
 Monster/&DH_Custom_StormGiant_Description	Штормовые гиганты — созерцательные провидцы, живущие в местах, далеких от цивилизации смертных. У большинства бледно-фиолетово-серая кожа и волосы, а также блестящие изумрудные глаза.
-Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Грозовой великан</color>
+Monster/&DH_Custom_StormGiant_Title	<color=#ff0000ff>Штормовой великан</color>
 Monster/&DH_Custom_Tarrasque_Description	Легендарный тарраск, пожалуй, самый страшный монстр Материального Плана. Широко распространено мнение, что существует только одно из этих существ, хотя никто не может предсказать, где и когда оно нанесет удар. Чешуйчатый двуногий тарраск имеет пятьдесят футов в высоту и семьдесят футов в длину и весит сотни тонн.
 Monster/&DH_Custom_Tarrasque_Title	<color=#ff0000ff>Тарраск</color>
 Monster/&DH_Custom_Vampire_Description	Проснувшись в бесконечной ночи, вампиры жаждут жизни, которую они потеряли, и утоляют этот голод, выпивая кровь живых. Вампиры ненавидят солнечный свет, потому что его прикосновение обжигает их. Они никогда не отбрасывают тени или отражения, и любой вампир, желающий незаметно передвигаться среди живых, держится в темноте и вдали от отражающих поверхностей.
@@ -72,74 +72,74 @@ MonsterAttack/&DH_AirTitan_Slam_Attack_Description	4d6+6 Дробление и 4
 MonsterAttack/&DH_AirTitan_Slam_Attack_Title	Громовой удар
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Description	2D8+8 Дробление
 MonsterAttack/&DH_AncientDragon_Tail_Attack_Title	Атака хвостом
-MonsterAttack/&DH_Balor_Longsword_Attack_Description	3D8+8 Разрубание и 3D8 Молния
+MonsterAttack/&DH_Balor_Longsword_Attack_Description	3d8+8 Разрубание и 3d8 Молния
 MonsterAttack/&DH_Balor_Longsword_Attack_Title	Атака длинным мечом
-MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Разрубание и 3D6 Огонь
+MonsterAttack/&DH_Balor_Whip_Attack_Description	2D6+8 Разрубание и 3d6 Огонь
 MonsterAttack/&DH_Balor_Whip_Attack_Title	Хлыстовая атака
-MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4D8 Силовой урон и цель сбита с ног
+MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Description	4d8 Силовой урон и цель сбита с ног
 MonsterAttack/&DH_ConstructTitan_ForceCannon_Attack_Title	Силовая пушка
-MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3D12+8 дробящий урон и цель отталкивается на 20 фт.
+MonsterAttack/&DH_ConstructTitan_Slam_Attack_Description	3d12+8 дробящий урон и цель отталкивается на 20 фт.
 MonsterAttack/&DH_ConstructTitan_Slam_Attack_Title	Слэм
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Description	Не может действовать и получает урон кислотой 16d6 каждый ход. 60 единиц урона за одну атаку могут заставить глотателя срыгнуть.
 MonsterAttack/&DH_Custom_TarrasqueSwallowedcondition_Title	проглотил
 MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Description	60 единиц урона за одну атаку могут заставить его изрыгнуть.
 MonsterAttack/&DH_Custom_TarrasqueSwallowingcondition_Title	Глотающее существо
-MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2D10+9 Пронзающий и 2D8 Кислотный урон
+MonsterAttack/&DH_DamageAcid_Bite_Attack_Description	2d10+9 Пронзающий и 2d8 Кислотный урон
 MonsterAttack/&DH_DamageAcid_Bite_Attack_Title	Атака кислотным укусом
-MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2D10+9 колющий и 2D8 холодный урон
+MonsterAttack/&DH_DamageCold_Bite_Attack_Description	2d10+9 колющий и 2d8 холодный урон
 MonsterAttack/&DH_DamageCold_Bite_Attack_Title	Атака ледяным укусом
-MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2D10+9 проникающий урон и 4D6 огненный урон
+MonsterAttack/&DH_DamageFire_Bite_Attack_Description	2d10+9 проникающий урон и 4d6 огненный урон
 MonsterAttack/&DH_DamageFire_Bite_Attack_Title	Атака огненным укусом
-MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2D10+9 проникающий урон и 2D10 урон от молнии
+MonsterAttack/&DH_DamageLightning_Bite_Attack_Description	2d10+9 проникающий урон и 2d10 урон от молнии
 MonsterAttack/&DH_DamageLightning_Bite_Attack_Title	Атака молниеносным укусом
-MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2D10+9 колющего и 3D6 ядовитого урона
+MonsterAttack/&DH_DamagePoison_Bite_Attack_Description	2d10+9 колющего и 3d6 ядовитого урона
 MonsterAttack/&DH_DamagePoison_Bite_Attack_Title	Атака ядовитым укусом
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7D10+8 Дробление
-MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Боулдер
-MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4D10+8 Дробление
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Description	7d10+8 Дробление
+MonsterAttack/&DH_EarthTitan_Boulder_Attack_Title	Валун
+MonsterAttack/&DH_EarthTitan_Slam_Attack_Description	4d10+8 Дробление
 MonsterAttack/&DH_EarthTitan_Slam_Attack_Title	Удар по земле
 MonsterAttack/&DH_FireScimatar_Attack_Description	2d6+6 рубящий и 2d6 Огонь
-MonsterAttack/&DH_FireScimatar_Attack_Title	ятаган
+MonsterAttack/&DH_FireScimatar_Attack_Title	Скимитар огня
 MonsterAttack/&DH_FireTitan_Slam_Attack_Description	3d6+5 Дробление + 10d6 Огонь
 MonsterAttack/&DH_FireTitan_Slam_Attack_Title	Обжигающий удар
-MonsterAttack/&DH_Fork_Attack_Description	2D8 +6 Пронзающий
-MonsterAttack/&DH_Fork_Attack_Title	Вилочная атака
-MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2к10 + 6 колющего урона
+MonsterAttack/&DH_Fork_Attack_Description	2d8 +6 Пронзающий
+MonsterAttack/&DH_Fork_Attack_Title	Атака вилкой
+MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Description	2d10 + 6 колющего урона
 MonsterAttack/&DH_Generic_Bite_Attack_No_ExtraDamage_Title	Укус Атака
-MonsterAttack/&DH_Generic_Claw_Attack_Description	2D6 + 9 рубящего урона
+MonsterAttack/&DH_Generic_Claw_Attack_Description	2d6 + 9 рубящего урона
 MonsterAttack/&DH_Generic_Claw_Attack_Title	Атака когтями
-MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2Д10 + 9
+MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Description	2d10 + 9
 MonsterAttack/&DH_Generic_Stronger_Bite_Attack_No_ExtraDamage_Title	Укус Атака
-MonsterAttack/&DH_HornedDevilTail_Attack_Description	1D8 +6 Пронзающий, накладывает состояние Кровоточащая рана
+MonsterAttack/&DH_HornedDevilTail_Attack_Description	1d8 +6 Пронзающий, накладывает состояние Кровоточащая рана
 MonsterAttack/&DH_HornedDevilTail_Attack_Title	Атака хвостом
-MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3D6 Necrotic, сохраните, чтобы отменить
+MonsterAttack/&DH_HornedDevilTail_Attackcondition_Description	3d6 Necrotic, сохраните, чтобы отменить
 MonsterAttack/&DH_HornedDevilTail_Attackcondition_Title	Кровоточащая рана
 MonsterAttack/&DH_HurlFlame_Attack_Description	5d6 Огонь
 MonsterAttack/&DH_HurlFlame_Attack_Title	Бросить пламя
 MonsterAttack/&DH_Ice_Bite_Attack_Description	2d6+5 Пронзающий и 3d6 Холодный
 MonsterAttack/&DH_Ice_Bite_Attack_Title	Ледяной укус
-MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3D6 Холод и накладывает паралич
+MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Description	3d6 Холод и накладывает паралич
 MonsterAttack/&DH_Lich_ParalyzingTouch_Attack_Title	Парализующее прикосновение
 MonsterAttack/&DH_LightningScimatar_Attack_Description	2d6+5 рубящий удар и 2d6 молния
-MonsterAttack/&DH_LightningScimatar_Attack_Title	ятаган
+MonsterAttack/&DH_LightningScimatar_Attack_Title	Скимитар молнии
 MonsterAttack/&DH_NagaBite_Attack_Description	1d8+4 Пронзающий и 15 DC Con Спасбросок до половины 10d8 Poison
 MonsterAttack/&DH_NagaBite_Attack_Title	Ядовитый укус
 MonsterAttack/&DH_NagaSpit_Attack_Description	15 DC Con Спасбросок до половины 10d8 Poison
 MonsterAttack/&DH_NagaSpit_Attack_Title	Плевок Яд
 MonsterAttack/&DH_PitFiend_Bite_Attack_Description	2d6+7 Яд, Накладывает состояние отравления
 MonsterAttack/&DH_PitFiend_Bite_Attack_Title	Укус Атака
-MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6D6 Позиция повторяется
+MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Description	6d6 Позиция повторяется
 MonsterAttack/&DH_PitFiend_Bite_Attackcondition_Title	отравлен
-MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2D6+8 Дробление и 6D6 Огонь
+MonsterAttack/&DH_PitFiend_Mace_Attack_Description	2d6+8 Дробление и 6d6 Огонь
 MonsterAttack/&DH_PitFiend_Mace_Attack_Title	Атака булавой
 MonsterAttack/&DH_PoisonLongbow_Attack_Description	Длинный лук с ядовитыми стрелами
 MonsterAttack/&DH_PoisonLongbow_Attack_Title	Ядовитый длинный лук
 MonsterAttack/&DH_PoisonLongsword_Attack_Description	1d10+4 рубящий и 3d8 яд
 MonsterAttack/&DH_PoisonLongsword_Attack_Title	Ядовитый длинный меч
-MonsterAttack/&DH_RadiantLongbow_Attack_Description	2D6+8 Пронзающий и 6D8 Сияющий
+MonsterAttack/&DH_RadiantLongbow_Attack_Description	2d6+8 Пронзающий и 6d8 Сияющий
 MonsterAttack/&DH_RadiantLongbow_Attack_Title	Убийство длинного лука.
-MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Режущий и 6D8 Сияющий
-MonsterAttack/&DH_RadiantLongsword_Attack_Title	Сияющий большой меч
+MonsterAttack/&DH_RadiantLongsword_Attack_Description	4D6+8 Режущий и 6d8 Сияющий
+MonsterAttack/&DH_RadiantLongsword_Attack_Title	Сияющий длинный меч
 MonsterAttack/&DH_Roc_Beak_Attack_Description	4d8+9 Пронзающий
 MonsterAttack/&DH_Roc_Beak_Attack_Title	Клюв
 MonsterAttack/&DH_Roc_Talons_Attack_Description	4d6+9 Разрубание и цель схвачена и удерживается Рухом
@@ -150,19 +150,19 @@ MonsterAttack/&DH_Tarrasque_BiteCondition_Description	Пока этот захв
 MonsterAttack/&DH_Tarrasque_BiteCondition_Title	Пойманный Тарраском
 MonsterAttack/&DH_Tarrasque_Claw_Description	рубящий урон 4d8 + 10
 MonsterAttack/&DH_Tarrasque_Claw_Title	Коготь
-MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10) колющего урона
+MonsterAttack/&DH_Tarrasque_Horn_Description	4d10 + 10 колющего урона
 MonsterAttack/&DH_Tarrasque_Horn_Title	Рог
 MonsterAttack/&DH_Tarrasque_Tail_Description	дробящий урон 4d6 + 10. Если цель — существо, она должна преуспеть в спасброске Силы со Сл 20, иначе будет сбита с ног.
 MonsterAttack/&DH_Tarrasque_Tail_Title	Хвост
 MonsterAttack/&DHCouatlBiteAttackDescription	Колющий урон, и цель должна преуспеть в спасброске Телосложения со Сл 13, иначе будет отравлена ​​на 24 часа. Пока этот яд не закончится, цель будет без сознания.
 MonsterAttack/&DHCouatlBiteAttackTitle	Кусать
-MonsterPower/&DH_AirTitan_Gale_Power_Description	4D10 Thunder и нажимается при неудачном сохранении
+MonsterPower/&DH_AirTitan_Gale_Power_Description	4d10 Thunder и нажимается при неудачном сохранении
 MonsterPower/&DH_AirTitan_Gale_Power_Title	Кричащая буря
-MonsterPower/&DH_AirTitan_Lightning_Power_Description	3D10 Молния в области
+MonsterPower/&DH_AirTitan_Lightning_Power_Description	3d10 Молния в области
 MonsterPower/&DH_AirTitan_Lightning_Power_Title	Удар молнии
 MonsterPower/&DH_AncientDragon_Wing_Power_Description	Драконы могут взмахивать крыльями, создавая достаточно ветра, чтобы отбросить большинство гуманоидов и сбить их с ног.
 MonsterPower/&DH_AncientDragon_Wing_Power_Title	Внезапная атака
-MonsterPower/&DH_Balor_FireAura_Power_Description	3D6 Огонь
+MonsterPower/&DH_Balor_FireAura_Power_Description	3d6 Огонь
 MonsterPower/&DH_Balor_FireAura_Power_Title	Огненная аура
 MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Description	Балор Ответный удар
 MonsterPower/&DH_Balor_Retaliate_DamageAffinity_Title	Балор Ответный удар
@@ -170,19 +170,19 @@ MonsterPower/&DH_Balor_Retaliate_Power_Description	Балор Ответный �
 MonsterPower/&DH_Balor_Retaliate_Power_Title	Балор Ответный удар
 MonsterPower/&DH_BlindingGaze_Power_Description	DC15 Телосложение: спасение или ослепление, пока не будет использовано меньшее восстановление
 MonsterPower/&DH_BlindingGaze_Power_Title	Ослепляющий взгляд
-MonsterPower/&DH_DamageAcid_Breath_Power_Description	15D8 Кислота
+MonsterPower/&DH_DamageAcid_Breath_Power_Description	15d8 Кислота
 MonsterPower/&DH_DamageAcid_Breath_Power_Title	Кислотное дыхание
 MonsterPower/&DH_DamageCold_Breath_Power_Description	16D8 Холод
 MonsterPower/&DH_DamageCold_Breath_Power_Title	Ледяное дыхание
-MonsterPower/&DH_DamageFire_Breath_Power_Description	26Д6 Огонь
+MonsterPower/&DH_DamageFire_Breath_Power_Description	26d6 Огонь
 MonsterPower/&DH_DamageFire_Breath_Power_Title	Огненное дыхание
-MonsterPower/&DH_DamageLightning_Breath_Power_Description	16Д10 Молния
+MonsterPower/&DH_DamageLightning_Breath_Power_Description	16d10 Молния
 MonsterPower/&DH_DamageLightning_Breath_Power_Title	Молниеносное дыхание
-MonsterPower/&DH_DamagePoison_Breath_Power_Description	22D6 яд
+MonsterPower/&DH_DamagePoison_Breath_Power_Description	22d6 яд
 MonsterPower/&DH_DamagePoison_Breath_Power_Title	Ядовитое дыхание
 MonsterPower/&DH_DisintegratingBeam_Power_Description	6D10 Radiant Damage и цель распадается на 0 HP
 MonsterPower/&DH_DisintegratingBeam_Power_Title	Распадающийся Луч
-MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4D10 Дробление
+MonsterPower/&DH_EarthTitan_Earthquake_Power_Description	4d10 Дробление
 MonsterPower/&DH_EarthTitan_Earthquake_Power_Title	Землетрясение
 MonsterPower/&DH_ErinyesParry_Power_Description	+3 КД
 MonsterPower/&DH_ErinyesParry_Power_Title	Парировать
@@ -196,9 +196,9 @@ MonsterPower/&DH_IlluminatingCrystals_Power_Description	Любое сущест�
 MonsterPower/&DH_IlluminatingCrystals_Power_Title	Светящиеся кристаллы
 MonsterPower/&DH_IncreasedGravityZone_Attack_Description	Зона фокусировки Титана в пределах 20 футов от него. Любое существо в цилиндре радиусом 20 футов и высотой 20 футов с центром в этой точке должно преуспеть в спасброске Ловкости со Сл 26, иначе оно получит дробящий урон 33 (6к10), упадет ничком и будет опутано на один раунд.
 MonsterPower/&DH_IncreasedGravityZone_Attack_Title	Зона повышенной гравитации
-MonsterPower/&DH_Lich_DisruptLife_Power_Description	6D6 Некротический
+MonsterPower/&DH_Lich_DisruptLife_Power_Description	6d6 Некротический
 MonsterPower/&DH_Lich_DisruptLife_Power_Title	Нарушить жизнь
-MonsterPower/&DH_SearingBurst_Power_Description	4D6 Огонь и 4D6 Сияние
+MonsterPower/&DH_SearingBurst_Power_Description	4d6 Огонь и 4d6 Сияние
 MonsterPower/&DH_SearingBurst_Power_Title	Жгучий взрыв
 MonsterPower/&DH_SleetStorm_Immunity_Description	Иммунитет к мокрому снегу
 MonsterPower/&DH_SleetStorm_Immunity_Title	Иммунитет к мокрому снегу
