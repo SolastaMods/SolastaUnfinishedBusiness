@@ -1,4 +1,4 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	En tu lista y siempre preparado:\nNivel 3: Bane, Marca del Cazador\nNivel 5: Hold Person, Misty Step\nNivel 6: Prisa, Protección contra la Energía
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Juramento de Hechizos de Retribución
 Power/&PowerOathOfRetributionTenaciousPursuitDescription	Cuando golpeas con éxito el ataque cuerpo a cuerpo, este poder te otorgará un movimiento rápido como acción adicional durante un solo turno, 5 veces por descanso prolongado. Este movimiento no provoca ataques de oportunidad.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle	Persecución tenaz

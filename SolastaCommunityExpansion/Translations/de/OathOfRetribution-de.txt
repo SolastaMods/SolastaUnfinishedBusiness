@@ -1,4 +1,4 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	In Ihrer Liste und immer vorbereitet:\nStufe 3: Bane, Zeichen des Jägers\nLevel 5: Person halten, Misty Step\nStufe 6: Eile, Schutz vor Energie
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Eid der Vergeltung Zauber
 Power/&PowerOathOfRetributionTenaciousPursuitDescription	Wenn Sie den Nahkampfangriff erfolgreich ausgeführt haben, gewährt Ihnen diese Kraft für eine einzelne Runde fünf Mal pro langer Pause einen Sprint-Move als Bonusaktion. Diese Bewegung provoziert keine Gelegenheitsangriffe.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle	Hartnäckige Verfolgung

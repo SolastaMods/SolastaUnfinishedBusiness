@@ -1,4 +1,4 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	В вашем списке и всегда наготове:\nУровень 3: Бэйн, Метка охотника\nУровень 5: Держите человека, Туманный шаг\nУровень 6: Ускорение, Защита от энергии
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Заклинания клятвы возмездия
 Power/&PowerOathOfRetributionTenaciousPursuitDescription	Когда вы успешно проводите атаку в ближнем бою, эта способность дает вам рывок в качестве бонусного действия на один ход, 5 раз за продолжительный отдых. Это движение не провоцирует атаки по возможности.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle	Настойчивое преследование

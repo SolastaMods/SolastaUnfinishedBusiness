@@ -1,4 +1,4 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	Dans votre liste et toujours préparé :\nNiveau 3 : Fléau, Marque du chasseur\nNiveau 5 : Maintenir la personne, Misty Step\nNiveau 6 : Hâte, Protection contre l'énergie
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Sorts de serment de châtiment
 Power/&PowerOathOfRetributionTenaciousPursuitDescription	Lorsque vous réussissez l'attaque de mêlée, ce pouvoir vous accorde un coup de tiret en tant qu'action bonus pour un seul tour, 5 fois par repos long. Ce mouvement ne provoque pas d'attaques d'opportunité.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle	Poursuite tenace

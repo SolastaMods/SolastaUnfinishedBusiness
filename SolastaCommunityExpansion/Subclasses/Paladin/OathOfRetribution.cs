@@ -22,7 +22,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 AutoPreparedSpellsGroupBuilder.BuildSpellGroup(3, SpellDefinitions.Bane, SpellDefinitions.HuntersMark),
                 AutoPreparedSpellsGroupBuilder.BuildSpellGroup(5, SpellDefinitions.HoldPerson,
                     SpellDefinitions.MistyStep),
-                AutoPreparedSpellsGroupBuilder.BuildSpellGroup(6, SpellDefinitions.Haste,
+                AutoPreparedSpellsGroupBuilder.BuildSpellGroup(9, SpellDefinitions.Haste,
                     SpellDefinitions.ProtectionFromEnergy))
             .AddToDB();
 

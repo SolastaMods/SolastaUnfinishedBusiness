@@ -1,4 +1,4 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	Nella tua lista e sempre preparati:\nLivello 3: Bane, Marchio del cacciatore\nLivello 5: Hold Person, Misty Step\nLivello 6: fretta, protezione dall'energia
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Incantesimi di Giuramento di Retribuzione
 Power/&PowerOathOfRetributionTenaciousPursuitDescription	Quando colpisci con successo l'attacco in mischia, questo potere ti garantirà una mossa di scatto come azione bonus per un singolo turno, 5 volte per riposo lungo. Questo movimento non provoca attacchi di opportunità.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenace inseguimento

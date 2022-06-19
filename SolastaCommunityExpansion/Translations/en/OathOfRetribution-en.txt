@@ -1,4 +1,4 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	In your list and always prepared: \nLevel 3: Bane, Hunter's Mark \nLevel 5: Hold Person, Misty Step \nLevel 6: Haste, Protection from Energy
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Oath of Retribution Spells
 Power/&PowerOathOfRetributionTenaciousPursuitDescription	When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
 Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
