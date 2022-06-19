@@ -11,6 +11,7 @@
 
 CHANGES:
 
-- Add Paladin Oath of Retribution subclass
-- Improve Russian translation terms
-- Fix Power Attack feat not working with unarmed attacks
+- Add a setting to display back stories on inspection panel
+- Add the Paladin Oath of Retribution subclass
+- Improve some Russian translation terms
+- Fix the Power Attack feat not working with unarmed attacks

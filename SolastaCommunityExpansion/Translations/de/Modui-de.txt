@@ -191,3 +191,4 @@ ModUi/&ChangeSleetStormToCube	Ändern Sie <color=orange>Schneeregen</color>, um 
 ModUi/&Category	Category
 ModUi/&WeaponTag	Weapon Tag
 ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Aktivieren Sie die zusätzliche Anzeige der Hintergrundgeschichte bei der Hintergrundinspektion
