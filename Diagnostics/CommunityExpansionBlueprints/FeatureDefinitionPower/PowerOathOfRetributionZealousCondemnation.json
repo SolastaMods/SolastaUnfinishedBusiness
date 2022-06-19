@@ -294,7 +294,7 @@
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Wisdom",
+  "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
   "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
