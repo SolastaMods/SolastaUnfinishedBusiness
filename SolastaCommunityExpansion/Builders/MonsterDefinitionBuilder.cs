@@ -4,7 +4,6 @@ using System.Linq;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using TA.AI;
 using UnityEngine.AddressableAssets;
-using static ActionDefinitions;
 using static BestiaryDefinitions;
 using static RuleDefinitions;
 
@@ -24,11 +23,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetAlwaysHideStats(bool value)
     {
         Definition.alwaysHideStats = value;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetArmor(string armor)
     {
@@ -42,12 +43,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetAudioRaceRTPCValue(float audioRaceRTPCValue)
     {
         Definition.audioRaceRTPCValue = audioRaceRTPCValue;
         return this;
     }
-
+#endif
     public MonsterDefinitionBuilder SetBestiaryEntry(BestiaryEntry entry)
     {
         Definition.bestiaryEntry = entry;
@@ -90,11 +92,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetDifferentActionEachTurn(bool value)
     {
         Definition.differentActionEachTurn = value;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetDroppedLootDefinition(LootPackDefinition lootPack)
     {
@@ -102,12 +106,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetDualSex(bool value)
     {
         Definition.dualSex = value;
         return this;
     }
-
+    
     public MonsterDefinitionBuilder SetFollowFloorAngle(bool value)
     {
         Definition.followFloorAngle = value;
@@ -119,6 +124,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         Definition.forceCombatStartsAnimation = value;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetForceNoFlyAnimation(bool value)
     {
@@ -126,11 +132,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetForcePersistentBody(bool value)
     {
         Definition.forcePersistentBody = value;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetFullyControlledWhenAllied(bool value)
     {
@@ -144,6 +152,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetHasLookAt(bool value)
     {
         Definition.hasLookAt = value;
@@ -155,6 +164,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         Definition.height = Height;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetHitDiceNumber(int hitDice)
     {
@@ -195,6 +205,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetInterceptStance(MoveStance interceptStance)
     {
         Definition.interceptStance = interceptStance;
@@ -212,6 +223,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         Definition.isUnique = value;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetLegendaryCreature(bool value)
     {
@@ -219,6 +231,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetMaximalAge(int Age)
     {
         Definition.maximalAge = Age;
@@ -248,6 +261,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         Definition.monsterPresentation = monsterPresentation;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetNoExperienceGain(bool value)
     {
@@ -255,11 +269,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetPatrolStance(MoveStance patrolStance)
     {
         Definition.patrolStance = patrolStance;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetSizeDefinition(CharacterSizeDefinition sizeDefinition)
     {
@@ -267,11 +283,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetSneakStance(MoveStance SneakStance)
     {
         Definition.sneakStance = SneakStance;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetStandardHitPoints(int Hp)
     {
@@ -279,6 +297,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetStealableLootDefinition(LootPackDefinition stealableLoot)
     {
         Definition.stealableLootDefinition = stealableLoot;
@@ -302,6 +321,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         Definition.weight = weight;
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder ClearAbilityScores()
     {
@@ -357,6 +377,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder AddSkillScores(params (string skillName, int bonus)[] skillScores)
     {
         return AddSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
@@ -366,6 +387,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
     {
         return AddSkillScores(skillScores.AsEnumerable());
     }
+#endif
 
     public MonsterDefinitionBuilder AddSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
     {
@@ -379,10 +401,12 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return SetSkillScores(skillScores.Select(ss => new MonsterSkillProficiency(ss.skillName, ss.bonus)));
     }
 
+#if false
     public MonsterDefinitionBuilder SetSkillScores(params MonsterSkillProficiency[] skillScores)
     {
         return SetSkillScores(skillScores.AsEnumerable());
     }
+#endif
 
     public MonsterDefinitionBuilder SetSkillScores(IEnumerable<MonsterSkillProficiency> skillScores)
     {
@@ -397,10 +421,12 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder AddAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
     {
         return AddAttackIterations(monsterAttackIterations.AsEnumerable());
     }
+#endif
 
     public MonsterDefinitionBuilder AddAttackIterations(IEnumerable<MonsterAttackIteration> monsterAttackIterations)
     {
@@ -416,6 +442,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         );
     }
 
+#if false
     public MonsterDefinitionBuilder SetAttackIterations(
         params (MonsterAttackDefinition, int)[] monsterAttackIterations)
     {
@@ -423,6 +450,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
             d => new MonsterAttackIteration(d.Item1, d.Item2)
         ));
     }
+#endif
 
     public MonsterDefinitionBuilder SetAttackIterations(params MonsterAttackIteration[] monsterAttackIterations)
     {
@@ -441,11 +469,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder AddLegendaryActionOptions(
         params LegendaryActionDescription[] legendaryActionDescriptions)
     {
         return AddLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
     }
+#endif
 
     public MonsterDefinitionBuilder AddLegendaryActionOptions(
         IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
@@ -455,11 +485,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         params LegendaryActionDescription[] legendaryActionDescriptions)
     {
         return SetLegendaryActionOptions(legendaryActionDescriptions.AsEnumerable());
     }
+#endif
 
     public MonsterDefinitionBuilder SetLegendaryActionOptions(
         IEnumerable<LegendaryActionDescription> legendaryActionDescriptions)
@@ -500,6 +532,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
             .Select(s => new MonsterSavingThrowProficiency(s.attributeName, s.bonus)).AsEnumerable());
     }
 
+#if false
     public MonsterDefinitionBuilder AddSavingThrowScores(
         params (string attributeName, int bonus)[] savingThrowScores)
     {
@@ -511,6 +544,7 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
     {
         return AddSavingThrowScores(savingThrowScores.AsEnumerable());
     }
+#endif
 
     public MonsterDefinitionBuilder AddSavingThrowScores(
         IEnumerable<MonsterSavingThrowProficiency> savingThrowScores)
@@ -551,11 +585,13 @@ public class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, Mon
         return this;
     }
 
+#if false
     public MonsterDefinitionBuilder SetCreatureTags(IEnumerable<string> tags)
     {
         Definition.CreatureTags.SetRange(tags);
         return this;
     }
+#endif
 
     public MonsterDefinitionBuilder SetPrefabReference(AssetReference assetReference)
     {
