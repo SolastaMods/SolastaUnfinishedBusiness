@@ -1,12 +1,11 @@
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	Nella tua lista e sempre preparati:\nLivello 3: Bane, Marchio del cacciatore\nLivello 5: Hold Person, Misty Step\nLivello 6: fretta, protezione dall'energia
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Incantesimi di Giuramento di Retribuzione
-Feature/&PowerOathOfRetributionTenaciousPursuitDescription	Quando colpisci con successo l'attacco in mischia, questo potere ti garantirà una mossa di scatto come azione bonus per un singolo turno, 5 volte per riposo lungo. Questo movimento non provoca attacchi di opportunità.
-Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Tenace inseguimento
-Feature/&PowerOathOfRetributionTenaciousPursuitTitle	Tenace inseguimento
-Feature/&PowerOathOfRetributionZealousAccusationDescription	Incanalare Divinità per designare una creatura entro 12 tessere e costringere il bersaglio a un tiro salvezza di Saggezza. Demoni e non morti hanno uno svantaggio in questo tiro salvezza.\nSe fallisce il tiro salvezza, il bersaglio non può muoversi ed è spaventato per un minuto o finché non subisce danni.
-Feature/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: accusa zelante
-Feature/&PowerOathOfRetributionZealousCondemnationDescription	Incanala Divinità per ottenere un vantaggio sul tuo attacco contro il bersaglio designato entro 2 tessere come azione bonus. Il potere dura 1 minuto o finché il bersaglio non è morto o privo di sensi.
-Feature/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Condanna zelante
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Quando colpisci con successo l'attacco in mischia, questo potere ti garantirà una mossa di scatto come azione bonus per un singolo turno, 5 volte per riposo lungo. Questo movimento non provoca attacchi di opportunità.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenace inseguimento
+Power/&PowerOathOfRetributionZealousAccusationDescription	Incanalare Divinità per designare una creatura entro 12 tessere e costringere il bersaglio a un tiro salvezza di Saggezza. Demoni e non morti hanno uno svantaggio in questo tiro salvezza.\nSe fallisce il tiro salvezza, il bersaglio non può muoversi ed è spaventato per un minuto o finché non subisce danni.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: accusa zelante
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Incanala Divinità per ottenere un vantaggio sul tuo attacco contro il bersaglio designato entro 2 tessere come azione bonus. Il potere dura 1 minuto o finché il bersaglio non è morto o privo di sensi.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Condanna zelante
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} può guadagnare mossa azione bonus scatto colpendo questo nemico usando questo potere.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenace inseguimento
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Attiva l'azione bonus trattino.

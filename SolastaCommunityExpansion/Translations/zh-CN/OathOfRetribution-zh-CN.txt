@@ -1,12 +1,11 @@
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	In your list and always prepared: \nLevel 3: Bane, Hunter's Mark \nLevel 5: Hold Person, Misty Step \nLevel 6: Haste, Protection from Energy
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Oath of Retribution Spells
-Feature/&PowerOathOfRetributionTenaciousPursuitDescription	When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
-Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Tenacious Pursuit 
-Feature/&PowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
-Feature/&PowerOathOfRetributionZealousAccusationDescription	Channel Divinity to designate a creature within 12 tiles and force the target a Wisdom saving throw. Fiends and undead have a disadvantage on this saving throw. \nOn a failed save, the target cannot move and being frightened for one minute or until it takes any damage.
-Feature/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Zealous Accusation
-Feature/&PowerOathOfRetributionZealousCondemnationDescription	Channel Divinity to gain an advantage on your attack against the designated target within 2 tiles as a bonus action. The power lasts 1 minute or until the target is dead or unconscious.
-Feature/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Zealous Condemnation
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
+Power/&PowerOathOfRetributionZealousAccusationDescription	Channel Divinity to designate a creature within 12 tiles and force the target a Wisdom saving throw. Fiends and undead have a disadvantage on this saving throw. \nOn a failed save, the target cannot move and being frightened for one minute or until it takes any damage.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Zealous Accusation
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Channel Divinity to gain an advantage on your attack against the designated target within 2 tiles as a bonus action. The power lasts 1 minute or until the target is dead or unconscious.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Zealous Condemnation
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can earn dash bonus action move by striking this enemy using this power.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.

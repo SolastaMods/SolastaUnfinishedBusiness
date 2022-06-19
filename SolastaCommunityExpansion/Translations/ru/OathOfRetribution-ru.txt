@@ -1,12 +1,11 @@
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	В вашем списке и всегда наготове:\nУровень 3: Бэйн, Метка охотника\nУровень 5: Держите человека, Туманный шаг\nУровень 6: Ускорение, Защита от энергии
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Заклинания клятвы возмездия
-Feature/&PowerOathOfRetributionTenaciousPursuitDescription	Когда вы успешно проводите атаку в ближнем бою, эта способность дает вам рывок в качестве бонусного действия на один ход, 5 раз за продолжительный отдых. Это движение не провоцирует атаки по возможности.
-Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Настойчивое преследование
-Feature/&PowerOathOfRetributionTenaciousPursuitTitle	Настойчивое преследование
-Feature/&PowerOathOfRetributionZealousAccusationDescription	Направьте Божественность, чтобы указать существо в пределах 12 клеток и заставить цель совершить спасбросок Мудрости. Изверги и нежить имеют недостаток в этом спасброске.\nПри провале цель не может двигаться и испугана в течение одной минуты или до тех пор, пока не получит какой-либо урон.
-Feature/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Ревностное обвинение
-Feature/&PowerOathOfRetributionZealousCondemnationDescription	Направьте Божественность, чтобы получить преимущество в атаке против указанной цели в пределах 2 клеток в качестве бонусного действия. Способность действует 1 минуту или до тех пор, пока цель не умрет или не потеряет сознание.
-Feature/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Ревностное осуждение
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Когда вы успешно проводите атаку в ближнем бою, эта способность дает вам рывок в качестве бонусного действия на один ход, 5 раз за продолжительный отдых. Это движение не провоцирует атаки по возможности.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Настойчивое преследование
+Power/&PowerOathOfRetributionZealousAccusationDescription	Направьте Божественность, чтобы указать существо в пределах 12 клеток и заставить цель совершить спасбросок Мудрости. Изверги и нежить имеют недостаток в этом спасброске.\nПри провале цель не может двигаться и испугана в течение одной минуты или до тех пор, пока не получит какой-либо урон.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Ревностное обвинение
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Направьте Божественность, чтобы получить преимущество в атаке против указанной цели в пределах 2 клеток в качестве бонусного действия. Способность действует 1 минуту или до тех пор, пока цель не умрет или не потеряет сознание.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Ревностное осуждение
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} может заработать бонусное действие рывка, нанося удар этому врагу с помощью этого умения.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Настойчивое преследование
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Активировать бонусное действие рывка.

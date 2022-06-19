@@ -1,12 +1,11 @@
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	Na sua lista e sempre preparado:\nNível 3: Bane, Hunter's Mark\nNível 5: Segurar Pessoa, Passo Nebuloso\nNível 6: Aceleração, Proteção contra Energia
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Feitiços de Juramento de Retribuição
-Feature/&PowerOathOfRetributionTenaciousPursuitDescription	Quando você acertar o ataque corpo a corpo com sucesso, este poder lhe concederá um movimento de corrida como uma ação bônus por um único turno, 5 vezes por descanso longo. Este movimento não provoca ataques de oportunidade.
-Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Perseguição tenaz
-Feature/&PowerOathOfRetributionTenaciousPursuitTitle	Perseguição tenaz
-Feature/&PowerOathOfRetributionZealousAccusationDescription	Canalize Divindade para designar uma criatura dentro de 12 quadrados e forçar o alvo a um teste de resistência de Sabedoria. Demônios e mortos-vivos têm uma desvantagem neste teste de resistência.\nSe falhar na resistência, o alvo não pode se mover e ficar amedrontado por um minuto ou até sofrer algum dano.
-Feature/&PowerOathOfRetributionZealousAccusationTitle	Canalizar Divindade: Acusação Zelosa
-Feature/&PowerOathOfRetributionZealousCondemnationDescription	Canalize Divindade para ganhar vantagem em seu ataque contra o alvo designado dentro de 2 quadrados como uma ação bônus. O poder dura 1 minuto ou até que o alvo esteja morto ou inconsciente.
-Feature/&PowerOathOfRetributionZealousCondemnationTitle	Canalizar Divindade: Condenação Zelosa
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Quando você acertar o ataque corpo a corpo com sucesso, este poder lhe concederá um movimento de corrida como uma ação bônus por um único turno, 5 vezes por descanso longo. Este movimento não provoca ataques de oportunidade.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Perseguição tenaz
+Power/&PowerOathOfRetributionZealousAccusationDescription	Canalize Divindade para designar uma criatura dentro de 12 quadrados e forçar o alvo a um teste de resistência de Sabedoria. Demônios e mortos-vivos têm uma desvantagem neste teste de resistência.\nSe falhar na resistência, o alvo não pode se mover e ficar amedrontado por um minuto ou até sofrer algum dano.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Canalizar Divindade: Acusação Zelosa
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Canalize Divindade para ganhar vantagem em seu ataque contra o alvo designado dentro de 2 quadrados como uma ação bônus. O poder dura 1 minuto ou até que o alvo esteja morto ou inconsciente.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Canalizar Divindade: Condenação Zelosa
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} pode ganhar movimento de ação bônus de corrida ao atingir este inimigo usando este poder.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Perseguição tenaz
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Ative a ação bônus de corrida.

@@ -311,8 +311,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOathOfRetributionZealousAccusationTitle",
-    "description": "Feature/&PowerOathOfRetributionZealousAccusationDescription",
+    "title": "Power/&PowerOathOfRetributionZealousAccusationTitle",
+    "description": "Power/&PowerOathOfRetributionZealousAccusationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "bd766c705f7771040960fdd1ceecf414",
@@ -331,8 +331,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "861bc3f3-e9d1-5abc-b556-d4d2f9b2094f",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerOathOfRetributionZealousAccusation"
 }

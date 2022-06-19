@@ -1,12 +1,11 @@
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	En tu lista y siempre preparado:\nNivel 3: Bane, Marca del Cazador\nNivel 5: Hold Person, Misty Step\nNivel 6: Prisa, Protección contra la Energía
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Juramento de Hechizos de Retribución
-Feature/&PowerOathOfRetributionTenaciousPursuitDescription	Cuando golpeas con éxito el ataque cuerpo a cuerpo, este poder te otorgará un movimiento rápido como acción adicional durante un solo turno, 5 veces por descanso prolongado. Este movimiento no provoca ataques de oportunidad.
-Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Persecución tenaz
-Feature/&PowerOathOfRetributionTenaciousPursuitTitle	Persecución tenaz
-Feature/&PowerOathOfRetributionZealousAccusationDescription	Canaliza Divinidad para designar una criatura dentro de 12 casillas y fuerza al objetivo a una tirada de salvación de Sabiduría. Los demonios y los muertos vivientes tienen desventaja en esta tirada de salvación.\nEn una salvación fallida, el objetivo no puede moverse y estar asustado durante un minuto o hasta que reciba algún daño.
-Feature/&PowerOathOfRetributionZealousAccusationTitle	Canalizar la divinidad: acusación celosa
-Feature/&PowerOathOfRetributionZealousCondemnationDescription	Canaliza Divinidad para obtener una ventaja en tu ataque contra el objetivo designado dentro de 2 casillas como acción adicional. El poder dura 1 minuto o hasta que el objetivo esté muerto o inconsciente.
-Feature/&PowerOathOfRetributionZealousCondemnationTitle	Canalizar Divinidad: Condena celosa
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Cuando golpeas con éxito el ataque cuerpo a cuerpo, este poder te otorgará un movimiento rápido como acción adicional durante un solo turno, 5 veces por descanso prolongado. Este movimiento no provoca ataques de oportunidad.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Persecución tenaz
+Power/&PowerOathOfRetributionZealousAccusationDescription	Canaliza Divinidad para designar una criatura dentro de 12 casillas y fuerza al objetivo a una tirada de salvación de Sabiduría. Los demonios y los muertos vivientes tienen desventaja en esta tirada de salvación.\nEn una salvación fallida, el objetivo no puede moverse y estar asustado durante un minuto o hasta que reciba algún daño.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Canalizar la divinidad: acusación celosa
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Canaliza Divinidad para obtener una ventaja en tu ataque contra el objetivo designado dentro de 2 casillas como acción adicional. El poder dura 1 minuto o hasta que el objetivo esté muerto o inconsciente.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Canalizar Divinidad: Condena celosa
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} puede obtener un movimiento de acción de bonificación de carrera golpeando a este enemigo con este poder.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Persecución tenaz
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activa la acción de bonificación de guión.

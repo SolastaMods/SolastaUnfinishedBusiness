@@ -293,15 +293,15 @@
   "proficiencyBonusToAttack": false,
   "uniqueInstance": true,
   "showCasting": true,
-  "shortTitleOverride": "Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle",
+  "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "magical": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerOathOfRetributionTenaciousPursuitTitle",
-    "description": "Feature/&PowerOathOfRetributionTenaciousPursuitDescription",
+    "title": "Power/&PowerOathOfRetributionTenaciousPursuitTitle",
+    "description": "Power/&PowerOathOfRetributionTenaciousPursuitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "28dfc426376ad0e4cb6fddb428d8774f",
@@ -320,8 +320,8 @@
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
-  "contentCopyright": "OpenGameContent",
+  "contentCopyright": "UserContent",
   "guid": "2df527ac-1b8f-5602-bda6-0584158dbc70",
-  "contentPack": "BaseGame",
+  "contentPack": 9999,
   "name": "PowerOathOfRetributionTenaciousPursuit"
 }
