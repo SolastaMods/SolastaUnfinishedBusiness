@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 
 namespace SolastaCommunityExpansion.Builders;
@@ -14,7 +15,7 @@ public abstract class SpellDefinitionBuilder<TDefinition, TBuilder> : Definition
         //
         // Should fix lots of official spells getting modified by spells on this mod
         //
-        Definition.effectDescription = Definition.EffectDescription.DeepCopy();
+        Definition.effectDescription = Definition.EffectDescription.Copy();
         Definition.implemented = true;
     }
 

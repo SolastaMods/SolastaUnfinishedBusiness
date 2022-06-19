@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -39,6 +38,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 RuleDefinitions.ConditionInterruption.DamagedByFriendly
             )
             .AddToDB();
+
+        var effectParticleParametersRetributionZealousAccusation = new EffectParticleParameters();
+
+        effectParticleParametersRetributionZealousAccusation
+            .Copy(SpellDefinitions.Fear.EffectDescription.EffectParticleParameters);
 
         var powerOathOfRetributionZealousAccusation = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfRetributionZealousAccusation", SubclassNamespace)
@@ -93,8 +97,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                             .Build()
                     },
                     effectAdvancement = new EffectAdvancement(),
-                    effectParticleParameters =
-                        SpellDefinitions.Fear.EffectDescription.EffectParticleParameters.DeepCopy()
+                    effectParticleParameters = effectParticleParametersRetributionZealousAccusation
                 }
             )
             .SetUniqueInstance(true)
@@ -111,6 +114,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 RuleDefinitions.ConditionInterruption.None
             )
             .AddToDB();
+
+        var effectParticleParametersRetributionZealousCondemnation = new EffectParticleParameters();
+
+        effectParticleParametersRetributionZealousCondemnation
+            .Copy(SpellDefinitions.TrueStrike.EffectDescription.EffectParticleParameters);
 
         var powerOathOfRetributionZealousCondemnation = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfRetributionZealousCondemnation", SubclassNamespace)
@@ -147,8 +155,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                             .Build()
                     },
                     effectAdvancement = new EffectAdvancement(),
-                    effectParticleParameters = SpellDefinitions.TrueStrike.EffectDescription
-                        .EffectParticleParameters.DeepCopy()
+                    effectParticleParameters = effectParticleParametersRetributionZealousCondemnation
                 }
             )
             .SetUniqueInstance(true)
@@ -167,6 +174,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 RuleDefinitions.ConditionInterruption.None
             )
             .AddToDB();
+
+        var effectParticleParametersRetributionTenaciousPursuit = new EffectParticleParameters();
+
+        effectParticleParametersRetributionTenaciousPursuit
+            .Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription.EffectParticleParameters);
 
         var powerOathOfRetributionTenaciousPursuit = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfRetributionTenaciousPursuit", SubclassNamespace)
@@ -202,9 +214,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                                 ConditionForm.ConditionOperation.Add, true, false)
                             .Build()
                     },
-                    effectParticleParameters = FeatureDefinitionPowers.PowerDomainLawHolyRetribution
-                        .EffectDescription
-                        .EffectParticleParameters.DeepCopy()
+                    effectParticleParameters = effectParticleParametersRetributionTenaciousPursuit
                 }
             )
             .SetShowCasting(true)

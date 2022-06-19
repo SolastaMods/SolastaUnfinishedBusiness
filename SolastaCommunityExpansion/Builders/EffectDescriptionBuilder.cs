@@ -14,19 +14,20 @@ public class EffectDescriptionBuilder
     {
         effect = new EffectDescription();
 
-        var effectAdvancement = new EffectAdvancement();
-        effectAdvancement.incrementMultiplier = 1;
+        var effectAdvancement = new EffectAdvancement {incrementMultiplier = 1};
+
         effect.SetEffectAdvancement(effectAdvancement);
 
-        var particleParams = DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters
-            .DeepCopy();
+        var particleParams = new EffectParticleParameters();
+
+        particleParams.Copy(DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters);
 
         effect.SetEffectParticleParameters(particleParams);
     }
 
     public EffectDescriptionBuilder(EffectDescription effect)
     {
-        this.effect = effect.DeepCopy();
+        this.effect = effect.Copy();
     }
 
     public static EffectDescriptionBuilder Create()

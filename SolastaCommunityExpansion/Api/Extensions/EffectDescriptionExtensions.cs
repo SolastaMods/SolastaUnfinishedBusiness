@@ -107,7 +107,11 @@ public static class EffectDescriptionExtensions
 
     public static EffectDescription Copy(this EffectDescription entity)
     {
-        return entity.DeepCopy();
+        var effectDescription = new EffectDescription();
+
+        effectDescription.Copy(entity);
+
+        return effectDescription;
     }
 
     public static T SetAnimationMagicEffect<T>(this T entity, AnimationDefinitions.AnimationMagicEffect value)
