@@ -146,7 +146,7 @@
         "topologyForm": {
           "$type": "TopologyForm, Assembly-CSharp",
           "changeType": "DangerousZone",
-          "impactsFlyingCharacters": false
+          "impactsFlyingCharacters": true
         },
         "hasFilterId": false,
         "filterId": 0
@@ -218,24 +218,14 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a6ecd459fc2a72459654a37da053dfb",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "activeEffectImpactParticleReference": null,
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
