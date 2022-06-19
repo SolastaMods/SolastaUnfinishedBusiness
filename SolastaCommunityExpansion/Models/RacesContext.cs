@@ -34,14 +34,10 @@ internal static class RacesContext
     {
         Morphotypes.Load();
 
-        //
-        // TODO: Add this to a setting on UI
-        //
-        _ = DarkelfSubraceBuilder.DarkelfSubrace;
-
         LoadRace(BolgrifRaceBuilder.BolgrifRace);
+        LoadRace(DarkelfSubraceBuilder.DarkelfSubrace);
         LoadRace(GnomeRaceBuilder.GnomeRace);
-        LoadRace(HalfElfVariantRaceBuilder.HalfElfVariantRace); // depends on DarkElf subrace
+        LoadRace(HalfElfVariantRaceBuilder.HalfElfVariantRace); // depends on DarkElf sub race
 
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
 
@@ -56,20 +52,35 @@ internal static class RacesContext
 
     private static void LoadRace(CharacterRaceDefinition characterRaceDefinition)
     {
-        if (!Races.Contains(characterRaceDefinition))
+        if (characterRaceDefinition.SubRaces.Count > 0)
+        {
+            foreach (var subRace in characterRaceDefinition.SubRaces)
+            {
+                LoadRace(subRace);
+            }
+        }
+        else
         {
             Races.Add(characterRaceDefinition);
+            UpdateRaceVisibility(characterRaceDefinition);
         }
-
-        UpdateRaceVisibility(characterRaceDefinition);
     }
 
     private static void UpdateRaceVisibility(CharacterRaceDefinition characterRaceDefinition)
     {
-        characterRaceDefinition.SubRaces.ForEach(x =>
-            x.GuiPresentation.hidden = !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
         characterRaceDefinition.GuiPresentation.hidden =
             !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name);
+
+        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+        var masterRace = dbCharacterRaceDefinition
+            .FirstOrDefault(x => x.SubRaces.Contains(characterRaceDefinition));
+
+        if (masterRace == null)
+        {
+            return;
+        }
+
+        masterRace.GuiPresentation.hidden = masterRace.SubRaces.All(x => x.GuiPresentation.Hidden);
     }
 
     internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)
