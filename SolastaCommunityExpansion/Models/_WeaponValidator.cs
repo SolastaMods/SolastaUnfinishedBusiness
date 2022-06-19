@@ -31,7 +31,8 @@ public static class WeaponValidators
 
     public static bool IsMelee(RulesetItem weapon)
     {
-        return HasAnyTag(weapon, TagsDefinitions.WeaponTagMelee);
+        return HasAnyTag(weapon, TagsDefinitions.WeaponTagMelee)
+               || weapon.ItemDefinition.IsArmor;
     }
 
     public static bool IsRanged(RulesetItem weapon)
