@@ -68,7 +68,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     endOfEffect = RuleDefinitions.TurnOccurenceType.EndOfTurn,
                     hasSavingThrow = true,
                     savingThrowAbility = AttributeDefinitions.Wisdom,
-                    savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
+                    savingThrowDifficultyAbility = AttributeDefinitions.Charisma,
                     fixedSavingThrowDifficultyClass = 15,
                     savingThrowAffinitiesBySense =
                         new List<SaveAffinityBySenseDescription>
@@ -86,18 +86,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
                         },
                     effectForms = new List<EffectForm>
                     {
-                        new()
-                        {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            formType = (EffectForm.EffectFormType)2,
-                            createdByCharacter = true,
-                            conditionForm = new ConditionForm
-                            {
-                                operation = ConditionForm.ConditionOperation.Add,
-                                conditionDefinition = conditionFrightenedZealousAccusation,
-                                conditionDefinitionName = conditionFrightenedZealousAccusation.Name
-                            }
-                        }
+                        new EffectFormBuilder()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionFrightenedZealousAccusation,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build()
                     },
                     effectAdvancement = new EffectAdvancement(),
                     effectParticleParameters =
@@ -147,17 +140,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     endOfEffect = RuleDefinitions.TurnOccurenceType.EndOfTurn,
                     effectForms = new List<EffectForm>
                     {
-                        new()
-                        {
-                            formType = EffectForm.EffectFormType.Condition,
-                            createdByCharacter = true,
-                            conditionForm = new ConditionForm
-                            {
-                                operation = ConditionForm.ConditionOperation.Add,
-                                conditionDefinition = conditionTrueStrikeZealousCondemnation,
-                                conditionDefinitionName = conditionTrueStrikeZealousCondemnation.Name
-                            }
-                        }
+                        new EffectFormBuilder()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionTrueStrikeZealousCondemnation,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build()
                     },
                     effectAdvancement = new EffectAdvancement(),
                     effectParticleParameters = SpellDefinitions.TrueStrike.EffectDescription
@@ -209,18 +196,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
                     effectForms = new List<EffectForm>
                     {
-                        new()
-                        {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            createdByCharacter = true,
-                            conditionForm = new ConditionForm
-                            {
-                                operation = ConditionForm.ConditionOperation.Add,
-                                conditionDefinition = conditionBonusRushTenaciousPursuit,
-                                conditionDefinitionName = conditionBonusRushTenaciousPursuit.Name,
-                                applyToSelf = true
-                            }
-                        }
+                        new EffectFormBuilder()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionBonusRushTenaciousPursuit,
+                                ConditionForm.ConditionOperation.Add, true, false)
+                            .Build()
                     },
                     effectParticleParameters = FeatureDefinitionPowers.PowerDomainLawHolyRetribution
                         .EffectDescription
