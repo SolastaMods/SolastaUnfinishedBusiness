@@ -1,20 +1,20 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Oath of Retribution Spells
-Power/&PowerOathOfRetributionTenaciousPursuitDescription	When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
-Power/&PowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
-Power/&PowerOathOfRetributionZealousAccusationDescription	Channel Divinity to designate a creature within 12 tiles and force the target a Wisdom saving throw. Fiends and undead have a disadvantage on this saving throw. \nOn a failed save, the target cannot move and being frightened for one minute or until it takes any damage.
-Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Zealous Accusation
-Power/&PowerOathOfRetributionZealousCondemnationDescription	Channel Divinity to gain an advantage on your attack against the designated target within 2 tiles as a bonus action. The power lasts 1 minute or until the target is dead or unconscious.
-Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Zealous Condemnation
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can earn dash bonus action move by striking this enemy using this power.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.
-Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
-Condition/&ConditionBonusRushTenaciousPursuitDescription	The blessing grants you a power to chase and avenge the enemy. \nBonus dash is enabled for a single turn. This movement doesn't provoke opportunity attacks.
-Condition/&ConditionBonusRushTenaciousPursuitTitle	Chasing
-Condition/&ConditionFrightenedZealousAccusationDescription	Absolutely overwhelmed by the power of holiness. \nCannot move and frighted for 1 minute or until take any damage.
-Condition/&ConditionFrightenedZealousAccusationTitle	Terrified
-Condition/&ConditionTrueStrikeZealousCondemnationDescription	Marked by glorious determination. \nAttacks to this target will receive an advantage for 1 minute or until the target is dead or unconscious.
-Condition/&ConditionTrueStrikeZealousCondemnationTitle	Stigmatized
-Subclass/&PaladinOathOfRetributionDescription	Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
-Subclass/&PaladinOathOfRetributionTitle	Oath of Retribution
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}。
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	惩戒咒语
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	当你成功击中近战攻击时，此异能将授予你一个冲刺移动作为一个奖励动作，持续一回合，每次长休 5 次。这个动作不会引发借机攻击。
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	顽强的追求
+Power/&PowerOathOfRetributionZealousAccusationDescription	引导神性指定 12 格内的生物并强制目标进行一次感知豁免。恶魔和不死生物在该豁免检定上有劣势。\n豁免失败后，目标在一分钟内或直到受到任何伤害都无法移动并受到惊吓。
+Power/&PowerOathOfRetributionZealousAccusationTitle	引导神性：狂热的指责
+Power/&PowerOathOfRetributionZealousCondemnationDescription	作为奖励动作，引导神性在攻击 2 格内的指定目标时获得优势。威能持续 1 分钟或直到目标死亡或失去知觉。
+Power/&PowerOathOfRetributionZealousCondemnationTitle	引导神性：热心谴责
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} 可以通过使用此能力打击该敌人来获得冲刺奖励行动动作。
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	顽强的追求
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	激活冲刺奖励行动。
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	追求
+Condition/&ConditionBonusRushTenaciousPursuitDescription	祝福赋予你追逐和报复敌人的力量。\n单回合启用奖励冲刺。这个动作不会引发借机攻击。
+Condition/&ConditionBonusRushTenaciousPursuitTitle	追逐
+Condition/&ConditionFrightenedZealousAccusationDescription	完全被圣洁的力量所压倒。\n在 1 分钟内或受到任何伤害之前无法移动和恐惧。
+Condition/&ConditionFrightenedZealousAccusationTitle	吓坏了
+Condition/&ConditionTrueStrikeZealousCondemnationDescription	以光荣的决心为标志。\n对该目标的攻击将获得 1 分钟的优势，或者直到目标死亡或失去知觉。
+Condition/&ConditionTrueStrikeZealousCondemnationTitle	被污名化
+Subclass/&PaladinOathOfRetributionDescription	宣誓复仇誓言的圣骑士们完全承诺以极端的偏见终止不圣洁和不公正的行为。对于这些圣骑士来说，为罪恶和腐败报仇的责任比他们自己的价值观更重要。
+Subclass/&PaladinOathOfRetributionTitle	报应誓言
