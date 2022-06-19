@@ -191,52 +191,52 @@ internal class FeatureBuilder
         GuiPresentation guiPresentation)
     {
         var instance = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        Traverse.Create(instance).Field("fixedUsesPerRecharge").SetValue(usesPerRecharge);
-        Traverse.Create(instance).Field(nameof(usesDetermination)).SetValue(usesDetermination);
-        Traverse.Create(instance).Field(nameof(activationTime)).SetValue(activationTime);
-        Traverse.Create(instance).Field(nameof(costPerUse)).SetValue(costPerUse);
-        Traverse.Create(instance).Field("rechargeRate").SetValue(recharge);
-        Traverse.Create(instance).Field(nameof(usesAbilityScoreName)).SetValue(usesAbilityScoreName);
-        Traverse.Create(instance).Field("uniqueInstance").SetValue(true);
+        instance.fixedUsesPerRecharge = usesPerRecharge;
+        instance.usesDetermination = usesDetermination;
+        instance.activationTime = activationTime;
+        instance.costPerUse = costPerUse;
+        instance.rechargeRate = recharge;
+        instance.usesAbilityScoreName = usesAbilityScoreName;
+        instance.uniqueInstance = true;
         var root1 = new EffectDescription();
-        Traverse.Create(root1).Field("targetSide").SetValue(RuleDefinitions.Side.Enemy);
-        Traverse.Create(root1).Field("createdByCharacter").SetValue(true);
-        Traverse.Create(root1).Field(nameof(rangeType)).SetValue(rangeType);
-        Traverse.Create(root1).Field(nameof(rangeParameter)).SetValue(rangeParameter);
-        Traverse.Create(root1).Field(nameof(targetType)).SetValue(targetType);
-        Traverse.Create(root1).Field(nameof(itemSelectionType)).SetValue(itemSelectionType);
-        Traverse.Create(root1).Field("canBePlacedOnCharacter").SetValue(true);
-        Traverse.Create(root1).Field(nameof(durationType)).SetValue(durationType);
-        Traverse.Create(root1).Field(nameof(durationParameter)).SetValue(durationParameter);
-        Traverse.Create(root1).Field(nameof(endOfEffect)).SetValue(endOfEffect);
-        Traverse.Create(root1).Field("hasSavingThrow").SetValue(true);
-        Traverse.Create(root1).Field("savingThrowAbility").SetValue(savethrowtype);
-        Traverse.Create(root1).Field("createdByCharacter").SetValue(true);
-        Traverse.Create(root1).Field("savingThrowDifficultyAbility").SetValue(savethrowDA);
-        Traverse.Create(root1).Field("fixedSavingThrowDifficultyClass").SetValue(savethrowDC);
+        root1.targetSide = RuleDefinitions.Side.Enemy;
+        root1.createdByCharacter = true;
+        root1.rangeType = rangeType;
+        root1.rangeParameter = rangeParameter;
+        root1.targetType = targetType;
+        root1.itemSelectionType = itemSelectionType;
+        root1.canBePlacedOnCharacter = true;
+        root1.durationType = durationType;
+        root1.durationParameter = durationParameter;
+        root1.endOfEffect = endOfEffect;
+        root1.hasSavingThrow = true;
+        root1.savingThrowAbility = savethrowtype;
+        root1.createdByCharacter = true;
+        root1.savingThrowDifficultyAbility = savethrowDA;
+        root1.fixedSavingThrowDifficultyClass = savethrowDC;
         foreach (var senseDescription in saveAffinityBySenseDescriptions)
         {
             root1.SavingThrowAffinitiesBySense.Add(senseDescription);
         }
 
         var root2 = new EffectForm {FormType = EffectForm.EffectFormType.Condition};
-        Traverse.Create(root2).Field("formType").SetValue(2);
-        Traverse.Create(root2).Field("createdByCharacter").SetValue(true);
+        root2.formType = (EffectForm.EffectFormType)2;
+        root2.createdByCharacter = true;
         var root3 = new ConditionForm();
-        Traverse.Create(root3).Field("operation").SetValue(ConditionForm.ConditionOperation.Add);
-        Traverse.Create(root3).Field("conditionDefinition").SetValue(condition1);
-        Traverse.Create(root3).Field("conditionDefinitionName").SetValue(condition1.Name);
-        Traverse.Create(root2).Field("conditionForm").SetValue(root3);
+        root3.operation = ConditionForm.ConditionOperation.Add;
+        root3.conditionDefinition = condition1;
+        root3.conditionDefinitionName = condition1.Name;
+        root2.conditionForm = root3;
         root1.EffectForms.Add(root2);
         var effectAdvancement = new EffectAdvancement();
-        Traverse.Create(root1).Field("effectAdvancement").SetValue(effectAdvancement);
+        root1.effectAdvancement = effectAdvancement;
         var particleParameters = new EffectParticleParameters();
         particleParameters.Copy(SpellDefinitions.Fear.EffectDescription.EffectParticleParameters);
-        Traverse.Create(root1).Field("effectParticleParameters").SetValue(particleParameters);
-        Traverse.Create(instance).Field("effectDescription").SetValue(root1);
-        Traverse.Create(instance).Field(nameof(name)).SetValue(name);
+        root1.effectParticleParameters = particleParameters;
+        instance.effectDescription = root1;
         instance.name = name;
-        Traverse.Create(instance).Field(nameof(guiPresentation)).SetValue(guiPresentation);
+        instance.name = name;
+        instance.guiPresentation = guiPresentation;
         Traverse.Create(instance).Field("guid")
             .SetValue(GuidHelper.Create(OathOfRetribution.ModGuidNamespace, name).ToString());
         DatabaseRepository.GetDatabase<FeatureDefinition>().Add(instance);
@@ -262,42 +262,42 @@ internal class FeatureBuilder
         GuiPresentation guiPresentation)
     {
         var instance = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        Traverse.Create(instance).Field("fixedUsesPerRecharge").SetValue(usesPerRecharge);
-        Traverse.Create(instance).Field(nameof(usesDetermination)).SetValue(usesDetermination);
-        Traverse.Create(instance).Field(nameof(activationTime)).SetValue(activationTime);
-        Traverse.Create(instance).Field(nameof(costPerUse)).SetValue(costPerUse);
-        Traverse.Create(instance).Field("rechargeRate").SetValue(recharge);
-        Traverse.Create(instance).Field(nameof(usesAbilityScoreName)).SetValue(usesAbilityScoreName);
-        Traverse.Create(instance).Field("uniqueInstance").SetValue(true);
+        instance.fixedUsesPerRecharge = usesPerRecharge;
+        instance.usesDetermination = usesDetermination;
+        instance.activationTime = activationTime;
+        instance.costPerUse = costPerUse;
+        instance.rechargeRate = recharge;
+        instance.usesAbilityScoreName = usesAbilityScoreName;
+        instance.uniqueInstance = true;
         var root1 = new EffectDescription();
-        Traverse.Create(root1).Field("targetSide").SetValue(RuleDefinitions.Side.Enemy);
-        Traverse.Create(root1).Field("createdByCharacter").SetValue(true);
-        Traverse.Create(root1).Field(nameof(rangeType)).SetValue(rangeType);
-        Traverse.Create(root1).Field(nameof(rangeParameter)).SetValue(rangeParameter);
-        Traverse.Create(root1).Field(nameof(targetType)).SetValue(targetType);
-        Traverse.Create(root1).Field(nameof(itemSelectionType)).SetValue(itemSelectionType);
-        Traverse.Create(root1).Field("canBePlacedOnCharacter").SetValue(true);
-        Traverse.Create(root1).Field(nameof(durationType)).SetValue(durationType);
-        Traverse.Create(root1).Field(nameof(durationParameter)).SetValue(durationParameter);
-        Traverse.Create(root1).Field(nameof(endOfEffect)).SetValue(endOfEffect);
+        root1.targetSide = RuleDefinitions.Side.Enemy;
+        root1.createdByCharacter = true;
+        root1.rangeType = rangeType;
+        root1.rangeParameter = rangeParameter;
+        root1.targetType = targetType;
+        root1.itemSelectionType = itemSelectionType;
+        root1.canBePlacedOnCharacter = true;
+        root1.durationType = durationType;
+        root1.durationParameter = durationParameter;
+        root1.endOfEffect = endOfEffect;
         var root2 = new EffectForm {FormType = EffectForm.EffectFormType.Condition};
-        Traverse.Create(root2).Field("formType").SetValue(2);
-        Traverse.Create(root2).Field("createdByCharacter").SetValue(true);
+        root2.formType = (EffectForm.EffectFormType)2;
+        root2.createdByCharacter = true;
         var root3 = new ConditionForm();
-        Traverse.Create(root3).Field("operation").SetValue(ConditionForm.ConditionOperation.Add);
-        Traverse.Create(root3).Field("conditionDefinition").SetValue(condition1);
-        Traverse.Create(root3).Field("conditionDefinitionName").SetValue(condition1.Name);
-        Traverse.Create(root2).Field("conditionForm").SetValue(root3);
+        root3.operation = ConditionForm.ConditionOperation.Add;
+        root3.conditionDefinition = condition1;
+        root3.conditionDefinitionName = condition1.Name;
+        root2.conditionForm = root3;
         root1.EffectForms.Add(root2);
         var effectAdvancement = new EffectAdvancement();
-        Traverse.Create(root1).Field("effectAdvancement").SetValue(effectAdvancement);
+        root1.effectAdvancement = effectAdvancement;
         var particleParameters = new EffectParticleParameters();
         particleParameters.Copy(SpellDefinitions.TrueStrike.EffectDescription.EffectParticleParameters);
-        Traverse.Create(root1).Field("effectParticleParameters").SetValue(particleParameters);
-        Traverse.Create(instance).Field("effectDescription").SetValue(root1);
-        Traverse.Create(instance).Field(nameof(name)).SetValue(name);
+        root1.effectParticleParameters = particleParameters;
+        instance.effectDescription = root1;
         instance.name = name;
-        Traverse.Create(instance).Field(nameof(guiPresentation)).SetValue(guiPresentation);
+        instance.name = name;
+        instance.guiPresentation = guiPresentation;
         Traverse.Create(instance).Field("guid")
             .SetValue(GuidHelper.Create(OathOfRetribution.ModGuidNamespace, name).ToString());
         DatabaseRepository.GetDatabase<FeatureDefinition>().Add(instance);
@@ -324,45 +324,45 @@ internal class FeatureBuilder
         GuiPresentation guiPresentation)
     {
         var instance = ScriptableObject.CreateInstance<FeatureDefinitionPower>();
-        Traverse.Create(instance).Field(nameof(activationTime)).SetValue(activationTime);
-        Traverse.Create(instance).Field("rechargeRate").SetValue(rechargerate);
-        Traverse.Create(instance).Field(nameof(costPerUse)).SetValue(costPerUse);
-        Traverse.Create(instance).Field(nameof(usesAbilityScoreName)).SetValue(usesAbilityScoreName);
-        Traverse.Create(instance).Field("fixedUsesPerRecharge").SetValue(fixedusesPerRecharge);
-        Traverse.Create(instance).Field("abilityScore").SetValue(abilityScoreName);
-        Traverse.Create(instance).Field("showCasting").SetValue(true);
-        Traverse.Create(instance).Field("uniqueInstance").SetValue(true);
-        Traverse.Create(instance).Field("shortTitleOverride").SetValue(shorttitle);
+        instance.activationTime = activationTime;
+        instance.rechargeRate = rechargerate;
+        instance.costPerUse = costPerUse;
+        instance.usesAbilityScoreName = usesAbilityScoreName;
+        instance.fixedUsesPerRecharge = fixedusesPerRecharge;
+        instance.abilityScore = abilityScoreName;
+        instance.showCasting = true;
+        instance.uniqueInstance = true;
+        instance.shortTitleOverride = shorttitle;
         var root1 = new EffectDescription();
-        Traverse.Create(root1).Field(nameof(targetType)).SetValue(targetType);
-        Traverse.Create(root1).Field(nameof(itemSelectionType)).SetValue(itemSelectionType);
-        Traverse.Create(root1).Field("targetSide").SetValue(targetside);
-        Traverse.Create(root1).Field("createdByCharacter").SetValue(true);
-        Traverse.Create(root1).Field("rangeType").SetValue(rangetype);
-        Traverse.Create(root1).Field("canBePlacedOnCharacter").SetValue(true);
-        Traverse.Create(root1).Field(nameof(durationType)).SetValue(durationType);
-        Traverse.Create(root1).Field(nameof(durationParameter)).SetValue(durationParameter);
-        Traverse.Create(root1).Field("endOfEffect").SetValue(turnoccurence);
+        root1.targetType = targetType;
+        root1.itemSelectionType = itemSelectionType;
+        root1.targetSide = targetside;
+        root1.createdByCharacter = true;
+        root1.rangeType = rangetype;
+        root1.canBePlacedOnCharacter = true;
+        root1.durationType = durationType;
+        root1.durationParameter = durationParameter;
+        root1.endOfEffect = turnoccurence;
         var root2 = new EffectForm {FormType = EffectForm.EffectFormType.Condition};
-        Traverse.Create(root2).Field("createdByCharacter").SetValue(true);
+        root2.createdByCharacter = true;
         var root3 = new ConditionForm();
-        Traverse.Create(root3).Field("operation").SetValue(ConditionForm.ConditionOperation.Add);
-        Traverse.Create(root3).Field("conditionDefinition").SetValue(condition);
-        Traverse.Create(root3).Field("conditionDefinitionName").SetValue(condition.Name);
-        Traverse.Create(root3).Field("applyToSelf").SetValue(true);
-        Traverse.Create(root2).Field("conditionForm").SetValue(root3);
+        root3.operation = ConditionForm.ConditionOperation.Add;
+        root3.conditionDefinition = condition;
+        root3.conditionDefinitionName = condition.Name;
+        root3.applyToSelf = true;
+        root2.conditionForm = root3;
         root1.EffectForms.Add(root2);
         var root4 = new EffectAdvancement();
         Traverse.Create(root4).Field("incrementMultiplier").SetValue(1);
-        Traverse.Create(root1).Field("effectAdvancement").SetValue(root4);
+        root1.effectAdvancement = root4;
         var particleParameters = new EffectParticleParameters();
         particleParameters.Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription
             .EffectParticleParameters);
-        Traverse.Create(root1).Field("effectParticleParameters").SetValue(particleParameters);
-        Traverse.Create(instance).Field("effectDescription").SetValue(root1);
-        Traverse.Create(instance).Field(nameof(name)).SetValue(name);
+        root1.effectParticleParameters = particleParameters;
+        instance.effectDescription = root1;
         instance.name = name;
-        Traverse.Create(instance).Field(nameof(guiPresentation)).SetValue(guiPresentation);
+        instance.name = name;
+        instance.guiPresentation = guiPresentation;
         Traverse.Create(instance).Field("guid")
             .SetValue(GuidHelper.Create(OathOfRetribution.ModGuidNamespace, name).ToString());
         DatabaseRepository.GetDatabase<FeatureDefinition>().Add(instance);
@@ -398,11 +398,11 @@ internal class FeatureBuilder
             instance.AutoPreparedSpellsGroups.Add(autospelllist);
         }
 
-        Traverse.Create(instance).Field("spellcastingClass").SetValue(characterclass);
-        Traverse.Create(instance).Field("contentCopyright").SetValue(4);
-        Traverse.Create(instance).Field(nameof(name)).SetValue(name);
+        instance.spellcastingClass = characterclass;
+        instance.contentCopyright = (BaseDefinition.Copyright)4;
         instance.name = name;
-        Traverse.Create(instance).Field(nameof(guiPresentation)).SetValue(guiPresentation);
+        instance.name = name;
+        instance.guiPresentation = guiPresentation;
         Traverse.Create(instance).Field("guid")
             .SetValue(GuidHelper.Create(OathOfRetribution.ModGuidNamespace, name).ToString());
         DatabaseRepository.GetDatabase<FeatureDefinition>().Add(instance);
@@ -423,24 +423,24 @@ internal class FeatureBuilder
             instance.Features.Add(conditionFeature);
         }
 
-        Traverse.Create(instance).Field("conditionType").SetValue(RuleDefinitions.ConditionType.Detrimental);
-        Traverse.Create(instance).Field("allowMultipleInstances").SetValue(false);
-        Traverse.Create(instance).Field(nameof(durationType)).SetValue(durationType);
-        Traverse.Create(instance).Field(nameof(durationParameter)).SetValue(durationParameter);
+        instance.conditionType = RuleDefinitions.ConditionType.Detrimental;
+        instance.allowMultipleInstances = false;
+        instance.durationType = durationType;
+        instance.durationParameter = durationParameter;
         foreach (var conditionInterruption in conditionInterruptions)
         {
             instance.SpecialInterruptions.Add(conditionInterruption);
         }
 
         var assetReference = new AssetReference();
-        Traverse.Create(instance).Field("conditionStartParticleReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("conditionParticleReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("conditionEndParticleReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("characterShaderReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("recurrentEffectForms").SetValue(new List<EffectForm>());
-        Traverse.Create(instance).Field("cancellingConditions").SetValue(new List<ConditionDefinition>());
-        Traverse.Create(instance).Field(nameof(guiPresentation)).SetValue(guiPresentation);
-        Traverse.Create(instance).Field(nameof(name)).SetValue(name);
+        instance.conditionStartParticleReference = assetReference;
+        instance.conditionParticleReference = assetReference;
+        instance.conditionEndParticleReference = assetReference;
+        instance.characterShaderReference = assetReference;
+        instance.recurrentEffectForms = new List<EffectForm>();
+        instance.cancellingConditions = new List<ConditionDefinition>();
+        instance.guiPresentation = guiPresentation;
+        instance.name = name;
         instance.name = name;
         Traverse.Create(instance).Field("guid")
             .SetValue(GuidHelper.Create(OathOfRetribution.ModGuidNamespace, name).ToString());
@@ -463,25 +463,25 @@ internal class FeatureBuilder
             instance.Features.Add(conditionFeature);
         }
 
-        Traverse.Create(instance).Field("conditionType").SetValue(RuleDefinitions.ConditionType.Beneficial);
-        Traverse.Create(instance).Field("allowMultipleInstances").SetValue(false);
-        Traverse.Create(instance).Field(nameof(durationType)).SetValue(durationType);
-        Traverse.Create(instance).Field(nameof(durationParameter)).SetValue(durationParameter);
-        Traverse.Create(instance).Field("turnOccurence").SetValue(turnoccurence);
+        instance.conditionType = RuleDefinitions.ConditionType.Beneficial;
+        instance.allowMultipleInstances = false;
+        instance.durationType = durationType;
+        instance.durationParameter = durationParameter;
+        instance.turnOccurence = turnoccurence;
         foreach (var conditionInterruption in conditionInterruptions)
         {
             instance.SpecialInterruptions.Add(conditionInterruption);
         }
 
         var assetReference = new AssetReference();
-        Traverse.Create(instance).Field("conditionStartParticleReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("conditionParticleReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("conditionEndParticleReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("characterShaderReference").SetValue(assetReference);
-        Traverse.Create(instance).Field("recurrentEffectForms").SetValue(new List<EffectForm>());
-        Traverse.Create(instance).Field("cancellingConditions").SetValue(new List<ConditionDefinition>());
-        Traverse.Create(instance).Field(nameof(guiPresentation)).SetValue(guiPresentation);
-        Traverse.Create(instance).Field(nameof(name)).SetValue(name);
+        instance.conditionStartParticleReference = assetReference;
+        instance.conditionParticleReference = assetReference;
+        instance.conditionEndParticleReference = assetReference;
+        instance.characterShaderReference = assetReference;
+        instance.recurrentEffectForms = new List<EffectForm>();
+        instance.cancellingConditions = new List<ConditionDefinition>();
+        instance.guiPresentation = guiPresentation;
+        instance.name = name;
         instance.name = name;
         Traverse.Create(instance).Field("guid")
             .SetValue(GuidHelper.Create(OathOfRetribution.ModGuidNamespace, name).ToString());

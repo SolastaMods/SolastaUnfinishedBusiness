@@ -1,5 +1,5 @@
-Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Oath of Retribution Spells
 Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	In your list and always prepared: \nLevel 3: Bane, Hunter's Mark \nLevel 5: Hold Person, Misty Step \nLevel 6: Haste, Protection from Energy
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Oath of Retribution Spells
 Feature/&PowerOathOfRetributionTenaciousPursuitDescription	When you successfully hit the melee attack, this power will grants you a dash move as a bonus action for a single turn, 5 times per long rest. This movement doesn't provoke opportunity attacks.
 Feature/&PowerOathOfRetributionTenaciousPursuitShortTitle	Tenacious Pursuit 
 Feature/&PowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
@@ -13,6 +13,8 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
 Rules/&ConditionBonusRushTenaciousPursuitDescription	The blessing grants you a power to chase and avenge the enemy. \nBonus dash is enabled for a single turn. This movement doesn't provoke opportunity attacks.
 Rules/&ConditionBonusRushTenaciousPursuitTitle	Chasing
+Rules/&ConditionFrightenedZealousAccusationDescription	Absolutely overwhelmed by the power of holiness. \nCannot move and frighted for 1 minute or until take any damage.
+Rules/&ConditionFrightenedZealousAccusationTitle	Terrified
 Rules/&ConditionTSZealousCondemnationDescription	Marked by glorious determination. \nAttacks to this target will receive an advantage for 1 minute or until the target is dead or unconscious.
 Rules/&ConditionTSZealousCondemnationTitle	Stigmatized
 Subclass/&PaladinOathOfRetributionDescription	Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
