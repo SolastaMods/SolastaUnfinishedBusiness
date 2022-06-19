@@ -1,4 +1,5 @@
 FeatureSetGreenWitchMagic	Title='Subclass/&GreenWitchMagic'.
 FeatureSetRedWitchMagic	Title='Subclass/&RedWitchMagic'.
 FeatureSetWhiteWitchMagic	Title='Subclass/&WhiteWitchMagic'.
+HalfElfVariant	Description='Race/&HalfElfVariantDescription'.
 WardenArmorProficiencyMulticlass	Title='Feature/&WardenArmorProficiencyTitle'.

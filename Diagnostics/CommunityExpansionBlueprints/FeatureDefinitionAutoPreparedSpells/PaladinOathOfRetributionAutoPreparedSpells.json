@@ -20,7 +20,7 @@
     },
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
-      "classLevel": 6,
+      "classLevel": 9,
       "spellsList": [
         "Definition:Haste:134efafc59c7c58438b711271fb2c785",
         "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90"
