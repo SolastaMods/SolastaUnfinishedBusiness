@@ -117,7 +117,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Race/&HalfElfHighElfRaceTitle",
     "description": "Race/&HalfElfHighElfRaceDescription",
     "spriteReference": {

@@ -1,8 +1,7 @@
-﻿Race/&HalfElfDarkElfRaceDescription	<#B5D3DE>Half-Dark-Elves</color> are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
-Race/&HalfElfDarkElfRaceTitle	Half Dark Elf
-Race/&HalfElfHighElfRaceDescription	<#B5D3DE>Half-High-Elves</color> are trained to use magic very early.
-Race/&HalfElfHighElfRaceTitle	Half High Elf
-Race/&HalfElfSylvanElfRaceDescription <#B5D3DE>Half-Sylvan-Elves</color> are trained to survive in the wilds and are particularly apt to survival. As their high elf heritage, they are trained to fight with swords and bows since childhood.
-Race/&HalfElfSylvanElfRaceTitle	Half Sylvan Elf
-Race/&HalfElfVariantDescription	Offspring of the human refugees from Tirmar and the Solastan elves, <#B5D3DE>half-elves</color> have the strength of their parents. Versatile, charismatic, and gifted with Darkvision and fey ancestry, they are always torn between two cultures.
-Race/&HalfElfVariantTitle	Half-Elf
+﻿Race/&HalfElfDarkElfRaceDescription	半黑暗精灵是精灵的后裔，由于生活在荒芜的荒原，随着时间的推移而发生了改变。他们人类的血统使其能适应明亮的光照
+Race/&HalfElfDarkElfRaceTitle	半黑暗精灵
+Race/&HalfElfHighElfRaceDescription	半高等精灵很早就接受了使用魔法的训练
+Race/&HalfElfHighElfRaceTitle	半高等精灵
+Race/&HalfElfSylvanElfRaceDescription	半木精灵被训练成在荒野中生存的人，也特别善于生存。由于他们的木血统，他们从小就被训练用剑和弓作战
+Race/&HalfElfSylvanElfRaceTitle	半木精灵
+Race/&HalfElfVariantTitle	半精灵

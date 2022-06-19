@@ -1,0 +1,20 @@
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Eid der Vergeltung Zauber
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Wenn Sie den Nahkampfangriff erfolgreich ausgeführt haben, gewährt Ihnen diese Kraft für eine einzelne Runde fünf Mal pro langer Pause einen Sprint-Move als Bonusaktion. Diese Bewegung provoziert keine Gelegenheitsangriffe.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Hartnäckige Verfolgung
+Power/&PowerOathOfRetributionZealousAccusationDescription	Kanalisiert Göttlichkeit, um eine Kreatur innerhalb von 12 Kacheln zu bestimmen und das Ziel zu einem Weisheitsrettungswurf zu zwingen. Fiends und Untote sind bei diesem Rettungswurf im Nachteil.\nBei einem fehlgeschlagenen Rettungswurf kann sich das Ziel eine Minute lang oder bis es Schaden erleidet, nicht bewegen und verängstigt sein.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity: Eifrige Anklage
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Kanalisiere Göttlichkeit, um als Bonusaktion einen Vorteil bei deinem Angriff gegen das bestimmte Ziel innerhalb von 2 Kacheln zu erlangen. Die Kraft hält 1 Minute an oder bis das Ziel tot oder bewusstlos ist.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity: Eifrige Verurteilung
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} kann Sprint-Bonus-Action-Move verdienen, indem er diesen Feind mit dieser Kraft schlägt.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Hartnäckige Verfolgung
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Dash-Bonus-Aktion aktivieren.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Verfolgen
+Condition/&ConditionBonusRushTenaciousPursuitDescription	Der Segen verleiht dir die Macht, den Feind zu jagen und zu rächen.\nBonus Dash ist für eine einzelne Runde aktiviert. Diese Bewegung provoziert keine Gelegenheitsangriffe.
+Condition/&ConditionBonusRushTenaciousPursuitTitle	Jagend
+Condition/&ConditionFrightenedZealousAccusationDescription	Absolut überwältigt von der Kraft der Heiligkeit.\nKann sich 1 Minute lang nicht bewegen und hat Angst oder bis er Schaden erleidet.
+Condition/&ConditionFrightenedZealousAccusationTitle	Verängstigt
+Condition/&ConditionTrueStrikeZealousCondemnationDescription	Geprägt von glorreicher Entschlossenheit.\nAngriffe auf dieses Ziel erhalten einen Vorteil für 1 Minute oder bis das Ziel tot oder bewusstlos ist.
+Condition/&ConditionTrueStrikeZealousCondemnationTitle	Stigmatisiert
+Subclass/&PaladinOathOfRetributionDescription	Paladine, die den Eid der Vergeltung schwören, verpflichten sich, die Unheiligkeit und Ungerechtigkeit mit extremen Vorurteilen zu beenden. Für diese Paladine wiegt die Pflicht, Sünden und Korruption zu rächen, mehr als ihre eigenen Werte.
+Subclass/&PaladinOathOfRetributionTitle	Eid der Vergeltung

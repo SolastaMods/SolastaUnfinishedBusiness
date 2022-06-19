@@ -1,0 +1,20 @@
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsDescription	{0}.
+Feature/&PaladinOathOfRetributionAutoPreparedSpellsTitle	Sorts de serment de châtiment
+Power/&PowerOathOfRetributionTenaciousPursuitDescription	Lorsque vous réussissez l'attaque de mêlée, ce pouvoir vous accorde un coup de tiret en tant qu'action bonus pour un seul tour, 5 fois par repos long. Ce mouvement ne provoque pas d'attaques d'opportunité.
+Power/&PowerOathOfRetributionTenaciousPursuitTitle	Poursuite tenace
+Power/&PowerOathOfRetributionZealousAccusationDescription	Canalisez la Divinité pour désigner une créature à moins de 12 tuiles et forcez la cible à un jet de sauvegarde de Sagesse. Les démons et les morts-vivants ont un désavantage à ce jet de sauvegarde.\nEn cas d'échec, la cible ne peut pas bouger et est effrayée pendant une minute ou jusqu'à ce qu'elle subisse des dégâts.
+Power/&PowerOathOfRetributionZealousAccusationTitle	Channel Divinity : Accusation zélée
+Power/&PowerOathOfRetributionZealousCondemnationDescription	Canalisez la divinité pour obtenir un avantage sur votre attaque contre la cible désignée dans un rayon de 2 tuiles en tant qu'action bonus. Le pouvoir dure 1 minute ou jusqu'à ce que la cible soit morte ou inconsciente.
+Power/&PowerOathOfRetributionZealousCondemnationTitle	Channel Divinity : Condamnation zélée
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} peut gagner un mouvement d'action bonus dash en frappant cet ennemi à l'aide de ce pouvoir.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Poursuite tenace
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activez l'action bonus tiret.
+Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Poursuivre
+Condition/&ConditionBonusRushTenaciousPursuitDescription	La bénédiction vous donne le pouvoir de chasser et de venger l'ennemi.\nLe tiret bonus est activé pour un seul tour. Ce mouvement ne provoque pas d'attaques d'opportunité.
+Condition/&ConditionBonusRushTenaciousPursuitTitle	Ciselure
+Condition/&ConditionFrightenedZealousAccusationDescription	Absolument submergé par la puissance de la sainteté.\nNe peut pas bouger et a peur pendant 1 minute ou jusqu'à ce qu'il subisse des dégâts.
+Condition/&ConditionFrightenedZealousAccusationTitle	Terrifié
+Condition/&ConditionTrueStrikeZealousCondemnationDescription	Marquée par une glorieuse détermination.\nLes attaques contre cette cible recevront un avantage pendant 1 minute ou jusqu'à ce que la cible soit morte ou inconsciente.
+Condition/&ConditionTrueStrikeZealousCondemnationTitle	Stigmatisé
+Subclass/&PaladinOathOfRetributionDescription	Les paladins qui prêtent le serment de châtiment s'engagent pleinement à mettre fin à l'impiété et à l'injustice avec des préjugés extrêmes. Pour ces paladins, le devoir de venger les péchés et les corruptions pèse plus que leurs propres valeurs.
+Subclass/&PaladinOathOfRetributionTitle	Serment de châtiment

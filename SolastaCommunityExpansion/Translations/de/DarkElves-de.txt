@@ -1,7 +1,6 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Du bist bei Angriffswürfen und Weisheitswürfen (Wahrnehmung) bei hellem Licht im Nachteil.
-Condition/&ConditionDarkelfLightSensitiveTitle	Lichtempfindlichkeit
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Nachteil Lichtempfindlichkeit.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Lichtempfindlichkeit
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	Du hast einen Malus von -2 auf Weisheitswürfe (Wahrnehmung) bei hellem Licht. Außerdem wird deine Geschwindigkeit bei hellem Licht um 1 reduziert.
+Condition/&ConditionDarkelfLightSensitiveTitle	Helle Lichtempfindlichkeit
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Du hast einen Malus von -2 auf Weisheit (Wahrnehmung).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Erhöhung des Fähigkeitswerts
 Feature/&DarkelfMagicDescription	Du kennst den Cantrip von Dancing Lights. Auf der 3. Stufe lernst du Feenfeuer und auf der 5. Stufe Dunkelheit. Beide können einmal pro langer Pause verwendet werden.
@@ -10,6 +9,7 @@ Feature/&DarkelfWeaponTrainingDescription	Sie beherrschen den Umgang mit Degen, 
 Feature/&DarkelfWeaponTrainingTitle	Waffentraining der Dunkelelfen
 Feature/&LightAffinityDarkelfLightSensitivityDescription	Du hast einen Malus von -2 auf Weisheitswürfe (Wahrnehmung) bei hellem Licht. Außerdem wird deine Geschwindigkeit bei hellem Licht um 1 reduziert.
 Feature/&LightAffinityDarkelfLightSensitivityTitle	Helle Lichtempfindlichkeit
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Deine Geschwindigkeit wird um 1 verringert.
 Feature/&PowerDarkelfDarknessDescription	Erschaffe einen Bereich magischer Dunkelheit. Einmal pro langer Pause verwendbar.
 Feature/&PowerDarkelfDarknessTitle	Dunkelheit
 Feature/&PowerDarkelfFaerieFireDescription	Markieren Sie Kreaturen, um jedem, der sie angreift, einen Vorteil zu verschaffen. Einmal pro langer Pause verwendbar.
@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo’Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 Malus auf Geschwindigkeit
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Malus von -2 auf Weisheit

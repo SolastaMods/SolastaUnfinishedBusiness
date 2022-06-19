@@ -191,3 +191,4 @@ ModUi/&ChangeSleetStormToCube	Измените <color=orange>Sleet Storm</color>
 ModUi/&Category	Category
 ModUi/&WeaponTag	Weapon Tag
 ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Включить дополнительное отображение предыстории при фоновой проверке

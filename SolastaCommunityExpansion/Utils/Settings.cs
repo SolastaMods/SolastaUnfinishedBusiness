@@ -258,6 +258,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Campaigns and Locations
     public bool FollowCharactersOnTeleport { get; set; }
+    public bool EnableAdditionalBackstoryDisplay { get; set; }
     public bool EnableLogDialoguesToConsole { get; set; }
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }

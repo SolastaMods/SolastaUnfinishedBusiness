@@ -191,3 +191,4 @@ ModUi/&ChangeSleetStormToCube	Cambia <color=orange>Sleet Storm</color> para usar
 ModUi/&Category	Category
 ModUi/&WeaponTag	Weapon Tag
 ModUi/&ItemTag	Item Tag
+ModUi/&EnableAdditionalBackstoryDisplay	Habilite la visualización de antecedentes adicionales en la inspección de antecedentes

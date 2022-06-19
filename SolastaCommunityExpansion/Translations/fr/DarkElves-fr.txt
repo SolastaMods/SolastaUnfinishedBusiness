@@ -1,7 +1,6 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Vous avez un désavantage aux jets d'attaque et aux tests de Sagesse (Perception) en pleine lumière.
-Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilité à la lumière
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Inconvénient de sensibilité à la lumière.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Sensibilité à la lumière
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	Vous avez un malus de -2 aux tests de Sagesse (Perception) en pleine lumière. De plus, votre vitesse est réduite de 1 en pleine lumière.
+Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilité à la lumière vive
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Vous avez un malus de -2 en Sagesse (Perception).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisme +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Augmentation du score de capacité
 Feature/&DarkelfMagicDescription	Vous connaissez le sort mineur Dancing Lights. Au niveau 3, vous apprenez le feu féerique et au niveau 5, les ténèbres. Les deux peuvent être utilisés une fois par repos long.
@@ -10,6 +9,7 @@ Feature/&DarkelfWeaponTrainingDescription	Vous maîtrisez les rapières, les ép
 Feature/&DarkelfWeaponTrainingTitle	Entraînement aux armes des elfes noirs
 Feature/&LightAffinityDarkelfLightSensitivityDescription	Vous avez un malus de -2 aux tests de Sagesse (Perception) en pleine lumière. De plus, votre vitesse est réduite de 1 en pleine lumière.
 Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilité à la lumière vive
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Votre vitesse est réduite de 1.
 Feature/&PowerDarkelfDarknessDescription	Créez une zone d'obscurité magique. Utilisable une fois par repos long.
 Feature/&PowerDarkelfDarknessTitle	Ténèbres
 Feature/&PowerDarkelfFaerieFireDescription	Mettez en surbrillance les créatures pour donner l'avantage à quiconque les attaque. Utilisable une fois par repos long.
@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	DhalNeridthas
 Race/&DarkelfSurName3Title	DhalNerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 malus sur la vitesse
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 malus en Sagesse

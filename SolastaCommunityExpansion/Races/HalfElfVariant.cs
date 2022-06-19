@@ -6,7 +6,6 @@ using static SolastaCommunityExpansion.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionPointPools;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaCommunityExpansion.Races;
 
@@ -26,7 +25,7 @@ internal static class HalfElfVariantRaceBuilder
             .SetGuiPresentation(Category.Race, DarkelfSubraceBuilder.DarkelfSubrace.GuiPresentation.SpriteReference)
             .SetFeaturesAtLevel(1,
                 darkelfDarkMagic,
-                MoveModeMove5)
+                MoveModeMove6)
             .AddToDB();
 
         var halfElfHighElf = CharacterRaceDefinitionBuilder
@@ -41,7 +40,6 @@ internal static class HalfElfVariantRaceBuilder
             .Create(ElfSylvan, "HalfElfSylvanElfRace", RaceNamespace)
             .SetGuiPresentation(Category.Race, ElfSylvan.guiPresentation.SpriteReference)
             .SetFeaturesAtLevel(1,
-                ProficiencyElfWeaponTraining,
                 MoveModeMove7)
             .AddToDB();
 

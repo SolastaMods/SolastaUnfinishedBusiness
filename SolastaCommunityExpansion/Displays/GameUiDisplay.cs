@@ -67,6 +67,12 @@ internal static class GameUiDisplay
 
         UI.Label("");
 
+        toggle = Main.Settings.EnableAdditionalBackstoryDisplay;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableAdditionalBackstoryDisplay"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableAdditionalBackstoryDisplay = toggle;
+        }
+
         toggle = Main.Settings.EnableLogDialoguesToConsole;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLogDialoguesToConsole"), ref toggle, UI.AutoWidth()))
         {

@@ -3,8 +3,8 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using HarmonyLib;
-using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Api.Diagnostics;
+using SolastaCommunityExpansion.Models;
 using static EffectForm.EffectFormType;
 
 namespace SolastaCommunityExpansion.Patches.Diagnostic;

@@ -1,7 +1,6 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Você tem desvantagem em jogadas de ataque e testes de Sabedoria (Percepção) sob luz forte.
-Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilidade à luz
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Desvantagem da sensibilidade à luz.
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	Sensibilidade à luz
+﻿Condition/&ConditionDarkelfLightSensitiveDescription	Você tem uma penalidade de -2 em testes de Sabedoria (Percepção) sob luz forte. Além disso, sua velocidade é reduzida em 1 em luz forte.
+Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilidade à luz brilhante
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Você tem uma penalidade de -2 em Sabedoria (Percepção).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de pontuação de habilidade
 Feature/&DarkelfMagicDescription	Você conhece o truque das Luzes Dançantes. No 3º nível você aprende Faerie Fire e no 5º nível, Darkness. Ambos podem ser usados ​​uma vez por descanso longo.
@@ -10,6 +9,7 @@ Feature/&DarkelfWeaponTrainingDescription	Você tem proficiência com rapieiras,
 Feature/&DarkelfWeaponTrainingTitle	Treinamento de Arma dos Elfos Negros
 Feature/&LightAffinityDarkelfLightSensitivityDescription	Você tem uma penalidade de -2 em testes de Sabedoria (Percepção) sob luz forte. Além disso, sua velocidade é reduzida em 1 em luz forte.
 Feature/&LightAffinityDarkelfLightSensitivityTitle	Sensibilidade à luz brilhante
+Feature/&MovementAffinityDarkelfLightSensitivityDescription	Sua velocidade é reduzida em 1.
 Feature/&PowerDarkelfDarknessDescription	Crie uma área de escuridão mágica. Utilizável uma vez por descanso longo.
 Feature/&PowerDarkelfDarknessTitle	Trevas
 Feature/&PowerDarkelfFaerieFireDescription	Destaque as criaturas para dar vantagem a qualquer um que as ataque. Utilizável uma vez por descanso longo.
@@ -21,3 +21,5 @@ Race/&DarkelfSurName2Title	Dhal Neridthas
 Race/&DarkelfSurName3Title	Dhal Nerwenys
 Race/&DarkelfSurName4Title	Zo'Sonta
 Race/&DarkelfSurName5Title	Zo'Remon
+Feature/&MovementAffinityDarkelfLightSensitivityTitle	-1 penalidade na velocidade
+Feature/&AbilityCheckAffinityDarkelfLightSensitivityTitle	-2 de penalidade em Sabedoria
