@@ -4,6 +4,7 @@ using SolastaCommunityExpansion.Subclasses;
 using SolastaCommunityExpansion.Subclasses.Barbarian;
 using SolastaCommunityExpansion.Subclasses.Druid;
 using SolastaCommunityExpansion.Subclasses.Fighter;
+using SolastaCommunityExpansion.Subclasses.Paladin;
 using SolastaCommunityExpansion.Subclasses.Ranger;
 using SolastaCommunityExpansion.Subclasses.Rogue;
 using SolastaCommunityExpansion.Subclasses.Wizard;
@@ -48,6 +49,7 @@ internal static class SubclassesContext
         LoadSubclass(new LifeTransmuter());
         LoadSubclass(new Marshal());
         LoadSubclass(new MasterManipulator());
+        LoadSubclass(new OathOfRetribution());
         LoadSubclass(new Opportunist());
         LoadSubclass(new PathOfTheLight());
         LoadSubclass(new RoyalKnight());
