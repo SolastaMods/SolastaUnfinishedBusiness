@@ -18,7 +18,8 @@ public class EffectDescriptionBuilder
         effectAdvancement.incrementMultiplier = 1;
         effect.SetEffectAdvancement(effectAdvancement);
 
-        var particleParams = DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters.DeepCopy();
+        var particleParams = DatabaseHelper.SpellDefinitions.MagicWeapon.EffectDescription.EffectParticleParameters
+            .DeepCopy();
 
         effect.SetEffectParticleParameters(particleParams);
     }

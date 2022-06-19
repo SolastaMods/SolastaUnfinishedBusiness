@@ -6,7 +6,6 @@ namespace SolastaCommunityExpansion.Api.Extensions;
 
 #if DEBUG
 
-
 [TargetType(typeof(ShapeOptionDescription))]
 #endif
 [GeneratedCode("Community Expansion Extension Generator", "1.0.0")]

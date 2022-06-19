@@ -44,8 +44,8 @@ internal static class CreditsDisplay
             "high level spells, feats migration, bug models replacement, high level monsters, Warlock class and subclasses"
         },
         {"ElAntonious", "Arcanist subclass, feats"},
-        {"exsonics01", "Oath of Retribution subclass"},
         {"Esker", "Warlock class design, quality assurance"},
+        {"exsonics01", "Oath of Retribution subclass"},
         {"Holic75", "SolastaModHelpers, SolastaExtraContent"},
         {
             "ImpPhil",
