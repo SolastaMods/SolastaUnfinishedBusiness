@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
     "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
     "Definition:ActionAffinityExpeditiousRetreat:d3040d2bad478b841b17284377634d16",
