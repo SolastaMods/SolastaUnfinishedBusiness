@@ -187,7 +187,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainBattleDecisiveStrike.GuiPresentation.SpriteReference)
             .Configure(
                 5,
-                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+                RuleDefinitions.UsesDetermination.Fixed,
                 AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.OnAttackHit,
                 1,
