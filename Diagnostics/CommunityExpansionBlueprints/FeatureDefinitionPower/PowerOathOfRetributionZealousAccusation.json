@@ -41,7 +41,7 @@
     "hasShoveRoll": false,
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
+    "savingThrowDifficultyAbility": "Charisma",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [
       {
@@ -88,7 +88,9 @@
           "conditionDefinitionName": "ConditionFrightenedZealousAccusation",
           "conditionDefinition": "Definition:ConditionFrightenedZealousAccusation:ae1f4de5-dd91-5235-b758-914d83ab3998",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:ConditionFrightenedZealousAccusation:ae1f4de5-dd91-5235-b758-914d83ab3998"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },

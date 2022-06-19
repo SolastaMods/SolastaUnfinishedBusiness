@@ -77,7 +77,9 @@
           "conditionDefinitionName": "ConditionTrueStrikeZealousCondemnation",
           "conditionDefinition": "Definition:ConditionTrueStrikeZealousCondemnation:fa622d99-ddfd-5e75-8056-eec43682285f",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:ConditionTrueStrikeZealousCondemnation:fa622d99-ddfd-5e75-8056-eec43682285f"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
