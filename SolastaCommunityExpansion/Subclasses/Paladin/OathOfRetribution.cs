@@ -47,7 +47,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.Action,
                 1,
                 RuleDefinitions.RechargeRate.ChannelDivinity,
@@ -126,7 +126,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1,
                 RuleDefinitions.RechargeRate.ChannelDivinity,
@@ -149,8 +149,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     {
                         new()
                         {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            formType = (EffectForm.EffectFormType)2,
+                            formType = EffectForm.EffectFormType.Condition,
                             createdByCharacter = true,
                             conditionForm = new ConditionForm
                             {
@@ -188,8 +187,8 @@ internal sealed class OathOfRetribution : AbstractSubclass
                 FeatureDefinitionPowers.PowerDomainBattleDecisiveStrike.GuiPresentation.SpriteReference)
             .Configure(
                 5,
-                RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
+                RuleDefinitions.UsesDetermination.AbilityBonusPlusFixed,
+                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.OnAttackHit,
                 1,
                 RuleDefinitions.RechargeRate.LongRest,
