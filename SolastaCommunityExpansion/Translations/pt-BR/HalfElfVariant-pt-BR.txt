@@ -4,4 +4,3 @@ Race/&HalfElfHighElfRaceDescription	Meio-Elfos Altos são treinados para usar ma
 Race/&HalfElfHighElfRaceTitle	Meio-Elfo Alto
 Race/&HalfElfSylvanElfRaceDescription	Meio-Elfos Silvestres são treinados para sobreviver na selva e são particularmente aptos à sobrevivência. Como sua herança élfica silvestre, eles são treinados para lutar com espadas e arcos desde a infância.
 Race/&HalfElfSylvanElfRaceTitle	Meio-Elfo Silvestre
-Race/&HalfElfVariantTitle	Meio-elfo

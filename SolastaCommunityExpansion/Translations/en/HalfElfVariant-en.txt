@@ -4,4 +4,3 @@ Race/&HalfElfHighElfRaceDescription	Half-High Elves are trained to use magic ver
 Race/&HalfElfHighElfRaceTitle	Half-High Elf
 Race/&HalfElfSylvanElfRaceDescription	Half-Sylvan Elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 Race/&HalfElfSylvanElfRaceTitle	Half-Sylvan Elf
-Race/&HalfElfVariantTitle	Half-Elf
