@@ -4,5 +4,4 @@ Race/&HalfElfHighElfRaceDescription	Halbhochelfen werden sehr früh darin geschu
 Race/&HalfElfHighElfRaceTitle	Halbhochelfe
 Race/&HalfElfSylvanElfRaceDescription	Halb-Sylvan-Elfen sind darauf trainiert, in der Wildnis zu überleben und sind besonders überlebensfähig. Als ihr Erbe der Waldelfen sind sie seit ihrer Kindheit darauf trainiert, mit Schwertern und Bögen zu kämpfen.
 Race/&HalfElfSylvanElfRaceTitle	Halb Sylvan Elf
-Race/&HalfElfVariantDescription	Nachkommen der menschlichen Flüchtlinge aus Tirmar und der Solastan-Elfen, <#B5D3DE>Halbelfen</color>, haben die Stärke ihrer Eltern. Vielseitig, charismatisch und mit Darkvision und Fey-Abstammung begabt, sind sie immer zwischen zwei Kulturen hin- und hergerissen.
 Race/&HalfElfVariantTitle	Halbelf

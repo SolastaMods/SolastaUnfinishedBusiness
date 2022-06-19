@@ -4,5 +4,4 @@ Race/&HalfElfHighElfRaceDescription	Les demi-hauts-elfessont entraînés à util
 Race/&HalfElfHighElfRaceTitle	Demi Haut Elfe
 Race/&HalfElfSylvanElfRaceDescription	Les demi-elfes sylvestres sont entraînés pour survivre dans la nature et sont particulièrement aptes à survivre. Comme leur héritage elfe sylvestre, ils sont entraînés à se battre avec des épées et des arcs depuis l'enfance.
 Race/&HalfElfSylvanElfRaceTitle	Demi elfe sylvestre
-Race/&HalfElfVariantDescription	Descendants des réfugiés humains de Tirmar et des elfes de Solastan, les <#B5D3DE>demi-elfes</color> ont la force de leurs parents. Polyvalents, charismatiques et doués de vision dans le noir et d'ascendance féerique, ils sont toujours déchirés entre deux cultures.
 Race/&HalfElfVariantTitle	Demi-elfe

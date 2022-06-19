@@ -4,5 +4,4 @@ Race/&HalfElfHighElfRaceDescription	Gli Elfi Mezzo-Alti sono addestrati a usare 
 Race/&HalfElfHighElfRaceTitle	Mezzo elfo alto
 Race/&HalfElfSylvanElfRaceDescription	Mezzi-Elfi Silvani sono addestrati per sopravvivere nelle terre selvagge e sono particolarmente adatti alla sopravvivenza. Come loro eredità di elfi silvani, sono addestrati a combattere con spade e archi fin dall'infanzia.
 Race/&HalfElfSylvanElfRaceTitle	Mezzo Elfo Silvano
-Race/&HalfElfVariantDescription	Figli dei profughi umani di Tirmar e degli elfi di Solastan, i <#B5D3DE>mezzelfi</color> hanno la forza dei loro genitori. Versatili, carismatici e dotati di Scurovisione e discendenza da fata, sono sempre combattuti tra due culture.
 Race/&HalfElfVariantTitle	Mezzelfo
