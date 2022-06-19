@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using SolastaCommunityExpansion.Api;
 using SolastaCommunityExpansion.Api.Extensions;
+using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using SolastaCommunityExpansion.CustomDefinitions;
+using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Level20;
 using SolastaCommunityExpansion.Models;
 using SolastaCommunityExpansion.Properties;
 using SolastaCommunityExpansion.Utils;
 using static EquipmentDefinitions;
 using static SolastaCommunityExpansion.Builders.EquipmentOptionsBuilder;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaCommunityExpansion.Api.DatabaseHelper.SkillDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaCommunityExpansion.Classes.Magus;
 
@@ -31,7 +36,7 @@ public static class Magus
     private static FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell { get; set; }
 
     public static FeatureDefinitionPower ArcaneFocus { get; private set; }
-    
+
     public static FeatureDefinitionFeatureSetCustom ArcaneArt { get; private set; }
 
     private static void BuildEquipment(CharacterClassDefinitionBuilder classMagusBuilder)
@@ -56,7 +61,7 @@ public static class Magus
 
     private static void BuildProficiencies()
     {
-        static FeatureDefinitionProficiency BuildProficiency(string name, RuleDefinitions.ProficiencyType type,
+        static FeatureDefinitionProficiency BuildProficiency(string name, ProficiencyType type,
             params string[] proficiencies)
         {
             return FeatureDefinitionProficiencyBuilder
@@ -67,20 +72,20 @@ public static class Magus
         }
 
         FeatureDefinitionProficiencyArmor =
-            BuildProficiency("ClassMagusArmorProficiency", RuleDefinitions.ProficiencyType.Armor,
+            BuildProficiency("ClassMagusArmorProficiency", ProficiencyType.Armor,
                 LightArmorCategory);
 
         FeatureDefinitionProficiencyWeapon =
-            BuildProficiency("ClassMagusWeaponProficiency", RuleDefinitions.ProficiencyType.Weapon,
+            BuildProficiency("ClassMagusWeaponProficiency", ProficiencyType.Weapon,
                 MartialWeaponCategory);
 
         FeatureDefinitionProficiencyTool =
-            BuildProficiency("ClassMagusToolsProficiency", RuleDefinitions.ProficiencyType.Tool,
+            BuildProficiency("ClassMagusToolsProficiency", ProficiencyType.Tool,
                 DatabaseHelper.ToolTypeDefinitions.EnchantingToolType.Name,
                 DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType.Name);
 
         FeatureDefinitionProficiencySavingThrow =
-            BuildProficiency("ClassMagusSavingThrowProficiency", RuleDefinitions.ProficiencyType.SavingThrow,
+            BuildProficiency("ClassMagusSavingThrowProficiency", ProficiencyType.SavingThrow,
                 AttributeDefinitions.Dexterity, AttributeDefinitions.Wisdom);
 
         FeatureDefinitionSkillPoints = FeatureDefinitionPointPoolBuilder
@@ -110,12 +115,12 @@ public static class Magus
             .SetKnownCantrips(4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6)
             .SetKnownSpells(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15)
             .SetSlotsPerLevel(MagusSpells.MagusCastingSlot)
-            .SetSlotsRecharge(RuleDefinitions.RechargeRate.LongRest)
+            .SetSlotsRecharge(RechargeRate.LongRest)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Class)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .SetSpellCastingLevel(9)
-            .SetSpellKnowledge(RuleDefinitions.SpellKnowledge.Selection)
-            .SetSpellReadyness(RuleDefinitions.SpellReadyness.AllKnown)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSpellList(MagusSpells.MagusSpellList)
             .SetReplacedSpells(SpellsHelper.FullCasterReplacedSpells)
             .AddToDB();
@@ -127,16 +132,23 @@ public static class Magus
             .Create("ClassMagusArcaneFocus", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Power)
             .SetFixedUsesPerRecharge(4)
-            .SetActivationTime(RuleDefinitions.ActivationTime.OnAttackHit)
-            .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
-            .SetUsesFixed(1)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetRechargeRate(RechargeRate.AtWill)
             .AddToDB();
 
         // rupture: damage on moving
-        // TODO: add vfx to indicate the damage
         var rupture = BuildRupture(ArcaneFocus);
 
-        // lurking death
+        // eldritch predator
+        // goes invisible and paralyze enemies within 6 cells
+        // both invisible and paralyzed condition end after casting a spell or making an attack
+        // or using power
+        var eldritchPredator = BuildEldritchPredator(ArcaneFocus);
+
+        // torment blade
+        // disable resistance and immunity to damage for one round
+        var tormentBlade = BuildTormentBlade();
+
         // broken courage
         // menace present
         // mind spike
@@ -151,58 +163,7 @@ public static class Magus
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("ArcaneArt", Resources.EldritchInvocation, 128, 128))
             .SetRequireClassLevels(true)
-            .SetLevelFeatures(3, rupture)
-            .AddToDB();
-    }
-
-    private static FeatureDefinitionPower BuildRupture(FeatureDefinitionPower sharedPool)
-    {
-        var condition = ConditionDefinitionBuilder
-            .Create("ClassMagusConditionRupture", DefinitionBuilder.CENamespaceGuid)
-            .Configure(RuleDefinitions.DurationType.Round, 1, true)
-            .SetGuiPresentation(Category.Class, "ClassMagusConditionRupture", DatabaseHelper.ConditionDefinitions.ConditionSlowed.GuiPresentation.SpriteReference)
-            .SetSpecialDuration(true)
-            .AddToDB();
-
-        condition.durationParameterDie = RuleDefinitions.DieType.D4;
-        condition.turnOccurence = (RuleDefinitions.TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd;
-        condition.RecurrentEffectForms.Add(new EffectForm
-        {
-            formType = EffectForm.EffectFormType.Damage,
-            damageForm = new DamageForm
-            {
-                damageType = RuleDefinitions.DamageTypeNecrotic,
-                diceNumber = 1,
-                dieType = RuleDefinitions.DieType.D4
-            }
-        });
-
-        return FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMagusArcaneArtRupture", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtRupture")
-            .SetSharedPool(sharedPool)
-            .SetActivationTime(RuleDefinitions.ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(RuleDefinitions.Side.Enemy, RuleDefinitions.RangeType.Distance, 24,
-                        RuleDefinitions.TargetType.Individuals)
-                    .SetSavingThrowData(
-                        true,
-                        false,
-                        AttributeDefinitions.Constitution,
-                        false,
-                        RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
-                        AttributeDefinitions.Intelligence)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .HasSavingThrow(RuleDefinitions.EffectSavingThrowType.Negates)
-                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
-                            .Build()
-                    )
-                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
-                    .Build())
+            .SetLevelFeatures(2, rupture, eldritchPredator, tormentBlade)
             .AddToDB();
     }
 
@@ -230,9 +191,7 @@ public static class Magus
                 FeatureDefinitionProficiencyTool,
                 FeatureDefinitionSkillPoints
             )
-            .AddFeaturesAtLevel(2,
-                FeatureDefinitionClassMagusCastSpell,
-                ArcaneFocus)
+            .AddFeaturesAtLevel(2, FeatureDefinitionClassMagusCastSpell, ArcaneFocus, ArcaneArt, ArcaneArt, ArcaneArt)
             .AddFeatureAtLevel(4, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
             .AddFeatureAtLevel(8, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
             .AddFeatureAtLevel(12, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
@@ -255,16 +214,16 @@ public static class Magus
             .AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.GpSpellcaster, 5)
             .AddPersonality(DatabaseHelper.PersonalityFlagDefinitions.GpExplorer, 1)
             .AddSkillPreferences(
-                DatabaseHelper.SkillDefinitions.Acrobatics,
-                DatabaseHelper.SkillDefinitions.Athletics,
-                DatabaseHelper.SkillDefinitions.Persuasion,
-                DatabaseHelper.SkillDefinitions.Arcana,
-                DatabaseHelper.SkillDefinitions.Deception,
-                DatabaseHelper.SkillDefinitions.History,
-                DatabaseHelper.SkillDefinitions.Intimidation,
-                DatabaseHelper.SkillDefinitions.Perception,
-                DatabaseHelper.SkillDefinitions.Nature,
-                DatabaseHelper.SkillDefinitions.Religion)
+                Acrobatics,
+                Athletics,
+                Persuasion,
+                Arcana,
+                Deception,
+                History,
+                Intimidation,
+                Perception,
+                Nature,
+                Religion)
             .AddToolPreferences(
                 DatabaseHelper.ToolTypeDefinitions.EnchantingToolType,
                 DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
@@ -277,7 +236,7 @@ public static class Magus
                 AttributeDefinitions.Charisma)
             .SetAnimationId(AnimationDefinitions.ClassAnimationId.Paladin)
             .SetBattleAI(DatabaseHelper.DecisionPackageDefinitions.DefaultMeleeWithBackupRangeDecisions)
-            .SetHitDice(RuleDefinitions.DieType.D8)
+            .SetHitDice(DieType.D8)
             .SetIngredientGatheringOdds(DatabaseHelper.CharacterClassDefinitions.Sorcerer.IngredientGatheringOdds)
             .SetPictogram(DatabaseHelper.CharacterClassDefinitions.Wizard.ClassPictogramReference);
 
@@ -288,7 +247,269 @@ public static class Magus
         BuildProgression(classMagusBuilder);
 
         ClassMagus = classMagusBuilder.AddToDB();
-        
+
         return ClassMagus;
     }
+
+    #region rupture
+    private static FeatureDefinitionPower BuildRupture(FeatureDefinitionPower sharedPool)
+    {
+        var condition = ConditionDefinitionBuilder
+            .Create("ClassMagusConditionRupture", DefinitionBuilder.CENamespaceGuid)
+            .Configure(DurationType.Round, 1, true)
+            .SetGuiPresentation(Category.Class, "ClassMagusConditionRupture",
+                ConditionSlowed.GuiPresentation.SpriteReference)
+            .AddToDB();
+        
+        condition.turnOccurence = (TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd;
+        condition.RecurrentEffectForms.Add(new EffectForm
+        {
+            formType = EffectForm.EffectFormType.Damage,
+            damageForm = new DamageForm { damageType = DamageTypeNecrotic, diceNumber = 1, dieType = DieType.D4 }
+        });
+
+        return FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMagusArcaneArtRupture", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtRupture")
+            .SetSharedPool(sharedPool)
+            .SetActivationTime(ActivationTime.OnAttackHit)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24,
+                        TargetType.Individuals)
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Constitution,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
+                    .Build())
+            .AddToDB();
+    }
+    #endregion
+    
+    #region eldritch_predator
+    // TODO: do something here to make creatures that are immune to condition paralyze also not affected by this condition unless they are hit by torment blade.
+    private static readonly ConditionDefinition conditionParalyzedWhenBeingPreyedOn = ConditionDefinitionBuilder
+        .Create(DatabaseHelper.ConditionDefinitions.ConditionParalyzed, "ClassMagusConditionParalyzedWhenBeingPreyedOn",
+            DefinitionBuilder.CENamespaceGuid)
+        .DeepCopy()
+        .SetCustomSubFeatures()
+        .SetDuration(DurationType.Round, 1)
+        .SetGuiPresentation(Category.Class, "ClassMagusConditionParalyzedWhenBeingPreyedOn",
+            DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.guiPresentation.spriteReference)
+        .AddToDB();
+
+    private sealed class ConditionDefinitionPreying : ConditionDefinition, INotifyConditionRemoval
+    {
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            var locationCharacterManager =
+                ServiceRepository.GetService<IGameLocationCharacterService>();
+
+            foreach (var character in locationCharacterManager.ValidCharacters)
+            {
+                if (character.rulesetActor.side != Side.Enemy)
+                {
+                    continue;
+                }
+
+                var conditionsToRemoved = new List<RulesetCondition>();
+                foreach (var keyValuePair in character.RulesetCharacter.conditionsByCategory)
+                {
+                    foreach (var linkedCondition in keyValuePair.Value)
+                    {
+                        if (linkedCondition.ConditionDefinition.Name == conditionParalyzedWhenBeingPreyedOn.Name &&
+                            (long)rulesetCondition.SourceGuid == (long)removedFrom.guid)
+                        {
+                            conditionsToRemoved.Add(linkedCondition);
+                        }
+                    }
+                }
+
+                foreach (var condition in conditionsToRemoved)
+                {
+                    character.rulesetActor.RemoveCondition(condition);
+                }
+            }
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+        }
+    }
+
+    private sealed class ConditionDefinitionPreyingBuilder
+        : ConditionDefinitionBuilder<ConditionDefinitionPreying, ConditionDefinitionPreyingBuilder>
+    {
+        internal ConditionDefinitionPreyingBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        {
+        }
+    }
+
+    private static FeatureDefinitionPower BuildEldritchPredator(FeatureDefinitionPower sharedPool)
+    {
+        var preyingCondition = ConditionDefinitionPreyingBuilder
+            .Create("ClassMagusConditionPreying", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusConditionPreying", Category.Class,
+                DatabaseHelper.ConditionDefinitions.ConditionInvisible.guiPresentation.SpriteReference)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetFeatures(
+                DatabaseHelper.FeatureDefinitionCombatAffinitys.CombatAffinityInvisible,
+                DatabaseHelper.FeatureDefinitionPerceptionAffinitys.PerceptionAffinityConditionInvisible)
+            .AddToDB();
+        preyingCondition.characterShaderReference =
+            DatabaseHelper.ConditionDefinitions.ConditionInvisible.characterShaderReference;
+        preyingCondition.specialInterruptions.Clear();
+        preyingCondition.specialInterruptions.AddRange(ConditionInterruption.AttacksAndDamages,
+            ConditionInterruption.CastSpellExecuted);
+
+        var preyingConditionForm = new EffectForm
+        {
+            formType = EffectForm.EffectFormType.Condition,
+            ConditionForm = new ConditionForm
+            {
+                forceOnSelf = true,
+                ConditionDefinition = preyingCondition,
+                applyToSelf = true,
+                operation = ConditionForm.ConditionOperation.Add
+            }
+        };
+
+        var paralyzedByWhenDeathLurkingAroundConditionForm = new EffectForm
+        {
+            formType = EffectForm.EffectFormType.Condition,
+            hasSavingThrow = true,
+            canSaveToCancel = true,
+            saveOccurence = TurnOccurenceType.StartOfTurn,
+            savingThrowAffinity = EffectSavingThrowType.Negates,
+            ConditionForm = new ConditionForm
+            {
+                ConditionDefinition = conditionParalyzedWhenBeingPreyedOn,
+                operation = ConditionForm.ConditionOperation.Add
+            }
+        };
+
+        var effect = EffectDescriptionBuilder
+            .Create(DatabaseHelper.SpellDefinitions.GreaterInvisibility.EffectDescription)
+            .DeepCopy()
+            .ClearEffectForms()
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0,
+                TargetType.InLineOfSightWithinDistance, 6, 6)
+            .SetSavingThrowData(true, false, AttributeDefinitions.Wisdom, false,
+                EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence)
+            .SetDurationData(DurationType.Round, 0, false)
+            .SetEffectForms(
+                paralyzedByWhenDeathLurkingAroundConditionForm,
+                preyingConditionForm)
+            .Build();
+
+        return FeatureDefinitionPowerBuilder
+            .Create("ClassMagusArcaneArtEldritchPredator", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtEldritchPredator")
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetEffectDescription(effect)
+            .SetActivationTime(ActivationTime.BonusAction)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region torment_blade
+    private sealed class ConditionTormentBladeDisruption : ConditionDefinition,
+        IDisableImmunityAndResistanceToDamageType
+    {
+        public bool DisableImmunityAndResistanceToDamageType(string damageType)
+        {
+            return true;
+        }
+    }
+
+    private sealed class ConditionTormentBladeDisruptionBuilder
+        : ConditionDefinitionBuilder<ConditionTormentBladeDisruption, ConditionTormentBladeDisruptionBuilder>
+    {
+        internal ConditionTormentBladeDisruptionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        {
+        }
+    }
+    private static FeatureDefinitionPower BuildTormentBlade()
+    {
+        ConditionTormentBladeDisruption conditionDisruptedByTormentBlade =
+            ConditionTormentBladeDisruptionBuilder
+                .Create("ClassMagusConditionDisruptedByTormentBlade", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Class, "ClassMagusConditionDisruptedByTormentBlade",
+                    DatabaseHelper.ConditionDefinitions.ConditionStunned.guiPresentation.spriteReference)
+                .SetConditionType(ConditionType.Detrimental)
+                .SetSpecialDuration(true)
+                .SetTerminateWhenRemoved(true)
+                .AddToDB();
+        conditionDisruptedByTormentBlade.durationParameterDie = DieType.D1;
+        conditionDisruptedByTormentBlade.durationParameter = 1;
+        conditionDisruptedByTormentBlade.durationType = DurationType.Minute;
+        
+        FeatureDefinitionAdditionalDamage additionalDamageTormentBlade =
+            FeatureDefinitionAdditionalDamageBuilder
+                .Create("ClassMagusAdditionalDamageTormentBlade", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Class, "ClassMagusAdditionalDamageTormentBlade")
+                
+                .Configure("TormentBlade", FeatureLimitedUsage.None,
+                    AdditionalDamageValueDetermination.None,
+                    AdditionalDamageTriggerCondition.AlwaysActive
+                    , AdditionalDamageRequiredProperty.MeleeWeapon, true, DieType.D1, 0,
+                    AdditionalDamageType.SameAsBaseDamage, DamageTypeNecrotic,
+                    AdditionalDamageAdvancement.None, new List<DiceByRank>())
+                .AddToDB();
+        additionalDamageTormentBlade.hasSavingThrow = true;
+        additionalDamageTormentBlade.savingThrowAbility = AttributeDefinitions.Constitution;
+        additionalDamageTormentBlade.damageSaveAffinity = EffectSavingThrowType.Negates;
+        additionalDamageTormentBlade.dcComputation = EffectDifficultyClassComputation.SpellCastingFeature;
+        additionalDamageTormentBlade.conditionOperations.Add(new ConditionOperationDescription()
+        {
+            conditionDefinition =  conditionDisruptedByTormentBlade,
+            conditionName =  conditionDisruptedByTormentBlade.Name,
+            operation = ConditionOperationDescription.ConditionOperation.Add,
+        });
+
+        ConditionDefinition classMagusConditionTormentBlade =
+            ConditionDefinitionBuilder
+                .Create("ClassMagusConditionTormentBlade", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Class ,"ClassMagusConditionTormentBlade", DatabaseHelper.ConditionDefinitions.ConditionRaging.guiPresentation.spriteReference)
+                .AddFeatures(additionalDamageTormentBlade)
+                .SetConditionParticleReference(DatabaseHelper.ConditionDefinitions.ConditionRaging.conditionParticleReference)
+                .AddToDB();
+
+        var effectForm = EffectFormBuilder
+            .Create()
+            .CreatedByCharacter()
+            .SetConditionForm(classMagusConditionTormentBlade, ConditionForm.ConditionOperation.Add, true, true)
+            .Build();
+
+        var effect = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Round, 10, TurnOccurenceType.EndOfTurn)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+            .SetCreatedByCharacter()
+            .AddEffectForm(effectForm)
+            .Build();
+
+        return FeatureDefinitionPowerBuilder
+            .Create("ClassMagusArcaneArtBaneBlade", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtBaneBlade")
+            .SetRechargeRate(RechargeRate.AtWill)
+            .SetEffectDescription(effect)
+            .SetActivationTime(ActivationTime.BonusAction)
+            .AddToDB();
+    }
+
+    #endregion
 }

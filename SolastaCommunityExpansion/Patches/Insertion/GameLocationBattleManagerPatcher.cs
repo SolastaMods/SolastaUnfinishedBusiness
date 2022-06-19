@@ -75,6 +75,11 @@ internal static class GameLocationBattleManagerPatcher
     {
         internal static void Prefix(GameLocationCharacter mover)
         {
+            if (mover.RulesetCharacter.isDeadOrDyingOrUnconscious)
+            {
+                return;
+            }
+            
             var matchingOccurenceConditions = new List<RulesetCondition>();
             foreach (var item in mover.RulesetCharacter.ConditionsByCategory)
             {
