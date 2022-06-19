@@ -23,6 +23,7 @@ This is a collection of work from the Solasta modding community. It includes mul
 [*][b]Nd[/b]: Marshal and Opportunist subclasses
 [*][b]Nyowwww[/b]: Chinese translations
 [*][b]PraiseThyBus[/b]: quality assurance
+[*][b]Prioritizer[/b]: Russian translations
 [*][b]RedOrca[/b]: Path of the Light subclass, Indomitable Might
 [*][b]SilverGriffon[/b]: PickPocket, lore friendly names, feats, face unlocks, sylvan armor unlock, empress garb skins, arcane foci items, belt of dwarvenkin, merchants, spells, DarkElf race
 [*][b]Sinai-dev[/b]: Unity Explorer UI standalone
@@ -155,6 +156,7 @@ All settings start disabled by default. On first start the mod will display an w
 [*][b]Life Transmuter[/b]: Masters of manipulating both matter and life energy.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous ochestrator of the battle field.
 [*][b]Master Manipulator[/b]: Master Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+[*][b]Oath of Retribution[/b]: Paladins who swear the Oath of Retribution fully commit themselves to terminate the unholiness and injustice with extreme prejudice. For these paladins, the duty of avenging sins and corruptions weighs greater than their own values.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Ranger Arcanist[/b]: The Ranger Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.

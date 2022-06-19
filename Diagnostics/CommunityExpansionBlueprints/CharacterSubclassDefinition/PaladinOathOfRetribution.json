@@ -1,0 +1,54 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfRetributionZealousAccusation:e51129db-c552-5427-98d0-91cbddd2852b",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfRetributionZealousCondemnation:8059eb96-6b1d-5b85-a1ee-de8c49aa2f00",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PaladinOathOfRetributionAutoPreparedSpells:cfa18d85-fd06-5051-a295-c37cf4dcbd84",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerOathOfRetributionTenaciousPursuit:669c5b80-093b-58d6-b74d-eb286f5e3fb4",
+      "level": 7
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&PaladinOathOfRetributionTitle",
+    "description": "Subclass/&PaladinOathOfRetributionDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
+      "m_SubObjectName": "Cleric_Battler",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1f9b84c6-3d4e-51c5-aa97-1a3273b224a1",
+  "contentPack": 9999,
+  "name": "PaladinOathOfRetribution"
+}

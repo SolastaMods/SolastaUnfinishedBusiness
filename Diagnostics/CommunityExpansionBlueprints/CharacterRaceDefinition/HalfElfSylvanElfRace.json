@@ -10,11 +10,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyElfWeaponTraining:d834d84ae89d67846af1a9262e0f62ff",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove7:2f5a9a22928893b4bb75beb84106a543",
       "level": 1
     }
