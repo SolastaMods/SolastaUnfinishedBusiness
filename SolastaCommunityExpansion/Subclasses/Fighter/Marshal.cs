@@ -500,12 +500,38 @@ internal static class EncourageBuilder
 {
     internal static FeatureDefinitionPower BuildEncourage()
     {
+        var conditionEncouraged = ConditionDefinitionBuilder
+            .Create("ConditionEncouraged", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
+            .SetGuiPresentation(
+                "Subclass/&FighterMarshalEncouragementPowerTitle",
+                "Subclass/&FighterMarshalEncouragementPowerDescription",
+                ConditionBlessed.GuiPresentation.SpriteReference)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        conditionEncouraged.ConditionTags.Add("Buff");
+
+        // this allows the condition to still display as a label on character panel
+        Global.CharacterLabelEnabledConditions.Add(conditionEncouraged);
+
         var effect = EffectDescriptionBuilder
-            .Create(Bless.EffectDescription)
+            .Create()
+            .SetCreatedByCharacter()
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5, 2)
             .SetDurationData(DurationType.Permanent)
             .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-            .Build();
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .CreatedByCharacter()
+                    .SetConditionForm(conditionEncouraged, ConditionForm.ConditionOperation.Add, false, false)
+                    .Build()
+            ).Build();
+        
         effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder

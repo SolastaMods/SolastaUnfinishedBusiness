@@ -1,6 +1,4 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Hai una penalità di -2 alle prove di Saggezza (Percezione) in piena luce. Inoltre, la tua velocità viene ridotta di 1 in condizioni di luce intensa.
-Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilità alla luce brillante
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Hai una penalità di -2 su Saggezza (Percezione).
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Hai una penalità di -2 su Saggezza (Percezione).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento del punteggio di abilità
 Feature/&DarkelfMagicDescription	Conosci il trucchetto di Dancing Lights. Al 3° livello impari Faerie Fire e al 5° livello, Darkness. Entrambi possono essere utilizzati una volta per riposo lungo.

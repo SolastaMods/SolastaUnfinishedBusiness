@@ -191,4 +191,4 @@ ModUi/&ChangeSleetStormToCube	将<color=orange>雪风暴</color>范围从圆柱�
 ModUi/&Category	类别
 ModUi/&WeaponTag	武器标签
 ModUi/&ItemTag	物品标签
-ModUi/&EnableAdditionalBackstoryDisplay	在后台检查中启用额外的背景故事显示
+ModUi/&EnableAdditionalBackstoryDisplay	启用在背景故事检视时显示额外的背景故事

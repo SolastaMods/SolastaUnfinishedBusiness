@@ -1,6 +1,4 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Du hast einen Malus von -2 auf Weisheitswürfe (Wahrnehmung) bei hellem Licht. Außerdem wird deine Geschwindigkeit bei hellem Licht um 1 reduziert.
-Condition/&ConditionDarkelfLightSensitiveTitle	Helle Lichtempfindlichkeit
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Du hast einen Malus von -2 auf Weisheit (Wahrnehmung).
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Du hast einen Malus von -2 auf Weisheit (Wahrnehmung).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Charisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Erhöhung des Fähigkeitswerts
 Feature/&DarkelfMagicDescription	Du kennst den Cantrip von Dancing Lights. Auf der 3. Stufe lernst du Feenfeuer und auf der 5. Stufe Dunkelheit. Beide können einmal pro langer Pause verwendet werden.
