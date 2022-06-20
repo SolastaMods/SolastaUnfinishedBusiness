@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Utils;
 using UnityEngine;
 
@@ -44,7 +43,10 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
 
     internal static void TranslateUserCampaign(string languageCode, string exportName, UserCampaign userCampaign)
     {
-        var newUserCampaign = userCampaign.DeepCopy();
+        var newUserCampaign = new UserCampaign();
+
+        newUserCampaign.CopyContent(userCampaign);
+
         var oldUserCampaignTitle = Regex.Replace(userCampaign.Title, @"\[.+\] - (.*)", "$1");
 
         newUserCampaign.Title = $"[{languageCode}] - {oldUserCampaignTitle}";
