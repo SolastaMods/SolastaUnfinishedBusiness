@@ -48,6 +48,7 @@ internal static class SrdAndHouseRulesContext
             // Fix by allowing 4 selectable targets.
             spell.TargetType = RuleDefinitions.TargetType.IndividualsUnique;
             spell.SetTargetParameter(4);
+            spell.effectAdvancement.additionalTargetsPerIncrement = 1;
 
             // TODO: may need to tweak range parameters but it works as is.
         }
@@ -55,6 +56,7 @@ internal static class SrdAndHouseRulesContext
         {
             spell.TargetType = RuleDefinitions.TargetType.ArcFromIndividual;
             spell.SetTargetParameter(3);
+            spell.effectAdvancement.additionalTargetsPerIncrement = 0;
         }
     }
 

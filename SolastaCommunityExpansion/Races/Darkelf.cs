@@ -49,8 +49,12 @@ internal static class DarkelfSubraceBuilder
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive(true)
+            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
             .SetFeatures(darkElfPerception, darkelfMovementAffinty)
             .AddToDB();
+
+        // this allows the condition to still display as a label on character panel
+        Global.CharacterLabelEnabledConditions.Add(darkelfConditionLightSensitive);
 
         var darkelfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
         {

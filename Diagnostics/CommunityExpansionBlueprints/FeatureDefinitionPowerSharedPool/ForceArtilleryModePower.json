@@ -157,8 +157,8 @@
       "beforeImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -169,8 +169,8 @@
       "activeEffectImpactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",

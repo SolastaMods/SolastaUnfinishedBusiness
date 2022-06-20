@@ -4,4 +4,3 @@ Race/&HalfElfHighElfRaceDescription	Los Half-High-Elves elfos están entrenados 
 Race/&HalfElfHighElfRaceTitle	Elfo-Medio Alto
 Race/&HalfElfSylvanElfRaceDescription	Los Half-Sylvan-Elves están entrenados para sobrevivir en la naturaleza y son particularmente aptos para sobrevivir. Como herencia de los elfos silvanos, están entrenados para luchar con espadas y arcos desde la infancia.
 Race/&HalfElfSylvanElfRaceTitle	Elfo_Medio Silvano
-Race/&HalfElfVariantTitle	semielfo

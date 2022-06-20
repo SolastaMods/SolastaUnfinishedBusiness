@@ -215,8 +215,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&HalfElfVariantTitle",
-    "description": "Race/&HalfElfVariantDescription",
+    "title": "Race/&HalfElfTitle",
+    "description": "Race/&HalfElfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f6ed8390cddc06c44a89163464942fe1",

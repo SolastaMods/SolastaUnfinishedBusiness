@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
 using static SolastaCommunityExpansion.Api.DatabaseHelper;
@@ -40,6 +39,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
             )
             .AddToDB();
 
+        var effectParticleParametersRetributionZealousAccusation = new EffectParticleParameters();
+
+        effectParticleParametersRetributionZealousAccusation
+            .Copy(SpellDefinitions.Fear.EffectDescription.EffectParticleParameters);
+
         var powerOathOfRetributionZealousAccusation = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfRetributionZealousAccusation", SubclassNamespace)
             .SetGuiPresentation(Category.Power, FeatureDefinitionPowers.PowerDomainLawHolyRetribution
@@ -47,7 +51,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.Action,
                 1,
                 RuleDefinitions.RechargeRate.ChannelDivinity,
@@ -68,7 +72,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     endOfEffect = RuleDefinitions.TurnOccurenceType.EndOfTurn,
                     hasSavingThrow = true,
                     savingThrowAbility = AttributeDefinitions.Wisdom,
-                    savingThrowDifficultyAbility = AttributeDefinitions.Wisdom,
+                    savingThrowDifficultyAbility = AttributeDefinitions.Charisma,
                     fixedSavingThrowDifficultyClass = 15,
                     savingThrowAffinitiesBySense =
                         new List<SaveAffinityBySenseDescription>
@@ -86,22 +90,14 @@ internal sealed class OathOfRetribution : AbstractSubclass
                         },
                     effectForms = new List<EffectForm>
                     {
-                        new()
-                        {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            formType = (EffectForm.EffectFormType)2,
-                            createdByCharacter = true,
-                            conditionForm = new ConditionForm
-                            {
-                                operation = ConditionForm.ConditionOperation.Add,
-                                conditionDefinition = conditionFrightenedZealousAccusation,
-                                conditionDefinitionName = conditionFrightenedZealousAccusation.Name
-                            }
-                        }
+                        new EffectFormBuilder()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionFrightenedZealousAccusation,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build()
                     },
                     effectAdvancement = new EffectAdvancement(),
-                    effectParticleParameters =
-                        SpellDefinitions.Fear.EffectDescription.EffectParticleParameters.DeepCopy()
+                    effectParticleParameters = effectParticleParametersRetributionZealousAccusation
                 }
             )
             .SetUniqueInstance(true)
@@ -119,6 +115,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
             )
             .AddToDB();
 
+        var effectParticleParametersRetributionZealousCondemnation = new EffectParticleParameters();
+
+        effectParticleParametersRetributionZealousCondemnation
+            .Copy(SpellDefinitions.TrueStrike.EffectDescription.EffectParticleParameters);
+
         var powerOathOfRetributionZealousCondemnation = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfRetributionZealousCondemnation", SubclassNamespace)
             .SetGuiPresentation(Category.Power, FeatureDefinitionPowers.PowerOathOfTirmarSmiteTheHidden
@@ -126,7 +127,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
             .Configure(
                 1,
                 RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.BonusAction,
                 1,
                 RuleDefinitions.RechargeRate.ChannelDivinity,
@@ -147,22 +148,14 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     endOfEffect = RuleDefinitions.TurnOccurenceType.EndOfTurn,
                     effectForms = new List<EffectForm>
                     {
-                        new()
-                        {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            formType = (EffectForm.EffectFormType)2,
-                            createdByCharacter = true,
-                            conditionForm = new ConditionForm
-                            {
-                                operation = ConditionForm.ConditionOperation.Add,
-                                conditionDefinition = conditionTrueStrikeZealousCondemnation,
-                                conditionDefinitionName = conditionTrueStrikeZealousCondemnation.Name
-                            }
-                        }
+                        new EffectFormBuilder()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionTrueStrikeZealousCondemnation,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build()
                     },
                     effectAdvancement = new EffectAdvancement(),
-                    effectParticleParameters = SpellDefinitions.TrueStrike.EffectDescription
-                        .EffectParticleParameters.DeepCopy()
+                    effectParticleParameters = effectParticleParametersRetributionZealousCondemnation
                 }
             )
             .SetUniqueInstance(true)
@@ -182,6 +175,11 @@ internal sealed class OathOfRetribution : AbstractSubclass
             )
             .AddToDB();
 
+        var effectParticleParametersRetributionTenaciousPursuit = new EffectParticleParameters();
+
+        effectParticleParametersRetributionTenaciousPursuit
+            .Copy(FeatureDefinitionPowers.PowerDomainLawHolyRetribution.EffectDescription.EffectParticleParameters);
+
         var powerOathOfRetributionTenaciousPursuit = FeatureDefinitionPowerBuilder
             .Create("PowerOathOfRetributionTenaciousPursuit", SubclassNamespace)
             .SetGuiPresentation(Category.Power,
@@ -189,7 +187,7 @@ internal sealed class OathOfRetribution : AbstractSubclass
             .Configure(
                 5,
                 RuleDefinitions.UsesDetermination.Fixed,
-                AttributeDefinitions.Wisdom,
+                AttributeDefinitions.Charisma,
                 RuleDefinitions.ActivationTime.OnAttackHit,
                 1,
                 RuleDefinitions.RechargeRate.LongRest,
@@ -210,22 +208,13 @@ internal sealed class OathOfRetribution : AbstractSubclass
                     effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
                     effectForms = new List<EffectForm>
                     {
-                        new()
-                        {
-                            FormType = EffectForm.EffectFormType.Condition,
-                            createdByCharacter = true,
-                            conditionForm = new ConditionForm
-                            {
-                                operation = ConditionForm.ConditionOperation.Add,
-                                conditionDefinition = conditionBonusRushTenaciousPursuit,
-                                conditionDefinitionName = conditionBonusRushTenaciousPursuit.Name,
-                                applyToSelf = true
-                            }
-                        }
+                        new EffectFormBuilder()
+                            .CreatedByCharacter()
+                            .SetConditionForm(conditionBonusRushTenaciousPursuit,
+                                ConditionForm.ConditionOperation.Add, true, false)
+                            .Build()
                     },
-                    effectParticleParameters = FeatureDefinitionPowers.PowerDomainLawHolyRetribution
-                        .EffectDescription
-                        .EffectParticleParameters.DeepCopy()
+                    effectParticleParameters = effectParticleParametersRetributionTenaciousPursuit
                 }
             )
             .SetShowCasting(true)
