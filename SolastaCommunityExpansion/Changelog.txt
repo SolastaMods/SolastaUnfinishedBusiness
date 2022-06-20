@@ -8,5 +8,7 @@
 
 CHANGES:
 
+- Fix Marshal's Encourage interactions with Bless
 - Fix Marshal's Encourage log and sound spam
+- Fix Pact Weapon power saving throw ability
 - Improve Chinese translations
