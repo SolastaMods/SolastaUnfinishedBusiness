@@ -1,0 +1,4 @@
+﻿Equipment/&ScrollConjureMinorElementalTitle	Scroll of Conjure Minor Elementals
+Equipment/&ScrollConjureMinorElementalDescription	When you use this scroll, you cast the spell Conjure Minor Elementals.
+Equipment/&ScrollDeathWardTitle	Scroll of Deathward
+Equipment/&ScrollDeathWardDescription	When you use this scroll, you cast the spell Deathward.
