@@ -22,6 +22,8 @@ public static class AHWarlockSubclassSoulBladePact
             .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
 
+        summonPactWeaponPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
+
         // var additionalDamageBonus = FeatureDefinitionAdditionalDamageBuilder
         //     .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery,
         //         "AHSoulBladeEmpowerWeaponDamageBonus", DefinitionBuilder.CENamespaceGuid)
