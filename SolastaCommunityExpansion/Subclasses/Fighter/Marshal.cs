@@ -520,16 +520,18 @@ internal static class EncourageBuilder
 
         var effect = EffectDescriptionBuilder
             .Create()
+            .SetCreatedByCharacter()
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5, 2)
             .SetDurationData(DurationType.Permanent)
             .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
+                    .CreatedByCharacter()
                     .SetConditionForm(conditionEncouraged, ConditionForm.ConditionOperation.Add, false, false)
                     .Build()
             ).Build();
-
+        
         effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder
