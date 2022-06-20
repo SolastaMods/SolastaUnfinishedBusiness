@@ -1,6 +1,4 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Você tem uma penalidade de -2 em testes de Sabedoria (Percepção) sob luz forte. Além disso, sua velocidade é reduzida em 1 em luz forte.
-Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilidade à luz brilhante
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Você tem uma penalidade de -2 em Sabedoria (Percepção).
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Você tem uma penalidade de -2 em Sabedoria (Percepção).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de pontuação de habilidade
 Feature/&DarkelfMagicDescription	Você conhece o truque das Luzes Dançantes. No 3º nível você aprende Faerie Fire e no 5º nível, Darkness. Ambos podem ser usados ​​uma vez por descanso longo.
