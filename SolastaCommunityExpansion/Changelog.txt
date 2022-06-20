@@ -8,9 +8,5 @@
 
 CHANGES:
 
-- Add a setting to display back stories on the inspection panel
-- Add the Paladin Oath of Retribution sub class
-- Improve the races and sub races mod selection logic
-- Improve some Russian translation terms
-- Fix Chain Lightning upcasting with individual targets setting
-- Fix the Power Attack feat not working under certain scenarios
+- Fix an issue with official powers and spells effects
+- Improve Russian translations
