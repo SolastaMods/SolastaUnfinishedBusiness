@@ -25,6 +25,7 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
     {
     }
 
+#if false
     public EffectProxyDefinitionBuilder SetAttack(bool canAttack, RuleDefinitions.ProxyAttackMethod attackMethod,
         RuleDefinitions.DieType damageDie, string damageType)
     {
@@ -41,6 +42,7 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
         Definition.lightSourceForm = lightSourceForm;
         return this;
     }
+#endif
 
     public EffectProxyDefinitionBuilder SetPortrait(AssetReferenceSprite portraitSpriteReference)
     {
@@ -60,6 +62,7 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
         return this;
     }
 
+#if false
     public EffectProxyDefinitionBuilder SetShowWorldLocationFeedbacks()
     {
         Definition.showWorldLocationFeedbacks = true;
@@ -84,6 +87,7 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
         Definition.soundEffectOnHitDescription = soundEffectOnHitDescription;
         return this;
     }
+#endif
 
     public EffectProxyDefinitionBuilder SetCanMove()
     {
@@ -91,6 +95,7 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
         return this;
     }
 
+#if false
     public EffectProxyDefinitionBuilder SetImpactsPlacement()
     {
         Definition.impactsPlacement = true;
@@ -111,4 +116,5 @@ public class EffectProxyDefinitionBuilder : DefinitionBuilder<EffectProxyDefinit
         Definition.isEmptyPresentation = isEmptyPresentation;
         return this;
     }
+#endif
 }

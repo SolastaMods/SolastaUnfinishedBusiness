@@ -58,6 +58,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder SetEffectAIParameters(EffectAIParameters effectAIParameters)
     {
         effect.SetEffectAIParameters(effectAIParameters);
@@ -75,6 +76,7 @@ public class EffectDescriptionBuilder
         effect.SetEffectAIParameters(aiParams);
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder SetEffectAdvancement(
         RuleDefinitions.EffectIncrementMethod effectIncrementMethod, int incrementMultiplier = 1,
@@ -116,6 +118,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder NoVisibilityRequiredToTarget()
     {
         effect.SetRequiresVisibilityForPosition(false);
@@ -143,6 +146,7 @@ public class EffectDescriptionBuilder
         effect.HitAffinitiesByTargetTag.Add(hitAffinity);
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder ExcludeCaster()
     {
@@ -150,11 +154,13 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder MustPlaceNotOnCharacter()
     {
         effect.SetCanBePlacedOnCharacter(false);
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder SetTargetProximityData(bool requiresTargetProximity,
         int targetProximityDistance)
@@ -178,6 +184,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder SetBorderData(RuleDefinitions.EmissiveBorder emissiveBorder,
         int emissiveParameter)
     {
@@ -185,6 +192,7 @@ public class EffectDescriptionBuilder
         effect.SetEmissiveParameter(emissiveParameter);
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder SetRecurrentEffect(RuleDefinitions.RecurrentEffect recurrentEffect)
     {
@@ -192,6 +200,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder SetRetargetData(bool retargetAfterDeath,
         ActionDefinitions.ActionType retargetActionType)
     {
@@ -205,6 +214,7 @@ public class EffectDescriptionBuilder
         effect.trapRangeType = trapRangeType;
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder SetRequiredCondition(ConditionDefinition targetConditionAsset)
     {
@@ -268,6 +278,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder RequireShoveToHit()
     {
         effect.SetHasShoveRoll(true);
@@ -288,6 +299,7 @@ public class EffectDescriptionBuilder
         effect.velocityType = velocityType;
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder AddRestrictedCreatureFamily(CharacterFamilyDefinition family)
     {
@@ -295,6 +307,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder AddImmuneCreatureFamilies(CharacterFamilyDefinition family)
     {
         effect.ImmuneCreatureFamilies.Add(family.Name);
@@ -313,6 +326,7 @@ public class EffectDescriptionBuilder
         effect.SetEffectPoolAmount(effectPoolAmount);
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder SetSpeed(RuleDefinitions.SpeedType speedType, float speedParameter)
     {
@@ -321,6 +335,7 @@ public class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     public EffectDescriptionBuilder SetOffsetImpactTime(float offsetImpactTimeBasedOnDistanceFactor,
         float offsetImpactTimePerTarget)
     {
@@ -329,6 +344,7 @@ public class EffectDescriptionBuilder
         effect.SetOffsetImpactTimePerTarget(offsetImpactTimePerTarget);
         return this;
     }
+#endif
 
     public EffectDescriptionBuilder AddEffectForm(EffectForm effectForm)
     {
