@@ -57,7 +57,6 @@ internal static class GameManager_BindPostDatabase
         InitialChoicesContext.Load();
         InventoryManagementContext.Load();
         ItemCraftingContext.Load();
-        ItemOptionsContext.Load();
         Level20Context.Load();
         LevelDownContext.Load();
         PickPocketContext.Load();
@@ -65,6 +64,9 @@ internal static class GameManager_BindPostDatabase
         RemoveBugVisualModelsContext.Load();
         RespecContext.Load();
         ShieldStrikeContext.Load();
+
+        // Item Options must be loaded after Item Crafting
+        ItemOptionsContext.Load();
 
         // Fighting Styles must be loaded before feats to allow feats to generate corresponding fighting style ones.
         FightingStyleContext.Load();

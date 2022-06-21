@@ -193,7 +193,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&TempHPShieldConstructTitle_5",
+    "title": "Feat/&TempHPShieldConstructTitle",
     "description": "Feat/&TempHPShieldConstructDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
