@@ -8,5 +8,4 @@
 
 CHANGES:
 
-- Fix Study Your Enemy 
-- Improve recipes titles
+- Fix Dark-Half elf not getting powers at 3 and 5
