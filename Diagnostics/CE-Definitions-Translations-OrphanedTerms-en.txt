@@ -229,6 +229,10 @@ Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitDescription	{0} can ea
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitTitle	Tenacious Pursuit
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactDescription	Activate dash bonus action.
 Reaction/&SpendPowerPowerOathOfRetributionTenaciousPursuitReactTitle	Pursue
+Equipment/&ScrollConjureMinorElementalTitle	Scroll of Conjure Minor Elementals
+Equipment/&ScrollConjureMinorElementalDescription	When you use this scroll, you cast the spell Conjure Minor Elementals.
+Equipment/&ScrollDeathWardTitle	Scroll of Deathward
+Equipment/&ScrollDeathWardDescription	When you use this scroll, you cast the spell Deathward.
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
 Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
@@ -250,9 +254,6 @@ Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
 Feat/&ArtificerArtillerstImprovedCannonsDescription	The effect from your cannons increases. Additional damage from the fire, an additional target from the force, and additional temp HP from the shield.
 Feat/&ArtificerArtillerstImprovedCannonsTitle	Improved Cannons
 Feat/&ArtilleryConstructDescription	Can damage or protect allies.
-Feat/&ArtilleryConstructTitle	Artillery Construct
-Feat/&ArtilleryConstructTitle_3	Artillery Construct
-Feat/&ArtilleryConstructTitle_5	Artillery Construct
 Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct.
 Feat/&ConstructSelectingPoolTitle	Artillery Mode
 Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
@@ -274,6 +275,10 @@ Feat/&TinkererConstructFamilyTitle	Tinkerer Construct
 Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
 Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
 Feature/&AHSoulBladeEmpowerDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Soul Empowered
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	You are empowered and do a damage bonus equal to your proficiency on all your attacks.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Soul Empowered
 Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
 Feature/&AttributeModifier{0}Description	{0}
 Feature/&DH_RiftCloakDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).

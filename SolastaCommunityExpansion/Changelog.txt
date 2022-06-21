@@ -8,5 +8,5 @@
 
 CHANGES:
 
-- Fix Marshal's Encourage log and sound spam
-- Improve Chinese translations
+- Fix Study Your Enemy 
+- Improve recipes titles

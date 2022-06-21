@@ -502,8 +502,10 @@ internal static class EncourageBuilder
     {
         var conditionEncouraged = ConditionDefinitionBuilder
             .Create("ConditionEncouraged", MarshalFighterSubclassBuilder.MarshalFighterSubclassNameGuid)
-            .SetGuiPresentationNoContent()
-            .SetDuration(DurationType.Hour, 1)
+            .SetGuiPresentation(
+                "Subclass/&FighterMarshalEncouragementPowerTitle",
+                "Subclass/&FighterMarshalEncouragementPowerDescription",
+                ConditionBlessed.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
@@ -517,17 +519,19 @@ internal static class EncourageBuilder
         Global.CharacterLabelEnabledConditions.Add(conditionEncouraged);
 
         var effect = EffectDescriptionBuilder
-            .Create(Bless.EffectDescription)
+            .Create()
+            .SetCreatedByCharacter()
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5, 2)
             .SetDurationData(DurationType.Permanent)
             .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
+                    .CreatedByCharacter()
                     .SetConditionForm(conditionEncouraged, ConditionForm.ConditionOperation.Add, false, false)
                     .Build()
             ).Build();
-
+        
         effect.SetCanBePlacedOnCharacter(true);
 
         return FeatureDefinitionPowerBuilder

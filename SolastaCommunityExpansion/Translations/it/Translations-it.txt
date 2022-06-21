@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Ottieni incantesimi
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Costruisci incantesimi
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Ottieni incantesimi bonus che sono considerati incantesimi da Riparatore per te, sono sempre preparati e non contano per il numero di incantesimi da Riparatore che conosci.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Costruisci incantesimi
-Feat/&ArtilleryConstructTitle	Costrutto di artiglieria
-Feat/&ArtilleryConstructTitle_3	Costrutto di artiglieria
-Feat/&ArtilleryConstructTitle_5	Costrutto di artiglieria
 Feat/&ArtilleryModePoolDescription	Scegli la tua modalità di artiglieria.
 Feat/&ArtilleryModePoolTitle	Modalità artiglieria
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	I tuoi attacchi con le armi infliggono 3 danni aggiuntivi.
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title	Artiglieria infuocata (migliorata)
 Feat/&FlameArtilleryConstructDescription	Crea un cono di fuoco che infligge 2d8 danni se fallisce il tiro salvezza.
 Feat/&FlameArtilleryConstructDescription_3	Crea un cono di fuoco che infligge 3d8 danni se fallisce il tiro salvezza.
 Feat/&FlameArtilleryConstructTitle	Costrutto di artiglieria infuocata
-Feat/&FlameArtilleryConstructTitle_3	Costrutto di artiglieria infuocata
-Feat/&FlameArtilleryConstructTitle_5	Costrutto di artiglieria infuocata
 Feat/&FlameArtilleryDescription	2d8 danni da fuoco (cono).
 Feat/&FlameArtilleryTitle	Artiglieria infuocata
 Feat/&ForceArtillery_2Description	3d8 danni da forza e spingi il bersaglio di 1,5 m.
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	Il costrutto potenziato infligge
 Feat/&ForceArtilleryConstructDescription	Infligge 2d8 danni da forza e spinge il bersaglio a 1,5 metri di distanza dal Costrutto.
 Feat/&ForceArtilleryConstructDescription_3	Infligge 3d8 danni da forza e spinge il bersaglio a 1,5 metri di distanza dal Costrutto.
 Feat/&ForceArtilleryConstructTitle	Costrutto di artiglieria di forza
-Feat/&ForceArtilleryConstructTitle_3	Costrutto di artiglieria di forza
-Feat/&ForceArtilleryConstructTitle_5	Costrutto di artiglieria di forza
 Feat/&ForceArtilleryDescription	2d8 Danno da forza e spingi per 1,5 m.
 Feat/&ForceStrikePowerDescription	Attacco a distanza 1d6 danni da forza dal tuo fidato compagno.
 Feat/&ForceStrikePowerTitle	Fionda della Forza (servitore artificiale)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2	Evoca potenziamento costrutto protettore
 Feat/&SummonProtectorConstructTitle_Upgrade	Evoca potenziamento costrutto protettore
 Feat/&TempHPShieldConstructDescription	Fornisce 1d8 + 4 HP temporanei agli alleati entro 3 metri.
 Feat/&TempHPShieldConstructTitle	Protezione della struttura della cupola
-Feat/&TempHPShieldConstructTitle_3	Protezione della struttura della cupola
-Feat/&TempHPShieldConstructTitle_5	Protezione della struttura della cupola
 Feat/&TempHPShieldDescription	Fornisce 1d8 + 4 TempHP agli alleati entro 3 metri.
 Feat/&ThunderShieldDescription	Lo scudo difensivo fornisce HP temporanei pari al tuo livello. Può essere utilizzato 6 volte per riposo lungo.
 Feat/&ThunderShieldTitle	Scudo del tuono

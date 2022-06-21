@@ -96,7 +96,7 @@ public abstract class
 
     public TBuilder SetEffectDescription(EffectDescription effect)
     {
-        Definition.effectDescription = effect.Copy();
+        Definition.effectDescription = effect;
         return This();
     }
 

@@ -1,6 +1,4 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	Tienes una penalización de -2 en las pruebas de Sabiduría (Percepción) con luz brillante. Además, tu velocidad se reduce en 1 en luz brillante.
-Condition/&ConditionDarkelfLightSensitiveTitle	Sensibilidad a la luz brillante
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Tienes una penalización de -2 en Sabiduría (Percepción).
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	Tienes una penalización de -2 en Sabiduría (Percepción).
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	Aumento de puntuación de habilidad
 Feature/&DarkelfMagicDescription	Conoces el cantrip Luces Danzantes. En el 3er nivel aprendes Fuego feérico y en el 5to nivel, Oscuridad. Ambos pueden usarse una vez por descanso prolongado.

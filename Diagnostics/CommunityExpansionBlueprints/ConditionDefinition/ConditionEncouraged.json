@@ -2,10 +2,10 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Detrimental",
+  "conditionType": "Beneficial",
   "features": [
-    "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
-    "Definition:MovementAffinityDarkelfLightSensitivity:17c4b5a2-ae5e-4565-a399-73beaaa09431"
+    "Definition:CombatAffinityBlessed:dfb4c85b4bcf8ea46822f0996ead93af",
+    "Definition:SavingThrowAffinityConditionBlessed:b5cbcccf984fdec45be2f818f4757921"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -15,11 +15,13 @@
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionDamageThreshold": 0,
-  "conditionTags": [],
+  "conditionTags": [
+    "Buff"
+  ],
   "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
@@ -79,7 +81,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -119,12 +121,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&LightAffinityDarkelfLightSensitivityTitle",
-    "description": "Feature/&LightAffinityDarkelfLightSensitivityDescription",
+    "title": "Subclass/&FighterMarshalEncouragementPowerTitle",
+    "description": "Subclass/&FighterMarshalEncouragementPowerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0af77d521f0cb8a4381f7316dc2e50e0",
-      "m_SubObjectName": "ConditionLightSensitive",
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -140,7 +142,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8c7cb851-6810-4101-8a6a-e932e9cc3896",
+  "guid": "8223d9a2-0929-5ca1-8f08-ff0f65611e5d",
   "contentPack": 9999,
-  "name": "ConditionDarkelfLightSensitive"
+  "name": "ConditionEncouraged"
 }

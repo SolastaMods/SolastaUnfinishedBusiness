@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	你获得额外奇�
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	构装体法术
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	你获得额外奇械师法术，它们将被自动准备并不计入已知奇械师法术数目
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	构装体法术
-Feat/&ArtilleryConstructTitle	魔炮
-Feat/&ArtilleryConstructTitle_3	魔炮
-Feat/&ArtilleryConstructTitle_5	魔炮
 Feat/&ArtilleryModePoolDescription	选择你的魔炮模式
 Feat/&ArtilleryModePoolTitle	魔炮模式
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	你的武器攻击造成3点额外伤害
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title	火焰魔炮（精通）
 Feat/&FlameArtilleryConstructDescription	喷射锥形火焰，若豁免失败则造成2d8点火焰伤害
 Feat/&FlameArtilleryConstructDescription_3	喷射锥形火焰，若豁免失败则造成3d8点火焰伤害
 Feat/&FlameArtilleryConstructTitle	火焰魔炮
-Feat/&FlameArtilleryConstructTitle_3	火焰魔炮
-Feat/&FlameArtilleryConstructTitle_5	火焰魔炮
 Feat/&FlameArtilleryDescription	2d8点火焰伤害	(锥形)
 Feat/&FlameArtilleryTitle	火焰魔炮
 Feat/&ForceArtillery_2Description	3d8点力场伤害并推离目标5英尺
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	升级后的魔炮每击的伤�
 Feat/&ForceArtilleryConstructDescription	造成2d8点力场伤害并将目标推离构装体5英尺
 Feat/&ForceArtilleryConstructDescription_3	造成3d8点力场伤害并将目标推离构装体5英尺
 Feat/&ForceArtilleryConstructTitle	力场魔炮
-Feat/&ForceArtilleryConstructTitle_3	力场魔炮
-Feat/&ForceArtilleryConstructTitle_5	力场魔炮
 Feat/&ForceArtilleryDescription	2d8点力场伤害并推离目标5英尺
 Feat/&ForceStrikePowerDescription	你可靠的伙伴以远程攻击造成了1d6点力场伤害
 Feat/&ForceStrikePowerTitle	力场投射	(构装体)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2	召唤防御者升级
 Feat/&SummonProtectorConstructTitle_Upgrade	召唤防御者升级
 Feat/&TempHPShieldConstructDescription	赋予10英尺内盟友1d8+4点临时生命值
 Feat/&TempHPShieldConstructTitle	守护魔炮
-Feat/&TempHPShieldConstructTitle_3	守护魔炮
-Feat/&TempHPShieldConstructTitle_5	守护魔炮
 Feat/&TempHPShieldDescription	赋予10英尺内盟友1d8+4点临时生命值
 Feat/&ThunderShieldDescription	防护护盾提供等同于等级的临时生命值。每长休5次
 Feat/&ThunderShieldTitle	雷鸣盾

@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription Вы получае
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle Создание	заклинаний
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription Вы получаете бонусные заклинания, которые считаются для вас заклинаниями Tinkerer, они всегда подготовлены и не учитываются в количестве известных вам заклинаний	Tinkerer.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle Создание	заклинаний
-Feat/&ArtilleryConstructTitle Артиллерийская	конструкция
-Feat/&ArtilleryConstructTitle_3 Артиллерийская	конструкция
-Feat/&ArtilleryConstructTitle_5 Артиллерийская	конструкция
 Feat/&ArtilleryModePoolDescription Выберите свой режим	артиллерии.
 Feat/&ArtilleryModePoolTitle Артиллерийский	режим
 Feat/&AttackModifierArtificerBattleSmithJolt2Description Ваши атаки оружием наносят дополнительно 3 единицы	урона.
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title Огненная артиллерия	(улучше�
 Feat/&FlameArtilleryConstructDescription Создает огненный конус, наносящий 2d8 урона при	провале.
 Feat/&FlameArtilleryConstructDescription_3 Создает огненный конус, наносящий 3d8 урона при	провале.
 Feat/&FlameArtilleryConstructTitle Огнеметная артиллерийская	конструкция
-Feat/&FlameArtilleryConstructTitle_3 Огнеметная артиллерийская	конструкция
-Feat/&FlameArtilleryConstructTitle_5 Огнеметная артиллерийская	конструкция
 Feat/&FlameArtilleryDescription 2d8 урона огнём	(Конус).
 Feat/&FlameArtilleryTitle Огненная	артиллерия
 Feat/&ForceArtillery_2Description Силовой урон 3d8 и толкание цели на 5	фт.
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription Модернизированна
 Feat/&ForceArtilleryConstructDescription Наносит силовой урон 2к8 и отталкивает цель на 5 футов от	Конструкта.
 Feat/&ForceArtilleryConstructDescription_3 Наносит силовой урон 3к8 и отталкивает цель на 5 футов от	Конструкта.
 Feat/&ForceArtilleryConstructTitle Силовая артиллерийская	конструкция
-Feat/&ForceArtilleryConstructTitle_3 Силовая артиллерийская	конструкция
-Feat/&ForceArtilleryConstructTitle_5 Силовая артиллерийская	конструкция
 Feat/&ForceArtilleryDescription 2d8 Силовой урон и толчок на 5	фт.
 Feat/&ForceStrikePowerDescription Атака дальнего боя 1d6 силового урона от вашего верного	помощника.
 Feat/&ForceStrikePowerTitle Force Sling (Искусственный	слуга)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2 Улучшение конструкции 
 Feat/&SummonProtectorConstructTitle_Upgrade Улучшение конструкции "Призыв	защитника"
 Feat/&TempHPShieldConstructDescription Дарует 1d8 + 4 временных ОЗ союзникам в пределах 10	футов.
 Feat/&TempHPShieldConstructTitle Защитная купольная	конструкция
-Feat/&TempHPShieldConstructTitle_3 Защитная купольная	конструкция
-Feat/&TempHPShieldConstructTitle_5 Защитная купольная	конструкция
 Feat/&TempHPShieldDescription Дайте 1d8 + 4 временных ОЗ союзникам в пределах 10	футов.
 Feat/&ThunderShieldDescription Защитный щит обеспечивает временные ОЗ, равные вашему уровню. Можно использовать 6 раз за продолжительный	отдых.
 Feat/&ThunderShieldTitle Громовой	щит

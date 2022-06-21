@@ -59,7 +59,7 @@
     "effectFormFilters": [],
     "effectForms": [
       {
-        "$type": "EffectForm, Assembly-CSharp",
+        "$type": "SolastaCommunityExpansion.Classes.Witch.Witch+CackleEffectForm, SolastaCommunityExpansion",
         "formType": 9000,
         "addBonusMode": "None",
         "applyLevel": "No",
