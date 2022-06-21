@@ -59,7 +59,7 @@
     "effectFormFilters": [],
     "effectForms": [
       {
-        "$type": "EffectForm, Assembly-CSharp",
+        "$type": "SolastaCommunityExpansion.Subclasses.Fighter.StudyYourEnemyBuilder+StudyEnemyEffectDescription, SolastaCommunityExpansion",
         "formType": 9000,
         "addBonusMode": "None",
         "applyLevel": "No",

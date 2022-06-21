@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -88,7 +89,7 @@ internal static class DarkelfSubraceBuilder
         var darkelfFaerieFirePower = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire", "68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription)
+            .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
@@ -101,7 +102,7 @@ internal static class DarkelfSubraceBuilder
         var darkelfDarknessPower = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness", "0c413f86-2fa8-4f3d-999a-89e6c7b5b14d")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
+            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)

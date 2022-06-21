@@ -8,5 +8,5 @@
 
 CHANGES:
 
-- Fix batch translations feature
-- Fix TA recipes titles
+- Fix Study Your Enemy 
+- Improve recipes titles

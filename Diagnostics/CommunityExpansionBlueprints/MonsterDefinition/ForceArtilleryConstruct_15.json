@@ -199,7 +199,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&ForceArtilleryConstructTitle_5",
+    "title": "Feat/&ForceArtilleryConstructTitle",
     "description": "Feat/&ForceArtilleryConstructDescription_3",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

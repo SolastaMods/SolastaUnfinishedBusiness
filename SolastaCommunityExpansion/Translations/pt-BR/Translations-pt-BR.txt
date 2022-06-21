@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Você ganha feitiç
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construir Feitiços
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Você ganha feitiços bônus que são considerados feitiços de Tinkerer para você, eles estão sempre preparados e não contam para o número de feitiços de Tinkerer que você conhece.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construir Feitiços
-Feat/&ArtilleryConstructTitle	Construção de Artilharia
-Feat/&ArtilleryConstructTitle_3	Construção de Artilharia
-Feat/&ArtilleryConstructTitle_5	Construção de Artilharia
 Feat/&ArtilleryModePoolDescription	Escolha o seu modo de artilharia.
 Feat/&ArtilleryModePoolTitle	Modo Artilharia
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	Seus ataques com arma causam 3 pontos de dano adicionais.
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title	Artilharia Flamejante (Melhorada)
 Feat/&FlameArtilleryConstructDescription	Cria um cone de fogo que causa 2d8 de dano se falhar na resistência.
 Feat/&FlameArtilleryConstructDescription_3	Cria um cone de fogo que causa 3d8 de dano se falhar na resistência.
 Feat/&FlameArtilleryConstructTitle	Construção de Artilharia Flamejante
-Feat/&FlameArtilleryConstructTitle_3	Construção de Artilharia Flamejante
-Feat/&FlameArtilleryConstructTitle_5	Construção de Artilharia Flamejante
 Feat/&FlameArtilleryDescription	2d8 de dano de fogo (Cone).
 Feat/&FlameArtilleryTitle	Artilharia Flamejante
 Feat/&ForceArtillery_2Description	3d8 de dano de força e empurra o alvo 1,5 m.
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	O constructo atualizado causa 1d
 Feat/&ForceArtilleryConstructDescription	Causa 2d8 de dano de força e empurra o alvo 1,5 metro para longe do Constructo.
 Feat/&ForceArtilleryConstructDescription_3	Causa 3d8 de dano de força e empurra o alvo 1,5m para longe do Constructo.
 Feat/&ForceArtilleryConstructTitle	Força Artilharia Construída
-Feat/&ForceArtilleryConstructTitle_3	Força Artilharia Construída
-Feat/&ForceArtilleryConstructTitle_5	Força Artilharia Construída
 Feat/&ForceArtilleryDescription	2d8 de dano de Força e empurrão 1,5 m.
 Feat/&ForceStrikePowerDescription	Ataque à distância 1d6 de dano de força do seu fiel ajudante.
 Feat/&ForceStrikePowerTitle	Force Sling (Servo Artificial)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2	Invocar Melhoria de Construto Protetor
 Feat/&SummonProtectorConstructTitle_Upgrade	Invocar Melhoria de Construto Protetor
 Feat/&TempHPShieldConstructDescription	Concede 1d8 + 4 PV temporários a aliados dentro de 10 pés.
 Feat/&TempHPShieldConstructTitle	Construção de Cúpula de Proteção
-Feat/&TempHPShieldConstructTitle_3	Construção de Cúpula de Proteção
-Feat/&TempHPShieldConstructTitle_5	Construção de Cúpula de Proteção
 Feat/&TempHPShieldDescription	Fornece 1d8 + 4 TempHP para aliados dentro de 10 pés.
 Feat/&ThunderShieldDescription	Escudo defensivo fornece HP temporário igual ao seu nível. Pode ser usado 6 vezes por descanso longo.
 Feat/&ThunderShieldTitle	Escudo do Trovão

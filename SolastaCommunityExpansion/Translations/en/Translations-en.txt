@@ -4,7 +4,7 @@ AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC is set t
 AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Barkskin
 AttributeModifier/&DHFeeblemindChaSpellDescription	Charisma score is set to 1.
 AttributeModifier/&DHFeeblemindChaSpellTitle	Feeble Charisma
-AttributeModifier/&DHFeeblemindIntSpellDescription	Charisma score is set to 1.
+AttributeModifier/&DHFeeblemindIntSpellDescription	Intelligence score is set to 1.
 AttributeModifier/&DHFeeblemindIntSpellTitle	Feeble Intelligence
 BlueprintCategory/&FlatRoomsTitle	Flat Rooms
 Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	You gain bonus spel
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construct Spells
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	You gain bonus spells that are considered Tinkerer spells for you, they are always prepared and don't count against the number of Tinkerer spells you know.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construct Spells
-Feat/&ArtilleryConstructTitle	Artillery Construct
-Feat/&ArtilleryConstructTitle_3	Artillery Construct
-Feat/&ArtilleryConstructTitle_5	Artillery Construct
 Feat/&ArtilleryModePoolDescription	Choose your Artillery Mode.
 Feat/&ArtilleryModePoolTitle	Artillery Mode
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	Your weapon attacks deal an additional 3 damage.
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title	Flame Artillery (Improved)
 Feat/&FlameArtilleryConstructDescription	Creates a cone of fire that deals 2d8 damage on a failed save.
 Feat/&FlameArtilleryConstructDescription_3	Creates a cone of fire that deals 3d8 damage on a failed save.
 Feat/&FlameArtilleryConstructTitle	Flame Artillery Construct
-Feat/&FlameArtilleryConstructTitle_3	Flame Artillery Construct
-Feat/&FlameArtilleryConstructTitle_5	Flame Artillery Construct
 Feat/&FlameArtilleryDescription	2d8 fire damage (Cone).
 Feat/&FlameArtilleryTitle	Flame Artillery
 Feat/&ForceArtillery_2Description	3d8 force damage and push target 5 ft.
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	The upgraded construct deals 1d8
 Feat/&ForceArtilleryConstructDescription	Deals 2d8 force damage and pushes target 5ft away from Construct.
 Feat/&ForceArtilleryConstructDescription_3	Deals 3d8 force damage and pushes target 5ft away from Construct.
 Feat/&ForceArtilleryConstructTitle	Force Artillery Construct
-Feat/&ForceArtilleryConstructTitle_3	Force Artillery Construct
-Feat/&ForceArtilleryConstructTitle_5	Force Artillery Construct
 Feat/&ForceArtilleryDescription	2d8 Force damage and push 5 ft.
 Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
 Feat/&ForceStrikePowerTitle	Force Sling (Artificial Servant)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2	Summon Protector Construct Upgrade
 Feat/&SummonProtectorConstructTitle_Upgrade	Summon Protector Construct Upgrade
 Feat/&TempHPShieldConstructDescription	Grants 1d8 + 4 temporary HP to allies within 10ft.
 Feat/&TempHPShieldConstructTitle	Protecting Dome Construct
-Feat/&TempHPShieldConstructTitle_3	Protecting Dome Construct
-Feat/&TempHPShieldConstructTitle_5	Protecting Dome Construct
 Feat/&TempHPShieldDescription	Provide 1d8 + 4 TempHP to allies within 10ft.
 Feat/&ThunderShieldDescription	Defensive shield provides temp HP equal to your level. Can be used 6 times per long rest.
 Feat/&ThunderShieldTitle	Thunder Shield

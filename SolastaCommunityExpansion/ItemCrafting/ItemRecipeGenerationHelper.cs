@@ -42,7 +42,8 @@ internal static class ItemRecipeGenerationHelper
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb,
                     "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
                     newRecipe, Main.Settings.RecipeCost,
-                    DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_EmpressGarb.GuiPresentation);
+                    new GuiPresentationBuilder("Equipment/&CraftingManualTitle", "Equipment/&CraftingManualDescription")
+                        .Build());
 
                 if (!ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                 {
@@ -96,7 +97,8 @@ internal static class ItemRecipeGenerationHelper
                     DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longbow_Of_Accuracy,
                     "CraftingManual_" + newRecipe.Name, itemCollection.BaseGuid,
                     newRecipe, Main.Settings.RecipeCost,
-                    DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
+                    new GuiPresentationBuilder("Equipment/&CraftingManualTitle", "Equipment/&CraftingManualDescription")
+                        .Build());
 
                 if (!ItemCraftingContext.RecipeBooks.ContainsKey(baseItem.Name))
                 {
@@ -222,7 +224,8 @@ internal static class ItemRecipeGenerationHelper
             var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                 DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
                 recipe, Main.Settings.RecipeCost,
-                DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
+                new GuiPresentationBuilder("Equipment/&CraftingManualTitle", "Equipment/&CraftingManualDescription")
+                    .Build());
 
             ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
@@ -282,7 +285,8 @@ internal static class ItemRecipeGenerationHelper
                 DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden,
                 "CraftingManual_" + recipe.Name, baseGuid,
                 recipe, Main.Settings.RecipeCost,
-                DatabaseHelper.ItemDefinitions.CraftingManual_Enchant_Longsword_Warden.GuiPresentation);
+                new GuiPresentationBuilder("Equipment/&CraftingManualTitle", "Equipment/&CraftingManualDescription")
+                    .Build());
 
             ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
@@ -375,7 +379,8 @@ internal static class ItemRecipeGenerationHelper
             var craftingManual = ItemBuilder.BuilderCopyFromItemSetRecipe(
                 DatabaseHelper.ItemDefinitions.CraftingManualRemedy, "CraftingManual_" + recipe.Name, baseGuid,
                 recipe, Main.Settings.RecipeCost,
-                DatabaseHelper.ItemDefinitions.CraftingManualRemedy.GuiPresentation);
+                new GuiPresentationBuilder("Equipment/&CraftingManualTitle", "Equipment/&CraftingManualDescription")
+                    .Build());
 
             ItemCraftingContext.RecipeBooks[groupKey].Add(craftingManual);
 
