@@ -116,7 +116,7 @@ internal sealed class ForceArtilleryConstruct9Builder : MonsterDefinitionBuilder
     private ForceArtilleryConstruct9Builder(string name, string guid) : base(
         ForceArtilleryConstructBuilder.ForceArtilleryConstruct, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle_3";
+        Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription_3";
 
         // Definition.Features.Add(ForceArtillery_2Builder.ForceArtillery_2);
@@ -146,7 +146,7 @@ internal sealed class ForceArtilleryConstruct15Builder : MonsterDefinitionBuilde
     private ForceArtilleryConstruct15Builder(string name, string guid) : base(
         ForceArtilleryConstruct9Builder.ForceArtilleryConstruct9, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle_5";
+        Definition.GuiPresentation.Title = "Feat/&ForceArtilleryConstructTitle";
         Definition.GuiPresentation.Description = "Feat/&ForceArtilleryConstructDescription_3";
 
         Definition.Features.Add(HalfCoverShieldBuilder.HalfCoverShield);

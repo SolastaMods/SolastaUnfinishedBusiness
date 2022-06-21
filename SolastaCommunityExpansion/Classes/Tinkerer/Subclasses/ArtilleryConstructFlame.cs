@@ -198,7 +198,7 @@ internal sealed class FlameArtilleryConstruct9Builder : MonsterDefinitionBuilder
     private FlameArtilleryConstruct9Builder(string name, string guid) : base(
         FlameArtilleryConstructBuilder.FlameArtilleryConstruct, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle_3";
+        Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle";
 
         Definition.Features.Add(FlameArtillery2Builder.FlameArtillery2);
         Definition.Features.Add(SelfDestructBuilder.SelfDestruct);
@@ -225,7 +225,7 @@ internal sealed class FlameArtilleryConstruct15Builder : MonsterDefinitionBuilde
     private FlameArtilleryConstruct15Builder(string name, string guid) : base(
         FlameArtilleryConstruct9Builder.FlameArtilleryConstruct9, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle_5";
+        Definition.GuiPresentation.Title = "Feat/&FlameArtilleryConstructTitle";
 
         Definition.Features.Add(HalfCoverShieldBuilder.HalfCoverShield);
     }

@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Du erhältst Bonusz
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Zauber konstruieren
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Tüftlerzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl an Tüftlerzaubern, die du kennst.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Zauber konstruieren
-Feat/&ArtilleryConstructTitle	Artillerie-Konstrukt
-Feat/&ArtilleryConstructTitle_3	Artillerie-Konstrukt
-Feat/&ArtilleryConstructTitle_5	Artillerie-Konstrukt
 Feat/&ArtilleryModePoolDescription	Wählen Sie Ihren Artillerie-Modus.
 Feat/&ArtilleryModePoolTitle	Artillerie-Modus
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	Eure Waffenangriffe verursachen zusätzlich 3 Schaden.
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title	Flammenartillerie (Verbessert)
 Feat/&FlameArtilleryConstructDescription	Erzeugt einen Feuerkegel, der bei einem gescheiterten Rettungswurf 2W8 Schaden verursacht.
 Feat/&FlameArtilleryConstructDescription_3	Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.
 Feat/&FlameArtilleryConstructTitle	Flammenartillerie-Konstrukt
-Feat/&FlameArtilleryConstructTitle_3	Flammenartillerie-Konstrukt
-Feat/&FlameArtilleryConstructTitle_5	Flammenartillerie-Konstrukt
 Feat/&FlameArtilleryDescription	2W8 Feuerschaden (Kegel).
 Feat/&FlameArtilleryTitle	Flammenartillerie
 Feat/&ForceArtillery_2Description	3W8 erzwingen Schaden und stoßen das Ziel 1,50 m weit.
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	Das aufgewertete Konstrukt verur
 Feat/&ForceArtilleryConstructDescription	Verursacht 2W8 Kraftschaden und stößt das Ziel 1,50 m vom Konstrukt weg.
 Feat/&ForceArtilleryConstructDescription_3	Verursacht 3W8 Kraftschaden und stößt das Ziel 1,50 m vom Konstrukt weg.
 Feat/&ForceArtilleryConstructTitle	Force-Artillerie-Konstrukt
-Feat/&ForceArtilleryConstructTitle_3	Force-Artillerie-Konstrukt
-Feat/&ForceArtilleryConstructTitle_5	Force-Artillerie-Konstrukt
 Feat/&ForceArtilleryDescription	2W8 Schaden erzwingen und 1,50 m vorstoßen.
 Feat/&ForceStrikePowerDescription	Fernkampfangriff 1W6 Machtschaden von deinem treuen Kumpel.
 Feat/&ForceStrikePowerTitle	Force Sling (Künstlicher Diener)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2	Beschützerkonstrukt-Upgrade beschwören
 Feat/&SummonProtectorConstructTitle_Upgrade	Beschützerkonstrukt-Upgrade beschwören
 Feat/&TempHPShieldConstructDescription	Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.
 Feat/&TempHPShieldConstructTitle	Schutzkuppelkonstrukt
-Feat/&TempHPShieldConstructTitle_3	Schutzkuppelkonstrukt
-Feat/&TempHPShieldConstructTitle_5	Schutzkuppelkonstrukt
 Feat/&TempHPShieldDescription	Versorge Verbündete innerhalb von 10 Fuß mit 1W8 + 4 TempHP.
 Feat/&ThunderShieldDescription	Defensives Schild bietet temporäre HP in Höhe Ihres Levels. Kann 6 Mal pro langer Pause verwendet werden.
 Feat/&ThunderShieldTitle	Donnerschild

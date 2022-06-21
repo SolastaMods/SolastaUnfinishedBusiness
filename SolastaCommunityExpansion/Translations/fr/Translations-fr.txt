@@ -464,9 +464,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Vous gagnez des sor
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construire des sorts
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construire des sorts
-Feat/&ArtilleryConstructTitle	Construction d'artillerie
-Feat/&ArtilleryConstructTitle_3	Construction d'artillerie
-Feat/&ArtilleryConstructTitle_5	Construction d'artillerie
 Feat/&ArtilleryModePoolDescription	Choisissez votre mode d'artillerie.
 Feat/&ArtilleryModePoolTitle	Mode Artillerie
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	Vos attaques avec une arme infligent 3 dégâts supplémentaires.
@@ -641,8 +638,6 @@ Feat/&FlameArtillery_2Title	Artillerie incendiaire (améliorée)
 Feat/&FlameArtilleryConstructDescription	Crée un cône de feu qui inflige 2d8 dégâts en cas d'échec.
 Feat/&FlameArtilleryConstructDescription_3	Crée un cône de feu qui inflige 3d8 dégâts en cas d'échec.
 Feat/&FlameArtilleryConstructTitle	Construction d'artillerie de flammes
-Feat/&FlameArtilleryConstructTitle_3	Construction d'artillerie de flammes
-Feat/&FlameArtilleryConstructTitle_5	Construction d'artillerie de flammes
 Feat/&FlameArtilleryDescription	2d8 dégâts de feu (cône).
 Feat/&FlameArtilleryTitle	Flamme Artillerie
 Feat/&ForceArtillery_2Description	3d8 dégâts de force et repoussez la cible de 1,50 mètre.
@@ -651,8 +646,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	La construction améliorée infl
 Feat/&ForceArtilleryConstructDescription	Inflige 2d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
 Feat/&ForceArtilleryConstructDescription_3	Inflige 3d8 dégâts de force et éloigne la cible de 1,50 mètre de la construction.
 Feat/&ForceArtilleryConstructTitle	Construction d'artillerie de force
-Feat/&ForceArtilleryConstructTitle_3	Construction d'artillerie de force
-Feat/&ForceArtilleryConstructTitle_5	Construction d'artillerie de force
 Feat/&ForceArtilleryDescription	2d8 dégâts de Force et poussée de 1,50 mètre.
 Feat/&ForceStrikePowerDescription	Attaque à distance 1d6 dégâts de force de votre fidèle acolyte.
 Feat/&ForceStrikePowerTitle	Force Sling (serviteur artificiel)
@@ -760,8 +753,6 @@ Feat/&SummonProtectorConstructTitle_2	Invocation de la mise à niveau de la cons
 Feat/&SummonProtectorConstructTitle_Upgrade	Invocation de la mise à niveau de la construction du protecteur
 Feat/&TempHPShieldConstructDescription	Confère 1d8 + 4 PV temporaires aux alliés à moins de 3 mètres.
 Feat/&TempHPShieldConstructTitle	Construction de dôme de protection
-Feat/&TempHPShieldConstructTitle_3	Construction de dôme de protection
-Feat/&TempHPShieldConstructTitle_5	Construction de dôme de protection
 Feat/&TempHPShieldDescription	Fournit 1d8 + 4 TempHP aux alliés à moins de 3 mètres.
 Feat/&ThunderShieldDescription	Le bouclier défensif fournit des PV temporaires égaux à votre niveau. Peut être utilisé 6 fois par repos long.
 Feat/&ThunderShieldTitle	Bouclier de tonnerre

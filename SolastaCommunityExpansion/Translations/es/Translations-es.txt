@@ -465,9 +465,6 @@ Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Obtienes hechizos d
 Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construir hechizos
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Obtienes hechizos de bonificación que se consideran hechizos de Tinkerer para ti, siempre están preparados y no cuentan contra la cantidad de hechizos de Tinkerer que conoces.
 Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construir hechizos
-Feat/&ArtilleryConstructTitle	Construcción de artillería
-Feat/&ArtilleryConstructTitle_3	Construcción de artillería
-Feat/&ArtilleryConstructTitle_5	Construcción de artillería
 Feat/&ArtilleryModePoolDescription	Elige tu modo de artillería.
 Feat/&ArtilleryModePoolTitle	Modo artillería
 Feat/&AttackModifierArtificerBattleSmithJolt2Description	Tus ataques con armas infligen 3 daños adicionales.
@@ -642,8 +639,6 @@ Feat/&FlameArtillery_2Title	Artillería de fuego (mejorada)
 Feat/&FlameArtilleryConstructDescription	Crea un cono de fuego que inflige 2d8 de daño si falla la salvación.
 Feat/&FlameArtilleryConstructDescription_3	Crea un cono de fuego que inflige 3d8 de daño si falla la salvación.
 Feat/&FlameArtilleryConstructTitle	Construcción de artillería de llamas
-Feat/&FlameArtilleryConstructTitle_3	Construcción de artillería de llamas
-Feat/&FlameArtilleryConstructTitle_5	Construcción de artillería de llamas
 Feat/&FlameArtilleryDescription	2d8 daño por fuego (Cono).
 Feat/&FlameArtilleryTitle	Artillería de fuego
 Feat/&ForceArtillery_2Description	3d8 fuerza de daño y empuja al objetivo 5 pies.
@@ -652,8 +647,6 @@ Feat/&ForceArtilleryAdditionalDamageDescription	La construcción mejorada inflig
 Feat/&ForceArtilleryConstructDescription	Inflige 2d8 de daño de fuerza y ​​empuja al objetivo a 5 pies de distancia de Construct.
 Feat/&ForceArtilleryConstructDescription_3	Inflige 3d8 de daño de fuerza y ​​empuja al objetivo a 5 pies de distancia de Construct.
 Feat/&ForceArtilleryConstructTitle	Construcción de artillería de fuerza
-Feat/&ForceArtilleryConstructTitle_3	Construcción de artillería de fuerza
-Feat/&ForceArtilleryConstructTitle_5	Construcción de artillería de fuerza
 Feat/&ForceArtilleryDescription	2d8 Fuerza el daño y empuja 5 pies.
 Feat/&ForceStrikePowerDescription	Ataque a distancia 1d6 de daño de fuerza de tu compañero de confianza.
 Feat/&ForceStrikePowerTitle	Force Sling (Servidor artificial)
@@ -761,8 +754,6 @@ Feat/&SummonProtectorConstructTitle_2	Mejora de construcción de protector de in
 Feat/&SummonProtectorConstructTitle_Upgrade	Mejora de construcción de protector de invocación
 Feat/&TempHPShieldConstructDescription	Otorga 1d8 + 4 HP temporales a los aliados dentro de 10 pies.
 Feat/&TempHPShieldConstructTitle	Construcción de cúpula protectora
-Feat/&TempHPShieldConstructTitle_3	Construcción de cúpula protectora
-Feat/&TempHPShieldConstructTitle_5	Construcción de cúpula protectora
 Feat/&TempHPShieldDescription	Proporciona 1d8 + 4 TempHP a los aliados dentro de los 10 pies.
 Feat/&ThunderShieldDescription	El escudo defensivo proporciona HP temporal igual a tu nivel. Se puede utilizar 6 veces por descanso prolongado.
 Feat/&ThunderShieldTitle	Escudo de trueno
