@@ -1,0 +1,196 @@
+BlueprintCategory/&FlatRoomsTitle	Flat Rooms
+Caption/&GadgetParametersCustomRemoveDescription	Remove:\n{0}.
+Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest. Gain 4 temp HP for each level of Druid, lasting 10 minutes.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
+Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
+Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
+Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
+Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest deal 2d8 piercing damage to creatures that hit with a melee attack.
+Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
+Condition/&ConditionMuleDescription	Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
+Condition/&ConditionMuleTitle	Mule
+Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant poison immunity, and deal 3d8 piercing damage to creatures that hit with a melee attack.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
+Condition/&EWResonatingStrikeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 thunder damage. The damage further increases by 1d8 at 11th and 17th levels.
+Condition/&EWResonatingStrikeDamageTitle	Resonance
+Condition/&EWSunlightBladeDamageDescription	At 5th level, attacks triggered by this cantrip deals an additional 1d8 radiant damage. The damage further increases by 1d8 at 11th and 17th levels.
+Condition/&EWSunlightBladeDamageTitle	Sunlit Blade's burn
+Condition/&HelpActionDescription	This creature has been distracted.
+Condition/&HelpActionTitle	Distracted
+ContentPack/&CommunityExpansionPackDescription	The Community Expansion pack adds new classes, sub-classes, feats and spells. There's a higher level cap, multi-class, QOL features, bug fixes and more. It's a veritable Horn of Plenty (TM)...
+ContentPack/&CommunityExpansionPackTitle	Community Expansion Pack
+Failure/&FailureFlagTargetMeleeWeaponError	Can't perform melee attack on this target with current weapon
+Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
+Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
+Feature/&AlwaysBeardDescription	{0}% chances to grow a glorious beard!
+Feature/&ArmorofShadowsTitle	Armor of Shadows
+Feature/&AscendantStepTitle	Ascendant Step
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
+Feature/&BarbarianIndomitableMightTitle	Indomitable Might
+Feature/&BardSkillsTitle	Bard Skills
+Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 bonus damage.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Your control of elemental energies has increased to the point than you now have dominion over weaker elementals. You can cast conjure minor elemental at will.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Elemental Minions
+Feature/&DHHolyAuraBlindingPowerDescription	When a fiend or an undead hits an affected creature with a melee attack, the aura flashes with brilliant light. The attacker must succeed on a Constitution saving throw or be blinded until the spell ends.
+Feature/&DHHolyAuraBlindingPowerTitle	Holy Aura Retaliation
+Feature/&DHWardingBondBonusCantripDescription	Your control of rift portals has increased to the point than you can now grant the protection of the rift to others. You can cast warding bond at will (without the sharing of damage).
+Feature/&DHWardingBondBonusCantripTitle	Rift Cloak
+Feature/&DreadfulWordTitle	Dreadful Word
+Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feature/&DualFlurryTitle	Dual Flurry
+Feature/&EmptyString	
+Feature/&FiendishVigorTitle	Fiendish Vigor
+Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
+Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
+Feature/&IndomitableResistanceTitle	Indomitable Resistance
+Feature/&MiretheMindTitle	Mire the Mind
+Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
+Feature/&PowerAttackTitle	Power attack
+Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies within 30ft.
+Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
+Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
+Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
+Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
+Feature/&PowerTorchbearerTitle	Torchbearer
+Feature/&PrimalChampionDescription	At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
+Feature/&PrimalChampionTitle	Primal Champion
+Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
+Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
+Feature/&RageDamageBonusAttackModifierDescription	Add +2 damage to your attacks while raging.
+Feature/&RageDamageBonusAttackModifierTitle	Rage damage
+Feature/&RageFeatConditionDescription	While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RageFeatConditionTitle	Raging
+Feature/&RagePowerDescription	As a bonus action, you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RagePowerTitle	Rage
+Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on Strength saves while raging.
+Feature/&RageStrengthSavingThrowAffinityTitle	Rage Strength save advantage
+Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
+Feature/&RangerFeralSensesTitle	Feral Senses
+Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
+Feature/&RangerVanishActionTitle	Vanish
+Feature/&SignofIllOmenTitle	Sign of Ill Omen
+Feature/&TrickstersEscapeTitle	Trickster's Escape
+Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blinding Weapon
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Additional damage and trying to apply Blindness from Blinding Weapon
+Feedback/&AdditionalDamageElementalDamageFormat	Elemental Damage
+Feedback/&AdditionalDamageElementalDamageLine	Elemental form grants additional damage
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonating Strike!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} resonates {1}! (+{2})
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered does additional damage!
+Feedback/&AdditionalDamageSunlightBladeFormat	Sunlit Blade!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} burns {1} with Sunlit Blade! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Upgraded Damage
+Feedback/&AdditionalDamageUpgradedConstructLine	The upgraded construct deals 1d8 more damage per hit.
+Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear.
+Feedback/&ExtraDamageTitle	Lightning Spear extra damage
+Feedback/&NotifyEffectResonatingStrikeLine	{0} resonates {1}!
+Format/&LevelAndExperienceFormat	Level: {0}\nExperience: {1}\n{2} points required to reach level {3}
+Format/&LevelAndExperienceMaxedFormat	Level: {0}\nExperience: {1}\nmax level reached
+MainMenu/&ExportPdfDescription	Level down this Hero.
+MainMenu/&ExportPdfTitle	Level Down
+Message/&CharacterExportDuplicateNameErrorDescription	Export Cancelled:\n\nA hero with this name already exists in the pool.\nPlease try a different name.
+Message/&CharacterExportEmptyNameErrorDescription	Export Cancelled:\n\nPlease try a non empty name.
+Message/&CharacterExportModalContentDescription	Enter the hero name to export:
+Message/&CharacterExportModalTitleDescription	Character Export.
+Message/&LevelDownConfirmationDescription	Level down this Hero?
+Message/&LevelDownMultiplayerAbortDescription	Cannot Level Down during a multiplayer session.
+Message/&MessageModWelcomeDescription	The Community Expansion Mod is packed full of exciting features, but by default none are enabled. Press <color=yellow>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Community Expansion' to open the settings pages.\n\n Explore the options and select the ones you like. The UMM UI will now open.
+Message/&MessageModWelcomeTitle	Community Expansion Mod
+Message/&RespecMultiplayerAbortDescription	Cannot Respec during a multiplayer session or on exploration map.
+Message/&SpawnCustomEncounterDescription	Spawn encounter at coordinates ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	Cannot spawn encounters on a multiplayer game. Yet...
+Message/&SpawnCustomEncounterTitle	Encounter
+Message/&TeleportPartyDescription	Teleport party to coordinates ({0}, {1})?\nYou might break quests or maps if you teleport to an undiscovered place.
+Message/&TeleportPartyTitle	Teleport
+Monster/&DHCustomCouatlDescription	Couatls are benevolent serpentine beings of great intellect and insight. Their brilliantly colored wings and gentle manner speak to their celestial origins.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Owl Familiar.
+Monster/&OwlFamiliarTitle	Owl
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Bite
+Power/&FindFamiliarBundlePowerDescription	Summon familiar in the form of Pseudorgagon, Sprite, Imp or Quasit.
+Power/&FindFamiliarBundlePowerTitle	Find Familiar
+Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+Power/&HelpActionTitle	Help
+Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action, you can pull a creature within 15 feet closer to you.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Reel In
+Reaction/&CoordinatedAttackDescription	{0} was attacked by coordinating attack, some characters can use their reaction to join this attack.
+Reaction/&CoordinatedAttackReactDescription	Use reaction to attack target.
+Reaction/&CoordinatedAttackReactTitle	Attack
+Reaction/&CoordinatedAttackTitle	Coordinated Attack
+Reaction/&ReadiedAction{0}Description	Readied {0}
+Reaction/&ReadiedAction{0}Title	Readied {0}
+Reaction/&SpendPower{0}Description	Spend {0}
+Reaction/&SpendPower{0}Title	Spend {0}
+Reaction/&SpendPowerBundleDescription	Spend Power.
+Reaction/&SpendPowerBundleTitle	Spend Power
+Reaction/&SubitemSelectCoordinatedAttackTitle	Select action
+Reaction/&SubitemSelectPowerBundleTitle	Options
+Reaction/&SubitemSelectSlotLevelTitle	Slot Level
+Reaction/&SubitemSelectWarcasterReactionTitle	Select action
+Reaction/&Use{0}Description	Use {0}
+Reaction/&Use{0}Title	Use {0}
+Reaction/&WarcasterAttackDescription	Attack target.
+Reaction/&WarcasterAttackTitle	Attack
+Reaction/&WarcasterReactionDescription	{0} is leaving an area threatened by one or more characters.
+Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
+Reaction/&WarcasterReactionReactTitle	Attack
+Reaction/&WarcasterReactionTitle	Attack of Opportunity
+Requirement/&FeatureSelectionRequireCharacterLevel	Level {0}
+Requirement/&FeatureSelectionRequireClassLevel	Level {0} of {1}
+RestActivity/&ZSRespecDescription	Respec this Hero.
+RestActivity/&ZSRespecTitle	Respec
+RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
+RestActivity/&ZSSorcerousRestorationTitle	Sorcerous Restoration
+Rules/&AdvantageAttackOnEnemyDescription	Advantage to attack enemy.
+Rules/&AdvantageAttackOnEnemyTitle	Lit Up
+Rules/&CounterFormDismissCreatureFormat	Dismiss Tinkerer construct
+Rules/&DisadvantageOnAttackByEnemyDescription	Distracted by lightning jolt.
+Rules/&DisadvantageOnAttackByEnemyTitle	Jolted
+Rules/&ExtraDamageOnAttackConditionDescription	Extra damage from Lighting Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	Static shocked
+Screen/&EditorLocationSize3Title	Huge [MODDED]
+Screen/&EditorLocationSize4Title	Gargantuan [MODDED]
+Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
+Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration
+Stage/&IdentityMorphotypeEyeHeader	Eye Style
+Stage/&SubclassSelectionStageSpecialistDescription	Description There are a wide range of specialties in Tinkerers including making elixirs as a Potion Maker, making explosions as a Blaster, and wielding magical weaponry as a Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Specialist Features
+Stage/&SubclassSelectionStageSpecialistHeader	Specializations
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Specialist None Description.
+Stage/&SubclassSelectionStageSpecialistTitle	Select Specialization
+Subclass/&ConditionResistnatArmorDescription	Your armor is resistant to acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, and thunder damage.
+ToolTip/&CheckBoxDefaultPartyTitle	Check this box to set your default party when starting new advendures or testing custom locations. You can select up to {0} heroes in a first-in / first-out basis
+Tooltip/&DeadeyeConcentration	Disable Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
+Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
+Tooltip/&FeatPrerequisiteIsNotRogue	Isn't a Rogue
+Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
+Tooltip/&PowerAttackConcentration	Disable Power Attack.
+Tooltip/&Tag9000Title	Custom Effect
+Tooltip/&TagCommunityExpansionTitle	Community Expansion
+Tooltip/&TagMaledictionTitle	Malediction
+Tooltip/&TagOtherModContentTitle	From mod
+Tooltip/&TagPolearmWeaponTitle	Polearm
+UI/&CustomFeatureSelectionStageDescription	Select extra features from your class/subclass.
+UI/&CustomFeatureSelectionStageFeatures	Features
+UI/&CustomFeatureSelectionStageNotDone	You must select all available features before proceeding
+UI/&CustomFeatureSelectionStageTitle	Feature Selection
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
+UI/&CustomFeatureSelectionTooltipTypePower	Power
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Proficiency
+UI/&ForcePreferredCantripDescription	If this toggled is ON, only the preferred cantrip can trigger. If the preferred cantrip isn't selected, then the first valid cantrip will trigger, regardless of this toggle.
+UI/&ForcePreferredCantripTitle	Force Preferred Cantrip

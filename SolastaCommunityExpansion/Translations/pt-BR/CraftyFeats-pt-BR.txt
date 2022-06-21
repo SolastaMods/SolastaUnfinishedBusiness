@@ -1,0 +1,27 @@
+CraftyFeats/&ApothecaryIntFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de herbalismo e Arcana, ou perícia se já for proficiente.
+CraftyFeats/&ApothecaryIntFeatTitle	Boticário (Inteligência)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de herbalismo e Arcana, ou perícia se já for proficiente.
+CraftyFeats/&ApothecaryWisFeatTitle	Boticário (Sabedoria)
+CraftyFeats/&AttributeDexDescription	+1 DES até um máximo de 20
+CraftyFeats/&AttributeDexTitle	Destreza
+CraftyFeats/&AttributeIntDescription	+1 INT até um máximo de 20
+CraftyFeats/&AttributeIntTitle	Inteligência
+CraftyFeats/&AttributeWisDescription	+1 WIS até um máximo de 20
+CraftyFeats/&AttributeWisTitle	Sabedoria
+CraftyFeats/&CraftyArcanaDescription	Você ganha proficiência/experiência em Arcana.
+CraftyFeats/&CraftyBowsDescription	Você ganha proficiência com todos os arcos e bestas.
+CraftyFeats/&CraftyBowsTitle	Proficiência em Arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumente sua Destreza em 1, até um máximo de 20.\nVocê ganha proficiência com ferramentas de ferreiro, ou perícia se já for proficiente.\n Você ganha proficiência com todos os arcos e bestas.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Você ganha proficiência/experiência em Medicina.
+CraftyFeats/&CraftyNatureDescription	Você ganha proficiência/experiência em Natureza.
+CraftyFeats/&CraftyScribeFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de pergaminho e Arcana, ou perícia se já for proficiente.\nRequer a habilidade de lançar feitiços.
+CraftyFeats/&CraftyScribeFeatTitle	Escriba
+CraftyFeats/&CraftySkillsTitle	Habilidades
+CraftyFeats/&CraftyToolsTitle	Ferramentas
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com rosário manacolon e Arcana, ou perícia se já for proficiente.\nRequer a habilidade de lançar feitiços.
+CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
+CraftyFeats/&ToxicologistIntFeatDescription	Aumente sua Inteligência em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenador e Natureza, ou perícia se já for proficiente.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologista (Inteligência)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenador e Medicina, ou perícia se já for proficiente.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologista (Sabedoria)

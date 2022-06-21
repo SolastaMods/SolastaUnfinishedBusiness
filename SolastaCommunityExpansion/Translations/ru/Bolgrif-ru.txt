@@ -1,0 +1,16 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription Сила	+1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle Увеличение	атрибута
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription Мудрость	+2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle Увеличение	атрибута
+Feature/&BolgrifDruidicMagicDescription Вы знаете одно заклинание на ваш выбор из списка заклинаний друида. Мудрость — это ваша колдовская	способность.
+Feature/&BolgrifDruidicMagicTitle Магия	Друидов
+Feature/&BolgrifInvisibilityPowerDescription В качестве бонусного действия вы можете магическим образом стать невидимым на 1 раунд. Эта невидимость прерывается, если вы предпринимаете какие-либо наступательные действия. После того, как вы использовали эту способность, вы не можете использовать ее снова, пока не закончите короткий или продолжительный	отдых.
+Feature/&BolgrifInvisibilityPowerTitle	исчезнуть
+Feature/&BolgrifPowerfulBuildDescription Вы считаете свой размер Большим при определении	грузоподъемности.
+Feature/&BolgrifPowerfulBuildTitle Мощная	сборка
+Feature/&ProficiencyBolgrifLanguagesDescription Обычный, Эльфийский и	Гигантский.
+Feature/&ProficiencyBolgrifLanguagesTitle	Язык
+Language/&AbyssalDescription Глубинный язык был формой изначального языка, который был окутан и искажен злом	бездны.
+Language/&AbyssalTitle	Глубинный
+Race/&BolgrifRaceDescription Болгрифы — полугиганты, живущие в ледяных высокогорьях Соласты. Они хитры, осторожны, замкнуты, не доверяют большинству гуманоидов, кроме эльфов, и предпочитают жить вдали от цивилизации сплоченными кланами. В битве болгрифы демонстрируют потрясающие навыки обращения с оружием и магией	природы.
+Race/&BolgrifRaceTitle	Болгриф

@@ -1,0 +1,40 @@
+Item/&CEHalberd+1Title Алебарда	+1
+Item/&CEHalberd+1UnidentifiedTitle Качественная	алебарда
+Item/&CEHalberd+2Title Алебарда	+2
+Item/&CEHalberd+2UnidentifiedTitle Великолепная	алебарда
+Item/&CEHalberdLightningTitle Молниеносная	алебарда
+Item/&CEHalberdLightningUnidentifiedTitle Великолепная	алебарда
+Item/&CEHalberdPrimedTitle Подготовленная	алебарда
+Item/&CEHalberdTitle	алебарда
+Item/&CEHandXbow+1Title Ручной арбалет	+1
+Item/&CEHandXbow+1UnidentifiedTitle Качественный ручной	арбалет
+Item/&CEHandXbow+2Title Ручной арбалет	+2
+Item/&CEHandXbow+2UnidentifiedTitle Великолепный ручной	арбалет
+Item/&CEHandXbowAcidTitle Кислотный ручной	арбалет
+Item/&CEHandXbowAcidUnidentifiedTitle Великолепный ручной	арбалет
+Item/&CEHandXbowPrimedTitle Заготовка ручной	арбалет
+Item/&CEHandXbowTitle Ручной	арбалет
+Item/&CELongMace+1Title Длинная булава	+1
+Item/&CELongMace+1UnidentifiedTitle Качественная длинная	булава
+Item/&CELongMace+2Title Длинная булава	+2
+Item/&CELongMace+2UnidentifiedTitle Великолепная длинная	булава
+Item/&CELongMacePrimedTitle Заготовка Длинная	булава
+Item/&CELongMaceThunderTitle Длинная булава	Грома
+Item/&CELongMaceThunderUnidentifiedTitle Великолепная длинная	булава
+Item/&CELongMaceTitle Длинная	булава
+Item/&CEPike+1Title Пика	+1
+Item/&CEPike+1UnidentifiedTitle Качественная	пика
+Item/&CEPike+2Title Пика	+2
+Item/&CEPike+2UnidentifiedTitle Великолепная	пика
+Item/&CEPikePrimedTitle Заготовка	Пика
+Item/&CEPikePsychicTitle Психическая	пика
+Item/&CEPikePsychicUnidentifiedTitle Великолепная	пика
+Item/&CEPikeTitle	Пика
+Item/&Handwraps+1Title Повязки	+1
+Item/&Handwraps+1UnidentifiedTitle Повязки хорошего	качества
+Item/&Handwraps+2Title Повязки	+2
+Item/&Handwraps+2UnidentifiedTitle Великолепные	повязки
+Item/&HandwrapsOfForceTitle Мощные	повязки
+Item/&HandwrapsOfForceUnidentifiedTitle Великолепные	повязки
+Item/&HandwrapsOfPullingTitle Повязки	вытягивания
+Item/&HandwrapsOfPullingUnidentifiedTitle Великолепные	повязки

@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Dextérité +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Augmentation de l'attribut du gnome de la forêt
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligence +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Augmentation de l'attribut Gnome
+Feature/&GnomeCunningFeatureDescription	Vous avez un avantage sur toutes les sauvegardes d'Intelligence, de Sagesse et de Charisme contre la magie.
+Feature/&GnomeCunningFeatureTitle	Ruse
+Feature/&GnomeNaturalIllusionistDescription	Vous connaissez le sort mineur Annoying Bee. L'intelligence est votre modificateur d'incantation pour cela.
+Feature/&GnomeNaturalIllusionistTitle	Magie Naturelle
+Feature/&ProficiencyGnomishLanguagesDescription	Commun, Gnome.
+Feature/&ProficiencyGnomishLanguagesTitle	Langues
+Language/&GnomishLanguageDescription	Ancienne langue solastane, préservée par les gnomes vivant dans les forêts profondes de Solasta, elle a survécu au cataclysme.
+Language/&GnomishLanguageTitle	gnome
+Race/&GnomeRaceDescription	Un bourdonnement constant d'activités animées imprègne les dédales et les quartiers où les gnomes forment leurs communautés très unies. Des sons plus forts ponctuent le bourdonnement : ici un craquement d'engrenages grinçants, là une petite explosion, un cri de surprise ou de triomphe, et surtout des éclats de rire. Les gnomes prennent plaisir à la vie, profitant de chaque instant d'invention, d'exploration, d'investigation, de création et de jeu.
+Race/&GnomeRaceTitle	Gnome

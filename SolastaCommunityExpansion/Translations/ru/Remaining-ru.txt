@@ -1,0 +1,196 @@
+BlueprintCategory/&FlatRoomsTitle Плоские	комнаты
+Caption/&GadgetParametersCustomRemoveDescription	Удалять:\n{0}.
+Condition/&ConditionBarkWardDescription Под эффектом Дубовая кора. Получите 4 временных HP за каждый уровень друида на 10	минут.
+Condition/&ConditionBarkWardTitle Дубовая	кора
+Condition/&ConditionDualFlurryApplyDescription Вы набираете	обороты...
+Condition/&ConditionDualFlurryApplyTitle Двойной	шквал!
+Condition/&ConditionDualFlurryGrantDescription Твои враги	шатаются!
+Condition/&ConditionDualFlurryGrantTitle Двойной	шквал!
+Condition/&ConditionImprovedBarkWardDescription Дубовые Стражи наносят 2d8 колющего урона существам, попавшим в рукопашную	атаку.
+Condition/&ConditionImprovedBarkWardTitle Усиленный Дубовый	Страж
+Condition/&ConditionMuleDescription Ваша скорость не снижается из-за нагрузки или тяжелой брони. Вы можете нести 20 дополнительных	фунтов.
+Condition/&ConditionMuleTitle	Мул
+Condition/&ConditionSuperiorBarkWardDescription Улучшенный Дубовый Страж дает невосприимчивость к яду и наносит 3d8 колющего урона существам, попавшим в рукопашную	атаку.
+Condition/&ConditionSuperiorBarkWardTitle Улучшенный Дубовый	Страж
+Condition/&EWResonatingStrikeDamageDescription На 5-м уровне атаки, вызванные этим колдовством, наносят дополнительный урон громом 1d8. Урон дополнительно увеличивается на 1d8 на 11-м и 17-м	уровнях.
+Condition/&EWResonatingStrikeDamageTitle	Резонанс
+Condition/&EWSunlightBladeDamageDescription На 5-м уровне атаки, вызванные этим колдовством, причиняют дополнительный урон излучением 1d8. Урон дополнительно увеличивается на 1d8 на 11-м и 17-м	уровнях.
+Condition/&EWSunlightBladeDamageTitle Ожог солнечного	клинка
+Condition/&HelpActionDescription Это существо было	отвлечено.
+Condition/&HelpActionTitle	Оказать помощь
+ContentPack/&CommunityExpansionPackDescription Расширение добавляет новые классы, подклассы, умения и заклинания. Есть более высокий предел уровня, мультикласс, функции QOL, исправления ошибок и многое другое. Это настоящий Рог Изобилия	(ТМ)...
+ContentPack/&CommunityExpansionPackTitle Расширение от игрового сообщества
+Failure/&FailureFlagTargetMeleeWeaponError Невозможно атаковать эту цель в ближнем бою текущим	оружием.
+Feature/&AdditionalActionDualFlurryDescription Вы можете совершить дополнительную атаку левой	рукой.
+Feature/&AdditionalActionDualFlurryTitle Двойной	шквал!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription Один раз за ход вы можете нанести дополнительный урон 1к6 одному существу, по которому вы попали атакой, соответствующей скрытой атаке Разбойника. На 7 уровне этот урон увеличивается до 2d6, а на 14 уровне до 3d6. Это может сочетаться с скрытой атакой	разбойника.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle Теневая подлая	атака
+Feature/&AlwaysBeardDescription {0}% шансов отрастить великолепную	бороду!
+Feature/&ArmorofShadowsTitle Броня	теней
+Feature/&AscendantStepTitle Восходящий	шаг
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&BarbarianIndomitableMightDescription Если ваш результат проверки Силы меньше вашего показателя Силы, вы можете использовать этот результат вместо общего	результата.
+Feature/&BarbarianIndomitableMightTitle Неукротимая	мощь
+Feature/&BardSkillsTitle Навыки	барда
+Feature/&DeadeyeDescription Атака на дальней дистанции не накладывает помехи на ваши броски атаки оружием дальнего боя. Ваше оружие дальнего боя игнорирует половину укрытия и укрытие на три четверти. Вы можете выбрать бонусный штраф -5 к вашему удару, чтобы нанести дополнительный урон	+10.
+Feature/&DeadeyeTitle Меткий	глаз
+Feature/&DHConjureMinorElementalsBonusCantripDescription Ваш контроль над энергиями элементалей увеличился до такой степени, что теперь у вас есть власть над более слабыми элементалями. Вы можете сотворить второстепенного элементаля по	желанию.
+Feature/&DHConjureMinorElementalsBonusCantripTitle Стихийные	миньоны
+Feature/&DHHolyAuraBlindingPowerDescription Когда исчадие или нежить поражает пораженное существо рукопашной атакой, аура вспыхивает ярким светом. Атакующий должен преуспеть в спасброске Телосложения, иначе он будет ослеплен до окончания действия	заклинания.
+Feature/&DHHolyAuraBlindingPowerTitle Возмездие святой	ауры
+Feature/&DHWardingBondBonusCantripDescription Ваш контроль над порталами разлома увеличился до такой степени, что теперь вы можете предоставить защиту разлома другим. Вы можете использовать оберегающие узы по желанию (без разделения	урона).
+Feature/&DHWardingBondBonusCantripTitle Плащ	Разлома
+Feature/&DreadfulWordTitle Ужасное	слово
+Feature/&DualFlurryDescription Вы мастер боя спаренным оружием. В любой ход, когда вы дважды попадаете рукопашной атакой, держа по оружию в каждой руке, вы можете совершить дополнительную атаку левой	рукой.
+Feature/&DualFlurryTitle Двойной	шквал
+Feature/&EmptyString	ПУСТОЙ
+Feature/&FiendishVigorTitle Дьявольская	энергия
+Feature/&IndomitableResistanceAddDescription +1 к использованию Неукротимого сопротивления между	отдыхами.
+Feature/&IndomitableResistanceAddTitle Неукротимое сопротивление	(увеличено)
+Feature/&IndomitableResistanceTitle Неукротимое	сопротивление
+Feature/&MiretheMindTitle болото	разума
+Feature/&PowerAttackDescription Получите штраф -3 к попаданию к своей атаке, чтобы нанести 3 + Бонус мастерства дополнительного урона, когда вы наносите удары оружием ближнего	боя.
+Feature/&PowerAttackTitle Силовая	атака
+Feature/&PowerPaladinAuraOfCourage18Description Предоставьте бонус спасброска союзникам в пределах 30	футов.
+Feature/&PowerPaladinAuraOfCourage18Title Улучшенная аура	отваги
+Feature/&PowerPaladinAuraOfProtection18Description Вы и ваши союзники в пределах 30 футов не можете быть	напуганы.
+Feature/&PowerPaladinAuraOfProtection18Title Улучшенная аура	защиты
+Feature/&PowerTorchbearerDescription Попытаться поджечь цель в ближнем	бою!
+Feature/&PowerTorchbearerTitle	Факелоносец
+Feature/&PrimalChampionDescription На 20 уровне вы воплощаете силу дикой природы. Ваши показатели Силы и Телосложения увеличиваются на	4.
+Feature/&PrimalChampionTitle Первобытный	чемпион
+Feature/&ProficiencyRogueBlindSenseDescription Начиная с 14-го уровня, если вы способны слышать, вы знаете о местонахождении любого скрытого или невидимого существа в пределах 10 футов от	вас.
+Feature/&ProficiencyRogueBlindSenseTitle Слепое	чувство
+Feature/&ProficiencyRogueSlipperyMindDescription К 15 уровню вы приобрели большую ментальную силу. Вы получаете владение спасбросками	Мудрости.
+Feature/&ProficiencyRogueSlipperyMindTitle Скользкий	разум
+Feature/&RageDamageBonusAttackModifierDescription Добавьте +2 урона к вашим атакам во время	ярости.
+Feature/&RageDamageBonusAttackModifierTitle Урон от	ярости
+Feature/&RageFeatConditionDescription Находясь в ярости, вы получаете следующее: Преимущество в проверках Силы и спасбросках Силы, бонус к броскам урона +2 и сопротивление дробящему, колющему и рубящему	урону.
+Feature/&RageFeatConditionTitle	бушующий
+Feature/&RagePowerDescription В качестве бонусного действия вы входите в ярость на одну минуту и ​​получаете следующее: Преимущество в проверках Силы и спасбросках Силы, бонус к броскам урона +2 и сопротивление дробящему, колющему и рубящему	урону.
+Feature/&RagePowerTitle	Ярость
+Feature/&RageStrengthSavingThrowAffinityDescription Вы получаете преимущество в спасбросках Силы в	ярости.
+Feature/&RageStrengthSavingThrowAffinityTitle Преимущество в спасброске Силы	Ярости
+Feature/&RangerFeralSensesDescription Вы получаете сверхъестественные чувства, которые помогают вам сражаться с существами, которых вы не можете видеть. Когда вы атакуете существо, которого не видите, ваша неспособность его видеть не накладывает помехи на ваши броски атаки против	него.
+Feature/&RangerFeralSensesTitle Дикие	чувства
+Feature/&RangerVanishActionDescription Начиная с 14-го уровня, вы можете использовать действие «Спрятаться» в качестве бонусного действия в свой	ход.
+Feature/&RangerVanishActionTitle	исчезнуть
+Feature/&SignofIllOmenTitle Знак дурного	предзнаменования
+Feature/&TrickstersEscapeTitle Побег	Трикстера
+Feature/&ZSPowerPaladinCleansingTouchDescription Снимите эффекты заклинаний, прикоснувшись к союзнику. Вы можете делать это количество раз в день, равное вашему модификатору	Харизмы.
+Feature/&ZSPowerPaladinCleansingTouchTitle Очищающее	прикосновение
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat Ослепляющее	оружие
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine Дополнительный урон и попытка применить ослепление от ослепляющего	оружия
+Feedback/&AdditionalDamageElementalDamageFormat Стихийный	урон
+Feedback/&AdditionalDamageElementalDamageLine Элементарная форма дает дополнительный	урон
+Feedback/&AdditionalDamageResonatingStrikeFormat Резонирующий	удар!
+Feedback/&AdditionalDamageResonatingStrikeLine {0} резонирует {1}!	(+{2})
+Feedback/&AdditionalDamageSoulEmpoweredFormat Сила	души!
+Feedback/&AdditionalDamageSoulEmpoweredLine Soul Empowered наносит дополнительный	урон!
+Feedback/&AdditionalDamageSunlightBladeFormat Солнечный	клинок!
+Feedback/&AdditionalDamageSunlightBladeLine {0} сжигает {1} с помощью Sunlit Blade!	(+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat Модернизированный	урон
+Feedback/&AdditionalDamageUpgradedConstructLine Модернизированная конструкция наносит на 1к8 больше урона за	удар.
+Feedback/&ExtraDamageDescription Дополнительный урон от Копья	молний.
+Feedback/&ExtraDamageTitle Дополнительный урон Копья	молний
+Feedback/&NotifyEffectResonatingStrikeLine {0} резонирует	{1}!
+Format/&LevelAndExperienceFormat Уровень: {0}\nОпыт: {1}\n{2} очков, необходимых для достижения уровня	{3}
+Format/&LevelAndExperienceMaxedFormat Уровень: {0}\nОпыт: {1}\nдостигнут максимальный	уровень
+MainMenu/&ExportPdfDescription Понизьте уровень этого	Героя.
+MainMenu/&ExportPdfTitle Уровень	вниз
+Message/&CharacterExportDuplicateNameErrorDescription Экспорт отменен:\n\nГерой с таким именем уже есть в пуле.\nПожалуйста, попробуйте другое	имя.
+Message/&CharacterExportEmptyNameErrorDescription Экспорт отменен:\n\nПожалуйста, попробуйте непустое	имя.
+Message/&CharacterExportModalContentDescription Введите имя героя для	экспорта:
+Message/&CharacterExportModalTitleDescription Экспорт	персонажей.
+Message/&LevelDownConfirmationDescription Понизить уровень этого	героя?
+Message/&LevelDownMultiplayerAbortDescription Невозможно понизить уровень во время многопользовательской	игры.
+Message/&MessageModWelcomeDescription Мод Community Expansion содержит множество интересных функций, но по умолчанию ни одна из них не включена. Нажмите <color=yellow>Ctrl-F10</color>, чтобы открыть пользовательский интерфейс Unity Mod Manager [UMM], затем щелкните значок настроек рядом с «Расширение сообщества», чтобы открыть страницы настроек.\n\n Изучите варианты и выберите те, которые вам нравятся. Откроется пользовательский интерфейс	UMM.
+Message/&MessageModWelcomeTitle Мод расширения	сообщества
+Message/&RespecMultiplayerAbortDescription Нельзя сбросить во время многопользовательской игры или на карте	исследования.
+Message/&SpawnCustomEncounterDescription Создать столкновение с координатами ({0},	{1})?
+Message/&SpawnCustomEncounterErrorDescription Не может создавать столкновения в многопользовательской игре. Пока	что...
+Message/&SpawnCustomEncounterTitle	Сталкиваться
+Message/&TeleportPartyDescription Телепортировать группу по координатам ({0}, {1})?\nВы можете сломать квесты или карты, если телепортируетесь в неизвестное	место.
+Message/&TeleportPartyTitle	Телепорт
+Monster/&DHCustomCouatlDescription Коатли — доброжелательные змеиные существа с большим интеллектом и проницательностью. Их ярко окрашенные крылья и нежная манера поведения говорят об их небесном	происхождении.
+Monster/&DHCustomCouatlTitle	Коатль
+Monster/&OwlFamiliarDescription Знакомая	сова.
+Monster/&OwlFamiliarTitle	Сова
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription Колющий урон, и цель должна преуспеть в спасброске Телосложения со Сл 13, иначе будет отравлена ​​на 24 часа. Пока этот яд не закончится, цель будет без	сознания.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Кусать
+Power/&FindFamiliarBundlePowerDescription Призовите фамильяра в форме Псевдоррагона, Спрайта, Импа или	Квазита.
+Power/&FindFamiliarBundlePowerTitle Найти	знакомых
+Power/&HelpActionDescription Вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас. Вы делаете финт, отвлекаете цель или каким-то другим образом объединяетесь, чтобы сделать атаку вашего союзника более эффективной. Если ваш союзник атакует цель до вашего следующего хода, первый бросок атаки делается с	преимуществом.
+Power/&HelpActionTitle	Помощь
+Power/&PowerFunctionHandwrapsOfPullingDescription Бонусным действием вы можете притянуть к себе существо в пределах 15	футов.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Катушка
+Reaction/&CoordinatedAttackDescription {0} был атакован скоординированной атакой, некоторые персонажи могут использовать свою реакцию, чтобы присоединиться к этой	атаке.
+Reaction/&CoordinatedAttackReactDescription Используйте реакцию, чтобы атаковать	цель.
+Reaction/&CoordinatedAttackReactTitle	Атака
+Reaction/&CoordinatedAttackTitle Скоординированная	атака
+Reaction/&ReadiedAction{0}Description Готов	{0}
+Reaction/&ReadiedAction{0}Title Готов	{0}
+Reaction/&SpendPower{0}Description Потратить	{0}
+Reaction/&SpendPower{0}Title Потратить	{0}
+Reaction/&SpendPowerBundleDescription Тратить	энергию.
+Reaction/&SpendPowerBundleTitle Тратить	энергию
+Reaction/&SubitemSelectCoordinatedAttackTitle Выберите	действие
+Reaction/&SubitemSelectPowerBundleTitle	Опции
+Reaction/&SubitemSelectSlotLevelTitle Уровень	слота
+Reaction/&SubitemSelectWarcasterReactionTitle Выберите	действие
+Reaction/&Use{0}Description Используйте	{0}
+Reaction/&Use{0}Title Используйте	{0}
+Reaction/&WarcasterAttackDescription Цель	атаки.
+Reaction/&WarcasterAttackTitle	Атака
+Reaction/&WarcasterReactionDescription {0} покидает зону, которой угрожают один или несколько	персонажей.
+Reaction/&WarcasterReactionReactDescription Используйте реакцию, чтобы атаковать	цель.
+Reaction/&WarcasterReactionReactTitle	Атака
+Reaction/&WarcasterReactionTitle Атака	возможности
+Requirement/&FeatureSelectionRequireCharacterLevel Уровень	{0}
+Requirement/&FeatureSelectionRequireClassLevel Уровень {0} из	{1}
+RestActivity/&ZSRespecDescription Уважайте этого	героя.
+RestActivity/&ZSRespecTitle	Respec
+RestActivity/&ZSSorcerousRestorationDescription Восстановите 4 очка волшебства во время короткого	отдыха.
+RestActivity/&ZSSorcerousRestorationTitle Волшебное	восстановление
+Rules/&AdvantageAttackOnEnemyDescription Преимущество в атаке	врага.
+Rules/&AdvantageAttackOnEnemyTitle	Зажигать
+Rules/&CounterFormDismissCreatureFormat Отклонить конструкцию	Tinkerer
+Rules/&DisadvantageOnAttackByEnemyDescription Отвлекся от удара	молнии.
+Rules/&DisadvantageOnAttackByEnemyTitle	Встряхнуло
+Rules/&ExtraDamageOnAttackConditionDescription Дополнительный урон от Копья молнии.
+Rules/&ExtraDamageOnAttackConditionTitle Статический	шок
+Screen/&EditorLocationSize3Title Огромный	[ИЗМЕНЕНО]
+Screen/&EditorLocationSize4Title Гигантский	[ИЗМЕНЕНО]
+Sorceror/&ZSSorcerousRestorationDescription Восстановите 4 очка волшебства во время короткого	отдыха.
+Sorceror/&ZSSorcerousRestorationTitle Волшебное	восстановление
+Stage/&IdentityMorphotypeEyeHeader Стиль	глаз
+Stage/&SubclassSelectionStageSpecialistDescription Описание У Тинкереров есть широкий спектр специальностей, включая изготовление эликсиров в качестве зельевара, создание взрывов в качестве бластера и владение магическим оружием в качестве оружейного	кузнеца.
+Stage/&SubclassSelectionStageSpecialistFeatures Специализированные	функции
+Stage/&SubclassSelectionStageSpecialistHeader	Специализации
+Stage/&SubclassSelectionStageSpecialistNoneDescription Специалист Нет	Описание.
+Stage/&SubclassSelectionStageSpecialistTitle Выберите	специализацию
+Subclass/&ConditionResistnatArmorDescription Ваша броня устойчива к кислоте, холоду, огню, силе, молнии, некрозу, яду, психическому урону, излучению и	грому.
+ToolTip/&CheckBoxDefaultPartyTitle Установите этот флажок, чтобы установить группу по умолчанию при запуске новых приключений или тестировании пользовательских локаций. Вы можете выбрать до {0} героев в порядке	очереди.
+Tooltip/&DeadeyeConcentration Отключить меткий	глаз.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle Не знает	{0}
+Tooltip/&FeatPrerequisiteHasStealthAttack Имеет скрытую	атаку
+Tooltip/&FeatPrerequisiteIsNotBarbarian не	варвар
+Tooltip/&FeatPrerequisiteIsNotFighter не	боец
+Tooltip/&FeatPrerequisiteIsNotRogue не	разбойник
+Tooltip/&FeatPrerequisiteLevelFormat Минимальный уровень персонажа	{0}
+Tooltip/&PowerAttackConcentration Отключить силовую	атаку.
+Tooltip/&Tag9000Title Пользовательский	эффект
+Tooltip/&TagCommunityExpansionTitle Расширение	сообщества
+Tooltip/&TagMaledictionTitle	Проклятие
+Tooltip/&TagOtherModContentTitle Из	мода
+Tooltip/&TagPolearmWeaponTitle Древковое	оружие
+UI/&CustomFeatureSelectionStageDescription Выберите дополнительные функции из вашего	класса/подкласса.
+UI/&CustomFeatureSelectionStageFeatures	Функции
+UI/&CustomFeatureSelectionStageNotDone Вы должны выбрать все доступные функции, прежде чем	продолжить
+UI/&CustomFeatureSelectionStageTitle Выбор	функции
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Заговор
+UI/&CustomFeatureSelectionTooltipTypeFeature	Особенность
+UI/&CustomFeatureSelectionTooltipTypePower	Сила
+UI/&CustomFeatureSelectionTooltipTypeProficiency	мастерство
+UI/&ForcePreferredCantripDescription Если этот переключатель включен, сработает только предпочтительный колдовство. Если предпочитаемый заговор не выбран, то сработает первый действительный заговор, независимо от этого	переключателя.
+UI/&ForcePreferredCantripTitle Предпочитаемый Силовой Заговор

@@ -1,0 +1,27 @@
+CraftyFeats/&ApothecaryIntFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+CraftyFeats/&ApothecaryIntFeatTitle	Boticario (Inteligencia)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+CraftyFeats/&ApothecaryWisFeatTitle	Boticario (Sabiduría)
+CraftyFeats/&AttributeDexDescription	+1 DEX hasta un máximo de 20
+CraftyFeats/&AttributeDexTitle	Destreza
+CraftyFeats/&AttributeIntDescription	+1 INT hasta un máximo de 20
+CraftyFeats/&AttributeIntTitle	Inteligencia
+CraftyFeats/&AttributeWisDescription	+1 SAB hasta un máximo de 20
+CraftyFeats/&AttributeWisTitle	Sabiduría
+CraftyFeats/&CraftyArcanaDescription	Obtienes competencia/pericia en Arcana.
+CraftyFeats/&CraftyBowsDescription	Obtienes competencia con todos los arcos y ballestas.
+CraftyFeats/&CraftyBowsTitle	Dominio del arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nAdquieres competencia con las herramientas de herrero, o experiencia si ya eres competente.\n Obtienes competencia con todos los arcos y ballestas.
+CraftyFeats/&CraftyFletcherFeatTitle	Flechero
+CraftyFeats/&CraftyMedicineDescription	Ganas competencia/pericia en Medicina.
+CraftyFeats/&CraftyNatureDescription	Ganas competencia/pericia en la Naturaleza.
+CraftyFeats/&CraftyScribeFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de pergaminos y arcanos, o experiencia si ya eres competente.\nRequiere la habilidad de lanzar hechizos.
+CraftyFeats/&CraftyScribeFeatTitle	Escriba
+CraftyFeats/&CraftySkillsTitle	Habilidades
+CraftyFeats/&CraftyToolsTitle	Instrumentos
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con manacolon rosary y arcana, o experiencia si ya eres competente.\nRequiere la habilidad de lanzar hechizos.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artesano de Manacalón
+CraftyFeats/&ToxicologistIntFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y la Naturaleza, o experiencia si ya eres competente.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicólogo (Inteligencia)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y Medicina, o experiencia si ya eres competente.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicólogo (Sabiduría)

@@ -1,0 +1,196 @@
+BlueprintCategory/&FlatRoomsTitle	Habitaciones planas
+Caption/&GadgetParametersCustomRemoveDescription	Remover:\n{0}.
+Condition/&ConditionBarkWardDescription	Protegido por los espíritus del bosque. Gana 4 HP temporales por cada nivel de Druida, con una duración de 10 minutos.
+Condition/&ConditionBarkWardTitle	Guardián de la corteza
+Condition/&ConditionDualFlurryApplyDescription	Estás ganando impulso...
+Condition/&ConditionDualFlurryApplyTitle	¡Ráfaga dual!
+Condition/&ConditionDualFlurryGrantDescription	¡Tus enemigos están tambaleándose!
+Condition/&ConditionDualFlurryGrantTitle	¡Ráfaga dual!
+Condition/&ConditionImprovedBarkWardDescription	Los espíritus del bosque infligen 2d8 de daño perforante a las criaturas que golpean con un ataque cuerpo a cuerpo.
+Condition/&ConditionImprovedBarkWardTitle	Guardián de ladridos mejorado
+Condition/&ConditionMuleDescription	Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
+Condition/&ConditionMuleTitle	Mula
+Condition/&ConditionSuperiorBarkWardDescription	Los espíritus del bosque otorgan inmunidad al veneno e infligen 3d8 de daño perforante a las criaturas que golpean con un ataque cuerpo a cuerpo.
+Condition/&ConditionSuperiorBarkWardTitle	Guardián de corteza superior
+Condition/&EWResonatingStrikeDamageDescription	A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño de trueno adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
+Condition/&EWResonatingStrikeDamageTitle	Resonancia
+Condition/&EWSunlightBladeDamageDescription	A nivel 5, los ataques provocados por este cantrip infligen 1d8 de daño radiante adicional. El daño aumenta aún más en 1d8 en los niveles 11 y 17.
+Condition/&EWSunlightBladeDamageTitle	Quemadura de Sunlit Blade
+Condition/&HelpActionDescription	Esta criatura se ha distraído.
+Condition/&HelpActionTitle	Distraído
+ContentPack/&CommunityExpansionPackDescription	El paquete Community Expansion agrega nuevas clases, subclases, dotes y hechizos. Hay un límite de nivel más alto, varias clases, funciones de QOL, correcciones de errores y más. Es un verdadero Cuerno de la Abundancia (TM)...
+ContentPack/&CommunityExpansionPackTitle	Paquete de expansión de la comunidad
+Failure/&FailureFlagTargetMeleeWeaponError	No se puede realizar un ataque cuerpo a cuerpo en este objetivo con el arma actual
+Feature/&AdditionalActionDualFlurryDescription	Puedes realizar un ataque adicional con la mano torpe.
+Feature/&AdditionalActionDualFlurryTitle	¡Ráfaga dual!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Una vez por turno, puedes infligir 1d6 de daño adicional a una criatura que golpees con un ataque que se encuentre con el Ataque furtivo de Rogue. En el nivel 7 este daño aumenta a 2d6 y en el nivel 14 a 3d6. Esto puede acumularse con el ataque furtivo de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque furtivo sombrío
+Feature/&AlwaysBeardDescription	¡{0}% de posibilidades de dejarse crecer una barba gloriosa!
+Feature/&ArmorofShadowsTitle	Armadura de sombras
+Feature/&AscendantStepTitle	Paso ascendente
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&BarbarianIndomitableMightDescription	Si su total para una prueba de Fuerza es menor que su puntaje de Fuerza, puede usar ese puntaje en lugar del total.
+Feature/&BarbarianIndomitableMightTitle	Poder indomable
+Feature/&BardSkillsTitle	Habilidades de bardo
+Feature/&DeadeyeDescription	Atacar a larga distancia no supone una desventaja en las tiradas de ataque con armas a distancia. Tus armas a distancia ignoran la media cobertura y la cobertura de tres cuartos. Puedes elegir recibir una penalización de bonificación de -5 a tu golpe para hacer un daño de bonificación de +10.
+Feature/&DeadeyeTitle	Vigota
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Tu control de las energías elementales ha aumentado hasta el punto de que ahora tienes dominio sobre los elementales más débiles. Puedes lanzar conjurar elemental menor a voluntad.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Esbirros elementales
+Feature/&DHHolyAuraBlindingPowerDescription	Cuando un demonio o un no-muerto golpea a una criatura afectada con un ataque cuerpo a cuerpo, el aura destella con una luz brillante. El atacante debe tener éxito en una tirada de salvación de Constitución o quedar cegado hasta que termine el conjuro.
+Feature/&DHHolyAuraBlindingPowerTitle	Represalia del aura sagrada
+Feature/&DHWardingBondBonusCantripDescription	Tu control de los portales de grietas ha aumentado hasta el punto de que ahora puedes otorgar la protección de la grieta a otros. Puedes lanzar un vínculo de protección a voluntad (sin compartir el daño).
+Feature/&DHWardingBondBonusCantripTitle	Capa de grieta
+Feature/&DreadfulWordTitle	palabra terrible
+Feature/&DualFlurryDescription	Eres un maestro de la lucha con armas combinadas. En cualquier turno en el que golpees dos veces con ataques cuerpo a cuerpo mientras empuñas un arma en cada mano, puedes realizar un ataque adicional con la mano izquierda.
+Feature/&DualFlurryTitle	ráfaga dual
+Feature/&EmptyString	VACÍO
+Feature/&FiendishVigorTitle	Vigor diabólico
+Feature/&IndomitableResistanceAddDescription	+1 uso de Resistencia Indomable entre descansos.
+Feature/&IndomitableResistanceAddTitle	Resistencia indomable (aumentada)
+Feature/&IndomitableResistanceTitle	Resistencia Indomable
+Feature/&MiretheMindTitle	Mire la mente
+Feature/&PowerAttackDescription	Recibe una penalización de -3 para golpear a tu ataque para hacer 3 + bonificación de competencia de daño adicional cuando lanzas tus golpes con armas cuerpo a cuerpo.
+Feature/&PowerAttackTitle	Ataque de poder
+Feature/&PowerPaladinAuraOfCourage18Description	Otorga una bonificación de tiro de salvación a los aliados dentro de los 30 pies.
+Feature/&PowerPaladinAuraOfCourage18Title	Aura de coraje mejorada
+Feature/&PowerPaladinAuraOfProtection18Description	Usted y sus aliados dentro de los 30 pies no pueden asustarse.
+Feature/&PowerPaladinAuraOfProtection18Title	Aura de protección mejorada
+Feature/&PowerTorchbearerDescription	¡Intenta prender fuego a un objetivo cuerpo a cuerpo!
+Feature/&PowerTorchbearerTitle	portador de la antorcha
+Feature/&PrimalChampionDescription	En el nivel 20, encarnas el poder de la naturaleza. Tus puntuaciones de Fuerza y ​​Constitución aumentan en 4.
+Feature/&PrimalChampionTitle	Campeón primigenio
+Feature/&ProficiencyRogueBlindSenseDescription	A partir del nivel 14, si eres capaz de oír, eres consciente de la ubicación de cualquier criatura oculta o invisible a 10 pies de ti.
+Feature/&ProficiencyRogueBlindSenseTitle	sentido ciego
+Feature/&ProficiencyRogueSlipperyMindDescription	Para el nivel 15, habrás adquirido mayor fuerza mental. Obtienes competencia en las tiradas de salvación de Sabiduría.
+Feature/&ProficiencyRogueSlipperyMindTitle	Mente resbaladiza
+Feature/&RageDamageBonusAttackModifierDescription	Añade +2 de daño a tus ataques mientras estás en furia.
+Feature/&RageDamageBonusAttackModifierTitle	Daño de rabia
+Feature/&RageFeatConditionDescription	Mientras estás furioso, obtienes lo siguiente: Ventaja en las pruebas de Fuerza y ​​en las tiradas de salvación de Fuerza, una bonificación a las tiradas de daño de +2 y resistencia al daño contundente, perforante y cortante.
+Feature/&RageFeatConditionTitle	Furioso
+Feature/&RagePowerDescription	Como acción adicional, entras en furia durante un minuto y obtienes lo siguiente: Ventaja en las pruebas de Fuerza y ​​tiradas de salvación de Fuerza, una bonificación a las tiradas de daño de +2 y resistencia al daño contundente, perforante y cortante.
+Feature/&RagePowerTitle	Rabia
+Feature/&RageStrengthSavingThrowAffinityDescription	Obtienes ventaja en las salvaciones de Fuerza mientras estás en furia.
+Feature/&RageStrengthSavingThrowAffinityTitle	Ventaja de salvación de fuerza de ira
+Feature/&RangerFeralSensesDescription	Obtienes sentidos sobrenaturales que te ayudan a luchar contra criaturas que no puedes ver. Cuando atacas a una criatura que no puedes ver, tu incapacidad para verla no supone una desventaja en tus tiradas de ataque contra ella.
+Feature/&RangerFeralSensesTitle	Sentidos salvajes
+Feature/&RangerVanishActionDescription	A partir del nivel 14, puedes usar la acción Esconderse como acción adicional en tu turno.
+Feature/&RangerVanishActionTitle	Desaparecer
+Feature/&SignofIllOmenTitle	Signo de mal presagio
+Feature/&TrickstersEscapeTitle	Escape del tramposo
+Feature/&ZSPowerPaladinCleansingTouchDescription	Elimina los efectos de los hechizos tocando a un aliado. Puedes hacer esto un número de veces al día igual a tu modificador de Carisma.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Toque Limpiador
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arma cegadora
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Daño adicional y tratando de aplicar Ceguera de Arma cegadora
+Feedback/&AdditionalDamageElementalDamageFormat	Daño Elemental
+Feedback/&AdditionalDamageElementalDamageLine	La forma elemental otorga daño adicional
+Feedback/&AdditionalDamageResonatingStrikeFormat	¡Golpe resonante!
+Feedback/&AdditionalDamageResonatingStrikeLine	¡{0} resuena {1}! (+{2})
+Feedback/&AdditionalDamageSoulEmpoweredFormat	¡Alma empoderada!
+Feedback/&AdditionalDamageSoulEmpoweredLine	¡Soul Empowered hace daño adicional!
+Feedback/&AdditionalDamageSunlightBladeFormat	¡Hoja iluminada por el sol!
+Feedback/&AdditionalDamageSunlightBladeLine	¡{0} quema {1} con Sunlit Blade! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Daño mejorado
+Feedback/&AdditionalDamageUpgradedConstructLine	La construcción mejorada inflige 1d8 más de daño por golpe.
+Feedback/&ExtraDamageDescription	Daño adicional de Lightning Spear.
+Feedback/&ExtraDamageTitle	Daño adicional de Lightning Spear
+Feedback/&NotifyEffectResonatingStrikeLine	¡{0} resuena {1}!
+Format/&LevelAndExperienceFormat	Nivel: {0}\nExperiencia: {1}\n{2} puntos necesarios para alcanzar el nivel {3}
+Format/&LevelAndExperienceMaxedFormat	Nivel: {0}\nExperiencia: {1}\nnivel máximo alcanzado
+MainMenu/&ExportPdfDescription	Baja de nivel a este héroe.
+MainMenu/&ExportPdfTitle	Nivel abajo
+Message/&CharacterExportDuplicateNameErrorDescription	Exportación cancelada:\n\nYa existe un héroe con este nombre en la piscina.\nIntente con otro nombre.
+Message/&CharacterExportEmptyNameErrorDescription	Exportación cancelada:\n\nIntente con un nombre que no esté vacío.
+Message/&CharacterExportModalContentDescription	Ingrese el nombre del héroe para exportar:
+Message/&CharacterExportModalTitleDescription	Exportación de personajes.
+Message/&LevelDownConfirmationDescription	¿Bajar de nivel a este héroe?
+Message/&LevelDownMultiplayerAbortDescription	No se puede bajar de nivel durante una sesión multijugador.
+Message/&MessageModWelcomeDescription	Community Expansion Mod está repleto de funciones interesantes, pero de forma predeterminada, ninguna está habilitada. Presiona <color=amarillo>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM], luego haz clic en el ícono de configuración junto a "Expansión de la comunidad" para abrir las páginas de configuración.\n\n Explora las opciones y selecciona las que más te gusten. Ahora se abrirá la interfaz de usuario de UMM.
+Message/&MessageModWelcomeTitle	Mod de expansión comunitaria
+Message/&RespecMultiplayerAbortDescription	No se puede respetar durante una sesión multijugador o en un mapa de exploración.
+Message/&SpawnCustomEncounterDescription	¿Encuentro de aparición en las coordenadas ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	No se pueden generar encuentros en un juego multijugador. Aún...
+Message/&SpawnCustomEncounterTitle	Encontrar
+Message/&TeleportPartyDescription	¿Teletransportar el grupo a las coordenadas ({0}, {1})?\nPuede romper misiones o mapas si se teletransporta a un lugar desconocido.
+Message/&TeleportPartyTitle	teletransportarse
+Monster/&DHCustomCouatlDescription	Los couatls son seres serpentinos benévolos de gran intelecto y perspicacia. Sus alas de colores brillantes y su manera amable hablan de sus orígenes celestiales.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Búho Familiar.
+Monster/&OwlFamiliarTitle	Búho
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Daño perforante, y el objetivo debe tener éxito en una tirada de salvación de Constitución CD 13 o quedará envenenado durante 24 horas. Hasta que este veneno termine, el objetivo está inconsciente.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morder
+Power/&FindFamiliarBundlePowerDescription	Invoca familiar en forma de Pseudorgagon, Sprite, Imp o Quasit.
+Power/&FindFamiliarBundlePowerTitle	Encuentra familiar
+Power/&HelpActionDescription	Puedes ayudar a una criatura aliada a atacar a una criatura a 5 pies de ti. Fintas, distraes al objetivo o te unes de alguna otra forma para que el ataque de tu aliado sea más eficaz. Si tu aliado ataca al objetivo antes de tu próximo turno, la primera tirada de ataque se realiza con ventaja.
+Power/&HelpActionTitle	Ayuda
+Power/&PowerFunctionHandwrapsOfPullingDescription	Como acción adicional, puedes acercar a una criatura a 15 pies hacia ti.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Atraer clientes o negocios
+Reaction/&CoordinatedAttackDescription	{0} fue atacado por un ataque coordinado, algunos personajes pueden usar su reacción para unirse a este ataque.
+Reaction/&CoordinatedAttackReactDescription	Usa la reacción para atacar al objetivo.
+Reaction/&CoordinatedAttackReactTitle	Ataque
+Reaction/&CoordinatedAttackTitle	Ataque coordinado
+Reaction/&ReadiedAction{0}Description	Listo {0}
+Reaction/&ReadiedAction{0}Title	Listo {0}
+Reaction/&SpendPower{0}Description	gastar {0}
+Reaction/&SpendPower{0}Title	gastar {0}
+Reaction/&SpendPowerBundleDescription	Gastar energía.
+Reaction/&SpendPowerBundleTitle	Gastar poder
+Reaction/&SubitemSelectCoordinatedAttackTitle	Seleccione la acción
+Reaction/&SubitemSelectPowerBundleTitle	Opciones
+Reaction/&SubitemSelectSlotLevelTitle	Nivel de tragamonedas
+Reaction/&SubitemSelectWarcasterReactionTitle	Seleccione la acción
+Reaction/&Use{0}Description	Usa {0}
+Reaction/&Use{0}Title	Usa {0}
+Reaction/&WarcasterAttackDescription	Objetivo de ataque.
+Reaction/&WarcasterAttackTitle	Ataque
+Reaction/&WarcasterReactionDescription	{0} está saliendo de un área amenazada por uno o más personajes.
+Reaction/&WarcasterReactionReactDescription	Usa la reacción para atacar al objetivo.
+Reaction/&WarcasterReactionReactTitle	Ataque
+Reaction/&WarcasterReactionTitle	Ataque de oportunidad
+Requirement/&FeatureSelectionRequireCharacterLevel	Nivel {0}
+Requirement/&FeatureSelectionRequireClassLevel	Nivel {0} de {1}
+RestActivity/&ZSRespecDescription	Respeta a este héroe.
+RestActivity/&ZSRespecTitle	respeto
+RestActivity/&ZSSorcerousRestorationDescription	Recupera 4 puntos de hechicería durante un breve descanso.
+RestActivity/&ZSSorcerousRestorationTitle	Restauración hechicera
+Rules/&AdvantageAttackOnEnemyDescription	Ventaja para atacar al enemigo.
+Rules/&AdvantageAttackOnEnemyTitle	iluminado
+Rules/&CounterFormDismissCreatureFormat	Descartar la construcción Tinkerer
+Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por la sacudida de un rayo.
+Rules/&DisadvantageOnAttackByEnemyTitle	sacudido
+Rules/&ExtraDamageOnAttackConditionDescription	Daño adicional de Lightning Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	estática conmocionada
+Screen/&EditorLocationSize3Title	Enorme [MODIFICADO]
+Screen/&EditorLocationSize4Title	Gigantesco [MODIFICADO]
+Sorceror/&ZSSorcerousRestorationDescription	Recupera 4 puntos de hechicería durante un breve descanso.
+Sorceror/&ZSSorcerousRestorationTitle	Restauración hechicera
+Stage/&IdentityMorphotypeEyeHeader	Estilo de ojos
+Stage/&SubclassSelectionStageSpecialistDescription	Descripción Hay una amplia gama de especialidades en Tinkerers, incluida la elaboración de elixires como Potion Maker, la creación de explosiones como Blaster y el uso de armas mágicas como Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Funciones especializadas
+Stage/&SubclassSelectionStageSpecialistHeader	Especializaciones
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Especialista Ninguno Descripción.
+Stage/&SubclassSelectionStageSpecialistTitle	Seleccionar especialización
+Subclass/&ConditionResistnatArmorDescription	Tu armadura es resistente al daño por ácido, frío, fuego, fuerza, rayos, necrótico, veneno, psíquico, radiante y trueno.
+ToolTip/&CheckBoxDefaultPartyTitle	Marque esta casilla para configurar su fiesta predeterminada cuando comience nuevas aventuras o pruebe ubicaciones personalizadas. Puede seleccionar hasta {0} héroes por orden de llegada.
+Tooltip/&DeadeyeConcentration	Deshabilitar Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	no sabe {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Tiene ataque sigiloso
+Tooltip/&FeatPrerequisiteIsNotBarbarian	no es un bárbaro
+Tooltip/&FeatPrerequisiteIsNotFighter	no es un luchador
+Tooltip/&FeatPrerequisiteIsNotRogue	no es un pícaro
+Tooltip/&FeatPrerequisiteLevelFormat	Nivel mínimo de personaje {0}
+Tooltip/&PowerAttackConcentration	Desactiva el ataque de poder.
+Tooltip/&Tag9000Title	Efecto personalizado
+Tooltip/&TagCommunityExpansionTitle	Expansión de la comunidad
+Tooltip/&TagMaledictionTitle	Maldición
+Tooltip/&TagOtherModContentTitle	Desde modelo
+Tooltip/&TagPolearmWeaponTitle	arma de asta
+UI/&CustomFeatureSelectionStageDescription	Seleccione características adicionales de su clase/subclase.
+UI/&CustomFeatureSelectionStageFeatures	Características
+UI/&CustomFeatureSelectionStageNotDone	Debe seleccionar todas las funciones disponibles antes de continuar
+UI/&CustomFeatureSelectionStageTitle	Selección de características
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Broma
+UI/&CustomFeatureSelectionTooltipTypeFeature	Rasgo
+UI/&CustomFeatureSelectionTooltipTypePower	Energía
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Competencia
+UI/&ForcePreferredCantripDescription	Si esta opción está activada, solo se puede activar el cantrip preferido. Si no se selecciona el cantrip preferido, se activará el primer cantrip válido, independientemente de esta opción.
+UI/&ForcePreferredCantripTitle	Forzar Cantrip Preferido

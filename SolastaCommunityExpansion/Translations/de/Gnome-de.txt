@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Geschicklichkeit +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Erhöhung des Attributs des Waldgnoms
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Intelligenz +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Erhöhung der Gnomattribute
+Feature/&GnomeCunningFeatureDescription	Du hast einen Vorteil bei allen Intelligenz-, Weisheits- und Charismawürfen gegen Magie.
+Feature/&GnomeCunningFeatureTitle	Gerissen
+Feature/&GnomeNaturalIllusionistDescription	Du kennst den Cantrip der nervigen Biene. Intelligenz ist Ihr Zaubermodifikator dafür.
+Feature/&GnomeNaturalIllusionistTitle	Natürliche Magie
+Feature/&ProficiencyGnomishLanguagesDescription	Gewöhnlich, gnomisch.
+Feature/&ProficiencyGnomishLanguagesTitle	Sprachen
+Language/&GnomishLanguageDescription	Eine alte solastanische Sprache, die von Gnomen bewahrt wurde, die in den tiefen Wäldern von Solasta leben, hat die Katastrophe überlebt.
+Language/&GnomishLanguageTitle	Gnomisch
+Race/&GnomeRaceDescription	Ein ständiges Summen geschäftiger Aktivität durchdringt die Gehege und Nachbarschaften, in denen Gnome ihre eng verbundenen Gemeinschaften bilden. Lautere Geräusche unterstreichen das Summen: ein Knirschen knirschender Zahnräder hier, eine kleine Explosion dort, ein überraschter oder triumphierender Aufschrei und vor allem schallendes Gelächter. Gnome erfreuen sich am Leben und genießen jeden Moment des Erfindens, Erkundens, Erforschens, Schaffens und Spielens.
+Race/&GnomeRaceTitle	Gnom

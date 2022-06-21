@@ -1,0 +1,14 @@
+Subclass/&ConditionTransmuteConstitutionSaveDescription	A Constituição Temporária salva a proficiência concedida pelo poder da Força de Transmutação.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Salvamentos de Constituição
+Subclass/&ConditionTransmutePoisonDescription	Resistência temporária a ácido, frio, fogo, raio, necrótica, veneno e trovão concedida pelo poder Transmute Force.
+Subclass/&ConditionTransmutePoisonTitle	Resistência Elementar
+Subclass/&HealingPoolLifeTransmuterBonusDescription	Você pode impor sua vontade na realidade mais 2 vezes por dia.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	Você pode impor sua vontade na realidade mais 4 vezes por dia.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Força de Transmutação Adicional
+Subclass/&HealingPoolLifeTransmuterBonusTitle	Força de Transmutação Adicional
+Subclass/&HealingPoolLifeTransmuterListDescription	Você pode decretar sua vontade na realidade com poderes especiais 2 vezes por dia.
+Subclass/&HealingPoolLifeTransmuterListTitle	Força de Transmutação
+Subclass/&MagicAffinityLifeTransmuterListDescription	Ao lançar alguns feitiços de Transmutação e Necromancia, eles são lançados em um slot de feitiço 2 níveis superior ao usado. Os feitiços aprimorados incluem: Vida Falsa, Cegueira, Voar, Doar Maldição, Toque Vampírico, Praga e Matar Nuvem.\n--Nota: A intenção é ter o benefício de Arma Mágica também, mas atualmente aumentar o nível de feitiço dessa forma em Arma Mágica não tem efeito.
+Subclass/&MagicAffinityLifeTransmuterListTitle	Dobra da realidade
+Subclass/&TraditionLifeTransmuterDescription	Mestres da manipulação da matéria e da energia vital.
+Subclass/&TraditionLifeTransmuterTitle	Transmutador de Vida

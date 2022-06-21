@@ -1,0 +1,10 @@
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat Дополнительный урон от магических	атак
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine Дополнительный урон от магических	атак
+Subclass/&ArcaneFighterAdditionalActionDescription Вы можете произнести заклинание после победы над врагом с помощью атак	оружием.
+Subclass/&ArcaneFighterAdditionalActionTitle Борьба с	заклинаниями
+Subclass/&ArcaneFighterBonusWeaponDamageDescription Один раз за ход ваши атаки оружием наносят дополнительный урон	1d8.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle Магические	атаки
+Subclass/&TraditionArcaneFighterDescription Направьте свою магию в атаки	оружием.
+Subclass/&TraditionArcaneFighterTitle Боец Арканы
+Subclass/&WeaponProfArcaneFighterDescription Боевой опыт дал Мистическому бойцу обучение обращению с простым и боевым	оружием.
+Subclass/&WeaponProfArcaneFighterTitle Обучение обращению с	оружием

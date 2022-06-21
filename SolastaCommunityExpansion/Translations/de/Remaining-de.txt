@@ -1,0 +1,196 @@
+BlueprintCategory/&FlatRoomsTitle	Flache Zimmer
+Caption/&GadgetParametersCustomRemoveDescription	Entfernen:\n{0}.
+Condition/&ConditionBarkWardDescription	Beschützt von den Geistern des Waldes. Erhalte 4 temporäre HP für jede Druidenstufe, die 10 Minuten lang anhält.
+Condition/&ConditionBarkWardTitle	Rinde Ward
+Condition/&ConditionDualFlurryApplyDescription	Du baust Schwung auf...
+Condition/&ConditionDualFlurryApplyTitle	Doppelte Flut!
+Condition/&ConditionDualFlurryGrantDescription	Deine Feinde taumeln!
+Condition/&ConditionDualFlurryGrantTitle	Doppelte Flut!
+Condition/&ConditionImprovedBarkWardDescription	Die Geister des Waldes fügen Kreaturen, die sie mit einem Nahkampfangriff treffen, 2W8 Stichschaden zu.
+Condition/&ConditionImprovedBarkWardTitle	Verbesserter Bark Ward
+Condition/&ConditionMuleDescription	Ihre Geschwindigkeit wird nicht durch Belastung oder schwere Panzerung verringert. Sie können 20 zusätzliche Pfund tragen.
+Condition/&ConditionMuleTitle	Maultier
+Condition/&ConditionSuperiorBarkWardDescription	Die Geister des Waldes gewähren Immunität gegen Gift und fügen Kreaturen, die mit einem Nahkampfangriff treffen, 3W8 Stichschaden zu.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
+Condition/&EWResonatingStrikeDamageDescription	Auf der 5. Stufe verursachen Angriffe, die von diesem Cantrip ausgelöst werden, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich weiter um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWResonatingStrikeDamageTitle	Resonanz
+Condition/&EWSunlightBladeDamageDescription	Auf der 5. Stufe verursachen Angriffe, die von diesem Cantrip ausgelöst werden, zusätzlich 1W8 Strahlungsschaden. Der Schaden erhöht sich weiter um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWSunlightBladeDamageTitle	Brennen der sonnenbeschienenen Klinge
+Condition/&HelpActionDescription	Diese Kreatur wurde abgelenkt.
+Condition/&HelpActionTitle	Abgelenkt
+ContentPack/&CommunityExpansionPackDescription	Das Community-Erweiterungspaket fügt neue Klassen, Unterklassen, Talente und Zauber hinzu. Es gibt eine höhere Levelobergrenze, mehrere Klassen, QOL-Funktionen, Fehlerbehebungen und mehr. Es ist ein wahres Horn of Plenty (TM) ...
+ContentPack/&CommunityExpansionPackTitle	Community-Erweiterungspaket
+Failure/&FailureFlagTargetMeleeWeaponError	Nahkampfangriff auf dieses Ziel mit aktueller Waffe nicht möglich
+Feature/&AdditionalActionDualFlurryDescription	Du darfst einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&AdditionalActionDualFlurryTitle	Doppelte Flut!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Einmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 7. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 14. Stufe auf 3W6. Dies kann mit Rogue's Sneak Attack gestapelt werden.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Zwielichtiger Sneak-Angriff
+Feature/&AlwaysBeardDescription	{0} % Chancen, einen herrlichen Bart wachsen zu lassen!
+Feature/&ArmorofShadowsTitle	Rüstung der Schatten
+Feature/&AscendantStepTitle	Aszendentenschritt
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&BarbarianIndomitableMightDescription	Wenn Ihr Gesamtwert für einen Stärkewurf geringer ist als Ihr Stärkewert, können Sie diesen Wert anstelle des Gesamtwerts verwenden.
+Feature/&BarbarianIndomitableMightTitle	Unbezwingbare Macht
+Feature/&BardSkillsTitle	Bardenfähigkeiten
+Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen Bonusmalus von -5 auf Ihren Treffer hinnehmen möchten, um einen Bonusschaden von +10 zu verursachen.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Ihre Kontrolle über elementare Energien hat sich bis zu dem Punkt erhöht, an dem Sie jetzt die Herrschaft über schwächere Elementare haben. Du kannst Kleines Elementar beschwören nach Belieben wirken.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Elementare Günstlinge
+Feature/&DHHolyAuraBlindingPowerDescription	Wenn ein Teufel oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+Feature/&DHHolyAuraBlindingPowerTitle	Vergeltung der Heiligen Aura
+Feature/&DHWardingBondBonusCantripDescription	Deine Kontrolle über Rissportale hat sich so weit erhöht, dass du jetzt anderen den Schutz des Risses gewähren kannst. Du kannst nach Belieben abwehrenden Bund wirken (ohne Schaden zu teilen).
+Feature/&DHWardingBondBonusCantripTitle	Rift-Umhang
+Feature/&DreadfulWordTitle	Schreckliches Wort
+Feature/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, darfst du einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&DualFlurryTitle	Zweifacher Flurry
+Feature/&EmptyString	LEER
+Feature/&FiendishVigorTitle	Teuflische Kraft
+Feature/&IndomitableResistanceAddDescription	+1 Unbeugsamer Widerstandseinsatz zwischen Pausen.
+Feature/&IndomitableResistanceAddTitle	Unbezwingbarer Widerstand (erhöht)
+Feature/&IndomitableResistanceTitle	Unbezwingbarer Widerstand
+Feature/&MiretheMindTitle	Beschmutze den Verstand
+Feature/&PowerAttackDescription	Nehmen Sie einen Malus von -3 auf Ihren Angriff, um 3 + Fertigkeitsbonus zusätzlichen Schaden zu verursachen, wenn Sie Ihre Schläge mit Nahkampfwaffen landen.
+Feature/&PowerAttackTitle	Machtangriff
+Feature/&PowerPaladinAuraOfCourage18Description	Gewährt Verbündeten innerhalb von 30 Fuß einen Rettungswurfbonus.
+Feature/&PowerPaladinAuraOfCourage18Title	Verbesserte Aura des Mutes
+Feature/&PowerPaladinAuraOfProtection18Description	Sie und Ihre Verbündeten innerhalb von 30 Fuß können nicht erschreckt werden.
+Feature/&PowerPaladinAuraOfProtection18Title	Verbesserte Aura des Schutzes
+Feature/&PowerTorchbearerDescription	Versuchen Sie, ein Nahkampfziel in Brand zu setzen!
+Feature/&PowerTorchbearerTitle	Fackelträger
+Feature/&PrimalChampionDescription	Auf Stufe 20 verkörperst du die Macht der Wildnis. Ihre Stärke- und Konstitutionswerte erhöhen sich um 4.
+Feature/&PrimalChampionTitle	Erster Champion
+Feature/&ProficiencyRogueBlindSenseDescription	Wenn du ab der 14. Stufe hören kannst, weißt du, wo sich versteckte oder unsichtbare Kreaturen innerhalb von 10 Fuß von dir befinden.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsinn
+Feature/&ProficiencyRogueSlipperyMindDescription	Bis zur 15. Stufe haben Sie eine größere mentale Stärke erlangt. Du lernst Weisheitswürfe.
+Feature/&ProficiencyRogueSlipperyMindTitle	Schlüpfriger Geist
+Feature/&RageDamageBonusAttackModifierDescription	Füge deinen Angriffen +2 Schaden hinzu, während du tobst.
+Feature/&RageDamageBonusAttackModifierTitle	Wutschaden
+Feature/&RageFeatConditionDescription	Während du in Rage bist, erhältst du Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RageFeatConditionTitle	Toben
+Feature/&RagePowerDescription	Als Bonusaktion gerätst du für eine Minute in Wut und erhältst Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RagePowerTitle	Wut
+Feature/&RageStrengthSavingThrowAffinityDescription	Während du tobst, erhältst du einen Vorteil bei Stärkewürfen.
+Feature/&RageStrengthSavingThrowAffinityTitle	Wutstärke-Speichervorteil
+Feature/&RangerFeralSensesDescription	Du erhältst übernatürliche Sinne, die dir helfen, Kreaturen zu bekämpfen, die du nicht sehen kannst. Wenn du eine Kreatur angreifst, die du nicht sehen kannst, hat deine Unfähigkeit, sie zu sehen, keinen Nachteil bei deinen Angriffswürfen gegen sie.
+Feature/&RangerFeralSensesTitle	Wilde Sinne
+Feature/&RangerVanishActionDescription	Ab der 14. Stufe kannst du die Aktion Verstecken als Bonusaktion in deinem Zug nutzen.
+Feature/&RangerVanishActionTitle	Verschwinden
+Feature/&SignofIllOmenTitle	Zeichen des schlechten Omens
+Feature/&TrickstersEscapeTitle	Die Flucht des Tricksters
+Feature/&ZSPowerPaladinCleansingTouchDescription	Entferne Zaubereffekte, indem du einen Verbündeten berührst. Du kannst dies so oft am Tag tun, wie es deinem Charisma-Modifikator entspricht.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Reinigende Berührung
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blendende Waffe
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Zusätzlicher Schaden und Versuch, Blindness von Blending Weapon anzuwenden
+Feedback/&AdditionalDamageElementalDamageFormat	Elementarschaden
+Feedback/&AdditionalDamageElementalDamageLine	Elementarform gewährt zusätzlichen Schaden
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonanzschlag!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} schwingt mit {1}! (+{2})
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Seele gestärkt!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Seelenermächtigt fügt zusätzlichen Schaden zu!
+Feedback/&AdditionalDamageSunlightBladeFormat	Sonnenbeschienene Klinge!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} verbrennt {1} mit Sunlit Blade! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Verbesserter Schaden
+Feedback/&AdditionalDamageUpgradedConstructLine	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer.
+Feedback/&ExtraDamageDescription	Zusätzlicher Schaden durch Blitzspeer.
+Feedback/&ExtraDamageTitle	Blitzspeer zusätzlichen Schaden
+Feedback/&NotifyEffectResonatingStrikeLine	{0} schwingt mit {1}!
+Format/&LevelAndExperienceFormat	Stufe: {0}\nErfahrung: {1}\n{2} Punkte erforderlich, um Stufe {3} zu erreichen
+Format/&LevelAndExperienceMaxedFormat	Stufe: {0}\nErfahrung: {1}\nMaximales Level erreicht
+MainMenu/&ExportPdfDescription	Stufen Sie diesen Helden herunter.
+MainMenu/&ExportPdfTitle	Einebnen
+Message/&CharacterExportDuplicateNameErrorDescription	Export abgebrochen:\n\nEin Held mit diesem Namen existiert bereits im Pool.\nBitte versuchen Sie es mit einem anderen Namen.
+Message/&CharacterExportEmptyNameErrorDescription	Export abgebrochen:\n\nBitte versuchen Sie es mit einem nicht leeren Namen.
+Message/&CharacterExportModalContentDescription	Geben Sie den zu exportierenden Heldennamen ein:
+Message/&CharacterExportModalTitleDescription	Zeichenexport.
+Message/&LevelDownConfirmationDescription	Diesen Helden runterleveln?
+Message/&LevelDownMultiplayerAbortDescription	Kann während einer Multiplayer-Sitzung nicht absteigen.
+Message/&MessageModWelcomeDescription	Der Community Expansion Mod ist vollgepackt mit aufregenden Funktionen, aber standardmäßig sind keine aktiviert. Drücken Sie <color=yellow>Strg-F10</color>, um die Unity Mod Manager-Benutzeroberfläche [UMM] zu öffnen, und klicken Sie dann auf das Einstellungssymbol neben „Community-Erweiterung“, um die Einstellungsseiten zu öffnen.\n\n Erkunden Sie die Optionen und wählen Sie diejenigen aus, die Ihnen gefallen. Die UMM-Benutzeroberfläche wird nun geöffnet.
+Message/&MessageModWelcomeTitle	Community-Erweiterungs-Mod
+Message/&RespecMultiplayerAbortDescription	Respec während einer Multiplayer-Sitzung oder auf der Erkundungskarte nicht möglich.
+Message/&SpawnCustomEncounterDescription	Spawn-Begegnung an den Koordinaten ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	Begegnungen können in einem Multiplayer-Spiel nicht gespawnt werden. Noch...
+Message/&SpawnCustomEncounterTitle	Begegnen
+Message/&TeleportPartyDescription	Gruppe zu Koordinaten ({0}, {1}) teleportieren?\nSie können Quests oder Karten zerstören, wenn Sie sich an einen unentdeckten Ort teleportieren.
+Message/&TeleportPartyTitle	Teleportieren
+Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von großem Intellekt und Einsicht. Ihre leuchtend gefärbten Flügel und ihre sanfte Art sprechen für ihre himmlische Herkunft.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Eule vertraut.
+Monster/&OwlFamiliarTitle	Eule
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Durchdringender Schaden, und dem Ziel muss ein Konstitutionswurf gegen SG 13 gelingen oder es wird 24 Stunden lang vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Beissen
+Power/&FindFamiliarBundlePowerDescription	Beschwöre Vertraute in Form von Pseudorgagon, Sprite, Imp oder Quasit.
+Power/&FindFamiliarBundlePowerTitle	Vertraut finden
+Power/&HelpActionDescription	Du kannst einer verbündeten Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen. Sie täuschen vor, lenken das Ziel ab oder schließen sich auf andere Weise zusammen, um den Angriff Ihres Verbündeten effektiver zu machen. Wenn Ihr Verbündeter das Ziel vor Ihrem nächsten Zug angreift, wird der erste Angriffswurf mit Vorteil durchgeführt.
+Power/&HelpActionTitle	Hilfe
+Power/&PowerFunctionHandwrapsOfPullingDescription	Als Bonusaktion kannst du eine Kreatur innerhalb von 15 Fuß näher zu dir ziehen.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Rollen Sie ein
+Reaction/&CoordinatedAttackDescription	{0} wurde durch einen koordinierenden Angriff angegriffen, einige Charaktere können ihre Reaktion nutzen, um sich diesem Angriff anzuschließen.
+Reaction/&CoordinatedAttackReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&CoordinatedAttackReactTitle	Attacke
+Reaction/&CoordinatedAttackTitle	Koordinierter Angriff
+Reaction/&ReadiedAction{0}Description	Bereit {0}
+Reaction/&ReadiedAction{0}Title	Bereit {0}
+Reaction/&SpendPower{0}Description	{0} ausgeben
+Reaction/&SpendPower{0}Title	{0} ausgeben
+Reaction/&SpendPowerBundleDescription	Macht ausgeben.
+Reaction/&SpendPowerBundleTitle	Macht ausgeben
+Reaction/&SubitemSelectCoordinatedAttackTitle	Aktion auswählen
+Reaction/&SubitemSelectPowerBundleTitle	Optionen
+Reaction/&SubitemSelectSlotLevelTitle	Slot-Level
+Reaction/&SubitemSelectWarcasterReactionTitle	Aktion auswählen
+Reaction/&Use{0}Description	Verwenden Sie {0}
+Reaction/&Use{0}Title	Verwenden Sie {0}
+Reaction/&WarcasterAttackDescription	Angriffsziel.
+Reaction/&WarcasterAttackTitle	Attacke
+Reaction/&WarcasterReactionDescription	{0} verlässt ein Gebiet, das von einem oder mehreren Charakteren bedroht wird.
+Reaction/&WarcasterReactionReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&WarcasterReactionReactTitle	Attacke
+Reaction/&WarcasterReactionTitle	Angriff der Gelegenheit
+Requirement/&FeatureSelectionRequireCharacterLevel	Stufe {0}
+Requirement/&FeatureSelectionRequireClassLevel	Stufe {0} von {1}
+RestActivity/&ZSRespecDescription	Respektiere diesen Helden.
+RestActivity/&ZSRespecTitle	Respekt
+RestActivity/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+RestActivity/&ZSSorcerousRestorationTitle	Zauberhafte Wiederherstellung
+Rules/&AdvantageAttackOnEnemyDescription	Vorteil, um den Feind anzugreifen.
+Rules/&AdvantageAttackOnEnemyTitle	Beleuchtet
+Rules/&CounterFormDismissCreatureFormat	Tüftlerkonstrukt verwerfen
+Rules/&DisadvantageOnAttackByEnemyDescription	Abgelenkt durch Blitzschlag.
+Rules/&DisadvantageOnAttackByEnemyTitle	Erschüttert
+Rules/&ExtraDamageOnAttackConditionDescription	Zusätzlicher Schaden durch Blitzspeer.
+Rules/&ExtraDamageOnAttackConditionTitle	Statisch geschockt
+Screen/&EditorLocationSize3Title	Riesig [MODDED]
+Screen/&EditorLocationSize4Title	Gigantisch [MODDED]
+Sorceror/&ZSSorcerousRestorationDescription	Erhalte während einer kurzen Pause 4 Hexereipunkte zurück.
+Sorceror/&ZSSorcerousRestorationTitle	Zauberhafte Wiederherstellung
+Stage/&IdentityMorphotypeEyeHeader	Augenstil
+Stage/&SubclassSelectionStageSpecialistDescription	Beschreibung Es gibt eine große Auswahl an Spezialitäten in Tinkerers, darunter die Herstellung von Elixieren als Tränkemacher, das Erzeugen von Explosionen als Blaster und das Führen magischer Waffen als Waffenschmied.
+Stage/&SubclassSelectionStageSpecialistFeatures	Spezialfunktionen
+Stage/&SubclassSelectionStageSpecialistHeader	Spezialisierungen
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Spezialist Keine Beschreibung.
+Stage/&SubclassSelectionStageSpecialistTitle	Spezialisierung auswählen
+Subclass/&ConditionResistnatArmorDescription	Ihre Rüstung ist resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, psychische, Strahlungs- und Donnerschäden.
+ToolTip/&CheckBoxDefaultPartyTitle	Aktivieren Sie dieses Kontrollkästchen, um Ihre Standardgruppe festzulegen, wenn Sie neue Abenteuer starten oder benutzerdefinierte Orte testen. Du kannst bis zu {0} Helden nach dem First-in/First-out-Prinzip auswählen
+Tooltip/&DeadeyeConcentration	Deadeye deaktivieren.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Hat Stealth-Angriff
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Ist kein Barbar
+Tooltip/&FeatPrerequisiteIsNotFighter	Ist kein Kämpfer
+Tooltip/&FeatPrerequisiteIsNotRogue	Ist kein Schurke
+Tooltip/&FeatPrerequisiteLevelFormat	Mindestcharakterstufe {0}
+Tooltip/&PowerAttackConcentration	Machtangriff deaktivieren.
+Tooltip/&Tag9000Title	Benutzerdefinierter Effekt
+Tooltip/&TagCommunityExpansionTitle	Community-Erweiterung
+Tooltip/&TagMaledictionTitle	Verdammt
+Tooltip/&TagOtherModContentTitle	Ab Mod
+Tooltip/&TagPolearmWeaponTitle	Stangenwaffe
+UI/&CustomFeatureSelectionStageDescription	Wählen Sie zusätzliche Funktionen aus Ihrer Klasse/Unterklasse aus.
+UI/&CustomFeatureSelectionStageFeatures	Merkmale
+UI/&CustomFeatureSelectionStageNotDone	Sie müssen alle verfügbaren Funktionen auswählen, bevor Sie fortfahren
+UI/&CustomFeatureSelectionStageTitle	Merkmalsauswahl
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Cantrip
+UI/&CustomFeatureSelectionTooltipTypeFeature	Feature
+UI/&CustomFeatureSelectionTooltipTypePower	Leistung
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Kompetenz
+UI/&ForcePreferredCantripDescription	Wenn dieser Schalter auf ON steht, kann nur der bevorzugte Cantrip ausgelöst werden. Wenn der bevorzugte Cantrip nicht ausgewählt ist, wird der erste gültige Cantrip ausgelöst, unabhängig von diesem Schalter.
+UI/&ForcePreferredCantripTitle	Bevorzugtes Cantrip erzwingen

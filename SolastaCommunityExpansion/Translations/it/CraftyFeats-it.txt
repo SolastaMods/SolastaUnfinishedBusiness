@@ -1,0 +1,27 @@
+CraftyFeats/&ApothecaryIntFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già esperto.
+CraftyFeats/&ApothecaryIntFeatTitle	Speziale (Intelligence)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nAcquisisci competenza con il kit di erboristeria e Arcana, o competenza se già esperto.
+CraftyFeats/&ApothecaryWisFeatTitle	Speziale (Saggezza)
+CraftyFeats/&AttributeDexDescription	+1 DEX fino a un massimo di 20
+CraftyFeats/&AttributeDexTitle	Destrezza
+CraftyFeats/&AttributeIntDescription	+1 INT fino a un massimo di 20
+CraftyFeats/&AttributeIntTitle	Intelligenza
+CraftyFeats/&AttributeWisDescription	+1 WIS fino a un massimo di 20
+CraftyFeats/&AttributeWisTitle	Saggezza
+CraftyFeats/&CraftyArcanaDescription	Ottieni competenza/competenza in Arcana.
+CraftyFeats/&CraftyBowsDescription	Acquisisci competenza con tutti gli archi e le balestre.
+CraftyFeats/&CraftyBowsTitle	Competenza con l'arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumenta la tua Destrezza di 1, fino a un massimo di 20.\nAcquisisci competenza con gli strumenti del fabbro o esperienza se sei già esperto.\n Acquisisci competenza con tutti gli archi e le balestre.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Acquisisci competenza/esperienza in Medicina.
+CraftyFeats/&CraftyNatureDescription	Ottieni competenza/esperienza in Natura.
+CraftyFeats/&CraftyScribeFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nOttieni competenza con il kit di pergamene e gli Arcani, o competenza se già abile.\nRichiede la capacità di lanciare incantesimi.
+CraftyFeats/&CraftyScribeFeatTitle	Scriba
+CraftyFeats/&CraftySkillsTitle	Abilità
+CraftyFeats/&CraftyToolsTitle	Strumenti
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nOttieni competenza con il rosario manacolon e gli Arcani, o competenza se già abile.\nRichiede la capacità di lanciare incantesimi.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artigiano di Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nOttieni competenza con il kit dell'avvelenatore e la Natura, o competenza se già abile.
+CraftyFeats/&ToxicologistIntFeatTitle	Tossicologo (Intelligence)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nOttieni competenza con il kit dell'avvelenatore e Medicina, o competenza se già abile.
+CraftyFeats/&ToxicologistWisFeatTitle	Tossicologo (Saggezza)

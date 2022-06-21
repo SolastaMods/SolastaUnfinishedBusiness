@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription	Subit 3d6 dégâts d'acide à chaque tour. Prend fin si le lanceur subit 15 dégâts ou plus en une seule attaque.
+Condition/&SwallowedByToadConditionTitle	Avalé par le crapaud
+Condition/&SwallowingToadConditionDescription	Prend fin si 15 dégâts ou plus sont subis en une seule attaque.
+Condition/&SwallowingToadConditionTitle	Crapaud avaleur
+Feature/&ToadKingBasicToxinTitle	Toxine de base
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Sorts du roi crapaud
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Votre corps a changé pour devenir résistant aux toxines et pour produire une toxine défensive lorsqu'il est touché par des attaques de mêlée, jusqu'à un nombre de fois par repos long égal à votre bonus de compétence. Si l'attaquant échoue à un jet de sauvegarde de Constitution, il souffre d'une toxine hallucinogène jusqu'à ce qu'il soit attaqué ou autrement interrompu.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxine hallucinogène
+Feature/&ToadKingJumpTitle	Saut
+Feature/&ToadKingPoisonConditionAffinityTitle	Immunité aux poisons
+Feature/&ToadKingPoisonDamageAffinityTitle	Immunisé contre les dégâts de poison
+Feature/&ToadKingStickyFeetTitle	Pieds palmés
+Power/&ToadKingCroakDescription	Émet une onde sonore qui cause des dégâts et repousse les créatures et les objets.
+Power/&ToadKingCroakTitle	Crever
+Power/&ToadKingGraspingTongueDescription	Attirez les ennemis vers vous.
+Power/&ToadKingGraspingTongueTitle	Langue saisissante
+Power/&ToadKingHallucinogenicToxinPowerDescription	Votre corps a changé pour devenir résistant aux toxines et pour produire une toxine défensive lorsqu'il est touché par des attaques de mêlée, jusqu'à un nombre de fois par repos long égal à votre bonus de compétence. Si l'attaquant échoue à un jet de sauvegarde de Constitution, il souffre de toxine lucinogène jusqu'à ce qu'il soit attaqué ou autrement interrompu.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Toxine hallucinogène
+Power/&ToadKingSwallowDescription	Essayez d'avaler un ennemi moyen ou plus petit. En cas d'échec au jet de Force, le monstre est avalé et subit 3d6 dégâts d'acide par round. Se termine si le démoniste crapaud subit 15 dégâts ou plus en une seule attaque.
+Power/&ToadKingSwallowTitle	Avaler

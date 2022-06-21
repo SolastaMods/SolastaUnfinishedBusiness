@@ -1,0 +1,40 @@
+Item/&CEHalberd+1Title	Hallebarde +1
+Item/&CEHalberd+1UnidentifiedTitle	Hallebarde de qualité
+Item/&CEHalberd+2Title	Hallebarde +2
+Item/&CEHalberd+2UnidentifiedTitle	Hallebarde magnifique
+Item/&CEHalberdLightningTitle	Hallebarde de foudre
+Item/&CEHalberdLightningUnidentifiedTitle	Hallebarde magnifique
+Item/&CEHalberdPrimedTitle	Hallebarde apprêtée
+Item/&CEHalberdTitle	Hallebarde
+Item/&CEHandXbow+1Title	Arbalète de poing +1
+Item/&CEHandXbow+1UnidentifiedTitle	Arbalète à main de qualité
+Item/&CEHandXbow+2Title	Arbalète de poing +2
+Item/&CEHandXbow+2UnidentifiedTitle	Magnifique arbalète à main
+Item/&CEHandXbowAcidTitle	Arbalète à main acide
+Item/&CEHandXbowAcidUnidentifiedTitle	Magnifique arbalète à main
+Item/&CEHandXbowPrimedTitle	Arbalète à main apprêtée
+Item/&CEHandXbowTitle	Arbalète à main
+Item/&CELongMace+1Title	Masse longue +1
+Item/&CELongMace+1UnidentifiedTitle	Masse longue de qualité
+Item/&CELongMace+2Title	Masse longue +2
+Item/&CELongMace+2UnidentifiedTitle	Masse longue magnifique
+Item/&CELongMacePrimedTitle	Masse longue apprêtée
+Item/&CELongMaceThunderTitle	Masse longue fulgurante
+Item/&CELongMaceThunderUnidentifiedTitle	Masse longue magnifique
+Item/&CELongMaceTitle	Masse longue
+Item/&CEPike+1Title	Brochet +1
+Item/&CEPike+1UnidentifiedTitle	Brochet de qualité
+Item/&CEPike+2Title	Brochet +2
+Item/&CEPike+2UnidentifiedTitle	Magnifique brochet
+Item/&CEPikePrimedTitle	Brochet apprêté
+Item/&CEPikePsychicTitle	Pique psychique
+Item/&CEPikePsychicUnidentifiedTitle	Magnifique brochet
+Item/&CEPikeTitle	Brochet
+Item/&Handwraps+1Title	Protège-mains +1
+Item/&Handwraps+1UnidentifiedTitle	Bandages de bonne qualité
+Item/&Handwraps+2Title	Protège-mains +2
+Item/&Handwraps+2UnidentifiedTitle	Protège-mains magnifiques
+Item/&HandwrapsOfForceTitle	Protège-mains puissants
+Item/&HandwrapsOfForceUnidentifiedTitle	Protège-mains magnifiques
+Item/&HandwrapsOfPullingTitle	Protège-mains de tirage
+Item/&HandwrapsOfPullingUnidentifiedTitle	Protège-mains magnifiques

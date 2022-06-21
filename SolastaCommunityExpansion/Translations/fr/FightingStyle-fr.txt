@@ -1,0 +1,10 @@
+FightingStyle/&BlindFightingDescription	Vous avez la vision aveugle avec une portée de 10 pieds.
+FightingStyle/&BlindFightingTitle	Combat à l'aveugle
+FightingStyle/&CripplingDescription	En frappant avec une attaque de mêlée, vous pouvez réduire la vitesse de votre adversaire de 3 mètres jusqu'au début de votre prochain tour.
+FightingStyle/&CripplingTitle	Paralysant
+FightingStyle/&PugilistFightingDescription	Vos frappes à mains nues infligent 1d4 dégâts contondants supplémentaires et vous pouvez frapper avec votre main secondaire en tant qu'action bonus.\nSi vous avez la main libre, vous pouvez pousser en tant qu'action bonus.
+FightingStyle/&PugilistFightingTitle	Pugiliste
+FightingStyle/&TitanFightingDescription	Vous gagnez +2 en touche contre les créatures de taille G ou plus.
+FightingStyle/&TitanFightingTitle	Combat de Titans
+Modifier/&CripplingAdditionalDamageDescription	Dégâts paralysants.
+Modifier/&CripplingAdditionalDamageTitle	Paralysant

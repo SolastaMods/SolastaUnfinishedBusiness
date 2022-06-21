@@ -1,0 +1,24 @@
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Puedes usar tus poderes arcanos para protegerte como reacción.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Escudo de hechizos
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Cuando está activo en un arma, sus ataques cuentan como mágicos y usas tu Inteligencia para tus tiradas de ataque y daño.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arma arcana
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Obtienes un ataque adicional.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Ataque adicional
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Puedes usar tus poderes arcanos para protegerte como reacción. Esto te da +3 a tu CA hasta tu próximo turno.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Desviación arcana
+Subclass/&FighterSpellShieldDescription	Spell Shields son luchadores que se especializan en defensa y protección. Usan magia para ayudar a sus habilidades naturales.
+Subclass/&FighterSpellShieldSpellcastingDescription	Lanza hechizos de mago y cantrips de las escuelas de abjuración, ilusión, transmutación y nigromancia.
+Subclass/&FighterSpellShieldSpellcastingTitle	Lanzamiento de hechizos
+Subclass/&FighterSpellShieldSpellResistanceDescription	Tu experiencia con los hechizos y la magia de abjuración en particular te ha hecho resistente a los hechizos lanzados contra ti.
+Subclass/&FighterSpellShieldSpellResistanceTitle	Resistencia a conjuros
+Subclass/&FighterSpellShieldTitle	Escudo de hechizos
+Subclass/&MagicAffinityFighterSpellShieldDescription	Ventaja en las pruebas de concentración, así como la capacidad de realizar componentes somáticos de hechizos mientras sostiene objetos.
+Subclass/&MagicAffinityFighterSpellShieldTitle	Lanzamiento de combate
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Debido a la experiencia en el caos del combate, obtén ventaja en las pruebas de concentración.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Concentración mejorada
+Subclass/&PowerSpellShieldArcaneDeflectionDescription	Puedes usar tus poderes arcanos para protegerte como reacción. Esto te da +{0} a tu CA hasta tu próximo turno.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle	Desviación arcana
+Subclass/&PowerSpellShieldRangedDeflectionDescription	Cuando un atacante que puedes ver te golpea con un ataque a distancia o un hechizo, puedes usar tu reacción para reducir a la mitad el daño del ataque contra ti.
+Subclass/&PowerSpellShieldRangedDeflectionTitle	Desviación a distancia
+Subclass/&SpellShieldAdditionalActionDescription	Puedes lanzar un hechizo después de derrotar a un enemigo con tus ataques con armas.
+Subclass/&SpellShieldAdditionalActionTitle	Lucha de hechizos

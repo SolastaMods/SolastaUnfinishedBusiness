@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	Destreza +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	Aumento do Atributo do Gnomo da Floresta
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	Inteligência +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	Aumento de atributo do gnomo
+Feature/&GnomeCunningFeatureDescription	Você tem vantagem em todos os testes de Inteligência, Sabedoria e Carisma contra magia.
+Feature/&GnomeCunningFeatureTitle	Ardiloso
+Feature/&GnomeNaturalIllusionistDescription	Você conhece o truque Annoying Bee. Inteligência é o seu modificador de conjuração para ele.
+Feature/&GnomeNaturalIllusionistTitle	Magia Natural
+Feature/&ProficiencyGnomishLanguagesDescription	Comum, Gnômico.
+Feature/&ProficiencyGnomishLanguagesTitle	línguas
+Language/&GnomishLanguageDescription	Uma antiga língua Solastan, preservada por gnomos que vivem nas florestas profundas de Solasta, sobreviveu ao Cataclismo.
+Language/&GnomishLanguageTitle	Gnômico
+Race/&GnomeRaceDescription	Um zumbido constante de atividade movimentada permeia as tocas e bairros onde os gnomos formam suas comunidades unidas. Sons mais altos pontuam o zumbido: um ranger de engrenagens rangendo aqui, uma pequena explosão ali, um grito de surpresa ou triunfo e, especialmente, gargalhadas. Os gnomos se deleitam com a vida, aproveitando cada momento de invenção, exploração, investigação, criação e jogo.
+Race/&GnomeRaceTitle	Gnomo

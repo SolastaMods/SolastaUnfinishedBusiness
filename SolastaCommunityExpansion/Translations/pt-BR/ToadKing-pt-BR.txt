@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription	Recebe 3d6 de dano de ácido a cada turno. Termina se o lançador receber 15 de dano ou mais em um único ataque.
+Condition/&SwallowedByToadConditionTitle	Engolido Por Sapo
+Condition/&SwallowingToadConditionDescription	Termina se 15 de dano ou mais forem sofridos em um único ataque.
+Condition/&SwallowingToadConditionTitle	Engolir Sapo
+Feature/&ToadKingBasicToxinTitle	Toxina Básica
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de Bruxo. Os seguintes feitiços são adicionados à lista de feitiços do Bruxo para você: {0}
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Feitiços do Rei Sapo
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Seu corpo mudou para se tornar resistente a toxinas e produzir uma toxina defensiva quando atingido por ataques corpo a corpo, até um número de vezes por descanso longo igual ao seu bônus de proficiência. Se o atacante falhar em um teste de resistência de Constituição, ele sofre de uma toxina alucinógena até ser atacado ou interrompido de outra forma.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxina Alucinógena
+Feature/&ToadKingJumpTitle	Pular
+Feature/&ToadKingPoisonConditionAffinityTitle	Imune a Condição de Veneno
+Feature/&ToadKingPoisonDamageAffinityTitle	Imune a Dano de Veneno
+Feature/&ToadKingStickyFeetTitle	Pés palmados
+Power/&ToadKingCroakDescription	Emite uma onda de som que causa dano e empurra criaturas e objetos para longe.
+Power/&ToadKingCroakTitle	Coaxar
+Power/&ToadKingGraspingTongueDescription	Puxe os inimigos para si mesmo.
+Power/&ToadKingGraspingTongueTitle	Língua de agarrar
+Power/&ToadKingHallucinogenicToxinPowerDescription	Seu corpo mudou para se tornar resistente a toxinas e produzir uma toxina defensiva quando atingido por ataques corpo a corpo, até um número de vezes por descanso longo igual ao seu bônus de proficiência. Se o atacante falhar em um teste de resistência de Constituição, ele sofre de toxina lucinogênica até ser atacado ou interrompido de outra forma.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Toxina Alucinógena
+Power/&ToadKingSwallowDescription	Tente engolir um inimigo Médio ou menor. Se falhar no teste de Força, o monstro é engolido e recebe 3d6 de dano de ácido por rodada. Termina se o Toad Warlock for atingido com 15 ou mais de dano em um único ataque.
+Power/&ToadKingSwallowTitle	Engolir

@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription	Recibe 3d6 de daño por ácido cada turno. Termina si el lanzador recibe 15 de daño o más en un solo ataque.
+Condition/&SwallowedByToadConditionTitle	tragado por sapo
+Condition/&SwallowingToadConditionDescription	Termina si se reciben 15 daños o más en un solo ataque.
+Condition/&SwallowingToadConditionTitle	Sapo tragador
+Feature/&ToadKingBasicToxinTitle	Toxina Básica
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Hechizos del Rey Sapo
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Tu cuerpo ha cambiado para volverse resistente a las toxinas y para producir una toxina defensiva cuando te golpean ataques cuerpo a cuerpo, hasta un número de veces por descanso prolongado igual a tu bonificador de competencia. Si el atacante falla una tirada de salvación de Constitución, sufre una toxina alucinógena hasta que es atacado o interrumpido de alguna otra manera.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Toxina alucinógena
+Feature/&ToadKingJumpTitle	Salto
+Feature/&ToadKingPoisonConditionAffinityTitle	Inmune a la condición de veneno
+Feature/&ToadKingPoisonDamageAffinityTitle	Inmune al daño por veneno
+Feature/&ToadKingStickyFeetTitle	Pies palmeados
+Power/&ToadKingCroakDescription	Emite una onda de sonido que causa daño y empuja a criaturas y objetos.
+Power/&ToadKingCroakTitle	Croar
+Power/&ToadKingGraspingTongueDescription	Atrae a los enemigos hacia ti.
+Power/&ToadKingGraspingTongueTitle	Lengua agarradora
+Power/&ToadKingHallucinogenicToxinPowerDescription	Tu cuerpo ha cambiado para volverse resistente a las toxinas y para producir una toxina defensiva cuando te golpean ataques cuerpo a cuerpo, hasta un número de veces por descanso prolongado igual a tu bonificador de competencia. Si el atacante falla una tirada de salvación de Constitución, sufre una toxina alucinógena hasta que es atacado o interrumpido de alguna otra manera.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Toxina alucinógena
+Power/&ToadKingSwallowDescription	Intenta tragarte a un enemigo Mediano o más pequeño. Si falla la salvación de Fuerza, el monstruo es tragado y recibe 3d6 de daño por ácido por asalto. Termina si Toad Warlock recibe 15 o más daños en un solo ataque.
+Power/&ToadKingSwallowTitle	Tragar

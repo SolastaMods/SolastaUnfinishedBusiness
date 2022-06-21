@@ -1,0 +1,10 @@
+FightingStyle/&BlindFightingDescription	Você tem visão às cegas com alcance de 3 metros.
+FightingStyle/&BlindFightingTitle	Luta às cegas
+FightingStyle/&CripplingDescription	Ao acertar com um ataque corpo a corpo, você pode reduzir a velocidade do seu oponente em 3 metros até o início do seu próximo turno.
+FightingStyle/&CripplingTitle	Aleijante
+FightingStyle/&PugilistFightingDescription	Seus ataques desarmados causam 1d4 de dano de concussão adicional e você pode socar com sua mão secundária como uma ação bônus.\nSe você tiver mão livre, você pode empurrar como uma ação bônus.
+FightingStyle/&PugilistFightingTitle	Pugilista
+FightingStyle/&TitanFightingDescription	Você ganha +2 de acerto contra criaturas de tamanho Grande ou maior.
+FightingStyle/&TitanFightingTitle	Luta de Titãs
+Modifier/&CripplingAdditionalDamageDescription	Dano Destrutivo.
+Modifier/&CripplingAdditionalDamageTitle	Aleijante

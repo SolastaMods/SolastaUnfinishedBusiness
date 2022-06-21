@@ -1,0 +1,27 @@
+CraftyFeats/&ApothecaryIntFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
+CraftyFeats/&ApothecaryWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+CraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
+CraftyFeats/&AttributeDexDescription	+1 DEX to a maximum of 20
+CraftyFeats/&AttributeDexTitle	Dexterity
+CraftyFeats/&AttributeIntDescription	+1 INT to a maximum of 20
+CraftyFeats/&AttributeIntTitle	Intelligence
+CraftyFeats/&AttributeWisDescription	+1 WIS to a maximum of 20
+CraftyFeats/&AttributeWisTitle	Wisdom
+CraftyFeats/&CraftyArcanaDescription	You gain proficiency/expertise in Arcana.
+CraftyFeats/&CraftyBowsDescription	You gain proficiency with all bows and crossbows.
+CraftyFeats/&CraftyBowsTitle	Bow Proficiency
+CraftyFeats/&CraftyFletcherFeatDescription	Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with smith's tools, or expertise if you are already proficient.\n You gain proficiency with all bows and crossbows.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	You gain proficiency/expertise in Medicine.
+CraftyFeats/&CraftyNatureDescription	You gain proficiency/expertise in Nature.
+CraftyFeats/&CraftyScribeFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with scroll kit and Arcana, or expertise if already proficient.\nRequires the ability to cast spells.
+CraftyFeats/&CraftyScribeFeatTitle	Scribe
+CraftyFeats/&CraftySkillsTitle	Skills
+CraftyFeats/&CraftyToolsTitle	Tools
+CraftyFeats/&ManacalonCrafterFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with manacolon rosary and Arcana, or expertise if already proficient.\nRequires the ability to cast spells.
+CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
+CraftyFeats/&ToxicologistIntFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
+CraftyFeats/&ToxicologistWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)

@@ -1,0 +1,14 @@
+Subclass/&ConditionTransmuteConstitutionSaveDescription	Temporary Constitution save proficiency granted by the Transmute Force power.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Constitution Saves
+Subclass/&ConditionTransmutePoisonDescription	Temporary acid, cold, fire, lightning, necrotic, poison and thunder resistance granted by the Transmute Force power.
+Subclass/&ConditionTransmutePoisonTitle	Elemental Resistance
+Subclass/&HealingPoolLifeTransmuterBonusDescription	You can enforce your will on reality an 2 additional times per day.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	You can enforce your will on reality an 4 additional times per day.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Additional Transmute Force
+Subclass/&HealingPoolLifeTransmuterBonusTitle	Additional Transmute Force
+Subclass/&HealingPoolLifeTransmuterListDescription	You can enact your will on reality with special powers 2 times per day.
+Subclass/&HealingPoolLifeTransmuterListTitle	Transmute Force
+Subclass/&MagicAffinityLifeTransmuterListDescription	When casting some Transmutation and Necromancy spells they are cast at a spell slot 2 levels higher than the one used. Improved spells include: False Life, Blindness, Fly, Bestow Curse, Vampiric Touch, Blight, and Cloud Kill. \n--Note: The intention is to have Magic Weapon benefit as well, but currently increasing the spell level this way on Magic Weapon has no effect.
+Subclass/&MagicAffinityLifeTransmuterListTitle	Reality Bending
+Subclass/&TraditionLifeTransmuterDescription	Masters of manipulating both matter and life energy.
+Subclass/&TraditionLifeTransmuterTitle	Life Transmuter

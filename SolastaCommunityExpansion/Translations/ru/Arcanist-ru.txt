@@ -1,0 +1,20 @@
+Condition/&ConditionMarkedByArcanistDescription Поражен Меткой чародея. При попадании заклинателем атакой оружием метка взрывается, нанося 1d6 силового урона пораженным и уничтожая	метку.
+Condition/&ConditionMarkedByArcanistTitle Метка	чародея
+Equipment/&ArcaneStaffDescription Этот посох исписан магическими письменами, и его можно использовать в качестве фокуса для произнесения тайных	заклинаний.
+Equipment/&ArcaneStaffTitle Чародейский	посох
+Feature/&ArcaneDetonationDescription Когда вы попадаете атакой оружием по существу, имеющему вашу Метку Арканиста, метка взрывается, нанося силовой урон 1d6 и уничтожая	метку.
+Feature/&ArcaneDetonationTitle Чародейская	детонация
+Feature/&ArcaneDetonationUpgradeDescription Начиная с 11 уровня урон от вашего Чародейского взрыва увеличивается до	2d6.
+Feature/&ArcaneDetonationUpgradeTitle Большая чародейская	детонация
+Feature/&ArcanePulseDescription Начиная с 7-го уровня, вы можете вызвать извержение тайной энергии в радиусе 30 футов. Враждебные существа в пределах 15 футов от точки попадания получают урон 4d8 и получают Метку чародея. Вы можете использовать эту способность количество раз, равное вашему модификатору Мудрости, за продолжительный отдых. На 15 уровне урон от вашего «Чародейского импульса» увеличивается до	8d8.
+Feature/&ArcanePulseTitle Чародейский	импульс
+Feature/&ArcanistAutoPreparedSpellsDescription Вы получаете бонусные заклинания, которые считаются для вас заклинаниями рейнджеров, они всегда подготовлены и не учитываются в количестве известных вам заклинаний	рейнджеров:\n{0}
+Feature/&ArcanistAutoPreparedSpellsTitle Бонусные заклинания	рейнджера-арканиста
+Feature/&ArcanistMarkDescription Начиная с 3-го уровня, вы наполняете свое оружие силой тайной магии. Существа, пораженные вашими атаками, поражаются Меткой	чародея.
+Feature/&ArcanistMarkTitle Метка	чародея
+Feature/&MagicAffinityRangerArcanistDescription Вы умеете накладывать заклинания в бою и можете использовать заклинания, требующие соматического компонента, даже если обе ваши руки держат оружие или	щит.
+Feature/&MagicAffinityRangerArcanistTitle Тайная боевая	подготовка
+Feedback/&AdditionalDamageArcanistMarkFormat Метка	чародея!
+Feedback/&AdditionalDamageArcanistMarkLine Метка чародея взрывается и наносит цели дополнительный	урон!
+Subclass/&RangerArcanistRangerSubclassDescription Рейнджер Арканист сочетает в себе свои навыки рейнджера с тайными способностями. Их оружие может поразить своих противников Знаком Чародея, и они научились использовать некоторые заклинания Волшебника как часть своего репертуара заклинаний	Рейнджера.
+Subclass/&RangerArcanistRangerSubclassTitle Рейнджер	Чародей
