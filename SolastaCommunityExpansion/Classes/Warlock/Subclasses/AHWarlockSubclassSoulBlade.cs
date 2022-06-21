@@ -17,7 +17,7 @@ public static class AHWarlockSubclassSoulBladePact
             .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury,
                 "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpiritualWeapon.EffectDescription)
+            .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
