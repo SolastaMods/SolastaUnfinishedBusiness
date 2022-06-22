@@ -55,4 +55,13 @@ public static class CharacterValidators
     {
         return character => conditions.Any(character.HasConditionOfType);
     }
+
+    public static CharacterValidator  HasBeenGrantedFeature(FeatureDefinition feature)
+    {
+        return character =>
+        {
+            Main.Log($"Checking for {feature.Name}", true);
+            return character is RulesetCharacterHero hero && hero.activeFeatures.Any(item => item.Value.Contains(feature));
+        };
+    }
 }

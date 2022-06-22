@@ -35,7 +35,7 @@ public static class Magus
 
     private static FeatureDefinitionCastSpell FeatureDefinitionClassMagusCastSpell { get; set; }
 
-    public static FeatureDefinitionPower ArcaneFocus { get; private set; }
+    public static FeatureDefinitionPower ArcanaPool { get; private set; }
 
     public static FeatureDefinitionFeatureSetCustom ArcaneArt { get; private set; }
 
@@ -128,42 +128,55 @@ public static class Magus
 
     private static void BuildArcaneArt()
     {
-        ArcaneFocus = FeatureDefinitionPowerBuilder
-            .Create("ClassMagusArcaneFocus", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Power)
-            .SetFixedUsesPerRecharge(4)
-            .SetActivationTime(ActivationTime.NoCost)
-            .SetRechargeRate(RechargeRate.AtWill)
+        var validators = new List<object>();
+        if (validators == null)
+        {
+            throw new ArgumentNullException(nameof(validators));
+        }
+
+        ArcanaPool = FeatureDefinitionPowerBuilder
+            .Create("ClassMagusArcanePool", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Power, "ClassMagusArcanaPool", DatabaseHelper.SpellDefinitions.ProduceFlame.guiPresentation.spriteReference)
+            .SetUsesFixed(5)
+            .SetActivationTime(ActivationTime.OnAttackHit)
+            .SetRechargeRate(RechargeRate.LongRest)
             .AddToDB();
 
-        // rupture: damage on moving
-        var rupture = BuildRupture(ArcaneFocus);
+        // rupture strike: damage on moving
+        var ruptureStrike = BuildRuptureStrike(ArcanaPool);
 
+        // nullify strike: disable resistance and immunity to damage for one round
+        var nullifyStrike = BuildNullifyStrike(ArcanaPool);
+
+        // terror strike: frighten the target
+        var terrorStrike = BuildTerrorStrike(ArcanaPool);
+
+        // exile strike: 4d10 force damage (save for half) and banish creature for 1d4 round (save to negate)
+        var exileStrike = BuildExileStrike(ArcanaPool);
+        
         // eldritch predator
         // goes invisible and paralyze enemies within 6 cells
         // both invisible and paralyzed condition end after casting a spell or making an attack
-        // or using power
-        var eldritchPredator = BuildEldritchPredator(ArcaneFocus);
+        // TODO: make this works with sunlight blade and resonate strike because the spell executed before the attack is made which remove the condition.
+        var eldritchPredator = BuildEldritchPredator(ArcanaPool);
 
-        // torment blade
-        // disable resistance and immunity to damage for one round
-        var tormentBlade = BuildTormentBlade();
-
-        // broken courage
-        // menace present
+        // unfathomable terror: creatures with you can see and within 6 cell will no longer immune to fear
+        var unfathomableTerror = BuildUnfathomableHorror(ArcanaPool);
+        
         // mind spike
         // exile
         // immunity disruption: fire, ice, acid, thunder, lighting, necro
         // soul drinker: regain an arcana focus
 
-        PowerBundleContext.RegisterPowerBundle(ArcaneFocus, true, rupture);
+        PowerBundleContext.RegisterPowerBundle(ArcanaPool, true, ruptureStrike, nullifyStrike, terrorStrike, exileStrike);
 
         ArcaneArt = FeatureDefinitionFeatureSetCustomBuilder
             .Create("ClassMagusArcaneArtSetLevel", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Feature,
                 CustomIcons.CreateAssetReferenceSprite("ArcaneArt", Resources.EldritchInvocation, 128, 128))
             .SetRequireClassLevels(true)
-            .SetLevelFeatures(2, rupture, eldritchPredator, tormentBlade)
+            .SetLevelFeatures(2, ruptureStrike, eldritchPredator, terrorStrike)
+            .SetLevelFeatures(5, nullifyStrike, unfathomableTerror, exileStrike)
             .AddToDB();
     }
 
@@ -191,20 +204,21 @@ public static class Magus
                 FeatureDefinitionProficiencyTool,
                 FeatureDefinitionSkillPoints
             )
-            .AddFeaturesAtLevel(2, FeatureDefinitionClassMagusCastSpell, ArcaneFocus, ArcaneArt, ArcaneArt, ArcaneArt)
+            .AddFeaturesAtLevel(2, FeatureDefinitionClassMagusCastSpell, ArcanaPool, ArcaneArt, ArcaneArt)
             .AddFeatureAtLevel(4, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
+            .AddFeaturesAtLevel(5, ArcaneArt, ArcaneArt)
             .AddFeatureAtLevel(8, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice)
             .AddFeatureAtLevel(12, DatabaseHelper.FeatureDefinitionFeatureSets.FeatureSetAbilityScoreChoice);
     }
 
     internal static CharacterClassDefinition BuildMagusClass()
     {
-        var warlockSpriteReference =
+        var magusSpriteReference =
             CustomIcons.CreateAssetReferenceSprite("Magus", Resources.Warlock, 1024, 576);
 
         var classMagusBuilder = CharacterClassDefinitionBuilder
             .Create("ClassMagus", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Class, warlockSpriteReference, 1)
+            .SetGuiPresentation(Category.Class, magusSpriteReference, 1)
             .AddFeatPreferences(DatabaseHelper.FeatDefinitions.PowerfulCantrip,
                 DatabaseHelper.FeatDefinitions.FlawlessConcentration,
                 DatabaseHelper.FeatDefinitions.Robust)
@@ -251,28 +265,35 @@ public static class Magus
         return ClassMagus;
     }
 
-    #region rupture
-    private static FeatureDefinitionPower BuildRupture(FeatureDefinitionPower sharedPool)
+    #region rupture_strike
+    private static FeatureDefinitionPower BuildRuptureStrike(FeatureDefinitionPower sharedPool)
     {
         var condition = ConditionDefinitionBuilder
             .Create("ClassMagusConditionRupture", DefinitionBuilder.CENamespaceGuid)
-            .Configure(DurationType.Round, 1, true)
             .SetGuiPresentation(Category.Class, "ClassMagusConditionRupture",
                 ConditionSlowed.GuiPresentation.SpriteReference)
             .AddToDB();
+        condition.specialDuration = true;
+        condition.durationParameter = 1;
+        condition.durationParameterDie = DieType.D4;
+        condition.durationType = DurationType.Round;
         
         condition.turnOccurence = (TurnOccurenceType)ExtraTurnOccurenceType.OnMoveEnd;
         condition.RecurrentEffectForms.Add(new EffectForm
         {
             formType = EffectForm.EffectFormType.Damage,
+            hasSavingThrow = false,
+            canSaveToCancel =  false,
             damageForm = new DamageForm { damageType = DamageTypeNecrotic, diceNumber = 1, dieType = DieType.D4 }
         });
 
-        return FeatureDefinitionPowerSharedPoolBuilder
-            .Create("ClassMagusArcaneArtRupture", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtRupture")
+        var power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMagusArcaneArtRuptureStrike", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtRuptureStrike", null, 0, true)
             .SetSharedPool(sharedPool)
-            .SetActivationTime(ActivationTime.OnAttackHit)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetCostPerUse(1)
+            .SetRechargeRate(RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -295,16 +316,20 @@ public static class Magus
                     .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
                     .Build())
             .AddToDB();
+        
+        var canUseRuptureStrike = CharacterValidators.HasBeenGrantedFeature(power);
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseRuptureStrike, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand));
+        
+        return power;
     }
     #endregion
     
     #region eldritch_predator
     // TODO: do something here to make creatures that are immune to condition paralyze also not affected by this condition unless they are hit by torment blade.
-    private static readonly ConditionDefinition conditionParalyzedWhenBeingPreyedOn = ConditionDefinitionBuilder
-        .Create(DatabaseHelper.ConditionDefinitions.ConditionParalyzed, "ClassMagusConditionParalyzedWhenBeingPreyedOn",
+    private static readonly ConditionDefinition ConditionParalyzedWhenBeingPreyedOn = ConditionDefinitionBuilder
+        .Create("ClassMagusConditionParalyzedWhenBeingPreyedOn",
             DefinitionBuilder.CENamespaceGuid)
-        .DeepCopy()
-        .SetCustomSubFeatures()
+        .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionParalyzed)
         .SetDuration(DurationType.Round, 1)
         .SetGuiPresentation(Category.Class, "ClassMagusConditionParalyzedWhenBeingPreyedOn",
             DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.guiPresentation.spriteReference)
@@ -329,7 +354,7 @@ public static class Magus
                 {
                     foreach (var linkedCondition in keyValuePair.Value)
                     {
-                        if (linkedCondition.ConditionDefinition.Name == conditionParalyzedWhenBeingPreyedOn.Name &&
+                        if (linkedCondition.ConditionDefinition.Name == ConditionParalyzedWhenBeingPreyedOn.Name &&
                             (long)rulesetCondition.SourceGuid == (long)removedFrom.guid)
                         {
                             conditionsToRemoved.Add(linkedCondition);
@@ -386,7 +411,7 @@ public static class Magus
             }
         };
 
-        var paralyzedByWhenDeathLurkingAroundConditionForm = new EffectForm
+        var paralyzedWhenBeingPreyedOn = new EffectForm
         {
             formType = EffectForm.EffectFormType.Condition,
             hasSavingThrow = true,
@@ -395,7 +420,7 @@ public static class Magus
             savingThrowAffinity = EffectSavingThrowType.Negates,
             ConditionForm = new ConditionForm
             {
-                ConditionDefinition = conditionParalyzedWhenBeingPreyedOn,
+                ConditionDefinition = ConditionParalyzedWhenBeingPreyedOn,
                 operation = ConditionForm.ConditionOperation.Add
             }
         };
@@ -410,23 +435,23 @@ public static class Magus
                 EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence)
             .SetDurationData(DurationType.Round, 0, false)
             .SetEffectForms(
-                paralyzedByWhenDeathLurkingAroundConditionForm,
+                paralyzedWhenBeingPreyedOn,
                 preyingConditionForm)
             .Build();
 
-        return FeatureDefinitionPowerBuilder
+        return FeatureDefinitionPowerSharedPoolBuilder
             .Create("ClassMagusArcaneArtEldritchPredator", DefinitionBuilder.CENamespaceGuid)
             .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtEldritchPredator")
-            .SetRechargeRate(RechargeRate.AtWill)
+            .SetSharedPool(ArcanaPool)
+            .SetCostPerUse(2)
             .SetEffectDescription(effect)
             .SetActivationTime(ActivationTime.BonusAction)
             .AddToDB();
     }
-
     #endregion
 
-    #region torment_blade
-    private sealed class ConditionTormentBladeDisruption : ConditionDefinition,
+    #region nullify_strike
+    private sealed class ConditionNullify : ConditionDefinition,
         IDisableImmunityAndResistanceToDamageType
     {
         public bool DisableImmunityAndResistanceToDamageType(string damageType)
@@ -435,81 +460,255 @@ public static class Magus
         }
     }
 
-    private sealed class ConditionTormentBladeDisruptionBuilder
-        : ConditionDefinitionBuilder<ConditionTormentBladeDisruption, ConditionTormentBladeDisruptionBuilder>
+    private sealed class ConditionNullifyBuilder
+        : ConditionDefinitionBuilder<ConditionNullify, ConditionNullifyBuilder>
     {
-        internal ConditionTormentBladeDisruptionBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        internal ConditionNullifyBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
         {
         }
     }
-    private static FeatureDefinitionPower BuildTormentBlade()
+    private static FeatureDefinitionPower BuildNullifyStrike(FeatureDefinitionPower sharedPool)
     {
-        ConditionTormentBladeDisruption conditionDisruptedByTormentBlade =
-            ConditionTormentBladeDisruptionBuilder
-                .Create("ClassMagusConditionDisruptedByTormentBlade", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class, "ClassMagusConditionDisruptedByTormentBlade",
+        ConditionNullify condition =
+            ConditionNullifyBuilder
+                .Create("ClassMagusConditionNullify", DefinitionBuilder.CENamespaceGuid)
+                .SetGuiPresentation(Category.Class, "ClassMagusConditionNullify",
                     DatabaseHelper.ConditionDefinitions.ConditionStunned.guiPresentation.spriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetSpecialDuration(true)
-                .SetTerminateWhenRemoved(true)
                 .AddToDB();
-        conditionDisruptedByTormentBlade.durationParameterDie = DieType.D1;
-        conditionDisruptedByTormentBlade.durationParameter = 1;
-        conditionDisruptedByTormentBlade.durationType = DurationType.Minute;
+        condition.durationParameterDie = DieType.D4;
+        condition.durationParameter = 1;
+        condition.durationType = DurationType.Round;
         
-        FeatureDefinitionAdditionalDamage additionalDamageTormentBlade =
-            FeatureDefinitionAdditionalDamageBuilder
-                .Create("ClassMagusAdditionalDamageTormentBlade", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class, "ClassMagusAdditionalDamageTormentBlade")
-                
-                .Configure("TormentBlade", FeatureLimitedUsage.None,
-                    AdditionalDamageValueDetermination.None,
-                    AdditionalDamageTriggerCondition.AlwaysActive
-                    , AdditionalDamageRequiredProperty.MeleeWeapon, true, DieType.D1, 0,
-                    AdditionalDamageType.SameAsBaseDamage, DamageTypeNecrotic,
-                    AdditionalDamageAdvancement.None, new List<DiceByRank>())
-                .AddToDB();
-        additionalDamageTormentBlade.hasSavingThrow = true;
-        additionalDamageTormentBlade.savingThrowAbility = AttributeDefinitions.Constitution;
-        additionalDamageTormentBlade.damageSaveAffinity = EffectSavingThrowType.Negates;
-        additionalDamageTormentBlade.dcComputation = EffectDifficultyClassComputation.SpellCastingFeature;
-        additionalDamageTormentBlade.conditionOperations.Add(new ConditionOperationDescription()
-        {
-            conditionDefinition =  conditionDisruptedByTormentBlade,
-            conditionName =  conditionDisruptedByTormentBlade.Name,
-            operation = ConditionOperationDescription.ConditionOperation.Add,
-        });
-
-        ConditionDefinition classMagusConditionTormentBlade =
-            ConditionDefinitionBuilder
-                .Create("ClassMagusConditionTormentBlade", DefinitionBuilder.CENamespaceGuid)
-                .SetGuiPresentation(Category.Class ,"ClassMagusConditionTormentBlade", DatabaseHelper.ConditionDefinitions.ConditionRaging.guiPresentation.spriteReference)
-                .AddFeatures(additionalDamageTormentBlade)
-                .SetConditionParticleReference(DatabaseHelper.ConditionDefinitions.ConditionRaging.conditionParticleReference)
-                .AddToDB();
-
-        var effectForm = EffectFormBuilder
-            .Create()
-            .CreatedByCharacter()
-            .SetConditionForm(classMagusConditionTormentBlade, ConditionForm.ConditionOperation.Add, true, true)
-            .Build();
-
-        var effect = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.Round, 10, TurnOccurenceType.EndOfTurn)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-            .SetCreatedByCharacter()
-            .AddEffectForm(effectForm)
-            .Build();
-
-        return FeatureDefinitionPowerBuilder
-            .Create("ClassMagusArcaneArtBaneBlade", DefinitionBuilder.CENamespaceGuid)
-            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtBaneBlade")
-            .SetRechargeRate(RechargeRate.AtWill)
-            .SetEffectDescription(effect)
-            .SetActivationTime(ActivationTime.BonusAction)
+        var power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMagusArcaneArtNullifyStrike", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtNullifyStrike", null, 0, true)
+            .SetSharedPool(sharedPool)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetCostPerUse(1)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24,
+                        TargetType.Individuals)
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Constitution,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.RayOfEnfeeblement)
+                    .Build())
             .AddToDB();
+        
+        var canUseNullifyStrike = CharacterValidators.HasBeenGrantedFeature(power);
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseNullifyStrike, CharacterValidators.NoShield, CharacterValidators.FullyUnarmed));
+        
+        return power;
+    }
+    #endregion
+    
+    #region exile_strike
+    private static FeatureDefinitionPower BuildExileStrike(FeatureDefinitionPower sharedPool)
+    {
+        var condition = ConditionDefinitionBuilder
+            .Create("ClassMagusConditionExiled", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Class, "ClassMagusConditionExiled",
+                ConditionBanished.GuiPresentation.SpriteReference)
+            .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionBanished)
+            .AddToDB();
+        condition.specialDuration = true;
+        condition.durationParameter = 2;
+        condition.durationParameterDie = DieType.D6;
+        condition.durationType = DurationType.Round;
+        condition.removedFromTheGame = true;
+        condition.conditionParticleReference = ConditionBanished.conditionEndParticleReference;
+        
+        var power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMagusArcaneArtExileStrike", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtExileStrike", null, 0, true)
+            .SetSharedPool(sharedPool)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetCostPerUse(1)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24,
+                        TargetType.Individuals)
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Charisma,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        new EffectForm()
+                        {
+                            formType = EffectForm.EffectFormType.Damage,
+                            hasSavingThrow = true,
+                            savingThrowAffinity = EffectSavingThrowType.HalfDamage,
+                            damageForm = new DamageForm()
+                            {
+                                damageType = DamageTypeForce,
+                                DiceNumber = 4,
+                                DieType = DieType.D10
+                            }
+                        },
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
+                    .Build())
+            .AddToDB();
+        
+        var canUseExileStrike = CharacterValidators.HasBeenGrantedFeature(power);
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseExileStrike, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand));
+        
+        return power;
+    }
+    #endregion
+    
+    #region terror_strike
+    private static FeatureDefinitionPower BuildTerrorStrike(FeatureDefinitionPower sharedPool)
+    {
+        var condition = ConditionDefinitionBuilder
+            .Create("ClassMagusConditionTerror", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Class, "ClassMagusConditionTerror",
+                DatabaseHelper.ConditionDefinitions.ConditionFrightened.GuiPresentation.SpriteReference)
+            .SetParentCondition(DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddFeatures(DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.Features.ToArray())
+            .AddToDB();
+        condition.specialDuration = true;
+        condition.durationParameter = 1;
+        condition.durationParameterDie = DieType.D4;
+        condition.durationType = DurationType.Round;
+        condition.forceBehavior = true;
+        condition.fearSource = true;
+        condition.battlePackage = DatabaseHelper.DecisionPackageDefinitions.Fear;
+        
+        var power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMagusArcaneArtTerrorStrike", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArtTerrorStrike", null, 0, true)
+            .SetSharedPool(sharedPool)
+            .SetActivationTime(ActivationTime.NoCost)
+            .SetCostPerUse(1)
+            .SetRechargeRate(RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 24,
+                        TargetType.Individuals)
+                    .SetSavingThrowData(
+                        true,
+                        false,
+                        AttributeDefinitions.Wisdom,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature,
+                        AttributeDefinitions.Intelligence)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
+                            .Build()
+                    )
+                    .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.ChillTouch)
+                    .Build())
+            .AddToDB();
+        
+        var canUseExileStrike = CharacterValidators.HasBeenGrantedFeature(power);
+        power.SetCustomSubFeatures(new PowerUseValidity(canUseExileStrike, CharacterValidators.NoShield, CharacterValidators.EmptyOffhand));
+        
+        return power;
+    }
+    #endregion
+    
+    #region unfathomable_horror
+    private class ConditionFrightenByUnfathomableHorror : ConditionDefinition,
+        IDisableImmunityToCondition
+    {
+        public bool DisableImmunityToCondition(string conditionName, ulong sourceGuid)
+        {
+            return conditionName == DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.Name;
+        }
     }
 
+    private  class ConditionFrightenByUnfathomableHorrorBuilder
+        : ConditionDefinitionBuilder<ConditionFrightenByUnfathomableHorror, ConditionFrightenByUnfathomableHorrorBuilder>
+    {
+        internal ConditionFrightenByUnfathomableHorrorBuilder(string name, Guid guidNamespace) : base(name, guidNamespace)
+        {
+        }
+    }
+    private static FeatureDefinitionPower BuildUnfathomableHorror(FeatureDefinitionPower sharedPool)
+    {
+        var frightenByUnfathomableHorror = ConditionFrightenByUnfathomableHorrorBuilder
+            .Create("ClassMagusConditionFrightenByUnfathomableHorror", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation("ClassMagusConditionFrightenByUnfathomableHorror", Category.Class,
+                DatabaseHelper.ConditionDefinitions.ConditionFrightenedFear.guiPresentation.SpriteReference)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddToDB();
+
+        var effect = EffectDescriptionBuilder
+            .Create(DatabaseHelper.SpellDefinitions.GreaterInvisibility.EffectDescription)
+            .DeepCopy()
+            .ClearEffectForms()
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3, 3)
+            .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+            .SetSavingThrowData(true, false, AttributeDefinitions.Wisdom, false,
+                EffectDifficultyClassComputation.SpellCastingFeature, AttributeDefinitions.Intelligence)
+            .SetDurationData(DurationType.Permanent)
+            .SetEffectForms(
+                new EffectForm()
+                {
+                    FormType  = EffectForm.EffectFormType.Damage,
+                    savingThrowAffinity = EffectSavingThrowType.Negates,
+                    hasSavingThrow = true,
+                    DamageForm = new DamageForm()
+                    {
+                        DamageType = DamageTypePsychic,
+                        DiceNumber = 1,
+                        DieType = DieType.D10
+                    }
+                },
+                new EffectForm
+                {
+                    formType = EffectForm.EffectFormType.Condition,
+                    hasSavingThrow = true,
+                    savingThrowAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    ConditionForm = new ConditionForm
+                    {
+                        ConditionDefinition = frightenByUnfathomableHorror,
+                        operation = ConditionForm.ConditionOperation.Add
+                    }
+                })
+            .Build();
+
+        return FeatureDefinitionPowerSharedPoolBuilder
+            .Create("ClassMagusArcaneArUnfathomableError", DefinitionBuilder.CENamespaceGuid)
+            .SetGuiPresentation(Category.Subclass, "ClassMagusArcaneArUnfathomableError")
+            .SetSharedPool(sharedPool)
+            .SetEffectDescription(effect)
+            .SetActivationTime(ActivationTime.PermanentUnlessIncapacitated)
+            .AddToDB();
+    }
+    
     #endregion
 }

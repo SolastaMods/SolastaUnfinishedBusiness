@@ -1,6 +1,7 @@
 ﻿using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.CustomInterfaces;
 using SolastaCommunityExpansion.Models;
+using UnityEngine;
 
 namespace SolastaCommunityExpansion.CustomDefinitions;
 
@@ -15,6 +16,7 @@ public class PowerUseValidity : IPowerUseValidity
 
     public bool CanUsePower(RulesetCharacter character)
     {
+        Main.Log($"{character.Name} CanUserPower", true);
         return character.IsValid(validators);
     }
 }

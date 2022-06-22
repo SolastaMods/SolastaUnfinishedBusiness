@@ -7,5 +7,5 @@ public interface IDisableImmunityAndResistanceToDamageType
 
 public interface IDisableImmunityToCondition
 {
-    bool DisableImmunityToCondition(string conditionName);
+    bool DisableImmunityToCondition(string conditionName, ulong sourceGuid);
 }
