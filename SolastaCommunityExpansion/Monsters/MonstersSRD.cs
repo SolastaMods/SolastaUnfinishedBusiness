@@ -608,7 +608,8 @@ internal static class MonstersSRD
             GroupAttacks = false,
             PhantomDistortion = true,
             AttachedParticlesReference = MonstersAttributes.DjinniassetReference,
-            SpriteReference = DatabaseHelper.HumanoidMonsterPresentationDefinitions.NPC_Presentation_Emtan_Ghost
+            SpriteReference = DatabaseHelper
+                .GetDefinition<HumanoidMonsterPresentationDefinition>("NPC_Presentation_Emtan_Ghost", "dc25835cf4091f44795493498e2eb79e")
                 .GuiPresentation.SpriteReference
         },
         new MonsterContext.CustomMonster
