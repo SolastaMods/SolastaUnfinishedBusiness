@@ -299,7 +299,3 @@ Subclass/&WarlockAncientForestDescription	You have forged a relationship with a 
 Subclass/&WarlockAncientForestTitle	Ancient Forest Pact
 Subclass/&WarlockMoonLitDescription	Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
 Subclass/&WarlockMoonLitTitle	Moonlit Pact
-Subclass/&WarlockToadKingDescription	Fey, demon or aberration caused by the Cataclysm, the true nature of the Toad King is not known, but it is known that the Toad King rules a large area of swamps and marshes within the Badlands and offers power to those willing to serve.
-Subclass/&WarlockToadKingTitle	Toad King Pact
-Subclass/&WarlockUrPriestDescription	While the vast majority of divine spellcasters gain their powers from a deity, there are those who despise the gods. Those who call themselves Ur-priests have learned to siphon off the divine energies granted by gods to their divine spellcasters, using it for their own needs without giving even lip-service to any god. As an Ur-priest, you differ from most warlocks, lacking a patron who grants you your power. Eldritch Invocations you uncover are warped forms of magic the gods might grant their patrons, while Pact Boons are likely divine artefacts you have managed to steal.
-Subclass/&WarlockUrPriestTitle	UrPriest Pact

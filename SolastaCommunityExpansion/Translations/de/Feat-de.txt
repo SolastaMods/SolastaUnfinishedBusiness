@@ -31,6 +31,8 @@ CraftyFeats/&ToxicologistIntFeatDescription	Erhöhe deine Intelligenz um 1 bis m
 CraftyFeats/&ToxicologistIntFeatTitle	Toxikologe (Geheimdienst)
 CraftyFeats/&ToxicologistWisFeatDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit Giftausrüstung und Medizin oder Fachwissen, wenn du bereits geübt bist.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxikologe (Weisheit)
+Feat/&FeatPolearmExpertDescription	Diese Vorteile bietet Ihnen Ihre Expertenausbildung mit Stangenwaffen:\n• Wenn du die Aktion „Angriff“ ausführst und nur mit einer Stangenwaffe angreifst, kannst du eine Bonusaktion verwenden, um einen Nahkampfangriff mit dem anderen Ende der Waffe durchzuführen. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff. Der Schadenswürfel der Waffe für diesen Angriff ist ein W4 und verursacht Knüppelschaden.\n• Während Sie eine Stangenwaffe führen, provozieren andere Kreaturen einen Gelegenheitsangriff von Ihnen, wenn sie in die Reichweite dieser Waffe gelangen.
+Feat/&FeatPolearmExpertTitle	Stangenwaffen-Experte
 Feat/&AddConstructCantripsDescription	Fügt Cantrips hinzu, um deine Konstrukte zu heilen und zu entlassen.
 Feat/&AddConstructCantripsTitle	Cantrips konstruieren
 Feat/&AddProtectorConstructCantripDescription	Fügt Cantrips zum Ausbessern von Konstrukten und zum Entlassen von Konstrukten hinzu, um die Flexibilität Ihrer Konstrukte zu erhöhen.

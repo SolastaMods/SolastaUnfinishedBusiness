@@ -206,8 +206,6 @@ Equipment/&ThunderPunchDescription	Verursacht bei einem Treffer 1W8 Donnerschade
 Equipment/&ThunderPunchTitle	Donner Schlag
 Equipment/&WandIdentifyDescription	Wirkt den Zauber Identifizieren, indem er eine Ladung verbraucht. Der Zauberstab hat 3 Ladungen und gewinnt bei jedem Morgengrauen 1W3 Ladungen zurück.
 Equipment/&WandIdentifyTitle	Zauberstab des Identifizierens
-Feat/&FeatPolearmExpertDescription	Diese Vorteile bietet Ihnen Ihre Expertenausbildung mit Stangenwaffen:\n• Wenn du die Aktion „Angriff“ ausführst und nur mit einer Stangenwaffe angreifst, kannst du eine Bonusaktion verwenden, um einen Nahkampfangriff mit dem anderen Ende der Waffe durchzuführen. Dieser Angriff verwendet denselben Fähigkeitsmodifikator wie der Primärangriff. Der Schadenswürfel der Waffe für diesen Angriff ist ein W4 und verursacht Knüppelschaden.\n• Während Sie eine Stangenwaffe führen, provozieren andere Kreaturen einen Gelegenheitsangriff von Ihnen, wenn sie in die Reichweite dieser Waffe gelangen.
-Feat/&FeatPolearmExpertTitle	Stangenwaffen-Experte
 Item/&CEHalberd+1Title	Hellebarde +1
 Item/&CEHalberd+1UnidentifiedTitle	Qualität Hellebarde
 Item/&CEHalberd+2Title	Hellebarde +2
@@ -291,3 +289,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Prächtige Handwickel
 Power/&PowerFunctionHandwrapsOfPullingDescription	Als Bonusaktion kannst du eine Kreatur innerhalb von 15 Fuß näher zu dir ziehen.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Rollen Sie ein
 Tooltip/&TagPolearmWeaponTitle	Stangenwaffe
+Feedback/&ExtraDamageDescription	Zusätzlicher Schaden durch Blitzspeer.
+Feedback/&ExtraDamageTitle	Blitzspeer zusätzlichen Schaden

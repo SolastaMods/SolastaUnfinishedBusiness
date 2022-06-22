@@ -31,6 +31,8 @@ CraftyFeats/&ToxicologistIntFeatDescription	智力+1，最高20点\n你获得制
 CraftyFeats/&ToxicologistIntFeatTitle	毒药学家（智力）
 CraftyFeats/&ToxicologistWisFeatDescription	感知+1，最高20点\n你获得制毒工具和医学的熟练项/专精
 CraftyFeats/&ToxicologistWisFeatTitle	毒药学家（感知）
+Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
+Feat/&FeatPolearmExpertTitle	长柄武器大师
 Feat/&AddConstructCantripsDescription	增加治疗和解散你的构装体的戏法
 Feat/&AddConstructCantripsTitle	构装体戏法
 Feat/&AddProtectorConstructCantripDescription	添加修复构装体和解散构装体戏法，以提高你构装体的灵活性

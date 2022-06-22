@@ -206,8 +206,6 @@ Equipment/&ThunderPunchDescription	造成1d8点雷鸣伤害，并使其对盟友
 Equipment/&ThunderPunchTitle	雷鸣一击
 Equipment/&WandIdentifyDescription	消耗1点充能施放“鉴定术”。魔杖有3点充能，每次黎明时分可恢复1d3点充能
 Equipment/&WandIdentifyTitle	鉴定魔杖
-Feat/&FeatPolearmExpertDescription	你擅于使用长柄武器，获得以下增益：\n• 当你只使用长柄武器进行攻击动作时，你能以一个附赠动作以武器的另一端进行一次近战攻击。此攻击与主攻击使用同样的调整值，其伤害骰为d4，伤害类型为钝击伤害\n• 当你持握长柄武器时，进入你触及范围的生物会引发你的借机攻击
-Feat/&FeatPolearmExpertTitle	长柄武器大师
 Item/&CEHalberd+1Title	戟+1
 Item/&CEHalberd+1UnidentifiedTitle	精制戟
 Item/&CEHalberd+2Title	戟+2
@@ -291,3 +289,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	华丽的裹手
 Power/&PowerFunctionHandwrapsOfPullingDescription	你能以附赠动作将15英尺内一个生物拉至你身边
 Power/&PowerFunctionHandwrapsOfPullingTitle	牵引
 Tooltip/&TagPolearmWeaponTitle	长柄武器
+Feedback/&ExtraDamageDescription	电光之矛的额外伤害
+Feedback/&ExtraDamageTitle	电光之矛额外伤害

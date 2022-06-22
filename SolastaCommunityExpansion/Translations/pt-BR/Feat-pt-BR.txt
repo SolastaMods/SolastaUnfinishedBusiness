@@ -31,6 +31,8 @@ CraftyFeats/&ToxicologistIntFeatDescription	Aumente sua Inteligência em 1, até
 CraftyFeats/&ToxicologistIntFeatTitle	Toxicologista (Inteligência)
 CraftyFeats/&ToxicologistWisFeatDescription	Aumente sua Sabedoria em 1, até um máximo de 20.\nVocê ganha proficiência com kit de envenenador e Medicina, ou perícia se já for proficiente.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxicologista (Sabedoria)
+Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste garante estes benefícios:\n• Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n• Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
+Feat/&FeatPolearmExpertTitle	Especialista em Polearm
 Feat/&AddConstructCantripsDescription	Adiciona truques para curar e dispensar suas construções.
 Feat/&AddConstructCantripsTitle	Construir Truques
 Feat/&AddProtectorConstructCantripDescription	Adiciona os truques Mending Construct e Dismiss Construct para aumentar a flexibilidade de suas construções.

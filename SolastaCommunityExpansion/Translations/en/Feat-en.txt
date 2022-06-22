@@ -31,6 +31,8 @@ CraftyFeats/&ToxicologistIntFeatDescription	Increase your Intelligence by 1, to 
 CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
 CraftyFeats/&ToxicologistWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
+Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+Feat/&FeatPolearmExpertTitle	Polearm Expert
 Feat/&AddConstructCantripsDescription	Adds cantrips to heal and dismiss your constructs.
 Feat/&AddConstructCantripsTitle	Construct Cantrips
 Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility.

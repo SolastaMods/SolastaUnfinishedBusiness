@@ -206,8 +206,6 @@ Equipment/&ThunderPunchDescription	Causa 1d8 de dano trovejante ao acertar e imp
 Equipment/&ThunderPunchTitle	Soco do Trovão
 Equipment/&WandIdentifyDescription	Conjura o feitiço Identificar gastando uma carga. A varinha tem 3 cargas e recupera 1d3 cargas a cada amanhecer.
 Equipment/&WandIdentifyTitle	Varinha de Identificação
-Feat/&FeatPolearmExpertDescription	Seu treinamento especializado com armas de haste garante estes benefícios:\n• Quando você realiza a ação Atacar e ataca apenas com uma arma de haste, você pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma. Este ataque usa o mesmo modificador de habilidade do ataque primário. O dado de dano da arma para este ataque é um d4 e causa dano de concussão.\n• Enquanto você estiver empunhando uma arma de haste, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com aquela arma.
-Feat/&FeatPolearmExpertTitle	Especialista em Polearm
 Item/&CEHalberd+1Title	Alabarda +1
 Item/&CEHalberd+1UnidentifiedTitle	Alabarda de qualidade
 Item/&CEHalberd+2Title	Alabarda +2
@@ -291,3 +289,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Algemas Magníficas
 Power/&PowerFunctionHandwrapsOfPullingDescription	Como uma ação bônus, você pode puxar uma criatura a até 4,5 metros para mais perto de você.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Enrolar
 Tooltip/&TagPolearmWeaponTitle	Pistola
+Feedback/&ExtraDamageDescription	Dano extra de Lighting Spear.
+Feedback/&ExtraDamageTitle	Dano extra da Lança Relâmpago

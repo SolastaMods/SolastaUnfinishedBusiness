@@ -16,6 +16,8 @@ namespace SolastaCommunityExpansion.Utils;
 
 public static class Translations
 {
+    internal static readonly Dictionary<string, string> TranslationsCache = new();
+
     public enum Engine
     {
         Baidu,
@@ -106,12 +108,23 @@ public static class Translations
 
     internal static string Translate(string sourceText, string targetCode)
     {
-        return Main.Settings.TranslationEngine switch
+        var md5 = GetMd5Hash(sourceText);
+
+        if (TranslationsCache.TryGetValue(md5, out var cachedTranslation))
+        {
+            return cachedTranslation;
+        }
+
+        var translation = Main.Settings.TranslationEngine switch
         {
             Engine.Baidu => TranslateBaidu(sourceText, targetCode),
             Engine.Google => TranslateGoogle(sourceText, targetCode),
             _ => sourceText
         };
+
+        TranslationsCache.Add(md5, translation);
+
+        return translation;
     }
 
     private static Dictionary<string, string> GetWordsDictionary()
