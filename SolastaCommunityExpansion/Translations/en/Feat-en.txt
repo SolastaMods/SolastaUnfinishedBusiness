@@ -1,0 +1,307 @@
+Condition/&ConditionDualFlurryApplyDescription	You are building momentum...
+Condition/&ConditionDualFlurryApplyTitle	Dual Flurry!
+Condition/&ConditionDualFlurryGrantDescription	Your foes are reeling!
+Condition/&ConditionDualFlurryGrantTitle	Dual Flurry!
+Condition/&HelpActionDescription	This creature has been distracted.
+Condition/&HelpActionTitle	Distracted
+CraftyFeats/&ApothecaryIntFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+CraftyFeats/&ApothecaryIntFeatTitle	Apothecary (Intelligence)
+CraftyFeats/&ApothecaryWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
+CraftyFeats/&ApothecaryWisFeatTitle	Apothecary (Wisdom)
+CraftyFeats/&AttributeDexDescription	+1 DEX to a maximum of 20
+CraftyFeats/&AttributeDexTitle	Dexterity
+CraftyFeats/&AttributeIntDescription	+1 INT to a maximum of 20
+CraftyFeats/&AttributeIntTitle	Intelligence
+CraftyFeats/&AttributeWisDescription	+1 WIS to a maximum of 20
+CraftyFeats/&AttributeWisTitle	Wisdom
+CraftyFeats/&CraftyArcanaDescription	You gain proficiency/expertise in Arcana.
+CraftyFeats/&CraftyBowsDescription	You gain proficiency with all bows and crossbows.
+CraftyFeats/&CraftyBowsTitle	Bow Proficiency
+CraftyFeats/&CraftyFletcherFeatDescription	Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with smith's tools, or expertise if you are already proficient.\n You gain proficiency with all bows and crossbows.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	You gain proficiency/expertise in Medicine.
+CraftyFeats/&CraftyNatureDescription	You gain proficiency/expertise in Nature.
+CraftyFeats/&CraftyScribeFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with scroll kit and Arcana, or expertise if already proficient.\nRequires the ability to cast spells.
+CraftyFeats/&CraftyScribeFeatTitle	Scribe
+CraftyFeats/&CraftySkillsTitle	Skills
+CraftyFeats/&CraftyToolsTitle	Tools
+CraftyFeats/&ManacalonCrafterFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with manacolon rosary and Arcana, or expertise if already proficient.\nRequires the ability to cast spells.
+CraftyFeats/&ManacalonCrafterFeatTitle	Manacalon Crafter
+CraftyFeats/&ToxicologistIntFeatDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Nature, or expertise if already proficient.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologist (Intelligence)
+CraftyFeats/&ToxicologistWisFeatDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologist (Wisdom)
+Feat/&AddConstructCantripsDescription	Adds cantrips to heal and dismiss your constructs.
+Feat/&AddConstructCantripsTitle	Construct Cantrips
+Feat/&AddProtectorConstructCantripDescription	Adds Mending Construct and Dismiss Construct cantrips to increase your constructs flexibility.
+Feat/&AddProtectorConstructCantripTitle	Bonus Construct Cantrips
+Feat/&ArmorModePoolDescription	Allows you activate armor modes once per short rest.
+Feat/&ArmorModePoolTitle	Armor Mode
+Feat/&ArtificialServantAttackDescription	Ranged attack 1d6 force damage from your trusty sidekick.
+Feat/&ArtificialServantAttackTitle	Force Sling
+Feat/&ArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
+Feat/&ArtificialServantTitle	Artificial Servant
+Feat/&CancelFlyingConditionDescription	End flying condition to allow jumping and crawling.
+Feat/&CancelFlyingConditionTitle	Cancel Fly
+Feat/&ChefConDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.\nOnce a day, you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefConTitle	Chef (Constitution)
+Feat/&ChefShortRestFeastDescription	You can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.
+Feat/&ChefShortRestFeastTitle	Short Rest Meal
+Feat/&ChefWisDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou can spend 1 hour to cook a meal to heal you and your companions for 1d8 HP.\nOnce a day, you may spend an hour to cook treats that provide temporary HP when eaten.
+Feat/&ChefWisTitle	Chef (Wisdom)
+Feat/&ConstructSelectingPoolDescription	Select the mode for your Construct.
+Feat/&ConstructSelectingPoolTitle	Artillery Mode
+Feat/&DeadeyeFeatDescription	You have mastered ranged weapons and can make shots that others find impossible.\n• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.\n• Your ranged weapon attacks ignore half cover and three-quarters cover.\n• You can choose to take a -5 penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 10 damage of the weapon's type.
+Feat/&DeadeyeFeatTitle	Deadeye
+Feat/&DismissConstructDescription	Unsummon your construct.
+Feat/&DismissConstructTitle	Dismiss Construct
+Feat/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
+Feat/&DualFlurryTitle	Dual Flurry
+Feat/&FeatArcaneDefenseDescription	Increase your Intelligence by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
+Feat/&FeatArcaneDefenseTitle	Arcane Defense
+Feat/&FeatArcanePrecisionDescription	You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
+Feat/&FeatArcanePrecisionTitle	Arcane Precision
+Feat/&FeatBlindFightingStlyeDescription	You have blindsight with a range of 10 feet.
+Feat/&FeatBlindFightingStlyeTitle	Fighting Style: Blind Fighting
+Feat/&FeatBrutalThugDescription	You land powerful blows in the right places.\nYou gain simple and martial weapon proficiencies.\nYou can sneak attack using martial weapons.
+Feat/&FeatBrutalThugTitle	Brutal Thug
+Feat/&FeatChaIncrementDescription	Increase your Charisma by 1, to a maximum of 20.
+Feat/&FeatChaIncrementTitle	Charisma Attribute Increase
+Feat/&FeatCharismaticDefenseDescription	Increase your Charisma by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
+Feat/&FeatCharismaticDefenseTitle	Charismatic Defense
+Feat/&FeatCharismaticPrecisionDescription	You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
+Feat/&FeatCharismaticPrecisionTitle	Charismatic Precision
+Feat/&FeatChefConIncrementDescription	Increase your Constitution by 1, to a maximum of 20.
+Feat/&FeatChefConIncrementTitle	Attribute Increase
+Feat/&FeatChefWisIncrementDescription	Increase your Wisdom by 1, to a maximum of 20.
+Feat/&FeatChefWisIncrementTitle	Attribute Increase
+Feat/&FeatCripplingDescription	When you hit with a melee attack, you can reduce the speed of your opponent by 10 ft. until the start of your next turn.
+Feat/&FeatCripplingTitle	Fighting Style: Crippling
+Feat/&FeatDexIncrementDescription	Increase your Dexterity by 1, to a maximum of 20.
+Feat/&FeatDexIncrementTitle	Attribute Increase
+Feat/&FeatDualWeaponDefenseDescription	You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
+Feat/&FeatDualWeaponDefenseTitle	Dual Weapon Defense
+Feat/&FeatFastHandsDescription	You gain Cunning Action. You can use the Hide or Disengage actions as a bonus action.\nYou can use your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to Disarm a trap or open a lock, or take the Use an Object action.
+Feat/&FeatFastHandsTitle	Fast Hands
+Feat/&FeatFeyTeleportationChaDescription	Increase your Charisma by 1, to a maximum of 20.\nYou can use misty step once per short rest, and you can cast this spell with your spell slots.\nYou gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Fey Teleportation (Charisma)
+Feat/&FeatFeyTeleportationIntDescription	Increase your Intelligence by 1, to a maximum of 20.\nYou can use misty step once per short rest, and you can cast this spell with your spell slots.\nYou gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Fey Teleportation (Intelligence)
+Feat/&FeatFeyTeleportationWisDescription	Increase your Wisdom by 1, to a maximum of 20.\nYou can use misty step once per short rest, and you can cast this spell with your spell slots.\nYou gain proficiency in Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Fey Teleportation (Wisdom)
+Feat/&FeatFightingSurgeDexterityDescription	Increase your Dexterity by 1, to a maximum of 20.\nOn your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
+Feat/&FeatFightingSurgeDexterityTitle	Fighting Surge (Dexterity)
+Feat/&FeatFightingSurgeStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nOn your turn, you can take one additional action on top of your regular action. Once you use this feature, you must finish a long rest before you can use it again.
+Feat/&FeatFightingSurgeStrengthTitle	Fighting Surge (Strength)
+Feat/&FeatHeavyArmorMasterClassDescription	You gain resistance to bludgeoning, slashing, and piercing damage.
+Feat/&FeatHeavyArmorMasterClassTitle	Heavy Defense Mastery
+Feat/&FeatImprovedCriticalDescription	Your attacks are critical hits on a roll of 19 or 20.
+Feat/&FeatImprovedCriticalTitle	Improved Critical
+Feat/&FeatIntIncrementDescription	Increase your Intelligence by 1, to a maximum of 20.
+Feat/&FeatIntIncrementTitle	Intelligence Attribute Increase
+Feat/&FeatLightArmorDescription	Increase your Strength by 1, to a maximum of 20.\nYou gain proficiency with light armor.
+Feat/&FeatLightArmorProficiencyDescription	Gain proficiency with Light Armor.
+Feat/&FeatLightArmorProficiencyTitle	Light Armor
+Feat/&FeatLightArmorTitle	Light Armor
+Feat/&FeatMarksmanDescription	When an opponent you can see attacks you with a ranged weapon or a spell and is at least 10 ft away from you, you can use your reaction to make a ranged weapon attack after the triggering attack finishes.
+Feat/&FeatMarksmanTitle	Marksman
+Feat/&FeatMediumArmorDexDescription	Increase your Dexterity by 1, to a maximum of 20.\nYou gain proficiency with Medium Armor and shields.
+Feat/&FeatMediumArmorDexTitle	Medium Armor (Dexterity)
+Feat/&FeatMediumArmorProficiencyDescription	You gain proficiency with medium armor and shields.
+Feat/&FeatMediumArmorProficiencyTitle	Medium Armor
+Feat/&FeatMediumArmorStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou gain proficiency with medium armor and shields.
+Feat/&FeatMediumArmorStrengthTitle	Medium Armor (Strength)
+Feat/&FeatMetamagicAdeptCarefulDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Careful metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptCarefulTitle	Metamagic: Careful
+Feat/&FeatMetamagicAdeptDistantDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Distant metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptDistantTitle	Metamagic: Distant
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Empowered metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagic: Empowered
+Feat/&FeatMetamagicAdeptExtendedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Extended metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptExtendedTitle	Metamagic: Extended
+Feat/&FeatMetamagicAdeptHeightenedDescription	You learn the Heightened metamagic and gain 4 sorcery points.
+Feat/&FeatMetamagicAdeptHeightenedTitle	Metamagic: Heightened
+Feat/&FeatMetamagicAdeptQuickenedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Quickened metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagic: Quickened
+Feat/&FeatMetamagicAdeptTwinnedDescription	Increase your Charisma by 1, to a maximum of 20.\nYou learn the Twinned metamagic and gain 2 sorcery points.
+Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagic: Twinned
+Feat/&FeatPrimalConstitutionDescription	Increase your Constitution by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
+Feat/&FeatPrimalConstitutionTitle	Primal Rage (Constitution)
+Feat/&FeatPrimalStrengthDescription	Increase your Strength by 1, to a maximum of 20.\nYou can enter a rage as a bonus action as defined in the Barbarian's rage class feature with a +1 rage damage that can stack with Barbarian's rage. Once you have raged this way, you must finish a long rest before using this feature again.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Constitution modifier.
+Feat/&FeatPrimalStrengthTitle	Primal Rage (Strength)
+Feat/&FeatPugilistFightingStlyeDescription	Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action.\nIf you have a free hand, you can shove as a bonus action.
+Feat/&FeatPugilistFightingStlyeTitle	Fighting Style: Pugilist
+Feat/&FeatRangedExpertDescription	Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.\n• If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
+Feat/&FeatRangedExpertTitle	Ranged Expert
+Feat/&FeatSavageAttackerDescription	Reroll weapon and spell damage dice when you roll a 1 (This does not reroll dice from all damage sources. For example, sneak attack and smite damage is not rerolled).
+Feat/&FeatSavageAttackerReroll	Due to being a Savage Attacker {0} rerolls the {1} die from a {2} to a {3}
+Feat/&FeatSavageAttackerTitle	Savage Attacker
+Feat/&FeatShadowTouchedChaDescription	Increase your Charisma attribute by 1, to a maximum of 20.\nYou gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
+Feat/&FeatShadowTouchedChaTitle	Shadow Touched (Charisma)
+Feat/&FeatShadowTouchedIntDescription	Increase your Intelligence attribute by 1, to a maximum of 20.\nYou gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
+Feat/&FeatShadowTouchedIntTitle	Shadow Touched (Intelligence)
+Feat/&FeatShadowTouchedWisDescription	Increase your Wisdom attribute by 1, to a maximum of 20.\nYou gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
+Feat/&FeatShadowTouchedWisTitle	Shadow Touched (Wisdom)
+Feat/&FeatShadyDescription	Increase your Dexterity by 1, to a maximum of 20.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets the requirements of the Rogue's Sneak Attack. At 12th level, this damage increases to 2d6 and at 20th level, to 4d6.
+Feat/&FeatShadyTitle	Shady
+Feat/&FeatShieldExpertDescription	You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage.\nYou gain advantage on shove attempts while wielding a shield.
+Feat/&FeatShieldExpertTitle	Shield Expert
+Feat/&FeatStrengthIncrementDescription	Increase your Strength by 1, to a maximum of 20.
+Feat/&FeatStrengthIncrementTitle	Attribute Increase
+Feat/&FeatTelekineticChaDescription	Increase your Charisma by 1, to a maximum of 20.\nAs a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
+Feat/&FeatTelekineticChaPullDescription	Telekinetically pull a creature toward you.
+Feat/&FeatTelekineticChaPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticChaPushDescription	Telekinetically shove a creature away from you.
+Feat/&FeatTelekineticChaPushTitle	Telekinetic Push
+Feat/&FeatTelekineticChaTitle	Telekinetic (Charisma)
+Feat/&FeatTelekineticIntDescription	Increase your Intelligence by 1, to a maximum of 20.\nAs a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
+Feat/&FeatTelekineticIntPullDescription	Telekinetically pull a creature toward you.
+Feat/&FeatTelekineticIntPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticIntPushDescription	Telekinetically shove a creature away from you.
+Feat/&FeatTelekineticIntPushTitle	Telekinetic Push
+Feat/&FeatTelekineticIntTitle	Telekinetic (Intelligence)
+Feat/&FeatTelekineticWisDescription	Increase your Wisdom by 1, to a maximum of 20.\nAs a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
+Feat/&FeatTelekineticWisPullDescription	Telekinetically pull a creature toward you.
+Feat/&FeatTelekineticWisPullTitle	Telekinetic Pull
+Feat/&FeatTelekineticWisPushDescription	Telekinetically shove a creature away from you.
+Feat/&FeatTelekineticWisPushTitle	Telekinetic Push
+Feat/&FeatTelekineticWisTitle	Telekinetic (Wisdom)
+Feat/&FeatTitanFightingDescription	You gain a +2 to hit against creatures of Large size or bigger.
+Feat/&FeatTitanFightingTitle	Fighting Style: Titan Fighting
+Feat/&FeatToughDescription	Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
+Feat/&FeatToughTitle	Tough
+Feat/&FeatWarCasterDescription	You gain advantage on checks to maintain concentration.\nYou gain the ability to perform the somatic component of spells even with both hands full.\nWhen a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
+Feat/&FeatWarCasterTitle	War Caster
+Feat/&FeatWiseDefenseDescription	Increase your Wisdom by 1, to a maximum of 20.\nWhile you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
+Feat/&FeatWiseDefenseTitle	Wise Defense
+Feat/&FeatWisePrecisionDescription	You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used twice per long rest.
+Feat/&FeatWisePrecisionTitle	Wise Precision
+Feat/&FeatWisIncrementDescription	Increase your Wisdom by 1, to a maximum of 20.
+Feat/&FeatWisIncrementTitle	Wisdom Attribute Increase
+Feat/&FeyTeleportationLanguageTirmarianDescription	You gain proficiency in Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmarian
+Feat/&FightingStyleArcheryDescription	You gain a +2 bonus to attack rolls with ranged weapons.
+Feat/&FightingStyleArcheryTitle	Fighting Style: Archery
+Feat/&FightingStyleDefenseDescription	While you are wearing armor, you gain a +1 bonus to AC.
+Feat/&FightingStyleDefenseTitle	Fighting Style: Defense
+Feat/&FightingStyleDuelingDescription	When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+Feat/&FightingStyleDuelingTitle	Fighting Style: Dueling
+Feat/&FightingStyleGeneralFeatDescription	You can select a fighting style.
+Feat/&FightingStyleGeneralFeatitle	Fighting Style
+Feat/&FightingStyleGreatWeaponDescription	When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+Feat/&FightingStyleGreatWeaponTitle	Fighting Style: Great Weapon
+Feat/&FightingStyleProtectionDescription	When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+Feat/&FightingStyleProtectionTitle	Fighting Style: Protection
+Feat/&FightingStyleTwoWeaponDescription	When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+Feat/&FightingStyleTwoWeaponTitle	Fighting Style: Two Weapon
+Feat/&ForceStrikePowerDescription	Ranged attack 1d6 force damage from your trusty sidekick.
+Feat/&ForceStrikePowerTitle	Force Sling (Artificial Servant)
+Feat/&GauntletsGrappleDescription	Can now pull enemies into melee range with a bonus action and inflict 1d8 thunder damage.
+Feat/&GauntletsGrappleTitle	Gauntlet grapple
+Feat/&HealerDescription	You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerResuscitateDescription	Use an action to revive a creature that died within the last 15 seconds.
+Feat/&HealerResuscitateTitle	Resuscitate
+Feat/&HealerStabilizeDescription	Use an action to stabilize a dying creature.
+Feat/&HealerStabilizeTitle	Stabilize
+Feat/&HealerTitle	Healer
+Feat/&HealerUseMedicineDescription	You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
+Feat/&HealerUseMedicineTitle	Use Medicine
+Feat/&IncreaseConstructSelectingDescription	You can now summon two Artillery Constructs. The constructs can be of the same or different modes.
+Feat/&IncreaseConstructSelectingTitle	Reinforcements
+Feat/&InspiringLeaderDescription	Once per short rest, you can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+Feat/&InspiringLeaderTitle	Inspiring Leader
+Feat/&IntToAttackAndDamageDescription	You can use your Intelligence modifier, instead of Strength or Dexterity modifier, for your attack and damage rolls with Armor Weapons.
+Feat/&IntToAttackAndDamageTitle	Armor Weapon
+Feat/&MendingConstructDescription	Repair your construct for 2d6 HP over 1 minute.
+Feat/&MendingConstructTitle	Mending Construct
+Feat/&ModeSwitchingPoolDescription	You can switch between modes once per short rest by creating and using temporary weapons.
+Feat/&ModeSwitchingPoolTitle	Armor Mode
+Feat/&PickPocketFeatDescription	You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
+Feat/&PickPocketFeatTitle	Pickpocket
+Feat/&PowerAlchemistEmboldeningShotsDescription	You gain the ability to administer an elixir that emboldens your allies, providing them 4d6 + Intelligence modifier temporary hit points.
+Feat/&PowerAlchemistEmboldeningShotsTitle	Emboldening Shots
+Feat/&PowerAttackFeatDescription	You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
+Feat/&PowerAttackFeatTitle	Power Attack
+Feat/&PowerFalseLifeFromFeatDescription	Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 Temporary Hit Points for the duration.
+Feat/&PowerFalseLifeFromFeatTitle	False Life
+Feat/&PowerInflictWoundsFromFeatDescription	Make a melee spell attack against a creature within your reach. On a hit, the target takes 3d10 necrotic damage.
+Feat/&PowerInflictWoundsFromFeatTitle	Inflict Wounds
+Feat/&PowerInvisibilityFromFeatDescription	A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person. The spell ends for a target that attacks or casts a spell.
+Feat/&PowerInvisibilityFromFeatTitle	Invisibility
+Feat/&PowerMistyStepFromFeatDescription	Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
+Feat/&PowerMistyStepFromFeatTitle	Misty Step
+Feat/&PowerShadowTouchedFromFeatDescription	Learn to cast the spells invisibility, false life, and inflict wounds.
+Feat/&PowerShadowTouchedFromFeatTitle	Shadow Touched
+Feat/&ProfChefTreatActionDescription	Eat a treat as a bonus action and gain 5 temporary hit points.
+Feat/&ProfChefTreatActionTitle	Eat Chef's Treat
+Feat/&ProfChefTreatCookDescription	Spend one hour to cook treats that when eaten provide 5 temporary hit points.
+Feat/&ProfChefTreatCookTitle	Cook Chef's Treat
+Feat/&ProfChefTreatDescription	Eat as a bonus action and gain 5 temporary hit points.
+Feat/&ProfChefTreatTitle	Chef's Treat
+Feat/&ProfHealerMedicineDescription	You gain proficiency in Medicine, or expertise if you are already proficient.
+Feat/&ProfHealerMedicineTitle	Medicine Knowledge
+Feat/&ProtectorConstructAttackDescription	The protector construct makes an attack that deals 1d10 force damage.
+Feat/&ProtectorConstructAttackTitle	Force Rend
+Feat/&ProtectorConstructDescription	It is friendly to you and your companions, and it obeys your commands.
+Feat/&ProtectorConstructDescription_5	Protector Construct Upgrade.
+Feat/&ProtectorConstructTitle	Protector Construct
+Feat/&ProtectorConstructTitle_5	Protector Construct Upgrade
+Feat/&RecklessFuryFeatDescription	You gain the ability to enter a rage for one minute once per day without any armor restrictions.\nYou can attack recklessly, gaining advantage on your melee attacks while giving advantage to your attackers until the start of your next turn.
+Feat/&RecklessFuryFeatTitle	Reckless Fury
+Feat/&RetributionDescription	Construct does 1d4 + your Intelligence modifier force damage to the attacker when it is hit by an attack.
+Feat/&RetributionTitle	Retribution
+Feat/&SelfDestructDescription	Self-destruct and force a Dexterity saving throw for creatures within 10ft. On a failure, deal 3d8 force damage.
+Feat/&SelfDestructTitle	Self-Destruct
+Feat/&SelfRepairDescription	Heal 2d8 HP, 3 times per day.
+Feat/&SelfRepairTitle	Self-Repair
+Feat/&SubclassMovementDescription	Heavy armor does not have a Strength requirement.
+Feat/&SubclassMovementTitle	Heavy armor immunity
+Feat/&SubclassProficienciesDescription	You gain proficiency in smith's tools and heavy armor.
+Feat/&SubclassProficienciesTitle	Subclass Proficiencies
+Feat/&SummonArtificialServantDescription	The servant is friendly to you and your companions, and it obeys your commands.
+Feat/&SummonArtificialServantTitle	Summon Artificial Servant
+Feat/&ThunderShieldDescription	Defensive shield provides temp HP equal to your level. Can be used 6 times per long rest.
+Feat/&ThunderShieldTitle	Thunder Shield
+Feat/&TorchbearerDescription	You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 1 minute or until extinguished.
+Feat/&TorchbearerTitle	Torchbearer
+Feat/&UseArmorWeaponsAsFocusDescription	You can use the armor's weapons as a spellcasting focus for your spells.
+Feat/&UseArmorWeaponsAsFocusTitle	Spellcasting focus
+Feat/&UsingitemPowerDescription	Allows weapon power to be used on bonus action.
+Feat/&UsingitemPowerTitle	Use Weapon Power
+Feature/&AdditionalActionDualFlurryDescription	You may make an additional off-hand attack.
+Feature/&AdditionalActionDualFlurryTitle	Dual Flurry!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack that meets Rogue's Sneak Attack. At 7th level this damage increases to 2d6 and at 14th level to 3d6. This can stack with Rogue's Sneak Attack.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Shady Sneak Attack
+Feature/&DeadeyeDescription	Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls. Your ranged weapons ignore half cover and three-quarters cover. You can choose to take a -5 Bonus penalty to your to hit in order to do a +10 bonus damage.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack.
+Feature/&DualFlurryTitle	Dual Flurry
+Feature/&PowerAttackDescription	Take a -3 to hit penalty to your attack to do 3 + Proficiency Bonus extra damage when you land your strikes with melee weapons.
+Feature/&PowerAttackTitle	Power attack
+Feature/&PowerTorchbearerDescription	Attempt to set a melee target on fire!
+Feature/&PowerTorchbearerTitle	Torchbearer
+Feature/&RageDamageBonusAttackModifierDescription	Add +2 damage to your attacks while raging.
+Feature/&RageDamageBonusAttackModifierTitle	Rage damage
+Feature/&RageFeatConditionDescription	While in a rage you gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RageFeatConditionTitle	Raging
+Feature/&RagePowerDescription	As a bonus action, you enter a rage for one minute and gain the following: Advantage on Strength checks and Strength saving throws, a bonus to damage rolls of +2, and resistance to bludgeoning, piercing, and slashing damage.
+Feature/&RagePowerTitle	Rage
+Feature/&RageStrengthSavingThrowAffinityDescription	You get advantage on Strength saves while raging.
+Feature/&RageStrengthSavingThrowAffinityTitle	Rage Strength save advantage
+Power/&HelpActionDescription	You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
+Power/&HelpActionTitle	Help
+Reaction/&SubitemSelectWarcasterReactionTitle	Select action
+Reaction/&WarcasterAttackDescription	Attack target.
+Reaction/&WarcasterAttackTitle	Attack
+Reaction/&WarcasterReactionDescription	{0} is leaving an area threatened by one or more characters.
+Reaction/&WarcasterReactionReactDescription	Use reaction to attack target.
+Reaction/&WarcasterReactionReactTitle	Attack
+Reaction/&WarcasterReactionTitle	Attack of Opportunity
+Tooltip/&DeadeyeConcentration	Disable Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Doesn't know {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Has stealth attack
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Isn't a Barbarian
+Tooltip/&FeatPrerequisiteIsNotFighter	Isn't a Fighter
+Tooltip/&FeatPrerequisiteIsNotRogue	Isn't a Rogue
+Tooltip/&FeatPrerequisiteLevelFormat	Min Character Level {0}
+Tooltip/&PowerAttackConcentration	Disable Power Attack.

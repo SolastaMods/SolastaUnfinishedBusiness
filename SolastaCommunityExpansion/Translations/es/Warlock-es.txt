@@ -1,0 +1,305 @@
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC está configurado en 16.
+AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	piel de corteza
+Class/&ClassWarlockDescription	Los brujos son buscadores del conocimiento que se encuentra oculto en el tejido del multiverso. A través de pactos hechos con seres misteriosos de poder sobrenatural, los brujos desbloquean efectos mágicos tanto sutiles como espectaculares.
+Class/&ClassWarlockTitle	Brujo
+Condition/&AncientForestPhotosynthesisDescription	Puede absorber energía de la luz solar. Mientras estás bajo la luz brillante directa, recuperas 2 HP al comienzo de tu turno.
+Condition/&AncientForestPhotosynthesisTitle	Fotosíntesis
+Condition/&AncientForestRootedConditionDescription	Los zarcillos arbóreos crecen de tus pies y se clavan en el suelo. Puedes lanzar enredar a voluntad. Tu velocidad se convierte en 0 y obtienes ventaja en cualquier tirada de salvación para empujarte, jalarte o derribarte.
+Condition/&AncientForestRootedConditionTitle	Arraigado
+Condition/&MoonTouchedConditionDescription	Su gravedad es negada.
+Condition/&MoonTouchedConditionTitle	luna tocada
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Gana resistencia al daño por ácido durante 1 hora.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Brebaje de protección ácida
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Obtienes resistencia al daño por rayos durante 1 hora.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brebaje de protección contra rayos
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Gana resistencia al daño necrótico durante 1 hora.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Brebaje de protección necrótica
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Gana resistencia al daño por veneno durante 1 hora.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Brebaje de protección contra el veneno
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Obtienes resistencia al daño radiante durante 1 hora.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Brebaje de protección radiante
+Equipment/&HerbalBrewHealingTitle	Brebaje de aceleración
+Equipment/&HerbalBrewToxifyingTitle	Brebaje de intoxicación
+Feat/&MoonlitBonusCantripsDescription	Tu control de la luz de la luna ha aumentado a un nuevo nivel. Puedes lanzar los hechizos rayo de luna y fuego de hadas a voluntad.
+Feat/&MoonlitBonusCantripsTitle	Control de luz
+Feature/&AdditionalDamageAgonizingBlastDescription	Agregas tu modificador de Carisma a la primera tirada de daño de un ataque explosivo sobrenatural.
+Feature/&AdditionalDamageAgonizingBlastTitle	Explosión agonizante
+Feature/&AdditionalDamageHinderingBlastDescription	Cuando golpeas a una criatura con tu explosión sobrenatural, puedes reducir la velocidad de esa criatura en 10 pies hasta el final de tu próximo turno.
+Feature/&AdditionalDamageHinderingBlastTitle	Explosión obstaculizadora
+Feature/&AgonizingBlastDescription	Agrega tu modificador de Carisma al daño de Eldritch Basts.
+Feature/&AgonizingBlastTitle	Explosión agonizante
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	Tienes poder y haces una bonificación de daño igual a tu competencia en todos tus ataques.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Tienes poder y haces una bonificación de daño igual a tu competencia en todos tus ataques.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle	alma empoderada
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Tienes poder y haces una bonificación de daño igual a tu competencia en todos tus ataques.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	alma empoderada
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Una vez por breve descanso puedes invocar una forma espiritual de un arma de tu pacto como acción gratuita. Como acción adicional, puedes dirigir el arma como desees para atacar a tus enemigos. El arma se mueve hasta 20 pies cada vez antes de golpear.
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Arma del Pacto Espiritual
+Feature/&AHWarlockClassPactBoonSetDescription	En el 3er nivel, tu patrón de otro mundo te otorga un regalo por tu leal servicio. Puedes elegir entre:
+Feature/&AHWarlockClassPactBoonSetTitle	bendición del pacto
+Feature/&AHWarlockClassPactOfTheBladeSetDescription	Te vuelves competente con todas las armas y tus ataques con armas se consideran mágicos.
+Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pacto de la Espada
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Una vez por descanso prolongado puedes potenciar un arma con el poder de las almas. Esa arma usa el modificador Carisma para las tiradas de ataque y daño y cuenta como mágica hasta un descanso prolongado.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Empoderamiento del alma
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La hoja del alma te permite elegir entre una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Hechizos de hoja de alma
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Una vez por breve descanso, usas el poder de las almas para defenderte. Usando una acción de bonificación, obtienes hp temporales iguales a tu nivel + modificador de Carisma.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Escudo del alma
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
+Feature/&AncientForestExpandedSpelllistAfinityTitle	Hechizos del Bosque Antiguo
+Feature/&AncientForestLightAffinityDescription	Puede absorber energía de la luz solar. Mientras estás bajo la luz brillante directa, ganas 2 HP por ronda.
+Feature/&AncientForestLightAffinityTitle	Fotosíntesis
+Feature/&AncientForestRegrowthDescription	Tienes una reserva de poder curativo que se repone cuando descansas por mucho tiempo. Con ese grupo, puedes restaurar un número total de puntos de golpe igual a tu nivel de Warlock × 5.
+Feature/&AncientForestRegrowthTitle	rebrote
+Feature/&ArmorofShadowsTitle	Armadura de sombras
+Feature/&AscendantStepTitle	Paso ascendente
+Feature/&AspectoftheMoonDescription	Ya no necesita dormir y puede vigilar, lo que reduce las posibilidades de ataque y garantiza que esté despierto si atacan el campamento.
+Feature/&AspectoftheMoonTitle	Aspecto de la Luna
+Feature/&BeguilingInfluenceDescription	Obtienes competencia en las habilidades de Engaño y Persuasión.
+Feature/&BeguilingInfluenceTitle	Influencia seductora
+Feature/&BondoftheTalismanDescription	Teletransportarse hasta 30 pies de distancia.
+Feature/&BondoftheTalismanTitle	Talismán de teletransporte
+Feature/&ChainsofCarceriDescription	Paraliza a un celestial, infernal o elemental a menos que tenga éxito en una tirada de salvación de Sabiduría.
+Feature/&ChainsofCarceriTitle	Cadenas de Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Aprendes a tocar el ki de otras mentes para que entiendas todos los idiomas hablados. Además, cualquier criatura que pueda entender un idioma puede entender lo que dices.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Lengua del sol y la luna
+Feature/&ClassWarlockArmorProficiencyDescription	Armadura ligera.
+Feature/&ClassWarlockArmorProficiencyTitle	Competencias de armadura de brujo
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Seleccione Invocación sobrenatural para reemplazar.
+Feature/&ClassWarlockEldritchInvocationReplaceTitle	Reemplazar invocación
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Añade una invocación sobrenatural.
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Invocación sobrenatural
+Feature/&ClassWarlockEldritchMasterDescription	puedes recurrir a tu reserva interna de poder místico mientras le suplicas a tu patrón que recupere los espacios de conjuros gastados. Puedes pasar 1 minuto pidiéndole ayuda a tu patrón para recuperar todos los espacios de hechizos gastados de tu característica Pact Magic. Una vez que recupera espacios de hechizos con esta función, debe terminar un descanso prolongado antes de poder volver a hacerlo.
+Feature/&ClassWarlockEldritchMasterTitle	Maestro sobrenatural
+Feature/&ClassWarlockMysticArcanumSetDescription	Tu patrón te otorga un secreto mágico llamado arcano. Puedes lanzar tu conjuro arcano una vez sin gastar un espacio de conjuro. Debes terminar un descanso prolongado antes de poder hacerlo de nuevo. En niveles más altos, obtienes más hechizos de brujo de tu elección que se pueden lanzar de esta manera: un hechizo de nivel 6 en el nivel 11, un hechizo de nivel 7 en el nivel 13, un hechizo de nivel 8 en el nivel 15 y un hechizo de nivel 9 en el nivel 15. Hechizo de nivel a nivel 17.
+Feature/&ClassWarlockMysticArcanumSetTitle	Arcano místico
+Feature/&ClassWarlockSavingThrowProficiencyDescription	Sabiduría, Carisma.
+Feature/&ClassWarlockSavingThrowProficiencyTitle	Competencias en tiradas de salvación
+Feature/&ClassWarlockSkillProficiencyDescription	Elige 2 de estas habilidades: Arcanos, Engaño, Historia, Intimidación, Investigación, Naturaleza y Religión.
+Feature/&ClassWarlockSkillProficiencyTitle	Habilidades de brujo
+Feature/&ClassWarlockSpellcastingDescription	Tu investigación arcana y la magia que te otorgó tu patrón de otro mundo te han dado facilidad con los hechizos.
+Feature/&ClassWarlockSpellcastingTitle	Magia del pacto de brujos
+Feature/&ClassWarlockToolsProficiencyDescription	Has sido entrenado para preparar remedios a base de hierbas y usar equipos encantadores.
+Feature/&ClassWarlockToolsProficiencyTitle	Artesanía mágica de brujo
+Feature/&ClassWarlockWeaponProficiencyDescription	Armas simples.
+Feature/&ClassWarlockWeaponProficiencyTitle	Competencias con armas de brujo
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Cuando te reducen a 0 HP pero no te matan, puedes bajar a 1 HP en su lugar.
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Resistencia implacable
+Feature/&DevilsSightDescription	Puedes ver normalmente en la Oscuridad, tanto mágica como no mágica, a una distancia de 120 pies.
+Feature/&DevilsSightTitle	La vista del diablo
+Feature/&DH_BlinkDescription	Como acción adicional, te desvaneces de tu actual plano de existencia, previniendo todo daño. Al comienzo de su próximo turno, regresa al espacio del que desapareció.
+Feature/&DH_BlinkTitle	Parpadear
+Feature/&DH_FadeIntoTheVoidDescription	Cuando te reducen a 0 puntos de golpe pero no te matan directamente, en su lugar, bajas a 1 punto de golpe mientras te desvaneces brevemente en el vacío para disminuir el daño. No puedes volver a usar esta función hasta que finalices un descanso prolongado.
+Feature/&DH_FadeIntoTheVoidTitle	Desvanecerse en el vacío
+Feature/&DH_RiftCloakDescription	Tu control de los portales de grietas ha aumentado hasta el punto de que ahora puedes otorgar la protección de la grieta a otros. Puedes lanzar un vínculo de protección a voluntad (sin compartir el daño).
+Feature/&DH_RiftCloakTitle	Capa de grieta
+Feature/&DH_RiftControlDescription	Brevemente rodeado por la energía de la grieta, te teletransportas a un espacio desocupado. Ahora puede traer un aliado con usted cuando se teletransporta y el rango ha aumentado significativamente.
+Feature/&DH_RiftControlTitle	Portal de la grieta
+Feature/&DH_RiftStrikeDescription	Una vez al día cuando sufres daño cuerpo a cuerpo, puedes usar tu reacción para crear un portal que destierra al atacante durante 1 ronda de tu plano de existencia.
+Feature/&DH_RiftStrikeTitle	Golpe de grieta
+Feature/&DH_RiftWalkDescription	Brevemente rodeado por la energía del vacío entre mundos, te teletransportas hasta 30 pies a un espacio desocupado que puedes ver.
+Feature/&DH_RiftWalkTitle	Paso de grieta
+Feature/&DHAncientForestBonusCantripDescription	Tu patrón comparte secretos sobre la naturaleza de cómo se conectan la magia natural y la energía vital. Tu aprende Shillelagh y Chill Touch.
+Feature/&DHAncientForestBonusCantripTitle	Cantrips de bonificación del Bosque Antiguo
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Tu control de las energías elementales ha aumentado hasta el punto de que ahora tienes dominio sobre los elementales más débiles. Puedes lanzar conjurar elemental menor a voluntad.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Esbirros elementales
+Feature/&DHPactOfTheTomeFeatureSetDescription	Tu patrón te da un grimorio llamado Libro de las Sombras. Cuando obtienes este rasgo, elige tres cantrips de la lista de hechizos de cualquier clase. Los cantrips no necesitan ser de la misma lista de hechizos. Mientras el libro está en tu persona, puedes lanzar esos cantrips a voluntad. No cuentan contra el número de cantrips conocidos. Cualquier truco que lances con esta función se considera un truco de brujo para ti.
+Feature/&DHPactOfTheTomeFeatureSetTitle	Pacto del Tomo
+Feature/&DHWardingBondBonusCantripDescription	Tu control de los portales de grietas ha aumentado hasta el punto de que ahora puedes otorgar la protección de la grieta a otros. Puedes lanzar un vínculo de protección a voluntad (sin compartir el daño).
+Feature/&DHWardingBondBonusCantripTitle	Capa de grieta
+Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Cuando lanzas la invocación de un familiar, puedes elegir una de las siguientes formas especiales: diablillo, pseudodragón, cuasit o sprite.
+Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pacto de la Cadena
+Feature/&DreadfulWordTitle	palabra terrible
+Feature/&EldritchBlastGraspingHandBonusCantripDescription	Cuando golpeas a una criatura con tu explosión sobrenatural, puedes mover esa criatura en línea recta 10 pies más cerca de ti.
+Feature/&EldritchBlastGraspingHandBonusCantripTitle	Explosión de agarre
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Cuando golpeas a una criatura con eldritch blast, puedes empujar a la criatura hasta 10 pies de distancia de ti en línea recta.
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Explosión repelente
+Feature/&EldritchMindDescription	Tienes ventaja en las tiradas de salvación de Constitución que hagas para mantener tu concentración en un hechizo.
+Feature/&EldritchMindTitle	Mente sobrenatural
+Feature/&EldritchSightTitle	Visión sobrenatural
+Feature/&EldritchSmiteDescription	Una vez por turno, cuando golpeas a una criatura con tu arma del pacto, puedes gastar un espacio de conjuro de brujo para infligir 1d8 de daño de fuerza adicional al objetivo, más otros 1d8 por nivel del espacio de conjuro.
+Feature/&EldritchSmiteTitle	Golpe sobrenatural
+Feature/&ElementalPactAirPlane	avión de aire
+Feature/&ElementalPactAstralPlane	Plano astral
+Feature/&ElementalPactEarthPlane	plano de la tierra
+Feature/&ElementalPactEtherealPlane	Plano etéreo
+Feature/&ElementalPactFirePlane	avión de fuego
+Feature/&ElementalPactIcePlane	Avión de hielo
+Feature/&ElementalPactShadowPlane	Plano de sombra
+Feature/&ElementalPatronDummyFeatureSetTitle	elementalista
+Feature/&ElementalPatronElementalConditionFormatDescription	Inflige {1} de daño adicional igual a tu bonificación de competencia en un primer golpe cada ronda.
+Feature/&ElementalPatronElementalConditionFormatTitle	Canalización {0}
+Feature/&ElementalPatronElementalDamageFormatDescription	Al canalizar {0}, inflige {1} de daño adicional igual a tu bonificación de competencia en un primer golpe cada ronda.
+Feature/&ElementalPatronElementalDamageFormatTitle	Daño elemental: {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Al canalizar el {0}, obtienes Inmunidad a {1} y aplicas la bonificación de competencia como daño del mismo tipo al primer golpe de cada ronda.
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canalización {0}
+Feature/&ElementalPatronElementalFormFormatDescription	Al canalizar el {0}, obtienes resistencia a {1} daño y aplicas la bonificación de competencia como daño del mismo tipo al primer golpe de cada ronda.
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level06Description	Tu conocimiento de los elementales ha aumentado hasta el punto de que ahora obtienes ventaja en las pruebas de habilidad hacia los elementales e infliges daño adicional contra los elementales igual a tu nivel de conocimiento. Ya no puedes ser hechizado o asustado por los elementales.
+Feature/&ElementalPatronFeatureSet_Level06Title	Conocimiento de los elementales
+Feature/&EyesoftheRuneKeeperDescription	Puedes leer todo escrito.
+Feature/&EyesoftheRuneKeeperTitle	Ojos del Guardián de las Runas
+Feature/&FiendishVigorTitle	Vigor diabólico
+Feature/&GiftoftheEverLivingOnesDescription	Recupera el máximo número de puntos de golpe posibles de cualquier curación.
+Feature/&GiftoftheEverLivingOnesTitle	Don de los Eternos
+Feature/&GiftoftheProtectorsDescription	Cuando te reducen a 0 puntos de golpe pero no te matan directamente, la criatura cae mágicamente a 1 punto de golpe en su lugar. Una vez que se activa esta magia, no puedes beneficiarte de ella hasta que termines un descanso prolongado.
+Feature/&GiftoftheProtectorsTitle	Don de los Protectores
+Feature/&HerbalBrewDescription	Cuando finaliza un descanso prolongado, puede crear infusiones de hierbas, cada una de las cuales dura hasta el próximo descanso prolongado. Creas un total de brebajes igual a tu bonificación de competencia. Para cada infusión, elige uno de los siguientes efectos:\n<color=#add8e6ff>Brebaje fortificante</color>: otorga resistencia a diferentes tipos de daño durante 1 hora.\n<color=#add8e6ff>Brebaje vivificante</color>: proporciona 2d4 puntos de golpe.\n<color=#add8e6ff>Brebaje intoxicante</color>: actúa como veneno que se puede aplicar a un arma que dura 1 minuto. Si el golpe aterriza, el objetivo recibe 1d4 daños por veneno en cada golpe.
+Feature/&HerbalBrewFeatureSetDescription	Obtienes competencia con el kit de envenenador o los kits de herboristería si aún no lo tienes.\nCuando finaliza un descanso prolongado, puede crear infusiones de hierbas, cada una de las cuales dura hasta el próximo descanso prolongado. Creas un total de brebajes igual a tu bonificación de competencia. Para cada infusión, elige uno de los siguientes efectos:\n<color=#add8e6ff>Brebaje fortificante</color>: otorga resistencia a diferentes tipos de daño durante 1 hora.\n<color=#add8e6ff>Brebaje vivificante</color>: proporciona 2d4 puntos de golpe.\n<color=#add8e6ff>Brebaje intoxicante</color>: actúa como veneno que se puede aplicar a un arma que dura 1 minuto. Si el golpe aterriza, el objetivo recibe 1d4 daños por veneno en cada golpe.
+Feature/&HerbalBrewFeatureSetTitle	Elaboración de hierbas a base de hierbas
+Feature/&HinderingBlastDescription	Cuando golpeas a una criatura con tu explosión sobrenatural, puedes reducir la velocidad de esa criatura en 10 pies hasta el final de tu próximo turno.
+Feature/&HinderingBlastMagicAffinityDescription	cuando golpeas a una criatura con tu explosión sobrenatural, puedes reducir la velocidad de esa criatura en 10 pies hasta el final de tu próximo turno.
+Feature/&HinderingBlastMagicAffinityTitle	Explosión obstaculizadora
+Feature/&HinderingBlastTitle	Explosión obstaculizadora
+Feature/&ImprovedPactWeaponDescription	Puedes usar cualquier arma como foco de lanzamiento de hechizos para tus hechizos de brujo. Además, el arma obtiene una bonificación de +1 a sus tiradas de ataque y daño.
+Feature/&ImprovedPactWeaponTitle	Arma de pacto mejorada
+Feature/&MiretheMindTitle	Mire la mente
+Feature/&MoonLitDarknessImmunityDescription	Eres inmune a la condición de oscuridad.
+Feature/&MoonLitDarknessImmunityTitle	Oscuridad iluminada por la luna
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Hechizos a la luz de la luna
+Feature/&MoonLitLightAffinityDescription	Si comienzas tu turno en la oscuridad natural, te vuelves invisible. Moverse, atacar o usar cualquier poder o hechizo que no solo se dirija a uno mismo rompe la invisibilidad.
+Feature/&MoonLitLightAffinityStrongDescription	Umbral Cloak ahora funciona con poca luz y oscuridad mágica.
+Feature/&MoonLitLightAffinityStrongTitle	Capa Umbral Mejorada
+Feature/&MoonLitLightAffinityTitle	Capa Umbral
+Feature/&OneWithShadowsDescription	Si comienzas tu turno en la oscuridad natural, te vuelves invisible. Moverse, atacar o usar cualquier poder o hechizo que no solo se dirija a uno mismo rompe la invisibilidad.
+Feature/&OneWithShadowsLightAffinityDescription	Si comienzas tu turno en la oscuridad natural, te vuelves invisible. Moverse, atacar o usar cualquier poder o hechizo que no solo se dirija a uno mismo rompe la invisibilidad.
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows ahora funciona con poca luz y oscuridad mágica.
+Feature/&OneWithShadowsLightAffinityStrongTitle	Sombras más oscuras
+Feature/&OneWithShadowsLightAffinityTitle	uno con sombras
+Feature/&OneWithShadowsStrongerDescription	One With Shadows ahora funciona con poca luz y oscuridad mágica.
+Feature/&OneWithShadowsStrongerTitle	Sombras más oscuras
+Feature/&OneWithShadowsTitle	uno con sombras
+Feature/&OtherworldlyLeapTitle	Salto de otro mundo
+Feature/&ProficiencySoulBladeArmorDescription	Armadura Ligera, Armadura Media y Escudo.
+Feature/&ProficiencySoulBladeArmorTitle	Competencias de armadura Soulblade
+Feature/&ProficiencySoulBladeWeaponDescription	Armas simples, Armas marciales.
+Feature/&ProficiencySoulBladeWeaponTitle	Competencias con armas Soulblade
+Feature/&RiftWalkerRestrainedImmunityTitle	Paso fugaz
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Eliges de una lista ampliada de hechizos cuando aprendes un hechizo de brujo. Los siguientes hechizos se agregan a la lista de hechizos de Warlock para ti: {0}
+Feature/&RiftWalkerSpellsMagicAffinityTitle	Hechizos de caminante de grietas
+Feature/&ShroudofShadowTitle	Embozo de sombra
+Feature/&ThiefofFiveFates	Emitir {0} una vez al día
+Feature/&ThiefofFiveFatesTitle	Ladrón de cinco destinos
+Feature/&ThirstingBladeDescription	Puedes atacar con tu arma dos veces, en lugar de una, cada vez que realices la acción de Atacar en tu turno.
+Feature/&ThirstingBladeTitle	Hoja sedienta
+Feature/&TrickstersEscapeTitle	Escape del tramposo
+Feature/&WallofThornsFeatureSetDescription	Lanza Muro de espinas una vez al día.
+Feature/&WallofThornsFeatureSetTitle	Barrera forestal
+Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosión agonizante
+Feedback/&AdditionalDamageAgonizing_BlastLine	Cuando lanzas Explosión sobrenatural, agregas tu modificador de Carisma al daño que inflige con un golpe.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Golpe sobrenatural!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} hiere a {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Daño Elemental
+Feedback/&AdditionalDamageElementalDamageLine	La forma elemental otorga daño adicional
+Feedback/&AdditionalDamagePactMarkedFormat	¡Marca del pacto!
+Feedback/&AdditionalDamagePactMarkedLine	¡La marca del pacto hace daño adicional!
+Feedback/&AdditionalDamagePactSoulTakerFormat	Tomador de almas!
+Feedback/&AdditionalDamagePactSoulTakerLine	¡El tomador de almas hace daño adicional!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	¡Alma empoderada!
+Feedback/&AdditionalDamageSoulEmpoweredLine	¡Soul Empowered hace daño adicional!
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} crea {1}
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	El arma usa el modificador Carisma para las tiradas de ataque y daño y cuenta como mágica hasta un descanso prolongado.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	alma empoderada
+Monster/&PactOfChainCustomImpDescription	Los diablillos se encuentran por todos los Planos Inferiores, ya sea haciendo recados para sus amos infernales, espiando a sus rivales o engañando y asechando a los mortales. Un diablillo servirá con orgullo a un amo malvado de cualquier tipo, pero no se puede confiar en él para llevar a cabo tareas con rapidez o eficiencia.
+Monster/&PactOfChainCustomImpTitle	Diablillo (Pacto de Cadena)
+Monster/&PactOfChainCustomPseudodragonDescription	El escurridizo pseudodragón habita en los lugares tranquilos del mundo, haciendo su hogar en los huecos de los árboles y pequeñas cuevas. Con sus escamas verdes, cuernos y fauces llenas de dientes afilados, un pseudodragón se parece a un pequeño dragón verde pero su disposición es juguetona.
+Monster/&PactOfChainCustomPseudodragonTitle	pseudodragon
+Monster/&PactOfChainCustomQuasitDescription	Los quasits infestan los Planos Inferiores. Físicamente débiles, se mantienen en las sombras para tramar travesuras y maldades. Los demonios más poderosos usan cuasis como espías y mensajeros cuando no los están devorando o descuartizando para pasar el tiempo.
+Monster/&PactOfChainCustomQuasitTitle	Quasit (Pacto de Cadena)
+Monster/&PactOfChainCustomSpriteDescription	A diferencia de los duendes, los duendes rara vez se entregan a la alegría y la diversión frívolas. Son firmes guerreros, protectores y jueces, y su severa inclinación hace que otras hadas los consideren demasiado severos y serios. Sin embargo, las hadas que respetan el territorio de los duendes los encuentran aliados incondicionales en tiempos de problemas.
+Monster/&PactOfChainCustomSpriteTitle	Sprite (Pacto de Cadena)
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 de daño perforante y el objetivo debe superar una tirada de salvación de Constitución CD 11 o quedar envenenado.
+MonsterAttack/&AttackWarlockDragonStingTitle	Picadura venenosa
+MonsterAttack/&AttackWarlockImpStingDescription	Picadura venenosa de un diablillo.
+MonsterAttack/&AttackWarlockImpStingTitle	Picadura venenosa
+MonsterAttack/&AttackWarlockQuasitStingTitle	Picadura venenosa
+Power/&AncientForestLifeSapDescription	Cuando dañas a un enemigo con un hechizo, recuperas HP igual a la mitad de tu nivel una vez por turno. Si estás por debajo de la mitad de HP, en su lugar recuperas HP igual a tu nivel, pero solo hasta la mitad de tu HP máximo.
+Power/&AncientForestLifeSapTitle	savia de vida
+Power/&AncientForestRootedPowerDescription	Los zarcillos arbóreos crecen de tus pies y se clavan en el suelo. Tu velocidad se convierte en 0 y obtienes ventaja en cualquier tirada de salvación para empujarte, jalarte o derribarte. Puedes lanzar Enredar a voluntad.
+Power/&AncientForestRootedPowerTitle	Arraigado
+Power/&DH_ElementalFormPoolDescription	Puedes cambiar entre formas elementales un número de veces igual a tu bonificador de competencia por descanso prolongado canalizando energía elemental. Obtienes resistencia al daño relevante y, una vez por turno, aplicas tu bonificación de competencia como daño del mismo tipo al primer daño de hechizo infligido ese turno. Las formas duran 1 minuto.
+Power/&DH_ElementalFormPoolEnhancedDescription	Puedes cambiar entre formas elementales mejoradas un número de veces igual a tu bonificación de competencia por día canalizando energía elemental. Obtienes inmunidad al daño relevante y aplicas la bonificación de competencia como daño del mismo tipo al primer daño de hechizo cada ronda. Las formas duran 1 minuto.
+Power/&DH_ElementalFormPoolEnhancedTitle	Formas elementales mejoradas
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Formas elementales
+Power/&DH_ElementalFormPoolTitle	Formas elementales
+Power/&FindFamiliarBundlePowerDescription	Invoca familiar en forma de Pseudorgagon, Sprite, Imp o Quasit.
+Power/&FindFamiliarBundlePowerTitle	Encuentra familiar
+Power/&MoonlitDanceoftheNightSkyDescription	Puedes lanzar Volar sobre 4 objetivos una vez al día.
+Power/&MoonlitDanceoftheNightSkyTitle	Danza del cielo nocturno
+Power/&MoonlitDarkMoonDescription	Puedes lanzar Oscuridad un número de veces por descanso prolongado igual a tu bonificador de competencia.
+Power/&MoonlitDarkMoonTitle	Luna oscura
+Power/&MoonlitFullMoonDescription	Puedes lanzar Luz diurna un número de veces por descanso prolongado igual a tu bonificador de competencia.
+Power/&MoonlitFullMoonTitle	Luna llena
+Power/&MoonlitMoonTouchedDescription	Conjuras la atracción gravitatoria de la luna en un área pequeña, lo que hace que las criaturas que fallan una tirada de salvación floten hacia arriba.
+Power/&MoonlitMoonTouchedTitle	luna tocada
+Power/&PactofChainFamiliarInvisibilityPowerDescription	La criatura mágicamente se vuelve invisible hasta que ataca o lanza un hechizo, o hasta que termina su concentración (como si se concentrara en un hechizo). Cualquier equipo que la criatura use o lleve es invisible con él.
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibilidad
+Power/&PactofChainFamiliarScarePowerDescription	Una criatura de tu elección a 20 pies o menos de ella debe superar una tirada de salvación de Sabiduría CD 10 o quedar asustada durante 1 minuto. El objetivo puede repetir la tirada de salvación al final de cada uno de sus turnos, finalizando el efecto sobre sí mismo si tiene éxito.
+Power/&PactofChainFamiliarScarePowerTitle	Susto
+Reaction/&SpendPowerDH_RiftStrikeDescription	Una vez por descanso prolongado, cuando te daña un ataque cuerpo a cuerpo, puedes usar tu reacción para crear un portal que destierra al atacante durante 1 asalto de tu plano de existencia.
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Golpe de grieta
+Reaction/&SpendPowerDH_RiftStrikeTitle	Golpe de grieta
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} puede gastar espacio de conjuro para infligir 1d8 de daño de fuerza y ​​1d8 de daño adicional por nivel de espacio al objetivo.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Haz clic para gastar un espacio de hechizo y aumentar el daño al objetivo.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Herir
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Golpe sobrenatural
+Reaction/&SubitemSelectEldritchSmiteDescription	Seleccione un nivel de ranura para consumir para su Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle	Nivel de tragamonedas
+Requirement/&WarlockMissingEldritchBlast	Truco Explosión sobrenatural
+Requirement/&WarlockRequiresNoMoonLit	Patrón no iluminado por la luna
+Requirement/&WarlockRequiresOneWithShadows	Invocación sobrenatural "Uno con sombras"
+Requirement/&WarlockRequiresPactOfBlade	Pacto de la Espada
+Requirement/&WarlockRequiresPactOfChain	Pacto de las Cadenas
+Requirement/&WarlockRequiresPactOfTome	Pacto del Tomo
+Rules/&CounterFormDismissCreatureFormat	Descartar la construcción Tinkerer
+Spell/&AHPactMarkAdditionalDamageDescription	Una criatura marcada con pacto recibe 1d6 de daño adicional del mismo tipo cuando es golpeada por un arma o un ataque de hechizo del marcador.
+Spell/&AHPactMarkAdditionalDamageTitle	Daño de marca del pacto
+Spell/&AHPactMarkMarkedByPactConditionDescription	Esta criatura ha sido marcada por un pacto y sufre 1d6 de daño adicional del mismo tipo cuando es golpeada por un arma o ataque de hechizo por el marcador.
+Spell/&AHPactMarkMarkedByPactConditionTitle	Pacto marcado
+Spell/&AHPactMarkPactMarkConditionDescription	Puedes marcar a otras criaturas con una marca de pacto y les haces 1d6 de daño adicional con ataques de armas o hechizos.
+Spell/&AHPactMarkPactMarkConditionTitle	marca del pacto
+Spell/&AHPactMarkSpellDescription	Colocas una marca de tu pacto en una criatura que puedes ver dentro de los 90 pies. Se vuelve vulnerable a ti y recibe 1d6 de daño adicional cada vez que lo golpeas con un arma o ataque de hechizo. Este daño es del mismo tipo que el ataque que golpea.
+Spell/&AHPactMarkSpellTitle	marca del pacto
+Spell/&AirBlastDescription	Dispara una ráfaga de aire concentrado a tu objetivo.
+Spell/&AirBlastTitle	Golpe de aire
+Spell/&EldritchBlastDescription	Un rayo de energía crepitante se dirige hacia una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Con un impacto, el objetivo sufre 1d10 de daño por fuerza.\nEl hechizo crea más de un rayo cuando alcanzas niveles más altos: dos rayos en el nivel 5, tres rayos en el nivel 11 y cuatro rayos en el nivel 17. Puede dirigir los rayos al mismo objetivo o a diferentes. Haz una tirada de ataque separada para cada rayo.
+Spell/&EldritchBlastGraspingHandDescription	Un rayo de energía crepitante se dirige hacia una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Con un impacto, el objetivo sufre 1d10 de daño por fuerza.\n(Cuando golpeas a una criatura con tu explosión sobrenatural, puedes mover esa criatura en línea recta 10 pies más cerca de ti).
+Spell/&EldritchBlastGraspingHandTitle	Explosión sobrenatural (agarre)
+Spell/&EldritchBlastRepellingBlastDescription	Un rayo de energía crepitante se dirige hacia una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Con un impacto, el objetivo sufre 1d10 de daño por fuerza.\n(Cuando golpeas a una criatura con eldritch blast, puedes empujar a la criatura hasta 10 pies de distancia de ti en línea recta).
+Spell/&EldritchBlastRepellingBlastTitle	Explosión sobrenatural (repelente)
+Spell/&EldritchBlastTitle	Explosión sobrenatural
+Spell/&EldritchOrbDescription	Arrojas una bola de energía sobrenatural a una criatura u objeto dentro del alcance e infliges daño de fuerza en un radio pequeño.
+Spell/&EldritchOrbTitle	Orbe sobrenatural
+Spell/&HinderingBlastDescription	Un rayo de energía crepitante se dirige hacia una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Con un impacto, el objetivo sufre 1d10 de daño por fuerza.\n(Cuando golpeas a una criatura con tu explosión sobrenatural, puedes reducir la velocidad de esa criatura en 10 pies hasta el final de tu próximo turno).
+Spell/&HinderingBlastTitle	Explosión sobrenatural (obstaculización)
+SpellList/&ClassWarlockSpellListDescription	Lista de hechizos de brujo.
+SpellList/&ClassWarlockSpellListTitle	Lista de hechizos de brujo
+SpellList/&RiftWalkerSpellsListDescription	Lista de hechizos de RiftWalker.
+SpellList/&RiftWalkerSpellsListTitle	Lista de hechizos de Caminante del Rift
+Stage/&SubclassSelectionStagePatronDescription	Un brujo se define por un pacto con un ser de otro mundo. A veces, la relación entre el brujo y el patrón es como la de un clérigo y una deidad, aunque los seres que actúan como patrones no son dioses.
+Stage/&SubclassSelectionStagePatronFeatures	Características de los usuarios de otro mundo
+Stage/&SubclassSelectionStagePatronHeader	Patrones de otro mundo de brujo
+Stage/&SubclassSelectionStagePatronTitle	Mecenas de otro mundo
+Subclass/&AHWarlockSubclassSoulBladePactDescription	Has llegado a un acuerdo con un arma sensible con la que alimentas almas a cambio de poder.
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacto Soulblade
+Subclass/&ClassWarlockPatronDescription	Un brujo se define por un pacto con un ser de otro mundo. A veces, la relación entre el brujo y el patrón es como la de un clérigo y una deidad, aunque los seres que actúan como patrones no son dioses.
+Subclass/&ClassWarlockPatronTitle	Patrón de otro mundo
+Subclass/&DHWarlockSubclassElementalPatronDescription	Has hecho un pacto con los primordiales presentes en las tierras baldías elementales y te han cambiado. El caos elemental del patrón ha impregnado tu alma, permitiéndote usar el poder de diferentes tipos de elementos.
+Subclass/&DHWarlockSubclassElementalPatronTitle	Pacto Elementalista
+Subclass/&DHWarlockSubclassRiftWalkerDescription	Tu patrón es uno de los raros seres que llama hogar al vacío entre los mundos. Se deslizan entre los planos con facilidad y el conocimiento que ha adquirido al interactuar con ellos le permite aprovechar las energías de grietas persistentes para su beneficio dentro de solasta. Es posible que a veces te sientas lleno de añoranza por el reino distante de tu patrón, un deseo de vagar entre dimensiones por el resto de tus días, o estar atento a señales de otro evento de Rift, ya sea para prevenirlo o alentarlo.
+Subclass/&DHWarlockSubclassRiftWalkerTitle	Pacto del Caminante del Rift
+Subclass/&WarlockAncientForestDescription	Has forjado una relación con una poderosa entidad de la naturaleza: antiguas dríades, archidruidas, manifestaciones de Feywild sangrando en el plano material, dioses olvidados de una era primitiva. Tu patrón puede desear que protejas el mundo natural, viajar a tierras lejanas que él no puede o puede tener otro motivo que parece inescrutable para los mortales de corta vida.
+Subclass/&WarlockAncientForestTitle	Pacto del Bosque Antiguo
+Subclass/&WarlockMoonLitDescription	Tu patrón es un espíritu de la luna, una entidad que encarna la naturaleza cíclica de la luz y la oscuridad. Estos espíritus buscan mantener el poder de la luna sobre el cielo nocturno mientras mantienen a raya los poderes profanos que acechan en la oscuridad y les asignan a sus brujos la misma tarea, otorgándoles el control sobre los poderes de la luna y sus efectos.
+Subclass/&WarlockMoonLitTitle	Pacto a la luz de la luna
+Subclass/&WarlockToadKingDescription	Fey, demonio o aberración causada por el Cataclismo, la verdadera naturaleza del Rey Sapo no se conoce, pero se sabe que el Rey Sapo gobierna una gran área de pantanos y marismas dentro de Badlands y ofrece poder a aquellos dispuestos a servir.
+Subclass/&WarlockToadKingTitle	Pacto del Rey Sapo
+Subclass/&WarlockUrPriestDescription	Mientras que la gran mayoría de los lanzadores de hechizos divinos obtienen sus poderes de una deidad, hay quienes desprecian a los dioses. Aquellos que se llaman a sí mismos Ur-sacerdotes han aprendido a desviar las energías divinas otorgadas por los dioses a sus lanzadores de conjuros divinos, usándolas para sus propias necesidades sin alabar a ningún dios. Como Ur-sacerdote, difieres de la mayoría de los brujos, ya que careces de un patrón que te otorgue tu poder. Las invocaciones sobrenaturales que descubras son formas de magia distorsionadas que los dioses pueden otorgar a sus patrocinadores, mientras que las bendiciones del pacto son probablemente artefactos divinos que has logrado robar.
+Subclass/&WarlockUrPriestTitle	Pacto UrPriest

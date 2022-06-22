@@ -1,0 +1,22 @@
+Condition/&ConditionBarkWardDescription	Protégé par les esprits de la forêt. Gagne 4 PV temporaires pour chaque niveau de Druide, durant 10 minutes.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	Les esprits de la forêt infligent 2d8 dégâts perforants aux créatures qui les touchent lors d'une attaque au corps à corps.
+Condition/&ConditionImprovedBarkWardTitle	Bark Ward amélioré
+Condition/&ConditionSuperiorBarkWardDescription	Les esprits de la forêt confèrent une immunité au poison et infligent 3d8 dégâts perforants aux créatures qui les touchent lors d'une attaque au corps à corps.
+Condition/&ConditionSuperiorBarkWardTitle	Quartier supérieur de l'écorce
+Feature/&DruidForestGuardianBarkWardDescription	Vous gagnez la capacité d'invoquer un Bark Ward pour vous protéger. Par une action bonus, vous pouvez dépenser une utilisation de votre forme sauvage pour gagner 4 points de vie temporaires pour chaque niveau que vous avez dans cette classe. Ces points de vie temporaires durent 10 minutes ou jusqu'à ce que vous utilisiez à nouveau votre forme sauvage.
+Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
+Feature/&DruidForestGuardianExtraAttackDescription	À partir du niveau 6, vous pouvez attaquer deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
+Feature/&DruidForestGuardianExtraAttackTitle	Attaque supplémentaire
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Votre Bark Ward pousse maintenant des épines, ce qui endommage les attaquants de mêlée. Les ennemis qui réussissent à vous toucher avec une attaque au corps à corps subissent 2d8 dégâts perforants.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Bark Ward amélioré
+Feature/&DruidForestGuardianMagicDescription	À partir du niveau 2, lorsque vous choisissez ce cercle, vous accédez à une liste de sorts étendue qui est toujours préparée :\n{0}
+Feature/&DruidForestGuardianMagicTitle	Sorts de cercle
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Votre compétence Bark Ward renvoie désormais 3d8 dégâts perforants sur les attaquants au corps à corps. De plus, Bark Ward vous confère désormais une immunité contre le poison tant qu'il est actif.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Quartier supérieur de l'écorce
+Feature/&DruidForestGuardianSylvanDurabilityDescription	Les gardiens de la forêt acquièrent naturellement la résilience d'un chêne puissant. Au niveau 2, votre maximum de points de vie augmente de 2 et augmente de 1 chaque fois que vous gagnez un niveau dans cette classe.
+Feature/&DruidForestGuardianSylvanDurabilityTitle	Durabilité sylvestre
+Feature/&DruidForestGuardianSylvanWarMagicDescription	Vous êtes habitué à manier la magie druidique en harmonie avec les prouesses martiales. Au niveau 2, vous pouvez lancer des sorts qui nécessitent une composante somatique même si vos deux mains tiennent une arme ou un bouclier.
+Feature/&DruidForestGuardianSylvanWarMagicTitle	Magie de guerre sylvestre
+Subclass/&DruidForestGuardianDruidSubclassDescription	Les druides du Cercle des gardiens de la forêt ont juré de protéger les forêts et tout ce qui les habite. Habiles à manier la magie de l'Abjuration et le combat martial, les membres de ce cercle druidique sont de redoutables adversaires sur le champ de bataille.
+Subclass/&DruidForestGuardianDruidSubclassTitle	Cercle du gardien de la forêt

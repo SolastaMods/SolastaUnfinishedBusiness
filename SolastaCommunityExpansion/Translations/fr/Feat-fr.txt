@@ -1,0 +1,307 @@
+Condition/&ConditionDualFlurryApplyDescription	Vous créez une dynamique...
+Condition/&ConditionDualFlurryApplyTitle	Double rafale !
+Condition/&ConditionDualFlurryGrantDescription	Vos ennemis sont sous le choc !
+Condition/&ConditionDualFlurryGrantTitle	Double rafale !
+Condition/&HelpActionDescription	Cette créature a été distraite.
+Condition/&HelpActionTitle	Distraits
+CraftyFeats/&ApothecaryIntFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez en compétence avec le kit d'herboristerie et Arcana, ou en expertise si vous êtes déjà compétent.
+CraftyFeats/&ApothecaryIntFeatTitle	Apothicaire (Renseignement)
+CraftyFeats/&ApothecaryWisFeatDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez en compétence avec le kit d'herboristerie et Arcana, ou en expertise si vous êtes déjà compétent.
+CraftyFeats/&ApothecaryWisFeatTitle	Apothicaire (Sagesse)
+CraftyFeats/&AttributeDexDescription	+1 DEX jusqu'à un maximum de 20
+CraftyFeats/&AttributeDexTitle	Dextérité
+CraftyFeats/&AttributeIntDescription	+1 INT jusqu'à un maximum de 20
+CraftyFeats/&AttributeIntTitle	Intelligence
+CraftyFeats/&AttributeWisDescription	+1 WIS jusqu'à un maximum de 20
+CraftyFeats/&AttributeWisTitle	Sagesse
+CraftyFeats/&CraftyArcanaDescription	Vous acquérez des compétences/expertises en Arcana.
+CraftyFeats/&CraftyBowsDescription	Vous gagnez la maîtrise de tous les arcs et arbalètes.
+CraftyFeats/&CraftyBowsTitle	Maîtrise de l'arc
+CraftyFeats/&CraftyFletcherFeatDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nVous gagnez en maîtrise des outils de forgeron ou en expertise si vous êtes déjà compétent.\n Vous gagnez la maîtrise de tous les arcs et arbalètes.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Vous acquérez une compétence / expertise en médecine.
+CraftyFeats/&CraftyNatureDescription	Vous gagnez en compétence/expertise dans la nature.
+CraftyFeats/&CraftyScribeFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez en compétence avec le kit de parchemin et Arcana, ou en expertise si vous êtes déjà compétent.\nNécessite la capacité de lancer des sorts.
+CraftyFeats/&CraftyScribeFeatTitle	Scribe
+CraftyFeats/&CraftySkillsTitle	Compétences
+CraftyFeats/&CraftyToolsTitle	Outils
+CraftyFeats/&ManacalonCrafterFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous acquérez la maîtrise du chapelet manacolon et des arcanes, ou de l'expertise si vous êtes déjà compétent.\nNécessite la capacité de lancer des sorts.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artisan de Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'empoisonneur et de la Nature, ou l'expertise si vous êtes déjà compétent.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicologue (Renseignement)
+CraftyFeats/&ToxicologistWisFeatDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise du kit d'empoisonneur et de la médecine, ou l'expertise si vous êtes déjà compétent.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicologue (Sagesse)
+Feat/&AddConstructCantripsDescription	Ajoute des sorts mineurs pour soigner et rejeter vos constructions.
+Feat/&AddConstructCantripsTitle	Construire des sorties mineures
+Feat/&AddProtectorConstructCantripDescription	Ajoute les sorts mineurs de Mending Construct et Dismiss Construct pour augmenter la flexibilité de vos constructions.
+Feat/&AddProtectorConstructCantripTitle	Bonus Construction Cantrips
+Feat/&ArmorModePoolDescription	Vous permet d'activer les modes d'armure une fois par repos court.
+Feat/&ArmorModePoolTitle	Mode armure
+Feat/&ArtificialServantAttackDescription	Attaque à distance 1d6 dégâts de force de votre fidèle acolyte.
+Feat/&ArtificialServantAttackTitle	Élingue de force
+Feat/&ArtificialServantDescription	Le serviteur est amical avec vous et vos compagnons, et il obéit à vos ordres.
+Feat/&ArtificialServantTitle	Serviteur artificiel
+Feat/&CancelFlyingConditionDescription	Mettre fin à la condition de vol pour permettre de sauter et de ramper.
+Feat/&CancelFlyingConditionTitle	Annuler Voler
+Feat/&ChefConDescription	Augmentez votre Constitution de 1, jusqu'à un maximum de 20.\nVous pouvez passer 1 heure à cuisiner un repas pour vous soigner, vous et vos compagnons, de 1d8 PV.\nUne fois par jour, vous pouvez passer une heure à cuisiner des friandises qui fournissent des HP temporaires lorsqu'elles sont consommées.
+Feat/&ChefConTitle	Cuisinier (Constitution)
+Feat/&ChefShortRestFeastDescription	Vous pouvez passer 1 heure à cuisiner un repas pour vous soigner, vous et vos compagnons, de 1d8 PV.
+Feat/&ChefShortRestFeastTitle	Repas de repos court
+Feat/&ChefWisDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous pouvez passer 1 heure à cuisiner un repas pour vous soigner, vous et vos compagnons, de 1d8 PV.\nUne fois par jour, vous pouvez passer une heure à cuisiner des friandises qui fournissent des HP temporaires lorsqu'elles sont consommées.
+Feat/&ChefWisTitle	Cuisinier (Sagesse)
+Feat/&ConstructSelectingPoolDescription	Sélectionnez le mode de votre construction.
+Feat/&ConstructSelectingPoolTitle	Mode Artillerie
+Feat/&DeadeyeFeatDescription	Vous maîtrisez les armes à distance et pouvez effectuer des tirs que d'autres trouvent impossibles.\n• Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance.\n• Vos attaques à distance avec une arme ignorent la moitié et les trois quarts de la couverture.\n• Vous pouvez choisir de subir un malus de -5 à votre jet d'attaque avec une arme à distance. Si l'attaque réussit, vous infligez 10 dégâts supplémentaires du type d'arme.
+Feat/&DeadeyeFeatTitle	Deadeye
+Feat/&DismissConstructDescription	Désinvoquez votre construction.
+Feat/&DismissConstructTitle	Ignorer la construction
+Feat/&DualFlurryDescription	Vous êtes un maître du combat avec des armes jumelées. À n'importe quel tour où vous frappez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque secondaire supplémentaire lorsque vous attaquez avec votre action bonus.
+Feat/&DualFlurryTitle	Double rafale
+Feat/&FeatArcaneDefenseDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur d'Intelligence.
+Feat/&FeatArcaneDefenseTitle	Défense arcanique
+Feat/&FeatArcanePrecisionDescription	Vous pouvez utiliser une action bonus pour sélectionner une arme. Ses attaques comptent comme magiques et vous utilisez votre Intelligence pour vos jets d'attaque et de dégâts pendant 1 minute. Cette fonctionnalité peut être utilisée deux fois par repos long.
+Feat/&FeatArcanePrecisionTitle	Précision arcanique
+Feat/&FeatBlindFightingStlyeDescription	Vous avez la vision aveugle avec une portée de 10 pieds.
+Feat/&FeatBlindFightingStlyeTitle	Style de combat : Combat à l'aveugle
+Feat/&FeatBrutalThugDescription	Vous portez des coups puissants aux bons endroits.\nVous gagnez des compétences en armes simples et martiales.\nVous pouvez attaquer sournoisement en utilisant des armes martiales.
+Feat/&FeatBrutalThugTitle	Voyou brutal
+Feat/&FeatChaIncrementDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.
+Feat/&FeatChaIncrementTitle	Augmentation de l'attribut de charisme
+Feat/&FeatCharismaticDefenseDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Charisme.
+Feat/&FeatCharismaticDefenseTitle	Défense charismatique
+Feat/&FeatCharismaticPrecisionDescription	Vous pouvez utiliser une action bonus pour sélectionner une arme. Ses attaques comptent comme magiques et vous utilisez votre Charisme pour vos jets d'attaque et de dégâts pendant 1 minute. Cette fonctionnalité peut être utilisée deux fois par repos long.
+Feat/&FeatCharismaticPrecisionTitle	Précision charismatique
+Feat/&FeatChefConIncrementDescription	Augmentez votre Constitution de 1, jusqu'à un maximum de 20.
+Feat/&FeatChefConIncrementTitle	Augmentation d'attribut
+Feat/&FeatChefWisIncrementDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.
+Feat/&FeatChefWisIncrementTitle	Augmentation d'attribut
+Feat/&FeatCripplingDescription	Lorsque vous touchez avec une attaque au corps à corps, vous pouvez réduire la vitesse de votre adversaire de 3 mètres jusqu'au début de votre prochain tour.
+Feat/&FeatCripplingTitle	Style de combat : Paralysant
+Feat/&FeatDexIncrementDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.
+Feat/&FeatDexIncrementTitle	Augmentation d'attribut
+Feat/&FeatDualWeaponDefenseDescription	Vous gagnez un bonus de +1 à la CA lorsque vous maniez une arme de mêlée distincte dans chaque main.
+Feat/&FeatDualWeaponDefenseTitle	Défense à double arme
+Feat/&FeatFastHandsDescription	Vous gagnez une action rusée. Vous pouvez utiliser les actions Cacher ou Désengager comme action bonus.\nVous pouvez utiliser votre action rusée pour effectuer un test de dextérité (tourteau de passe-passe), utiliser les outils de vos voleurs pour désarmer un piège ou ouvrir une serrure, ou effectuer l'action utiliser un objet.
+Feat/&FeatFastHandsTitle	Mains rapides
+Feat/&FeatFeyTeleportationChaDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous pouvez utiliser pas de brume une fois par repos court et vous pouvez lancer ce sort avec vos emplacements de sorts.\nVous gagnez la maîtrise de Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Téléportation féerique (Charisme)
+Feat/&FeatFeyTeleportationIntDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nVous pouvez utiliser pas de brume une fois par repos court et vous pouvez lancer ce sort avec vos emplacements de sorts.\nVous gagnez la maîtrise de Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Téléportation féerique (Intelligence)
+Feat/&FeatFeyTeleportationWisDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nVous pouvez utiliser pas de brume une fois par repos court et vous pouvez lancer ce sort avec vos emplacements de sorts.\nVous gagnez la maîtrise de Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Téléportation féerique (Sagesse)
+Feat/&FeatFightingSurgeDexterityDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nÀ votre tour, vous pouvez effectuer une action supplémentaire en plus de votre action habituelle. Une fois que vous avez utilisé cette fonctionnalité, vous devez terminer un repos long avant de pouvoir l'utiliser à nouveau.
+Feat/&FeatFightingSurgeDexterityTitle	Afflux de combat (Dextérité)
+Feat/&FeatFightingSurgeStrengthDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.\nÀ votre tour, vous pouvez effectuer une action supplémentaire en plus de votre action habituelle. Une fois que vous avez utilisé cette fonctionnalité, vous devez terminer un repos long avant de pouvoir l'utiliser à nouveau.
+Feat/&FeatFightingSurgeStrengthTitle	Afflux de combat (Force)
+Feat/&FeatHeavyArmorMasterClassDescription	Vous gagnez en résistance aux dégâts contondants, tranchants et perforants.
+Feat/&FeatHeavyArmorMasterClassTitle	Maîtrise de la défense lourde
+Feat/&FeatImprovedCriticalDescription	Vos attaques sont des coups critiques sur un jet de 19 ou 20.
+Feat/&FeatImprovedCriticalTitle	Critique amélioré
+Feat/&FeatIntIncrementDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.
+Feat/&FeatIntIncrementTitle	Augmentation des attributs d'intelligence
+Feat/&FeatLightArmorDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous gagnez la maîtrise des armures légères.
+Feat/&FeatLightArmorProficiencyDescription	Maîtriser l'armure légère.
+Feat/&FeatLightArmorProficiencyTitle	Armure légère
+Feat/&FeatLightArmorTitle	Armure légère
+Feat/&FeatMarksmanDescription	Lorsqu'un adversaire que vous pouvez voir vous attaque avec une arme à distance ou un sort et qu'il se trouve à au moins 3 mètres de vous, vous pouvez utiliser votre réaction pour effectuer une attaque avec une arme à distance une fois l'attaque déclenchée terminée.
+Feat/&FeatMarksmanTitle	Buteur
+Feat/&FeatMediumArmorDexDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nVous maîtrisez l'armure moyenne et les boucliers.
+Feat/&FeatMediumArmorDexTitle	Armure moyenne (Dextérité)
+Feat/&FeatMediumArmorProficiencyDescription	Vous maîtrisez les armures et les boucliers moyens.
+Feat/&FeatMediumArmorProficiencyTitle	Armure moyenne
+Feat/&FeatMediumArmorStrengthDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous maîtrisez les armures et les boucliers moyens.
+Feat/&FeatMediumArmorStrengthTitle	Armure moyenne (Force)
+Feat/&FeatMetamagicAdeptCarefulDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie Attention et gagnez 2 points de sorcellerie.
+Feat/&FeatMetamagicAdeptCarefulTitle	Métamagique : Attention
+Feat/&FeatMetamagicAdeptDistantDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie lointaine et gagnez 2 points de sorcellerie.
+Feat/&FeatMetamagicAdeptDistantTitle	Métamagique : Distant
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie renforcée et gagnez 2 points de sorcellerie.
+Feat/&FeatMetamagicAdeptEmpoweredTitle	Métamagique : Renforcé
+Feat/&FeatMetamagicAdeptExtendedDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie étendue et gagnez 2 points de sorcellerie.
+Feat/&FeatMetamagicAdeptExtendedTitle	Métamagique : étendu
+Feat/&FeatMetamagicAdeptHeightenedDescription	Vous apprenez la métamagie accrue et gagnez 4 points de sorcellerie.
+Feat/&FeatMetamagicAdeptHeightenedTitle	Métamagique : Intensifiée
+Feat/&FeatMetamagicAdeptQuickenedDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie accélérée et gagnez 2 points de sorcellerie.
+Feat/&FeatMetamagicAdeptQuickenedTitle	Métamagique : Accéléré
+Feat/&FeatMetamagicAdeptTwinnedDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nVous apprenez la métamagie jumelée et gagnez 2 points de sorcellerie.
+Feat/&FeatMetamagicAdeptTwinnedTitle	Métamagique : Jumelé
+Feat/&FeatPrimalConstitutionDescription	Augmentez votre Constitution de 1, jusqu'à un maximum de 20.\nVous pouvez entrer dans une rage en tant qu'action bonus telle que définie dans la capacité de classe de rage du barbare avec +1 dégâts de rage qui peuvent se cumuler avec la rage du barbare. Une fois que vous avez fait rage de cette façon, vous devez terminer un repos long avant d'utiliser à nouveau cette capacité.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution.
+Feat/&FeatPrimalConstitutionTitle	Rage primordiale (Constitution)
+Feat/&FeatPrimalStrengthDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous pouvez entrer dans une rage en tant qu'action bonus telle que définie dans la capacité de classe de rage du barbare avec +1 dégâts de rage qui peuvent se cumuler avec la rage du barbare. Une fois que vous avez fait rage de cette façon, vous devez terminer un repos long avant d'utiliser à nouveau cette capacité.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution.
+Feat/&FeatPrimalStrengthTitle	Rage Primale (Force)
+Feat/&FeatPugilistFightingStlyeDescription	Vos frappes à mains nues infligent 1d4 dégâts contondants supplémentaires et vous pouvez frapper avec votre main secondaire en tant qu'action bonus.\nSi vous avez une main libre, vous pouvez pousser en tant qu'action bonus.
+Feat/&FeatPugilistFightingStlyeTitle	Style de combat : Pugiliste
+Feat/&FeatRangedExpertDescription	Votre formation d'expert aux armes à distance vous confère ces avantages :\n• Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à moins de 1,50 mètre de vous.\n• Si vous effectuez l'action Attaquer à votre tour, vous pouvez utiliser une action bonus pour effectuer une attaque avec une arme à distance ou de jet à une main.
+Feat/&FeatRangedExpertTitle	Expert à distance
+Feat/&FeatSavageAttackerDescription	Relancez les dés de dégâts des armes et des sorts lorsque vous obtenez un 1 (ceci ne relance pas les dés de toutes les sources de dégâts. Par exemple, les dégâts d'attaque sournoise et de châtiment ne sont pas relancés).
+Feat/&FeatSavageAttackerReroll	En raison d'être un attaquant sauvage, {0} relance le {1} dé d'un {2} à un {3}
+Feat/&FeatSavageAttackerTitle	Attaquant sauvage
+Feat/&FeatShadowTouchedChaDescription	Augmentez votre attribut Charisme de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer l'invisibilité, d'infliger des blessures et de faux sorts de vie une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
+Feat/&FeatShadowTouchedChaTitle	Touché par l'ombre (charisme)
+Feat/&FeatShadowTouchedIntDescription	Augmentez votre attribut Intelligence de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer l'invisibilité, d'infliger des blessures et de faux sorts de vie une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
+Feat/&FeatShadowTouchedIntTitle	Touché par l'Ombre (Intelligence)
+Feat/&FeatShadowTouchedWisDescription	Augmentez votre attribut Sagesse de 1, jusqu'à un maximum de 20.\nVous gagnez la capacité de lancer l'invisibilité, d'infliger des blessures et de faux sorts de vie une fois par repos long et vous pouvez lancer ces sorts avec vos emplacements de sorts.
+Feat/&FeatShadowTouchedWisTitle	Ombre touchée (sagesse)
+Feat/&FeatShadyDescription	Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nUne fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond aux exigences de l'attaque sournoise du voleur. Au niveau 12, ces dégâts passent à 2d6 et au niveau 20, à 4d6.
+Feat/&FeatShadyTitle	Ombragé
+Feat/&FeatShieldExpertDescription	Vous vous êtes entraîné à utiliser un bouclier comme arme. Pour vous, cela devient une arme de mêlée que vous maîtrisez et qui inflige 1d4 dégâts contondants.\nVous gagnez un avantage sur les tentatives de bousculade tout en brandissant un bouclier.
+Feat/&FeatShieldExpertTitle	Spécialiste du bouclier
+Feat/&FeatStrengthIncrementDescription	Augmentez votre Force de 1, jusqu'à un maximum de 20.
+Feat/&FeatStrengthIncrementTitle	Augmentation d'attribut
+Feat/&FeatTelekineticChaDescription	Augmentez votre Charisme de 1, jusqu'à un maximum de 20.\nPar une action bonus, vous pouvez pousser ou tirer par télékinésie une créature que vous pouvez voir dans un rayon de 9 mètres autour de vous. La cible doit réussir un jet de sauvegarde de Force (DD 8 + votre bonus de maîtrise + votre modificateur de Charisme) ou être déplacée de 1,50 mètre.
+Feat/&FeatTelekineticChaPullDescription	Attire par télékinésie une créature vers vous.
+Feat/&FeatTelekineticChaPullTitle	Tir télékinésique
+Feat/&FeatTelekineticChaPushDescription	Repousse télékinétiquement une créature loin de vous.
+Feat/&FeatTelekineticChaPushTitle	Poussée télékinétique
+Feat/&FeatTelekineticChaTitle	Télékinésie (Charisme)
+Feat/&FeatTelekineticIntDescription	Augmentez votre Intelligence de 1, jusqu'à un maximum de 20.\nPar une action bonus, vous pouvez pousser ou tirer par télékinésie une créature que vous pouvez voir dans un rayon de 9 mètres autour de vous. La cible doit réussir un jet de sauvegarde de Force (DD 8 + votre bonus de maîtrise + votre modificateur d'Intelligence) ou être déplacée de 1,50 mètre.
+Feat/&FeatTelekineticIntPullDescription	Attire par télékinésie une créature vers vous.
+Feat/&FeatTelekineticIntPullTitle	Tir télékinésique
+Feat/&FeatTelekineticIntPushDescription	Repousse télékinétiquement une créature loin de vous.
+Feat/&FeatTelekineticIntPushTitle	Poussée télékinétique
+Feat/&FeatTelekineticIntTitle	Télékinésie (Intelligence)
+Feat/&FeatTelekineticWisDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nPar une action bonus, vous pouvez pousser ou tirer par télékinésie une créature que vous pouvez voir dans un rayon de 9 mètres autour de vous. La cible doit réussir un jet de sauvegarde de Force (DD 8 + votre bonus de maîtrise + votre modificateur de Sagesse) ou être déplacée de 1,50 mètre.
+Feat/&FeatTelekineticWisPullDescription	Attire par télékinésie une créature vers vous.
+Feat/&FeatTelekineticWisPullTitle	Tir télékinésique
+Feat/&FeatTelekineticWisPushDescription	Repousse télékinétiquement une créature loin de vous.
+Feat/&FeatTelekineticWisPushTitle	Poussée télékinétique
+Feat/&FeatTelekineticWisTitle	Télékinésie (Sagesse)
+Feat/&FeatTitanFightingDescription	Vous gagnez un +2 pour toucher contre les créatures de taille G ou plus.
+Feat/&FeatTitanFightingTitle	Style de combat : Combat contre les Titans
+Feat/&FeatToughDescription	Votre maximum de points de vie augmente d'un montant égal à deux fois votre niveau lorsque vous obtenez ce don. Chaque fois que vous gagnez un niveau par la suite, votre maximum de points de vie augmente de 2 points de vie supplémentaires.
+Feat/&FeatToughTitle	Dure
+Feat/&FeatWarCasterDescription	Vous obtenez un avantage sur les contrôles pour maintenir la concentration.\nVous gagnez la capacité d'exécuter la composante somatique des sorts même avec les deux mains pleines.\nLorsque le mouvement d'une créature hostile provoque une attaque d'opportunité de votre part, vous pouvez utiliser votre réaction pour lancer un sort mineur sur la créature, plutôt que de faire une attaque d'opportunité. Le sort mineur doit avoir un temps d'incantation de 1 action ou action bonus et ne doit cibler que cette créature.
+Feat/&FeatWarCasterTitle	Lanceur de guerre
+Feat/&FeatWiseDefenseDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nTant que vous ne portez pas d'armure, votre CA est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse.
+Feat/&FeatWiseDefenseTitle	Défense sage
+Feat/&FeatWisePrecisionDescription	Vous pouvez utiliser une action bonus pour sélectionner une arme. Ses attaques comptent comme magiques et vous utilisez votre Sagesse pour vos jets d'attaque et de dégâts pendant 1 minute. Cette fonctionnalité peut être utilisée deux fois par repos long.
+Feat/&FeatWisePrecisionTitle	Précision sage
+Feat/&FeatWisIncrementDescription	Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.
+Feat/&FeatWisIncrementTitle	Augmentation de l'attribut de sagesse
+Feat/&FeyTeleportationLanguageTirmarianDescription	Vous gagnez la maîtrise de Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle	tirmarien
+Feat/&FightingStyleArcheryDescription	Vous gagnez un bonus de +2 aux jets d'attaque avec des armes à distance.
+Feat/&FightingStyleArcheryTitle	Style de combat : Tir à l'arc
+Feat/&FightingStyleDefenseDescription	Tant que vous portez une armure, vous gagnez un bonus de +1 à la CA.
+Feat/&FightingStyleDefenseTitle	Style de combat : Défense
+Feat/&FightingStyleDuelingDescription	Lorsque vous maniez une arme de mêlée dans une main et aucune autre arme, vous gagnez un bonus de +2 aux jets de dégâts avec cette arme.
+Feat/&FightingStyleDuelingTitle	Style de combat : Duel
+Feat/&FightingStyleGeneralFeatDescription	Vous pouvez sélectionner un style de combat.
+Feat/&FightingStyleGeneralFeatitle	Style de combat
+Feat/&FightingStyleGreatWeaponDescription	Lorsque vous obtenez un 1 ou un 2 sur un dé de dégâts pour une attaque que vous effectuez avec une arme de mêlée que vous maniez à deux mains, vous pouvez relancer le dé. Vous devez utiliser le nouveau jet, même s'il s'agit d'un 1 ou d'un 2. L'arme doit avoir la propriété à deux mains ou polyvalente pour que vous puissiez bénéficier de cet avantage.
+Feat/&FightingStyleGreatWeaponTitle	Style de combat : Grande arme
+Feat/&FightingStyleProtectionDescription	Lorsqu'une créature que vous pouvez voir attaque une cible autre que vous qui se trouve à 1,50 mètre ou moins de vous, vous pouvez utiliser votre réaction pour infliger un désavantage au jet d'attaque. Vous devez brandir un bouclier.
+Feat/&FightingStyleProtectionTitle	Style de combat : Protection
+Feat/&FightingStyleTwoWeaponDescription	Lorsque vous vous engagez dans un combat à deux armes, vous pouvez ajouter votre modificateur de capacité aux dégâts de la deuxième attaque.
+Feat/&FightingStyleTwoWeaponTitle	Style de combat : Deux armes
+Feat/&ForceStrikePowerDescription	Attaque à distance 1d6 dégâts de force de votre fidèle acolyte.
+Feat/&ForceStrikePowerTitle	Force Sling (serviteur artificiel)
+Feat/&GauntletsGrappleDescription	Peut désormais attirer les ennemis au corps à corps avec une action bonus et infliger 1d8 dégâts de tonnerre.
+Feat/&GauntletsGrappleTitle	Gantelet grappin
+Feat/&HealerDescription	Vous acquérez une compétence ou une expertise dans les contrôles de médecine. Vous gagnez la capacité de stabiliser une créature mourante ainsi que de faire revivre une créature morte au cours des 12 dernières secondes une fois par repos long. Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie du niveau du personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
+Feat/&HealerResuscitateDescription	Utilisez une action pour faire revivre une créature qui est morte dans les 15 dernières secondes.
+Feat/&HealerResuscitateTitle	Réanimer
+Feat/&HealerStabilizeDescription	Utilisez une action pour stabiliser une créature mourante.
+Feat/&HealerStabilizeTitle	Stabiliser
+Feat/&HealerTitle	Guérisseur
+Feat/&HealerUseMedicineDescription	Vous pouvez utiliser une action pour restaurer 1d6 + 4 + points de vie du niveau du personnage un nombre de fois par repos court égal à votre modificateur de Sagesse.
+Feat/&HealerUseMedicineTitle	Utiliser des médicaments
+Feat/&IncreaseConstructSelectingDescription	Vous pouvez maintenant invoquer deux constructions d'artillerie. Les constructions peuvent être de modes identiques ou différents.
+Feat/&IncreaseConstructSelectingTitle	Renforts
+Feat/&InspiringLeaderDescription	Une fois par repos court, vous pouvez passer 10 minutes à inspirer jusqu'à 6 créatures alliées (dont vous-même) à moins de 9 mètres de vous. Chaque créature gagne des points de vie temporaires égaux à votre niveau + votre modificateur de Charisme.
+Feat/&InspiringLeaderTitle	Chef inspirant
+Feat/&IntToAttackAndDamageDescription	Vous pouvez utiliser votre modificateur d'Intelligence, au lieu du modificateur de Force ou de Dextérité, pour vos jets d'attaque et de dégâts avec Armes blindées.
+Feat/&IntToAttackAndDamageTitle	Arme d'armure
+Feat/&MendingConstructDescription	Réparez votre assemblage pour 2d6 PV en 1 minute.
+Feat/&MendingConstructTitle	Construction de réparation
+Feat/&ModeSwitchingPoolDescription	Vous pouvez passer d'un mode à l'autre une fois par repos court en créant et en utilisant des armes temporaires.
+Feat/&ModeSwitchingPoolTitle	Mode armure
+Feat/&PickPocketFeatDescription	Vous gagnez en maîtrise de Sleight of Hand, ou en expertise si vous êtes déjà compétent. Vous avez également un avantage sur les tests de dextérité de Sleight of Hand.
+Feat/&PickPocketFeatTitle	Pickpocket
+Feat/&PowerAlchemistEmboldeningShotsDescription	Vous gagnez la capacité d'administrer un élixir qui enhardit vos alliés, leur fournissant 4d6 + modificateur d'Intelligence points de vie temporaires.
+Feat/&PowerAlchemistEmboldeningShotsTitle	Coups enhardissants
+Feat/&PowerAttackFeatDescription	Vous avez appris à échanger la précision pour porter des coups plus meurtriers. Lorsque vous attaquez avec des armes de mêlée, vous pouvez choisir de subir un malus de -3 à votre toucher afin d'infliger des dégâts supplémentaires égaux à 3 + votre bonus de maîtrise.
+Feat/&PowerAttackFeatTitle	Attaque puissante
+Feat/&PowerFalseLifeFromFeatDescription	En vous renforçant avec un fac-similé nécromantique de la vie, vous gagnez 1d4 + 4 points de vie temporaires pour la durée.
+Feat/&PowerFalseLifeFromFeatTitle	Fausse vie
+Feat/&PowerInflictWoundsFromFeatDescription	Effectuez une attaque au corps à corps avec un sort contre une créature à votre portée. En cas de coup, la cible subit 3d10 dégâts nécrotiques.
+Feat/&PowerInflictWoundsFromFeatTitle	Infliger des blessures
+Feat/&PowerInvisibilityFromFeatDescription	Une créature que vous touchez devient invisible jusqu'à la fin du sort. Tout ce que la cible porte ou transporte est invisible tant qu'il est sur la personne de la cible. Le sort prend fin pour une cible qui attaque ou lance un sort.
+Feat/&PowerInvisibilityFromFeatTitle	Invisibilité
+Feat/&PowerMistyStepFromFeatDescription	Brièvement entouré de brume argentée, vous vous téléportez jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir.
+Feat/&PowerMistyStepFromFeatTitle	Étape brumeuse
+Feat/&PowerShadowTouchedFromFeatDescription	Apprenez à lancer les sorts d'invisibilité, de fausse vie et d'infliger des blessures.
+Feat/&PowerShadowTouchedFromFeatTitle	L'ombre touchée
+Feat/&ProfChefTreatActionDescription	Mangez une friandise en tant qu'action bonus et gagnez 5 points de vie temporaires.
+Feat/&ProfChefTreatActionTitle	Mangez la friandise du chef
+Feat/&ProfChefTreatCookDescription	Passez une heure à cuisiner des friandises qui, une fois consommées, fournissent 5 points de vie temporaires.
+Feat/&ProfChefTreatCookTitle	Cuisiner le régal du chef
+Feat/&ProfChefTreatDescription	Mangez en tant qu'action bonus et gagnez 5 points de vie temporaires.
+Feat/&ProfChefTreatTitle	Le régal du chef
+Feat/&ProfHealerMedicineDescription	Vous acquérez des compétences en médecine, ou une expertise si vous êtes déjà compétent.
+Feat/&ProfHealerMedicineTitle	Connaissance de la médecine
+Feat/&ProtectorConstructAttackDescription	La construction protectrice effectue une attaque qui inflige 1d10 dégâts de force.
+Feat/&ProtectorConstructAttackTitle	Forcer la déchirure
+Feat/&ProtectorConstructDescription	Il est amical avec vous et vos compagnons, et il obéit à vos ordres.
+Feat/&ProtectorConstructDescription_5	Amélioration de la construction du protecteur.
+Feat/&ProtectorConstructTitle	Construction protectrice
+Feat/&ProtectorConstructTitle_5	Amélioration de la construction du protecteur
+Feat/&RecklessFuryFeatDescription	Vous gagnez la capacité d'entrer en rage pendant une minute une fois par jour sans aucune restriction d'armure.\nVous pouvez attaquer imprudemment, en prenant l'avantage sur vos attaques de mêlée tout en donnant l'avantage à vos attaquants jusqu'au début de votre prochain tour.
+Feat/&RecklessFuryFeatTitle	Fureur téméraire
+Feat/&RetributionDescription	La construction inflige 1d4 + votre modificateur d'Intelligence de dégâts de force à l'attaquant lorsqu'il est touché par une attaque.
+Feat/&RetributionTitle	Châtiment
+Feat/&SelfDestructDescription	Autodestruction et force un jet de sauvegarde de Dextérité pour les créatures à moins de 3 mètres. En cas d'échec, inflige 3d8 dégâts de force.
+Feat/&SelfDestructTitle	Auto-destruction
+Feat/&SelfRepairDescription	Soignez 2d8 PV, 3 fois par jour.
+Feat/&SelfRepairTitle	Auto-réparation
+Feat/&SubclassMovementDescription	L'armure lourde n'a pas de condition de Force.
+Feat/&SubclassMovementTitle	Immunité aux armures lourdes
+Feat/&SubclassProficienciesDescription	Vous maîtrisez les outils de forgeron et les armures lourdes.
+Feat/&SubclassProficienciesTitle	Compétences de sous-classe
+Feat/&SummonArtificialServantDescription	Le serviteur est amical avec vous et vos compagnons, et il obéit à vos ordres.
+Feat/&SummonArtificialServantTitle	Invoquer un serviteur artificiel
+Feat/&ThunderShieldDescription	Le bouclier défensif fournit des PV temporaires égaux à votre niveau. Peut être utilisé 6 fois par repos long.
+Feat/&ThunderShieldTitle	Bouclier de tonnerre
+Feat/&TorchbearerDescription	Vous êtes habile dans l'utilisation d'une torche au combat. Une fois par tour, par une action bonus, vous pouvez choisir d'utiliser une source de lumière que vous avez équipée pour tenter d'incendier un ennemi que vous pouvez toucher. Votre cible doit réussir un jet de sauvegarde de Dextérité (DD 8 + votre bonus de maîtrise + votre modificateur de Dextérité) ou subir 1d4 dégâts de feu par tour pendant 1 minute ou jusqu'à son extinction.
+Feat/&TorchbearerTitle	Porte-flambeau
+Feat/&UseArmorWeaponsAsFocusDescription	Vous pouvez utiliser les armes de l'armure comme focalisateur de sorts pour vos sorts.
+Feat/&UseArmorWeaponsAsFocusTitle	Focus sur les sorts
+Feat/&UsingitemPowerDescription	Permet d'utiliser la puissance de l'arme lors d'une action bonus.
+Feat/&UsingitemPowerTitle	Utiliser la puissance des armes
+Feature/&AdditionalActionDualFlurryDescription	Vous pouvez effectuer une attaque secondaire supplémentaire.
+Feature/&AdditionalActionDualFlurryTitle	Double rafale !
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Une fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature que vous touchez avec une attaque qui répond à l'attaque sournoise de Rogue. Au niveau 7, ces dégâts passent à 2d6 et au niveau 14 à 3d6. Cela peut se cumuler avec l'attaque sournoise de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Attaque sournoise ombragée
+Feature/&DeadeyeDescription	Attaquer à longue distance n'impose pas de désavantage à vos jets d'attaque avec une arme à distance. Vos armes à distance ignorent la demi couverture et les trois quarts de couverture. Vous pouvez choisir de prendre un bonus de malus de -5 à votre coup afin d'infliger un bonus de dégâts de +10.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	Vous êtes un maître du combat avec des armes jumelées. À chaque tour où vous frappez deux fois avec des attaques de mêlée tout en brandissant une arme dans chaque main, vous pouvez effectuer une attaque secondaire supplémentaire.
+Feature/&DualFlurryTitle	Double rafale
+Feature/&PowerAttackDescription	Prenez une pénalité de -3 pour toucher votre attaque pour infliger 3 + bonus de dégâts supplémentaires lorsque vous frappez avec des armes de mêlée.
+Feature/&PowerAttackTitle	Attaque puissante
+Feature/&PowerTorchbearerDescription	Essayez de mettre le feu à une cible de mêlée !
+Feature/&PowerTorchbearerTitle	Porte-flambeau
+Feature/&RageDamageBonusAttackModifierDescription	Ajoute +2 dégâts à vos attaques pendant que vous êtes en rage.
+Feature/&RageDamageBonusAttackModifierTitle	Dégâts de rage
+Feature/&RageFeatConditionDescription	Lorsque vous êtes en rage, vous gagnez les avantages suivants : un avantage aux tests de Force et aux jets de sauvegarde de Force, un bonus de +2 aux jets de dégâts et une résistance aux dégâts contondants, perforants et tranchants.
+Feature/&RageFeatConditionTitle	Rage
+Feature/&RagePowerDescription	En tant qu'action bonus, vous entrez en rage pendant une minute et gagnez : un avantage aux tests de Force et aux jets de sauvegarde de Force, un bonus aux jets de dégâts de +2 et une résistance aux dégâts contondants, perforants et tranchants.
+Feature/&RagePowerTitle	Rage
+Feature/&RageStrengthSavingThrowAffinityDescription	Vous bénéficiez d'un avantage sur les sauvegardes de Force lorsque vous êtes en rage.
+Feature/&RageStrengthSavingThrowAffinityTitle	Avantage de sauvegarde de Force de rage
+Power/&HelpActionDescription	Vous pouvez aider une créature alliée à attaquer une créature à 1,50 mètre ou moins de vous. Vous feignez, distrayez la cible ou faites équipe d'une autre manière pour rendre l'attaque de votre allié plus efficace. Si votre allié attaque la cible avant votre prochain tour, le premier jet d'attaque est effectué avec avantage.
+Power/&HelpActionTitle	Aider
+Reaction/&SubitemSelectWarcasterReactionTitle	Sélectionnez l'action
+Reaction/&WarcasterAttackDescription	Cible d'attaque.
+Reaction/&WarcasterAttackTitle	Attaque
+Reaction/&WarcasterReactionDescription	{0} quitte une zone menacée par un ou plusieurs personnages.
+Reaction/&WarcasterReactionReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&WarcasterReactionReactTitle	Attaque
+Reaction/&WarcasterReactionTitle	Attaque d'opportunité
+Tooltip/&DeadeyeConcentration	Désactivez Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Ne sait pas {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	A une attaque furtive
+Tooltip/&FeatPrerequisiteIsNotBarbarian	n'est pas un barbare
+Tooltip/&FeatPrerequisiteIsNotFighter	N'est pas un combattant
+Tooltip/&FeatPrerequisiteIsNotRogue	N'est-ce pas un voleur
+Tooltip/&FeatPrerequisiteLevelFormat	Niveau de personnage minimum {0}
+Tooltip/&PowerAttackConcentration	Désactivez l'attaque puissante.

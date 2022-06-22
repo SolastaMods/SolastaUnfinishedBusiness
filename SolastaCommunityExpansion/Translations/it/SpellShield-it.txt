@@ -1,0 +1,24 @@
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Puoi usare i tuoi poteri arcani per proteggerti come reazione.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Scudo magico
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Quando è attivo su un'arma, i suoi attacchi contano come magici e usi la tua Intelligenza per i tiri per colpire e per i danni.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arma Arcana
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Ottieni un attacco extra.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Attacco extra
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Puoi usare i tuoi poteri arcani per proteggerti come reazione. Questo ti dà +3 alla tua CA fino al tuo prossimo turno.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Deviazione Arcana
+Subclass/&FighterSpellShieldDescription	Gli Spell Shields sono combattenti specializzati in difesa e protezione. Usano la magia per aiutare le loro capacità naturali.
+Subclass/&FighterSpellShieldSpellcastingDescription	Lancia incantesimi e trucchetti da Mago dalle scuole di Abiurazione, Illusione, Trasmutazione e Negromanzia.
+Subclass/&FighterSpellShieldSpellcastingTitle	Incantesimi
+Subclass/&FighterSpellShieldSpellResistanceDescription	La tua esperienza con gli incantesimi e la magia dell'abiura in particolare ti ha reso resistente agli incantesimi lanciati contro di te.
+Subclass/&FighterSpellShieldSpellResistanceTitle	Resistenza agli incantesimi
+Subclass/&FighterSpellShieldTitle	Scudo magico
+Subclass/&MagicAffinityFighterSpellShieldDescription	Vantaggio sulle prove di concentrazione e capacità di eseguire componenti somatiche di incantesimi mentre si tengono oggetti.
+Subclass/&MagicAffinityFighterSpellShieldTitle	Casting da combattimento
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription	Grazie all'esperienza nel caos del combattimento, ottieni vantaggio alle prove di concentrazione.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Concentrazione migliorata
+Subclass/&PowerSpellShieldArcaneDeflectionDescription	Puoi usare i tuoi poteri arcani per proteggerti come reazione. Questo ti dà +{0} alla tua CA fino al tuo prossimo turno.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle	Deviazione Arcana
+Subclass/&PowerSpellShieldRangedDeflectionDescription	Quando un attaccante che puoi vedere ti colpisce con un attacco a distanza o un incantesimo, puoi usare la tua reazione per dimezzare il danno dell'attacco contro di te.
+Subclass/&PowerSpellShieldRangedDeflectionTitle	Deflessione a distanza
+Subclass/&SpellShieldAdditionalActionDescription	Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con le armi.
+Subclass/&SpellShieldAdditionalActionTitle	Combattimento di incantesimi

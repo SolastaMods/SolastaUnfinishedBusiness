@@ -1,0 +1,22 @@
+Feature/&CounterStrikePowerDescription	Spendi un dado di mossa e Contrattacca il nemico, se colpisci infliggi 1d6+2 danni contundenti aggiuntivi.
+Feature/&CounterStrikePowerTitle	Contrattacco
+Feature/&GambitResourcePoolAddDescription	Aggiunge un dado di gambetto aggiuntivo.
+Feature/&GambitResourcePoolAddTitle	Dado Gambit aggiuntivo
+Feature/&GambitResourcePoolDescription	Pool di dadi di scommessa che possono essere spesi per le mosse. Inizia con 4 si ricaricano a riposo breve.
+Feature/&GambitResourcePoolTitle	Piscina di dadi Gambit
+Feature/&InspirePowerDescription	Spendi un dado mossa e ispira te stesso o il tuo alleato a dare 1d6 + 2 pf temporanei.
+Feature/&InspirePowerTitle	Ispirare
+Feature/&KnockDownPowerDescription	Spendi un dado mossa e potenzia il tuo attacco per infliggere 1d6 + 2 danni contundenti aggiuntivi. Il bersaglio effettua un Tiro Salvezza (CD 8 + il tuo bonus di competenza + il tuo modificatore di Forza) o viene atterrato fino all'inizio del suo prossimo turno.
+Feature/&KnockDownPowerTitle	Stendere
+Reaction/&SpendPowerCounterStrikePowerDescription	Spendi un dado di mossa e Contrattacca il nemico, se colpisci infliggi 1d6+2 danni contundenti aggiuntivi.
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Spendi un dado di mossa e Contrattacca il nemico, se colpisci infliggi 1d6+2 danni contundenti aggiuntivi.
+Reaction/&SpendPowerCounterStrikePowerReactTitle	Contrattacco
+Reaction/&SpendPowerCounterStrikePowerTitle	Contrattacco
+Reaction/&SpendPowerInspirePowerDescription	Spendi un dado gambit e ispira il tuo alleato, dando 1d6 + 2 HP temporanei.
+Reaction/&SpendPowerInspirePowerTitle	Ispirare
+Reaction/&SpendPowerKnockDownPowerDescription	Spendi un dado mossa e potenzia il tuo attacco per infliggere 1d6 + 2 danni contundenti aggiuntivi. Il bersaglio effettua un Tiro Salvezza (CD 8 + il tuo bonus di competenza + il tuo modificatore di Forza) o viene atterrato fino all'inizio del suo prossimo turno.
+Reaction/&SpendPowerKnockDownPowerReactDescription	Spendi un dado mossa e potenzia il tuo attacco per infliggere 1d6 + 2 danni contundenti aggiuntivi. Il bersaglio effettua un Tiro Salvezza (CD 8 + il tuo bonus di competenza + il tuo modificatore di Forza) o viene atterrato fino all'inizio del suo prossimo turno.
+Reaction/&SpendPowerKnockDownPowerReactTitle	Stendere
+Reaction/&SpendPowerKnockDownPowerTitle	Stendere
+Subclass/&TactitionFighterSubclassDescription	Il tattico usa la sua conoscenza e la sua potenza sul campo di battaglia per eseguire diverse mosse secondo necessità. Possono abbattere i nemici, ispirare i loro alleati e ottenere letali contrattacchi contro i loro nemici.
+Subclass/&TactitionFighterSubclassTitle	Il tattico

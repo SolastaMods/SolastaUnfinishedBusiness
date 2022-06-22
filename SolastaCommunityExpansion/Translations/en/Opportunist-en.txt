@@ -1,0 +1,6 @@
+Feature/&OpportunistDebilitatingStrikeDescription	Your sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or suffer one of following conditions: blinded, bane, bleeding or stunned.
+Feature/&OpportunistDebilitatingStrikeTitle	Debilitating Strike
+Feature/&OpportunistQuickStrikeDescription	You have advantage when attack an enemies whose initiative is lower than yours. In addition, you also have advantage when perform an attack of opportunity.
+Feature/&OpportunistQuickStrikeTitle	Quick Strike
+Subclass/&OpportunistDescription	Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many faced them can escaped unscratched.
+Subclass/&OpportunistTitle	Opportunist

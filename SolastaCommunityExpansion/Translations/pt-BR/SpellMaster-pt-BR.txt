@@ -1,0 +1,18 @@
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Faça uma magia adicional a cada nível que sobe.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Amplitude do Conhecimento
+Subclass/&MagicAffinitySpellMasterRecoveryDescription	Uma vez por descanso longo, você pode recuperar espaços de magia (além da Recuperação Arcana).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle	Profundidade Arcana
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Tempos ilimitados você pode recuperar slots de feitiços (além da Recuperação Arcana).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Profundidade Arcana
+Subclass/&MagicAffinitySpellMasterScribingDescription	Escrever feitiços leva 1/4 do tempo e do custo, e você tem vantagem.
+Subclass/&MagicAffinitySpellMasterScribingTitle	Escriba Mestre
+Subclass/&TraditionSpellMasterBonusCantripsDescription	Ganhe 2 truques extras conhecidos.
+Subclass/&TraditionSpellMasterBonusCantripsTitle	Truques de bônus
+Subclass/&TraditionSpellMasterDescription	Os mestres de feitiços mergulham na magia e tentam aprender todos os feitiços em que podem colocar as mãos. Eles são incomparáveis ​​em seu conhecimento de feitiços.
+Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepare feitiços adicionais de modificador de Inteligência para que você sempre tenha o que precisa.
+Subclass/&TraditionSpellMasterExtraPreparedTitle	Preparado Extra
+Subclass/&TraditionSpellMasterPreparedDescription	Prepare feitiços adicionais de bônus de proficiência para que você sempre tenha o que precisa.
+Subclass/&TraditionSpellMasterPreparedTitle	Esteja preparado
+Subclass/&TraditionSpellMasterSpellResistanceDescription	Seu treinamento com magia lhe dá vantagem em testes de resistência contra feitiços.
+Subclass/&TraditionSpellMasterSpellResistanceTitle	Resistência à Magia
+Subclass/&TraditionSpellMasterTitle	Mestre de Feitiços

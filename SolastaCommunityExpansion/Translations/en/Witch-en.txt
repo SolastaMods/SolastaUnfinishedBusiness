@@ -1,0 +1,123 @@
+Class/&WitchArmorProficiencyDescription	Light Armor.
+Class/&WitchArmorProficiencyTitle	Witch Armor Proficiencies
+Class/&WitchBurnedFireResistanceDescription	You have resistance to fire damage.
+Class/&WitchBurnedFireResistanceTitle	Burned: Fire Resistance
+Class/&WitchBurnedProduceFlameDescription	You know the cantrip Produce Flame, which does not count against your total number of cantrips known.
+Class/&WitchBurnedProduceFlameTitle	Burned: Produce Flame
+Class/&WitchCacklePowerDescription	You can use your bonus action to cackle. The duration of your Malediction extends by 1 round for each creature affected within 60 feet of you.\nNot all witches laugh maniacally when they cackle, but all cackles require a verbal component, as a spell. These range from mundane curses and insults, to the murmuring of dead languages and speaking backwards.
+Class/&WitchCacklePowerTitle	Cackle
+Class/&WitchDescription	Afflicted by a sinister curse, witches can spin dark magic into Maledictions, which they use to debilitate foes. They are also accompanied by their familiars, loyal magical companions which they use to deal the killing blow.
+Class/&WitchFamiliarPowerDescription	You learn the Witch Familiar spell, i.e. an improved Find Familiar spell, and can cast it as a ritual without material components. The spell doesn't count against your number of spells known. The spell improves Find Familiar in the following ways:\n• Your familiar takes its turn immediately before or after your turn each round (your choice).\n• Once per turn as an action or a bonus action, you can mentally command your familiar to use its reaction to make one attack.\n• When you cast a spell, you can deliver it through your familiar as if it had cast the spell, even if the spell doesn't have a range of touch.\n• Your familiar can use your spell attack bonus for its attack rolls.\n• Your familiar adds your proficiency bonus to its Armor Class, saving throws, and damage rolls.\n• You add twice your Witch level to your familiar's maximum hit points.
+Class/&WitchFamiliarPowerTitle	Familiar
+Class/&WitchFeatureSetBurnedCurseDescription	Almost all of your body has been scorched by arcane flames, leaving you with striking black scars and embers of magic that burn under the skin. As a result, you have resistance to fire damage, and you know the cantrip Produce Flame, which does not count against your total number of cantrips known.
+Class/&WitchFeatureSetBurnedCurseTitle	Burned
+Class/&WitchFeatureSetLovelessCurseDescription	You are cursed to never find true love. Jaded and disaffected, not even magic can turn your heart; as a result, you are immune to being charmed.
+Class/&WitchFeatureSetLovelessCurseTitle	Loveless
+Class/&WitchFeatureSetRitualCastingDescription	You can cast any Witch spell you know as a ritual if that spell has the ritual tag.
+Class/&WitchFeatureSetRitualCastingTitle	Witch: Ritual Casting
+Class/&WitchFeatureSetVisionsCurseDescription	You are cursed to have terrible visions of the future, presaging the death of your friends, family, and yourself. However many of these visions are cruel deceptions, they are sometimes grimly accurate. You can add your Charisma modifier, in addition to your Dexterity modifier, to your initiative rolls.
+Class/&WitchFeatureSetVisionsCurseTitle	Visions
+Class/&WitchLovelessCharmImmunityDescription	You are immune to being charmed.
+Class/&WitchLovelessCharmImmunityTitle	Loveless: Charm Immunity
+Class/&WitchMaledictionAbateDescription	As an action, choose one creature you can see within 60 feet of you to make a Charisma saving throw. On a failed save, the creature can't take reactions until the end of your next turn.
+Class/&WitchMaledictionAbateTitle	Abate Malediction
+Class/&WitchMaledictionApathyDescription	As an action, choose one creature you can see within 60 feet of you to make a Charisma saving throw. On a failed save, until the end of your next turn, the creature becomes indifferent toward one creature of your choice that it is hostile towards. This indifference ends if the target is attacked or harmed by a spell by the creature to which it is indifferent.
+Class/&WitchMaledictionApathyTitle	Apathy Malediction
+Class/&WitchMaledictionCharmDescription	As an action, choose one creature you can see within 60 feet to make a Wisdom saving throw. On a failed save, the creature is charmed by you until the end of your next turn.
+Class/&WitchMaledictionCharmTitle	Charm Malediction
+Class/&WitchMaledictionDisorientDescription	As an action, choose one creature that you can see within 60 feet to make a Constitution saving throw. On a failed save, whenever this target makes an attack roll before the end of your next turn, it must roll a d6 and subtract the number rolled from the attack roll.
+Class/&WitchMaledictionDisorientTitle	Disorient Malediction
+Class/&WitchMaledictionEvilEyeDescription	As an action, choose one creature you can see that can see you within 60 feet to make a Wisdom saving throw. On a failed save, the creature is frightened of you until the end of your next turn.
+Class/&WitchMaledictionEvilEyeTitle	Evil Eye Malediction
+Class/&WitchMaledictionObfuscateDescription	As an action, you create a 20-foot radius sphere of fog centered on yourself. The sphere spreads around corners, and its area is heavily obscured. This effect lasts until the end of your next turn or until a wind of moderate or greater speed (at least 10 miles per hour) disperses it.
+Class/&WitchMaledictionObfuscateTitle	Obfuscate Malediction
+Class/&WitchMaledictionPoxDescription	As an action, choose one creature you can see within 5 feet to make a Constitution saving throw. On a failed save, the creature is poisoned until the end of your next turn.
+Class/&WitchMaledictionPoxTitle	Pox Malediction
+Class/&WitchMaledictionRuinDescription	As an action, choose one creature you can see within 60 feet to make a Constitution saving throw. On a failed save, the creature's Armor Class decreases by 3, to a minimum of 10, until the end of your next turn.
+Class/&WitchMaledictionRuinTitle	Ruin Malediction
+Class/&WitchRitualCastingMagicAffinityDescription	You can cast a witch spell as a ritual if that spell has the ritual tag and you have the spell prepared.
+Class/&WitchRitualCastingMagicAffinityTitle	Ritual Casting
+Class/&WitchSavingthrowProficiencyDescription	Wisdom, Charisma.
+Class/&WitchSavingthrowProficiencyTitle	Witch Saving Throw Proficiencies
+Class/&WitchSkillProficiencyDescription	Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, Nature, and Religion.
+Class/&WitchSkillProficiencyTitle	Witch Skills
+Class/&WitchSpellcastingDescription	You are a witch who is capable of casting spells from the witch spell list.
+Class/&WitchSpellcastingTitle	Witch Spellcasting
+Class/&WitchTitle	Witch
+Class/&WitchToolProficiencyDescription	Choose one from Herbalist Kit and Poisoner's Kit.
+Class/&WitchToolProficiencyTitle	Witch Tool Proficiencies
+Class/&WitchVisionsInitiativeDescription	You add your Charisma modifier to your initiative rolls.
+Class/&WitchVisionsInitiativeTitle	Visions Initiative
+Class/&WitchWeaponProficiencyDescription	Simple Weapons.
+Class/&WitchWeaponProficiencyTitle	Witch Weapon Proficiencies
+Condition/&AbateDescription	Cannot use reactions.
+Condition/&AbateTitle	Abate
+Condition/&ApathyDescription	Indifferent to target creature that it is hostile towards. This indifference ends if the target is attacked or harmed by a spell by the targeted creature.
+Condition/&ApathyTitle	Apathy
+Condition/&CharmDescription	Considers the caster an ally.
+Condition/&CharmTitle	Charmed
+Condition/&DebilitatedConditionDescription	Suffer from one of following conditions: blinded, bane, bleeding or stunned.
+Condition/&DebilitatedConditionTitle	Debilitated
+Condition/&DisorientDescription	-1d6 to attack rolls.
+Condition/&DisorientTitle	Disoriented
+Condition/&EvilEyeDescription	Frightened. Unable to approach the source of fear, disadvantage on attack rolls and ability checks while source of fear is in sight.
+Condition/&EvilEyeTitle	Evil Eye
+Condition/&FrenziedDescription	This creature is frenzied and will attack the closest creature.
+Condition/&FrenziedTitle	Frenzied
+Condition/&PoxDescription	Pox condition.
+Condition/&PoxTitle	Pox
+Condition/&RuinDescription	-3 AC penalty, up to a maximum of -10 AC.
+Condition/&RuinedDescription	-3 AC penalty, up to a maximum of -10 AC.
+Condition/&RuinedTitle	Ruined
+Condition/&RuinTitle	Ruin
+Feature/&ClassWitchMaledictionReplaceDescription	Select Malediction to replace.
+Feature/&ClassWitchMaledictionReplaceTitle	Replace Malediction
+Feature/&WitchCurseChoiceDescription	You are wracked by a terrible curse which infects your body and soul.
+Feature/&WitchCurseChoiceTitle	Witch Curse
+Feature/&WitchMaledictionChoiceDescription	You can learn a number of powerful incantations, known as Maledictions, derived from the same insidious magic which cursed you.
+Feature/&WitchMaledictionChoiceTitle	Maledictions
+Feature/&WitchSightDescription	You can sense or see invisible creatures within 60 ft of you.
+Feature/&WitchSightTitle	Witch Sight
+Modifier/&AttributeModifierRuinDescription	-3 to Armor Class.
+Modifier/&AttributeModifierRuinTitle	Ruined
+Modifier/&DisorientDescription	-1d6 to attack rolls.
+Modifier/&DisorientTitle	Disoriented
+Monster/&WitchOwlFamiliarDescription	Owl Familiar.
+Monster/&WitchOwlFamiliarTitle	Owl
+Screen/&CovenSpellDescription	Spell known as part of a Coven.
+Screen/&CovenSpellHeader	Coven
+Screen/&CovenSpellTitle	Coven
+Screen/&WitchSpellDescription	Spells known as a Witch.
+Screen/&WitchSpellHeader	Witch
+Screen/&WitchSpellTitle	Witch
+Spell/&WitchFamiliarDescription	You gain the service of a familiar.
+Spell/&WitchFamiliarTitle	Witch Familiar
+Stage/&SubclassSelectionStageCovenDescription	Coven.
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Coven.
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven Features
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Coven
+Stage/&SubclassSelectionStageCovenHeader	Select a Coven
+Stage/&SubclassSelectionStageCovenTitle	Coven
+Subclass/&BloodWitchDescription	Forbidden by most Witch covens, blood magic centers on the use of dark spells and mortal hexes that draw from the spellcaster's very essence. It is fundamentally more perilous than other Witch crafts, but its many risks come with copious rewards.
+Subclass/&BloodWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
+Subclass/&BloodWitchMagicTitle	Blood Magic
+Subclass/&BloodWitchTitle	Blood Witch
+Subclass/&GreenWitchDescription	Plants, nature, and things that grow are the domain of green magic. Normally a type of arcana championed by druids, some witches have a close tie to the powers of green magic, and can coax plants and animals into their bidding.
+Subclass/&GreenWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n{0}\n\n
+Subclass/&GreenWitchMagicTitle	Green Magic
+Subclass/&GreenWitchTitle	Green Witch
+Subclass/&PurpleWitchDescription	Purple magic holds sway over the domains of illusions and enchantments that take hold over people's minds, and anything that is not quite as it seems. Practitioners of this form of magic are puppet masters, shaping the apparent reality of those around them to their advantage.
+Subclass/&PurpleWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
+Subclass/&PurpleWitchMagicTitle	Purple Magic
+Subclass/&PurpleWitchTitle	Purple Witch
+Subclass/&RedWitchDescription	Arcane magic tied to channeling the elements is deemed red magic, and is extremely hazardous when used. Witches that specialize in red magic are among the deadliest spellcasters in existence, channeling their curse into unhindered arcane wrath.
+Subclass/&RedWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
+Subclass/&RedWitchMagicTitle	Red Magic
+Subclass/&RedWitchTitle	Red Witch
+Subclass/&WhiteWitchDescription	White magic is fundamentally good and benevolent for all living things. Witches that adopt this craft, in spite of the hateful curse that infects them, often dedicate themselves to healing and caretaking, with the intent of bettering the world.
+Subclass/&WhiteWitchMagicDescription	You gain the following spells. These spells count as Witch spells for you and don't count against your total number of spells known:\n {0}\n\n
+Subclass/&WhiteWitchMagicTitle	White Magic
+Subclass/&WhiteWitchTitle	White Witch
+Subclass/&WitchSubclassPathDescription	Your knowledge of magic has culminated in joining a Coven, an innate circle of Witches who delve down a specific path of witchdom and curses.
+Subclass/&WitchSubclassPathTitle	Witch Covens
+Tooltip/&TagMaledictionTitle	Malediction

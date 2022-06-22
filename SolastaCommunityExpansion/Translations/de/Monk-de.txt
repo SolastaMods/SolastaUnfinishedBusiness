@@ -1,0 +1,172 @@
+Class/&ClassMonkDescription	Mönche sind sich einig in ihrer Fähigkeit, die Energie, die in ihren Körpern fließt, auf magische Weise zu nutzen. Ob als auffällige Demonstration von Kampfstärke oder als subtilerer Fokus auf Verteidigungsfähigkeit und Schnelligkeit kanalisiert, diese Energie durchdringt alles, was ein Mönch tut.
+Class/&ClassMonkTitle	Mönch
+Condition/&ClassMonkEmptyBodyConditionDescription	Sie haben Widerstand gegen jeden Schaden außer Gewalt.
+Condition/&ClassMonkEmptyBodyConditionTitle	Leerer Körper
+Condition/&ClassMonkOpenHandDistractConditionDescription	Reaktionen können nicht verwendet werden.
+Condition/&ClassMonkOpenHandDistractConditionTitle	Abgelenkt
+Condition/&ClassMonkStepOfTheWindConditionDescription	Du kannst die Aktion „Ausrücken“ oder „Sprinten“ als Bonusaktion ausführen und deine Sprungweite wird für die Runde verdoppelt.
+Condition/&ClassMonkStepOfTheWindConditionTitle	Schritt des Windes
+Condition/&ClassMonkTanquilityConditionDescription	Du hast einen Vorteil bei Rettungswürfen gegen Zauber und Gegner haben einen Nachteil, wenn sie dich angreifen. Wird entfernt, wenn du angreifst oder einen Zauber wirkst.
+Condition/&ClassMonkTanquilityConditionTitle	Ruhe
+Condition/&ClassMonkZenArrowDistractConditionDescription	Hat Nachteil beim nächsten Angriff.
+Condition/&ClassMonkZenArrowDistractConditionTitle	Abgelenkt
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription	Hat bei allen Angriffen einen Nachteil.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Abgelenkt
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription	Bewegung wird auf 0 gesetzt.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Gepinnt
+Feature/&ClassMonkDeflectMissileDescription	Sie können Ihre Reaktion nutzen, um die Rakete abzulenken, wenn Sie von einem Fernkampfwaffenangriff getroffen werden. Wenn du dies tust, verringert sich der Schaden, den du durch den Angriff erleidest, um 1W10 + deinen Geschicklichkeitsmodifikator + deine Stufe als Mönch.
+Feature/&ClassMonkDeflectMissileTitle	Raketen ablenken
+Feature/&ClassMonkDiamondSoulDescription	Deine Beherrschung des Ki verleiht dir Beherrschung aller Rettungswürfe.\nAußerdem kannst du jedes Mal, wenn du einen Rettungswurf machst und misslingt, 1 Ki-Punkt ausgeben, um ihn zu wiederholen und das zweite Ergebnis zu nehmen.
+Feature/&ClassMonkDiamondSoulTitle	Diamantseele
+Feature/&ClassMonkExtraAttackDescription	Du kannst zweimal statt einmal angreifen, wenn du die Angriffsaktion in deinem Zug ausführst.
+Feature/&ClassMonkExtraAttackTitle	Extra-Angriff
+Feature/&ClassMonkKiDescription	Ihr Training ermöglicht es Ihnen, die mystische Energie von Ki zu nutzen. Du erhältst Ki-Punkte in Höhe deines Mönchslevels. Wenn Sie einen Ki-Punkt ausgeben, ist er nicht verfügbar, bis Sie eine kurze oder lange Pause beendet haben, an deren Ende Sie Ihr gesamtes verbrauchtes Ki wieder in sich selbst zurückziehen. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen. Sie beginnen, drei solcher Merkmale zu kennen:
+Feature/&ClassMonkKiEmpoweredStrikesDescription	Ihre waffenlosen Schläge zählen als magisch, um den Widerstand und die Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
+Feature/&ClassMonkKiEmpoweredStrikesTitle	Ki-ermächtigte Schläge
+Feature/&ClassMonkKiTitle	Ki
+Feature/&ClassMonkMartialArtsDescription	Du erhältst die folgenden Vorteile, wenn du unbewaffnet bist oder nur Mönchswaffen trägst und keine Rüstung trägst oder einen Schild schwingst:\n• Du kannst Geschicklichkeit anstelle von Stärke für die Angriffs- und Schadenswürfe deiner waffenlosen Schläge und Mönchswaffen verwenden.\n• Sie können anstelle des normalen Schadens Ihres unbewaffneten Angriffs oder Ihrer Mönchswaffe einen W4 würfeln. Dieser Würfel ändert sich, wenn du Mönchsstufen erreichst.\n• Wenn du in deinem Zug die Angriffsaktion mit einem waffenlosen Schlag oder einer Mönchswaffe verwendest, kannst du als Bonusaktion einen waffenlosen Schlag ausführen.
+Feature/&ClassMonkMartialArtsTitle	Kampfkünste
+Feature/&ClassMonkMartialDiceProgression00Description	Du kannst <color=#57BCF4>d6</color> anstelle des normalen Schadens deines unbewaffneten Angriffs oder deiner Mönchswaffe würfeln.
+Feature/&ClassMonkMartialDiceProgression00Title	Kampfkunstwürfel erhöhen (W6)
+Feature/&ClassMonkMartialDiceProgression01Description	Du kannst <color=#57BCF4>W8</color> anstelle des normalen Schadens deines unbewaffneten Angriffs oder deiner Mönchswaffe würfeln.
+Feature/&ClassMonkMartialDiceProgression01Title	Kampfkunstwürfel erhöhen (W8)
+Feature/&ClassMonkMartialDiceProgression02Description	Du kannst <color=#57BCF4>W10</color> anstelle des normalen Schadens deines waffenlosen Schlags oder deiner Mönchswaffe würfeln.
+Feature/&ClassMonkMartialDiceProgression02Title	Kampfkunstwürfel erhöhen (d10)
+Feature/&ClassMonkPerfectSelfDescription	Wenn Sie den Kampf beginnen und keine Ki-Punkte mehr übrig haben, gewinnen Sie 4 Ki-Punkte zurück.
+Feature/&ClassMonkPerfectSelfTitle	Perfektes Selbst
+Feature/&ClassMonkPurityOfBodyDescription	Ihre Beherrschung des Ki, das durch Sie fließt, macht Sie immun gegen Krankheit und Gift.
+Feature/&ClassMonkPurityOfBodyTitle	Reinheit des Körpers
+Feature/&ClassMonkSkillProficiencyTitle	Mönchsfähigkeiten
+Feature/&ClassMonkUnarmoredDefenseDescription	Solange du keine Rüstung trägst und keinen Schild schwingst, beträgt deine RK 10 + dein Geschicklichkeitsmodifikator + dein Weisheitsmodifikator.
+Feature/&ClassMonkUnarmoredDefenseTitle	Ungepanzerte Verteidigung
+Feature/&ClassMonkUnarmoredMovementBonusDescription	Der Bewegungsbonus erhöht sich um 1,50 m.
+Feature/&ClassMonkUnarmoredMovementBonusTitle	Ungepanzerte Bewegungsverbesserung
+Feature/&ClassMonkUnarmoredMovementDescription	Deine Geschwindigkeit erhöht sich um 10 Fuß, wenn du keine Rüstung trägst oder einen Schild schwingst. Dieser Bonus erhöht sich, wenn Sie bestimmte Mönchsstufen erreichen.
+Feature/&ClassMonkUnarmoredMovementTitle	Ungepanzerte Bewegung
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription	Wenn Sie keine Rüstung tragen und keinen Schild tragen, können Sie sich wie eine Spinne auf Wänden bewegen. Die Fähigkeit geht vorübergehend verloren, wenn Sie eine Aktion ausführen, die keine Bewegung ist, oder wenn Sie im Kampf nicht an der Reihe sind.
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle	Ungepanzerte Bewegung: Klettern
+Feature/&ClassMonkWeaponProficiencyTitle	Waffenfertigkeiten der Mönche
+Feature/&ClassMonkZenArcherCombatDescription	Wenn Sie sich mit Bögen auskennen, gelten sie für Sie als Mönchswaffe.\nSie werden nicht benachteiligt, wenn Sie mit einer Mönchswaffe einen Fernkampfangriff ausführen, während Sie sich in 1,50 m Entfernung von einem Feind befinden, vorausgesetzt, Sie tragen keine Rüstung oder Schild.
+Feature/&ClassMonkZenArcherCombatTitle	Fernkampf
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription	Ihre Bogenangriffe zählen als magisch, um Widerstand und Immunität gegen nichtmagische Angriffe und Schaden zu überwinden.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle	Ki-ermächtigte Pfeile
+Feature/&ClassMonkZenArcherStunningArrowsDescription	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Pfeilangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
+Feature/&ClassMonkZenArcherStunningArrowsTitle	Atemberaubende Pfeile
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat	Erleuchtender Schlag!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine	Illuminating Strike fügt dem Ziel zusätzlichen Schaden zu!
+Power/&ClassMonkDiamondSoulPowerDescription	Immer wenn du einen Rettungswurf machst und misslingt, kannst du 1 Ki-Punkt ausgeben, um ihn zu wiederholen und das zweite Ergebnis zu nehmen.
+Power/&ClassMonkDiamondSoulPowerTitle	Diamantseele
+Power/&ClassMonkEmptyBodyDescription	Du kannst deine Aktion nutzen, um 4 Ki-Punkte auszugeben, um 1 Minute lang unsichtbar zu werden. Während dieser Zeit haben Sie auch Widerstand gegen jeglichen Schaden außer Gewaltschaden.
+Power/&ClassMonkEmptyBodyTitle	Leerer Körper
+Power/&ClassMonkFlurryOfBlowsDescription	Nachdem Sie Ihre Aktion zum Angriff mit der Mönchswaffe ausgegeben haben, können Sie 1 Ki-Punkt als Bonusaktion ausgeben, um 2 waffenlose Schläge auszuführen. Nur verfügbar, wenn du keine Rüstung trägst oder einen Schild schwingst.
+Power/&ClassMonkFlurryOfBlowsTitle	Schlaghagel
+Power/&ClassMonkKiPoolDescription	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Der Höchstbetrag entspricht Ihrem Mönchslevel. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen.
+Power/&ClassMonkKiPoolTitle	Ki-Punkte
+Power/&ClassMonkKiStillnessOfMindDescription	Sie können Ihre Aktion verwenden, um einen Effekt auf sich selbst zu beenden, der Sie bezaubert oder verängstigt macht.
+Power/&ClassMonkKiStillnessOfMindTitle	Stille des Geistes
+Power/&ClassMonkOpenHandDistractDescription	Das Ziel kann bis zum Ende deines nächsten Zuges keine Reaktionen annehmen.
+Power/&ClassMonkOpenHandDistractTitle	Ablenken
+Power/&ClassMonkOpenHandProneDescription	Das Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder zu Boden geworfen werden.
+Power/&ClassMonkOpenHandProneTitle	Niederschlagen
+Power/&ClassMonkOpenHandPushDescription	Dem Ziel muss ein Kraftrettungswurf gelingen oder es wird 15 Fuß von dir weg gestoßen.
+Power/&ClassMonkOpenHandPushTitle	Wegstoßen
+Power/&ClassMonkOpenHandTechniqueDescription	Du kannst das Ki deines Feindes manipulieren, wenn du dein eigenes nutzt. Immer wenn du eine Kreatur mit einem der Angriffe von deinem Schlaghagel triffst, kannst du diesem Ziel einen der folgenden Effekte auferlegen:\n• Es muss ein Geschicklichkeitsrettungswurf gelingen oder zu Boden geworfen werden.\n• Es muss einen Kraftrettungswurf machen. Wenn es fehlschlägt, können Sie es bis zu 15 Fuß von sich wegschieben.\n• Es kann bis zum Ende deines nächsten Zuges keine Reaktionen annehmen.
+Power/&ClassMonkOpenHandTechniqueTitle	Offene-Hand-Technik
+Power/&ClassMonkPatientDefenseDescription	Du kannst 1 Ki-Punkt als Bonusaktion ausgeben, um die Aktion Ausweichen auszuführen. Nur verfügbar, wenn Sie keine Rüstung oder Schild tragen.
+Power/&ClassMonkPatientDefenseTitle	Patientenverteidigung
+Power/&ClassMonkQuiveringPalmDescription	Wenn Sie eine Kreatur mit einem unbewaffneten Schlag treffen, können Sie 3 Ki-Punkte ausgeben, um unmerkliche Vibrationen auszulösen, die die Kreatur zu einem Konstitutionsrettungswurf zwingen. Wenn es fehlschlägt, wird es auf 0 Trefferpunkte reduziert. Wenn es gelingt, erleidet es 10W10 nekrotischen Schaden.
+Power/&ClassMonkQuiveringPalmTitle	Zitternde Palme
+Power/&ClassMonkSlowFallDescription	Sie können Ihre Reaktion verwenden, wenn Sie fallen, um Fallschäden zu vermeiden.
+Power/&ClassMonkSlowFallTitle	Langsamer Fall
+Power/&ClassMonkStepOfTheWindDescription	Du kannst 1 Ki-Punkt ausgeben, um die Aktion „Ausrücken“ oder „Sprinten“ als Bonusaktion in deinem Zug auszuführen, und deine Sprungweite wird für den Zug verdoppelt. Nur verfügbar, wenn Sie keine Rüstung oder Schild tragen.
+Power/&ClassMonkStepOfTheWindTitle	Schritt des Windes
+Power/&ClassMonkStunningStrikeDescription	Sie können den Ki-Fluss im Körper eines Gegners stören. Wenn du eine andere Kreatur triffst, die nicht mit einem Nahkampfwaffenangriff betäubt ist, kannst du 1 Ki-Punkt ausgeben, um einen Betäubungsschlag zu versuchen. Dem Ziel muss ein Konstitutionsrettungswurf gelingen oder bis zum Ende deines nächsten Zuges betäubt sein.
+Power/&ClassMonkStunningStrikeTitle	Atemberaubender Schlag
+Power/&ClassMonkTanquilityDescription	Einmal pro kurzer Pause kannst du als freie Aktion in einen Zustand der Ruhe eintreten, deine Emotionen beruhigen und dich auf das konzentrieren, was um dich herum ist. In diesem Zustand erhältst du einen Vorteil bei Rettungswürfen gegen Zauber und Feinde werden benachteiligt, wenn sie dich angreifen. Die Ruhe hält bis zur nächsten Pause an oder bis Sie angreifen oder einen Zauber wirken.
+Power/&ClassMonkTanquilityTitle	Ruhe
+Power/&ClassMonkWholenessOfBodyDescription	Als Aktion kannst du Trefferpunkte in Höhe deines dreifachen Mönchslevels zurückgewinnen. Sie müssen eine lange Pause beenden, bevor Sie diese Funktion wieder verwenden können.
+Power/&ClassMonkWholenessOfBodyTitle	Ganzheit des Körpers
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription	Nachdem du eine Aktion ausgegeben hast, um mit einer Mönchswaffe anzugreifen, kannst du 2 Ki-Punkte als Bonusaktion ausgeben, um 2 Fernkampfwaffenangriffe mit einem Bogen auszuführen. Nur verfügbar, wenn Sie keine Rüstung oder Schild tragen.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle	Pfeilhagel
+Power/&ClassMonkZenArrowDistractDescription	Das Ziel muss bis zum Ende seines nächsten Zuges einen Weisheitsrettungswurf bestehen oder beim nächsten Angriff einen Nachteil haben.
+Power/&ClassMonkZenArrowDistractTitle	Ablenken
+Power/&ClassMonkZenArrowProneDescription	Das Ziel muss einen Geschicklichkeitsrettungswurf bestehen oder zu Boden geworfen werden.
+Power/&ClassMonkZenArrowProneTitle	Niederschlagen
+Power/&ClassMonkZenArrowPushDescription	Das Ziel muss einen Kraftrettungswurf bestehen oder 10 Fuß von dir weg gestoßen werden.
+Power/&ClassMonkZenArrowPushTitle	Wegstoßen
+Power/&ClassMonkZenArrowTechniqueDescription	Du kannst das Ki deines Feindes manipulieren, wenn du ihn mit deinen Pfeilen triffst. Immer wenn du eine Kreatur mit einem deiner Pfeile triffst, kannst du 1 Ki ausgeben, um diesem Ziel einen der folgenden Effekte aufzuerlegen:\n• Es muss ein Geschicklichkeitsrettungswurf gelingen oder zu Boden geworfen werden.\n• Es muss ein Kraftrettungswurf gelingen oder 10 Fuß von dir weg gestoßen werden.\n• Bis zum Ende seines nächsten Zuges muss ihm ein Weisheitswurf gelingen oder beim nächsten Angriff benachteiligt werden.
+Power/&ClassMonkZenArrowTechniqueShortTitle	Ferne Hand
+Power/&ClassMonkZenArrowTechniqueTitle	Fernhand-Technik
+Power/&ClassMonkZenArrowUpgradedDistractDescription	Das Ziel muss bis zum Ende seines nächsten Zuges einen Weisheitswurf bestehen oder bei allen Angriffen benachteiligt sein.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Ablenken
+Power/&ClassMonkZenArrowUpgradedProneDescription	Dem Ziel muss ein Geschicklichkeitsrettungswurf gelingen oder es wird zu Boden geworfen und seine Bewegung wird für eine Runde auf Null gesetzt.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Niederschlagen
+Power/&ClassMonkZenArrowUpgradedPushDescription	Dem Ziel muss ein Kraftrettungswurf gelingen oder es wird 20 Fuß von dir weg gestoßen.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Wegstoßen
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription	Du verbesserst deine Fähigkeit, Ki zu manipulieren. Alle Effekte der Distant-Hand-Technik wurden verbessert. Immer wenn du eine Kreatur mit einem deiner Pfeile triffst, kannst du 1 Ki ausgeben, um diesem Ziel einen der folgenden Effekte aufzuerlegen:\n• Ihr muss ein Geschicklichkeitsrettungswurf gelingen oder sie wird zu Boden geworfen und ihre Bewegung wird für eine Runde auf Null gesetzt.\n• Es muss ein Kraftrettungswurf gelingen oder 20 Fuß von dir weg gestoßen werden.\n• Bis zum Ende seines nächsten Zuges muss ihm ein Weisheitswurf gelingen oder er hat bei allen Angriffen einen Nachteil.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle	Ferne Hand
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle	Verbesserte Fernhandtechnik
+Reaction/&CustomDeflectMissileMonkTitle	{0} greift {1} an, der reagieren kann, um den eingehenden Schaden um 1W10 + Geschicklichkeitsmodifikator + Mönchsstufe zu reduzieren
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription	{0} trifft eine Kreatur mit einem der Angriffe, die durch Schlaghagel gewährt werden, und kann diesem Ziel einen der folgenden Effekte auferlegen:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription	Ausgewählte Technik anwenden.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle	Sich bewerben
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle	Offene-Hand-Technik
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription	Ausgewählte Technik anwenden.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle	Sich bewerben
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle	Fernhand-Technik
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription	{0} trifft eine Kreatur mit einem Pfeil und kann diesem Ziel einen der folgenden Effekte auferlegen:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription	Ausgewählte Technik anwenden.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle	Sich bewerben
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle	Fernhand-Technik
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription	{0} hat einen Gegner mit einem unbewaffneten Angriff getroffen und kann 3 Ki-Punkte ausgeben, um zu versuchen, ihn zu töten.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription	Geben Sie Ki aus, um zu versuchen, den Gegner zu töten.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle	Ki ausgeben
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle	Zitternde Palme
+Reaction/&SpendPowerClassMonkStunningStrikeDescription	{0} hat einen Gegner getroffen und kann 1 Ki-Punkt ausgeben, um zu versuchen, ihn zu betäuben.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription	Gib Ki aus, um zu versuchen, den Gegner zu betäuben.
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle	Ki ausgeben
+Reaction/&SpendPowerClassMonkStunningStrikeTitle	Atemberaubender Schlag
+Reaction/&SpendPowerDiamondSoulDescription	{0} ist ein Rettungswurf misslungen und er kann 1 Ki ausgeben, um ihn erneut zu würfeln.
+Reaction/&SpendPowerDiamondSoulReactDescription	Gib Ki aus, um einen fehlgeschlagenen Rettungswurf zu wiederholen.
+Reaction/&SpendPowerDiamondSoulReactTitle	Neu würfeln
+Reaction/&SpendPowerDiamondSoulTitle	Diamantseele
+Reaction/&UseClassMonkSlowFallDescription	{0} fällt und kann eine Reaktion verwenden, um keinen Fallschaden zu erleiden.
+Reaction/&UseClassMonkSlowFallReactDescription	Verwenden Sie die Reaktion, um keinen Fallschaden zu erleiden.
+Reaction/&UseClassMonkSlowFallReactTitle	Reagieren
+Reaction/&UseClassMonkSlowFallTitle	Langsamer Fall
+Stage/&SubclassSelectionStageClassMonkTraditionDescription	Diese Phase wählt die klösterliche Tradition des Charakters aus.
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures	Klösterliche Traditionsmerkmale
+Stage/&SubclassSelectionStageClassMonkTraditionHeader	Wählen Sie eine klösterliche Tradition aus
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription	Sie müssen eine klösterliche Tradition auswählen.
+Stage/&SubclassSelectionStageClassMonkTraditionTitle	klösterlich\nTradition
+Subclass/&BarbarianPathOfTheLightDescription	Barbaren, die dem Pfad des Lichts folgen, erhellen die Dunkelheit und schützen ihre Verbündeten vor Gefahren, die darin lauern.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription	Du stehst immer unter der Wirkung eines Zaubers „Unsichtbarkeit sehen“.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle	Augen der Wahrheit
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription	Abgelenkt durch Erleuchtenden Schlag.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Beleuchtet
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription	Nachteil bei jedem Angriffswurf, der nicht gegen den Pfad des Lichtbarbaren gerichtet ist.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription	Kann nicht unsichtbar werden.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription	In der Runde, in der Sie in Ihre Wut geraten, können Sie bis zu drei Feinde innerhalb von 30 Fuß von Ihnen beleuchten. Sie müssen einen Konstitutionsrettungswurf (SG gleich 8 + dein Kompetenzbonus + dein Konstitutionsmodifikator) bestehen oder 4W6 Strahlungsschaden erleiden und 1 Minute lang von deinem Erleuchtenden Schlag erleuchtet werden. Eine auf diese Weise beleuchtete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Speichern endet der Effekt dafür.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription	Bis zu drei Feinde legen einen Konstitutionsrettungswurf ab oder erleiden 4W6 Strahlungsschaden und werden von deinem Erleuchtenden Schlag erleuchtet.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle	Erleuchtender Ausbruch
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle	Erleuchtender Ausbruch
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription	Während du tobst, erleidet die erste Kreatur, die du in deinem Zug mit einem Angriff triffst, zusätzlich 1W6 Strahlenschaden und wird bis zum Beginn deines nächsten Zuges magisch erleuchtet. Außerdem hat die Kreatur einen Nachteil bei jedem Angriffswurf, der nicht gegen dich ist, und kann nicht unsichtbar werden.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription	Der zusätzliche Schaden von Illuminating Strike erhöht sich auf 2W6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle	Beleuchtungsschlag-Verbesserung
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle	Erleuchtender Schlag
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription	Sie erhalten Trefferpunkte in Höhe der Hälfte Ihrer Barbarenstufe zurück, wenn eine feindliche Kreatur stirbt, die von Ihrem Erleuchtenden Schlag betroffen ist. Außerdem provozierst du keine Gelegenheitsangriffe mehr von Kreaturen, die von deinem Erleuchtenden Schlag betroffen sind.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle	Schutz des Lichts
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription	Du erhältst überlegene Dunkelsicht.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle	Durchdringe die Dunkelheit
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription	Kann unsichtbare Kreaturen wahrnehmen.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Unsichtbarkeit
+Subclass/&BarbarianPathOfTheLightTitle	Pfad des Lichts
+Subclass/&ClassMonkTraditionDescription	Auf der 3. Ebene wählst du den spirituellen Weg, dem du zur Erleuchtung folgst. Es wird prägen, wie Sie Ki manipulieren.
+Subclass/&ClassMonkTraditionTitle	Klostertraditionen
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription	Mönche des Weges der Offenen Hand sind die ultimativen Meister der Kampfkünste, ob bewaffnet oder unbewaffnet. Sie lernen Techniken, um ihre Gegner zu stoßen und zu Fall zu bringen, Ki zu manipulieren, um Schäden an ihrem Körper zu heilen, und praktizieren fortgeschrittene Meditation, die sie vor Schaden schützen kann.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle	Weg der offenen Hand
+Subclass/&ClassMonkTraditionZenArcherDescription	Praktizierende des Weges der Fernen Hand trainieren, Pfeile zu einer Verlängerung ihrer Hände zu machen. Sie sind geübt im Umgang mit Bögen und liefern Ki-ermächtigte Effekte durch Pfeile.
+Subclass/&ClassMonkTraditionZenArcherTitle	Weg der fernen Hand
+Tooltip/&CustomPortraitPoolClassMonkKiPool	Du kannst die mystische Energie von Ki nutzen. Ihr Zugang zu dieser Energie wird durch eine Reihe von Ki-Punkten dargestellt. Der Höchstbetrag entspricht Ihrem Mönchslevel. Alle ausgegebenen Punkte werden bei kurzer oder langer Pause wiedererlangt. Sie können diese Punkte ausgeben, um verschiedene Ki-Funktionen zu nutzen
+Tooltip/&TagMonkWeaponTitle	Mönch

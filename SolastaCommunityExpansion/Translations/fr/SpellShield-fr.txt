@@ -1,0 +1,24 @@
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription	Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle	Bouclier anti-sort
+Subclass/&AttackModifierMeleeWizardArcaneWeaponDescription	Lorsqu'elle est active sur une arme, ses attaques comptent comme magiques et vous utilisez votre Intelligence pour vos jets d'attaque et de dégâts.
+Subclass/&AttackModifierMeleeWizardArcaneWeaponTitle	Arme arcanique
+Subclass/&AttributeModifierMeleeWizardExtraAttackDescription	Vous gagnez une attaque supplémentaire.
+Subclass/&AttributeModifierMeleeWizardExtraAttackTitle	Attaque supplémentaire
+Subclass/&ConditionSpellShieldArcaneDeflectionDescription	Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction. Cela vous donne +3 à votre CA jusqu'à votre prochain tour.
+Subclass/&ConditionSpellShieldArcaneDeflectionTitle	Déviation arcanique
+Subclass/&FighterSpellShieldDescription	Les Spell Shields sont des combattants spécialisés dans la défense et la protection. Ils utilisent la magie pour aider leurs capacités naturelles.
+Subclass/&FighterSpellShieldSpellcastingDescription	Lancez des sorts et des tours mineurs de magicien des écoles d'abjuration, d'illusion, de transmutation et de nécromancie.
+Subclass/&FighterSpellShieldSpellcastingTitle	Lancer des sorts
+Subclass/&FighterSpellShieldSpellResistanceDescription	Votre expérience des sorts et de la magie d'abjuration en particulier vous a rendu résistant aux sorts lancés contre vous.
+Subclass/&FighterSpellShieldSpellResistanceTitle	Résistance aux sorts
+Subclass/&FighterSpellShieldTitle	Bouclier anti-sort
+Subclass/&MagicAffinityFighterSpellShieldDescription	Avantage aux tests de concentration ainsi qu'à la capacité d'effectuer des composants somatiques de sorts tout en tenant des objets.
+Subclass/&MagicAffinityFighterSpellShieldTitle	Casting de combat
+Subclass/&MagicAffinityMeleeWizardConcentrationDescription	En raison de l'expérience dans le chaos du combat, bénéficiez d'un avantage sur les tests de concentration.
+Subclass/&MagicAffinityMeleeWizardConcentrationTitle	Concentration améliorée
+Subclass/&PowerSpellShieldArcaneDeflectionDescription	Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction. Cela vous donne +{0} à votre CA jusqu'à votre prochain tour.
+Subclass/&PowerSpellShieldArcaneDeflectionTitle	Déviation arcanique
+Subclass/&PowerSpellShieldRangedDeflectionDescription	Lorsqu'un attaquant que vous pouvez voir vous touche avec une attaque à distance ou un sort, vous pouvez utiliser votre réaction pour réduire de moitié les dégâts de l'attaque contre vous.
+Subclass/&PowerSpellShieldRangedDeflectionTitle	Déviation à distance
+Subclass/&SpellShieldAdditionalActionDescription	Vous pouvez lancer un sort après avoir vaincu un ennemi avec vos attaques avec une arme.
+Subclass/&SpellShieldAdditionalActionTitle	Combat de sorts

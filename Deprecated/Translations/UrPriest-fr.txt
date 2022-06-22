@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription	Vous prenez de l'énergie nécrotique en vous et vous vous suspendez entre la vie et la mort et êtes temporairement possédé par votre propre fantôme, gagnant le vol et les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
+Condition/&HalfLifeConditionTitle	Demi vie
+Feature/&DomainBattleDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Domaine de bataille
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Domaine élémentaire (froid)
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Domaine élémentaire (feu)
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Domaine élémentaire (éclairage)
+Feature/&DomainInsightDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Domaine Insight
+Feature/&DomainLawDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainLawDomainlevel1FeaturesTitle	Domaine du droit
+Feature/&DomainLifeDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Domaine de la vie
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Domaine de la malice
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Domaine de l'oubli
+Feature/&DomainSunDomainlevel1FeaturesDescription	Vous apprenez les fonctionnalités de niveau 1 de ce domaine.
+Feature/&DomainSunDomainlevel1FeaturesTitle	Domaine du Soleil
+Feature/&UrPriestDomainTheftDescription	Vous arrachez les secrets qu'un dieu accorde à tous ses prêtres dévots. Choisissez un domaine Clerc : vous gagnez les fonctionnalités que le domaine accorde au 1er niveau.
+Feature/&UrPriestDomainTheftTitle	Vol de domaine
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts de clerc sont ajoutés à la liste des sorts de démoniste pour vous.
+Feature/&UrPriestExpandedSpelllistAfinityTitle	Sorts d'UrPrêtre
+Power/&UrPriestControlUndeadDescription	Par une action, vous ciblez un mort-vivant que vous pouvez voir dans un rayon de 9 mètres autour de vous. La cible doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec de sauvegarde, la cible doit obéir à vos ordres.
+Power/&UrPriestControlUndeadTitle	Contrôlez les morts-vivants
+Power/&UrPriestHalfLifeDescription	Vous prenez l'énergie nécrotique en vous, suspendu entre la vie et la mort et êtes temporairement possédé par votre propre fantôme. Vous gagnez en vitesse de vol, ainsi que les mêmes immunités aux conditions et résistances aux dégâts que les autres fantômes.
+Power/&UrPriestHalfLifeTitle	Demi vie
+Power/&UrPriestRadiantWardDescription	Par une action, vous gagnez un nombre de points de vie temporaires égal à deux fois votre niveau d'Arcaniste.
+Power/&UrPriestRadiantWardTitle	Service radieux
+Power/&UrPriestSpellSiphonDescription	vous apprenez à puiser dans une plus grande source de magie en combinaison avec votre réserve de puissance normale. Par une action, vous pouvez dépenser une Divinité canalisée pour retrouver une utilisation dépensée de votre arcane mystique de niveau 6.
+Power/&UrPriestSpellSiphonTitle	Siphon de sorts

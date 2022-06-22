@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription	Sie nehmen nekrotische Energie in sich auf und hängen zwischen Leben und Tod und sind vorübergehend von Ihrem eigenen Geist besessen, erlangen Flugfähigkeit und die gleichen Immunitäten und Schadensresistenzen wie andere Geister.
+Condition/&HalfLifeConditionTitle	Halbwertszeit
+Feature/&DomainBattleDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Kampfdomäne
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Elementare (kalte) Domäne
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Elementare (Feuer) Domäne
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Elementare (Beleuchtung) Domäne
+Feature/&DomainInsightDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Insight-Domäne
+Feature/&DomainLawDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainLawDomainlevel1FeaturesTitle	Rechtsbereich
+Feature/&DomainLifeDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Lebensbereich
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Domäne des Unfugs
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Oblivion-Domäne
+Feature/&DomainSunDomainlevel1FeaturesDescription	Sie lernen die Level-1-Features dieser Domain kennen.
+Feature/&DomainSunDomainlevel1FeaturesTitle	Sun-Domäne
+Feature/&UrPriestDomainTheftDescription	Sie schnappen sich die Geheimnisse, die ein Gott all seinen frommen Kleriker gewährt. Wählen Sie eine Kleriker-Domain: Sie erhalten die Funktionen, die die Domain auf der 1. Ebene gewährt.
+Feature/&UrPriestDomainTheftTitle	Domain-Diebstahl
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Kleriker-Zauber werden für dich zur Hexenmeister-Zauberliste hinzugefügt.
+Feature/&UrPriestExpandedSpelllistAfinityTitle	Urpriester-Zauber
+Power/&UrPriestControlUndeadDescription	Als Aktion zielst du auf eine untote Kreatur, die du innerhalb von 9 m von dir sehen kannst. Das Ziel muss einen Weisheitsrettungswurf machen. Bei einem fehlgeschlagenen Speichern muss das Ziel Ihren Befehlen gehorchen.
+Power/&UrPriestControlUndeadTitle	Kontrolliere Untote
+Power/&UrPriestHalfLifeDescription	Du nimmst nekrotische Energie in dich auf, hängst zwischen Leben und Tod und bist vorübergehend von deinem eigenen Geist besessen. Sie erhalten Fluggeschwindigkeit und die gleichen Zustandsimmunitäten und Schadensresistenzen wie andere Geister.
+Power/&UrPriestHalfLifeTitle	Halbwertszeit
+Power/&UrPriestRadiantWardDescription	Als Aktion erhalten Sie eine Anzahl temporärer Trefferpunkte in Höhe des Doppelten Ihrer Stufe als Hexenmeister.
+Power/&UrPriestRadiantWardTitle	Strahlende Station
+Power/&UrPriestSpellSiphonDescription	Sie lernen, wie Sie in Kombination mit Ihrer normalen Kraftreserve eine größere Quelle der Magie anzapfen können. Als Aktion kannst du eine Göttlichkeit kanalisieren, um eine verbrauchte Nutzung deines mystischen Arkanums der 6. Stufe wiederzuerlangen.
+Power/&UrPriestSpellSiphonTitle	Siphon buchstabieren

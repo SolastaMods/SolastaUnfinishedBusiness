@@ -1,0 +1,305 @@
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	CA est réglé sur 16.
+AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Écorce
+Class/&ClassWarlockDescription	Les sorciers sont des chercheurs de la connaissance cachée dans le tissu du multivers. Grâce à des pactes conclus avec des êtres mystérieux au pouvoir surnaturel, les sorciers débloquent des effets magiques à la fois subtils et spectaculaires.
+Class/&ClassWarlockTitle	démoniste
+Condition/&AncientForestPhotosynthesisDescription	Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous regagnez 2 PV au début de votre tour.
+Condition/&AncientForestPhotosynthesisTitle	Photosynthèse
+Condition/&AncientForestRootedConditionDescription	Des vrilles arboricoles poussent à partir de vos pieds et s'enfoncent dans le sol. Vous pouvez lancer enchevêtrement à volonté. Votre vitesse passe à 0 et vous bénéficiez d'un avantage sur tous les jets de sauvegarde pour vous pousser, vous tirer ou vous assommer.
+Condition/&AncientForestRootedConditionTitle	Enraciné
+Condition/&MoonTouchedConditionDescription	Votre gravité est annulée.
+Condition/&MoonTouchedConditionTitle	Lune touchée
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Gagne une résistance aux dégâts d'acide pendant 1 heure.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Breuvage de protection acide
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Gagne une résistance aux dégâts de foudre pendant 1 heure.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Breuvage de protection contre la foudre
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Gagne une résistance aux dégâts nécrotiques pendant 1 heure.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Breuvage de protection nécrotique
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Gagne une résistance aux dégâts de poison pendant 1 heure.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Breuvage de protection contre le poison
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Gagne une résistance aux dégâts radiants pendant 1 heure.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Breuvage de Radiant Protection
+Equipment/&HerbalBrewHealingTitle	Breuvage de vivacité
+Equipment/&HerbalBrewToxifyingTitle	Breuvage de Toxification
+Feat/&MoonlitBonusCantripsDescription	Votre contrôle de la lumière de la lune a atteint un nouveau niveau. Vous pouvez lancer les sorts rayon de lune et feu féerique à volonté.
+Feat/&MoonlitBonusCantripsTitle	Contrôle de la lumière
+Feature/&AdditionalDamageAgonizingBlastDescription	Vous ajoutez votre modificateur de Charisme au premier jet de dégâts d'une attaque eldritch blast.
+Feature/&AdditionalDamageAgonizingBlastTitle	Explosion agonisante
+Feature/&AdditionalDamageHinderingBlastDescription	Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.
+Feature/&AdditionalDamageHinderingBlastTitle	Explosion gênante
+Feature/&AgonizingBlastDescription	Ajoutez votre modificateur de Charisme aux dégâts d'Eldritch Basts.
+Feature/&AgonizingBlastTitle	Explosion agonisante
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Âme habilitée
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Vous êtes renforcé et infligez un bonus de dégâts égal à votre maîtrise de toutes vos attaques.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Âme habilitée
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Une fois par repos court, vous pouvez invoquer une forme spirituelle d'une arme de votre pacte par une action libre. Par une action bonus, vous pouvez diriger l'arme comme vous le souhaitez pour attaquer vos ennemis. L'arme se déplace jusqu'à 20 pieds à chaque fois avant de frapper.
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Arme du pacte spirituel
+Feature/&AHWarlockClassPactBoonSetDescription	Au niveau 3, votre patron d'un autre monde vous accorde un cadeau pour vos loyaux services. Vous pouvez choisir entre :
+Feature/&AHWarlockClassPactBoonSetTitle	Aubaine du pacte
+Feature/&AHWarlockClassPactOfTheBladeSetDescription	Vous maîtrisez toutes les armes et vos attaques avec une arme sont considérées comme magiques.
+Feature/&AHWarlockClassPactOfTheBladeSetTitle	Pacte de la Lame
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Une fois par repos long, vous pouvez renforcer une arme avec le pouvoir des âmes. Cette arme utilise le modificateur de Charisme pour les jets d'attaque et de dégâts et compte comme magique jusqu'au repos prolongé.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Autonomisation de l'âme
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lame Soul vous permet de choisir parmi une liste étendue de sorts lorsque vous apprenez un sort Warlock. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Sorts d'âmelame
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Une fois par repos court, vous utilisez le pouvoir des âmes pour vous défendre. En utilisant une action bonus, vous gagnez des PV temporaires égaux à votre modificateur de niveau + Charisme.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Bouclier d'âme
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
+Feature/&AncientForestExpandedSpelllistAfinityTitle	Sorts de la forêt ancienne
+Feature/&AncientForestLightAffinityDescription	Vous pouvez absorber l'énergie du soleil. Tant que vous êtes en pleine lumière directe, vous gagnez 2 PV par round.
+Feature/&AncientForestLightAffinityTitle	Photosynthèse
+Feature/&AncientForestRegrowthDescription	Vous avez un réservoir de pouvoir de guérison qui se reconstitue lorsque vous prenez un long repos. Avec ce pool, vous pouvez restaurer un nombre total de points de vie égal à votre niveau d'Arcaniste × 5.
+Feature/&AncientForestRegrowthTitle	Repousse
+Feature/&ArmorofShadowsTitle	Armure des ombres
+Feature/&AscendantStepTitle	Étape ascendante
+Feature/&AspectoftheMoonDescription	Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
+Feature/&AspectoftheMoonTitle	Aspect de la Lune
+Feature/&BeguilingInfluenceDescription	Vous maîtrisez les compétences Tromperie et Persuasion.
+Feature/&BeguilingInfluenceTitle	Influence séduisante
+Feature/&BondoftheTalismanDescription	Téléportation jusqu'à 30 pieds.
+Feature/&BondoftheTalismanTitle	Talisman de téléportation
+Feature/&ChainsofCarceriDescription	Paralyse un céleste, un démon ou un élémental à moins qu'il ne réussisse un jet de sauvegarde de Sagesse.
+Feature/&ChainsofCarceriTitle	Chaînes de Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Vous apprenez à toucher le ki des autres esprits afin de comprendre toutes les langues parlées. De plus, toute créature qui peut comprendre une langue peut comprendre ce que vous dites.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Langue du Soleil et de la Lune
+Feature/&ClassWarlockArmorProficiencyDescription	Armure légère.
+Feature/&ClassWarlockArmorProficiencyTitle	Compétences d'armure de démoniste
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Sélectionnez Eldritch Invocation à remplacer.
+Feature/&ClassWarlockEldritchInvocationReplaceTitle	Remplacer l'invocation
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Ajoutez une invocation eldritch.
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Invocation occulte
+Feature/&ClassWarlockEldritchMasterDescription	vous pouvez puiser dans votre réserve intérieure de pouvoir mystique tout en suppliant votre patron de récupérer les emplacements de sorts dépensés. Vous pouvez passer 1 minute à implorer votre patron pour qu'il vous aide à récupérer tous vos emplacements de sorts dépensés grâce à votre fonction Pacte magique. Une fois que vous avez récupéré des emplacements de sorts avec cette capacité, vous devez terminer un repos long avant de pouvoir le faire à nouveau.
+Feature/&ClassWarlockEldritchMasterTitle	Maître occulte
+Feature/&ClassWarlockMysticArcanumSetDescription	Votre protecteur vous confie un secret magique appelé arcane. Vous pouvez lancer votre sort d'arcane une fois sans dépenser d'emplacement de sort. Vous devez terminer un repos long avant de pouvoir recommencer. Aux niveaux supérieurs, vous gagnez plus de sorts d'Arcaniste de votre choix qui peuvent être lancés de cette manière : un sort de niveau 6 au niveau 11, un sort de niveau 7 au niveau 13, un sort de niveau 8 au niveau 15 et un sort de niveau 9. sort de niveau au niveau 17.
+Feature/&ClassWarlockMysticArcanumSetTitle	Arcane Mystique
+Feature/&ClassWarlockSavingThrowProficiencyDescription	Sagesse, Charisme.
+Feature/&ClassWarlockSavingThrowProficiencyTitle	Compétences en jets de sauvegarde
+Feature/&ClassWarlockSkillProficiencyDescription	Choisissez 2 de ces compétences : Arcanes, Tromperie, Histoire, Intimidation, Enquête, Nature et Religion.
+Feature/&ClassWarlockSkillProficiencyTitle	Compétences de démoniste
+Feature/&ClassWarlockSpellcastingDescription	Vos recherches sur les arcanes et la magie que vous a conférée votre patron d'un autre monde vous ont facilité les sorts.
+Feature/&ClassWarlockSpellcastingTitle	Magie du pacte de démoniste
+Feature/&ClassWarlockToolsProficiencyDescription	Vous avez été formé pour préparer des remèdes à base de plantes et utiliser des équipements enchanteurs.
+Feature/&ClassWarlockToolsProficiencyTitle	Fabrication magique de démoniste
+Feature/&ClassWarlockWeaponProficiencyDescription	Armes simples.
+Feature/&ClassWarlockWeaponProficiencyTitle	Maîtrise des armes du démoniste
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Lorsque vous êtes réduit à 0 HP mais pas tué, vous pouvez tomber à 1 HP à la place.
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Endurance implacable
+Feature/&DevilsSightDescription	Vous pouvez voir normalement dans les ténèbres, à la fois magiques et non magiques, à une distance de 120 pieds.
+Feature/&DevilsSightTitle	La vue du diable
+Feature/&DH_BlinkDescription	Par une action bonus, vous disparaissez de votre plan d'existence actuel, évitant tous les dégâts. Au début de votre prochain tour, vous retournez dans la case d'où vous avez disparu.
+Feature/&DH_BlinkTitle	Cligner
+Feature/&DH_FadeIntoTheVoidDescription	Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, vous tombez à 1 point de vie à la place alors que vous vous fondez brièvement dans le vide pour réduire les dégâts. Vous ne pouvez plus utiliser cette fonctionnalité tant que vous n'avez pas terminé un repos long.
+Feature/&DH_FadeIntoTheVoidTitle	Fondu dans le vide
+Feature/&DH_RiftCloakDescription	Votre contrôle des portails de faille a augmenté au point que vous pouvez désormais accorder la protection de la faille à d'autres. Vous pouvez lancer Lien protecteur à volonté (sans partager les dégâts).
+Feature/&DH_RiftCloakTitle	Cape de faille
+Feature/&DH_RiftControlDescription	Brièvement entouré par l'énergie de la faille, vous vous téléportez dans un espace inoccupé. Vous pouvez désormais amener un allié avec vous lors de la téléportation et la portée a considérablement augmenté.
+Feature/&DH_RiftControlTitle	Portail de faille
+Feature/&DH_RiftStrikeDescription	Une fois par jour lorsqu'il est endommagé au corps à corps, vous pouvez utiliser votre réaction pour créer un portail qui bannit l'attaquant pendant 1 round de votre plan d'existence.
+Feature/&DH_RiftStrikeTitle	Frappe de faille
+Feature/&DH_RiftWalkDescription	Brièvement entouré par l'énergie du vide entre les mondes, vous vous téléportez jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir.
+Feature/&DH_RiftWalkTitle	Étape de la faille
+Feature/&DHAncientForestBonusCantripDescription	Votre patron partage des secrets sur la nature de la façon dont la magie naturelle et l'énergie vitale sont liées. Vous apprenez Shillelagh et Chill Touch.
+Feature/&DHAncientForestBonusCantripTitle	Tours mineurs bonus de la forêt ancienne
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Votre contrôle des énergies élémentaires a augmenté au point que vous avez maintenant la domination sur les élémentaux plus faibles. Vous pouvez lancer conjuration d'élémentaire mineur à volonté.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Sbires élémentaires
+Feature/&DHPactOfTheTomeFeatureSetDescription	Votre mécène vous donne un grimoire appelé Livre des Ombres. Lorsque vous gagnez cette capacité, choisissez trois sorts mineurs dans la liste de sorts de n'importe quelle classe. Les sorts mineurs n'ont pas besoin d'être de la même liste de sorts. Pendant que le livre est sur vous, vous pouvez lancer ces sorts mineurs à volonté. Ils ne comptent pas dans votre nombre de cantrips connus. Tout sort mineur que vous lancez avec cette capacité est considéré comme un sort mineur d'Arcaniste pour vous.
+Feature/&DHPactOfTheTomeFeatureSetTitle	Pacte du Tome
+Feature/&DHWardingBondBonusCantripDescription	Votre contrôle des portails de faille a augmenté au point que vous pouvez désormais accorder la protection de la faille à d'autres. Vous pouvez lancer Lien protecteur à volonté (sans partager les dégâts).
+Feature/&DHWardingBondBonusCantripTitle	Cape de faille
+Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Lorsque vous lancez l'invocation d'un familier, vous pouvez choisir l'une des formes spéciales suivantes : diablotin, pseudodragon, quasit ou sprite.
+Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Pacte de la Chaîne
+Feature/&DreadfulWordTitle	Mot terrible
+Feature/&EldritchBlastGraspingHandBonusCantripDescription	Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez déplacer cette créature en ligne droite à 3 mètres de vous.
+Feature/&EldritchBlastGraspingHandBonusCantripTitle	Explosion saisissante
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Lorsque vous touchez une créature avec un souffle eldritch, vous pouvez repousser la créature jusqu'à 3 mètres de vous en ligne droite.
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Explosion répulsive
+Feature/&EldritchMindDescription	Vous avez un avantage sur les jets de sauvegarde de Constitution que vous effectuez pour maintenir votre concentration sur un sort.
+Feature/&EldritchMindTitle	Esprit Eldritch
+Feature/&EldritchSightTitle	Vue occulte
+Feature/&EldritchSmiteDescription	Une fois par tour, lorsque vous touchez une créature avec votre arme du pacte, vous pouvez dépenser un emplacement de sort Démoniste pour infliger 1d8 dégâts de force supplémentaires à la cible, plus 1d8 supplémentaires par niveau de l'emplacement de sort.
+Feature/&EldritchSmiteTitle	Châtiment occulte
+Feature/&ElementalPactAirPlane	Avion
+Feature/&ElementalPactAstralPlane	Plan astral
+Feature/&ElementalPactEarthPlane	Plan de la Terre
+Feature/&ElementalPactEtherealPlane	Plan éthéré
+Feature/&ElementalPactFirePlane	Avion de pompiers
+Feature/&ElementalPactIcePlane	Avion de glace
+Feature/&ElementalPactShadowPlane	Plan d'ombre
+Feature/&ElementalPatronDummyFeatureSetTitle	Elémentaliste
+Feature/&ElementalPatronElementalConditionFormatDescription	Infligez {1} dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque tour.
+Feature/&ElementalPatronElementalConditionFormatTitle	Canaliser {0}
+Feature/&ElementalPatronElementalDamageFormatDescription	Lorsque vous canalisez {0}, infligez {1} de dégâts supplémentaires égaux à votre bonus de compétence lors d'un premier coup à chaque round.
+Feature/&ElementalPatronElementalDamageFormatTitle	Dégâts élémentaires : {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Lorsque vous canalisez le {0}, vous gagnez l'immunité contre {1} et appliquez le bonus de compétence en tant que dégâts du même type au premier coup à chaque tour.
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canaliser {0}
+Feature/&ElementalPatronElementalFormFormatDescription	Lorsque vous canalisez le {0}, vous gagnez une résistance aux dégâts de {1} et appliquez le bonus de compétence en tant que dégâts du même type pour le premier coup à chaque tour.
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level06Description	Votre connaissance des élémentaires a augmenté au point que vous bénéficiez désormais d'un avantage sur les tests de capacité envers les élémentaires et que vous infligez des dégâts supplémentaires contre les élémentaires égaux à votre niveau de connaissances. Vous ne pouvez plus être charmé ou effrayé par les élémentaires.
+Feature/&ElementalPatronFeatureSet_Level06Title	Connaissance des Elémentaires
+Feature/&EyesoftheRuneKeeperDescription	Vous pouvez lire tous les écrits.
+Feature/&EyesoftheRuneKeeperTitle	Les yeux du gardien des runes
+Feature/&FiendishVigorTitle	Vigueur diabolique
+Feature/&GiftoftheEverLivingOnesDescription	Récupère le nombre maximum de points de vie possible grâce à n'importe quel soin.
+Feature/&GiftoftheEverLivingOnesTitle	Don des éternels
+Feature/&GiftoftheProtectorsDescription	Lorsque vous êtes réduit à 0 points de vie mais que vous n'êtes pas tué sur le coup, la créature tombe comme par magie à 1 point de vie à la place. Une fois cette magie déclenchée, vous ne pouvez plus en bénéficier tant que vous n'avez pas terminé un repos long.
+Feature/&GiftoftheProtectorsTitle	Don des Protecteurs
+Feature/&HerbalBrewDescription	Lorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
+Feature/&HerbalBrewFeatureSetDescription	Vous gagnez en compétence avec le kit d'empoisonnement ou les kits d'herboristerie si vous ne l'avez pas déjà.\nLorsque vous terminez un repos long, vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Quickening Brew</color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
+Feature/&HerbalBrewFeatureSetTitle	Brassage aux herbes
+Feature/&HinderingBlastDescription	Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.
+Feature/&HinderingBlastMagicAffinityDescription	lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.
+Feature/&HinderingBlastMagicAffinityTitle	Explosion gênante
+Feature/&HinderingBlastTitle	Explosion gênante
+Feature/&ImprovedPactWeaponDescription	Vous pouvez utiliser n'importe quelle arme comme focalisateur de sorts pour vos sorts de démoniste. De plus, l'arme bénéficie d'un bonus de +1 à ses jets d'attaque et de dégâts.
+Feature/&ImprovedPactWeaponTitle	Arme du Pacte améliorée
+Feature/&MiretheMindTitle	Mire l'esprit
+Feature/&MoonLitDarknessImmunityDescription	Vous êtes immunisé contre la condition Obscurité.
+Feature/&MoonLitDarknessImmunityTitle	Ténèbres au clair de lune
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Sorts au clair de lune
+Feature/&MoonLitLightAffinityDescription	Si vous commencez votre tour dans l'obscurité naturelle, vous devenez invisible. Bouger, attaquer ou utiliser n'importe quel pouvoir ou sort qui ne cible pas seulement vous-même brise l'invisibilité.
+Feature/&MoonLitLightAffinityStrongDescription	La cape ombrale fonctionne désormais dans la pénombre et les ténèbres magiques.
+Feature/&MoonLitLightAffinityStrongTitle	Cape ombrale améliorée
+Feature/&MoonLitLightAffinityTitle	Cape ombrale
+Feature/&OneWithShadowsDescription	Si vous commencez votre tour dans l'obscurité naturelle, vous devenez invisible. Bouger, attaquer ou utiliser n'importe quel pouvoir ou sort qui ne cible pas seulement vous-même brise l'invisibilité.
+Feature/&OneWithShadowsLightAffinityDescription	Si vous commencez votre tour dans l'obscurité naturelle, vous devenez invisible. Bouger, attaquer ou utiliser n'importe quel pouvoir ou sort qui ne cible pas seulement vous-même brise l'invisibilité.
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows fonctionne désormais dans la pénombre et les ténèbres magiques.
+Feature/&OneWithShadowsLightAffinityStrongTitle	Ombres plus sombres
+Feature/&OneWithShadowsLightAffinityTitle	Un avec les ombres
+Feature/&OneWithShadowsStrongerDescription	One With Shadows fonctionne désormais dans la pénombre et les ténèbres magiques.
+Feature/&OneWithShadowsStrongerTitle	Ombres plus sombres
+Feature/&OneWithShadowsTitle	Un avec les ombres
+Feature/&OtherworldlyLeapTitle	Saut d'un autre monde
+Feature/&ProficiencySoulBladeArmorDescription	Armure légère, armure moyenne et bouclier.
+Feature/&ProficiencySoulBladeArmorTitle	Compétences d'armure Soulblade
+Feature/&ProficiencySoulBladeWeaponDescription	Armes simples, armes martiales.
+Feature/&ProficiencySoulBladeWeaponTitle	Maîtrise des armes Soulblade
+Feature/&RiftWalkerRestrainedImmunityTitle	Pas fugace
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
+Feature/&RiftWalkerSpellsMagicAffinityTitle	Sorts de marcheur de faille
+Feature/&ShroudofShadowTitle	Voile d'ombre
+Feature/&ThiefofFiveFates	Diffusez {0} une fois par jour
+Feature/&ThiefofFiveFatesTitle	Voleur des cinq destins
+Feature/&ThirstingBladeDescription	Vous pouvez attaquer avec votre arme deux fois, au lieu d'une, chaque fois que vous effectuez l'action Attaquer à votre tour.
+Feature/&ThirstingBladeTitle	Lame assoiffée
+Feature/&TrickstersEscapeTitle	L'évasion d'un escroc
+Feature/&WallofThornsFeatureSetDescription	Lancez Mur d'épines une fois par jour.
+Feature/&WallofThornsFeatureSetTitle	Barrière forestière
+Feedback/&AdditionalDamageAgonizing_BlastFormat	Explosion agonisante
+Feedback/&AdditionalDamageAgonizing_BlastLine	Lorsque vous lancez Explosion occulte, vous ajoutez votre modificateur de Charisme aux dégâts qu'il inflige en cas de coup.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Châtiment Eldritch !
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} châtie {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Dégâts élémentaires
+Feedback/&AdditionalDamageElementalDamageLine	La forme élémentaire inflige des dégâts supplémentaires
+Feedback/&AdditionalDamagePactMarkedFormat	Marque de pacte !
+Feedback/&AdditionalDamagePactMarkedLine	La marque du pacte inflige des dégâts supplémentaires !
+Feedback/&AdditionalDamagePactSoulTakerFormat	Preneur d'âme !
+Feedback/&AdditionalDamagePactSoulTakerLine	Soul taker inflige des dégâts supplémentaires !
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Soul Empowered!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered inflige des dégâts supplémentaires !
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} crée {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} crée {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} crée {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} crée {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} crée {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} crée {1}
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} crée {1}
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	L'arme utilise le modificateur de Charisme pour les jets d'attaque et de dégâts et compte comme magique jusqu'au repos long.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Âme habilitée
+Monster/&PactOfChainCustomImpDescription	Les Diablotins se trouvent partout dans les Plans Inférieurs, faisant des courses pour leurs maîtres infernaux, espionnant leurs rivaux ou trompant et traquant les mortels. Un diablotin servira fièrement un maître maléfique de toute sorte, mais on ne peut pas compter sur lui pour effectuer des tâches avec une quelconque rapidité ou efficacité.
+Monster/&PactOfChainCustomImpTitle	Diablotin (Pacte de chaîne)
+Monster/&PactOfChainCustomPseudodragonDescription	Le pseudodragon insaisissable habite dans les endroits calmes du monde, faisant sa maison dans les creux des arbres et des petites grottes. Avec ses écailles vertes, ses cornes et sa gueule remplie de dents acérées, un pseudo-dragon ressemble à un petit dragon vert mais sa disposition est ludique.
+Monster/&PactOfChainCustomPseudodragonTitle	Pseudo-dragon
+Monster/&PactOfChainCustomQuasitDescription	Les quasis infestent les plans inférieurs. Physiquement faibles, ils restent dans l'ombre pour comploter la malice et la méchanceté. Des démons plus puissants utilisent les quasits comme espions et messagers lorsqu'ils ne les dévorent pas ou ne les séparent pas pour passer le temps.
+Monster/&PactOfChainCustomQuasitTitle	Quasit (Pacte de Chaîne)
+Monster/&PactOfChainCustomSpriteDescription	Contrairement aux lutins, les sprites se livrent rarement à la gaieté et au plaisir frivoles. Ce sont des guerriers, des protecteurs et des juges fermes, et leur penchant sévère amène les autres fées à les considérer comme trop austères et sérieux. Cependant, les fées qui respectent le territoire des sprites trouvent en eux des alliés fidèles en cas de problème.
+Monster/&PactOfChainCustomSpriteTitle	Sprite (Pacte de chaîne)
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution DD 11 ou être empoisonnée.
+MonsterAttack/&AttackWarlockDragonStingTitle	Piqûre venimeuse
+MonsterAttack/&AttackWarlockImpStingDescription	Piqûre venimeuse d'un diablotin.
+MonsterAttack/&AttackWarlockImpStingTitle	Piqûre venimeuse
+MonsterAttack/&AttackWarlockQuasitStingTitle	Piqûre venimeuse
+Power/&AncientForestLifeSapDescription	Lorsque vous infligez des dégâts à un ennemi avec un sort, vous soignez des PV égaux à la moitié de votre niveau une fois par tour. Si vous avez moins de la moitié de vos PV, vous soignez à la place des PV égaux à votre niveau, mais seulement jusqu'à la moitié de vos PV maximum.
+Power/&AncientForestLifeSapTitle	Sève de vie
+Power/&AncientForestRootedPowerDescription	Des vrilles arboricoles poussent à partir de vos pieds et s'enfoncent dans le sol. Votre vitesse passe à 0 et vous bénéficiez d'un avantage à tous les jets de sauvegarde pour vous pousser, vous tirer ou vous assommer. Vous pouvez lancer enchevêtrement à volonté.
+Power/&AncientForestRootedPowerTitle	Enraciné
+Power/&DH_ElementalFormPoolDescription	Vous pouvez basculer entre les formes élémentaires un nombre de fois égal à votre bonus de maîtrise par repos long en canalisant l'énergie élémentaire. Vous gagnez une résistance aux dégâts concernés et une fois par tour, appliquez votre bonus de maîtrise sous forme de dégâts du même type aux premiers dégâts de sorts infligés ce tour-là. Les formulaires durent 1 minute.
+Power/&DH_ElementalFormPoolEnhancedDescription	Vous pouvez basculer entre les formes élémentaires améliorées un nombre de fois égal à votre bonus de compétence par jour en canalisant l'énergie élémentaire. Vous gagnez l'immunité contre les dégâts concernés et appliquez le bonus de compétence en tant que dégâts du même type aux premiers dégâts de sort à chaque tour. Les formulaires durent 1 minute.
+Power/&DH_ElementalFormPoolEnhancedTitle	Formes élémentaires améliorées
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Formes élémentaires
+Power/&DH_ElementalFormPoolTitle	Formes élémentaires
+Power/&FindFamiliarBundlePowerDescription	Invocation de familier sous la forme de Pseudorgagon, Sprite, Imp ou Quasit.
+Power/&FindFamiliarBundlePowerTitle	Trouver un familier
+Power/&MoonlitDanceoftheNightSkyDescription	Vous pouvez lancer Voler sur 4 cibles une fois par jour.
+Power/&MoonlitDanceoftheNightSkyTitle	Danse du ciel nocturne
+Power/&MoonlitDarkMoonDescription	Vous pouvez lancer Ténèbres un nombre de fois par repos long égal à votre bonus de maîtrise.
+Power/&MoonlitDarkMoonTitle	Lune Noire
+Power/&MoonlitFullMoonDescription	Vous pouvez lancer Lumière du jour un nombre de fois par repos long égal à votre bonus de maîtrise.
+Power/&MoonlitFullMoonTitle	Pleine lune
+Power/&MoonlitMoonTouchedDescription	Vous invoquez l'attraction gravitationnelle de la lune dans une petite zone, ce qui fait flotter vers le haut les créatures qui échouent à un jet de sauvegarde.
+Power/&MoonlitMoonTouchedTitle	Lune touchée
+Power/&PactofChainFamiliarInvisibilityPowerDescription	La créature devient magiquement invisible jusqu'à ce qu'elle attaque ou lance un sort, ou jusqu'à ce que sa concentration se termine (comme si elle se concentrait sur un sort). Tout équipement que la créature porte ou transporte est invisible avec elle.
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibilité
+Power/&PactofChainFamiliarScarePowerDescription	Une créature de votre choix située dans un rayon de 6 mètres doit réussir un jet de sauvegarde de Sagesse DD 10 ou être effrayée pendant 1 minute. La cible peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite.
+Power/&PactofChainFamiliarScarePowerTitle	Effrayer
+Reaction/&SpendPowerDH_RiftStrikeDescription	Une fois par repos long, lorsque vous êtes endommagé par une attaque au corps à corps, vous pouvez utiliser votre réaction pour créer un portail qui bannit l'attaquant pendant 1 round de votre plan d'existence.
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Frappe de faille
+Reaction/&SpendPowerDH_RiftStrikeTitle	Frappe de faille
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} peut dépenser un emplacement de sort pour infliger 1d8 dégâts de force et 1d8 dégâts supplémentaires par niveau d'emplacement à la cible.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Cliquez pour dépenser un emplacement de sort et augmenter les dégâts infligés à la cible.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Châtiment
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Châtiment occulte
+Reaction/&SubitemSelectEldritchSmiteDescription	Sélectionnez un niveau d'emplacement à consommer pour votre Eldritch Smite.
+Reaction/&SubitemSelectEldritchSmiteTitle	Niveau d'emplacement
+Requirement/&WarlockMissingEldritchBlast	Sort mineur Explosion occulte
+Requirement/&WarlockRequiresNoMoonLit	Patron non éclairé par la lune
+Requirement/&WarlockRequiresOneWithShadows	"Un avec les ombres" Invocation Eldritch
+Requirement/&WarlockRequiresPactOfBlade	Pacte de la Lame
+Requirement/&WarlockRequiresPactOfChain	Pacte des chaînes
+Requirement/&WarlockRequiresPactOfTome	Pacte du Tome
+Rules/&CounterFormDismissCreatureFormat	Ignorer la construction du bricoleur
+Spell/&AHPactMarkAdditionalDamageDescription	Une créature marquée par un pacte subit 1d6 dégâts supplémentaires du même type lorsqu'elle est touchée par une arme ou une attaque avec un sort du marqueur.
+Spell/&AHPactMarkAdditionalDamageTitle	Dégâts de la marque du pacte
+Spell/&AHPactMarkMarkedByPactConditionDescription	Cette créature a été marquée par un pacte et subit 1d6 dégâts supplémentaires du même type lorsqu'elle est touchée par une arme ou une attaque avec un sort du marqueur.
+Spell/&AHPactMarkMarkedByPactConditionTitle	Pacte marqué
+Spell/&AHPactMarkPactMarkConditionDescription	Vous pouvez marquer d'autres créatures avec une marque de pacte et vous leur infligez 1d6 dégâts supplémentaires avec des attaques avec une arme ou un sort.
+Spell/&AHPactMarkPactMarkConditionTitle	Marque du Pacte
+Spell/&AHPactMarkSpellDescription	Vous placez une marque de votre pacte sur une créature que vous pouvez voir à moins de 90 pieds. Il devient vulnérable et subit 1d6 dégâts supplémentaires chaque fois que vous le touchez avec une arme ou un sort. Ces dégâts sont du même type que l'attaque qui touche.
+Spell/&AHPactMarkSpellTitle	Marque du Pacte
+Spell/&AirBlastDescription	Tire une rafale d'air concentré sur votre cible.
+Spell/&AirBlastTitle	Jet d'air
+Spell/&EldritchBlastDescription	Un faisceau d'énergie crépitante se dirige vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. En cas de coup, la cible subit 1d10 dégâts de force.\nLe sort crée plus d'un rayon lorsque vous atteignez des niveaux supérieurs : deux rayons au niveau 5, trois rayons au niveau 11 et quatre rayons au niveau 17. Vous pouvez diriger les faisceaux vers la même cible ou vers des cibles différentes. Effectuez un jet d'attaque séparé pour chaque rayon.
+Spell/&EldritchBlastGraspingHandDescription	Un faisceau d'énergie crépitante se dirige vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. En cas de coup, la cible subit 1d10 dégâts de force.\n(Lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez déplacer cette créature en ligne droite de 3 mètres plus près de vous.)
+Spell/&EldritchBlastGraspingHandTitle	Explosion Eldritch (Saisir)
+Spell/&EldritchBlastRepellingBlastDescription	Un faisceau d'énergie crépitante se dirige vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. En cas de coup, la cible subit 1d10 dégâts de force.\n(Lorsque vous touchez une créature avec un souffle eldritch, vous pouvez repousser la créature jusqu'à 3 mètres de vous en ligne droite.)
+Spell/&EldritchBlastRepellingBlastTitle	Eldritch Blast (repoussant)
+Spell/&EldritchBlastTitle	Explosion Eldritch
+Spell/&EldritchOrbDescription	Vous lancez une boule d'énergie eldritch sur une créature ou un objet à portée et infligez des dégâts de force dans un petit rayon.
+Spell/&EldritchOrbTitle	Orbe occulte
+Spell/&HinderingBlastDescription	Un faisceau d'énergie crépitante se dirige vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. En cas de coup, la cible subit 1d10 dégâts de force.\n(lorsque vous touchez une créature avec votre souffle eldritch, vous pouvez réduire la vitesse de cette créature de 3 mètres jusqu'à la fin de votre prochain tour.).
+Spell/&HinderingBlastTitle	Explosion Eldritch (Gênant)
+SpellList/&ClassWarlockSpellListDescription	Liste de sorts de démoniste.
+SpellList/&ClassWarlockSpellListTitle	Liste de sorts de démoniste
+SpellList/&RiftWalkerSpellsListDescription	Liste de sorts RiftWalker.
+SpellList/&RiftWalkerSpellsListTitle	Liste de sorts de Rift Walker
+Stage/&SubclassSelectionStagePatronDescription	Un démoniste est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre Warlock et mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
+Stage/&SubclassSelectionStagePatronFeatures	Caractéristiques des clients d'un autre monde
+Stage/&SubclassSelectionStagePatronHeader	Mécènes d'un autre monde démoniste
+Stage/&SubclassSelectionStagePatronTitle	Clients d'un autre monde
+Subclass/&AHWarlockSubclassSoulBladePactDescription	Vous avez conclu un marché avec une arme sensible que vous nourrissez des âmes en échange de pouvoir.
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Pacte d'Amelame
+Subclass/&ClassWarlockPatronDescription	Un démoniste est défini par un pacte avec un être d'un autre monde. Parfois, la relation entre Warlock et mécène ressemble à celle d'un clerc et d'une divinité, bien que les êtres qui servent de mécènes ne soient pas des dieux.
+Subclass/&ClassWarlockPatronTitle	Mécène d'un autre monde
+Subclass/&DHWarlockSubclassElementalPatronDescription	Vous avez conclu un pacte avec et avez été changé par les primordiaux présents dans les badlands élémentaires. Le chaos élémentaire du patron a imprégné votre âme, vous permettant d'utiliser le pouvoir de différents types élémentaires.
+Subclass/&DHWarlockSubclassElementalPatronTitle	Pacte d'élémentaliste
+Subclass/&DHWarlockSubclassRiftWalkerDescription	Votre patron est l'un des rares êtres qui habitent le vide entre les mondes. Ils se glissent facilement entre les plans et les connaissances que vous avez acquises en interagissant avec eux vous permettent d'exploiter les énergies de faille persistantes à votre avantage au sein de solasta. Vous pourriez parfois être rempli d'un désir ardent pour le royaume lointain de votre patron, d'un désir d'errer entre les dimensions pour le reste de vos jours, ou de surveiller les signes d'un autre événement Rift, que ce soit pour prévenir ou encourager.
+Subclass/&DHWarlockSubclassRiftWalkerTitle	Pacte des marcheurs du Rift
+Subclass/&WarlockAncientForestDescription	Vous avez forgé une relation avec une entité naturelle puissante : Dryades antiques, Archidruides, Manifestations de la Feywild saignant dans le plan matériel, Dieux oubliés d'un âge primitif. Votre patron peut souhaiter que vous protégiez le monde naturel, voyagez dans des terres lointaines qu'il ne peut pas, ou il peut avoir un autre motif qui semble impénétrable aux mortels de courte durée.
+Subclass/&WarlockAncientForestTitle	Pacte de la forêt antique
+Subclass/&WarlockMoonLitDescription	Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et en chargent leurs sorciers, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
+Subclass/&WarlockMoonLitTitle	Pacte au clair de lune
+Subclass/&WarlockToadKingDescription	Fey, démon ou aberration causée par le cataclysme, la vraie nature du roi crapaud n'est pas connue, mais on sait que le roi crapaud règne sur une vaste zone de marécages et de marais dans les Badlands et offre du pouvoir à ceux qui veulent servir.
+Subclass/&WarlockToadKingTitle	Pacte du roi crapaud
+Subclass/&WarlockUrPriestDescription	Alors que la grande majorité des lanceurs de sorts divins tirent leurs pouvoirs d'une divinité, il y a ceux qui méprisent les dieux. Ceux qui se font appeler Ur-prêtres ont appris à siphonner les énergies divines accordées par les dieux à leurs lanceurs de sorts divins, en les utilisant pour leurs propres besoins sans même faire semblant d'être du bout des lèvres. En tant que prêtre d'Ur, vous êtes différent de la plupart des sorciers, car il vous manque un patron qui vous accorde votre pouvoir. Les invocations occultes que vous découvrez sont des formes déformées de magie que les dieux pourraient accorder à leurs patrons, tandis que les avantages du pacte sont probablement des artefacts divins que vous avez réussi à voler.
+Subclass/&WarlockUrPriestTitle	Pacte d'UrPrêtre

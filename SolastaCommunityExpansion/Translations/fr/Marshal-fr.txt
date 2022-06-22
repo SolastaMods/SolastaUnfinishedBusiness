@@ -1,0 +1,23 @@
+Reaction/&CoordinatedAttackDescription	{0} a été attaqué en coordonnant l'attaque, certains personnages peuvent utiliser leur réaction pour rejoindre cette attaque.
+Reaction/&CoordinatedAttackReactDescription	Utilisez la réaction pour attaquer la cible.
+Reaction/&CoordinatedAttackReactTitle	Attaque
+Reaction/&CoordinatedAttackTitle	Attaque coordonnée
+Reaction/&SubitemSelectCoordinatedAttackTitle	Sélectionnez l'action
+Subclass/&FighterMarshalCoordinatedAttackDescription	Lorsque vous frappez un ennemi avec une attaque au corps à corps, vos alliés peuvent utiliser leur réaction pour effectuer une attaque d'opportunité contre votre cible.
+Subclass/&FighterMarshalCoordinatedAttackTitle	Attaque coordonnée
+Subclass/&FighterMarshalDescription	Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont des orchestres célèbres du champ de bataille.
+Subclass/&FighterMarshalEncouragementPowerDescription	Le courage du maréchal inspire son membre du parti. Les alliés à moins de 3 mètres de lui ajoutent 1d4 au jet d'attaque et au jet de sauvegarde.
+Subclass/&FighterMarshalEncouragementPowerTitle	Encouragement
+Subclass/&FighterMarshalEternalComradeFeatureSetDescription	Le lien entre le maréchal et son camarade franchit la frontière entre la vie et la mort. Par une action bonus, le maréchal peut invoquer un esprit de ses camarades tombés pour l'aider au combat.
+Subclass/&FighterMarshalEternalComradeFeatureSetTitle	Camarade éternel
+Subclass/&FighterMarshalFearlessCommanderFeatureSetDescription	Vous êtes immunisé contre l'effet de peur.
+Subclass/&FighterMarshalFearlessCommanderFeatureSetTitle	Commandant intrépide
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetDescription	Vous ajoutez votre niveau de connaissance de votre cible actuelle à vos jets d'attaque et de dégâts.
+Subclass/&FighterMarshalKnowYourEnemyFeatureSetTitle	Connais ton ennemi
+Subclass/&FighterMarshalStudyYourEnemyPowerDescription	En tant qu'action bonus, vous pouvez tenter d'augmenter vos connaissances sur votre cible en lançant un test de Survie. Vous pouvez le faire deux fois par repos court.
+Subclass/&FighterMarshalStudyYourEnemyPowerTitle	Étudiez votre ennemi
+Subclass/&FighterMarshalSummonEternalComradePowerDescription	Invoquez 1 esprit du camarade déchu du maréchal. Chaque esprit a 45 + deux fois votre niveau de combattant en PV et sa CA est de 16 + votre bonus de compétence. Les esprits sont immunisés contre les conditions empoisonnées, froides, nécrotiques, enclines, paralysées et restreintes. Les esprits ont une résistance au feu, à l'acide, à la foudre et aux dégâts du tonnerre et ont une résistance aux dégâts non magiques tranchants, contondants et perforants. À leur tour, ils peuvent voler jusqu'à 15 mètres et effectuer une seule attaque au corps à corps avec une arme qui inflige 2d6 + 5 dégâts magiques tranchants avec un bonus de 5 + bonus de maîtrise pour toucher.
+Subclass/&FighterMarshalSummonEternalComradePowerTitle	Invocation d'un camarade éternel
+Subclass/&FighterMarshalTitle	Maréchal
+Subclass/&MarshalEternalComradeDescription	Camarade tombé
+Subclass/&MarshalEternalComradeTitle	Camarade tombé

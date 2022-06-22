@@ -1,0 +1,57 @@
+BlueprintCategory/&FlatRoomsTitle	Camere piatte
+Caption/&GadgetParametersCustomRemoveDescription	Rimuovere:\n{0}.
+ContentPack/&CommunityExpansionPackDescription	Il pacchetto di espansione della comunità aggiunge nuove classi, sottoclassi, talenti e incantesimi. C'è un limite di livello superiore, multi-classe, funzionalità QOL, correzioni di bug e altro ancora. È un vero e proprio Horn of Plenty (TM)...
+ContentPack/&CommunityExpansionPackTitle	Pacchetto di espansione della comunità
+Failure/&FailureFlagTargetMeleeWeaponError	Non è possibile eseguire attacchi in mischia su questo bersaglio con l'arma attuale
+Feature/&AlwaysBeardDescription	{0}% di possibilità di farsi crescere una barba gloriosa!
+Feature/&BardSkillsTitle	Abilità da bardo
+Feature/&EmptyString	VUOTO
+Format/&LevelAndExperienceFormat	Livello: {0}\nEsperienza: {1}\n{2} punti richiesti per raggiungere il livello {3}
+Format/&LevelAndExperienceMaxedFormat	Livello: {0}\nEsperienza: {1}\nlivello massimo raggiunto
+MainMenu/&ExportPdfDescription	Abbassa di livello questo eroe.
+MainMenu/&ExportPdfTitle	Livello giù
+Message/&CharacterExportDuplicateNameErrorDescription	Esportazione annullata:\n\nUn eroe con questo nome esiste già nella piscina.\nProva con un nome diverso.
+Message/&CharacterExportEmptyNameErrorDescription	Esportazione annullata:\n\nProva con un nome non vuoto.
+Message/&CharacterExportModalContentDescription	Inserisci il nome dell'eroe da esportare:
+Message/&CharacterExportModalTitleDescription	Esportazione caratteri.
+Message/&LevelDownConfirmationDescription	Abbassare di livello questo eroe?
+Message/&LevelDownMultiplayerAbortDescription	Impossibile scendere di livello durante una sessione multiplayer.
+Message/&MessageModWelcomeDescription	La Community Expansion Mod è ricca di interessanti funzionalità, ma per impostazione predefinita nessuna è abilitata. Premi <color=yellow>Ctrl-F10</color> per aprire l'interfaccia utente di Unity Mod Manager [UMM], quindi fai clic sull'icona delle impostazioni accanto a "Espansione della community" per aprire le pagine delle impostazioni.\n\n Esplora le opzioni e seleziona quelle che ti piacciono. L'interfaccia utente di UMM si aprirà ora.
+Message/&MessageModWelcomeTitle	Espansione della Comunità Mod
+Message/&RespecMultiplayerAbortDescription	Impossibile rispettare durante una sessione multiplayer o su una mappa di esplorazione.
+Message/&SpawnCustomEncounterDescription	Genera l'incontro alle coordinate ({0}, {1})?
+Message/&SpawnCustomEncounterErrorDescription	Impossibile generare incontri in una partita multiplayer. Ancora...
+Message/&SpawnCustomEncounterTitle	Incontrare
+Message/&TeleportPartyDescription	Teletrasportare il gruppo alle coordinate ({0}, {1})?\nPotresti interrompere missioni o mappe se ti teletrasporti in un luogo sconosciuto.
+Message/&TeleportPartyTitle	Teletrasporto
+Reaction/&ReadiedAction{0}Description	Pronto {0}
+Reaction/&ReadiedAction{0}Title	Pronto {0}
+Reaction/&SpendPower{0}Description	Spendi {0}
+Reaction/&SpendPower{0}Title	Spendi {0}
+Reaction/&SpendPowerBundleDescription	Spendi potere.
+Reaction/&SpendPowerBundleTitle	Spendi potere
+Reaction/&SubitemSelectPowerBundleTitle	Opzioni
+Reaction/&SubitemSelectSlotLevelTitle	Livello slot
+Reaction/&Use{0}Description	Usa {0}
+Reaction/&Use{0}Title	Usa {0}
+Requirement/&FeatureSelectionRequireCharacterLevel	Livello {0}
+Requirement/&FeatureSelectionRequireClassLevel	Livello {0} di {1}
+RestActivity/&ZSRespecDescription	Rispetta questo eroe.
+RestActivity/&ZSRespecTitle	Rispetta
+Screen/&EditorLocationSize3Title	Enorme [MODDED]
+Screen/&EditorLocationSize4Title	Gigantesco [MODDED]
+Stage/&IdentityMorphotypeEyeHeader	Stile degli occhi
+ToolTip/&CheckBoxDefaultPartyTitle	Seleziona questa casella per impostare la tua festa predefinita quando inizi nuove avventure o test di posizioni personalizzate. Puoi selezionare fino a {0} eroi in base al principio "first-in/first-out".
+Tooltip/&Tag9000Title	Effetto personalizzato
+Tooltip/&TagCommunityExpansionTitle	Espansione della comunità
+Tooltip/&TagOtherModContentTitle	Dal mod
+UI/&CustomFeatureSelectionStageDescription	Seleziona funzionalità extra dalla tua classe/sottoclasse.
+UI/&CustomFeatureSelectionStageFeatures	Caratteristiche
+UI/&CustomFeatureSelectionStageNotDone	È necessario selezionare tutte le funzionalità disponibili prima di procedere
+UI/&CustomFeatureSelectionStageTitle	Selezione delle funzioni
+UI/&CustomFeatureSelectionTooltipTypeCantrip	Trucchetto
+UI/&CustomFeatureSelectionTooltipTypeFeature	Caratteristica
+UI/&CustomFeatureSelectionTooltipTypePower	Potenza
+UI/&CustomFeatureSelectionTooltipTypeProficiency	Competenza
+UI/&ForcePreferredCantripDescription	Se questa opzione è attivata, può essere attivato solo il trucchetto preferito. Se il trucchetto preferito non è selezionato, verrà attivato il primo trucchetto valido, indipendentemente da questo interruttore.
+UI/&ForcePreferredCantripTitle	Trucchetto preferito dalla forza

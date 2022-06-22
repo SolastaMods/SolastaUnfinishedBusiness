@@ -1,0 +1,293 @@
+Equipment/&CEHalberdTypeTitle	alabardas
+Equipment/&CEHandXbowTypeTitle	Ballestas de mano
+Equipment/&CELongMaceTypeTitle	Mazas Largas
+Equipment/&CEPikeTypeTitle	picas
+Equipment/&DruidicAmuletDescription	Este amuleto totémico se puede utilizar como foco para lanzar hechizos druídicos.
+Equipment/&DruidicAmuletTitle	Amuleto druídico
+Equipment/&Enchanted_Club_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Club_Acuteness_Title	club de la agudeza
+Equipment/&Enchanted_Club_Bearclaw_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Las puntas afiladas de la garra del oso destrozan la armadura para infligir daño adicional. La primera arma de este tipo fue diseñada por Ildurial Stronghand.
+Equipment/&Enchanted_Club_Bearclaw_Title	Garra de oso
+Equipment/&Enchanted_Club_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Club_Lightbringer_Title	Club de Iluminados
+Equipment/&Enchanted_Club_Power_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Algunas criaturas solo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon este club para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
+Equipment/&Enchanted_Club_Power_Title	club de poder
+Equipment/&Enchanted_Club_Punisher_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. La combinación del mejor metal y Slavestone le dio a este hacha un increíble poder de perforación.
+Equipment/&Enchanted_Club_Punisher_Title	club del castigador
+Equipment/&Enchanted_Dart_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Dart_Acuteness_Title	Dardo de agudeza
+Equipment/&Enchanted_Dart_Frostburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.
+Equipment/&Enchanted_Dart_Frostburn_Title	Dardo de escarcha
+Equipment/&Enchanted_Dart_Sharpness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Dart_Sharpness_Title	Dardo de nitidez
+Equipment/&Enchanted_Dart_Souldrinker_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Una de las favoritas de los agentes de Silent Whisper, esta arma fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Dart_Souldrinker_Title	Dardo bebealmas
+Equipment/&Enchanted_Handaxe_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Handaxe_Acuteness_Title	Hacha de mano de la agudeza
+Equipment/&Enchanted_Handaxe_Frostburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.
+Equipment/&Enchanted_Handaxe_Frostburn_Title	Hacha de mano Frostburn
+Equipment/&Enchanted_Handaxe_Sharpness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Handaxe_Sharpness_Title	Hacha de mano de nitidez
+Equipment/&Enchanted_Handaxe_Souldrinker_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Una de las favoritas de los agentes de Silent Whisper, esta arma fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Handaxe_Souldrinker_Title	Hacha de mano de bebedor de almas
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. Su diseño original llevaba el sigilo de Defineth Sharpsight, un renombrado encantador de elfos silvanos.
+Equipment/&Enchanted_HeavyCrossbow_Accuracy_Title	Ballesta pesada de precisión
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_HeavyCrossbow_Lightbringer_Title	Ballesta pesada Portadora de la Luz
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. La magia combinó el coral de medusa y la madera dura para crear un arco mortal, el favorito de los grupos de abordaje de los medianos de la isla.
+Equipment/&Enchanted_HeavyCrossbow_Medusa_Title	Ballesta pesada Medusa
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. Coedymwarth prefería tratar con los arcanistas de Manacalon físicamente en lugar de mágicamente. Sus mejores arqueros recibieron ballestas, creación de Defineth Sharpsight.
+Equipment/&Enchanted_HeavyCrossbow_Sharpshooting_Title	Ballesta pesada de puntería
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. ¡Fue diseñado por Galar Stromforge, el primer herrero enano en aprovechar el poder de la tormenta en un arma con efectos devastadores!
+Equipment/&Enchanted_HeavyCrossbow_Stormbow_Title	Ballesta de tormenta pesada
+Equipment/&Enchanted_HideArmor_Deflection_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_HideArmor_Deflection_Title	Ocultar armadura de desviación
+Equipment/&Enchanted_HideArmor_FlameDancing_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_HideArmor_FlameDancing_Title	Ocultar armadura de baile de llamas
+Equipment/&Enchanted_HideArmor_FrostWalking_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_HideArmor_FrostWalking_Title	Hide Armor of Frost Walking
+Equipment/&Enchanted_HideArmor_Robustness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_HideArmor_Robustness_Title	Ocultar armadura de robustez
+Equipment/&Enchanted_HideArmor_Sturdiness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_HideArmor_Sturdiness_Title	Armadura de piel de solidez
+Equipment/&Enchanted_HideArmor_Survival_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_HideArmor_Survival_Title	Ocultar armadura de supervivencia
+Equipment/&Enchanted_Javelin_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Javelin_Acuteness_Title	Jabalina de agudeza
+Equipment/&Enchanted_Javelin_Frostburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.
+Equipment/&Enchanted_Javelin_Frostburn_Title	Jabalina quemadaescarcha
+Equipment/&Enchanted_Javelin_Sharpness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Javelin_Sharpness_Title	Jabalina de nitidez
+Equipment/&Enchanted_Javelin_Souldrinker_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Una de las favoritas de los agentes de Silent Whisper, esta arma fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Javelin_Souldrinker_Title	Jabalina bebealmas
+Equipment/&Enchanted_LeatherDruid_Deflection_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_LeatherDruid_Deflection_Title	Cuero de druida de desviación
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_LeatherDruid_FlameDancing_Title	Cuero de druida de baile de llamas
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_LeatherDruid_FrostWalking_Title	Druida Cuero de Escarcha Caminando
+Equipment/&Enchanted_LeatherDruid_Robustness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_LeatherDruid_Robustness_Title	Cuero de robustez de druida
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_LeatherDruid_Sturdiness_Title	Cuero de robustez de druida
+Equipment/&Enchanted_LeatherDruid_Survival_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_LeatherDruid_Survival_Title	Cuero de supervivencia de druida
+Equipment/&Enchanted_LightCrossbow_Accuracy_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. Su diseño original llevaba el sigilo de Defineth Sharpsight, un renombrado encantador de elfos silvanos.
+Equipment/&Enchanted_LightCrossbow_Accuracy_Title	Ballesta ligera de precisión
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_LightCrossbow_Lightbringer_Title	Ballesta ligera Iluminadora
+Equipment/&Enchanted_LightCrossbow_Medusa_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. La magia combinó el coral de medusa y la madera dura para crear un arco mortal, el favorito de los grupos de abordaje de los medianos de la isla.
+Equipment/&Enchanted_LightCrossbow_Medusa_Title	Ballesta ligera Medusa
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. Coedymwarth prefería tratar con los arcanistas de Manacalon físicamente en lugar de mágicamente. Sus mejores arqueros recibieron ballestas, creación de Defineth Sharpsight.
+Equipment/&Enchanted_LightCrossbow_Sharpshooting_Title	Ballesta ligera de puntería
+Equipment/&Enchanted_LightCrossbow_Stormbow_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros arqueros de Colthannin. ¡Fue diseñado por Galar Stromforge, el primer herrero enano en aprovechar el poder de la tormenta en un arma con efectos devastadores!
+Equipment/&Enchanted_LightCrossbow_Stormbow_Title	Ballesta de tormenta ligera
+Equipment/&Enchanted_Maul_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Maul_Acuteness_Title	Mazo de agudeza
+Equipment/&Enchanted_Maul_Bearclaw_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Las puntas afiladas de la garra del oso destrozan la armadura para infligir daño adicional. La primera arma de este tipo fue diseñada por Ildurial Stronghand.
+Equipment/&Enchanted_Maul_Bearclaw_Title	Mazo garra de oso
+Equipment/&Enchanted_Maul_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Maul_Lightbringer_Title	Mazo Iluminado
+Equipment/&Enchanted_Maul_Power_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Algunas criaturas solo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon este Maul para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
+Equipment/&Enchanted_Maul_Power_Title	mazo de poder
+Equipment/&Enchanted_Maul_Punisher_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. La combinación del mejor metal y Slavestone le dio a este hacha un increíble poder de perforación.
+Equipment/&Enchanted_Maul_Punisher_Title	mazo del castigador
+Equipment/&Enchanted_Quarterstaff_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Quarterstaff_Acuteness_Title	Quarterstaff de agudeza
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Lestoreth Steelarm para luchar en el norte helado del Imperio.
+Equipment/&Enchanted_Quarterstaff_Dragonblade_Title	Bastón de hoja de dragón
+Equipment/&Enchanted_Quarterstaff_Frostburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.
+Equipment/&Enchanted_Quarterstaff_Frostburn_Title	Garrocha quemada por Escarcha
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Quarterstaff_Lightbringer_Title	Cuarto de bastón de Iluminado
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Una de las favoritas de los agentes de Silent Whisper, esta arma fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Quarterstaff_Souldrinker_Title	Bastón de bebedor de almas
+Equipment/&Enchanted_Quarterstaff_Stormblade_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. ¡Fue diseñado por Galar Stromforge, el primer herrero enano en aprovechar el poder de la tormenta en un arma con efectos devastadores!
+Equipment/&Enchanted_Quarterstaff_Stormblade_Title	Cuartel de hoja tormentosa
+Equipment/&Enchanted_Quarterstaff_Warden_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Ildurial Strongarm, un famoso herrero de Manacalon. La primera espada de este tipo, la Manacalon Warden, se ofreció al comandante de Euraidd.
+Equipment/&Enchanted_Quarterstaff_Warden_Title	Cuarto de bastón de guardián
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Whiteburn fue creado por el primer Danantar para luchar contra una invasión troll proveniente de los pantanos al sur de su dominio entre Sioltafin y Scarafin.
+Equipment/&Enchanted_Quarterstaff_Whiteburn_Title	Cuartel de Whiteburn
+Equipment/&Enchanted_Rapier_Dragonblade_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Lestoreth Steelarm para luchar en el norte helado del Imperio.
+Equipment/&Enchanted_Rapier_Dragonblade_Title	Estoque de hoja de dragón
+Equipment/&Enchanted_Rapier_Frostburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.
+Equipment/&Enchanted_Rapier_Frostburn_Title	Estoque quemado de escarcha
+Equipment/&Enchanted_Rapier_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Rapier_Lightbringer_Title	Estoque Iluminado
+Equipment/&Enchanted_Rapier_Power_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Algunas criaturas solo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon este Estoque para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
+Equipment/&Enchanted_Rapier_Power_Title	Estoque de poder
+Equipment/&Enchanted_Rapier_Souldrinker_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Una de las favoritas de los agentes de Silent Whisper, esta arma fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Rapier_Souldrinker_Title	Estoque de bebealmas
+Equipment/&Enchanted_Rapier_Stormblade_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. ¡Fue diseñado por Galar Stromforge, el primer herrero enano en aprovechar el poder de la tormenta en un arma con efectos devastadores!
+Equipment/&Enchanted_Rapier_Stormblade_Title	Estoque de hoja tormentosa
+Equipment/&Enchanted_Rapier_Warden_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Ildurial Strongarm, un famoso herrero de Manacalon. La primera espada de este tipo, la Manacalon Warden, se ofreció al comandante de Euraidd.
+Equipment/&Enchanted_Rapier_Warden_Title	estoque del guardián
+Equipment/&Enchanted_Rapier_Whiteburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Whiteburn fue creado por el primer Danantar para luchar contra una invasión troll proveniente de los pantanos al sur de su dominio entre Sioltafin y Scarafin.
+Equipment/&Enchanted_Rapier_Whiteburn_Title	Estoque de Whiteburn
+Equipment/&Enchanted_Scimitar_Dragonblade_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Lestoreth Steelarm para luchar en el norte helado del Imperio.
+Equipment/&Enchanted_Scimitar_Dragonblade_Title	Cimitarra de hoja de dragón
+Equipment/&Enchanted_Scimitar_Frostburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Keliandir Moltenheart, quien forjó esta arma para luchar contra las salamandras después de que una exploración de los planos elementales saliera mal.
+Equipment/&Enchanted_Scimitar_Frostburn_Title	Cimitarra quemada por escarcha
+Equipment/&Enchanted_Scimitar_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Scimitar_Lightbringer_Title	Cimitarra Iluminada
+Equipment/&Enchanted_Scimitar_Souldrinker_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Una de las favoritas de los agentes de Silent Whisper, esta arma fue diseñada por Cylordir Redblade.
+Equipment/&Enchanted_Scimitar_Souldrinker_Title	Cimitarra bebealmas
+Equipment/&Enchanted_Scimitar_Stormblade_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. ¡Fue diseñado por Galar Stromforge, el primer herrero enano en aprovechar el poder de la tormenta en un arma con efectos devastadores!
+Equipment/&Enchanted_Scimitar_Stormblade_Title	Cimitarra hoja tormentosa
+Equipment/&Enchanted_Scimitar_Warden_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Fue diseñado por Ildurial Strongarm, un famoso herrero de Manacalon. La primera espada de este tipo, la Manacalon Warden, se ofreció al comandante de Euraidd.
+Equipment/&Enchanted_Scimitar_Warden_Title	Cimitarra de guardián
+Equipment/&Enchanted_Scimitar_Whiteburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Whiteburn fue creado por el primer Danantar para luchar contra una invasión troll proveniente de los pantanos al sur de su dominio entre Sioltafin y Scarafin.
+Equipment/&Enchanted_Scimitar_Whiteburn_Title	Cimitarra de quemadura blanca
+Equipment/&Enchanted_Shield_Deflection_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Deflection_Title	Escudo de desviación
+Equipment/&Enchanted_Shield_FlameDancing_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_FlameDancing_Title	Escudo de baile de llamas
+Equipment/&Enchanted_Shield_FrostWalking_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_FrostWalking_Title	Escudo de Escarcha Caminando
+Equipment/&Enchanted_Shield_Robustness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Robustness_Title	Escudo de robustez
+Equipment/&Enchanted_Shield_Sturdiness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Sturdiness_Title	Escudo de solidez
+Equipment/&Enchanted_Shield_Survival_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Survival_Title	Escudo de supervivencia
+Equipment/&Enchanted_Shield_Wooden_Deflection_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Wooden_Deflection_Title	Escudo de madera de desviación
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Wooden_FlameDancing_Title	Escudo de madera de baile de llamas
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Wooden_FrostWalking_Title	Escudo de madera de Frost Walking
+Equipment/&Enchanted_Shield_Wooden_Robustness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Wooden_Robustness_Title	Escudo de madera de robustez
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Wooden_Sturdiness_Title	Escudo de madera de solidez
+Equipment/&Enchanted_Shield_Wooden_Survival_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_Shield_Wooden_Survival_Title	Escudo de madera de supervivencia
+Equipment/&Enchanted_Spear_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Acuteness_Title	Lanza de agudeza
+Equipment/&Enchanted_Spear_BlackViper_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon, usando una lanza y el veneno de una araña legendaria de las profundidades de Solasta. El diseñador de la hoja fue Grigg Blackheart, un famoso herrero mediano de Marsh que trabajaba en las forjas de Aer Elai.
+Equipment/&Enchanted_Spear_BlackViper_Title	Lanza de víbora negra
+Equipment/&Enchanted_Spear_Doomblade_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Kenaloth Darkmind ideó Doombblades como una herramienta de castigo para aquellos que resistieron la magia del Imperio.
+Equipment/&Enchanted_Spear_Doomblade_Title	Lanza con punta de fatalidad
+Equipment/&Enchanted_Spear_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Spear_Lightbringer_Title	Lanza Iluminada
+Equipment/&Enchanted_Spear_Sharpness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Spear_Sharpness_Title	Lanza de nitidez
+Equipment/&Enchanted_Spear_Whiteburn_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Whiteburn fue creado por el primer Danantar para luchar contra una invasión troll proveniente de los pantanos al sur de su dominio entre Sioltafin y Scarafin.
+Equipment/&Enchanted_Spear_Whiteburn_Title	Lanza de quemadura blanca
+Equipment/&Enchanted_StuddedLeather_Deflection_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_StuddedLeather_Deflection_Title	Cuero tachonado de desviación
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_StuddedLeather_FlameDancing_Title	Cuero tachonado de baile de llamas
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_StuddedLeather_FrostWalking_Title	Cuero tachonado de Frost Walking
+Equipment/&Enchanted_StuddedLeather_Robustness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_StuddedLeather_Robustness_Title	Cuero tachonado de Robustez
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_StuddedLeather_Sturdiness_Title	Cuero tachonado de robustez
+Equipment/&Enchanted_StuddedLeather_Survival_Description	Esta armadura encantada fue creada usando el antiguo conocimiento de los maestros armeros de Manacalon. Ildurial Stronghand forjó la primera de esas armaduras para la guardia personal del Emperador.
+Equipment/&Enchanted_StuddedLeather_Survival_Title	Cuero tachonado de supervivencia
+Equipment/&Enchanted_Warhammer_Acuteness_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. Su diseño fue uno de los primeros trabajos de Elgador Keenspirit, Magesmith of the Arcaneum.
+Equipment/&Enchanted_Warhammer_Acuteness_Title	Warhammer de la agudeza
+Equipment/&Enchanted_Warhammer_Bearclaw_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Las puntas afiladas de la garra del oso destrozan la armadura para infligir daño adicional. La primera arma de este tipo fue diseñada por Ildurial Stronghand.
+Equipment/&Enchanted_Warhammer_Bearclaw_Title	Martillo de guerra garra de oso
+Equipment/&Enchanted_Warhammer_Lightbringer_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Colthannin. Fue diseñado por Elgador Keenspirit, Magesmith of the Arcaneum para apoyar el combate contra criaturas no muertas.
+Equipment/&Enchanted_Warhammer_Lightbringer_Title	Martillo de guerra Iluminado
+Equipment/&Enchanted_Warhammer_Power_Description	Esta arma encantada fue forjada usando el antiguo conocimiento de los maestros herreros de Manacalon. Algunas criaturas solo respetan las fuerzas físicas. Los arcanistas de Manacalon crearon este Warhammer para dar a los campeones de las Legiones de Hierro la fuerza que sus cuerpos élficos no les proporcionaban.
+Equipment/&Enchanted_Warhammer_Power_Title	Martillo de guerra de poder
+Equipment/&Enchanted_Warhammer_Punisher_Description	Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. La combinación del mejor metal y Slavestone le dio a este hacha un increíble poder de perforación.
+Equipment/&Enchanted_Warhammer_Punisher_Title	Martillo de guerra castigador
+Equipment/&ImprovedThunderPunchDescription	Inflige 1d8 de daño de trueno al impactar e impone una desventaja en las tiradas de ataque contra los aliados.\nAtrae a los enemigos hasta 30 pies con una acción adicional y luego inflige 1d8 de daño de trueno.
+Equipment/&ImprovedThunderPunchTitle	Golpe de trueno mejorado
+Equipment/&LivewoodClubDescription	Este club está compuesto de madera viva completa con hojas que brotan y quizás flores de temporada. Se puede utilizar como foco para el lanzamiento de hechizos druídicos.
+Equipment/&LivewoodClubTitle	Club de madera viva
+Equipment/&LivewoodStaffDescription	Este bastón está compuesto de madera viva completa con hojas que brotan y quizás flores de temporada. Se puede utilizar como foco para el lanzamiento de hechizos druídicos.
+Equipment/&LivewoodStaffTitle	Bastón de madera viva
+Equipment/&ThunderPunchDescription	Inflige 1d8 de daño de trueno al impactar e impone una desventaja en las tiradas de ataque contra los aliados.
+Equipment/&ThunderPunchTitle	Golpe de trueno
+Equipment/&WandIdentifyDescription	Lanza el hechizo Identificar gastando una carga. La varita tiene 3 cargas y recupera 1d3 cargas cada amanecer.
+Equipment/&WandIdentifyTitle	Varita de identificación
+Feat/&FeatPolearmExpertDescription	Tu formación experta con armas de asta te otorga estos beneficios:\n• Cuando realizas la acción Atacar y atacas solo con un arma de asta, puedes usar una acción adicional para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque usa el mismo modificador de habilidad que el ataque principal. El dado de daño del arma para este ataque es un d4, e inflige daño contundente.\n• Mientras empuñas un arma de asta, otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con esa arma.
+Feat/&FeatPolearmExpertTitle	Experto en armas de asta
+Item/&CEHalberd+1Title	Alabarda +1
+Item/&CEHalberd+1UnidentifiedTitle	Alabarda de calidad
+Item/&CEHalberd+2Title	Alabarda +2
+Item/&CEHalberd+2UnidentifiedTitle	Alabarda magnífica
+Item/&CEHalberdLightningTitle	Alabarda relámpago
+Item/&CEHalberdLightningUnidentifiedTitle	Alabarda magnífica
+Item/&CEHalberdPrimedTitle	Alabarda imprimada
+Item/&CEHalberdTitle	Alabarda
+Item/&CEHandXbow+1Title	Ballesta de mano +1
+Item/&CEHandXbow+1UnidentifiedTitle	Ballesta de mano de calidad
+Item/&CEHandXbow+2Title	Ballesta de mano +2
+Item/&CEHandXbow+2UnidentifiedTitle	Ballesta de mano magnífica
+Item/&CEHandXbowAcidTitle	Ballesta de mano ácida
+Item/&CEHandXbowAcidUnidentifiedTitle	Ballesta de mano magnífica
+Item/&CEHandXbowPrimedTitle	Ballesta de mano imprimada
+Item/&CEHandXbowTitle	ballesta de mano
+Item/&CELongMace+1Title	Maza larga +1
+Item/&CELongMace+1UnidentifiedTitle	Maza larga de calidad
+Item/&CELongMace+2Title	Maza larga +2
+Item/&CELongMace+2UnidentifiedTitle	Maza larga magnífica
+Item/&CELongMacePrimedTitle	Maza larga imprimada
+Item/&CELongMaceThunderTitle	Maza larga atronadora
+Item/&CELongMaceThunderUnidentifiedTitle	Maza larga magnífica
+Item/&CELongMaceTitle	Maza larga
+Item/&CEPike+1Title	lucio +1
+Item/&CEPike+1UnidentifiedTitle	Lucio de calidad
+Item/&CEPike+2Title	Lucio +2
+Item/&CEPike+2UnidentifiedTitle	Lucio magnífico
+Item/&CEPikePrimedTitle	Lucio imprimado
+Item/&CEPikePsychicTitle	Lucio psíquico
+Item/&CEPikePsychicUnidentifiedTitle	Lucio magnífico
+Item/&CEPikeTitle	Lucio
+Item/&CraftingManualRecipeEnchantCEHalberd+1Description	Encantar alabarda +1.
+Item/&CraftingManualRecipeEnchantCEHalberd+1Title	Encantar alabarda +1
+Item/&CraftingManualRecipeEnchantCEHalberd+2Description	Encantar alabarda +2.
+Item/&CraftingManualRecipeEnchantCEHalberd+2Title	Encantar alabarda +2
+Item/&CraftingManualRecipeEnchantCEHalberdLightningDescription	Encantar alabarda de relámpagos.
+Item/&CraftingManualRecipeEnchantCEHalberdLightningTitle	Encantar alabarda de relámpagos
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Description	Encantar ballesta de mano +1.
+Item/&CraftingManualRecipeEnchantCEHandXbow+1Title	Encantar ballesta de mano +1
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Description	Encantar ballesta de mano +2.
+Item/&CraftingManualRecipeEnchantCEHandXbow+2Title	Encantar ballesta de mano +2
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidDescription	Encantar ballesta de mano ácida.
+Item/&CraftingManualRecipeEnchantCEHandXbowAcidTitle	Encantar ballesta de mano ácida
+Item/&CraftingManualRecipeEnchantCELongMace+1Description	Encantar maza larga +1.
+Item/&CraftingManualRecipeEnchantCELongMace+1Title	Encantar maza larga +1
+Item/&CraftingManualRecipeEnchantCELongMace+2Description	Encantar maza larga +2.
+Item/&CraftingManualRecipeEnchantCELongMace+2Title	Encantar maza larga +2
+Item/&CraftingManualRecipeEnchantCELongMaceThunderDescription	Encanta maza larga atronadora.
+Item/&CraftingManualRecipeEnchantCELongMaceThunderTitle	Encantar maza larga atronadora
+Item/&CraftingManualRecipeEnchantCEPike+1Description	Encantar lucio +1.
+Item/&CraftingManualRecipeEnchantCEPike+1Title	Encantar pica +1
+Item/&CraftingManualRecipeEnchantCEPike+2Description	Encantar lucio +2.
+Item/&CraftingManualRecipeEnchantCEPike+2Title	Encantar pica +2
+Item/&CraftingManualRecipeEnchantCEPikePsychicDescription	Encantar lucio psíquico.
+Item/&CraftingManualRecipeEnchantCEPikePsychicTitle	Encantar pica psíquica
+Item/&CraftingManualRecipeEnchantHandwraps+1Description	Encantar vendas +1.
+Item/&CraftingManualRecipeEnchantHandwraps+1Title	Encantar vendajes +1
+Item/&CraftingManualRecipeEnchantHandwraps+2Description	Encantar vendas +2.
+Item/&CraftingManualRecipeEnchantHandwraps+2Title	Encantar vendajes +2
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceDescription	Encanta vendajes vigorosos.
+Item/&CraftingManualRecipeEnchantHandwrapsOfForceTitle	Encantar vendajes vigorosos
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingDescription	Encanta las vendas de tirar.
+Item/&CraftingManualRecipeEnchantHandwrapsOfPullingTitle	Encantar vendas de tirar
+Item/&CraftingManualRecipePrimingCEHalberdDescription	Primera alabarda.
+Item/&CraftingManualRecipePrimingCEHalberdTitle	Primera alabarda
+Item/&CraftingManualRecipePrimingCEHandXbowDescription	Ballesta de mano Prime.
+Item/&CraftingManualRecipePrimingCEHandXbowTitle	Ballesta de mano principal
+Item/&CraftingManualRecipePrimingCELongMaceDescription	Maza larga principal.
+Item/&CraftingManualRecipePrimingCELongMaceTitle	Maza larga principal
+Item/&CraftingManualRecipePrimingCEPikeDescription	Pique de primera.
+Item/&CraftingManualRecipePrimingCEPikeTitle	Lucio principal
+Item/&Handwraps+1Title	Vendas de manos +1
+Item/&Handwraps+1UnidentifiedTitle	Vendas de buena calidad.
+Item/&Handwraps+2Title	Vendajes +2
+Item/&Handwraps+2UnidentifiedTitle	Manijas magníficas
+Item/&HandwrapsOfForceTitle	Vendajes contundentes
+Item/&HandwrapsOfForceUnidentifiedTitle	Manijas magníficas
+Item/&HandwrapsOfPullingTitle	Vendas de tirar
+Item/&HandwrapsOfPullingUnidentifiedTitle	Manijas magníficas
+Power/&PowerFunctionHandwrapsOfPullingDescription	Como acción adicional, puedes acercar a una criatura a 15 pies hacia ti.
+Power/&PowerFunctionHandwrapsOfPullingTitle	Atraer clientes o negocios
+Tooltip/&TagPolearmWeaponTitle	arma de asta

@@ -1,0 +1,307 @@
+Condition/&ConditionDualFlurryApplyDescription	Estás ganando impulso...
+Condition/&ConditionDualFlurryApplyTitle	¡Ráfaga dual!
+Condition/&ConditionDualFlurryGrantDescription	¡Tus enemigos están tambaleándose!
+Condition/&ConditionDualFlurryGrantTitle	¡Ráfaga dual!
+Condition/&HelpActionDescription	Esta criatura se ha distraído.
+Condition/&HelpActionTitle	Distraído
+CraftyFeats/&ApothecaryIntFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+CraftyFeats/&ApothecaryIntFeatTitle	Boticario (Inteligencia)
+CraftyFeats/&ApothecaryWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el kit de herboristería y arcanos, o experiencia si ya eres competente.
+CraftyFeats/&ApothecaryWisFeatTitle	Boticario (Sabiduría)
+CraftyFeats/&AttributeDexDescription	+1 DEX hasta un máximo de 20
+CraftyFeats/&AttributeDexTitle	Destreza
+CraftyFeats/&AttributeIntDescription	+1 INT hasta un máximo de 20
+CraftyFeats/&AttributeIntTitle	Inteligencia
+CraftyFeats/&AttributeWisDescription	+1 SAB hasta un máximo de 20
+CraftyFeats/&AttributeWisTitle	Sabiduría
+CraftyFeats/&CraftyArcanaDescription	Obtienes competencia/pericia en Arcana.
+CraftyFeats/&CraftyBowsDescription	Obtienes competencia con todos los arcos y ballestas.
+CraftyFeats/&CraftyBowsTitle	Dominio del arco
+CraftyFeats/&CraftyFletcherFeatDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nAdquieres competencia con las herramientas de herrero, o experiencia si ya eres competente.\n Obtienes competencia con todos los arcos y ballestas.
+CraftyFeats/&CraftyFletcherFeatTitle	Flechero
+CraftyFeats/&CraftyMedicineDescription	Ganas competencia/pericia en Medicina.
+CraftyFeats/&CraftyNatureDescription	Ganas competencia/pericia en la Naturaleza.
+CraftyFeats/&CraftyScribeFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el kit de pergaminos y arcanos, o experiencia si ya eres competente.\nRequiere la habilidad de lanzar hechizos.
+CraftyFeats/&CraftyScribeFeatTitle	Escriba
+CraftyFeats/&CraftySkillsTitle	Habilidades
+CraftyFeats/&CraftyToolsTitle	Instrumentos
+CraftyFeats/&ManacalonCrafterFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con manacolon rosary y arcana, o experiencia si ya eres competente.\nRequiere la habilidad de lanzar hechizos.
+CraftyFeats/&ManacalonCrafterFeatTitle	Artesano de Manacalón
+CraftyFeats/&ToxicologistIntFeatDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y la Naturaleza, o experiencia si ya eres competente.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxicólogo (Inteligencia)
+CraftyFeats/&ToxicologistWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y Medicina, o experiencia si ya eres competente.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxicólogo (Sabiduría)
+Feat/&AddConstructCantripsDescription	Agrega cantrips para sanar y descartar tus construcciones.
+Feat/&AddConstructCantripsTitle	Construir trucos
+Feat/&AddProtectorConstructCantripDescription	Agrega cantrips Mending Construct y Dismiss Construct para aumentar la flexibilidad de sus construcciones.
+Feat/&AddProtectorConstructCantripTitle	Cantrips adicionales de construcción
+Feat/&ArmorModePoolDescription	Te permite activar los modos de armadura una vez por breve descanso.
+Feat/&ArmorModePoolTitle	Modo de armadura
+Feat/&ArtificialServantAttackDescription	Ataque a distancia 1d6 de daño de fuerza de tu compañero de confianza.
+Feat/&ArtificialServantAttackTitle	Eslinga de fuerza
+Feat/&ArtificialServantDescription	El sirviente es amistoso contigo y tus compañeros, y obedece tus órdenes.
+Feat/&ArtificialServantTitle	Sirviente artificial
+Feat/&CancelFlyingConditionDescription	Finalice la condición de vuelo para permitir saltar y gatear.
+Feat/&CancelFlyingConditionTitle	Cancelar volar
+Feat/&ChefConDescription	Aumenta tu Constitución en 1, hasta un máximo de 20.\nPuedes pasar 1 hora cocinando una comida para curarte a ti y a tus compañeros por 1d8 HP.\nUna vez al día, puede pasar una hora para cocinar golosinas que proporcionan HP temporal cuando se comen.
+Feat/&ChefConTitle	Chef (Constitución)
+Feat/&ChefShortRestFeastDescription	Puedes pasar 1 hora cocinando una comida para curarte a ti y a tus compañeros por 1d8 HP.
+Feat/&ChefShortRestFeastTitle	Comida de descanso breve
+Feat/&ChefWisDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes pasar 1 hora cocinando una comida para curarte a ti y a tus compañeros por 1d8 HP.\nUna vez al día, puede pasar una hora para cocinar golosinas que proporcionan HP temporal cuando se comen.
+Feat/&ChefWisTitle	Cocinero (Sabiduría)
+Feat/&ConstructSelectingPoolDescription	Seleccione el modo para su construcción.
+Feat/&ConstructSelectingPoolTitle	Modo artillería
+Feat/&DeadeyeFeatDescription	Has dominado las armas a distancia y puedes hacer disparos que otros encuentran imposibles.\n• Atacar a larga distancia no supone una desventaja en las tiradas de ataque con armas a distancia.\n• Tus ataques con armas a distancia ignoran la cobertura media y las tres cuartas partes.\n• Puedes optar por recibir una penalización de -5 en tu tirada de ataque con armas a distancia. Si el ataque impacta, infliges 10 daños adicionales del tipo del arma.
+Feat/&DeadeyeFeatTitle	Vigota
+Feat/&DismissConstructDescription	Anule la invocación de su construcción.
+Feat/&DismissConstructTitle	Descartar Construir
+Feat/&DualFlurryDescription	Eres un maestro de la lucha con armas combinadas. En cualquier turno en el que golpees dos veces con ataques cuerpo a cuerpo mientras empuñas un arma en cada mano, puedes realizar un ataque adicional con la mano secundaria cuando atacas con tu acción de bonificación.
+Feat/&DualFlurryTitle	ráfaga dual
+Feat/&FeatArcaneDefenseDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Inteligencia.
+Feat/&FeatArcaneDefenseTitle	Defensa Arcana
+Feat/&FeatArcanePrecisionDescription	Puedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Inteligencia para tus tiradas de ataque y daño durante 1 minuto. Esta función se puede utilizar dos veces por descanso prolongado.
+Feat/&FeatArcanePrecisionTitle	Precisión Arcana
+Feat/&FeatBlindFightingStlyeDescription	Tienes visión ciega con un alcance de 10 pies.
+Feat/&FeatBlindFightingStlyeTitle	Estilo de lucha: lucha a ciegas
+Feat/&FeatBrutalThugDescription	Das golpes poderosos en los lugares correctos.\nObtienes competencias en armas simples y marciales.\nPuedes atacar furtivamente usando armas marciales.
+Feat/&FeatBrutalThugTitle	matón brutal
+Feat/&FeatChaIncrementDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.
+Feat/&FeatChaIncrementTitle	Aumento del atributo de carisma
+Feat/&FeatCharismaticDefenseDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Carisma.
+Feat/&FeatCharismaticDefenseTitle	Defensa carismática
+Feat/&FeatCharismaticPrecisionDescription	Puedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Carisma para tus tiradas de ataque y daño durante 1 minuto. Esta función se puede utilizar dos veces por descanso prolongado.
+Feat/&FeatCharismaticPrecisionTitle	Precisión carismática
+Feat/&FeatChefConIncrementDescription	Aumenta tu Constitución en 1, hasta un máximo de 20.
+Feat/&FeatChefConIncrementTitle	Aumento de atributos
+Feat/&FeatChefWisIncrementDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.
+Feat/&FeatChefWisIncrementTitle	Aumento de atributos
+Feat/&FeatCripplingDescription	Cuando golpeas con un ataque cuerpo a cuerpo, puedes reducir la velocidad de tu oponente en 10 pies hasta el comienzo de tu próximo turno.
+Feat/&FeatCripplingTitle	Estilo de lucha: incapacitante
+Feat/&FeatDexIncrementDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.
+Feat/&FeatDexIncrementTitle	Aumento de atributos
+Feat/&FeatDualWeaponDefenseDescription	Obtienes una bonificación de +1 a la CA mientras empuñas un arma cuerpo a cuerpo separada en cada mano.
+Feat/&FeatDualWeaponDefenseTitle	Defensa con dos armas
+Feat/&FeatFastHandsDescription	Obtienes Acción astuta. Puede usar las acciones Ocultar o Desconectar como una acción adicional.\nPuedes usar tu Acción Astuta para hacer una prueba de Destreza (Juego de manos), usar tus herramientas de ladrón para Desarmar una trampa o abrir una cerradura, o tomar la acción Usar un Objeto.
+Feat/&FeatFastHandsTitle	manos rapidas
+Feat/&FeatFeyTeleportationChaDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nPuedes usar paso brumoso una vez por descanso breve, y puedes lanzar este hechizo con tus espacios de hechizo.\nObtienes competencia en Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Teletransportación Fey (Carisma)
+Feat/&FeatFeyTeleportationIntDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nPuedes usar paso brumoso una vez por descanso breve, y puedes lanzar este hechizo con tus espacios de hechizo.\nObtienes competencia en Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Teletransportación Fey (Inteligencia)
+Feat/&FeatFeyTeleportationWisDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes usar paso brumoso una vez por descanso breve, y puedes lanzar este hechizo con tus espacios de hechizo.\nObtienes competencia en Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Teletransportación Fey (Sabiduría)
+Feat/&FeatFightingSurgeDexterityDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nEn tu turno, puedes realizar una acción adicional además de tu acción habitual. Una vez que use esta función, debe terminar un descanso prolongado antes de poder usarla nuevamente.
+Feat/&FeatFightingSurgeDexterityTitle	Oleada de lucha (Destreza)
+Feat/&FeatFightingSurgeStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nEn tu turno, puedes realizar una acción adicional además de tu acción habitual. Una vez que use esta función, debe terminar un descanso prolongado antes de poder usarla nuevamente.
+Feat/&FeatFightingSurgeStrengthTitle	Oleada de lucha (Fuerza)
+Feat/&FeatHeavyArmorMasterClassDescription	Obtienes resistencia al daño contundente, cortante y perforante.
+Feat/&FeatHeavyArmorMasterClassTitle	Dominio de la defensa pesada
+Feat/&FeatImprovedCriticalDescription	Tus ataques son golpes críticos con una tirada de 19 o 20.
+Feat/&FeatImprovedCriticalTitle	Crítico mejorado
+Feat/&FeatIntIncrementDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.
+Feat/&FeatIntIncrementTitle	Aumento del atributo de inteligencia
+Feat/&FeatLightArmorDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con armadura ligera.
+Feat/&FeatLightArmorProficiencyDescription	Adquiere competencia con armadura ligera.
+Feat/&FeatLightArmorProficiencyTitle	Armadura ligera
+Feat/&FeatLightArmorTitle	Armadura ligera
+Feat/&FeatMarksmanDescription	Cuando un oponente que puedes ver te ataca con un arma a distancia o un hechizo y está al menos a 10 pies de distancia de ti, puedes usar tu reacción para realizar un ataque con arma a distancia después de que termine el ataque desencadenante.
+Feat/&FeatMarksmanTitle	Tirador escondido
+Feat/&FeatMediumArmorDexDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
+Feat/&FeatMediumArmorDexTitle	Armadura Media (Destreza)
+Feat/&FeatMediumArmorProficiencyDescription	Obtienes competencia con armaduras y escudos medianos.
+Feat/&FeatMediumArmorProficiencyTitle	Armadura mediana
+Feat/&FeatMediumArmorStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
+Feat/&FeatMediumArmorStrengthTitle	Armadura Media (Fuerza)
+Feat/&FeatMetamagicAdeptCarefulDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Cuidadosa y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptCarefulTitle	Metamagia: Cuidado
+Feat/&FeatMetamagicAdeptDistantDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Distante y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptDistantTitle	Metamagia: Distante
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia potenciada y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagia: Empoderada
+Feat/&FeatMetamagicAdeptExtendedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia extendida y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptExtendedTitle	Metamagia: extendida
+Feat/&FeatMetamagicAdeptHeightenedDescription	Aprendes la metamagia intensificada y ganas 4 puntos de hechicería.
+Feat/&FeatMetamagicAdeptHeightenedTitle	Metamagia: aumentada
+Feat/&FeatMetamagicAdeptQuickenedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia acelerada y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagia: Acelerado
+Feat/&FeatMetamagicAdeptTwinnedDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nAprendes la metamagia Twinned y ganas 2 puntos de hechicería.
+Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagia: Hermanados
+Feat/&FeatPrimalConstitutionDescription	Aumenta tu Constitución en 1, hasta un máximo de 20.\nPuedes ingresar una ira como una acción adicional como se define en la característica de clase de ira del bárbaro con un daño de ira de +1 que se puede acumular con la ira del bárbaro. Una vez que te hayas enfurecido de esta manera, debes terminar un descanso prolongado antes de volver a usar esta característica.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
+Feat/&FeatPrimalConstitutionTitle	Rabia primigenia (Constitución)
+Feat/&FeatPrimalStrengthDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.\nPuedes ingresar una ira como una acción adicional como se define en la característica de clase de ira del bárbaro con un daño de ira de +1 que se puede acumular con la ira del bárbaro. Una vez que te hayas enfurecido de esta manera, debes terminar un descanso prolongado antes de volver a usar esta función.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Constitución.
+Feat/&FeatPrimalStrengthTitle	Rabia primigenia (Fuerza)
+Feat/&FeatPugilistFightingStlyeDescription	Tus golpes sin armas infligen 1d4 de daño contundente adicional y puedes golpear con tu mano izquierda como acción adicional.\nSi tienes una mano libre, puedes empujar como acción adicional.
+Feat/&FeatPugilistFightingStlyeTitle	Estilo de lucha: Pugilista
+Feat/&FeatRangedExpertDescription	Tu entrenamiento experto con armas a distancia te otorga estos beneficios:\n• Ya no tienes desventaja en los ataques a distancia cuando hay un enemigo a menos de 5 pies de ti.\n• Si realizas la acción de Ataque en tu turno, puedes usar una acción adicional para realizar un ataque con un arma arrojadiza oa distancia de una mano.
+Feat/&FeatRangedExpertTitle	Experto a distancia
+Feat/&FeatSavageAttackerDescription	Vuelve a tirar los dados de daño con armas y hechizos cuando saques un 1 (esto no vuelve a tirar los dados de todas las fuentes de daño. Por ejemplo, el ataque furtivo y el daño de castigo no se vuelven a tirar).
+Feat/&FeatSavageAttackerReroll	Debido a que es un atacante salvaje, {0} vuelve a tirar el dado {1} de {2} a {3}
+Feat/&FeatSavageAttackerTitle	Atacante salvaje
+Feat/&FeatShadowTouchedChaDescription	Aumenta tu atributo Carisma en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar hechizos de invisibilidad, infligir heridas y vida falsa una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizo.
+Feat/&FeatShadowTouchedChaTitle	Tocado por las Sombras (Carisma)
+Feat/&FeatShadowTouchedIntDescription	Aumenta tu atributo de Inteligencia en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar hechizos de invisibilidad, infligir heridas y vida falsa una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizo.
+Feat/&FeatShadowTouchedIntTitle	Sombra tocada (inteligencia)
+Feat/&FeatShadowTouchedWisDescription	Aumenta tu atributo Sabiduría en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar hechizos de invisibilidad, infligir heridas y vida falsa una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizo.
+Feat/&FeatShadowTouchedWisTitle	Sombra tocada (Sabiduría)
+Feat/&FeatShadyDescription	Aumenta tu Destreza en 1, hasta un máximo de 20.\nUna vez por turno, puedes infligir 1d6 de daño adicional a una criatura que golpees con un ataque que cumpla con los requisitos del Ataque furtivo del pícaro. A nivel 12, este daño aumenta a 2d6 y a nivel 20, a 4d6.
+Feat/&FeatShadyTitle	Sombreado
+Feat/&FeatShieldExpertDescription	Te has entrenado en el uso de un escudo como arma. Para ti, se convierte en un arma cuerpo a cuerpo con la que eres competente que inflige 1d4 de daño contundente.\nObtienes ventaja en los intentos de empujón mientras empuñas un escudo.
+Feat/&FeatShieldExpertTitle	Experto en escudos
+Feat/&FeatStrengthIncrementDescription	Aumenta tu Fuerza en 1, hasta un máximo de 20.
+Feat/&FeatStrengthIncrementTitle	Aumento de atributo
+Feat/&FeatTelekineticChaDescription	Aumenta tu Carisma en 1, hasta un máximo de 20.\nComo acción adicional, puedes empujar o jalar telequinéticamente a una criatura que puedas ver a 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Carisma) o moverse 5 pies.
+Feat/&FeatTelekineticChaPullDescription	Atrae telequinéticamente a una criatura hacia ti.
+Feat/&FeatTelekineticChaPullTitle	Atracción telequinética
+Feat/&FeatTelekineticChaPushDescription	Empuja telequinéticamente a una criatura lejos de ti.
+Feat/&FeatTelekineticChaPushTitle	Empuje telequinético
+Feat/&FeatTelekineticChaTitle	Telequinético (Carisma)
+Feat/&FeatTelekineticIntDescription	Aumenta tu Inteligencia en 1, hasta un máximo de 20.\nComo acción adicional, puedes empujar o jalar telequinéticamente a una criatura que puedas ver a 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Inteligencia) o moverse 5 pies.
+Feat/&FeatTelekineticIntPullDescription	Atrae telequinéticamente a una criatura hacia ti.
+Feat/&FeatTelekineticIntPullTitle	Atracción telequinética
+Feat/&FeatTelekineticIntPushDescription	Empuja telequinéticamente a una criatura lejos de ti.
+Feat/&FeatTelekineticIntPushTitle	Empuje telequinético
+Feat/&FeatTelekineticIntTitle	Telequinético (Inteligencia)
+Feat/&FeatTelekineticWisDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nComo acción adicional, puedes empujar o jalar telequinéticamente a una criatura que puedas ver a 30 pies de ti. El objetivo debe tener éxito en una tirada de salvación de Fuerza (CD 8 + tu bonificador de competencia + tu modificador de Sabiduría) o moverse 5 pies.
+Feat/&FeatTelekineticWisPullDescription	Atrae telequinéticamente a una criatura hacia ti.
+Feat/&FeatTelekineticWisPullTitle	Atracción telequinética
+Feat/&FeatTelekineticWisPushDescription	Empuja telequinéticamente a una criatura lejos de ti.
+Feat/&FeatTelekineticWisPushTitle	Empuje telequinético
+Feat/&FeatTelekineticWisTitle	Telequinético (Sabiduría)
+Feat/&FeatTitanFightingDescription	Obtienes un +2 para impactar contra criaturas de tamaño Grande o mayor.
+Feat/&FeatTitanFightingTitle	Estilo de lucha: lucha contra titanes
+Feat/&FeatToughDescription	Tu máximo de puntos de vida aumenta en una cantidad igual al doble de tu nivel cuando obtienes esta dote. Siempre que ganes un nivel a partir de entonces, tu máximo de puntos de golpe aumenta en 2 puntos de golpe adicionales.
+Feat/&FeatToughTitle	Pese
+Feat/&FeatWarCasterDescription	Obtienes ventaja en los controles para mantener la concentración.\nObtienes la capacidad de realizar el componente somático de los hechizos incluso con ambas manos ocupadas.\nCuando el movimiento de una criatura hostil provoca un ataque de oportunidad tuyo, puedes usar tu reacción para lanzar un cantrip a la criatura, en lugar de hacer un ataque de oportunidad. El cantrip debe tener un tiempo de lanzamiento de 1 acción o acción adicional y debe tener como objetivo solo a esa criatura.
+Feat/&FeatWarCasterTitle	lanzador de guerra
+Feat/&FeatWiseDefenseDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nMientras no llevas ninguna armadura, tu CA es igual a 10 + tu modificador de Destreza + tu modificador de Sabiduría.
+Feat/&FeatWiseDefenseTitle	Defensa sabia
+Feat/&FeatWisePrecisionDescription	Puedes usar una acción adicional para seleccionar un arma. Sus ataques cuentan como mágicos y usas tu Sabiduría para tus tiradas de ataque y daño durante 1 minuto. Esta función se puede utilizar dos veces por descanso prolongado.
+Feat/&FeatWisePrecisionTitle	Precisión sabia
+Feat/&FeatWisIncrementDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.
+Feat/&FeatWisIncrementTitle	Aumento del atributo de sabiduría
+Feat/&FeyTeleportationLanguageTirmarianDescription	Obtienes competencia en Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmarian
+Feat/&FightingStyleArcheryDescription	Obtienes una bonificación de +2 a las tiradas de ataque con armas a distancia.
+Feat/&FightingStyleArcheryTitle	Estilo de lucha: Tiro con arco
+Feat/&FightingStyleDefenseDescription	Mientras llevas armadura, obtienes una bonificación de +1 a la CA.
+Feat/&FightingStyleDefenseTitle	Estilo de lucha: Defensa
+Feat/&FightingStyleDuelingDescription	Cuando empuñas un arma cuerpo a cuerpo en una mano y ninguna otra arma, obtienes una bonificación de +2 a las tiradas de daño con esa arma.
+Feat/&FightingStyleDuelingTitle	Estilo de lucha: Duelo
+Feat/&FightingStyleGeneralFeatDescription	Puedes seleccionar un estilo de lucha.
+Feat/&FightingStyleGeneralFeatitle	Estilo de lucha
+Feat/&FightingStyleGreatWeaponDescription	Cuando sacas un 1 o un 2 en un dado de daño por un ataque que haces con un arma cuerpo a cuerpo que empuñas con las dos manos, puedes volver a tirar el dado. Debes usar la nueva tirada, incluso si es un 1 o un 2. El arma debe tener la propiedad de dos manos o versátil para que obtengas este beneficio.
+Feat/&FightingStyleGreatWeaponTitle	Estilo de lucha: gran arma
+Feat/&FightingStyleProtectionDescription	Cuando una criatura que puedes ver ataca a un objetivo que no seas tú y que esté a menos de 5 pies de ti, puedes usar tu reacción para imponer una desventaja en la tirada de ataque. Debes estar empuñando un escudo.
+Feat/&FightingStyleProtectionTitle	Estilo de lucha: Protección
+Feat/&FightingStyleTwoWeaponDescription	Cuando participas en una pelea con dos armas, puedes agregar tu modificador de habilidad al daño del segundo ataque.
+Feat/&FightingStyleTwoWeaponTitle	Estilo de lucha: dos armas
+Feat/&ForceStrikePowerDescription	Ataque a distancia 1d6 de daño de fuerza de tu compañero de confianza.
+Feat/&ForceStrikePowerTitle	Force Sling (Servidor artificial)
+Feat/&GauntletsGrappleDescription	Ahora puede atraer a los enemigos al rango cuerpo a cuerpo con una acción adicional e infligir 1d8 de daño por trueno.
+Feat/&GauntletsGrappleTitle	Garfio de guantelete
+Feat/&HealerDescription	Obtienes competencia o experiencia en las pruebas de Medicina. Ganas la capacidad de estabilizar a una criatura moribunda así como de revivir una criatura que murió en los últimos 12 segundos una vez por descanso prolongado. Puedes usar una acción para restaurar 1d6 + 4 + puntos de golpe de nivel de personaje un número de veces por breve descanso igual a tu modificador de Sabiduría.
+Feat/&HealerResuscitateDescription	Usa una acción para revivir a una criatura que murió en los últimos 15 segundos.
+Feat/&HealerResuscitateTitle	Resucitar
+Feat/&HealerStabilizeDescription	Usa una acción para estabilizar a una criatura moribunda.
+Feat/&HealerStabilizeTitle	Estabilizar
+Feat/&HealerTitle	Curador
+Feat/&HealerUseMedicineDescription	Puedes usar una acción para restaurar 1d6 + 4 + puntos de golpe de nivel de personaje un número de veces por breve descanso igual a tu modificador de Sabiduría.
+Feat/&HealerUseMedicineTitle	usar medicina
+Feat/&IncreaseConstructSelectingDescription	Ahora puedes invocar dos construcciones de artillería. Las construcciones pueden ser del mismo modo o de modos diferentes.
+Feat/&IncreaseConstructSelectingTitle	Refuerzos
+Feat/&InspiringLeaderDescription	Una vez por descanso breve, puedes pasar 10 minutos para inspirar hasta 6 criaturas aliadas (que puedes incluirte a ti) dentro de 30 pies de ti. Cada criatura gana puntos de golpe temporales iguales a tu nivel + tu modificador de Carisma.
+Feat/&InspiringLeaderTitle	Líder inspirador
+Feat/&IntToAttackAndDamageDescription	Puedes usar tu modificador de Inteligencia, en lugar del modificador de Fuerza o Destreza, para tus tiradas de ataque y daño con Armas Blindadas.
+Feat/&IntToAttackAndDamageTitle	Armadura Arma
+Feat/&MendingConstructDescription	Repara tu construcción por 2d6 HP durante 1 minuto.
+Feat/&MendingConstructTitle	Construcción reparadora
+Feat/&ModeSwitchingPoolDescription	Puedes cambiar de modo una vez por breve descanso creando y usando armas temporales.
+Feat/&ModeSwitchingPoolTitle	Modo de armadura
+Feat/&PickPocketFeatDescription	Ganas competencia con Sleight of Hand, o experiencia si ya eres competente. También tienes ventaja en las pruebas de Destreza de Juego de manos.
+Feat/&PickPocketFeatTitle	Carterista
+Feat/&PowerAlchemistEmboldeningShotsDescription	Obtienes la habilidad de administrar un elixir que envalentona a tus aliados, proporcionándoles 4d6 + modificador de Inteligencia puntos de golpe temporales.
+Feat/&PowerAlchemistEmboldeningShotsTitle	Disparos envalentonadores
+Feat/&PowerAttackFeatDescription	Aprendiste a intercambiar precisión para asestar golpes más letales. Cuando atacas con armas cuerpo a cuerpo, puedes elegir recibir una penalización de -3 a tu golpe para hacer un daño adicional igual a 3 + tu bonificación de competencia.
+Feat/&PowerAttackFeatTitle	Ataque de poder
+Feat/&PowerFalseLifeFromFeatDescription	Reforzándote con un facsímil nigromántico de la vida, ganas 1d4 + 4 Puntos de Golpe Temporales mientras dure.
+Feat/&PowerFalseLifeFromFeatTitle	vida falsa
+Feat/&PowerInflictWoundsFromFeatDescription	Realiza un ataque de hechizo cuerpo a cuerpo contra una criatura a tu alcance. Con un impacto, el objetivo sufre 3d10 de daño necrótico.
+Feat/&PowerInflictWoundsFromFeatTitle	infligir heridas
+Feat/&PowerInvisibilityFromFeatDescription	Una criatura que tocas se vuelve invisible hasta que finaliza el hechizo. Cualquier cosa que el objetivo lleve puesto o que lleve es invisible mientras esté en la persona del objetivo. El hechizo finaliza para un objetivo que ataca o lanza un hechizo.
+Feat/&PowerInvisibilityFromFeatTitle	Invisibilidad
+Feat/&PowerMistyStepFromFeatDescription	Brevemente rodeado de niebla plateada, te teletransportas hasta 30 pies a un espacio desocupado que puedes ver.
+Feat/&PowerMistyStepFromFeatTitle	paso brumoso
+Feat/&PowerShadowTouchedFromFeatDescription	Aprende a lanzar los hechizos de invisibilidad, vida falsa e infligir heridas.
+Feat/&PowerShadowTouchedFromFeatTitle	Sombra tocada
+Feat/&ProfChefTreatActionDescription	Come una golosina como acción adicional y gana 5 puntos de golpe temporales.
+Feat/&ProfChefTreatActionTitle	Coma la delicia del chef
+Feat/&ProfChefTreatCookDescription	Dedique una hora a cocinar golosinas que, cuando se comen, proporcionan 5 puntos de golpe temporales.
+Feat/&ProfChefTreatCookTitle	Cocinero delicia del chef
+Feat/&ProfChefTreatDescription	Come como acción adicional y gana 5 puntos de golpe temporales.
+Feat/&ProfChefTreatTitle	Trato del chef
+Feat/&ProfHealerMedicineDescription	Obtiene competencia en Medicina, o experiencia si ya es competente.
+Feat/&ProfHealerMedicineTitle	Conocimiento de la medicina
+Feat/&ProtectorConstructAttackDescription	El constructo protector realiza un ataque que inflige 1d10 de daño por fuerza.
+Feat/&ProtectorConstructAttackTitle	Desgarro forzado
+Feat/&ProtectorConstructDescription	Es amistoso contigo y tus compañeros, y obedece tus órdenes.
+Feat/&ProtectorConstructDescription_5	Mejora de construcción protectora.
+Feat/&ProtectorConstructTitle	Construcción protectora
+Feat/&ProtectorConstructTitle_5	Mejora de construcción protectora
+Feat/&RecklessFuryFeatDescription	Obtienes la capacidad de entrar en furia durante un minuto una vez al día sin ninguna restricción de armadura.\nPuedes atacar imprudentemente, ganando ventaja en tus ataques cuerpo a cuerpo mientras das ventaja a tus atacantes hasta el comienzo de tu próximo turno.
+Feat/&RecklessFuryFeatTitle	furia imprudente
+Feat/&RetributionDescription	Construct hace 1d4 + tu modificador de Inteligencia de daño por fuerza al atacante cuando es golpeado por un ataque.
+Feat/&RetributionTitle	Venganza
+Feat/&SelfDestructDescription	Autodestruirse y forzar una tirada de salvación de Destreza para criaturas dentro de 10 pies. Si falla, inflige 3d8 de daño por fuerza.
+Feat/&SelfDestructTitle	Auto destrucción
+Feat/&SelfRepairDescription	Cura 2d8 PS, 3 veces al día.
+Feat/&SelfRepairTitle	Auto-reparación
+Feat/&SubclassMovementDescription	La armadura pesada no tiene un requisito de Fuerza.
+Feat/&SubclassMovementTitle	Inmunidad de armadura pesada
+Feat/&SubclassProficienciesDescription	Obtienes competencia en herramientas de herrero y armaduras pesadas.
+Feat/&SubclassProficienciesTitle	Competencias de subclase
+Feat/&SummonArtificialServantDescription	El sirviente es amistoso contigo y tus compañeros, y obedece tus órdenes.
+Feat/&SummonArtificialServantTitle	Invocar sirviente artificial
+Feat/&ThunderShieldDescription	El escudo defensivo proporciona HP temporal igual a tu nivel. Se puede utilizar 6 veces por descanso prolongado.
+Feat/&ThunderShieldTitle	Escudo de trueno
+Feat/&TorchbearerDescription	Eres hábil en el uso de una antorcha en la batalla. Una vez por turno, como acción adicional, puedes elegir usar una fuente de luz que hayas equipado para intentar prender fuego a un enemigo que puedas tocar. Tu objetivo debe tener éxito en una tirada de salvación de Destreza (CD 8 + tu bonificador de competencia + tu modificador de Destreza) o sufrir 1d4 de daño por fuego por turno durante 1 minuto o hasta que se extinga.
+Feat/&TorchbearerTitle	portador de la antorcha
+Feat/&UseArmorWeaponsAsFocusDescription	Puedes usar las armas de la armadura como un foco de lanzamiento de hechizos para tus hechizos.
+Feat/&UseArmorWeaponsAsFocusTitle	Enfoque de lanzamiento de hechizos
+Feat/&UsingitemPowerDescription	Permite usar el poder del arma en una acción de bonificación.
+Feat/&UsingitemPowerTitle	Usa el poder del arma
+Feature/&AdditionalActionDualFlurryDescription	Puedes realizar un ataque adicional con la mano torpe.
+Feature/&AdditionalActionDualFlurryTitle	¡Ráfaga dual!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Una vez por turno, puedes infligir 1d6 de daño adicional a una criatura que golpees con un ataque que se encuentre con el Ataque furtivo de Rogue. En el nivel 7 este daño aumenta a 2d6 y en el nivel 14 a 3d6. Esto puede acumularse con el ataque furtivo de Rogue.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Ataque furtivo sombrío
+Feature/&DeadeyeDescription	Atacar a larga distancia no supone una desventaja en las tiradas de ataque con armas a distancia. Tus armas a distancia ignoran la media cobertura y la cobertura de tres cuartos. Puedes elegir recibir una penalización de bonificación de -5 a tu golpe para hacer un daño de bonificación de +10.
+Feature/&DeadeyeTitle	Vigota
+Feature/&DualFlurryDescription	Eres un maestro de la lucha con armas combinadas. En cualquier turno en el que golpees dos veces con ataques cuerpo a cuerpo mientras empuñas un arma en cada mano, puedes realizar un ataque adicional con la mano izquierda.
+Feature/&DualFlurryTitle	ráfaga dual
+Feature/&PowerAttackDescription	Recibe una penalización de -3 para golpear a tu ataque para hacer 3 + bonificación de competencia de daño adicional cuando lanzas tus golpes con armas cuerpo a cuerpo.
+Feature/&PowerAttackTitle	Ataque de poder
+Feature/&PowerTorchbearerDescription	¡Intenta prender fuego a un objetivo cuerpo a cuerpo!
+Feature/&PowerTorchbearerTitle	portador de la antorcha
+Feature/&RageDamageBonusAttackModifierDescription	Añade +2 de daño a tus ataques mientras estás en furia.
+Feature/&RageDamageBonusAttackModifierTitle	Daño de rabia
+Feature/&RageFeatConditionDescription	Mientras estás furioso, obtienes lo siguiente: Ventaja en las pruebas de Fuerza y ​​en las tiradas de salvación de Fuerza, una bonificación a las tiradas de daño de +2 y resistencia al daño contundente, perforante y cortante.
+Feature/&RageFeatConditionTitle	Furioso
+Feature/&RagePowerDescription	Como acción adicional, entras en furia durante un minuto y obtienes lo siguiente: Ventaja en las pruebas de Fuerza y ​​tiradas de salvación de Fuerza, una bonificación a las tiradas de daño de +2 y resistencia al daño contundente, perforante y cortante.
+Feature/&RagePowerTitle	Rabia
+Feature/&RageStrengthSavingThrowAffinityDescription	Obtienes ventaja en las salvaciones de Fuerza mientras estás en furia.
+Feature/&RageStrengthSavingThrowAffinityTitle	Ventaja de salvación de fuerza de ira
+Power/&HelpActionDescription	Puedes ayudar a una criatura aliada a atacar a una criatura a 5 pies de ti. Fintas, distraes al objetivo o te unes de alguna otra forma para que el ataque de tu aliado sea más eficaz. Si tu aliado ataca al objetivo antes de tu próximo turno, la primera tirada de ataque se realiza con ventaja.
+Power/&HelpActionTitle	Ayuda
+Reaction/&SubitemSelectWarcasterReactionTitle	Seleccione la acción
+Reaction/&WarcasterAttackDescription	Objetivo de ataque.
+Reaction/&WarcasterAttackTitle	Ataque
+Reaction/&WarcasterReactionDescription	{0} está saliendo de un área amenazada por uno o más personajes.
+Reaction/&WarcasterReactionReactDescription	Usa la reacción para atacar al objetivo.
+Reaction/&WarcasterReactionReactTitle	Ataque
+Reaction/&WarcasterReactionTitle	Ataque de oportunidad
+Tooltip/&DeadeyeConcentration	Deshabilitar Deadeye.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	no sabe {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Tiene ataque sigiloso
+Tooltip/&FeatPrerequisiteIsNotBarbarian	no es un bárbaro
+Tooltip/&FeatPrerequisiteIsNotFighter	no es un luchador
+Tooltip/&FeatPrerequisiteIsNotRogue	no es un pícaro
+Tooltip/&FeatPrerequisiteLevelFormat	Nivel mínimo de personaje {0}
+Tooltip/&PowerAttackConcentration	Desactiva el ataque de poder.

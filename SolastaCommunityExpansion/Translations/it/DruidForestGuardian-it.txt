@@ -1,0 +1,22 @@
+Condition/&ConditionBarkWardDescription	Protetto dagli spiriti della foresta. Guadagna 4 HP temporanei per ogni livello di Druid, della durata di 10 minuti.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	Gli spiriti della foresta infliggono 2d8 danni perforanti alle creature che colpiscono con un attacco in mischia.
+Condition/&ConditionImprovedBarkWardTitle	Bark Ward migliorato
+Condition/&ConditionSuperiorBarkWardDescription	Gli spiriti della foresta concedono immunità al veleno e infliggono 3d8 danni perforanti alle creature che colpiscono con un attacco in mischia.
+Condition/&ConditionSuperiorBarkWardTitle	Superiore Bark Ward
+Feature/&DruidForestGuardianBarkWardDescription	Ottieni la capacità di evocare un Bark Ward per proteggerti. Come azione bonus, puoi spendere un uso della tua Forma Selvatica per guadagnare 4 punti ferita temporanei per ogni livello che hai in questa classe. Questi punti ferita temporanei durano 10 minuti o fino a quando non usi di nuovo la tua Forma Selvatica.
+Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
+Feature/&DruidForestGuardianExtraAttackDescription	A partire dal 6° livello, puoi attaccare due volte, invece di una volta, ogni volta che esegui l'azione Attacco nel tuo turno.
+Feature/&DruidForestGuardianExtraAttackTitle	Attacco extra
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Il tuo Bark Ward ora fa crescere spine, che danneggiano gli attaccanti in mischia. I nemici che ti hanno colpito con successo con un attacco in mischia subiscono 2d8 danni perforanti.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Bark Ward migliorato
+Feature/&DruidForestGuardianMagicDescription	A partire dal 2° livello quando scegli questo cerchio, ottieni l'accesso a un elenco di incantesimi ampliato che è sempre preparato:\n{0}
+Feature/&DruidForestGuardianMagicTitle	Incantesimi Circolari
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	La tua abilità Bark Ward ora riflette 3d8 danni perforanti sugli attaccanti in mischia. Inoltre, Bark Ward ora ti garantisce l'immunità al veleno mentre è attivo.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superiore Bark Ward
+Feature/&DruidForestGuardianSylvanDurabilityDescription	I Guardiani della Foresta ottengono naturalmente la resilienza di una possente quercia. Al 2° livello, i tuoi punti ferita massimi aumentano di 2 e aumentano di 1 ogni volta che raggiungi un livello in questa classe.
+Feature/&DruidForestGuardianSylvanDurabilityTitle	Durabilità Silvana
+Feature/&DruidForestGuardianSylvanWarMagicDescription	Sei abituato a esercitare la magia druidica in armonia con l'abilità marziale. Al 2° livello, puoi lanciare incantesimi che richiedono una componente somatica anche se entrambe le tue mani impugnano un'arma o uno scudo.
+Feature/&DruidForestGuardianSylvanWarMagicTitle	Magia della Guerra Silvana
+Subclass/&DruidForestGuardianDruidSubclassDescription	I druidi del Circolo dei Guardiani della Foresta hanno giurato di proteggere le foreste e tutto ciò che vi abita. Abili nell'uso della magia dell'abiura e del combattimento marziale, i membri di questo circolo druidico sono temibili avversari sul campo di battaglia.
+Subclass/&DruidForestGuardianDruidSubclassTitle	Circolo del Guardiano della Foresta

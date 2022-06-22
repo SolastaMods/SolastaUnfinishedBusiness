@@ -1,0 +1,19 @@
+Subclass/&AbilityAffinityRogueConArtistDescription	Vantagem em testes de habilidade usando Persuasão, Enganação, Performance e Prestidigitação.
+Subclass/&AbilityAffinityRogueConArtistTitle	Manipulativo
+Subclass/&MagicAffinityRoguishConArtistDC0Description	Sua CD de salvamento de feitiços aumenta em 0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description	Sua CD de salvamento de magia aumenta em 1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description	Sua CD de salvamento de feitiços aumenta em 2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description	Sua CD de salvamento de feitiços aumenta em 3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description	Sua CD de salvamento de feitiços aumenta em 4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description	Sua CD de salvamento de feitiços aumenta em 5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle	Manipulação Aprimorada
+Subclass/&RoguishConArtistDescription	Vigaristas são ladinos que se especializam em enganar e enganar os outros. Eles usam magia para ajudar suas habilidades naturais de manipulação.
+Subclass/&RoguishConArtistFeintConditionDescription	Ser enganado concede vantagem no próximo ataque.
+Subclass/&RoguishConArtistFeintConditionTitle	Enganado
+Subclass/&RoguishConArtistFeintDescription	Ganhe a habilidade de fintar em combate como uma ação bônus. Se o alvo falhar no teste de resistência, isso concede vantagem no próximo ataque contra o alvo.
+Subclass/&RoguishConArtistFeintTitle	Finta
+Subclass/&RoguishConArtistMentalSavingThrowsDescription	Você ganha proficiência em testes de resistência de Sabedoria e Carisma.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle	Força mental
+Subclass/&RoguishConArtistSpellcastingDescription	Lance feitiços e truques de Mago das escolas de Conjuração, Encantamento, Ilusão e Transmutação. O Vigarista usa Carisma para lançar seus feitiços.
+Subclass/&RoguishConArtistSpellcastingTitle	Feitiço
+Subclass/&RoguishConArtistTitle	Vigarista

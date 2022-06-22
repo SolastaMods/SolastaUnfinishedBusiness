@@ -1,0 +1,4 @@
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&SignofIllOmenTitle	Sign of Ill Omen
+Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear.
+Feedback/&ExtraDamageTitle	Lightning Spear extra damage

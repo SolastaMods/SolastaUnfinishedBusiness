@@ -1,0 +1,165 @@
+ActionAffinity/&DHFeeblemindSpellDescription	Impossible de lancer des sorts.
+AttributeModifier/&DHFeeblemindChaSpellDescription	Le score de Charisme est fixé à 1.
+AttributeModifier/&DHFeeblemindChaSpellTitle	Charisme faible
+AttributeModifier/&DHFeeblemindIntSpellDescription	Le score de Charisme est fixé à 1.
+AttributeModifier/&DHFeeblemindIntSpellTitle	Intelligence faible
+Condition/&ConditionMuleDescription	Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
+Condition/&ConditionMuleTitle	Mule
+Condition/&DHFeeblemindSpellDescription	Les valeurs d'Intelligence et de Charisme de la créature deviennent 1. La créature ne peut pas lancer de sorts, activer d'objets magiques, comprendre le langage ou communiquer de manière intelligible.
+Condition/&DHFeeblemindSpellTitle	Faiblesse d'esprit
+Condition/&DHForesightSpellDescription	Avantage sur tous les jets d'attaque, les tests de capacité et les jets de sauvegarde. Les autres créatures ont un désavantage aux jets d'attaque.
+Condition/&DHForesightSpellTitle	Prévoyance
+Condition/&DHHolyAuraSpellDescription	Avantage à tous les jets de sauvegarde. Les autres créatures ont un désavantage aux jets d'attaque. Lorsqu'un fiélon ou un mort-vivant touche une créature affectée avec une attaque au corps à corps, l'attaquant doit réussir un jet de sauvegarde de Constitution ou être aveuglé jusqu'à la fin du sort.
+Condition/&DHHolyAuraSpellTitle	Protégé par Holy Aura
+Condition/&DHMindBlankSpellDescription	Immunisé contre les dégâts psychiques et l'état charmé.
+Condition/&DHMindBlankSpellTitle	Vide d'esprit
+Condition/&DHReverseGravitySpellDescription	Je ne peux pas bouger.
+Condition/&DHReverseGravitySpellTitle	Pris par gravité inverse
+Condition/&DHTimeStopSpellDescription	Le temps est gelé pour la créature affectée.
+Condition/&DHTimeStopSpellTitle	Temps arrêté
+Condition/&DHWeirdSpellDescription	Effrayé. À la fin de chaque tour, effectuez un jet de sauvegarde de Sagesse. En cas d'échec, subissez 4d10 dégâts psychiques. En cas de succès, cette condition prend fin.
+Condition/&DHWeirdSpellTitle	Bizarre
+Condition/&EWResonatingStrikeDamageDescription	Au niveau 5, les attaques déclenchées par ce sort mineur infligent 1d8 dégâts de tonnerre supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
+Condition/&EWResonatingStrikeDamageTitle	Résonance
+Condition/&EWSunlightBladeDamageDescription	Au niveau 5, les attaques déclenchées par ce sort mineur infligent 1d8 dégâts radiants supplémentaires. Les dégâts augmentent encore de 1d8 aux niveaux 11 et 17.
+Condition/&EWSunlightBladeDamageTitle	Brûlure de la Lame ensoleillée
+DamageAffinity/&DHHolyAuraSpellDescription	Lorsqu'un démon ou un mort-vivant touche avec une attaque de mêlée, l'aura clignote avec une lumière brillante et l'attaquant doit réussir un jet de sauvegarde de Constitution ou être aveuglé jusqu'à la fin du sort.
+DamageAffinity/&DHHolyAuraSpellTitle	Aura sacrée Représailles
+Feat/&AlchemistSubclassSpellsDescription	{0}.
+Feat/&AlchemistSubclassSpellsTitle	Apprendre les sorts de potion Maker
+Feat/&AutoPreparedSpellsDescription	{0}.
+Feat/&AutoPreparedSpellsTitle	Apprendre les sorts Scout Sentinel
+Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
+Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Sorts de construction de protecteur
+Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Vous gagnez des sorts bonus qui sont considérés comme des sorts de bricoleur pour vous, ils sont toujours préparés et ne comptent pas dans le nombre de sorts de bricoleur que vous connaissez.
+Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Sorts de construction de protecteur
+Feature/&DHHolyAuraBlindingPowerDescription	Lorsqu'un démon ou un mort-vivant frappe une créature affectée avec une attaque au corps à corps, l'aura clignote d'une lumière brillante. L'attaquant doit réussir un jet de sauvegarde de Constitution ou être aveuglé jusqu'à la fin du sort.
+Feature/&DHHolyAuraBlindingPowerTitle	Aura sacrée Représailles
+Feature/&ElementalistSpellsMagicAffinityDescription	Vous choisissez parmi une liste étendue de sorts lorsque vous apprenez un sort de démoniste. Les sorts suivants sont ajoutés à la liste des sorts de Warlock pour vous : {0}
+Feature/&ElementalistSpellsMagicAffinityTitle	Sorts d'élémentaliste
+Feature/&SpellAsInvocationAtWillDescription	Lancez {0} à volonté.
+Feature/&SpellAsInvocationOncePerDayDescription	Lancez {0} une fois jusqu'au repos long.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Frappe retentissante !
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} résonne {1} ! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Lame ensoleillée !
+Feedback/&AdditionalDamageSunlightBladeLine	{0} brûle {1} avec Sunlit Blade ! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} résonne {1} !
+Monster/&DHCustomCouatlDescription	Les Couatls sont des êtres serpentins bienveillants d'une grande intelligence et perspicacité. Leurs ailes brillamment colorées et leurs manières douces témoignent de leurs origines célestes.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Chouette Familier.
+Monster/&OwlFamiliarTitle	Chouette
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution DD 13 ou être empoisonnée pendant 24 heures. Jusqu'à la fin de ce poison, la cible est inconsciente.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Morsure
+Reaction/&CastSpellInRetributionDescription	{0} attaque {1} ! Vous pouvez lancer {2} en réponse !
+Reaction/&CastSpellInRetributionReactDescription	Cliquez pour diffuser {0}.
+Reaction/&CastSpellInRetributionReactTitle	Lancer un sort
+Reaction/&CastSpellInRetributionTitle	Lancer un sort de réaction
+Reaction/&SpendSpellSlot{0}Description	Dépensez le sort {0}
+Reaction/&SpendSpellSlot{0}Title	Dépensez le sort {0}
+Screen/&FeyTeleportSpellDescription	Ce sort Fey est toujours préparé.
+Screen/&FeyTeleportSpellTitle	fée
+Screen/&MulticlassSpellDescription	Vous connaissez ce sort d'un autre répertoire.
+Screen/&MulticlassSpellTitle	Multiclasse
+Screen/&ShadowTouchedSpellDescription	Ce sort d'Ombre est toujours préparé.
+Screen/&ShadowTouchedSpellTitle	Ombre
+Screen/&SpellSlotsUsedLongDescription	Vous avez dépensé {0} emplacement(s) de sort(s) à ce niveau.
+Screen/&SpellSlotsUsedShortDescription	Vous avez dépensé {0} emplacement(s) magique(s) de pacte.
+Screen/&SpellSlotsUsedShortLongDescription	Vous avez dépensé {0} emplacement(s) magique(s) de pacte et {1} emplacement(s) de sort(s) à ce niveau.
+Spell/&AcidClawsDescription	Effectuez une attaque mortelle avec vos griffes acérées.
+Spell/&AcidClawsTitle	Griffes sanglantes
+Spell/&AHHellishRebukeDescription	Vous pointez votre doigt et la créature qui vous a blessé est momentanément entourée de flammes infernales. La créature doit effectuer un jet de sauvegarde de Dextérité. Il subit 2d10 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
+Spell/&AHHellishRebukeTitle	Réprimande infernale
+Spell/&BurstOfRadianceDescription	Créez un flash brillant de lumière scintillante, endommageant tous les ennemis autour de vous.
+Spell/&BurstOfRadianceTitle	Explosion d'éclat
+Spell/&CJDivineWordDescription	Vous prononcez une parole divine, imprégnée du pouvoir qui a façonné le monde à l'aube de la création. Choisissez n'importe quel nombre de créatures que vous pouvez voir à portée. Chaque créature qui peut vous entendre doit effectuer un jet de sauvegarde de Charisme. En cas d'échec, une créature subit un effet basé sur ses points de vie actuels :\n• 50 points de vie ou moins : assourdi pendant 1 minute\n• 40 points de vie ou moins : assourdi et aveuglé pendant 10 minutes\n• 30 points de vie ou moins : aveuglé, assourdi et étourdi pendant 1 heure\n• 20 points de vie ou moins : tué instantanément\nIndépendamment de ses points de vie actuels, un céleste, un élémentaire, une fée ou un démon qui échoue à sa sauvegarde est forcé de retourner à son plan d'origine (s'il n'y est pas déjà) et ne peut pas retourner dans votre plan actuel pendant 24 heures par tous les moyens à moins d'un sort de souhait.
+Spell/&CJDivineWordTitle	Parole divine
+Spell/&DHAnimalShapesSpellDescription	Choisissez n'importe quel nombre de créatures consentantes que vous pouvez voir à portée. Vous transformez chaque cible en une bête de grande taille ou plus petite avec un niveau de défi de 4 ou moins.
+Spell/&DHAnimalShapesSpellTitle	Formes d'animaux
+Spell/&DHCastSpellArchMageDescription	Capacité d'incantation d'archimage.
+Spell/&DHCastSpellArchMageTitle	Capacité d'incantation d'archimage
+Spell/&DHCastSpellGuardianNagaDescription	Capacité d'incantation d'archimage.
+Spell/&DHCastSpellGuardianNagaTitle	Capacité d'incantation d'archimage
+Spell/&DHCastSpellLichDescription	Capacité de lancer de liche.
+Spell/&DHCastSpellLichTitle	Capacité de lancer de liche
+Spell/&DHConjureCelestialSpellDescription	Vous invoquez un céleste de niveau de défi 4 ou inférieur, qui apparaît dans un espace inoccupé que vous pouvez voir à portée. Le céleste disparaît lorsqu'il tombe à 0 points de vie ou lorsque le sort se termine. Le céleste est amical avec vous et vos compagnons pour la durée.
+Spell/&DHConjureCelestialSpellTitle	Conjuration céleste (Couatl)
+Spell/&DHDominateMonsterSpellDescription	Vous tentez de séduire une créature que vous pouvez voir à portée. Il doit réussir un jet de sauvegarde de Sagesse ou être charmé par vous pour la durée.
+Spell/&DHDominateMonsterSpellTitle	Dominer le monstre
+Spell/&DHFeeblemindSpellDescription	Vous faites exploser l'esprit d'une créature que vous pouvez voir à portée, en essayant de briser son intellect et sa personnalité. La cible subit 4d6 dégâts psychiques et doit effectuer un jet de sauvegarde d'Intelligence. En cas d'échec, les valeurs d'Intelligence et de Charisme de la créature deviennent 1. La créature ne peut pas lancer de sorts, activer d'objets magiques, comprendre le langage ou communiquer de manière intelligible.
+Spell/&DHFeeblemindSpellTitle	Faiblesse d'esprit
+Spell/&DHFingerOfDeathSpellDescription	La cible doit effectuer un jet de sauvegarde de Constitution. Il subit 7d8 + 30 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
+Spell/&DHFingerOfDeathSpellTitle	Doigt de la mort (pas de zombie)
+Spell/&DHForesightSpellDescription	Vous touchez une créature consentante et lui confèrez une capacité limitée à voir dans le futur immédiat. Pendant toute la durée, la cible ne peut pas être surprise et a l'avantage aux jets d'attaque, aux tests de capacité et aux jets de sauvegarde. De plus, les autres créatures ont un désavantage aux jets d'attaque contre la cible pendant la durée.
+Spell/&DHForesightSpellTitle	Prévoyance
+Spell/&DHHolyAuraSpellDescription	La lumière divine s'éloigne de vous et fusionne en un doux éclat dans un rayon de 9 mètres autour de vous. Les créatures de votre choix dans ce rayon lorsque vous lancez ce sort émettent une faible lumière dans un rayon de 1,50 mètre et ont un avantage à tous les jets de sauvegarde, et les autres créatures ont un désavantage aux jets d'attaque contre elles jusqu'à la fin du sort.
+Spell/&DHHolyAuraSpellTitle	Aura sacrée
+Spell/&DHIncendiaryCloudSpellDescription	Un nuage de fumée tourbillonnant traversé de braises chauffées à blanc apparaît dans une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se propage dans les coins et est fortement obscurci. Il dure pendant toute la durée ou jusqu'à ce qu'un vent de vitesse modérée ou supérieure (au moins 10 milles à l'heure) le disperse.\nLorsque le nuage apparaît, chaque créature qui s'y trouve doit effectuer un jet de sauvegarde de Dextérité. Une créature subit 10d8 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également effectuer ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou qu'elle y termine son tour.\nLe nuage s'éloigne de 3 mètres directement de vous dans une direction que vous choisissez au début de chacun de vos virages.
+Spell/&DHIncendiaryCloudSpellTitle	Nuage incendiaire
+Spell/&DHMassHealSpellDescription	Un flot d'énergie de guérison s'écoule de vous vers les créatures blessées qui vous entourent. Vous restaurez 120 points de vie à 6 créatures que vous pouvez voir et à portée. Les créatures soignées par ce sort sont également guéries de toutes les maladies et de tout effet les rendant aveugles ou assourdis. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
+Spell/&DHMassHealSpellTitle	Guérison de masse
+Spell/&DHMazeSpellDescription	Vous bannissez une créature que vous pouvez voir à portée dans un demi-plan labyrinthique. La cible y reste pendant toute la durée ou jusqu'à ce qu'elle sorte du labyrinthe. /nLa cible peut utiliser son action pour tenter un test d'Intelligence DD 20 pour s'échapper.
+Spell/&DHMazeSpellTitle	Labyrinthe
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Des orbes de feu flamboyantes tombent au sol en un seul point que vous pouvez voir à portée. Chaque créature dans une sphère de 12 mètres de rayon centrée sur le point que vous choisissez doit effectuer un jet de sauvegarde de Dextérité. La sphère s'étend autour des coins. Une créature subit 20d6 dégâts de feu et 20d6 dégâts contondants en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature dans la zone de plus d'une explosion ardente n'est affectée qu'une seule fois.
+Spell/&DHMeteorSwarmSingleTargetSpellTitle	Essaim de météores (cible unique)
+Spell/&DHMindBlankSpellDescription	Jusqu'à la fin du sort, une créature consentante que vous touchez est immunisée contre les dégâts psychiques, tout effet qui détecterait ses émotions ou lirait ses pensées, les sorts de divination et l'état charmé.
+Spell/&DHMindBlankSpellTitle	Vide d'esprit
+Spell/&DHPowerWordHealSpellDescription	Une vague d'énergie curative déferle sur la créature que vous touchez. La cible récupère tous ses points de vie. Si la créature est charmée, effrayée, paralysée ou étourdie, l'état prend fin. Si la créature est à terre, elle peut utiliser sa réaction pour se relever. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
+Spell/&DHPowerWordHealSpellTitle	Guérison du mot de pouvoir
+Spell/&DHPowerWordKillSpellDescription	Vous prononcez un mot de pouvoir qui peut contraindre une créature que vous pouvez voir et à portée de mourir instantanément. Si la créature que vous choisissez a 100 points de vie ou moins, elle meurt. Sinon, le sort n'a aucun effet.
+Spell/&DHPowerWordKillSpellTitle	Tuer le mot de pouvoir
+Spell/&DHPowerWordStunSpellDescription	Vous prononcez un mot de pouvoir qui peut submerger l'esprit d'une créature que vous pouvez voir à portée, la laissant abasourdie. Si la cible a 150 points de vie ou moins, elle est étourdie. Sinon, le sort n'a aucun effet.
+Spell/&DHPowerWordStunSpellTitle	Mot de pouvoir étourdissant
+Spell/&DHReverseGravitySpellDescription	Ce sort inverse la gravité dans un cylindre de 15 mètres de rayon et 30 mètres de haut centré sur un point à portée.
+Spell/&DHReverseGravitySpellTitle	Gravité inversée
+Spell/&DHShapechangeSpellDescription	Vous assumez la forme d'une créature différente pour la durée. La nouvelle forme peut être celle de n'importe quelle créature avec un facteur de difficulté égal ou inférieur à votre niveau.
+Spell/&DHShapechangeSpellTitle	Changement de forme
+Spell/&DHSunBurstSpellDescription	La lumière du soleil brillante clignote dans un rayon de 60 pieds centré sur un point que vous choisissez à portée. Chaque créature dans cette lumière doit effectuer un jet de sauvegarde de Constitution. En cas d'échec, une créature subit 12d6 dégâts radiants et est aveuglée pendant 1 minute. En cas de réussite, il subit deux fois moins de dégâts et n'est pas aveuglé par ce sort. Les morts-vivants et les limons ont un désavantage à ce jet de sauvegarde. Une créature aveuglée par ce sort effectue un autre jet de sauvegarde de Constitution à la fin de chacun de ses tours. En cas de réussite, il n'est plus aveuglé. Ce sort dissipe les ténèbres créées par un sort dans sa zone.
+Spell/&DHSunBurstSpellTitle	Coup de soleil
+Spell/&DHTimeStopSpellDescription	Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous-même. Aucun temps ne passe pour les autres créatures, pendant que vous effectuez 1d4 + 1 tours d'affilée, durant lesquels vous pouvez utiliser des actions et vous déplacer normalement.
+Spell/&DHTimeStopSpellTitle	Arrêt du temps
+Spell/&DHWeirdSpellDescription	Puisant dans les peurs les plus profondes d'un groupe de créatures, vous créez des créatures illusoires dans leur esprit, visibles par eux seuls. Chaque créature dans une sphère de 9 mètres de rayon centrée sur un point de votre choix à portée doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, une créature devient effrayée pour la durée. L'illusion fait appel aux peurs les plus profondes de la créature, manifestant ses pires cauchemars comme une menace implacable. À la fin de chacun des tours de la créature effrayée, elle doit réussir un jet de sauvegarde de Sagesse ou subir 4d10 dégâts psychiques. En cas de réussite, le sort prend fin pour cette créature.
+Spell/&DHWeirdSpellTitle	Bizarre
+Spell/&EarthTremorDescription	Vous frappez le sol et déclenchez un tremblement de force sismique, projetant de la terre, de la roche et du sable.
+Spell/&EarthTremorTitle	Tremblement de terre
+Spell/&EWResonatingStrikeDescription	Sélectionnez une créature à portée de mêlée de vous et une autre créature que vous pouvez voir à 1,50 mètre ou moins de la cible principale. Vous effectuez une attaque au corps à corps avec l'arme actuelle contre la première créature. En cas d'attaque, la cible subit les effets normaux de l'attaque de l'arme et le son résonnant bondit vers la deuxième cible, infligeant des dégâts de tonnerre égaux à votre modificateur de capacité d'incantation.\nAu niveau 5, l'attaque de mêlée inflige 1d8 dégâts de tonnerre supplémentaires à la cible en cas de coup, et les dégâts de tonnerre à la seconde créature passent à 1d8 + votre modificateur de capacité d'incantation. Les deux jets de dégâts augmentent de 1d8 aux niveaux 11 et 17.
+Spell/&EWResonatingStrikeTitle	Frappe résonnante
+Spell/&EWSunlightBladeDescription	Effectuez une attaque au corps à corps avec une arme. En cas de coup, la cible subit les effets normaux de l'attaque et est enveloppée d'une énergie rayonnante brillante, diffusant une lumière tamisée pendant le tour. La prochaine attaque contre cette créature alors qu'elle est en surbrillance est effectuée avec avantage.\nAu niveau 5, l'attaque au corps à corps inflige 1d8 dégâts radiants supplémentaires à la cible. Les dégâts augmentent de 1d8 supplémentaires aux niveaux 11 et 17.
+Spell/&EWSunlightBladeTitle	Lame ensoleillée
+Spell/&FindFamiliarDescription	Vous gagnez le service d'un familier.
+Spell/&FindFamiliarImpDescription	Invoque votre familier sous la forme d'un diablotin.
+Spell/&FindFamiliarImpTitle	Trouver un familier (Imp)
+Spell/&FindFamiliarPsuedodragonDescription	Invoque votre familier sous la forme d'un pseudodragon.
+Spell/&FindFamiliarPsuedodragonTitle	Trouver un familier (Pseudodragon)
+Spell/&FindFamiliarQuasitDescription	Invoque votre familier sous la forme d'un quasit.
+Spell/&FindFamiliarQuasitTitle	Trouver un familier (Quasit)
+Spell/&FindFamiliarSpriteDescription	Invoque votre faimiliar sous la forme d'un Sprite.
+Spell/&FindFamiliarSpriteTitle	Trouver un familier (Sprite)
+Spell/&FindFamiliarTitle	Trouver un familier
+Spell/&FrenzyDescription	D'un geste, vous réduisez une foule à l'instinct de base et à la violence. Choisissez un point que vous pouvez voir à portée. Chaque créature située dans un rayon de 6 mètres autour de ce point doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, une créature est frénétique pendant toute la durée. Lorsqu'une créature est frénétique, elle dégaine une arme de mêlée, si elle en possède une. Une créature frénétique doit utiliser son action au début de son tour pour attaquer une créature à sa portée. Il utilise une arme de mêlée, s'il en a une, ou une arme improvisée ou une frappe à mains nues, s'il n'en a pas. Si plusieurs cibles sont à portée de la créature, elle choisit sa cible au hasard. S'il n'y a pas de cible à portée de la créature, elle s'attaque elle-même, contre sa propre CA, infligeant des dégâts normaux en cas de coup. À la fin de son tour, une créature frénétique peut répéter son jet de sauvegarde, mettant fin à l'effet sur elle plus tôt en cas de réussite.
+Spell/&FrenzyTitle	Frénésie
+Spell/&IlluminatingSphereDescription	Fait s'allumer des sources de lumière telles que des torches et des lampes à mana dans la zone d'effet.
+Spell/&IlluminatingSphereTitle	Sphère éclairante
+Spell/&IPConjureInvisibleStalkerTitle	Invocation d'élémentaire (traqueur invisible)
+Spell/&MinorLifestealDescription	Vous drainez l'énergie vitale d'une créature hostile que vous pouvez voir à portée. Vous soignez ensuite des points de vie égaux au nombre de dégâts infligés. Ce sort n'a aucun effet sur les morts-vivants ou les constructions.
+Spell/&MinorLifestealTitle	Vol de vie mineur
+Spell/&MirrorImageDescription	Image miroir
+Spell/&MirrorImageTitle	Image miroir
+Spell/&MuleDescription	Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids.
+Spell/&MuleTitle	Mule
+Spell/&PetalStormDescription	Choisissez un cube d'air inoccupé de 15 pieds que vous pouvez voir à portée. Une force élémentaire de vents tourbillonnants apparaît dans le cube et dure pendant toute la durée du sort. Le nuage obscurcit fortement sa zone. Toute créature qui entre dans la tempête pour la première fois lors d'un tour ou qui y commence son tour doit effectuer un jet de sauvegarde de Force. En cas d'échec, la créature subit 3d4 dégâts tranchants. Par une action bonus, vous pouvez déplacer la tempête jusqu'à 9 mètres dans n'importe quelle direction.
+Spell/&PetalStormTitle	Tempête de pétales
+Spell/&ProtectThresholdDescription	En traçant des sceaux arcaniques le long de sa limite, vous pouvez protéger une porte, une fenêtre ou un autre portail de l'entrée. Pendant toute la durée, une créature eldritch invisible traque le portail protégé. Toute créature qui tente de franchir le portail doit effectuer un jet de sauvegarde de Sagesse ou subir 4d6 dégâts psychiques, ou la moitié en cas de réussite.
+Spell/&ProtectThresholdTitle	Seuil de protection
+Spell/&RadiantMotesDescription	Libère un essaim de 5 projectiles radiants qui infligent 2 dégâts radiants chacun, mais ne manquent jamais. Les cibles peuvent émettre de la lumière jusqu'à 1 minute.\nLorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou supérieur, le sort crée 2 projectiles supplémentaires pour chaque emplacement au-dessus du 1er.
+Spell/&RadiantMotesTitle	Particules radieuses
+Spell/&ThunderStrikeDescription	Crée une rafale de tonnerre, forçant les créatures adjacentes à vous à effectuer un jet de sauvegarde de Constitution ou à subir 1d6 dégâts de tonnerre.\nLes dégâts de ce sort augmentent de 1d6 lorsque vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).
+Spell/&ThunderStrikeTitle	rafale sonore
+Spell/&WinterBreathDescription	Créez un souffle de vent froid pour refroidir vos ennemis et les renverser.
+Spell/&WinterBreathTitle	Souffle d'hiver
+SpellList/&ElementalistSpellsListDescription	Liste de sorts d'élémentaliste.
+SpellList/&ElementalistSpellsListTitle	Liste de sorts d'élémentaliste
+Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Vous pouvez récupérer des emplacements de sorts lors d'un repos court deux fois par jour.
+Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Préparation alchimique
+Subclass/&PowerSpellRefuelingRingDescription	Lorsque vous l'activez, vous regagnez la moitié de votre niveau dans les emplacements de sorts.
+Subclass/&PowerSpellRefuelingRingTitle	Anneau de ravitaillement en sorts
+ActionAffinity/&DHFeeblemindSpellTitle	Faiblesse d'esprit

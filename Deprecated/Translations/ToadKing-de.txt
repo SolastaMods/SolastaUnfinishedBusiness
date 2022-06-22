@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription	Erleidet in jeder Runde 3W6 Säureschaden. Endet, wenn der Zaubernde bei einem einzigen Angriff 15 oder mehr Schaden erleidet.
+Condition/&SwallowedByToadConditionTitle	Von Kröte verschluckt
+Condition/&SwallowingToadConditionDescription	Endet, wenn bei einem einzigen Angriff 15 oder mehr Schaden erlitten wird.
+Condition/&SwallowingToadConditionTitle	Schluckende Kröte
+Feature/&ToadKingBasicToxinTitle	Basisches Toxin
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Krötenkönig-Zauber
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Ihr Körper hat sich so verändert, dass er gegen Toxine resistent wird und ein Abwehrgift produziert, wenn er von Nahkampfangriffen getroffen wird, und zwar bis zu einer Anzahl von Malen pro langer Pause, die Ihrem Kompetenzbonus entspricht. Wenn dem Angreifer ein Konstitutionsrettungswurf misslingt, leidet er unter einem halluzinogenen Toxin, bis er angegriffen oder anderweitig unterbrochen wird.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Halluzinogenes Toxin
+Feature/&ToadKingJumpTitle	Springen
+Feature/&ToadKingPoisonConditionAffinityTitle	Immun gegen Giftzustand
+Feature/&ToadKingPoisonDamageAffinityTitle	Immun gegen Giftschaden
+Feature/&ToadKingStickyFeetTitle	Schwimmhäute
+Power/&ToadKingCroakDescription	Senden Sie eine Schallwelle aus, die Schaden verursacht und Kreaturen und Objekte wegstößt.
+Power/&ToadKingCroakTitle	Krächzen
+Power/&ToadKingGraspingTongueDescription	Ziehen Sie Feinde zu sich heran.
+Power/&ToadKingGraspingTongueTitle	Greifende Zunge
+Power/&ToadKingHallucinogenicToxinPowerDescription	Ihr Körper hat sich so verändert, dass er gegen Toxine resistent wird und ein Abwehrgift produziert, wenn er von Nahkampfangriffen getroffen wird, und zwar bis zu einer Anzahl von Malen pro langer Pause, die Ihrem Kompetenzbonus entspricht. Wenn dem Angreifer ein Konstitutionsrettungswurf misslingt, leidet er unter luzinogenem Toxin, bis er angegriffen oder anderweitig unterbrochen wird.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Halluzinogenes Toxin
+Power/&ToadKingSwallowDescription	Versuchen Sie, einen mittelgroßen oder kleineren Feind zu verschlucken. Bei einem misslungenen Stärkewurf wird das Monster verschluckt und erleidet 3W6 Säureschaden pro Runde. Endet, wenn der Krötenhexenmeister bei einem einzigen Angriff mit 15 oder mehr Schaden getroffen wird.
+Power/&ToadKingSwallowTitle	Schlucken

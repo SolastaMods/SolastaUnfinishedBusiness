@@ -1,0 +1,22 @@
+Feature/&CounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Feature/&CounterStrikePowerTitle	Counter Strike
+Feature/&GambitResourcePoolAddDescription	Adds an additional gambit die.
+Feature/&GambitResourcePoolAddTitle	Additional Gambit die
+Feature/&GambitResourcePoolDescription	Pool of gambit dice that can be spent on gambits. Starts with 4 they recharge on short rest.
+Feature/&GambitResourcePoolTitle	Gambit dice pool
+Feature/&InspirePowerDescription	Spend a gambit die and inspire yourself or your ally to give 1d6 + 2 temp hp.
+Feature/&InspirePowerTitle	Inspire
+Feature/&KnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
+Feature/&KnockDownPowerTitle	Knock down
+Reaction/&SpendPowerCounterStrikePowerDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerReactDescription	Spend a gambit die and Counter Strike the enemy, if you hit, do an additional 1d6+2 bludgeoning damage.
+Reaction/&SpendPowerCounterStrikePowerReactTitle	Counter Strike
+Reaction/&SpendPowerCounterStrikePowerTitle	Counter Strike
+Reaction/&SpendPowerInspirePowerDescription	Spend a gambit die and inspire your ally, giving 1d6 + 2 temp HP.
+Reaction/&SpendPowerInspirePowerTitle	Inspire
+Reaction/&SpendPowerKnockDownPowerDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
+Reaction/&SpendPowerKnockDownPowerReactDescription	Spend a gambit die and empower your attack to do an additional 1d6 + 2 bludgeoning damage. The target makes a Strength save (DC 8 + your proficiency bonus + your Strength modifier) or gets knocked down until the start of its next turn.
+Reaction/&SpendPowerKnockDownPowerReactTitle	Knock down
+Reaction/&SpendPowerKnockDownPowerTitle	Knock down
+Subclass/&TactitionFighterSubclassDescription	The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
+Subclass/&TactitionFighterSubclassTitle	The Tactician

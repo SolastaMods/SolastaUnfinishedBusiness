@@ -1,0 +1,19 @@
+Subclass/&AbilityAffinityRogueConArtistDescription Преимущество в проверках способностей с использованием Убеждения, Обмана, Исполнения и Ловкости	рук.
+Subclass/&AbilityAffinityRogueConArtistTitle	Манипулятивный
+Subclass/&MagicAffinityRoguishConArtistDC0Description Сл вашего спасброска от заклинания увеличивается на	0.
+Subclass/&MagicAffinityRoguishConArtistDC1Description Сл вашего спасброска от заклинания увеличивается на	1.
+Subclass/&MagicAffinityRoguishConArtistDC2Description Сл вашего спасброска от заклинания увеличивается на	2.
+Subclass/&MagicAffinityRoguishConArtistDC3Description Сл вашего спасброска от заклинания увеличивается на	3.
+Subclass/&MagicAffinityRoguishConArtistDC4Description Сл вашего спасброска от заклинания увеличивается на	4.
+Subclass/&MagicAffinityRoguishConArtistDC5Description Сл вашего спасброска от заклинания увеличивается на	5.
+Subclass/&MagicAffinityRoguishConArtistDCTitle Улучшенное	управление
+Subclass/&RoguishConArtistDescription Мошенники — мошенники, которые специализируются на обмане и обмане других. Они используют магию, чтобы помочь своим естественным манипулятивным	способностям.
+Subclass/&RoguishConArtistFeintConditionDescription Обман дает преимущество при следующей	атаке.
+Subclass/&RoguishConArtistFeintConditionTitle	Обманул
+Subclass/&RoguishConArtistFeintDescription Бонусным действием вы получаете возможность финта в бою. Если цель проваливает спасбросок, это дает преимущество при следующей атаке по	цели.
+Subclass/&RoguishConArtistFeintTitle	Финт
+Subclass/&RoguishConArtistMentalSavingThrowsDescription Вы получаете владение спасбросками Мудрости и	Харизмы.
+Subclass/&RoguishConArtistMentalSavingThrowsTitle Сила	духа
+Subclass/&RoguishConArtistSpellcastingDescription Применяйте заклинания и колдовство Волшебника из школ Заклинания, Чары, Иллюзии и Трансмутации. Мошенник использует харизму, чтобы использовать свои	заклинания.
+Subclass/&RoguishConArtistSpellcastingTitle	Колдовство
+Subclass/&RoguishConArtistTitle	Мошенник

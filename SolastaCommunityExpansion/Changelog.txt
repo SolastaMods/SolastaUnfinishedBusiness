@@ -8,5 +8,5 @@
 
 CHANGES:
 
-- Fix Study Your Enemy 
-- Improve recipes titles
+- Fix Dark-Half elf not getting Faerie Fire and Darkness
+- Fix Royal Knight's Inspiring Surge target filtering

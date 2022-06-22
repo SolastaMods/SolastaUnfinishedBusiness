@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription	Takes 3d6 acid damage every turn. Ends if the caster takes 15 damage or more in a single attack.
+Condition/&SwallowedByToadConditionTitle	Swallowed By Toad
+Condition/&SwallowingToadConditionDescription	Ends if 15 damage or more is taken in a single attack.
+Condition/&SwallowingToadConditionTitle	Swallowing Toad
+Feature/&ToadKingBasicToxinTitle	Basic Toxin
+Feature/&ToadKingExpandedSpelllistAfinityDescription	You choose from an expanded list of spells when you learn a Warlock spell. The following spells are added to the Warlock spell list for you: {0}\n\n
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Toad King Spells
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from a hallucinogenic toxin until they are attacked or otherwise interrupted.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Hallucinogenic Toxin
+Feature/&ToadKingJumpTitle	Jump
+Feature/&ToadKingPoisonConditionAffinityTitle	Immune to Poison Condition
+Feature/&ToadKingPoisonDamageAffinityTitle	Immune to Poison Damage
+Feature/&ToadKingStickyFeetTitle	Webbed Feet
+Power/&ToadKingCroakDescription	Emit a wave of sound that causes damage and pushes creatures and objects away.
+Power/&ToadKingCroakTitle	Croak
+Power/&ToadKingGraspingTongueDescription	Pull enemies towards yourself.
+Power/&ToadKingGraspingTongueTitle	Grasping Tongue
+Power/&ToadKingHallucinogenicToxinPowerDescription	Your body has changed to become resistant to toxins and to produce a defensive toxin when hit by melee attacks, up to a number of times per long rest equal to your proficiency bonus. If the attacker fails a Constitution saving throw, they suffer from lucinogenic toxin until they are attacked or otherwise interrupted.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Hallucinogenic Toxin
+Power/&ToadKingSwallowDescription	Attempt to swallow a Medium or smaller enemy. On a failed Strength save, the monster is swallowed and receives 3d6 acid damage per round. Ends if the Toad Warlock is hit with 15 or more damage in single attack.
+Power/&ToadKingSwallowTitle	Swallow

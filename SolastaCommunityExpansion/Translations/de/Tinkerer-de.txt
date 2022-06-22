@@ -1,0 +1,299 @@
+Class/&TinkererDescription	Tüftler sind Erfinder, Alchemisten und mehr. Sie überbrücken den Raum zwischen Magie und Technologie.
+Class/&TinkererTitle	Denken
+Condition/&SentinelStopMovementConditionDescription	Bewegungsunfähig. Geschwindigkeit auf 0 gesetzt.
+Condition/&SentinelStopMovementConditionTitle	Gestoppt
+Equipment/&ImprovedLightningSpearDescription	Füge 1W6 Blitzschaden mit zusätzlich 1W6 Blitzschaden einmal pro Zug zu.\nKann mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
+Equipment/&ImprovedLightningSpearTitle	Verbesserter Blitzspeer
+Equipment/&LightningSpearDescription	Füge 1W6 Blitzschaden mit zusätzlich 1W6 Blitzschaden einmal pro Zug zu.
+Equipment/&LightningSpearTitle	Blitzspeer
+Feat/&AlchemistSubclassElixirsDescription	Lerne, experimentelle Elixiere herzustellen: Heilung, Schnelligkeit, Belastbarkeit, Kühnheit, Flucht.
+Feat/&AlchemistSubclassElixirsTitle	Experimentelle Elixiere
+Feat/&ArtificerAlchemistAlchemicalSavantDescription	Wenn du heilst, heilst du zusätzliche HP in Höhe von 1W4 + deiner Stufe.
+Feat/&ArtificerAlchemistAlchemicalSavantTitle	Gelerntes Elixier
+Feat/&ArtificerAlchemistBoldnessElixirDescription	Kann einen W4 würfeln und die gewürfelte Zahl 1 Minute lang zu jedem Angriffswurf und Rettungswurf addieren.
+Feat/&ArtificerAlchemistBoldnessElixirTitle	Elixier der Kühnheit
+Feat/&ArtificerAlchemistFlyElixirDescription	Erreiche 10 Minuten lang eine Fluggeschwindigkeit von 10 Fuß.
+Feat/&ArtificerAlchemistFlyElixirTitle	Fliegen-Elixier
+Feat/&ArtificerAlchemistHealElixirDescription	Heile das Ziel um 2W4 + Intelligenzmodifikator.
+Feat/&ArtificerAlchemistHealElixirTitle	Heilendes Elixier
+Feat/&ArtificerAlchemistResilienceElixirDescription	Erhöht die RK des Ziels um +1 für 10 Minuten.
+Feat/&ArtificerAlchemistResilienceElixirTitle	Resilienz-Elixier
+Feat/&ArtificerAlchemistSwiftnessElixirDescription	Erhöht die Bewegungsgeschwindigkeit des Ziels 1 Stunde lang um 10 Fuß.
+Feat/&ArtificerAlchemistSwiftnessElixirTitle	Elixier der Schnelligkeit
+Feat/&ArtificerArtilleristArcaneFirearmDescription	Verursacht beim Wirken von Hervorrufungszaubern einmal pro Runde 1W8 zusätzlichen Schaden.
+Feat/&ArtificerArtilleristArcaneFirearmTitle	Explosionsverbesserung
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Sie erhalten die Fähigkeit, eines Ihrer Geräte zur Detonation zu bringen, wodurch Personen in der Nähe des Ziels Schaden zufügen.
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Detonation des Geräts
+Feat/&ArtificerArtillerstImprovedCannonsDescription	Die Wirkung Ihrer Kanonen erhöht sich. Zusätzlicher Schaden durch das Feuer, ein zusätzliches Ziel durch die Streitmacht und zusätzliche temporäre HP durch den Schild.
+Feat/&ArtificerArtillerstImprovedCannonsTitle	Verbesserte Kanonen
+Feat/&ArtilleristCannonDetonationDescription	Bringe eines deiner Geräte zum Explodieren, wodurch Kreaturen innerhalb von 20 Fuß um den Zielort einen Geschicklichkeitswurf machen. Die Kreaturen erleiden 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und halb so viel Schaden bei einem erfolgreichen Rettungswurf.
+Feat/&ArtilleristCannonDetonationTitle	Detonation des Geräts
+Feat/&ArtilleristFlameCannon15Description	Als Bonusaktion Feuer in einen Kegel spucken, der 6W8 Feuerschaden verursacht, wenn Zielen ein GE-Rettungswurf misslingt.
+Feat/&ArtilleristFlameCannon15Title	Flammenwerfer
+Feat/&ArtilleristFlameCannon9Description	Als Bonusaktion Feuer in einen Kegel spucken, der 3W8 Feuerschaden verursacht, wenn Zielen ein GE-Rettungswurf misslingt.
+Feat/&ArtilleristFlameCannon9Title	Flammenwerfer
+Feat/&ArtilleristFlameCannonDescription	Als Bonusaktion Feuer in einen Kegel spucken, der 2W8 Feuerschaden verursacht, wenn Zielen ein GE-Rettungswurf misslingt.
+Feat/&ArtilleristFlameCannonTitle	Flammenwerfer
+Feat/&ArtilleristForceCannon15Description	Führe als Bonusaktion einen Fernkampfangriff gegen bis zu 2 Ziele durch, der bei einem Treffer 3W8 Machtschaden verursacht.
+Feat/&ArtilleristForceCannon15Title	Kraftkanone
+Feat/&ArtilleristForceCannon9Description	Führe als Bonusaktion einen Fernkampfangriff durch, der bei einem Treffer 3W8 Machtschaden verursacht.
+Feat/&ArtilleristForceCannon9Title	Kraftkanone
+Feat/&ArtilleristForceCannonDescription	Führe als Bonusaktion einen Fernkampfangriff durch, der bei einem Treffer 2W8 Machtschaden verursacht.
+Feat/&ArtilleristForceCannonTitle	Kraftkanone
+Feat/&ArtilleristProtectorCannon15Description	Sende positive Energie als Bonusaktion aus. Verbündete innerhalb von 20 Fuß erhalten temporäre HP in Höhe von 1W8 + Ihrem Intelligenzmodifikator.
+Feat/&ArtilleristProtectorCannon15Title	Arkaner Schild
+Feat/&ArtilleristProtectorCannonDescription	Sende positive Energie als Bonusaktion aus. Verbündete innerhalb von 3 m erhalten temporäre HP in Höhe von 1W8 + deinem Intelligenzmodifikator.
+Feat/&ArtilleristProtectorCannonTitle	Arkaner Schild
+Feat/&ArtilleristSubclassSpellsDescription	{0}.
+Feat/&ArtilleristSubclassSpellsTitle	Lerne Blaster-Zauber
+Feat/&ArtilleryConstructDescription	Kann Verbündete beschädigen oder schützen.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Cantrips: Ausbesserungskonstrukt, Entlassungskonstrukt\nLevel 1: Artilleriekonstrukt wiederbeschwören.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Zauber konstruieren
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Tüftlerzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl an Tüftlerzaubern, die du kennst.
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Zauber konstruieren
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Tüftlerzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl an Tüftlerzaubern, die du kennst.
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Zauber konstruieren
+Feat/&ArtilleryModePoolDescription	Wählen Sie Ihren Artillerie-Modus.
+Feat/&ArtilleryModePoolTitle	Artillerie-Modus
+Feat/&AttackModifierArtificerBattleSmithJolt2Description	Eure Waffenangriffe verursachen zusätzlich 3 Schaden.
+Feat/&AttackModifierArtificerBattleSmithJolt2Title	Verbesserter Waffenangriffsruck
+Feat/&AttackModifierArtificerBattleSmithJoltDescription	Eure Waffenangriffe verursachen zusätzlich 3 Schaden.
+Feat/&AttackModifierArtificerBattleSmithJoltTitle	Waffenangriffsruck
+Feat/&BattleSmithSubclassSpellsDescription	{0}.
+Feat/&BattleSmithSubclassSpellsTitle	Waffenschmiede-Zauber lernen
+Feat/&ExtraInfusionSlotsDescription	Sie erhalten zusätzliche Infusionsplätze, die für Rüstungen/Waffen verwendet werden müssen.
+Feat/&ExtraInfusionSlotsTitle	Zusätzliche Aufgüsse
+Feat/&FeatSentinelDescription	Du hast Techniken gemeistert, um jeden Rückgang der feindlichen Deckung auszunutzen und die folgenden Vorteile zu erzielen:\n• Wenn du eine Kreatur mit einem Gelegenheitsangriff triffst, wird die Geschwindigkeit der Kreatur für den Rest des Zuges 0.\n• Kreaturen provozieren Gelegenheitsangriffe von dir, selbst wenn sie die Aktion Lösen ausführen, bevor sie deine Reichweite verlassen.\n• Wenn eine Kreatur ein anderes Ziel als dich angreift (und dieses Ziel nicht über dieses Talent verfügt), kannst du deine Reaktion nutzen, um einen Nahkampfwaffenangriff gegen die angreifende Kreatur durchzuführen.
+Feat/&FeatSentinelTitle	Wächter
+Feat/&FlameArtillery_2Description	3W8 Feuerschaden (Kegel).
+Feat/&FlameArtillery_2Title	Flammenartillerie (Verbessert)
+Feat/&FlameArtilleryConstructDescription	Erzeugt einen Feuerkegel, der bei einem gescheiterten Rettungswurf 2W8 Schaden verursacht.
+Feat/&FlameArtilleryConstructDescription_3	Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.
+Feat/&FlameArtilleryConstructTitle	Flammenartillerie-Konstrukt
+Feat/&FlameArtilleryDescription	2W8 Feuerschaden (Kegel).
+Feat/&FlameArtilleryTitle	Flammenartillerie
+Feat/&ForceArtillery_2Description	3W8 erzwingen Schaden und stoßen das Ziel 1,50 m weit.
+Feat/&ForceArtillery_2Title	Force Artillery (Verbessert)
+Feat/&ForceArtilleryAdditionalDamageDescription	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer.
+Feat/&ForceArtilleryConstructDescription	Verursacht 2W8 Kraftschaden und stößt das Ziel 1,50 m vom Konstrukt weg.
+Feat/&ForceArtilleryConstructDescription_3	Verursacht 3W8 Kraftschaden und stößt das Ziel 1,50 m vom Konstrukt weg.
+Feat/&ForceArtilleryConstructTitle	Force-Artillerie-Konstrukt
+Feat/&ForceArtilleryDescription	2W8 Schaden erzwingen und 1,50 m vorstoßen.
+Feat/&HalfCoverShieldDescription	Verbündete innerhalb von 3 m erhalten +2 RK.
+Feat/&HalfCoverShieldTitle	Kuppel mit halber Abdeckung
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Einmal am Tag kannst du größere Wiederherstellung wirken.
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Größere Wiederherstellung
+Feat/&PowerAlchemistHealElixirsDescription	Einmal am Tag kannst du Heilen wirken.
+Feat/&PowerAlchemistHealElixirsTitle	Heilen
+Feat/&PowerAlchemistRestorativeElixirsDescription	Du kannst geringere Wiederherstellung wirken, ohne einen Zauberslot zu verbrauchen. Du kannst dies so oft pro langer Pause tun, wie es deinem Intelligenzmodifikator entspricht.
+Feat/&PowerAlchemistRestorativeElixirsTitle	Wiederherstellende Elixiere
+Feat/&ResummonArtilleryConstruct_03Title	Artilleriekonstrukt 1 wiederbeschwören
+Feat/&ResummonArtilleryConstruct_09Title	Artilleriekonstrukt 2 wiederbeschwören
+Feat/&ResummonArtilleryConstruct_15Title	Artilleriekonstrukt 3 wiederbeschwören
+Feat/&ResummonArtilleryConstructDescription	Dieser Zauber erlaubt es dem Bastler, ein Artilleriekonstrukt in einem von mehreren Modi erneut zu beschwören, nachdem die anfängliche Beschwörung abgelaufen ist. Das wiederbeschworene Konstrukt hält ebenfalls 1 Stunde an.
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Mehrere Rüstungsfunktionen</color></size>\nSie können einmal pro Tag zwischen den Funktionsmodi wechseln, indem Sie temporäre Waffen erstellen und verwenden\n\n<size=17><color=#add8e6ff>Wächtermodus</color></size>\nErhalten Sie eine begrenzte Anzahl temporärer HP, basierend auf dem Level. Benachteiligen Sie Feinde, die Verbündete angreifen\n\n<size=17><color=#add8e6ff>Scout-Modus</color></size>\nErhalte mehr Bewegungsfreiheit, Tarnvorteil und einen Fernkampfangriff, der einmal pro Runde einen zusätzlichen Schadenswürfel verursacht.\n\n<size=17><color=#add8e6ff>Funktionen</color></size>\nDu kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden\nSchwere Rüstung hat keine Stärkeanforderungen\nDu lernst Schmiedewerkzeuge und schwere Rüstungen.
+Feat/&ScoutSentinelFeatureSet_level03Title	Scout-Wächter
+Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Extra-Angriff</color></size>\nDu kannst ein weiteres Mal pro Kampfzug angreifen, wenn du die Angriffs- oder Schubs-Aktionen verwendest.
+Feat/&ScoutSentinelFeatureSet_level05Title	Scout-Wächter
+Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Zusätzliche Infusionsplätze</color></size>\nSie erhalten zusätzliche Infusionsplätze, die für Rüstungen verwendet werden sollten.
+Feat/&ScoutSentinelFeatureSet_level09Title	Scout-Wächter
+Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Verbesserter Sentinel-Modus</color></size>\nKann jetzt Feinde mit einer Bonusaktion in Nahkampfreichweite ziehen und über die Kraft Gauntlet Grapple 1W8 Donnerschaden zufügen\n\n<size=17><color=#add8e6ff>Verbesserter Scout-Modus</color></size>\nKann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
+Feat/&ScoutSentinelFeatureSet_level15Title	Scout-Wächter
+Feat/&SummonArtilleryConstructDescription	Der Blaster erstellt und befehligt ein Artilleriekonstrukt in einem von mehreren Modi. Die HP des Konstrukts steigen mit der Stufe seines Beschwörers und können einmal pro Tag für 1 Stunde kostenlos beschworen werden. Das Konstrukt kann mit einem Zauber der 1. Stufe wiederbeschworen werden. Die drei Modi sind:\n<color=#add8e6ff>Schutzkuppel-Konstrukt:</color>\nGewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP\n<color=#add8e6ff>Flammenartillerie-Konstrukt:</color>\nErzeugt einen Feuerkegel. Kreaturen müssen einen Geschicklichkeitsrettungswurf machen oder 2W8 Schaden erleiden\n<color=#add8e6ff>Force Artillery Construct:</color>\nVerursacht 2W8 Kraftschaden und stößt den Gegner 1,50 m weit weg.
+Feat/&SummonArtilleryConstructlevel09Description	Eine neue Funktion wurde hinzugefügt. Das Artilleriekonstrukt kann sich selbst zerstören, indem es einen Geschicklichkeitswurf erzwingt oder bei einem Fehlschlag 3W8 Machtschaden verursacht.\nZusätzlich erhöhen sich sowohl die Flammen- als auch die Machtartillerie-Schadenswürfe um 1W8 auf insgesamt 3W8.
+Feat/&SummonArtilleryConstructlevel09Title	Artillerie-Konstrukt-Upgrade: Selbstzerstörung
+Feat/&SummonArtilleryConstructlevel15Description	Eine neue Funktion wurde hinzugefügt. Das Artillerie-Konstrukt bietet Verbündeten innerhalb von 10 Fuß jetzt halbe Deckung\n<size=17><color=#add8e6ff>Artilleriekonstrukt-Upgrade: Verstärkungen</color></size>\nDu kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi haben.
+Feat/&SummonArtilleryConstructlevel15Title	Upgrade des Artilleriekonstrukts: Halbe Deckungskuppel
+Feat/&SummonArtilleryConstructTitle	Artilleriekonstrukt beschwören
+Feat/&SummonProtectorConstructDescription	Dein eigener Battle Buddy steht bereit, um dich zu verteidigen und Feinde anzugreifen. Das Beschützerkonstrukt kann sich dreimal täglich selbst reparieren und Verbündeten bei Angriffen Nachteile zufügen.
+Feat/&SummonProtectorConstructDescription_2	Beschützerkonstrukt-Upgrade beschwören.
+Feat/&SummonProtectorConstructDescription_Upgrade	Beschützerkonstrukt-Upgrade beschwören.
+Feat/&SummonProtectorConstructTitle	Beschützerkonstrukt beschwören
+Feat/&SummonProtectorConstructTitle_2	Beschützerkonstrukt-Upgrade beschwören
+Feat/&SummonProtectorConstructTitle_Upgrade	Beschützerkonstrukt-Upgrade beschwören
+Feat/&TempHPShieldConstructDescription	Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.
+Feat/&TempHPShieldConstructTitle	Schutzkuppelkonstrukt
+Feat/&TempHPShieldDescription	Versorge Verbündete innerhalb von 10 Fuß mit 1W8 + 4 TempHP.
+Feat/&TinkererConstructFamilyDescription	Erstellt von Tinkerer.
+Feat/&TinkererConstructFamilyTitle	Tüftlerkonstrukt
+Feature/&ArtificerInfusionCastingDescription	Sie können die somatischen Komponenten von Zaubersprüchen ausführen, während Sie Waffen und Schilde halten.
+Feature/&ArtificerInfusionCastingTitle	Infusionsguss
+Feature/&ArtificerSpecialistArchetypesDescription	Auf welches Studienfach spezialisieren Sie sich? Bastler können Schadensverursacher, Heiler und Kampfspezialisten sein.
+Feature/&ArtificerSpecialistArchetypesTitle	Tüftler-Spezialisierungen
+Feature/&FlameArtillery_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
+Feature/&FlameArtillery_09ModePowerTitle	Flammenartillerie-Konstrukt beschwören
+Feature/&FlameArtillery_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem fehlgeschlagenen Rettungswurf 3W8 Schaden verursacht.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
+Feature/&FlameArtillery_15ModePowerTitle	Flammenartillerie-Konstrukt beschwören
+Feature/&FlameArtilleryModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nFlammenartillerie: Erzeugt einen Feuerkegel, der bei einem gescheiterten Rettungswurf 2W8 Schaden verursacht.
+Feature/&FlameArtilleryModePowerTitle	Flammenartillerie-Konstrukt beschwören
+Feature/&ForceArtillery_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nMachtartillerie: Verursacht 3W8 Machtschaden und stößt den Feind 1,50 m weit weg.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
+Feature/&ForceArtillery_09ModePowerTitle	Beschwören Sie Force Artillery Construct
+Feature/&ForceArtillery_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nMachtartillerie: Verursacht 3W8 Machtschaden und stößt den Feind 1,50 m weit weg.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
+Feature/&ForceArtillery_15ModePowerTitle	Beschwören Sie Force Artillery Construct
+Feature/&ForceArtilleryAdditionalDamageTitle	Verbesserter Schaden
+Feature/&ForceArtilleryModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nMachtartillerie: Verursacht 2W8 Machtschaden und stößt das Ziel 1,50 m weit weg.
+Feature/&ForceArtilleryModePowerTitle	Beschwören Sie Force Artillery Construct
+Feature/&ForceArtilleryTitle	Artillerie erzwingen
+Feature/&ImprovedScoutModePowerDescription	Erhalten Sie verbesserte Scout-Modus-Funktionen. Kann jetzt mit einem einzigen Angriff Vorteile für Verbündete und Nachteile für Feinde schaffen.
+Feature/&ImprovedScoutModePowerTitle	Verbesserter Scout-Modus
+Feature/&ImprovedSentinelModePowerDescription	Erhalte verbesserte Sentinel-Modus-Funktionen über die Gauntlet Grapple-Power.
+Feature/&ImprovedSentinelModePowerTitle	Verbesserter Sentinel-Modus
+Feature/&SavingThrowTinkererProficiencyDescription	Beherrschung von Konstitutions- und Intelligenzwürfen.
+Feature/&SavingThrowTinkererProficiencyTitle	Rettungswurf-Fertigkeit
+Feature/&ScoutModePowerDescription	Du erhältst mehr Bewegung, einen Vorteil bei Fertigkeitswürfen für Heimlichkeit und einmal pro Zug verursachen deine Fernwaffenangriffe einen zusätzlichen Schadenswürfel.
+Feature/&ScoutModePowerTitle	Scout-Modus
+Feature/&SentinelModePowerDescription	Erhalten Sie temporäre HP in Höhe des Levels. Verhängt einen Nachteil für Feinde, die Verbündete angreifen.
+Feature/&SentinelModePowerTitle	Sentinel-Modus
+Feature/&TempHPShield_09ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nSchutzkuppel: Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.
+Feature/&TempHPShield_09ModePowerTitle	Beschwöre ein schützendes Kuppelkonstrukt
+Feature/&TempHPShield_15ModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nSchutzkuppel: Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.\nSelbstzerstörung: Verursacht 3W8 Machtschaden bei einem fehlgeschlagenen Rettungswurf und zerstört die Einheit.\n Half Cover Dome: Bietet Verbündeten innerhalb von 10 Fuß halbe Deckung.
+Feature/&TempHPShield_15ModePowerTitle	Beschwöre ein schützendes Kuppelkonstrukt
+Feature/&TempHPShieldModePowerDescription	Beschwört ein Konstrukt, das 1 Stunde hält.\nSchutzkuppel: Gewährt Verbündeten innerhalb von 10 Fuß 1W8 + 4 temporäre HP.
+Feature/&TempHPShieldModePowerTitle	Beschwöre ein schützendes Kuppelkonstrukt
+Feature/&TempHPShieldTitle	Schutzkuppel
+Feature/&TinkererArmorProficiencyDescription	Kenntnisse im Umgang mit leichten und mittleren Rüstungen sowie Schilden.
+Feature/&TinkererArmorProficiencyTitle	Tüftler-Rüstungskompetenz
+Feature/&TinkererInfusionChoiceDescription	Wählen Sie die Infusionen aus, die Ihnen zur Verfügung stehen. Beachten Sie, dass jede Infusion nur einmal aktiv sein kann. Eine zweite Aktivierung bricht die erste ab.
+Feature/&TinkererInfusionChoiceTitle	Wahl der Infusion
+Feature/&TinkererInfusionReplaceDescription	Wählen Sie die zu ersetzenden Infusionen aus.
+Feature/&TinkererInfusionReplaceTitle	Infusion ersetzen
+Feature/&TinkererSkillGainChoicesPluralDescription	Tüftlerfähigkeiten sind Arcana, Geschichte, Ermittlung, Medizin, Natur, Wahrnehmung und Fingerfertigkeit.
+Feature/&TinkererSkillPointsTitle	Tüftlerfähigkeiten
+Feature/&TinkererToolsExpertiseDescription	Sammeln Sie Erfahrung mit vielen Werkzeugen, darunter Werkzeuge der Diebe, Schriftrollen-Kits, Gift-Kit, Kräuterkunde-Kit und Verzauberungs-Tools.
+Feature/&TinkererToolsExpertiseTitle	Tüftler-Tool-Expertise
+Feature/&TinkererToolsProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit vielen Werkzeugen, darunter Werkzeuge der Diebe, Schriftrollen-Sets, Giftset, Kräuterkunde-Set und Verzauberungswerkzeuge.
+Feature/&TinkererToolsProficiencyTitle	Werkzeugkenntnisse
+Feature/&TinkererWeaponProficiencyDescription	Umgang mit einfachen Waffen.
+Feature/&TinkererWeaponProficiencyTitle	Tüftler-Waffenkenntnisse
+Feedback/&AdditionalDamageArcaneFirearmFormat	Explosionsverbesserung!
+Feedback/&AdditionalDamageArcaneFirearmLine	Verursacht zusätzlichen Schaden durch Sprengverstärkung
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Blendende Waffe
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Zusätzlicher Schaden und Versuch, Blindness von Blending Weapon anzuwenden
+Feedback/&AdditionalDamageLightningSpearFormat	Blitzspeer!
+Feedback/&AdditionalDamageLightningSpearLine	{0} schlägt {1} mit Blitzspeer! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Verbesserter Schaden
+Feedback/&AdditionalDamageUpgradedConstructLine	Das aufgewertete Konstrukt verursacht 1W8 mehr Schaden pro Treffer.
+Feedback/&LightningSpearAdditionalDamageDescription	Verursacht einmal pro Runde zusätzlich 1W6 Blitzschaden.
+Feedback/&LightningSpearAdditionalDamageTitle	Blitzspeer zusätzlichen Schaden
+Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
+Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
+Reaction/&ReactionAttackFeatSentinelDescription	{0} hat einen deiner Verbündeten angegriffen, als Reaktion darauf kannst du deine Angriffsreaktion nutzen.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Verwenden Sie die Reaktion auf den Angriff.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Attacke
+Reaction/&ReactionAttackFeatSentinelTitle	Sentinel-Reaktion
+Rules/&AdvantageAttackOnEnemyDescription	Vorteil, um den Feind anzugreifen.
+Rules/&AdvantageAttackOnEnemyTitle	Beleuchtet
+Rules/&DisadvantageOnAttackByEnemyDescription	Abgelenkt durch Blitzschlag.
+Rules/&DisadvantageOnAttackByEnemyTitle	Erschüttert
+Rules/&ExtraDamageOnAttackConditionDescription	Zusätzlicher Schaden durch Blitzspeer.
+Rules/&ExtraDamageOnAttackConditionTitle	Statisch geschockt
+Rules/&HalfCoverShieldAttributeDescription	Verbündete innerhalb von 3 m erhalten +2 RK.
+Rules/&HalfCoverShieldAttributeTitle	Kuppel mit halber Abdeckung
+Rules/&HalfCoverShieldConditionDescription	+2 AC.
+Rules/&HalfCoverShieldConditionTitle	Geschützt durch Dome
+Rules/&LightningSpearPowerDescription	Verursache 2W6 Blitzschaden.
+Rules/&LightningSpearPowerTitle	Blitzspeer
+Rules/&SelfDestructionConditionDescription	Selbstzerstörung.
+Rules/&SelfDestructionConditionTitle	Selbstzerstörung
+Rules/&ThunderStruckBalancingAdvantageDescription	Balancieren von Thunderstruck, um nur für Verbündete zu funktionieren.
+Rules/&ThunderStruckBalancingAdvantageTitle	Verspottet
+Rules/&ThunderStruckDescription	Nachteil beim Angriff auf Verbündete von Scout Sentinel.
+Rules/&ThunderStruckTitle	Vom Blitz getroffen (abgelenkt)
+SpellList/&SpellListTinkererDescription	Tüftler-Zauberliste.
+SpellList/&SpellListTinkererTitle	Tüftler-Zauberliste
+Stage/&SubclassSelectionStageSpecialistDescription	Beschreibung Es gibt eine große Auswahl an Spezialitäten in Tinkerers, darunter die Herstellung von Elixieren als Tränkemacher, das Erzeugen von Explosionen als Blaster und das Führen magischer Waffen als Waffenschmied.
+Stage/&SubclassSelectionStageSpecialistFeatures	Spezialfunktionen
+Stage/&SubclassSelectionStageSpecialistHeader	Spezialisierungen
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Spezialist Keine Beschreibung.
+Stage/&SubclassSelectionStageSpecialistTitle	Spezialisierung auswählen
+Subclass/&ArtificerAlchemistDescription	Du bist auf Tränke, Buffs, Heilung und Zaubersprüche spezialisiert.
+Subclass/&ArtificerAlchemistTitle	Zaubertrankhersteller
+Subclass/&ArtificerArtileristCannonsDescription	Sie erstellen eine Reihe von Kanonen, die Sie im Kampf als Bonusaktion aktivieren können.
+Subclass/&ArtificerArtileristCannonsTitle	Kanonen
+Subclass/&ArtificerArtilleristDescription	Du bist darauf spezialisiert, Projektile zu schleudern und Explosionen zu verursachen.
+Subclass/&ArtificerArtilleristTitle	Blaster
+Subclass/&ArtificerBattleSmithDescription	Du spezialisierst dich auf den Einsatz magischer Waffen im Kampf.
+Subclass/&ArtificerBattleSmithTitle	Waffenschmied
+Subclass/&ArtificerSpellcastingDescription	Wirke Tinkerer-Zauber.
+Subclass/&ArtificerSpellcastingTitle	Tinkerer Zaubersprüche
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Deine Angriffe zählen als magisch und du nutzt deine Intelligenz für Angriffs- und Schadenswürfe.
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Infundierte Waffe
+Subclass/&AttackModifierArtificerBlindingWeaponDescription	Eine Waffe deiner Wahl, die die Fähigkeit erhält, Ziele bei einem Treffer zu blenden (gegen einen Konstitutionswurf). Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle	Blendende Waffe
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Eine gewählte Rüstung wird magisch und gewährt zusätzlich +1 RK. Sie können eine Infusion nur einmal aktiv haben. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle	Verbesserte Rüstung
+Subclass/&AttackModifierArtificerEnhancedFocusDescription	Ein Zauberfokus deiner Wahl wird magisch und erhält +1 auf Zauberangriffswürfe und SG für Zauberwürfe. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle	Verbesserter Fokus
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Eine Waffe deiner Wahl wird magisch und erhält +1 auf Angriffs- und Schadenswürfe. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Verbesserte Waffe
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Eine gewählte Rüstung wird magisch und gewährt +2 RK. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Verbesserte verstärkte Rüstung
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Ein Zauberfokus, den du wählst, wird magisch und erhält +2 auf Zauberangriffswürfe und Zauberwurf-SG. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Verbesserter verstärkter Fokus
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Berühre eine Waffe und sie wird magisch und erhält +2 auf Angriffs- und Schadenswürfe. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Verbesserte verbesserte Waffe
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	Du verleihst deiner Waffe Kraft. Deine Angriffe zählen als magisch und du addierst +7 zu deinen Angriffs- und Schadenswürfen.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Verbesserte Infusionswaffe
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	Du erhältst einen zusätzlichen Angriff.
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Extra-Angriff
+Subclass/&CancelCancelElixirFlyDescription	Beende die Fliegen-Bedingung aus dem Trankmacher-Elixier.
+Subclass/&CancelCancelElixirFlyTitle	Fliegen abbrechen
+Subclass/&CancelCancelElixirResilienceDescription	Beenden Sie die Resilienz-Bedingung des Trankmacher-Elixiers.
+Subclass/&CancelCancelElixirResilienceTitle	Resilienz abbrechen
+Subclass/&CancelCancelElixirSwiftnessDescription	Beende den Schnelligkeits-Zustand des Trankmacher-Elixiers.
+Subclass/&CancelCancelElixirSwiftnessTitle	Schnelligkeit abbrechen
+Subclass/&ConditionResistantArmorTitle	Widerstandsfähige Rüstung
+Subclass/&ConditionResistnatArmorDescription	Ihre Rüstung ist resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, psychische, Strahlungs- und Donnerschäden.
+Subclass/&CraftingTinkererMagicItemAdeptDescription	Du bist geschickt darin, magische Gegenstände herzustellen. Sie benötigen 1/4 der Zeit, um Gegenstände herzustellen, und Sie wenden beim Herstellen den doppelten Kompetenzbonus an.
+Subclass/&CraftingTinkererMagicItemAdeptTitle	Adept der magischen Gegenstände
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Berühren Sie eine Tasche und füllen Sie sie mit einem extradimensionalen Raum, damit sie mehr Gewicht tragen kann, ohne Sie zu belasten. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Tasche des Haltens
+Subclass/&HArtilleryIncreaseDescription	Erhöhung des Artilleriepools.
+Subclass/&HArtilleryIncreaseTitle	Erhöhung des Artilleriepools
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	Sie können jetzt jeden Tag zwei zusätzliche Gegenstände infundieren. Diese sind für Ihre spezielle Waffenschmiede-Waffe bestimmt.
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Waffe Schmied Waffeninfusion
+Subclass/&HealingPoolArtificerInfusionsDescription	Ergänze Gegenstände 2-mal täglich mit magischen Effekten.
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	Sie können jetzt jeden Tag ein zusätzliches Item infundieren.
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	Mehr Aufgüsse
+Subclass/&HealingPoolArtificerInfusionsTitle	Aufgüsse
+Subclass/&MagicAffinityAlchemicalSavantListDescription	Beim Wirken von Säurepfeil und Flammenkugel verhalten sie sich, als ob sie 2 Stufen höher gewirkt würden. Ihre Cantrips werden ebenfalls verstärkt, sodass sie selbst dann, wenn der Feind rettet, immer noch den halben Schaden erleiden.
+Subclass/&MagicAffinityAlchemicalSavantListTitle	Elixiergelehrte Zauber
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Du verleihst deiner Waffe Kraft. Deine Angriffe zählen als magisch und du addierst deine +7 zu deinen Angriffs- und Schadenswürfen hinzu. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Verbesserte Infusionswaffe
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	Du verleihst deiner Waffe Kraft. Deine Angriffe zählen als magisch und du nutzt deine Intelligenz für Angriffs- und Schadenswürfe bis zur nächsten langen Pause.
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Waffe einflößen
+Subclass/&PowerInfuseArmorMagicalStrengthDescription	Ergänze Rüstungen mit magischer Stärke. Du erhältst einen Vorteil bei Stärke-Fähigkeitswürfen und Rettungswürfen. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle	Rüstung der magischen Stärke
+Subclass/&PowerInfuseDarkvisionDescription	Verleihen Sie einer Brille die Fähigkeit, im Dunkeln zu sehen. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseDarkvisionTitle	Brille der Nacht
+Subclass/&PowerInfuseMindSharpenerDescription	Ergänze eine Rüstung oder Robe mit der Fähigkeit, deine Konzentration beim Zaubern zu unterstützen. Du erhältst einen Vorteil bei Konzentrationswürfen und jeder Schaden unter 20 löst keinen Wurf aus. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseMindSharpenerTitle	Geistschärfer
+Subclass/&PowerInfuseResistantArmorDescription	Verleihe deiner Rüstung Schadensresistenz. Es wird resistent gegen Säure-, Kälte-, Feuer-, Kraft-, Blitz-, Nekrotik-, Gift-, psychische, strahlende und Donnerschäden. Von jeder Infusion kann immer nur eine aktiv sein. Eine zweite Aktivierung bricht die erste ab.
+Subclass/&PowerInfuseResistantArmorTitle	Widerstandsfähige Rüstung
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Ihre Rüstung ist von magischen Verbesserungen Ihrer Fähigkeit durchdrungen, schlechte Auswirkungen zu vermeiden. Du erhältst 3W4 für jeden Rettungswurf, den du machst.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Seele des Tüftlers
+Subclass/&PowerTinkererSpellStoringItemDescription	Als Bonusaktion kannst du Zauberslots zurückgewinnen. Du kannst dies so oft am Tag tun, wie es deinem Intelligenzmodifikator entspricht.
+Subclass/&PowerTinkererSpellStoringItemTitle	Zauberspeichergegenstand
+Subclass/&PowerTransmuteConstitutionDescription	Benutze deine Transmutationskraft, um Konstitutionswürfe bis zur nächsten langen Pause zu beherrschen.
+Subclass/&PowerTransmuteConstitutionTitle	Verfassung speichert
+Subclass/&PowerTransmuteDarkvisionDescription	Nutze deine Transmutierungskraft, um bis zur nächsten langen Pause überlegene Dunkelsicht zu gewähren.
+Subclass/&PowerTransmuteDarkvisionTitle	Überlegene Dunkelsicht
+Subclass/&PowerTransmuteElementalResistanceDescription	Nutze deine Transmutierungskraft, um bis zum Ende deiner nächsten langen Rast Widerstand gegen Säure-, Kälte-, Feuer-, Blitz-, Nekrotik-, Gift- und Donnerschaden zu gewähren.
+Subclass/&PowerTransmuteElementalResistanceTitle	Elementarer Widerstand
+Subclass/&PowerTransmuteFlyDescription	Benutze deine Transmutierungskraft, um die Fähigkeit zu fliegen zu gewähren.
+Subclass/&PowerTransmuteFlyTitle	Fliegen
+Subclass/&PowerTransmuteHealDescription	Nutze deine Transmutierungskraft, um bis zu 6 Ziele zu heilen.
+Subclass/&PowerTransmuteHealTitle	Heilen
+Subclass/&PowerTransmuteReviveDescription	Verwenden Sie Ihre Transmute Force, um einen Charakter wiederzubeleben (innerhalb von 1 Minute nach seinem Tod).
+Subclass/&PowerTransmuteReviveTitle	Beleben
+Subclass/&ScoutSentinelTinkererSubclassDescription	Ein Scout Sentinel Tinkerer modifiziert Rüstungen, um ihre Funktion zu verbessern und verbesserten Schutz und Mobilität zu bieten.
+Subclass/&ScoutSentinelTinkererSubclassTitle	Scout-Wächter
+Subclass/&TinkererFlashOfGeniusConditionDescription	Inspiriert von einem Geistesblitz, einen Bonus auf Fähigkeitschecks und Rettungswürfe zu haben.
+Subclass/&TinkererFlashOfGeniusConditionTitle	Blitz des Genies
+Subclass/&TinkererFlashOfGeniusPowerDescription	Du kannst dein Genie einsetzen, um dich und andere bei Fähigkeitsprüfungen und Rettungswürfen zu inspirieren.
+Subclass/&TinkererFlashOfGeniusPowerTitle	Blitz des Genies
+Subclass/&TinkererMagicalTinkeringDescription	Erhalte die Fähigkeit, mehrere kleinere Effekte auszuführen (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringTitle	Magisches Basteln
+Subclass/&WeaponProfArtificerBattleSmithDescription	Die Erfahrung im Kampf hat dem Waffenschmied eine Ausbildung in Kampfwaffen gegeben.
+Subclass/&WeaponProfArtificerBattleSmithTitle	Waffentraining
+Tooltip/&TagScoutSentinelWeaponTitle	Scout-Wächter

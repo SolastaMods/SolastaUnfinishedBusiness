@@ -1,0 +1,123 @@
+Class/&WitchArmorProficiencyDescription	Armatura leggera.
+Class/&WitchArmorProficiencyTitle	Competenze nelle armature delle streghe
+Class/&WitchBurnedFireResistanceDescription	Hai resistenza ai danni da fuoco.
+Class/&WitchBurnedFireResistanceTitle	Bruciato: Resistenza al fuoco
+Class/&WitchBurnedProduceFlameDescription	Conosci il trucchetto Produce Flame, che non conta sul numero totale di trucchetti conosciuti.
+Class/&WitchBurnedProduceFlameTitle	Bruciato: produce fiamma
+Class/&WitchCacklePowerDescription	Puoi usare la tua azione bonus per ridacchiare. La durata della tua Maledizione si estende di 1 round per ogni creatura colpita entro 18 metri da te.\nNon tutte le streghe ridono in modo maniacale quando ridacchiano, ma tutte le risatine richiedono una componente verbale, come un incantesimo. Questi vanno da maledizioni e insulti banali, al mormorio di lingue morte e al parlare al contrario.
+Class/&WitchCacklePowerTitle	Schiamazzare
+Class/&WitchDescription	Afflitte da una sinistra maledizione, le streghe possono trasformare la magia oscura in Maledictions, che usano per debilitare i nemici. Sono anche accompagnati dai loro famigli, leali compagni magici che usano per assestare il colpo mortale.
+Class/&WitchFamiliarPowerDescription	Impari l'incantesimo Strega Famiglio, ovvero un incantesimo Trova Famiglio migliorato, e puoi lanciarlo come rituale senza componenti materiali. L'incantesimo non conta nel numero di incantesimi conosciuti. L'incantesimo migliora Trova Famiglio nei seguenti modi:\n• Il tuo famiglio svolge il suo turno immediatamente prima o dopo il tuo turno ogni round (a tua scelta).\n• Una volta per turno come azione o azione bonus, puoi comandare mentalmente al tuo famiglio di usare la sua reazione per effettuare un attacco.\n• Quando lanci un incantesimo, puoi consegnarlo tramite il tuo famiglio come se avesse lanciato l'incantesimo, anche se l'incantesimo non ha un raggio di contatto.\n• Il tuo famiglio può usare il tuo bonus di attacco con incantesimo per i suoi tiri per colpire.\n• Il tuo famiglio aggiunge il tuo bonus di competenza alla sua Classe Armatura, ai tiri salvezza e ai tiri per i danni.\n• Aggiungi il doppio del tuo livello da Strega ai punti ferita massimi del tuo famiglio.
+Class/&WitchFamiliarPowerTitle	Familiare
+Class/&WitchFeatureSetBurnedCurseDescription	Quasi tutto il tuo corpo è stato bruciato da fiamme arcane, lasciandoti con straordinarie cicatrici nere e braci di magia che bruciano sotto la pelle. Di conseguenza, hai resistenza ai danni da fuoco e conosci il trucchetto Produce Flame, che non conta sul numero totale di trucchetti conosciuti.
+Class/&WitchFeatureSetBurnedCurseTitle	Bruciato
+Class/&WitchFeatureSetLovelessCurseDescription	Sei maledetto per non trovare mai il vero amore. Stanco e disamorato, nemmeno la magia può far girare il tuo cuore; di conseguenza, sei immune all'essere incantato.
+Class/&WitchFeatureSetLovelessCurseTitle	Senza amore
+Class/&WitchFeatureSetRitualCastingDescription	Puoi lanciare qualsiasi incantesimo da strega che conosci come rituale se quell'incantesimo ha l'etichetta rituale.
+Class/&WitchFeatureSetRitualCastingTitle	Strega: casting rituale
+Class/&WitchFeatureSetVisionsCurseDescription	Sei maledetto per avere visioni terribili del futuro, presagire la morte dei tuoi amici, della tua famiglia e di te stesso. Per quanto molte di queste visioni siano inganni crudeli, a volte sono cupamente accurate. Puoi aggiungere il tuo modificatore di Carisma, oltre al tuo modificatore di Destrezza, ai tuoi tiri di iniziativa.
+Class/&WitchFeatureSetVisionsCurseTitle	Visioni
+Class/&WitchLovelessCharmImmunityDescription	Sei immune all'essere affascinato.
+Class/&WitchLovelessCharmImmunityTitle	Senza amore: Immunità al fascino
+Class/&WitchMaledictionAbateDescription	Come azione, scegli una creatura che puoi vedere entro 18 metri da te per effettuare un tiro salvezza di Carisma. Se fallisce il tiro salvezza, la creatura non può reagire fino alla fine del tuo prossimo turno.
+Class/&WitchMaledictionAbateTitle	Cattura la maledizione
+Class/&WitchMaledictionApathyDescription	Come azione, scegli una creatura che puoi vedere entro 18 metri da te per effettuare un tiro salvezza di Carisma. Se fallisce il tiro salvezza, fino alla fine del tuo prossimo turno, la creatura diventa indifferente verso una creatura a tua scelta verso la quale è ostile. Questa indifferenza termina se il bersaglio viene attaccato o danneggiato da un incantesimo dalla creatura a cui è indifferente.
+Class/&WitchMaledictionApathyTitle	Maledizione dell'apatia
+Class/&WitchMaledictionCharmDescription	Come azione, scegli una creatura che puoi vedere entro 18 metri per effettuare un tiro salvezza su Saggezza. Se fallisce il tiro salvezza, la creatura rimane affascinata da te fino alla fine del tuo prossimo turno.
+Class/&WitchMaledictionCharmTitle	Fascino Maledizione
+Class/&WitchMaledictionDisorientDescription	Come azione, scegli una creatura che puoi vedere entro 18 metri per effettuare un tiro salvezza su Costituzione. Se fallisce il tiro salvezza, ogni volta che questo bersaglio effettua un tiro per colpire prima della fine del tuo prossimo turno, deve tirare un d6 e sottrarre il numero ottenuto dal tiro per colpire.
+Class/&WitchMaledictionDisorientTitle	Disorienta la maledizione
+Class/&WitchMaledictionEvilEyeDescription	Come azione, scegli una creatura visibile e in grado di vederti entro 18 metri per effettuare un tiro salvezza su Saggezza. Se fallisce il tiro salvezza, la creatura ha paura di te fino alla fine del tuo prossimo turno.
+Class/&WitchMaledictionEvilEyeTitle	Maledizione del malocchio
+Class/&WitchMaledictionObfuscateDescription	Come azione, crei una sfera di nebbia di 20 piedi di raggio centrata su te stesso. La sfera si estende dietro gli angoli e la sua area è fortemente oscurata. Questo effetto dura fino alla fine del tuo prossimo turno o finché un vento di velocità moderata o maggiore (almeno 10 miglia orarie) non lo disperde.
+Class/&WitchMaledictionObfuscateTitle	Maledizione offuscata
+Class/&WitchMaledictionPoxDescription	Come azione, scegli una creatura che puoi vedere entro 1,5 metri per effettuare un tiro salvezza su Costituzione. Se fallisce il tiro salvezza, la creatura viene avvelenata fino alla fine del tuo prossimo turno.
+Class/&WitchMaledictionPoxTitle	Maledizione del vaiolo
+Class/&WitchMaledictionRuinDescription	Come azione, scegli una creatura che puoi vedere entro 18 metri per effettuare un tiro salvezza su Costituzione. Se fallisce il tiro salvezza, la Classe Armatura della creatura diminuisce di 3, fino a un minimo di 10, fino alla fine del tuo prossimo turno.
+Class/&WitchMaledictionRuinTitle	Maledizione della rovina
+Class/&WitchRitualCastingMagicAffinityDescription	Puoi lanciare un incantesimo da strega come rituale se quell'incantesimo ha l'etichetta rituale e hai l'incantesimo preparato.
+Class/&WitchRitualCastingMagicAffinityTitle	Casting rituale
+Class/&WitchSavingthrowProficiencyDescription	Saggezza, Carisma.
+Class/&WitchSavingthrowProficiencyTitle	Competenze nei tiri salvezza delle streghe
+Class/&WitchSkillProficiencyDescription	Scegline due tra Arcana, Inganno, Perspicacia, Intimidazione, Persuasione, Natura e Religione.
+Class/&WitchSkillProficiencyTitle	Abilità delle streghe
+Class/&WitchSpellcastingDescription	Sei una strega capace di lanciare incantesimi dalla lista degli incantesimi da strega.
+Class/&WitchSpellcastingTitle	Incantesimi di streghe
+Class/&WitchTitle	Strega
+Class/&WitchToolProficiencyDescription	Scegline uno dal Kit dell'erborista e dal Kit dell'avvelenatore.
+Class/&WitchToolProficiencyTitle	Competenze degli strumenti per streghe
+Class/&WitchVisionsInitiativeDescription	Aggiungi il tuo modificatore di Carisma ai tuoi tiri di iniziativa.
+Class/&WitchVisionsInitiativeTitle	Iniziativa Visioni
+Class/&WitchWeaponProficiencyDescription	Armi semplici.
+Class/&WitchWeaponProficiencyTitle	Competenze con le armi da strega
+Condition/&AbateDescription	Non è possibile utilizzare le reazioni.
+Condition/&AbateTitle	Abate
+Condition/&ApathyDescription	Indifferente alla creatura bersaglio a cui è ostile. Questa indifferenza termina se il bersaglio viene attaccato o danneggiato da un incantesimo dalla creatura bersaglio.
+Condition/&ApathyTitle	Apatia
+Condition/&CharmDescription	Considera l'incantatore un alleato.
+Condition/&CharmTitle	Ammaliato
+Condition/&DebilitatedConditionDescription	Soffri di una delle seguenti condizioni: accecato, rovinato, sanguinante o stordito.
+Condition/&DebilitatedConditionTitle	Debilitato
+Condition/&DisorientDescription	-1d6 ai tiri per colpire.
+Condition/&DisorientTitle	Disorientato
+Condition/&EvilEyeDescription	Spaventati. Incapace di avvicinarsi alla fonte della paura, svantaggio ai tiri per colpire e alle prove di caratteristica mentre la fonte della paura è in vista.
+Condition/&EvilEyeTitle	Malocchio
+Condition/&FrenziedDescription	Questa creatura è frenetica e attaccherà la creatura più vicina.
+Condition/&FrenziedTitle	Frenetico
+Condition/&PoxDescription	Stato di vaiolo.
+Condition/&PoxTitle	vaiolo
+Condition/&RuinDescription	Penalità -3 AC, fino ad un massimo di -10 AC.
+Condition/&RuinedDescription	Penalità -3 AC, fino ad un massimo di -10 AC.
+Condition/&RuinedTitle	Rovinato
+Condition/&RuinTitle	Rovina
+Feature/&ClassWitchMaledictionReplaceDescription	Seleziona Maledizione da sostituire.
+Feature/&ClassWitchMaledictionReplaceTitle	Sostituisci Maledizione
+Feature/&WitchCurseChoiceDescription	Sei devastato da una terribile maledizione che infetta il tuo corpo e la tua anima.
+Feature/&WitchCurseChoiceTitle	Maledizione della strega
+Feature/&WitchMaledictionChoiceDescription	Puoi imparare una serie di potenti incantesimi, noti come Maledictions, derivati ​​dalla stessa magia insidiosa che ti ha maledetto.
+Feature/&WitchMaledictionChoiceTitle	Maledizioni
+Feature/&WitchSightDescription	Puoi percepire o vedere creature invisibili entro 18 metri da te.
+Feature/&WitchSightTitle	Vista da strega
+Modifier/&AttributeModifierRuinDescription	-3 alla Classe Armatura.
+Modifier/&AttributeModifierRuinTitle	Rovinato
+Modifier/&DisorientDescription	-1d6 ai tiri per colpire.
+Modifier/&DisorientTitle	Disorientato
+Monster/&WitchOwlFamiliarDescription	Gufo familiare.
+Monster/&WitchOwlFamiliarTitle	Gufo
+Screen/&CovenSpellDescription	Incantesimo noto come parte di una Congrega.
+Screen/&CovenSpellHeader	Raduno
+Screen/&CovenSpellTitle	Raduno
+Screen/&WitchSpellDescription	Incantesimi conosciuti come una strega.
+Screen/&WitchSpellHeader	Strega
+Screen/&WitchSpellTitle	Strega
+Spell/&WitchFamiliarDescription	Ottieni il servizio di un famiglio.
+Spell/&WitchFamiliarTitle	Famiglio di streghe
+Stage/&SubclassSelectionStageCovenDescription	Raduno.
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Raduno.
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Caratteristiche della congrega
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Raduno
+Stage/&SubclassSelectionStageCovenHeader	Seleziona una congrega
+Stage/&SubclassSelectionStageCovenTitle	Raduno
+Subclass/&BloodWitchDescription	Proibita dalla maggior parte delle congreghe delle streghe, la magia del sangue è incentrata sull'uso di incantesimi oscuri e malefici mortali che attingono dall'essenza stessa dell'incantatore. È fondamentalmente più pericoloso di altri mestieri delle streghe, ma i suoi numerosi rischi comportano abbondanti ricompense.
+Subclass/&BloodWitchMagicDescription	Ottieni i seguenti incantesimi. Questi incantesimi contano per te come incantesimi da Strega e non contano sul numero totale di incantesimi conosciuti:\n {0}
+Subclass/&BloodWitchMagicTitle	Magia del sangue
+Subclass/&BloodWitchTitle	Strega del Sangue
+Subclass/&GreenWitchDescription	Le piante, la natura e le cose che crescono sono il dominio della magia verde. Normalmente un tipo di arcano sostenuto dai druidi, alcune streghe hanno uno stretto legame con i poteri della magia verde e possono convincere piante e animali ai loro ordini.
+Subclass/&GreenWitchMagicDescription	Ottieni i seguenti incantesimi. Questi incantesimi contano per te come incantesimi da Strega e non contano sul numero totale di incantesimi conosciuti:\n{0}
+Subclass/&GreenWitchMagicTitle	Magia Verde
+Subclass/&GreenWitchTitle	Strega Verde
+Subclass/&PurpleWitchDescription	La magia viola domina i domini delle illusioni e degli incantesimi che si impadroniscono delle menti delle persone e di tutto ciò che non è proprio come sembra. I praticanti di questa forma di magia sono burattinai, che modellano l'apparente realtà di coloro che li circondano a proprio vantaggio.
+Subclass/&PurpleWitchMagicDescription	Ottieni i seguenti incantesimi. Questi incantesimi contano per te come incantesimi da Strega e non contano sul numero totale di incantesimi conosciuti:\n {0}
+Subclass/&PurpleWitchMagicTitle	Magia Viola
+Subclass/&PurpleWitchTitle	Strega Viola
+Subclass/&RedWitchDescription	La magia arcana legata alla canalizzazione degli elementi è considerata magia rossa ed è estremamente pericolosa se usata. Le streghe specializzate nella magia rossa sono tra gli incantatori più letali esistenti, incanalando la loro maledizione in un'ira arcana senza ostacoli.
+Subclass/&RedWitchMagicDescription	Ottieni i seguenti incantesimi. Questi incantesimi contano per te come incantesimi da Strega e non contano sul numero totale di incantesimi conosciuti:\n {0}
+Subclass/&RedWitchMagicTitle	Magia Rossa
+Subclass/&RedWitchTitle	Strega Rossa
+Subclass/&WhiteWitchDescription	La magia bianca è fondamentalmente buona e benevola per tutti gli esseri viventi. Le streghe che adottano questo mestiere, nonostante l'odiosa maledizione che le infetta, spesso si dedicano alla guarigione e alla cura, con l'intento di migliorare il mondo.
+Subclass/&WhiteWitchMagicDescription	Ottieni i seguenti incantesimi. Questi incantesimi contano per te come incantesimi da Strega e non contano sul numero totale di incantesimi conosciuti:\n {0}
+Subclass/&WhiteWitchMagicTitle	Magia Bianca
+Subclass/&WhiteWitchTitle	Strega Bianca
+Subclass/&WitchSubclassPathDescription	La tua conoscenza della magia è culminata nell'entrare in una Congrega, un'innata cerchia di streghe che percorrono un percorso specifico di stregoneria e maledizioni.
+Subclass/&WitchSubclassPathTitle	Congreghe delle streghe
+Tooltip/&TagMaledictionTitle	Accidenti

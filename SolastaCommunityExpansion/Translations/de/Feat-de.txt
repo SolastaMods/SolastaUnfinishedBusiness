@@ -1,0 +1,307 @@
+Condition/&ConditionDualFlurryApplyDescription	Du baust Schwung auf...
+Condition/&ConditionDualFlurryApplyTitle	Doppelte Flut!
+Condition/&ConditionDualFlurryGrantDescription	Deine Feinde taumeln!
+Condition/&ConditionDualFlurryGrantTitle	Doppelte Flut!
+Condition/&HelpActionDescription	Diese Kreatur wurde abgelenkt.
+Condition/&HelpActionTitle	Abgelenkt
+CraftyFeats/&ApothecaryIntFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn Sie bereits geübt sind.
+CraftyFeats/&ApothecaryIntFeatTitle	Apotheker (Geheimdienst)
+CraftyFeats/&ApothecaryWisFeatDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit dem Kräuterkunde-Kit und Arcana oder Fachwissen, wenn Sie bereits geübt sind.
+CraftyFeats/&ApothecaryWisFeatTitle	Apotheker (Weisheit)
+CraftyFeats/&AttributeDexDescription	+1 DEX bis maximal 20
+CraftyFeats/&AttributeDexTitle	Geschicklichkeit
+CraftyFeats/&AttributeIntDescription	+1 INT bis maximal 20
+CraftyFeats/&AttributeIntTitle	Intelligenz
+CraftyFeats/&AttributeWisDescription	+1 WIS bis maximal 20
+CraftyFeats/&AttributeWisTitle	Weisheit
+CraftyFeats/&CraftyArcanaDescription	Sie erwerben Kenntnisse/Expertise in Arcana.
+CraftyFeats/&CraftyBowsDescription	Sie erwerben Kenntnisse im Umgang mit allen Bögen und Armbrüsten.
+CraftyFeats/&CraftyBowsTitle	Beherrschung des Bogens
+CraftyFeats/&CraftyFletcherFeatDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit Schmiedewerkzeugen oder Fachwissen, wenn Sie bereits geübt sind.\n Sie erwerben Kenntnisse im Umgang mit allen Bögen und Armbrüsten.
+CraftyFeats/&CraftyFletcherFeatTitle	Fletcher
+CraftyFeats/&CraftyMedicineDescription	Sie erwerben Kenntnisse/Kenntnisse in der Medizin.
+CraftyFeats/&CraftyNatureDescription	Sie erwerben Kenntnisse/Expertise in der Natur.
+CraftyFeats/&CraftyScribeFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit Schriftrollen und Arcana oder Fachwissen, wenn Sie bereits geübt sind.\nErfordert die Fähigkeit, Zauber zu wirken.
+CraftyFeats/&CraftyScribeFeatTitle	Schreiber
+CraftyFeats/&CraftySkillsTitle	Fähigkeiten
+CraftyFeats/&CraftyToolsTitle	Werkzeug
+CraftyFeats/&ManacalonCrafterFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSie erwerben Kenntnisse im Umgang mit Manacolon-Rosenkranz und Arcana oder Fachwissen, wenn Sie bereits geübt sind.\nErfordert die Fähigkeit, Zauber zu wirken.
+CraftyFeats/&ManacalonCrafterFeatTitle	Handwerker von Manacalon
+CraftyFeats/&ToxicologistIntFeatDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit Giftausrüstung und Natur oder Fachwissen, wenn du bereits geübt bist.
+CraftyFeats/&ToxicologistIntFeatTitle	Toxikologe (Geheimdienst)
+CraftyFeats/&ToxicologistWisFeatDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit Giftausrüstung und Medizin oder Fachwissen, wenn du bereits geübt bist.
+CraftyFeats/&ToxicologistWisFeatTitle	Toxikologe (Weisheit)
+Feat/&AddConstructCantripsDescription	Fügt Cantrips hinzu, um deine Konstrukte zu heilen und zu entlassen.
+Feat/&AddConstructCantripsTitle	Cantrips konstruieren
+Feat/&AddProtectorConstructCantripDescription	Fügt Cantrips zum Ausbessern von Konstrukten und zum Entlassen von Konstrukten hinzu, um die Flexibilität Ihrer Konstrukte zu erhöhen.
+Feat/&AddProtectorConstructCantripTitle	Bonus-Konstrukt Cantrips
+Feat/&ArmorModePoolDescription	Ermöglicht es Ihnen, Rüstungsmodi einmal pro kurzer Pause zu aktivieren.
+Feat/&ArmorModePoolTitle	Rüstungsmodus
+Feat/&ArtificialServantAttackDescription	Fernkampfangriff 1W6 Machtschaden von deinem treuen Kumpel.
+Feat/&ArtificialServantAttackTitle	Kraftschlinge
+Feat/&ArtificialServantDescription	Der Diener ist freundlich zu dir und deinen Gefährten und gehorcht deinen Befehlen.
+Feat/&ArtificialServantTitle	Künstlicher Diener
+Feat/&CancelFlyingConditionDescription	Beenden Sie den Flugzustand, um Springen und Kriechen zu ermöglichen.
+Feat/&CancelFlyingConditionTitle	Fliegen abbrechen
+Feat/&ChefConDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst 1 Stunde damit verbringen, eine Mahlzeit zu kochen, um dich und deine Gefährten für 1W8 HP zu heilen.\nEinmal am Tag können Sie eine Stunde damit verbringen, Leckereien zu kochen, die beim Verzehr vorübergehend HP liefern.
+Feat/&ChefConTitle	Koch (Verfassung)
+Feat/&ChefShortRestFeastDescription	Du kannst 1 Stunde damit verbringen, eine Mahlzeit zu kochen, um dich und deine Gefährten für 1W8 HP zu heilen.
+Feat/&ChefShortRestFeastTitle	Kurze Pausenmahlzeit
+Feat/&ChefWisDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nDu kannst 1 Stunde damit verbringen, eine Mahlzeit zu kochen, um dich und deine Gefährten für 1W8 HP zu heilen.\nEinmal am Tag können Sie eine Stunde damit verbringen, Leckereien zu kochen, die beim Verzehr vorübergehend HP liefern.
+Feat/&ChefWisTitle	Koch (Weisheit)
+Feat/&ConstructSelectingPoolDescription	Wählen Sie den Modus für Ihr Konstrukt.
+Feat/&ConstructSelectingPoolTitle	Artillerie-Modus
+Feat/&DeadeyeFeatDescription	Sie beherrschen Fernkampfwaffen und können Schüsse abgeben, die andere unmöglich finden.\n• Angriffe aus großer Entfernung benachteiligen Ihre Angriffswürfe für Fernkampfwaffen nicht.\n• Ihre Fernkampfangriffe ignorieren Halbdeckung und Dreivierteldeckung.\n• Sie können wählen, ob Sie einen Malus von -5 auf Ihren Angriffswurf mit Fernkampfwaffen nehmen möchten. Wenn der Angriff trifft, fügst du zusätzlich 10 Schaden des Waffentyps zu.
+Feat/&DeadeyeFeatTitle	Deadeye
+Feat/&DismissConstructDescription	Beschwöre dein Konstrukt.
+Feat/&DismissConstructTitle	Konstrukt verwerfen
+Feat/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, kannst du einen zusätzlichen Nebenhandangriff ausführen, wenn du mit deiner Bonusaktion angreifst.
+Feat/&DualFlurryTitle	Zweifacher Flurry
+Feat/&FeatArcaneDefenseDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Intelligenzmodifikator.
+Feat/&FeatArcaneDefenseTitle	Arkane Verteidigung
+Feat/&FeatArcanePrecisionDescription	Sie können eine Bonusaktion verwenden, um eine Waffe auszuwählen. Seine Angriffe zählen als magisch und du verwendest deine Intelligenz für deine Angriffs- und Schadenswürfe für 1 Minute. Diese Funktion kann zweimal pro langer Pause verwendet werden.
+Feat/&FeatArcanePrecisionTitle	Arkane Präzision
+Feat/&FeatBlindFightingStlyeDescription	Sie haben Blindsicht mit einer Reichweite von 10 Fuß.
+Feat/&FeatBlindFightingStlyeTitle	Kampfstil: Blindes Kämpfen
+Feat/&FeatBrutalThugDescription	Du landest mächtige Schläge an den richtigen Stellen.\nDu erlangst einfache und kriegerische Waffenfertigkeiten.\nSie können mit Kampfwaffen einen Schleichangriff durchführen.
+Feat/&FeatBrutalThugTitle	Brutaler Schläger
+Feat/&FeatChaIncrementDescription	Erhöhe dein Charisma um 1 bis maximal 20.
+Feat/&FeatChaIncrementTitle	Erhöhung des Charisma-Attributs
+Feat/&FeatCharismaticDefenseDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + dein Geschicklichkeitsmodifikator + dein Charismamodifikator.
+Feat/&FeatCharismaticDefenseTitle	Charismatische Verteidigung
+Feat/&FeatCharismaticPrecisionDescription	Sie können eine Bonusaktion verwenden, um eine Waffe auszuwählen. Seine Angriffe zählen als magisch und du verwendest dein Charisma 1 Minute lang für deine Angriffs- und Schadenswürfe. Diese Funktion kann zweimal pro langer Pause verwendet werden.
+Feat/&FeatCharismaticPrecisionTitle	Charismatische Präzision
+Feat/&FeatChefConIncrementDescription	Erhöhe deine Konstitution um 1 bis maximal 20.
+Feat/&FeatChefConIncrementTitle	Attributerhöhung
+Feat/&FeatChefWisIncrementDescription	Erhöhe deine Weisheit um 1 bis maximal 20.
+Feat/&FeatChefWisIncrementTitle	Attributerhöhung
+Feat/&FeatCripplingDescription	Wenn Sie mit einem Nahkampfangriff treffen, können Sie die Geschwindigkeit Ihres Gegners bis zum Beginn Ihres nächsten Zuges um 10 Fuß reduzieren.
+Feat/&FeatCripplingTitle	Kampfstil: Verkrüppeln
+Feat/&FeatDexIncrementDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.
+Feat/&FeatDexIncrementTitle	Attributerhöhung
+Feat/&FeatDualWeaponDefenseDescription	Du erhältst einen Bonus von +1 auf die RK, während du in jeder Hand eine separate Nahkampfwaffe führst.
+Feat/&FeatDualWeaponDefenseTitle	Verteidigung mit zwei Waffen
+Feat/&FeatFastHandsDescription	Du erhältst Listige Aktion. Du kannst die Aktionen „Verstecken“ oder „Ausrücken“ als Bonusaktion verwenden.\nDu kannst deine List-Aktion nutzen, um einen Geschicklichkeitswurf (Handfertigkeit) zu machen, die Werkzeuge deiner Diebe verwenden, um eine Falle zu entschärfen oder ein Schloss zu öffnen, oder die Aktion „Objekt benutzen“.
+Feat/&FeatFastHandsTitle	Schnelle Hände
+Feat/&FeatFeyTeleportationChaDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu kannst Misty Step einmal pro kurzer Pause verwenden, und du kannst diesen Zauber mit deinen Zauberslots wirken.\nDu erlangst Kenntnisse in Tirmarian.
+Feat/&FeatFeyTeleportationChaTitle	Feen-Teleportation (Charisma)
+Feat/&FeatFeyTeleportationIntDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nDu kannst Misty Step einmal pro kurzer Pause verwenden, und du kannst diesen Zauber mit deinen Zauberslots wirken.\nDu erlangst Kenntnisse in Tirmarian.
+Feat/&FeatFeyTeleportationIntTitle	Feen-Teleportation (Intelligenz)
+Feat/&FeatFeyTeleportationWisDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nDu kannst Misty Step einmal pro kurzer Pause verwenden, und du kannst diesen Zauber mit deinen Zauberslots wirken.\nDu erlangst Kenntnisse in Tirmarian.
+Feat/&FeatFeyTeleportationWisTitle	Feen-Teleportation (Weisheit)
+Feat/&FeatFightingSurgeDexterityDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nWenn du am Zug bist, kannst du zusätzlich zu deiner regulären Aktion eine zusätzliche Aktion ausführen. Sobald Sie diese Funktion verwenden, müssen Sie eine lange Pause einlegen, bevor Sie sie erneut verwenden können.
+Feat/&FeatFightingSurgeDexterityTitle	Kampfwoge (Geschicklichkeit)
+Feat/&FeatFightingSurgeStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nWenn du am Zug bist, kannst du zusätzlich zu deiner regulären Aktion eine zusätzliche Aktion ausführen. Sobald Sie diese Funktion verwenden, müssen Sie eine lange Pause einlegen, bevor Sie sie erneut verwenden können.
+Feat/&FeatFightingSurgeStrengthTitle	Kampf gegen Woge (Stärke)
+Feat/&FeatHeavyArmorMasterClassDescription	Du erhältst Resistenz gegen Knüppel-, Hieb- und Stichschaden.
+Feat/&FeatHeavyArmorMasterClassTitle	Beherrschung der schweren Verteidigung
+Feat/&FeatImprovedCriticalDescription	Ihre Angriffe sind kritische Treffer bei einem Wurf von 19 oder 20.
+Feat/&FeatImprovedCriticalTitle	Kritisch verbessert
+Feat/&FeatIntIncrementDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.
+Feat/&FeatIntIncrementTitle	Erhöhung der Intelligenzattribute
+Feat/&FeatLightArmorDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit leichter Rüstung.
+Feat/&FeatLightArmorProficiencyDescription	Erwerben Sie Kenntnisse im Umgang mit Leichter Rüstung.
+Feat/&FeatLightArmorProficiencyTitle	Leichte Rüstung
+Feat/&FeatLightArmorTitle	Leichte Rüstung
+Feat/&FeatMarksmanDescription	Wenn ein Gegner, den du sehen kannst, dich mit einer Fernkampfwaffe oder einem Zauber angreift und mindestens 3 m von dir entfernt ist, kannst du deine Reaktion nutzen, um einen Fernkampfangriff auszuführen, nachdem der auslösende Angriff beendet ist.
+Feat/&FeatMarksmanTitle	Schütze
+Feat/&FeatMediumArmorDexDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit mittlerer Rüstung und Schilden.
+Feat/&FeatMediumArmorDexTitle	Mittlere Rüstung (Geschicklichkeit)
+Feat/&FeatMediumArmorProficiencyDescription	Du erlangst Kenntnisse im Umgang mit mittlerer Rüstung und Schilden.
+Feat/&FeatMediumArmorProficiencyTitle	Mittlere Rüstung
+Feat/&FeatMediumArmorStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu erlangst Kenntnisse im Umgang mit mittlerer Rüstung und Schilden.
+Feat/&FeatMediumArmorStrengthTitle	Mittlere Rüstung (Stärke)
+Feat/&FeatMetamagicAdeptCarefulDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die Vorsichtige Metamagie und erhältst 2 Hexereipunkte.
+Feat/&FeatMetamagicAdeptCarefulTitle	Metamagie: Vorsicht
+Feat/&FeatMetamagicAdeptDistantDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu erlernst die Metamagie der Ferne und erhältst 2 Hexereipunkte.
+Feat/&FeatMetamagicAdeptDistantTitle	Metamagisch: Fern
+Feat/&FeatMetamagicAdeptEmpoweredDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die ermächtigte Metamagie und erhältst 2 Hexereipunkte.
+Feat/&FeatMetamagicAdeptEmpoweredTitle	Metamagisch: Ermächtigt
+Feat/&FeatMetamagicAdeptExtendedDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die Erweiterte Metamagie und erhältst 2 Hexereipunkte.
+Feat/&FeatMetamagicAdeptExtendedTitle	Metamagie: Erweitert
+Feat/&FeatMetamagicAdeptHeightenedDescription	Du erlernst die erhöhte Metamagie und erhältst 4 Hexereipunkte.
+Feat/&FeatMetamagicAdeptHeightenedTitle	Metamagie: Erhöht
+Feat/&FeatMetamagicAdeptQuickenedDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die beschleunigte Metamagie und erhältst 2 Hexereipunkte.
+Feat/&FeatMetamagicAdeptQuickenedTitle	Metamagie: Beschleunigt
+Feat/&FeatMetamagicAdeptTwinnedDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nDu lernst die Zwillings-Metamagie und erhältst 2 Hexereipunkte.
+Feat/&FeatMetamagicAdeptTwinnedTitle	Metamagisch: Zwillinge
+Feat/&FeatPrimalConstitutionDescription	Erhöhe deine Konstitution um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
+Feat/&FeatPrimalConstitutionTitle	Urwut (Konstitution)
+Feat/&FeatPrimalStrengthDescription	Erhöhe deine Stärke um 1 bis maximal 20.\nDu kannst eine Wut als Bonusaktion eingeben, wie in der Klassenfunktion der Wut des Barbaren definiert, mit einem Wutschaden von +1, der mit der Wut des Barbaren kumuliert werden kann. Sobald Sie auf diese Weise gewütet haben, müssen Sie eine lange Pause einlegen, bevor Sie diese Funktion erneut verwenden.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Konstitutionsmodifikator.
+Feat/&FeatPrimalStrengthTitle	Urwut (Stärke)
+Feat/&FeatPugilistFightingStlyeDescription	Deine waffenlosen Schläge verursachen zusätzlich 1W4 Knüppelschaden und du kannst als Bonusaktion mit deiner Nebenhand schlagen.\nWenn Sie eine freie Hand haben, können Sie als Bonusaktion schubsen.
+Feat/&FeatPugilistFightingStlyeTitle	Kampfstil: Faustkämpfer
+Feat/&FeatRangedExpertDescription	Ihre Expertenausbildung mit Fernkampfwaffen gewährt Ihnen diese Vorteile:\n• Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind im Umkreis von 1,50 m um Sie befindet.\n• Wenn Sie in Ihrem Zug die Angriffsaktion ausführen, können Sie eine Bonusaktion verwenden, um einen Angriff mit einer einhändigen Fern- oder Wurfwaffe auszuführen.
+Feat/&FeatRangedExpertTitle	Fernkampfexperte
+Feat/&FeatSavageAttackerDescription	Würfeln Sie Waffen- und Zauberschadenswürfel neu, wenn Sie eine 1 würfeln.
+Feat/&FeatSavageAttackerReroll	Da er ein Wilder Angreifer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.
+Feat/&FeatSavageAttackerTitle	Wilder Angreifer
+Feat/&FeatShadowTouchedChaDescription	Erhöhe dein Charisma-Attribut um 1 bis maximal 20.\nSie erhalten die Fähigkeit, die Unsichtbarkeit zu wirken, Wunden zuzufügen und falsche Lebenszauber einmal pro langer Pause zu wirken, und Sie können diese Zauber mit Ihren Zauberslots wirken.
+Feat/&FeatShadowTouchedChaTitle	Schatten berührt (Charisma)
+Feat/&FeatShadowTouchedIntDescription	Erhöhe dein Intelligenzattribut um 1 bis maximal 20.\nSie erhalten die Fähigkeit, die Unsichtbarkeit zu wirken, Wunden zuzufügen und falsche Lebenszauber einmal pro langer Pause zu wirken, und Sie können diese Zauber mit Ihren Zauberslots wirken.
+Feat/&FeatShadowTouchedIntTitle	Schattenberührt (Intelligenz)
+Feat/&FeatShadowTouchedWisDescription	Erhöhe dein Weisheitsattribut um 1 bis maximal 20.\nSie erhalten die Fähigkeit, die Unsichtbarkeit zu wirken, Wunden zuzufügen und falsche Lebenszauber einmal pro langer Pause zu wirken, und Sie können diese Zauber mit Ihren Zauberslots wirken.
+Feat/&FeatShadowTouchedWisTitle	Schatten berührt (Weisheit)
+Feat/&FeatShadyDescription	Erhöhe deine Geschicklichkeit um 1 bis maximal 20.\nEinmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der die Voraussetzungen für den Hinterhältigen Angriff des Schurken erfüllt, 1W6 zusätzlichen Schaden zufügen. Auf der 12. Stufe steigt dieser Schaden auf 2W6 und auf der 20. Stufe auf 4W6.
+Feat/&FeatShadyTitle	Schattig
+Feat/&FeatShieldExpertDescription	Du hast den Umgang mit einem Schild als Waffe geübt. Für dich wird es zu einer Nahkampfwaffe, mit der du vertraut bist und die 1W4 Knüppelschaden verursacht.\nDu verschaffst dir einen Vorteil bei Stoßversuchen, während du einen Schild führst.
+Feat/&FeatShieldExpertTitle	Schild-Experte
+Feat/&FeatStrengthIncrementDescription	Erhöhe deine Stärke um 1 bis maximal 20.
+Feat/&FeatStrengthIncrementTitle	Attributerhöhung
+Feat/&FeatTelekineticChaDescription	Erhöhe dein Charisma um 1 bis maximal 20.\nAls Bonusaktion kannst du telekinetisch eine Kreatur schieben oder ziehen, die du innerhalb von 30 Fuß von dir sehen kannst. Dem Ziel muss ein Kraftrettungswurf (SG 8 + dein Kompetenzbonus + dein CH-Modifikator) gelingen oder es muss 1,50 m weit bewegt werden.
+Feat/&FeatTelekineticChaPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
+Feat/&FeatTelekineticChaPullTitle	Telekinetischer Zug
+Feat/&FeatTelekineticChaPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
+Feat/&FeatTelekineticChaPushTitle	Telekinetischer Schub
+Feat/&FeatTelekineticChaTitle	Telekinese (Charisma)
+Feat/&FeatTelekineticIntDescription	Erhöhe deine Intelligenz um 1 bis maximal 20.\nAls Bonusaktion kannst du telekinetisch eine Kreatur schieben oder ziehen, die du innerhalb von 30 Fuß von dir sehen kannst. Dem Ziel muss ein Kraftrettungswurf (SG 8 + Ihr Kompetenzbonus + Ihr Intelligenzmodifikator) gelingen oder es muss 1,50 m weit bewegt werden.
+Feat/&FeatTelekineticIntPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
+Feat/&FeatTelekineticIntPullTitle	Telekinetischer Zug
+Feat/&FeatTelekineticIntPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
+Feat/&FeatTelekineticIntPushTitle	Telekinetischer Schub
+Feat/&FeatTelekineticIntTitle	Telekinetik (Intelligenz)
+Feat/&FeatTelekineticWisDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nAls Bonusaktion kannst du telekinetisch eine Kreatur schieben oder ziehen, die du innerhalb von 30 Fuß von dir sehen kannst. Dem Ziel muss ein Kraftrettungswurf (SG 8 + dein Kompetenzbonus + dein WE-Modifikator) gelingen oder es muss 1,50 m weit bewegt werden.
+Feat/&FeatTelekineticWisPullDescription	Ziehe telekinetisch eine Kreatur zu dir.
+Feat/&FeatTelekineticWisPullTitle	Telekinetischer Zug
+Feat/&FeatTelekineticWisPushDescription	Schiebe eine Kreatur telekinetisch von dir weg.
+Feat/&FeatTelekineticWisPushTitle	Telekinetischer Schub
+Feat/&FeatTelekineticWisTitle	Telekinese (Weisheit)
+Feat/&FeatTitanFightingDescription	Du erhältst +2 auf Treffer gegen Kreaturen der Größe Large oder größer.
+Feat/&FeatTitanFightingTitle	Kampfstil: Titanenkampf
+Feat/&FeatToughDescription	Dein Trefferpunktmaximum erhöht sich um das Zweifache deiner Stufe, wenn du dieses Talent erlangst. Jedes Mal, wenn Sie danach eine Stufe aufsteigen, erhöht sich Ihr Trefferpunktmaximum um weitere 2 Trefferpunkte.
+Feat/&FeatToughTitle	Hart
+Feat/&FeatWarCasterDescription	Du verschaffst dir einen Vorteil bei Würfen, um die Konzentration aufrechtzuerhalten.\nDu erhältst die Fähigkeit, die somatische Komponente von Zaubersprüchen auch dann auszuführen, wenn du beide Hände voll hast.\nWenn die Bewegung einer feindlichen Kreatur einen Gelegenheitsangriff von dir provoziert, kannst du deine Reaktion nutzen, um einen Cantrip auf die Kreatur zu wirken, anstatt einen Gelegenheitsangriff durchzuführen. Der Cantrip muss eine Zauberzeit von 1 Aktion oder Bonusaktion haben und darf nur diese Kreatur zum Ziel haben.
+Feat/&FeatWarCasterTitle	Kriegswirker
+Feat/&FeatWiseDefenseDescription	Erhöhe deine Weisheit um 1 bis maximal 20.\nSolange du keine Rüstung trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Weisheitsmodifikator.
+Feat/&FeatWiseDefenseTitle	Weise Verteidigung
+Feat/&FeatWisePrecisionDescription	Sie können eine Bonusaktion verwenden, um eine Waffe auszuwählen. Seine Angriffe zählen als magisch und du verwendest deine Weisheit 1 Minute lang für deine Angriffs- und Schadenswürfe. Diese Funktion kann zweimal pro langer Pause verwendet werden.
+Feat/&FeatWisePrecisionTitle	Weise Präzision
+Feat/&FeatWisIncrementDescription	Erhöhe deine Weisheit um 1 bis maximal 20.
+Feat/&FeatWisIncrementTitle	Erhöhung des Weisheitsattributs
+Feat/&FeyTeleportationLanguageTirmarianDescription	Du erlangst Kenntnisse in Tirmarian.
+Feat/&FeyTeleportationLanguageTirmarianTitle	Tirmarian
+Feat/&FightingStyleArcheryDescription	Du erhältst einen Bonus von +2 auf Angriffswürfe mit Fernkampfwaffen.
+Feat/&FightingStyleArcheryTitle	Kampfstil: Bogenschießen
+Feat/&FightingStyleDefenseDescription	Während du eine Rüstung trägst, erhältst du einen Bonus von +1 auf deine RK.
+Feat/&FightingStyleDefenseTitle	Kampfstil: Verteidigung
+Feat/&FightingStyleDuelingDescription	Wenn du eine Nahkampfwaffe in einer Hand führst und keine anderen Waffen, erhältst du mit dieser Waffe einen Bonus von +2 auf Schadenswürfe.
+Feat/&FightingStyleDuelingTitle	Kampfstil: Duell
+Feat/&FightingStyleGeneralFeatDescription	Du kannst einen Kampfstil auswählen.
+Feat/&FightingStyleGeneralFeatitle	Kampfstil
+Feat/&FightingStyleGreatWeaponDescription	Wenn Sie für einen Angriff, den Sie mit einer Nahkampfwaffe ausführen, die Sie mit zwei Händen führen, eine 1 oder 2 auf einem Schadenswürfel würfeln, können Sie den Würfel erneut würfeln. Sie müssen den neuen Wurf verwenden, auch wenn es eine 1 oder 2 ist. Die Waffe muss die Eigenschaft Zweihand oder Vielseitigkeit haben, damit Sie diesen Vorteil erhalten.
+Feat/&FightingStyleGreatWeaponTitle	Kampfstil: Große Waffe
+Feat/&FightingStyleProtectionDescription	Wenn eine Kreatur, die du sehen kannst, ein anderes Ziel als dich angreift, das sich innerhalb von 1,50 m von dir entfernt befindet, kannst du deine Reaktion nutzen, um den Angriffswurf zu benachteiligen. Sie müssen einen Schild tragen.
+Feat/&FightingStyleProtectionTitle	Kampfstil: Schutz
+Feat/&FightingStyleTwoWeaponDescription	Wenn Sie mit zwei Waffen kämpfen, können Sie Ihren Fähigkeitsmodifikator zum Schaden des zweiten Angriffs hinzufügen.
+Feat/&FightingStyleTwoWeaponTitle	Kampfstil: Zwei Waffen
+Feat/&ForceStrikePowerDescription	Fernkampfangriff 1W6 Machtschaden von deinem treuen Kumpel.
+Feat/&ForceStrikePowerTitle	Force Sling (Künstlicher Diener)
+Feat/&GauntletsGrappleDescription	Kann Gegner jetzt mit einer Bonusaktion in Nahkampfreichweite ziehen und 1W8 Donnerschaden zufügen.
+Feat/&GauntletsGrappleTitle	Gauntlet-Greifer
+Feat/&HealerDescription	Sie erwerben Kenntnisse oder Fachkenntnisse in Medizinprüfungen. Du erhältst die Fähigkeit, eine sterbende Kreatur zu stabilisieren sowie eine Kreatur, die in den letzten 12 Sekunden gestorben ist, einmal pro langer Pause wiederzubeleben. Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
+Feat/&HealerResuscitateDescription	Verwenden Sie eine Aktion, um eine Kreatur wiederzubeleben, die innerhalb der letzten 15 Sekunden gestorben ist.
+Feat/&HealerResuscitateTitle	Reanimieren
+Feat/&HealerStabilizeDescription	Verwenden Sie eine Aktion, um eine sterbende Kreatur zu stabilisieren.
+Feat/&HealerStabilizeTitle	Stabilisieren
+Feat/&HealerTitle	Heiler
+Feat/&HealerUseMedicineDescription	Du kannst eine Aktion verwenden, um 1W6 + 4 + Trefferpunkte auf Charakterstufe so oft pro kurzer Pause wiederherzustellen, wie es deinem WE-Modifikator entspricht.
+Feat/&HealerUseMedicineTitle	Verwenden Sie Medizin
+Feat/&IncreaseConstructSelectingDescription	Du kannst jetzt zwei Artilleriekonstrukte beschwören. Die Konstrukte können den gleichen oder unterschiedliche Modi aufweisen.
+Feat/&IncreaseConstructSelectingTitle	Verstärkung
+Feat/&InspiringLeaderDescription	Einmal pro kurzer Pause kannst du 10 Minuten damit verbringen, bis zu 6 freundliche Kreaturen (darunter auch du selbst) innerhalb von 30 Fuß von dir zu inspirieren. Jede Kreatur erhält temporäre Trefferpunkte in Höhe deiner Stufe + deines Charisma-Modifikators.
+Feat/&InspiringLeaderTitle	Inspirierende Führungskraft
+Feat/&IntToAttackAndDamageDescription	Sie können Ihren Intelligenzmodifikator anstelle des Stärke- oder Geschicklichkeitsmodifikators für Ihre Angriffs- und Schadenswürfe mit Rüstungswaffen verwenden.
+Feat/&IntToAttackAndDamageTitle	Rüstungswaffe
+Feat/&MendingConstructDescription	Repariere dein Konstrukt für 2W6 HP über 1 Minute.
+Feat/&MendingConstructTitle	Ausbesserungskonstrukt
+Feat/&ModeSwitchingPoolDescription	Sie können einmal pro kurzer Pause zwischen den Modi wechseln, indem Sie temporäre Waffen erstellen und verwenden.
+Feat/&ModeSwitchingPoolTitle	Rüstungsmodus
+Feat/&PickPocketFeatDescription	Sie erwerben Kenntnisse im Umgang mit Fingerfertigkeit oder Fachwissen, wenn Sie bereits geübt sind. Sie haben auch einen Vorteil bei Fertigkeitswürfen für Fingerfertigkeit.
+Feat/&PickPocketFeatTitle	Taschendieb
+Feat/&PowerAlchemistEmboldeningShotsDescription	Du erhältst die Fähigkeit, ein Elixier zu verabreichen, das deine Verbündeten ermutigt und ihnen 4W6 + vorübergehende Trefferpunkte des Intelligenzmodifikators verleiht.
+Feat/&PowerAlchemistEmboldeningShotsTitle	Ermutigende Aufnahmen
+Feat/&PowerAttackFeatDescription	Du hast gelernt, Genauigkeit einzutauschen, um tödlichere Schläge zu landen. Wenn du mit Nahkampfwaffen angreifst, kannst du einen Malus von -3 auf deinen Treffer erleiden, um zusätzlichen Schaden in Höhe von 3 + deinem Fertigkeitsbonus zu verursachen.
+Feat/&PowerAttackFeatTitle	Machtangriff
+Feat/&PowerFalseLifeFromFeatDescription	Wenn du dich mit einem nekromantischen Abbild des Lebens stärkst, erhältst du für die Dauer 1W4 + 4 temporäre Trefferpunkte.
+Feat/&PowerFalseLifeFromFeatTitle	Falsches Leben
+Feat/&PowerInflictWoundsFromFeatDescription	Führe einen Nahkampf-Zauberangriff gegen eine Kreatur in deiner Reichweite durch. Bei einem Treffer erleidet das Ziel 3W10 nekrotischen Schaden.
+Feat/&PowerInflictWoundsFromFeatTitle	Wunden zufügen
+Feat/&PowerInvisibilityFromFeatDescription	Eine Kreatur, die du berührst, wird unsichtbar, bis der Zauber endet. Alles, was das Ziel trägt oder trägt, ist unsichtbar, solange es sich am Körper des Ziels befindet. Der Zauber endet für ein Ziel, das angreift oder einen Zauber wirkt.
+Feat/&PowerInvisibilityFromFeatTitle	Unsichtbarkeit
+Feat/&PowerMistyStepFromFeatDescription	Kurz von silbrigem Nebel umgeben, teleportierst du dich bis zu 30 Fuß zu einem unbesetzten Raum, den du sehen kannst.
+Feat/&PowerMistyStepFromFeatTitle	Nebliger Schritt
+Feat/&PowerShadowTouchedFromFeatDescription	Lernen Sie, die Zauber Unsichtbarkeit, Falsches Leben und Wunden zu wirken.
+Feat/&PowerShadowTouchedFromFeatTitle	Schatten berührt
+Feat/&ProfChefTreatActionDescription	Iss eine Leckerei als Bonusaktion und erhalte 5 temporäre Trefferpunkte.
+Feat/&ProfChefTreatActionTitle	Leckerbissen des Chefkochs essen
+Feat/&ProfChefTreatCookDescription	Verbringe eine Stunde damit, Leckereien zu kochen, die beim Verzehr 5 temporäre Trefferpunkte liefern.
+Feat/&ProfChefTreatCookTitle	Cook Chef's Treat
+Feat/&ProfChefTreatDescription	Essen als Bonusaktion und erhalte 5 temporäre Trefferpunkte.
+Feat/&ProfChefTreatTitle	Chef's Treat
+Feat/&ProfHealerMedicineDescription	Sie erwerben Kenntnisse in Medizin oder Fachwissen, wenn Sie bereits Kenntnisse haben.
+Feat/&ProfHealerMedicineTitle	Medizinisches Wissen
+Feat/&ProtectorConstructAttackDescription	Das Beschützerkonstrukt führt einen Angriff durch, der 1W10 Machtschaden verursacht.
+Feat/&ProtectorConstructAttackTitle	Zerreißen erzwingen
+Feat/&ProtectorConstructDescription	Es ist freundlich zu dir und deinen Gefährten und gehorcht deinen Befehlen.
+Feat/&ProtectorConstructDescription_5	Beschützerkonstrukt-Upgrade.
+Feat/&ProtectorConstructTitle	Beschützer-Konstrukt
+Feat/&ProtectorConstructTitle_5	Beschützerkonstrukt-Upgrade
+Feat/&RecklessFuryFeatDescription	Du erhältst die Fähigkeit, einmal am Tag eine Minute lang ohne Rüstungseinschränkungen in Wut zu verfallen.\nDu kannst rücksichtslos angreifen und dir einen Vorteil aus deinen Nahkampfangriffen verschaffen, während du deinen Angreifern bis zum Beginn deines nächsten Zuges einen Vorteil verschaffst.
+Feat/&RecklessFuryFeatTitle	Rücksichtslose Wut
+Feat/&RetributionDescription	Das Konstrukt fügt dem Angreifer 1W4 + dein Intelligenzmodifikator Kraftschaden zu, wenn es von einem Angriff getroffen wird.
+Feat/&RetributionTitle	Vergeltung
+Feat/&SelfDestructDescription	Selbstzerstörung und erzwinge einen Geschicklichkeitsrettungswurf für Kreaturen innerhalb von 10 Fuß. Verursacht bei einem Misserfolg 3W8 Machtschaden.
+Feat/&SelfDestructTitle	Selbstzerstörung
+Feat/&SelfRepairDescription	Heile dreimal täglich 2W8 LP.
+Feat/&SelfRepairTitle	Selbstreparatur
+Feat/&SubclassMovementDescription	Schwere Rüstung hat keine Stärkeanforderung.
+Feat/&SubclassMovementTitle	Immunität gegen schwere Rüstung
+Feat/&SubclassProficienciesDescription	Du lernst Schmiedewerkzeuge und schwere Rüstungen.
+Feat/&SubclassProficienciesTitle	Unterklassenkenntnisse
+Feat/&SummonArtificialServantDescription	Der Diener ist freundlich zu dir und deinen Gefährten und gehorcht deinen Befehlen.
+Feat/&SummonArtificialServantTitle	Beschwöre einen künstlichen Diener
+Feat/&ThunderShieldDescription	Defensives Schild bietet temporäre HP in Höhe Ihres Levels. Kann 6 Mal pro langer Pause verwendet werden.
+Feat/&ThunderShieldTitle	Donnerschild
+Feat/&TorchbearerDescription	Du bist geübt im Umgang mit einer Fackel im Kampf. Einmal pro Runde kannst du dich als Bonusaktion dafür entscheiden, eine von dir ausgerüstete Lichtquelle zu verwenden, um zu versuchen, einen Feind, den du berühren kannst, in Brand zu setzen. Dein Ziel muss einen Geschicklichkeitsrettungswurf bestehen (SG 8 + dein Kompetenzbonus + dein Geschicklichkeitsmodifikator) oder 1W4 Feuerschaden pro Runde für 1 Minute erleiden oder bis es erlischt.
+Feat/&TorchbearerTitle	Fackelträger
+Feat/&UseArmorWeaponsAsFocusDescription	Du kannst die Waffen der Rüstung als Zauberfokus für deine Zauber verwenden.
+Feat/&UseArmorWeaponsAsFocusTitle	Fokus auf Zauberei
+Feat/&UsingitemPowerDescription	Ermöglicht die Verwendung von Waffenkraft für Bonusaktionen.
+Feat/&UsingitemPowerTitle	Benutze Waffenkraft
+Feature/&AdditionalActionDualFlurryDescription	Du darfst einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&AdditionalActionDualFlurryTitle	Doppelte Flut!
+Feature/&AdditionalDamageFeatShadySneakAttackDescription	Einmal pro Zug kannst du einer Kreatur, die du mit einem Angriff triffst, der einem Hinterhältigen Angriff des Schurken entspricht, 1W6 zusätzlichen Schaden zufügen. Auf der 7. Stufe erhöht sich dieser Schaden auf 2W6 und auf der 14. Stufe auf 3W6. Dies kann mit Rogue's Sneak Attack gestapelt werden.
+Feature/&AdditionalDamageFeatShadySneakAttackTitle	Zwielichtiger Sneak-Angriff
+Feature/&DeadeyeDescription	Angriffe aus großer Entfernung wirken sich nicht nachteilig auf deine Angriffswürfe für Fernkampfwaffen aus. Ihre Fernkampfwaffen ignorieren Halbdeckung und Dreivierteldeckung. Sie können wählen, ob Sie einen Bonusmalus von -5 auf Ihren Treffer hinnehmen möchten, um einen Bonusschaden von +10 zu verursachen.
+Feature/&DeadeyeTitle	Deadeye
+Feature/&DualFlurryDescription	Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, darfst du einen zusätzlichen Nebenhandangriff ausführen.
+Feature/&DualFlurryTitle	Zweifacher Flurry
+Feature/&PowerAttackDescription	Nehmen Sie einen Malus von -3 auf Ihren Angriff, um 3 + Fertigkeitsbonus zusätzlichen Schaden zu verursachen, wenn Sie Ihre Schläge mit Nahkampfwaffen landen.
+Feature/&PowerAttackTitle	Machtangriff
+Feature/&PowerTorchbearerDescription	Versuchen Sie, ein Nahkampfziel in Brand zu setzen!
+Feature/&PowerTorchbearerTitle	Fackelträger
+Feature/&RageDamageBonusAttackModifierDescription	Füge deinen Angriffen +2 Schaden hinzu, während du tobst.
+Feature/&RageDamageBonusAttackModifierTitle	Wutschaden
+Feature/&RageFeatConditionDescription	Während du in Rage bist, erhältst du Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RageFeatConditionTitle	Toben
+Feature/&RagePowerDescription	Als Bonusaktion gerätst du für eine Minute in Wut und erhältst Folgendes: Vorteil bei Stärkewürfen und Stärkerettungswürfen, einen Bonus auf Schadenswürfe von +2 und Resistenz gegen Knüppel-, Stich- und Hiebschaden.
+Feature/&RagePowerTitle	Wut
+Feature/&RageStrengthSavingThrowAffinityDescription	Während du tobst, erhältst du einen Vorteil bei Stärkewürfen.
+Feature/&RageStrengthSavingThrowAffinityTitle	Wutstärke-Speichervorteil
+Power/&HelpActionDescription	Du kannst einer verbündeten Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen. Sie täuschen vor, lenken das Ziel ab oder schließen sich auf andere Weise zusammen, um den Angriff Ihres Verbündeten effektiver zu machen. Wenn Ihr Verbündeter das Ziel vor Ihrem nächsten Zug angreift, wird der erste Angriffswurf mit Vorteil durchgeführt.
+Power/&HelpActionTitle	Hilfe
+Reaction/&SubitemSelectWarcasterReactionTitle	Aktion auswählen
+Reaction/&WarcasterAttackDescription	Angriffsziel.
+Reaction/&WarcasterAttackTitle	Attacke
+Reaction/&WarcasterReactionDescription	{0} verlässt ein Gebiet, das von einem oder mehreren Charakteren bedroht wird.
+Reaction/&WarcasterReactionReactDescription	Verwenden Sie die Reaktion, um das Ziel anzugreifen.
+Reaction/&WarcasterReactionReactTitle	Attacke
+Reaction/&WarcasterReactionTitle	Angriff der Gelegenheit
+Tooltip/&DeadeyeConcentration	Deadeye deaktivieren.
+Tooltip/&FeatPrerequisiteDoesNotHaveFightingStyle	Weiß nicht {0}
+Tooltip/&FeatPrerequisiteHasStealthAttack	Hat Stealth-Angriff
+Tooltip/&FeatPrerequisiteIsNotBarbarian	Ist kein Barbar
+Tooltip/&FeatPrerequisiteIsNotFighter	Ist kein Kämpfer
+Tooltip/&FeatPrerequisiteIsNotRogue	Ist kein Schurke
+Tooltip/&FeatPrerequisiteLevelFormat	Mindestcharakterstufe {0}
+Tooltip/&PowerAttackConcentration	Machtangriff deaktivieren.

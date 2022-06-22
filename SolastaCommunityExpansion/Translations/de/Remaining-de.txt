@@ -1,0 +1,4 @@
+Feature/&AttributeModifier{0}Description	{0}
+Feature/&SignofIllOmenTitle	Zeichen des schlechten Omens
+Feedback/&ExtraDamageDescription	Zusätzlicher Schaden durch Blitzspeer.
+Feedback/&ExtraDamageTitle	Blitzspeer zusätzlichen Schaden

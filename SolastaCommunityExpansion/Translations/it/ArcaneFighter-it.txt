@@ -1,0 +1,10 @@
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageFormat	Danni aggiuntivi da attacchi a poteri magici
+Feedback/&AdditionalDamageArcaneFighterBonusWeaponDamageLine	Danni aggiuntivi da attacchi a poteri magici
+Subclass/&ArcaneFighterAdditionalActionDescription	Puoi lanciare un incantesimo dopo aver sconfitto un nemico con i tuoi attacchi con le armi.
+Subclass/&ArcaneFighterAdditionalActionTitle	Combattimento di incantesimi
+Subclass/&ArcaneFighterBonusWeaponDamageDescription	Una volta per turno, i tuoi attacchi con le armi infliggono 1d8 danni extra.
+Subclass/&ArcaneFighterBonusWeaponDamageTitle	Attacchi magici
+Subclass/&TraditionArcaneFighterDescription	Incanala la tua magia in attacchi con le armi.
+Subclass/&TraditionArcaneFighterTitle	Combattente Arcano
+Subclass/&WeaponProfArcaneFighterDescription	L'esperienza in combattimento ha fornito al Combattente Arcano un addestramento in Armi Semplici e Marziali.
+Subclass/&WeaponProfArcaneFighterTitle	Addestramento con le armi

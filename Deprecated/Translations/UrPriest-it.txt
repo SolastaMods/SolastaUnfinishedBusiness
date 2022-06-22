@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription	Prendi energia necrotica in te stesso e sei sospeso tra la vita e la morte e sei temporaneamente posseduto dal tuo stesso fantasma, guadagnando il volo e le stesse immunità alle condizioni e resistenze ai danni degli altri fantasmi.
+Condition/&HalfLifeConditionTitle	Metà vita
+Feature/&DomainBattleDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Dominio di battaglia
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Dominio Elementale (Freddo).
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Dominio Elementale (Fuoco).
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Dominio Elementale (Illuminazione).
+Feature/&DomainInsightDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Dominio di approfondimento
+Feature/&DomainLawDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainLawDomainlevel1FeaturesTitle	Dominio del diritto
+Feature/&DomainLifeDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Dominio della vita
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Dominio del male
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Dominio dell'Oblio
+Feature/&DomainSunDomainlevel1FeaturesDescription	Imparerai le funzionalità di livello 1 di questo dominio.
+Feature/&DomainSunDomainlevel1FeaturesTitle	Dominio del Sole
+Feature/&UrPriestDomainTheftDescription	Prendi i segreti che un dio concede a tutti i suoi devoti chierici. Scegli un dominio Chierico: ottieni le caratteristiche che il dominio concede al 1° livello.
+Feature/&UrPriestDomainTheftTitle	Furto di dominio
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Scegli da un elenco esteso di incantesimi quando impari un incantesimo da Stregone. Gli incantesimi da chierico vengono aggiunti per te alla lista degli incantesimi da stregone.
+Feature/&UrPriestExpandedSpelllistAfinityTitle	Incantesimi UrPriest
+Power/&UrPriestControlUndeadDescription	Come azione, prendi come bersaglio una creatura non morta che puoi vedere entro 9 metri da te. Il bersaglio deve effettuare un tiro salvezza di Saggezza. In caso di salvataggio fallito, il bersaglio deve obbedire ai tuoi comandi.
+Power/&UrPriestControlUndeadTitle	Controlla i non morti
+Power/&UrPriestHalfLifeDescription	Prendi energia necrotica in te stesso, sospeso tra la vita e la morte e sei temporaneamente posseduto dal tuo stesso fantasma. Ottieni velocità di volo e le stesse immunità alle condizioni e resistenze ai danni degli altri fantasmi.
+Power/&UrPriestHalfLifeTitle	Metà vita
+Power/&UrPriestRadiantWardDescription	Come azione, guadagni un numero di punti ferita temporanei pari al doppio del tuo livello da Stregone.
+Power/&UrPriestRadiantWardTitle	Reparto radiante
+Power/&UrPriestSpellSiphonDescription	impari come attingere a una maggiore fonte di magia in combinazione con la tua normale riserva di potere. Come azione, puoi spendere un Incanalare Divinità per riguadagnare un uso speso del tuo Arcano Mistico di 6° livello.
+Power/&UrPriestSpellSiphonTitle	Sifone di incantesimi

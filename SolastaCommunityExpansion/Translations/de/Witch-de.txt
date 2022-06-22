@@ -1,0 +1,123 @@
+Class/&WitchArmorProficiencyDescription	Leichte Rüstung.
+Class/&WitchArmorProficiencyTitle	Hexenrüstungskenntnisse
+Class/&WitchBurnedFireResistanceDescription	Sie haben Widerstand gegen Feuerschaden.
+Class/&WitchBurnedFireResistanceTitle	Verbrannt: Feuerwiderstand
+Class/&WitchBurnedProduceFlameDescription	Du kennst die Cantrip Produce Flame, die nicht zu deiner Gesamtzahl bekannter Cantrips zählt.
+Class/&WitchBurnedProduceFlameTitle	Verbrannt: Erzeuge Flamme
+Class/&WitchCacklePowerDescription	Sie können Ihre Bonusaktion zum Gackern verwenden. Die Dauer deines Fluchs verlängert sich um 1 Runde für jede betroffene Kreatur innerhalb von 60 Fuß von dir.\nNicht alle Hexen lachen wahnsinnig, wenn sie gackern, aber jedes Gackern erfordert eine verbale Komponente als Zauber. Diese reichen von weltlichen Flüchen und Beleidigungen bis hin zum Murmeln toter Sprachen und Rückwärtssprechen.
+Class/&WitchCacklePowerTitle	Gackern
+Class/&WitchDescription	Von einem finsteren Fluch heimgesucht, können Hexen dunkle Magie in Verwünschungen verwandeln, die sie verwenden, um Feinde zu schwächen. Sie werden auch von ihren Vertrauten begleitet, treuen magischen Gefährten, mit denen sie den Todesstoß versetzen.
+Class/&WitchFamiliarPowerDescription	Du lernst den Witch Familiar-Zauber, also einen verbesserten Find Familiar-Zauber, und kannst ihn als Ritual ohne materielle Komponenten wirken. Der Zauber zählt nicht zu deiner Anzahl bekannter Zauber. Der Zauber verbessert Find Familiar auf folgende Weise:\n• Dein Vertrauter ist in jeder Runde unmittelbar vor oder nach deinem Zug an der Reihe (deine Wahl).\n• Einmal pro Zug als Aktion oder Bonusaktion kannst du deinem Vertrauten im Geiste befehlen, seine Reaktion zu nutzen, um einen Angriff auszuführen.\n• Wenn du einen Zauber wirkst, kannst du ihn durch deinen Vertrauten übermitteln, als ob er den Zauber gewirkt hätte, selbst wenn der Zauber keine Reichweite hat.\n• Ihr Vertrauter kann Ihren Zauberangriffsbonus für seine Angriffswürfe verwenden.\n• Ihr Vertrauter addiert Ihren Fertigkeitsbonus zu seiner Rüstungsklasse, Rettungswürfen und Schadenswürfen.\n• Du addierst das Doppelte deines Hexenlevels zu den maximalen Trefferpunkten deines Vertrauten.
+Class/&WitchFamiliarPowerTitle	Vertraut
+Class/&WitchFeatureSetBurnedCurseDescription	Fast dein ganzer Körper wurde von arkanen Flammen versengt und hinterlässt auffällige schwarze Narben und magische Glut, die unter der Haut brennen. Infolgedessen haben Sie Widerstand gegen Feuerschaden und kennen die Cantrip-Produce-Flamme, die nicht zu Ihrer Gesamtzahl bekannter Cantrips zählt.
+Class/&WitchFeatureSetBurnedCurseTitle	Verbrannt
+Class/&WitchFeatureSetLovelessCurseDescription	Du bist verflucht, niemals die wahre Liebe zu finden. Erschöpft und desillusioniert, nicht einmal Magie kann dein Herz wenden; Infolgedessen sind Sie immun gegen Bezauberung.
+Class/&WitchFeatureSetLovelessCurseTitle	Lieblos
+Class/&WitchFeatureSetRitualCastingDescription	Du kannst jeden Hexenzauber, den du kennst, als Ritual wirken, wenn dieser Zauber das Ritual-Tag hat.
+Class/&WitchFeatureSetRitualCastingTitle	Hexe: Ritual Casting
+Class/&WitchFeatureSetVisionsCurseDescription	Du bist verflucht, schreckliche Zukunftsvisionen zu haben, die den Tod deiner Freunde, deiner Familie und dir selbst vorhersagen. Obwohl viele dieser Visionen grausame Täuschungen sind, sind sie manchmal grimmig genau. Du kannst deinen Charisma-Modifikator zusätzlich zu deinem Geschicklichkeits-Modifikator zu deinen Initiativewürfen hinzufügen.
+Class/&WitchFeatureSetVisionsCurseTitle	Visionen
+Class/&WitchLovelessCharmImmunityDescription	Du bist immun gegen Verzauberung.
+Class/&WitchLovelessCharmImmunityTitle	Loveless: Charme-Immunität
+Class/&WitchMaledictionAbateDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß von dir sehen kannst, um einen Charisma-Rettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf kann die Kreatur bis zum Ende deines nächsten Zuges keine Reaktionen annehmen.
+Class/&WitchMaledictionAbateTitle	Fang den Fluch
+Class/&WitchMaledictionApathyDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß von dir sehen kannst, um einen Charisma-Rettungswurf zu machen. Bei einem misslungenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges einer Kreatur deiner Wahl gegenüber, der sie feindlich gesinnt ist, gleichgültig. Diese Gleichgültigkeit endet, wenn das Ziel durch einen Zauber der Kreatur, der es gleichgültig ist, angegriffen oder verletzt wird.
+Class/&WitchMaledictionApathyTitle	Apathie Verwünschung
+Class/&WitchMaledictionCharmDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Weisheitsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf wird die Kreatur bis zum Ende deines nächsten Zuges von dir verzaubert.
+Class/&WitchMaledictionCharmTitle	Zauberspruch
+Class/&WitchMaledictionDisorientDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf muss dieses Ziel jedes Mal, wenn es vor dem Ende deines nächsten Zuges einen Angriffswurf macht, einen W6 würfeln und die gewürfelte Zahl vom Angriffswurf abziehen.
+Class/&WitchMaledictionDisorientTitle	Fluch der Desorientierung
+Class/&WitchMaledictionEvilEyeDescription	Wähle als Aktion eine Kreatur, die du sehen kannst und die dich innerhalb von 18 m sehen kann, um einen Weisheitswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf hat die Kreatur bis zum Ende deines nächsten Zuges Angst vor dir.
+Class/&WitchMaledictionEvilEyeTitle	Fluch des bösen Blicks
+Class/&WitchMaledictionObfuscateDescription	Als Aktion erzeugst du eine Nebelkugel mit einem Radius von 20 Fuß, die auf dich selbst zentriert ist. Die Kugel breitet sich um Ecken herum aus und ihr Bereich ist stark verdeckt. Dieser Effekt hält bis zum Ende deines nächsten Zuges an oder bis ein Wind mit mittlerer oder höherer Geschwindigkeit (mindestens 10 Meilen pro Stunde) ihn zerstreut.
+Class/&WitchMaledictionObfuscateTitle	Fluch verschleiern
+Class/&WitchMaledictionPoxDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 1,50 m sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf ist die Kreatur bis zum Ende deines nächsten Zuges vergiftet.
+Class/&WitchMaledictionPoxTitle	Pocken-Verwünschung
+Class/&WitchMaledictionRuinDescription	Wähle als Aktion eine Kreatur, die du innerhalb von 60 Fuß sehen kannst, um einen Konstitutionsrettungswurf zu machen. Bei einem fehlgeschlagenen Rettungswurf sinkt die Rüstungsklasse der Kreatur bis zum Ende deines nächsten Zuges um 3 auf ein Minimum von 10.
+Class/&WitchMaledictionRuinTitle	Ruin Fluch
+Class/&WitchRitualCastingMagicAffinityDescription	Du kannst einen Hexenzauber als Ritual wirken, wenn dieser Zauber das Ritual-Tag hat und du den Zauber vorbereitet hast.
+Class/&WitchRitualCastingMagicAffinityTitle	Rituelles Gießen
+Class/&WitchSavingthrowProficiencyDescription	Weisheit, Charisma.
+Class/&WitchSavingthrowProficiencyTitle	Hexenwurffähigkeiten
+Class/&WitchSkillProficiencyDescription	Wählen Sie zwei aus Arcana, Täuschung, Einsicht, Einschüchterung, Überzeugung, Natur und Religion.
+Class/&WitchSkillProficiencyTitle	Hexenfähigkeiten
+Class/&WitchSpellcastingDescription	Du bist eine Hexe, die Zauber aus der Hexenzauberliste wirken kann.
+Class/&WitchSpellcastingTitle	Hexenzauber
+Class/&WitchTitle	Hexe
+Class/&WitchToolProficiencyDescription	Wähle eines aus dem Kräuterkundler-Kit und dem Poisoner-Kit.
+Class/&WitchToolProficiencyTitle	Hexenwerkzeugkenntnisse
+Class/&WitchVisionsInitiativeDescription	Du addierst deinen Charisma-Modifikator zu deinen Initiativewürfen hinzu.
+Class/&WitchVisionsInitiativeTitle	Visions-Initiative
+Class/&WitchWeaponProficiencyDescription	Einfache Waffen.
+Class/&WitchWeaponProficiencyTitle	Hexenwaffenfähigkeiten
+Condition/&AbateDescription	Reaktionen können nicht verwendet werden.
+Condition/&AbateTitle	Nachlassen
+Condition/&ApathyDescription	Gleichgültig gegenüber einer Zielkreatur, der es feindlich gesinnt ist. Diese Gleichgültigkeit endet, wenn das Ziel angegriffen oder durch einen Zauber der Zielkreatur geschädigt wird.
+Condition/&ApathyTitle	Apathie
+Condition/&CharmDescription	Betrachtet den Zaubernden als Verbündeten.
+Condition/&CharmTitle	Fasziniert
+Condition/&DebilitatedConditionDescription	Unter einem der folgenden Zustände leiden: geblendet, verflucht, blutend oder betäubt.
+Condition/&DebilitatedConditionTitle	Geschwächt
+Condition/&DisorientDescription	-1W6 auf Angriffswürfe.
+Condition/&DisorientTitle	Desorientiert
+Condition/&EvilEyeDescription	Erschrocken. Unfähig, sich der Quelle der Angst zu nähern, Nachteil bei Angriffswürfen und Attributswürfen, während die Quelle der Angst in Sicht ist.
+Condition/&EvilEyeTitle	Böser Blick
+Condition/&FrenziedDescription	Diese Kreatur ist rasend und greift die nächste Kreatur an.
+Condition/&FrenziedTitle	Wahnsinnig
+Condition/&PoxDescription	Pockenzustand.
+Condition/&PoxTitle	Pocken
+Condition/&RuinDescription	-3 AC Malus, bis zu einem Maximum von -10 AC.
+Condition/&RuinedDescription	-3 AC Malus, bis zu einem Maximum von -10 AC.
+Condition/&RuinedTitle	Ruiniert
+Condition/&RuinTitle	Zugrunde richten
+Feature/&ClassWitchMaledictionReplaceDescription	Wähle Malediction zum Ersetzen aus.
+Feature/&ClassWitchMaledictionReplaceTitle	Fluch ersetzen
+Feature/&WitchCurseChoiceDescription	Sie werden von einem schrecklichen Fluch heimgesucht, der Ihren Körper und Ihre Seele infiziert.
+Feature/&WitchCurseChoiceTitle	Hexenfluch
+Feature/&WitchMaledictionChoiceDescription	Sie können eine Reihe von mächtigen Beschwörungen erlernen, die als Maledictions bekannt sind und von derselben heimtückischen Magie stammen, die Sie verflucht hat.
+Feature/&WitchMaledictionChoiceTitle	Flüche
+Feature/&WitchSightDescription	Sie können unsichtbare Kreaturen innerhalb von 60 Fuß von Ihnen spüren oder sehen.
+Feature/&WitchSightTitle	Hexenblick
+Modifier/&AttributeModifierRuinDescription	-3 auf Rüstungsklasse.
+Modifier/&AttributeModifierRuinTitle	Ruiniert
+Modifier/&DisorientDescription	-1W6 auf Angriffswürfe.
+Modifier/&DisorientTitle	Desorientiert
+Monster/&WitchOwlFamiliarDescription	Eule vertraut.
+Monster/&WitchOwlFamiliarTitle	Eule
+Screen/&CovenSpellDescription	Zauber, der als Teil eines Zirkels bekannt ist.
+Screen/&CovenSpellHeader	Zirkel
+Screen/&CovenSpellTitle	Zirkel
+Screen/&WitchSpellDescription	Zaubersprüche, die als Hexe bekannt sind.
+Screen/&WitchSpellHeader	Hexe
+Screen/&WitchSpellTitle	Hexe
+Spell/&WitchFamiliarDescription	Sie erhalten den Dienst eines Vertrauten.
+Spell/&WitchFamiliarTitle	Hexe vertraut
+Stage/&SubclassSelectionStageCovenDescription	Zirkel.
+Stage/&SubclassSelectionStageCovenFeaturesDescription	Zirkel.
+Stage/&SubclassSelectionStageCovenFeaturesHeader	Coven-Funktionen
+Stage/&SubclassSelectionStageCovenFeaturesTitle	Zirkel
+Stage/&SubclassSelectionStageCovenHeader	Wähle einen Zirkel aus
+Stage/&SubclassSelectionStageCovenTitle	Zirkel
+Subclass/&BloodWitchDescription	Die von den meisten Hexenzirkeln verbotene Blutmagie konzentriert sich auf die Verwendung von dunklen Zaubersprüchen und tödlichen Verwünschungen, die aus der Essenz des Zauberkundigen schöpfen. Es ist grundsätzlich gefährlicher als andere Hexenhandwerke, aber seine vielen Risiken sind mit reichlich Belohnungen verbunden.
+Subclass/&BloodWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
+Subclass/&BloodWitchMagicTitle	Die Blutmagie
+Subclass/&BloodWitchTitle	Blut Hexe
+Subclass/&GreenWitchDescription	Pflanzen, Natur und Dinge, die wachsen, sind die Domäne der grünen Magie. Normalerweise eine Art von Arkana, die von Druiden verfochten wird, haben einige Hexen eine enge Verbindung zu den Kräften der grünen Magie und können Pflanzen und Tiere dazu bringen, ihr Gebot abzugeben.
+Subclass/&GreenWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n{0}
+Subclass/&GreenWitchMagicTitle	Grüne Magie
+Subclass/&GreenWitchTitle	Grüne Hexe
+Subclass/&PurpleWitchDescription	Lila Magie herrscht über die Bereiche der Illusionen und Verzauberungen, die den Geist der Menschen beherrschen, und über alles, was nicht ganz so ist, wie es scheint. Praktizierende dieser Form der Magie sind Puppenspieler, die die scheinbare Realität ihrer Umgebung zu ihrem Vorteil gestalten.
+Subclass/&PurpleWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
+Subclass/&PurpleWitchMagicTitle	Lila Magie
+Subclass/&PurpleWitchTitle	Lila Hexe
+Subclass/&RedWitchDescription	Arkane Magie, die mit dem Kanalisieren der Elemente verbunden ist, gilt als rote Magie und ist bei Verwendung äußerst gefährlich. Hexen, die sich auf rote Magie spezialisiert haben, gehören zu den tödlichsten Zauberkundigen, die es gibt, und kanalisieren ihren Fluch ungehindert in arkanen Zorn.
+Subclass/&RedWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
+Subclass/&RedWitchMagicTitle	Rote Magie
+Subclass/&RedWitchTitle	Rote Hexe
+Subclass/&WhiteWitchDescription	Weiße Magie ist grundsätzlich gut und wohlwollend für alle Lebewesen. Hexen, die dieses Handwerk anwenden, widmen sich trotz des hasserfüllten Fluchs, der sie infiziert, oft der Heilung und Pflege, mit der Absicht, die Welt zu verbessern.
+Subclass/&WhiteWitchMagicDescription	Du erhältst die folgenden Zauber. Diese Zaubersprüche zählen für dich als Hexenzauber und zählen nicht zu deiner Gesamtzahl an bekannten Zaubersprüchen:\n {0}
+Subclass/&WhiteWitchMagicTitle	Weiße Magie
+Subclass/&WhiteWitchTitle	weiße Hexe
+Subclass/&WitchSubclassPathDescription	Dein Wissen über Magie hat seinen Höhepunkt erreicht, indem du einem Coven beigetreten bist, einem angeborenen Kreis von Hexen, die einen bestimmten Pfad der Hexerei und der Flüche beschreiten.
+Subclass/&WitchSubclassPathTitle	Hexenzirkel
+Tooltip/&TagMaledictionTitle	Verdammt

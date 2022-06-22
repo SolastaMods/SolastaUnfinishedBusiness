@@ -1,0 +1,6 @@
+Feature/&OpportunistDebilitatingStrikeDescription	Seu ataque furtivo faz com que o alvo faça um teste de resistência de Constituição (CD 8 + seu bônus de proficiência + seu modificador de Destreza) ou sofra uma das seguintes condições: cego, aniquilamento, sangramento ou atordoado.
+Feature/&OpportunistDebilitatingStrikeTitle	Ataque Debilitante
+Feature/&OpportunistQuickStrikeDescription	Você tem vantagem quando ataca um inimigo cuja iniciativa é menor que a sua. Além disso, você também tem vantagem ao realizar um ataque de oportunidade.
+Feature/&OpportunistQuickStrikeTitle	Ataque Rápido
+Subclass/&OpportunistDescription	Oportunistas são aqueles que nunca deixam a chance de acabar com seus inimigos. Eles apunhalam rápido e apunhalam onde importa. Muitos não os enfrentaram podem escapar ilesos.
+Subclass/&OpportunistTitle	Oportunista

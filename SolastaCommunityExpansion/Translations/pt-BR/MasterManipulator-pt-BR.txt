@@ -1,0 +1,16 @@
+Subclass/&MagicAffinityMasterManipulatorDC0Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle	Força Arcana
+Subclass/&MagicAffinityMasterManipulatorListDescription	Ao lançar alguns feitiços de Encantamento, Abjuração e Ilusão, eles são lançados em um espaço de feitiço 1 nível superior ao usado. Feitiços aprimorados incluem: Encantar Pessoa, Sono, Spray de Cor, Segurar Pessoa, Invisibilidade, Contrafeitiço, Dissipar Magia, Banimento, Confusão, Assassino Fantasma, Dominar Pessoa e Segurar Monstro.
+Subclass/&MagicAffinityMasterManipulatorListTitle	Manipulação Arcana
+Subclass/&ManipulatorMentalSavingThrowsDescription	Ganhe proficiência em testes de resistência com Constituição e Carisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle	Resistência Mental
+Subclass/&PowerManipulatorDominatePersonDescription	Você pode usar Dominar Pessoa um número de vezes por descanso longo igual ao seu modificador de Inteligência.
+Subclass/&PowerManipulatorDominatePersonTitle	Dominar pessoa
+Subclass/&TraditionMasterManipulatorDescription	Os Mestres Manipuladores são excelentes em controlar o campo de batalha e impedir que seus inimigos possam atacá-los.
+Subclass/&TraditionMasterManipulatorTitle	Manipulador Mestre

@@ -1,0 +1,20 @@
+Condition/&ConditionMarkedByArcanistDescription	Afligido pela Marca do Arcanista. Quando atingido pelo lançador com um ataque de arma, a marca detona, causando 1d6 de dano de força ao afligido e destruindo a marca.
+Condition/&ConditionMarkedByArcanistTitle	Marca do Arcanista
+Equipment/&ArcaneStaffDescription	Este cajado é inscrito com escrita mágica e pode ser usado como foco para lançar feitiços Arcanos.
+Equipment/&ArcaneStaffTitle	Cajado Arcano
+Feature/&ArcaneDetonationDescription	Quando você atinge uma criatura que tem sua Marca do Arcanista com um ataque com arma, a marca detona, causando 1d6 de dano de força e destruindo a marca.
+Feature/&ArcaneDetonationTitle	Detonação Arcana
+Feature/&ArcaneDetonationUpgradeDescription	A partir do 11º nível, o dano da sua Detonação Arcana aumenta para 2d6.
+Feature/&ArcaneDetonationUpgradeTitle	Detonação Arcana Maior
+Feature/&ArcanePulseDescription	A partir do 7º nível, você pode causar uma erupção de energia arcana a uma distância de 9 metros. Criaturas hostis a até 4,5 metros do ponto de impacto recebem 4d8 de dano e ganham uma Marca do Arcanista. Você pode usar esta habilidade um número de vezes igual ao seu modificador de Sabedoria por descanso longo. No 15º nível, o dano do seu Pulso Arcano aumenta para 8d8.
+Feature/&ArcanePulseTitle	Pulso Arcano
+Feature/&ArcanistAutoPreparedSpellsDescription	Você ganha feitiços bônus que são considerados feitiços de Ranger para você, eles estão sempre preparados e não contam para o número de feitiços de Ranger que você conhece:\n{0}
+Feature/&ArcanistAutoPreparedSpellsTitle	Feitiços Bônus de Arcanista Patrulheiro
+Feature/&ArcanistMarkDescription	A partir do 3º nível, você imbui suas armas com poder arcano. Criaturas que são atingidas por seus ataques são afligidas pela Marca do Arcanista.
+Feature/&ArcanistMarkTitle	Marca do Arcanista
+Feature/&MagicAffinityRangerArcanistDescription	Você é proficiente em lançar feitiços em batalha e pode lançar feitiços que exijam um componente somático mesmo se ambas as mãos estiverem segurando uma arma ou escudo.
+Feature/&MagicAffinityRangerArcanistTitle	Treinamento de Combate Arcano
+Feedback/&AdditionalDamageArcanistMarkFormat	Marca do Arcanista!
+Feedback/&AdditionalDamageArcanistMarkLine	A Marca do Arcanista detona e causa dano extra ao alvo!
+Subclass/&RangerArcanistRangerSubclassDescription	O Arcanista Ranger combina suas habilidades de Ranger com habilidades arcanas. Suas armas podem afligir seus oponentes com a Marca do Arcanista, e aprenderam a lançar alguns feitiços de Mago como parte de seu repertório de feitiços de Ranger.
+Subclass/&RangerArcanistRangerSubclassTitle	Arcanista Ranger

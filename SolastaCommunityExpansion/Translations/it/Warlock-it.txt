@@ -1,0 +1,305 @@
+AttributeModifier/&AncientForestAttributeModifierBarkskinDescription	AC è impostato su 16.
+AttributeModifier/&AncientForestAttributeModifierBarkskinTitle	Pelle di corteccia
+Class/&ClassWarlockDescription	Gli stregoni sono alla ricerca della conoscenza che giace nascosta nel tessuto del multiverso. Attraverso patti fatti con misteriosi esseri dal potere soprannaturale, gli stregoni sbloccano effetti magici sia sottili che spettacolari.
+Class/&ClassWarlockTitle	Stregone
+Condition/&AncientForestPhotosynthesisDescription	Puoi assorbire energia dalla luce solare. Mentre sei in piena luce diretta, recuperi 2 HP all'inizio del tuo turno.
+Condition/&AncientForestPhotosynthesisTitle	Fotosintesi
+Condition/&AncientForestRootedConditionDescription	I viticci arborei crescono dai tuoi piedi e scavano nel terreno. Puoi lanciare entangle a piacimento. La tua velocità diventa 0 e guadagni vantaggio su qualsiasi tiro salvezza per spingerti, tirarti o buttarti prono.
+Condition/&AncientForestRootedConditionTitle	Radicato
+Condition/&MoonTouchedConditionDescription	La tua gravità è negata.
+Condition/&MoonTouchedConditionTitle	Luna toccata
+Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription	Ottieni resistenza ai danni da acido per 1 ora.
+Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle	Birra di protezione dagli acidi
+Equipment/&HerbalBrewDamageAffinityLightningResistanceDescription	Ottieni resistenza ai danni da fulmine per 1 ora.
+Equipment/&HerbalBrewDamageAffinityLightningResistanceTitle	Brew di protezione contro i fulmini
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceDescription	Ottieni resistenza ai danni necrotici per 1 ora.
+Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle	Birra di protezione necrotica
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription	Ottieni resistenza ai danni da veleno per 1 ora.
+Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle	Birra di protezione dal veleno
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription	Ottieni resistenza ai danni radianti per 1 ora.
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle	Birra di protezione dai raggi
+Equipment/&HerbalBrewHealingTitle	Birra di accelerazione
+Equipment/&HerbalBrewToxifyingTitle	Birra di Tossico
+Feat/&MoonlitBonusCantripsDescription	Il tuo controllo della luce lunare è aumentato a un nuovo livello. Puoi lanciare gli incantesimi raggio di luna e fuoco fatato a piacimento.
+Feat/&MoonlitBonusCantripsTitle	Controllo della luce
+Feature/&AdditionalDamageAgonizingBlastDescription	Aggiungi il tuo modificatore di Carisma al primo tiro per i danni di un attacco esplosivo mistico.
+Feature/&AdditionalDamageAgonizingBlastTitle	Esplosione agonizzante
+Feature/&AdditionalDamageHinderingBlastDescription	Quando colpisci una creatura con la tua ondata mistica, puoi ridurre la velocità di quella creatura di 3 metri fino alla fine del tuo prossimo turno.
+Feature/&AdditionalDamageHinderingBlastTitle	Esplosione Ostacolante
+Feature/&AgonizingBlastDescription	Aggiungi il tuo modificatore di Carisma al danno di Eldritch Basts.
+Feature/&AgonizingBlastTitle	Esplosione agonizzante
+Feature/&AHSoulBladeEmpowerDamageBonusDescription	Sei potenziato e infliggi un bonus ai danni pari alla tua competenza in tutti i tuoi attacchi.
+Feature/&AHSoulBladeEmpowerWeaponConditionDescription	Sei potenziato e infliggi un bonus ai danni pari alla tua competenza in tutti i tuoi attacchi.
+Feature/&AHSoulBladeEmpowerWeaponConditionTitle	Anima Potenziata
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusDescription	Sei potenziato e infliggi un bonus ai danni pari alla tua competenza in tutti i tuoi attacchi.
+Feature/&AHSoulBladeEmpowerWeaponDamageBonusTitle	Anima Potenziata
+Feature/&AHSoulBladeSummonPactWeaponPowerDescription	Una volta per riposo breve puoi evocare una forma spirituale di un'arma dal tuo patto come azione gratuita. Come azione bonus, puoi dirigere l'arma come desideri per attaccare i tuoi nemici. L'arma si muove fino a 20 piedi ogni volta prima di colpire.
+Feature/&AHSoulBladeSummonPactWeaponPowerTitle	Arma del patto spirituale
+Feature/&AHWarlockClassPactBoonSetDescription	Al 3° livello, il tuo patrono ultraterreno ti elargisce un regalo per il tuo fedele servizio. Puoi scegliere tra:
+Feature/&AHWarlockClassPactBoonSetTitle	Premio del patto
+Feature/&AHWarlockClassPactOfTheBladeSetDescription	Diventi esperto in tutte le armi e i tuoi attacchi con le armi sono considerati magici.
+Feature/&AHWarlockClassPactOfTheBladeSetTitle	Patto della Lama
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerDescription	Una volta per riposo lungo puoi potenziare un'arma con il potere delle anime. Quell'arma usa il modificatore di Carisma per i tiri per colpire e per i danni e conta come magica fino al riposo lungo.
+Feature/&AHWarlockSoulBladePactEmpowerWeaponPowerTitle	Potenziamento dell'anima
+Feature/&AHWarlockSoulBladePactExtendedSpellListDescription	La lama dell'anima ti consente di scegliere da un elenco esteso di incantesimi quando impari un incantesimo da stregone. I seguenti incantesimi vengono aggiunti all'elenco degli incantesimi da Stregone per te: {0}
+Feature/&AHWarlockSoulBladePactExtendedSpellListTitle	Incantesimi di Soulblade
+Feature/&AHWarlockSoulBladePactSoulShieldPowerDescription	Una volta per riposo breve, usi il potere delle anime per difenderti. Usando un'azione bonus, guadagni HP temporanei pari al tuo livello + modificatore di Carisma.
+Feature/&AHWarlockSoulBladePactSoulShieldPowerTitle	Scudo dell'anima
+Feature/&AncientForestExpandedSpelllistAfinityDescription	Scegli da un elenco esteso di incantesimi quando impari un incantesimo da Stregone. I seguenti incantesimi vengono aggiunti all'elenco degli incantesimi da Stregone per te: {0}
+Feature/&AncientForestExpandedSpelllistAfinityTitle	Antichi incantesimi della foresta
+Feature/&AncientForestLightAffinityDescription	Puoi assorbire energia dalla luce solare. Mentre sei in piena luce diretta, guadagni 2 HP per round.
+Feature/&AncientForestLightAffinityTitle	Fotosintesi
+Feature/&AncientForestRegrowthDescription	Hai una pozza di potere curativo che si riempie quando ti riposi a lungo. Con quella riserva, puoi ripristinare un numero totale di punti ferita pari al tuo livello da Stregone × 5.
+Feature/&AncientForestRegrowthTitle	Ricrescita
+Feature/&ArmorofShadowsTitle	Armatura delle ombre
+Feature/&AscendantStepTitle	Passo ascendente
+Feature/&AspectoftheMoonDescription	Non hai più bisogno di dormire e puoi stare di guardia, riducendo le possibilità di attacco e assicurandoti di essere sveglio se il campo viene attaccato.
+Feature/&AspectoftheMoonTitle	Aspetto della Luna
+Feature/&BeguilingInfluenceDescription	Acquisisci competenza nelle abilità Inganno e Persuasione.
+Feature/&BeguilingInfluenceTitle	Influenza seducente
+Feature/&BondoftheTalismanDescription	Teletrasportarsi fino a 30 piedi di distanza.
+Feature/&BondoftheTalismanTitle	Talismano di teletrasporto
+Feature/&ChainsofCarceriDescription	Paralizza un celeste, un immondo o un elementale a meno che non superi un tiro salvezza di Saggezza.
+Feature/&ChainsofCarceriTitle	Catene di Carceri
+Feature/&ClassMonkTongueOfSunAndMoonDescription	Impari a toccare il ki di altre menti in modo da comprendere tutte le lingue parlate. Inoltre, qualsiasi creatura in grado di capire una lingua può capire quello che dici.
+Feature/&ClassMonkTongueOfSunAndMoonTitle	Lingua del Sole e della Luna
+Feature/&ClassWarlockArmorProficiencyDescription	Armatura leggera.
+Feature/&ClassWarlockArmorProficiencyTitle	Competenze nelle armature degli stregoni
+Feature/&ClassWarlockEldritchInvocationReplaceDescription	Seleziona Eldritch Invocazione per sostituire.
+Feature/&ClassWarlockEldritchInvocationReplaceTitle	Sostituisci Invocazione
+Feature/&ClassWarlockEldritchInvocationSetLevelDescription	Aggiungi un'invocazione misteriosa.
+Feature/&ClassWarlockEldritchInvocationSetLevelTitle	Invocazione di Eldritch
+Feature/&ClassWarlockEldritchMasterDescription	puoi attingere alla tua riserva interiore di potere mistico mentre supplichi il tuo patrono di riguadagnare gli slot incantesimo spesi. Puoi dedicare 1 minuto a supplicare il tuo patrono di chiedere aiuto per riguadagnare tutti gli slot incantesimo spesi dalla tua funzione Magia del patto. Una volta recuperati gli slot incantesimo con questa funzione, devi terminare un lungo riposo prima di poterlo fare di nuovo.
+Feature/&ClassWarlockEldritchMasterTitle	Maestro Misterioso
+Feature/&ClassWarlockMysticArcanumSetDescription	Il tuo patrono ti concede un segreto magico chiamato arcanum. Puoi lanciare il tuo incantesimo arcano una volta senza spendere uno slot incantesimo. Devi finire un lungo riposo prima di poterlo fare di nuovo. Ai livelli più alti, ottieni più incantesimi da Stregone a tua scelta che possono essere lanciati in questo modo: un incantesimo di 6° livello all'11° livello, un incantesimo di 7° livello al 13° livello, un incantesimo di 8° livello al 15° livello e uno di 9° livello incantesimo di livello al 17° livello.
+Feature/&ClassWarlockMysticArcanumSetTitle	Arcano mistico
+Feature/&ClassWarlockSavingThrowProficiencyDescription	Saggezza, Carisma.
+Feature/&ClassWarlockSavingThrowProficiencyTitle	Competenze nei tiri salvezza
+Feature/&ClassWarlockSkillProficiencyDescription	Scegli 2 di queste abilità: Arcana, Inganno, Storia, Intimidazione, Indagine, Natura e Religione.
+Feature/&ClassWarlockSkillProficiencyTitle	Abilità da stregone
+Feature/&ClassWarlockSpellcastingDescription	La tua ricerca arcana e la magia conferitati dal tuo protettore ultraterreno ti hanno dato facilità con gli incantesimi.
+Feature/&ClassWarlockSpellcastingTitle	Magia del patto degli stregoni
+Feature/&ClassWarlockToolsProficiencyDescription	Sei stato addestrato a preparare rimedi erboristici e utilizzare attrezzature incantevoli.
+Feature/&ClassWarlockToolsProficiencyTitle	Creazione magica degli stregoni
+Feature/&ClassWarlockWeaponProficiencyDescription	Armi semplici.
+Feature/&ClassWarlockWeaponProficiencyTitle	Competenze nelle armi da stregone
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceDescription	Quando sei ridotto a 0 HP ma non ucciso, puoi invece scendere a 1 HP.
+Feature/&DamageAffinityGiftoftheProtectorsRelentlessEnduranceTitle	Resistenza implacabile
+Feature/&DevilsSightDescription	Puoi vedere normalmente nell'oscurità, sia magici che non magici, a una distanza di 120 piedi.
+Feature/&DevilsSightTitle	Vista del diavolo
+Feature/&DH_BlinkDescription	Come azione bonus, sparisci dal tuo attuale piano di esistenza, prevenendo tutti i danni. All'inizio del tuo prossimo turno, torni nello spazio da cui sei scomparso.
+Feature/&DH_BlinkTitle	Battito di ciglia
+Feature/&DH_FadeIntoTheVoidDescription	Quando si è ridotti a 0 punti ferita ma non si è uccisi sul colpo, si scende invece a 1 punto ferita mentre si svanisce brevemente nel vuoto per ridurre i danni. Non puoi utilizzare di nuovo questa funzione fino al termine di un riposo lungo.
+Feature/&DH_FadeIntoTheVoidTitle	Dissolvenza nel vuoto
+Feature/&DH_RiftCloakDescription	Il tuo controllo sui portali della spaccatura è aumentato al punto che ora puoi garantire la protezione della spaccatura ad altri. Puoi lanciare legame di protezione a piacimento (senza condividere il danno).
+Feature/&DH_RiftCloakTitle	Mantello della spaccatura
+Feature/&DH_RiftControlDescription	Circondato brevemente dall'energia della spaccatura, ti teletrasporti in uno spazio non occupato. Ora puoi portare un alleato con te durante il teletrasporto e la portata è aumentata in modo significativo.
+Feature/&DH_RiftControlTitle	Portale della spaccatura
+Feature/&DH_RiftStrikeDescription	Una volta al giorno, se danneggiato in mischia, puoi usare la tua reazione per creare un portale che bandisca l'attaccante per 1 round dal tuo piano di esistenza.
+Feature/&DH_RiftStrikeTitle	Colpo di spaccatura
+Feature/&DH_RiftWalkDescription	Circondato brevemente dall'energia del vuoto tra i mondi, ti teletrasporti fino a 9 metri in uno spazio non occupato che puoi vedere.
+Feature/&DH_RiftWalkTitle	Passo della spaccatura
+Feature/&DHAncientForestBonusCantripDescription	Il tuo patrono condivide i segreti sulla natura di come la magia naturale e l'energia vitale sono collegate. Tu impari Shillelagh e Chill Touch.
+Feature/&DHAncientForestBonusCantripTitle	Trucchetti bonus della foresta antica
+Feature/&DHConjureMinorElementalsBonusCantripDescription	Il tuo controllo delle energie elementali è aumentato al punto che ora hai il dominio sugli elementali più deboli. Puoi lanciare evoca elementale minore a piacimento.
+Feature/&DHConjureMinorElementalsBonusCantripTitle	Minion Elementali
+Feature/&DHPactOfTheTomeFeatureSetDescription	Il tuo patrono ti regala un grimorio chiamato Libro delle Ombre. Quando ottieni questo privilegio, scegli tre trucchetti dalla lista degli incantesimi di qualsiasi classe. Non è necessario che i trucchetti provengano dalla stessa lista di incantesimi. Mentre il libro è sulla tua persona, puoi lanciare quei trucchetti a piacimento. Non contano per il numero di trucchetti conosciuti. Qualsiasi trucchetto che lanci con questa funzione è considerato un trucchetto da stregone per te.
+Feature/&DHPactOfTheTomeFeatureSetTitle	Patto del Tomo
+Feature/&DHWardingBondBonusCantripDescription	Il tuo controllo sui portali della spaccatura è aumentato al punto che ora puoi garantire la protezione della spaccatura ad altri. Puoi lanciare legame di protezione a piacimento (senza la condivisione del danno).
+Feature/&DHWardingBondBonusCantripTitle	Mantello della spaccatura
+Feature/&DHWarlockClassPactOfTheChainFeatureSetDescription	Quando lanci l'evocazione di un famiglio, puoi scegliere una delle seguenti forme speciali: diavoletto, pseudodrago, quasit o sprite.
+Feature/&DHWarlockClassPactOfTheChainFeatureSetTitle	Patto della Catena
+Feature/&DreadfulWordTitle	Parola terribile
+Feature/&EldritchBlastGraspingHandBonusCantripDescription	Quando colpisci una creatura con la tua esplosione mistica, puoi spostare quella creatura in linea retta di 3 metri più vicino a te.
+Feature/&EldritchBlastGraspingHandBonusCantripTitle	Esplosione di presa
+Feature/&EldritchBlastRepellingBlastBonusCantripDescription	Quando colpisci una creatura con un'esplosione mistica, puoi spingerla fino a 3 metri di distanza da te in linea retta.
+Feature/&EldritchBlastRepellingBlastBonusCantripTitle	Esplosione respingente
+Feature/&EldritchMindDescription	Hai vantaggio sui tiri salvezza di Costituzione che fai per mantenere la concentrazione su un incantesimo.
+Feature/&EldritchMindTitle	Mente Malvagia
+Feature/&EldritchSightTitle	Vista Eldritch
+Feature/&EldritchSmiteDescription	Una volta per turno, quando colpisci una creatura con la tua arma del patto, puoi spendere uno slot incantesimo Warlock per infliggere 1d8 danni da forza extra al bersaglio, più altri 1d8 per livello dello slot incantesimo.
+Feature/&EldritchSmiteTitle	Punizione Diabolica
+Feature/&ElementalPactAirPlane	Aereo
+Feature/&ElementalPactAstralPlane	Piano astrale
+Feature/&ElementalPactEarthPlane	Piano Terra
+Feature/&ElementalPactEtherealPlane	Piano Etereo
+Feature/&ElementalPactFirePlane	Aereo antincendio
+Feature/&ElementalPactIcePlane	Aereo di ghiaccio
+Feature/&ElementalPactShadowPlane	Piano delle ombre
+Feature/&ElementalPatronDummyFeatureSetTitle	Elementalista
+Feature/&ElementalPatronElementalConditionFormatDescription	Infliggi {1} danni aggiuntivi pari al tuo bonus di competenza al primo colpo ogni round.
+Feature/&ElementalPatronElementalConditionFormatTitle	Canalizzazione {0}
+Feature/&ElementalPatronElementalDamageFormatDescription	Quando canalizzi {0}, infliggi {1} danni aggiuntivi pari al tuo bonus di competenza al primo colpo ogni round.
+Feature/&ElementalPatronElementalDamageFormatTitle	Danno Elementale: {0}
+Feature/&ElementalPatronElementalFormEnhancedFormatDescription	Quando incanali {0}, guadagni Immunità a {1} e applichi bonus di competenza come danno dello stesso tipo per colpire per primo ogni round.
+Feature/&ElementalPatronElementalFormEnhancedFormatTitle	Canalizzazione {0}
+Feature/&ElementalPatronElementalFormFormatDescription	Quando incanali {0}, guadagni Resistenza a {1} danni e applichi il Bonus di competenza come danno dello stesso tipo per colpire per primo ogni round.
+Feature/&ElementalPatronElementalFormFormatTitle	{0}
+Feature/&ElementalPatronFeatureSet_Level06Description	La tua conoscenza degli elementali è aumentata al punto che ora ottieni vantaggio alle prove di abilità nei confronti degli elementali e infliggi danni aggiuntivi contro gli elementali pari al tuo livello di conoscenza. Non puoi più essere incantato o spaventato dagli elementali.
+Feature/&ElementalPatronFeatureSet_Level06Title	Conoscenza degli Elementali
+Feature/&EyesoftheRuneKeeperDescription	Puoi leggere tutta la scrittura.
+Feature/&EyesoftheRuneKeeperTitle	Occhi del Guardiano delle Rune
+Feature/&FiendishVigorTitle	Vigore diabolico
+Feature/&GiftoftheEverLivingOnesDescription	Recupera il numero massimo di punti ferita possibili da qualsiasi cura.
+Feature/&GiftoftheEverLivingOnesTitle	Dono dei sempre viventi
+Feature/&GiftoftheProtectorsDescription	Quando si è ridotti a 0 punti ferita ma non si è uccisi sul colpo, la creatura scende invece magicamente a 1 punto ferita. Una volta che questa magia è stata attivata, non puoi beneficiarne fino al termine di un riposo lungo.
+Feature/&GiftoftheProtectorsTitle	Dono dei Protettori
+Feature/&HerbalBrewDescription	Quando finisci un riposo lungo, puoi creare infusi alle erbe, ognuno dei quali dura fino al successivo riposo lungo. Crei un totale di birre pari al tuo bonus di competenza. Per ogni infuso, scegli uno dei seguenti effetti:\n<color=#add8e6ff>Birra fortificante</color>: conferisce resistenza a diversi tipi di danno per 1 ora.\n<color=#add8e6ff>Birra veloce</color>: fornisce 2d4 punti ferita.\n<color=#add8e6ff>Birra Tossinante</color>: agisce come veleno che può essere applicato a un'arma che dura 1 minuto. Se il colpo va a segno, il bersaglio subisce 1d4 danni da veleno per ogni colpo.
+Feature/&HerbalBrewFeatureSetDescription	Acquisisci competenza con il kit avvelenatore o con i kit di erboristeria se non lo hai già.\nQuando finisci un riposo lungo, puoi creare infusi alle erbe, ognuno dei quali dura fino al successivo riposo lungo. Crei un totale di birre pari al tuo bonus di competenza. Per ogni infuso, scegli uno dei seguenti effetti:\n<color=#add8e6ff>Birra fortificante</color>: conferisce resistenza a diversi tipi di danno per 1 ora.\n<color=#add8e6ff>Birra veloce</color>: fornisce 2d4 punti ferita.\n<color=#add8e6ff>Birra Tossinante</color>: agisce come veleno che può essere applicato a un'arma che dura 1 minuto. Se il colpo va a segno, il bersaglio subisce 1d4 danni da veleno per ogni colpo.
+Feature/&HerbalBrewFeatureSetTitle	Birra alle erbe
+Feature/&HinderingBlastDescription	Quando colpisci una creatura con la tua ondata mistica, puoi ridurre la velocità di quella creatura di 3 metri fino alla fine del tuo prossimo turno.
+Feature/&HinderingBlastMagicAffinityDescription	quando colpisci una creatura con la tua ondata mistica, puoi ridurre la velocità di quella creatura di 3 metri fino alla fine del tuo prossimo turno.
+Feature/&HinderingBlastMagicAffinityTitle	Esplosione Ostacolante
+Feature/&HinderingBlastTitle	Esplosione Ostacolante
+Feature/&ImprovedPactWeaponDescription	Puoi usare qualsiasi arma come focus di incantamento per i tuoi incantesimi da Stregone. Inoltre, l'arma ottiene un bonus di +1 ai suoi tiri per colpire e per i danni.
+Feature/&ImprovedPactWeaponTitle	Arma del patto migliorata
+Feature/&MiretheMindTitle	Infanga la mente
+Feature/&MoonLitDarknessImmunityDescription	Sei immune alla condizione di oscurità.
+Feature/&MoonLitDarknessImmunityTitle	Oscurità al chiaro di luna
+Feature/&MoonLitExpandedSpelllistAfinityDescription	Scegli da un elenco esteso di incantesimi quando impari un incantesimo da Stregone. I seguenti incantesimi vengono aggiunti all'elenco degli incantesimi da Stregone per te: {0}
+Feature/&MoonLitExpandedSpelllistAfinityTitle	Incantesimi al chiaro di luna
+Feature/&MoonLitLightAffinityDescription	Se inizi il tuo turno nell'oscurità naturale, diventi invisibile. Muoversi, attaccare o usare qualsiasi potere o incantesimo che non prende di mira solo te stesso rompe l'invisibilità.
+Feature/&MoonLitLightAffinityStrongDescription	Il Mantello Ombrale ora funziona in condizioni di luce fioca e oscurità magica.
+Feature/&MoonLitLightAffinityStrongTitle	Mantello ombroso migliorato
+Feature/&MoonLitLightAffinityTitle	Mantello Ombroso
+Feature/&OneWithShadowsDescription	Se inizi il tuo turno nell'oscurità naturale, diventi invisibile. Muoversi, attaccare o usare qualsiasi potere o incantesimo che non prende di mira solo te stesso rompe l'invisibilità.
+Feature/&OneWithShadowsLightAffinityDescription	Se inizi il tuo turno nell'oscurità naturale, diventi invisibile. Muoversi, attaccare o usare qualsiasi potere o incantesimo che non prende di mira solo te stesso rompe l'invisibilità.
+Feature/&OneWithShadowsLightAffinityStrongDescription	One With Shadows ora funziona in condizioni di luce fioca e oscurità magica.
+Feature/&OneWithShadowsLightAffinityStrongTitle	Ombre più scure
+Feature/&OneWithShadowsLightAffinityTitle	Uno con le ombre
+Feature/&OneWithShadowsStrongerDescription	One With Shadows ora funziona in condizioni di scarsa illuminazione e oscurità magica.
+Feature/&OneWithShadowsStrongerTitle	Ombre più scure
+Feature/&OneWithShadowsTitle	Uno con le ombre
+Feature/&OtherworldlyLeapTitle	Salto ultraterreno
+Feature/&ProficiencySoulBladeArmorDescription	Armatura leggera, Armatura media e Scudo.
+Feature/&ProficiencySoulBladeArmorTitle	Competenze nelle armature di Soulblade
+Feature/&ProficiencySoulBladeWeaponDescription	Armi semplici, armi da guerra.
+Feature/&ProficiencySoulBladeWeaponTitle	Competenze nelle armi di Soulblade
+Feature/&RiftWalkerRestrainedImmunityTitle	Passo fugace
+Feature/&RiftWalkerSpellsMagicAffinityDescription	Scegli da un elenco esteso di incantesimi quando impari un incantesimo da Stregone. I seguenti incantesimi vengono aggiunti all'elenco degli incantesimi da Stregone per te: {0}
+Feature/&RiftWalkerSpellsMagicAffinityTitle	Incantesimi di Rift Walker
+Feature/&ShroudofShadowTitle	Manto d'Ombra
+Feature/&ThiefofFiveFates	Trasmetti {0} una volta al giorno
+Feature/&ThiefofFiveFatesTitle	Ladro di cinque destini
+Feature/&ThirstingBladeDescription	Puoi attaccare con la tua arma due volte, invece di una volta, ogni volta che esegui l'azione Attacco nel tuo turno.
+Feature/&ThirstingBladeTitle	Lama assetata
+Feature/&TrickstersEscapeTitle	La fuga dell'imbroglione
+Feature/&WallofThornsFeatureSetDescription	Cast Wall of Thorns una volta al giorno.
+Feature/&WallofThornsFeatureSetTitle	Barriera forestale
+Feedback/&AdditionalDamageAgonizing_BlastFormat	Esplosione agonizzante
+Feedback/&AdditionalDamageAgonizing_BlastLine	Quando lanci ondata mistica, aggiungi il tuo modificatore di Carisma al danno che infligge su un colpo.
+Feedback/&AdditionalDamageEldritchSmiteFormat	Punizione Diabolica!
+Feedback/&AdditionalDamageEldritchSmiteLine	{0} punisce {1} (+{2})
+Feedback/&AdditionalDamageElementalDamageFormat	Danno Elementale
+Feedback/&AdditionalDamageElementalDamageLine	La forma elementale garantisce danni aggiuntivi
+Feedback/&AdditionalDamagePactMarkedFormat	Marchio del patto!
+Feedback/&AdditionalDamagePactMarkedLine	Il segno del patto fa danni aggiuntivi!
+Feedback/&AdditionalDamagePactSoulTakerFormat	Prendi l'anima!
+Feedback/&AdditionalDamagePactSoulTakerLine	Soul Taker infligge danni aggiuntivi!
+Feedback/&AdditionalDamageSoulEmpoweredFormat	Anima potenziata!
+Feedback/&AdditionalDamageSoulEmpoweredLine	Soul Empowered infligge danni aggiuntivi!
+Feedback/&AncientForestHerbalBrewDamageAffinityAcidResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityLightningResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityNecroticResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat	{0} crea {1}
+Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat	{0} crea {1}
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierDescription	L'arma usa il modificatore di Carisma per i tiri per colpire e per i danni e conta come magica fino al riposo lungo.
+Modifier/&AHWarlockSoulBladePactEmpowerWeaponModifierTitle	Anima Potenziata
+Monster/&PactOfChainCustomImpDescription	I folletti si trovano in tutti i Piani Inferiori, che fanno commissioni per i loro padroni infernali, spiano i rivali o mortali fuorvianti e ingannevoli. Un folletto servirà con orgoglio un maestro malvagio di qualsiasi tipo, ma non si può fare affidamento su di esso per svolgere compiti con velocità o efficienza.
+Monster/&PactOfChainCustomImpTitle	Imp (Patto di Catena)
+Monster/&PactOfChainCustomPseudodragonDescription	L'elusivo pseudodrago dimora nei luoghi tranquilli del mondo, facendo la sua dimora nelle cavità degli alberi e nelle piccole grotte. Con le sue scaglie verdi, le corna e le fauci piene di denti aguzzi, uno pseudodrago assomiglia a un minuscolo drago verde ma la sua disposizione è giocosa.
+Monster/&PactOfChainCustomPseudodragonTitle	Pseudodrago
+Monster/&PactOfChainCustomQuasitDescription	I Quasit infestano i Piani Inferiori. Fisicamente deboli, si tengono nell'ombra per tramare malizia e malvagità. I demoni più potenti usano i quasit come spie e messaggeri quando non li stanno divorando o separandoli per passare il tempo.
+Monster/&PactOfChainCustomQuasitTitle	Quasit (Patto di Catena)
+Monster/&PactOfChainCustomSpriteDescription	A differenza dei folletti, gli sprite raramente si abbandonano a frivole allegria e divertimento. Sono guerrieri fermi, protettori e giudici, e la loro inclinazione severa fa sì che altri folletti li considerino eccessivamente seri e seri. Tuttavia, i folletti che rispettano il territorio degli spiriti li trovano fedeli alleati nei momenti difficili.
+Monster/&PactOfChainCustomSpriteTitle	Sprite (Patto di Catena)
+MonsterAttack/&AttackWarlockDragonStingDescription	1d4 danni perforanti e il bersaglio deve superare un tiro salvezza su Costituzione con CD 11 o diventare avvelenato.
+MonsterAttack/&AttackWarlockDragonStingTitle	Puntura velenosa
+MonsterAttack/&AttackWarlockImpStingDescription	Puntura velenosa di un diavoletto.
+MonsterAttack/&AttackWarlockImpStingTitle	Puntura velenosa
+MonsterAttack/&AttackWarlockQuasitStingTitle	Puntura velenosa
+Power/&AncientForestLifeSapDescription	Quando danneggi un nemico con un incantesimo, guadagni HP pari alla metà del tuo livello una volta per turno. Se sei al di sotto della metà degli HP, invece, curi HP pari al tuo livello, ma solo fino alla metà dei tuoi HP massimi.
+Power/&AncientForestLifeSapTitle	linfa vitale
+Power/&AncientForestRootedPowerDescription	I viticci arborei crescono dai tuoi piedi e scavano nel terreno. La tua velocità diventa 0 e ottieni vantaggio su qualsiasi tiro salvezza per spingerti, tirarti o buttarti prono. Puoi lanciare entangle a piacimento.
+Power/&AncientForestRootedPowerTitle	Radicato
+Power/&DH_ElementalFormPoolDescription	Puoi passare da una forma elementale all'altra un numero di volte pari al tuo bonus di competenza per riposo lungo incanalando energia elementale. Ottieni resistenza al danno rilevante e una volta per turno, applica il tuo bonus di competenza come danno dello stesso tipo al primo danno magico inflitto in quel turno. I moduli durano 1 minuto.
+Power/&DH_ElementalFormPoolEnhancedDescription	Puoi passare da una forma elementale potenziata un numero di volte pari al tuo bonus di competenza al giorno incanalando energia elementale. Ottieni l'immunità al danno rilevante e applichi il bonus di competenza come danno dello stesso tipo al primo danno magico ogni round. I moduli durano 1 minuto.
+Power/&DH_ElementalFormPoolEnhancedTitle	Forme elementali migliorate
+Power/&DH_ElementalFormPoolEnhancedTitleShort	Forme Elementali
+Power/&DH_ElementalFormPoolTitle	Forme Elementali
+Power/&FindFamiliarBundlePowerDescription	Evoca un famiglio sotto forma di Pseudorgagon, Sprite, Imp o Quasit.
+Power/&FindFamiliarBundlePowerTitle	Trova familiare
+Power/&MoonlitDanceoftheNightSkyDescription	Puoi lanciare Volare su 4 bersagli una volta al giorno.
+Power/&MoonlitDanceoftheNightSkyTitle	Danza del cielo notturno
+Power/&MoonlitDarkMoonDescription	Puoi lanciare Oscurità un numero di volte per riposo lungo pari al tuo bonus di competenza.
+Power/&MoonlitDarkMoonTitle	Luna scura
+Power/&MoonlitFullMoonDescription	Puoi lanciare Daylight un numero di volte per riposo lungo pari al tuo bonus di competenza.
+Power/&MoonlitFullMoonTitle	Luna piena
+Power/&MoonlitMoonTouchedDescription	Evochi l'attrazione gravitazionale della luna in una piccola area, facendo fluttuare verso l'alto le creature che falliscono un tiro salvezza.
+Power/&MoonlitMoonTouchedTitle	Luna toccata
+Power/&PactofChainFamiliarInvisibilityPowerDescription	La creatura diventa magicamente invisibile finché non attacca o lancia un incantesimo, o fino al termine della sua concentrazione (come se si stesse concentrando su un incantesimo). Qualsiasi equipaggiamento che la creatura indossa o trasporta è invisibile con esso.
+Power/&PactofChainFamiliarInvisibilityPowerTitle	Invisibilità
+Power/&PactofChainFamiliarScarePowerDescription	Una creatura a tua scelta entro 20 piedi da essa deve superare un tiro salvezza su Saggezza con CD 10 o essere spaventata per 1 minuto. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stesso in caso di successo.
+Power/&PactofChainFamiliarScarePowerTitle	Spavento
+Reaction/&SpendPowerDH_RiftStrikeDescription	Una volta per riposo lungo, quando danneggiato da un attacco in mischia, puoi usare la tua reazione per creare un portale che bandisca l'attaccante per 1 round dal tuo piano di esistenza.
+Reaction/&SpendPowerDH_RiftStrikeReactTitle	Colpo di spaccatura
+Reaction/&SpendPowerDH_RiftStrikeTitle	Colpo di spaccatura
+Reaction/&SpendSpellSlotEldritchSmiteDescription	{0} può spendere uno slot incantesimo per infliggere 1d8 danni da forza e 1d8 danni aggiuntivi per livello di slot al bersaglio.
+Reaction/&SpendSpellSlotEldritchSmiteReactDescription	Fai clic per spendere uno slot incantesimo e aumentare i danni al bersaglio.
+Reaction/&SpendSpellSlotEldritchSmiteReactTitle	Punire
+Reaction/&SpendSpellSlotEldritchSmiteTitle	Punizione Diabolica
+Reaction/&SubitemSelectEldritchSmiteDescription	Seleziona un livello di slot da consumare per il tuo Punizione mistica.
+Reaction/&SubitemSelectEldritchSmiteTitle	Livello slot
+Requirement/&WarlockMissingEldritchBlast	Eldritch Blast trucchetto
+Requirement/&WarlockRequiresNoMoonLit	Non al chiaro di luna patrono
+Requirement/&WarlockRequiresOneWithShadows	Invocazione di Eldritch "Uno con le ombre".
+Requirement/&WarlockRequiresPactOfBlade	Patto della Lama
+Requirement/&WarlockRequiresPactOfChain	Patto delle catene
+Requirement/&WarlockRequiresPactOfTome	Patto del Tomo
+Rules/&CounterFormDismissCreatureFormat	Congeda il costrutto Tinkerer
+Spell/&AHPactMarkAdditionalDamageDescription	Una creatura contrassegnata dal patto subisce 1d6 danni aggiuntivi dello stesso tipo quando viene colpita da un'arma o da un incantesimo che attacca il segnalino.
+Spell/&AHPactMarkAdditionalDamageTitle	Danni al Marchio del Patto
+Spell/&AHPactMarkMarkedByPactConditionDescription	Questa creatura è stata contrassegnata da un patto e subisce 1d6 danni aggiuntivi dello stesso tipo quando viene colpita da un'arma o da un incantesimo che attacca il segnalino.
+Spell/&AHPactMarkMarkedByPactConditionTitle	Patto segnato
+Spell/&AHPactMarkPactMarkConditionDescription	Puoi contrassegnare altre creature con un segno di patto e infliggi loro 1d6 danni aggiuntivi con attacchi con armi o incantesimi.
+Spell/&AHPactMarkPactMarkConditionTitle	Marchio del patto
+Spell/&AHPactMarkSpellDescription	Metti un segno dal tuo patto su una creatura che puoi vedere entro 90 piedi. Diventa vulnerabile a te e subisce 1d6 danni aggiuntivi ogni volta che lo colpisci con un'arma o un attacco magico. Questo danno è dello stesso tipo dell'attacco che colpisce.
+Spell/&AHPactMarkSpellTitle	Marchio del patto
+Spell/&AirBlastDescription	Spara una raffica d'aria mirata al tuo bersaglio.
+Spell/&AirBlastTitle	Esplosione d'aria
+Spell/&EldritchBlastDescription	Un raggio di energia crepitante si dirige verso una creatura a portata. Effettua un attacco con incantesimo a distanza contro il bersaglio. In caso di colpo, il bersaglio subisce 1d10 danni da forza.\nL'incantesimo crea più di un raggio quando raggiungi livelli più alti: due raggi al 5° livello, tre raggi all'11° livello e quattro raggi al 17° livello. È possibile dirigere i raggi verso lo stesso target o verso target differenti. Effettua un tiro di attacco separato per ogni raggio.
+Spell/&EldritchBlastGraspingHandDescription	Un raggio di energia crepitante si dirige verso una creatura a portata. Effettua un attacco con incantesimo a distanza contro il bersaglio. In caso di colpo, il bersaglio subisce 1d10 danni da forza.\n(Quando colpisci una creatura con la tua esplosione mistica, puoi muovere quella creatura in linea retta di 3 metri più vicino a te.)
+Spell/&EldritchBlastGraspingHandTitle	Esplosione mistica (afferrare)
+Spell/&EldritchBlastRepellingBlastDescription	Un raggio di energia crepitante si dirige verso una creatura a portata. Effettua un attacco con incantesimo a distanza contro il bersaglio. In caso di colpo, il bersaglio subisce 1d10 danni da forza.\n(Quando colpisci una creatura con un'esplosione mistica, puoi spingerla fino a 3 metri di distanza da te in linea retta.)
+Spell/&EldritchBlastRepellingBlastTitle	Esplosione mistica (respingente)
+Spell/&EldritchBlastTitle	Esplosione Diabolica
+Spell/&EldritchOrbDescription	Lanci una sfera di energia misteriosa contro una creatura o un oggetto entro la gittata e infliggi danni da forza in un raggio ridotto.
+Spell/&EldritchOrbTitle	Orb Eldritch
+Spell/&HinderingBlastDescription	Un raggio di energia crepitante si dirige verso una creatura a portata. Effettua un attacco con incantesimo a distanza contro il bersaglio. In caso di colpo, il bersaglio subisce 1d10 danni da forza.\n(quando colpisci una creatura con la tua ondata mistica, puoi ridurre la velocità di quella creatura di 3 metri fino alla fine del tuo prossimo turno).
+Spell/&HinderingBlastTitle	Esplosione Eldritch (Ostacolante)
+SpellList/&ClassWarlockSpellListDescription	Lista degli incantesimi dello stregone.
+SpellList/&ClassWarlockSpellListTitle	Lista degli incantesimi dello stregone
+SpellList/&RiftWalkerSpellsListDescription	Lista degli incantesimi di RiftWalker.
+SpellList/&RiftWalkerSpellsListTitle	Lista degli incantesimi di Rift Walker
+Stage/&SubclassSelectionStagePatronDescription	Uno Stregone è definito da un patto con un essere ultraterreno. A volte la relazione tra Warlock e patrono è come quella tra un chierico e una divinità, sebbene gli esseri che servono come patroni non siano dei.
+Stage/&SubclassSelectionStagePatronFeatures	Caratteristiche dei patroni ultraterreni
+Stage/&SubclassSelectionStagePatronHeader	Warlock Patroni ultraterreni
+Stage/&SubclassSelectionStagePatronTitle	Patroni ultraterreni
+Subclass/&AHWarlockSubclassSoulBladePactDescription	Hai stretto un patto con un'arma senziente a cui nutrire le anime in cambio del potere.
+Subclass/&AHWarlockSubclassSoulBladePactTitle	Patto della Lama d'Anima
+Subclass/&ClassWarlockPatronDescription	Uno Stregone è definito da un patto con un essere ultraterreno. A volte la relazione tra Warlock e patrono è come quella tra un chierico e una divinità, sebbene gli esseri che servono come patroni non siano dei.
+Subclass/&ClassWarlockPatronTitle	Patrono ultraterreno
+Subclass/&DHWarlockSubclassElementalPatronDescription	Sei stato stretto un patto e sei stato cambiato dai primordiali presenti nei calanchi elementali. Il caos elementale del patrono ha soffuso la tua anima, permettendoti di usare il potere di diversi tipi elementali.
+Subclass/&DHWarlockSubclassElementalPatronTitle	Patto Elementalista
+Subclass/&DHWarlockSubclassRiftWalkerDescription	Il tuo patrono è uno dei rari esseri che chiama il vuoto tra i mondi la loro casa. Scivolano tra i piani con facilità e la conoscenza che hai acquisito interagendo con loro ti consente di sfruttare le energie di spaccatura persistenti a tuo vantaggio all'interno di solasta. A volte potresti essere pieno di desiderio per il regno lontano del tuo patrono, un desiderio di vagare tra le dimensioni per il resto dei tuoi giorni, o guardare i segni di un altro evento di Rift, per prevenire o incoraggiare.
+Subclass/&DHWarlockSubclassRiftWalkerTitle	Patto di Rift Walker
+Subclass/&WarlockAncientForestDescription	Hai stretto una relazione con una potente entità della natura: Antiche Driadi, Arcidruidi, Manifestazioni della Selva dei Folletti che sanguinano nel piano materiale, Dei dimenticati da un'era primordiale. Il tuo protettore potrebbe desiderare che tu protegga il mondo naturale, viaggi in terre lontane che non può, o potrebbe avere un altro motivo che sembra imperscrutabile per i mortali di breve durata.
+Subclass/&WarlockAncientForestTitle	Antico patto della foresta
+Subclass/&WarlockMoonLitDescription	Il tuo patrono è uno spirito della luna, un'entità che incarna la natura ciclica della luce e dell'oscurità. Questi spiriti cercano di mantenere il potere della luna sul cielo notturno mentre tengono a bada i poteri profani che perseguitano l'oscurità e incaricano i loro stregoni con lo stesso, garantendo loro il comando sui poteri della luna e dei suoi effetti.
+Subclass/&WarlockMoonLitTitle	Patto al chiaro di luna
+Subclass/&WarlockToadKingDescription	Fata, demone o aberrazione causata dal Cataclisma, la vera natura del Re Rospo non è nota, ma è noto che il Re Rospo governa una vasta area di paludi e paludi all'interno delle Badlands e offre potere a coloro che sono disposti a servire.
+Subclass/&WarlockToadKingTitle	Patto del Re Rospo
+Subclass/&WarlockUrPriestDescription	Mentre la stragrande maggioranza degli incantatori divini ottiene i propri poteri da una divinità, ci sono quelli che disprezzano gli dei. Coloro che si definiscono Ur-sacerdoti hanno imparato a sottrarre le energie divine concesse dagli dei ai loro incantatori divini, usandole per i propri bisogni senza prestare nemmeno un servizio a parole a nessun dio. Come sacerdote Ur, sei diverso dalla maggior parte degli stregoni, poiché non hai un patrono che ti conceda il tuo potere. Le invocazioni misteriose che scopri sono forme deformate di magia che gli dei potrebbero concedere ai loro protettori, mentre i doni del patto sono probabilmente artefatti divini che sei riuscito a rubare.
+Subclass/&WarlockUrPriestTitle	Patto UrPriest

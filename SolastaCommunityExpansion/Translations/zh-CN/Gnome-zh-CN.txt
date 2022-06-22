@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription	敏捷+1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle	森林侏儒属性提升
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription	智力+2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle	侏儒属性提升
+Feature/&GnomeCunningFeatureDescription	你进行对抗魔法的智力、感知和魅力豁免时具有优势
+Feature/&GnomeCunningFeatureTitle	狡黠
+Feature/&GnomeNaturalIllusionistDescription	你学会恼人蜂戏法。在你施放此法术时，智力是其调整属性
+Feature/&GnomeNaturalIllusionistTitle	自然魔力
+Feature/&ProficiencyGnomishLanguagesDescription	通用，侏儒语
+Feature/&ProficiencyGnomishLanguagesTitle	语言
+Language/&GnomishLanguageDescription	这是一种古老的索拉斯塔语，由生活在索拉斯塔深林中的侏儒苏所留存，它在大灾变中幸存下来
+Language/&GnomishLanguageTitle	侏儒语
+Race/&GnomeRaceDescription	在侏儒们的紧密群落里，忙碌工作产生的噪音周而复始的弥漫在拥挤的公寓社区及其周边。一些更响亮的声音时不时插进这些杂音中：这边传来齿轮吱嘎作响的研磨声，那边响起轻微的爆炸声，还有因喜悦或惊讶而发起的尖叫，以及时刻迸发的笑声。各种声音交织在一起，正是侏儒们愉快的生活，他们享受着发明、探索、研究、创造以及玩乐的每个时刻
+Race/&GnomeRaceTitle	侏儒
