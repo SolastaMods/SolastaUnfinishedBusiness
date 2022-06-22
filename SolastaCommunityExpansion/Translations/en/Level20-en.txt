@@ -1,0 +1,25 @@
+Feature/&BarbarianIndomitableMightDescription	If your total for a Strength check is less than your Strength score, you can use that score in place of the total.
+Feature/&BarbarianIndomitableMightTitle	Indomitable Might
+Feature/&IndomitableResistanceAddDescription	+1 Indomitable Resistance use between rests.
+Feature/&IndomitableResistanceAddTitle	Indomitable Resistance (increased)
+Feature/&IndomitableResistanceTitle	Indomitable Resistance
+Feature/&PowerPaladinAuraOfCourage18Description	Grant a saving throw bonus to allies within 30ft.
+Feature/&PowerPaladinAuraOfCourage18Title	Improved Aura of Courage
+Feature/&PowerPaladinAuraOfProtection18Description	You and your allies within 30ft cannot be frightened.
+Feature/&PowerPaladinAuraOfProtection18Title	Improved Aura of Protection
+Feature/&PrimalChampionDescription	At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
+Feature/&PrimalChampionTitle	Primal Champion
+Feature/&ProficiencyRogueBlindSenseDescription	Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
+Feature/&ProficiencyRogueSlipperyMindDescription	By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+Feature/&ProficiencyRogueSlipperyMindTitle	Slippery Mind
+Feature/&RangerFeralSensesDescription	You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
+Feature/&RangerFeralSensesTitle	Feral Senses
+Feature/&RangerVanishActionDescription	Starting at 14th level, you can use the Hide action as a bonus action on your turn.
+Feature/&RangerVanishActionTitle	Vanish
+Feature/&ZSPowerPaladinCleansingTouchDescription	Remove spell effects by touching an ally. You can do this a number of times per day equal to your Charisma modifier.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Cleansing Touch
+RestActivity/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
+RestActivity/&ZSSorcerousRestorationTitle	Sorcerous Restoration
+Sorceror/&ZSSorcerousRestorationDescription	Regain 4 sorcery points during a short rest.
+Sorceror/&ZSSorcerousRestorationTitle	Sorcerous Restoration

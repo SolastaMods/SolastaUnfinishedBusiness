@@ -1,0 +1,18 @@
+Subclass/&MagicAffinitySpellMasterBonusScribingDescription	Scribe an additional spell at each level up.
+Subclass/&MagicAffinitySpellMasterBonusScribingTitle	Breadth of Knowledge
+Subclass/&MagicAffinitySpellMasterRecoveryDescription	Once per long rest, you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryTitle	Arcane Depth
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedDescription	Unlimited times you can recover spell slots (in addition to Arcane Recovery).
+Subclass/&MagicAffinitySpellMasterRecoveryUnlimitedTitle	Arcane Depth
+Subclass/&MagicAffinitySpellMasterScribingDescription	Scribing spells takes 1/4 the time and cost, and you have advantage.
+Subclass/&MagicAffinitySpellMasterScribingTitle	Master Scriber
+Subclass/&TraditionSpellMasterBonusCantripsDescription	Gain 2 extra cantrips known.
+Subclass/&TraditionSpellMasterBonusCantripsTitle	Bonus Cantrips
+Subclass/&TraditionSpellMasterDescription	Spell masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+Subclass/&TraditionSpellMasterExtraPreparedDescription	Prepare Intelligence modifier additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterExtraPreparedTitle	Extra Prepared
+Subclass/&TraditionSpellMasterPreparedDescription	Prepare proficiency bonus additional spells so you always have what you need.
+Subclass/&TraditionSpellMasterPreparedTitle	Be Prepared
+Subclass/&TraditionSpellMasterSpellResistanceDescription	Your training with magic gives you advantage on saving throws against spells.
+Subclass/&TraditionSpellMasterSpellResistanceTitle	Spell Resistance
+Subclass/&TraditionSpellMasterTitle	Spell Master

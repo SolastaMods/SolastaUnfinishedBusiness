@@ -1,0 +1,172 @@
+Class/&ClassMonkDescription Монахов объединяет их способность волшебным образом использовать энергию, которая течет в их телах. Независимо от того, направлена ​​ли она на яркое проявление боевой доблести или на более тонкий фокус защитных способностей и скорости, эта энергия пронизывает все, что делает	монах.
+Class/&ClassMonkTitle	Монах
+Condition/&ClassMonkEmptyBodyConditionDescription У вас есть сопротивление ко всем повреждениям, кроме	силовых атак.
+Condition/&ClassMonkEmptyBodyConditionTitle Пустое	тело
+Condition/&ClassMonkOpenHandDistractConditionDescription Нельзя использовать	реакции.
+Condition/&ClassMonkOpenHandDistractConditionTitle	Несосредоточенный
+Condition/&ClassMonkStepOfTheWindConditionDescription Вы можете совершить действие «Отход» или «Рывок» в качестве бонусного действия, и дистанция вашего прыжка удвоится за	ход.
+Condition/&ClassMonkStepOfTheWindConditionTitle Шаг	Ветра
+Condition/&ClassMonkTanquilityConditionDescription Вы совершаете с преимуществом спасброски от заклинаний, а враги атакуют вас с помехой. Удаляется, когда вы совершаете атаку или разыгрываете	заклинание.
+Condition/&ClassMonkTanquilityConditionTitle	Спокойствие
+Condition/&ClassMonkZenArrowDistractConditionDescription Имеет помеху при следующей	атаке.
+Condition/&ClassMonkZenArrowDistractConditionTitle	Несосредоточенный
+Condition/&ClassMonkZenArrowUpgradedDistractConditionDescription Имеет помеху на все	атаки.
+Condition/&ClassMonkZenArrowUpgradedDistractConditionTitle	Несосредоточенный+
+Condition/&ClassMonkZenArrowUpgradedSlowConditionDescription Движение установлено на	0.
+Condition/&ClassMonkZenArrowUpgradedSlowConditionTitle	Закреплено
+Feature/&ClassMonkDeflectMissileDescription Вы можете использовать свою реакцию, чтобы отклонить ракету, когда вы поражены атакой из оружия дальнего боя. Когда вы делаете это, урон, который вы получаете от атаки, уменьшается на 1d10 + ваш модификатор Ловкости + ваш уровень	Монаха.
+Feature/&ClassMonkDeflectMissileTitle Отражение	ракет
+Feature/&ClassMonkDiamondSoulDescription Ваше мастерство ки дает вам мастерство во всех спасбросках.\nКроме того, всякий раз, когда вы совершаете спасбросок и терпите неудачу, вы можете потратить 1 очко Ци, чтобы перебросить его и получить второй	результат.
+Feature/&ClassMonkDiamondSoulTitle Алмазная	душа
+Feature/&ClassMonkExtraAttackDescription Вы можете атаковать дважды, а не один раз, всякий раз, когда в свой ход совершаете действие	Атака.
+Feature/&ClassMonkExtraAttackTitle Дополнительная	атака
+Feature/&ClassMonkKiDescription Ваша подготовка позволяет вам использовать мистическую энергию Ци. Вы получаете очки Ци, равные вашему уровню монаха. Когда вы тратите очко Ци, оно становится недоступным до тех пор, пока вы не закончите короткий или продолжительный отдых, в конце которого вы втянете всю израсходованную Ци обратно в себя. Вы можете потратить эти очки на подпитку различных функций Ци. Вы начинаете узнавать три такие	особенности:
+Feature/&ClassMonkKiEmpoweredStrikesDescription Ваши удары без оружия считаются магическими с точки зрения преодоления сопротивления и невосприимчивости к немагическим атакам и	повреждениям.
+Feature/&ClassMonkKiEmpoweredStrikesTitle Усиленные Ци	удары
+Feature/&ClassMonkKiTitle	Ци
+Feature/&ClassMonkMartialArtsDescription Вы получаете следующие преимущества, когда вы безоружны или вооружены только оружием Монаха и не носите доспехов или щита:\n• Вы можете использовать Ловкость вместо Силы для бросков атаки и урона безоружных ударов и оружия Монаха.\n• Вы можете бросить d4 вместо обычного урона от удара без оружия или оружия Монаха. Этот кубик меняется по мере того, как вы получаете уровни Монаха.\n• Когда вы используете действие Атака с ударом без оружия или оружием Монаха в свой ход, вы можете совершить один удар без оружия в качестве бонусного	действия.
+Feature/&ClassMonkMartialArtsTitle Боевые	искусства
+Feature/&ClassMonkMartialDiceProgression00Description Вы можете бросить <color=#57BCF4>d6</color> вместо обычного урона от удара без оружия или оружия	Монаха.
+Feature/&ClassMonkMartialDiceProgression00Title Увеличение кубиков боевых искусств	(d6)
+Feature/&ClassMonkMartialDiceProgression01Description Вы можете бросить <color=#57BCF4>d8</color> вместо обычного урона от удара без оружия или оружия	монаха.
+Feature/&ClassMonkMartialDiceProgression01Title Увеличение кубиков боевых искусств	(d8)
+Feature/&ClassMonkMartialDiceProgression02Description Вы можете бросить <color=#57BCF4>d10</color> вместо обычного урона от удара без оружия или оружия	Монаха.
+Feature/&ClassMonkMartialDiceProgression02Title Увеличение кубика боевых искусств	(d10)
+Feature/&ClassMonkPerfectSelfDescription Когда вы начинаете битву и у вас не осталось очков Ци, вы восстанавливаете 4 очка	Ци.
+Feature/&ClassMonkPerfectSelfTitle Идеальное	Я
+Feature/&ClassMonkPurityOfBodyDescription Ваше владение Ци, протекающей через вас, делает вас невосприимчивым к болезням и	ядам.
+Feature/&ClassMonkPurityOfBodyTitle Чистота	тела
+Feature/&ClassMonkSkillProficiencyTitle Навыки	монаха
+Feature/&ClassMonkUnarmoredDefenseDescription Пока вы не носите доспехов и не держите щит, ваш КД равен 10 + ваш модификатор Ловкости + ваш модификатор	Мудрости.
+Feature/&ClassMonkUnarmoredDefenseTitle Небронированная	защита
+Feature/&ClassMonkUnarmoredMovementBonusDescription Бонус движения увеличивается на 5	футов.
+Feature/&ClassMonkUnarmoredMovementBonusTitle Улучшение движения без	брони
+Feature/&ClassMonkUnarmoredMovementDescription Ваша скорость увеличивается на 10 футов, пока вы не носите броню или щит. Этот бонус увеличивается, когда вы достигаете определенных уровней	Монаха.
+Feature/&ClassMonkUnarmoredMovementTitle Небронированное	движение
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceDescription Пока вы без доспехов и без щита, вы можете передвигаться по стенам, как паук. Способность временно теряется, если вы выполняете какое-либо действие, не являющееся движением, или если это не ваш ход в	бою.
+Feature/&ClassMonkUnarmoredMovementVerticalSurfaceTitle Движение без брони:	восхождение
+Feature/&ClassMonkWeaponProficiencyTitle Навыки владения оружием	монаха
+Feature/&ClassMonkZenArcherCombatDescription Научитесь обращаться с луками, и они станут для вас оружием монахов.\nВы не получаете помехи при дальней атаке оружием Монаха, находясь в 5 футах от врага, при условии, что вы не носите броню или	щит.
+Feature/&ClassMonkZenArcherCombatTitle Дистанционный рукопашный	бой
+Feature/&ClassMonkZenArcherKiPoweredArowsDescription Ваши атаки луком считаются магическими с точки зрения преодоления сопротивления и иммунитета к немагическим атакам и	повреждениям.
+Feature/&ClassMonkZenArcherKiPoweredArowsTitle Ци-усиленные	стрелы
+Feature/&ClassMonkZenArcherStunningArrowsDescription Вы можете препятствовать потоку Ци в теле противника. Когда вы попадаете в другое существо, которое не оглушено атакой стрелы, вы можете потратить 1 очко Ци, чтобы попытаться нанести оглушающий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего	хода.
+Feature/&ClassMonkZenArcherStunningArrowsTitle Оглушающие	стрелы
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeFormat Освещающий	удар!
+Feedback/&AdditionalDamageBarbarianPathOfTheLightIlluminatingStrikeLine Illuminating Strike наносит дополнительный урон	цели!
+Power/&ClassMonkDiamondSoulPowerDescription Всякий раз, когда вы совершаете спасбросок и терпите неудачу, вы можете потратить 1 очко Ци, чтобы перебросить его и получить второй	результат.
+Power/&ClassMonkDiamondSoulPowerTitle Алмазная	душа
+Power/&ClassMonkEmptyBodyDescription Вы можете действием потратить 4 очка Ци, чтобы стать невидимым на 1 минуту. В течение этого времени у вас также есть сопротивление ко всем видам урона, кроме	силового.
+Power/&ClassMonkEmptyBodyTitle Пустое	тело
+Power/&ClassMonkFlurryOfBlowsDescription Потратив действие на атаку оружием Монаха, вы можете потратить 1 очко Ци в качестве бонусного действия, чтобы нанести 2 удара без оружия. Доступно только в том случае, если вы не носите броню и	щит.
+Power/&ClassMonkFlurryOfBlowsTitle Шквал	ударов
+Power/&ClassMonkKiPoolDescription Вы можете использовать мистическую энергию Ци. Ваш доступ к этой энергии представлен количеством точек Ци. Максимальная сумма равна вашему уровню монаха. Все потраченные очки восстанавливаются при коротком или продолжительном отдыхе. Вы можете потратить эти очки, чтобы подпитывать различные функции	Ци.
+Power/&ClassMonkKiPoolTitle	Ци-очки
+Power/&ClassMonkKiStillnessOfMindDescription Вы можете действием снять с себя один эффект, вызывающий у вас очарование или	страх.
+Power/&ClassMonkKiStillnessOfMindTitle Безмолвие	разума
+Power/&ClassMonkOpenHandDistractDescription Цель не может совершать реакции до конца вашего следующего	хода.
+Power/&ClassMonkOpenHandDistractTitle	Отвлекать
+Power/&ClassMonkOpenHandProneDescription Цель должна преуспеть в спасброске Ловкости, иначе будет сбита с	ног.
+Power/&ClassMonkOpenHandProneTitle	Сбить
+Power/&ClassMonkOpenHandPushDescription Цель должна пройти спасбросок Силы, иначе ее оттолкнет от вас на 15	футов.
+Power/&ClassMonkOpenHandPushTitle	Отталкивать
+Power/&ClassMonkOpenHandTechniqueDescription Вы можете манипулировать ки врага, используя свою собственную. Всякий раз, когда вы поражаете существо одной из атак, предоставленных вашим Шквалом ударов, вы можете наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе будет сбит с ног.\n• Он должен совершить спасбросок Силы. В случае неудачи вы можете оттолкнуть его на расстояние до 15 футов от себя.\n• Он не может совершать реакции до конца вашего следующего	хода.
+Power/&ClassMonkOpenHandTechniqueTitle Техника открытых	рук
+Power/&ClassMonkPatientDefenseDescription Вы можете потратить 1 очко Ци в качестве бонусного действия, чтобы совершить действие Уклонение. Доступно только если вы не носите броню или	щит.
+Power/&ClassMonkPatientDefenseTitle Защита	пациента
+Power/&ClassMonkQuiveringPalmDescription Когда вы попадаете по существу безоружным ударом, вы можете потратить 3 очка Ци, чтобы вызвать незаметные вибрации, заставляющие существо совершить спасбросок Телосложения. В случае неудачи его хиты уменьшаются до 0. В случае успеха он получает урон некротической энергией	10d10.
+Power/&ClassMonkQuiveringPalmTitle Дрожащая	ладонь
+Power/&ClassMonkSlowFallDescription Вы можете использовать свою реакцию, когда падаете, чтобы предотвратить любой урон от	падения.
+Power/&ClassMonkSlowFallTitle Медленное	падение
+Power/&ClassMonkStepOfTheWindDescription Вы можете потратить 1 очко Ци, чтобы совершить действие «Отход» или «Рывок» в качестве бонусного действия в свой ход, а расстояние вашего прыжка за ход удваивается. Доступно только если вы не носите броню или	щит.
+Power/&ClassMonkStepOfTheWindTitle Шаг	Ветра
+Power/&ClassMonkStunningStrikeDescription Вы можете препятствовать потоку Ци в теле противника. Когда вы поражаете другое существо, не оглушенное рукопашной атакой, вы можете потратить 1 очко Ци, чтобы попытаться нанести оглушающий удар. Цель должна преуспеть в спасброске Телосложения, иначе она будет оглушена до конца вашего следующего	хода.
+Power/&ClassMonkStunningStrikeTitle Оглушающий	удар
+Power/&ClassMonkTanquilityDescription Один раз за короткий отдых в качестве свободного действия вы можете войти в состояние спокойствия, успокоив свои эмоции и сосредоточившись на том, что вас окружает. В этом состоянии вы получаете преимущество в спасбросках от заклинаний, а враги получают помеху, атакуя вас. Спокойствие длится до следующего отдыха или до тех пор, пока вы не атакуете или не произнесете	заклинание.
+Power/&ClassMonkTanquilityTitle	Спокойствие
+Power/&ClassMonkWholenessOfBodyDescription В качестве действия вы можете восстановить ОЗ, равные трем вашим уровням Монаха. Вы должны закончить продолжительный отдых, прежде чем снова сможете использовать эту	способность.
+Power/&ClassMonkWholenessOfBodyTitle Целостность	тела
+Power/&ClassMonkZenArcherFlurryOfArrowsDescription Потратив действие на атаку оружием монаха, вы можете потратить 2 очка Ци в качестве бонусного действия, чтобы совершить 2 атаки оружием дальнего боя из лука. Доступно только если вы не носите броню или	щит.
+Power/&ClassMonkZenArcherFlurryOfArrowsTitle Шквал	стрел
+Power/&ClassMonkZenArrowDistractDescription Цель должна преуспеть в спасброске Мудрости или получить помеху при следующей атаке до конца своего следующего	хода.
+Power/&ClassMonkZenArrowDistractTitle	Отвлекать
+Power/&ClassMonkZenArrowProneDescription Цель должна преуспеть в спасброске Ловкости, иначе будет сбита с	ног.
+Power/&ClassMonkZenArrowProneTitle	Сбить
+Power/&ClassMonkZenArrowPushDescription Цель должна пройти спасбросок Силы, иначе ее оттолкнет от вас на 10	футов.
+Power/&ClassMonkZenArrowPushTitle	Отталкивать
+Power/&ClassMonkZenArrowTechniqueDescription Вы можете манипулировать Ци вашего врага, когда вы поражаете его своими стрелами. Всякий раз, когда вы попадаете в существо одной из своих стрел, вы можете потратить 1 Ци, чтобы наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе будет сбит с ног.\n• Он должен преуспеть в спасброске Силы, иначе его оттолкнут на 10 футов от вас.\n• Он должен преуспеть в спасброске Мудрости или получить помеху при следующей атаке до конца своего следующего	хода.
+Power/&ClassMonkZenArrowTechniqueShortTitle Стрела	Дзен
+Power/&ClassMonkZenArrowTechniqueTitle Техника Стрелы	Дзен
+Power/&ClassMonkZenArrowUpgradedDistractDescription Цель должна преуспеть в спасброске Мудрости, иначе она получит помеху на все атаки до конца своего следующего	хода.
+Power/&ClassMonkZenArrowUpgradedDistractTitle	Отвлекать
+Power/&ClassMonkZenArrowUpgradedProneDescription Цель должна преуспеть в спасброске Ловкости, иначе она будет сбита с ног и ее движение будет равно нулю на один	ход.
+Power/&ClassMonkZenArrowUpgradedProneTitle	Сбить
+Power/&ClassMonkZenArrowUpgradedPushDescription Цель должна преуспеть в спасброске Силы, иначе ее оттолкнет от вас на 20	футов.
+Power/&ClassMonkZenArrowUpgradedPushTitle	Отталкивать
+Power/&ClassMonkZenArrowUpgradedTechniqueDescription Вы улучшаете свою способность манипулировать ки. Все эффекты Техники Отдаленной Руки улучшены. Всякий раз, когда вы попадаете в существо одной из своих стрел, вы можете потратить 1 ки, чтобы наложить на эту цель один из следующих эффектов:\n• Он должен преуспеть в спасброске Ловкости, иначе он будет сбит с ног и его движение будет равно нулю на один ход.\n• Он должен преуспеть в спасброске Силы, иначе его оттолкнет от вас на 20 футов.\n• Он должен преуспеть в спасброске Мудрости, иначе он получит помеху на все атаки до конца своего следующего	хода.
+Power/&ClassMonkZenArrowUpgradedTechniqueShortTitle Улучшенная Стрела	Дзен
+Power/&ClassMonkZenArrowUpgradedTechniqueTitle Улучшенная Стрела	Дзен
+Reaction/&CustomDeflectMissileMonkTitle {0} атакует {1}, который может отреагировать, чтобы уменьшить входящий урон на 1к10 + модификатор Ловкости + уровень	Монаха.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueDescription {0} поражает существо одной из атак, предоставляемых Шквалом ударов, и может наложить на эту цель один из следующих	эффектов:
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactDescription Применить выбранную	технику.
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueReactTitle Подать	заявление
+Reaction/&SpendPowerBundleClassMonkOpenHandTechniqueTitle Техника открытых	рук
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueDescription {0} поражает существо стрелой и может наложить на эту цель один из следующих	эффектов:
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactDescription Применить выбранную	технику.
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueReactTitle Подать	заявление
+Reaction/&SpendPowerBundleClassMonkZenArrowTechniqueTitle Техника Стрела	Дзен
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueDescription {0} поражает существо стрелой и может наложить на эту цель один из следующих	эффектов:
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactDescription Применить выбранную	технику.
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueReactTitle Подать	заявление
+Reaction/&SpendPowerBundleClassMonkZenArrowUpgradedTechniqueTitle Улучшенная Техника Стрела	Дзен
+Reaction/&SpendPowerClassMonkQuiveringPalmDescription {0} поразил противника безоружной атакой и может потратить 3 очка Ци, чтобы попытаться убить	его.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactDescription Потратьте Ци, чтобы попытаться убить	противника.
+Reaction/&SpendPowerClassMonkQuiveringPalmReactTitle Проведите	Ци
+Reaction/&SpendPowerClassMonkQuiveringPalmTitle Дрожащая	ладонь
+Reaction/&SpendPowerClassMonkStunningStrikeDescription {0} ударил противника и может потратить 1 очко Ци, чтобы попытаться оглушить	его.
+Reaction/&SpendPowerClassMonkStunningStrikeReactDescription Потратьте Ци, чтобы попытаться оглушить	противника.
+Reaction/&SpendPowerClassMonkStunningStrikeReactTitle Проведите	Ци
+Reaction/&SpendPowerClassMonkStunningStrikeTitle Оглушающий	удар
+Reaction/&SpendPowerDiamondSoulDescription {0} не смог сохраниться и может потратить 1 Ци, чтобы перебросить	его.
+Reaction/&SpendPowerDiamondSoulReactDescription Потратьте ки, чтобы перебросить неудачное	сохранение.
+Reaction/&SpendPowerDiamondSoulReactTitle	Реролл
+Reaction/&SpendPowerDiamondSoulTitle Алмазная	душа
+Reaction/&UseClassMonkSlowFallDescription {0} падает и может использовать реакцию, чтобы не получить урон от	падения.
+Reaction/&UseClassMonkSlowFallReactDescription Используйте реакцию, чтобы не получить урон от	падения.
+Reaction/&UseClassMonkSlowFallReactTitle	Реагировать
+Reaction/&UseClassMonkSlowFallTitle Медленное	падение
+Stage/&SubclassSelectionStageClassMonkTraditionDescription На этом этапе выбирается монашеская традиция	персонажа.
+Stage/&SubclassSelectionStageClassMonkTraditionFeatures Особенности монашеской	традиции
+Stage/&SubclassSelectionStageClassMonkTraditionHeader Выберите монашескую	традицию
+Stage/&SubclassSelectionStageClassMonkTraditionNoneDescription Вы должны выбрать монашескую	традицию.
+Stage/&SubclassSelectionStageClassMonkTraditionTitle	Монастырский\nТрадиция
+Subclass/&BarbarianPathOfTheLightDescription Варвары, идущие по Пути Света, освещают тьму и защищают своих союзников от таящихся в ней	опасностей.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthDescription Вы всегда находитесь под действием заклинания See	Invisibility.
+Subclass/&BarbarianPathOfTheLightEyesOfTruthTitle Глаза	истины
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionDescription Отвлекся Освещающим	ударом.
+Subclass/&BarbarianPathOfTheLightIlluminatedConditionTitle	Освещенный
+Subclass/&BarbarianPathOfTheLightIlluminatedDisadvantageDescription Неудобство при любом броске атаки, кроме варвара Пути	Света.
+Subclass/&BarbarianPathOfTheLightIlluminatedPreventInvisibilityDescription Не может стать	невидимым.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstDescription В ход, когда вы входите в ярость, вы можете осветить до трех врагов в пределах 30 футов от вас. Они должны преуспеть в спасброске Телосложения (УС равна 8 + ваш бонус мастерства + ваш модификатор Телосложения) или получить урон излучением 4d6 и быть освещенным вашим Освещающим ударом на 1 минуту. Существо, освещенное таким образом, совершает еще один спасбросок Телосложения в конце каждого своего хода. При успешном спасброске эффект для него	заканчивается.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerDescription До трех врагов совершают спасбросок Телосложения или получают урон излучением 4d6 и становятся освещенными вашим Освещающим	ударом.
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstPowerTitle Светящийся	взрыв
+Subclass/&BarbarianPathOfTheLightIlluminatingBurstTitle Светящийся	взрыв
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeDescription Пока вы в ярости, первое существо, по которому вы попали атакой в ​​свой ход, получает дополнительный урон излучением 1к6 и становится магически освещенным до начала вашего следующего хода. Кроме того, существо совершает с помехой любой бросок атаки не против вас и не может стать	невидимым.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementDescription Дополнительный урон, наносимый Освещающим ударом, увеличивается до	2d6.
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeImprovementTitle Улучшение светового	удара
+Subclass/&BarbarianPathOfTheLightIlluminatingStrikeTitle Освещающий	удар
+Subclass/&BarbarianPathOfTheLightLightsProtectionDescription Вы восстанавливаете очки жизни, равные половине вашего уровня варвара, когда враждебное существо, пораженное вашим Освещающим ударом, умирает. Кроме того, вы больше не провоцируете атаки существ, затронутых вашим Освещающим	ударом.
+Subclass/&BarbarianPathOfTheLightLightsProtectionTitle Защита	Света
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessDescription Вы получаете превосходное	темновидение.
+Subclass/&BarbarianPathOfTheLightPierceTheDarknessTitle Пронзить	тьму
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionDescription Может воспринимать невидимых	существ.
+Subclass/&BarbarianPathOfTheLightSeeingInvisibleConditionTitle	Невидимка
+Subclass/&BarbarianPathOfTheLightTitle Путь	Света
+Subclass/&ClassMonkTraditionDescription На 3 уровне вы выбираете духовный путь, по которому следуете к просветлению. Это определит, как вы будете манипулировать	ки.
+Subclass/&ClassMonkTraditionTitle Монастырские	традиции
+Subclass/&ClassMonkTraditionWayOfTheOpenHandDescription Монахи Пути Открытой Руки — непревзойденные мастера боевых искусств, вооруженные или невооруженные. Они изучают техники толкания и спотыкания своих противников, манипулируют ки, чтобы исцелять повреждения своего тела, и практикуют продвинутую медитацию, которая может защитить их от	вреда.
+Subclass/&ClassMonkTraditionWayOfTheOpenHandTitle Путь открытой	ладони
+Subclass/&ClassMonkTraditionZenArcherDescription Практикующие Путь Стрелы Дзен тренируются делать стрелы продолжением своих рук. Они умеют обращаться с луками и наносить эффекты, усиленные Ци, с помощью	стрел.
+Subclass/&ClassMonkTraditionZenArcherTitle Путь Стрелы	Дзен
+Tooltip/&CustomPortraitPoolClassMonkKiPool Вы можете использовать мистическую энергию ки. Ваш доступ к этой энергии представлен количеством точек ки. Максимальная сумма равна вашему уровню монаха. Все потраченные очки восстанавливаются при коротком или продолжительном отдыхе. Вы можете потратить эти очки на различные функции	ки.
+Tooltip/&TagMonkWeaponTitle	Монах

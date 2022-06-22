@@ -1,0 +1,14 @@
+Subclass/&ConditionTransmuteConstitutionSaveDescription	Constitución Temporal salvo competencia otorgada por el poder Transmutar Fuerza.
+Subclass/&ConditionTransmuteConstitutionSaveTitle	Constitución guarda
+Subclass/&ConditionTransmutePoisonDescription	Resistencia temporal al ácido, frío, fuego, relámpagos, necrótico, veneno y trueno otorgada por el poder Transmutar Force.
+Subclass/&ConditionTransmutePoisonTitle	Resistencia Elemental
+Subclass/&HealingPoolLifeTransmuterBonusDescription	Puede hacer cumplir su voluntad en la realidad 2 veces adicionales por día.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription	Puede hacer cumplir su voluntad en la realidad 4 veces adicionales por día.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle	Fuerza de transmutación adicional
+Subclass/&HealingPoolLifeTransmuterBonusTitle	Fuerza de transmutación adicional
+Subclass/&HealingPoolLifeTransmuterListDescription	Puedes representar tu voluntad en la realidad con poderes especiales 2 veces al día.
+Subclass/&HealingPoolLifeTransmuterListTitle	transmutar fuerza
+Subclass/&MagicAffinityLifeTransmuterListDescription	Al lanzar algunos hechizos de transmutación y nigromancia, se lanzan en un espacio de hechizo 2 niveles más alto que el utilizado. Los hechizos mejorados incluyen: Vida falsa, Ceguera, Volar, Otorgar maldición, Toque vampírico, Blight y Cloud Kill.\n--Nota: La intención es tener el beneficio de Arma Mágica también, pero actualmente aumentar el nivel del hechizo de esta manera en Arma Mágica no tiene ningún efecto.
+Subclass/&MagicAffinityLifeTransmuterListTitle	Flexión de la realidad
+Subclass/&TraditionLifeTransmuterDescription	Maestros en la manipulación tanto de la materia como de la energía vital.
+Subclass/&TraditionLifeTransmuterTitle	Transmutador de vida

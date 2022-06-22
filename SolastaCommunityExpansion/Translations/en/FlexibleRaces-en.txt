@@ -1,0 +1,24 @@
+FlexibleRaces/&PointPoolAbilityScore3Description	Use three boosts on ability scores in any combination of your choosing.
+FlexibleRaces/&PointPoolAbilityScore3Title	Ability Score Increase
+FlexibleRaces/&PointPoolAbilityScore4Description	Use four boosts on ability scores in any combination of your choosing.
+FlexibleRaces/&PointPoolAbilityScore4Title	Ability Score Increase
+Race/&PointPoolSelect10FeatsDescription	Select 10 additional feats for your character.
+Race/&PointPoolSelect10FeatsTitle	10 Bonus Feats
+Race/&PointPoolSelect11FeatsDescription	Select 11 additional feats for your character.
+Race/&PointPoolSelect11FeatsTitle	11 Bonus Feats
+Race/&PointPoolSelect2FeatsDescription	Select 2 additional feats for your character.
+Race/&PointPoolSelect2FeatsTitle	2 Bonus Feats
+Race/&PointPoolSelect3FeatsDescription	Select 3 additional feats for your character.
+Race/&PointPoolSelect3FeatsTitle	3 Bonus Feats
+Race/&PointPoolSelect4FeatsDescription	Select 4 additional feats for your character.
+Race/&PointPoolSelect4FeatsTitle	4 Bonus Feats
+Race/&PointPoolSelect5FeatsDescription	Select 5 additional feats for your character.
+Race/&PointPoolSelect5FeatsTitle	5 Bonus Feats
+Race/&PointPoolSelect6FeatsDescription	Select 6 additional feats for your character.
+Race/&PointPoolSelect6FeatsTitle	6 Bonus Feats
+Race/&PointPoolSelect7FeatsDescription	Select 7 additional feats for your character.
+Race/&PointPoolSelect7FeatsTitle	7 Bonus Feats
+Race/&PointPoolSelect8FeatsDescription	Select 8 additional feats for your character.
+Race/&PointPoolSelect8FeatsTitle	8 Bonus Feats
+Race/&PointPoolSelect9FeatsDescription	Select 9 additional feats for your character.
+Race/&PointPoolSelect9FeatsTitle	9 Bonus Feats

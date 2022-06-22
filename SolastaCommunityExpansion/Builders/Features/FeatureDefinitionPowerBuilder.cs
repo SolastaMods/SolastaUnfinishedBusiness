@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaCommunityExpansion.Api.Infrastructure;
+using SolastaCommunityExpansion.Api.Extensions;
 
 namespace SolastaCommunityExpansion.Builders.Features;
 
@@ -61,7 +61,7 @@ public abstract class
         Definition.proficiencyBonusToAttack = proficiencyBonusToAttack;
         Definition.abilityScoreBonusToAttack = abilityScoreBonusToAttack;
         Definition.abilityScore = abilityScore;
-        Definition.effectDescription = effectDescription.DeepCopy();
+        Definition.effectDescription = effectDescription.Copy();
 
         return This();
     }
@@ -96,7 +96,7 @@ public abstract class
 
     public TBuilder SetEffectDescription(EffectDescription effect)
     {
-        Definition.effectDescription = effect.DeepCopy();
+        Definition.effectDescription = effect;
         return This();
     }
 

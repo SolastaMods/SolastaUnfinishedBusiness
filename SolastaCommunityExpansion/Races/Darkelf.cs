@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaCommunityExpansion.Api.Extensions;
 using SolastaCommunityExpansion.Api.Infrastructure;
 using SolastaCommunityExpansion.Builders;
 using SolastaCommunityExpansion.Builders.Features;
@@ -45,12 +46,18 @@ internal static class DarkelfSubraceBuilder
 
         var darkelfConditionLightSensitive = ConditionDefinitionBuilder
             .Create("ConditionDarkelfLightSensitive", "8c7cb851-6810-4101-8a6a-e932e9cc3896")
-            .SetGuiPresentation(Category.Condition,
+            .SetGuiPresentation(
+                "Feature/&LightAffinityDarkelfLightSensitivityTitle",
+                "Feature/&LightAffinityDarkelfLightSensitivityDescription",
                 ConditionDefinitions.ConditionLightSensitive.GuiPresentation.SpriteReference)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetPossessive(true)
+            .SetConditionType(RuleDefinitions.ConditionType.Detrimental)
             .SetFeatures(darkElfPerception, darkelfMovementAffinty)
             .AddToDB();
+
+        // this allows the condition to still display as a label on character panel
+        Global.CharacterLabelEnabledConditions.Add(darkelfConditionLightSensitive);
 
         var darkelfLightingEffectAndCondition = new FeatureDefinitionLightAffinity.LightingEffectAndCondition
         {
@@ -82,7 +89,7 @@ internal static class DarkelfSubraceBuilder
         var darkelfFaerieFirePower = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfFaerieFire", "68c2a6d0-cbac-4185-bdf5-b0f5b22ef73a")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription)
+            .SetEffectDescription(SpellDefinitions.FaerieFire.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)
@@ -95,7 +102,7 @@ internal static class DarkelfSubraceBuilder
         var darkelfDarknessPower = FeatureDefinitionPowerBuilder
             .Create("PowerDarkelfDarkness", "0c413f86-2fa8-4f3d-999a-89e6c7b5b14d")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
+            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription.Copy())
             .SetActivationTime(RuleDefinitions.ActivationTime.Action)
             .SetFixedUsesPerRecharge(1)
             .SetRechargeRate(RuleDefinitions.RechargeRate.LongRest)

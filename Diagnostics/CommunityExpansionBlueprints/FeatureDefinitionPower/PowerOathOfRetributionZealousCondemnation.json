@@ -77,7 +77,9 @@
           "conditionDefinitionName": "ConditionTrueStrikeZealousCondemnation",
           "conditionDefinition": "Definition:ConditionTrueStrikeZealousCondemnation:fa622d99-ddfd-5e75-8056-eec43682285f",
           "operation": "Add",
-          "conditionsList": [],
+          "conditionsList": [
+            "Definition:ConditionTrueStrikeZealousCondemnation:fa622d99-ddfd-5e75-8056-eec43682285f"
+          ],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -151,24 +153,14 @@
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "beforeImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "beforeImpactParticleReference": null,
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
-      "activeEffectImpactParticleReference": {
-        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
-      },
+      "activeEffectImpactParticleReference": null,
       "activeEffectCellStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
@@ -294,7 +286,7 @@
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Wisdom",
+  "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
   "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",

@@ -1,0 +1,24 @@
+FlexibleRaces/&PointPoolAbilityScore3Description	Usa tres potenciadores en las puntuaciones de habilidad en cualquier combinación que elijas.
+FlexibleRaces/&PointPoolAbilityScore3Title	Aumento de puntuación de habilidad
+FlexibleRaces/&PointPoolAbilityScore4Description	Usa cuatro potenciadores en las puntuaciones de habilidad en cualquier combinación que elijas.
+FlexibleRaces/&PointPoolAbilityScore4Title	Aumento de puntuación de habilidad
+Race/&PointPoolSelect10FeatsDescription	Selecciona 10 hazañas adicionales para tu personaje.
+Race/&PointPoolSelect10FeatsTitle	10 hazañas adicionales
+Race/&PointPoolSelect11FeatsDescription	Selecciona 11 dotes adicionales para tu personaje.
+Race/&PointPoolSelect11FeatsTitle	11 dotes adicionales
+Race/&PointPoolSelect2FeatsDescription	Selecciona 2 dotes adicionales para tu personaje.
+Race/&PointPoolSelect2FeatsTitle	2 dotes adicionales
+Race/&PointPoolSelect3FeatsDescription	Selecciona 3 dotes adicionales para tu personaje.
+Race/&PointPoolSelect3FeatsTitle	3 dotes adicionales
+Race/&PointPoolSelect4FeatsDescription	Selecciona 4 dotes adicionales para tu personaje.
+Race/&PointPoolSelect4FeatsTitle	4 dotes adicionales
+Race/&PointPoolSelect5FeatsDescription	Selecciona 5 dotes adicionales para tu personaje.
+Race/&PointPoolSelect5FeatsTitle	5 dotes adicionales
+Race/&PointPoolSelect6FeatsDescription	Selecciona 6 dotes adicionales para tu personaje.
+Race/&PointPoolSelect6FeatsTitle	6 dotes adicionales
+Race/&PointPoolSelect7FeatsDescription	Selecciona 7 dotes adicionales para tu personaje.
+Race/&PointPoolSelect7FeatsTitle	7 dotes adicionales
+Race/&PointPoolSelect8FeatsDescription	Selecciona 8 dotes adicionales para tu personaje.
+Race/&PointPoolSelect8FeatsTitle	8 dotes adicionales
+Race/&PointPoolSelect9FeatsDescription	Selecciona 9 dotes adicionales para tu personaje.
+Race/&PointPoolSelect9FeatsTitle	9 dotes adicionales

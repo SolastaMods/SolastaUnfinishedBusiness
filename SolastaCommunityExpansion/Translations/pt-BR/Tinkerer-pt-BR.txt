@@ -1,0 +1,299 @@
+Class/&TinkererDescription	Tinkerers são inventores, alquimistas e muito mais. Eles preenchem o espaço entre magia e tecnologia.
+Class/&TinkererTitle	Pensamento
+Condition/&SentinelStopMovementConditionDescription	Incapaz de mover-se. Velocidade definida para 0.
+Condition/&SentinelStopMovementConditionTitle	Parou
+Equipment/&ImprovedLightningSpearDescription	Cause 1d6 de dano de raio com 1d6 de dano de raio adicional uma vez por turno.\nPode criar vantagem para aliados e desvantagem para inimigos com um único ataque.
+Equipment/&ImprovedLightningSpearTitle	Lança Relâmpago Aprimorada
+Equipment/&LightningSpearDescription	Cause 1d6 de dano de raio com 1d6 de dano de raio adicional uma vez por turno.
+Equipment/&LightningSpearTitle	Lança Relâmpago
+Feat/&AlchemistSubclassElixirsDescription	Aprenda a fazer elixires experimentais: Cura, Rapidez, Resiliência, Ousadia, Vôo.
+Feat/&AlchemistSubclassElixirsTitle	Elixires Experimentais
+Feat/&ArtificerAlchemistAlchemicalSavantDescription	Quando você cura, você cura HP adicional igual a 1d4 + seu nível.
+Feat/&ArtificerAlchemistAlchemicalSavantTitle	Elixir aprendido
+Feat/&ArtificerAlchemistBoldnessElixirDescription	Pode rolar um d4 e adicionar o número rolado a cada jogada de ataque e teste de resistência que você fizer por 1 minuto.
+Feat/&ArtificerAlchemistBoldnessElixirTitle	Elixir da Ousadia
+Feat/&ArtificerAlchemistFlyElixirDescription	Ganha uma velocidade de vôo de 3 metros por 10 minutos.
+Feat/&ArtificerAlchemistFlyElixirTitle	Elixir da mosca
+Feat/&ArtificerAlchemistHealElixirDescription	Cure o alvo por 2d4 + modificador de Inteligência.
+Feat/&ArtificerAlchemistHealElixirTitle	Elixir de Cura
+Feat/&ArtificerAlchemistResilienceElixirDescription	Aumente a CA alvo em +1 por 10 minutos.
+Feat/&ArtificerAlchemistResilienceElixirTitle	Elixir de Resiliência
+Feat/&ArtificerAlchemistSwiftnessElixirDescription	Aumenta a velocidade de movimento do alvo em 3 metros por 1 hora.
+Feat/&ArtificerAlchemistSwiftnessElixirTitle	Elixir da Rapidez
+Feat/&ArtificerArtilleristArcaneFirearmDescription	Ao lançar feitiços de evocação, cause 1d8 de dano extra uma vez por turno.
+Feat/&ArtificerArtilleristArcaneFirearmTitle	Aprimoramento de detonação
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription	Você ganha a habilidade de detonar um de seus dispositivos causando danos àqueles próximos ao alvo.
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle	Detonação do dispositivo
+Feat/&ArtificerArtillerstImprovedCannonsDescription	O efeito de seus canhões aumenta. Dano adicional do fogo, um alvo adicional da força e HP temporário adicional do escudo.
+Feat/&ArtificerArtillerstImprovedCannonsTitle	Canhões Aprimorados
+Feat/&ArtilleristCannonDetonationDescription	Detone um de seus dispositivos fazendo com que criaturas a até 6 metros do local alvo façam um teste de Destreza. As criaturas sofrem 3d8 de dano de força se falhar na resistência e metade desse dano se obtiver sucesso.
+Feat/&ArtilleristCannonDetonationTitle	Detonação do dispositivo
+Feat/&ArtilleristFlameCannon15Description	Lança fogo em um cone como uma ação bônus, causando 6d8 de dano de fogo se os alvos falharem em um teste de resistência de DES.
+Feat/&ArtilleristFlameCannon15Title	Lança-chamas
+Feat/&ArtilleristFlameCannon9Description	Lança fogo em um cone como uma ação bônus, causando 3d8 de dano de fogo se os alvos falharem em um teste de resistência de DES.
+Feat/&ArtilleristFlameCannon9Title	Lança-chamas
+Feat/&ArtilleristFlameCannonDescription	Lança fogo em um cone como uma ação bônus, causando 2d8 de dano de fogo se os alvos falharem em um teste de resistência de DES.
+Feat/&ArtilleristFlameCannonTitle	Lança-chamas
+Feat/&ArtilleristForceCannon15Description	Faça um ataque à distância contra até 2 alvos como uma ação bônus, causando 3d8 de dano de força em um acerto.
+Feat/&ArtilleristForceCannon15Title	Canhão de Força
+Feat/&ArtilleristForceCannon9Description	Faça um ataque à distância como uma ação bônus, causando 3d8 de dano de força em um acerto.
+Feat/&ArtilleristForceCannon9Title	Canhão de Força
+Feat/&ArtilleristForceCannonDescription	Faça um ataque à distância como uma ação bônus, causando 2d8 de dano de força em um acerto.
+Feat/&ArtilleristForceCannonTitle	Canhão de Força
+Feat/&ArtilleristProtectorCannon15Description	Emite energia positiva como uma ação bônus. Aliados a até 6 metros ganham PV temporário igual a 1d8 + seu modificador de Inteligência.
+Feat/&ArtilleristProtectorCannon15Title	Escudo Arcano
+Feat/&ArtilleristProtectorCannonDescription	Emite energia positiva como uma ação bônus. Aliados a até 3 metros ganham PV temporário igual a 1d8 + seu modificador de Inteligência.
+Feat/&ArtilleristProtectorCannonTitle	Escudo Arcano
+Feat/&ArtilleristSubclassSpellsDescription	{0}.
+Feat/&ArtilleristSubclassSpellsTitle	Aprenda feitiços de blaster
+Feat/&ArtilleryConstructDescription	Pode danificar ou proteger aliados.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription	Truques: Construir Remendar, Construir Dispensar\nNível 1: Retomar Construto de Artilharia.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle	Construir Feitiços
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription	Você ganha feitiços bônus que são considerados feitiços de Tinkerer para você, eles estão sempre preparados e não contam para o número de feitiços de Tinkerer que você conhece.
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle	Construir Feitiços
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription	Você ganha feitiços bônus que são considerados feitiços de Tinkerer para você, eles estão sempre preparados e não contam para o número de feitiços de Tinkerer que você conhece.
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle	Construir Feitiços
+Feat/&ArtilleryModePoolDescription	Escolha o seu modo de artilharia.
+Feat/&ArtilleryModePoolTitle	Modo Artilharia
+Feat/&AttackModifierArtificerBattleSmithJolt2Description	Seus ataques com arma causam 3 pontos de dano adicionais.
+Feat/&AttackModifierArtificerBattleSmithJolt2Title	Choque de Ataque de Arma Aprimorado
+Feat/&AttackModifierArtificerBattleSmithJoltDescription	Seus ataques com arma causam 3 pontos de dano adicionais.
+Feat/&AttackModifierArtificerBattleSmithJoltTitle	Golpe de Ataque de Arma
+Feat/&BattleSmithSubclassSpellsDescription	{0}.
+Feat/&BattleSmithSubclassSpellsTitle	Aprenda feitiços de ferreiro de arma
+Feat/&ExtraInfusionSlotsDescription	Você ganha slots de infusão extras que devem ser usados ​​em armaduras/armas.
+Feat/&ExtraInfusionSlotsTitle	Infusões extras
+Feat/&FeatSentinelDescription	Você dominou técnicas para aproveitar cada queda na guarda de qualquer inimigo, ganhando os seguintes benefícios:\n• Quando você atinge uma criatura com um ataque de oportunidade, o deslocamento da criatura se torna 0 pelo resto do turno.\n• Criaturas provocam ataques de oportunidade de você mesmo que realizem a ação Desengajar antes de sair do seu alcance.\n• Quando uma criatura faz um ataque contra um alvo que não seja você (e esse alvo não tem este talento), você pode usar sua reação para fazer um ataque corpo a corpo com arma contra a criatura atacante.
+Feat/&FeatSentinelTitle	Sentinela
+Feat/&FlameArtillery_2Description	3d8 de dano de fogo (Cone).
+Feat/&FlameArtillery_2Title	Artilharia Flamejante (Melhorada)
+Feat/&FlameArtilleryConstructDescription	Cria um cone de fogo que causa 2d8 de dano se falhar na resistência.
+Feat/&FlameArtilleryConstructDescription_3	Cria um cone de fogo que causa 3d8 de dano se falhar na resistência.
+Feat/&FlameArtilleryConstructTitle	Construção de Artilharia Flamejante
+Feat/&FlameArtilleryDescription	2d8 de dano de fogo (Cone).
+Feat/&FlameArtilleryTitle	Artilharia Flamejante
+Feat/&ForceArtillery_2Description	3d8 de dano de força e empurra o alvo 1,5 m.
+Feat/&ForceArtillery_2Title	Artilharia da Força (Aprimorado)
+Feat/&ForceArtilleryAdditionalDamageDescription	O constructo atualizado causa 1d8 a mais de dano por acerto.
+Feat/&ForceArtilleryConstructDescription	Causa 2d8 de dano de força e empurra o alvo 1,5 metro para longe do Constructo.
+Feat/&ForceArtilleryConstructDescription_3	Causa 3d8 de dano de força e empurra o alvo 1,5m para longe do Constructo.
+Feat/&ForceArtilleryConstructTitle	Força Artilharia Construída
+Feat/&ForceArtilleryDescription	2d8 de dano de Força e empurrão 1,5 m.
+Feat/&HalfCoverShieldDescription	Aliados a até 3 metros ganham +2 AC.
+Feat/&HalfCoverShieldTitle	Cúpula Meia Cobertura
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription	Uma vez por dia, você pode lançar uma restauração maior.
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle	Maior Restauração
+Feat/&PowerAlchemistHealElixirsDescription	Uma vez por dia, você pode lançar curar.
+Feat/&PowerAlchemistHealElixirsTitle	Curar
+Feat/&PowerAlchemistRestorativeElixirsDescription	Você pode lançar uma restauração menor sem gastar um espaço de magia. Você pode fazer isso um número de vezes por descanso longo igual ao seu modificador de Inteligência.
+Feat/&PowerAlchemistRestorativeElixirsTitle	Elixires Restauradores
+Feat/&ResummonArtilleryConstruct_03Title	Retomar Construto de Artilharia 1
+Feat/&ResummonArtilleryConstruct_09Title	Retomar Construto de Artilharia 2
+Feat/&ResummonArtilleryConstruct_15Title	Retomar Construto de Artilharia 3
+Feat/&ResummonArtilleryConstructDescription	Este feitiço permite que o Tinkerer ressuscite um Artillery Construct em um dos vários modos após a convocação inicial expirar. A construção recuperada também dura 1 hora.
+Feat/&ScoutSentinelFeatureSet_level03Description	<size=17><color=#add8e6ff>Várias funções de armadura</color></size>\nVocê pode alternar entre os modos de função uma vez por dia criando e usando armas temporárias\n\n<size=17><color=#add8e6ff>Modo Sentinela</color></size>\nGanhe um número limitado de HP temporário com base no nível. Impor desvantagem em inimigos atacando aliados\n\n<size=17><color=#add8e6ff>Modo Explorador</color></size>\nGanhe movimento aumentado, vantagem furtiva e um ataque à distância que causa um dado extra de dano uma vez por turno.\n\n<size=17><color=#add8e6ff>Recursos</color></size>\nVocê pode usar as armas da armadura como um foco de conjuração para seus feitiços\nArmadura Pesada não tem um requisito de força\nVocê ganha proficiência em ferramentas de ferreiro e armaduras pesadas.
+Feat/&ScoutSentinelFeatureSet_level03Title	Sentinela Escoteira
+Feat/&ScoutSentinelFeatureSet_level05Description	<size=17><color=#add8e6ff>Ataque Extra</color></size>\nVocê pode atacar mais uma vez, por turno de combate, quando usar as ações de ataque ou empurrão.
+Feat/&ScoutSentinelFeatureSet_level05Title	Sentinela Escoteira
+Feat/&ScoutSentinelFeatureSet_level09Description	<size=17><color=#add8e6ff>Slots de infusão extra</color></size>\nVocê ganha slots de infusão extras, deve ser usado em armaduras.
+Feat/&ScoutSentinelFeatureSet_level09Title	Sentinela Escoteira
+Feat/&ScoutSentinelFeatureSet_level15Description	<size=17><color=#add8e6ff>Modo Sentinela Aprimorado</color></size>\nAgora pode puxar os inimigos para o alcance corpo a corpo com uma ação bônus e causar 1d8 de dano trovejante através do poder Gauntlet Grapple\n\n<size=17><color=#add8e6ff>Modo Explorador Aprimorado</color></size>\nAgora pode criar vantagem para aliados e desvantagem para inimigos com um único ataque.
+Feat/&ScoutSentinelFeatureSet_level15Title	Sentinela Escoteira
+Feat/&SummonArtilleryConstructDescription	O Blaster cria e comanda um Artillery Construct em um dos vários modos. O HP do constructo aumenta com os níveis de seu invocador e pode ser invocado gratuitamente por 1 hora uma vez por dia. O constructo pode ser invocado através de uma magia de 1º nível. Os três modos são:\n<color=#add8e6ff>Proteção da construção do domo:</color>\nConcede 1d8 + 4 HP temporários para aliados dentro de 10 pés\n<color=#add8e6ff>Construção de Artilharia Flamejante:</color>\nCria um cone de fogo. As criaturas devem fazer um teste de resistência de Destreza ou sofrerão 2d8 de dano\n<color=#add8e6ff>Construção de Artilharia da Força:</color>\nCausa 2d8 de dano de força e empurra o inimigo 1,5 metro de distância.
+Feat/&SummonArtilleryConstructlevel09Description	Uma nova função foi adicionada. O Constructo de Artilharia pode destruir a si mesmo, forçando um teste de Destreza ou causando 3d8 de dano de força em uma falha.\nAlém disso, as jogadas de dano da Artilharia de Fogo e da Força aumentam em 1d8 para um total de 3d8.
+Feat/&SummonArtilleryConstructlevel09Title	Atualização de construção de artilharia: autodestruição
+Feat/&SummonArtilleryConstructlevel15Description	Uma nova função foi adicionada. O Artillery Construct agora oferece meia cobertura para aliados em até 10 pés\n<size=17><color=#add8e6ff>Atualização de construção de artilharia: reforços</color></size>\nAgora você pode convocar dois Constructos de Artilharia. As construções podem ser do mesmo modo ou de modos diferentes.
+Feat/&SummonArtilleryConstructlevel15Title	Atualização de construção de artilharia: Meia Cobertura Dome
+Feat/&SummonArtilleryConstructTitle	Evocar Construto de Artilharia
+Feat/&SummonProtectorConstructDescription	Seu próprio Battle Buddy está pronto para defendê-lo e atacar os inimigos. O Protector Construct pode se auto-reparar 3 vezes ao dia e pode impor desvantagem em ataques a aliados.
+Feat/&SummonProtectorConstructDescription_2	Invocar Melhoria de Construto Protetor.
+Feat/&SummonProtectorConstructDescription_Upgrade	Invocar Melhoria de Construto Protetor.
+Feat/&SummonProtectorConstructTitle	Invocar Construto Protetor
+Feat/&SummonProtectorConstructTitle_2	Invocar Melhoria de Construto Protetor
+Feat/&SummonProtectorConstructTitle_Upgrade	Invocar Melhoria de Construto Protetor
+Feat/&TempHPShieldConstructDescription	Concede 1d8 + 4 PV temporários a aliados dentro de 10 pés.
+Feat/&TempHPShieldConstructTitle	Construção de Cúpula de Proteção
+Feat/&TempHPShieldDescription	Fornece 1d8 + 4 TempHP para aliados dentro de 10 pés.
+Feat/&TinkererConstructFamilyDescription	Criado por Tinker.
+Feat/&TinkererConstructFamilyTitle	Construção Tinkerer
+Feature/&ArtificerInfusionCastingDescription	Você pode executar os componentes somáticos dos feitiços enquanto segura armas e escudos.
+Feature/&ArtificerInfusionCastingTitle	Fundição de infusão
+Feature/&ArtificerSpecialistArchetypesDescription	Em que área de estudo você se especializou? Tinkerers podem ser causadores de danos, curandeiros e especialistas marciais.
+Feature/&ArtificerSpecialistArchetypesTitle	Especializações de Tinker
+Feature/&FlameArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3d8 de dano se falhar na resistência.\nAutodestruição: causa 3d8 de dano de força se falhar na resistência e destrói a unidade.
+Feature/&FlameArtillery_09ModePowerTitle	Evocar Construto de Artilharia Flamejante
+Feature/&FlameArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 3d8 de dano se falhar na resistência.\nAutodestruição: causa 3d8 de dano de força se falhar na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&FlameArtillery_15ModePowerTitle	Evocar Construto de Artilharia Flamejante
+Feature/&FlameArtilleryModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia Flamejante: Cria um cone de fogo que causa 2d8 de dano se falhar na resistência.
+Feature/&FlameArtilleryModePowerTitle	Evocar Construto de Artilharia Flamejante
+Feature/&ForceArtillery_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia da Força: Causa 3d8 de dano de força e empurra o inimigo a 1,5 metro de distância.\nAutodestruição: causa 3d8 de dano de força se falhar na resistência e destrói a unidade.
+Feature/&ForceArtillery_09ModePowerTitle	Evocar Construto de Artilharia da Força
+Feature/&ForceArtillery_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia da Força: Causa 3d8 de dano de força e empurra o inimigo a 1,5 metro de distância.\nAutodestruição: causa 3d8 de dano de força se falhar na resistência e destrói a unidade.\n Meia Cobertura Dome: fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&ForceArtillery_15ModePowerTitle	Evocar Construto de Artilharia da Força
+Feature/&ForceArtilleryAdditionalDamageTitle	Dano atualizado
+Feature/&ForceArtilleryModePowerDescription	Evoca uma construção que dura 1 hora.\nArtilharia de Força: Causa 2d8 de dano de força e empurra o alvo 1,5m de distância.
+Feature/&ForceArtilleryModePowerTitle	Evocar Construto de Artilharia da Força
+Feature/&ForceArtilleryTitle	Artilharia da Força
+Feature/&ImprovedScoutModePowerDescription	Obtenha recursos aprimorados do Modo Scout. Agora pode criar vantagem para aliados e desvantagem para inimigos com um único ataque.
+Feature/&ImprovedScoutModePowerTitle	Modo Escoteiro Aprimorado
+Feature/&ImprovedSentinelModePowerDescription	Obtenha recursos aprimorados do Modo Sentinela através do poder Gauntlet Grapple.
+Feature/&ImprovedSentinelModePowerTitle	Modo Sentinela Aprimorado
+Feature/&SavingThrowTinkererProficiencyDescription	Proficiência em testes de resistência de Constituição e Inteligência.
+Feature/&SavingThrowTinkererProficiencyTitle	Proficiência em jogadas de proteção
+Feature/&ScoutModePowerDescription	Ganhe movimento aumentado, vantagem em testes de Furtividade e uma vez por turno, seus ataques de arma de longo alcance causam um dado extra de dano.
+Feature/&ScoutModePowerTitle	Modo Escoteiro
+Feature/&SentinelModePowerDescription	Ganhe Temp HP igual ao nível. Imponha Desvantagem aos inimigos que atacam aliados.
+Feature/&SentinelModePowerTitle	Modo Sentinela
+Feature/&TempHPShield_09ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1d8 + 4 HP temporários para aliados dentro de 10 pés.\nAutodestruição: causa 3d8 de dano de força se falhar na resistência e destrói a unidade.
+Feature/&TempHPShield_09ModePowerTitle	Invocar Construção de Cúpula Protetora
+Feature/&TempHPShield_15ModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1d8 + 4 HP temporários para aliados dentro de 10 pés.\nAutodestruição: causa 3d8 de dano de força se falhar na resistência e destrói a unidade.\n Meia Cobertura Dome: Fornece meia cobertura aos aliados dentro de 10 pés.
+Feature/&TempHPShield_15ModePowerTitle	Invocar Construção de Cúpula Protetora
+Feature/&TempHPShieldModePowerDescription	Evoca uma construção que dura 1 hora.\nProtecting Dome: Concede 1d8 + 4 HP temporários para aliados dentro de 10 pés.
+Feature/&TempHPShieldModePowerTitle	Invocar Construção de Cúpula Protetora
+Feature/&TempHPShieldTitle	Cúpula de Proteção
+Feature/&TinkererArmorProficiencyDescription	Proficiência com armaduras leves e médias, bem como escudos.
+Feature/&TinkererArmorProficiencyTitle	Proficiência em Armadura do Tinkerer
+Feature/&TinkererInfusionChoiceDescription	Selecione as infusões que você terá disponíveis para uso. Observe que cada infusão pode ser ativa apenas uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Feature/&TinkererInfusionChoiceTitle	Escolha de infusão
+Feature/&TinkererInfusionReplaceDescription	Selecione as infusões a serem substituídas.
+Feature/&TinkererInfusionReplaceTitle	Substituir a infusão
+Feature/&TinkererSkillGainChoicesPluralDescription	As habilidades do Tinkerer são Arcana, História, Investigação, Medicina, Natureza, Percepção e Prestidigitação.
+Feature/&TinkererSkillPointsTitle	Habilidades de funileiro
+Feature/&TinkererToolsExpertiseDescription	Adquira experiência com muitas ferramentas, incluindo Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit e Enchanting Tools.
+Feature/&TinkererToolsExpertiseTitle	Expertise em ferramentas Tinkerer
+Feature/&TinkererToolsProficiencyDescription	Ganhe proficiência com muitas ferramentas, incluindo Thieves' Tools, Scroll Kits, Poisoner's Kit, Herbalism Kit e Enchanting Tools.
+Feature/&TinkererToolsProficiencyTitle	Proficiências em Ferramentas
+Feature/&TinkererWeaponProficiencyDescription	Proficiência com armas simples.
+Feature/&TinkererWeaponProficiencyTitle	Proficiências com Armas do Tinkerer
+Feedback/&AdditionalDamageArcaneFirearmFormat	Aprimoramento de explosão!
+Feedback/&AdditionalDamageArcaneFirearmLine	Causando dano adicional do Aprimoramento Explosivo
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat	Arma de Cegueira
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine	Dano adicional e tentativa de aplicar Cegueira da Arma Cegante
+Feedback/&AdditionalDamageLightningSpearFormat	Lança Relâmpago!
+Feedback/&AdditionalDamageLightningSpearLine	{0} atinge {1} com a Lança Relâmpago! (+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat	Dano atualizado
+Feedback/&AdditionalDamageUpgradedConstructLine	O constructo atualizado causa 1d8 a mais de dano por acerto.
+Feedback/&LightningSpearAdditionalDamageDescription	Causa 1d6 de dano de raio adicional uma vez por turno.
+Feedback/&LightningSpearAdditionalDamageTitle	Dano extra da Lança Relâmpago
+Item/&ForceArtilleryProjectileDescription	ForceArtilleryProjectile.
+Item/&ForceArtilleryProjectileTitle	ForceArtilleryProjectile
+Reaction/&ReactionAttackFeatSentinelDescription	{0} atacou um de seus aliados, em resposta você pode usar sua reação para atacar.
+Reaction/&ReactionAttackFeatSentinelReactDescription	Use a reação para atacar.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Ataque
+Reaction/&ReactionAttackFeatSentinelTitle	Reação Sentinela
+Rules/&AdvantageAttackOnEnemyDescription	Vantagem para atacar o inimigo.
+Rules/&AdvantageAttackOnEnemyTitle	Iluminou
+Rules/&DisadvantageOnAttackByEnemyDescription	Distraído por um relâmpago.
+Rules/&DisadvantageOnAttackByEnemyTitle	Sacudido
+Rules/&ExtraDamageOnAttackConditionDescription	Dano extra de Lighting Spear.
+Rules/&ExtraDamageOnAttackConditionTitle	Chocado estático
+Rules/&HalfCoverShieldAttributeDescription	Aliados dentro de 10 pés ganham +2 AC.
+Rules/&HalfCoverShieldAttributeTitle	Cúpula Meia Cobertura
+Rules/&HalfCoverShieldConditionDescription	+2 CA.
+Rules/&HalfCoverShieldConditionTitle	Protegido por Domo
+Rules/&LightningSpearPowerDescription	Cause 2d6 de dano de raio.
+Rules/&LightningSpearPowerTitle	Lança Relâmpago
+Rules/&SelfDestructionConditionDescription	Auto destruição.
+Rules/&SelfDestructionConditionTitle	Auto destruição
+Rules/&ThunderStruckBalancingAdvantageDescription	Equilibrar o estrondoso para funcionar apenas para aliados.
+Rules/&ThunderStruckBalancingAdvantageTitle	Provocado
+Rules/&ThunderStruckDescription	Desvantagem ao atacar os aliados do Scout Sentinel.
+Rules/&ThunderStruckTitle	Trovejante (Distraído)
+SpellList/&SpellListTinkererDescription	Lista de Feitiços do Tinkerer.
+SpellList/&SpellListTinkererTitle	Lista de Feitiços do Tinkerer
+Stage/&SubclassSelectionStageSpecialistDescription	Descrição Há uma grande variedade de especialidades em Tinkerers, incluindo fazer elixires como um Potion Maker, fazer explosões como um Blaster e empunhar armas mágicas como um Weapon Smith.
+Stage/&SubclassSelectionStageSpecialistFeatures	Recursos especializados
+Stage/&SubclassSelectionStageSpecialistHeader	Especializações
+Stage/&SubclassSelectionStageSpecialistNoneDescription	Especialista Nenhum Descrição.
+Stage/&SubclassSelectionStageSpecialistTitle	Selecionar especialização
+Subclass/&ArtificerAlchemistDescription	Você se especializa em poções, buffs, cura e feitiços.
+Subclass/&ArtificerAlchemistTitle	Fabricante de Poções
+Subclass/&ArtificerArtileristCannonsDescription	Você cria um conjunto de canhões que você pode ativar em batalha como uma ação bônus.
+Subclass/&ArtificerArtileristCannonsTitle	Canhões
+Subclass/&ArtificerArtilleristDescription	Você é especialista em arremessar projéteis e causar explosões.
+Subclass/&ArtificerArtilleristTitle	Lançador
+Subclass/&ArtificerBattleSmithDescription	Você se especializa em usar armas mágicas em combate.
+Subclass/&ArtificerBattleSmithTitle	Ferreiro de Arma
+Subclass/&ArtificerSpellcastingDescription	Lançar feitiços de Tinkerer.
+Subclass/&ArtificerSpellcastingTitle	Feitiço do Tinkerer
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription	Seus ataques contam como mágicos e você usa sua Inteligência para jogadas de ataque e dano.
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle	Arma Infundida
+Subclass/&AttackModifierArtificerBlindingWeaponDescription	Uma arma que você escolher que ganha a habilidade de cegar alvos ao acertar (contra um teste de Constituição). Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle	Arma de Cegueira
+Subclass/&AttackModifierArtificerEnhancedArmorDescription	Uma armadura que você escolher se torna mágica e fornece +1 AC adicional. Você só pode ter uma infusão ativa uma vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle	Armadura Aprimorada
+Subclass/&AttackModifierArtificerEnhancedFocusDescription	Um foco de conjuração que você escolher se torna mágico e ganha +1 nas jogadas de ataque de magia e CD de salvamento de magia. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle	Foco Aprimorado
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription	Uma arma que você escolher se torna mágica e ganha +1 nas jogadas de ataque e dano. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle	Arma Aprimorada
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription	Uma armadura que você escolher se torna mágica e fornece +2 AC. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle	Armadura Aprimorada Aprimorada
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription	Um foco de conjuração que você escolher se torna mágico e ganha +2 nas jogadas de ataque de magia e CD de salvamento de magia. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle	Foco Aprimorado Aprimorado
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription	Toque em uma arma e ela se torna mágica e ganha +2 nas jogadas de ataque e dano. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle	Arma Aprimorada Aprimorada
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como mágicos e você adiciona +7 às suas jogadas de ataque e dano.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle	Arma de Infusão Aprimorada
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription	Você ganha um ataque extra.
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle	Ataque Extra
+Subclass/&CancelCancelElixirFlyDescription	Termine a condição Fly do Potion Maker Elixir.
+Subclass/&CancelCancelElixirFlyTitle	Cancelar voo
+Subclass/&CancelCancelElixirResilienceDescription	Encerre a condição de Resiliência do Elixir do Fabricante de Poções.
+Subclass/&CancelCancelElixirResilienceTitle	Cancelar resiliência
+Subclass/&CancelCancelElixirSwiftnessDescription	Encerre a condição de Rapidez do Elixir do Criador de Poções.
+Subclass/&CancelCancelElixirSwiftnessTitle	Cancelar Rapidez
+Subclass/&ConditionResistantArmorTitle	Armadura Resistente
+Subclass/&ConditionResistnatArmorDescription	Sua armadura é resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovejante.
+Subclass/&CraftingTinkererMagicItemAdeptDescription	Você é perito em criar itens mágicos. Você leva 1/4 do tempo para criar itens e você aplica o dobro do seu bônus de proficiência ao criar.
+Subclass/&CraftingTinkererMagicItemAdeptTitle	Adepto de itens mágicos
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription	Toque em uma bolsa e infunda um espaço dimensional extra para ajudá-la a suportar mais peso sem sobrecarregar você. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle	Saco de Segurar
+Subclass/&HArtilleryIncreaseDescription	Aumento da Reserva de Artilharia.
+Subclass/&HArtilleryIncreaseTitle	Aumento do Conjunto de Artilharia
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription	Agora você pode infundir dois itens adicionais por dia. Eles devem ser usados ​​para sua arma especial de ferreiro de arma.
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle	Infusão de Arma Smith
+Subclass/&HealingPoolArtificerInfusionsDescription	2 vezes por dia infundir itens com efeitos mágicos.
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription	Agora você pode infundir um item adicional por dia.
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle	Mais infusões
+Subclass/&HealingPoolArtificerInfusionsTitle	Infusões
+Subclass/&MagicAffinityAlchemicalSavantListDescription	Ao lançar Acid Arrow e Flaming Sphere, eles se comportam como se tivessem lançado 2 níveis acima. Seus truques também são reforçados, então, mesmo quando o inimigo salva, eles ainda recebem metade do dano.
+Subclass/&MagicAffinityAlchemicalSavantListTitle	Feitiços de Elixir Savant
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como mágicos e você adiciona +7 às suas jogadas de ataque e dano. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle	Arma de Infusão Aprimorada
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription	Você infunde sua arma com poder. Seus ataques contam como mágicos e você usa sua Inteligência para jogadas de ataque e dano até o próximo descanso longo.
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle	Infundir Arma
+Subclass/&PowerInfuseArmorMagicalStrengthDescription	Infundir armadura com força mágica. Você ganha vantagem em testes de habilidade de Força e testes de resistência. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle	Armadura de Força Mágica
+Subclass/&PowerInfuseDarkvisionDescription	Infundir a capacidade de ver no escuro em um par de óculos. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseDarkvisionTitle	óculos de noite
+Subclass/&PowerInfuseMindSharpenerDescription	Infundir uma armadura ou túnica com a habilidade de ajudar a sua concentração de lançamento de feitiços. Você ganha vantagem em testes de concentração e qualquer dano menor que 20 não desencadeia um teste. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseMindSharpenerTitle	Afiador de Mentes
+Subclass/&PowerInfuseResistantArmorDescription	Infundir resistência a danos em sua armadura. Torna-se resistente a dano de ácido, frio, fogo, força, raio, necrótico, veneno, psíquico, radiante e trovão. Você só pode ter uma de cada infusão ativa por vez. Ativá-lo uma segunda vez cancelará a primeira.
+Subclass/&PowerInfuseResistantArmorTitle	Armadura Resistente
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription	Imbuídas em sua armadura estão melhorias mágicas em sua habilidade de evitar efeitos ruins. Você ganha 3d4 para cada teste de resistência que fizer.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle	Alma de Tinker
+Subclass/&PowerTinkererSpellStoringItemDescription	Como uma ação bônus, você pode recuperar espaços de magia. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Inteligência.
+Subclass/&PowerTinkererSpellStoringItemTitle	Item de armazenamento de feitiços
+Subclass/&PowerTransmuteConstitutionDescription	Use sua Força de Transmutação para conceder proficiência em Resistências de Constituição até o próximo descanso longo.
+Subclass/&PowerTransmuteConstitutionTitle	Salvamentos de Constituição
+Subclass/&PowerTransmuteDarkvisionDescription	Use sua Força de Transmutação para conceder Visão no Escuro Superior até o próximo descanso longo.
+Subclass/&PowerTransmuteDarkvisionTitle	Visão no escuro superior
+Subclass/&PowerTransmuteElementalResistanceDescription	Use sua Força de Transmutação para conceder resistência a dano de ácido, frio, fogo, raio, necrótico, veneno e trovão até o final de seu próximo descanso longo.
+Subclass/&PowerTransmuteElementalResistanceTitle	Resistência Elementar
+Subclass/&PowerTransmuteFlyDescription	Use sua Força de Transmutação para conceder a habilidade de voar.
+Subclass/&PowerTransmuteFlyTitle	Voe
+Subclass/&PowerTransmuteHealDescription	Use sua Força de Transmutação para curar até 6 alvos.
+Subclass/&PowerTransmuteHealTitle	Curar
+Subclass/&PowerTransmuteReviveDescription	Use sua Força de Transmutação para reviver um personagem (dentro de 1 minuto de sua morte).
+Subclass/&PowerTransmuteReviveTitle	Reviver
+Subclass/&ScoutSentinelTinkererSubclassDescription	Um Scout Sentinel Tinkerer modifica a armadura para melhorar sua função, fornecendo proteção e mobilidade aprimoradas.
+Subclass/&ScoutSentinelTinkererSubclassTitle	Sentinela Escoteira
+Subclass/&TinkererFlashOfGeniusConditionDescription	Inspirado por um lampejo de gênio para ter um bônus em testes de habilidade e testes de resistência.
+Subclass/&TinkererFlashOfGeniusConditionTitle	Flash de Gênio
+Subclass/&TinkererFlashOfGeniusPowerDescription	Você pode usar sua genialidade para inspirar a si mesmo e aos outros em testes de habilidade e testes de resistência.
+Subclass/&TinkererFlashOfGeniusPowerTitle	Flash de Gênio
+Subclass/&TinkererMagicalTinkeringDescription	Ganhe a habilidade de fazer vários efeitos menores (Dazzle, Sparkle, Shine).
+Subclass/&TinkererMagicalTinkeringTitle	Consertos Mágicos
+Subclass/&WeaponProfArtificerBattleSmithDescription	A experiência em combate deu ao Weapon Smith treinamento em Armas Marciais.
+Subclass/&WeaponProfArtificerBattleSmithTitle	Treinamento de Armas
+Tooltip/&TagScoutSentinelWeaponTitle	Sentinela Escoteira

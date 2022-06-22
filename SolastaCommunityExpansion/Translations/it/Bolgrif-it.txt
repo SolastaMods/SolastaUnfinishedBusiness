@@ -1,0 +1,16 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription	Forza +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle	Attributo Aumento
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription	Saggezza +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle	Attributo Aumento
+Feature/&BolgrifDruidicMagicDescription	Conosci un trucchetto a tua scelta dalla lista degli incantesimi del Druido. La saggezza è la tua capacità di incantatore.
+Feature/&BolgrifDruidicMagicTitle	Magia druidica
+Feature/&BolgrifInvisibilityPowerDescription	Come azione bonus, puoi diventare magicamente invisibile per 1 round. Questa invisibilità si interrompe se si intraprende un'azione offensiva. Una volta che usi questa capacità, non puoi usarla di nuovo finché non finisci un riposo breve o lungo.
+Feature/&BolgrifInvisibilityPowerTitle	Svanire
+Feature/&BolgrifPowerfulBuildDescription	Conteggi la tua taglia come Large quando determini la tua capacità di carico.
+Feature/&BolgrifPowerfulBuildTitle	Costruzione potente
+Feature/&ProficiencyBolgrifLanguagesDescription	Comune, Elfico e Gigante.
+Feature/&ProficiencyBolgrifLanguagesTitle	Lingua
+Language/&AbyssalDescription	Il linguaggio abissale era la forma del linguaggio primordiale che è stato avvolto e contorto dal male dell'abisso.
+Language/&AbyssalTitle	Abissale
+Race/&BolgrifRaceDescription	I Bolgrif sono mezzi giganti che vivono negli altipiani ghiacciati di Solasta. Sono astuti, cauti, solitari, diffidano della maggior parte degli umanoidi tranne gli elfi e preferiscono vivere lontano dalla civiltà in clan affiatati. Se spinti in battaglia, i bolgrif dimostrano abilità formidabili con le armi e la magia della natura.
+Race/&BolgrifRaceTitle	Bolgrif

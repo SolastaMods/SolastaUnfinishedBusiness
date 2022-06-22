@@ -1,0 +1,25 @@
+Feature/&BarbarianIndomitableMightDescription	Se seu total para um teste de Força for menor que seu valor de Força, você pode usar esse valor no lugar do total.
+Feature/&BarbarianIndomitableMightTitle	Força Indomável
+Feature/&IndomitableResistanceAddDescription	+1 uso de resistência indomável entre descansos.
+Feature/&IndomitableResistanceAddTitle	Resistência Indomável (aumentada)
+Feature/&IndomitableResistanceTitle	Resistência Indomável
+Feature/&PowerPaladinAuraOfCourage18Description	Concede um bônus de teste de resistência para aliados dentro de 9 metros.
+Feature/&PowerPaladinAuraOfCourage18Title	Aura de Coragem Aprimorada
+Feature/&PowerPaladinAuraOfProtection18Description	Você e seus aliados dentro de 9 metros não podem ser amedrontados.
+Feature/&PowerPaladinAuraOfProtection18Title	Aura de Proteção Aprimorada
+Feature/&PrimalChampionDescription	No 20º nível, você incorpora o poder da selva. Seus valores de Força e Constituição aumentam em 4.
+Feature/&PrimalChampionTitle	Campeão Primal
+Feature/&ProficiencyRogueBlindSenseDescription	A partir do 14º nível, se você for capaz de ouvir, estará ciente da localização de qualquer criatura oculta ou invisível a até 3 metros de você.
+Feature/&ProficiencyRogueBlindSenseTitle	Blindsense
+Feature/&ProficiencyRogueSlipperyMindDescription	No 15º nível, você adquiriu maior força mental. Você ganha proficiência em testes de resistência de Sabedoria.
+Feature/&ProficiencyRogueSlipperyMindTitle	Mente Escorregadia
+Feature/&RangerFeralSensesDescription	Você ganha sentidos sobrenaturais que o ajudam a lutar contra criaturas que você não pode ver. Quando você ataca uma criatura que não pode ver, sua incapacidade de vê-la não impõe desvantagem em suas jogadas de ataque contra ela.
+Feature/&RangerFeralSensesTitle	Sentidos Ferais
+Feature/&RangerVanishActionDescription	A partir do 14º nível, você pode usar a ação Esconder-se como uma ação bônus no seu turno.
+Feature/&RangerVanishActionTitle	Desaparecer
+Feature/&ZSPowerPaladinCleansingTouchDescription	Remova os efeitos da magia tocando em um aliado. Você pode fazer isso um número de vezes por dia igual ao seu modificador de Carisma.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Toque de limpeza
+RestActivity/&ZSSorcerousRestorationDescription	Recupere 4 pontos de feitiçaria durante um descanso curto.
+RestActivity/&ZSSorcerousRestorationTitle	Restauração Feiticeira
+Sorceror/&ZSSorcerousRestorationDescription	Recupere 4 pontos de feitiçaria durante um descanso curto.
+Sorceror/&ZSSorcerousRestorationTitle	Restauração Feiticeira

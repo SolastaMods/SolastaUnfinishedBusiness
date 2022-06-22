@@ -1,0 +1,21 @@
+Condition/&SwallowedByToadConditionDescription	Subisce 3d6 danni da acido ogni turno. Termina se l'incantatore subisce 15 o più danni in un singolo attacco.
+Condition/&SwallowedByToadConditionTitle	Inghiottito dal rospo
+Condition/&SwallowingToadConditionDescription	Termina se vengono subiti 15 o più danni in un singolo attacco.
+Condition/&SwallowingToadConditionTitle	Rospo ingoiato
+Feature/&ToadKingBasicToxinTitle	Tossina di base
+Feature/&ToadKingExpandedSpelllistAfinityDescription	Scegli da un elenco esteso di incantesimi quando impari un incantesimo da Stregone. I seguenti incantesimi vengono aggiunti all'elenco degli incantesimi da Stregone per te: {0}
+Feature/&ToadKingExpandedSpelllistAfinityTitle	Incantesimi del Re Rospo
+Feature/&ToadKingHallucinogenicToxinAffintyDescription	Il tuo corpo è cambiato per diventare resistente alle tossine e per produrre una tossina difensiva quando colpito da attacchi in mischia, fino a un numero di volte per riposo lungo pari al tuo bonus di competenza. Se l'attaccante fallisce un tiro salvezza di Costituzione, soffre di una tossina allucinogena finché non viene attaccato o interrotto in altro modo.
+Feature/&ToadKingHallucinogenicToxinAffintyTitle	Tossina allucinogena
+Feature/&ToadKingJumpTitle	Salto
+Feature/&ToadKingPoisonConditionAffinityTitle	Immune alle condizioni di veleno
+Feature/&ToadKingPoisonDamageAffinityTitle	Immune ai danni da veleno
+Feature/&ToadKingStickyFeetTitle	Piedi palmati
+Power/&ToadKingCroakDescription	Emette un'onda sonora che provoca danni e allontana creature e oggetti.
+Power/&ToadKingCroakTitle	gracchiare
+Power/&ToadKingGraspingTongueDescription	Tira i nemici verso di te.
+Power/&ToadKingGraspingTongueTitle	Afferrare la lingua
+Power/&ToadKingHallucinogenicToxinPowerDescription	Il tuo corpo è cambiato per diventare resistente alle tossine e per produrre una tossina difensiva quando colpito da attacchi in mischia, fino a un numero di volte per riposo lungo pari al tuo bonus di competenza. Se l'attaccante fallisce un tiro salvezza di Costituzione, soffre di tossina lucinogena finché non viene attaccato o interrotto in altro modo.
+Power/&ToadKingHallucinogenicToxinPowerTitle	Tossina allucinogena
+Power/&ToadKingSwallowDescription	Tenta di ingoiare un nemico Medio o più piccolo. Se fallisce il Tiro Salvezza su Forza, il mostro viene inghiottito e riceve 3d6 danni da acido per round. Termina se il Toad Warlock viene colpito con 15 o più danni in un singolo attacco.
+Power/&ToadKingSwallowTitle	Rondine

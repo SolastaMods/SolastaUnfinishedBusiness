@@ -1,0 +1,25 @@
+Feature/&BarbarianIndomitableMightDescription	Si su total para una prueba de Fuerza es menor que su puntaje de Fuerza, puede usar ese puntaje en lugar del total.
+Feature/&BarbarianIndomitableMightTitle	Poder indomable
+Feature/&IndomitableResistanceAddDescription	+1 uso de Resistencia Indomable entre descansos.
+Feature/&IndomitableResistanceAddTitle	Resistencia indomable (aumentada)
+Feature/&IndomitableResistanceTitle	Resistencia Indomable
+Feature/&PowerPaladinAuraOfCourage18Description	Otorga una bonificación de tiro de salvación a los aliados dentro de los 30 pies.
+Feature/&PowerPaladinAuraOfCourage18Title	Aura de coraje mejorada
+Feature/&PowerPaladinAuraOfProtection18Description	Usted y sus aliados dentro de los 30 pies no pueden asustarse.
+Feature/&PowerPaladinAuraOfProtection18Title	Aura de protección mejorada
+Feature/&PrimalChampionDescription	En el nivel 20, encarnas el poder de la naturaleza. Tus puntuaciones de Fuerza y ​​Constitución aumentan en 4.
+Feature/&PrimalChampionTitle	Campeón primigenio
+Feature/&ProficiencyRogueBlindSenseDescription	A partir del nivel 14, si eres capaz de oír, eres consciente de la ubicación de cualquier criatura oculta o invisible a 10 pies de ti.
+Feature/&ProficiencyRogueBlindSenseTitle	sentido ciego
+Feature/&ProficiencyRogueSlipperyMindDescription	Para el nivel 15, habrás adquirido mayor fuerza mental. Obtienes competencia en las tiradas de salvación de Sabiduría.
+Feature/&ProficiencyRogueSlipperyMindTitle	Mente resbaladiza
+Feature/&RangerFeralSensesDescription	Obtienes sentidos sobrenaturales que te ayudan a luchar contra criaturas que no puedes ver. Cuando atacas a una criatura que no puedes ver, tu incapacidad para verla no supone una desventaja en tus tiradas de ataque contra ella.
+Feature/&RangerFeralSensesTitle	Sentidos salvajes
+Feature/&RangerVanishActionDescription	A partir del nivel 14, puedes usar la acción Esconderse como acción adicional en tu turno.
+Feature/&RangerVanishActionTitle	Desaparecer
+Feature/&ZSPowerPaladinCleansingTouchDescription	Elimina los efectos de los hechizos tocando a un aliado. Puedes hacer esto un número de veces al día igual a tu modificador de Carisma.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Toque Limpiador
+RestActivity/&ZSSorcerousRestorationDescription	Recupera 4 puntos de hechicería durante un breve descanso.
+RestActivity/&ZSSorcerousRestorationTitle	Restauración hechicera
+Sorceror/&ZSSorcerousRestorationDescription	Recupera 4 puntos de hechicería durante un breve descanso.
+Sorceror/&ZSSorcerousRestorationTitle	Restauración hechicera

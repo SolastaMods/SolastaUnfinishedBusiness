@@ -19,7 +19,9 @@ public class EffectFormBuilder
 
     public EffectFormBuilder(EffectForm reference)
     {
-        effectForm = reference.DeepCopy();
+        effectForm = new EffectForm();
+
+        effectForm.Copy(reference);
     }
 
     public EffectFormBuilder HasSavingThrow(EffectSavingThrowType savingThrowAffinity)

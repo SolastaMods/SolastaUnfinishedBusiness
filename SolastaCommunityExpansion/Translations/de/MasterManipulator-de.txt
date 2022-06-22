@@ -1,0 +1,16 @@
+Subclass/&MagicAffinityMasterManipulatorDC0Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 0.
+Subclass/&MagicAffinityMasterManipulatorDC1Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 1.
+Subclass/&MagicAffinityMasterManipulatorDC2Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 2.
+Subclass/&MagicAffinityMasterManipulatorDC3Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 3.
+Subclass/&MagicAffinityMasterManipulatorDC4Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 4.
+Subclass/&MagicAffinityMasterManipulatorDC5Description	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 5.
+Subclass/&MagicAffinityMasterManipulatorDCDescription	Es ist schwieriger für Gegner, Ihren Zaubern zu widerstehen. Der SG des Rettungswurfs erhöht sich um 3.
+Subclass/&MagicAffinityMasterManipulatorDCTitle	Arkane Kraft
+Subclass/&MagicAffinityMasterManipulatorListDescription	Wenn einige Verzauberungs-, Bann- und Illusionszauber gewirkt werden, werden sie mit einem Zauberplatz gewirkt, der 1 Stufe höher ist als der verwendete. Zu den verbesserten Zaubern gehören: Person bezaubern, Schlaf, Farbspray, Person festhalten, Unsichtbarkeit, Gegenzauber, Magie bannen, Verbannung, Verwirrung, Phantasmal Killer, Person beherrschen und Monster festhalten.
+Subclass/&MagicAffinityMasterManipulatorListTitle	Arkane Manipulation
+Subclass/&ManipulatorMentalSavingThrowsDescription	Erlange Erfahrung in Rettungswürfen mit Konstitution und Charisma.
+Subclass/&ManipulatorMentalSavingThrowsTitle	Geistiger Widerstand
+Subclass/&PowerManipulatorDominatePersonDescription	Du kannst Person beherrschen so oft pro langer Pause verwenden, wie es deinem Intelligenzmodifikator entspricht.
+Subclass/&PowerManipulatorDominatePersonTitle	Person dominieren
+Subclass/&TraditionMasterManipulatorDescription	Meistermanipulatoren zeichnen sich dadurch aus, dass sie das Schlachtfeld kontrollieren und verhindern, dass ihre Feinde sie angreifen können.
+Subclass/&TraditionMasterManipulatorTitle	Meister Manipulator

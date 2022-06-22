@@ -62,6 +62,7 @@ internal class RoyalKnight : AbstractSubclass
             .SetTargetSide(RuleDefinitions.Side.Ally)
             .SetCanBePlacedOnCharacter(true)
             .SetTargetFilteringMethod(RuleDefinitions.TargetFilteringMethod.CharacterOnly)
+            .SetTargetFilteringTag(RuleDefinitions.TargetFilteringTag.No)
             .SetDurationType(RuleDefinitions.DurationType.Round)
             .SetRequiresVisibilityForPosition(true)
             .SetRangeType(RuleDefinitions.RangeType.Distance)

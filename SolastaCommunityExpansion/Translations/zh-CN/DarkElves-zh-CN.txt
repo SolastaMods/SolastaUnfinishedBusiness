@@ -1,6 +1,4 @@
-﻿Condition/&ConditionDarkelfLightSensitiveDescription	在明亮光照下，你的感知（察觉）检定受到-2减值。此外，明亮光照下，你的速度受到-1减值
-Condition/&ConditionDarkelfLightSensitiveTitle	强光敏感
-Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	你的感知（察觉）检定受到-2减值
+﻿Feature/&AbilityCheckAffinityDarkelfLightSensitivityDescription	你的感知（察觉）检定受到-2减值
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription	魅力+1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle	属性提升
 Feature/&DarkelfMagicDescription	你学会舞光术戏法。在3级时你学会妖火，在5级时你学会黑暗术，均为每长休1次

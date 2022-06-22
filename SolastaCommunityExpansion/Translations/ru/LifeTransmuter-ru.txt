@@ -1,0 +1,14 @@
+Subclass/&ConditionTransmuteConstitutionSaveDescription Временное Телосложение, за исключением умения, дарованного силой Преобразования	Силы.
+Subclass/&ConditionTransmuteConstitutionSaveTitle Телосложение	спасает
+Subclass/&ConditionTransmutePoisonDescription Временное сопротивление кислоте, холоду, огню, молнии, некрозу, яду и грому, даруемое силой Transmute	Force.
+Subclass/&ConditionTransmutePoisonTitle Сопротивление	стихиям
+Subclass/&HealingPoolLifeTransmuterBonusDescription Вы можете навязывать свою волю реальности еще 2 раза в	день.
+Subclass/&HealingPoolLifeTransmuterBonusExtraDescription Вы можете навязывать свою волю реальности еще 4 раза в	день.
+Subclass/&HealingPoolLifeTransmuterBonusExtraTitle Дополнительная сила	трансмутации
+Subclass/&HealingPoolLifeTransmuterBonusTitle Дополнительная сила	трансмутации
+Subclass/&HealingPoolLifeTransmuterListDescription Вы можете исполнять свою волю в реальности с особыми способностями 2 раза в	день.
+Subclass/&HealingPoolLifeTransmuterListTitle Трансмутация	Силы
+Subclass/&MagicAffinityLifeTransmuterListDescription При разыгрывании некоторых заклинаний Трансмутации и Некромантии они разыгрываются в слоте заклинаний на 2 уровня выше используемого. Улучшенные заклинания включают в себя: Ложная жизнь, Слепота, Полет, Дарование проклятия, Прикосновение вампира, Скверна и Облачное убийство.\n--Примечание: намерение состоит в том, чтобы также получить преимущество от Магического Оружия, но в настоящее время повышение уровня заклинания таким образом на Магическом Оружии не имеет никакого	эффекта.
+Subclass/&MagicAffinityLifeTransmuterListTitle Изгиб	реальности
+Subclass/&TraditionLifeTransmuterDescription Мастера манипулирования как материей, так и жизненной	энергией.
+Subclass/&TraditionLifeTransmuterTitle Преобразователь	жизни

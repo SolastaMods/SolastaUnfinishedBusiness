@@ -124,11 +124,56 @@ namespace SolastaCeBootstrap
 
         internal static Dictionary<string, List<Asset>> GetAssets()
         {
+            var ignore = new HashSet<string>()
+            {
+                "BanterEventDefinition",
+                "BestiaryStatsDefinition",
+                "BestiaryTableDefinition",
+                "BiomeDefinition",
+                "BlueprintCategory",
+                "CalendarDefinition",
+                "CampaignNodeTypeDefinition",
+                "ContentPackDefinition",
+                "CurrencyDefinition",
+                "DailyLogDefinition",
+                "DatabaseIndex",
+                "DateTimeDefinition",
+                "DeityDefinition",
+                "DieStyleDefinition",
+                "DieTypeDefinition",
+                "DifficultyPresetDefinition",
+                "EncounterDefinition",
+                "EncounterTableDefinition",
+                "EnvironmentDefinition",
+                "EnvironmentEffectDefinition",
+                "LocationDefinition",
+                "LocationTypeDefinition",
+                "MapWaypointDefinition",
+                "MoviePlaybackDefinition",
+                "MusicalStateDefinition",
+                "NamedPlaceDefinition",
+                "NotificationDefinition",
+                "PropBlueprint",
+                "QuestStatusDefinition",
+                "RoomBlueprint",
+                "TravelActivityDefinition",
+                "TravelEventDefinition",
+                "TravelPaceDefinition",
+                "VisualMoodDefinition",
+                "VoiceDefinition"
+            };
             var definitions = new Dictionary<string, List<Asset>>();
 
             foreach (var db in (Dictionary<Type, object>) AccessTools.Field(typeof(DatabaseRepository), "databases")
                          .GetValue(null))
             {
+                var dbName = db.Key.Name;
+
+                if (ignore.Contains(dbName))
+                {
+                    continue;
+                }
+
                 foreach (var baseDefinition in ((IEnumerable) db.Value).Cast<BaseDefinition>())
                 {
                     var assetType = baseDefinition.GetType().FullName;

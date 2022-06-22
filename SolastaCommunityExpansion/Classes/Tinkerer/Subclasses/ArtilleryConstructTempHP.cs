@@ -172,7 +172,7 @@ internal sealed class TempHPShieldConstruct9Builder : MonsterDefinitionBuilder
     private TempHPShieldConstruct9Builder(string name, string guid) : base(
         TempHPShieldConstructBuilder.TempHPShieldConstruct, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle_3";
+        Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle";
 
         Definition.Features.Add(SelfDestructBuilder.SelfDestruct);
     }
@@ -198,7 +198,7 @@ internal sealed class TempHPShieldConstruct15Builder : MonsterDefinitionBuilder
     private TempHPShieldConstruct15Builder(string name, string guid) : base(
         TempHPShieldConstruct9Builder.TempHPShieldConstruct9, name, guid)
     {
-        Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle_5";
+        Definition.GuiPresentation.Title = "Feat/&TempHPShieldConstructTitle";
 
         Definition.Features.Add(HalfCoverShieldBuilder.HalfCoverShield);
     }

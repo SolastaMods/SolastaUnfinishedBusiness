@@ -7,6 +7,12 @@ namespace SolastaCommunityExpansion.Models;
 // keep public for sidecars
 public static class Global
 {
+    // is a user location
+    // NOTE: don't use GameLocation?. or LocationDefinition?. which bypasses Unity object lifetime check
+    public static bool IsUserLocation => Gui.GameLocation &&
+                                         Gui.GameLocation.LocationDefinition &&
+                                         Gui.GameLocation.LocationDefinition.IsUserLocation;
+
     // is new adventure panel in context
     public static bool IsNewAdventurePanelInContext { get; set; }
 

@@ -1,0 +1,6 @@
+Feature/&OpportunistDebilitatingStrikeDescription	若受到偷袭的敌人无法通过体质豁免（DC=8+敏捷加值+熟练度加值），会受到以下状态之一（失明/灾祸/流血/眩晕）
+Feature/&OpportunistDebilitatingStrikeTitle	衰弱打击
+Feature/&OpportunistQuickStrikeDescription	在攻击先攻权低于你的敌人时，你有优势。此外，你在进行机会攻击时也有优势
+Feature/&OpportunistQuickStrikeTitle	迅捷打击
+Subclass/&OpportunistDescription	投机者从不放过任何机会去终结他们的敌人。他们的刺杀快准狠。没有多少人能在面对他们时毫发无损地逃脱
+Subclass/&OpportunistTitle	投机者

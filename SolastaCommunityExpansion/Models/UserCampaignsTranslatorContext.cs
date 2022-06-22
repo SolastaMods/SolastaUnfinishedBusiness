@@ -45,6 +45,7 @@ internal class UserCampaignsTranslatorContext : MonoBehaviour
     internal static void TranslateUserCampaign(string languageCode, string exportName, UserCampaign userCampaign)
     {
         var newUserCampaign = userCampaign.DeepCopy();
+
         var oldUserCampaignTitle = Regex.Replace(userCampaign.Title, @"\[.+\] - (.*)", "$1");
 
         newUserCampaign.Title = $"[{languageCode}] - {oldUserCampaignTitle}";

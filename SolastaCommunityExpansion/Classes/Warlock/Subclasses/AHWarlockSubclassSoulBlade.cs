@@ -17,29 +17,31 @@ public static class AHWarlockSubclassSoulBladePact
             .Create(FeatureDefinitionPowers.PowerTraditionShockArcanistArcaneFury,
                 "AHSoulBladeSummonPactWeaponPower", DefinitionBuilder.CENamespaceGuid)
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon.GuiPresentation.SpriteReference)
-            .SetEffectDescription(SpiritualWeapon.EffectDescription)
+            .SetEffectDescription(SpiritualWeapon.EffectDescription.Copy())
             .SetRechargeRate(RechargeRate.ShortRest)
             .SetActivationTime(ActivationTime.NoCost)
             .AddToDB();
 
-        var additionalDamageBonus = FeatureDefinitionAdditionalDamageBuilder
-            .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery,
-                "AHSoulBladeEmpowerWeaponDamageBonus", DefinitionBuilder.CENamespaceGuid)
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetRequiredProperty(AdditionalDamageRequiredProperty.None)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetNotificationTag("SoulEmpowered")
-            .AddToDB();
+        summonPactWeaponPower.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
-        var weaponCondition = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionHeraldOfBattle, "AHSoulBladeEmpowerWeaponCondition",
-                DefinitionBuilder.CENamespaceGuid)
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetAllowMultipleInstances(false)
-            .SetFeatures(additionalDamageBonus)
-            .SetDuration(DurationType.Minute, 1)
-            .AddToDB();
+        // var additionalDamageBonus = FeatureDefinitionAdditionalDamageBuilder
+        //     .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageBracersOfArchery,
+        //         "AHSoulBladeEmpowerWeaponDamageBonus", DefinitionBuilder.CENamespaceGuid)
+        //     .SetOrUpdateGuiPresentation(Category.Feature)
+        //     .SetRequiredProperty(AdditionalDamageRequiredProperty.None)
+        //     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+        //     .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+        //     .SetNotificationTag("SoulEmpowered")
+        //     .AddToDB();
+        //
+        // var weaponCondition = ConditionDefinitionBuilder
+        //     .Create(ConditionDefinitions.ConditionHeraldOfBattle, "AHSoulBladeEmpowerWeaponCondition",
+        //         DefinitionBuilder.CENamespaceGuid)
+        //     .SetOrUpdateGuiPresentation(Category.Feature)
+        //     .SetAllowMultipleInstances(false)
+        //     .SetFeatures(additionalDamageBonus)
+        //     .SetDuration(DurationType.Minute, 1)
+        //     .AddToDB();
 
         //TODO: convert to separate power that adds damage and small dim glow for a minute PB times a day
         // var empowerWeaponPower = FeatureDefinitionPowerBuilder

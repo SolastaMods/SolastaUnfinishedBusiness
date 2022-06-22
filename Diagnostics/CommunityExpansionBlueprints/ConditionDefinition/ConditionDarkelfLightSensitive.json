@@ -2,7 +2,7 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
     "Definition:AbilityCheckAffinityDarkelfLightSensitivity:a4f82743-0d75-4178-ba25-b3707420e17e",
     "Definition:MovementAffinityDarkelfLightSensitivity:17c4b5a2-ae5e-4565-a399-73beaaa09431"
@@ -119,8 +119,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionDarkelfLightSensitiveTitle",
-    "description": "Condition/&ConditionDarkelfLightSensitiveDescription",
+    "title": "Feature/&LightAffinityDarkelfLightSensitivityTitle",
+    "description": "Feature/&LightAffinityDarkelfLightSensitivityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "0af77d521f0cb8a4381f7316dc2e50e0",

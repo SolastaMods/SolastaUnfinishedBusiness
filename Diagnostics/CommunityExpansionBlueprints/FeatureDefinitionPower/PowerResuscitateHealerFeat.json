@@ -27,7 +27,7 @@
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
-    "targetConditionName": "ConditionDead",
+    "targetConditionName": "",
     "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
     "targetSide": "Ally",
     "durationType": "Permanent",

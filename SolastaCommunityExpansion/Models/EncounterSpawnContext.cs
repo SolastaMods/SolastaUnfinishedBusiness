@@ -104,11 +104,6 @@ internal static class EncountersSpawnContext
 
     internal static void ConfirmStageEncounter()
     {
-        // NOTE: don't use GameLocation?. or LocationDefinition?. which bypasses Unity object lifetime check
-        var isUserLocation = Gui.GameLocation &&
-                             Gui.GameLocation.LocationDefinition &&
-                             Gui.GameLocation.LocationDefinition.IsUserLocation;
-
         if (Global.IsMultiplayer)
         {
             Gui.GuiService.ShowMessage(
@@ -119,7 +114,7 @@ internal static class EncountersSpawnContext
                 null,
                 null);
         }
-        else if (isUserLocation)
+        else if (Global.IsUserLocation)
         {
             var position = GetEncounterPosition();
 

@@ -1,0 +1,165 @@
+ActionAffinity/&DHFeeblemindSpellDescription	Kann keine Zauber wirken.
+ActionAffinity/&DHFeeblemindSpellTitle	Schwachsinn
+AttributeModifier/&DHFeeblemindChaSpellDescription	Charismawert wird auf 1 gesetzt.
+AttributeModifier/&DHFeeblemindChaSpellTitle	Schwaches Charisma
+AttributeModifier/&DHFeeblemindIntSpellDescription	Charismawert wird auf 1 gesetzt.
+AttributeModifier/&DHFeeblemindIntSpellTitle	Schwache Intelligenz
+Condition/&ConditionMuleDescription	Ihre Geschwindigkeit wird nicht durch Belastung oder schwere Panzerung verringert. Sie können 20 zusätzliche Pfund tragen.
+Condition/&ConditionMuleTitle	Maultier
+Condition/&DHFeeblemindSpellDescription	Die Intelligenz- und Charismawerte der Kreatur werden zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf irgendeine verständliche Weise kommunizieren.
+Condition/&DHFeeblemindSpellTitle	Schwachsinn
+Condition/&DHForesightSpellDescription	Vorteil bei allen Angriffswürfen, Attributswürfen und Rettungswürfen. Andere Kreaturen haben einen Nachteil bei Angriffswürfen.
+Condition/&DHForesightSpellTitle	Voraussicht
+Condition/&DHHolyAuraSpellDescription	Vorteil bei allen Rettungswürfen. Andere Kreaturen haben einen Nachteil bei Angriffswürfen. Wenn ein Unterweltler oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, muss dem Angreifer ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+Condition/&DHHolyAuraSpellTitle	Geschützt durch Heilige Aura
+Condition/&DHMindBlankSpellDescription	Immun gegen psychischen Schaden und den verzauberten Zustand.
+Condition/&DHMindBlankSpellTitle	Verstand leer
+Condition/&DHReverseGravitySpellDescription	Kann mich nicht bewegen.
+Condition/&DHReverseGravitySpellTitle	Eingefangen von der umgekehrten Schwerkraft
+Condition/&DHTimeStopSpellDescription	Die Zeit wird für die betroffene Kreatur eingefroren.
+Condition/&DHTimeStopSpellTitle	Zeit angehalten
+Condition/&DHWeirdSpellDescription	Erschrocken. Führe am Ende jeder Runde einen Weisheitswurf aus. Bei einem Misserfolg erleidest du 4W10 psychischen Schaden. Bei einem Erfolg endet diese Bedingung.
+Condition/&DHWeirdSpellTitle	Seltsam
+Condition/&EWResonatingStrikeDamageDescription	Auf der 5. Stufe verursachen Angriffe, die von diesem Cantrip ausgelöst werden, zusätzlich 1W8 Donnerschaden. Der Schaden erhöht sich weiter um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWResonatingStrikeDamageTitle	Resonanz
+Condition/&EWSunlightBladeDamageDescription	Auf der 5. Stufe verursachen Angriffe, die von diesem Cantrip ausgelöst werden, zusätzlich 1W8 Strahlungsschaden. Der Schaden erhöht sich weiter um 1W8 auf der 11. und 17. Stufe.
+Condition/&EWSunlightBladeDamageTitle	Brennen der sonnenbeschienenen Klinge
+DamageAffinity/&DHHolyAuraSpellDescription	Wenn ein Unterweltler oder ein Untoter mit einem Nahkampfangriff zuschlägt, blitzt die Aura in strahlendem Licht auf und dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+DamageAffinity/&DHHolyAuraSpellTitle	Vergeltung der Heiligen Aura
+Feat/&AlchemistSubclassSpellsDescription	{0}.
+Feat/&AlchemistSubclassSpellsTitle	Lerne Zaubersprüche für Zaubertränke
+Feat/&AutoPreparedSpellsDescription	{0}.
+Feat/&AutoPreparedSpellsTitle	Lernen Sie Scout Sentinel-Zauber
+Feat/&ProtectorConstructLevel15AutopreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Tüftlerzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl an Tüftlerzaubern, die du kennst.
+Feat/&ProtectorConstructLevel15AutopreparedSpellsTitle	Beschützerkonstrukt-Zauber
+Feat/&ProtectorConstructLevel3AutopreparedSpellsDescription	Du erhältst Bonuszauber, die für dich als Tüftlerzauber gelten, sie sind immer vorbereitet und zählen nicht zu der Anzahl an Tüftlerzaubern, die du kennst.
+Feat/&ProtectorConstructLevel3AutopreparedSpellsTitle	Beschützerkonstrukt-Zauber
+Feature/&DHHolyAuraBlindingPowerDescription	Wenn ein Teufel oder ein Untoter eine betroffene Kreatur mit einem Nahkampfangriff trifft, blitzt die Aura in strahlendem Licht auf. Dem Angreifer muss ein Konstitutionsrettungswurf gelingen oder er wird geblendet, bis der Zauber endet.
+Feature/&DHHolyAuraBlindingPowerTitle	Vergeltung der Heiligen Aura
+Feature/&ElementalistSpellsMagicAffinityDescription	Du wählst aus einer erweiterten Liste von Zaubern, wenn du einen Warlock-Zauber lernst. Die folgenden Zauber werden für Sie zur Hexenmeister-Zauberliste hinzugefügt: {0}
+Feature/&ElementalistSpellsMagicAffinityTitle	Elementarmagier-Zauber
+Feature/&SpellAsInvocationAtWillDescription	Zaubere {0} nach Belieben.
+Feature/&SpellAsInvocationOncePerDayDescription	Bis zur langen Pause einmal {0} wirken.
+Feedback/&AdditionalDamageResonatingStrikeFormat	Resonanzschlag!
+Feedback/&AdditionalDamageResonatingStrikeLine	{0} schwingt mit {1}! (+{2})
+Feedback/&AdditionalDamageSunlightBladeFormat	Sonnenbeschienene Klinge!
+Feedback/&AdditionalDamageSunlightBladeLine	{0} verbrennt {1} mit Sunlit Blade! (+{2})
+Feedback/&NotifyEffectResonatingStrikeLine	{0} schwingt mit {1}!
+Monster/&DHCustomCouatlDescription	Couatls sind wohlwollende Schlangenwesen von großem Intellekt und Einsicht. Ihre leuchtend gefärbten Flügel und ihre sanfte Art sprechen für ihre himmlische Herkunft.
+Monster/&DHCustomCouatlTitle	Couatl
+Monster/&OwlFamiliarDescription	Eule vertraut.
+Monster/&OwlFamiliarTitle	Eule
+MonsterAttack/&DH_Custom_CouatlBite_AttackDescription	Durchdringender Schaden, und dem Ziel muss ein Konstitutionswurf gegen SG 13 gelingen oder es wird 24 Stunden lang vergiftet. Bis dieses Gift endet, ist das Ziel bewusstlos.
+MonsterAttack/&DH_Custom_CouatlBite_AttackTitle	Beissen
+Reaction/&CastSpellInRetributionDescription	{0} greift {1} an! Du kannst {2} als Antwort wirken!
+Reaction/&CastSpellInRetributionReactDescription	Klicken Sie, um {0} zu wirken.
+Reaction/&CastSpellInRetributionReactTitle	Zauber wirken
+Reaction/&CastSpellInRetributionTitle	Wirke Reaktionszauber
+Reaction/&SpendSpellSlot{0}Description	Zauber {0} ausgeben
+Reaction/&SpendSpellSlot{0}Title	Zauber {0} ausgeben
+Screen/&FeyTeleportSpellDescription	Dieser Fey-Zauber ist immer vorbereitet.
+Screen/&FeyTeleportSpellTitle	Fey
+Screen/&MulticlassSpellDescription	Sie kennen diesen Zauber aus anderem Repertoire.
+Screen/&MulticlassSpellTitle	Mehrklasse
+Screen/&ShadowTouchedSpellDescription	Dieser Schattenzauber ist immer vorbereitet.
+Screen/&ShadowTouchedSpellTitle	Schatten
+Screen/&SpellSlotsUsedLongDescription	Du hast {0} Zauberplatz(e) auf dieser Stufe verbraucht.
+Screen/&SpellSlotsUsedShortDescription	Du hast {0} Pakt-Magie-Slot(s) verbraucht.
+Screen/&SpellSlotsUsedShortLongDescription	Du hast {0} Pakt-Magie-Slot(s) und {1} Zauber-Slot(s) auf diesem Level verbraucht.
+Spell/&AcidClawsDescription	Führen Sie mit Ihren geschärften Krallen einen tödlichen Angriff durch.
+Spell/&AcidClawsTitle	Blutige Krallen
+Spell/&AHHellishRebukeDescription	Du zeigst mit dem Finger und die Kreatur, die dir Schaden zugefügt hat, ist für einen Moment von höllischen Flammen umgeben. Die Kreatur muss einen Geschicklichkeitsrettungswurf machen. Es erleidet 2W10 Feuerschaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen.
+Spell/&AHHellishRebukeTitle	Höllische Rüge
+Spell/&BurstOfRadianceDescription	Erzeuge einen brillanten Blitz aus schimmerndem Licht, der allen Feinden um dich herum Schaden zufügt.
+Spell/&BurstOfRadianceTitle	Strahlkraft
+Spell/&CJDivineWordDescription	Du sprichst ein göttliches Wort, erfüllt von der Kraft, die die Welt zu Beginn der Schöpfung geformt hat. Wähle eine beliebige Anzahl an Kreaturen, die du in Reichweite sehen kannst. Jede Kreatur, die dich hören kann, muss einen Charisma-Rettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur einen Effekt basierend auf ihren aktuellen Trefferpunkten:\n• 50 Trefferpunkte oder weniger: 1 Minute lang taub\n• 40 Trefferpunkte oder weniger: 10 Minuten lang taub und geblendet\n• 30 Trefferpunkte oder weniger: 1 Stunde lang geblendet, taub und betäubt\n• 20 Trefferpunkte oder weniger: sofort getötet\nUnabhängig von seinen aktuellen Trefferpunkten wird ein Himmlischer, ein Elementar, ein Feenwesen oder ein Unterweltler, dem sein Rettungswurf misslingt, auf seine Ursprungsebene zurückgedrängt (falls er nicht bereits dort ist) und kann nicht auf deine aktuelle Ebene zurückkehren 24 Stunden auf jeden Fall kurz vor einem Wunschzauber.
+Spell/&CJDivineWordTitle	Göttliches Wort
+Spell/&DHAnimalShapesSpellDescription	Wähle eine beliebige Anzahl williger Kreaturen, die du in Reichweite sehen kannst. Du verwandelst jedes Ziel in die Form einer großen oder kleineren Bestie mit einem Herausforderungswert von 4 oder niedriger.
+Spell/&DHAnimalShapesSpellTitle	Tierische Formen
+Spell/&DHCastSpellArchMageDescription	Zauberfähigkeit des Erzmagiers.
+Spell/&DHCastSpellArchMageTitle	Zauberfähigkeit des Erzmagiers
+Spell/&DHCastSpellGuardianNagaDescription	Zauberfähigkeit des Erzmagiers.
+Spell/&DHCastSpellGuardianNagaTitle	Zauberfähigkeit des Erzmagiers
+Spell/&DHCastSpellLichDescription	Lich-Casting-Fähigkeit.
+Spell/&DHCastSpellLichTitle	Lich-Casting-Fähigkeit
+Spell/&DHConjureCelestialSpellDescription	Du beschwörst einen Himmlischen der Herausforderungsstufe 4 oder niedriger, der in einem unbesetzten Feld erscheint, das du in Reichweite sehen kannst. Der Himmel verschwindet, wenn er auf 0 Trefferpunkte fällt oder wenn der Zauber endet. Der Himmlische ist für die Dauer freundlich zu dir und deinen Gefährten.
+Spell/&DHConjureCelestialSpellTitle	Himmlische beschwören (Couatl)
+Spell/&DHDominateMonsterSpellDescription	Du versuchst, eine Kreatur zu betören, die du in Reichweite sehen kannst. Ihr muss ein Weisheitsrettungswurf gelingen oder für die Dauer von dir bezaubert sein.
+Spell/&DHDominateMonsterSpellTitle	Beherrsche Monster
+Spell/&DHFeeblemindSpellDescription	Sie sprengen den Geist einer Kreatur, die Sie in Reichweite sehen können, und versuchen, ihren Intellekt und ihre Persönlichkeit zu zerstören. Das Ziel erleidet 4W6 psychischen Schaden und muss einen Intelligenzrettungswurf ablegen. Bei einem misslungenen Rettungswurf werden die Intelligenz- und Charismawerte der Kreatur zu 1. Die Kreatur kann keine Zauber wirken, magische Gegenstände aktivieren, Sprache verstehen oder auf verständliche Weise kommunizieren.
+Spell/&DHFeeblemindSpellTitle	Schwachsinn
+Spell/&DHFingerOfDeathSpellDescription	Das Ziel muss einen Konstitutionsrettungswurf machen. Es erleidet 7W8 + 30 nekrotischen Schaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen.
+Spell/&DHFingerOfDeathSpellTitle	Finger des Todes (kein Zombie)
+Spell/&DHForesightSpellDescription	Sie berühren eine willige Kreatur und verleihen ihr eine begrenzte Fähigkeit, in die unmittelbare Zukunft zu sehen. Für die Dauer kann das Ziel nicht überrascht werden und ist bei Angriffswürfen, Attributswürfen und Rettungswürfen im Vorteil. Zusätzlich haben andere Kreaturen für die Dauer einen Nachteil bei Angriffswürfen gegen das Ziel.
+Spell/&DHForesightSpellTitle	Voraussicht
+Spell/&DHHolyAuraSpellDescription	Göttliches Licht strömt aus dir heraus und verschmilzt in einem weichen Glanz in einem 30-Fuß-Radius um dich herum. Kreaturen deiner Wahl in diesem Radius, wenn du diesen Zauber wirkst, werfen schwaches Licht in einem Radius von 1,50 m und haben einen Vorteil bei allen Rettungswürfen, und andere Kreaturen haben einen Nachteil bei Angriffswürfen gegen sie, bis der Zauber endet.
+Spell/&DHHolyAuraSpellTitle	Heilige Aura
+Spell/&DHIncendiaryCloudSpellDescription	Eine wirbelnde Rauchwolke, die von weiß glühender Glut durchzogen ist, erscheint in einer Kugel mit einem Radius von 20 Fuß, die auf einem Punkt in Reichweite zentriert ist. Die Wolke breitet sich um Ecken aus und ist stark verdeckt. Es dauert für die Dauer oder bis ein Wind mit mäßiger oder höherer Geschwindigkeit (mindestens 10 Meilen pro Stunde) es zerstreut.\nWenn die Wolke erscheint, muss jede Kreatur darin einen Geschicklichkeitsrettungswurf machen. Eine Kreatur erleidet 10W8 Feuerschaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen Rettungswurf. Eine Kreatur muss diesen Rettungswurf auch machen, wenn sie zum ersten Mal in einem Zug in den Wirkungsbereich des Zaubers kommt oder dort ihren Zug beendet.\nDie Wolke bewegt sich 10 Fuß direkt von Ihnen weg in eine Richtung, die Sie zu Beginn jeder Ihrer Züge wählen.
+Spell/&DHIncendiaryCloudSpellTitle	Brandwolke
+Spell/&DHMassHealSpellDescription	Eine Flut heilender Energie fließt von dir in verletzte Kreaturen um dich herum. Du stellst 6 Kreaturen, die du in Reichweite sehen kannst, jeweils 120 Trefferpunkte wieder her. Durch diesen Zauber geheilte Kreaturen werden auch von allen Krankheiten und allen Effekten geheilt, die sie blind oder taub machen. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
+Spell/&DHMassHealSpellTitle	Massenheilung
+Spell/&DHMazeSpellDescription	Du verbannst eine Kreatur, die du in Reichweite sehen kannst, in eine labyrinthartige Halbebene. Das Ziel bleibt dort für die Dauer oder bis es aus dem Labyrinth entkommt. /nDas Ziel kann seine Aktion nutzen, um einen Intelligenzwurf gegen SG 20 zu machen, um zu entkommen.
+Spell/&DHMazeSpellTitle	Labyrinth
+Spell/&DHMeteorSwarmSingleTargetSpellDescription	Lodernde Feuerkugeln stürzen an einem einzigen Punkt, den Sie in Reichweite sehen können, zu Boden. Jede Kreatur in einer Kugel mit einem Radius von 40 Fuß, deren Mittelpunkt der von Ihnen gewählte Punkt ist, muss einen Geschicklichkeitsrettungswurf machen. Die Kugel breitet sich um Ecken aus. Eine Kreatur erleidet 20W6 Feuerschaden und 20W6 Wuchtschaden bei einem fehlgeschlagenen Rettungswurf oder halb so viel Schaden bei einem erfolgreichen Rettungswurf. Eine Kreatur im Bereich von mehr als einer feurigen Explosion wird nur einmal betroffen.
+Spell/&DHMeteorSwarmSingleTargetSpellTitle	Meteorschwarm (Einzelziel)
+Spell/&DHMindBlankSpellDescription	Bis der Zauber endet, ist eine willige Kreatur, die du berührst, immun gegen psychischen Schaden, jeden Effekt, der ihre Emotionen spüren oder ihre Gedanken lesen würde, Weissagungszauber und den verzauberten Zustand.
+Spell/&DHMindBlankSpellTitle	Verstand leer
+Spell/&DHPowerWordHealSpellDescription	Eine Welle heilender Energie spült über die Kreatur, die du berührst. Das Ziel erhält alle seine Trefferpunkte zurück. Wenn die Kreatur bezaubert, verängstigt, gelähmt oder betäubt ist, endet der Zustand. Wenn die Kreatur am Boden liegt, kann sie ihre Reaktion nutzen, um aufzustehen. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
+Spell/&DHPowerWordHealSpellTitle	Kraftwort heilen
+Spell/&DHPowerWordKillSpellDescription	Du sprichst ein Wort der Macht, das eine Kreatur, die du in Reichweite sehen kannst, dazu zwingen kann, sofort zu sterben. Wenn die gewählte Kreatur 100 Trefferpunkte oder weniger hat, stirbt sie. Andernfalls hat der Zauber keine Wirkung.
+Spell/&DHPowerWordKillSpellTitle	Machtwort-Kill
+Spell/&DHPowerWordStunSpellDescription	Du sprichst ein Wort der Macht, das den Verstand einer Kreatur überwältigen kann, die du in Reichweite sehen kannst, und sie verblüfft zurücklässt. Wenn das Ziel 150 Trefferpunkte oder weniger hat, ist es betäubt. Andernfalls hat der Zauber keine Wirkung.
+Spell/&DHPowerWordStunSpellTitle	Machtwort betäuben
+Spell/&DHReverseGravitySpellDescription	Dieser Zauber kehrt die Schwerkraft in einem 100 Fuß hohen Zylinder mit einem Radius von 50 Fuß um, der auf einen Punkt in Reichweite zentriert ist.
+Spell/&DHReverseGravitySpellTitle	Umgekehrte Schwerkraft
+Spell/&DHShapechangeSpellDescription	Du nimmst für die Dauer die Form einer anderen Kreatur an. Die neue Form kann jede Kreatur sein, deren Herausforderungswert deiner Stufe entspricht oder niedriger ist.
+Spell/&DHShapechangeSpellTitle	Formänderung
+Spell/&DHSunBurstSpellDescription	Brillantes Sonnenlicht blitzt in einem 60-Fuß-Radius um einen von Ihnen gewählten Punkt in Reichweite auf. Jede Kreatur in diesem Licht muss einen Konstitutionsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet eine Kreatur 12W6 Strahlungsschaden und wird 1 Minute lang geblendet. Bei einem erfolgreichen Rettungswurf erleidet es halb so viel Schaden und wird von diesem Zauber nicht geblendet. Untote und Schlicke sind bei diesem Rettungswurf benachteiligt. Eine von diesem Zauber geblendete Kreatur macht am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf. Bei einem erfolgreichen Rettungswurf ist es nicht mehr geblendet. Dieser Zauber vertreibt jegliche Dunkelheit in seinem Bereich, die durch einen Zauber erzeugt wurde.
+Spell/&DHSunBurstSpellTitle	Sonnendurchbruch
+Spell/&DHTimeStopSpellDescription	Du stoppst kurzzeitig den Fluss der Zeit für alle außer für dich selbst. Für andere Kreaturen vergeht keine Zeit, während Sie 1W4 + 1 Züge hintereinander machen, in denen Sie Aktionen verwenden und sich wie gewohnt bewegen können.
+Spell/&DHTimeStopSpellTitle	Zeitstopp
+Spell/&DHWeirdSpellDescription	Du schöpfst aus den tiefsten Ängsten einer Gruppe von Kreaturen und erschaffst illusorische Kreaturen in ihren Köpfen, die nur für sie sichtbar sind. Jede Kreatur in einer Kugel mit einem Radius von 30 Fuß, deren Mittelpunkt ein Punkt deiner Wahl in Reichweite ist, muss einen Weisheitswurf ablegen. Bei einem fehlgeschlagenen Rettungswurf bekommt eine Kreatur für die Dauer Angst. Die Illusion ruft die tiefsten Ängste der Kreatur hervor und manifestiert ihre schlimmsten Alpträume als unerbittliche Bedrohung. Am Ende jedes Zuges der verängstigten Kreatur muss ihr ein Weisheitsrettungswurf gelingen oder sie erleidet 4W10 psychischen Schaden. Bei einem erfolgreichen Rettungswurf endet der Zauber für diese Kreatur.
+Spell/&DHWeirdSpellTitle	Seltsam
+Spell/&EarthTremorDescription	Du triffst auf den Boden und entfesselst ein Beben seismischer Kraft, das Erde, Felsen und Sand aufwirbelt.
+Spell/&EarthTremorTitle	Erdbeben
+Spell/&EWResonatingStrikeDescription	Wähle eine Kreatur in Nahkampfreichweite von dir und eine andere Kreatur, die du innerhalb von 1,50 m vom Hauptziel sehen kannst. Du führst einen Nahkampfangriff mit der aktuellen Waffe gegen die erste Kreatur aus. Bei einem Treffer erleidet das Ziel die normalen Effekte des Waffenangriffs und ein resonierendes Geräusch springt zum zweiten Ziel und verursacht Donnerschaden in Höhe deines Fähigkeitsmodifikators zum Zaubern.\nAuf der 5. Stufe fügt der Nahkampfangriff dem Ziel bei einem Treffer zusätzlich 1W8 Donnerschaden zu, und der Donnerschaden der zweiten Kreatur steigt auf 1W8 + deinen Modifikator für Zauberfähigkeiten. Beide Schadenswürfe erhöhen sich um 1W8 auf der 11. und 17. Stufe.
+Spell/&EWResonatingStrikeTitle	Resonanzschlag
+Spell/&EWSunlightBladeDescription	Führen Sie einen Nahkampfangriff mit einer Waffe durch. Bei einem Treffer erleidet das Ziel die normalen Effekte des Angriffs und wird von glühender strahlender Energie eingehüllt, die für die Runde ein schwaches Licht ausstrahlt. Der nächste Angriff gegen diese Kreatur, während sie hervorgehoben ist, wird mit Vorteil ausgeführt.\nAuf der 5. Stufe fügt der Nahkampfangriff dem Ziel zusätzlich 1W8 Strahlenschaden zu. Der Schaden erhöht sich um weitere 1W8 auf der 11. und 17. Stufe.
+Spell/&EWSunlightBladeTitle	Sonnenbeschienene Klinge
+Spell/&FindFamiliarDescription	Sie erhalten den Dienst eines Vertrauten.
+Spell/&FindFamiliarImpDescription	Beschwört deinen Vertrauten in Form eines Kobolds.
+Spell/&FindFamiliarImpTitle	Vertraut finden (Kobold)
+Spell/&FindFamiliarPsuedodragonDescription	Beschwört deinen Vertrauten in Form eines Pseudodrachen.
+Spell/&FindFamiliarPsuedodragonTitle	Vertraut finden (Pseudodrache)
+Spell/&FindFamiliarQuasitDescription	Beschwört deinen Vertrauten in Form eines Quasits.
+Spell/&FindFamiliarQuasitTitle	Vertraut finden (Quasit)
+Spell/&FindFamiliarSpriteDescription	Beschwört deinen Vertrauten in Form eines Sprites.
+Spell/&FindFamiliarSpriteTitle	Vertraut finden (Sprite)
+Spell/&FindFamiliarTitle	Vertraut finden
+Spell/&FrenzyDescription	Mit einer Geste reduzieren Sie eine Menschenmenge auf Instinkt und Gewalt. Wählen Sie einen Punkt, den Sie in Reichweite sehen können. Jede Kreatur innerhalb von 20 Fuß um diesen Punkt muss einen Weisheitsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf ist eine Kreatur für die Dauer in Raserei. Wenn eine Kreatur in Raserei ist, zieht sie eine Nahkampfwaffe, falls sie eine hat. Eine rasende Kreatur muss ihre Aktion zu Beginn ihres Zuges nutzen, um eine Kreatur in ihrer Reichweite anzugreifen. Es verwendet eine Nahkampfwaffe, wenn es eine hat, oder eine improvisierte Waffe oder einen waffenlosen Schlag, wenn es keine hat. Wenn sich mehrere Ziele in Reichweite der Kreatur befinden, wählt sie ihr Ziel zufällig aus. Befindet sich kein Ziel in Reichweite der Kreatur, greift sie sich selbst gegen ihre eigene RK an und verursacht bei einem Treffer wie gewohnt Schaden. Am Ende ihres Zuges kann eine rasende Kreatur ihren Rettungswurf wiederholen, wodurch der Effekt bei einem Erfolg vorzeitig beendet wird.
+Spell/&FrenzyTitle	Raserei
+Spell/&IlluminatingSphereDescription	Lässt Lichtquellen wie Fackeln und Manalampen im Wirkungsbereich aufleuchten.
+Spell/&IlluminatingSphereTitle	Erleuchtende Sphäre
+Spell/&IPConjureInvisibleStalkerTitle	Elementar beschwören (Unsichtbarer Stalker)
+Spell/&MinorLifestealDescription	Du entziehst einer feindlichen Kreatur, die du in Reichweite sehen kannst, Lebensenergie. Du heilst dann Trefferpunkte in Höhe des verursachten Schadens. Dieser Zauber hat keine Wirkung auf Untote oder Konstrukte.
+Spell/&MinorLifestealTitle	Kleiner Lebensraub
+Spell/&MirrorImageDescription	Spiegelbild
+Spell/&MirrorImageTitle	Spiegelbild
+Spell/&MuleDescription	Der Empfänger dieses Zaubers kann die Auswirkungen schwerer Lasten oder Rüstungen auf die Bewegungsgeschwindigkeit ignorieren. Sie können auch etwas mehr Gewicht tragen.
+Spell/&MuleTitle	Maultier
+Spell/&PetalStormDescription	Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, den Sie in Reichweite sehen können. Eine elementare Kraft wirbelnder Winde erscheint im Würfel und hält für die Dauer des Zaubers an. Die Wolke verdeckt stark ihren Bereich. Jede Kreatur, die den Sturm zum ersten Mal in einem Zug betritt oder dort ihren Zug beginnt, muss einen Kraftrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf erleidet die Kreatur 3W4 Hiebschaden. Als Bonusaktion kannst du den Sturm um bis zu 30 Fuß in jede Richtung bewegen.
+Spell/&PetalStormTitle	Blütensturm
+Spell/&ProtectThresholdDescription	Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf machen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
+Spell/&ProtectThresholdTitle	Schwellenwert schützen
+Spell/&RadiantMotesDescription	Entfesselt einen Schwarm aus 5 strahlenden Projektilen, die jeweils 2 strahlenden Schaden verursachen, aber niemals verfehlen. Ziele können bis zu 1 Minute lang Licht ausstrahlen.\nWenn du diesen Zauber mit einem Zauberplatz der 2. Stufe oder höher wirkst, erzeugt der Zauber 2 weitere Projektile für jeden Platz über dem 1.
+Spell/&RadiantMotesTitle	Strahlende Partikel
+Spell/&ThunderStrikeDescription	Erzeuge einen Donnerstoß, der Kreaturen in deiner Nähe dazu zwingt, einen Konstitutionsrettungswurf zu machen oder 1W6 Donnerschaden zu erleiden.\nDer Schaden dieses Zaubers erhöht sich um 1W6, wenn du die 5. Stufe (2W6), die 11. Stufe (3W6) und die 17. Stufe (4W6) erreichst.
+Spell/&ThunderStrikeTitle	Schallausbruch
+Spell/&WinterBreathDescription	Erschaffe einen kalten Windstoß, um deine Feinde abzukühlen und sie zu Fall zu bringen.
+Spell/&WinterBreathTitle	Winteratem
+SpellList/&ElementalistSpellsListDescription	Elementarmagier-Zauberliste.
+SpellList/&ElementalistSpellsListTitle	Elementarmagier-Zauberliste
+Subclass/&MagicAffinityAlchemistSpellRecoveryDescription	Ihr könnt während einer kurzen Pause zweimal täglich Zauberslots wiederherstellen.
+Subclass/&MagicAffinityAlchemistSpellRecoveryTitle	Alchemistische Zubereitung
+Subclass/&PowerSpellRefuelingRingDescription	Wenn Sie dies aktivieren, gewinnen Sie die Hälfte Ihres Levels an Zauberslots zurück.
+Subclass/&PowerSpellRefuelingRingTitle	Zauber-Auftankring

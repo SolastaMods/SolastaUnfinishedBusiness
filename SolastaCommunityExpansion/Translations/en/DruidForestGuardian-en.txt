@@ -1,0 +1,22 @@
+Condition/&ConditionBarkWardDescription	Protected by the spirits of the forest. Gain 4 temp HP for each level of Druid, lasting 10 minutes.
+Condition/&ConditionBarkWardTitle	Bark Ward
+Condition/&ConditionImprovedBarkWardDescription	The spirits of the forest deal 2d8 piercing damage to creatures that hit with a melee attack.
+Condition/&ConditionImprovedBarkWardTitle	Improved Bark Ward
+Condition/&ConditionSuperiorBarkWardDescription	The spirits of the forest grant poison immunity, and deal 3d8 piercing damage to creatures that hit with a melee attack.
+Condition/&ConditionSuperiorBarkWardTitle	Superior Bark Ward
+Feature/&DruidForestGuardianBarkWardDescription	You gain the ability to summon a Bark Ward to protect you. As a bonus action, you can expend a use of your Wild Shape to gain 4 temporary hit points for each level you have in this class. These temporary hit points last for 10 minutes, or until you use your Wild Shape again.
+Feature/&DruidForestGuardianBarkWardTitle	Bark Ward
+Feature/&DruidForestGuardianExtraAttackDescription	Starting at 6th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+Feature/&DruidForestGuardianExtraAttackTitle	Extra Attack
+Feature/&DruidForestGuardianImprovedBarkWardDescription	Your Bark Ward now grows thorns, which damages melee attackers. Enemies who successfully hit you with a melee attack suffer 2d8 piercing damage.
+Feature/&DruidForestGuardianImprovedBarkWardTitle	Improved Bark Ward
+Feature/&DruidForestGuardianMagicDescription	Starting at the 2nd level when you choose this circle, you gain access to an expanded spell list that is always prepared:\n{0}\n\n
+Feature/&DruidForestGuardianMagicTitle	Circle Spells
+Feature/&DruidForestGuardianSuperiorBarkWardDescription	Your Bark Ward ability now reflects 3d8 piercing damage onto melee attackers. Additionally, Bark Ward now grants you immunity to poison while it's active.
+Feature/&DruidForestGuardianSuperiorBarkWardTitle	Superior Bark Ward
+Feature/&DruidForestGuardianSylvanDurabilityDescription	Forest Guardians naturally gain the resilience of a mighty oak. At 2nd level, your hit point maximum increases by 2 and increases by 1 whenever you gain a level in this class.
+Feature/&DruidForestGuardianSylvanDurabilityTitle	Sylvan Durability
+Feature/&DruidForestGuardianSylvanWarMagicDescription	You are used to wielding druidic magic in harmony with martial prowess. At 2nd level, you may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&DruidForestGuardianSylvanWarMagicTitle	Sylvan War Magic
+Subclass/&DruidForestGuardianDruidSubclassDescription	Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
+Subclass/&DruidForestGuardianDruidSubclassTitle	Circle of the Forest Guardian

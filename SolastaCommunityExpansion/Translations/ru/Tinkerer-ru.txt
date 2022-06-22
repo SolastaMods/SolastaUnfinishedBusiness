@@ -1,0 +1,299 @@
+Class/&TinkererDescription Тинкереры — изобретатели, алхимики и многие другие. Они соединяют пространство между магией и	технологиями.
+Class/&TinkererTitle	Тинкерер
+Condition/&SentinelStopMovementConditionDescription Не в состоянии двигаться. Скорость установлена ​​на	0.
+Condition/&SentinelStopMovementConditionTitle	Остановлено
+Equipment/&ImprovedLightningSpearDescription Наносит 1к6 урона от молнии с дополнительным уроном от молнии 1к6 один раз за ход.\nОдной атакой может создать преимущество для союзников и неудобство для	врагов.
+Equipment/&ImprovedLightningSpearTitle Улучшенное копье	молнии
+Equipment/&LightningSpearDescription Наносит 1d6 урона от молнии с дополнительным уроном от молнии 1d6 один раз за	ход.
+Equipment/&LightningSpearTitle Копье	Молнии
+Feat/&AlchemistSubclassElixirsDescription Научитесь делать экспериментальные эликсиры: Исцеления, Быстроты, Стойкости, Смелости,	Полета.
+Feat/&AlchemistSubclassElixirsTitle Экспериментальные	эликсиры
+Feat/&ArtificerAlchemistAlchemicalSavantDescription Когда вы исцеляете, вы исцеляете дополнительные HP, равные 1d4 + ваш	уровень.
+Feat/&ArtificerAlchemistAlchemicalSavantTitle Выученный	эликсир
+Feat/&ArtificerAlchemistBoldnessElixirDescription Может бросить d4 и добавить выпавшее число к каждому броску атаки и спасброску, который вы совершаете в течение 1	минуты.
+Feat/&ArtificerAlchemistBoldnessElixirTitle Эликсир	смелости
+Feat/&ArtificerAlchemistFlyElixirDescription Получите скорость полета 10 футов на 10	минут.
+Feat/&ArtificerAlchemistFlyElixirTitle Эликсир	полета
+Feat/&ArtificerAlchemistHealElixirDescription Исцеляет цель на 2d4 + модификатор	Интеллекта.
+Feat/&ArtificerAlchemistHealElixirTitle Эликсир	исцеления
+Feat/&ArtificerAlchemistResilienceElixirDescription Увеличьте целевой КД на +1 на 10	минут.
+Feat/&ArtificerAlchemistResilienceElixirTitle Эликсир	стойкости
+Feat/&ArtificerAlchemistSwiftnessElixirDescription Увеличивает скорость передвижения цели на 10 футов на 1	час.
+Feat/&ArtificerAlchemistSwiftnessElixirTitle Эликсир	скорости
+Feat/&ArtificerArtilleristArcaneFirearmDescription При использовании заклинаний обращения наносит дополнительный урон 1к8 один раз за	ход.
+Feat/&ArtificerArtilleristArcaneFirearmTitle Улучшение	взрыва
+Feat/&ArtificerArtillerstDetonationSpellPreparedDescription Вы получаете возможность взорвать одно из своих устройств, нанося урон тем, кто находится рядом с	целью.
+Feat/&ArtificerArtillerstDetonationSpellPreparedTitle Детонация	устройства
+Feat/&ArtificerArtillerstImprovedCannonsDescription Эффект от ваших пушек увеличивается. Дополнительный урон от огня, дополнительная цель от силы и дополнительные временные ХП от	щита.
+Feat/&ArtificerArtillerstImprovedCannonsTitle Улучшенные	пушки
+Feat/&ArtilleristCannonDetonationDescription Взорвите одно из своих устройств, заставив существ в пределах 20 футов от целевого места совершить спасбросок Ловкости. Существа получают урон силовым полем 3d8 при провале и половину этого урона при	успехе.
+Feat/&ArtilleristCannonDetonationTitle Детонация	устройства
+Feat/&ArtilleristFlameCannon15Description Бонусным действием изрыгайте огонь в конусе, нанося 6к8 урона от огня, если цели проваливают спасбросок	ЛВК.
+Feat/&ArtilleristFlameCannon15Title	Огнемет
+Feat/&ArtilleristFlameCannon9Description Бонусным действием изрыгайте огонь в конусе, нанося 3к8 урона от огня, если цели проваливают спасбросок	ЛВК.
+Feat/&ArtilleristFlameCannon9Title	Огнемет
+Feat/&ArtilleristFlameCannonDescription Бонусным действием изрыгайте огонь в конусе, нанося 2к8 урона от огня, если цели проваливают спасбросок	ЛВК.
+Feat/&ArtilleristFlameCannonTitle	Огнемет
+Feat/&ArtilleristForceCannon15Description Совершите бонусным действием дальнобойную атаку по не более чем 2 целям, нанося 3к8 силового урона при	попадании.
+Feat/&ArtilleristForceCannon15Title Силовая	пушка
+Feat/&ArtilleristForceCannon9Description Совершите бонусным действием дальнобойную атаку, нанося 3к8 силового урона при	попадании.
+Feat/&ArtilleristForceCannon9Title Силовая	пушка
+Feat/&ArtilleristForceCannonDescription Совершите бонусным действием дальнобойную атаку, нанося 2к8 силового урона при	попадании.
+Feat/&ArtilleristForceCannonTitle Силовая	пушка
+Feat/&ArtilleristProtectorCannon15Description Излучайте положительную энергию в качестве бонусного действия. Союзники в пределах 20 футов получают временные HP, равные 1d8 + ваш модификатор	Интеллекта.
+Feat/&ArtilleristProtectorCannon15Title Чародейский	щит
+Feat/&ArtilleristProtectorCannonDescription Излучайте положительную энергию в качестве бонусного действия. Союзники в пределах 10 футов получают временные HP, равные 1d8 + ваш модификатор	Интеллекта.
+Feat/&ArtilleristProtectorCannonTitle Чародейский	щит
+Feat/&ArtilleristSubclassSpellsDescription	{0}.
+Feat/&ArtilleristSubclassSpellsTitle Изучите заклинания	бластера
+Feat/&ArtilleryConstructDescription Может нанести урон или защитить	союзников.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsDescription Заговоры: Исправление конструкции, Отключение конструкции\nУровень 1: Возобновление артиллерийской	конструкции.
+Feat/&ArtilleryConstructLevel03AutopreparedSpellsTitle Создание	заклинаний
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsDescription Вы получаете бонусные заклинания, которые считаются для вас заклинаниями Tinkerer, они всегда подготовлены и не учитываются в количестве известных вам заклинаний	Tinkerer.
+Feat/&ArtilleryConstructLevel09AutopreparedSpellsTitle Создание	заклинаний
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsDescription Вы получаете бонусные заклинания, которые считаются для вас заклинаниями Tinkerer, они всегда подготовлены и не учитываются в количестве известных вам заклинаний	Tinkerer.
+Feat/&ArtilleryConstructLevel15AutopreparedSpellsTitle Создание	заклинаний
+Feat/&ArtilleryModePoolDescription Выберите свой режим	артиллерии.
+Feat/&ArtilleryModePoolTitle Артиллерийский	режим
+Feat/&AttackModifierArtificerBattleSmithJolt2Description Ваши атаки оружием наносят дополнительно 3 единицы	урона.
+Feat/&AttackModifierArtificerBattleSmithJolt2Title Улучшенный толчок атаки	оружием
+Feat/&AttackModifierArtificerBattleSmithJoltDescription Ваши атаки оружием наносят дополнительно 3 единицы	урона.
+Feat/&AttackModifierArtificerBattleSmithJoltTitle Толчок атаки	оружием
+Feat/&BattleSmithSubclassSpellsDescription	{0}.
+Feat/&BattleSmithSubclassSpellsTitle Изучите заклинания кузнеца	оружия
+Feat/&ExtraInfusionSlotsDescription Вы получаете дополнительные слоты для инфузий, которые необходимо использовать для	доспехов/оружия.
+Feat/&ExtraInfusionSlotsTitle Дополнительные	инфузии
+Feat/&FeatSentinelDescription Вы освоили приемы, позволяющие использовать каждое падение защиты любого врага, получая следующие преимущества:\n• Когда вы попадаете по существу провоцированной атакой, скорость существа становится равной 0 до конца хода.\n• Существа провоцируют провокационные атаки от вас, даже если они совершают действие Отход, прежде чем покинуть вашу досягаемость.\n• Когда существо совершает атаку против цели, отличной от вас (и у этой цели нет этого умения), вы можете использовать свою реакцию, чтобы совершить рукопашную атаку оружием против атакующего	существа.
+Feat/&FeatSentinelTitle	Страж
+Feat/&FlameArtillery_2Description урон огнём 3d8	(Конус).
+Feat/&FlameArtillery_2Title Огненная артиллерия	(улучшенная)
+Feat/&FlameArtilleryConstructDescription Создает огненный конус, наносящий 2d8 урона при	провале.
+Feat/&FlameArtilleryConstructDescription_3 Создает огненный конус, наносящий 3d8 урона при	провале.
+Feat/&FlameArtilleryConstructTitle Огнеметная артиллерийская	конструкция
+Feat/&FlameArtilleryDescription 2d8 урона огнём	(Конус).
+Feat/&FlameArtilleryTitle Огненная	артиллерия
+Feat/&ForceArtillery_2Description Силовой урон 3d8 и толкание цели на 5	фт.
+Feat/&ForceArtillery_2Title Силовая артиллерия	(улучшенная)
+Feat/&ForceArtilleryAdditionalDamageDescription Модернизированная конструкция наносит на 1d8 больше урона за	удар.
+Feat/&ForceArtilleryConstructDescription Наносит силовой урон 2к8 и отталкивает цель на 5 футов от	Конструкта.
+Feat/&ForceArtilleryConstructDescription_3 Наносит силовой урон 3к8 и отталкивает цель на 5 футов от	Конструкта.
+Feat/&ForceArtilleryConstructTitle Силовая артиллерийская	конструкция
+Feat/&ForceArtilleryDescription 2d8 Силовой урон и толчок на 5	фт.
+Feat/&HalfCoverShieldDescription Союзники в пределах 10 футов получают +2	КД.
+Feat/&HalfCoverShieldTitle Половинный	купол
+Feat/&PowerAlchemistGreaterRestorativeElixirsDescription Раз в день вы можете использовать большое	восстановление.
+Feat/&PowerAlchemistGreaterRestorativeElixirsTitle Великое	восстановление
+Feat/&PowerAlchemistHealElixirsDescription Раз в день вы можете	исцелять.
+Feat/&PowerAlchemistHealElixirsTitle	Лечить
+Feat/&PowerAlchemistRestorativeElixirsDescription Вы можете разыгрывать меньшее восстановление, не тратя ячейку заклинания. Вы можете сделать это количество раз за продолжительный отдых, равное вашему модификатору	Интеллекта.
+Feat/&PowerAlchemistRestorativeElixirsTitle Восстанавливающие	эликсиры
+Feat/&ResummonArtilleryConstruct_03Title Возобновление артиллерийской конструкции	1
+Feat/&ResummonArtilleryConstruct_09Title Возобновление артиллерийской конструкции	2
+Feat/&ResummonArtilleryConstruct_15Title Возобновление артиллерийской конструкции	3
+Feat/&ResummonArtilleryConstructDescription Это заклинание позволяет механику повторно вызвать артиллерийскую конструкцию в одном из нескольких режимов после истечения срока действия первоначального вызова. Повторно вызванная конструкция также существует 1	час.
+Feat/&ScoutSentinelFeatureSet_level03Description <size=17><color=#add8e6ff>Несколько функций брони</color></size>\nВы можете переключаться между режимами функций один раз в день, создавая и используя временное оружие.\n\n<size=17><color=#add8e6ff>Режим стража</color></size>\nПолучите ограниченное количество временных HP в зависимости от уровня. Накладывает помеху на врагов, атакующих союзников\n\n<size=17><color=#add8e6ff>Режим разведки</color></size>\nПолучите увеличенное движение, преимущество в скрытности и дальнюю атаку, которая наносит дополнительный кубик урона один раз за ход.\n\n<size=17><color=#add8e6ff>Функции</color></size>\nВы можете использовать оружие брони в качестве фокуса заклинаний для своих заклинаний.\nТяжелая броня не требует прочности\nВы получаете владение кузнечными инструментами и тяжелыми	доспехами.
+Feat/&ScoutSentinelFeatureSet_level03Title	Разведчик-страж
+Feat/&ScoutSentinelFeatureSet_level05Description <size=17><color=#add8e6ff>Дополнительная атака</color></size>\nВы можете атаковать еще раз за боевой ход, когда используете действия атаки или	толчка.
+Feat/&ScoutSentinelFeatureSet_level05Title	Разведчик-страж
+Feat/&ScoutSentinelFeatureSet_level09Description <size=17><color=#add8e6ff>Дополнительные слоты для инфузии</color></size>\nВы получаете дополнительные слоты для инфузии, которые следует использовать на	доспехах.
+Feat/&ScoutSentinelFeatureSet_level09Title	Разведчик-страж
+Feat/&ScoutSentinelFeatureSet_level15Description <size=17><color=#add8e6ff>Улучшенный режим Sentinel</color></size>\nТеперь может притягивать врагов в рукопашную с помощью бонусного действия и наносить урон громом 1к8 с помощью способности «Захват перчаток».\n\n<size=17><color=#add8e6ff>Улучшенный режим разведки</color></size>\nТеперь может создать преимущество для союзников и неудобство для врагов с помощью одной	атаки.
+Feat/&ScoutSentinelFeatureSet_level15Title	Разведчик-страж
+Feat/&SummonArtilleryConstructDescription Бластер создает артиллерийскую конструкцию и управляет ею в одном из нескольких режимов. HP конструкции увеличивается с уровнем ее призывателя, и ее можно призвать бесплатно на 1 час один раз в день. Конструкцию можно повторно призвать с помощью заклинания 1-го уровня. Три режима:\n<color=#add8e6ff>Защитная конструкция купола:</color>\nДарует 1d8 + 4 временных HP союзникам в пределах 10 футов.\n<color=#add8e6ff>Конструкция огнеменной артиллерии:</color>\nСоздает конус огня. Существа должны совершить спасбросок Ловкости или получить урон 2d8.\n<color=#add8e6ff>Структурная артиллерийская установка:</color>\nНаносит силовой урон 2к8 и отталкивает врага на 5	футов.
+Feat/&SummonArtilleryConstructlevel09Description Добавлена ​​новая функция. Артиллерийская конструкция может уничтожить себя, вынуждая спасбросок Ловкости или нанося силовой урон 3к8 при провале.\nКроме того, броски урона огненной и силовой артиллерии увеличиваются на 1d8 до	3d8.
+Feat/&SummonArtilleryConstructlevel09Title Улучшение артиллерийской конструкции:	Самоуничтожение
+Feat/&SummonArtilleryConstructlevel15Description Добавлена ​​новая функция. Артиллерийская конструкция теперь дает половину укрытия союзникам в радиусе 10 футов.\n<size=17><color=#add8e6ff>Улучшение артиллерийской конструкции: подкрепление</color></size>\nТеперь вы можете призвать две артиллерийские конструкции. Конструкции могут быть одинаковыми или разными	модусами.
+Feat/&SummonArtilleryConstructlevel15Title Улучшение артиллерийской конструкции: полуукрытие	купола
+Feat/&SummonArtilleryConstructTitle Призвать артиллерийскую	конструкцию
+Feat/&SummonProtectorConstructDescription Ваш собственный боевой друг готов защищать вас и атаковать врагов. Конструкция Защитника может выполнять самовосстановление 3 раза в день и может накладывать помехи на атаки	союзников.
+Feat/&SummonProtectorConstructDescription_2 Призыв улучшения конструкции	Защитника.
+Feat/&SummonProtectorConstructDescription_Upgrade Призыв улучшения конструкции	Защитника.
+Feat/&SummonProtectorConstructTitle Призвать	Защитника
+Feat/&SummonProtectorConstructTitle_2 Улучшение конструкции "Призыв	защитника"
+Feat/&SummonProtectorConstructTitle_Upgrade Улучшение конструкции "Призыв	защитника"
+Feat/&TempHPShieldConstructDescription Дарует 1d8 + 4 временных ОЗ союзникам в пределах 10	футов.
+Feat/&TempHPShieldConstructTitle Защитная купольная	конструкция
+Feat/&TempHPShieldDescription Дайте 1d8 + 4 временных ОЗ союзникам в пределах 10	футов.
+Feat/&TinkererConstructFamilyDescription Создано	Тинкерером.
+Feat/&TinkererConstructFamilyTitle Тинкерер	Конструкт
+Feature/&ArtificerInfusionCastingDescription Вы можете выполнять соматические компоненты заклинаний, держа в руках оружие и	щиты.
+Feature/&ArtificerInfusionCastingTitle Инфузионное	литье
+Feature/&ArtificerSpecialistArchetypesDescription В какой области обучения вы специализируетесь? Тинкереры могут быть торговцами уроном, целителями и специалистами по боевым	искусствам.
+Feature/&ArtificerSpecialistArchetypesTitle Специализации	ремесленника
+Feature/&FlameArtillery_09ModePowerDescription Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 3d8 урона при провале.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает	отряд.
+Feature/&FlameArtillery_09ModePowerTitle Призвать пламенную артиллерийскую	конструкцию
+Feature/&FlameArtillery_15ModePowerDescription Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 3d8 урона при провале.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает отряд.\n Half Cover Dome: обеспечивает половинное укрытие союзникам в пределах 10	футов.
+Feature/&FlameArtillery_15ModePowerTitle Призвать пламенную артиллерийскую	конструкцию
+Feature/&FlameArtilleryModePowerDescription Призывает конструкцию, которая существует 1 час.\nОгненная артиллерия: создает огненный конус, наносящий 2d8 урона при	провале.
+Feature/&FlameArtilleryModePowerTitle Призвать пламенную артиллерийскую	конструкцию
+Feature/&ForceArtillery_09ModePowerDescription Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 3d8 силового урона и отталкивает врага на 5 футов.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает	отряд.
+Feature/&ForceArtillery_09ModePowerTitle Призвать артиллерийскую конструкцию	Force
+Feature/&ForceArtillery_15ModePowerDescription Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 3к8 силового урона и отталкивает врага на 5 футов.\nСамоуничтожение: наносит силовой урон 3d8 при провале и уничтожает отряд.\n Half Cover Dome: обеспечивает половинное укрытие союзникам в пределах 10	футов.
+Feature/&ForceArtillery_15ModePowerTitle Призвать артиллерийскую конструкцию	Force
+Feature/&ForceArtilleryAdditionalDamageTitle Модернизированный	урон
+Feature/&ForceArtilleryModePowerDescription Призывает конструкцию, которая существует 1 час.\nСиловая артиллерия: Наносит 2к8 силового урона и отталкивает цель на 5	футов.
+Feature/&ForceArtilleryModePowerTitle Призвать артиллерийскую конструкцию	Force
+Feature/&ForceArtilleryTitle Силовая	артиллерия
+Feature/&ImprovedScoutModePowerDescription Получите улучшенные функции режима разведки. Теперь может создать преимущество для союзников и неудобство для врагов с помощью одной	атаки.
+Feature/&ImprovedScoutModePowerTitle Улучшенный режим	разведки
+Feature/&ImprovedSentinelModePowerDescription Получите улучшенные функции режима Sentinel с помощью способности Gauntlet	Grapple.
+Feature/&ImprovedSentinelModePowerTitle Улучшенный режим	стража
+Feature/&SavingThrowTinkererProficiencyDescription Владение спасбросками Телосложения и	Интеллекта.
+Feature/&SavingThrowTinkererProficiencyTitle Мастерство	спасброска
+Feature/&ScoutModePowerDescription Получите увеличенное движение, преимущество в проверках Скрытности и один раз за ход ваши атаки оружием дальнего боя наносят дополнительный кубик	урона.
+Feature/&ScoutModePowerTitle Режим	разведки
+Feature/&SentinelModePowerDescription Получите временные ОЗ, равный уровню. Накладывает Штраф на врагов, атакующих	союзников.
+Feature/&SentinelModePowerTitle Режим	стража
+Feature/&TempHPShield_09ModePowerDescription Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дарует 1d8 + 4 временных ОЗ союзникам в пределах 10 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает	отряд.
+Feature/&TempHPShield_09ModePowerTitle Вызов защитного	купола
+Feature/&TempHPShield_15ModePowerDescription Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дарует 1d8 + 4 временных ОЗ союзникам в пределах 10 футов.\nСамоуничтожение: наносит силовой урон 3к8 при провале и уничтожает отряд.\n Half Cover Dome: Обеспечивает половинное укрытие союзникам в пределах 10	футов.
+Feature/&TempHPShield_15ModePowerTitle Вызов защитного	купола
+Feature/&TempHPShieldModePowerDescription Призывает конструкцию, которая существует 1 час.\nЗащитный купол: дает 1d8 + 4 временных HP союзникам в пределах 10	футов.
+Feature/&TempHPShieldModePowerTitle Вызов защитного	купола
+Feature/&TempHPShieldTitle Защитный	купол
+Feature/&TinkererArmorProficiencyDescription Владение легкими и средними доспехами, а также	щитами.
+Feature/&TinkererArmorProficiencyTitle Мастерство доспехов	механика
+Feature/&TinkererInfusionChoiceDescription Выберите настои, которые у вас будут доступны для использования. Обратите внимание, что каждое вливание может быть активным только один раз. Активация во второй раз отменит	первый.
+Feature/&TinkererInfusionChoiceTitle Инфузионный	выбор
+Feature/&TinkererInfusionReplaceDescription Выберите инфузии для	замены.
+Feature/&TinkererInfusionReplaceTitle Заменить	инфузию
+Feature/&TinkererSkillGainChoicesPluralDescription Навыки Тинкерера: Тайна, История, Расследование, Медицина, Природа, Восприятие и Ловкость	рук.
+Feature/&TinkererSkillPointsTitle Навыки	механика
+Feature/&TinkererToolsExpertiseDescription Получите опыт работы со многими инструментами, включая воровские инструменты, наборы свитков, набор отравителя, набор травничества и инструменты для наложения	чар.
+Feature/&TinkererToolsExpertiseTitle Экспертиза инструментов	Tinkerer
+Feature/&TinkererToolsProficiencyDescription Овладейте многими инструментами, в том числе воровскими инструментами, наборами свитков, набором отравителя, набором для сбора трав и инструментами для наложения	чар.
+Feature/&TinkererToolsProficiencyTitle Владение	инструментами
+Feature/&TinkererWeaponProficiencyDescription Владение простым	оружием.
+Feature/&TinkererWeaponProficiencyTitle Навыки механика в	оружии
+Feedback/&AdditionalDamageArcaneFirearmFormat Взрывное	улучшение!
+Feedback/&AdditionalDamageArcaneFirearmLine Нанесение дополнительного урона от Blasting	Enhancement
+Feedback/&AdditionalDamageBlindingWeaponStrikeFormat Ослепляющее	оружие
+Feedback/&AdditionalDamageBlindingWeaponStrikeLine Дополнительный урон и попытка применить ослепление от ослепляющего	оружия
+Feedback/&AdditionalDamageLightningSpearFormat Молниеносное	копье!
+Feedback/&AdditionalDamageLightningSpearLine {0} поражает {1} копьем молнии!	(+{2})
+Feedback/&AdditionalDamageUpgradedConstructFormat Модернизированный	урон
+Feedback/&AdditionalDamageUpgradedConstructLine Модернизированная конструкция наносит на 1к8 больше урона за	удар.
+Feedback/&LightningSpearAdditionalDamageDescription Наносит дополнительный урон электричеством 1d6 один раз за	ход.
+Feedback/&LightningSpearAdditionalDamageTitle Дополнительный урон копья	молний
+Item/&ForceArtilleryProjectileDescription	Силовой Артиллерийский Снаряд.
+Item/&ForceArtilleryProjectileTitle	Силовой Артиллерийский Снаряд
+Reaction/&ReactionAttackFeatSentinelDescription {0} атаковал одного из ваших союзников, в ответ вы можете атаковать	реакцией.
+Reaction/&ReactionAttackFeatSentinelReactDescription Используйте реакцию для	атаки.
+Reaction/&ReactionAttackFeatSentinelReactTitle	Атака
+Reaction/&ReactionAttackFeatSentinelTitle Страж	Реакция
+Rules/&AdvantageAttackOnEnemyDescription Преимущество в атаке	врага.
+Rules/&AdvantageAttackOnEnemyTitle	Зажигать
+Rules/&DisadvantageOnAttackByEnemyDescription Отвлекся от удара	молнии.
+Rules/&DisadvantageOnAttackByEnemyTitle	Встряхнуло
+Rules/&ExtraDamageOnAttackConditionDescription Дополнительный урон от Копья молнии.
+Rules/&ExtraDamageOnAttackConditionTitle Статический	шок
+Rules/&HalfCoverShieldAttributeDescription Союзники в пределах 10 футов получают +2	КД.
+Rules/&HalfCoverShieldAttributeTitle Половинный	купол
+Rules/&HalfCoverShieldConditionDescription +2	КД.
+Rules/&HalfCoverShieldConditionTitle Под защитой	купола
+Rules/&LightningSpearPowerDescription Нанесите 2d6 урона	электричеством.
+Rules/&LightningSpearPowerTitle Молниеносное	копье
+Rules/&SelfDestructionConditionDescription	Самоуничтожение.
+Rules/&SelfDestructionConditionTitle	Самоуничтожение
+Rules/&ThunderStruckBalancingAdvantageDescription Балансировка потрясена, чтобы работать только для	союзников.
+Rules/&ThunderStruckBalancingAdvantageTitle	Насмехается
+Rules/&ThunderStruckDescription Неудобство при атаке союзников	Разведчика-Стража.
+Rules/&ThunderStruckTitle Пораженный громом	(отвлеченно)
+SpellList/&SpellListTinkererDescription Список заклинаний	Тинкерера.
+SpellList/&SpellListTinkererTitle Список заклинаний	Тинкерера
+Stage/&SubclassSelectionStageSpecialistDescription Описание У Тинкереров есть широкий спектр специальностей, включая изготовление эликсиров в качестве зельевара, создание взрывов в качестве бластера и владение магическим оружием в качестве оружейного	кузнеца.
+Stage/&SubclassSelectionStageSpecialistFeatures Специализированные	функции
+Stage/&SubclassSelectionStageSpecialistHeader	Специализации
+Stage/&SubclassSelectionStageSpecialistNoneDescription Специалист Нет	Описание.
+Stage/&SubclassSelectionStageSpecialistTitle Выберите	специализацию
+Subclass/&ArtificerAlchemistDescription Вы специализируетесь на зельях, баффах, исцелении и произнесении	заклинаний.
+Subclass/&ArtificerAlchemistTitle	Зельевар
+Subclass/&ArtificerArtileristCannonsDescription Вы создаете набор пушек, которые можете активировать в бою в качестве бонусного	действия.
+Subclass/&ArtificerArtileristCannonsTitle	Пушки
+Subclass/&ArtificerArtilleristDescription Вы специализируетесь на метании снарядов и	взрывов.
+Subclass/&ArtificerArtilleristTitle	Бластер
+Subclass/&ArtificerBattleSmithDescription Вы специализируетесь на использовании магического оружия в	бою.
+Subclass/&ArtificerBattleSmithTitle Оружейный	кузнец
+Subclass/&ArtificerSpellcastingDescription Используйте заклинания	Тинкерера.
+Subclass/&ArtificerSpellcastingTitle Тинкерер	Колдовство
+Subclass/&AttackModifierArtificerBattleSmithWeaponDescription Ваши атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и	урона.
+Subclass/&AttackModifierArtificerBattleSmithWeaponTitle Заряженное	оружие
+Subclass/&AttackModifierArtificerBlindingWeaponDescription Выбранное вами оружие, которое получает способность ослеплять цели при попадании (против спасброска Телосложения). Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerBlindingWeaponTitle Ослепляющее	оружие
+Subclass/&AttackModifierArtificerEnhancedArmorDescription Выбранный вами доспех становится волшебным и дает дополнительный +1 КД. Активировать инфузию можно только один раз. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerEnhancedArmorTitle Улучшенная	броня
+Subclass/&AttackModifierArtificerEnhancedFocusDescription Фокус колдовства, который вы выбираете, становится магическим и получает +1 к броскам атаки заклинаний и DC спасброска от заклинаний. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerEnhancedFocusTitle Улучшенный	фокус
+Subclass/&AttackModifierArtificerEnhancedWeaponDescription Выбранное вами оружие становится магическим и получает +1 к броскам атаки и урона. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerEnhancedWeaponTitle Улучшенное	оружие
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorDescription Выбранная вами броня становится магической и дает +2 AC. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerImprovedEnhancedArmorTitle Улучшенная усиленная	броня
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusDescription Фокус колдовства, который вы выбираете, становится магическим и получает +2 к броскам атаки заклинаний и DC спасброска от заклинаний. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerImprovedEnhancedFocusTitle Улучшенный улучшенный	фокус
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponDescription Прикоснитесь к оружию, и оно станет волшебным и получит +2 к броскам атаки и урона. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&AttackModifierArtificerImprovedEnhancedWeaponTitle Улучшенное усиленное	оружие
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponDescription Вы наполняете свое оружие силой. Ваши атаки считаются магическими, и вы добавляете +7 к броскам атаки и	урона.
+Subclass/&AttackModifierImprovedArtificerBattleSmithWeaponTitle Улучшенное наполняющее	оружие
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackDescription Вы получаете дополнительную	атаку.
+Subclass/&AttributeModifierArtificerBattleSmithExtraAttackTitle Дополнительная	атака
+Subclass/&CancelCancelElixirFlyDescription Завершите состояние полета из эликсира	зельеварения.
+Subclass/&CancelCancelElixirFlyTitle Отменить	полет
+Subclass/&CancelCancelElixirResilienceDescription Завершите состояние устойчивости от эликсира	зельеварения.
+Subclass/&CancelCancelElixirResilienceTitle Отменить	устойчивость
+Subclass/&CancelCancelElixirSwiftnessDescription Завершите состояние Быстроты от эликсира	зельеварения.
+Subclass/&CancelCancelElixirSwiftnessTitle Отменить	Быстрота
+Subclass/&ConditionResistantArmorTitle Прочная	броня
+Subclass/&ConditionResistnatArmorDescription Ваша броня устойчива к кислоте, холоду, огню, силе, молнии, некрозу, яду, психическому урону, излучению и	грому.
+Subclass/&CraftingTinkererMagicItemAdeptDescription Вы умеете создавать магические предметы. На изготовление предметов у вас уходит в четыре раза меньше времени, и вы применяете удвоенный бонус мастерства при	изготовлении.
+Subclass/&CraftingTinkererMagicItemAdeptTitle Адепт магических	предметов
+Subclass/&EquipmentModifierArtificerBagOfHolderDescription Прикоснитесь к сумке и создайте дополнительное пространственное пространство, чтобы она могла удерживать больший вес, не обременяя вас. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&EquipmentModifierArtificerBagOfHolderTitle Сумка	Владельца
+Subclass/&HArtilleryIncreaseDescription Увеличение артиллерийского	пула.
+Subclass/&HArtilleryIncreaseTitle Увеличение артиллерийского	пула
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseDescription Теперь вы можете добавлять два дополнительных предмета каждый день. Они предназначены для использования в вашем специальном оружии	кузнеца.
+Subclass/&HealingPoolArtificerBattleSmithInfusionsIncreaseTitle Вливание оружия кузнеца	оружия
+Subclass/&HealingPoolArtificerInfusionsDescription 2 раза в день вселять предметы с магическими	эффектами.
+Subclass/&HealingPoolArtificerInfusionsIncreaseDescription Теперь вы можете добавлять по одному дополнительному предмету каждый	день.
+Subclass/&HealingPoolArtificerInfusionsIncreaseTitle Больше	инфузий
+Subclass/&HealingPoolArtificerInfusionsTitle	Настои
+Subclass/&MagicAffinityAlchemicalSavantListDescription При использовании Кислотной Стрелы и Пылающей Сферы они ведут себя так, как если бы были применены на 2 уровня выше. Ваши колдовства также усиливаются, поэтому даже когда противник спасается, они все равно получают половину	урона.
+Subclass/&MagicAffinityAlchemicalSavantListTitle Эликсир Савант	Заклинания
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponDescription Вы наполняете свое оружие силой. Ваши атаки считаются магическими, и вы добавляете +7 к своим броскам атаки и урона. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&PowerArtificerBattleSmithImprovedInfuseWeaponTitle Улучшенное наполняющее	оружие
+Subclass/&PowerArtificerBattleSmithInfuseWeaponDescription Вы наполняете свое оружие силой. Ваши атаки считаются магическими, и вы используете свой Интеллект для бросков атаки и урона до следующего продолжительного	отдыха.
+Subclass/&PowerArtificerBattleSmithInfuseWeaponTitle Наполнить	оружие
+Subclass/&PowerInfuseArmorMagicalStrengthDescription Наполните броню магической силой. Вы получаете преимущество на проверки способности Силы и спасброски. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&PowerInfuseArmorMagicalStrengthTitle Броня магической	силы
+Subclass/&PowerInfuseDarkvisionDescription Наделите очки способностью видеть в темноте. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит первый. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&PowerInfuseDarkvisionTitle Очки	ночи
+Subclass/&PowerInfuseMindSharpenerDescription Наделите броню или мантию способностью, которая поможет вам сконцентрироваться на произнесении заклинаний. Вы получаете преимущество на проверки концентрации, и любой урон меньше 20 не вызывает проверку. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&PowerInfuseMindSharpenerTitle Заостритель	разума
+Subclass/&PowerInfuseResistantArmorDescription Вдохните сопротивление урону в вашу броню. Он становится устойчивым к кислоте, холоду, огню, силе, молнии, некрозу, яду, психическому урону, излучению и грому. Вы можете иметь только одно из каждого наполнения одновременно. Активация во второй раз отменит	первый.
+Subclass/&PowerInfuseResistantArmorTitle Прочная	броня
+Subclass/&PowerTinkererSoulOfArtificeSavesDescription В вашу броню встроены магические улучшения вашей способности избегать плохих эффектов. Вы получаете 3d4 к каждому совершённому	спасброску.
+Subclass/&PowerTinkererSoulOfArtificeSavesTitle Душа	Тинкерера
+Subclass/&PowerTinkererSpellStoringItemDescription Бонусным действием вы можете восстановить ячейки заклинаний. Вы можете делать это количество раз в день, равное вашему модификатору	Интеллекта.
+Subclass/&PowerTinkererSpellStoringItemTitle Предмет для хранения	заклинаний
+Subclass/&PowerTransmuteConstitutionDescription Используйте свою Силу Преобразования, чтобы получить мастерство Спасбросков Телосложения до следующего продолжительного	отдыха.
+Subclass/&PowerTransmuteConstitutionTitle Конституция	спасает
+Subclass/&PowerTransmuteDarkvisionDescription Используйте Transmute Force, чтобы получить Superior Darkvision до следующего продолжительного	отдыха.
+Subclass/&PowerTransmuteDarkvisionTitle Превосходное	темновидение
+Subclass/&PowerTransmuteElementalResistanceDescription Используйте свою Силу Трансмутации, чтобы дать сопротивление кислоте, холоду, огню, молнии, некротическому урону, яду и грому до конца вашего следующего продолжительного	отдыха.
+Subclass/&PowerTransmuteElementalResistanceTitle Сопротивление	стихиям
+Subclass/&PowerTransmuteFlyDescription Используйте свою Трансмутирующую Силу, чтобы дать возможность	летать.
+Subclass/&PowerTransmuteFlyTitle	Летать
+Subclass/&PowerTransmuteHealDescription Используйте Transmute Force, чтобы исцелить до 6	целей.
+Subclass/&PowerTransmuteHealTitle	Лечить
+Subclass/&PowerTransmuteReviveDescription Используйте свою Силу Трансмутации, чтобы оживить персонажа (в течение 1 минуты после его	смерти).
+Subclass/&PowerTransmuteReviveTitle	Возродить
+Subclass/&ScoutSentinelTinkererSubclassDescription Scout Sentinel Tinkerer модифицирует броню, улучшая ее функциональность, обеспечивая повышенную защиту и	мобильность.
+Subclass/&ScoutSentinelTinkererSubclassTitle	Разведчик-страж
+Subclass/&TinkererFlashOfGeniusConditionDescription Вдохновленный вспышкой гения, чтобы получить бонус к проверкам характеристик и	спасброскам.
+Subclass/&TinkererFlashOfGeniusConditionTitle Вспышка	гениальности
+Subclass/&TinkererFlashOfGeniusPowerDescription Вы можете использовать свою гениальность, чтобы вдохновлять себя и других на проверки способностей и	спасброски.
+Subclass/&TinkererFlashOfGeniusPowerTitle Вспышка	гениальности
+Subclass/&TinkererMagicalTinkeringDescription Получите возможность накладывать несколько незначительных эффектов (Ослепление, Сверкание,	Сияние).
+Subclass/&TinkererMagicalTinkeringTitle Волшебное	мастерство
+Subclass/&WeaponProfArtificerBattleSmithDescription Боевой опыт дал Оружейному Смиту обучение боевому	оружию.
+Subclass/&WeaponProfArtificerBattleSmithTitle Обучение обращению с	оружием
+Tooltip/&TagScoutSentinelWeaponTitle	Разведчик-страж

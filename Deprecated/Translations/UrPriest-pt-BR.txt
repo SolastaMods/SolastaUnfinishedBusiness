@@ -1,0 +1,34 @@
+Condition/&HalfLifeConditionDescription	Você recebe energia necrótica para dentro de si e fica entre a vida e a morte e é temporariamente possuído por seu próprio fantasma, ganhando voar, e as mesmas imunidades de condição e resistência a danos que outros fantasmas.
+Condition/&HalfLifeConditionTitle	Meia-vida
+Feature/&DomainBattleDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainBattleDomainlevel1FeaturesTitle	Domínio de Batalha
+Feature/&DomainElementalColdDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainElementalColdDomainlevel1FeaturesTitle	Domínio elementar (frio)
+Feature/&DomainElementalFireDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainElementalFireDomainlevel1FeaturesTitle	Domínio Elemental (Fogo)
+Feature/&DomainElementalLightingDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainElementalLightingDomainlevel1FeaturesTitle	Domínio Elemental (Iluminação)
+Feature/&DomainInsightDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainInsightDomainlevel1FeaturesTitle	Domínio do Insight
+Feature/&DomainLawDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainLawDomainlevel1FeaturesTitle	Domínio da lei
+Feature/&DomainLifeDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainLifeDomainlevel1FeaturesTitle	Domínio da vida
+Feature/&DomainMischiefDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainMischiefDomainlevel1FeaturesTitle	Domínio de travessuras
+Feature/&DomainOblivionDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainOblivionDomainlevel1FeaturesTitle	Domínio do esquecimento
+Feature/&DomainSunDomainlevel1FeaturesDescription	Você aprende os recursos de nível 1 deste domínio.
+Feature/&DomainSunDomainlevel1FeaturesTitle	Domínio Sol
+Feature/&UrPriestDomainTheftDescription	Você arrebata os segredos que um deus concede a todos os seus clérigos devotos. Escolha um domínio de clérigo: você ganha os recursos que o domínio concede no 1º nível.
+Feature/&UrPriestDomainTheftTitle	Roubo de domínio
+Feature/&UrPriestExpandedSpelllistAfinityDescription	Você escolhe a partir de uma lista expandida de magias quando aprende uma magia de Bruxo. Feitiços de clérigo são adicionados à lista de feitiços de Bruxo para você.
+Feature/&UrPriestExpandedSpelllistAfinityTitle	Feitiços UrPriest
+Power/&UrPriestControlUndeadDescription	Com uma ação, você tem como alvo uma criatura morta-viva que você pode ver a até 9 metros de você. O alvo deve fazer um teste de resistência de Sabedoria. Em uma falha no salvamento, o alvo deve obedecer aos seus comandos.
+Power/&UrPriestControlUndeadTitle	Controlar mortos-vivos
+Power/&UrPriestHalfLifeDescription	Você leva energia necrótica para dentro de si, pendurado entre a vida e a morte e é temporariamente possuído por seu próprio fantasma. Você ganha velocidade de vôo e as mesmas imunidades a condição e resistência a dano que outros fantasmas.
+Power/&UrPriestHalfLifeTitle	Meia-vida
+Power/&UrPriestRadiantWardDescription	Com uma ação, você ganha um número de pontos de vida temporários igual ao dobro do seu nível de Bruxo.
+Power/&UrPriestRadiantWardTitle	Ala Radiante
+Power/&UrPriestSpellSiphonDescription	você aprende a explorar uma fonte maior de magia em combinação com sua reserva normal de poder. Com uma ação, você pode gastar um Canalizar Divindade para recuperar um uso gasto de seu Arcano Místico de 6º nível.
+Power/&UrPriestSpellSiphonTitle	Sifão de Feitiços

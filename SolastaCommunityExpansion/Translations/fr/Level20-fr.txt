@@ -1,0 +1,25 @@
+Feature/&BarbarianIndomitableMightDescription	Si votre total pour un test de Force est inférieur à votre score de Force, vous pouvez utiliser ce score à la place du total.
+Feature/&BarbarianIndomitableMightTitle	Puissance indomptable
+Feature/&IndomitableResistanceAddDescription	+1 Utilisation de la Résistance indomptable entre les repos.
+Feature/&IndomitableResistanceAddTitle	Résistance indomptable (augmentée)
+Feature/&IndomitableResistanceTitle	Résistance indomptable
+Feature/&PowerPaladinAuraOfCourage18Description	Confère un bonus de jet de sauvegarde aux alliés à moins de 9 mètres.
+Feature/&PowerPaladinAuraOfCourage18Title	Aura de courage améliorée
+Feature/&PowerPaladinAuraOfProtection18Description	Vous et vos alliés à moins de 9 mètres ne pouvez pas être effrayés.
+Feature/&PowerPaladinAuraOfProtection18Title	Aura de protection améliorée
+Feature/&PrimalChampionDescription	Au niveau 20, vous incarnez le pouvoir de la nature. Vos valeurs de Force et de Constitution augmentent de 4.
+Feature/&PrimalChampionTitle	Champion primordial
+Feature/&ProficiencyRogueBlindSenseDescription	À partir du niveau 14, si vous êtes capable d'entendre, vous êtes conscient de l'emplacement de toute créature cachée ou invisible à moins de 3 mètres de vous.
+Feature/&ProficiencyRogueBlindSenseTitle	Sens aveugle
+Feature/&ProficiencyRogueSlipperyMindDescription	Au niveau 15, vous avez acquis une plus grande force mentale. Vous maîtrisez les jets de sauvegarde de Sagesse.
+Feature/&ProficiencyRogueSlipperyMindTitle	Esprit glissant
+Feature/&RangerFeralSensesDescription	Vous gagnez des sens surnaturels qui vous aident à combattre des créatures que vous ne pouvez pas voir. Lorsque vous attaquez une créature que vous ne pouvez pas voir, votre incapacité à la voir n'impose pas de désavantage à vos jets d'attaque contre elle.
+Feature/&RangerFeralSensesTitle	Sens sauvages
+Feature/&RangerVanishActionDescription	À partir du niveau 14, vous pouvez utiliser l'action Cacher comme une action bonus à votre tour.
+Feature/&RangerVanishActionTitle	Disparaître
+Feature/&ZSPowerPaladinCleansingTouchDescription	Supprimez les effets des sorts en touchant un allié. Vous pouvez le faire un nombre de fois par jour égal à votre modificateur de Charisme.
+Feature/&ZSPowerPaladinCleansingTouchTitle	Toucher nettoyant
+RestActivity/&ZSSorcerousRestorationDescription	Récupérez 4 points de sorcellerie pendant un repos court.
+RestActivity/&ZSSorcerousRestorationTitle	Restauration Sorcière
+Sorceror/&ZSSorcerousRestorationDescription	Récupérez 4 points de sorcellerie pendant un repos court.
+Sorceror/&ZSSorcerousRestorationTitle	Restauration Sorcière

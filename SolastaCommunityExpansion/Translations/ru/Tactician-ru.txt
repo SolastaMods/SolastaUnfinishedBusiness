@@ -1,0 +1,22 @@
+Feature/&CounterStrikePowerDescription Потратьте кубик гамбита и нанесите контрудар по врагу, если вы попали, нанесите дополнительный дробящий урон	1d6+2.
+Feature/&CounterStrikePowerTitle Ответный	удар
+Feature/&GambitResourcePoolAddDescription Добавляет дополнительный кубик	гамбита.
+Feature/&GambitResourcePoolAddTitle Дополнительный кубик	Гамбита
+Feature/&GambitResourcePoolDescription Пул гамбитных костей, которые можно потратить на гамбиты. Стартует с 4 перезарядки на коротком	отдыхе.
+Feature/&GambitResourcePoolTitle Гамбитный пул	костей
+Feature/&InspirePowerDescription Потратьте кубик гамбита и воодушевите себя или своего союзника, чтобы дать 1d6 + 2 временных	ОЗ.
+Feature/&InspirePowerTitle	Вдохновлять
+Feature/&KnockDownPowerDescription Потратьте кубик гамбита и усилите свою атаку, чтобы нанести дополнительный дробящий урон 1d6 + 2. Цель совершает спасбросок Силы (КС 8 + ваш бонус мастерства + ваш модификатор Силы) или сбивается с ног до начала своего следующего	хода.
+Feature/&KnockDownPowerTitle	Сбить
+Reaction/&SpendPowerCounterStrikePowerDescription Потратьте кубик гамбита и нанесите контрудар по врагу, если вы попали, нанесите дополнительный дробящий урон	1d6+2.
+Reaction/&SpendPowerCounterStrikePowerReactDescription Потратьте кубик гамбита и нанесите контрудар по врагу, если вы попали, нанесите дополнительный дробящий урон	1d6+2.
+Reaction/&SpendPowerCounterStrikePowerReactTitle Ответный	удар
+Reaction/&SpendPowerCounterStrikePowerTitle Ответный	удар
+Reaction/&SpendPowerInspirePowerDescription Потратьте кубик гамбита и воодушевите союзника, дав ему 1d6 + 2 временных	ОЗ.
+Reaction/&SpendPowerInspirePowerTitle	Вдохновлять
+Reaction/&SpendPowerKnockDownPowerDescription Потратьте кубик гамбита и усилите свою атаку, чтобы нанести дополнительный дробящий урон 1d6 + 2. Цель совершает спасбросок Силы (КС 8 + ваш бонус мастерства + ваш модификатор Силы) или сбивается с ног до начала своего следующего	хода.
+Reaction/&SpendPowerKnockDownPowerReactDescription Потратьте кубик гамбита и усилите свою атаку, чтобы нанести дополнительный дробящий урон 1d6 + 2. Цель совершает спасбросок Силы (КС 8 + ваш бонус мастерства + ваш модификатор Силы) или сбивается с ног до начала своего следующего	хода.
+Reaction/&SpendPowerKnockDownPowerReactTitle	Сбить
+Reaction/&SpendPowerKnockDownPowerTitle	Сбить
+Subclass/&TactitionFighterSubclassDescription Тактик использует свои знания и мощь на поле боя, чтобы выполнять различные гамбиты по мере необходимости. Они могут сбивать врагов с ног, вдохновлять своих союзников и наносить смертельные контрудары по	врагам.
+Subclass/&TactitionFighterSubclassTitle	Тактик
