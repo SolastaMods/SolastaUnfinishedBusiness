@@ -8,5 +8,5 @@
 
 CHANGES:
 
-- Fix Dark-Half elf not getting Faerie Fire and Darkness
-- Fix Royal Knight's Inspiring Surge target filtering
+- Fix exceptions on Recipes
+- Reduce final payload size by 15%

@@ -1,5 +1,4 @@
 ﻿using SolastaCommunityExpansion.Builders.Features;
-using static SolastaCommunityExpansion.Api.DatabaseHelper.ActionDefinitions;
 using static SolastaCommunityExpansion.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaCommunityExpansion.Level20.Features;
@@ -18,7 +17,7 @@ internal sealed class RangerVanishActionBuilder : FeatureDefinitionActionAffinit
         Definition.GuiPresentation.Description = "Feature/&RangerVanishActionDescription";
 
         Definition.AuthorizedActions.Clear();
-        Definition.AuthorizedActions.Add(HideBonus.Id);
+        Definition.AuthorizedActions.Add(ActionDefinitions.Id.HideBonus);
     }
 
     private static FeatureDefinitionActionAffinity CreateAndAddToDB(string name, string guid)

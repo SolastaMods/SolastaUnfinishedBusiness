@@ -23,12 +23,13 @@ internal static class WorldGadget_SetHighlightVisibility
             return;
         }
 
+        var activator = DatabaseHelper.GetDefinition<GadgetDefinition>("Activator", "f05b58c5ba9444743a00057fd713faf2");
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
         var gameLocationVisibilityService = ServiceRepository.GetService<IGameLocationVisibilityService>();
         var feedbackPosition = __instance.GameGadget.FeedbackPosition;
 
         // activators aren't detected in their original position so we handle them in a different way
-        if (!__instance.GadgetDefinition == DatabaseHelper.GadgetDefinitions.Activator)
+        if (!__instance.GadgetDefinition == activator)
         {
             var position = new int3((int)feedbackPosition.x, (int)feedbackPosition.y, (int)feedbackPosition.z);
 
