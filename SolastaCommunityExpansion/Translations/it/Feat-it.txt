@@ -31,6 +31,8 @@ CraftyFeats/&ToxicologistIntFeatDescription	Aumenta la tua Intelligenza di 1, fi
 CraftyFeats/&ToxicologistIntFeatTitle	Tossicologo (Intelligence)
 CraftyFeats/&ToxicologistWisFeatDescription	Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nOttieni competenza con il kit dell'avvelenatore e Medicina, o competenza se già abile.
 CraftyFeats/&ToxicologistWisFeatTitle	Tossicologo (Saggezza)
+Feat/&FeatPolearmExpertDescription	Il tuo addestramento esperto con le armi in asta ti garantisce questi vantaggi:\n• Quando si esegue l'azione Attacco e si attacca solo con un'arma ad asta, è possibile utilizzare un'azione bonus per effettuare un attacco in mischia con l'estremità opposta dell'arma. Questo attacco usa lo stesso modificatore di abilità dell'attacco primario. Il dado di danno dell'arma per questo attacco è un d4 e infligge danni contundenti.\n• Mentre impugnate un'arma con un'arma ad asta, altre creature provocano un attacco di opportunità da parte vostra quando entrano nel raggio d'azione che avete con quell'arma.
+Feat/&FeatPolearmExpertTitle	Esperto di armi da fuoco
 Feat/&AddConstructCantripsDescription	Aggiunge trucchetti per curare e respingere i tuoi costrutti.
 Feat/&AddConstructCantripsTitle	Costruisci trucchetti
 Feat/&AddProtectorConstructCantripDescription	Aggiunge trucchetti Riparare Costrutto e Elimina Costrutto per aumentare la flessibilità dei costrutti.

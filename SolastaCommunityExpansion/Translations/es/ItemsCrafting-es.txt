@@ -207,7 +207,6 @@ Equipment/&ThunderPunchTitle	Golpe de trueno
 Equipment/&WandIdentifyDescription	Lanza el hechizo Identificar gastando una carga. La varita tiene 3 cargas y recupera 1d3 cargas cada amanecer.
 Equipment/&WandIdentifyTitle	Varita de identificación
 Feat/&FeatPolearmExpertDescription	Tu formación experta con armas de asta te otorga estos beneficios:\n• Cuando realizas la acción Atacar y atacas solo con un arma de asta, puedes usar una acción adicional para realizar un ataque cuerpo a cuerpo con el extremo opuesto del arma. Este ataque usa el mismo modificador de habilidad que el ataque principal. El dado de daño del arma para este ataque es un d4, e inflige daño contundente.\n• Mientras empuñas un arma de asta, otras criaturas provocan un ataque de oportunidad tuyo cuando entran en el alcance que tienes con esa arma.
-Feat/&FeatPolearmExpertTitle	Experto en armas de asta
 Item/&CEHalberd+1Title	Alabarda +1
 Item/&CEHalberd+1UnidentifiedTitle	Alabarda de calidad
 Item/&CEHalberd+2Title	Alabarda +2
@@ -291,3 +290,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Manijas magníficas
 Power/&PowerFunctionHandwrapsOfPullingDescription	Como acción adicional, puedes acercar a una criatura a 15 pies hacia ti.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Atraer clientes o negocios
 Tooltip/&TagPolearmWeaponTitle	arma de asta
+Feedback/&ExtraDamageDescription	Daño adicional de Lightning Spear.
+Feedback/&ExtraDamageTitle	Daño adicional de Lightning Spear

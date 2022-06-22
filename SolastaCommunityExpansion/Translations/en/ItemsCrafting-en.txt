@@ -206,8 +206,6 @@ Equipment/&ThunderPunchDescription	Deals 1d8 thunder damage on hit and imposes d
 Equipment/&ThunderPunchTitle	Thunder Punch
 Equipment/&WandIdentifyDescription	Casts the spell Identify by expending one charge. The wand has 3 charges and regains 1d3 charges each dawn.
 Equipment/&WandIdentifyTitle	Wand of Identify
-Feat/&FeatPolearmExpertDescription	Your expert training with polearms grants you these benefits:\n• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.\n• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
-Feat/&FeatPolearmExpertTitle	Polearm Expert
 Item/&CEHalberd+1Title	Halberd +1
 Item/&CEHalberd+1UnidentifiedTitle	Quality Halberd
 Item/&CEHalberd+2Title	Halberd +2
@@ -291,3 +289,5 @@ Item/&HandwrapsOfPullingUnidentifiedTitle	Magnificent Handwraps
 Power/&PowerFunctionHandwrapsOfPullingDescription	As a bonus action, you can pull a creature within 15 feet closer to you.
 Power/&PowerFunctionHandwrapsOfPullingTitle	Reel In
 Tooltip/&TagPolearmWeaponTitle	Polearm
+Feedback/&ExtraDamageDescription	Extra damage from Lighting Spear.
+Feedback/&ExtraDamageTitle	Lightning Spear extra damage

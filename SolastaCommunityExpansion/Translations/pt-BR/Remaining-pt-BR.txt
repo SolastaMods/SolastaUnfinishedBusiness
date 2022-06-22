@@ -1,4 +1,0 @@
-Feature/&AttributeModifier{0}Description	{0}
-Feature/&SignofIllOmenTitle	Sinal de mau presságio
-Feedback/&ExtraDamageDescription	Dano extra de Lighting Spear.
-Feedback/&ExtraDamageTitle	Dano extra da Lança Relâmpago

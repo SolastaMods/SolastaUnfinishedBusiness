@@ -31,6 +31,7 @@ CraftyFeats/&ToxicologistIntFeatDescription	Aumenta tu Inteligencia en 1, hasta 
 CraftyFeats/&ToxicologistIntFeatTitle	Toxicólogo (Inteligencia)
 CraftyFeats/&ToxicologistWisFeatDescription	Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nObtienes competencia con el equipo de envenenador y Medicina, o experiencia si ya eres competente.
 CraftyFeats/&ToxicologistWisFeatTitle	Toxicólogo (Sabiduría)
+Feat/&FeatPolearmExpertTitle	Experto en armas de asta
 Feat/&AddConstructCantripsDescription	Agrega cantrips para sanar y descartar tus construcciones.
 Feat/&AddConstructCantripsTitle	Construir trucos
 Feat/&AddProtectorConstructCantripDescription	Agrega cantrips Mending Construct y Dismiss Construct para aumentar la flexibilidad de sus construcciones.
