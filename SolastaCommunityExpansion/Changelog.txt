@@ -8,4 +8,5 @@
 
 CHANGES:
 
-- Fix Dark-Half elf not getting powers at 3 and 5
+- Fix Dark-Half elf not getting Faerie Fire and Darkness
+- Fix Royal Knight's Inspiring Surge target filtering
